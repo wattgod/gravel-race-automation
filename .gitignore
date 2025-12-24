@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+
+# WordPress credentials (keep config.py.example, ignore actual config)
+config.py
+
+# Results and logs
+push_results.json
+dry_run_results.json
+*.log
+
+# Database backups
+*.json.bak
+*.csv.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+

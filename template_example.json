@@ -1,0 +1,30 @@
+{
+  "title": "{{RACE_NAME}} - Gravel Race Guide",
+  "status": "publish",
+  "content": {
+    "rendered": "<p>Welcome to the {{RACE_NAME}} gravel race guide.</p>",
+    "raw": ""
+  },
+  "excerpt": {
+    "rendered": "Complete guide to {{RACE_NAME}} in {{LOCATION}}",
+    "raw": ""
+  },
+  "meta": {
+    "_elementor_template_type": "wp-page",
+    "_elementor_edit_mode": "builder",
+    "_elementor_data": "[{\"id\":\"...\",\"elType\":\"section\",\"settings\":{},\"elements\":[{\"id\":\"...\",\"elType\":\"column\",\"settings\":{},\"elements\":[{\"id\":\"...\",\"elType\":\"widget\",\"settings\":{\"title\":\"{{RACE_NAME}}\",\"description\":\"Race in {{LOCATION}} on {{DATE}}\"},\"widgetType\":\"heading\"}]}]}]"
+  },
+  "acf": {
+    "race_name": "{{RACE_NAME}}",
+    "location": "{{LOCATION}}",
+    "date": "{{DATE}}",
+    "distance": "{{DISTANCE}}",
+    "elevation_gain": "{{ELEVATION_GAIN}}",
+    "website_url": "{{WEBSITE_URL}}",
+    "registration_url": "{{REGISTRATION_URL}}",
+    "course_breakdown": "{{COURSE_BREAKDOWN}}",
+    "race_history": "{{RACE_HISTORY}}",
+    "description": "{{DESCRIPTION}}"
+  }
+}
+

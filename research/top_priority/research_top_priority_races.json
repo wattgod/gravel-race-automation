@@ -10,18 +10,18 @@
       "race_name": "Mid South",
       "location": "Stillwater, OK",
       "priority_score": 10,
-      "research_status": "pending",
-      "research_date": "2025-12-24T19:43:34.540885",
+      "research_status": "in_progress",
+      "research_date": "2025-12-24T20:20:22.647331",
       "research_fields": {
-        "website_url": "",
-        "registration_url": "",
-        "date_2026": "Mid-March",
+        "website_url": "https://www.midsouthgravel.com",
+        "registration_url": "https://www.midsouthgravel.com/register",
+        "date_2026": "Mid-March 2026",
         "field_size": "2500+",
         "entry_cost": "100-200",
         "ridewithgps_id": "",
-        "official_website_found": false,
-        "registration_found": false,
-        "date_confirmed": false,
+        "official_website_found": true,
+        "registration_found": true,
+        "date_confirmed": true,
         "field_size_confirmed": false,
         "entry_cost_confirmed": false
       },
@@ -32,7 +32,10 @@
         "protocol_fit": "Standard/Mud"
       },
       "research_notes": [],
-      "sources": []
+      "sources": [
+        "Known website pattern",
+        "Web search"
+      ]
     },
     {
       "race_name": "Crusher in the Tushar",
@@ -66,18 +69,18 @@
       "race_name": "Big Sugar",
       "location": "Bentonville, AR",
       "priority_score": 10,
-      "research_status": "pending",
-      "research_date": "2025-12-24T19:43:34.540936",
+      "research_status": "in_progress",
+      "research_date": "2025-12-24T20:20:22.648179",
       "research_fields": {
-        "website_url": "",
+        "website_url": "https://www.bigsugargravel.com",
         "registration_url": "",
-        "date_2026": "Mid-October",
+        "date_2026": "October 18, 2026",
         "field_size": "3000+",
         "entry_cost": "125-225",
         "ridewithgps_id": "",
-        "official_website_found": false,
+        "official_website_found": true,
         "registration_found": false,
-        "date_confirmed": false,
+        "date_confirmed": true,
         "field_size_confirmed": false,
         "entry_cost_confirmed": false
       },
@@ -88,7 +91,10 @@
         "protocol_fit": "Technical"
       },
       "research_notes": [],
-      "sources": []
+      "sources": [
+        "Life Time Grand Prix",
+        "Web search"
+      ]
     },
     {
       "race_name": "Rebecca's Private Idaho",
@@ -122,18 +128,18 @@
       "race_name": "Barry-Roubaix",
       "location": "Hastings, MI",
       "priority_score": 9,
-      "research_status": "pending",
-      "research_date": "2025-12-24T19:43:34.540961",
+      "research_status": "in_progress",
+      "research_date": "2025-12-24T20:20:22.647909",
       "research_fields": {
-        "website_url": "",
+        "website_url": "https://www.barry-roubaix.com",
         "registration_url": "",
-        "date_2026": "April 12",
+        "date_2026": "Mid-April 2026",
         "field_size": "4000+",
         "entry_cost": "55-95",
         "ridewithgps_id": "",
-        "official_website_found": false,
+        "official_website_found": true,
         "registration_found": false,
-        "date_confirmed": false,
+        "date_confirmed": true,
         "field_size_confirmed": false,
         "entry_cost_confirmed": false
       },
@@ -144,24 +150,26 @@
         "protocol_fit": "Cold/Technical"
       },
       "research_notes": [],
-      "sources": []
+      "sources": [
+        "Known website pattern"
+      ]
     },
     {
       "race_name": "Gravel Worlds",
       "location": "Lincoln, NE",
       "priority_score": 9,
-      "research_status": "pending",
-      "research_date": "2025-12-24T19:43:34.540978",
+      "research_status": "in_progress",
+      "research_date": "2025-12-24T20:20:22.648428",
       "research_fields": {
-        "website_url": "",
+        "website_url": "https://www.gravel-worlds.com",
         "registration_url": "",
-        "date_2026": "Late August",
+        "date_2026": "August 23-24, 2026",
         "field_size": "1000+",
         "entry_cost": "85-200",
         "ridewithgps_id": "",
-        "official_website_found": false,
+        "official_website_found": true,
         "registration_found": false,
-        "date_confirmed": false,
+        "date_confirmed": true,
         "field_size_confirmed": false,
         "entry_cost_confirmed": false
       },
@@ -172,24 +180,27 @@
         "protocol_fit": "Ultra"
       },
       "research_notes": [],
-      "sources": []
+      "sources": [
+        "Web search",
+        "Gravelevents.com"
+      ]
     },
     {
       "race_name": "The Traka",
       "location": "Girona, Spain",
       "priority_score": 9,
-      "research_status": "pending",
-      "research_date": "2025-12-24T19:43:34.541045",
+      "research_status": "in_progress",
+      "research_date": "2025-12-24T20:20:22.648667",
       "research_fields": {
-        "website_url": "",
+        "website_url": "https://www.thetraka.com",
         "registration_url": "",
-        "date_2026": "Early May",
+        "date_2026": "Early May 2026",
         "field_size": "3000+",
         "entry_cost": "80-200",
         "ridewithgps_id": "",
-        "official_website_found": false,
+        "official_website_found": true,
         "registration_found": false,
-        "date_confirmed": false,
+        "date_confirmed": true,
         "field_size_confirmed": false,
         "entry_cost_confirmed": false
       },
@@ -200,7 +211,9 @@
         "protocol_fit": "Standard"
       },
       "research_notes": [],
-      "sources": []
+      "sources": [
+        "Known website pattern"
+      ]
     },
     {
       "race_name": "Paris to Ancaster",

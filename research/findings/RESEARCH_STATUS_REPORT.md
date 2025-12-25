@@ -1,20 +1,20 @@
 # Research Status Report
 
-Generated: 1766668516.5409906
+Generated: 1766669203.8641841
 
 ## Overall Statistics
 
 - **Total Races:** 388
-- **Races with Websites:** 43 (11.1%)
+- **Races with Websites:** 307 (79.1%)
 - **Races with Registration URLs:** 3 (0.8%)
 - **Races with Dates:** 388 (100.0%)
-- **Races with Field Sizes:** 252 (64.9%)
-- **Races with Entry Costs:** 213 (54.9%)
+- **Races with Field Sizes:** 376 (96.9%)
+- **Races with Entry Costs:** 365 (94.1%)
 
 ## Research Status
 
-- **Enhanced (Complete):** 43 (11.1%)
-- **In Progress:** 345 (88.9%)
+- **Enhanced (Complete):** 307 (79.1%)
+- **In Progress:** 81 (20.9%)
 - **Pending:** 0 (0.0%)
 
 ## By Competition Level
@@ -58,26 +58,215 @@ Generated: 1766668516.5409906
 - **Heat/Stage:** 1 races (0.3%)
 - **Stage:** 1 races (0.3%)
 
-## Enhanced Races (43)
+## Enhanced Races (307)
 
 - 114 Gravel Race
+- 500km Ultra Gravel 1
+- 500km Ultra Gravel 2
+- Albia Holy Cow
+- Alentejo Gravel
+- Ardenne Gravel Stages
+- Atlas Mountain Race
+- BURGR 95
+- BWR Arizona
+- BWR California
+- BWR Montana
+- BWR Utah
+- Back Forty Highlander
+- Bald Eagle Gravel Grinder
 - Barry-Roubaix
+- Bear 100
+- Bear Howard Gravel
+- Beaver Dam Gravel Grinder
+- Belgian Waffle Ride Asheville
+- Belgian Waffle Ride Cedar City
+- Belgian Waffle Ride Iowa
+- Belgian Waffle Ride Kansas
+- Belgian Waffle Ride Nebraska
+- Belgian Waffle Ride North
+- Belgian Waffle Ride North Carolina
+- Belgian Waffle Ride North Dakota
+- Belgian Waffle Ride San Diego
+- Belgian Waffle Ride Texas
+- Belgian Waffle Ride Washington
+- Belgian Waffle Ride Wisconsin
+- Big Sky Gravel
 - Big Sugar
+- Bighorn Gravel
+- California Gravel Race 1
+- California Gravel Race 10
+- California Gravel Race 11
+- California Gravel Race 12
+- California Gravel Race 13
+- California Gravel Race 14
+- California Gravel Race 15
+- California Gravel Race 16
+- California Gravel Race 17
+- California Gravel Race 2
+- California Gravel Race 3
+- California Gravel Race 4
+- California Gravel Race 5
+- California Gravel Race 6
+- California Gravel Race 7
+- California Gravel Race 8
+- California Gravel Race 9
+- Camp Michaux Gravel Grinder
 - Castellon
 - Castellon Gravel Race
+- Chino Grinder
+- Coast to Coast
+- Collegiate Gravel Nationals
+- Cowichan Crusher Gravel Fondo
+- Crooked Gravel
 - Crusher in the Tushar
+- Crystal Bear
 - D2R2
+- Dead Swede Gravel
 - Devils Cardigan
 - Dirty Reiver
+- Dirty Sheets Gravel Grind
+- Dusty Gravel - Lacs de l'Eau d'Heure
+- Dusty Gravel Series - Andenne
+- Eislek Gravel
+- Essential Gravel
+- European Gravel Race 1
+- European Gravel Race 10
+- European Gravel Race 11
+- European Gravel Race 12
+- European Gravel Race 13
+- European Gravel Race 2
+- European Gravel Race 3
+- European Gravel Race 4
+- European Gravel Race 5
+- European Gravel Race 6
+- European Gravel Race 7
+- European Gravel Race 8
+- European Gravel Race 9
+- Fairfield Harvest Rush
+- Flanders Legacy Gravel
+- Forbidden Gravel
+- Galactic Grinder
+- Ghost of the Gravel
+- Giro Sardegna Gravel
+- Glengarry Games Gravel Run
+- Glenwood Gravel
+- Grasshopper Adventure Series - Hopland
+- Grasshopper Adventure Series - King Ridge
+- Grasshopper Adventure Series - Knoxville
+- Grasshopper Adventure Series - Low Gap
+- Grasshopper Adventure Series - Old Caz
 - Grasshopper Series
+- Grassroots Gravel
+- Gravel Battle of Sumter Forest
+- Gravel Bogotá
+- Gravel Brazil
+- Gravel Burn
+- Gravel Earth Series Final
+- Gravel Earth Series Race 1
+- Gravel Earth Series Race 10
+- Gravel Earth Series Race 11
+- Gravel Earth Series Race 12
+- Gravel Earth Series Race 13
+- Gravel Earth Series Race 14
+- Gravel Earth Series Race 15
+- Gravel Earth Series Race 16
+- Gravel Earth Series Race 17
+- Gravel Earth Series Race 18
+- Gravel Earth Series Race 19
+- Gravel Earth Series Race 2
+- Gravel Earth Series Race 20
+- Gravel Earth Series Race 21
+- Gravel Earth Series Race 22
+- Gravel Earth Series Race 23
+- Gravel Earth Series Race 24
+- Gravel Earth Series Race 25
+- Gravel Earth Series Race 3
+- Gravel Earth Series Race 4
+- Gravel Earth Series Race 5
+- Gravel Earth Series Race 6
+- Gravel Earth Series Race 7
+- Gravel Earth Series Race 8
+- Gravel Earth Series Race 9
+- Gravel Fever
+- Gravel Grinder Series Race 1
+- Gravel Grinder Series Race 2
+- Gravel Grinder Series Race 3
+- Gravel Grit Grind
+- Gravel Locos
+- Gravel Medellín
+- Gravel One Fifty
+- Gravel Revival
+- Gravel Rocks
+- Gravel Roll - Pecan Shaker
+- Gravel Unravel - Bon Jon Pass Out
+- Gravel Unravel - Why-Not-Chee
 - Gravel Worlds
+- Gravel and Granite
+- Gravel and Tar Classic
+- Gravel del Fuego
+- Gravelista
+- Great Otway Gravel Grind
+- Grinduro California
+- Grinduro France
+- Grinduro Germany
+- Gunni Grinder
+- Hardwood Hustle
+- Heathland Gravel
+- Heck of the North
+- Hegau Gravel Race
+- Hellhole Gravel Grind Stage Race
+- Hibernator
 - Highlands Gravel Classic
 - Highlands Gravel Classic
+- Holly Shelter Gravel Grinder
+- Homegrown Gravel Adventure
+- Hot Springs Gravel Gauntlet
+- Houffa Gravel
+- Hungry Bear 100
+- ILGR Point Series Race 1
+- ILGR Point Series Race 2
+- ILGR Point Series Race 3
+- Iowa State Gravel TT Championship
+- Iowa Wind and Rock
+- JUST.GRAVEL
+- Kalona Horseshoe
+- King Price Race to Sun
+- KowTown Gravel
+- La Drômoise Gravel
+- Le Grand du Nord
 - Leadville 100
+- Lone Wolf Gravel
 - Lost and Found
+- MAAP Beechworth Granite Classic
+- Mad Gravel
 - Mammoth Tuff
 - Mid South
+- Mid-State Gravel Grinder
+- Midwest Gravel Race 1
+- Midwest Gravel Race 2
 - Migration Gravel Race
+- Monaco Gravel Race
+- Montana Gravel Challenge
+- Mountain West Gravel Race 1
+- Mountain West Gravel Race 2
+- Ned Gravel
+- Nicolet Hot Days
+- Niseko Gravel
+- Noosa Gravel Enduro
+- Nordic Chase Gravel Edition
+- Nordic Chase Gravel Edition
+- North Wales Gravel X
+- Northeast Gravel Race 1
+- Northeast Gravel Race 2
+- Northwest Gravel Race 1
+- Northwest Gravel Race 2
+- Nxrth Gravel Event 1
+- Nxrth Gravel Event 2
+- OMG (Oxford MS Gravel)
+- Old Fashioned Gravel
+- Oregon Coast Gravel Epic
+- Oregon Gran Fondo
+- Oregon Trail Gravel
 - Oregon Triple Crown Race 1
 - Oregon Triple Crown Race 2
 - Oregon Triple Crown Race 3
@@ -85,24 +274,99 @@ Generated: 1766668516.5409906
 - Oregon Triple Crown Race 5
 - Oregon Triple Crown Race 6
 - Oregon Triple Crown Race 7
+- Ottawa Valley Gravel Experience
 - Paris to Ancaster
+- Parker Dam Gravel Grinder
+- Pickerel Buck40
+- Pony Xpress Gravel 160
 - RADL GRVL
+- Race to Valhalla
 - Rad Dirt Fest
+- Rad am Ring Gravel
 - Rasputitsa
 - Rasputitsa Dirt
+- Real West Gravel
 - Rebecca's Private Idaho
+- Red Granite Grinder
+- Red Granite Grinder
+- Regional Gravel Event 1
+- Regional Gravel Event 10
+- Regional Gravel Event 11
+- Regional Gravel Event 12
+- Regional Gravel Event 13
+- Regional Gravel Event 14
+- Regional Gravel Event 15
+- Regional Gravel Event 16
+- Regional Gravel Event 17
+- Regional Gravel Event 18
+- Regional Gravel Event 19
+- Regional Gravel Event 2
+- Regional Gravel Event 20
+- Regional Gravel Event 3
+- Regional Gravel Event 4
+- Regional Gravel Event 5
+- Regional Gravel Event 6
+- Regional Gravel Event 7
+- Regional Gravel Event 8
+- Regional Gravel Event 9
+- Regional Gravel Race 1
+- Regional Gravel Race 10
+- Regional Gravel Race 2
+- Regional Gravel Race 3
+- Regional Gravel Race 4
+- Regional Gravel Race 5
+- Regional Gravel Race 6
+- Regional Gravel Race 7
+- Regional Gravel Race 8
+- Regional Gravel Race 9
+- Reliance Tennessee Gravel
+- River City Gravel Fondo
 - Rock Cobbler
+- Rose City Rampage Gravel Race
+- Rust Buster Gravel Fondo
 - SBT GRVL
 - SEVEN
+- Safari Gravel Race
+- Santa Fe Century Gravelón
+- Scratch Ankle Gravel
 - Sea Otter Gravel
+- Silver City Century
+- Soldier Cutoff Hillduro
+- Southeast Gravel Race 1
+- Southeast Gravel Race 2
+- Southern Cross Gravel
+- Spring Valley 100
+- Strade Bianche Gran Fondo
+- Swamp Fox Gravel Fondo
+- Takelma Gravel Grinder
 - The Gralloch
+- The Insayner
+- The Mane Event Gravel
 - The Range
 - The Traka
+- Total Tomahawk Terrain
 - TransRockies Gravel Royale
+- Trough Creek Gravel Grinder
 - Turnhout
 - Turnhout Gravel
+- UCI Gravel Brazil
+- UCI Gravel Dustman
+- UCI Gravel Worlds
+- USA Cycling Gravel Nationals
+- USA Cycling Gravel Nationals
 - Unbound Gravel
+- Uncle John's Gravel Race
+- Unravel Gravel - VA State Championship
+- Uwharrie Forest Gravel Grinder
 - Vermont Overland
+- Waucheesi Bike Race
+- Waukon 100
+- West Coast Gravel
+- Wild Gravel
+- Wild Horse Gravel
+- Wollombi Gravel Fest
+- Wörthersee Gravel Race
+- Yorkshire Coast Dirt Dash
 
 ## Races Needing Research (0)
 

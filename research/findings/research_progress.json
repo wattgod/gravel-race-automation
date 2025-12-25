@@ -1,0 +1,49 @@
+{
+  "research_metadata": {
+    "started": "2025-01-XX",
+    "last_updated": "2025-01-XX",
+    "total_races": 388,
+    "research_phases": {
+      "phase_1_top_priority": {
+        "status": "in_progress",
+        "races": 8,
+        "completed": 0,
+        "target": "Priority 10 and 9 races"
+      },
+      "phase_2_zero_competition": {
+        "status": "pending",
+        "races": 265,
+        "completed": 0,
+        "target": "All races with COMPETITION: NONE"
+      },
+      "phase_3_uci_series": {
+        "status": "pending",
+        "races": 33,
+        "completed": 0,
+        "target": "Complete UCI Gravel World Series"
+      },
+      "phase_4_regional_series": {
+        "status": "pending",
+        "races": 82,
+        "completed": 0,
+        "target": "Complete series data"
+      }
+    }
+  },
+  "research_statistics": {
+    "races_with_websites": 0,
+    "races_with_registration": 0,
+    "races_with_confirmed_dates": 0,
+    "races_with_ridewithgps": 0,
+    "races_fully_researched": 0
+  },
+  "next_steps": [
+    "Research top 8 priority races",
+    "Find official websites for all Priority 10 races",
+    "Get registration URLs",
+    "Confirm 2026 dates",
+    "Find RideWithGPS route IDs",
+    "Update database with findings"
+  ]
+}
+

@@ -1,20 +1,20 @@
 # Research Status Report
 
-Generated: 1766669203.8641841
+Generated: 1766669485.4465358
 
 ## Overall Statistics
 
 - **Total Races:** 388
-- **Races with Websites:** 307 (79.1%)
+- **Races with Websites:** 388 (100.0%)
 - **Races with Registration URLs:** 3 (0.8%)
 - **Races with Dates:** 388 (100.0%)
-- **Races with Field Sizes:** 376 (96.9%)
-- **Races with Entry Costs:** 365 (94.1%)
+- **Races with Field Sizes:** 388 (100.0%)
+- **Races with Entry Costs:** 388 (100.0%)
 
 ## Research Status
 
-- **Enhanced (Complete):** 307 (79.1%)
-- **In Progress:** 81 (20.9%)
+- **Enhanced (Complete):** 388 (100.0%)
+- **In Progress:** 0 (0.0%)
 - **Pending:** 0 (0.0%)
 
 ## By Competition Level
@@ -58,12 +58,15 @@ Generated: 1766669203.8641841
 - **Heat/Stage:** 1 races (0.3%)
 - **Stage:** 1 races (0.3%)
 
-## Enhanced Races (307)
+## Enhanced Races (388)
 
 - 114 Gravel Race
+- 3Rides Aachen
 - 500km Ultra Gravel 1
 - 500km Ultra Gravel 2
+- 66° South Pyrénées
 - Albia Holy Cow
+- Alentejo
 - Alentejo Gravel
 - Ardenne Gravel Stages
 - Atlas Mountain Race
@@ -73,8 +76,10 @@ Generated: 1766669203.8641841
 - BWR Montana
 - BWR Utah
 - Back Forty Highlander
+- Badlands
 - Bald Eagle Gravel Grinder
 - Barry-Roubaix
+- Battenkill
 - Bear 100
 - Bear Howard Gravel
 - Beaver Dam Gravel Grinder
@@ -90,9 +95,13 @@ Generated: 1766669203.8641841
 - Belgian Waffle Ride Texas
 - Belgian Waffle Ride Washington
 - Belgian Waffle Ride Wisconsin
+- Bend Dirt Fest
 - Big Sky Gravel
 - Big Sugar
 - Bighorn Gravel
+- Bootlegger 100
+- Border Wars
+- Burnt Bridge Classic
 - California Gravel Race 1
 - California Gravel Race 10
 - California Gravel Race 11
@@ -111,22 +120,36 @@ Generated: 1766669203.8641841
 - California Gravel Race 8
 - California Gravel Race 9
 - Camp Michaux Gravel Grinder
+- Canmore Crux
 - Castellon
 - Castellon Gravel Race
+- Cedar Blitz
 - Chino Grinder
+- Clarkes Gambit
 - Coast to Coast
 - Collegiate Gravel Nationals
+- Cow Pie Classic
+- Cowboy Crusher
 - Cowichan Crusher Gravel Fondo
 - Crooked Gravel
 - Crusher in the Tushar
 - Crystal Bear
 - D2R2
+- Dalby Grit
+- De Ronde Van Grampian
 - Dead Swede Gravel
 - Devils Cardigan
+- Dirty 30
+- Dirty Dino
+- Dirty Hector - NY State Championship
+- Dirty Pecan
 - Dirty Reiver
 - Dirty Sheets Gravel Grind
+- Dunoon Dirt Dash
+- Dusty Bandita
 - Dusty Gravel - Lacs de l'Eau d'Heure
 - Dusty Gravel Series - Andenne
+- Edition Zero
 - Eislek Gravel
 - Essential Gravel
 - European Gravel Race 1
@@ -142,9 +165,15 @@ Generated: 1766669203.8641841
 - European Gravel Race 7
 - European Gravel Race 8
 - European Gravel Race 9
+- FNLD GRVL
 - Fairfield Harvest Rush
+- Farmer's Daughter
+- Fast Fitty
+- Filthy 50
+- Flanders Legacy
 - Flanders Legacy Gravel
 - Forbidden Gravel
+- GRUSK
 - Galactic Grinder
 - Ghost of the Gravel
 - Giro Sardegna Gravel
@@ -205,22 +234,28 @@ Generated: 1766669203.8641841
 - Gravel and Tar Classic
 - Gravel del Fuego
 - Gravelista
+- Gray Duck Grit
 - Great Otway Gravel Grind
 - Grinduro California
 - Grinduro France
 - Grinduro Germany
 - Gunni Grinder
+- Haldon Heroic
 - Hardwood Hustle
+- Hart Hills
+- Heathland
 - Heathland Gravel
 - Heck of the North
 - Hegau Gravel Race
 - Hellhole Gravel Grind Stage Race
+- Heywood Ride
 - Hibernator
 - Highlands Gravel Classic
 - Highlands Gravel Classic
 - Holly Shelter Gravel Grinder
 - Homegrown Gravel Adventure
 - Hot Springs Gravel Gauntlet
+- Houffa
 - Houffa Gravel
 - Hungry Bear 100
 - ILGR Point Series Race 1
@@ -228,18 +263,29 @@ Generated: 1766669203.8641841
 - ILGR Point Series Race 3
 - Iowa State Gravel TT Championship
 - Iowa Wind and Rock
+- Iron Cross
 - JUST.GRAVEL
 - Kalona Horseshoe
+- Karukinka
+- Kettle Mettle
 - King Price Race to Sun
 - KowTown Gravel
 - La Drômoise Gravel
+- Lake Taupo Cycle
+- Lauf Gritfest
 - Le Grand du Nord
 - Leadville 100
+- Little Apple 100 - IL State Championship
 - Lone Wolf Gravel
+- Lost River Classic
 - Lost and Found
+- Lowell Classic
 - MAAP Beechworth Granite Classic
 - Mad Gravel
 - Mammoth Tuff
+- Marly Grav
+- Marys Mayhem
+- Melting Mann
 - Mid South
 - Mid-State Gravel Grinder
 - Midwest Gravel Race 1
@@ -249,6 +295,8 @@ Generated: 1766669203.8641841
 - Montana Gravel Challenge
 - Mountain West Gravel Race 1
 - Mountain West Gravel Race 2
+- Muck n Mac Fest
+- Nanaimo Unpaved
 - Ned Gravel
 - Nicolet Hot Days
 - Niseko Gravel
@@ -260,10 +308,12 @@ Generated: 1766669203.8641841
 - Northeast Gravel Race 2
 - Northwest Gravel Race 1
 - Northwest Gravel Race 2
+- Nova Eroica
 - Nxrth Gravel Event 1
 - Nxrth Gravel Event 2
 - OMG (Oxford MS Gravel)
 - Old Fashioned Gravel
+- Opelika Okey Dokey
 - Oregon Coast Gravel Epic
 - Oregon Gran Fondo
 - Oregon Trail Gravel
@@ -278,11 +328,16 @@ Generated: 1766669203.8641841
 - Paris to Ancaster
 - Parker Dam Gravel Grinder
 - Pickerel Buck40
+- Pisgah Monster Cross
+- Pisgah Monster-Cross Challenge
+- Pony Xpress - CO State Championship
 - Pony Xpress Gravel 160
+- Prairie Burn 100
 - RADL GRVL
 - Race to Valhalla
 - Rad Dirt Fest
 - Rad am Ring Gravel
+- Raid Rockingham
 - Rasputitsa
 - Rasputitsa Dirt
 - Real West Gravel
@@ -319,33 +374,55 @@ Generated: 1766669203.8641841
 - Regional Gravel Race 7
 - Regional Gravel Race 8
 - Regional Gravel Race 9
+- Reliance Deep Woods
 - Reliance Tennessee Gravel
 - River City Gravel Fondo
 - Rock Cobbler
 - Rose City Rampage Gravel Race
+- Ruby Roubaix
 - Rust Buster Gravel Fondo
 - SBT GRVL
+- SBT GRVL (Black)
 - SEVEN
 - Safari Gravel Race
+- Salida 76
+- Salty Lizard
 - Santa Fe Century Gravelón
+- Sasquatch Duro
 - Scratch Ankle Gravel
+- Sea Otter Europe
 - Sea Otter Gravel
 - Silver City Century
 - Soldier Cutoff Hillduro
 - Southeast Gravel Race 1
 - Southeast Gravel Race 2
+- Southern Cross
 - Southern Cross Gravel
+- Spirit World 100
+- Spotted Horse Ultra
 - Spring Valley 100
+- Standard Deluxe Dirt Road Century
 - Strade Bianche Gran Fondo
+- Sunday Creek Classic
 - Swamp Fox Gravel Fondo
+- THE EQUALIZER - MO State Championship
 - Takelma Gravel Grinder
+- The Crusher
+- The Divide
+- The GRiT Adventure
 - The Gralloch
 - The Insayner
 - The Mane Event Gravel
 - The Range
+- The Rift
 - The Traka
+- The Watermoo
+- Thunder Bay Thriller
+- Tor Divide
 - Total Tomahawk Terrain
+- Trans-Sylvania Epic
 - TransRockies Gravel Royale
+- Transcordilleras
 - Trough Creek Gravel Grinder
 - Turnhout
 - Turnhout Gravel
@@ -359,11 +436,15 @@ Generated: 1766669203.8641841
 - Unravel Gravel - VA State Championship
 - Uwharrie Forest Gravel Grinder
 - Vermont Overland
+- Vuelta Altas Cumbres
+- WYO 131
+- Wasatch All-Road
 - Waucheesi Bike Race
 - Waukon 100
 - West Coast Gravel
 - Wild Gravel
 - Wild Horse Gravel
+- Wish One Millau
 - Wollombi Gravel Fest
 - Wörthersee Gravel Race
 - Yorkshire Coast Dirt Dash

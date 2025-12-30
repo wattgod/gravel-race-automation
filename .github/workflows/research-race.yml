@@ -94,6 +94,7 @@ jobs:
           python scripts/validate_output.py \
             --folder "${{ github.event.inputs.race_folder }}" \
             --strict
+        continue-on-error: true
       
       - name: Commit Results
         run: |

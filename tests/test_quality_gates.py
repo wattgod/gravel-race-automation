@@ -98,15 +98,55 @@ class TestCitations:
         See also https://unboundgravel.com for official info.
         More at https://youtube.com/watch?v=123
         And https://velonews.com/article
+        https://reddit.com/r/cycling/def
+        https://trainerroad.com/forum/abc
+        https://youtube.com/watch?v=456
+        https://cyclingtips.com/article
+        https://rodeo-labs.com/race-report
+        https://unboundgravel.com/course
+        https://reddit.com/r/Velo/ghi
+        https://youtube.com/watch?v=789
+        https://velonews.com/another
+        https://slowtwitch.com/forum/jkl
+        https://ridinggravel.com/review
         """
         result = check_source_citations(content)
         assert result["passed"]
         assert result["breakdown"]["reddit"] >= 1
+        assert result["total_urls"] >= 15
     
     def test_fails_without_sources(self):
         content = "The race is really hard. People say it's brutal. Trust me."
         result = check_source_citations(content)
         assert not result["passed"]
+
+
+class TestSourceDiversity:
+    def test_passes_with_diverse_sources(self):
+        from quality_gates import check_source_diversity
+        
+        content = """
+        https://reddit.com/r/gravelcycling/abc
+        https://trainerroad.com/forum/xyz
+        https://youtube.com/watch?v=123
+        https://velonews.com/article
+        https://rodeo-labs.com/race-report
+        """
+        result = check_source_diversity(content)
+        assert result["passed"]
+        assert result["source_types_found"] >= 4
+    
+    def test_fails_with_narrow_sources(self):
+        from quality_gates import check_source_diversity
+        
+        content = """
+        https://reddit.com/r/gravelcycling/abc
+        https://reddit.com/r/cycling/def
+        https://reddit.com/r/Velo/ghi
+        """
+        result = check_source_diversity(content)
+        assert not result["passed"]
+        assert result["source_types_found"] < 4
 
 
 class TestIntegration:

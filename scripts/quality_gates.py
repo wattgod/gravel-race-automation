@@ -184,18 +184,19 @@ def check_specificity(content: str) -> dict:
     usernames = len(re.findall(r'u/\w+', content))
     years = len(re.findall(r'\b20\d{2}\b', content))
     
+    # Increased scoring for more sources
     specificity_score = (
         numbers * 1 +
         mile_markers * 5 +
         percentages * 3 +
         quotes * 4 +
-        urls * 3 +
+        urls * 2 +  # URLs now worth 2x (more sources = better)
         usernames * 5 +
         years * 3
     )
     
     return {
-        "passed": specificity_score >= 30,
+        "passed": specificity_score >= 50,  # Increased threshold for more sources
         "specificity_score": specificity_score,
         "details": {
             "numbers": numbers,
@@ -214,7 +215,7 @@ def check_length_sanity(content: str, content_type: str) -> dict:
     word_count = len(content.split())
     
     expected = {
-        "research": (1500, 5000),    # Research dumps should be substantial
+        "research": (2000, 8000),    # Research dumps should be substantial (increased for more sources)
         "brief": (800, 2500),         # Briefs are condensed
         "json": (500, 3000),          # JSON varies
     }
@@ -284,7 +285,7 @@ def check_source_citations(content: str) -> dict:
     official_sources = [u for u in urls if not any(x in u for x in ['reddit', 'youtube', 'trainerroad'])]
     
     return {
-        "passed": len(urls) >= 5 and len(reddit_sources) >= 1,
+        "passed": len(urls) >= 15 and len(reddit_sources) >= 1,  # Updated: 15+ URLs required
         "total_urls": len(urls),
         "breakdown": {
             "reddit": len(reddit_sources),
@@ -292,6 +293,41 @@ def check_source_citations(content: str) -> dict:
             "youtube": len(youtube_sources),
             "official/other": len(official_sources)
         }
+    }
+
+
+def check_source_diversity(content: str) -> dict:
+    """Check that research includes diverse source types."""
+    
+    source_patterns = {
+        "reddit": r'reddit\.com',
+        "trainerroad": r'trainerroad\.com',
+        "slowtwitch": r'slowtwitch\.com',
+        "ridinggravel": r'ridinggravel\.com',
+        "youtube": r'youtube\.com|youtu\.be',
+        "velonews": r'velonews\.com',
+        "cyclingtips": r'cyclingtips\.com',
+        "escape_collective": r'escapecollective\.com',
+        "team_blogs": r'rodeo-labs\.com|nofcks|sage\.bike|enve\.com',
+        "official": r'gravel\.com|bikereg\.com|athlinks\.com|runsignup\.com',
+    }
+    
+    found_sources = {}
+    content_lower = content.lower()
+    
+    for name, pattern in source_patterns.items():
+        matches = re.findall(pattern, content_lower)
+        found_sources[name] = len(matches)
+    
+    # Count distinct source types
+    source_types = sum(1 for count in found_sources.values() if count > 0)
+    
+    # Require at least 4 different source types
+    return {
+        "passed": source_types >= 4,
+        "source_types_found": source_types,
+        "source_breakdown": found_sources,
+        "missing_categories": [k for k, v in found_sources.items() if v == 0]
     }
 
 
@@ -308,11 +344,12 @@ def run_all_quality_checks(content: str, content_type: str) -> dict:
     
     if content_type == "research":
         checks["citations"] = check_source_citations(content)
+        checks["source_diversity"] = check_source_diversity(content)
     
     # Overall pass/fail
     all_passed = all(c["passed"] for c in checks.values())
     critical_failures = [name for name, check in checks.items() 
-                        if not check["passed"] and name in ["slop", "sections", "citations"]]
+                        if not check["passed"] and name in ["slop", "sections", "citations", "source_diversity"]]
     
     return {
         "overall_passed": all_passed,
@@ -350,7 +387,14 @@ if __name__ == "__main__":
             # Print details for failures
             for key, val in check.items():
                 if key != "passed" and val:
-                    print(f"       {key}: {val}")
+                    if isinstance(val, dict):
+                        print(f"       {key}:")
+                        for k, v in val.items():
+                            print(f"         {k}: {v}")
+                    elif isinstance(val, list) and len(val) > 0:
+                        print(f"       {key}: {', '.join(str(v) for v in val[:5])}")
+                    else:
+                        print(f"       {key}: {val}")
         print()
     
     print("="*60)

@@ -89,18 +89,55 @@ Every race brief requires deep research across multiple source types. Surface-le
 - Specific weather data: "In 2023, temps hit 103°F by 2pm. In 2019, thunderstorms forced a 2-hour shelter-in-place at mile 80."
 - DNF rate trends with reasons (mechanicals vs bonking vs cutoff)
 
+## REQUIRED SOURCE DIVERSITY
+
+Each research dump MUST include sources from at least 4 of these categories:
+
+1. **Official** - Race website, rider guide, course maps
+2. **Forum** - Reddit (r/gravelcycling, r/cycling, r/Velo), TrainerRoad, Slowtwitch, RidingGravel
+3. **Race Reports** - Team blogs (Rodeo Labs, NoFcks, Sage, ENVE), personal blogs
+4. **Media** - VeloNews, CyclingTips, Escape Collective, Cycling Weekly, BikeRadar
+5. **Video** - YouTube race reports with comments analyzed
+6. **Data** - Results (Athlinks, RunSignup, BikeReg), Strava segments, timing sites
+7. **Weather** - Historical conditions by year (not just anecdotes)
+
+### Source minimums:
+
+- At least 2 forum sources (different platforms)
+- At least 1 race report blog (first-person preferred)
+- At least 1 video with comments analyzed
+- Weather data for last 3 years minimum
+- Results/timing data if available (DNF rates, finish times)
+
+### Quality signals by source:
+
+- **Reddit**: Look for threads with 20+ comments
+- **TrainerRoad**: Look for threads with specific mile markers
+- **YouTube**: Prioritize videos with 50+ comments (read the comments!)
+- **Blogs**: Prioritize first-person race reports over news coverage
+- **Results**: Extract total starters, finishers, DNF rate, finish time distributions
+- **Weather**: Actual historical data, not just "it was hot" anecdotes
+
+### Target Source Count:
+
+**Before:** 5-10 URLs per research dump
+
+**After:** 15-25 URLs from 4+ distinct source categories
+
 ### Research Quality Checklist
 
 Before writing the brief, verify you can answer:
 
 - [ ] What are the 3 specific sections where people suffer most? (with mile markers)
 - [ ] What does the forum consensus say about difficulty vs marketing claims?
-- [ ] What weather scenarios have actually happened in past years?
+- [ ] What weather scenarios have actually happened in past years? (actual data, not anecdotes)
 - [ ] What equipment failures are common? (reveals terrain truth)
 - [ ] What do repeat racers say is different from first-timers' expectations?
-- [ ] What's the real DNF rate and why do people quit?
+- [ ] What's the real DNF rate and why do people quit? (from results data)
 - [ ] What logistics catch people off guard?
 - [ ] What's the one thing everyone wishes they'd known?
+- [ ] Do I have sources from 4+ different categories?
+- [ ] Do I have at least 15 URLs total?
 
 **If you can't answer these, you haven't researched enough.**
 

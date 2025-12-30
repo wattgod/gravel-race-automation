@@ -160,42 +160,46 @@ def research_race(race_name: str, folder: str):
     
     client = anthropic.Anthropic(api_key=api_key)
     
-    # Use condensed prompt to avoid rate limits
-    # Skip loading full research_prompt.md to reduce token count
-    prompt = f"""Research the gravel race: {race_name}
+    # Ultra-condensed prompt to avoid rate limits
+    prompt = f"""Research: {race_name}
 
-Use web_search tool to find sources from 4+ categories:
+Search 4+ source types using web_search:
+- {race_name} official site
+- {race_name} site:reddit.com/r/gravelcycling
+- {race_name} site:trainerroad.com/forum
+- {race_name} race report youtube
+- {race_name} results 2024
+- {race_name} weather history
 
-1. OFFICIAL: {race_name} official site, {race_name} rider guide
-2. FORUMS: {race_name} site:reddit.com/r/gravelcycling, {race_name} site:trainerroad.com/forum, {race_name} site:forum.slowtwitch.com
-3. RACE REPORTS: {race_name} race report site:rodeo-labs.com, {race_name} race recap 2024
-4. MEDIA: {race_name} site:velonews.com, {race_name} site:cyclingtips.com
-5. VIDEO: {race_name} race report youtube (read comments)
-6. DATA: {race_name} results 2024, {race_name} DNF rate
-7. WEATHER: {race_name} weather history
+Extract: mile markers, quotes, weather, DNF rates, equipment.
 
-Extract: mile markers, quotes, weather by year, DNF rates, equipment.
-
-Output RAW RESEARCH DUMP with 15-25 URLs. Structure:
-## OFFICIAL DATA
-## TERRAIN
-## WEATHER HISTORY  
-## REDDIT DEEP DIVE
-## SUFFERING ZONES
-## DNF DATA
-## EQUIPMENT
-## LOGISTICS
+Output with 15-25 URLs. Sections: OFFICIAL DATA, TERRAIN, WEATHER, REDDIT, SUFFERING ZONES, DNF, EQUIPMENT, LOGISTICS.
 """
 
     print(f"Researching {race_name}...")
     
     try:
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=4000,  # Reduced to avoid rate limits
-            tools=[{"type": "web_search_20250305", "name": "web_search"}],
-            messages=[{"role": "user", "content": prompt}]
-        )
+        # Retry logic for rate limits
+        max_retries = 3
+        retry_delay = 60  # seconds
+        
+        for attempt in range(max_retries):
+            try:
+                response = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=3000,  # Further reduced to avoid rate limits
+                    tools=[{"type": "web_search_20250305", "name": "web_search"}],
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                break  # Success, exit retry loop
+            except anthropic.RateLimitError as e:
+                if attempt < max_retries - 1:
+                    wait_time = retry_delay * (attempt + 1)
+                    print(f"⚠️  Rate limit hit. Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
+                    import time
+                    time.sleep(wait_time)
+                else:
+                    raise  # Re-raise on final attempt
         
         # Extract text from response
         research_content = ""

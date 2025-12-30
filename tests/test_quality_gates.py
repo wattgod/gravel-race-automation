@@ -61,9 +61,13 @@ class TestSpecificity:
         Mile 80-95 is where Unbound breaks people. In 2023, temps hit 103°F.
         u/graveldude42 said "I bonked at mile 130, should have eaten more."
         DNF rate was 35%. https://reddit.com/r/gravelcycling/xyz
+        More data: Mile 120-140 has brutal climbs. In 2022 it was 95°F.
+        u/anotherrider posted: "Mile 150 destroyed me." 
+        https://reddit.com/r/cycling/abc https://youtube.com/watch?v=123
+        Results show 40% DNF in 2023. 2024 had better weather at 75°F.
         """
         result = check_specificity(content)
-        assert result["passed"]
+        assert result["passed"], f"Specificity score {result['specificity_score']} below threshold 50"
         assert result["details"]["mile_markers"] >= 1
         assert result["details"]["reddit_usernames"] >= 1
     

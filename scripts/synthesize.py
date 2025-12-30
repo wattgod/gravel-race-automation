@@ -62,7 +62,21 @@ def synthesize_brief(input_path: str, output_path: str):
         brief_template = ""
     
     prompt = f"""
-You are creating a Race Research Brief following the Gravel God methodology.
+You are creating a Race Research Brief for a training plan business.
+
+CONTEXT:
+- This becomes a WordPress landing page for cyclists training for this race
+- Target audience: Serious cyclists who want real intel, not marketing hype
+- Content will be used to create training recommendations
+- Voice: "Matti voice" - direct, honest, peer-to-peer, no corporate fluff
+
+CRITICAL - NO SLOP:
+- NO generic phrases: "amazing opportunity", "world-class", "incredible experience"
+- NO hedging: "perhaps", "it seems like", "you might want to"
+- NO encouragement: "you've got this", "embrace the challenge"
+- YES specific details: exact mile markers, actual quotes, real numbers
+- YES brutal honesty: what actually sucks, where people DNF
+- YES direct language: "Your FTP doesn't matter if..." not "It's important to consider..."
 
 VOICE GUIDELINES (CRITICAL - ALL CONTENT MUST BE IN MATTI VOICE):
 
@@ -76,7 +90,7 @@ RESEARCH BRIEF TEMPLATE:
 
 ---
 
-Using this research, create a complete Race Brief in Matti voice:
+Using this research, create a complete Race Brief in Matti voice. Be specific, not generic. Use real quotes. Tell the truth, not the marketing version.
 
 {research[:15000]}
 

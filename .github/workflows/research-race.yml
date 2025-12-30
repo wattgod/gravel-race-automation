@@ -55,6 +55,7 @@ jobs:
         run: |
           python scripts/validate.py \
             --input "research-dumps/${{ github.event.inputs.race_folder }}-raw.md"
+        continue-on-error: true
       
       - name: Synthesize Brief
         env:

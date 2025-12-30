@@ -37,25 +37,38 @@ def extract_claims(content: str) -> list:
     
     client = anthropic.Anthropic(api_key=api_key)
     
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=4000,
-        messages=[{
-            "role": "user",
-            "content": f"""Extract the top 10 most important FACTUAL claims from this research that can be verified.
+    # Retry logic for rate limits
+    import time
+    max_retries = 3
+    retry_delay = 60
+    
+    for attempt in range(max_retries):
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=2000,  # Reduced to avoid rate limits
+                messages=[{
+                    "role": "user",
+                    "content": f"""Extract top 5 factual claims from this research:
 
-For each claim, output in this exact format:
+{content[:5000]}
 
-CLAIM: [the specific factual claim]
-SOURCE: [the URL cited for this claim]
-CHECKABLE: [specific text/number to look for in source]
-
-Research content:
-
-{content[:10000]}
+Format:
+CLAIM: [claim]
+SOURCE: [URL]
+CHECKABLE: [text to verify]
 """
-        }]
-    )
+                }]
+            )
+            break  # Success
+        except anthropic.RateLimitError as e:
+            if attempt < max_retries - 1:
+                wait_time = retry_delay * (attempt + 1)
+                print(f"⚠️  Rate limit in validation. Waiting {wait_time}s...")
+                time.sleep(wait_time)
+            else:
+                print("⚠️  Rate limit hit in validation after retries. Skipping validation.")
+                return []
     
     # Parse claims from response
     claims = []

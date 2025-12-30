@@ -160,77 +160,31 @@ def research_race(race_name: str, folder: str):
     
     client = anthropic.Anthropic(api_key=api_key)
     
-    prompt_template = load_research_prompt()
-    search_queries = get_search_queries(race_name)
-    
-    # Build comprehensive search instructions
-    search_instructions = """
-Search extensively across ALL these source categories:
+    # Use condensed prompt to avoid rate limits
+    # Skip loading full research_prompt.md to reduce token count
+    prompt = f"""Research the gravel race: {race_name}
 
-**OFFICIAL SOURCES:**
-"""
-    for query in search_queries["official"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**FORUMS (Prioritize threads with 20+ comments):**\n"
-    for query in search_queries["forums"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**RACE REPORTS (First-person accounts preferred):**\n"
-    for query in search_queries["race_reports"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**MEDIA COVERAGE:**\n"
-    for query in search_queries["media"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**VIDEO (Read comments - often more honest than video):**\n"
-    for query in search_queries["video"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**DATA & RESULTS:**\n"
-    for query in search_queries["data"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**WEATHER HISTORY:**\n"
-    for query in search_queries["weather"]:
-        search_instructions += f"- {query}\n"
-    
-    search_instructions += "\n**GEAR & EQUIPMENT:**\n"
-    for query in search_queries["gear"]:
-        search_instructions += f"- {query}\n"
-    
-    prompt = f"""
-{prompt_template}
+Use web_search tool to find sources from 4+ categories:
 
----
+1. OFFICIAL: {race_name} official site, {race_name} rider guide
+2. FORUMS: {race_name} site:reddit.com/r/gravelcycling, {race_name} site:trainerroad.com/forum, {race_name} site:forum.slowtwitch.com
+3. RACE REPORTS: {race_name} race report site:rodeo-labs.com, {race_name} race recap 2024
+4. MEDIA: {race_name} site:velonews.com, {race_name} site:cyclingtips.com
+5. VIDEO: {race_name} race report youtube (read comments)
+6. DATA: {race_name} results 2024, {race_name} DNF rate
+7. WEATHER: {race_name} weather history
 
-RACE TO RESEARCH: {race_name}
+Extract: mile markers, quotes, weather by year, DNF rates, equipment.
 
-{search_instructions}
-
----
-
-**SOURCE DIVERSITY REQUIREMENT:**
-Your research MUST include sources from at least 4 different categories:
-1. Official (race website, rider guide)
-2. Forum (Reddit, TrainerRoad, Slowtwitch, RidingGravel)
-3. Race Reports (team blogs, personal blogs)
-4. Media (VeloNews, CyclingTips, Escape Collective)
-5. Video (YouTube with comments analyzed)
-6. Data (results, Strava, timing sites)
-7. Weather (historical conditions by year)
-
-**QUALITY SIGNALS:**
-- Reddit: Prioritize threads with 20+ comments
-- TrainerRoad: Look for threads with specific mile markers
-- YouTube: Prioritize videos with 50+ comments
-- Blogs: Prioritize first-person race reports over news coverage
-- Results: Extract DNF rates, finish time distributions, cutoff data
-
-Extract specific quotes, mile markers, weather incidents by year, DNF data, equipment consensus, logistics intel.
-
-Output the complete RAW RESEARCH DUMP with all source URLs inline. Target 15-25 URLs from 4+ distinct source categories. Be comprehensive - this is the foundation for training plan recommendations.
+Output RAW RESEARCH DUMP with 15-25 URLs. Structure:
+## OFFICIAL DATA
+## TERRAIN
+## WEATHER HISTORY  
+## REDDIT DEEP DIVE
+## SUFFERING ZONES
+## DNF DATA
+## EQUIPMENT
+## LOGISTICS
 """
 
     print(f"Researching {race_name}...")
@@ -238,7 +192,7 @@ Output the complete RAW RESEARCH DUMP with all source URLs inline. Target 15-25 
     try:
         response = client.messages.create(
             model="claude-sonnet-4-20250514",
-            max_tokens=8000,
+            max_tokens=4000,  # Reduced to avoid rate limits
             tools=[{"type": "web_search_20250305", "name": "web_search"}],
             messages=[{"role": "user", "content": prompt}]
         )

@@ -6,6 +6,7 @@ Outputs raw research dump following comprehensive methodology.
 
 import argparse
 import os
+import time
 import anthropic
 from pathlib import Path
 from datetime import datetime
@@ -196,7 +197,6 @@ Output with 15-25 URLs. Sections: OFFICIAL DATA, TERRAIN, WEATHER, REDDIT, SUFFE
                 if attempt < max_retries - 1:
                     wait_time = retry_delay * (attempt + 1)
                     print(f"⚠️  Rate limit hit. Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
-                    import time
                     time.sleep(wait_time)
                 else:
                     raise  # Re-raise on final attempt

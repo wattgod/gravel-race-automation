@@ -1,0 +1,113 @@
+name: Aggressive Process (2 Days)
+
+on:
+  schedule:
+    # Run every 3 minutes (20 races/hour = 480/day = ~0.8 days for all)
+    # This is aggressive - may hit rate limits, but will retry
+    - cron: '*/3 * * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Races per run'
+        required: false
+        default: '1'
+        type: string
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Get next race
+        id: set-matrix
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          
+          with open("gravel_races_full_database.json") as f:
+              db = json.load(f)
+          
+          limit = int("${{ github.event.inputs.limit || '1' }}" or 1)
+          
+          # Get all unprocessed races
+          races = db.get("races", [])
+          
+          processed = set()
+          if os.path.exists("data/processed/completed.txt"):
+              with open("data/processed/completed.txt") as f:
+                  processed = set(f.read().splitlines())
+          
+          races = [r for r in races if r.get("RACE_NAME", "") not in processed]
+          races = races[:limit]
+          
+          if not races:
+              matrix = {"include": []}
+          else:
+              matrix = {
+                  "include": [
+                      {
+                          "race_name": r.get("RACE_NAME", ""),
+                          "folder": r.get("RACE_NAME", "").lower().replace(" ", "-").replace("'", "").replace(",", "").replace(".", "")
+                      }
+                      for r in races
+                  ]
+              }
+          
+          print(f"::set-output name=matrix::{json.dumps(matrix)}")
+          EOF
+
+  process:
+    needs: prepare
+    if: ${{ fromJson(needs.prepare.outputs.matrix).include != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      max-parallel: 1
+      fail-fast: false
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - run: pip install anthropic requests pyyaml python-frontmatter
+      
+      - name: Process ${{ matrix.race_name }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        timeout-minutes: 10
+        run: |
+          python scripts/research.py \
+            --race "${{ matrix.race_name }}" \
+            --folder "${{ matrix.folder }}"
+          
+          python scripts/synthesize.py \
+            --input "research-dumps/${{ matrix.folder }}-raw.md" \
+            --output "briefs/${{ matrix.folder }}-brief.md"
+          
+          python scripts/generate_json.py \
+            --input "briefs/${{ matrix.folder }}-brief.md" \
+            --output "landing-pages/${{ matrix.folder }}.json"
+          
+          mkdir -p data/processed
+          echo "${{ matrix.race_name }}" >> data/processed/completed.txt
+      
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add research-dumps/ briefs/ landing-pages/ data/processed/
+          git commit -m "Processed: ${{ matrix.race_name }}" || true
+          git push || true
+

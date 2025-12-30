@@ -1,0 +1,145 @@
+name: Fast Process Races (2-4 Days)
+
+on:
+  schedule:
+    # Run every 6 minutes (10 races per hour = 240/day = ~1.6 days for all)
+    - cron: '*/6 * * * *'
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: 'Which tier to process'
+        required: true
+        default: '2'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - 'all'
+      limit:
+        description: 'Max races per run'
+        required: false
+        default: '1'
+        type: string
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Build race matrix
+        id: set-matrix
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          
+          with open("gravel_races_full_database.json") as f:
+              db = json.load(f)
+          
+          tier = "${{ github.event.inputs.tier || '2' }}"
+          limit = int("${{ github.event.inputs.limit || '1' }}" or 1)
+          
+          if tier != "all":
+              races = [r for r in db.get("races", []) if str(r.get("TIER", "")) == tier]
+          else:
+              races = db.get("races", [])
+          
+          # Filter out already processed
+          processed = set()
+          processed_file = "data/processed/completed.txt"
+          if os.path.exists(processed_file):
+              with open(processed_file) as f:
+                  processed = set(f.read().splitlines())
+          
+          races = [r for r in races if r.get("RACE_NAME", "") not in processed]
+          
+          # Take next N races
+          if limit > 0:
+              races = races[:limit]
+          
+          if not races:
+              print("No races to process")
+              matrix = {"include": []}
+          else:
+              matrix = {
+                  "include": [
+                      {
+                          "race_name": r.get("RACE_NAME", ""),
+                          "folder": r.get("RACE_NAME", "").lower().replace(" ", "-").replace("'", "").replace(",", "").replace(".", "")
+                      }
+                      for r in races
+                  ]
+              }
+          
+          print(f"::set-output name=matrix::{json.dumps(matrix)}")
+          print(f"Processing {len(matrix.get('include', []))} races")
+          EOF
+
+  process:
+    needs: prepare
+    if: ${{ fromJson(needs.prepare.outputs.matrix).include != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      max-parallel: 1
+      fail-fast: false
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - run: pip install anthropic requests pyyaml python-frontmatter
+      
+      - name: Process ${{ matrix.race_name }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        timeout-minutes: 10
+        run: |
+          echo "Processing: ${{ matrix.race_name }}"
+          
+          python scripts/research.py \
+            --race "${{ matrix.race_name }}" \
+            --folder "${{ matrix.folder }}"
+          
+          python scripts/synthesize.py \
+            --input "research-dumps/${{ matrix.folder }}-raw.md" \
+            --output "briefs/${{ matrix.folder }}-brief.md"
+          
+          python scripts/generate_json.py \
+            --input "briefs/${{ matrix.folder }}-brief.md" \
+            --output "landing-pages/${{ matrix.folder }}.json"
+          
+          # Quality gates (non-blocking)
+          python scripts/quality_gates.py \
+            --file "research-dumps/${{ matrix.folder }}-raw.md" \
+            --type research || true
+          
+          python scripts/quality_gates.py \
+            --file "briefs/${{ matrix.folder }}-brief.md" \
+            --type brief || true
+          
+          # Mark as processed
+          mkdir -p data/processed
+          echo "${{ matrix.race_name }}" >> data/processed/completed.txt
+      
+      - name: Commit results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add research-dumps/ briefs/ landing-pages/ data/processed/
+          git commit -m "Fast-processed: ${{ matrix.race_name }}" || echo "No changes"
+          git push || echo "Push failed"
+

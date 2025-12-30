@@ -1,0 +1,93 @@
+{
+  "race": {
+    "name": "Race Name",
+    "display_name": "The Race Name",
+    "vitals": {
+      "location": "City, State",
+      "distance_mi": 100,
+      "elevation_ft": 4500,
+      "date": "2026-03-15",
+      "date_specific": "March 15, 2026",
+      "location_badge": "CITY, STATE"
+    },
+    "tagline": "Race tagline in Matti voice",
+    "gravel_god_rating": {
+      "overall_score": 85,
+      "tier_label": "TIER 1",
+      "course_profile": {
+        "logistics": 3,
+        "length": 4,
+        "technicality": 3,
+        "elevation": 3,
+        "climate": 5,
+        "altitude": 1,
+        "adventure": 4
+      },
+      "editorial": {
+        "prestige": 5,
+        "cultural_weight": 5,
+        "race_quality": 4,
+        "experience": 4,
+        "community_vibe": 4,
+        "field_depth": 5,
+        "value_proposition": 4
+      }
+    },
+    "course_description": {
+      "ridewithgps_id": 0,
+      "ridewithgps_name": "Race Name Route",
+      "character": "Course breakdown in Matti voice"
+    },
+    "history": {
+      "origin_story": "Race history in Matti voice"
+    },
+    "logistics": {
+      "official_site": "https://racewebsite.com",
+      "registration_url": "https://racewebsite.com/register"
+    },
+    "biased_opinion": {
+      "summary": "Editorial judgment in Matti voice",
+      "verdict": "Icon",
+      "strengths": ["What this race does well"],
+      "weaknesses": ["Honest drawbacks"],
+      "bottom_line": "One sentence decision-maker"
+    },
+    "black_pill": {
+      "truth": "What nobody tells you",
+      "consequences": ["Real costs"],
+      "expectation_reset": "What training actually needs to focus on"
+    },
+    "training_implications": {
+      "protocol_triggers": {
+        "heat_adaptation": false,
+        "altitude_protocol": false,
+        "technical_skills": false,
+        "durability_focus": false,
+        "fueling_strategy": false
+      },
+      "training_emphasis": {
+        "primary": "Primary demand",
+        "secondary": "Secondary demand",
+        "tertiary": "Tertiary demand"
+      },
+      "the_one_thing": "Single most important insight"
+    },
+    "quotes": [
+      "Forum quote 1",
+      "Forum quote 2"
+    ],
+    "logistics_snapshot": {
+      "airport": "Code + distance",
+      "lodging": "Strategy + booking timeline",
+      "packet_pickup": "When/where + time needed",
+      "parking": "Situation"
+    }
+  },
+  "seo": {
+    "title": "Race Name – Gravel Race Info & Training Guide | Gravel God",
+    "description": "Complete guide to Race Name: race vitals, route, history, and how to train for success.",
+    "slug": "race-name-slug",
+    "focus_keyword": "race name"
+  }
+}
+

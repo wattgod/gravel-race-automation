@@ -1,0 +1,101 @@
+name: Research Gravel Race
+
+on:
+  # Manual trigger with race name input
+  workflow_dispatch:
+    inputs:
+      race_name:
+        description: 'Race name (e.g., "Unbound 200")'
+        required: true
+        type: string
+      race_folder:
+        description: 'Folder name (e.g., "unbound-200")'
+        required: true
+        type: string
+      skip_validation:
+        description: 'Skip validation step'
+        required: false
+        type: boolean
+        default: false
+
+  # Or trigger via repository dispatch (API call)
+  repository_dispatch:
+    types: [research-race]
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests python-frontmatter pyyaml
+      
+      - name: Run Research
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/research.py \
+            --race "${{ github.event.inputs.race_name }}" \
+            --folder "${{ github.event.inputs.race_folder }}"
+      
+      - name: Validate Research
+        if: ${{ github.event.inputs.skip_validation != 'true' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/validate.py \
+            --input "research-dumps/${{ github.event.inputs.race_folder }}-raw.md"
+      
+      - name: Synthesize Brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/synthesize.py \
+            --input "research-dumps/${{ github.event.inputs.race_folder }}-raw.md" \
+            --output "briefs/${{ github.event.inputs.race_folder }}-brief.md"
+      
+      - name: Generate JSON
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/generate_json.py \
+            --input "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
+            --output "landing-pages/${{ github.event.inputs.race_folder }}.json"
+      
+      - name: Commit Results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add research-dumps/ briefs/ landing-pages/ data/
+          git commit -m "Research + Brief: ${{ github.event.inputs.race_name }}" || echo "No changes"
+          git push
+
+      - name: Push to WordPress
+        if: ${{ secrets.WP_URL != '' }}
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          python scripts/push_wordpress.py \
+            --json "landing-pages/${{ github.event.inputs.race_folder }}.json"
+      
+      - name: Notify Slack
+        if: ${{ secrets.SLACK_WEBHOOK != '' }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          python scripts/notify.py \
+            --race "${{ github.event.inputs.race_name }}" \
+            --status "complete"
+

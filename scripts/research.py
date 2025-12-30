@@ -164,6 +164,13 @@ def research_race(race_name: str, folder: str):
     # Enhanced prompt with context about purpose and quality
     prompt = f"""Research the gravel race "{race_name}" for a training plan business.
 
+BATCH PROCESSING CONTEXT:
+- This is part of a systematic batch process: 388 races total
+- You're processing one race at a time, sequentially
+- Quality matters - this will be published and used for training plans
+- Speed matters - we're processing hundreds, but don't sacrifice quality
+- Each race gets full attention - no rushing, but be efficient
+
 CONTEXT:
 - This becomes a WordPress landing page for cyclists training for this race
 - Content must be in "Matti voice" - direct, honest, no marketing fluff

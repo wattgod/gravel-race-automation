@@ -64,6 +64,13 @@ def synthesize_brief(input_path: str, output_path: str):
     prompt = f"""
 You are creating a Race Research Brief for a training plan business.
 
+BATCH PROCESSING CONTEXT:
+- This is part of a systematic batch: 388 races being processed
+- You're synthesizing one race at a time from research dumps
+- Quality is critical - this will be published
+- Maintain consistency - same quality bar for race #1 and race #388
+- Speed is good, but quality gates will reject slop
+
 CONTEXT:
 - This becomes a WordPress landing page for cyclists training for this race
 - Target audience: Serious cyclists who want real intel, not marketing hype

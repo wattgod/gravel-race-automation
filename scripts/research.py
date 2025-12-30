@@ -234,7 +234,6 @@ model: claude-sonnet-4-20250514
         # Run quality checks
         try:
             import sys
-            from pathlib import Path
             sys.path.insert(0, str(Path(__file__).parent))
             from quality_gates import run_all_quality_checks
             

@@ -116,6 +116,24 @@ model: claude-sonnet-4-20250514
         output_path.write_text(output)
         
         print(f"✓ Research saved to {output_path}")
+        
+        # Run quality checks
+        try:
+            import sys
+            from pathlib import Path
+            sys.path.insert(0, str(Path(__file__).parent))
+            from quality_gates import run_all_quality_checks
+            
+            results = run_all_quality_checks(research_content, "research")
+            if not results["overall_passed"]:
+                print(f"⚠️  Quality issues detected:")
+                for name in results["critical_failures"]:
+                    check = results["checks"][name]
+                    print(f"   - {name}: {check}")
+                # Don't fail, but warn
+        except ImportError:
+            print("⚠️  Quality gates not available (skipping checks)")
+        
         return output_path
         
     except Exception as e:

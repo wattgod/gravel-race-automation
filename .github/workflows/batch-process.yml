@@ -118,6 +118,15 @@ jobs:
             --input "briefs/${{ matrix.folder }}-brief.md" \
             --output "landing-pages/${{ matrix.folder }}.json"
           
+          # Quality gates
+          python scripts/quality_gates.py \
+            --file "research-dumps/${{ matrix.folder }}-raw.md" \
+            --type research || echo "Quality gate warnings (continuing...)"
+          
+          python scripts/quality_gates.py \
+            --file "briefs/${{ matrix.folder }}-brief.md" \
+            --type brief || echo "Quality gate warnings (continuing...)"
+          
           # Validate output quality
           python scripts/validate_output.py \
             --folder "${{ matrix.folder }}" || echo "Validation warnings (continuing...)"

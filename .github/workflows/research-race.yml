@@ -72,6 +72,22 @@ jobs:
             --input "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
             --output "landing-pages/${{ github.event.inputs.race_folder }}.json"
       
+      - name: Quality Gate - Research
+        run: |
+          python scripts/quality_gates.py \
+            --file "research-dumps/${{ github.event.inputs.race_folder }}-raw.md" \
+            --type research \
+            --strict
+        continue-on-error: false
+      
+      - name: Quality Gate - Brief
+        run: |
+          python scripts/quality_gates.py \
+            --file "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
+            --type brief \
+            --strict
+        continue-on-error: false
+      
       - name: Validate Output Quality
         run: |
           python scripts/validate_output.py \

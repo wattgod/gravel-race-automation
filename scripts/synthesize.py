@@ -170,6 +170,24 @@ model: claude-sonnet-4-20250514
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(output)
     
+    # Run quality checks
+    try:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent))
+        from quality_gates import run_all_quality_checks
+        
+        results = run_all_quality_checks(brief_content, "brief")
+        if results["checks"]["slop"]["slop_count"] > 0:
+            print(f"⚠️  Slop detected ({results['checks']['slop']['slop_count']} phrases) - review brief")
+            for slop in results["checks"]["slop"]["slop_found"][:3]:
+                print(f"   - '{slop['phrase']}' in context: ...{slop['context'][:50]}...")
+        if not results["overall_passed"]:
+            print(f"⚠️  Quality issues detected:")
+            for name in results["critical_failures"]:
+                print(f"   - {name}")
+    except ImportError:
+        print("⚠️  Quality gates not available (skipping checks)")
+    
     print(f"✓ Brief saved to {output_path}")
     return output_path
 

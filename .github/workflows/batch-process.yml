@@ -118,6 +118,10 @@ jobs:
             --input "briefs/${{ matrix.folder }}-brief.md" \
             --output "landing-pages/${{ matrix.folder }}.json"
           
+          # Validate output quality
+          python scripts/validate_output.py \
+            --folder "${{ matrix.folder }}" || echo "Validation warnings (continuing...)"
+          
           # Mark as processed
           mkdir -p data/processed
           echo "${{ matrix.race_name }}" >> data/processed/completed.txt

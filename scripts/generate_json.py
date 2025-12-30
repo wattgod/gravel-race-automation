@@ -92,10 +92,21 @@ Output ONLY valid JSON, no markdown code blocks, no explanation. The JSON should
     try:
         data = json.loads(json_text)
     except json.JSONDecodeError as e:
-        print(f"⚠️  Invalid JSON: {e}")
+        print(f"✗ Invalid JSON: {e}")
+        print(f"Raw output (first 500 chars): {json_text[:500]}")
         # Save anyway for debugging
         Path(output_path).write_text(json_text)
-        return None
+        raise ValueError(f"Generated JSON is invalid: {e}")
+    
+    # Basic structure validation
+    if "race" not in data:
+        raise ValueError("Generated JSON missing 'race' key")
+    
+    if "name" not in data.get("race", {}):
+        raise ValueError("Generated JSON missing race.name")
+    
+    if not data["race"]["name"].strip():
+        raise ValueError("Generated JSON has empty race.name")
     
     # Pretty print and save
     output_file = Path(output_path)

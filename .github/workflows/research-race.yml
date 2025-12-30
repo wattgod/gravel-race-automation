@@ -72,6 +72,12 @@ jobs:
             --input "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
             --output "landing-pages/${{ github.event.inputs.race_folder }}.json"
       
+      - name: Validate Output Quality
+        run: |
+          python scripts/validate_output.py \
+            --folder "${{ github.event.inputs.race_folder }}" \
+            --strict
+      
       - name: Commit Results
         run: |
           git config --local user.email "action@github.com"

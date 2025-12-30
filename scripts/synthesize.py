@@ -146,6 +146,16 @@ Write in Matti voice throughout. Dry, direct, no hype. If it feels sweaty, cut i
     
     brief_content = response.content[0].text
     
+    # Basic quality check
+    if len(brief_content) < 500:
+        raise ValueError(f"Brief too short ({len(brief_content)} chars) - likely generation failure")
+    
+    # Check for required sections
+    required_sections = ["RADAR SCORES", "TRAINING PLAN IMPLICATIONS", "THE BLACK PILL"]
+    missing = [s for s in required_sections if s not in brief_content]
+    if missing:
+        raise ValueError(f"Brief missing required sections: {', '.join(missing)}")
+    
     # Add metadata
     output = f"""---
 generated_at: {datetime.now().isoformat()}

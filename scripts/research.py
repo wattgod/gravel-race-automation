@@ -89,6 +89,16 @@ Output the complete RAW RESEARCH DUMP with all source URLs inline. Be comprehens
             if hasattr(block, 'text'):
                 research_content += block.text
         
+        # Basic quality check
+        if len(research_content) < 1000:
+            raise ValueError(f"Research too short ({len(research_content)} chars) - likely API failure")
+        
+        # Check for URLs (should have sources)
+        import re
+        urls = re.findall(r'https?://[^\s\)\]\"\'<>]+', research_content)
+        if len(urls) < 2:
+            print(f"⚠️  Warning: Only {len(urls)} URLs found in research - may lack sources")
+        
         # Add metadata header
         output = f"""---
 race: {race_name}

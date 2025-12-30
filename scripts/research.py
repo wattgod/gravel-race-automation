@@ -164,17 +164,17 @@ def research_race(race_name: str, folder: str):
     # Ultra-condensed prompt to avoid rate limits
     prompt = f"""Research: {race_name}
 
-Search 4+ source types using web_search:
-- {race_name} official site
-- {race_name} site:reddit.com/r/gravelcycling
-- {race_name} site:trainerroad.com/forum
-- {race_name} race report youtube
-- {race_name} results 2024
-- {race_name} weather history
+REQUIRED: Search these sources using web_search (MUST include Reddit and YouTube):
+1. {race_name} site:reddit.com/r/gravelcycling (REQUIRED - find threads with comments)
+2. {race_name} race report youtube (REQUIRED - read comments)
+3. {race_name} site:trainerroad.com/forum
+4. {race_name} official site
+5. {race_name} results 2024
+6. {race_name} weather history
 
-Extract: mile markers, quotes, weather, DNF rates, equipment.
+Extract: mile markers, quotes from Reddit, weather, DNF rates, equipment.
 
-Output with 15-25 URLs. Sections: OFFICIAL DATA, TERRAIN, WEATHER, REDDIT, SUFFERING ZONES, DNF, EQUIPMENT, LOGISTICS.
+Output with 15-25 URLs. MUST include Reddit and YouTube sources. Sections: OFFICIAL DATA, TERRAIN, WEATHER, REDDIT, SUFFERING ZONES, DNF, EQUIPMENT, LOGISTICS.
 """
 
     print(f"Researching {race_name}...")

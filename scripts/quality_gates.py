@@ -336,11 +336,14 @@ def run_all_quality_checks(content: str, content_type: str) -> dict:
     
     checks = {
         "slop": check_slop_phrases(content),
-        "voice": check_matti_voice(content),
         "specificity": check_specificity(content),
         "length": check_length_sanity(content, content_type),
         "sections": check_required_sections(content, content_type),
     }
+    
+    # Voice check only for briefs (research dumps are raw data)
+    if content_type == "brief":
+        checks["voice"] = check_matti_voice(content)
     
     if content_type == "research":
         checks["citations"] = check_source_citations(content)

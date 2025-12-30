@@ -103,7 +103,7 @@ jobs:
           git push
 
       - name: Push to WordPress
-        if: ${{ secrets.WP_URL != '' }}
+        if: ${{ secrets.WP_URL != null && secrets.WP_URL != '' }}
         env:
           WP_URL: ${{ secrets.WP_URL }}
           WP_USER: ${{ secrets.WP_USER }}
@@ -111,13 +111,15 @@ jobs:
         run: |
           python scripts/push_wordpress.py \
             --json "landing-pages/${{ github.event.inputs.race_folder }}.json"
+        continue-on-error: true
       
       - name: Notify Slack
-        if: ${{ secrets.SLACK_WEBHOOK != '' }}
+        if: ${{ secrets.SLACK_WEBHOOK != null && secrets.SLACK_WEBHOOK != '' }}
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: |
           python scripts/notify.py \
             --race "${{ github.event.inputs.race_name }}" \
             --status "complete"
+        continue-on-error: true
 

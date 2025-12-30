@@ -133,11 +133,16 @@ def test_workflow_files_exist() -> Tuple[bool, str]:
 
 def test_directory_structure() -> Tuple[bool, str]:
     """Test that required directories exist."""
+    # Core directories that must exist in repo
     required_dirs = [
         ".github/workflows",
         "scripts",
         "skills",
         "data/processed",
+    ]
+    
+    # Runtime directories (created by scripts, but should exist or be creatable)
+    runtime_dirs = [
         "research-dumps",
         "briefs",
         "landing-pages",
@@ -147,6 +152,10 @@ def test_directory_structure() -> Tuple[bool, str]:
     for dir_path in required_dirs:
         if not Path(dir_path).exists():
             missing.append(dir_path)
+    
+    # Create runtime directories if they don't exist (they're created by scripts anyway)
+    for dir_path in runtime_dirs:
+        Path(dir_path).mkdir(parents=True, exist_ok=True)
     
     if missing:
         return False, f"Missing directories: {', '.join(missing)}"

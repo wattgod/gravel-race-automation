@@ -1,10 +1,35 @@
 # Comprehensive Race Research Methodology
 
+## Purpose & Context
+
+**What we're building:**
+- WordPress landing pages for gravel races
+- Content for a training plan business
+- Target audience: Serious cyclists training for specific races
+- Voice: "Matti voice" - direct, honest, no marketing fluff
+
+**Why this matters:**
+- Generic AI content = slop = useless for training decisions
+- Specific details = actionable intel = valuable content
+- Forum deep dives = real rider experiences = training insights
+
 ## Research Depth Requirements
 
 **This is non-negotiable: Research must be COMPREHENSIVE.**
 
 Every race brief requires deep research across multiple source types. Surface-level Googling produces generic content. The differentiator is specificity that only comes from triangulating multiple perspectives.
+
+**What "slop" looks like:**
+- "This race offers an amazing opportunity for cyclists"
+- "The course is challenging with variable terrain"
+- "Weather conditions can be difficult"
+- Generic statements that could apply to any race
+
+**What good research looks like:**
+- "Mile 80-95: Teterville rollers - 15 miles of 8-12% peanut butter hills when legs are cooked"
+- "u/graveldude said: 'I've done Leadville twice. Unbound 200 was harder.'"
+- "2023: 103°F by 2pm. 2019: Thunderstorms forced 2-hour shelter at mile 80"
+- Specific, actionable, real data
 
 ### Required Source Categories
 

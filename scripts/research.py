@@ -222,12 +222,12 @@ Include 15-25 URLs total. MUST have Reddit and YouTube sources. Be specific, not
         
         for attempt in range(max_retries):
             try:
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=2000,  # Further reduced to avoid rate limits
-            tools=[{"type": "web_search_20250305", "name": "web_search"}],
-            messages=[{"role": "user", "content": prompt}]
-        )
+                response = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=2000,  # Further reduced to avoid rate limits
+                    tools=[{"type": "web_search_20250305", "name": "web_search"}],
+                    messages=[{"role": "user", "content": prompt}]
+                )
                 break  # Success, exit retry loop
             except anthropic.RateLimitError as e:
                 if attempt < max_retries - 1:

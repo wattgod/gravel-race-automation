@@ -160,11 +160,15 @@ model: perplexity/sonar-deep-research
     output_path.write_text(output)
     
     word_count = len(research_content.split())
-    url_count = research_content.count("http")
+    # Count URLs more accurately (http:// or https://)
+    import re
+    url_pattern = r'https?://[^\s\)\]\"\'<>]+'
+    urls = re.findall(url_pattern, research_content)
+    url_count = len(urls)
     
     print(f"✓ Research saved to {output_path}")
     print(f"  Words: {word_count}")
-    print(f"  URLs: ~{url_count}")
+    print(f"  URLs: {url_count} (found: {', '.join(urls[:5])}{'...' if len(urls) > 5 else ''})")
     
     # Run quality checks
     try:

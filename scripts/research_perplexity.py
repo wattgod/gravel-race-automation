@@ -141,6 +141,41 @@ OUTPUT REQUIREMENTS:
     data = response.json()
     research_content = data["choices"][0]["message"]["content"]
     
+    # Check if Perplexity returned citations separately
+    # Perplexity may include citations in response.citations or similar
+    citations = []
+    if "citations" in data:
+        citations = data["citations"]
+    elif "choices" in data and len(data["choices"]) > 0:
+        choice = data["choices"][0]
+        if "citations" in choice:
+            citations = choice["citations"]
+        elif "message" in choice and "citations" in choice["message"]:
+            citations = choice["message"]["citations"]
+    
+    # If citations found, append them to content
+    if citations:
+        research_content += "\n\n## CITATIONS\n\n"
+        for i, citation in enumerate(citations, 1):
+            if isinstance(citation, dict):
+                url = citation.get("url", citation.get("link", str(citation)))
+                title = citation.get("title", "")
+                if title:
+                    research_content += f"{i}. [{title}]({url})\n"
+                else:
+                    research_content += f"{i}. {url}\n"
+            else:
+                research_content += f"{i}. {citation}\n"
+    
+    # Debug: Print response structure to understand format
+    print(f"Response keys: {list(data.keys())}")
+    if "choices" in data and len(data["choices"]) > 0:
+        choice_keys = list(data["choices"][0].keys())
+        print(f"Choice keys: {choice_keys}")
+        if "message" in data["choices"][0]:
+            msg_keys = list(data["choices"][0]["message"].keys())
+            print(f"Message keys: {msg_keys}")
+    
     # Add metadata
     output = f"""---
 race: {race_name}

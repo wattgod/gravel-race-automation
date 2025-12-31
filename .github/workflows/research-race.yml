@@ -12,6 +12,14 @@ on:
         description: 'Folder name (e.g., "unbound-200")'
         required: true
         type: string
+      research_engine:
+        description: 'Research engine'
+        required: true
+        default: 'perplexity'
+        type: choice
+        options:
+          - perplexity
+          - claude
       skip_validation:
         description: 'Skip validation step'
         required: false
@@ -40,7 +48,17 @@ jobs:
         run: |
           pip install anthropic requests python-frontmatter pyyaml
       
-      - name: Run Research
+      - name: Run Research (Perplexity)
+        if: ${{ github.event.inputs.research_engine == 'perplexity' }}
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+        run: |
+          python scripts/research_perplexity.py \
+            --race "${{ github.event.inputs.race_name }}" \
+            --folder "${{ github.event.inputs.race_folder }}"
+      
+      - name: Run Research (Claude)
+        if: ${{ github.event.inputs.research_engine == 'claude' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |

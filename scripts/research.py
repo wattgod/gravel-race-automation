@@ -242,10 +242,21 @@ Include 15-25 URLs total. MUST have Reddit and YouTube sources. Be specific, not
         for block in response.content:
             if hasattr(block, 'text'):
                 research_content += block.text
+            elif hasattr(block, 'type') and block.type == 'text':
+                research_content += block.text
         
-        # Basic quality check
+        # Debug: Print response structure if content is short
         if len(research_content) < 1000:
-            raise ValueError(f"Research too short ({len(research_content)} chars) - likely API failure")
+            print(f"⚠️  Warning: Research content only {len(research_content)} chars")
+            print(f"Response type: {type(response)}")
+            print(f"Response content type: {type(response.content)}")
+            print(f"Response content length: {len(response.content)}")
+            if hasattr(response, 'content'):
+                for i, block in enumerate(response.content):
+                    print(f"  Block {i}: {type(block)}, hasattr text: {hasattr(block, 'text')}")
+                    if hasattr(block, '__dict__'):
+                        print(f"    Block attrs: {list(block.__dict__.keys())}")
+            raise ValueError(f"Research too short ({len(research_content)} chars) - likely API failure. Response structure logged above.")
         
         # Check for URLs (should have sources)
         import re

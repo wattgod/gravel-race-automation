@@ -161,46 +161,21 @@ def research_race(race_name: str, folder: str):
     
     client = anthropic.Anthropic(api_key=api_key)
     
-    # Enhanced prompt with context about purpose and quality
-    prompt = f"""Research the gravel race "{race_name}" for a training plan business.
+    # Ultra-condensed prompt to avoid rate limits (30k tokens/min limit)
+    prompt = f"""Research "{race_name}" gravel race. Training plan business - needs real intel, not hype.
 
-BATCH PROCESSING CONTEXT:
-- This is part of a systematic batch process: 388 races total
-- You're processing one race at a time, sequentially
-- Quality matters - this will be published and used for training plans
-- Speed matters - we're processing hundreds, but don't sacrifice quality
-- Each race gets full attention - no rushing, but be efficient
+NO SLOP: No "amazing opportunity" or "world-class". Be specific: mile markers, quotes, real numbers.
 
-CONTEXT:
-- This becomes a WordPress landing page for cyclists training for this race
-- Content must be in "Matti voice" - direct, honest, no marketing fluff
-- Target: Serious cyclists who want real intel, not hype
-- Research will be synthesized into training recommendations
-
-QUALITY REQUIREMENTS (NO SLOP):
-- NO generic phrases: "amazing opportunity", "world-class", "incredible experience"
-- NO hedging: "perhaps", "it seems like", "you might want to"
-- YES specific details: exact mile markers, actual quotes, real numbers
-- YES forum deep dives: Reddit threads with 20+ comments, read YouTube comments
-- YES brutal honesty: what actually sucks, where people DNF, equipment failures
-
-REQUIRED SOURCES (use web_search):
-1. {race_name} site:reddit.com/r/gravelcycling (REQUIRED - find active threads)
-2. {race_name} race report youtube (REQUIRED - read comments, they're more honest)
+Search (use web_search):
+1. {race_name} site:reddit.com/r/gravelcycling
+2. {race_name} youtube race report
 3. {race_name} site:trainerroad.com/forum
 4. {race_name} official site
 5. {race_name} results 2024
-6. {race_name} weather history
 
-EXTRACT:
-- Specific mile markers where people suffer (e.g., "Mile 80-95: Teterville rollers")
-- Direct quotes from forum posts (include username: "u/graveldude said...")
-- Weather data by year (e.g., "2023: 103°F, 2022: 95°F")
-- DNF rates and reasons (from results data)
-- Equipment consensus (tire pressure, tire size from multiple sources)
-- Logistics gotchas (what catches people off guard)
+Extract: mile markers, forum quotes (with usernames), weather by year, DNF rates, equipment consensus.
 
-OUTPUT FORMAT:
+Output sections:
 ## OFFICIAL DATA
 ## TERRAIN
 ## WEATHER HISTORY
@@ -210,7 +185,7 @@ OUTPUT FORMAT:
 ## EQUIPMENT
 ## LOGISTICS
 
-Include 15-25 URLs total. MUST have Reddit and YouTube sources. Be specific, not generic.
+15-25 URLs. Reddit + YouTube required. Specific details only.
 """
 
     print(f"Researching {race_name}...")

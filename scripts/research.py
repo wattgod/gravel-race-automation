@@ -238,40 +238,39 @@ Include 15-25 URLs total. MUST have Reddit and YouTube sources. Be specific, not
                     raise  # Re-raise on final attempt
         
         # Extract text from response
-        # Handle both direct text responses and tool-using responses
+        # When using web_search tools, response has multiple blocks: text, tool_use, tool_result
+        # We need to extract ALL text blocks, not just the first one
         research_content = ""
         
         if not response.content:
             raise ValueError("API returned empty response content")
         
-        # Try direct access first (like other scripts)
-        if len(response.content) > 0 and hasattr(response.content[0], 'text'):
-            research_content = response.content[0].text
-        else:
-            # Fallback: iterate through blocks
-            for block in response.content:
-                if hasattr(block, 'text'):
-                    research_content += block.text
-                elif hasattr(block, 'type'):
-                    if block.type == 'text' and hasattr(block, 'text'):
-                        research_content += block.text
+        # Extract all text blocks (concatenate them)
+        for block in response.content:
+            # Text blocks have a 'text' attribute
+            if hasattr(block, 'text') and block.text:
+                research_content += block.text
+            # Some blocks might have type='text'
+            elif hasattr(block, 'type') and block.type == 'text' and hasattr(block, 'text'):
+                research_content += block.text
         
-        # Debug: Print response structure if content is short
+        # If still too short, check if we're missing blocks
         if len(research_content) < 1000:
+            text_blocks = [b for b in response.content if hasattr(b, 'text') and b.text]
+            total_text_chars = sum(len(b.text) for b in text_blocks if b.text)
+            
             print(f"⚠️  Warning: Research content only {len(research_content)} chars")
-            print(f"Response type: {type(response)}")
-            print(f"Response content type: {type(response.content)}")
-            print(f"Response content length: {len(response.content)}")
-            if response.content:
-                for i, block in enumerate(response.content):
-                    print(f"  Block {i}: {type(block)}")
-                    if hasattr(block, 'text'):
-                        print(f"    Has text attr, length: {len(block.text) if block.text else 0}")
-                    if hasattr(block, 'type'):
-                        print(f"    Type: {block.type}")
-                    if hasattr(block, '__dict__'):
-                        print(f"    Attrs: {list(block.__dict__.keys())}")
-            raise ValueError(f"Research too short ({len(research_content)} chars) - likely API failure. Response structure logged above.")
+            print(f"Response has {len(response.content)} total blocks")
+            print(f"Found {len(text_blocks)} text blocks with total {total_text_chars} chars")
+            
+            # If we found text blocks but didn't extract them, that's a bug
+            if total_text_chars > len(research_content):
+                print(f"⚠️  Bug: Found {total_text_chars} chars in text blocks but only extracted {len(research_content)}")
+                # Re-extract properly
+                research_content = "".join(b.text for b in text_blocks if b.text)
+            
+            if len(research_content) < 1000:
+                raise ValueError(f"Research too short ({len(research_content)} chars) - API may have returned insufficient content or tool use blocks only")
         
         # Check for URLs (should have sources)
         import re

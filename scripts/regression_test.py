@@ -112,6 +112,29 @@ def test_scripts_executable() -> Tuple[bool, str]:
     return True, f"All {len(scripts)} scripts are valid"
 
 
+def test_research_script_response_extraction() -> Tuple[bool, str]:
+    """Test that research.py extracts API response correctly."""
+    script_path = Path("scripts/research.py")
+    if not script_path.exists():
+        return False, "research.py not found"
+    
+    content = script_path.read_text()
+    
+    # Should use response.content[0].text (like other scripts)
+    if "response.content[0]" not in content and "response.content[0].text" not in content:
+        return False, "research.py doesn't use response.content[0] pattern"
+    
+    # Should handle empty responses
+    if "len(response.content)" not in content and "not response.content" not in content:
+        return False, "research.py doesn't check for empty response"
+    
+    # Should have minimum length check
+    if "len(research_content) < 1000" not in content:
+        return False, "research.py doesn't validate minimum length"
+    
+    return True, "Research script response extraction looks correct"
+
+
 def test_workflow_files_exist() -> Tuple[bool, str]:
     """Test that workflow files exist and are valid YAML."""
     workflows = [
@@ -192,6 +215,7 @@ def run_all_tests() -> bool:
         ("Research Prompt", test_research_prompt_loads),
         ("Database", test_database_loads),
         ("Scripts", test_scripts_executable),
+        ("Research Response Extraction", test_research_script_response_extraction),
         ("Workflows", test_workflow_files_exist),
         ("Directory Structure", test_directory_structure),
         ("Python Imports", test_imports),

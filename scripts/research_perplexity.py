@@ -17,6 +17,12 @@ def research_race_perplexity(race_name: str, folder: str):
     if not api_key:
         raise ValueError("PERPLEXITY_API_KEY not set")
     
+    # Validate API key format (should start with pplx-)
+    api_key = api_key.strip()
+    if not api_key.startswith("pplx-"):
+        print(f"⚠️  Warning: API key doesn't start with 'pplx-'. Got: {api_key[:10]}...")
+        print("   Perplexity API keys typically start with 'pplx-'. Check your key format.")
+    
     prompt = f"""
 Research the {race_name} gravel race comprehensively. I need SPECIFIC, CITED information for a training plan product.
 
@@ -115,7 +121,19 @@ OUTPUT REQUIREMENTS:
     )
     
     if response.status_code != 200:
-        raise Exception(f"Perplexity API error: {response.status_code} - {response.text}")
+        error_msg = response.text[:500]  # Limit error message length
+        if response.status_code == 401:
+            raise Exception(
+                f"Perplexity API authentication failed (401).\n"
+                f"Check that:\n"
+                f"  1. API key is valid and not expired\n"
+                f"  2. API key format is correct (should start with 'pplx-')\n"
+                f"  3. API key is correctly set in GitHub Secrets as PERPLEXITY_API_KEY\n"
+                f"  4. You have active credits/balance in your Perplexity account\n"
+                f"\nResponse: {error_msg}"
+            )
+        else:
+            raise Exception(f"Perplexity API error: {response.status_code} - {error_msg}")
     
     data = response.json()
     research_content = data["choices"][0]["message"]["content"]

@@ -61,45 +61,44 @@ def synthesize_brief(input_path: str, output_path: str):
     else:
         brief_template = ""
     
-    prompt = f"""
-You are creating a Race Research Brief for a training plan business.
+    # Ultra-condensed prompt to avoid rate limits
+    prompt = f"""Create Race Brief for training plan business. Matti voice: direct, honest, no fluff.
 
-BATCH PROCESSING CONTEXT:
-- This is part of a systematic batch: 388 races being processed
-- You're synthesizing one race at a time from research dumps
-- Quality is critical - this will be published
-- Maintain consistency - same quality bar for race #1 and race #388
-- Speed is good, but quality gates will reject slop
+NO SLOP: No "amazing opportunity" or "world-class". Be specific: mile markers, quotes, numbers.
 
-CONTEXT:
-- This becomes a WordPress landing page for cyclists training for this race
-- Target audience: Serious cyclists who want real intel, not marketing hype
-- Content will be used to create training recommendations
-- Voice: "Matti voice" - direct, honest, peer-to-peer, no corporate fluff
+{voice_guide[:500] if voice_guide else "Matti voice: direct, honest, peer-to-peer"}
 
-CRITICAL - NO SLOP:
-- NO generic phrases: "amazing opportunity", "world-class", "incredible experience"
-- NO hedging: "perhaps", "it seems like", "you might want to"
-- NO encouragement: "you've got this", "embrace the challenge"
-- YES specific details: exact mile markers, actual quotes, real numbers
-- YES brutal honesty: what actually sucks, where people DNF
-- YES direct language: "Your FTP doesn't matter if..." not "It's important to consider..."
+Brief format:
+# [RACE NAME] - RACE BRIEF
+## RADAR SCORES (1-5 each)
+| Variable | Score | Justification |
+|----------|-------|---------------|
+| Logistics | X | [why] |
+| Length | X | [why] |
+| Technicality | X | [why] |
+| Elevation | X | [why] |
+| Climate | X | [why] |
+| Altitude | X | [why] |
+| Adventure | X | [why] |
 
-VOICE GUIDELINES (CRITICAL - ALL CONTENT MUST BE IN MATTI VOICE):
+**PRESTIGE: X/5** - [one sentence]
 
-{voice_guide}
+## TRAINING PLAN IMPLICATIONS
+**Protocol Triggers:** Heat/Altitude/Technical/Durability/Fueling
+**Training Emphasis:** Primary/Secondary/Tertiary
+**THE ONE THING THAT WILL GET YOU:** [single insight]
 
----
+## THE BLACK PILL
+[2-3 paragraphs brutal honesty. Use forum quotes. What sucks. What breaks people.]
 
-RESEARCH BRIEF TEMPLATE:
+## KEY QUOTES
+[3-5 best forum quotes]
 
-{brief_template[:2000] if brief_template else "Use standard research brief format"}
+## LOGISTICS SNAPSHOT
+[Quick-hit logistics]
 
----
-
-Using this research, create a complete Race Brief in Matti voice. Be specific, not generic. Use real quotes. Tell the truth, not the marketing version.
-
-{research[:15000]}
+Research:
+{research[:6000]}
 
 ---
 
@@ -159,11 +158,26 @@ Write in Matti voice throughout. Dry, direct, no hype. If it feels sweaty, cut i
 
     print(f"Synthesizing brief from {input_path}...")
     
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=4000,
-        messages=[{"role": "user", "content": prompt}]
-    )
+    # Retry logic for rate limits
+    import time
+    max_retries = 3
+    retry_delay = 60
+    
+    for attempt in range(max_retries):
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=3000,  # Reduced to avoid rate limits
+                messages=[{"role": "user", "content": prompt}]
+            )
+            break  # Success
+        except anthropic.RateLimitError as e:
+            if attempt < max_retries - 1:
+                wait_time = retry_delay * (attempt + 1)
+                print(f"⚠️  Rate limit hit in synthesis. Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
+                time.sleep(wait_time)
+            else:
+                raise  # Re-raise on final attempt
     
     brief_content = response.content[0].text
     

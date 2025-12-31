@@ -105,11 +105,16 @@ jobs:
       
       - name: Process ${{ matrix.race_name }}
         env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         timeout-minutes: 10
         run: |
           echo "Processing: ${{ matrix.race_name }}"
           
+          # Use Perplexity for research (better quality)
+          python scripts/research_perplexity.py \
+            --race "${{ matrix.race_name }}" \
+            --folder "${{ matrix.folder }}" || \
           python scripts/research.py \
             --race "${{ matrix.race_name }}" \
             --folder "${{ matrix.folder }}"

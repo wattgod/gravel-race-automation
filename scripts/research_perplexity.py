@@ -15,13 +15,16 @@ from datetime import datetime
 def research_race_perplexity(race_name: str, folder: str):
     api_key = os.environ.get("PERPLEXITY_API_KEY")
     if not api_key:
-        raise ValueError("PERPLEXITY_API_KEY not set")
+        raise ValueError("PERPLEXITY_API_KEY not set. Add it to GitHub Secrets.")
     
     # Validate API key format (should start with pplx-)
     api_key = api_key.strip()
     if not api_key.startswith("pplx-"):
-        print(f"⚠️  Warning: API key doesn't start with 'pplx-'. Got: {api_key[:10]}...")
-        print("   Perplexity API keys typically start with 'pplx-'. Check your key format.")
+        raise ValueError(
+            f"Invalid Perplexity API key format. "
+            f"Keys should start with 'pplx-'. Got: {api_key[:15]}...\n"
+            f"Get your API key from: https://www.perplexity.ai/settings/api"
+        )
     
     prompt = f"""
 Research the {race_name} gravel race comprehensively. I need SPECIFIC, CITED information for a training plan product.

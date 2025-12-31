@@ -237,7 +237,8 @@ MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, 
         if not response.content:
             raise ValueError("API returned empty response content")
         
-        # Extract all text blocks (concatenate them)
+        # Extract all text blocks AND URLs from tool results
+        urls_found = []
         for block in response.content:
             # Text blocks have a 'text' attribute
             if hasattr(block, 'text') and block.text:
@@ -245,6 +246,25 @@ MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, 
             # Some blocks might have type='text'
             elif hasattr(block, 'type') and block.type == 'text' and hasattr(block, 'text'):
                 research_content += block.text
+            # Tool result blocks might contain URLs
+            elif hasattr(block, 'type') and 'tool_result' in str(block.type).lower():
+                # Try to extract URLs from tool result content
+                if hasattr(block, 'content'):
+                    import json
+                    try:
+                        if isinstance(block.content, str):
+                            # Look for URLs in tool result content
+                            import re
+                            tool_urls = re.findall(r'https?://[^\s\)\]\"\'<>]+', block.content)
+                            urls_found.extend(tool_urls)
+                    except:
+                        pass
+        
+        # If we found URLs in tool results but not in text, append them
+        if urls_found and len(re.findall(r'https?://', research_content)) < 5:
+            research_content += "\n\n## SOURCE URLs FROM SEARCH:\n"
+            for url in urls_found[:20]:  # Limit to 20
+                research_content += f"- {url}\n"
         
         # If still too short, check if we're missing blocks
         if len(research_content) < 1000:

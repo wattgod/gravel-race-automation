@@ -164,28 +164,45 @@ def research_race(race_name: str, folder: str):
     # Ultra-condensed prompt to avoid rate limits (30k tokens/min limit)
     prompt = f"""Research "{race_name}" gravel race. Training plan business - needs real intel, not hype.
 
-NO SLOP: No "amazing opportunity" or "world-class". Be specific: mile markers, quotes, real numbers.
+CRITICAL: You MUST include 15-25 URLs from diverse sources. Research must be 2000+ words.
 
-Search (use web_search):
-1. {race_name} site:reddit.com/r/gravelcycling
-2. {race_name} youtube race report
-3. {race_name} site:trainerroad.com/forum
-4. {race_name} official site
-5. {race_name} results 2024
+NO SLOP: No "amazing opportunity", "world-class", "crucial", "vital". Be specific: mile markers, quotes, real numbers.
+
+REQUIRED SEARCHES (use web_search for each):
+1. {race_name} site:reddit.com/r/gravelcycling (REQUIRED - find threads, include URLs)
+2. {race_name} youtube race report (REQUIRED - include video URLs)
+3. {race_name} site:trainerroad.com/forum (include URLs)
+4. {race_name} official site (include URL)
+5. {race_name} results 2024 (include results URL)
 
 Extract: mile markers, forum quotes (with usernames), weather by year, DNF rates, equipment consensus.
 
-Output sections:
+Output sections (2000+ words total):
 ## OFFICIAL DATA
-## TERRAIN
-## WEATHER HISTORY
-## REDDIT DEEP DIVE
-## SUFFERING ZONES
-## DNF DATA
-## EQUIPMENT
-## LOGISTICS
+[Include official race URL]
 
-15-25 URLs. Reddit + YouTube required. Specific details only.
+## TERRAIN
+[Specific details]
+
+## WEATHER HISTORY
+[By year with data]
+
+## REDDIT DEEP DIVE
+[Include Reddit thread URLs and quotes with usernames]
+
+## SUFFERING ZONES
+[Specific mile markers]
+
+## DNF DATA
+[From results with URL]
+
+## EQUIPMENT
+[Forum consensus with source URLs]
+
+## LOGISTICS
+[Practical details]
+
+MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, not generic.
 """
 
     print(f"Researching {race_name}...")

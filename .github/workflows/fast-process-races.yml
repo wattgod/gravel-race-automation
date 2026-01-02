@@ -1,9 +1,10 @@
 name: Fast Process Races (2-4 Days)
 
 on:
-  schedule:
-    # Run every 6 minutes (10 races per hour = 240/day = ~1.6 days for all)
-    - cron: '*/6 * * * *'
+  # PAUSED: Schedule disabled until API keys/credits are fixed
+  # schedule:
+  #   # Run every 6 minutes (10 races per hour = 240/day = ~1.6 days for all)
+  #   - cron: '*/6 * * * *'
   workflow_dispatch:
     inputs:
       tier:

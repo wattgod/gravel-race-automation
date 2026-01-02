@@ -1,10 +1,11 @@
 name: Aggressive Process (2 Days)
 
 on:
-  schedule:
-    # Run every 3 minutes (20 races/hour = 480/day = ~0.8 days for all)
-    # This is aggressive - may hit rate limits, but will retry
-    - cron: '*/3 * * * *'
+  # PAUSED: Schedule disabled until API keys/credits are fixed
+  # schedule:
+  #   # Run every 3 minutes (20 races/hour = 480/day = ~0.8 days for all)
+  #   # This is aggressive - may hit rate limits, but will retry
+  #   - cron: '*/3 * * * *'
   workflow_dispatch:
     inputs:
       limit:

@@ -1,9 +1,10 @@
 name: Auto-Process Races (Scheduled)
 
 on:
-  schedule:
-    # Run every day at 2 AM UTC (adjust timezone as needed)
-    - cron: '0 2 * * *'
+  # PAUSED: Schedule disabled until API keys/credits are fixed
+  # schedule:
+  #   # Run every day at 2 AM UTC (adjust timezone as needed)
+  #   - cron: '0 2 * * *'
   workflow_dispatch:
     inputs:
       tier:

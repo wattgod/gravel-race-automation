@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "UNBOUND GRAVEL 200",
+    "slug": "unbound-200",
+    "display_name": "Unbound Gravel 200",
+    "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
+
+    "vitals": {
+      "distance_mi": 202,
+      "elevation_ft": 10122,
+      "location": "Emporia, Kansas",
+      "location_badge": "EMPORIA, KS",
+      "county": "Lyon County",
+      "date": "First Saturday of June annually",
+      "date_specific": "2026: June 6",
+      "terrain_types": ["Flint rock roads", "Chunky gravel", "Paved transfers", "Cattle pasture B-roads"],
+      "field_size": "~4,000+ total (2,000+ in 200mi)",
+      "start_time": "Saturday 6:00/6:30 AM",
+      "registration": "Lottery November. Cost: $345",
+      "prize_purse": "$10K each for men's/women's winner + LTGP points",
+      "aid_stations": "2 full checkpoints (mi 70, 148) + 2 water oases (mi 40, 112)",
+      "cutoff_time": "20.5 hours (3:00 AM Sunday)"
+    },
+
+    "climate": {
+      "primary": "Kansas summer—extreme heat, humidity, thunderstorms possible",
+      "description": "June in Kansas means 85-95°F highs with brutal humidity. Full sun exposure on open prairies. Thunderstorms are a perennial threat. 2023 saw morning mud then 90s°F heat. 2022 had mid-race thunderstorm and peanut butter mud. 'Whatever brutal weather Kansas decides to serve up.'",
+      "challenges": ["Extreme heat (85-100°F possible)", "High humidity causing massive fluid loss", "Thunderstorms with mud potential", "Zero shade on open prairie"]
+    },
+
+    "terrain": {
+      "primary": "Flint Hills gravel—sharp rocks that destroy tires and spirits",
+      "surface": "~90% unpaved chunky flint rock roads, ~10% paved transfers. Sharp stones slice sidewalls. Clay mud when wet becomes 'peanut butter' that stops bikes.",
+      "technical_rating": 3,
+      "features": ["Texaco Hill", "Teter Hill (8-11%)", "BE-YOTCH climb (14-17%)", "The Judge (18% max)", "Endless rolling hills"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 93,
+      "course_profile": 30,
+      "biased_opinion": 35,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "World's largest gravel race, Lifetime Grand Prix flagship, $10K+ purse, 'Super Bowl of Gravel' status",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "200 miles (actually ~202.4mi). The distance combined with conditions makes this an 8-21 hour day. Winners finish ~9 hours, mid-pack 14-18 hours. Many finish after midnight. Also offers 100, XL (350mi), and shorter options."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Not MTB-technical, but the flint rocks are 'sharp as knives' and destroy tires. Chunky, rutted roads require line selection. Mud years add hike-a-bike. The terrain is simple but relentlessly punishing."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "~10,122ft of climbing across 200 miles. 'Death by a thousand paper cuts'—relentless rollers 50-150ft each. Named climbs like Texaco Hill, The Judge (18%), and BE-YOTCH (17%). Never truly flat."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Kansas June is brutal. 85-95°F with high humidity. Full exposure on open prairie. 2023 saw 23% DNF from mud + heat combo. Heat stroke and dehydration are real threats. 'Embrace riding in the heat' is pre-race advice."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Emporia is ~1,200ft elevation—oxygen abundant. The challenge is heat, humidity, and terrain, not thin air. Sea-level athletes actually have advantage vs altitude races."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Emporia is small—hotels book out in minutes after lottery results. Many camp at fairgrounds. Kansas City airport is 2 hours. Crew logistics complex with checkpoint-only access. Town fully embraces race week."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Flint Hills are stunning in June—wildflowers, big sky, isolated ranch roads. Kids draw chalk messages, locals hand out bacon at mile 150. Riding through the night with lights blazing, finishing at 2 AM to cheering crowds. Epic adventure."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "THE gravel race. 'Super Bowl of Gravel.' Lifetime Grand Prix flagship. Where Lachlan Morton, Keegan Swenson, Sofia Gomez Villafañe define the sport. The belt buckle is the most coveted finisher award in amateur cycling."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Lifetime runs a professional operation. Wave starts, checkpoint cutoffs, extensive medical/SAG support. The expo and week-long festival rival pro cycling events. 900 riders rescued in 2023's mud catastrophe."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The experience that defines gravel. Sunrise start with 4,000 riders, suffering through heat and hills, night riding in the Flint Hills, crossing Commercial Street finish with crowds roaring. Finishers get pint glass, medal, and a story for life."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Emporia becomes 'Gravel City' for a week. Locals embrace 4,000 cyclists. Shakeout rides, expo, Hall of Fame banquet. The shared suffering creates lifetime bonds. DFL finishers celebrated as much as winners."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "The deepest field in gravel racing. Lifetime Grand Prix brings the world's best. 4,000+ riders across all distances. WorldTour refugees, ultra specialists, complete amateurs—all on the same course. 2024 had 9-woman sprint finish."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$345 entry is premium pricing. But you get a world-class event with proper festival atmosphere. The experience and prestige justify the cost for most."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Emporia is affordable IF you can get lodging. Flights to Kansas City plus 2-hour drive. Crew logistics add cost. Budget $1,000+ beyond entry for race-week trip. Many camp to save."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Championship",
+      "summary": "Unbound is gravel's Super Bowl. The 200-mile distance, Kansas heat, flint rock roads, and potential mud create the ultimate test. The field is the deepest in the sport. Finishing—especially in the 'Sunset Club' or 'Midnight Club'—is a lifetime achievement. It's not the prettiest course or the most technical, but it's THE race. If you want to call yourself a gravel racer, Unbound is the test.",
+      "strengths": [
+        "THE most prestigious gravel race in the world",
+        "Deepest field—where champions are crowned",
+        "Epic adventure through remote Kansas"
+      ],
+      "weaknesses": [
+        "Lottery entry means no guarantee of a spot",
+        "Kansas heat and conditions can be brutal",
+        "Long travel to remote Emporia"
+      ],
+      "bottom_line": "If you can win the lottery and survive the conditions, Unbound is the gravel championship experience."
+    },
+
+    "black_pill": {
+      "title": "THE MUD AND HEAT THAT BREAKS EVERYONE",
+      "reality": "In 2023, 910 riders (23%) abandoned—the most ever. Morning mud turned bikes into 5-10lb anchors. Afternoon heat pushed into 90s°F with high humidity. Riders snapped derailleurs in mud or collapsed from heat stroke. The flint rocks slice any tire under 40mm. 'You can be fit and still fail completely.' Weather determines who finishes, not just fitness.",
+      "consequences": [
+        "Mud years: Carry a paint stick, accept 20+ minute mud walks",
+        "Heat years: Ice down neck, 90g carbs/hour, accept power loss",
+        "The 'extra 4 miles' at the end feel like 10 when oxygen-depleted"
+      ],
+      "expectation_reset": "Run 40-45mm tubeless tires with robust casings. Carry 2-3 spare tubes, plugs, pump. Train in heat and humidity. Have a mud plan (paint stick, grass cleaning). Pace by heart rate, not power—your numbers will drop in heat. Accept that something WILL go wrong—flats, mechanicals, bonking. Mental resilience wins here."
+    },
+
+    "final_verdict": {
+      "score": "93 / 100",
+      "one_liner": "The Super Bowl of gravel—200 miles through Kansas where legends are made.",
+      "should_you_race": "Yes if you want the ultimate gravel challenge and can handle extreme conditions. Yes if you're chasing the most prestigious finisher award in amateur cycling. Skip if Kansas heat or lottery entry are barriers.",
+      "alternatives": "The Traka 360 (Europe's equivalent); SBT GRVL (more forgiving, Colorado); BWR California (technical focus)"
+    },
+
+    "logistics": {
+      "airport": "KCI (Kansas City) - 2hr drive to Emporia",
+      "lodging_strategy": "Hotels book out in MINUTES after lottery results. Many camp at Emporia Fairgrounds (showers available). Towns like Ottawa/Topeka (50-60min) often have rooms. Host housing from locals available through Facebook groups.",
+      "food": "Emporia has restaurants and Walmart. Race week: pasta dinners, expo food. Post-race party on Commercial Street. 'Bacon Hill' around mile 150 from local volunteers.",
+      "packet_pickup": "Thursday-Friday at All Things Gravel Expo in downtown Emporia. Photo ID required.",
+      "parking": "Downtown streets close race day. Park legally nearby or ride from lodging.",
+      "official_site": "https://unboundgravel.com"
+    },
+
+    "history": {
+      "founded": 2006,
+      "founder": "Jim Cummins and local cycling community",
+      "origin_story": "Originally 'Dirty Kanza,' started as a 100-rider challenge through the Flint Hills. Grew into the world's largest gravel race. Renamed 'Unbound' in 2021. Now Lifetime Grand Prix flagship attracting 4,000+ riders annually.",
+      "notable_moments": [
+        "2009: DK200 begins, still the flagship",
+        "2019: Colin Strickland first sub-10 hour finish (9:58)",
+        "2023: 910 DNFs (23%)—most ever from mud + heat",
+        "2024: Cam Jones shatters record in 8:34"
+      ],
+      "reputation": "The Super Bowl of gravel—where the sport's champions are crowned."
+    },
+
+    "course_description": {
+      "character": "A 200-mile war of attrition through the Kansas Flint Hills. Alternates north/south of Emporia each year. Relentless rolling hills—'death by a thousand paper cuts.' Sharp flint rocks destroy tires. Named climbs like Texaco Hill, BE-YOTCH (17%), and The Judge (18%) break legs. Open prairie with full sun exposure. Two full checkpoints with crew access at miles 70 and 148.",
+      "suffering_zones": [
+        {"mile": 30, "label": "Texaco Hill approach", "desc": "The roughest section—chunky flint, cow pies, cattle guards. 'At every descent, 3-5 folks fixing flats.' The gauntlet begins."},
+        {"mile": 59, "label": "BE-YOTCH climb", "desc": "Short but brutal—14-17% grades. 'Saw folks walking.' Named appropriately."},
+        {"mile": 90, "label": "Midday Heat Zone", "desc": "Full exposure, relentless rollers, sun at peak. 'Between 90 and 105 my legs were falling apart.' Where heat exhaustion claims victims."},
+        {"mile": 155, "label": "The Judge", "desc": "The last named climb. 12% average with 18% pitch. 'Everyone was walking.' The gut check before the finale."}
+      ],
+      "signature_challenge": "The complete package—200 miles of flint rock, Kansas heat, potential mud, and the mental battle of riding through the night to cross Commercial Street."
+    }
+  }
+}

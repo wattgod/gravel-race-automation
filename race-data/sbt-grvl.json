@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "SBT GRVL",
+    "slug": "sbt-grvl",
+    "display_name": "SBT GRVL",
+    "tagline": "Champagne gravel in the Colorado Rockies. 125 miles at 7,000+ feet. The beautiful grind.",
+
+    "vitals": {
+      "distance_mi": 125,
+      "elevation_ft": 10897,
+      "location": "Steamboat Springs, Colorado",
+      "location_badge": "STEAMBOAT, CO",
+      "county": "Routt County",
+      "date": "August annually",
+      "date_specific": "2026: August (TBD)",
+      "terrain_types": ["Champagne gravel", "Fire roads", "Rough jeep trails", "Pavement"],
+      "field_size": "~3,000 riders",
+      "start_time": "Saturday morning",
+      "registration": "Lottery October. Cost: $275-$295 (Black)",
+      "prize_purse": "~$10K split + age-group awards",
+      "aid_stations": "9 feed zones on Black (~15-20mi apart)",
+      "cutoff_time": "~10-12 hours (minimum 8mph pace)"
+    },
+
+    "climate": {
+      "primary": "Colorado mountain summer—mild mornings, possible afternoon storms",
+      "description": "Mid-August in Steamboat means 45-50°F starts, warming to 75-85°F. Low humidity but intense sun at altitude. Afternoon thunderstorms with lightning, hail, and rain are possible. The 2022 edition saw a surprise hailstorm mid-race.",
+      "challenges": ["Afternoon thunderstorms with lightning", "Intense UV at altitude", "Temperature swings morning to afternoon"]
+    },
+
+    "terrain": {
+      "primary": "Mostly smooth 'champagne gravel' with new rough sectors",
+      "surface": "~85% unpaved gravel roads, ~15% pavement",
+      "technical_rating": 2,
+      "features": ["Wahooligan Hill (5mi, 20% grades)", "Corkscrew climb", "Cow Creek (chunky canyon road)", "Chamois Butt'r Hill (bacon & beer)"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 80,
+      "course_profile": 26,
+      "biased_opinion": 30,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "3,000 riders, iconic champagne gravel branding",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "Black course is ~125 miles. Also Blue (99mi), Red (57mi), Green (37mi). The distance combined with altitude makes this a full day—8-12 hours for most riders on Black."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Famous for 'champagne gravel'—smooth, fast, hardpacked roads. But 2024 added Wahooligan Hill (loose, 20% grades) and Cow Creek (chunky). Still mostly non-technical, but no longer pure champagne."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "~10,897ft of climbing on Black. Multiple major climbs above 8,000ft. Wahooligan, Corkscrew, and constant rollers. This is a climbing race disguised as gravel."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August in Colorado is generally pleasant. Mornings cool, afternoons warm. But afternoon thunderstorms are common—the 2022 hail event showed how quickly weather can turn. Plan for all conditions."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Start at 6,700ft, high point ~8,400ft. Never below 6,500ft. Sea-level athletes lose 10%+ power. Not as extreme as Leadville/Crusher but still significant altitude throughout."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Steamboat is a resort town with good infrastructure but pricey lodging. Lottery entry since 2022—no guarantee of a spot. Denver airport is 3 hours away."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Yampa Valley and Routt County ranchlands are stunning. Big sky country, rolling hills, aspen groves. The Chamois Butt'r Hill with bacon and beer is legendary. Beautiful Colorado mountain adventure."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "One of the top 3-4 gravel events in America. 'Champagne gravel' branding is iconic. The polished organization and beautiful course have made it a bucket-list destination."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Exceptionally well-organized. Full road closures, extensive signage, 9 aid stations on Black. Equal prize money for men/women. 'Pros + joes' shakeout rides, film fest, expo. The gold standard of gravel organization."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The combination of stunning scenery, smooth gravel, and festival atmosphere creates something special. The Chamois Butt'r Hill (costumes, bacon, beer) is a highlight everyone talks about."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Intentionally inclusive. 'Pros + joes' integration. Multiple distance options. The Steamboat community embraces the event. Strong camaraderie and support culture."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Strong pro field with equal men's/women's prize money. Many LTGP riders do the 'LeadBoat' (Leadville + SBT combo). Deep amateur field from national lottery pool."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$275-$295 for Black is premium pricing. But you get 9 aid stations, polished organization, and a proper festival. Worth it if you can afford it."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Steamboat is a ski resort town—expensive lodging during race week. Denver flights plus 3-hour drive. Budget $1,000+ beyond entry for a race-week trip."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Beautiful One",
+      "summary": "SBT GRVL is gravel done right. Stunning Colorado mountain scenery, mostly smooth 'champagne gravel,' exceptional organization, and a festival atmosphere that celebrates everyone from pros to back-of-pack finishers. The altitude and climbing make it genuinely hard, but the beauty and vibes make the suffering worthwhile. It's the gravel event that road cyclists dream about.",
+      "strengths": [
+        "Stunning Yampa Valley scenery and smooth gravel",
+        "Exceptional organization—the gold standard",
+        "Strong community and inclusive culture"
+      ],
+      "weaknesses": [
+        "Lottery entry means no guarantee of a spot",
+        "Steamboat lodging is expensive",
+        "Altitude affects sea-level riders significantly"
+      ],
+      "bottom_line": "If you can get a lottery spot and afford Steamboat, SBT GRVL delivers one of the best gravel experiences in America."
+    },
+
+    "black_pill": {
+      "title": "THE ALTITUDE EVERYONE UNDERESTIMATES",
+      "reality": "You race between 6,500-8,400ft the entire day. Sea-level FTP drops 10%+. The climbs feel harder than their gradient suggests because of thin air. Many first-timers blow up on the second or third big climb—they felt fine early, then the altitude debt catches up. The 2024 Wahooligan Hill addition (loose, 20% grades at 8,000ft) breaks riders who showed up expecting pure champagne.",
+      "consequences": [
+        "Arrive a week early to acclimate or accept suffering",
+        "Pace by heart rate, not power—your numbers will be lower",
+        "The 'champagne gravel' myth can lead to underestimation"
+      ],
+      "expectation_reset": "SBT is not an easy cruise on smooth roads. It's 125 miles of Colorado mountain climbing at altitude with some genuinely rough sections. The beauty is real, but so is the suffering. Train for long climbs and respect the thin air."
+    },
+
+    "final_verdict": {
+      "score": "80 / 100",
+      "one_liner": "Champagne gravel in the Colorado Rockies—stunning scenery, exceptional organization, and real altitude challenge.",
+      "should_you_race": "Yes if you want beautiful gravel racing with festival atmosphere. Yes if you handle altitude well. Skip if lottery entry or Steamboat costs are barriers.",
+      "alternatives": "Rebecca's Private Idaho (similar mountain gravel); Crusher in the Tushar (harder, similar altitude); BWR California (different challenge, SoCal)"
+    },
+
+    "logistics": {
+      "airport": "DEN (Denver) - 3hr drive; HDN (Hayden/Steamboat) - 30min (limited flights)",
+      "lodging_strategy": "Steamboat lodging books fast and is expensive. Consider RV/camping or staying in Craig/Hayden (cheaper, 30min away). Book immediately when lottery results come out.",
+      "food": "Steamboat has excellent dining options. Pre-race pasta dinners organized. Chamois Butt'r Hill has bacon and beer on course.",
+      "packet_pickup": "Friday/Saturday at the event expo in downtown Steamboat.",
+      "parking": "Downtown Steamboat start/finish area. Manageable.",
+      "official_site": "https://sbtgrvl.com"
+    },
+
+    "history": {
+      "founded": 2019,
+      "founder": "Amy Charity and team",
+      "origin_story": "Created to showcase Steamboat's incredible gravel roads through ranchland. The 'champagne gravel' branding captured the smooth, fast roads. Grew rapidly to 3,000-rider lottery by 2022.",
+      "notable_moments": [
+        "2022: Surprise hailstorm mid-race—riders pelted by ice",
+        "2024: Course redesign with rougher 'Wahooligan Hill' sector",
+        "Equal prize money for men/women from early editions"
+      ],
+      "reputation": "The beautiful one—where stunning scenery meets polished organization."
+    },
+
+    "course_description": {
+      "character": "A grand tour of Routt County ranchland on mostly smooth gravel roads. Big climbs, sweeping descents, and champagne gravel that rolls fast. The 2024+ routes add some rough sectors (Wahooligan, Cow Creek) but the core is still smooth Colorado mountain gravel. The altitude makes every climb harder than it looks.",
+      "suffering_zones": [
+        {"mile": 23, "label": "Wahooligan Hill", "desc": "New brutal climb. 5 miles, loose surface, up to 20% grades. Early but decisive. Many walk sections."},
+        {"mile": 50, "label": "Mystic Climb", "desc": "High point ~8,400ft. Sustained climbing in thin air. Where altitude debt catches up."},
+        {"mile": 70, "label": "Hayden Flats", "desc": "Exposed ranchland. Heat hits hardest here with no shade. Midday sun at 7,000ft."},
+        {"mile": 100, "label": "Corkscrew + Chamois Butt'r", "desc": "Steep climb, then the legendary bacon/beer stop. Mental reset before final push."},
+        {"mile": 115, "label": "Cow Creek", "desc": "Chunky, rough 15 miles back. 'Mentally challenging' when exhausted. The champagne runs out here."}
+      ],
+      "signature_challenge": "Wahooligan Hill—the new 5-mile, 20% grade climb that separates SBT from pure 'champagne gravel' marketing."
+    }
+  }
+}

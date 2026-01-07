@@ -1,0 +1,179 @@
+{
+  "race": {
+    "name": "THE TRAKA",
+    "slug": "the-traka",
+    "display_name": "The Traka",
+    "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
+
+    "vitals": {
+      "distance_mi": 224,
+      "elevation_ft": 12140,
+      "location": "Girona, Catalonia, Spain",
+      "location_badge": "GIRONA, ESP",
+      "county": "Province of Girona",
+      "date": "Late April/Early May annually",
+      "date_specific": "2025: April 30 - May 4",
+      "terrain_types": ["Gravel roads", "Singletrack", "Rocky climbs", "Paved roads", "Sandy coastal trails"],
+      "field_size": "~1,900+ riders (800+ in 360K)",
+      "start_time": "360K: 5:50 AM Friday",
+      "registration": "Opens July/August. Sells out in hours. Cost: ~150-200 EUR (360K)",
+      "prize_purse": "Gravel Earth Series points (1,000 to 360K winner)",
+      "aid_stations": "3 feed zones on 360K (~90-130km apart)",
+      "cutoff_time": "~30-32 hours for 360K"
+    },
+
+    "climate": {
+      "primary": "Catalan spring—variable, mud possible",
+      "description": "Early May in Girona is usually pleasant—20-25°C days, 10-13°C nights. But it's variable. 2023 was perfect (dry, not too hot). 2024 had heavy rain forcing 560K cancellation and creating mud. March/April can see the 'Tramontana' wind. Night temps drop to 8-12°C for 360K riders.",
+      "challenges": ["Rain creates peanut-butter mud", "Night riding in 8-10°C temps", "Variable conditions—4 seasons in a day possible"]
+    },
+
+    "terrain": {
+      "primary": "Extremely diverse—smooth gravel to MTB-like singletrack in one race",
+      "surface": "~80-85% unpaved (gravel, dirt, singletrack), ~15% paved roads. Mix of fast farm roads, steep rocky climbs, loose descents, sandy coastal trails.",
+      "technical_rating": 4,
+      "features": ["16 climbs on 360K", "7km rocky singletrack climb", "Steep 15%+ pitches (walking common)", "Cap de Creus coastal trails"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 87,
+      "course_profile": 28,
+      "biased_opinion": 33,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "1,900+ riders, 'Europe's Unbound' status, Gravel Earth Series flagship, WorldTour pro participation",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "360K is 360km (224mi). Also offers 560K ultra (~560km/10,000m), 200K, 100K, 50K. The 360K takes top riders ~12 hours, amateurs 15-30 hours. 560K is multi-day (up to 84 hours). This is European ultra gravel at scale."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Much more technical than American gravel. Includes MTB-like singletrack, steep rocky climbs (walking required on some 15%+ sections), loose descents, sandy coastal trails. One 7km singletrack 'strewn with loose rocks' is the 'exhausting highlight.' European gravel skews harder technically."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "~3,700m (12,140ft) on 360K. 16 climbs total. First 160km contains two-thirds of the climbing in relentless 'sawtooth' profile. Max elevation only ~500m, but the accumulation is brutal. 560K has 10,000m climbing."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Generally favorable May weather, but variable. 2024 saw heavy rain and mud; 2023 was perfect. 360K riders face night temps of 8-12°C. Layering required—start cold, heat up, cool down overnight."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Low Catalan hills—max ~500m elevation. No altitude concerns. The difficulty is technical terrain and sheer distance, not thin air."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Girona is cycling paradise with excellent infrastructure. Fly to Barcelona (BCN) or Girona (GRO). Hotels, restaurants, bike shops everywhere. Start/finish at Parc de les Ribes del Ter. Well-organized with GPS navigation mandatory."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "From Girona's medieval streets to Pyrenees foothills to Mediterranean coast in one ride. See sunrise, sunset, and sunrise again. Villages, vineyards, sea views, mountain trails. 'The course had everything you can imagine in it.'"
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Dubbed 'Europe's Unbound'—the most prestigious gravel race on the continent. Gravel Earth Series flagship event (1,000 points for 360K winner). Attracts WorldTour pros, ex-pros, and elite gravel specialists. Mattia De Marchi, Ted King, Lachlan Morton all race here."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Exceptional organization. Multi-lingual livestream commentary. GPS navigation mandatory. Feed zones well-stocked. Anti-doping controls for podium finishers. The professionalism matches the prestige."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The complete gravel experience. Start in darkness with 800 riders' taillights winding up the hill. Race through Catalan countryside, coast, and mountains. Finish in Girona's cycling-obsessed atmosphere. The 'party peloton' grupettos at 2 AM. Unforgettable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Girona is cycling's spiritual home in Europe. 1,900+ riders from 65+ countries. The shared suffering creates bonds—especially in the overnight hours. The festival atmosphere continues days around the race. 35%+ of field is female."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "The strongest gravel field in Europe. WorldTour names (Lachlan Morton, Ted King, Pete Stetina), gravel specialists (De Marchi, Migon), ultra legends (Sehili, Wilcox). 'The level of riders is insane.' Racing at the front is full pro sport."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~150-200 EUR for 360K is reasonable for an event of this caliber. You get world-class organization and Europe's premier gravel race. Worth the investment."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Girona is affordable by European standards—not Paris or London pricing. Barcelona flights are cheap. Many good hotel options. Budget for a multi-day gravel festival trip."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Europe's Flagship",
+      "summary": "The Traka is gravel's European championship. The 360K has everything: 360km through Girona's incredible terrain, technical singletrack, coastal trails, mountain climbs, and night riding. The field depth—WorldTour pros mixing with gravel specialists and ultra athletes—is unmatched in Europe. Starting in darkness with 800 headlights climbing out of Girona and finishing (for many) the next morning is unforgettable. If you want to race gravel in Europe, this is the one.",
+      "strengths": [
+        "Europe's most prestigious gravel event",
+        "Deepest field on the continent—pros and legends",
+        "Girona's world-class cycling infrastructure"
+      ],
+      "weaknesses": [
+        "Sells out in hours—entry is competitive",
+        "360K requires night riding and true ultra skills",
+        "Technical terrain punishes road cyclists without skills"
+      ],
+      "bottom_line": "Europe's Unbound. If you want the continental gravel championship experience, The Traka is mandatory."
+    },
+
+    "black_pill": {
+      "title": "THE TECHNICAL TERRAIN THAT EXPOSES EVERYONE",
+      "reality": "This is not smooth American gravel. One 7km singletrack climb is 'strewn with loose rocks' where maintaining traction is so hard many dismount. Steep 15% climbs with headwind force 'almost everyone to push.' The rocky descents cause constant punctures—'many were on the roadside fixing flats.' Even pros admit: 'I'm weak technically, and this is a technical minefield.' Lachlan Morton DNF'd in 2025 from wheel damage on rocks.",
+      "consequences": [
+        "Technical skills are mandatory—pure road fitness isn't enough",
+        "Punctures are common—carry multiple repair options",
+        "Mental lows WILL happen—'questioning life decisions' at km 250"
+      ],
+      "expectation_reset": "Run 40-47mm tires with robust sidewalls—Pathfinder Pro recommended by veterans. Inserts help on the rocky descents. Practice MTB-style climbing and descending. Expect to walk some climbs regardless of fitness. The 360K will have you 'questioning your life decisions' around km 250—prepare mentally for the dark moments."
+    },
+
+    "final_verdict": {
+      "score": "87 / 100",
+      "one_liner": "Europe's Unbound—360km through Girona's world-class gravel with the continent's deepest field.",
+      "should_you_race": "Yes if you want Europe's premier gravel experience. Yes if you have technical skills and ultra endurance. Skip if you only have road fitness or can't secure the hard-to-get entry.",
+      "alternatives": "Unbound 200 (US equivalent prestige); The Rift (adventure focus); Strade Bianche Gran Fondo (Italian classic)"
+    },
+
+    "logistics": {
+      "airport": "BCN (Barcelona) - 1hr drive; GRO (Girona) - 20min",
+      "lodging_strategy": "Girona is cycling paradise with endless accommodation. Book early for race week—the town fills with cyclists. Start/finish at Parc de les Ribes del Ter.",
+      "food": "Girona has excellent cycling-friendly cafes and restaurants. Pan con tomate and tortilla at aid stations.",
+      "packet_pickup": "Wednesday-Friday at event village with bike check ('validación') before start.",
+      "parking": "Girona city. Most stay locally and ride to start.",
+      "official_site": "https://thetraka.com"
+    },
+
+    "history": {
+      "founded": 2019,
+      "founder": "Klassmark Events",
+      "origin_story": "Created to showcase Girona's incredible gravel terrain—the same roads WorldTour pros train on. Grew from ~100 riders in 2019 to 1,900+ by 2023. Now flagship of Gravel Earth Series.",
+      "notable_moments": [
+        "2024: 560K cancelled mid-event due to severe weather",
+        "Dubbed 'Europe's Unbound' by media",
+        "Mattia De Marchi three-time 360K winner"
+      ],
+      "reputation": "Europe's answer to Unbound—where the continent's best gravel racers compete."
+    },
+
+    "course_description": {
+      "character": "A three-part epic through Catalonia. First third: relentless climbing out of Girona with technical singletrack and rocky descents. Middle third: flatter farm roads toward the Mediterranean coast with fast gravel and tailwinds. Final third: back into the Gavarres mountains for a nasty sting in the tail. 16 climbs, night riding, and terrain that 'has everything you can imagine.'",
+      "suffering_zones": [
+        {"mile": 50, "label": "7km Rocky Singletrack", "desc": "The 'exhausting highlight.' Loose rocks, steep grades, walking required for many. Where punctures pile up."},
+        {"mile": 85, "label": "15% Headwind Climb", "desc": "Near Roses. 'Almost everyone had to push.' Steep gradient plus headwind equals walking."},
+        {"mile": 150, "label": "Flat Gravel Recovery", "desc": "The middle third. Fast gravel, potential tailwind. Where smart riders recover before the finale."},
+        {"mile": 195, "label": "Final Gavarres Climbs", "desc": "The sting in the tail. Km 278 and 349 climbs. Washboard descents. Into the night for most riders."}
+      ],
+      "signature_challenge": "The 360K as a complete package—technical singletrack, steep climbs, coastal trails, night riding, and 360km of Catalan gravel from dawn to dawn."
+    }
+  }
+}

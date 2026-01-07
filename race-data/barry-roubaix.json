@@ -1,0 +1,178 @@
+{
+  "race": {
+    "name": "BARRY-ROUBAIX",
+    "slug": "barry-roubaix",
+    "display_name": "Barry-Roubaix Killer Gravel Road Race",
+    "tagline": "The world's largest gravel race. 5,500 riders. Michigan spring chaos.",
+
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Hastings, Michigan",
+      "location_badge": "HASTINGS, MI",
+      "county": "Barry County",
+      "date": "April annually",
+      "date_specific": "2026: April 18",
+      "terrain_types": ["Gravel roads", "Pavement", "Sandy two-track"],
+      "field_size": "5,500 riders",
+      "start_time": "Saturday 10:00 AM (62mi)",
+      "registration": "Opens November. Cost: $79-$119",
+      "prize_purse": "$40,000",
+      "aid_stations": "Multiple per course. Water, nutrition, mechanics, EMTs",
+      "cutoff_time": "None officially"
+    },
+
+    "climate": {
+      "primary": "Unpredictable Michigan spring",
+      "description": "April in Michigan means anything from 25°F with freezing rain to 70°F and dusty. The 2017 edition saw 40°F cold rain with 42% DNF rate. 2016 was 70°F and sunny. Same race, same month, wildly different outcomes.",
+      "challenges": ["Freezing rain/sleet possibility", "Mud that clogs drivetrains", "Wild temperature swings (40°F range)"]
+    },
+
+    "terrain": {
+      "primary": "Fast rolling gravel with sandy two-track sections",
+      "surface": "80% gravel/dirt roads, pavement connectors, sandy jeep trails",
+      "technical_rating": 2,
+      "features": ["Sager Road two-track bottleneck", "Three Sisters climb (mile 6)", "Uphill finish (0.25mi at 6%)"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 70,
+      "course_profile": 20,
+      "biased_opinion": 29,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "World's largest gravel race (5,500+ riders)",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "Four distance options: 18mi, 36mi, 62mi, 100mi. The flagship 62-mile 'Killer' takes most riders 3-5 hours. The 100-mile 'Psycho Killer' is capped at 400 riders. Most participants race the 36 or 62."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Mostly fast, well-graded county gravel roads. One mile of rough two-track (Sager Road) with sand and ruts is the only true technical test. If it's wet, the 'peanut butter' mud adds difficulty but it's still rideable."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Rolling, not mountainous. The 62mi has ~4,000ft of climbing, 100mi has ~7,000ft. Climbs are short and punchy—you never climb more than a minute, but you're rarely flat. Max grades around 6-8%."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Michigan spring is chaos incarnate. Temperature swings of 40°F between years are documented. 2022: 35°F with freezing rain, 43% attrition. 2016: 70°F and dusty. You must prepare for winter or summer conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Hastings sits around 800ft elevation. No altitude concerns whatsoever. Your lungs will be fine—your legs might not be."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Easy access. 2.5 hours from Detroit or Chicago. Small town infrastructure handles 5,500 riders surprisingly well. Packet pickup at local Ace Hardware. Parking is straightforward."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Not remote—you're riding through Michigan farmland with 5,500 other people. But the mass-start energy is electric, and the post-race festival (70 kegs of Founders beer) creates genuine atmosphere. It's a party that happens to be a race."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Billed as 'the world's largest gravel race' since 2014. That claim is legit—no other gravel race fields 5,500. It's a Midwest institution and early-season benchmark, but lacks the gravitas of Unbound or SBT GRVL."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized for its massive size. Wave starts prevent complete chaos. Courses are well-marked with colored arrows. Aid stations are staffed with mechanics and EMTs. They've adapted smartly as field size grew."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The combination of unpredictable weather, mass-start adrenaline, and post-race party creates memories. Surviving a cold, muddy Barry is a badge of honor. In good weather, it's a fast, fun day with friends."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Peak Midwest vibes. Hastings embraces the invasion of 5,500 cyclists. Founders beer tent. Food trucks. Live music. First-timers consistently describe it as welcoming and well-organized despite the chaos."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Attracts regional pros and some national names. Ted King, Pete Stetina have raced here. The 62mi races 'like a road race' at the front with serious team tactics. Deep amateur field from Midwest cycling clubs."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$79-$119 entry for a professionally organized mass-start event with aid stations, marked courses, and a massive post-race party. Youth under 19 race free. No license required. Strong value proposition."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Michigan lodging is cheap. Hastings has budget motels. Drive from Chicago or Detroit in a few hours. No fancy gear required. Total weekend cost can be under $300 including entry, lodging, and food."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Midwest Institution",
+      "summary": "Barry-Roubaix is the Super Bowl of Midwest gravel—massive, chaotic, and unpredictable. It's not the hardest course or the most prestigious field, but the combination of 5,500 riders, Michigan spring weather roulette, and genuine small-town hospitality creates something unique. It's the early-season gut check that sets the tone for your gravel year.",
+      "strengths": [
+        "World's largest gravel field—5,500 riders creates unmatched energy",
+        "Michigan spring weather creates war stories and shared suffering",
+        "Post-race party with 70 kegs of Founders beer"
+      ],
+      "weaknesses": [
+        "Course is relatively tame—fast gravel roads, not technical",
+        "Crowded start can feel chaotic for mid-pack riders",
+        "Weather can make the race miserable or trivially easy"
+      ],
+      "bottom_line": "If you want to race in a massive field and test your early-season fitness against unpredictable conditions, Barry is the move."
+    },
+
+    "black_pill": {
+      "title": "THE WEATHER ROULETTE NOBODY CAN PREDICT",
+      "reality": "You can train perfectly all winter and still DNF because it's 35°F with freezing rain and your derailleur literally freezes. In 2022, over 1,700 riders who registered didn't finish. Your fitness doesn't matter if your fingers are too numb to shift.",
+      "consequences": [
+        "Drivetrains freeze mid-race in cold/wet conditions",
+        "Mud clogs frames so badly bikes become unrideable",
+        "Hypothermia risk is real when soaked at 35°F"
+      ],
+      "expectation_reset": "Barry isn't about your FTP. It's about preparation, adaptability, and gear. The winners are often the ones who brought the right clothes and can fix mechanicals with numb hands."
+    },
+
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "The world's largest gravel race—a Midwest rite of passage where weather determines more than fitness.",
+      "should_you_race": "Yes if you want a massive early-season event to benchmark your winter training. Yes if you love the chaos of mass-start racing. Skip if you want technical terrain or predictable conditions.",
+      "alternatives": "Paris to Ancaster (similar early-season, Canadian); Mid South (similar weather chaos, higher prestige); Land Run (Oklahoma, March)"
+    },
+
+    "logistics": {
+      "airport": "GRR (Grand Rapids) - 35 min drive; DTW (Detroit) - 2hr drive; ORD (Chicago) - 3hr drive",
+      "lodging_strategy": "Book early—Hastings hotels fill fast. Battle Creek and Kalamazoo have more options 20-30min away. Many camp or stay with local families via race homestay program.",
+      "food": "Pre-race pasta dinner downtown. Post-race Founders beer tent is the main event. Local diners for breakfast.",
+      "packet_pickup": "Friday 3-8pm and Saturday 6-9am at Hastings Civic Arena. Lines can be long—go Friday.",
+      "parking": "Free parking at Hastings High School. Shuttle to start. Arrive early race morning.",
+      "official_site": "https://barry-roubaix.com"
+    },
+
+    "history": {
+      "founded": 2009,
+      "founder": "Rick Plite",
+      "origin_story": "Started as a small local race on Barry County's gravel roads. Named as a nod to Paris-Roubaix with Michigan's spring mud playing the role of cobblestones. Grew explosively through word-of-mouth and now claims 'world's largest' title.",
+      "notable_moments": [
+        "2013: Snowstorm forced Sager Road reroute",
+        "2017: Cold rain caused 42% DNF rate",
+        "2014: Crossed 3,000 riders, claimed 'world's largest' title"
+      ],
+      "reputation": "The early-season gravel benchmark that rewards preparation and punishes those who underestimate Michigan spring."
+    },
+
+    "course_description": {
+      "character": "Fast rolling gravel roads through Michigan farmland with one brutal bottleneck section. The course rides like a road race until it doesn't—Sager Road's sandy two-track separates the serious from the casual. Punchy climbs every 10 minutes keep you honest.",
+      "suffering_zones": [
+        {"mile": 6, "label": "Three Sisters", "desc": "First major selection. Three steep punchy climbs back-to-back. If it's wet, it's like pedaling through peanut butter."},
+        {"mile": 18, "label": "Sager Road", "desc": "One mile of sandy, rutted two-track. Bottleneck chaos. Many walk. The front group of 50 becomes 8 here."},
+        {"mile": 61, "label": "Broadway Finish Climb", "desc": "New uphill finish. 0.25 miles at 6% when your legs are cooked."}
+      ],
+      "signature_challenge": "Sager Road—a one-mile sandy two-track that creates a chaotic bottleneck and splinters the field."
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "LEADVILLE TRAIL 100 MTB",
+    "slug": "leadville-100",
+    "display_name": "Leadville Trail 100 MTB",
+    "tagline": "The Race Across the Sky. 100 miles at 10,000+ feet. The belt buckle that defines mountain biking.",
+
+    "vitals": {
+      "distance_mi": 104,
+      "elevation_ft": 12000,
+      "location": "Leadville, Colorado",
+      "location_badge": "LEADVILLE, CO",
+      "county": "Lake County",
+      "date": "August annually",
+      "date_specific": "2026: August 15",
+      "terrain_types": ["Fire roads", "Jeep trails", "Gravel", "Pavement", "Rocky doubletrack"],
+      "field_size": "1,500-1,800 riders",
+      "start_time": "Saturday 6:30 AM",
+      "registration": "Lottery December. Cost: $575",
+      "prize_purse": "Belt buckles + LTGP points",
+      "aid_stations": "Multiple checkpoints with full support + crew access",
+      "cutoff_time": "12 hours (buckle), 9 hours (big buckle)"
+    },
+
+    "climate": {
+      "primary": "Colorado mountain weather—unpredictable",
+      "description": "August in the Rockies means anything from hot sun to afternoon thunderstorms. Mornings start cold (40s-50s°F at 10,000ft), warm through midday, then can turn violent with lightning. The high altitude intensifies UV exposure and dehydration.",
+      "challenges": ["Afternoon thunderstorms with lightning", "Temperature swings (30°F+ range)", "High UV intensity at altitude"]
+    },
+
+    "terrain": {
+      "primary": "Fire roads and jeep trails through the Rocky Mountains",
+      "surface": "~90% fire road/gravel/pavement, ~10% rocky doubletrack, minimal singletrack",
+      "technical_rating": 2,
+      "features": ["Columbine Mine (12,424ft turnaround)", "Powerline descent/climb", "St. Kevins climb", "Boulevard final push"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "course_profile": 26,
+      "biased_opinion": 28,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "Iconic status, Lifetime Grand Prix, 30-year history",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "100 miles on paper, actually ~104 miles due to finish routing. At altitude with 12,000ft of climbing, most riders are out 8-12 hours. The distance is compounded by thin air—it rides like 130+ miles at sea level."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Despite the 'MTB' title, Leadville is mostly fire roads. Only 1-2 miles of true singletrack. Powerline descent is rough and rocky, but overall it's an endurance test, not a technical test. Pros race on drop-bar 'monster cross' bikes."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "12,000ft of climbing is massive. Five major climbs including Columbine (3,000ft gain) and Powerline (1,300ft at 20%+ grades). The out-and-back format means climbing Trail Creek twice. It never stops."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August in Colorado mountains is variable but generally manageable. Mornings are cool, afternoons can storm. Not the extreme heat of Kansas or Nebraska. The altitude is the bigger climate factor than temperature."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The defining feature. Start at 10,200ft, peak at 12,424ft at Columbine Mine. You never drop below 9,200ft. Sea-level athletes lose 15-20% power output. Thin air makes every effort harder and recovery slower."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Leadville is remote—2 hours from Denver. Limited lodging in town books months out. Lottery entry means no guarantee of a spot. Crew logistics are complex with specific aid station rules."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Rocky Mountains at 12,000ft. Columbine Mine turnaround with panoramic alpine views. The history and mythology of 'The Race Across the Sky.' This is genuine mountain adventure."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "The most famous mountain bike race in America. 30-year history. Lance Armstrong's 2009 win put it on the global map. The belt buckle is the most coveted finisher award in cycling. Part of Lifetime Grand Prix."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professionally organized by Lifetime. Proper aid stations with crew access. Wave starts to manage 1,800 riders. Good course marking. The lottery system and high demand create quality-of-field effect."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Bucket-list defining. The belt buckle tradition (sub-12 silver, sub-9 big buckle) creates shared goals. The Powerline hike-a-bike, Columbine summit, red carpet finish—these moments become stories you tell forever."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The 'Queen of Pain' ethos set by founder Ken Chlouber. 'You're better than you think you are' is the mantra. Strong crew support culture. DFL finishers are celebrated. It's a tribe."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "LTGP brings the world's best: Keegan Swenson, Sofia Gomez Villafañe, plus ex-WorldTour pros. But the 12-hour cutoff means amateurs share the course with elites. The field is deep at all levels."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "$575 is expensive—one of the most costly gravel/MTB entries. The lottery system means you might not even get in. But for those who earn a buckle, the value is priceless."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Leadville lodging is scarce and expensive during race week. Denver flights plus 2-hour drive. Crew support adds logistics costs. Budget $1,000+ beyond entry for a race-week trip."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Original",
+      "summary": "Leadville is the mountain bike race that launched an industry. It's not the hardest course technically—it's mostly fire roads—but the combination of 100 miles, 12,000ft climbing, and extreme altitude creates a legendary challenge. The belt buckle system gives everyone a goal. The 30-year history and pro field via LTGP keep it relevant. If you do one race in your life, many would say: do Leadville.",
+      "strengths": [
+        "Most iconic finisher award in cycling (belt buckle)",
+        "30-year history with genuine legendary status",
+        "Rocky Mountain scenery at 12,000ft is spectacular"
+      ],
+      "weaknesses": [
+        "$575 entry + lottery makes access difficult",
+        "Remote location with limited lodging",
+        "Course is actually not very technical—misleading 'MTB' label"
+      ],
+      "bottom_line": "If you want the belt buckle that defines mountain endurance racing, Leadville is the only answer."
+    },
+
+    "black_pill": {
+      "title": "THE ALTITUDE NOBODY FROM SEA LEVEL IS READY FOR",
+      "reality": "At 10,200ft start and 12,424ft peak, you're racing with 30-40% less oxygen than sea level. Your FTP drops 15-20%. The Columbine climb—3,000ft gain to 12,400ft—reduces most riders to walking regardless of fitness. Powerline's 20%+ grades at 11,000ft create conga lines of hike-a-bikers. You can be a strong cyclist and still walk half the climbs.",
+      "consequences": [
+        "98% of the field walks portions of Columbine's upper section",
+        "Powerline inbound (mile 80) has grades up to 25%—walking is normal",
+        "The 'extra 4 miles' at the end feel like 10 when you're oxygen-depleted"
+      ],
+      "expectation_reset": "Arrive a week early to acclimate or accept the suffering. Train at altitude if possible. Your sea-level power numbers are meaningless here. Target heart rate zones, not watts. Walking climbs is not failure—it's survival."
+    },
+
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "The Race Across the Sky—100 miles at 10,000+ feet where the belt buckle is earned, never given.",
+      "should_you_race": "Yes if you want the most iconic finish award in cycling. Yes if you respect altitude and prepare for it. Skip if you expect technical MTB terrain or can't handle the lottery/cost barrier.",
+      "alternatives": "Crusher in the Tushar (similar altitude, shorter); Breck Epic (Colorado stage race); SBT GRVL (Colorado, less altitude)"
+    },
+
+    "logistics": {
+      "airport": "DEN (Denver) - 2hr drive; EGE (Eagle/Vail) - 1hr drive",
+      "lodging_strategy": "Leadville lodging books out months in advance. Many stay in Frisco, Buena Vista, or camp. RV camping is popular. Book immediately when you get lottery notification.",
+      "food": "Limited restaurants in Leadville. Pre-race dinner at High Mountain Pies is tradition. Stock up in Denver or Frisco on the way.",
+      "packet_pickup": "Thursday-Friday at the race expo in Leadville. Mandatory rider meeting.",
+      "parking": "Downtown Leadville start. Finish has dedicated spectator areas. Crew access at specific aid stations only.",
+      "official_site": "https://leadvilleraceseries.com"
+    },
+
+    "history": {
+      "founded": 1994,
+      "founder": "Ken Chlouber",
+      "origin_story": "Created after the Climax molybdenum mine closed, devastating Leadville's economy. Ken Chlouber wanted to bring attention and tourism to the struggling town. The race grew from 150 riders to 1,800, transforming Leadville's identity.",
+      "notable_moments": [
+        "2009: Lance Armstrong wins in 6:28, mainstream attention explodes",
+        "2019: Keegan Swenson breaks 6 hours (5:58)",
+        "The 'Queen of Pain' slogan and 'You're better than you think you are' mantra"
+      ],
+      "reputation": "The original—the race that proved civilians could do 100 miles at extreme altitude."
+    },
+
+    "course_description": {
+      "character": "An out-and-back through Colorado's high country on mostly non-technical fire roads. The challenge is pure endurance at altitude—not technical skills. Five major climbs, the biggest being Columbine (to 12,424ft) at the turnaround. The return over Powerline at mile 80 breaks most riders. It's a grind disguised as an MTB race.",
+      "suffering_zones": [
+        {"mile": 0, "label": "St. Kevins", "desc": "The race starts uphill. 1,200ft climb on crowded jeep road. Congestion in later waves."},
+        {"mile": 20, "label": "Powerline Descent", "desc": "Rocky, technical descent. Bottles eject on washboards. Crashed riders everywhere."},
+        {"mile": 45, "label": "Columbine Climb", "desc": "The marquee suffer-fest. 3,000ft to 12,424ft. Upper section is a hike-a-bike conga line."},
+        {"mile": 80, "label": "Powerline Climb", "desc": "'The race truly begins at Powerline.' 1,300ft at 20%+ grades. Walls of walkers. False summits."},
+        {"mile": 100, "label": "The Boulevard", "desc": "The cruel final 3 miles of dirt climbing when you thought you were done."}
+      ],
+      "signature_challenge": "Columbine Mine—the 3,000ft climb to 12,424ft where oxygen deprivation reduces everyone to survival mode."
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "race": {
+    "name": "REBECCA'S PRIVATE IDAHO",
+    "slug": "rebeccas-private-idaho",
+    "display_name": "Rebecca's Private Idaho",
+    "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
+
+    "vitals": {
+      "distance_mi": 103,
+      "elevation_ft": 6200,
+      "location": "Ketchum/Sun Valley, Idaho",
+      "location_badge": "SUN VALLEY, ID",
+      "county": "Blaine County",
+      "date": "Labor Day weekend",
+      "date_specific": "2025: August 28-31",
+      "terrain_types": ["Gravel roads", "Washboard", "Rocky doubletrack", "El Diablito technical section"],
+      "field_size": "~1,500 riders",
+      "start_time": "Sunday 8:00 AM (Baked Potato)",
+      "registration": "Opens winter. Cost: $250 (100mi)",
+      "prize_purse": "Awards + LTGP points",
+      "aid_stations": "Miles 12, 43, 65, 76, 91. Well-stocked",
+      "cutoff_time": "Mile 43 by 11:45am for full course"
+    },
+
+    "climate": {
+      "primary": "High mountain late summer—heat, wind, possible storms",
+      "description": "Late August in the Idaho mountains means variable conditions. Days can be hot (80s°F) in the valleys with intense sun. Strong winds in Copper Basin are common. Afternoon thunderstorms possible at elevation. 2022 had wildfire smoke creating hot, dusty conditions.",
+      "challenges": ["Strong headwinds in open valleys", "High UV at elevation", "Wildfire smoke possible", "Temperature swings from morning to afternoon"]
+    },
+
+    "terrain": {
+      "primary": "Mountain gravel roads through the Pioneer Mountains",
+      "surface": "Rough gravel/dirt roads, washboard sections, rocky doubletrack, 'El Diablito' technical trail",
+      "technical_rating": 3,
+      "features": ["Trail Creek Summit (7,900ft)", "Copper Basin remote loop", "El Diablito (5mi technical section)", "Washboard descents"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "course_profile": 25,
+      "biased_opinion": 27,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "tier_override_reason": "1,500 riders, Rebecca Rusch founding, stage race option",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "The 'Baked Potato' flagship is ~103 miles. Also offers 56-mile 'French Fry' and 20-mile 'Tater Tot.' The 3-day Queen's Stage Race totals ~186 miles. Solid gravel century distance."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Rough gravel and washboard throughout. 'El Diablito' section at mile 80 is genuinely technical—rocky, rutted doubletrack where riders walk sections. Not smooth champagne gravel."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "~6,200ft of climbing on the 100mi. Trail Creek Summit (7,900ft) is climbed twice on the out-and-back. Sustained climbing but not extreme by mountain standards."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late August Idaho is generally good weather. Heat and wind are the main concerns. Wildfire smoke can affect air quality some years. Not the extreme chaos of spring races."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Start at ~6,000ft, summit at ~7,900ft. Most of the course is at 6,000-7,500ft. Enough altitude to affect sea-level riders but not Leadville/Crusher extreme."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Sun Valley/Ketchum is a resort town with excellent infrastructure. Hotels, restaurants, and bike shops. Boise airport is 2.5 hours but manageable. Good organization."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Pioneer and Boulder Mountains provide stunning scenery. Copper Basin is genuinely remote. The 'El Diablito' with Devil's Bedstead views. This is mountain wilderness gravel."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Founded by Rebecca Rusch, 'Queen of Pain.' Listed as a potential 'Monument of Gravel' by VeloNews. Part of the original wave of destination gravel events. Strong reputation."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with multiple distance options and a full stage race. Quality aid stations. The Be Good Foundation charity integration adds purpose. Festival atmosphere."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The gong at the finish. The 'Twice Baked' award for last finisher. El Diablito at mile 80. Trail Creek Summit views. The post-race party. It's designed to be memorable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Intentionally capped at 1,500 to maintain community feel. Rebecca Rusch's personal involvement sets the tone. Strong emphasis on camaraderie over pure competition."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The Queen's Stage Race attracts serious racers. LTGP connection brings pros. But the capped field and remote location keep it from Unbound-level depth."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$250 for the 100mi is reasonable but not cheap. $495 for the full stage race is significant. You get quality organization and a festival experience."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Sun Valley is a ski resort town—expensive lodging. Flights to Boise plus long drive. Labor Day weekend pricing. Budget $800+ beyond entry for the trip."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Mountain Festival",
+      "summary": "Rebecca's Private Idaho is what happens when a legend builds her dream event. The Pioneer Mountain scenery is stunning, the course is genuinely challenging, and the community is intentionally maintained by capping at 1,500. It's not the hardest race, but the combination of beauty, difficulty, and celebration makes it special. The stage race format adds depth for those wanting more.",
+      "strengths": [
+        "Stunning Pioneer Mountain scenery",
+        "Intentionally capped field maintains community",
+        "Festival atmosphere with post-race celebration"
+      ],
+      "weaknesses": [
+        "Sun Valley is expensive—lodging costs add up",
+        "Remote location requires travel planning",
+        "Not as competitive as LTGP flagship events"
+      ],
+      "bottom_line": "If you want beautiful mountain gravel with community vibes and don't mind the Sun Valley price tag, RPI delivers."
+    },
+
+    "black_pill": {
+      "title": "THE WASHBOARD AND WIND NOBODY WARNS YOU ABOUT",
+      "reality": "Trail Creek Road has washboard that 'makes your eyeballs vibrate.' Copper Basin is exposed to brutal headwinds that can add an hour to your ride. El Diablito at mile 80—when you're already exhausted—is rocky technical terrain that forces many to walk. The altitude at 7,000+ feet compounds everything. This is not a smooth gravel cruise.",
+      "consequences": [
+        "Washboard descents shake bottles loose and rattle bikes apart",
+        "Copper Basin headwinds 'pretty much slaughtered' mid-pack riders one year",
+        "El Diablito's rocks punish light tires and tired bike handlers"
+      ],
+      "expectation_reset": "Run 42mm+ tires with reinforced sidewalls. Practice MTB handling for El Diablito. Arrive early to acclimate to altitude. Accept that this is harder than it looks on paper—the combination of altitude, washboard, wind, and technical sections adds significant challenge."
+    },
+
+    "final_verdict": {
+      "score": "74 / 100",
+      "one_liner": "Idaho's most beautiful gravel race—mountain wilderness with intentional community.",
+      "should_you_race": "Yes if you want stunning scenery and community vibes over pure competition. Yes if the stage race format appeals. Skip if Sun Valley costs are prohibitive or you only care about racing.",
+      "alternatives": "Crusher in the Tushar (harder climbing, similar altitude); SBT GRVL (Colorado, similar vibes); Big Sugar (warmer, Ozarks)"
+    },
+
+    "logistics": {
+      "airport": "BOI (Boise) - 2.5hr drive; SUN (Sun Valley/Hailey) - 15min (limited flights)",
+      "lodging_strategy": "Sun Valley/Ketchum is expensive during Labor Day weekend. Book months in advance. Consider Stanley or Hailey for cheaper options. Many camp.",
+      "food": "Ketchum has excellent restaurants—resort town dining. Post-race festival has food and drinks.",
+      "packet_pickup": "Thursday-Saturday at Festival Meadow in Ketchum. Part of multi-day event expo.",
+      "parking": "Festival Meadow in Ketchum. Shuttle available for some stages.",
+      "official_site": "https://rebeccasprivateidaho.com"
+    },
+
+    "history": {
+      "founded": 2013,
+      "founder": "Rebecca Rusch",
+      "origin_story": "Rebecca Rusch, 'Queen of Pain' and multiple endurance champion, created the event to showcase her home terrain and build a gravel community in Idaho. It's grown from a small gathering to 1,500 capped participants.",
+      "notable_moments": [
+        "2018-2019: El Diablito section added to increase challenge",
+        "Queen's Stage Race format added for multi-day competition",
+        "2024: Stage 1 canceled due to wildfire smoke"
+      ],
+      "reputation": "Idaho's crown jewel gravel event—founded by a legend, maintained with community intent."
+    },
+
+    "course_description": {
+      "character": "A lollipop-shaped out-and-back through Idaho's Pioneer Mountains. Trail Creek Summit defines the race—climbed twice on the out-and-back. The remote Copper Basin loop is exposed and windy. El Diablito at mile 80 adds technical challenge when you're already exhausted. Rough washboard throughout tests equipment and patience.",
+      "suffering_zones": [
+        {"mile": 12, "label": "Trail Creek Summit (outbound)", "desc": "~2,000ft climb to 7,900ft. Washboard gravel that 'doesn't feel like butter.' First altitude test."},
+        {"mile": 40, "label": "Copper Basin", "desc": "Remote high-altitude valley. Exposed to brutal headwinds. Long, lonely stretch with distant aid."},
+        {"mile": 80, "label": "El Diablito", "desc": "5 miles of rocky, technical doubletrack when you're already cooked. Many walk sections."},
+        {"mile": 90, "label": "Trail Creek Summit (return)", "desc": "The second summit climb. Shorter but at the worst possible time."}
+      ],
+      "signature_challenge": "Trail Creek Summit—the 2,000ft climb to 7,900ft on rough washboard gravel, done twice."
+    }
+  }
+}

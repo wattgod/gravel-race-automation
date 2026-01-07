@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "CRUSHER IN THE TUSHAR",
+    "slug": "crusher-in-the-tushar",
+    "display_name": "Crusher in the Tushar",
+    "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
+
+    "vitals": {
+      "distance_mi": 70,
+      "elevation_ft": 10000,
+      "location": "Beaver, Utah",
+      "location_badge": "BEAVER, UT",
+      "county": "Beaver County",
+      "date": "July annually",
+      "date_specific": "2026: July 11",
+      "terrain_types": ["Dirt roads", "Gravel", "Pavement", "Steep descents"],
+      "field_size": "~600 riders",
+      "start_time": "Saturday 6:30 AM (waves)",
+      "registration": "Opens January. Cost: ~$200",
+      "prize_purse": "~$1,500 win + LTGP points",
+      "aid_stations": "Miles 18, 27, 38, 51, 59. Well-stocked, neutral support only",
+      "cutoff_time": "Mile 27 by 10:00 AM SHARP"
+    },
+
+    "climate": {
+      "primary": "Extreme variability—valley heat to alpine storms",
+      "description": "In 2017, riders experienced a 60°F temperature swing: 100°F in the valleys to hail and rain at the finish. July in Utah means hot valleys (90s°F) and unpredictable mountain weather. Afternoon thunderstorms at 10,000ft are common. You can get sunburned and hypothermic in the same race.",
+      "challenges": ["90°F+ heat in valleys", "Afternoon thunderstorms at altitude", "60°F temperature swings possible"]
+    },
+
+    "terrain": {
+      "primary": "Two massive climbs to 10,000ft with technical descents",
+      "surface": "60% dirt/gravel, 40% pavement",
+      "technical_rating": 3,
+      "features": ["Col d'Crush final climb (5mi at 9-10% avg)", "The Big Drop descent (4,000ft of washboard)", "Sarlacc Pit (sandy energy-sapping rollers)", "Mountain-top finish at 10,400ft"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 84,
+      "course_profile": 29,
+      "biased_opinion": 30,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "Lifetime Grand Prix race, iconic status",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "At 70 miles, it's shorter than most premier gravel events. But those 70 miles are so packed with climbing that finishing times rival 100+ mile races. Winners take ~4 hours; mid-pack is 6-7 hours. The 'Half Crushed' (37mi) option exists for those not ready for the full beast."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "No singletrack, but the descents are genuinely technical—4,000ft of washboard switchbacks on 'The Big Drop' requires focus and skill. The climbs are steep (up to 15-20% pitches) with loose gravel. It's not BWR-level technical, but far from smooth gravel roads."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "10,000+ feet of climbing in 70 miles is brutal by any standard. Two massive climbs—each topping 10,000ft elevation. The final climb (Col d'Crush) gains 2,700ft over 8 miles with pitches up to 20%. There's essentially no flat ground on the entire course."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "The 2017 race saw 100°F valleys and finish-line hail. July in the Tushars means hot mornings, brutal midday sun at altitude, and afternoon thunderstorms. The event explicitly warns of 'extreme changes in weather.' Pack for summer and winter in the same day."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The finish line sits at 10,400ft—possibly the highest gravel race finish in North America. You start at 5,900ft (the lowest point) and never go below that again. Expect 10%+ power loss if you're from sea level. Altitude sickness, cramping, and bonking are common."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Beaver, Utah is remote—3 hours from Salt Lake City, 4+ from Vegas. Limited lodging in town (book early). The event is well-organized with shuttles and drop bags, but getting there requires planning. No personal support allowed on course."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A mountain-top finish at a ski resort. Views of the Tushar Mountains. The isolation of riding through Piute Valley. The contrast between baking valleys and alpine meadows. Finishing at 10,400ft after 10,000ft of climbing is genuinely epic."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Part of the Lifetime Grand Prix. Founded by Burke Swindlehurst, a legend in the scene. Keegan Swenson's course record (~3:56) is one of the most impressive performances in gravel. 'The toughest 70 miles on the planet' isn't just marketing—it's earned."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with 5 aid stations, drop bag service, and shuttle support. The mid-race cutoff (mile 27 by 10am) is enforced for safety. Life Time took over in 2019 and maintains Burke's vision. Course marking is thorough but GPS backup recommended."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "You'll remember Crusher forever. The Col d'Crush final climb breaks people mentally and physically. The contrast of valley heat and alpine finish. The thousand-yard stare at the finish line. It's a bucket-list event for serious gravel racers."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Smaller field (~600) creates intimacy. Serious athletes who know what they signed up for. The finish at Eagle Point has a party atmosphere with beer and food. Burke's presence and enthusiasm set the tone. Less 'festival' vibe than big races, more shared suffering."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "LTGP brings the best: Keegan Swenson, Peter Stetina, Haley Smith, Sofia Gomez Villafañe. The altitude and difficulty attract climbers and altitude-adapted athletes. Even age-group categories see strong performances—legends like Ned Overend and Tinker Juarez have raced."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~$200 for a premium, well-supported event is reasonable. You get aid stations, shuttles, drop bags, a finisher belt buckle, and post-race party. The LTGP association adds legitimacy. The challenge itself is worth the price of admission."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Rural Utah isn't expensive, but it's remote. Limited hotel options in Beaver mean booking early or staying 30+ minutes away. Flights to Salt Lake City plus 3-hour drive add up. Budget $500-700 for travel/lodging on top of entry."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Altitude Crucible",
+      "summary": "Crusher in the Tushar is where gravel racing meets mountaineering. The combination of steep climbing, high altitude, and unpredictable weather creates a challenge unlike any other gravel event. It's not the longest or most technical, but the density of suffering per mile is unmatched. Finishing is an achievement. Racing for time requires serious altitude preparation.",
+      "strengths": [
+        "Unique mountain-top finish at 10,400ft—highest in North America",
+        "LTGP race with elite field and serious competition",
+        "Pure climbing test that rewards fitness over tactics"
+      ],
+      "weaknesses": [
+        "Remote location requires significant travel planning",
+        "Mid-race cutoff eliminates slower riders before the best parts",
+        "Sea-level athletes face 10%+ power loss without acclimation"
+      ],
+      "bottom_line": "If you want to test yourself against altitude and gravity with no place to hide, Crusher is the ultimate proving ground."
+    },
+
+    "black_pill": {
+      "title": "THE ALTITUDE NOBODY FROM SEA LEVEL UNDERSTANDS",
+      "reality": "Your FTP drops 10-15% at 10,000ft if you're not acclimated. That threshold effort that felt sustainable at home? It's now above threshold. Your legs empty faster, you recover slower, and the Col d'Crush final climb—5 miles at 9%+ avg—happens when you're already 5 hours deep. Sea-level athletes who didn't acclimate have literally been gasping, walking their bikes up grades they'd normally ride.",
+      "consequences": [
+        "Miss the mile 27 cutoff (10am) and your race is over—no exceptions",
+        "Dehydration hits harder at altitude; caffeine becomes a diuretic trap",
+        "Cramping is epidemic on Col d'Crush—even pros like Stetina resort to salt packets"
+      ],
+      "expectation_reset": "If you live at sea level, add 1-2 hours to your expected finish time. Ride by perceived effort, not power. Arrive a week early if possible, or accept the suffering. The mid-race cutoff requires ~7-8 mph average for the first 27 miles including 4,000ft of climbing—if that sounds easy, you haven't done it at altitude."
+    },
+
+    "final_verdict": {
+      "score": "84 / 100",
+      "one_liner": "The highest, hardest 70 miles in gravel—where altitude separates the prepared from the destroyed.",
+      "should_you_race": "Yes if you're a strong climber who respects altitude. Yes if you want a LTGP event smaller than Unbound. No if you can't handle the mid-race cutoff pressure or live at sea level with no acclimation plan.",
+      "alternatives": "Leadville 100 MTB (longer, similar altitude); Rebecca's Private Idaho (hard climbs, lower altitude); SBT GRVL (big climbs, more accessible)"
+    },
+
+    "logistics": {
+      "airport": "SLC (Salt Lake City) - 3hr drive; LAS (Las Vegas) - 4hr drive",
+      "lodging_strategy": "Beaver has limited hotels—book months in advance. Overflow to Cedar City (45min) or Richfield (30min). Some camp. The event offers shuttles from Beaver to start and finish at Eagle Point.",
+      "food": "Small-town Utah options. Pack nutrition. Post-race party at Eagle Point has food and beer (altitude makes it hit harder).",
+      "packet_pickup": "Friday in downtown Beaver. Mandatory gear check and athlete meeting with weather/course updates.",
+      "parking": "Downtown Beaver. Shuttle to start line. Finish bags shuttled to Eagle Point.",
+      "official_site": "https://crusherinthetushar.com"
+    },
+
+    "history": {
+      "founded": 2011,
+      "founder": "Burke 'T-Bird' Swindlehurst",
+      "origin_story": "Burke wanted an event where 'the last 5 miles are the hardest'—a true test of character at elevation. He succeeded. The name 'Crusher' was his junior racing nickname. Life Time acquired the event in 2019 but maintains Burke's vision.",
+      "notable_moments": [
+        "2017: 60°F temperature swing—100°F valleys to hail at finish",
+        "2023: Keegan Swenson breaks 4 hours for first time (3:56)",
+        "2021/2024: Canceled due to wildfires—Utah's new summer reality"
+      ],
+      "reputation": "The toughest 70 miles on the planet—short but utterly brutal."
+    },
+
+    "course_description": {
+      "character": "Two massive climbs connected by a white-knuckle descent and soul-crushing valley rollers. You start in a desert valley, climb to 10,000ft, bomb down 4,000ft of washboard, grind through the Sarlacc Pit, then face the Col d'Crush—the marquee 5-mile climb that breaks souls. Every mile either goes up or down. There is no hiding.",
+      "suffering_zones": [
+        {"mile": 24, "label": "First Summit", "desc": "Top out at 10,000ft after 13 miles of dirt climbing. First encounter with thin air. Many redline here trying to make the cutoff."},
+        {"mile": 30, "label": "The Big Drop", "desc": "4,000ft descent on washboard switchbacks. White-knuckle braking, bottles ejecting, crashes happening. Won't win you the race but can lose it."},
+        {"mile": 48, "label": "Sarlacc Pit", "desc": "Sandy, deceptively graded rollers that sap morale before the final climb. Hot, exposed, energy-draining."},
+        {"mile": 55, "label": "Col d'Crush", "desc": "The signature suffer-fest. 5+ miles at 9-10% avg with 15-20% pitches. At 10,000ft. After 5 hours of racing. Soul-breaking."},
+        {"mile": 69, "label": "Final Kick", "desc": "The cruel last 0.5 mile ramp to Eagle Point. Steep enough to make cooked riders walk."}
+      ],
+      "signature_challenge": "Col d'Crush—the 5-mile, 2,700ft final climb that tops out at 10,500ft. It's where races are won, souls are broken, and the thin air makes every pedal stroke agony."
+    }
+  }
+}

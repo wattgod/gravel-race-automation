@@ -1,0 +1,179 @@
+{
+  "race": {
+    "name": "DIRTY REIVER",
+    "slug": "dirty-reiver",
+    "display_name": "Dirty Reiver",
+    "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
+
+    "vitals": {
+      "distance_mi": 125,
+      "elevation_ft": 10170,
+      "location": "Kielder Forest, Northumberland, UK",
+      "location_badge": "KIELDER, UK",
+      "county": "Northumberland",
+      "date": "April annually",
+      "date_specific": "2026: April 24-25",
+      "terrain_types": ["Forest gravel roads", "Hard-packed tracks", "Rocky sections", "Mud"],
+      "field_size": "~2,000 riders",
+      "start_time": "Saturday morning (waves)",
+      "registration": "Opens autumn. Cost: £85 (~$105)",
+      "prize_purse": "None (non-competitive)",
+      "aid_stations": "3 feed stations for 200km (~50km apart)",
+      "cutoff_time": "Time cuts at km 34 and 136"
+    },
+
+    "climate": {
+      "primary": "Cold, wet, changeable UK spring",
+      "description": "April in Northumberland means 9-11°C highs (48-52°F), frequent rain, and the possibility of snow. Kielder Forest weather changes rapidly. Some editions have been soaked in mud; others have seen snow. Prepare for the worst British weather can deliver.",
+      "challenges": ["Rain and mud common", "Cold temperatures (2-11°C)", "Can snow in late April", "Exposed forest tracks with no shelter"]
+    },
+
+    "terrain": {
+      "primary": "Wide forestry gravel roads through massive conifer plantations",
+      "surface": "100% off-road—hard-packed gravel, loose rocks, mud patches",
+      "technical_rating": 2,
+      "features": ["Kielder Water reservoir", "Long forest climbs", "Fast gravel descents", "Rocky cornering sections"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 66,
+      "course_profile": 21,
+      "biased_opinion": 25,
+      "editorial_tier": 4,
+      "editorial_tier_label": "TIER 4",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "tier_override_reason": "2,000 riders (UK's biggest gravel race)",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship 200km (125mi) is a proper endurance test. Also offers 130km and 65km options. At 200km with 3,100m climbing, expect 8-12 hours in the saddle. It's one of the longest gravel events in Europe."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Forestry roads are wide and mostly smooth—not technical singletrack. But there are rough rocky sections, loose gravel on corners, and big bumpy descents. After rain, mud makes things slippery. Overall 'gravel bike terrain' rather than MTB terrain."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "3,100m (10,170ft) of climbing for the 200km is substantial. The course is relentlessly hilly—constant ups and downs through Kielder Forest. No individual climb is extreme, but the cumulative load over 200km is serious."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "UK April weather is notoriously unpredictable. Cold rain is common, snow possible. One year, nearly every rider on the 200km dropped to a shorter distance due to atrocious weather. You must be prepared for 60°F swings and hypothermia risk."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Kielder Forest sits at low elevation—no altitude concerns. The climbs are about gradient and duration, not thin air. Your lungs will be fine; your legs won't."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Kielder is extremely remote—30 miles from the nearest train station (Hexham), no buses. Most drive. Very limited local accommodation; many camp or stay 30+ miles away. Newcastle airport is closest. Plan for logistical challenges."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "England's largest manmade forest surrounding Europe's largest manmade lake. The isolation of Kielder is genuine—you're deep in the wilderness for hours. The scale of the forest and the remoteness create a real adventure feel."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Called 'the UK's answer to Unbound' by British media. It's THE flagship UK gravel event—2,000 riders fighting for entry slots. Sells out within hours. For UK gravel riders, it's the bucket-list event."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with proper feed stations, GPS tracking, and mandatory kit requirements. No prizes (finishers listed alphabetically), which emphasizes the personal challenge over competition. Good safety protocols with cutoffs."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Epic forest riding through one of Britain's most remote areas. The mass start energy, the long hours in the forest, the satisfaction of finishing 200km. It's memorable for the right reasons—and sometimes the wrong ones (weather suffering)."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The heart of UK gravel culture. Passionate local community, camping vibes at Kielder, shared suffering in British rain. The non-competitive format encourages camaraderie over racing. Everyone's in it together."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Primarily UK-focused field. No major pro presence or international prestige. The top finishers are fast UK amateurs and semi-pros. It's about participation and challenge, not elite racing."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "£85 (~$105) for a well-supported 200km event is reasonable. Three feed stations, GPS tracking, mandatory kit requirements, and a proper event village. Comparable to UK sportive pricing."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "UK travel and lodging aren't cheap. Getting to Kielder requires driving (rental car if flying). Limited local accommodation means camping or 30+ mile commutes. Budget for UK prices plus logistical hassle."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "UK Flagship",
+      "summary": "Dirty Reiver is what happens when the UK takes gravel seriously. It's not the most technical or prestigious globally, but for 2,000 British riders, it's THE event. The combination of distance, climbing, and genuinely awful weather possibility creates a proper challenge. If you want to experience UK gravel at its most ambitious, this is it.",
+      "strengths": [
+        "UK's biggest gravel event with 2,000+ riders",
+        "Genuinely remote and beautiful Kielder Forest setting",
+        "Well-organized with proper support infrastructure"
+      ],
+      "weaknesses": [
+        "Weather can be brutal—cold rain and mud are likely",
+        "Very remote location with limited lodging",
+        "No international prestige or pro racing element"
+      ],
+      "bottom_line": "If you're in the UK and serious about gravel, Dirty Reiver is mandatory. If you're traveling internationally, there are higher-profile options."
+    },
+
+    "black_pill": {
+      "title": "THE BRITISH WEATHER NOBODY CAN PREDICT",
+      "reality": "You will probably get wet. You will probably be cold. Some years, riders on the 200km have mass-switched to shorter distances because conditions were unrideable. The forest tracks that are 'fast and smooth' in dry conditions become mud pits in rain. And it's April in Northumberland—rain is not just possible, it's likely.",
+      "consequences": [
+        "Mud clogs drivetrains and slows everything down",
+        "Cold wet conditions increase mechanical failure risk",
+        "Feed stations are 50km apart—a lot can go wrong between them"
+      ],
+      "expectation_reset": "Pack for the worst: waterproof layer, warm base, mudguards if your bike fits them. Run slightly knobbier tires if rain is forecast. Carry more food than you think you need. Accept that your finishing time will depend heavily on conditions, not just fitness."
+    },
+
+    "final_verdict": {
+      "score": "66 / 100",
+      "one_liner": "The UK's gravel crown jewel—epic forest endurance with a side of British weather suffering.",
+      "should_you_race": "Yes if you're UK-based and want the flagship national event. Yes if you enjoy endurance over technical challenge. Skip if you're coming from overseas—there are higher-profile events for that travel investment.",
+      "alternatives": "Gravel Strade (UK, Peak District); King of the Gravel (Scotland); The Traka (Spain, warmer)"
+    },
+
+    "logistics": {
+      "airport": "NCL (Newcastle) - 1.5hr drive; EDI (Edinburgh) - 2hr drive",
+      "lodging_strategy": "Very limited near Kielder—book months in advance or plan to camp. Most stay in Hexham (45min away) or surrounding villages. On-site camping at Kielder Campsite is popular.",
+      "food": "Remote area with few options. Event provides feed stations at ~50km intervals. Pack extra food for self-sufficiency.",
+      "packet_pickup": "Friday at Kielder Castle. Mandatory kit check (whistle, thermal blanket, spare top, etc.).",
+      "parking": "Kielder Castle HQ. Arrive early on race day.",
+      "official_site": "https://dirtyreiver.co.uk"
+    },
+
+    "history": {
+      "founded": 2015,
+      "founder": "The Dirty Reiver team",
+      "origin_story": "Created to bring US-style gravel racing to the UK. Kielder Forest—England's largest forest with endless gravel roads—was the perfect venue. Quickly became the flagship UK gravel event.",
+      "notable_moments": [
+        "Multiple editions affected by severe weather, including snow",
+        "Grew from niche event to 2,000+ capacity sellout",
+        "Established UK gravel as a legitimate discipline"
+      ],
+      "reputation": "The UK's answer to Unbound—the event that put British gravel on the map."
+    },
+
+    "course_description": {
+      "character": "Long forest roads through endless conifers, skirting Europe's largest manmade lake. The terrain is relentless—constant climbing and descending on wide gravel tracks. Not technical, but the sheer volume of climbing and the weather conditions make it brutal. You'll spend 8-12 hours in the forest.",
+      "suffering_zones": [
+        {"mile": 20, "label": "North Climb", "desc": "Long continuous ascent out of Kielder Castle area. Where groups fragment and the day's effort becomes real."},
+        {"mile": 50, "label": "Kielder Water Circuit", "desc": "Exposed sections around the reservoir. Wind and weather hit hardest here."},
+        {"mile": 85, "label": "Mid-Course Plateau", "desc": "Remote forest plateau where feed stations feel very far apart. Mental low point."},
+        {"mile": 110, "label": "Final Climbs", "desc": "Cumulative fatigue meets relentless rollers. The 'all mud, all hills' reality sets in."}
+      ],
+      "signature_challenge": "The sheer volume—200km of constant climbing through remote forest with no tarmac respite. It's not one killer section, it's death by a thousand cuts."
+    }
+  }
+}

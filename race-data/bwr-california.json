@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "BELGIAN WAFFLE RIDE CALIFORNIA",
+    "slug": "bwr-california",
+    "display_name": "Belgian Waffle Ride California",
+    "tagline": "The most technical gravel race in America. 130 miles of everything—road, dirt, singletrack, sand, suffering.",
+
+    "vitals": {
+      "distance_mi": 130,
+      "elevation_ft": 10500,
+      "location": "San Marcos, California",
+      "location_badge": "SAN MARCOS, CA",
+      "county": "San Diego County",
+      "date": "May annually",
+      "date_specific": "2026: May 2-3",
+      "terrain_types": ["Pavement", "Fire roads", "Singletrack", "Sand", "Rocky trails"],
+      "field_size": "2,500+ total (1,500 Waffle)",
+      "start_time": "Sunday 7:00 AM",
+      "registration": "Opens fall. Cost: $250-300 (Waffle)",
+      "prize_purse": "Prizes + Series Points",
+      "aid_stations": "Miles 35, 60, 80, 115. Full support + mechanics",
+      "cutoff_time": "~11-12 hours"
+    },
+
+    "climate": {
+      "primary": "SoCal spring—mild to hot",
+      "description": "Typical race day: 55°F at start, warming to 75-85°F by midday. Low humidity. But heat waves happen—2017 saw 95°F and 20% DNF rate from heat exhaustion. Inland canyons like Hellhole can be 10°F hotter than the coast.",
+      "challenges": ["Heat waves can push temps to 90s+", "No shade in exposed inland sections", "Dust in dry conditions"]
+    },
+
+    "terrain": {
+      "primary": "Multi-surface chaos—road to MTB terrain in one race",
+      "surface": "~60% pavement, ~40% dirt/singletrack/sand",
+      "technical_rating": 5,
+      "features": ["Hellhole Canyon (rocky descent/climb)", "Lake Hodges singletrack", "Double Peak final climb (15-20% grades)", "Sandy sections throughout"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "course_profile": 25,
+      "biased_opinion": 28,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "Flagship event of BWR series, iconic status, Lifetime Grand Prix race",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The Waffle (full course) is ~128-130 miles depending on year. That's approaching ultra distance. Most riders are out there 7-11 hours. The Wafer (~70mi) and Wanna (~40mi) exist for shorter options."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "The most technical major gravel race in the US. Hellhole Canyon has rock gardens and 15%+ grades on loose surfaces. Lake Hodges singletrack, sand pits, and stream crossings. Many riders use hardtail MTBs or add dropper posts. MTB skills aren't optional—they're survival."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "10,000-13,000ft of climbing depending on route year. Older routes hit 13k; the 2023 redesign was ~10,500ft. Either way, it's relentless: steep punchy climbs mixed with technical descents. Double Peak alone is 1,000ft at up to 20% grade."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "SoCal spring is generally pleasant—May Gray marine layer keeps mornings cool. But heat waves happen. 2017 saw 95°F and mass DNFs. Inland canyons trap heat. If you hit a hot year, it's an entirely different race."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level to ~1,500ft at Double Peak summit. No altitude concerns. Your lungs won't limit you—your technical skills and legs will."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "San Diego airport (SAN) is 40 minutes away. Plenty of hotels in North County. Well-organized expo with packet pickup, riders meeting, and pre-ride events. SoCal infrastructure handles the crowd easily."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Hellhole Canyon is genuinely remote and gnarly. The mix of terrain—from pacelining on smooth roads to hike-a-biking through sand—creates an adventure unlike any pure gravel race. The Belgian theme (waffles, beer, irreverence) adds character."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "BWR California is the flagship of the Belgian Waffle Ride series and widely considered the most technical gravel race in America. Winning here proves you're not just fit—you're skilled. It's a bucket-list event for serious gravel racers."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional production: multiple aid stations with mechanics, medical support, course marshals, and SAG vehicles. The expo is substantial. Course marking is thorough (with GPS backup recommended). The new 'Crit-Cross' finish adds spectacle."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unlike any other gravel race. You'll be echeloning on pavement one minute, walking your bike through sand the next. The suffering is varied and relentless. The waffles and beer at the end are earned. You'll swear 'never again' then sign up by Monday."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Belgian theme creates genuine fun—irreverent branding, waffles at aid stations, Lost Abbey beer at the finish. The vibe is 'we suffer together.' Riders help each other with tubes and encouragement. Post-race party is a proper celebration."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Attracts the best: Peter Stetina, Keegan Swenson, Lauren De Crescenzo, plus ex-WorldTour riders like Tiesj Benoot. Part of the Lifetime Grand Prix series. The front is stacked. Even mid-pack is competitive with strong CX and MTB crossover."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$250-300 entry is steep for a one-day event. But you get a well-supported course, quality swag, post-race party with free beer and waffles. Whether it's 'worth it' depends on how much you value the experience vs. just racing."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "SoCal is expensive. Hotels in San Marcos/Carlsbad run $150-250/night. Flying to SAN plus rental car adds up. Food and entertainment in the area aren't cheap. Budget $500-800 beyond entry for a weekend trip."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Technical Icon",
+      "summary": "BWR California isn't a gravel race—it's a multi-surface adventure that happens to award times. It demands road fitness, MTB skills, and the mental fortitude to handle constant terrain changes. The course will break equipment and egos. But surviving Hellhole and cresting Double Peak after 120 miles is something you'll remember forever. If you only do technical gravel right, this is the one.",
+      "strengths": [
+        "Most technical major gravel race in America—nothing else compares",
+        "World-class field with Lifetime Grand Prix status",
+        "Unique Belgian theme with waffles, beer, and irreverent fun"
+      ],
+      "weaknesses": [
+        "High crash and mechanical rate—30-40% don't finish some years",
+        "Expensive entry ($250-300) plus SoCal travel costs",
+        "Pure roadies will struggle badly without MTB preparation"
+      ],
+      "bottom_line": "If you want to prove you're a complete cyclist—not just fit, but skilled—BWR California is the test."
+    },
+
+    "black_pill": {
+      "title": "THE TECHNICAL CARNAGE NOBODY WARNS YOU ABOUT",
+      "reality": "BWR California breaks bikes and bodies. Hellhole Canyon has caused collarbone fractures, dislocated fingers, and catastrophic wheel failures. You can flatted three times in a race. 30-40% of starters don't finish in bad years. Your road fitness means nothing if you can't descend rocky singletrack at mile 50 when you're already cooked.",
+      "consequences": [
+        "Sidewall cuts from rocks can end your day instantly",
+        "Crashes in singletrack happen to skilled riders—fatigue kills handling",
+        "Cutoff times are enforced—too slow in technical sections and you're pulled"
+      ],
+      "expectation_reset": "This isn't a gravel race where you can just 'grind it out.' You need MTB skills or you need to accept walking sections. Pre-ride the hard parts or study video. Bring 2 tubes, plugs, and a pump. Consider a hardtail if your ego can handle it."
+    },
+
+    "final_verdict": {
+      "score": "76 / 100",
+      "one_liner": "America's most technical gravel race—road fitness meets MTB survival skills.",
+      "should_you_race": "Yes if you have MTB experience or are willing to develop it. Yes if you want to test yourself on varied terrain. No if you only ride smooth gravel roads and expect to wing the technical sections.",
+      "alternatives": "Crusher in the Tushar (hard but less technical); SBT GRVL (beautiful, less punishing); Leadville 100 MTB (if you want pure MTB challenge)"
+    },
+
+    "logistics": {
+      "airport": "SAN (San Diego) - 40 min drive; SNA (Orange County) - 1 hr; LAX - 2 hr",
+      "lodging_strategy": "Book San Marcos, Carlsbad, or Escondido hotels. Plenty of options but SoCal prices ($150-250/night). Many locals drive morning-of from LA area (~2hr).",
+      "food": "North County has everything. Pre-race waffles at expo. Post-race Lost Abbey beer and waffle bar included with entry.",
+      "packet_pickup": "Saturday at North City venue. Mandatory riders meeting—attend for course updates and safety briefings.",
+      "parking": "Large lots at North City. Arrives early race morning—fills up with 2,500 riders.",
+      "official_site": "https://belgianwaffleride.bike"
+    },
+
+    "history": {
+      "founded": 2012,
+      "founder": "Michael Marckx",
+      "origin_story": "Created to bring a Belgian spring classics vibe to SoCal—the suffering of Paris-Roubaix with waffles and beer. Started as a local challenge ride and grew into the most technical gravel race in America.",
+      "notable_moments": [
+        "2017: Record heat (95°F) caused 20% DNF rate",
+        "2023: New route with 'Crit-Cross' finish circuit added",
+        "Became part of Lifetime Grand Prix series"
+      ],
+      "reputation": "The race that humbles roadies and rewards MTB skills. Where Cat 2 road racers learn humility from Cat 2 mountain bikers."
+    },
+
+    "course_description": {
+      "character": "Controlled chaos. You'll be in a paceline on smooth pavement, then suddenly hike-a-biking through deep sand, then white-knuckling a rocky descent. The rhythm never settles. It's designed to test every cycling skill you have—and expose the ones you don't.",
+      "suffering_zones": [
+        {"mile": 8, "label": "Lake Hodges Singletrack", "desc": "Early bottleneck. Sandy, narrow, congested. Crashes happen when fresh roadies overcook turns."},
+        {"mile": 50, "label": "Hellhole Canyon", "desc": "The marquee suffering zone. Screaming rocky descent, then immediately climb back out on 15%+ grades. Remote, hot, carnage-heavy."},
+        {"mile": 80, "label": "Questhaven Road", "desc": "Steep paved climb (18% sections) when you're already wrecked from technical sectors. Cramp city."},
+        {"mile": 95, "label": "Sandy Singletracks", "desc": "Deep sand and tech trail when your bike handling is shot from fatigue. Walking is common."},
+        {"mile": 120, "label": "Double Peak", "desc": "Final climb. 1,000ft at up to 20% grade. No legs, all heart. People cry here. Then you still have to descend and do the finish circuit."}
+      ],
+      "signature_challenge": "Hellhole Canyon—a rocky descent into a remote canyon followed by an equally brutal climb out. It lives up to its name."
+    }
+  }
+}

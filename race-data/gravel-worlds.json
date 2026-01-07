@@ -1,0 +1,179 @@
+{
+  "race": {
+    "name": "GRAVEL WORLDS",
+    "slug": "gravel-worlds",
+    "display_name": "Gravel Worlds",
+    "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
+
+    "vitals": {
+      "distance_mi": 150,
+      "elevation_ft": 10000,
+      "location": "Lincoln, Nebraska",
+      "location_badge": "LINCOLN, NE",
+      "county": "Lancaster County",
+      "date": "August annually",
+      "date_specific": "2026: August 20-24",
+      "terrain_types": ["Crushed limestone", "Gravel roads", "Minimum maintenance roads", "Pea gravel"],
+      "field_size": "1,500-2,000 riders",
+      "start_time": "Saturday 6:30 AM (150mi)",
+      "registration": "Opens winter. Cost: $195 (150mi)",
+      "prize_purse": "$100,000 (2025)",
+      "aid_stations": "2 checkpoints (~mile 60, 110) + convenience stores",
+      "cutoff_time": "15.5 hours (10pm finish)"
+    },
+
+    "climate": {
+      "primary": "August Nebraska heat and humidity",
+      "description": "Late August in Nebraska means hot and humid. Average highs are mid-80s°F, but heat waves push into the 90s and even 100s°F. 2024 saw a heat index of 105°F+ and one-third of the 150-mile field DNF'd. Expect potential thunderstorms and the possibility of mud on minimum maintenance roads.",
+      "challenges": ["Heat indices over 100°F common", "High humidity compounds heat stress", "Afternoon thunderstorms possible", "No shade on open farmland"]
+    },
+
+    "terrain": {
+      "primary": "Relentless rolling hills on gravel county roads",
+      "surface": "Crushed limestone, loose pea gravel, some minimum maintenance roads (dirt/mud)",
+      "technical_rating": 2,
+      "features": ["~87 hills on the 150mi course", "Constant rollers with no flat recovery", "Washboard descents", "Potential mud sections on MMRs"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 72,
+      "course_profile": 22,
+      "biased_opinion": 28,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "$100K prize purse, 1,500+ riders, championship status",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship 150-mile course is serious endurance—most riders are out 10-15 hours. Also offers 75mi, 35mi, and the ultra 300-mile 'Long Voyage.' The 150 is the main event and a proper test of diesel power."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Gravel roads, not technical terrain. But the surface varies from smooth limestone to deep pea gravel that can wash out wheels. Washboard descents punish bodies. Minimum maintenance roads become mud pits if it rains."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Don't let 'Nebraska' fool you—there are ~87 hills on the 150mi course. 10,000ft of climbing in relentless short rollers. One veteran said 'those hills were harder than Unbound' because there's never any recovery."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "August in Nebraska is brutal. Heat indices regularly exceed 100°F. 2024 saw one-third of the 150mi field DNF due to heat. Humidity makes it worse. Afternoon thunderstorms can turn MMR sections to mud."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Low elevation Nebraska farmland. No altitude concerns. The challenge is heat and terrain, not thin air."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Lincoln is a real city with airports, hotels, and amenities. Much easier logistics than rural Kansas or Utah. Good restaurant options, university town vibe."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Rolling farmland isn't dramatic mountain scenery. The 'adventure' is internal—the mental battle of relentless hills and heat. The pirate theme adds character, but the landscape is endless corn and gravel."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "16-year history from grassroots to $100K prize purse. The 'World Championship' branding is bold but earned through longevity. Pirate sword trophies are iconic. Part of gravel's original DNA."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with checkpoint support, convenience store stops mapped, and proper timing. The 'gravel family' ethos means inclusive vibes. They celebrate last-place finishers with 40 bottles of champagne."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The pirate theme, the relentless rollers, the August heat survival—it creates memories. The 'DFL' celebration is unique. Finishing 150 miles of Nebraska hills in August heat is genuinely hard."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Peak grassroots gravel culture. 'Be Cool' is Rule #1. The pirate aesthetic, the inclusive spirit, the celebration of all finishers. This is what gravel community looks like."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The $100K purse (2025) draws serious pros. The 300-mile Long Voyage attracts ultra specialists. Age-group competition is strong with Midwest cycling clubs well-represented."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$195 for the 150mi is pricey but includes checkpoint support, finisher awards (pirate sword!), and a proper multi-day festival. The $100K purse justifies premium pricing."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Lincoln is affordable. Hotels are reasonable. Flights to LNK or OMA are manageable. Midwest pricing keeps costs down compared to coastal events."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Grassroots Championship",
+      "summary": "Gravel Worlds is gravel's original championship—born from pirate spirit, evolved into a $100K professional event while maintaining grassroots soul. The 150 miles of relentless Nebraska rollers in August heat is a genuine test. It's not the biggest or most scenic, but it's authentic gravel culture with real prize money and real suffering.",
+      "strengths": [
+        "$100K prize purse attracts legitimate pro field",
+        "16-year history and authentic grassroots culture",
+        "Relentless rolling terrain that's harder than it looks"
+      ],
+      "weaknesses": [
+        "August heat causes significant DNF rates",
+        "Nebraska farmland isn't scenic adventure",
+        "Smaller field than Unbound or SBT GRVL"
+      ],
+      "bottom_line": "If you want to earn a pirate sword and prove yourself on relentless rollers in brutal heat, Gravel Worlds delivers."
+    },
+
+    "black_pill": {
+      "title": "THE HILLS THAT NEVER STOP",
+      "reality": "Nebraska isn't flat. There are roughly 87 hills on the 150mi course—constant rollers that force repeated hard efforts with no recovery. One experienced racer said 'those hills were harder than Unbound' because there's never any flat to recover. You're doing intervals for 10+ hours. Add August heat indices over 100°F, and you understand why one-third DNF'd in 2024.",
+      "consequences": [
+        "Mid-race cutoffs at checkpoints—miss them and you're pulled",
+        "Convenience stores are your only resupply between checkpoints",
+        "Pea gravel sections can wash out wheels without warning"
+      ],
+      "expectation_reset": "This is not a 'cruise through Nebraska' day. The cumulative load of 87 hills plus August heat is savage. Train for repeated hard efforts, not steady state. Heat acclimate or suffer."
+    },
+
+    "final_verdict": {
+      "score": "72 / 100",
+      "one_liner": "The grassroots gravel championship—pirate swords, $100K purse, and 150 miles of relentless Nebraska rollers.",
+      "should_you_race": "Yes if you want authentic gravel culture with serious prize money. Yes if you handle heat well and like relentless terrain. Skip if you want scenic adventure or can't manage August heat.",
+      "alternatives": "Unbound 200 (bigger, more prestigious); SBT GRVL (better scenery, one week earlier); Crusher in the Tushar (hard climbing, July)"
+    },
+
+    "logistics": {
+      "airport": "LNK (Lincoln) - direct; OMA (Omaha) - 1hr drive",
+      "lodging_strategy": "Lincoln has plenty of hotels. University area has good options. Book reasonable lead time—not as crazy as Emporia. Downtown has restaurants and nightlife.",
+      "food": "Lincoln has good options—college town with diverse restaurants. Pre-race pasta dinners organized. Post-race party at the finish area.",
+      "packet_pickup": "Friday at the event venue. Multi-day festival format with events throughout the week.",
+      "parking": "Fallbrook area start/finish. Manageable parking for a city event.",
+      "official_site": "https://gravelworlds.com"
+    },
+
+    "history": {
+      "founded": 2008,
+      "founder": "Pirate Cycling League (Jason Sager, Cory Godfrey)",
+      "origin_story": "Started as an underground pirate-themed gravel adventure. Grew from ~100 riders to thousands. Evolved from grassroots to $100K pro prize purse while maintaining the inclusive 'gravel family' ethos and pirate aesthetics.",
+      "notable_moments": [
+        "2024: Brutal heat wave—33% DNF rate on 150mi",
+        "2025: $100K prize purse announced, elevating pro competition",
+        "The 'DFL' (Dead Freakin' Last) celebration with 40 bottles of champagne"
+      ],
+      "reputation": "The original grassroots gravel championship—where pirate spirit meets professional prize money."
+    },
+
+    "course_description": {
+      "character": "Relentless rolling hills through Nebraska farmland. You're either climbing or descending—there's no flat recovery. Gravel varies from smooth limestone to deep pea gravel. Minimum maintenance roads add uncertainty in wet conditions. The big sky and endless fields create a mental battle as much as physical.",
+      "suffering_zones": [
+        {"mile": 30, "label": "Early Rollers", "desc": "The pattern sets in—up, down, up, down. No flats. Your legs start accumulating fatigue."},
+        {"mile": 60, "label": "Checkpoint 1 Push", "desc": "Must make cutoff. Heat building. 60 miles of rollers in your legs. Mental games begin."},
+        {"mile": 100, "label": "Heat Peak", "desc": "Afternoon sun. Heat index over 100°F. Long headwind sections. This is where races are lost."},
+        {"mile": 130, "label": "Final Push", "desc": "20 miles left. Legs empty. Still rolling. The finish feels impossibly far."}
+      ],
+      "signature_challenge": "The relentless rollers—87 hills with no flat recovery. It's death by a thousand cuts in August Nebraska heat."
+    }
+  }
+}

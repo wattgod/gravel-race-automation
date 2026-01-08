@@ -1,0 +1,121 @@
+{
+    "raceId": "grinduro",
+    "name": "Grinduro",
+    "slug": "grinduro",
+    "location": {
+          "multiLocation": true,
+          "venues": [
+                  {
+                            "name": "Grinduro California",
+                            "city": "Quincy",
+                            "state": "California",
+                            "country": "USA",
+                            "venue": "Sierra-Plumas Fairgrounds, Mt. Hough",
+                            "month": "September",
+                            "typical": "September 11-14, 2025"
+                  },
+                  {
+                            "name": "Grinduro Scotland",
+                            "city": "Cairngorms",
+                            "country": "Scotland",
+                            "venue": "Cairngorms National Park",
+                            "month": "June-July",
+                            "typical": "Summer"
+                  },
+                  {
+                            "name": "Grinduro Japan",
+                            "city": "Minakami",
+                            "country": "Japan",
+                            "venue": "Minakami region",
+                            "month": "October",
+                            "typical": "Fall"
+                  }
+          ]
+    },
+    "organizer": {
+          "name": "Grinduro / Northern Consultancy",
+          "founded": 2015,
+          "founder": "Dain Zaffke",
+          "partners": ["Sierra Buttes Trail Stewardship (CA)", "Outsider Events (Scotland)", "Shimano (Japan)"],
+          "website": "https://www.grinduro.com/"
+    },
+    "distances": [
+          {
+                  "name": "Main Course",
+                  "distance": 60,
+                  "unit": "miles",
+                  "distanceKm": 100,
+                  "elevationGain": 6500,
+                  "elevationGainMeters": 1980,
+                  "category": "Main Event",
+                  "timedStages": 4,
+                  "description": "4 timed segments (5-15 min each) plus untimed transfer sections"
+          },
+          {
+                  "name": "Grindurito (Half)",
+                  "distance": 30,
+                  "unit": "miles",
+                  "distanceKm": 50,
+                  "elevationGain": 3200,
+                  "elevationGainMeters": 975,
+                  "category": "Beginner/Intermediate"
+          }
+    ],
+    "terrain": {
+          "surface": {
+                  "dirt": 70,
+                  "gravel": 20,
+                  "paved": 10
+          },
+          "technicalDifficulty": "Moderate-Hard",
+          "technicalRating": 7,
+          "description": "Mixed-terrain loop with gravel roads, doubletrack, MTB-style singletrack, and strategic pavement. Timed enduro segments feature technical descents and climbs."
+    },
+    "registration": {
+          "opens": "TBD - typically 6-8 months before",
+          "selloutPattern": "Sells out weeks-months in advance",
+          "cost": {
+                  "regular": 175,
+                  "currency": "USD"
+          }
+    },
+    "fieldSize": {
+          "participantCap": 800,
+          "typical": "600-800 per event"
+    },
+    "competition": {
+          "level": "Recreational to Competitive",
+          "format": "Timed stages - lowest cumulative time wins",
+          "prizeDepth": "Varies by location"
+    },
+    "weather": {
+          "california": {
+                  "tempHigh": 75,
+                  "tempLow": 45,
+                  "conditions": "Dry, sunny September weather"
+          },
+          "scotland": {
+                  "tempHigh": 65,
+                  "tempLow": 50,
+                  "conditions": "Variable, possible rain"
+          },
+          "japan": {
+                  "tempHigh": 68,
+                  "tempLow": 50,
+                  "conditions": "Cool fall conditions"
+          }
+    },
+    "uniqueCharacteristics": [
+          "Global series across 3 continents",
+          "Fusion of gravel grinding and MTB enduro",
+          "4 timed stages with untimed transfers",
+          "Festival atmosphere with camping",
+          "Mixed bike types welcome (gravel/MTB)",
+          "Founded the gravel-enduro format"
+    ],
+    "tier": 1,
+    "popularity": 80,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Good",
+    "sources": ["https://www.grinduro.com", "Perplexity research 2026-01-08"]
+}

@@ -1,0 +1,179 @@
+{
+  "race": {
+    "name": "USA CYCLING GRAVEL NATIONAL CHAMPIONSHIPS",
+    "slug": "usa-cycling-gravel-nationals",
+    "display_name": "USA Cycling Gravel Nationals",
+    "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
+
+    "vitals": {
+      "distance_mi": 131,
+      "elevation_ft": 7000,
+      "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+      "location_badge": "LA CRESCENT, MN",
+      "county": "Houston County, Minnesota",
+      "date": "September annually",
+      "date_specific": "2025: September 20; 2026: September 12",
+      "terrain_types": ["Champagne gravel", "Blufftop climbs", "Rolling farm roads", "Punchy Driftless terrain"],
+      "field_size": "~50-100+ per elite category; 42 national-title categories total",
+      "start_time": "Morning start",
+      "registration": "Open entry with USA Cycling racing membership required; no one-day licenses",
+      "prize_purse": "National Championship jersey; UCI Gravel Worlds automatic qualification for top finishers",
+      "aid_stations": "Course support provided",
+      "cutoff_time": "Category-specific"
+    },
+
+    "climate": {
+      "primary": "Crisp fall conditions—cool mornings, mild afternoons",
+      "description": "Mid-to-late September in the Driftless Region offers ideal racing weather. Morning temperatures in the 50s°F, afternoon highs in the upper 60s to low 70s°F. Generally dry conditions with occasional fresh gravel grading creating loose sections.",
+      "challenges": ["Cool morning start temperatures", "Variable precipitation affecting gravel conditions", "Fresh grading can create loose surfaces"]
+    },
+
+    "terrain": {
+      "primary": "Driftless 'champagne gravel' and punchy blufftop climbs",
+      "surface": "Predominantly gravel roads (~90%+). La Crescent features the Driftless Region's characteristic 'champagne gravel'—well-maintained but with frequent steep pitches. Multiple short climbs up to 1.3mi at 7.5% average, repeated 2mi climbs around 5%, and a final 1km climb averaging ~8%.",
+      "technical_rating": 3,
+      "features": ["Chicken Ridge climb", "Apple orchard section", "Gravel quarry descent", "Driftless blufftop terrain", "River valley views"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "course_profile": 19,
+      "biased_opinion": 25,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "tier_override_reason": "National championship status with UCI Worlds pathway elevates business relevance",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "131 miles for the elite distance puts this at the longer end of major gravel races. Long enough to test endurance, comparable to Unbound 200 in distance demands. Multiple distance options (88mi, 56mi, 25mi) serve different categories."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Driftless gravel is well-maintained 'champagne gravel' but the punchy climbs (10-15% gradients) add difficulty. Not technical singletrack, but the steep pitches and corrugated surfaces require skill. Mountain bike background helps on final technical kicker."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "6,000-8,000 ft of climbing across the course. La Crescent is described as 'hardest one we've had so far' with more climbing than Gering. Repeated short, steep efforts rather than long sustained climbs. The Driftless punches back."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "September in Minnesota is nearly ideal for racing. Crisp fall air, comfortable temperatures, low humidity. Weather is generally cooperative. Not a climate-challenged event."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Driftless Region is low elevation—no altitude considerations. River valley terrain means sea-level athletes face zero acclimatization challenges."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "La Crescent is accessible via La Crosse area airports and driving distance from Minneapolis/MSP. Regional infrastructure is solid. USA Cycling organization adds structure. Small-town setting requires some planning."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Driftless Region scenery is underrated—blufftop views, apple orchards, river valley terrain. The landscape is distinctly Midwestern but has genuine beauty. More pastoral than dramatic, but satisfying."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "This is THE national championship. The stars-and-stripes jersey means something. Winners get automatic UCI Gravel Worlds qualification. For American gravel racers, this is the domestic title that matters."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "USA Cycling runs a professional championship. Clear categories, proper timing, established rules. The organization knows how to execute national championships. Infrastructure and execution are solid."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Championship racing intensity—tactical, competitive, meaningful. The festival atmosphere is growing with parades and community involvement. But it's a nationals, not a destination adventure. The racing is the experience."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Growing gravel nationals community with regional partnerships (Explore La Crosse, BikeMN, Wisconsin Bike Fed). Still establishing its identity as a young event (est. 2023). Community will build as the event matures."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Open entry means varied field composition, but the elite categories attract legitimate national-level competition. Lauren Stephens, Brennan Wertz, Bradyn Lange among winners. The jersey draws quality."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry requires annual USA Cycling membership (not one-day license), which adds cost for casual participants. But for the national championship jersey and UCI Worlds pathway, the value proposition is clear for serious racers."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Midwest travel costs are reasonable. Regional airports accessible, lodging in La Crosse area is affordable. Not a budget-buster destination. Total trip cost is manageable."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Stars and Stripes",
+      "summary": "USA Cycling Gravel Nationals delivers what the name promises—a legitimate national championship with open entry and UCI Worlds qualification. The Driftless Region course is harder than it looks with punchy 10-15% climbs and 'champagne gravel' that gets loose when freshly graded. Young event (est. 2023) finding its identity, but the jersey means something.",
+      "strengths": [
+        "National championship with UCI Worlds pathway",
+        "Open entry—anyone with USA Cycling membership can race for stars and stripes",
+        "Growing festival atmosphere with regional community support"
+      ],
+      "weaknesses": [
+        "Young event still establishing reputation and course consistency",
+        "Venue has already moved (Gering to La Crescent) creating uncertainty",
+        "Midwest location lacks 'destination' appeal of coastal or mountain races"
+      ],
+      "bottom_line": "If you want a legitimate shot at a national championship jersey and UCI Worlds qualification, this is your open-entry pathway. Bring climbing legs for the Driftless."
+    },
+
+    "black_pill": {
+      "title": "THE PUNCHY DRIFTLESS REALITY",
+      "reality": "The Driftless Region looks gentle on paper but delivers relentless punchy climbs—10-15% gradients that hit repeatedly throughout the course. Winners describe it as 'survival' and 'going all out.' The corrugated gravel surfaces punish poor tire choice, and the final technical kicker rewards mountain bike skills.",
+      "consequences": [
+        "Wider tires trending (2.10-2.4\" / 53-61mm becoming common)",
+        "Robust gearing essential for repeated steep pitches",
+        "Fatigue accumulates through relentless short climbs"
+      ],
+      "expectation_reset": "Don't underestimate Midwest gravel. The Driftless has teeth. Lauren Stephens called it 'the hardest one we've had so far.' Prepare for punchy suffering, not smooth rolling."
+    },
+
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "The national championship with open entry—stars and stripes on Driftless gravel with UCI Worlds pathway.",
+      "should_you_race": "Yes if you want a legitimate national championship jersey and Worlds qualification. Yes if you appreciate accessible championship racing. Skip if you want destination adventure over competitive credentialing.",
+      "alternatives": "Gravel Worlds (different title, Nebraska); SBT GRVL (similar region, different vibe); Unbound 200 (bigger field, Kansas gravel)"
+    },
+
+    "logistics": {
+      "airport": "LSE (La Crosse Regional) - closest; MSP (Minneapolis-St Paul) - 2.5hr drive; ORD (Chicago) - 4hr drive",
+      "lodging_strategy": "La Crosse, WI area has good hotel options. La Crescent is small—book early for race weekend. Regional tourism partnerships may offer race-specific deals.",
+      "food": "La Crosse has solid dining options. La Crescent is small but race festival adds food options.",
+      "packet_pickup": "Pre-race with bike check and registration verification",
+      "parking": "Event parking at start/finish area",
+      "official_site": "https://usacycling.org/gravel"
+    },
+
+    "history": {
+      "founded": 2023,
+      "founder": "USA Cycling",
+      "origin_story": "USA Cycling established Gravel Nationals in 2023 at Gering, Nebraska, adding gravel to its championship portfolio. The event moved to La Crescent, Minnesota for 2025-26 to showcase Driftless Region terrain. Part of USA Cycling's effort to legitimize gravel racing at the national level.",
+      "notable_moments": [
+        "2023: Inaugural championship at Gering, Nebraska",
+        "2024: Lauren Stephens and Brennan Wertz elite winners",
+        "2025: Move to La Crescent/Driftless Region with harder climbing course"
+      ],
+      "reputation": "Young but legitimate—the official path to stars-and-stripes jersey and UCI Gravel Worlds qualification."
+    },
+
+    "course_description": {
+      "character": "Driftless Region 'champagne gravel' with punchy blufftop climbs. The terrain looks Midwestern-gentle but delivers relentless 10-15% gradients throughout. Apple orchards, gravel quarries, and river valley views provide scenery between efforts.",
+      "suffering_zones": [
+        {"mile": 30, "label": "First Driftless Climbs", "desc": "The punchy nature reveals itself—short, steep pitches that accumulate fatigue early."},
+        {"mile": 65, "label": "Chicken Ridge", "desc": "Signature climb with steep gradients. Where the racing shapes up and legs start to feel it."},
+        {"mile": 100, "label": "Accumulated Fatigue", "desc": "The repeated climbs compound. What felt punchy early now feels brutal with 100 miles in the legs."},
+        {"mile": 125, "label": "Final Technical Kicker", "desc": "1km climb averaging ~8%. Mountain bike skills matter. Where elite races are decided."}
+      ],
+      "signature_challenge": "The relentless punchy climbs—not big sustained efforts, but repeated 10-15% gradients that accumulate suffering throughout the championship distance."
+    }
+  }
+}

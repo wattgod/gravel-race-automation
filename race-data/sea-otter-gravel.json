@@ -1,0 +1,332 @@
+{
+    "raceId": "sea-otter-gravel",
+    "name": "Sea Otter Gravel",
+    "officialName": "Life Time Sea Otter Classic Gravel Race",
+    "slug": "sea-otter-gravel",
+    "location": {
+          "city": "Monterey",
+          "state": "California",
+          "country": "USA",
+          "region": "West Coast",
+          "venue": "WeatherTech Raceway Laguna Seca, Fort Ord National Monument",
+          "address": "1025 Monterey-Salinas Highway, Monterey County, CA",
+          "nearestMajorCity": "San Jose, CA (75-80 miles)",
+          "coordinates": {
+                  "lat": 36.5844,
+                  "lon": -121.7517
+          }
+    },
+    "date": {
+          "month": "April",
+          "typical": "Early-Mid April",
+          "year2025": "April 10-13, 2025",
+          "raceDay2025": "April 10, 2025 (Thursday)",
+          "dayOfWeek": "Thursday (Elite), Saturday (Amateur)",
+          "season": "Spring"
+    },
+    "organizer": {
+          "name": "Life Time, Inc.",
+          "founded": 1991,
+          "director": "Frank Yohannan",
+          "website": "https://www.seaotterclassic.com/",
+          "contact": "info@seaotterclassic.com",
+          "history": "Founded as Laguna Seca Challenge in 1991 by Frank Yohannan and Lou Rudolph. Renamed Sea Otter Classic in 1993. Purchased by Life Time, Inc. in 2021. Gravel race added in 2023 and became Life Time Grand Prix opener in 2025."
+    },
+    "distances": [
+          {
+                  "name": "Elite LTGP (3 Laps)",
+                  "distance": 88.8,
+                  "unit": "miles",
+                  "distanceKm": 143.1,
+                  "elevationGain": 8157,
+                  "elevationGainMeters": 2487,
+                  "category": "Elite",
+                  "cutoffTime": null,
+                  "laps": 3
+          },
+          {
+                  "name": "90-Mile (3 Laps)",
+                  "distance": 90,
+                  "unit": "miles",
+                  "distanceKm": 145,
+                  "elevationGain": 8200,
+                  "elevationGainMeters": 2500,
+                  "category": "Advanced",
+                  "cutoffTime": null,
+                  "laps": 3
+          },
+          {
+                  "name": "60-Mile (2 Laps)",
+                  "distance": 60,
+                  "unit": "miles",
+                  "distanceKm": 97,
+                  "elevationGain": 5438,
+                  "elevationGainMeters": 1658,
+                  "category": "Intermediate",
+                  "cutoffTime": null,
+                  "laps": 2
+          },
+          {
+                  "name": "30-Mile (1 Lap)",
+                  "distance": 29.6,
+                  "unit": "miles",
+                  "distanceKm": 47.7,
+                  "elevationGain": 2719,
+                  "elevationGainMeters": 829,
+                  "category": "Beginner",
+                  "cutoffTime": null,
+                  "laps": 1
+          }
+    ],
+    "terrain": {
+          "surface": {
+                  "gravel": 50,
+                  "dirt": 30,
+                  "singletrack": 15,
+                  "paved": 5
+          },
+          "technicalDifficulty": "Moderate",
+          "technicalRating": 6,
+          "description": "Rolling coastal hills with mix of hardpack fire roads, flowy singletrack, and strategic paved connectors. Sandy climbs and loose descents create technical challenges without extreme rock gardens.",
+          "features": [
+                  "Fort Ord National Monument terrain",
+                  "Pilarcitos Canyon Road",
+                  "Skyline Road fire roads",
+                  "Laguna Seca raceway start/finish",
+                  "Chaparral ridges and canyons",
+                  "Sandy climbs and loose corners"
+          ],
+          "maximumElevation": 1000,
+          "minimumElevation": 150,
+          "climbingDensity": "Moderate - 92 ft/mile"
+    },
+    "registration": {
+          "opens": "TBD - typically Fall prior year",
+          "closes": "Race week or when full",
+          "cost": {
+                  "early": null,
+                  "regular": 150,
+                  "late": 175,
+                  "currency": "USD"
+          },
+          "eliteQualification": "Life Time Grand Prix vetted pros only - by invitation",
+          "lottery": false,
+          "selloutPattern": "Moderate - fills weeks before race",
+          "url": "https://www.seaotterclassic.com/register"
+    },
+    "fieldSize": {
+          "participantCap": null,
+          "eliteField": 70,
+          "eliteMen": 35,
+          "eliteWomen": 35,
+          "totalFinishers2024": null,
+          "dnfRate": "~5-10%"
+    },
+    "competition": {
+          "level": "Elite Pro to Recreational",
+          "elitePrize": {
+                  "1st": 5000,
+                  "2nd": 4000,
+                  "3rd": 3000,
+                  "4th": 2000,
+                  "5th": 1000,
+                  "currency": "USD",
+                  "depth": 5
+          },
+          "seriesPoints": "Life Time Grand Prix series opener",
+          "qualification": "Elite: LTGP roster only. Amateur: Open registration"
+    },
+    "seriesAffiliation": {
+          "series": ["Life Time Grand Prix"],
+          "isPrimaryEvent": true,
+          "isQualifier": false,
+          "points": "LTGP Series Points"
+    },
+    "weather": {
+          "typical": {
+                  "tempHigh": 70,
+                  "tempLow": 50,
+                  "unit": "°F",
+                  "conditions": "Cool mornings, mild afternoons, marine layer fog possible",
+                  "precipitation": "Low - 10% chance",
+                  "wind": "Moderate coastal breeze common"
+          },
+          "challenges": [
+                  "Morning fog and cool temps (40s-50s°F)",
+                  "Afternoon coastal winds",
+                  "Sandy terrain when dry",
+                  "Dust in mass-start fields",
+                  "Occasional late-season rain"
+          ]
+    },
+    "uniqueCharacteristics": [
+          "Only gravel race embedded in world's largest cycling festival",
+          "Life Time Grand Prix season opener (2025+)",
+          "Lap-based format allows multiple spectator passes",
+          "Mix of gravel and MTB-suitable course",
+          "Sea Otter Classic Expo and demo bikes on-site",
+          "Fort Ord National Monument scenic setting",
+          "Fast, gritty, dynamic racing style",
+          "Tactical feed zone strategy with 3 zones per lap"
+    ],
+    "logistics": {
+          "lodging": {
+                  "onSiteCamping": true,
+                  "campingDetails": "Terrace camping and RV sites at Laguna Seca",
+                  "nearbyHotels": "Monterey and Salinas hotel options",
+                  "recommendations": ["Monterey hotels", "Salinas hotels", "On-site camping at raceway"]
+          },
+          "packetPickup": {
+                  "location": "Hospitality Pavilion at Laguna Seca",
+                  "times": ["Wednesday 12:00-18:00", "Thursday 6:00-18:00"],
+                  "coursePreRide": "Wednesday 12:00-17:00 (race number required)"
+          },
+          "startTimes": {
+                  "eliteMen": "10:30 AM (call-ups 10:23)",
+                  "eliteWomen": "10:50 AM (call-ups 10:43)",
+                  "amateur": "7:45 AM (typical)"
+          },
+          "aidStations": {
+                  "count": 3,
+                  "details": [
+                            {
+                                        "station": 1,
+                                        "location": "Mile 7.5 / 13.5 km",
+                                        "services": ["Water", "Nutrition", "First Aid", "Toilets"],
+                                        "access": "Bike/foot only via BLM gate"
+                            },
+                            {
+                                        "station": 2,
+                                        "location": "Mile 22.3 / 36.1 km",
+                                        "services": ["Water", "Nutrition", "First Aid", "Toilets"],
+                                        "access": "Bike/foot only"
+                            },
+                            {
+                                        "station": 3,
+                                        "location": "Start/Finish - Track",
+                                        "services": ["Feed zone", "Mechanical support", "Wheel changes", "Drop bags"],
+                                        "access": "Full vehicle access"
+                            }
+                  ],
+                  "nutritionPartner": "Neversecond gels and water"
+          },
+          "parking": "On-site at WeatherTech Raceway Laguna Seca",
+          "shuttles": "Not required - on-site event"
+    },
+    "course": {
+          "style": "Lap-based repeating loop",
+          "lapDistance": 29.6,
+          "lapDistanceKm": 47.7,
+          "lapElevation": 2719,
+          "startLocation": "Sea Otter Classic Bridge at Laguna Seca",
+          "finishLocation": "Sea Otter Classic Bridge at Laguna Seca",
+          "keyClimbs": [
+                  {
+                            "name": "Early Climb from Start",
+                            "distance": 0.6,
+                            "gain": 162,
+                            "gradient": 3.2,
+                            "location": "Mile 0-0.6"
+                  },
+                  {
+                            "name": "Main Punchy Climb",
+                            "distance": 1.3,
+                            "gain": 409,
+                            "gradient": 6.0,
+                            "location": "Mid-lap"
+                  },
+                  {
+                            "name": "Additional Rise",
+                            "distance": 0.7,
+                            "gain": 121,
+                            "gradient": 2.9,
+                            "location": "Later in lap"
+                  }
+          ],
+          "keyDescents": [
+                  {
+                            "name": "Long Fire Road Descent",
+                            "distance": 4.5,
+                            "drop": 910,
+                            "gradient": -2.8
+                  },
+                  {
+                            "name": "Steep Technical Descent",
+                            "distance": 1.4,
+                            "drop": 295,
+                            "gradient": -4.0
+                  },
+                  {
+                            "name": "Rolling Descent",
+                            "distance": 1.5,
+                            "drop": 325,
+                            "gradient": -2.4
+                  }
+          ],
+          "routeMarkings": "Well-marked with course tape and signage",
+          "gpxAvailable": true
+    },
+    "equipment": {
+          "recommended": {
+                  "bike": "Gravel bike or hardtail MTB",
+                  "tires": "40-42mm gravel tires (or wider for MTB)",
+                  "gearing": "1x with wide range cassette recommended"
+          },
+          "prohibited": ["Aero bars", "Recumbents", "E-bikes", "Headphones"],
+          "rules": "Must finish on same frame and fork started with"
+    },
+    "reputation": {
+          "difficulty": "Moderate-Hard",
+          "scenicRating": 8,
+          "organizationRating": 9,
+          "atmosphere": "High-energy festival atmosphere with pro racing",
+          "knownFor": [
+                  "Life Time Grand Prix opener",
+                  "Embedded in Sea Otter Classic festival",
+                  "Fast and tactical lap-based racing",
+                  "Mix of gravel and singletrack",
+                  "Fort Ord scenic terrain",
+                  "Professional field quality"
+          ]
+    },
+    "historical": {
+          "firstYear": 2023,
+          "yearlyChanges": {
+                  "2023": "Inaugural 'La Gravilla' - 60 miles, 7000ft gain, 2-lap format",
+                  "2024": "Shortened to 50 miles, 5600ft, better received format",
+                  "2025": "New 29.6-mile loop, became LTGP opener, elite 3-lap race"
+          },
+          "notable": "Replaced Fuego XL as LTGP opener in 2025"
+    },
+    "social": {
+          "hashtags": ["#SeaOtterClassic", "#SeaOtterGravel", "#LTGP", "#FortOrd"],
+          "instagram": "@seaotterclassic",
+          "facebook": "SeaOtterClassic",
+          "strava": "Sea Otter Gravel"
+    },
+    "trainingRecommendations": {
+          "focusAreas": ["Repeated climbing efforts", "High-intensity intervals", "Technical handling", "Sand riding"],
+          "weeklyMileage": "250-350 miles for elite, 150-250 for amateur",
+          "keyWorkouts": [
+                  "3x20min threshold intervals",
+                  "Hill repeats 4-6 minutes",
+                  "Technical skills practice",
+                  "Race-pace efforts on mixed terrain"
+          ],
+          "peakForm": "4-6 weeks before race"
+    },
+    "nutrition": {
+          "onCourse": "3 aid stations per lap with water and Neversecond gels",
+          "recommended": "60-90g carbs/hour for elite efforts",
+          "strategy": "Feed zone accessible every ~30 minutes on 3-lap race"
+    },
+    "tier": 1,
+    "popularity": 85,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "High",
+    "sources": [
+          "https://www.seaotterclassic.com",
+          "https://www.lifetimegrandprix.com",
+          "Perplexity research 2026-01-08"
+    ]
+}

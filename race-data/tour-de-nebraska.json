@@ -1,0 +1,48 @@
+{
+    "raceId": "tour-de-nebraska",
+    "name": "Tour de Nebraska",
+    "slug": "tour-de-nebraska",
+    "location": {
+          "city": "Various Nebraska Towns",
+          "state": "Nebraska",
+          "country": "USA",
+          "region": "Great Plains"
+    },
+    "date": {
+          "month": "June",
+          "typical": "late June",
+          "season": "Summer",
+          "year2026": "June 2026"
+    },
+    "organizer": {
+          "name": "Tour de Nebraska",
+          "website": "https://www.tourdenebraska.com/"
+    },
+    "distances": [
+          {
+                  "name": "3-Day Tour",
+                  "distance": "240+ miles total",
+                  "elevationGain": "Variable",
+                  "description": "Multi-day supported gravel tour across Nebraska - approximately 80 miles per day"
+          }
+    ],
+    "terrain": "Classic Great Plains gravel roads - rolling prairie, farmland, rural roads with long straightaways",
+    "registration": "Limited to 250 riders, opens winter/spring",
+    "weather": "Nebraska summer - hot temperatures (80s-90s°F), potential for wind, afternoon thunderstorms possible",
+    "uniqueCharacteristics": [
+          "Multi-day supported gravel tour (3 days)",
+          "Small intimate field limited to 250 riders",
+          "Fully supported with SAG vehicles and meals",
+          "Overnight camping or lodging in small Nebraska towns",
+          "Showcases rural Nebraska communities and hospitality",
+          "Non-competitive tour format emphasizing camaraderie",
+          "Route changes annually to feature different regions",
+          "Great Plains scenery with big sky views",
+          "Community dinners and evening social events"
+    ],
+    "seriesAffiliation": "Independent",
+    "tier": "Regional",
+    "popularity": "Medium - cult favorite intimate tour",
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

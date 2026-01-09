@@ -1,0 +1,23 @@
+{
+    "raceId": "mid-south",
+    "name": "Mid South",
+    "slug": "mid-south",
+    "location": {"city": "Stillwater", "state": "Oklahoma", "country": "USA", "region": "Cross Timbers"},
+    "date": {"month": "March", "typical": "Mid-March", "season": "Spring", "specific": "2026-03-13 to 2026-03-14"},
+    "organizer": {"name": "All Bodies on Bikes", "website": "https://www.midsouthgravel.com/"},
+    "distances": [
+          {"name": "100-Mile Gravel", "distance": 100, "unit": "miles", "distanceKm": 161, "elevationGain": 5500, "elevationGainMeters": 1676, "category": "Extreme", "description": "Typically 5,000-6,000 ft total gain via repeated short punchy climbs"},
+          {"name": "50-Mile Gravel", "distance": 56, "unit": "miles", "distanceKm": 90, "elevationGain": 2500, "elevationGainMeters": 762, "category": "Advanced", "description": "Often slightly long, GPS shows ~56 miles with rolling terrain"},
+          {"name": "12-Mile Gravel", "distance": 12, "unit": "miles", "distanceKm": 19, "elevationGain": 500, "elevationGainMeters": 152, "category": "Beginner"},
+          {"name": "Double Ultra", "distance": 150, "unit": "miles", "distanceKm": 241, "elevationGain": 8000, "elevationGainMeters": 2438, "category": "Ultra", "description": "50k run plus 100-mile ride combination"}
+    ],
+    "terrain": {"surface": {"gravel": 80, "dirt": 15, "paved": 5}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Continuous rolling terrain with frequent short, punchy climbs rather than big ascents, consistent with Cross Timbers topography"},
+    "registration": {"cost": {"regular": 200, "currency": "USD"}, "website": "https://www.midsouthgravel.com/"},
+    "weather": {"typical": {"tempHigh": 65, "tempLow": 40, "unit": "°F", "conditions": "Spring Oklahoma weather, variable conditions possible"}},
+    "uniqueCharacteristics": ["Festival atmosphere March 12-15", "New pro-format 100-mile race Friday March 13", "Amateur racing weekend format", "Formerly known as 'Dirty Kanza' founder's Oklahoma event", "All Bodies on Bikes inclusive ethos", "Cross Timbers rolling gravel terrain", "Mega Mid South bikepacking ultra (300-301 miles, 15,500-18,000 ft) as separate related event"],
+    "notes": "NOT included in 2026 Life Time Grand Prix points schedule",
+    "tier": 1,
+    "popularity": 85,
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

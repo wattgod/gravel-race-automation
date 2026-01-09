@@ -1,20 +1,21 @@
 {
-    "raceId": "whiskey-off-road",
-    "name": "Whiskey Off-Road",
-    "slug": "whiskey-off-road",
-    "location": {"city": "Prescott", "state": "Arizona", "country": "USA"},
-    "date": {"month": "April", "typical": "Late April", "season": "Spring"},
-    "organizer": {"name": "Epic Rides", "website": "https://www.epicrides.com/"},
-    "distances": [
-          {"name": "50 Mile Gravel", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 4500, "elevationGainMeters": 1372, "category": "Advanced"},
-          {"name": "30 Mile Gravel", "distance": 30, "unit": "miles", "distanceKm": 48, "elevationGain": 2700, "elevationGainMeters": 823, "category": "Intermediate"}
-    ],
-    "terrain": {"surface": {"gravel": 55, "dirt": 35, "paved": 10}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Prescott National Forest terrain with pine forests and high desert"},
-    "registration": {"cost": {"regular": 120, "currency": "USD"}},
-    "weather": {"typical": {"tempHigh": 70, "tempLow": 45, "unit": "°F", "conditions": "Spring high desert conditions"}},
-    "uniqueCharacteristics": ["Epic Rides series event", "Prescott National Forest", "Festival atmosphere with beer garden", "High desert pine forest terrain"],
-    "tier": 2,
-    "popularity": 75,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Moderate"
+      "raceId": "ouray-gravel-grinder",
+      "name": "Ouray Gravel Grinder",
+      "slug": "ouray-gravel-grinder",
+      "location": {"city": "Ouray", "state": "Colorado", "country": "USA"},
+      "date": {"month": "September", "typical": "Early September", "season": "Fall"},
+      "organizer": {"name": "Local/Undocumented"},
+      "distances": [
+              {"name": "Alpine Loop", "distance": 80, "unit": "miles", "distanceKm": 129, "elevationGain": 7800, "elevationGainMeters": 2377, "category": "Extreme", "description": "High elevation loop topping 12,000+ ft"},
+              {"name": "Black Bear Pass", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 5000, "elevationGainMeters": 1524, "category": "Advanced", "description": "Classic San Juan jeep road"}
+      ],
+      "terrain": {"surface": {"gravel": 50, "jeepRoad": 40, "paved": 10}, "technicalDifficulty": "Extreme", "technicalRating": 9, "description": "Extreme high-altitude San Juan Mountain passes on jeep roads, topping above 12,000 ft"},
+      "registration": {"cost": {"regular": 150, "currency": "USD"}},
+      "weather": {"typical": {"tempHigh": 65, "tempLow": 35, "unit": "°F", "conditions": "High altitude mountain weather, possible snow at elevation"}},
+      "uniqueCharacteristics": ["Extreme elevation gain", "High altitude mountain passes (12,000+ ft)", "Switzerland of America terrain", "Alpine Loop and Black Bear Pass routes", "San Juan Mountains"],
+      "tier": 3,
+      "popularity": 40,
+      "lastUpdated": "2026-01-09",
+      "dataQuality": "Low",
+      "notes": "No clearly documented recurring 'Ouray Gravel Grinder' event with fixed distances and pricing for 2025-2026. Event may be local, small-scale, or not yet documented. Data based on known high-elevation gravel/jeep routes in Ouray area (Alpine Loop, Black Bear Pass)."
 }

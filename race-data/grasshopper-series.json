@@ -1,0 +1,53 @@
+{
+    "raceId": "grasshopper-series",
+    "name": "Grasshopper Adventure Series",
+    "slug": "grasshopper-series",
+    "location": {
+          "city": "Multiple Locations",
+          "state": "California, Oregon, Colorado",
+          "country": "USA",
+          "region": "Western United States"
+    },
+    "date": {
+          "month": "Various",
+          "typical": "April through September",
+          "season": "Spring through Fall",
+          "year2026": "Multiple dates 2026"
+    },
+    "organizer": {
+          "name": "Grasshopper Adventure Series",
+          "website": "https://grasshopperadventureseries.com/"
+    },
+    "distances": [
+          {
+                  "name": "Long Course",
+                  "distance": "60-80 miles",
+                  "elevationGain": "4,000-8,000 feet",
+                  "description": "Challenging distance varies by location with significant climbing"
+          },
+          {
+                  "name": "Short Course",
+                  "distance": "30-40 miles",
+                  "elevationGain": "2,000-4,000 feet",
+                  "description": "Accessible distance for intermediate riders"
+          }
+    ],
+    "terrain": "Varies by location - mountain trails, forest roads, high-altitude gravel, coastal routes depending on venue",
+    "registration": "Series registration or individual event entry available",
+    "weather": "Varies significantly by location and season - from coastal fog to high-altitude mountain conditions",
+    "uniqueCharacteristics": [
+          "Multi-event series across Western US states",
+          "Each event features unique regional terrain",
+          "Points series for overall championship",
+          "Welcoming community atmosphere",
+          "Well-supported events with aid stations",
+          "Beautiful scenic locations throughout the West",
+          "Accessible to wide range of abilities",
+          "Post-race celebrations at each venue"
+    ],
+    "seriesAffiliation": "Grasshopper Adventure Series",
+    "tier": "Regional",
+    "popularity": "High - popular Western US series",
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

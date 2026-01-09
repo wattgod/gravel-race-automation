@@ -1,0 +1,22 @@
+{
+    "raceId": "rad-dirt-fest",
+    "name": "The Rad Dirt Fest",
+    "slug": "rad-dirt-fest",
+    "location": {"city": "Trinidad", "state": "Colorado", "country": "USA"},
+    "date": {"month": "September", "typical": "Late September", "season": "Fall", "specific": "2025-09-27"},
+    "organizer": {"name": "The Rad Dirt Fest", "website": "theraddirtfest.com"},
+    "distances": [
+          {"name": "Stubborn Delores", "distance": 113, "unit": "miles", "distanceKm": 182, "elevationGain": 10613, "elevationGainMeters": 3234, "category": "Extreme", "maxElevation": 8900},
+          {"name": "Anteloop", "distance": 70, "unit": "miles", "distanceKm": 113, "elevationGain": 5000, "elevationGainMeters": 1524, "category": "Advanced", "description": "Substantial climbing over rolling, high-plains and mountain-view terrain"},
+          {"name": "Frijole", "distance": 47.2, "unit": "miles", "distanceKm": 76, "elevationGain": 4540, "elevationGainMeters": 1384, "category": "Intermediate", "maxElevation": 7221}
+    ],
+    "terrain": {"surface": {"gravel": 90, "dirt": 5, "paved": 5}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Mostly maintained gravel roads with ~2-mile technical section on South Shore Trail in Trinidad Lake State Park"},
+    "registration": {"cost": {"regular": 350, "currency": "USD"}, "website": "theraddirtfest.com"},
+    "weather": {"typical": {"tempHigh": 75, "tempLow": 45, "unit": "°F", "conditions": "High plains fall weather, sunny and cool"}},
+    "uniqueCharacteristics": ["UNBOUND Gravel qualifier", "Spanish Peaks and mesas terrain", "Start/finish downtown Trinidad (218 W Main St)", "Three gravel routes over maintained roads", "High plains Colorado setting"],
+    "seriesAffiliation": {"series": ["UNBOUND Gravel Qualifier"]},
+    "tier": 2,
+    "popularity": 55,
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

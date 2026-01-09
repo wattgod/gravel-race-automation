@@ -1,0 +1,20 @@
+{
+    "raceId": "ouray-gravel-grinder",
+    "name": "Ouray Gravel Grinder",
+    "slug": "ouray-gravel-grinder",
+    "location": {"city": "Ouray", "state": "Colorado", "country": "USA"},
+    "date": {"month": "September", "typical": "Early September", "season": "Fall"},
+    "organizer": {"name": "Ouray Gravel Grinder"},
+    "distances": [
+          {"name": "Mega", "distance": 100, "unit": "miles", "distanceKm": 161, "elevationGain": 14000, "elevationGainMeters": 4267, "category": "Extreme"},
+          {"name": "Long", "distance": 70, "unit": "miles", "distanceKm": 113, "elevationGain": 9000, "elevationGainMeters": 2743, "category": "Advanced"}
+    ],
+    "terrain": {"surface": {"gravel": 70, "dirt": 25, "paved": 5}, "technicalDifficulty": "Extreme", "technicalRating": 9, "description": "Extreme high-altitude Colorado mountain passes with massive elevation gain"},
+    "registration": {"cost": {"regular": 150, "currency": "USD"}},
+    "weather": {"typical": {"tempHigh": 65, "tempLow": 35, "unit": "°F", "conditions": "High altitude mountain weather, possible snow"}},
+    "uniqueCharacteristics": ["Extreme elevation gain", "High altitude mountain passes (10000+ ft)", "Switzerland of America terrain", "One of hardest US gravel races", "Spectacular San Juan Mountains"],
+    "tier": 1,
+    "popularity": 70,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Moderate"
+}

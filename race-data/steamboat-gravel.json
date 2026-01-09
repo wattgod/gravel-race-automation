@@ -1,52 +1,54 @@
 {
-    "raceId": "steamboat-gravel",
-    "name": "Steamboat Gravel",
-    "slug": "steamboat-gravel",
-    "location": {
-          "city": "Steamboat Springs",
-          "state": "Colorado",
-          "country": "USA",
-          "region": "Northern Colorado Rockies"
-    },
-    "date": {
-          "month": "June",
-          "typical": "mid to late June",
-          "season": "Summer",
-          "year2026": "June 2026"
-    },
-    "organizer": {
-          "name": "Rockville Bike",
-          "website": "https://steamboatgravel.com/"
-    },
-    "distances": [
-          {
-                  "name": "144K",
-                  "distance": "90 miles",
-                  "elevationGain": "8,500+ feet",
-                  "description": "Long course with sustained high-altitude climbing through ranch land and national forest"
-          },
-          {
-                  "name": "72K",
-                  "distance": "45 miles",
-                  "elevationGain": "4,500+ feet",
-                  "description": "Half-distance option with significant climbing in beautiful mountain setting"
-          }
-    ],
-    "terrain": "High-altitude mountain gravel roads, ranch roads, and forest service roads with sustained climbing in the Yampa Valley",
-    "registration": "Opens winter/spring, typically sells out",
-    "weather": "High-altitude mountain summer weather - cool mornings, warm afternoons, potential afternoon thunderstorms",
-    "uniqueCharacteristics": [
-          "High-altitude racing at 6,700+ feet elevation",
-          "Spectacular Rocky Mountain scenery through working ranch land",
-          "Challenging sustained climbs on remote mountain roads",
-          "Known for beautiful wildflower-covered valleys in June",
-          "Small-town Colorado mountain community atmosphere",
-          "Post-race celebration in historic Steamboat Springs",
-          "Course features mix of ranch roads and national forest routes"
-    ],
-    "seriesAffiliation": "Independent",
-    "tier": "Regional",
-    "popularity": "High - popular Colorado mountain gravel event",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+      "raceId": "steamboat-gravel",
+      "name": "Steamboat Gravel",
+      "slug": "steamboat-gravel",
+      "location": {
+              "city": "Steamboat Springs",
+              "state": "Colorado",
+              "country": "USA",
+              "region": "Northern Colorado Rockies",
+              "elevation": "6,700 feet"
+      },
+      "date": {
+              "month": "June",
+              "typical": "mid to late June",
+              "season": "Summer",
+              "year2026": "June 20, 2026"
+      },
+      "organizer": {
+              "name": "Rockville Bike",
+              "website": "https://steamboatgravel.com/"
+      },
+      "distances": [
+              {
+                        "name": "144K",
+                        "distance": "90 miles",
+                        "elevationGain": "8,500+ feet",
+                        "description": "Long course with sustained high-altitude climbing through ranch land and national forest"
+              },
+              {
+                        "name": "72K",
+                        "distance": "45 miles",
+                        "elevationGain": "4,500+ feet",
+                        "description": "Half-distance option with significant climbing in beautiful mountain setting"
+              }
+      ],
+      "terrain": "High-altitude mountain gravel roads, ranch roads, and forest service roads with sustained climbing in the Yampa Valley",
+      "registration": "Opens winter/spring, typically sells out",
+      "weather": "High-altitude mountain summer weather - cool mornings (40s-50s°F), warm afternoons (70s-80s°F), potential afternoon thunderstorms",
+      "uniqueCharacteristics": [
+              "High-altitude racing at 6,700+ feet elevation",
+              "Spectacular Rocky Mountain scenery through working ranch land",
+              "Challenging sustained climbs on remote mountain roads",
+              "Known for beautiful wildflower-covered valleys in June",
+              "Small-town Colorado mountain community atmosphere",
+              "Post-race celebration in historic Steamboat Springs",
+              "Course features mix of ranch roads and national forest routes",
+              "Challenging altitude and climbing for non-Colorado riders"
+      ],
+      "seriesAffiliation": "Independent",
+      "tier": "Regional",
+      "popularity": "High - popular Colorado mountain gravel event",
+      "lastUpdated": "2026-01-09",
+      "dataQuality": "High"
 }

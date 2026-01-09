@@ -1,0 +1,54 @@
+{
+    "raceId": "gravel-roubaix",
+    "name": "Gravel Roubaix",
+    "slug": "gravel-roubaix",
+    "location": {
+          "city": "Palmerton",
+          "state": "Pennsylvania",
+          "country": "USA",
+          "region": "Pocono Mountains"
+    },
+    "date": {
+          "month": "April",
+          "typical": "late April",
+          "season": "Spring",
+          "year2026": "April 26, 2026"
+    },
+    "organizer": {
+          "name": "Gravel Roubaix",
+          "website": "https://www.gravelroubaix.com/"
+    },
+    "distances": [
+          {
+                  "name": "100 Mile",
+                  "distance": "100 miles",
+                  "elevationGain": "8,000+ feet",
+                  "description": "Extremely challenging course through Pocono Mountains with relentless climbing"
+          },
+          {
+                  "name": "50 Mile",
+                  "distance": "50 miles",
+                  "elevationGain": "4,000+ feet",
+                  "description": "Half distance with substantial climbing in mountainous terrain"
+          }
+    ],
+    "terrain": "Pocono Mountain gravel roads - steep sustained climbs, technical rocky descents, remote forest roads",
+    "registration": "Opens winter, sells out quickly",
+    "weather": "Unpredictable spring mountain weather - temperatures 40s-60s°F, potential for rain, cold, or mud",
+    "uniqueCharacteristics": [
+          "One of the toughest gravel races in the Eastern US",
+          "8,000+ feet of climbing in 100 miles is exceptionally challenging",
+          "Steep Pocono Mountain terrain with 10-15% grades",
+          "Technical rocky descents require bike handling skills",
+          "Named after Paris-Roubaix for its brutal difficulty",
+          "Beautiful but demanding mountain scenery",
+          "Spring conditions can include mud and cold",
+          "Post-race at Blue Mountain Brewery",
+          "Reputation as a 'suffer fest' among gravel racers"
+    ],
+    "seriesAffiliation": "Independent",
+    "tier": "Regional",
+    "popularity": "High - known as one of toughest East Coast races",
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

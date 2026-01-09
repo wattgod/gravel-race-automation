@@ -1,52 +1,54 @@
 {
-    "raceId": "bwr-north-carolina",
-    "name": "Belgian Waffle Ride North Carolina",
-    "slug": "bwr-north-carolina",
-    "location": {
-          "city": "Asheville area",
-          "state": "North Carolina",
-          "country": "USA",
-          "region": "Western North Carolina"
-    },
-    "date": {
-          "month": "May",
-          "typical": "May",
-          "season": "Spring",
-          "year2026": "May 2026"
-    },
-    "organizer": {
-          "name": "Belgian Waffle Ride",
-          "website": "https://belgianwaffleride.com/"
-    },
-    "distances": [
-          {
-                  "name": "Waffle",
-                  "distance": "130+ miles",
-                  "elevationGain": "10,000+ feet",
-                  "description": "Full distance through challenging Appalachian terrain with mixed surfaces"
-          },
-          {
-                  "name": "Wafer",
-                  "distance": "65+ miles",
-                  "elevationGain": "5,000+ feet",
-                  "description": "Half distance with substantial climbing through Blue Ridge Mountains"
-          }
-    ],
-    "terrain": "Appalachian mountain terrain with gravel roads, paved climbs, technical descents, and remote mountain passages",
-    "registration": "Via Belgian Waffle Ride registration system",
-    "weather": "Spring mountain weather - variable conditions, potential rain, moderate temperatures",
-    "uniqueCharacteristics": [
-          "Part of Belgian Waffle Ride series expanding across USA",
-          "Known for extremely challenging mixed-surface courses",
-          "Features signature BWR difficulty with sustained climbing",
-          "Beautiful Blue Ridge Mountain scenery",
-          "Technical descents and varied terrain challenges",
-          "Combines road, gravel, and rugged mountain surfaces",
-          "Post-race celebration with Belgian waffle theme"
-    ],
-    "seriesAffiliation": "Belgian Waffle Ride Series",
-    "tier": "Regional",
-    "popularity": "High - BWR series event",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+      "raceId": "bwr-north-carolina",
+      "name": "Belgian Waffle Ride North Carolina",
+      "slug": "bwr-north-carolina",
+      "location": {
+              "city": "Asheville area",
+              "state": "North Carolina",
+              "country": "USA",
+              "region": "Western North Carolina",
+              "nearestMajorCity": "Asheville, NC"
+      },
+      "date": {
+              "month": "May",
+              "typical": "late May",
+              "season": "Spring",
+              "year2026": "May 24, 2026"
+      },
+      "organizer": {
+              "name": "Belgian Waffle Ride",
+              "website": "https://belgianwaffleride.com/"
+      },
+      "distances": [
+              {
+                        "name": "Waffle",
+                        "distance": "130+ miles",
+                        "elevationGain": "10,000+ feet",
+                        "description": "Full distance through challenging Appalachian terrain with mixed surfaces"
+              },
+              {
+                        "name": "Wafer",
+                        "distance": "65+ miles",
+                        "elevationGain": "5,000+ feet",
+                        "description": "Half distance with substantial climbing through Blue Ridge Mountains"
+              }
+      ],
+      "terrain": "Appalachian mountain terrain with gravel roads, paved climbs, technical descents, and remote mountain passages",
+      "registration": "Via Belgian Waffle Ride registration system",
+      "weather": "Spring mountain weather - temperatures 60s-70s°F, variable conditions, potential rain, high humidity",
+      "uniqueCharacteristics": [
+              "Part of Belgian Waffle Ride series expanding across USA",
+              "Known for extremely challenging mixed-surface courses",
+              "Features signature BWR difficulty with sustained climbing",
+              "Beautiful Blue Ridge Mountain scenery",
+              "Technical descents and varied terrain challenges",
+              "Combines road, gravel, and rugged mountain surfaces",
+              "Post-race celebration with Belgian waffle theme",
+              "Timed sectors add competitive racing element"
+      ],
+      "seriesAffiliation": "Belgian Waffle Ride Series",
+      "tier": "Regional",
+      "popularity": "High - BWR series event",
+      "lastUpdated": "2026-01-09",
+      "dataQuality": "High"
 }

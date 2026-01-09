@@ -1,0 +1,19 @@
+{
+    "raceId": "unbound-xl",
+    "name": "UNBOUND XL 350",
+    "slug": "unbound-xl",
+    "location": {"city": "Emporia", "state": "Kansas", "country": "USA", "region": "Flint Hills"},
+    "date": {"month": "June", "typical": "First weekend of June", "season": "Summer", "specific": "2026-06-05"},
+    "organizer": {"name": "Life Time", "website": "https://unboundgravel.com/"},
+    "distances": [
+          {"name": "XL 350", "distance": 350, "unit": "miles", "distanceKm": 563, "elevationGain": 18000, "elevationGainMeters": 5486, "category": "Ultra", "description": "350-mile ultra-endurance through Flint Hills"}
+    ],
+    "terrain": {"surface": {"gravel": 90, "paved": 10}, "technicalDifficulty": "Extreme", "technicalRating": 8, "description": "Flint Hills gravel roads with sharp rocks, relentless rolling terrain, extreme distance and exposure"},
+    "registration": {"cost": {"regular": 450, "currency": "USD"}, "website": "https://unboundgravel.com/"},
+    "weather": {"typical": {"tempHigh": 90, "tempLow": 60, "unit": "°F", "conditions": "Kansas summer heat, full exposure, possible thunderstorms"}},
+    "uniqueCharacteristics": ["350-mile ultra-endurance challenge", "Same weekend as UNBOUND 200", "Flint Hills terrain", "Multi-day riding experience", "Extreme heat and distance challenge", "Sharp flint rocks that destroy tires", "Self-supported ultra format"],
+    "tier": 1,
+    "popularity": 75,
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

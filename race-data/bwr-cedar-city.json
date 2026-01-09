@@ -1,84 +1,83 @@
 {
-    "raceId": "bwr-cedar-city",
-    "name": "Belgian Waffle Ride Cedar City",
-    "slug": "bwr-cedar-city",
-    "location": {
-          "city": "Cedar City",
-          "state": "Utah",
-          "country": "USA"
-    },
-    "date": {
-          "month": "May",
-          "typical": "Mid-May",
-          "season": "Spring"
-    },
-    "organizer": {
-          "name": "Belgian Waffle Ride",
-          "website": "https://www.belgianwaffleride.com/"
-    },
-    "distances": [
-          {
-                  "name": "Waffle",
-                  "distance": 137,
-                  "unit": "miles",
-                  "distanceKm": 220,
-                  "elevationGain": 10500,
-                  "elevationGainMeters": 3200,
-                  "category": "Elite"
-          },
-          {
-                  "name": "Wafer",
-                  "distance": 90,
-                  "unit": "miles",
-                  "distanceKm": 145,
-                  "elevationGain": 6500,
-                  "elevationGainMeters": 1981,
-                  "category": "Advanced"
-          }
-    ],
-    "terrain": {
-          "surface": {
-                  "gravel": 65,
-                  "dirt": 20,
-                  "paved": 15
-          },
-          "technicalDifficulty": "Hard",
-          "technicalRating": 8,
-          "description": "High altitude Utah terrain with significant climbing and technical gravel sectors"
-    },
-    "registration": {
-          "cost": {
-                  "regular": 200,
-                  "currency": "USD"
-          }
-    },
-    "seriesAffiliation": {
-          "series": ["Life Time Grand Prix"],
-          "isPrimaryEvent": true
-    },
-    "competition": {
-          "level": "Elite Pro to Advanced",
-          "elitePrize": {
-                  "total": 15000,
-                  "currency": "USD"
-          }
-    },
-    "weather": {
-          "typical": {
-                  "tempHigh": 70,
-                  "tempLow": 45,
-                  "unit": "°F"
-          }
-    },
-    "uniqueCharacteristics": [
-          "Life Time Grand Prix event",
-          "High altitude racing",
-          "Belgian Waffle Ride series difficulty",
-          "Southern Utah red rock terrain",
-          "Elite competition level"
-    ],
-    "tier": 1,
-    "popularity": 85,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Good"
+      "raceId": "bwr-cedar-city",
+      "name": "Belgian Waffle Ride Cedar City",
+      "slug": "bwr-cedar-city",
+      "location": {
+              "city": "Cedar City",
+              "state": "Utah",
+              "country": "USA"
+      },
+      "date": {
+              "month": "May",
+              "typical": "Late May",
+              "year2025": "May 24, 2025",
+              "season": "Spring"
+      },
+      "organizer": {
+              "name": "Belgian Waffle Ride",
+              "website": "https://www.belgianwaffleride.com/"
+      },
+      "distances": [
+              {
+                        "name": "Waffle",
+                        "distance": 124,
+                        "unit": "miles",
+                        "distanceKm": 200,
+                        "elevationGain": 8000,
+                        "elevationGainMeters": 2438,
+                        "category": "Elite"
+              },
+              {
+                        "name": "Wafer",
+                        "distance": 85,
+                        "unit": "miles",
+                        "distanceKm": 137,
+                        "elevationGain": 5500,
+                        "elevationGainMeters": 1676,
+                        "category": "Advanced"
+              }
+      ],
+      "terrain": {
+              "surface": {
+                        "unroad": 92,
+                        "gravel": 70,
+                        "dirt": 22,
+                        "paved": 8
+              },
+              "technicalDifficulty": "Hard",
+              "technicalRating": 8,
+              "description": "High altitude Utah terrain starting at 5,846 ft with 92% unroad surface - highest percentage of unroad in BWR series",
+              "startingElevation": 5846
+      },
+      "registration": {
+              "cost": {
+                        "regular": 200,
+                        "currency": "USD"
+              },
+              "url": "https://www.bikereg.com/"
+      },
+      "competition": {
+              "level": "Competitive to Elite",
+              "format": "BWR series known for brutal difficulty"
+      },
+      "weather": {
+              "typical": {
+                        "tempHigh": 70,
+                        "tempLow": 45,
+                        "unit": "°F",
+                        "conditions": "High altitude spring conditions"
+              }
+      },
+      "uniqueCharacteristics": [
+              "Highest percentage of unroad (92%) in BWR series",
+              "High altitude starting at 5,846 ft",
+              "Southern Utah red rock terrain",
+              "BWR series difficulty reputation",
+              "Third event in 2025 BWR series"
+      ],
+      "tier": 1,
+      "popularity": 80,
+      "lastUpdated": "2026-01-08",
+      "dataQuality": "High",
+      "sources": ["https://www.belgianwaffleride.com", "Perplexity research 2026-01-08"]
 }

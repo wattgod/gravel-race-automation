@@ -1,0 +1,19 @@
+{
+    "raceId": "rad-dirt-fest",
+    "name": "Rad Dirt Fest",
+    "slug": "rad-dirt-fest",
+    "location": {"city": "East Burke", "state": "Vermont", "country": "USA"},
+    "date": {"month": "August", "typical": "Mid-August", "season": "Summer"},
+    "organizer": {"name": "Kingdom Trails Association", "website": "https://www.raddirtfest.com/"},
+    "distances": [
+          {"name": "Long", "distance": 70, "unit": "miles", "distanceKm": 113, "elevationGain": 6000, "elevationGainMeters": 1829, "category": "Advanced"},
+          {"name": "Short", "distance": 40, "unit": "miles", "distanceKm": 64, "elevationGain": 3500, "elevationGainMeters": 1067, "category": "Intermediate"}
+    ],
+    "terrain": {"surface": {"gravel": 50, "dirt": 40, "singletrack": 10}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Northeast Kingdom gravel and dirt roads with some singletrack"},
+    "registration": {"cost": {"regular": 110, "currency": "USD"}},
+    "uniqueCharacteristics": ["Vermont summer gravel festival", "Kingdom Trails region", "Community-focused event", "Mix of gravel and MTB terrain"],
+    "tier": 2,
+    "popularity": 65,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Moderate"
+}

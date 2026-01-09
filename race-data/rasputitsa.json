@@ -1,0 +1,123 @@
+{
+    "raceId": "rasputitsa",
+    "name": "Rasputitsa",
+    "officialName": "Rasputitsa Spring Classic",
+    "slug": "rasputitsa",
+    "location": {
+          "city": "Jay",
+          "state": "Vermont",
+          "country": "USA",
+          "region": "Northeast Kingdom",
+          "venue": "Jay Peak Resort",
+          "nearestMajorCity": "Burlington, VT (65 miles)"
+    },
+    "date": {
+          "month": "April",
+          "typical": "Late April",
+          "dayOfWeek": "Saturday",
+          "season": "Spring / Mud Season"
+    },
+    "organizer": {
+          "name": "Rasputitsa Spring Classic",
+          "founded": 2014,
+          "founders": ["Anthony Moccia", "Heidi Myers"],
+          "website": "https://www.rasputitsadirt.com/",
+          "history": "Founded to showcase Northeast Kingdom back roads and drive shoulder-season tourism during Vermont's notorious mud season"
+    },
+    "distances": [
+          {
+                  "name": "Single Distance",
+                  "distance": 53,
+                  "unit": "miles",
+                  "distanceKm": 85,
+                  "elevationGain": 5300,
+                  "elevationGainMeters": 1615,
+                  "category": "Challenging"
+          }
+    ],
+    "terrain": {
+          "surface": {
+                  "gravel": 45,
+                  "dirt": 40,
+                  "mud": 10,
+                  "paved": 5
+          },
+          "technicalDifficulty": "Hard",
+          "technicalRating": 8,
+          "description": "Northeast Kingdom dirt and gravel roads transformed by spring thaw. Notorious mud sectors including 'Cyberia' climb. Snow, ice, and deep mud common. Self-supported challenge through unpredictable conditions.",
+          "features": [
+                  "Cyberia - notorious mud/snow climb",
+                  "Northeast Kingdom back roads",
+                  "Spring thaw conditions",
+                  "Freeze-thaw rutted roads",
+                  "Self-supported format"
+          ]
+    },
+    "registration": {
+          "opens": "TBD - typically fall/winter",
+          "selloutPattern": "Sells out weeks-months in advance",
+          "cost": {
+                  "regular": 100,
+                  "currency": "USD"
+          },
+          "lottery": false
+    },
+    "fieldSize": {
+          "participantCap": 1500,
+          "typical": "1000-1500 riders"
+    },
+    "competition": {
+          "level": "Recreational to Competitive",
+          "format": "Self-supported, single distance",
+          "timing": "Chip timed"
+    },
+    "weather": {
+          "typical": {
+                  "tempHigh": 50,
+                  "tempLow": 30,
+                  "unit": "°F",
+                  "conditions": "Highly unpredictable - snow, rain, mud, or sun possible",
+                  "precipitation": "High - 60%+ chance",
+                  "mud": "Expected and celebrated"
+          },
+          "challenges": [
+                  "Spring snowstorms possible",
+                  "Freeze-thaw cycle creates deep ruts",
+                  "Mud season at peak",
+                  "Cold temperatures (30s-50s°F)",
+                  "Unpredictable conditions year to year"
+          ]
+    },
+    "uniqueCharacteristics": [
+          "Legendary Vermont mud race",
+          "Russian name means 'sea of mud'",
+          "Celebrated for Type-2 fun and suffering",
+          "Grassroots community-focused event",
+          "Shoulder-season tourism driver",
+          "Self-supported challenge format",
+          "Northeast Kingdom showcase",
+          "Resistance to over-commercialization"
+    ],
+    "logistics": {
+          "format": "Self-supported - no aid stations",
+          "startLocation": "Jay Peak Resort",
+          "finishLocation": "Jay Peak Resort",
+          "facilities": "Resort amenities available"
+    },
+    "reputation": {
+          "difficulty": "Hard",
+          "knownFor": [
+                  "Legendary mud conditions",
+                  "Spring suffering classic",
+                  "Type-2 fun",
+                  "Vermont's toughest gravel race",
+                  "Unpredictable weather",
+                  "Community atmosphere"
+          ]
+    },
+    "tier": 1,
+    "popularity": 75,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Good",
+    "sources": ["https://www.rasputitsadirt.com", "Perplexity research 2026-01-08"]
+}

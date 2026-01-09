@@ -1,0 +1,84 @@
+{
+    "raceId": "bwr-cedar-city",
+    "name": "Belgian Waffle Ride Cedar City",
+    "slug": "bwr-cedar-city",
+    "location": {
+          "city": "Cedar City",
+          "state": "Utah",
+          "country": "USA"
+    },
+    "date": {
+          "month": "May",
+          "typical": "Mid-May",
+          "season": "Spring"
+    },
+    "organizer": {
+          "name": "Belgian Waffle Ride",
+          "website": "https://www.belgianwaffleride.com/"
+    },
+    "distances": [
+          {
+                  "name": "Waffle",
+                  "distance": 137,
+                  "unit": "miles",
+                  "distanceKm": 220,
+                  "elevationGain": 10500,
+                  "elevationGainMeters": 3200,
+                  "category": "Elite"
+          },
+          {
+                  "name": "Wafer",
+                  "distance": 90,
+                  "unit": "miles",
+                  "distanceKm": 145,
+                  "elevationGain": 6500,
+                  "elevationGainMeters": 1981,
+                  "category": "Advanced"
+          }
+    ],
+    "terrain": {
+          "surface": {
+                  "gravel": 65,
+                  "dirt": 20,
+                  "paved": 15
+          },
+          "technicalDifficulty": "Hard",
+          "technicalRating": 8,
+          "description": "High altitude Utah terrain with significant climbing and technical gravel sectors"
+    },
+    "registration": {
+          "cost": {
+                  "regular": 200,
+                  "currency": "USD"
+          }
+    },
+    "seriesAffiliation": {
+          "series": ["Life Time Grand Prix"],
+          "isPrimaryEvent": true
+    },
+    "competition": {
+          "level": "Elite Pro to Advanced",
+          "elitePrize": {
+                  "total": 15000,
+                  "currency": "USD"
+          }
+    },
+    "weather": {
+          "typical": {
+                  "tempHigh": 70,
+                  "tempLow": 45,
+                  "unit": "°F"
+          }
+    },
+    "uniqueCharacteristics": [
+          "Life Time Grand Prix event",
+          "High altitude racing",
+          "Belgian Waffle Ride series difficulty",
+          "Southern Utah red rock terrain",
+          "Elite competition level"
+    ],
+    "tier": 1,
+    "popularity": 85,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Good"
+}

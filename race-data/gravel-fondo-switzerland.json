@@ -1,0 +1,55 @@
+{
+    "raceId": "gravel-fondo-switzerland",
+    "name": "Gravel Fondo Switzerland",
+    "slug": "gravel-fondo-switzerland",
+    "location": {
+          "city": "Various Swiss Locations",
+          "state": "Switzerland",
+          "country": "Switzerland",
+          "region": "Swiss Alps"
+    },
+    "date": {
+          "month": "June/September",
+          "typical": "summer/fall",
+          "season": "Summer/Fall",
+          "year2026": "2026"
+    },
+    "organizer": {
+          "name": "Swiss Gravel Community",
+          "website": "https://www.gravelfondo.ch/"
+    },
+    "distances": [
+          {
+                  "name": "Long",
+                  "distance": "120-150 km",
+                  "elevationGain": "2,500-3,500 meters",
+                  "elevationGainFeet": "8,200-11,500 feet",
+                  "description": "Full distance through Swiss Alps with significant climbing"
+          },
+          {
+                  "name": "Medium",
+                  "distance": "80-100 km",
+                  "elevationGain": "1,500-2,000 meters",
+                  "elevationGainFeet": "4,900-6,500 feet",
+                  "description": "Moderate distance with substantial Alpine climbing"
+          }
+    ],
+    "terrain": "Swiss Alpine gravel roads, mountain passes, valley roads, high-altitude terrain with spectacular scenery",
+    "registration": "Opens months in advance",
+    "weather": "Alpine conditions - cool temperatures at altitude, variable mountain weather, potential for rain or cold",
+    "uniqueCharacteristics": [
+          "Stunning Swiss Alpine scenery",
+          "Challenging high-altitude mountain climbing",
+          "World-class Swiss mountain passes on gravel",
+          "Well-organized Swiss precision event",
+          "Spectacular views of Alps and glaciers",
+          "Technical mountain descents",
+          "Swiss hospitality and infrastructure",
+          "Multiple events throughout season"
+    ],
+    "seriesAffiliation": "Independent",
+    "tier": "Regional",
+    "popularity": "High - premier Swiss gravel event",
+    "lastUpdated": "2026-01-09",
+    "dataQuality": "Good"
+}

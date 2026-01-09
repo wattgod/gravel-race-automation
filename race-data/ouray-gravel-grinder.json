@@ -1,0 +1,20 @@
+{
+    "raceId": "whiskey-off-road",
+    "name": "Whiskey Off-Road",
+    "slug": "whiskey-off-road",
+    "location": {"city": "Prescott", "state": "Arizona", "country": "USA"},
+    "date": {"month": "April", "typical": "Late April", "season": "Spring"},
+    "organizer": {"name": "Epic Rides", "website": "https://www.epicrides.com/"},
+    "distances": [
+          {"name": "50 Mile Gravel", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 4500, "elevationGainMeters": 1372, "category": "Advanced"},
+          {"name": "30 Mile Gravel", "distance": 30, "unit": "miles", "distanceKm": 48, "elevationGain": 2700, "elevationGainMeters": 823, "category": "Intermediate"}
+    ],
+    "terrain": {"surface": {"gravel": 55, "dirt": 35, "paved": 10}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Prescott National Forest terrain with pine forests and high desert"},
+    "registration": {"cost": {"regular": 120, "currency": "USD"}},
+    "weather": {"typical": {"tempHigh": 70, "tempLow": 45, "unit": "°F", "conditions": "Spring high desert conditions"}},
+    "uniqueCharacteristics": ["Epic Rides series event", "Prescott National Forest", "Festival atmosphere with beer garden", "High desert pine forest terrain"],
+    "tier": 2,
+    "popularity": 75,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Moderate"
+}

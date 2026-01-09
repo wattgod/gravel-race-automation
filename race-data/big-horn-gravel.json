@@ -1,20 +1,21 @@
 {
-      "raceId": "big-horn-gravel",
-      "name": "Big Horn Gravel",
-      "slug": "big-horn-gravel",
-      "location": {"city": "Gypsum", "state": "Colorado", "country": "USA"},
-      "date": {"month": "June", "typical": "Early June", "season": "Summer"},
-      "organizer": {"name": "Big Horn Gravel", "website": "https://www.bighorngravel.com/"},
-      "distances": [
-              {"name": "100 Mile", "distance": 100, "unit": "miles", "distanceKm": 161, "elevationGain": 10000, "elevationGainMeters": 3048, "category": "Advanced"},
-              {"name": "50 Mile", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 5000, "elevationGainMeters": 1524, "category": "Intermediate"}
-      ],
-      "terrain": {"surface": {"gravel": 70, "dirt": 25, "paved": 5}, "technicalDifficulty": "Hard", "technicalRating": 7, "description": "High altitude Colorado Rockies terrain with significant climbing"},
-      "registration": {"cost": {"regular": 140, "currency": "USD"}},
-      "weather": {"typical": {"tempHigh": 75, "tempLow": 45, "unit": "°F", "conditions": "High altitude mountain weather, possible afternoon storms"}},
-      "uniqueCharacteristics": ["High altitude racing (8000+ ft elevation)", "Colorado Rockies terrain", "Significant climbing challenges", "Rocky Mountain scenery"],
-      "tier": 2,
-      "popularity": 70,
-      "lastUpdated": "2026-01-09",
-      "dataQuality": "Moderate"
+        "raceId": "big-horn-gravel",
+        "name": "Big Horn Gravel",
+        "slug": "big-horn-gravel",
+        "location": {"city": "Gypsum", "state": "Colorado", "country": "USA", "region": "White River National Forest and Vail Valley"},
+        "date": {"month": "June", "typical": "Mid-June", "season": "Summer", "specific": "2026-06-20"},
+        "organizer": {"name": "Big Horn Gravel", "website": "https://www.bighorngravel.com/"},
+        "distances": [
+                  {"name": "Ram's Horn Escape", "distance": 85, "unit": "miles", "distanceKm": 137, "elevationGain": 10000, "elevationGainMeters": 3048, "category": "Extreme", "maxElevation": 11000, "description": "High, rough, and lonesome - tops out at ~11,000 ft"},
+                  {"name": "Little Bighorn", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 5700, "elevationGainMeters": 1737, "category": "Advanced"},
+                  {"name": "Gravel Curious", "distance": 20, "unit": "miles", "distanceKm": 32, "elevationGain": 2000, "elevationGainMeters": 610, "category": "Beginner", "description": "E-bike friendly"}
+        ],
+        "terrain": {"surface": {"gravel": 70, "dirt": 25, "paved": 5}, "technicalDifficulty": "Extreme", "technicalRating": 8, "description": "High altitude Colorado Rockies terrain starting/finishing near Gypsum Sports Complex, extended time above 9,000ft in White River National Forest"},
+        "registration": {"cost": {"regular": 175, "currency": "USD", "range": "$91-$265 depending on distance and tier"}, "website": "https://www.bighorngravel.com/"},
+        "weather": {"typical": {"tempHigh": 75, "tempLow": 45, "unit": "°F", "conditions": "High altitude mountain weather, possible afternoon storms, extended time above 9,000ft"}},
+        "uniqueCharacteristics": ["High altitude racing (8000+ ft base, reaching 11,000 ft)", "White River National Forest and Vail Valley backcountry", "Three distance options including e-bike friendly route", "Extreme elevation and technical terrain", "Series expansion adding separate Bighorn Road event"],
+        "tier": 2,
+        "popularity": 70,
+        "lastUpdated": "2026-01-09",
+        "dataQuality": "Good"
 }

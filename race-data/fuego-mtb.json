@@ -1,20 +1,20 @@
 {
-    "raceId": "ouray-gravel-grinder",
-    "name": "Ouray Gravel Grinder",
-    "slug": "ouray-gravel-grinder",
-    "location": {"city": "Ouray", "state": "Colorado", "country": "USA"},
-    "date": {"month": "September", "typical": "Early September", "season": "Fall"},
-    "organizer": {"name": "Ouray Gravel Grinder"},
-    "distances": [
-          {"name": "Mega", "distance": 100, "unit": "miles", "distanceKm": 161, "elevationGain": 14000, "elevationGainMeters": 4267, "category": "Extreme"},
-          {"name": "Long", "distance": 70, "unit": "miles", "distanceKm": 113, "elevationGain": 9000, "elevationGainMeters": 2743, "category": "Advanced"}
-    ],
-    "terrain": {"surface": {"gravel": 70, "dirt": 25, "paved": 5}, "technicalDifficulty": "Extreme", "technicalRating": 9, "description": "Extreme high-altitude Colorado mountain passes with massive elevation gain"},
-    "registration": {"cost": {"regular": 150, "currency": "USD"}},
-    "weather": {"typical": {"tempHigh": 65, "tempLow": 35, "unit": "°F", "conditions": "High altitude mountain weather, possible snow"}},
-    "uniqueCharacteristics": ["Extreme elevation gain", "High altitude mountain passes (10000+ ft)", "Switzerland of America terrain", "One of hardest US gravel races", "Spectacular San Juan Mountains"],
-    "tier": 1,
-    "popularity": 70,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Moderate"
+      "raceId": "old-tucson-10er",
+      "name": "Old Tucson 10'er",
+      "slug": "old-tucson-10er",
+      "location": {"city": "Tucson", "state": "Arizona", "country": "USA", "venue": "Old Tucson", "address": "201 Kinney Rd"},
+      "date": {"month": "January", "typical": "Mid-January", "season": "Winter", "specific": "2026-01-17"},
+      "organizer": {"name": "BikeReg/Zia Rides"},
+      "distances": [
+              {"name": "10-Hour", "distance": 20, "unit": "miles", "distanceKm": 32, "elevationGain": 2657, "elevationGainMeters": 810, "category": "Endurance", "description": "10-hour lap-based race, sunrise to sunset, distance varies by laps completed"}
+      ],
+      "terrain": {"surface": {"gravel": 60, "dirt": 30, "singletrack": 10}, "technicalDifficulty": "Moderate", "technicalRating": 5, "description": "Desert MTB terrain at Old Tucson venue, lap-based format"},
+      "registration": {"cost": {"regular": 150, "currency": "USD"}, "website": "BikeReg"},
+      "weather": {"typical": {"tempHigh": 65, "tempLow": 40, "unit": "°F", "conditions": "Desert winter, sunny and mild"}},
+      "uniqueCharacteristics": ["10-hour timed race format", "Sunrise to sunset", "Lap-based at Old Tucson venue", "Solo, duo, and team categories", "January desert MTB endurance event"],
+      "tier": 3,
+      "popularity": 40,
+      "lastUpdated": "2026-01-09",
+      "dataQuality": "Moderate",
+      "notes": "This race was previously confused with Fuego XC, which is actually held at Sea Otter Classic in Monterey, not Tucson. Old Tucson 10'er is the primary January MTB endurance event in Tucson."
 }

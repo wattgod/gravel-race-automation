@@ -1,0 +1,81 @@
+{
+    "raceId": "rock-cobbler",
+    "name": "Rock Cobbler",
+    "slug": "rock-cobbler",
+    "location": {
+          "city": "Bakersfield",
+          "state": "California",
+          "country": "USA",
+          "region": "Southern California"
+    },
+    "date": {
+          "month": "February",
+          "typical": "Early February",
+          "season": "Winter"
+    },
+    "organizer": {
+          "name": "Rock Cobbler",
+          "founded": 2012,
+          "website": "https://www.rockcobbler.com/"
+    },
+    "distances": [
+          {
+                  "name": "Long Course",
+                  "distance": 140,
+                  "unit": "miles",
+                  "distanceKm": 225,
+                  "elevationGain": 8500,
+                  "elevationGainMeters": 2591,
+                  "category": "Ultra-distance"
+          },
+          {
+                  "name": "Short Course",
+                  "distance": 70,
+                  "unit": "miles",
+                  "distanceKm": 113,
+                  "elevationGain": 4200,
+                  "elevationGainMeters": 1280,
+                  "category": "Advanced"
+          }
+    ],
+    "terrain": {
+          "surface": {
+                  "gravel": 60,
+                  "dirt": 25,
+                  "singletrack": 10,
+                  "paved": 5
+          },
+          "technicalDifficulty": "Hard",
+          "technicalRating": 8,
+          "description": "Technical desert terrain with rocky climbs, loose descents, and challenging navigation"
+    },
+    "registration": {
+          "cost": {
+                  "regular": 120,
+                  "currency": "USD"
+          },
+          "selloutPattern": "Moderate - weeks before"
+    },
+    "fieldSize": {
+          "participantCap": 800
+    },
+    "weather": {
+          "typical": {
+                  "tempHigh": 65,
+                  "tempLow": 40,
+                  "unit": "°F",
+                  "conditions": "Cool winter desert conditions"
+          }
+    },
+    "uniqueCharacteristics": [
+          "Technical desert gravel challenge",
+          "Early season race",
+          "Bakersfield oil field routes",
+          "Self-supported ultra-distance option",
+          "Rocky technical terrain"
+    ],
+    "tier": 2,
+    "popularity": 70,
+    "lastUpdated": "2026-01-08",
+    "dataQuality": "Moderate"
+}

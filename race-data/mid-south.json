@@ -1,23 +1,183 @@
 {
-    "raceId": "mid-south",
-    "name": "Mid South",
+  "race": {
+    "name": "MID SOUTH",
     "slug": "mid-south",
-    "location": {"city": "Stillwater", "state": "Oklahoma", "country": "USA", "region": "Cross Timbers"},
-    "date": {"month": "March", "typical": "Mid-March", "season": "Spring", "specific": "2026-03-13 to 2026-03-14"},
-    "organizer": {"name": "All Bodies on Bikes", "website": "https://www.midsouthgravel.com/"},
-    "distances": [
-          {"name": "100-Mile Gravel", "distance": 100, "unit": "miles", "distanceKm": 161, "elevationGain": 5500, "elevationGainMeters": 1676, "category": "Extreme", "description": "Typically 5,000-6,000 ft total gain via repeated short punchy climbs"},
-          {"name": "50-Mile Gravel", "distance": 56, "unit": "miles", "distanceKm": 90, "elevationGain": 2500, "elevationGainMeters": 762, "category": "Advanced", "description": "Often slightly long, GPS shows ~56 miles with rolling terrain"},
-          {"name": "12-Mile Gravel", "distance": 12, "unit": "miles", "distanceKm": 19, "elevationGain": 500, "elevationGainMeters": 152, "category": "Beginner"},
-          {"name": "Double Ultra", "distance": 150, "unit": "miles", "distanceKm": 241, "elevationGain": 8000, "elevationGainMeters": 2438, "category": "Ultra", "description": "50k run plus 100-mile ride combination"}
-    ],
-    "terrain": {"surface": {"gravel": 80, "dirt": 15, "paved": 5}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Continuous rolling terrain with frequent short, punchy climbs rather than big ascents, consistent with Cross Timbers topography"},
-    "registration": {"cost": {"regular": 200, "currency": "USD"}, "website": "https://www.midsouthgravel.com/"},
-    "weather": {"typical": {"tempHigh": 65, "tempLow": 40, "unit": "°F", "conditions": "Spring Oklahoma weather, variable conditions possible"}},
-    "uniqueCharacteristics": ["Festival atmosphere March 12-15", "New pro-format 100-mile race Friday March 13", "Amateur racing weekend format", "Formerly known as 'Dirty Kanza' founder's Oklahoma event", "All Bodies on Bikes inclusive ethos", "Cross Timbers rolling gravel terrain", "Mega Mid South bikepacking ultra (300-301 miles, 15,500-18,000 ft) as separate related event"],
-    "notes": "NOT included in 2026 Life Time Grand Prix points schedule",
-    "tier": 1,
-    "popularity": 85,
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+    "display_name": "Mid South",
+    "tagline": "Oklahoma's red dirt roulette. When it's dry, it's fast. When it's wet, it's survival. Bring a paint stick.",
+
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 4500,
+      "location": "Stillwater, Oklahoma",
+      "location_badge": "STILLWATER, OK",
+      "county": "Payne County",
+      "date": "Mid-March annually",
+      "date_specific": "2026: March 13-14",
+      "terrain_types": ["Red dirt roads", "Gravel roads", "Paved sections", "Peanut butter mud when wet"],
+      "field_size": "~1,200 starters in 100mi",
+      "start_time": "Saturday morning",
+      "registration": "Open registration. Cost: ~$200",
+      "prize_purse": "LTGP points + prize money",
+      "aid_stations": "Multiple checkpoints with water and nutrition",
+      "cutoff_time": "Course cutoffs enforced"
+    },
+
+    "climate": {
+      "primary": "Oklahoma spring—wildly variable, mud potential high",
+      "description": "March in Oklahoma is a weather roulette wheel. Can be 70°F and perfect (2022) or 38°F with freezing rain (2021). The red dirt roads transform into impassable peanut butter when wet. 2023 was so muddy the race was shortened. The weather determines whether this is a fast race or a survival march.",
+      "challenges": ["Variable temperatures (38-72°F range)", "Rain transforms course into unrideable mud", "Cold + wet = hypothermia risk", "Wind exposure on open roads"]
+    },
+
+    "terrain": {
+      "primary": "Red dirt roads—smooth when dry, catastrophic when wet",
+      "surface": "~80% red dirt gravel, ~15% dirt roads, ~5% paved. The signature red dirt becomes clay-like 'peanut butter' when wet, adding pounds to bikes and making pedaling impossible.",
+      "technical_rating": 3,
+      "features": ["Mile 45-60 mud section", "Red Dirt Hell at mile 75", "Rolling terrain throughout", "No major climbs but constant undulation"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "course_profile": 22,
+      "biased_opinion": 31,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "Life Time Grand Prix event, iconic status as 'the mud race', historically significant in gravel culture",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "100 miles is substantial but not ultra territory. The flagship distance tests endurance without the 15+ hour commitment of 200-milers. Also offers 50-mile and 12-mile options, plus a 150-mile double ultra combining run and ride."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "When dry, the red dirt roads are relatively smooth and fast. When wet, they become a technical nightmare—not because of rocks or drops, but because the mud makes forward progress nearly impossible. 'The mud is so thick I couldn't pedal' is a common race report theme."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "4,500ft of climbing over 100 miles is modest by gravel standards. The Cross Timbers terrain delivers constant rolling rather than big climbs. 'Punchy short climbs' characterize the course—never truly flat but no extended ascents."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "March Oklahoma weather is notoriously unpredictable. 2021 saw 38°F with freezing rain and 42% DNF rate. 2022 was 72°F perfection. 2023 was so muddy the race was shortened. Weather literally determines whether this is a 5-hour race or a 10-hour survival march."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Stillwater sits at ~900ft elevation. Zero altitude concerns—oxygen is abundant. The challenge here is weather and mud, not thin air."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Tulsa airport is 45 minutes away—reasonably accessible. Hotels in Stillwater book out 3 months in advance. Packet pickup Friday. Parking is limited, arrive early. Not remote, but small-town logistics require planning."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Mid South has become legendary for its mud years. Racing through Oklahoma red dirt, potentially walking miles of unrideable course, finishing covered in clay—it's a uniquely memorable experience. 'The mud race' reputation gives it character few races match."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix event with iconic status. 'The mud race' is known throughout gravel culture. Where Bobby Lea, Payson McElveen, and top pros battle. One of the foundational events that built gravel racing."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time production values with proper aid stations and support. Race organization handles the weather chaos professionally—2023's shortened course showed adaptability. Not flawless (mud years are inherently chaotic) but well-run."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Whether you're racing fast in perfect conditions or walking through peanut butter mud, Mid South delivers a story. The shared suffering of mud years creates bonds. Finishing covered in red dirt is a badge of honor."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong gravel community atmosphere with the 'All Bodies on Bikes' inclusive ethos. Stillwater embraces race weekend. The festival atmosphere March 12-15 creates genuine community around the event."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "LTGP brings elite talent. The pro-format 100-mile race attracts the best in the sport. 1,200 starters across abilities, but the pointy end features legitimate world-class competition."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~$200 entry for an LTGP event is reasonable. You get pro-level organization with the chance to race alongside (or behind) the best in gravel. The experience—especially in a mud year—is priceless."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Stillwater is affordable compared to destination races. Tulsa is a budget-friendly airport. Hotels aren't expensive, just limited. Realistically budget $500-800 total trip cost—reasonable for a Tier 1 event."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Mud Lottery",
+      "summary": "Mid South is gravel's weather roulette. Perfect conditions deliver a fast, rolling race through Oklahoma red dirt. Wet conditions transform it into an epic survival challenge where walking beats riding. The uncertainty IS the appeal—you never know what you'll get until race day. LTGP status ensures world-class competition regardless of conditions.",
+      "strengths": [
+        "Iconic 'mud race' status and reputation",
+        "LTGP brings elite competition",
+        "Accessible logistics and reasonable cost",
+        "Perfect introduction to 100-mile gravel racing"
+      ],
+      "weaknesses": [
+        "Weather completely changes race character",
+        "Mud years can feel more like suffering than racing",
+        "Not the most scenic course",
+        "March Oklahoma weather is unpredictable"
+      ],
+      "bottom_line": "Race Mid South if you want a premier gravel experience with the chance for epic mud stories."
+    },
+
+    "black_pill": {
+      "title": "THE RED DIRT THAT DESTROYS DRIVETRAINS",
+      "reality": "When the red dirt gets wet, it becomes a clay-like 'peanut butter' that stops bikes cold. In 2021, 42% of starters DNF'd from the combination of freezing rain and impassable mud. Riders walk miles. Drivetrains grind to halt. The Mile 45-60 section and 'Red Dirt Hell' at mile 75 claim the most victims. 'I saw 20+ people walking' is a typical race report. The mud doesn't just slow you down—it makes forward progress impossible.",
+      "consequences": [
+        "Mud years: DNF rates spike to 29-42%",
+        "Mechanicals from mud destroying drivetrains are common",
+        "Walking 10+ miles is not unusual in wet conditions",
+        "Cold + wet = hypothermia risk (38°F + rain in 2021)"
+      ],
+      "expectation_reset": "Run 35mm+ tires at 28-32 psi minimum. Bring mud-specific gear: a paint stick or scraper to clear drivetrain. Expect to walk sections. Check weather obsessively before traveling. If rain is predicted, adjust expectations from 'racing' to 'surviving and finishing.' The mud-specific gearing recommendation from locals is real—you need the range for walking pace uphills."
+    },
+
+    "final_verdict": {
+      "score": "82 / 100",
+      "one_liner": "Oklahoma's legendary mud lottery—LTGP prestige with unpredictable chaos potential.",
+      "should_you_race": "Yes if you want an LTGP experience with accessible logistics and reasonable cost. Yes if you embrace weather uncertainty as adventure. Skip if you need predictable conditions or hate mud.",
+      "alternatives": "Unbound 100 (more predictable, bigger event); Big Sugar (Arkansas gravel, fall timing); BWR Arizona (desert conditions, no mud)"
+    },
+
+    "logistics": {
+      "airport": "TUL (Tulsa) - 45 min drive to Stillwater",
+      "lodging_strategy": "Book Stillwater hotels 3+ months in advance—they sell out fast. Oklahoma State University area has options. Some riders stay in Tulsa and drive race morning.",
+      "food": "College town with decent restaurant options. Oklahoma BBQ available.",
+      "packet_pickup": "Friday before race in Stillwater. Arrive early to avoid lines.",
+      "parking": "Limited downtown parking, arrive early race morning. Consider riding from lodging if close.",
+      "official_site": "https://midsouthgravel.com"
+    },
+
+    "history": {
+      "founded": 2015,
+      "founder": "Bobby Wintle and local Oklahoma cycling community",
+      "origin_story": "Born in Stillwater as a celebration of Oklahoma's red dirt roads. Quickly gained reputation as 'the mud race' after several wet editions. Became Life Time Grand Prix event, cementing its place among gravel's premier races.",
+      "notable_moments": [
+        "2021: 42% DNF rate from 38°F freezing rain—legendary mud year",
+        "2022: Perfect 72°F conditions showed the fast side",
+        "2023: Race shortened due to impassable mud conditions",
+        "2024: 29% DNF rate, 65°F dry conditions"
+      ],
+      "reputation": "The mud race—where Oklahoma weather determines everything."
+    },
+
+    "course_description": {
+      "character": "100 miles through Oklahoma's Cross Timbers region on red dirt roads. Constant rolling terrain with 'punchy short climbs' rather than extended ascents. The red dirt surface is smooth and fast when dry, catastrophically sticky when wet. The course rolls through rural Oklahoma with minimal spectator access outside start/finish.",
+      "suffering_zones": [
+        {"mile": "45-60", "label": "Red Dirt Mud Section", "desc": "30% of DNFs happen here. The red dirt becomes impassable peanut butter when wet. 'I saw 20+ people walking.' This section determines whether you finish."},
+        {"mile": "60-75", "label": "Sparse Aid Zone", "desc": "Aid stations are spread thin here. Riders bonk in this section if nutrition isn't dialed. The mental battle intensifies."},
+        {"mile": "75", "label": "Red Dirt Hell", "desc": "Technical section with deep ruts and the worst mud accumulation. Where mechanicals happen. Drivetrains get destroyed."}
+      ],
+      "signature_challenge": "The weather uncertainty—you never know if you're getting a fast 100-mile race or a muddy survival march until race morning."
+    }
+  },
+  "dataQuality": "High"
 }

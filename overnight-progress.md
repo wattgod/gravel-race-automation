@@ -2,20 +2,22 @@
 ## Started: Jan 12, 2026 ~12:45 AM
 
 ### RESEARCH QUEUE (from database)
-Races still needing research:
-1. unbound-xl
-2. walburg-dirty-30
+**All races now being researched!**
+
+Final batch (7 races) in progress - will complete the entire database.
 
 ---
 
 ### BATCH STATUS
 
-**Currently Running (Batch 5):**
+**Currently Running (Final Batch - 7 races):**
 - Gravel Fondo Switzerland - in progress
 - Steamboat Gravel - in progress
 - Trans Am Bike Race - in progress
 - Trans Iowa - in progress
 - Unbound 100 - in progress
+- Unbound XL - in progress
+- Walburg Dirty 30 - in progress
 
 ---
 
@@ -65,7 +67,8 @@ Races still needing research:
 
 ---
 
-**Total completed tonight: 34 research dumps**
-**Remaining in queue: 2 races (after Batch 5)**
+**Total in repo: 54 research dumps**
+**Final batch: 7 races in progress**
+**When complete: All races in database researched!**
 
 *Auto-updating as batches complete*

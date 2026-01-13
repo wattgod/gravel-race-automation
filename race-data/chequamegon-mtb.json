@@ -1,51 +1,151 @@
 {
-    "raceId": "chequamegon-mtb",
-    "name": "Life Time Chequamegon MTB Festival",
-    "slug": "chequamegon-mtb",
-    "location": {
-          "city": "Hayward to Cable",
-          "state": "Wisconsin",
-          "country": "USA",
-          "region": "Northwoods Wisconsin"
-    },
-    "date": {
-          "month": "September",
-          "typical": "mid-September",
-          "season": "Fall",
-          "year2026": "September 19, 2026"
-    },
-    "organizer": {
-          "name": "Life Time",
-          "website": "https://www.cheqmtb.com/"
-    },
-    "distances": [
-          {
-                  "name": "Chequamegon 40",
-                  "distance": "40 miles",
-                  "elevationGain": "3,000+ feet",
-                  "description": "Point-to-point from Hayward to Cable via Birkie Ski Trail, forest roads, and snowmobile routes"
-          },
-          {
-                  "name": "Short & Fat",
-                  "distance": "16 miles",
-                  "elevationGain": "Variable",
-                  "description": "Shorter loop near Cable with similar mixed terrain"
-          }
-    ],
-    "terrain": "Mixed Northwoods terrain including Birkie Ski Trail, forest roads, gravel roads, and snowmobile tracks with punchy climbs",
-    "registration": "Via Life Time registration system",
-    "weather": "Fall conditions in northern Wisconsin - cool temperatures, possibility of rain",
-    "uniqueCharacteristics": [
-          "Historic 40-mile point-to-point course from Hayward to Cable",
-          "Known as the 'Northwoods drag race' with fast mixed terrain",
-          "Signature Fire Tower climb at mile 29 is key selection point",
-          "Part of Life Time Grand Prix off-road series",
-          "Festival atmosphere with multiple events and community celebration",
-          "Uses famous American Birkebeiner ski trail system"
-    ],
-    "seriesAffiliation": "Life Time Grand Prix",
-    "tier": "Professional",
-    "popularity": "High - Life Time Grand Prix event",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+    "race": {
+        "name": "CHEQUAMEGON MTB FESTIVAL",
+        "slug": "chequamegon-mtb",
+        "display_name": "Chequamegon MTB Festival",
+        "tagline": "The Northwoods drag race where legends are made and Fire Tower separates the pretenders from the contenders",
+
+        "vitals": {
+            "distance_mi": 40,
+            "elevation_ft": 3000,
+            "location": "Hayward to Cable, Wisconsin",
+            "location_badge": "HAYWARD TO CABLE, WI",
+            "date": "September annually",
+            "date_specific": "2026: September 19"
+        },
+
+        "gravel_god_rating": {
+            "overall_score": 82,
+            "course_profile": 18,
+            "biased_opinion": 30,
+            "editorial_tier": 1,
+            "editorial_tier_label": "TIER 1",
+            "business_tier": 1,
+            "business_tier_label": "TIER 1",
+            "display_tier": 1,
+            "display_tier_label": "TIER 1"
+        },
+
+        "course_profile": {
+            "length": {
+                "score": 2,
+                "explanation": "40 miles is the flagship distance - substantial but not epic territory. Falls squarely in the 40-60 mile range with the Short & Fat offering a 16-mile alternative."
+            },
+            "technicality": {
+                "score": 3,
+                "explanation": "Mixed terrain through Northwoods - wide Birkie ski trails, fire roads, forest paths, and the infamous Fire Tower climb. Not technical singletrack but varied surfaces with sandy stretches and embedded rocks."
+            },
+            "elevation": {
+                "score": 2,
+                "explanation": "2,500-3,000 feet of climbing over 40 miles with constant rollers. The Fire Tower climb and Birkie Trail high point deliver knockout punches, but total elevation is moderate for the distance."
+            },
+            "climate": {
+                "score": 3,
+                "explanation": "September in Wisconsin is a coin flip - could be perfect fall weather or mud apocalypse. Historical races shortened due to conditions. Temps range 50s-70s but prepare for anything."
+            },
+            "altitude": {
+                "score": 1,
+                "explanation": "Northern Wisconsin sits near sea level with no altitude concerns. The Northwoods are beautiful but flat - elevation gain comes from rollers, not altitude."
+            },
+            "logistics": {
+                "score": 3,
+                "explanation": "Remote Northwoods location requires planning. Nearest major airport is MSP at 144 miles. Lodging books up months in advance and lottery system adds uncertainty. Bus transport from finish to start required."
+            },
+            "adventure": {
+                "score": 4,
+                "explanation": "40+ years of history, Greg LeMond won here, MTB Hall of Famers have raced it. The point-to-point through fall colors on the Birkie Trail is genuinely memorable. Not quite bucket list but close."
+            }
+        },
+
+        "biased_opinion_ratings": {
+            "prestige": {
+                "score": 5,
+                "explanation": "Life Time Grand Prix stop, founded in 1983, one of the oldest MTB races in America. Greg LeMond won his first mountain bike race here. MTB Hall of Famers like Ned Overend and Joe Breeze have lined up. This is cycling royalty."
+            },
+            "race_quality": {
+                "score": 4,
+                "explanation": "Life Time brings professional production to a 40+ year tradition. Aid stations are dialed, volunteers know their stuff, and the point-to-point logistics are handled smoothly. Mass start chaos is by design, not disorganization."
+            },
+            "experience": {
+                "score": 4,
+                "explanation": "Bratwurst and beer at aid stations. Festival atmosphere at the finish. 2,100 riders rolling through the Northwoods in early fall. Everyone says do it at least once - they're right. Memorable but not quite transcendent."
+            },
+            "community": {
+                "score": 5,
+                "explanation": "The vibe is legendary - like a family reunion with 3,000 of your closest friends who all love bikes. 40+ years of tradition breeds deep community. The lottery system creates a badge of honor for those who get in."
+            },
+            "field_depth": {
+                "score": 5,
+                "explanation": "Life Time Grand Prix brings the absolute best. Keegan Swenson, Alexey Vermeulen, Sofia Gomez Villafane - elite racers fighting for LTGP points. Course records are legit fast at 2:00:01 for 40 miles."
+            },
+            "value": {
+                "score": 4,
+                "explanation": "$120 entry for a TIER 1, LTGP event with 40+ years of history is solid value. You're buying into legend status. The lottery uncertainty is annoying but doesn't diminish the on-course value."
+            },
+            "expenses": {
+                "score": 3,
+                "explanation": "Remote Wisconsin location means lodging is scarce and books early. Budget $500-1,000 for flights/drive, limited hotel options, and race weekend. Not extreme but requires planning and financial commitment."
+            }
+        },
+
+        "location": {
+            "city": "Hayward to Cable",
+            "state": "Wisconsin",
+            "country": "USA",
+            "region": "Northwoods Wisconsin"
+        },
+
+        "date": {
+            "month": "September",
+            "typical": "mid-September",
+            "season": "Fall",
+            "year2026": "September 19, 2026"
+        },
+
+        "organizer": {
+            "name": "Life Time",
+            "website": "https://www.cheqmtb.com/"
+        },
+
+        "distances": [
+            {
+                "name": "Chequamegon 40",
+                "distance": "40 miles",
+                "elevationGain": "3,000+ feet",
+                "description": "Point-to-point from Hayward to Cable via Birkie Ski Trail, forest roads, and snowmobile routes"
+            },
+            {
+                "name": "Short & Fat",
+                "distance": "16 miles",
+                "elevationGain": "Variable",
+                "description": "Shorter loop near Cable with similar mixed terrain"
+            }
+        ],
+
+        "terrain": "Mixed Northwoods terrain including Birkie Ski Trail, forest roads, gravel roads, and snowmobile tracks with punchy climbs",
+
+        "registration": {
+            "method": "Lottery system via Life Time",
+            "deadline": "March 15 (postmark date)",
+            "notes": "Life Time Club-Access Members (6+ months) get priority entry"
+        },
+
+        "weather": "Fall conditions in northern Wisconsin - temps 50-74F, 31% rain chance, variable from perfect to mud apocalypse",
+
+        "uniqueCharacteristics": [
+            "Historic 40-mile point-to-point course from Hayward to Cable",
+            "Known as the 'Northwoods drag race' with fast mixed terrain",
+            "Signature Fire Tower climb at mile 29 is key selection point",
+            "Part of Life Time Grand Prix off-road series",
+            "Festival atmosphere with beer and brats at aid stations",
+            "Uses famous American Birkebeiner ski trail system",
+            "Founded 1983 - one of oldest MTB races in America",
+            "Greg LeMond won here in 1990 and 1991"
+        ],
+
+        "seriesAffiliation": "Life Time Grand Prix",
+        "participantLimit": 3100,
+        "lastUpdated": "2026-01-13",
+        "dataQuality": "Comprehensive"
+    }
 }

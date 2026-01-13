@@ -2,10 +2,10 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 40,
+    "total_scored_races": 45,
     "tier_distribution": {
-      "TIER 1": 23,
-      "TIER 2": 15,
+      "TIER 1": 26,
+      "TIER 2": 17,
       "TIER 3": 2
     }
   },
@@ -155,6 +155,18 @@
       "elevation_ft": 10000
     },
     {
+      "slug": "chequamegon-mtb",
+      "name": "Chequamegon MTB Festival",
+      "overall_score": 82,
+      "course_profile_total": 18,
+      "editorial_total": 30,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Hayward to Cable, Wisconsin",
+      "distance_mi": 40,
+      "elevation_ft": 3000
+    },
+    {
       "slug": "gravel-earth",
       "name": "Gravel Earth Series",
       "overall_score": 82,
@@ -251,6 +263,18 @@
       "elevation_ft": 5300
     },
     {
+      "slug": "bwr-cedar-city",
+      "name": "Belgian Waffle Ride Cedar City",
+      "overall_score": 78,
+      "course_profile_total": 24,
+      "editorial_total": 26,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Cedar City, Utah",
+      "distance_mi": 117,
+      "elevation_ft": 5940
+    },
+    {
       "slug": "lauf-true-grit",
       "name": "Lauf True Grit Gravel Epic",
       "overall_score": 78,
@@ -261,6 +285,18 @@
       "location": "Santa Clara, Utah",
       "distance_mi": 84,
       "elevation_ft": 9000
+    },
+    {
+      "slug": "fuego-xl",
+      "name": "Sea Otter Fuego XL",
+      "overall_score": 78,
+      "course_profile_total": 23,
+      "editorial_total": 27,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Monterey, California",
+      "distance_mi": 70,
+      "elevation_ft": 7800
     },
     {
       "slug": "rock-cobbler",
@@ -297,6 +333,18 @@
       "location": "Leadville, Colorado",
       "distance_mi": 104,
       "elevation_ft": 12000
+    },
+    {
+      "slug": "bwr-north-carolina",
+      "name": "Belgian Waffle Ride North Carolina",
+      "overall_score": 76,
+      "course_profile_total": 24,
+      "editorial_total": 26,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Hendersonville, North Carolina",
+      "distance_mi": 131,
+      "elevation_ft": 13000
     },
     {
       "slug": "bwr-california",
@@ -429,6 +477,18 @@
       "location": "Goshen, Arkansas",
       "distance_mi": 67,
       "elevation_ft": 4850
+    },
+    {
+      "slug": "dirty-french",
+      "name": "Dirty French",
+      "overall_score": 68,
+      "course_profile_total": 23,
+      "editorial_total": 22,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Chillicothe, Ohio",
+      "distance_mi": 100,
+      "elevation_ft": 9000
     },
     {
       "slug": "gravel-locos",

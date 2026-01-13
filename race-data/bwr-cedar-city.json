@@ -1,83 +1,237 @@
 {
-      "raceId": "bwr-cedar-city",
-      "name": "Belgian Waffle Ride Cedar City",
-      "slug": "bwr-cedar-city",
-      "location": {
-              "city": "Cedar City",
-              "state": "Utah",
-              "country": "USA"
+  "race": {
+    "name": "BELGIAN WAFFLE RIDE CEDAR CITY",
+    "slug": "bwr-cedar-city",
+    "display_name": "Belgian Waffle Ride Cedar City",
+    "tagline": "High-desert suffering at altitude with red rock views and sand sectors that'll humble the strongest riders",
+
+    "vitals": {
+      "distance_mi": 117,
+      "elevation_ft": 5940,
+      "location": "Cedar City, Utah",
+      "location_badge": "CEDAR CITY, UTAH",
+      "date": "June annually",
+      "date_specific": "2026: June 13"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 78,
+      "course_profile": 24,
+      "biased_opinion": 26,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "At 117 miles, the Waffle course is substantial ultra-endurance territory that demands serious preparation and pacing strategy."
       },
-      "date": {
-              "month": "May",
-              "typical": "Late May",
-              "year2025": "May 24, 2025",
-              "season": "Spring"
+      "technicality": {
+        "score": 4,
+        "explanation": "Rocky singletrack, sand sectors, chunky jeep roads, and 'lava slicer rocks' create a technical gauntlet. 2026 removes some singletrack but remains demanding."
       },
-      "organizer": {
-              "name": "Belgian Waffle Ride",
-              "website": "https://www.belgianwaffleride.com/"
+      "elevation": {
+        "score": 3,
+        "explanation": "5,940 feet of climbing is moderate by mountain standards, but at altitude this feels significantly harder than the numbers suggest."
       },
-      "distances": [
-              {
-                        "name": "Waffle",
-                        "distance": 124,
-                        "unit": "miles",
-                        "distanceKm": 200,
-                        "elevationGain": 8000,
-                        "elevationGainMeters": 2438,
-                        "category": "Elite"
-              },
-              {
-                        "name": "Wafer",
-                        "distance": 85,
-                        "unit": "miles",
-                        "distanceKm": 137,
-                        "elevationGain": 5500,
-                        "elevationGainMeters": 1676,
-                        "category": "Advanced"
-              }
+      "climate": {
+        "score": 3,
+        "explanation": "June typically offers 50s-to-80s temperature swings, strong headwinds, dust, and low humidity. The 2024 edition saw snow - anything can happen."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Starting at 5,846 feet (highest BWR start), the altitude noticeably impacts power output. Flat-landers will struggle to breathe and pace effectively."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Las Vegas airport is 2.5-3 hours away, Cedar City has limited hotel inventory. Remote but manageable with advance planning."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Red rock valleys, vast plateaus, 360-degree desert views near Zion and Bryce Canyon. Epic scenery that makes the suffering worthwhile."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Part of the BWR Quad-Tripel Crown series with national recognition. Not LTGP but carries serious weight in the gravel community."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Monuments of Cycling delivers professional production - 4 well-stocked feed zones, quality expo, and race day execution that matches the premium positioning."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The high-desert suffering combined with stunning red rock terrain creates a memorable experience unlike any other gravel race in America."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong BWR series following creates a dedicated community. The Quad-Tripel Crown format builds loyalty and camaraderie among repeat participants."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Pro-level field attracts names like Keegan Swenson, Pete Stetina, and Sofia Gomez Villafane. Strong competition without being LTGP mandatory."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Premium pricing for a premium event. Fair value for the production quality and experience, but not exceptional bang for buck."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "2.5-3 hour drive from Vegas, moderate hotel costs in a small town. Expect $500-1000 total for travel, lodging, and entry."
+      }
+    },
+
+    "raceId": "bwr-cedar-city",
+    "location": {
+      "city": "Cedar City",
+      "state": "Utah",
+      "country": "USA"
+    },
+    "date": {
+      "month": "June",
+      "typical": "Mid-June",
+      "year2026": "June 13, 2026",
+      "season": "Summer"
+    },
+    "organizer": {
+      "name": "Monuments of Cycling",
+      "website": "https://www.belgianwaffleride.bike/"
+    },
+    "distances": [
+      {
+        "name": "Waffle",
+        "distance": 117,
+        "unit": "miles",
+        "distanceKm": 188,
+        "elevationGain": 5940,
+        "elevationGainMeters": 1811,
+        "unroadPercent": 60,
+        "feedZones": 4,
+        "category": "Elite"
+      },
+      {
+        "name": "Wafer",
+        "distance": 66.5,
+        "unit": "miles",
+        "distanceKm": 108,
+        "elevationGain": 2734,
+        "elevationGainMeters": 833,
+        "unroadPercent": 68,
+        "feedZones": 2,
+        "category": "Advanced"
+      },
+      {
+        "name": "Wanna",
+        "distance": 27.1,
+        "unit": "miles",
+        "distanceKm": 43.6,
+        "elevationGain": 913,
+        "elevationGainMeters": 278,
+        "unroadPercent": 25,
+        "feedZones": 1,
+        "category": "Intermediate"
+      }
+    ],
+    "terrain": {
+      "surface": {
+        "unroad": 60,
+        "gravel": 45,
+        "dirt": 15,
+        "paved": 40
+      },
+      "technicalDifficulty": "Hard",
+      "technicalRating": 8,
+      "description": "High altitude Utah terrain starting at 5,846 ft with 60% unroad surface. Features rocky singletrack, sand sectors, chunky jeep roads, and 'lava slicer rocks'. 2026 removes technical singletrack in favor of flowing dirt and gravel.",
+      "startingElevation": 5846,
+      "maxElevation": 6879
+    },
+    "registration": {
+      "url": "https://www.bikereg.com/belgian-waffle-ride-utah-2026",
+      "note": "Tiered pricing with early registration discounts. Quad-Tripel Crown: Buy 3 BWR events, get 4th free."
+    },
+    "competition": {
+      "level": "Elite",
+      "format": "Mass start gravel race",
+      "seriesContext": "Part of 2026 Quad-Tripel Crown of Gravel (AZ Feb, CA May, UT June, MT June)"
+    },
+    "weather": {
+      "typical": {
+        "tempHigh": 86,
+        "tempLow": 52,
+        "unit": "F",
+        "conditions": "Hot days, cool mornings, very dry (26% humidity), strong winds"
+      },
+      "warnings": [
+        "2024 edition shortened due to snow, high winds, cold",
+        "Strong headwinds expected miles 42-94",
+        "Low humidity causes rapid dehydration",
+        "UV index of 6 - high sun exposure"
+      ]
+    },
+    "uniqueCharacteristics": [
+      "Highest starting elevation of all BWR events (5,846 ft)",
+      "Southern Utah red rock terrain near Zion/Bryce Canyon",
+      "Sand sectors that humble unprepared riders",
+      "2026 course removes technical singletrack for flowing gravel",
+      "'Lava slicer rocks' notorious for flats",
+      "Part of BWR Quad-Tripel Crown series"
+    ],
+    "blackPill": {
+      "altitude": "Your FTP is effectively 5-10% lower at this altitude. Power numbers will lie to you.",
+      "terrain": "This is NOT smooth gravel - sand sectors have ended races for riders without proper skills.",
+      "weather": "June doesn't guarantee good weather. The 2024 edition had snow.",
+      "equipment": "40mm minimum tires, tubeless mandatory, 1:1 gearing or you'll be hiking.",
+      "logistics": "Nearest major airport is 2.5-3 hours away. Book hotels early - limited inventory."
+    },
+    "history": {
+      "firstEdition": 2020,
+      "edition2026": 7,
+      "notableWinners": [
+        "2020: Keegan Swenson, Rose Grant",
+        "2022: Peter Stetina, Whitney Allison",
+        "2024: Pete Stetina, Sofia Gomez Villafane",
+        "2025: Joe Goettl, Flavia Oliveira Parks"
+      ]
+    },
+    "logistics": {
+      "primaryAirport": {
+        "code": "LAS",
+        "name": "Las Vegas Harry Reid International",
+        "distance": "170-180 miles",
+        "driveTime": "2.5-3 hours"
+      },
+      "alternateAirport": {
+        "code": "SLC",
+        "name": "Salt Lake City International",
+        "distance": "250 miles",
+        "driveTime": "4 hours"
+      },
+      "lodging": [
+        "Courtyard by Marriott Cedar City",
+        "SpringHill Suites Cedar City",
+        "Holiday Inn Express Cedar City",
+        "Hampton Inn Cedar City",
+        "Best Western Plus Cedar City"
       ],
-      "terrain": {
-              "surface": {
-                        "unroad": 92,
-                        "gravel": 70,
-                        "dirt": 22,
-                        "paved": 8
-              },
-              "technicalDifficulty": "Hard",
-              "technicalRating": 8,
-              "description": "High altitude Utah terrain starting at 5,846 ft with 92% unroad surface - highest percentage of unroad in BWR series",
-              "startingElevation": 5846
-      },
-      "registration": {
-              "cost": {
-                        "regular": 200,
-                        "currency": "USD"
-              },
-              "url": "https://www.bikereg.com/"
-      },
-      "competition": {
-              "level": "Competitive to Elite",
-              "format": "BWR series known for brutal difficulty"
-      },
-      "weather": {
-              "typical": {
-                        "tempHigh": 70,
-                        "tempLow": 45,
-                        "unit": "°F",
-                        "conditions": "High altitude spring conditions"
-              }
-      },
-      "uniqueCharacteristics": [
-              "Highest percentage of unroad (92%) in BWR series",
-              "High altitude starting at 5,846 ft",
-              "Southern Utah red rock terrain",
-              "BWR series difficulty reputation",
-              "Third event in 2025 BWR series"
-      ],
-      "tier": 1,
-      "popularity": 80,
-      "lastUpdated": "2026-01-08",
-      "dataQuality": "High",
-      "sources": ["https://www.belgianwaffleride.com", "Perplexity research 2026-01-08"]
+      "nearbyAttractions": [
+        "Zion National Park",
+        "Bryce Canyon National Park",
+        "Cedar Breaks National Monument"
+      ]
+    },
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "High",
+    "sources": [
+      "https://www.belgianwaffleride.bike/pages/utah",
+      "https://www.bikereg.com/belgian-waffle-ride-utah-2026",
+      "Research dump compiled January 11, 2026"
+    ]
+  }
 }

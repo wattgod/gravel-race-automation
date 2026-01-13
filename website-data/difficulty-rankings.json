@@ -2,10 +2,10 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 49,
+    "total_scored_races": 50,
     "tier_distribution": {
       "TIER 1": 27,
-      "TIER 2": 20,
+      "TIER 2": 21,
       "TIER 3": 2
     }
   },
@@ -215,7 +215,7 @@
       "elevation_ft": 4500
     },
     {
-      "slug": "bighorn-gravel",
+      "slug": "big-horn-gravel",
       "name": "Bighorn Gravel",
       "overall_score": 82,
       "course_profile_total": 28,
@@ -311,7 +311,7 @@
       "elevation_ft": 9000
     },
     {
-      "slug": "fuego-xl",
+      "slug": "fuego-mtb",
       "name": "Sea Otter Fuego XL",
       "overall_score": 78,
       "course_profile_total": 23,
@@ -513,6 +513,18 @@
       "location": "Goshen, Arkansas",
       "distance_mi": 67,
       "elevation_ft": 4850
+    },
+    {
+      "slug": "gravel-roubaix",
+      "name": "Gravel Roubaix",
+      "overall_score": 68,
+      "course_profile_total": 23,
+      "editorial_total": 24,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Palmerton, Pennsylvania",
+      "distance_mi": 100,
+      "elevation_ft": 8000
     },
     {
       "slug": "grinduro-canada",

@@ -1,0 +1,3638 @@
+{
+  "generated": "2026-01-12T23:35:15.788413Z",
+  "total_regions": 11,
+  "total_races": 388,
+  "clusters": [
+    {
+      "region": "Midwest",
+      "description": "The heartland of American gravel - Kansas Flint Hills, Iowa farm roads, Minnesota lake country",
+      "race_count": 61,
+      "signature_races": [
+        "Gravel Worlds",
+        "USA Cycling Gravel Nationals",
+        "USA Cycling Gravel Nationals",
+        "Unbound Gravel",
+        "Barry-Roubaix"
+      ],
+      "races": [
+        {
+          "name": "Gravel Worlds",
+          "slug": "gravel-worlds",
+          "date": "August 23-24, 2026",
+          "location": "Lincoln, NE",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "150/75"
+        },
+        {
+          "name": "USA Cycling Gravel Nationals",
+          "slug": "usa-cycling-gravel-nationals",
+          "date": "September 20",
+          "location": "La Crescent MN",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100/74/31"
+        },
+        {
+          "name": "USA Cycling Gravel Nationals",
+          "slug": "usa-cycling-gravel-nationals",
+          "date": "September TBD",
+          "location": "La Crescent MN",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100/74/31"
+        },
+        {
+          "name": "Unbound Gravel",
+          "slug": "unbound-gravel",
+          "date": "May 28-31, 2026",
+          "location": "Emporia, KS",
+          "difficulty_tier": "Expert",
+          "tier": "1",
+          "distances": "200/100/50"
+        },
+        {
+          "name": "Barry-Roubaix",
+          "slug": "barry-roubaix",
+          "date": "April 12-13, 2026",
+          "location": "Hastings MI",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": "18/36/62/100"
+        },
+        {
+          "name": "Belgian Waffle Ride Iowa",
+          "slug": "belgian-waffle-ride-iowa",
+          "date": "TBD",
+          "location": "IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride Kansas",
+          "slug": "belgian-waffle-ride-kansas",
+          "date": "TBD",
+          "location": "KS",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride Nebraska",
+          "slug": "belgian-waffle-ride-nebraska",
+          "date": "TBD",
+          "location": "NE",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride North",
+          "slug": "belgian-waffle-ride-north",
+          "date": "TBD",
+          "location": "MN",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride North Dakota",
+          "slug": "belgian-waffle-ride-north-dakota",
+          "date": "TBD",
+          "location": "ND",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride Wisconsin",
+          "slug": "belgian-waffle-ride-wisconsin",
+          "date": "TBD",
+          "location": "WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Red Granite Grinder",
+          "slug": "red-granite-grinder",
+          "date": "October TBD",
+          "location": "Athens WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": "150/100/50"
+        },
+        {
+          "name": "Bear 100",
+          "slug": "bear-100",
+          "date": "May 3",
+          "location": "Laona WI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "31/61/80/113"
+        },
+        {
+          "name": "Cedar Blitz",
+          "slug": "cedar-blitz",
+          "date": "July 12",
+          "location": "Cedar Springs MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "18/36/50/130"
+        },
+        {
+          "name": "Coast to Coast",
+          "slug": "coast-to-coast",
+          "date": "June 28",
+          "location": "Au Gres to Ludington MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100/204"
+        },
+        {
+          "name": "Cow Pie Classic",
+          "slug": "cow-pie-classic",
+          "date": "June 14",
+          "location": "Ionia MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "20/34/63"
+        },
+        {
+          "name": "Dirty 30",
+          "slug": "dirty-30",
+          "date": "April 19",
+          "location": "Saranac MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "16/30/50/100"
+        },
+        {
+          "name": "Filthy 50",
+          "slug": "filthy-50",
+          "date": "Early Oct",
+          "location": "MN",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gray Duck Grit",
+          "slug": "gray-duck-grit",
+          "date": "September 5",
+          "location": "Cannon Falls MN",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "50/69/111/222/333"
+        },
+        {
+          "name": "Hardwood Hustle",
+          "slug": "hardwood-hustle",
+          "date": "September 27",
+          "location": "Nelma WI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "39/62/101"
+        },
+        {
+          "name": "Heck of the North",
+          "slug": "heck-of-the-north",
+          "date": "September 26",
+          "location": "Two Harbors MN",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "19/60/100"
+        },
+        {
+          "name": "Hibernator",
+          "slug": "hibernator",
+          "date": "October 4",
+          "location": "Laona WI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "32/63/100"
+        },
+        {
+          "name": "Hungry Bear 100",
+          "slug": "hungry-bear-100",
+          "date": "May 10",
+          "location": "Cable WI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "30/60/100"
+        },
+        {
+          "name": "Le Grand du Nord",
+          "slug": "le-grand-du-nord",
+          "date": "May 23",
+          "location": "Grand Marais MN",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "26/50/110"
+        },
+        {
+          "name": "Little Apple 100 - IL State Championship",
+          "slug": "little-apple-100---il-state-championship",
+          "date": "August 3",
+          "location": "Manhattan IL",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100"
+        },
+        {
+          "name": "Lone Wolf Gravel",
+          "slug": "lone-wolf-gravel",
+          "date": "September 28",
+          "location": "Iron Mountain MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "36/50/100"
+        },
+        {
+          "name": "Lowell Classic",
+          "slug": "lowell-classic",
+          "date": "October 25",
+          "location": "Lowell MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "15/38/54/100"
+        },
+        {
+          "name": "Melting Mann",
+          "slug": "melting-mann",
+          "date": "March 22",
+          "location": "Vandalia MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "23/38/58"
+        },
+        {
+          "name": "Nxrth Gravel Event 1",
+          "slug": "nxrth-gravel-event-1",
+          "date": "TBD",
+          "location": "WI/MN/MI",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Nxrth Gravel Event 2",
+          "slug": "nxrth-gravel-event-2",
+          "date": "TBD",
+          "location": "WI/MN/MI",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Red Granite Grinder",
+          "slug": "red-granite-grinder",
+          "date": "October 11",
+          "location": "Athens WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "50/100/150"
+        },
+        {
+          "name": "Spotted Horse Ultra",
+          "slug": "spotted-horse-ultra",
+          "date": "Mid-Oct",
+          "location": "IA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "THE EQUALIZER - MO State Championship",
+          "slug": "the-equalizer---mo-state-championship",
+          "date": "July 26",
+          "location": "Marthasville MO",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100"
+        },
+        {
+          "name": "The Crusher",
+          "slug": "the-crusher",
+          "date": "July 19",
+          "location": "Upper Peninsula MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "40/100/175"
+        },
+        {
+          "name": "The Watermoo",
+          "slug": "the-watermoo",
+          "date": "August 9",
+          "location": "Dexter MI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "111"
+        },
+        {
+          "name": "Total Tomahawk Terrain",
+          "slug": "total-tomahawk-terrain",
+          "date": "June 21",
+          "location": "Tomahawk WI",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "33/63/103"
+        },
+        {
+          "name": "Albia Holy Cow",
+          "slug": "albia-holy-cow",
+          "date": "July 12",
+          "location": "Albia IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "BURGR 95",
+          "slug": "burgr-95",
+          "date": "July 12",
+          "location": "Gleason WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "47/95"
+        },
+        {
+          "name": "Crystal Bear",
+          "slug": "crystal-bear",
+          "date": "May 17-18",
+          "location": "Laona WI to Crystal Falls MI",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "192 bikepacking"
+        },
+        {
+          "name": "De Ronde Van Grampian",
+          "slug": "de-ronde-van-grampian",
+          "date": "August 2",
+          "location": "Oxford MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "12/25/50"
+        },
+        {
+          "name": "Essential Gravel",
+          "slug": "essential-gravel",
+          "date": "May 30-June 15",
+          "location": "Ringle WI",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "10/20/44"
+        },
+        {
+          "name": "Fairfield Harvest Rush",
+          "slug": "fairfield-harvest-rush",
+          "date": "October 4",
+          "location": "Fairfield IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "Fast Fitty",
+          "slug": "fast-fitty",
+          "date": "August 16",
+          "location": "Charlotte MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "19/36/54"
+        },
+        {
+          "name": "Glenwood Gravel",
+          "slug": "glenwood-gravel",
+          "date": "August 9",
+          "location": "Glenwood IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "Hart Hills",
+          "slug": "hart-hills",
+          "date": "May 10",
+          "location": "Hart MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "13/25/55"
+        },
+        {
+          "name": "Heywood Ride",
+          "slug": "heywood-ride",
+          "date": "May 16",
+          "location": "Northfield MN",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "30/60/110/165/390"
+        },
+        {
+          "name": "Iowa State Gravel TT Championship",
+          "slug": "iowa-state-gravel-tt-championship",
+          "date": "August 31",
+          "location": "Amana IA",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "Time trial"
+        },
+        {
+          "name": "Iowa Wind and Rock",
+          "slug": "iowa-wind-and-rock",
+          "date": "April 19-20",
+          "location": "Winterset IA",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "340"
+        },
+        {
+          "name": "Kalona Horseshoe",
+          "slug": "kalona-horseshoe",
+          "date": "May 10",
+          "location": "Kalona IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "Nicolet Hot Days",
+          "slug": "nicolet-hot-days",
+          "date": "August 10",
+          "location": "Wabeno WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "69"
+        },
+        {
+          "name": "Old Fashioned Gravel",
+          "slug": "old-fashioned-gravel",
+          "date": "September 13",
+          "location": "Hokah MN",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "40/66/100"
+        },
+        {
+          "name": "Pickerel Buck40",
+          "slug": "pickerel-buck40",
+          "date": "June 1",
+          "location": "Pickerel WI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "140"
+        },
+        {
+          "name": "Prairie Burn 100",
+          "slug": "prairie-burn-100",
+          "date": "June",
+          "location": "Grinnell IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "25/50/100"
+        },
+        {
+          "name": "Silver City Century",
+          "slug": "silver-city-century",
+          "date": "May 17",
+          "location": "Silver City IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "Soldier Cutoff Hillduro",
+          "slug": "soldier-cutoff-hillduro",
+          "date": "September 20",
+          "location": "Pisgah IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        },
+        {
+          "name": "Spring Valley 100",
+          "slug": "spring-valley-100",
+          "date": "May 17",
+          "location": "Spring Valley MN",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "60/100"
+        },
+        {
+          "name": "The Divide",
+          "slug": "the-divide",
+          "date": "July 27",
+          "location": "Manton MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "18/30/44"
+        },
+        {
+          "name": "The Insayner",
+          "slug": "the-insayner",
+          "date": "June 14",
+          "location": "Sayner WI",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "12/25"
+        },
+        {
+          "name": "Thunder Bay Thriller",
+          "slug": "thunder-bay-thriller",
+          "date": "September 14",
+          "location": "Alpena MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "16/27/62"
+        },
+        {
+          "name": "Uncle John's Gravel Race",
+          "slug": "uncle-johns-gravel-race",
+          "date": "September 7",
+          "location": "St Johns MI",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "16/28/57"
+        },
+        {
+          "name": "Waukon 100",
+          "slug": "waukon-100",
+          "date": "June 21",
+          "location": "Waukon IA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31/62"
+        }
+      ]
+    },
+    {
+      "region": "Mountain West",
+      "description": "High altitude challenges, mountain passes, spectacular scenery",
+      "race_count": 30,
+      "signature_races": [
+        "Leadville 100",
+        "SBT GRVL",
+        "SBT GRVL (Black)",
+        "BWR Montana",
+        "BWR Utah"
+      ],
+      "races": [
+        {
+          "name": "Leadville 100",
+          "slug": "leadville-100",
+          "date": "August 2026",
+          "location": "Leadville, CO",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": ""
+        },
+        {
+          "name": "SBT GRVL",
+          "slug": "sbt-grvl",
+          "date": "Late June 2026",
+          "location": "Steamboat, CO",
+          "difficulty_tier": "Elite",
+          "tier": "1",
+          "distances": "144/100/50"
+        },
+        {
+          "name": "SBT GRVL (Black)",
+          "slug": "sbt-grvl-(black)",
+          "date": "Late June",
+          "location": "Steamboat, CO",
+          "difficulty_tier": "Elite",
+          "tier": "1",
+          "distances": "144"
+        },
+        {
+          "name": "BWR Montana",
+          "slug": "bwr-montana",
+          "date": "Late June",
+          "location": "MT",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "BWR Utah",
+          "slug": "bwr-utah",
+          "date": "Late May",
+          "location": "UT",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride Cedar City",
+          "slug": "belgian-waffle-ride-cedar-city",
+          "date": "TBD",
+          "location": "Cedar City, UT",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Crusher in the Tushar",
+          "slug": "crusher-in-the-tushar",
+          "date": "July 13-14, 2026",
+          "location": "Beaver, UT",
+          "difficulty_tier": "Expert",
+          "tier": "2",
+          "distances": "70"
+        },
+        {
+          "name": "Rad Dirt Fest",
+          "slug": "rad-dirt-fest",
+          "date": "Early July 2026",
+          "location": "Salida, CO",
+          "difficulty_tier": "Expert",
+          "tier": "2",
+          "distances": "100"
+        },
+        {
+          "name": "Rebecca's Private Idaho",
+          "slug": "rebeccas-private-idaho",
+          "date": "Labor Day 2026 (Early September)",
+          "location": "Ketchum, ID",
+          "difficulty_tier": "Expert",
+          "tier": "2",
+          "distances": "100/55"
+        },
+        {
+          "name": "Bighorn Gravel",
+          "slug": "bighorn-gravel",
+          "date": "June 22",
+          "location": "Gypsum CO",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "85/50/20"
+        },
+        {
+          "name": "Crooked Gravel",
+          "slug": "crooked-gravel",
+          "date": "August 2",
+          "location": "Winter Park CO",
+          "difficulty_tier": "Expert",
+          "tier": "3",
+          "distances": "95/25"
+        },
+        {
+          "name": "Dead Swede Gravel",
+          "slug": "dead-swede-gravel",
+          "date": "June 7",
+          "location": "Sheridan WY",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100/60/40/20"
+        },
+        {
+          "name": "Ned Gravel",
+          "slug": "ned-gravel",
+          "date": "July 12",
+          "location": "Nederland CO",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "4 courses"
+        },
+        {
+          "name": "Pony Xpress - CO State Championship",
+          "slug": "pony-xpress---co-state-championship",
+          "date": "April 19",
+          "location": "Cokedale CO",
+          "difficulty_tier": "Expert",
+          "tier": "3",
+          "distances": "100+"
+        },
+        {
+          "name": "WYO 131",
+          "slug": "wyo-131",
+          "date": "September 13",
+          "location": "Lander WY",
+          "difficulty_tier": "Expert",
+          "tier": "3",
+          "distances": "131/75/45/13"
+        },
+        {
+          "name": "Wasatch All-Road",
+          "slug": "wasatch-all-road",
+          "date": "August 8",
+          "location": "Francis UT",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100/58/31"
+        },
+        {
+          "name": "Wild Horse Gravel",
+          "slug": "wild-horse-gravel",
+          "date": "May 17",
+          "location": "De Beque CO",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "65/46/30"
+        },
+        {
+          "name": "Big Sky Gravel",
+          "slug": "big-sky-gravel",
+          "date": "August",
+          "location": "Red Lodge MT",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "100/50/22"
+        },
+        {
+          "name": "Cowboy Crusher",
+          "slug": "cowboy-crusher",
+          "date": "July 19",
+          "location": "Glenrock WY",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "121/75/40/17"
+        },
+        {
+          "name": "Dirty Dino",
+          "slug": "dirty-dino",
+          "date": "June 13",
+          "location": "Vernal UT",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "102/67/27"
+        },
+        {
+          "name": "Dusty Bandita",
+          "slug": "dusty-bandita",
+          "date": "Summer",
+          "location": "Ovando MT",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "80/45"
+        },
+        {
+          "name": "Grassroots Gravel",
+          "slug": "grassroots-gravel",
+          "date": "October 11",
+          "location": "Pueblo CO",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "Various"
+        },
+        {
+          "name": "Gunni Grinder",
+          "slug": "gunni-grinder",
+          "date": "September 6",
+          "location": "Gunnison CO",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "120/60/30"
+        },
+        {
+          "name": "KowTown Gravel",
+          "slug": "kowtown-gravel",
+          "date": "July 5",
+          "location": "Kremmling CO",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "95/65/34"
+        },
+        {
+          "name": "Mad Gravel",
+          "slug": "mad-gravel",
+          "date": "May 24-25",
+          "location": "Elbert CO",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "Various circuit"
+        },
+        {
+          "name": "Montana Gravel Challenge",
+          "slug": "montana-gravel-challenge",
+          "date": "May 1",
+          "location": "Huson MT",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "3-day (TT 11 + 56 + 45)"
+        },
+        {
+          "name": "Pony Xpress Gravel 160",
+          "slug": "pony-xpress-gravel-160",
+          "date": "May 4",
+          "location": "Trinidad CO",
+          "difficulty_tier": "Expert",
+          "tier": "4",
+          "distances": "100/50/30"
+        },
+        {
+          "name": "Salida 76",
+          "slug": "salida-76",
+          "date": "September 13",
+          "location": "Salida CO",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "76"
+        },
+        {
+          "name": "Salty Lizard",
+          "slug": "salty-lizard",
+          "date": "April 4",
+          "location": "Wendover UT",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "98/74/38"
+        },
+        {
+          "name": "The Mane Event Gravel",
+          "slug": "the-mane-event-gravel",
+          "date": "September 20",
+          "location": "Sheridan WY",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "78/54/32/25"
+        }
+      ]
+    },
+    {
+      "region": "Southwest",
+      "description": "Desert gravel, high heat challenges, dramatic landscapes",
+      "race_count": 12,
+      "signature_races": [
+        "Collegiate Gravel Nationals",
+        "Mid South",
+        "BWR Arizona",
+        "Belgian Waffle Ride Texas",
+        "Gravel Locos"
+      ],
+      "races": [
+        {
+          "name": "Collegiate Gravel Nationals",
+          "slug": "collegiate-gravel-nationals",
+          "date": "March 7",
+          "location": "Turkey TX",
+          "difficulty_tier": "Intermediate",
+          "tier": "1",
+          "distances": "93/46/18"
+        },
+        {
+          "name": "Mid South",
+          "slug": "mid-south",
+          "date": "March 15-16, 2026",
+          "location": "Stillwater, OK",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100"
+        },
+        {
+          "name": "BWR Arizona",
+          "slug": "bwr-arizona",
+          "date": "Early March",
+          "location": "Phoenix, AZ",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": "100/60"
+        },
+        {
+          "name": "Belgian Waffle Ride Texas",
+          "slug": "belgian-waffle-ride-texas",
+          "date": "TBD",
+          "location": "TX",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Locos",
+          "slug": "gravel-locos",
+          "date": "TBD",
+          "location": "Hico, TX",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Chino Grinder",
+          "slug": "chino-grinder",
+          "date": "October 17",
+          "location": "Chino Valley AZ",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "150/115/62/44/25"
+        },
+        {
+          "name": "Ruby Roubaix",
+          "slug": "ruby-roubaix",
+          "date": "June 27",
+          "location": "Lamoille NV",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "120/62/38/22"
+        },
+        {
+          "name": "Spirit World 100",
+          "slug": "spirit-world-100",
+          "date": "October",
+          "location": "Arizona",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100"
+        },
+        {
+          "name": "Bear Howard Gravel",
+          "slug": "bear-howard-gravel",
+          "date": "August 2",
+          "location": "Flagstaff AZ",
+          "difficulty_tier": "Expert",
+          "tier": "4",
+          "distances": "100/60/30"
+        },
+        {
+          "name": "Beaver Dam Gravel Grinder",
+          "slug": "beaver-dam-gravel-grinder",
+          "date": "June 21",
+          "location": "Beaver Dam State Park NV",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "Various"
+        },
+        {
+          "name": "Galactic Grinder",
+          "slug": "galactic-grinder",
+          "date": "April",
+          "location": "Cedar Hill NM",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "50/35/9"
+        },
+        {
+          "name": "Santa Fe Century Gravel\u00f3n",
+          "slug": "santa-fe-century-gravel\u00f3n",
+          "date": "May 16-17",
+          "location": "Santa Fe NM",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "55/25"
+        }
+      ]
+    },
+    {
+      "region": "California",
+      "description": "Diverse terrain from coast to mountains, year-round racing",
+      "race_count": 29,
+      "signature_races": [
+        "BWR California",
+        "Belgian Waffle Ride San Diego",
+        "Mammoth Tuff"
+      ],
+      "races": [
+        {
+          "name": "BWR California",
+          "slug": "bwr-california",
+          "date": "Late April",
+          "location": "Del Mar, CA",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100/60"
+        },
+        {
+          "name": "Belgian Waffle Ride San Diego",
+          "slug": "belgian-waffle-ride-san-diego",
+          "date": "TBD",
+          "location": "San Diego, CA",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Mammoth Tuff",
+          "slug": "mammoth-tuff",
+          "date": "Late June 2026",
+          "location": "Mammoth Lakes, CA",
+          "difficulty_tier": "Expert",
+          "tier": "2",
+          "distances": "100"
+        },
+        {
+          "name": "California Gravel Race 1",
+          "slug": "california-gravel-race-1",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 10",
+          "slug": "california-gravel-race-10",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 11",
+          "slug": "california-gravel-race-11",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 12",
+          "slug": "california-gravel-race-12",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 13",
+          "slug": "california-gravel-race-13",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 14",
+          "slug": "california-gravel-race-14",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 15",
+          "slug": "california-gravel-race-15",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 16",
+          "slug": "california-gravel-race-16",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 17",
+          "slug": "california-gravel-race-17",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 2",
+          "slug": "california-gravel-race-2",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 3",
+          "slug": "california-gravel-race-3",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 4",
+          "slug": "california-gravel-race-4",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 5",
+          "slug": "california-gravel-race-5",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 6",
+          "slug": "california-gravel-race-6",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 7",
+          "slug": "california-gravel-race-7",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 8",
+          "slug": "california-gravel-race-8",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "California Gravel Race 9",
+          "slug": "california-gravel-race-9",
+          "date": "TBD",
+          "location": "California, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Adventure Series - Hopland",
+          "slug": "grasshopper-adventure-series---hopland",
+          "date": "April",
+          "location": "Hopland, CA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Adventure Series - King Ridge",
+          "slug": "grasshopper-adventure-series---king-ridge",
+          "date": "March",
+          "location": "Santa Rosa, CA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Adventure Series - Knoxville",
+          "slug": "grasshopper-adventure-series---knoxville",
+          "date": "May",
+          "location": "Knoxville, CA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Adventure Series - Low Gap",
+          "slug": "grasshopper-adventure-series---low-gap",
+          "date": "January",
+          "location": "Ukiah, CA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Adventure Series - Old Caz",
+          "slug": "grasshopper-adventure-series---old-caz",
+          "date": "February",
+          "location": "Cazadero, CA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grasshopper Series",
+          "slug": "grasshopper-series",
+          "date": "Multiple dates 2026",
+          "location": "NorCal",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Grinduro California",
+          "slug": "grinduro-california",
+          "date": "Mid-Sept",
+          "location": "NorCal",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Lost and Found",
+          "slug": "lost-and-found",
+          "date": "Late May 2026",
+          "location": "NorCal",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Rock Cobbler",
+          "slug": "rock-cobbler",
+          "date": "Early February 2026",
+          "location": "Bakersfield, CA",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100"
+        }
+      ]
+    },
+    {
+      "region": "Pacific Northwest",
+      "description": "Lush forests, volcanic terrain, variable weather",
+      "race_count": 19,
+      "signature_races": [
+        "Belgian Waffle Ride Washington",
+        "Oregon Trail Gravel"
+      ],
+      "races": [
+        {
+          "name": "Belgian Waffle Ride Washington",
+          "slug": "belgian-waffle-ride-washington",
+          "date": "TBD",
+          "location": "WA",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Trail Gravel",
+          "slug": "oregon-trail-gravel",
+          "date": "Late June",
+          "location": "OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Bend Dirt Fest",
+          "slug": "bend-dirt-fest",
+          "date": "July 11",
+          "location": "Bend OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "Multiple"
+        },
+        {
+          "name": "Oregon Coast Gravel Epic",
+          "slug": "oregon-coast-gravel-epic",
+          "date": "May 2",
+          "location": "Waldport OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "60/49/37"
+        },
+        {
+          "name": "Oregon Gran Fondo",
+          "slug": "oregon-gran-fondo",
+          "date": "May 16",
+          "location": "Cottage Grove OR",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100/66/68"
+        },
+        {
+          "name": "Oregon Triple Crown Race 1",
+          "slug": "oregon-triple-crown-race-1",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 2",
+          "slug": "oregon-triple-crown-race-2",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 3",
+          "slug": "oregon-triple-crown-race-3",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 4",
+          "slug": "oregon-triple-crown-race-4",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 5",
+          "slug": "oregon-triple-crown-race-5",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 6",
+          "slug": "oregon-triple-crown-race-6",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Oregon Triple Crown Race 7",
+          "slug": "oregon-triple-crown-race-7",
+          "date": "Multiple dates 2026",
+          "location": "OR",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Real West Gravel",
+          "slug": "real-west-gravel",
+          "date": "March 15",
+          "location": "Pendleton OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "67/47"
+        },
+        {
+          "name": "Sasquatch Duro",
+          "slug": "sasquatch-duro",
+          "date": "April 11",
+          "location": "Carlton OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "65/37"
+        },
+        {
+          "name": "Gravel Unravel - Bon Jon Pass Out",
+          "slug": "gravel-unravel---bon-jon-pass-out",
+          "date": "June 14",
+          "location": "Quilcene WA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "77/55/35"
+        },
+        {
+          "name": "Gravel Unravel - Why-Not-Chee",
+          "slug": "gravel-unravel---why-not-chee",
+          "date": "July 26",
+          "location": "Hoquiam WA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "77/42/36/17"
+        },
+        {
+          "name": "Takelma Gravel Grinder",
+          "slug": "takelma-gravel-grinder",
+          "date": "June 27",
+          "location": "Canyonville OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "55"
+        },
+        {
+          "name": "The GRiT Adventure",
+          "slug": "the-grit-adventure",
+          "date": "July 19",
+          "location": "Snoqualmie Pass WA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "Multiple"
+        },
+        {
+          "name": "West Coast Gravel",
+          "slug": "west-coast-gravel",
+          "date": "May 3",
+          "location": "Yachats OR",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "45/34"
+        }
+      ]
+    },
+    {
+      "region": "Southeast",
+      "description": "Southern hospitality, humid conditions, rolling terrain",
+      "race_count": 35,
+      "signature_races": [
+        "Big Sugar",
+        "Highlands Gravel Classic",
+        "Belgian Waffle Ride Asheville",
+        "Belgian Waffle Ride North Carolina",
+        "Highlands Gravel Classic"
+      ],
+      "races": [
+        {
+          "name": "Big Sugar",
+          "slug": "big-sugar",
+          "date": "October 18, 2026",
+          "location": "Bentonville, AR",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100"
+        },
+        {
+          "name": "Highlands Gravel Classic",
+          "slug": "highlands-gravel-classic",
+          "date": "April 26, 2026",
+          "location": "Fayetteville AR",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "68/54"
+        },
+        {
+          "name": "Belgian Waffle Ride Asheville",
+          "slug": "belgian-waffle-ride-asheville",
+          "date": "TBD",
+          "location": "Asheville, NC",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Belgian Waffle Ride North Carolina",
+          "slug": "belgian-waffle-ride-north-carolina",
+          "date": "TBD",
+          "location": "NC",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Highlands Gravel Classic",
+          "slug": "highlands-gravel-classic",
+          "date": "April 26, 2026",
+          "location": "Fayetteville AR",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": "68/54"
+        },
+        {
+          "name": "Bootlegger 100",
+          "slug": "bootlegger-100",
+          "date": "April 19",
+          "location": "Lenoir NC",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "85/58"
+        },
+        {
+          "name": "Border Wars",
+          "slug": "border-wars",
+          "date": "February",
+          "location": "GA/AL",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Dirty Pecan",
+          "slug": "dirty-pecan",
+          "date": "Early March",
+          "location": "FL",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Dirty Sheets Gravel Grind",
+          "slug": "dirty-sheets-gravel-grind",
+          "date": "October 11",
+          "location": "Chattahoochee Hills GA",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100/62/22"
+        },
+        {
+          "name": "GRUSK",
+          "slug": "grusk",
+          "date": "July 10-12",
+          "location": "Circleville WV",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "89/50/32 (+220-316 bikepacking)"
+        },
+        {
+          "name": "Gravel Battle of Sumter Forest",
+          "slug": "gravel-battle-of-sumter-forest",
+          "date": "May 17",
+          "location": "Whitmire SC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "74/49"
+        },
+        {
+          "name": "Gravel Revival",
+          "slug": "gravel-revival",
+          "date": "October 17-19",
+          "location": "Hickman County TN",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "50-70"
+        },
+        {
+          "name": "Gravel Roll - Pecan Shaker",
+          "slug": "gravel-roll---pecan-shaker",
+          "date": "October 18",
+          "location": "Hawkinsville GA",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "106/72/41"
+        },
+        {
+          "name": "Hellhole Gravel Grind Stage Race",
+          "slug": "hellhole-gravel-grind-stage-race",
+          "date": "October 3-5",
+          "location": "Jamestown SC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "150 (75x2)"
+        },
+        {
+          "name": "Holly Shelter Gravel Grinder",
+          "slug": "holly-shelter-gravel-grinder",
+          "date": "March 23",
+          "location": "SE NC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "40-60"
+        },
+        {
+          "name": "Homegrown Gravel Adventure",
+          "slug": "homegrown-gravel-adventure",
+          "date": "February 28",
+          "location": "Franklin GA",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100/62/40/20"
+        },
+        {
+          "name": "Hot Springs Gravel Gauntlet",
+          "slug": "hot-springs-gravel-gauntlet",
+          "date": "March 29",
+          "location": "Hot Springs NC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "50-70"
+        },
+        {
+          "name": "Lost River Classic",
+          "slug": "lost-river-classic",
+          "date": "August 16",
+          "location": "Mathias WV",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "85/60/28"
+        },
+        {
+          "name": "Opelika Okey Dokey",
+          "slug": "opelika-okey-dokey",
+          "date": "April 12",
+          "location": "Opelika AL",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100+/65/34"
+        },
+        {
+          "name": "Pisgah Monster Cross",
+          "slug": "pisgah-monster-cross",
+          "date": "September",
+          "location": "Brevard NC",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Pisgah Monster-Cross Challenge",
+          "slug": "pisgah-monster-cross-challenge",
+          "date": "October",
+          "location": "Brevard NC",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "69.2"
+        },
+        {
+          "name": "Race to Valhalla",
+          "slug": "race-to-valhalla",
+          "date": "April 26",
+          "location": "Walhalla SC",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "50-70"
+        },
+        {
+          "name": "Reliance Deep Woods",
+          "slug": "reliance-deep-woods",
+          "date": "April",
+          "location": "TN",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Reliance Tennessee Gravel",
+          "slug": "reliance-tennessee-gravel",
+          "date": "April 25-27",
+          "location": "Reliance TN",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "65+50 (2-day)"
+        },
+        {
+          "name": "Southern Cross",
+          "slug": "southern-cross",
+          "date": "Early March",
+          "location": "GA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Southern Cross Gravel",
+          "slug": "southern-cross-gravel",
+          "date": "March 1",
+          "location": "Dahlonega GA",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "50-100"
+        },
+        {
+          "name": "Standard Deluxe Dirt Road Century",
+          "slug": "standard-deluxe-dirt-road-century",
+          "date": "November 8",
+          "location": "Waverly AL",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "100/65/35"
+        },
+        {
+          "name": "Swamp Fox Gravel Fondo",
+          "slug": "swamp-fox-gravel-fondo",
+          "date": "March 14-15",
+          "location": "Francis Marion NF SC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "100/50/27"
+        },
+        {
+          "name": "Uwharrie Forest Gravel Grinder",
+          "slug": "uwharrie-forest-gravel-grinder",
+          "date": "February 23",
+          "location": "Central NC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "40-60"
+        },
+        {
+          "name": "Waucheesi Bike Race",
+          "slug": "waucheesi-bike-race",
+          "date": "March 30",
+          "location": "Tellico Plains TN",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "88/63/45"
+        },
+        {
+          "name": "OMG (Oxford MS Gravel)",
+          "slug": "omg-(oxford-ms-gravel)",
+          "date": "January",
+          "location": "Oxford MS",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "100/50/20"
+        },
+        {
+          "name": "Rose City Rampage Gravel Race",
+          "slug": "rose-city-rampage-gravel-race",
+          "date": "March 22",
+          "location": "Thomasville GA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "60/30"
+        },
+        {
+          "name": "Rust Buster Gravel Fondo",
+          "slug": "rust-buster-gravel-fondo",
+          "date": "April 5",
+          "location": "Memphis TN",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "50-100"
+        },
+        {
+          "name": "Scratch Ankle Gravel",
+          "slug": "scratch-ankle-gravel",
+          "date": "March",
+          "location": "Milton FL",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "Multiple"
+        },
+        {
+          "name": "Unravel Gravel - VA State Championship",
+          "slug": "unravel-gravel---va-state-championship",
+          "date": "Fall TBD",
+          "location": "Cumberland VA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "62/31"
+        }
+      ]
+    },
+    {
+      "region": "Northeast",
+      "description": "Classic New England gravel, fall foliage, historic routes",
+      "race_count": 15,
+      "signature_races": [],
+      "races": [
+        {
+          "name": "Battenkill",
+          "slug": "battenkill",
+          "date": "May",
+          "location": "NY",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "D2R2",
+          "slug": "d2r2",
+          "date": "Late August 2026",
+          "location": "MA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Dirty Hector - NY State Championship",
+          "slug": "dirty-hector---ny-state-championship",
+          "date": "May 25",
+          "location": "Trumansburg NY",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "50-100"
+        },
+        {
+          "name": "Farmer's Daughter",
+          "slug": "farmers-daughter",
+          "date": "May",
+          "location": "NY",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Iron Cross",
+          "slug": "iron-cross",
+          "date": "October",
+          "location": "PA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Rasputitsa",
+          "slug": "rasputitsa",
+          "date": "Late April 2026",
+          "location": "Burke VT",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Rasputitsa Dirt",
+          "slug": "rasputitsa-dirt",
+          "date": "Late April 2026",
+          "location": "Burke VT",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "46"
+        },
+        {
+          "name": "Trans-Sylvania Epic",
+          "slug": "trans-sylvania-epic",
+          "date": "May",
+          "location": "PA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Vermont Overland",
+          "slug": "vermont-overland",
+          "date": "Late August 2026",
+          "location": "Woodstock VT",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "54"
+        },
+        {
+          "name": "Bald Eagle Gravel Grinder",
+          "slug": "bald-eagle-gravel-grinder",
+          "date": "April 19",
+          "location": "Lock Haven PA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "60/30/15"
+        },
+        {
+          "name": "Camp Michaux Gravel Grinder",
+          "slug": "camp-michaux-gravel-grinder",
+          "date": "June 29",
+          "location": "Gardners PA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "55/30/15"
+        },
+        {
+          "name": "Mid-State Gravel Grinder",
+          "slug": "mid-state-gravel-grinder",
+          "date": "August 3",
+          "location": "Central PA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "65/35/18"
+        },
+        {
+          "name": "Parker Dam Gravel Grinder",
+          "slug": "parker-dam-gravel-grinder",
+          "date": "May 10",
+          "location": "Clearfield County PA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "65/35/20"
+        },
+        {
+          "name": "Raid Rockingham",
+          "slug": "raid-rockingham",
+          "date": "June 1",
+          "location": "SE NH",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "40-60"
+        },
+        {
+          "name": "Trough Creek Gravel Grinder",
+          "slug": "trough-creek-gravel-grinder",
+          "date": "September 21",
+          "location": "Trough Creek State Park PA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "60/30/15"
+        }
+      ]
+    },
+    {
+      "region": "Canada",
+      "description": "Northern adventures, wilderness gravel, Canadian Gravel Cup",
+      "race_count": 14,
+      "signature_races": [
+        "Paris to Ancaster"
+      ],
+      "races": [
+        {
+          "name": "Paris to Ancaster",
+          "slug": "paris-to-ancaster",
+          "date": "April 26-27, 2026",
+          "location": "Ontario, Canada",
+          "difficulty_tier": "Intermediate",
+          "tier": "1",
+          "distances": "70/40"
+        },
+        {
+          "name": "Back Forty Highlander",
+          "slug": "back-forty-highlander",
+          "date": "September 6",
+          "location": "Mississippi Station ON",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "67/43/22"
+        },
+        {
+          "name": "Burnt Bridge Classic",
+          "slug": "burnt-bridge-classic",
+          "date": "May 17-18",
+          "location": "Cowichan Valley BC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "Multiple"
+        },
+        {
+          "name": "Cowichan Crusher Gravel Fondo",
+          "slug": "cowichan-crusher-gravel-fondo",
+          "date": "June 1",
+          "location": "Lake Cowichan BC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "15-75"
+        },
+        {
+          "name": "Ghost of the Gravel",
+          "slug": "ghost-of-the-gravel",
+          "date": "June",
+          "location": "Alberta",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Kettle Mettle",
+          "slug": "kettle-mettle",
+          "date": "Late June",
+          "location": "BC",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "River City Gravel Fondo",
+          "slug": "river-city-gravel-fondo",
+          "date": "April 19-20",
+          "location": "Campbell River BC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "19-62"
+        },
+        {
+          "name": "The Range",
+          "slug": "the-range",
+          "date": "Late July 2026",
+          "location": "Alberta",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "TransRockies Gravel Royale",
+          "slug": "transrockies-gravel-royale",
+          "date": "Late August 2026",
+          "location": "BC",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Canmore Crux",
+          "slug": "canmore-crux",
+          "date": "July 12",
+          "location": "Canmore AB",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "50/20"
+        },
+        {
+          "name": "Forbidden Gravel",
+          "slug": "forbidden-gravel",
+          "date": "September 13-14",
+          "location": "Cumberland BC",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "Multiple"
+        },
+        {
+          "name": "Glengarry Games Gravel Run",
+          "slug": "glengarry-games-gravel-run",
+          "date": "August 3",
+          "location": "Maxville ON",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "71/52/26"
+        },
+        {
+          "name": "Nanaimo Unpaved",
+          "slug": "nanaimo-unpaved",
+          "date": "June 14-15",
+          "location": "Nanaimo BC",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "Multiple"
+        },
+        {
+          "name": "Ottawa Valley Gravel Experience",
+          "slug": "ottawa-valley-gravel-experience",
+          "date": "April 12",
+          "location": "Calabogie ON",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "60/34/21"
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "description": "Old world charm, diverse terrain from Alps to Mediterranean",
+      "race_count": 46,
+      "signature_races": [
+        "Strade Bianche Gran Fondo",
+        "The Traka",
+        "UCI Gravel Worlds",
+        "Alentejo Gravel",
+        "Badlands"
+      ],
+      "races": [
+        {
+          "name": "Strade Bianche Gran Fondo",
+          "slug": "strade-bianche-gran-fondo",
+          "date": "March",
+          "location": "Italy",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "100+"
+        },
+        {
+          "name": "The Traka",
+          "slug": "the-traka",
+          "date": "Early May 2026",
+          "location": "Girona, Spain",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "360/200"
+        },
+        {
+          "name": "UCI Gravel Worlds",
+          "slug": "uci-gravel-worlds",
+          "date": "October",
+          "location": "Netherlands",
+          "difficulty_tier": "Intermediate",
+          "tier": "1",
+          "distances": "Elite"
+        },
+        {
+          "name": "Alentejo Gravel",
+          "slug": "alentejo-gravel",
+          "date": "TBD",
+          "location": "Portugal",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Badlands",
+          "slug": "badlands",
+          "date": "Late August",
+          "location": "Spain",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": "400+"
+        },
+        {
+          "name": "Castellon Gravel Race",
+          "slug": "castellon-gravel-race",
+          "date": "February 15, 2026",
+          "location": "Llucena, Spain",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Dirty Reiver",
+          "slug": "dirty-reiver",
+          "date": "Late April 2026",
+          "location": "UK",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": "200/130"
+        },
+        {
+          "name": "FNLD GRVL",
+          "slug": "fnld-grvl",
+          "date": "August",
+          "location": "Finland",
+          "difficulty_tier": "Advanced",
+          "tier": "2",
+          "distances": "200+"
+        },
+        {
+          "name": "Flanders Legacy Gravel",
+          "slug": "flanders-legacy-gravel",
+          "date": "TBD",
+          "location": "Belgium",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Giro Sardegna Gravel",
+          "slug": "giro-sardegna-gravel",
+          "date": "TBD",
+          "location": "Siniscola, Italy",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Heathland Gravel",
+          "slug": "heathland-gravel",
+          "date": "TBD",
+          "location": "Belgium",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Nova Eroica",
+          "slug": "nova-eroica",
+          "date": "June",
+          "location": "Italy",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": "100+"
+        },
+        {
+          "name": "The Gralloch",
+          "slug": "the-gralloch",
+          "date": "Late May 2026",
+          "location": "Scotland",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": "100+"
+        },
+        {
+          "name": "114 Gravel Race",
+          "slug": "114-gravel-race",
+          "date": "March 29, 2026",
+          "location": "Portugal",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "3Rides Aachen",
+          "slug": "3rides-aachen",
+          "date": "May 2025",
+          "location": "Winterberg/Aachen",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "62"
+        },
+        {
+          "name": "66\u00b0 South Pyr\u00e9n\u00e9es",
+          "slug": "66\u00b0-south-pyr\u00e9n\u00e9es",
+          "date": "TBD",
+          "location": "France",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Alentejo",
+          "slug": "alentejo",
+          "date": "TBD",
+          "location": "Portugal",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Ardenne Gravel Stages",
+          "slug": "ardenne-gravel-stages",
+          "date": "September 26-28",
+          "location": "Vielsalm/Engreux",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "43-68 x 3 days"
+        },
+        {
+          "name": "Castellon",
+          "slug": "castellon",
+          "date": "February 15, 2026",
+          "location": "Spain",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Flanders Legacy",
+          "slug": "flanders-legacy",
+          "date": "TBD",
+          "location": "Belgium",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Fever",
+          "slug": "gravel-fever",
+          "date": "September 13-15",
+          "location": "Ch\u00e2tellerault France",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "31-310"
+        },
+        {
+          "name": "Gravel One Fifty",
+          "slug": "gravel-one-fifty",
+          "date": "April 25",
+          "location": "Roden Drenthe",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "50-93"
+        },
+        {
+          "name": "Grinduro France",
+          "slug": "grinduro-france",
+          "date": "June 28-30",
+          "location": "Xonrupt-Longemer Vosges",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "62"
+        },
+        {
+          "name": "Grinduro Germany",
+          "slug": "grinduro-germany",
+          "date": "May 23-25",
+          "location": "Hellenthal Eifel",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "62"
+        },
+        {
+          "name": "Heathland",
+          "slug": "heathland",
+          "date": "TBD",
+          "location": "Belgium",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Hegau Gravel Race",
+          "slug": "hegau-gravel-race",
+          "date": "June 28-29",
+          "location": "Singen",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "68"
+        },
+        {
+          "name": "Houffa",
+          "slug": "houffa",
+          "date": "TBD",
+          "location": "Belgium",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Houffa Gravel",
+          "slug": "houffa-gravel",
+          "date": "August 30",
+          "location": "Houffalize Belgian Ardennes",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "31-88"
+        },
+        {
+          "name": "Lauf Gritfest",
+          "slug": "lauf-gritfest",
+          "date": "June 20-22",
+          "location": "Cambrian Mountains Wales",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "78"
+        },
+        {
+          "name": "Marly Grav",
+          "slug": "marly-grav",
+          "date": "TBD",
+          "location": "Netherlands",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Sea Otter Europe",
+          "slug": "sea-otter-europe",
+          "date": "TBD",
+          "location": "Spain",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Turnhout",
+          "slug": "turnhout",
+          "date": "March 23, 2026",
+          "location": "Belgium",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Wish One Millau",
+          "slug": "wish-one-millau",
+          "date": "June 15-16",
+          "location": "Millau Grands Causses",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "68"
+        },
+        {
+          "name": "Dalby Grit",
+          "slug": "dalby-grit",
+          "date": "June 28",
+          "location": "Dalby Forest North York Moors",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "68"
+        },
+        {
+          "name": "Dunoon Dirt Dash",
+          "slug": "dunoon-dirt-dash",
+          "date": "September 27-28",
+          "location": "Dunoon Scotland",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "100 (2-day)"
+        },
+        {
+          "name": "Dusty Gravel - Lacs de l'Eau d'Heure",
+          "slug": "dusty-gravel---lacs-de-leau-dheure",
+          "date": "April 19",
+          "location": "Cerfontaine",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "43-68"
+        },
+        {
+          "name": "Dusty Gravel Series - Andenne",
+          "slug": "dusty-gravel-series---andenne",
+          "date": "April 13",
+          "location": "Andenne",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "47-62"
+        },
+        {
+          "name": "Gravel Rocks",
+          "slug": "gravel-rocks",
+          "date": "TBC 2025",
+          "location": "North York Moors",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "62"
+        },
+        {
+          "name": "Haldon Heroic",
+          "slug": "haldon-heroic",
+          "date": "Various 2025",
+          "location": "Haldon Forest Devon",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "15-50"
+        },
+        {
+          "name": "JUST.GRAVEL",
+          "slug": "just.gravel",
+          "date": "Various 2025",
+          "location": "Southern Lake District",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "25-50"
+        },
+        {
+          "name": "La Dr\u00f4moise Gravel",
+          "slug": "la-dr\u00f4moise-gravel",
+          "date": "September 2025",
+          "location": "Die Dr\u00f4me France",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "17-47"
+        },
+        {
+          "name": "Muck n Mac Fest",
+          "slug": "muck-n-mac-fest",
+          "date": "June 7",
+          "location": "Traquair House Scotland",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31-50"
+        },
+        {
+          "name": "North Wales Gravel X",
+          "slug": "north-wales-gravel-x",
+          "date": "May 3",
+          "location": "Ruthin Wales",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31-50"
+        },
+        {
+          "name": "Rad am Ring Gravel",
+          "slug": "rad-am-ring-gravel",
+          "date": "TBC 2025",
+          "location": "N\u00fcrburgring",
+          "difficulty_tier": "Beginner",
+          "tier": "4",
+          "distances": "TBC"
+        },
+        {
+          "name": "Tor Divide",
+          "slug": "tor-divide",
+          "date": "TBC 2025",
+          "location": "Peak District",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "100"
+        },
+        {
+          "name": "Yorkshire Coast Dirt Dash",
+          "slug": "yorkshire-coast-dirt-dash",
+          "date": "July 5-6",
+          "location": "Whitby",
+          "difficulty_tier": "Advanced",
+          "tier": "4",
+          "distances": "100 (2-day)"
+        }
+      ]
+    },
+    {
+      "region": "International",
+      "description": "Global gravel adventures across continents",
+      "race_count": 50,
+      "signature_races": [
+        "Gravel Brazil",
+        "Gravel Burn",
+        "Nordic Chase Gravel Edition",
+        "SEVEN",
+        "The Rift"
+      ],
+      "races": [
+        {
+          "name": "Gravel Brazil",
+          "slug": "gravel-brazil",
+          "date": "TBD",
+          "location": "Camboriu, Brazil",
+          "difficulty_tier": "Intermediate",
+          "tier": "1",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Burn",
+          "slug": "gravel-burn",
+          "date": "Oct-Nov",
+          "location": "South Africa",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "200+"
+        },
+        {
+          "name": "Nordic Chase Gravel Edition",
+          "slug": "nordic-chase-gravel-edition",
+          "date": "August 14-18",
+          "location": "Copenhagen to Oslo",
+          "difficulty_tier": "Expert",
+          "tier": "1",
+          "distances": "497 (800km)"
+        },
+        {
+          "name": "SEVEN",
+          "slug": "seven",
+          "date": "Late May 2026",
+          "location": "Western Australia",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "200+"
+        },
+        {
+          "name": "The Rift",
+          "slug": "the-rift",
+          "date": "Mid-July",
+          "location": "Iceland",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "200"
+        },
+        {
+          "name": "Gravel and Tar Classic",
+          "slug": "gravel-and-tar-classic",
+          "date": "TBD",
+          "location": "Manawat\u016b-Whanganui, New Zealand",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Monaco Gravel Race",
+          "slug": "monaco-gravel-race",
+          "date": "TBD",
+          "location": "Monaco",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "RADL GRVL",
+          "slug": "radl-grvl",
+          "date": "Late January 2026",
+          "location": "South Australia",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": "100+"
+        },
+        {
+          "name": "Turnhout Gravel",
+          "slug": "turnhout-gravel",
+          "date": "March 23, 2026",
+          "location": "Turnhout, Belgium",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Atlas Mountain Race",
+          "slug": "atlas-mountain-race",
+          "date": "February",
+          "location": "Morocco",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Devils Cardigan",
+          "slug": "devils-cardigan",
+          "date": "Late March 2026",
+          "location": "Tasmania",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Edition Zero",
+          "slug": "edition-zero",
+          "date": "November",
+          "location": "New Zealand",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Eislek Gravel",
+          "slug": "eislek-gravel",
+          "date": "TBD",
+          "location": "Luxembourg",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 1",
+          "slug": "european-gravel-race-1",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 10",
+          "slug": "european-gravel-race-10",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 11",
+          "slug": "european-gravel-race-11",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 12",
+          "slug": "european-gravel-race-12",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 13",
+          "slug": "european-gravel-race-13",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 2",
+          "slug": "european-gravel-race-2",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 3",
+          "slug": "european-gravel-race-3",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 4",
+          "slug": "european-gravel-race-4",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 5",
+          "slug": "european-gravel-race-5",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 6",
+          "slug": "european-gravel-race-6",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 7",
+          "slug": "european-gravel-race-7",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 8",
+          "slug": "european-gravel-race-8",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "European Gravel Race 9",
+          "slug": "european-gravel-race-9",
+          "date": "TBD",
+          "location": "Europe",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Bogot\u00e1",
+          "slug": "gravel-bogot\u00e1",
+          "date": "May 2026",
+          "location": "Colombia",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Medell\u00edn",
+          "slug": "gravel-medell\u00edn",
+          "date": "2026",
+          "location": "Colombia",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel del Fuego",
+          "slug": "gravel-del-fuego",
+          "date": "April",
+          "location": "Chile",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravelista",
+          "slug": "gravelista",
+          "date": "October",
+          "location": "Victoria",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Karukinka",
+          "slug": "karukinka",
+          "date": "December",
+          "location": "Chile",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "King Price Race to Sun",
+          "slug": "king-price-race-to-sun",
+          "date": "May",
+          "location": "South Africa",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Lake Taupo Cycle",
+          "slug": "lake-taupo-cycle",
+          "date": "November",
+          "location": "NZ",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "MAAP Beechworth Granite Classic",
+          "slug": "maap-beechworth-granite-classic",
+          "date": "April 4-6",
+          "location": "Beechworth VIC",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "71/56/28/9"
+        },
+        {
+          "name": "Niseko Gravel",
+          "slug": "niseko-gravel",
+          "date": "September",
+          "location": "Japan",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Noosa Gravel Enduro",
+          "slug": "noosa-gravel-enduro",
+          "date": "July 5-6",
+          "location": "Noosa Hinterland QLD",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "56"
+        },
+        {
+          "name": "Safari Gravel Race",
+          "slug": "safari-gravel-race",
+          "date": "June 2026",
+          "location": "Kenya",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Sunday Creek Classic",
+          "slug": "sunday-creek-classic",
+          "date": "May 23",
+          "location": "Kenilworth QLD",
+          "difficulty_tier": "Advanced",
+          "tier": "3",
+          "distances": "75"
+        },
+        {
+          "name": "Transcordilleras",
+          "slug": "transcordilleras",
+          "date": "Annual",
+          "location": "Colombia",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "UCI Gravel Brazil",
+          "slug": "uci-gravel-brazil",
+          "date": "March 2026",
+          "location": "Brazil",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "UCI Gravel Dustman",
+          "slug": "uci-gravel-dustman",
+          "date": "November",
+          "location": "Thailand",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Vuelta Altas Cumbres",
+          "slug": "vuelta-altas-cumbres",
+          "date": "March 2026",
+          "location": "Argentina",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Wollombi Gravel Fest",
+          "slug": "wollombi-gravel-fest",
+          "date": "December 2025",
+          "location": "Wollombi Valley NSW",
+          "difficulty_tier": "Intermediate",
+          "tier": "3",
+          "distances": "56"
+        },
+        {
+          "name": "W\u00f6rthersee Gravel Race",
+          "slug": "w\u00f6rthersee-gravel-race",
+          "date": "TBD",
+          "location": "Velden am W\u00f6rthersee, Austria",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Clarkes Gambit",
+          "slug": "clarkes-gambit",
+          "date": "October 26-27",
+          "location": "Nelligen NSW",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "19-62 (2-day)"
+        },
+        {
+          "name": "Gravel and Granite",
+          "slug": "gravel-and-granite",
+          "date": "2025 TBC",
+          "location": "Tenterfield NSW",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "31-62"
+        },
+        {
+          "name": "Great Otway Gravel Grind",
+          "slug": "great-otway-gravel-grind",
+          "date": "2026",
+          "location": "Forrest VIC",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "Rally stages"
+        },
+        {
+          "name": "Marys Mayhem",
+          "slug": "marys-mayhem",
+          "date": "August 2-3",
+          "location": "Mudgee NSW",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "19-62 (2-day)"
+        },
+        {
+          "name": "Wild Gravel",
+          "slug": "wild-gravel",
+          "date": "2025 TBC",
+          "location": "Gnowangerup WA",
+          "difficulty_tier": "Intermediate",
+          "tier": "4",
+          "distances": "62-93"
+        },
+        {
+          "name": "Nordic Chase Gravel Edition",
+          "slug": "nordic-chase-gravel-edition",
+          "date": "August 14-18 2026",
+          "location": "Copenhagen to Oslo",
+          "difficulty_tier": "Expert",
+          "tier": "Ultra",
+          "distances": "497 (800km)"
+        }
+      ]
+    },
+    {
+      "region": "Other",
+      "description": "Other locations",
+      "race_count": 77,
+      "signature_races": [
+        "Gravel Earth Series Final",
+        "Migration Gravel Race",
+        "500km Ultra Gravel 1",
+        "500km Ultra Gravel 2",
+        "Gravel Earth Series Race 1"
+      ],
+      "races": [
+        {
+          "name": "Gravel Earth Series Final",
+          "slug": "gravel-earth-series-final",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "1",
+          "distances": ""
+        },
+        {
+          "name": "Migration Gravel Race",
+          "slug": "migration-gravel-race",
+          "date": "Late June 2026",
+          "location": "Kenya",
+          "difficulty_tier": "Advanced",
+          "tier": "1",
+          "distances": "650km"
+        },
+        {
+          "name": "500km Ultra Gravel 1",
+          "slug": "500km-ultra-gravel-1",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "500km Ultra Gravel 2",
+          "slug": "500km-ultra-gravel-2",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 1",
+          "slug": "gravel-earth-series-race-1",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 10",
+          "slug": "gravel-earth-series-race-10",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 11",
+          "slug": "gravel-earth-series-race-11",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 12",
+          "slug": "gravel-earth-series-race-12",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 13",
+          "slug": "gravel-earth-series-race-13",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 14",
+          "slug": "gravel-earth-series-race-14",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 15",
+          "slug": "gravel-earth-series-race-15",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 16",
+          "slug": "gravel-earth-series-race-16",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 17",
+          "slug": "gravel-earth-series-race-17",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 18",
+          "slug": "gravel-earth-series-race-18",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 19",
+          "slug": "gravel-earth-series-race-19",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 2",
+          "slug": "gravel-earth-series-race-2",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 20",
+          "slug": "gravel-earth-series-race-20",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 21",
+          "slug": "gravel-earth-series-race-21",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 22",
+          "slug": "gravel-earth-series-race-22",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 23",
+          "slug": "gravel-earth-series-race-23",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 24",
+          "slug": "gravel-earth-series-race-24",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 25",
+          "slug": "gravel-earth-series-race-25",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 3",
+          "slug": "gravel-earth-series-race-3",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 4",
+          "slug": "gravel-earth-series-race-4",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 5",
+          "slug": "gravel-earth-series-race-5",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 6",
+          "slug": "gravel-earth-series-race-6",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 7",
+          "slug": "gravel-earth-series-race-7",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 8",
+          "slug": "gravel-earth-series-race-8",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Earth Series Race 9",
+          "slug": "gravel-earth-series-race-9",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Intermediate",
+          "tier": "2",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Grinder Series Race 1",
+          "slug": "gravel-grinder-series-race-1",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Grinder Series Race 2",
+          "slug": "gravel-grinder-series-race-2",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Grinder Series Race 3",
+          "slug": "gravel-grinder-series-race-3",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Gravel Grit Grind",
+          "slug": "gravel-grit-grind",
+          "date": "TBD",
+          "location": "Various, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "ILGR Point Series Race 1",
+          "slug": "ilgr-point-series-race-1",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "ILGR Point Series Race 2",
+          "slug": "ilgr-point-series-race-2",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "ILGR Point Series Race 3",
+          "slug": "ilgr-point-series-race-3",
+          "date": "TBD",
+          "location": "TBD",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Midwest Gravel Race 1",
+          "slug": "midwest-gravel-race-1",
+          "date": "TBD",
+          "location": "Midwest, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Midwest Gravel Race 2",
+          "slug": "midwest-gravel-race-2",
+          "date": "TBD",
+          "location": "Midwest, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Mountain West Gravel Race 1",
+          "slug": "mountain-west-gravel-race-1",
+          "date": "TBD",
+          "location": "Mountain West, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Mountain West Gravel Race 2",
+          "slug": "mountain-west-gravel-race-2",
+          "date": "TBD",
+          "location": "Mountain West, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Northeast Gravel Race 1",
+          "slug": "northeast-gravel-race-1",
+          "date": "TBD",
+          "location": "Northeast, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Northeast Gravel Race 2",
+          "slug": "northeast-gravel-race-2",
+          "date": "TBD",
+          "location": "Northeast, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Northwest Gravel Race 1",
+          "slug": "northwest-gravel-race-1",
+          "date": "TBD",
+          "location": "Northwest, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Northwest Gravel Race 2",
+          "slug": "northwest-gravel-race-2",
+          "date": "TBD",
+          "location": "Northwest, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 1",
+          "slug": "regional-gravel-event-1",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 10",
+          "slug": "regional-gravel-event-10",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 11",
+          "slug": "regional-gravel-event-11",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 12",
+          "slug": "regional-gravel-event-12",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 13",
+          "slug": "regional-gravel-event-13",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 14",
+          "slug": "regional-gravel-event-14",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 15",
+          "slug": "regional-gravel-event-15",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 16",
+          "slug": "regional-gravel-event-16",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 17",
+          "slug": "regional-gravel-event-17",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 18",
+          "slug": "regional-gravel-event-18",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 19",
+          "slug": "regional-gravel-event-19",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 2",
+          "slug": "regional-gravel-event-2",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 20",
+          "slug": "regional-gravel-event-20",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 3",
+          "slug": "regional-gravel-event-3",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 4",
+          "slug": "regional-gravel-event-4",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 5",
+          "slug": "regional-gravel-event-5",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 6",
+          "slug": "regional-gravel-event-6",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 7",
+          "slug": "regional-gravel-event-7",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 8",
+          "slug": "regional-gravel-event-8",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Event 9",
+          "slug": "regional-gravel-event-9",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 1",
+          "slug": "regional-gravel-race-1",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 10",
+          "slug": "regional-gravel-race-10",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 2",
+          "slug": "regional-gravel-race-2",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 3",
+          "slug": "regional-gravel-race-3",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 4",
+          "slug": "regional-gravel-race-4",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 5",
+          "slug": "regional-gravel-race-5",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 6",
+          "slug": "regional-gravel-race-6",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 7",
+          "slug": "regional-gravel-race-7",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 8",
+          "slug": "regional-gravel-race-8",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Regional Gravel Race 9",
+          "slug": "regional-gravel-race-9",
+          "date": "TBD",
+          "location": "USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Sea Otter Gravel",
+          "slug": "sea-otter-gravel",
+          "date": "April 2026",
+          "location": "Monterey",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Southeast Gravel Race 1",
+          "slug": "southeast-gravel-race-1",
+          "date": "TBD",
+          "location": "Southeast, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        },
+        {
+          "name": "Southeast Gravel Race 2",
+          "slug": "southeast-gravel-race-2",
+          "date": "TBD",
+          "location": "Southeast, USA",
+          "difficulty_tier": "Beginner",
+          "tier": "3",
+          "distances": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7574 @@
+{
+  "generated": "2026-01-12T23:34:14.262525Z",
+  "total_races": 388,
+  "races": [
+    {
+      "name": "OMG (Oxford MS Gravel)",
+      "slug": "omg-(oxford-ms-gravel)",
+      "date": "January",
+      "location": {
+        "city": "Oxford MS",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "50",
+        "20"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "RADL GRVL",
+      "slug": "radl-grvl",
+      "date": "Late January 2026",
+      "location": {
+        "city": "South Australia",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+"
+      ],
+      "website_url": "https://www.radlgrvl.com",
+      "registration_url": "",
+      "entry_cost": "100-180",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Adventure Series - Low Gap",
+      "slug": "grasshopper-adventure-series---low-gap",
+      "date": "January",
+      "location": {
+        "city": "Ukiah",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Uwharrie Forest Gravel Grinder",
+      "slug": "uwharrie-forest-gravel-grinder",
+      "date": "February 23",
+      "location": {
+        "city": "Central NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "40-60"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Homegrown Gravel Adventure",
+      "slug": "homegrown-gravel-adventure",
+      "date": "February 28",
+      "location": {
+        "city": "Franklin GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "62",
+        "40",
+        "20"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rock Cobbler",
+      "slug": "rock-cobbler",
+      "date": "Early February 2026",
+      "location": {
+        "city": "Bakersfield",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.rockcobbler.com",
+      "registration_url": "",
+      "entry_cost": "80-120",
+      "field_size": "600+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Border Wars",
+      "slug": "border-wars",
+      "date": "February",
+      "location": {
+        "city": "GA/AL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.borderwars.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Atlas Mountain Race",
+      "slug": "atlas-mountain-race",
+      "date": "February",
+      "location": {
+        "city": "Morocco",
+        "state": "",
+        "country": "Morocco"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Castellon",
+      "slug": "castellon",
+      "date": "February 15, 2026",
+      "location": {
+        "city": "Spain",
+        "state": "",
+        "country": "Spain"
+      },
+      "distances": [],
+      "website_url": "https://www.castellongravel.com",
+      "registration_url": "",
+      "entry_cost": "50-100",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Castellon Gravel Race",
+      "slug": "castellon-gravel-race",
+      "date": "February 15, 2026",
+      "location": {
+        "city": "Llucena",
+        "state": "Spain",
+        "country": "Spain"
+      },
+      "distances": [],
+      "website_url": "https://www.castellongravel.com",
+      "registration_url": "",
+      "entry_cost": "50-100",
+      "field_size": "500+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Adventure Series - Old Caz",
+      "slug": "grasshopper-adventure-series---old-caz",
+      "date": "February",
+      "location": {
+        "city": "Cazadero",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Melting Mann",
+      "slug": "melting-mann",
+      "date": "March 22",
+      "location": {
+        "city": "Vandalia MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "23",
+        "38",
+        "58"
+      ],
+      "website_url": "https://www.meltingmann.com",
+      "registration_url": "",
+      "entry_cost": "45-65",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Collegiate Gravel Nationals",
+      "slug": "collegiate-gravel-nationals",
+      "date": "March 7",
+      "location": {
+        "city": "Turkey TX",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "93",
+        "46",
+        "18"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Real West Gravel",
+      "slug": "real-west-gravel",
+      "date": "March 15",
+      "location": {
+        "city": "Pendleton OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "67",
+        "47"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Waucheesi Bike Race",
+      "slug": "waucheesi-bike-race",
+      "date": "March 30",
+      "location": {
+        "city": "Tellico Plains TN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "88",
+        "63",
+        "45"
+      ],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Holly Shelter Gravel Grinder",
+      "slug": "holly-shelter-gravel-grinder",
+      "date": "March 23",
+      "location": {
+        "city": "SE NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "40-60"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hot Springs Gravel Gauntlet",
+      "slug": "hot-springs-gravel-gauntlet",
+      "date": "March 29",
+      "location": {
+        "city": "Hot Springs NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-70"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Southern Cross Gravel",
+      "slug": "southern-cross-gravel",
+      "date": "March 1",
+      "location": {
+        "city": "Dahlonega GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-100"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rose City Rampage Gravel Race",
+      "slug": "rose-city-rampage-gravel-race",
+      "date": "March 22",
+      "location": {
+        "city": "Thomasville GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "60",
+        "30"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Swamp Fox Gravel Fondo",
+      "slug": "swamp-fox-gravel-fondo",
+      "date": "March 14-15",
+      "location": {
+        "city": "Francis Marion NF SC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "50",
+        "27"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Scratch Ankle Gravel",
+      "slug": "scratch-ankle-gravel",
+      "date": "March",
+      "location": {
+        "city": "Milton FL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Mid South",
+      "slug": "mid-south",
+      "date": "March 15-16, 2026",
+      "location": {
+        "city": "Stillwater",
+        "state": "OK",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.midsouthgravel.com",
+      "registration_url": "https://www.midsouthgravel.com/register",
+      "entry_cost": "100-200",
+      "field_size": "2500+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "BWR Arizona",
+      "slug": "bwr-arizona",
+      "date": "Early March",
+      "location": {
+        "city": "Phoenix",
+        "state": "AZ",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "60"
+      ],
+      "website_url": "https://www.bwrarizona.com",
+      "registration_url": "",
+      "entry_cost": "130-220",
+      "field_size": "600+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Strade Bianche Gran Fondo",
+      "slug": "strade-bianche-gran-fondo",
+      "date": "March",
+      "location": {
+        "city": "Italy",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+"
+      ],
+      "website_url": "https://www.stradebianche.it/granfondo",
+      "registration_url": "",
+      "entry_cost": "80-150",
+      "field_size": "2000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Southern Cross",
+      "slug": "southern-cross",
+      "date": "Early March",
+      "location": {
+        "city": "GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.southerncross.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "300-500",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty Pecan",
+      "slug": "dirty-pecan",
+      "date": "Early March",
+      "location": {
+        "city": "FL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.dirtypecan.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Turnhout",
+      "slug": "turnhout",
+      "date": "March 23, 2026",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.turnhoutgravel.com",
+      "registration_url": "",
+      "entry_cost": "60-120",
+      "field_size": "800+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "114 Gravel Race",
+      "slug": "114-gravel-race",
+      "date": "March 29, 2026",
+      "location": {
+        "city": "Portugal",
+        "state": "",
+        "country": "Portugal"
+      },
+      "distances": [],
+      "website_url": "https://www.114gravel.com",
+      "registration_url": "",
+      "entry_cost": "50-100",
+      "field_size": "400+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Devils Cardigan",
+      "slug": "devils-cardigan",
+      "date": "Late March 2026",
+      "location": {
+        "city": "Tasmania",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [],
+      "website_url": "https://www.devilscardigan.com",
+      "registration_url": "",
+      "entry_cost": "80-140",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "UCI Gravel Brazil",
+      "slug": "uci-gravel-brazil",
+      "date": "March 2026",
+      "location": {
+        "city": "Brazil",
+        "state": "",
+        "country": "Brazil"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Vuelta Altas Cumbres",
+      "slug": "vuelta-altas-cumbres",
+      "date": "March 2026",
+      "location": {
+        "city": "Argentina",
+        "state": "",
+        "country": "Argentina"
+      },
+      "distances": [],
+      "website_url": "https://www.vueltaaltascumbres.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Adventure Series - King Ridge",
+      "slug": "grasshopper-adventure-series---king-ridge",
+      "date": "March",
+      "location": {
+        "city": "Santa Rosa",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Turnhout Gravel",
+      "slug": "turnhout-gravel",
+      "date": "March 23, 2026",
+      "location": {
+        "city": "Turnhout",
+        "state": "Belgium",
+        "country": "Turnhout"
+      },
+      "distances": [],
+      "website_url": "https://www.turnhoutgravel.com",
+      "registration_url": "",
+      "entry_cost": "60-120",
+      "field_size": "800+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Ottawa Valley Gravel Experience",
+      "slug": "ottawa-valley-gravel-experience",
+      "date": "April 12",
+      "location": {
+        "city": "Calabogie ON",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "60",
+        "34",
+        "21"
+      ],
+      "website_url": "https://www.ottawavalleygravel.com",
+      "registration_url": "",
+      "entry_cost": "45-60",
+      "field_size": "100-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "River City Gravel Fondo",
+      "slug": "river-city-gravel-fondo",
+      "date": "April 19-20",
+      "location": {
+        "city": "Campbell River BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "19-62"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "MAAP Beechworth Granite Classic",
+      "slug": "maap-beechworth-granite-classic",
+      "date": "April 4-6",
+      "location": {
+        "city": "Beechworth VIC",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "71",
+        "56",
+        "28",
+        "9"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Barry-Roubaix",
+      "slug": "barry-roubaix",
+      "date": "April 12-13, 2026",
+      "location": {
+        "city": "Hastings MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "18",
+        "36",
+        "62",
+        "100"
+      ],
+      "website_url": "https://www.barry-roubaix.com",
+      "registration_url": "",
+      "entry_cost": "55-95",
+      "field_size": "4500+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty 30",
+      "slug": "dirty-30",
+      "date": "April 19",
+      "location": {
+        "city": "Saranac MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "16",
+        "30",
+        "50",
+        "100"
+      ],
+      "website_url": "https://www.dirty30.com",
+      "registration_url": "",
+      "entry_cost": "45-75",
+      "field_size": "<500",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Iowa Wind and Rock",
+      "slug": "iowa-wind-and-rock",
+      "date": "April 19-20",
+      "location": {
+        "city": "Winterset IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "340"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "45-75",
+      "field_size": "150-300",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Salty Lizard",
+      "slug": "salty-lizard",
+      "date": "April 4",
+      "location": {
+        "city": "Wendover UT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "98",
+        "74",
+        "38"
+      ],
+      "website_url": "https://www.saltylizard.com",
+      "registration_url": "",
+      "entry_cost": "85-125",
+      "field_size": "100-175",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Galactic Grinder",
+      "slug": "galactic-grinder",
+      "date": "April",
+      "location": {
+        "city": "Cedar Hill NM",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50",
+        "35",
+        "9"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Highlands Gravel Classic",
+      "slug": "highlands-gravel-classic",
+      "date": "April 26, 2026",
+      "location": {
+        "city": "Fayetteville AR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "68",
+        "54"
+      ],
+      "website_url": "https://www.highlandsgravelclassic.com",
+      "registration_url": "",
+      "entry_cost": "85",
+      "field_size": "1100",
+      "tier": "1",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Sasquatch Duro",
+      "slug": "sasquatch-duro",
+      "date": "April 11",
+      "location": {
+        "city": "Carlton OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "65",
+        "37"
+      ],
+      "website_url": "https://www.sasquatchduro.com",
+      "registration_url": "",
+      "entry_cost": "85-110",
+      "field_size": "150",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bald Eagle Gravel Grinder",
+      "slug": "bald-eagle-gravel-grinder",
+      "date": "April 19",
+      "location": {
+        "city": "Lock Haven PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "60",
+        "30",
+        "15"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Pony Xpress - CO State Championship",
+      "slug": "pony-xpress---co-state-championship",
+      "date": "April 19",
+      "location": {
+        "city": "Cokedale CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+"
+      ],
+      "website_url": "https://www.ponyxpresscostatechampionship.com",
+      "registration_url": "",
+      "entry_cost": "80-120",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Rasputitsa Dirt",
+      "slug": "rasputitsa-dirt",
+      "date": "Late April 2026",
+      "location": {
+        "city": "Burke VT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "46"
+      ],
+      "website_url": "https://www.rasputitsagravel.com",
+      "registration_url": "",
+      "entry_cost": "80-120",
+      "field_size": "600+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Highlands Gravel Classic",
+      "slug": "highlands-gravel-classic",
+      "date": "April 26, 2026",
+      "location": {
+        "city": "Fayetteville AR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "68",
+        "54"
+      ],
+      "website_url": "https://www.highlandsgravelclassic.com",
+      "registration_url": "",
+      "entry_cost": "85",
+      "field_size": "1100",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Reliance Tennessee Gravel",
+      "slug": "reliance-tennessee-gravel",
+      "date": "April 25-27",
+      "location": {
+        "city": "Reliance TN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "65+50 (2-day)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Rust Buster Gravel Fondo",
+      "slug": "rust-buster-gravel-fondo",
+      "date": "April 5",
+      "location": {
+        "city": "Memphis TN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-100"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bootlegger 100",
+      "slug": "bootlegger-100",
+      "date": "April 19",
+      "location": {
+        "city": "Lenoir NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "85",
+        "58"
+      ],
+      "website_url": "https://www.bootlegger100.com",
+      "registration_url": "",
+      "entry_cost": "75",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Opelika Okey Dokey",
+      "slug": "opelika-okey-dokey",
+      "date": "April 12",
+      "location": {
+        "city": "Opelika AL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+",
+        "65",
+        "34"
+      ],
+      "website_url": "https://www.opelikaokeydokey.com",
+      "registration_url": "",
+      "entry_cost": "75",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Race to Valhalla",
+      "slug": "race-to-valhalla",
+      "date": "April 26",
+      "location": {
+        "city": "Walhalla SC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-70"
+      ],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel One Fifty",
+      "slug": "gravel-one-fifty",
+      "date": "April 25",
+      "location": {
+        "city": "Roden Drenthe",
+        "state": "",
+        "country": "Netherlands"
+      },
+      "distances": [
+        "50-93"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Dusty Gravel Series - Andenne",
+      "slug": "dusty-gravel-series---andenne",
+      "date": "April 13",
+      "location": {
+        "city": "Andenne",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [
+        "47-62"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dusty Gravel - Lacs de l'Eau d'Heure",
+      "slug": "dusty-gravel---lacs-de-leau-dheure",
+      "date": "April 19",
+      "location": {
+        "city": "Cerfontaine",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [
+        "43-68"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "BWR California",
+      "slug": "bwr-california",
+      "date": "Late April",
+      "location": {
+        "city": "Del Mar",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "60"
+      ],
+      "website_url": "https://www.bwrcalifornia.com",
+      "registration_url": "",
+      "entry_cost": "150-250",
+      "field_size": "800+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Paris to Ancaster",
+      "slug": "paris-to-ancaster",
+      "date": "April 26-27, 2026",
+      "location": {
+        "city": "Ontario",
+        "state": "Canada",
+        "country": "USA"
+      },
+      "distances": [
+        "70",
+        "40"
+      ],
+      "website_url": "https://www.paristoancaster.com",
+      "registration_url": "",
+      "entry_cost": "75-125",
+      "field_size": "2000-3000",
+      "tier": "1",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty Reiver",
+      "slug": "dirty-reiver",
+      "date": "Late April 2026",
+      "location": {
+        "city": "UK",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "200",
+        "130"
+      ],
+      "website_url": "https://www.dirtyreiver.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "600+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rasputitsa",
+      "slug": "rasputitsa",
+      "date": "Late April 2026",
+      "location": {
+        "city": "Burke VT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.rasputitsagravel.com",
+      "registration_url": "",
+      "entry_cost": "80-120",
+      "field_size": "600+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Reliance Deep Woods",
+      "slug": "reliance-deep-woods",
+      "date": "April",
+      "location": {
+        "city": "TN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.reliancedeepwoods.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "250",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Sea Otter Gravel",
+      "slug": "sea-otter-gravel",
+      "date": "April 2026",
+      "location": {
+        "city": "Monterey",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.seaotterclassic.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "700+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel del Fuego",
+      "slug": "gravel-del-fuego",
+      "date": "April",
+      "location": {
+        "city": "Chile",
+        "state": "",
+        "country": "Chile"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Adventure Series - Hopland",
+      "slug": "grasshopper-adventure-series---hopland",
+      "date": "April",
+      "location": {
+        "city": "Hopland",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Burnt Bridge Classic",
+      "slug": "burnt-bridge-classic",
+      "date": "May 17-18",
+      "location": {
+        "city": "Cowichan Valley BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.burntbridgeclassic.com",
+      "registration_url": "",
+      "entry_cost": "60-90",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Sunday Creek Classic",
+      "slug": "sunday-creek-classic",
+      "date": "May 23",
+      "location": {
+        "city": "Kenilworth QLD",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "75"
+      ],
+      "website_url": "https://www.sundaycreekclassic.com",
+      "registration_url": "",
+      "entry_cost": "65-100",
+      "field_size": "100-150",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bear 100",
+      "slug": "bear-100",
+      "date": "May 3",
+      "location": {
+        "city": "Laona WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "61",
+        "80",
+        "113"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "200-400 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hungry Bear 100",
+      "slug": "hungry-bear-100",
+      "date": "May 10",
+      "location": {
+        "city": "Cable WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "30",
+        "60",
+        "100"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "65-95",
+      "field_size": "1000",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Crystal Bear",
+      "slug": "crystal-bear",
+      "date": "May 17-18",
+      "location": {
+        "city": "Laona WI to Crystal Falls MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "192 bikepacking"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "75",
+      "field_size": "<100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Essential Gravel",
+      "slug": "essential-gravel",
+      "date": "May 30-June 15",
+      "location": {
+        "city": "Ringle WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "10",
+        "20",
+        "44"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hart Hills",
+      "slug": "hart-hills",
+      "date": "May 10",
+      "location": {
+        "city": "Hart MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "13",
+        "25",
+        "55"
+      ],
+      "website_url": "https://www.harthills.com",
+      "registration_url": "",
+      "entry_cost": "40-60",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Heywood Ride",
+      "slug": "heywood-ride",
+      "date": "May 16",
+      "location": {
+        "city": "Northfield MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "30",
+        "60",
+        "110",
+        "165",
+        "390"
+      ],
+      "website_url": "https://www.heywoodride.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "<300",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Le Grand du Nord",
+      "slug": "le-grand-du-nord",
+      "date": "May 23",
+      "location": {
+        "city": "Grand Marais MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "26",
+        "50",
+        "110"
+      ],
+      "website_url": "https://www.stradebianche.it/granfondo",
+      "registration_url": "",
+      "entry_cost": "80-150",
+      "field_size": "2000+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Spring Valley 100",
+      "slug": "spring-valley-100",
+      "date": "May 17",
+      "location": {
+        "city": "Spring Valley MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "60",
+        "100"
+      ],
+      "website_url": "https://www.ottawavalleygravel.com",
+      "registration_url": "",
+      "entry_cost": "45-60",
+      "field_size": "100-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Kalona Horseshoe",
+      "slug": "kalona-horseshoe",
+      "date": "May 10",
+      "location": {
+        "city": "Kalona IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Silver City Century",
+      "slug": "silver-city-century",
+      "date": "May 17",
+      "location": {
+        "city": "Silver City IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Pony Xpress Gravel 160",
+      "slug": "pony-xpress-gravel-160",
+      "date": "May 4",
+      "location": {
+        "city": "Trinidad CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "50",
+        "30"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Mad Gravel",
+      "slug": "mad-gravel",
+      "date": "May 24-25",
+      "location": {
+        "city": "Elbert CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Various circuit"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Wild Horse Gravel",
+      "slug": "wild-horse-gravel",
+      "date": "May 17",
+      "location": {
+        "city": "De Beque CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "65",
+        "46",
+        "30"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Montana Gravel Challenge",
+      "slug": "montana-gravel-challenge",
+      "date": "May 1",
+      "location": {
+        "city": "Huson MT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "3-day (TT 11 + 56 + 45)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Santa Fe Century Gravel\u00f3n",
+      "slug": "santa-fe-century-gravel\u00f3n",
+      "date": "May 16-17",
+      "location": {
+        "city": "Santa Fe NM",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "55",
+        "25"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Coast Gravel Epic",
+      "slug": "oregon-coast-gravel-epic",
+      "date": "May 2",
+      "location": {
+        "city": "Waldport OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "60",
+        "49",
+        "37"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "West Coast Gravel",
+      "slug": "west-coast-gravel",
+      "date": "May 3",
+      "location": {
+        "city": "Yachats OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "45",
+        "34"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Gran Fondo",
+      "slug": "oregon-gran-fondo",
+      "date": "May 16",
+      "location": {
+        "city": "Cottage Grove OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "66",
+        "68"
+      ],
+      "website_url": "https://www.stradebianche.it/granfondo",
+      "registration_url": "",
+      "entry_cost": "80-150",
+      "field_size": "2000+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Parker Dam Gravel Grinder",
+      "slug": "parker-dam-gravel-grinder",
+      "date": "May 10",
+      "location": {
+        "city": "Clearfield County PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "65",
+        "35",
+        "20"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty Hector - NY State Championship",
+      "slug": "dirty-hector---ny-state-championship",
+      "date": "May 25",
+      "location": {
+        "city": "Trumansburg NY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-100"
+      ],
+      "website_url": "https://www.dirtyhectornystatechampionship.com",
+      "registration_url": "",
+      "entry_cost": "75-100",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Gravel Battle of Sumter Forest",
+      "slug": "gravel-battle-of-sumter-forest",
+      "date": "May 17",
+      "location": {
+        "city": "Whitmire SC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "74",
+        "49"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "North Wales Gravel X",
+      "slug": "north-wales-gravel-x",
+      "date": "May 3",
+      "location": {
+        "city": "Ruthin Wales",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "31-50"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Grinduro Germany",
+      "slug": "grinduro-germany",
+      "date": "May 23-25",
+      "location": {
+        "city": "Hellenthal Eifel",
+        "state": "",
+        "country": "Germany"
+      },
+      "distances": [
+        "62"
+      ],
+      "website_url": "https://www.grinduro.com",
+      "registration_url": "",
+      "entry_cost": "100-180",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "3Rides Aachen",
+      "slug": "3rides-aachen",
+      "date": "May 2025",
+      "location": {
+        "city": "Winterberg/Aachen",
+        "state": "",
+        "country": "Germany"
+      },
+      "distances": [
+        "62"
+      ],
+      "website_url": "https://www.3ridesaachen.com",
+      "registration_url": "",
+      "entry_cost": "87",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Unbound Gravel",
+      "slug": "unbound-gravel",
+      "date": "May 28-31, 2026",
+      "location": {
+        "city": "Emporia",
+        "state": "KS",
+        "country": "USA"
+      },
+      "distances": [
+        "200",
+        "100",
+        "50"
+      ],
+      "website_url": "https://www.unboundgravel.com",
+      "registration_url": "https://www.unboundgravel.com/register",
+      "entry_cost": "250-400",
+      "field_size": "5000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Traka",
+      "slug": "the-traka",
+      "date": "Early May 2026",
+      "location": {
+        "city": "Girona",
+        "state": "Spain",
+        "country": "USA"
+      },
+      "distances": [
+        "360",
+        "200"
+      ],
+      "website_url": "https://www.thetraka.com",
+      "registration_url": "",
+      "entry_cost": "80-200",
+      "field_size": "3000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "SEVEN",
+      "slug": "seven",
+      "date": "Late May 2026",
+      "location": {
+        "city": "Western Australia",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "200+"
+      ],
+      "website_url": "https://www.sevengravel.com",
+      "registration_url": "",
+      "entry_cost": "150-250",
+      "field_size": "300+",
+      "tier": "1",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "The Gralloch",
+      "slug": "the-gralloch",
+      "date": "Late May 2026",
+      "location": {
+        "city": "Scotland",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+"
+      ],
+      "website_url": "https://www.thegralloch.com",
+      "registration_url": "",
+      "entry_cost": "80-150",
+      "field_size": "800+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Battenkill",
+      "slug": "battenkill",
+      "date": "May",
+      "location": {
+        "city": "NY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.battenkill.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Farmer's Daughter",
+      "slug": "farmers-daughter",
+      "date": "May",
+      "location": {
+        "city": "NY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.farmersdaughter.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "1000",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Trans-Sylvania Epic",
+      "slug": "trans-sylvania-epic",
+      "date": "May",
+      "location": {
+        "city": "PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.transsylvaniaepic.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "300-500",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lost and Found",
+      "slug": "lost-and-found",
+      "date": "Late May 2026",
+      "location": {
+        "city": "NorCal",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.lostandfoundgravel.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "800+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "King Price Race to Sun",
+      "slug": "king-price-race-to-sun",
+      "date": "May",
+      "location": {
+        "city": "South Africa",
+        "state": "",
+        "country": "South Africa"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Bogot\u00e1",
+      "slug": "gravel-bogot\u00e1",
+      "date": "May 2026",
+      "location": {
+        "city": "Colombia",
+        "state": "",
+        "country": "Colombia"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "BWR Utah",
+      "slug": "bwr-utah",
+      "date": "Late May",
+      "location": {
+        "city": "UT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrutah.com",
+      "registration_url": "",
+      "entry_cost": "125-210",
+      "field_size": "450+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Adventure Series - Knoxville",
+      "slug": "grasshopper-adventure-series---knoxville",
+      "date": "May",
+      "location": {
+        "city": "Knoxville",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nanaimo Unpaved",
+      "slug": "nanaimo-unpaved",
+      "date": "June 14-15",
+      "location": {
+        "city": "Nanaimo BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.nanaimounpaved.com",
+      "registration_url": "",
+      "entry_cost": "60-90",
+      "field_size": "100-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Cowichan Crusher Gravel Fondo",
+      "slug": "cowichan-crusher-gravel-fondo",
+      "date": "June 1",
+      "location": {
+        "city": "Lake Cowichan BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "15-75"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Pickerel Buck40",
+      "slug": "pickerel-buck40",
+      "date": "June 1",
+      "location": {
+        "city": "Pickerel WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "140"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "<100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Insayner",
+      "slug": "the-insayner",
+      "date": "June 14",
+      "location": {
+        "city": "Sayner WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "12",
+        "25"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "35-45",
+      "field_size": "<100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Total Tomahawk Terrain",
+      "slug": "total-tomahawk-terrain",
+      "date": "June 21",
+      "location": {
+        "city": "Tomahawk WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "33",
+        "63",
+        "103"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Cow Pie Classic",
+      "slug": "cow-pie-classic",
+      "date": "June 14",
+      "location": {
+        "city": "Ionia MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "20",
+        "34",
+        "63"
+      ],
+      "website_url": "https://www.cowpieclassic.com",
+      "registration_url": "",
+      "entry_cost": "45-65",
+      "field_size": "<300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Coast to Coast",
+      "slug": "coast-to-coast",
+      "date": "June 28",
+      "location": {
+        "city": "Au Gres to Ludington MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "204"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Waukon 100",
+      "slug": "waukon-100",
+      "date": "June 21",
+      "location": {
+        "city": "Waukon IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Prairie Burn 100",
+      "slug": "prairie-burn-100",
+      "date": "June",
+      "location": {
+        "city": "Grinnell IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "25",
+        "50",
+        "100"
+      ],
+      "website_url": "https://www.prairieburn100.com",
+      "registration_url": "",
+      "entry_cost": "55-75",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bighorn Gravel",
+      "slug": "bighorn-gravel",
+      "date": "June 22",
+      "location": {
+        "city": "Gypsum CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "85",
+        "50",
+        "20"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dead Swede Gravel",
+      "slug": "dead-swede-gravel",
+      "date": "June 7",
+      "location": {
+        "city": "Sheridan WY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "60",
+        "40",
+        "20"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty Dino",
+      "slug": "dirty-dino",
+      "date": "June 13",
+      "location": {
+        "city": "Vernal UT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "102",
+        "67",
+        "27"
+      ],
+      "website_url": "https://www.dirtydino.com",
+      "registration_url": "",
+      "entry_cost": "85-125",
+      "field_size": "75-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Ruby Roubaix",
+      "slug": "ruby-roubaix",
+      "date": "June 27",
+      "location": {
+        "city": "Lamoille NV",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "120",
+        "62",
+        "38",
+        "22"
+      ],
+      "website_url": "https://www.rubyroubaix.com",
+      "registration_url": "",
+      "entry_cost": "80-125",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Beaver Dam Gravel Grinder",
+      "slug": "beaver-dam-gravel-grinder",
+      "date": "June 21",
+      "location": {
+        "city": "Beaver Dam State Park NV",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Various"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Takelma Gravel Grinder",
+      "slug": "takelma-gravel-grinder",
+      "date": "June 27",
+      "location": {
+        "city": "Canyonville OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "55"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Camp Michaux Gravel Grinder",
+      "slug": "camp-michaux-gravel-grinder",
+      "date": "June 29",
+      "location": {
+        "city": "Gardners PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "55",
+        "30",
+        "15"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Raid Rockingham",
+      "slug": "raid-rockingham",
+      "date": "June 1",
+      "location": {
+        "city": "SE NH",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "40-60"
+      ],
+      "website_url": "https://www.raidrockingham.com",
+      "registration_url": "",
+      "entry_cost": "65-85",
+      "field_size": "200-400",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Unravel - Bon Jon Pass Out",
+      "slug": "gravel-unravel---bon-jon-pass-out",
+      "date": "June 14",
+      "location": {
+        "city": "Quilcene WA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "77",
+        "55",
+        "35"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Muck n Mac Fest",
+      "slug": "muck-n-mac-fest",
+      "date": "June 7",
+      "location": {
+        "city": "Traquair House Scotland",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "31-50"
+      ],
+      "website_url": "https://www.mucknmacfest.com",
+      "registration_url": "",
+      "entry_cost": "75",
+      "field_size": "~200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lauf Gritfest",
+      "slug": "lauf-gritfest",
+      "date": "June 20-22",
+      "location": {
+        "city": "Cambrian Mountains Wales",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "78"
+      ],
+      "website_url": "https://www.laufgritfest.com",
+      "registration_url": "",
+      "entry_cost": "190",
+      "field_size": "~200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dalby Grit",
+      "slug": "dalby-grit",
+      "date": "June 28",
+      "location": {
+        "city": "Dalby Forest North York Moors",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "68"
+      ],
+      "website_url": "https://www.dalbygrit.com",
+      "registration_url": "",
+      "entry_cost": "75",
+      "field_size": "~150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hegau Gravel Race",
+      "slug": "hegau-gravel-race",
+      "date": "June 28-29",
+      "location": {
+        "city": "Singen",
+        "state": "",
+        "country": "Germany"
+      },
+      "distances": [
+        "68"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Wish One Millau",
+      "slug": "wish-one-millau",
+      "date": "June 15-16",
+      "location": {
+        "city": "Millau Grands Causses",
+        "state": "",
+        "country": "France"
+      },
+      "distances": [
+        "68"
+      ],
+      "website_url": "https://www.wishonemillau.com",
+      "registration_url": "",
+      "entry_cost": "87",
+      "field_size": "200-300",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Grinduro France",
+      "slug": "grinduro-france",
+      "date": "June 28-30",
+      "location": {
+        "city": "Xonrupt-Longemer Vosges",
+        "state": "",
+        "country": "France"
+      },
+      "distances": [
+        "62"
+      ],
+      "website_url": "https://www.grinduro.com",
+      "registration_url": "",
+      "entry_cost": "100-180",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "SBT GRVL",
+      "slug": "sbt-grvl",
+      "date": "Late June 2026",
+      "location": {
+        "city": "Steamboat",
+        "state": "CO",
+        "country": "USA"
+      },
+      "distances": [
+        "144",
+        "100",
+        "50"
+      ],
+      "website_url": "https://www.sbtgrvl.com",
+      "registration_url": "https://www.sbtgrvl.com/register",
+      "entry_cost": "200-275",
+      "field_size": "2750",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "SBT GRVL (Black)",
+      "slug": "sbt-grvl-(black)",
+      "date": "Late June",
+      "location": {
+        "city": "Steamboat",
+        "state": "CO",
+        "country": "USA"
+      },
+      "distances": [
+        "144"
+      ],
+      "website_url": "https://www.sbtgrvlblack.com",
+      "registration_url": "",
+      "entry_cost": "200-275",
+      "field_size": "2750",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Mammoth Tuff",
+      "slug": "mammoth-tuff",
+      "date": "Late June 2026",
+      "location": {
+        "city": "Mammoth Lakes",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.mammothtuff.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Migration Gravel Race",
+      "slug": "migration-gravel-race",
+      "date": "Late June 2026",
+      "location": {
+        "city": "Kenya",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "650km"
+      ],
+      "website_url": "https://www.migrationgravel.com",
+      "registration_url": "",
+      "entry_cost": "500+",
+      "field_size": "200+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nova Eroica",
+      "slug": "nova-eroica",
+      "date": "June",
+      "location": {
+        "city": "Italy",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100+"
+      ],
+      "website_url": "https://www.novaeroica.com",
+      "registration_url": "",
+      "entry_cost": "100-200",
+      "field_size": "3000-5000",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Kettle Mettle",
+      "slug": "kettle-mettle",
+      "date": "Late June",
+      "location": {
+        "city": "BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [],
+      "website_url": "https://www.kettlemettle.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "300-500",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Ghost of the Gravel",
+      "slug": "ghost-of-the-gravel",
+      "date": "June",
+      "location": {
+        "city": "Alberta",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Safari Gravel Race",
+      "slug": "safari-gravel-race",
+      "date": "June 2026",
+      "location": {
+        "city": "Kenya",
+        "state": "",
+        "country": "Kenya"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Trail Gravel",
+      "slug": "oregon-trail-gravel",
+      "date": "Late June",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "BWR Montana",
+      "slug": "bwr-montana",
+      "date": "Late June",
+      "location": {
+        "city": "MT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "150-200",
+      "field_size": "500-800",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Canmore Crux",
+      "slug": "canmore-crux",
+      "date": "July 12",
+      "location": {
+        "city": "Canmore AB",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "50",
+        "20"
+      ],
+      "website_url": "https://www.canmorecrux.com",
+      "registration_url": "",
+      "entry_cost": "40-55",
+      "field_size": "100-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Noosa Gravel Enduro",
+      "slug": "noosa-gravel-enduro",
+      "date": "July 5-6",
+      "location": {
+        "city": "Noosa Hinterland QLD",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "56"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "BURGR 95",
+      "slug": "burgr-95",
+      "date": "July 12",
+      "location": {
+        "city": "Gleason WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "47",
+        "95"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Cedar Blitz",
+      "slug": "cedar-blitz",
+      "date": "July 12",
+      "location": {
+        "city": "Cedar Springs MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "18",
+        "36",
+        "50",
+        "130"
+      ],
+      "website_url": "https://www.cedarblitz.com",
+      "registration_url": "",
+      "entry_cost": "45-75",
+      "field_size": "<300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Crusher",
+      "slug": "the-crusher",
+      "date": "July 19",
+      "location": {
+        "city": "Upper Peninsula MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "40",
+        "100",
+        "175"
+      ],
+      "website_url": "https://www.thecrusher.com",
+      "registration_url": "",
+      "entry_cost": "60-90",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Divide",
+      "slug": "the-divide",
+      "date": "July 27",
+      "location": {
+        "city": "Manton MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "18",
+        "30",
+        "44"
+      ],
+      "website_url": "https://www.thedivide.com",
+      "registration_url": "",
+      "entry_cost": "40-60",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Albia Holy Cow",
+      "slug": "albia-holy-cow",
+      "date": "July 12",
+      "location": {
+        "city": "Albia IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "KowTown Gravel",
+      "slug": "kowtown-gravel",
+      "date": "July 5",
+      "location": {
+        "city": "Kremmling CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "95",
+        "65",
+        "34"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Ned Gravel",
+      "slug": "ned-gravel",
+      "date": "July 12",
+      "location": {
+        "city": "Nederland CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "4 courses"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Cowboy Crusher",
+      "slug": "cowboy-crusher",
+      "date": "July 19",
+      "location": {
+        "city": "Glenrock WY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "121",
+        "75",
+        "40",
+        "17"
+      ],
+      "website_url": "https://www.cowboycrusher.com",
+      "registration_url": "",
+      "entry_cost": "75-125",
+      "field_size": "100-175",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bend Dirt Fest",
+      "slug": "bend-dirt-fest",
+      "date": "July 11",
+      "location": {
+        "city": "Bend OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.benddirtfest.com",
+      "registration_url": "",
+      "entry_cost": "75-100",
+      "field_size": "500",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "THE EQUALIZER - MO State Championship",
+      "slug": "the-equalizer---mo-state-championship",
+      "date": "July 26",
+      "location": {
+        "city": "Marthasville MO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.theequalizermostatechampionship.com",
+      "registration_url": "",
+      "entry_cost": "75-95",
+      "field_size": "200-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Gravel Unravel - Why-Not-Chee",
+      "slug": "gravel-unravel---why-not-chee",
+      "date": "July 26",
+      "location": {
+        "city": "Hoquiam WA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "77",
+        "42",
+        "36",
+        "17"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The GRiT Adventure",
+      "slug": "the-grit-adventure",
+      "date": "July 19",
+      "location": {
+        "city": "Snoqualmie Pass WA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.thegritadventure.com",
+      "registration_url": "",
+      "entry_cost": "70-90",
+      "field_size": "200-300",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "GRUSK",
+      "slug": "grusk",
+      "date": "July 10-12",
+      "location": {
+        "city": "Circleville WV",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "89",
+        "50",
+        "32 (+220-316 bikepacking)"
+      ],
+      "website_url": "https://www.grusk.com",
+      "registration_url": "",
+      "entry_cost": "75-100",
+      "field_size": "200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Yorkshire Coast Dirt Dash",
+      "slug": "yorkshire-coast-dirt-dash",
+      "date": "July 5-6",
+      "location": {
+        "city": "Whitby",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "100 (2-day)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Crusher in the Tushar",
+      "slug": "crusher-in-the-tushar",
+      "date": "July 13-14, 2026",
+      "location": {
+        "city": "Beaver",
+        "state": "UT",
+        "country": "USA"
+      },
+      "distances": [
+        "70"
+      ],
+      "website_url": "https://www.crusherinthetushar.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "500-700",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rad Dirt Fest",
+      "slug": "rad-dirt-fest",
+      "date": "Early July 2026",
+      "location": {
+        "city": "Salida",
+        "state": "CO",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.raddirtfest.com",
+      "registration_url": "",
+      "entry_cost": "90-140",
+      "field_size": "500+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Rift",
+      "slug": "the-rift",
+      "date": "Mid-July",
+      "location": {
+        "city": "Iceland",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "200"
+      ],
+      "website_url": "https://www.therift.com",
+      "registration_url": "",
+      "entry_cost": "300-400",
+      "field_size": "1000",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Range",
+      "slug": "the-range",
+      "date": "Late July 2026",
+      "location": {
+        "city": "Alberta",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [],
+      "website_url": "https://www.therangegravel.com",
+      "registration_url": "",
+      "entry_cost": "100-180",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Glengarry Games Gravel Run",
+      "slug": "glengarry-games-gravel-run",
+      "date": "August 3",
+      "location": {
+        "city": "Maxville ON",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "71",
+        "52",
+        "26"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Marys Mayhem",
+      "slug": "marys-mayhem",
+      "date": "August 2-3",
+      "location": {
+        "city": "Mudgee NSW",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "19-62 (2-day)"
+      ],
+      "website_url": "https://www.marysmayhem.com",
+      "registration_url": "",
+      "entry_cost": "55-80",
+      "field_size": "100-150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nicolet Hot Days",
+      "slug": "nicolet-hot-days",
+      "date": "August 10",
+      "location": {
+        "city": "Wabeno WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "69"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "45",
+      "field_size": "<100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "De Ronde Van Grampian",
+      "slug": "de-ronde-van-grampian",
+      "date": "August 2",
+      "location": {
+        "city": "Oxford MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "12",
+        "25",
+        "50"
+      ],
+      "website_url": "https://www.derondevangrampian.com",
+      "registration_url": "",
+      "entry_cost": "40-60",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Watermoo",
+      "slug": "the-watermoo",
+      "date": "August 9",
+      "location": {
+        "city": "Dexter MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "111"
+      ],
+      "website_url": "https://www.thewatermoo.com",
+      "registration_url": "",
+      "entry_cost": "55-75",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Fast Fitty",
+      "slug": "fast-fitty",
+      "date": "August 16",
+      "location": {
+        "city": "Charlotte MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "19",
+        "36",
+        "54"
+      ],
+      "website_url": "https://www.fastfitty.com",
+      "registration_url": "",
+      "entry_cost": "45-65",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Glenwood Gravel",
+      "slug": "glenwood-gravel",
+      "date": "August 9",
+      "location": {
+        "city": "Glenwood IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Crooked Gravel",
+      "slug": "crooked-gravel",
+      "date": "August 2",
+      "location": {
+        "city": "Winter Park CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "95",
+        "25"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Wasatch All-Road",
+      "slug": "wasatch-all-road",
+      "date": "August 8",
+      "location": {
+        "city": "Francis UT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "58",
+        "31"
+      ],
+      "website_url": "https://www.wasatchallroad.com",
+      "registration_url": "",
+      "entry_cost": "90-130",
+      "field_size": "100-175",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Big Sky Gravel",
+      "slug": "big-sky-gravel",
+      "date": "August",
+      "location": {
+        "city": "Red Lodge MT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "50",
+        "22"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Bear Howard Gravel",
+      "slug": "bear-howard-gravel",
+      "date": "August 2",
+      "location": {
+        "city": "Flagstaff AZ",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "60",
+        "30"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nordic Chase Gravel Edition",
+      "slug": "nordic-chase-gravel-edition",
+      "date": "August 14-18",
+      "location": {
+        "city": "Copenhagen to Oslo",
+        "state": "",
+        "country": "Denmark/Sweden/Norway"
+      },
+      "distances": [
+        "497 (800km)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Mid-State Gravel Grinder",
+      "slug": "mid-state-gravel-grinder",
+      "date": "August 3",
+      "location": {
+        "city": "Central PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "65",
+        "35",
+        "18"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Little Apple 100 - IL State Championship",
+      "slug": "little-apple-100---il-state-championship",
+      "date": "August 3",
+      "location": {
+        "city": "Manhattan IL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.littleapple100ilstatechampionship.com",
+      "registration_url": "",
+      "entry_cost": "80-100",
+      "field_size": "200-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Iowa State Gravel TT Championship",
+      "slug": "iowa-state-gravel-tt-championship",
+      "date": "August 31",
+      "location": {
+        "city": "Amana IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Time trial"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Vermont Overland",
+      "slug": "vermont-overland",
+      "date": "Late August 2026",
+      "location": {
+        "city": "Woodstock VT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "54"
+      ],
+      "website_url": "https://www.vermontoverland.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lost River Classic",
+      "slug": "lost-river-classic",
+      "date": "August 16",
+      "location": {
+        "city": "Mathias WV",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "85",
+        "60",
+        "28"
+      ],
+      "website_url": "https://www.lostriverclassic.com",
+      "registration_url": "",
+      "entry_cost": "75-95",
+      "field_size": "150",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nordic Chase Gravel Edition",
+      "slug": "nordic-chase-gravel-edition",
+      "date": "August 14-18 2026",
+      "location": {
+        "city": "Copenhagen to Oslo",
+        "state": "",
+        "country": "Denmark/Sweden/Norway"
+      },
+      "distances": [
+        "497 (800km)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "Ultra",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Houffa Gravel",
+      "slug": "houffa-gravel",
+      "date": "August 30",
+      "location": {
+        "city": "Houffalize Belgian Ardennes",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [
+        "31-88"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Worlds",
+      "slug": "gravel-worlds",
+      "date": "August 23-24, 2026",
+      "location": {
+        "city": "Lincoln",
+        "state": "NE",
+        "country": "USA"
+      },
+      "distances": [
+        "150",
+        "75"
+      ],
+      "website_url": "https://www.gravel-worlds.com",
+      "registration_url": "",
+      "entry_cost": "85-200",
+      "field_size": "1000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Badlands",
+      "slug": "badlands",
+      "date": "Late August",
+      "location": {
+        "city": "Spain",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "400+"
+      ],
+      "website_url": "https://www.badlands.com",
+      "registration_url": "",
+      "entry_cost": "200-300",
+      "field_size": "350-400",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "FNLD GRVL",
+      "slug": "fnld-grvl",
+      "date": "August",
+      "location": {
+        "city": "Finland",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "200+"
+      ],
+      "website_url": "https://www.fnldgrvl.com",
+      "registration_url": "",
+      "entry_cost": "100-200",
+      "field_size": "1000-1500",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "D2R2",
+      "slug": "d2r2",
+      "date": "Late August 2026",
+      "location": {
+        "city": "MA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.d2r2.com",
+      "registration_url": "",
+      "entry_cost": "75-125",
+      "field_size": "1000+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "TransRockies Gravel Royale",
+      "slug": "transrockies-gravel-royale",
+      "date": "Late August 2026",
+      "location": {
+        "city": "BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [],
+      "website_url": "https://www.transrockies.com/gravel",
+      "registration_url": "",
+      "entry_cost": "400-600",
+      "field_size": "200+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Leadville 100",
+      "slug": "leadville-100",
+      "date": "August 2026",
+      "location": {
+        "city": "Leadville",
+        "state": "CO",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.leadvilleraceseries.com",
+      "registration_url": "",
+      "entry_cost": "300+",
+      "field_size": "1000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Back Forty Highlander",
+      "slug": "back-forty-highlander",
+      "date": "September 6",
+      "location": {
+        "city": "Mississippi Station ON",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "67",
+        "43",
+        "22"
+      ],
+      "website_url": "https://www.canadiangravelcup.com",
+      "registration_url": "",
+      "entry_cost": "50-65",
+      "field_size": "100-150",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Forbidden Gravel",
+      "slug": "forbidden-gravel",
+      "date": "September 13-14",
+      "location": {
+        "city": "Cumberland BC",
+        "state": "",
+        "country": "Canada"
+      },
+      "distances": [
+        "Multiple"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "USA Cycling Gravel Nationals",
+      "slug": "usa-cycling-gravel-nationals",
+      "date": "September 20",
+      "location": {
+        "city": "La Crescent MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "74",
+        "31"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Hardwood Hustle",
+      "slug": "hardwood-hustle",
+      "date": "September 27",
+      "location": {
+        "city": "Nelma WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "39",
+        "62",
+        "101"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "60-80",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Uncle John's Gravel Race",
+      "slug": "uncle-johns-gravel-race",
+      "date": "September 7",
+      "location": {
+        "city": "St Johns MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "16",
+        "28",
+        "57"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Thunder Bay Thriller",
+      "slug": "thunder-bay-thriller",
+      "date": "September 14",
+      "location": {
+        "city": "Alpena MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "16",
+        "27",
+        "62"
+      ],
+      "website_url": "https://www.thunderbaythriller.com",
+      "registration_url": "",
+      "entry_cost": "45-65",
+      "field_size": "<200",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lone Wolf Gravel",
+      "slug": "lone-wolf-gravel",
+      "date": "September 28",
+      "location": {
+        "city": "Iron Mountain MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "36",
+        "50",
+        "100"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gray Duck Grit",
+      "slug": "gray-duck-grit",
+      "date": "September 5",
+      "location": {
+        "city": "Cannon Falls MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50",
+        "69",
+        "111",
+        "222",
+        "333"
+      ],
+      "website_url": "https://www.grayduckgrit.com",
+      "registration_url": "",
+      "entry_cost": "55-85",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Heck of the North",
+      "slug": "heck-of-the-north",
+      "date": "September 26",
+      "location": {
+        "city": "Two Harbors MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "19",
+        "60",
+        "100"
+      ],
+      "website_url": "https://www.bwrnorthcarolina.com",
+      "registration_url": "",
+      "entry_cost": "110-190",
+      "field_size": "400+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Old Fashioned Gravel",
+      "slug": "old-fashioned-gravel",
+      "date": "September 13",
+      "location": {
+        "city": "Hokah MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "40",
+        "66",
+        "100"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Soldier Cutoff Hillduro",
+      "slug": "soldier-cutoff-hillduro",
+      "date": "September 20",
+      "location": {
+        "city": "Pisgah IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gunni Grinder",
+      "slug": "gunni-grinder",
+      "date": "September 6",
+      "location": {
+        "city": "Gunnison CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "120",
+        "60",
+        "30"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Salida 76",
+      "slug": "salida-76",
+      "date": "September 13",
+      "location": {
+        "city": "Salida CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "76"
+      ],
+      "website_url": "https://www.salida76.com",
+      "registration_url": "",
+      "entry_cost": "85-110",
+      "field_size": "100-175",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "WYO 131",
+      "slug": "wyo-131",
+      "date": "September 13",
+      "location": {
+        "city": "Lander WY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "131",
+        "75",
+        "45",
+        "13"
+      ],
+      "website_url": "https://www.wyo131.com",
+      "registration_url": "",
+      "entry_cost": "100-175",
+      "field_size": "100-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "The Mane Event Gravel",
+      "slug": "the-mane-event-gravel",
+      "date": "September 20",
+      "location": {
+        "city": "Sheridan WY",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "78",
+        "54",
+        "32",
+        "25"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "USA Cycling Gravel Nationals",
+      "slug": "usa-cycling-gravel-nationals",
+      "date": "September TBD",
+      "location": {
+        "city": "La Crescent MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "74",
+        "31"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "Trough Creek Gravel Grinder",
+      "slug": "trough-creek-gravel-grinder",
+      "date": "September 21",
+      "location": {
+        "city": "Trough Creek State Park PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "60",
+        "30",
+        "15"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dunoon Dirt Dash",
+      "slug": "dunoon-dirt-dash",
+      "date": "September 27-28",
+      "location": {
+        "city": "Dunoon Scotland",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "100 (2-day)"
+      ],
+      "website_url": "https://www.dunoondirtdash.com",
+      "registration_url": "",
+      "entry_cost": "100",
+      "field_size": "80-100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Fever",
+      "slug": "gravel-fever",
+      "date": "September 13-15",
+      "location": {
+        "city": "Ch\u00e2tellerault France",
+        "state": "",
+        "country": "France"
+      },
+      "distances": [
+        "31-310"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "La Dr\u00f4moise Gravel",
+      "slug": "la-dr\u00f4moise-gravel",
+      "date": "September 2025",
+      "location": {
+        "city": "Die Dr\u00f4me France",
+        "state": "",
+        "country": "France"
+      },
+      "distances": [
+        "17-47"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Ardenne Gravel Stages",
+      "slug": "ardenne-gravel-stages",
+      "date": "September 26-28",
+      "location": {
+        "city": "Vielsalm/Engreux",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [
+        "43-68 x 3 days"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rebecca's Private Idaho",
+      "slug": "rebeccas-private-idaho",
+      "date": "Labor Day 2026 (Early September)",
+      "location": {
+        "city": "Ketchum",
+        "state": "ID",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "55"
+      ],
+      "website_url": "https://www.rebeccasprivateidaho.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "1000+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Pisgah Monster Cross",
+      "slug": "pisgah-monster-cross",
+      "date": "September",
+      "location": {
+        "city": "Brevard NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.pisgahmonstercross.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "200 (cap)",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Niseko Gravel",
+      "slug": "niseko-gravel",
+      "date": "September",
+      "location": {
+        "city": "Japan",
+        "state": "",
+        "country": "Japan"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Clarkes Gambit",
+      "slug": "clarkes-gambit",
+      "date": "October 26-27",
+      "location": {
+        "city": "Nelligen NSW",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "19-62 (2-day)"
+      ],
+      "website_url": "https://www.clarkesgambit.com",
+      "registration_url": "",
+      "entry_cost": "65-100",
+      "field_size": "80-120",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hibernator",
+      "slug": "hibernator",
+      "date": "October 4",
+      "location": {
+        "city": "Laona WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "32",
+        "63",
+        "100"
+      ],
+      "website_url": "https://www.ironbear1000.com",
+      "registration_url": "",
+      "entry_cost": "55-75",
+      "field_size": "<200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Red Granite Grinder",
+      "slug": "red-granite-grinder",
+      "date": "October 11",
+      "location": {
+        "city": "Athens WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50",
+        "100",
+        "150"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lowell Classic",
+      "slug": "lowell-classic",
+      "date": "October 25",
+      "location": {
+        "city": "Lowell MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "15",
+        "38",
+        "54",
+        "100"
+      ],
+      "website_url": "https://www.lowellclassic.com",
+      "registration_url": "",
+      "entry_cost": "50-75",
+      "field_size": "<300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Fairfield Harvest Rush",
+      "slug": "fairfield-harvest-rush",
+      "date": "October 4",
+      "location": {
+        "city": "Fairfield IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "31",
+        "62"
+      ],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "40-50",
+      "field_size": "<150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grassroots Gravel",
+      "slug": "grassroots-gravel",
+      "date": "October 11",
+      "location": {
+        "city": "Pueblo CO",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Various"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Chino Grinder",
+      "slug": "chino-grinder",
+      "date": "October 17",
+      "location": {
+        "city": "Chino Valley AZ",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "150",
+        "115",
+        "62",
+        "44",
+        "25"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Red Granite Grinder",
+      "slug": "red-granite-grinder",
+      "date": "October TBD",
+      "location": {
+        "city": "Athens WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "150",
+        "100",
+        "50"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Revival",
+      "slug": "gravel-revival",
+      "date": "October 17-19",
+      "location": {
+        "city": "Hickman County TN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "50-70"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Pisgah Monster-Cross Challenge",
+      "slug": "pisgah-monster-cross-challenge",
+      "date": "October",
+      "location": {
+        "city": "Brevard NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "69.2"
+      ],
+      "website_url": "https://www.pisgahmonstercrosschallenge.com",
+      "registration_url": "",
+      "entry_cost": "80",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dirty Sheets Gravel Grind",
+      "slug": "dirty-sheets-gravel-grind",
+      "date": "October 11",
+      "location": {
+        "city": "Chattahoochee Hills GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "62",
+        "22"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Roll - Pecan Shaker",
+      "slug": "gravel-roll---pecan-shaker",
+      "date": "October 18",
+      "location": {
+        "city": "Hawkinsville GA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "106",
+        "72",
+        "41"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Hellhole Gravel Grind Stage Race",
+      "slug": "hellhole-gravel-grind-stage-race",
+      "date": "October 3-5",
+      "location": {
+        "city": "Jamestown SC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "150 (75x2)"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Big Sugar",
+      "slug": "big-sugar",
+      "date": "October 18, 2026",
+      "location": {
+        "city": "Bentonville",
+        "state": "AR",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.bigsugargravel.com",
+      "registration_url": "",
+      "entry_cost": "125-225",
+      "field_size": "3000+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Spirit World 100",
+      "slug": "spirit-world-100",
+      "date": "October",
+      "location": {
+        "city": "Arizona",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.spiritworld100.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "200-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "UCI Gravel Worlds",
+      "slug": "uci-gravel-worlds",
+      "date": "October",
+      "location": {
+        "city": "Netherlands",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "Elite"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": true,
+      "is_championship": true
+    },
+    {
+      "name": "Iron Cross",
+      "slug": "iron-cross",
+      "date": "October",
+      "location": {
+        "city": "PA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.ironcross.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravelista",
+      "slug": "gravelista",
+      "date": "October",
+      "location": {
+        "city": "Victoria",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [],
+      "website_url": "https://www.gravelista.com.au",
+      "registration_url": "",
+      "entry_cost": "80-150",
+      "field_size": "400+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Standard Deluxe Dirt Road Century",
+      "slug": "standard-deluxe-dirt-road-century",
+      "date": "November 8",
+      "location": {
+        "city": "Waverly AL",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "100",
+        "65",
+        "35"
+      ],
+      "website_url": "https://www.standarddeluxedirtroadcentury.com",
+      "registration_url": "",
+      "entry_cost": "65",
+      "field_size": "150-200",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Edition Zero",
+      "slug": "edition-zero",
+      "date": "November",
+      "location": {
+        "city": "New Zealand",
+        "state": "",
+        "country": "New Zealand"
+      },
+      "distances": [],
+      "website_url": "https://www.editionzero.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Lake Taupo Cycle",
+      "slug": "lake-taupo-cycle",
+      "date": "November",
+      "location": {
+        "city": "NZ",
+        "state": "",
+        "country": "New Zealand"
+      },
+      "distances": [],
+      "website_url": "https://www.laketaupocycle.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "UCI Gravel Dustman",
+      "slug": "uci-gravel-dustman",
+      "date": "November",
+      "location": {
+        "city": "Thailand",
+        "state": "",
+        "country": "Thailand"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Wollombi Gravel Fest",
+      "slug": "wollombi-gravel-fest",
+      "date": "December 2025",
+      "location": {
+        "city": "Wollombi Valley NSW",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "56"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Karukinka",
+      "slug": "karukinka",
+      "date": "December",
+      "location": {
+        "city": "Chile",
+        "state": "",
+        "country": "Chile"
+      },
+      "distances": [],
+      "website_url": "https://www.karukinka.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel and Granite",
+      "slug": "gravel-and-granite",
+      "date": "2025 TBC",
+      "location": {
+        "city": "Tenterfield NSW",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "31-62"
+      ],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Great Otway Gravel Grind",
+      "slug": "great-otway-gravel-grind",
+      "date": "2026",
+      "location": {
+        "city": "Forrest VIC",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "Rally stages"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Wild Gravel",
+      "slug": "wild-gravel",
+      "date": "2025 TBC",
+      "location": {
+        "city": "Gnowangerup WA",
+        "state": "",
+        "country": "Australia"
+      },
+      "distances": [
+        "62-93"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Dusty Bandita",
+      "slug": "dusty-bandita",
+      "date": "Summer",
+      "location": {
+        "city": "Ovando MT",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "80",
+        "45"
+      ],
+      "website_url": "https://www.dustybandita.com",
+      "registration_url": "",
+      "entry_cost": "100-150",
+      "field_size": "150-300",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Unravel Gravel - VA State Championship",
+      "slug": "unravel-gravel---va-state-championship",
+      "date": "Fall TBD",
+      "location": {
+        "city": "Cumberland VA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "62",
+        "31"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": true
+    },
+    {
+      "name": "JUST.GRAVEL",
+      "slug": "just.gravel",
+      "date": "Various 2025",
+      "location": {
+        "city": "Southern Lake District",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "25-50"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Rocks",
+      "slug": "gravel-rocks",
+      "date": "TBC 2025",
+      "location": {
+        "city": "North York Moors",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "62"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Tor Divide",
+      "slug": "tor-divide",
+      "date": "TBC 2025",
+      "location": {
+        "city": "Peak District",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "100"
+      ],
+      "website_url": "https://www.tordivide.com",
+      "registration_url": "",
+      "entry_cost": "63",
+      "field_size": "~100",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Haldon Heroic",
+      "slug": "haldon-heroic",
+      "date": "Various 2025",
+      "location": {
+        "city": "Haldon Forest Devon",
+        "state": "",
+        "country": "UK"
+      },
+      "distances": [
+        "15-50"
+      ],
+      "website_url": "https://www.haldonheroic.com",
+      "registration_url": "",
+      "entry_cost": "40-70",
+      "field_size": "~150",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Rad am Ring Gravel",
+      "slug": "rad-am-ring-gravel",
+      "date": "TBC 2025",
+      "location": {
+        "city": "N\u00fcrburgring",
+        "state": "",
+        "country": "Germany"
+      },
+      "distances": [
+        "TBC"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "4",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Burn",
+      "slug": "gravel-burn",
+      "date": "Oct-Nov",
+      "location": {
+        "city": "South Africa",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [
+        "200+"
+      ],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grinduro California",
+      "slug": "grinduro-california",
+      "date": "Mid-Sept",
+      "location": {
+        "city": "NorCal",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.grinduro.com",
+      "registration_url": "",
+      "entry_cost": "100-180",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Grasshopper Series",
+      "slug": "grasshopper-series",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "NorCal",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.grasshopperadventure.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300-500 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Houffa",
+      "slug": "houffa",
+      "date": "TBD",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.houffa.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Heathland",
+      "slug": "heathland",
+      "date": "TBD",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.heathland.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Flanders Legacy",
+      "slug": "flanders-legacy",
+      "date": "TBD",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.flanderslegacy.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Marly Grav",
+      "slug": "marly-grav",
+      "date": "TBD",
+      "location": {
+        "city": "Netherlands",
+        "state": "",
+        "country": "Netherlands"
+      },
+      "distances": [],
+      "website_url": "https://www.marlygrav.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "66\u00b0 South Pyr\u00e9n\u00e9es",
+      "slug": "66\u00b0-south-pyr\u00e9n\u00e9es",
+      "date": "TBD",
+      "location": {
+        "city": "France",
+        "state": "",
+        "country": "France"
+      },
+      "distances": [],
+      "website_url": "https://www.66southpyr\u00e9n\u00e9es.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Alentejo",
+      "slug": "alentejo",
+      "date": "TBD",
+      "location": {
+        "city": "Portugal",
+        "state": "",
+        "country": "Portugal"
+      },
+      "distances": [],
+      "website_url": "https://www.alentejo.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Eislek Gravel",
+      "slug": "eislek-gravel",
+      "date": "TBD",
+      "location": {
+        "city": "Luxembourg",
+        "state": "",
+        "country": "Luxembourg"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Transcordilleras",
+      "slug": "transcordilleras",
+      "date": "Annual",
+      "location": {
+        "city": "Colombia",
+        "state": "",
+        "country": "Colombia"
+      },
+      "distances": [],
+      "website_url": "https://www.transcordilleras.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Medell\u00edn",
+      "slug": "gravel-medell\u00edn",
+      "date": "2026",
+      "location": {
+        "city": "Colombia",
+        "state": "",
+        "country": "Colombia"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Sea Otter Europe",
+      "slug": "sea-otter-europe",
+      "date": "TBD",
+      "location": {
+        "city": "Spain",
+        "state": "",
+        "country": "Spain"
+      },
+      "distances": [],
+      "website_url": "https://www.seaottereurope.com",
+      "registration_url": "",
+      "entry_cost": "50-90",
+      "field_size": "150-300",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Filthy 50",
+      "slug": "filthy-50",
+      "date": "Early Oct",
+      "location": {
+        "city": "MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.filthy50.com",
+      "registration_url": "",
+      "entry_cost": "75-100",
+      "field_size": "1000",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Spotted Horse Ultra",
+      "slug": "spotted-horse-ultra",
+      "date": "Mid-Oct",
+      "location": {
+        "city": "IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.spottedhorseultra.com",
+      "registration_url": "",
+      "entry_cost": "75-100",
+      "field_size": "500+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Brazil",
+      "slug": "gravel-brazil",
+      "date": "TBD",
+      "location": {
+        "city": "Camboriu",
+        "state": "Brazil",
+        "country": "Brazil"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "W\u00f6rthersee Gravel Race",
+      "slug": "w\u00f6rthersee-gravel-race",
+      "date": "TBD",
+      "location": {
+        "city": "Velden am W\u00f6rthersee",
+        "state": "Austria",
+        "country": "Austria"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Monaco Gravel Race",
+      "slug": "monaco-gravel-race",
+      "date": "TBD",
+      "location": {
+        "city": "Monaco",
+        "state": "",
+        "country": "Monaco"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Giro Sardegna Gravel",
+      "slug": "giro-sardegna-gravel",
+      "date": "TBD",
+      "location": {
+        "city": "Siniscola",
+        "state": "Italy",
+        "country": "Italy"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride San Diego",
+      "slug": "belgian-waffle-ride-san-diego",
+      "date": "TBD",
+      "location": {
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "100-250",
+      "field_size": "1000+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Asheville",
+      "slug": "belgian-waffle-ride-asheville",
+      "date": "TBD",
+      "location": {
+        "city": "Asheville",
+        "state": "NC",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "100-250",
+      "field_size": "800+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Cedar City",
+      "slug": "belgian-waffle-ride-cedar-city",
+      "date": "TBD",
+      "location": {
+        "city": "Cedar City",
+        "state": "UT",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "100-250",
+      "field_size": "600+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride North Carolina",
+      "slug": "belgian-waffle-ride-north-carolina",
+      "date": "TBD",
+      "location": {
+        "city": "NC",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrnorthcarolina.com",
+      "registration_url": "",
+      "entry_cost": "110-190",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Kansas",
+      "slug": "belgian-waffle-ride-kansas",
+      "date": "TBD",
+      "location": {
+        "city": "KS",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrkansas.com",
+      "registration_url": "",
+      "entry_cost": "120-200",
+      "field_size": "500+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride North",
+      "slug": "belgian-waffle-ride-north",
+      "date": "TBD",
+      "location": {
+        "city": "MN",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrnorthcarolina.com",
+      "registration_url": "",
+      "entry_cost": "110-190",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Washington",
+      "slug": "belgian-waffle-ride-washington",
+      "date": "TBD",
+      "location": {
+        "city": "WA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrwashington.com",
+      "registration_url": "",
+      "entry_cost": "120-200",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Wisconsin",
+      "slug": "belgian-waffle-ride-wisconsin",
+      "date": "TBD",
+      "location": {
+        "city": "WI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrwisconsin.com",
+      "registration_url": "",
+      "entry_cost": "110-190",
+      "field_size": "350+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride North Dakota",
+      "slug": "belgian-waffle-ride-north-dakota",
+      "date": "TBD",
+      "location": {
+        "city": "ND",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.bwrnorthcarolina.com",
+      "registration_url": "",
+      "entry_cost": "110-190",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Iowa",
+      "slug": "belgian-waffle-ride-iowa",
+      "date": "TBD",
+      "location": {
+        "city": "IA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.iowagravel.com",
+      "registration_url": "",
+      "entry_cost": "45-75",
+      "field_size": "150-300",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Nebraska",
+      "slug": "belgian-waffle-ride-nebraska",
+      "date": "TBD",
+      "location": {
+        "city": "NE",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "100-250",
+      "field_size": "400+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Belgian Waffle Ride Texas",
+      "slug": "belgian-waffle-ride-texas",
+      "date": "TBD",
+      "location": {
+        "city": "TX",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.belgianwaffleride.com",
+      "registration_url": "",
+      "entry_cost": "100-250",
+      "field_size": "600+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "ILGR Point Series Race 1",
+      "slug": "ilgr-point-series-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "ILGR Point Series Race 2",
+      "slug": "ilgr-point-series-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "ILGR Point Series Race 3",
+      "slug": "ilgr-point-series-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.michigangravel.com",
+      "registration_url": "",
+      "entry_cost": "50-80",
+      "field_size": "200-400",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nxrth Gravel Event 1",
+      "slug": "nxrth-gravel-event-1",
+      "date": "TBD",
+      "location": {
+        "city": "WI/MN/MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Nxrth Gravel Event 2",
+      "slug": "nxrth-gravel-event-2",
+      "date": "TBD",
+      "location": {
+        "city": "WI/MN/MI",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "500km Ultra Gravel 1",
+      "slug": "500km-ultra-gravel-1",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "500km Ultra Gravel 2",
+      "slug": "500km-ultra-gravel-2",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Alentejo Gravel",
+      "slug": "alentejo-gravel",
+      "date": "TBD",
+      "location": {
+        "city": "Portugal",
+        "state": "",
+        "country": "Portugal"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Heathland Gravel",
+      "slug": "heathland-gravel",
+      "date": "TBD",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Flanders Legacy Gravel",
+      "slug": "flanders-legacy-gravel",
+      "date": "TBD",
+      "location": {
+        "city": "Belgium",
+        "state": "",
+        "country": "Belgium"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": true,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel and Tar Classic",
+      "slug": "gravel-and-tar-classic",
+      "date": "TBD",
+      "location": {
+        "city": "Manawat\u016b-Whanganui",
+        "state": "New Zealand",
+        "country": "New Zealand"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Locos",
+      "slug": "gravel-locos",
+      "date": "TBD",
+      "location": {
+        "city": "Hico",
+        "state": "TX",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Final",
+      "slug": "gravel-earth-series-final",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "1",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 1",
+      "slug": "gravel-earth-series-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 2",
+      "slug": "gravel-earth-series-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 3",
+      "slug": "gravel-earth-series-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 1",
+      "slug": "oregon-triple-crown-race-1",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 2",
+      "slug": "oregon-triple-crown-race-2",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 3",
+      "slug": "oregon-triple-crown-race-3",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 4",
+      "slug": "oregon-triple-crown-race-4",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 5",
+      "slug": "oregon-triple-crown-race-5",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 6",
+      "slug": "oregon-triple-crown-race-6",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Oregon Triple Crown Race 7",
+      "slug": "oregon-triple-crown-race-7",
+      "date": "Multiple dates 2026",
+      "location": {
+        "city": "OR",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.oregontriplecrown.com",
+      "registration_url": "",
+      "entry_cost": "70-110",
+      "field_size": "400-600 per event",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 1",
+      "slug": "regional-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 2",
+      "slug": "regional-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 3",
+      "slug": "regional-gravel-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 4",
+      "slug": "regional-gravel-race-4",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 5",
+      "slug": "regional-gravel-race-5",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 6",
+      "slug": "regional-gravel-race-6",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 7",
+      "slug": "regional-gravel-race-7",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 8",
+      "slug": "regional-gravel-race-8",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 9",
+      "slug": "regional-gravel-race-9",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Race 10",
+      "slug": "regional-gravel-race-10",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Grit Grind",
+      "slug": "gravel-grit-grind",
+      "date": "TBD",
+      "location": {
+        "city": "Various",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Grinder Series Race 1",
+      "slug": "gravel-grinder-series-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Grinder Series Race 2",
+      "slug": "gravel-grinder-series-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Grinder Series Race 3",
+      "slug": "gravel-grinder-series-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.redgranitegrinder.com",
+      "registration_url": "",
+      "entry_cost": "60-100",
+      "field_size": "300+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 4",
+      "slug": "gravel-earth-series-race-4",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 5",
+      "slug": "gravel-earth-series-race-5",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 6",
+      "slug": "gravel-earth-series-race-6",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 7",
+      "slug": "gravel-earth-series-race-7",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 8",
+      "slug": "gravel-earth-series-race-8",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 9",
+      "slug": "gravel-earth-series-race-9",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 10",
+      "slug": "gravel-earth-series-race-10",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 11",
+      "slug": "gravel-earth-series-race-11",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 12",
+      "slug": "gravel-earth-series-race-12",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 13",
+      "slug": "gravel-earth-series-race-13",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 14",
+      "slug": "gravel-earth-series-race-14",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 15",
+      "slug": "gravel-earth-series-race-15",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 16",
+      "slug": "gravel-earth-series-race-16",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 17",
+      "slug": "gravel-earth-series-race-17",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 18",
+      "slug": "gravel-earth-series-race-18",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 19",
+      "slug": "gravel-earth-series-race-19",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 20",
+      "slug": "gravel-earth-series-race-20",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 21",
+      "slug": "gravel-earth-series-race-21",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 22",
+      "slug": "gravel-earth-series-race-22",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 23",
+      "slug": "gravel-earth-series-race-23",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 24",
+      "slug": "gravel-earth-series-race-24",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Gravel Earth Series Race 25",
+      "slug": "gravel-earth-series-race-25",
+      "date": "TBD",
+      "location": {
+        "city": "TBD",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "2",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Midwest Gravel Race 1",
+      "slug": "midwest-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Midwest",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Midwest Gravel Race 2",
+      "slug": "midwest-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Midwest",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Southeast Gravel Race 1",
+      "slug": "southeast-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Southeast",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Southeast Gravel Race 2",
+      "slug": "southeast-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Southeast",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Northeast Gravel Race 1",
+      "slug": "northeast-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Northeast",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Northeast Gravel Race 2",
+      "slug": "northeast-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Northeast",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Mountain West Gravel Race 1",
+      "slug": "mountain-west-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Mountain West",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Mountain West Gravel Race 2",
+      "slug": "mountain-west-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Mountain West",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Northwest Gravel Race 1",
+      "slug": "northwest-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Northwest",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Northwest Gravel Race 2",
+      "slug": "northwest-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Northwest",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 1",
+      "slug": "california-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 2",
+      "slug": "california-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 3",
+      "slug": "california-gravel-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 4",
+      "slug": "california-gravel-race-4",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 5",
+      "slug": "california-gravel-race-5",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 6",
+      "slug": "california-gravel-race-6",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 7",
+      "slug": "california-gravel-race-7",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 8",
+      "slug": "california-gravel-race-8",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 9",
+      "slug": "california-gravel-race-9",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 10",
+      "slug": "california-gravel-race-10",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 11",
+      "slug": "california-gravel-race-11",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 12",
+      "slug": "california-gravel-race-12",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 13",
+      "slug": "california-gravel-race-13",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 14",
+      "slug": "california-gravel-race-14",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 15",
+      "slug": "california-gravel-race-15",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 16",
+      "slug": "california-gravel-race-16",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "California Gravel Race 17",
+      "slug": "california-gravel-race-17",
+      "date": "TBD",
+      "location": {
+        "city": "California",
+        "state": "USA",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 1",
+      "slug": "european-gravel-race-1",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 2",
+      "slug": "european-gravel-race-2",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 3",
+      "slug": "european-gravel-race-3",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 4",
+      "slug": "european-gravel-race-4",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 5",
+      "slug": "european-gravel-race-5",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 6",
+      "slug": "european-gravel-race-6",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 7",
+      "slug": "european-gravel-race-7",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 8",
+      "slug": "european-gravel-race-8",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 9",
+      "slug": "european-gravel-race-9",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 10",
+      "slug": "european-gravel-race-10",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 11",
+      "slug": "european-gravel-race-11",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 12",
+      "slug": "european-gravel-race-12",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "European Gravel Race 13",
+      "slug": "european-gravel-race-13",
+      "date": "TBD",
+      "location": {
+        "city": "Europe",
+        "state": "",
+        "country": "Various"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 1",
+      "slug": "regional-gravel-event-1",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 2",
+      "slug": "regional-gravel-event-2",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 3",
+      "slug": "regional-gravel-event-3",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 4",
+      "slug": "regional-gravel-event-4",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 5",
+      "slug": "regional-gravel-event-5",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 6",
+      "slug": "regional-gravel-event-6",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 7",
+      "slug": "regional-gravel-event-7",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 8",
+      "slug": "regional-gravel-event-8",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 9",
+      "slug": "regional-gravel-event-9",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 10",
+      "slug": "regional-gravel-event-10",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 11",
+      "slug": "regional-gravel-event-11",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 12",
+      "slug": "regional-gravel-event-12",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 13",
+      "slug": "regional-gravel-event-13",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 14",
+      "slug": "regional-gravel-event-14",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 15",
+      "slug": "regional-gravel-event-15",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 16",
+      "slug": "regional-gravel-event-16",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 17",
+      "slug": "regional-gravel-event-17",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 18",
+      "slug": "regional-gravel-event-18",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 19",
+      "slug": "regional-gravel-event-19",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    },
+    {
+      "name": "Regional Gravel Event 20",
+      "slug": "regional-gravel-event-20",
+      "date": "TBD",
+      "location": {
+        "city": "USA",
+        "state": "",
+        "country": "USA"
+      },
+      "distances": [],
+      "website_url": "https://www.coasttocoastgravel.com",
+      "registration_url": "",
+      "entry_cost": "70-120",
+      "field_size": "250+",
+      "tier": "3",
+      "is_uci": false,
+      "is_championship": false
+    }
+  ]
+}

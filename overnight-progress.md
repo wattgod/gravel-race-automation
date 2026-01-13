@@ -3,38 +3,40 @@
 
 ### RESEARCH QUEUE (from database)
 Races still needing research:
-1. big-horn-gravel
-2. chequamegon-mtb
-3. dirty-french
-4. fuego-mtb
-5. gravel-fondo-switzerland
-6. gravel-roubaix
-7. grinduro
-8. jeroboam
-9. little-sugar-mtb
-10. ouray-gravel-grinder
-11. rad-dirt-fest
-12. steamboat-gravel
-13. trans-am-bike-race
-14. trans-iowa
-15. unbound-100
-16. unbound-xl
-17. walburg-dirty-30
+1. dirty-french
+2. fuego-mtb
+3. gravel-fondo-switzerland
+4. gravel-roubaix
+5. little-sugar-mtb
+6. rad-dirt-fest
+7. steamboat-gravel
+8. trans-am-bike-race
+9. trans-iowa
+10. unbound-100
+11. unbound-xl
+12. walburg-dirty-30
 
 ---
 
 ### BATCH STATUS
 
-**Currently Running (Batch from earlier):**
-- Gravel Earth - in progress
-- Torino Nice Rally - in progress
-- Transcontinental Race - in progress
-- Tour Divide - in progress
-- Colorado Trail Race - in progress
+**Currently Running (Batch 3):**
+- Big Horn Gravel - in progress
+- Chequamegon MTB - in progress
+- Grinduro - in progress
+- Jeroboam - in progress
+- Ouray Gravel Grinder - in progress
 
 ---
 
 ### COMPLETED TONIGHT
+
+**Batch 2 (5 dumps - auto-committed):**
+- Colorado Trail Race (23KB)
+- Gravel Earth (28KB)
+- Torino Nice Rally (23KB)
+- Tour Divide (28KB)
+- Transcontinental Race (29KB)
 
 **Batch 1 (19 dumps - committed):**
 - Almanzo 100
@@ -58,5 +60,7 @@ Races still needing research:
 - Whiskey Off-Road
 
 ---
+
+**Total completed tonight: 24 research dumps**
 
 *Auto-updating as batches complete*

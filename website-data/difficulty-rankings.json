@@ -2,11 +2,11 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 55,
+    "total_scored_races": 59,
     "tier_distribution": {
-      "TIER 1": 29,
+      "TIER 1": 31,
       "TIER 2": 23,
-      "TIER 3": 3
+      "TIER 3": 5
     }
   },
   "races": [
@@ -105,6 +105,18 @@
       "location": "Granada, Andalusia, Spain",
       "distance_mi": 497,
       "elevation_ft": 52493
+    },
+    {
+      "slug": "steamboat-gravel",
+      "name": "SBT GRVL",
+      "overall_score": 91,
+      "course_profile_total": 26,
+      "editorial_total": 30,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Steamboat Springs, Colorado",
+      "distance_mi": 108,
+      "elevation_ft": 8189
     },
     {
       "slug": "torino-nice-rally",
@@ -225,6 +237,18 @@
       "location": "Stillwater, Oklahoma",
       "distance_mi": 100,
       "elevation_ft": 4500
+    },
+    {
+      "slug": "trans-iowa",
+      "name": "Trans Iowa",
+      "overall_score": 82,
+      "course_profile_total": 25,
+      "editorial_total": 30,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Grinnell, Iowa",
+      "distance_mi": 340,
+      "elevation_ft": 15000
     },
     {
       "slug": "big-horn-gravel",
@@ -669,6 +693,30 @@
       "location": "Ouray, Colorado",
       "distance_mi": 80,
       "elevation_ft": 7800
+    },
+    {
+      "slug": "tour-de-nebraska",
+      "name": "Tour de Nebraska",
+      "overall_score": 52,
+      "course_profile_total": 14,
+      "editorial_total": 24,
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "location": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+      "distance_mi": 250,
+      "elevation_ft": 3500
+    },
+    {
+      "slug": "walburg-dirty-30",
+      "name": "Walburg Dirty 30",
+      "overall_score": 52,
+      "course_profile_total": 14,
+      "editorial_total": 21,
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "location": "Walburg, Texas",
+      "distance_mi": 30,
+      "elevation_ft": 2000
     }
   ]
 }

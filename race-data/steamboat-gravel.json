@@ -1,54 +1,170 @@
 {
-      "raceId": "steamboat-gravel",
-      "name": "Steamboat Gravel",
-      "slug": "steamboat-gravel",
-      "location": {
-              "city": "Steamboat Springs",
-              "state": "Colorado",
-              "country": "USA",
-              "region": "Northern Colorado Rockies",
-              "elevation": "6,700 feet"
+  "race": {
+    "raceId": "steamboat-gravel",
+    "name": "SBT GRVL",
+    "slug": "steamboat-gravel",
+    "display_name": "SBT GRVL",
+    "tagline": "Champagne gravel at altitude - where the pros come to play and the views will make you forget about the suffering",
+
+    "vitals": {
+      "distance_mi": 108,
+      "elevation_ft": 8189,
+      "location": "Steamboat Springs, Colorado",
+      "location_badge": "STEAMBOAT SPRINGS, CO",
+      "date": "Late June annually",
+      "date_specific": "2026: June 28"
+    },
+
+    "location": {
+      "city": "Steamboat Springs",
+      "state": "Colorado",
+      "country": "USA",
+      "region": "Northern Colorado Rockies",
+      "elevation": "6,700 feet"
+    },
+
+    "date": {
+      "month": "June",
+      "typical": "Late June",
+      "season": "Summer",
+      "year2026": "June 28, 2026"
+    },
+
+    "organizer": {
+      "name": "SBT GRVL / Amy Charity",
+      "website": "https://www.sbtgrvl.com/"
+    },
+
+    "distances": [
+      {
+        "name": "BLACK",
+        "distance": "108 miles",
+        "elevationGain": "8,189 feet",
+        "gravelPercentage": "70%",
+        "description": "Elite race course with rolling enclosure - the flagship event"
       },
-      "date": {
-              "month": "June",
-              "typical": "mid to late June",
-              "season": "Summer",
-              "year2026": "June 20, 2026"
+      {
+        "name": "BLUE",
+        "distance": "73 miles",
+        "elevationGain": "5,843 feet",
+        "gravelPercentage": "65%",
+        "description": "Substantial ride course with significant climbing"
       },
-      "organizer": {
-              "name": "Rockville Bike",
-              "website": "https://steamboatgravel.com/"
+      {
+        "name": "RED",
+        "distance": "53 miles",
+        "elevationGain": "4,198 feet",
+        "gravelPercentage": "52%",
+        "description": "Mid-distance option balancing challenge and accessibility"
       },
-      "distances": [
-              {
-                        "name": "144K",
-                        "distance": "90 miles",
-                        "elevationGain": "8,500+ feet",
-                        "description": "Long course with sustained high-altitude climbing through ranch land and national forest"
-              },
-              {
-                        "name": "72K",
-                        "distance": "45 miles",
-                        "elevationGain": "4,500+ feet",
-                        "description": "Half-distance option with significant climbing in beautiful mountain setting"
-              }
-      ],
-      "terrain": "High-altitude mountain gravel roads, ranch roads, and forest service roads with sustained climbing in the Yampa Valley",
-      "registration": "Opens winter/spring, typically sells out",
-      "weather": "High-altitude mountain summer weather - cool mornings (40s-50s°F), warm afternoons (70s-80s°F), potential afternoon thunderstorms",
-      "uniqueCharacteristics": [
-              "High-altitude racing at 6,700+ feet elevation",
-              "Spectacular Rocky Mountain scenery through working ranch land",
-              "Challenging sustained climbs on remote mountain roads",
-              "Known for beautiful wildflower-covered valleys in June",
-              "Small-town Colorado mountain community atmosphere",
-              "Post-race celebration in historic Steamboat Springs",
-              "Course features mix of ranch roads and national forest routes",
-              "Challenging altitude and climbing for non-Colorado riders"
-      ],
-      "seriesAffiliation": "Independent",
-      "tier": "Regional",
-      "popularity": "High - popular Colorado mountain gravel event",
-      "lastUpdated": "2026-01-09",
-      "dataQuality": "High"
+      {
+        "name": "GREEN",
+        "distance": "25 miles",
+        "elevationGain": "2,000 feet",
+        "gravelPercentage": "40%",
+        "description": "Beginner-friendly introduction to champagne gravel"
+      }
+    ],
+
+    "terrain": "Famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude",
+
+    "registration": {
+      "method": "Lottery via BikeReg",
+      "window": "October 14-31, 2025 for 2026 event",
+      "fieldSize": "2,750 participants (2,000 riders, 750 racers)"
+    },
+
+    "weather": "High-altitude Colorado summer - cool mornings (40s-50s°F), warm afternoons (70s-80s°F), potential afternoon thunderstorms. Unpredictable mountain weather.",
+
+    "gravel_god_rating": {
+      "overall_score": 91,
+      "course_profile": 26,
+      "biased_opinion": 30,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "Black course at 108 miles puts this firmly in the 100-150 mile category. Substantial distance that demands fitness and strategy, though not ultra-distance territory."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The famous 'champagne gravel' is actually quite smooth and fast, with mixed terrain including some rougher sections and descents. Technical enough to keep you honest, but not extreme singletrack territory."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8,189 feet of climbing on the Black course is serious vertical. Multiple significant climbs including Dunkley Pass demand climbing legs and smart pacing throughout the day."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late June in the Colorado Rockies means variable conditions - cool mornings, warm afternoons, and the ever-present threat of afternoon thunderstorms. Not extreme, but requires preparation."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Starting at 6,700 feet and climbing to ~8,500 feet puts this firmly in high-altitude territory. Riders from sea level will feel the thin air significantly - acclimatization is strongly recommended."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Yampa Valley Regional Airport offers direct flights from 12 cities, and Denver is a 3-hour drive. Steamboat has good lodging options, but it's still a destination requiring planning and the event sells out via lottery."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "This is bucket-list territory. World-renowned champagne gravel through stunning Colorado ranch country, aspen groves, and mountain vistas. The scenery alone makes this a must-do pilgrimage for serious gravel riders."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "One of the crown jewels of gravel cycling. Part of the Life Time Grand Prix, attracts the world's best pros (Keegan Swenson's three-peat, Lauren De Crescenzo, Lauren Stephens), and has iconic status since its 2019 founding by Amy Charity."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Elite-level organization with professional race production, rolling enclosure for the Black course, 5 well-stocked aid stations, separate elite starts, and a multi-day expo experience. World-class in every detail."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing territory. From packet pickup on Yampa Street to the champagne gravel roads through working ranches, the Zipp Cow Creek finish, and the post-race celebration in one of Colorado's best mountain towns - this is what gravel dreams are made of."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Founded with equal prize money from day one, strong emphasis on respect for local ranching community, inclusive with para-cycling resources and e-bike options. The vibe is welcoming and the gravel tribe comes out in force - 2,750 riders strong."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix stop means the absolute best in the world show up. Keegan Swenson, Lauren Stephens, Sofia Gomez Villafane, Brennan Wertz - this is where legends are made and championships are decided."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At $275 for most courses, it's premium pricing for a premium event. You get Life Time-level production value, excellent aid stations, and a world-class experience, but it's definitely not budget-friendly."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Total trip costs add up quickly - flights to remote Yampa Valley or 3-hour drive from Denver, lodging in a ski resort town during summer, and the registration fees. Expect $1,000-1,500+ for the full experience from most locations."
+      }
+    },
+
+    "uniqueCharacteristics": [
+      "World-famous 'champagne gravel' - the smoothest, fastest gravel roads on Earth",
+      "High-altitude racing at 6,700-8,500 feet elevation",
+      "Life Time Grand Prix stop attracting world's best gravel racers",
+      "Founded by Amy Charity with equal prize purses since 2019",
+      "Routes through working Colorado ranches and stunning mountain scenery",
+      "Four course options from 25-108 miles for all abilities",
+      "Steamboat Springs ranked #3 Best Small Towns in USA",
+      "Estimated $4.5 million economic impact - one of the world's largest gravel events"
+    ],
+
+    "seriesAffiliation": "Life Time Grand Prix",
+    "tier": "TIER 1",
+    "popularity": "Very High - one of the most prestigious gravel events in the world",
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "High"
+  }
 }

@@ -1,54 +1,162 @@
 {
-    "raceId": "trans-iowa",
-    "name": "Trans Iowa",
+  "race": {
+    "name": "TRANS IOWA",
     "slug": "trans-iowa",
+    "display_name": "Trans Iowa",
+    "tagline": "The OG gravel ultra that birthed an entire movement - 340 miles of Iowa suffering, zero aid, pure legend",
+
+    "vitals": {
+      "distance_mi": 340,
+      "elevation_ft": 15000,
+      "location": "Grinnell, Iowa",
+      "location_badge": "GRINNELL, IOWA",
+      "date": "Late April (historical)",
+      "date_specific": "DISCONTINUED - Final edition April 28-29, 2018"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "course_profile": 25,
+      "biased_opinion": 30,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "320-345 miles across Iowa places this firmly in ultra territory. The 34-hour time limit to cover this distance with no sleep makes it one of the longest gravel events ever created."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain with standard Iowa gravel and notorious Level B 'minimum maintenance' roads. While not technical like mountain singletrack, the B-roads become treacherous 'peanut butter mud' when wet, requiring bike-carrying skills."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Iowa's rolling terrain delivers approximately 15,000+ feet of climbing over the course. Not mountainous, but the relentless rolling hills accumulate significant vertical over 340 miles."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Extreme and unpredictable Iowa spring weather defined this race. Late April brought rain, cold (30s-40s F at night), wind, and occasionally snow. Three editions were truncated due to weather; one year (V2) had zero finishers."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Iowa is essentially at sea level with no altitude impact on performance. The challenge comes from distance and conditions, not thin air."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Grinnell is accessible via Interstate 80 with Des Moines International Airport (60 mi) and Cedar Rapids Eastern Iowa Airport (55 mi) nearby. Multiple budget hotels available in Grinnell area."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Bucket list legendary status. Trans Iowa repurposed 'unremarkable' Iowa terrain into an epic adventure that changed cycling forever. Navigation by cue sheet only, 4am starts in darkness, and the mental challenge of 340 self-supported miles created life-changing experiences."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Trans Iowa is the godfather of gravel racing. Founded in 2005, it directly inspired Dirty Kanza (now Unbound) and countless other events. Guitar Ted is an inaugural member of the Gravel Cycling Hall of Fame. This race defined the genre."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Purposefully grassroots and bare-bones with no aid stations, no course marking, and minimal infrastructure. This was by design - the stripped-down format was the point. Well-executed for what it intended to be, but not a 'professional' production."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing. Stories abound of riders lying in ditches, cycling without feeling their hands, finishing in the grey cold with whiskey from Guitar Ted. The mental and physical journey created transformative experiences that defined participants' cycling lives."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Legendary culture that spawned the modern gravel community. The Trans Iowa Masters Program honored repeat finishers. The race created a brotherhood of hardcore gravel enthusiasts who still gather to share war stories. 'Radical self-reliance and camaraderie' defined the ethos."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Strong regional ultra-endurance riders including multi-time winners like Ira Ryan (3x) and Joe Meiser (2x). Not an elite pro field like modern LTGP events, but a dedicated community of hardcore endurance athletes. 100-120 rider field limit."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "FREE entry in later years ($20 for V1 only). No prize money, no flashy swag - just the purest gravel racing experience imaginable. Exceptional value for what became a legendary life experience."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Reasonable total costs with no entry fee, budget hotels ($80-150/night), and Midwest accessibility. Major expense was self-support supplies and potentially bike-specific gear for the conditions. Under $500 total for most participants."
+      }
+    },
+
+    "status": "DISCONTINUED",
+    "final_edition": "V14 (April 28-29, 2018)",
+    "editions_run": 14,
+    "years_active": "2005-2018",
+
+    "historical_stats": {
+      "typical_finish_rate": "15-25%",
+      "lowest_finish_rate": "0% (V2 2006)",
+      "final_edition_finish_rate": "20% (19 of 95)",
+      "time_limit_hours": 34,
+      "notable_winners": ["Ira Ryan (3x)", "Joe Meiser (2x)", "Dan Hughes", "Luke Wilson"],
+      "first_woman_finisher": "Janna Vavra (V7, 2011)"
+    },
+
+    "founders": {
+      "co_founders": ["Jeff Kerkove", "Mark Stevenson (Guitar Ted)"],
+      "primary_director": "Guitar Ted (Mark Stevenson)",
+      "origin_year": 2004,
+      "first_race": 2005
+    },
+
+    "successor_event": {
+      "name": "Iowa Wind and Rock",
+      "website": "https://iowawindandrock.com/",
+      "note": "Created by Trans Iowa finishers to continue the tradition. Explicitly stated: 'Iowa Wind and Rock is NOT, nor will it ever be TransIowa' but provides 'a similar challenge'."
+    },
+
+    "legacy": {
+      "gravel_cycling_hall_of_fame": true,
+      "historical_significance": "Foundational event that defined modern gravel racing",
+      "inspired_events": ["Dirty Kanza/Unbound Gravel", "Modern gravel racing movement"],
+      "cultural_impact": "Repurposed 'unremarkable' Iowa terrain to forge a new racing format combining competition, camaraderie, and radical self-reliance"
+    },
+
     "location": {
-          "city": "Grinnell area",
-          "state": "Iowa",
-          "country": "USA",
-          "region": "Central Iowa"
+      "city": "Grinnell",
+      "state": "Iowa",
+      "country": "USA",
+      "region": "Central Iowa"
     },
-    "date": {
-          "month": "April",
-          "typical": "late April",
-          "season": "Spring",
-          "year2026": "Event ended 2018 - Historical record"
+
+    "terrain": {
+      "surface_composition": "95% gravel, 5% pavement",
+      "road_types": ["Standard Iowa gravel", "Level B roads", "Minimum maintenance roads"],
+      "special_hazards": "B-roads become impassable 'peanut butter mud' after rain"
     },
-    "organizer": {
-          "name": "Guitar Ted Productions",
-          "founder": "Guitar Ted (Ted King)",
-          "website": "https://www.transiowa.com/",
-          "note": "Race series ran 2005-2018, now legendary in gravel history"
-    },
-    "distances": [
-          {
-                  "name": "Full Distance",
-                  "distance": "320-340 miles",
-                  "elevationGain": "15,000+ feet",
-                  "description": "Ultra-endurance crossing of Iowa on gravel roads, typically ran late April"
-          }
+
+    "unique_characteristics": [
+      "Pioneer of modern gravel racing (est. 2005)",
+      "Completely self-supported with no aid stations",
+      "Cue sheet navigation only - GPS prohibited",
+      "Route kept secret until race day",
+      "4:00 AM start in darkness",
+      "Free entry (no registration fee)",
+      "No prize money or awards",
+      "34-hour time limit for 340 miles",
+      "Infamous Level B road conditions",
+      "Low finish rates (often under 25%)"
     ],
-    "terrain": "Iowa gravel roads - rolling farmland, B-level maintenance roads, potentially muddy spring conditions",
-    "registration": "By invitation only - limited to 120 riders (historical)",
-    "weather": "Unpredictable Iowa spring - cold nights (30s-40s°F), variable days, frequent rain and mud, occasionally snow",
-    "uniqueCharacteristics": [
-          "Legendary grassroots ultra-endurance race (2005-2018)",
-          "Completely free to enter - no registration fees",
-          "Self-supported format with no aid stations or course marking",
-          "Navigation by cue sheets only",
-          "34-hour time limit to cross Iowa",
-          "Invitation-only field of 120 riders",
-          "Infamous for brutal spring weather and mud",
-          "Inspired the modern gravel racing movement",
-          "Guitar Ted's handwritten cue sheets became iconic",
-          "Finisher rate often under 30%",
-          "No prizes or awards - just bragging rights",
-          "Considered one of the toughest gravel events ever created"
+
+    "sources": [
+      "Trans Iowa: The History (Guitar Ted Archive): https://guitarted1961.wordpress.com/",
+      "Gravel Cycling Hall of Fame: https://www.gravelcyclinghof.com/hall-of-famers-2022/mark-stevenson",
+      "Bikepacking.com: https://bikepacking.com/event/trans-iowa-v14/",
+      "Iowa Wind and Rock (Successor): https://iowawindandrock.com/"
     ],
-    "seriesAffiliation": "Independent (Historical)",
-    "tier": "Legendary",
-    "popularity": "Legendary - foundational event in gravel racing history",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good",
-    "note": "Trans Iowa ended in 2018 after 14 editions. Included as historical record of gravel racing's origins."
+
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Comprehensive",
+    "scoringVersion": "GravelGod v2.1"
+  }
 }

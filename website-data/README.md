@@ -7,7 +7,7 @@ JSON data files for the `/races` section of the GravelGod Cycling website.
 | File | Description | Records |
 |------|-------------|---------|
 | `race-calendar.json` | Chronological race listing with dates, locations, tiers | 388 races |
-| `difficulty-rankings.json` | Races with full course profiles and scoring | 21 races |
+| `difficulty-rankings.json` | Races with full course + editorial scoring | 20 races |
 | `geographic-clusters.json` | Races grouped by region with tier breakdown | 11 regions |
 
 ---
@@ -19,6 +19,91 @@ JSON data files for the `/races` section of the GravelGod Cycling website.
 | **TIER 1** | Premier events - Life Time Grand Prix, UCI qualifiers, iconic races | 23 |
 | **TIER 2** | Established events - strong reputation, quality organization | 64 |
 | **TIER 3** | Regional/emerging events - local favorites, growing scene | 301 |
+
+---
+
+## GravelGod Scoring System
+
+Each fully-profiled race has **14 dimensions** across two categories:
+
+### Course Profile (7 dimensions) - Physical/Logistical Demands
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| **Length** | Distance - 5 = 200+ miles, 1 = under 40 miles |
+| **Technicality** | Surface difficulty, descents, bike handling required |
+| **Elevation** | Total climbing - 5 = 10,000+ ft |
+| **Climate** | Weather challenges - heat, cold, storms |
+| **Altitude** | Max elevation impact - 5 = 10,000+ ft finish |
+| **Logistics** | Travel difficulty, remoteness, support availability |
+| **Adventure** | Epic factor, scenery, memorable experience |
+
+### Editorial (7 dimensions) - Race Quality/Value
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| **Prestige** | Status, history, importance in the gravel world |
+| **Race Quality** | Organization, aid stations, course marking |
+| **Experience** | Overall race day feel, memorable moments |
+| **Community** | Vibe, culture, fellow racers |
+| **Field Depth** | Competitive quality, pro attendance |
+| **Value** | What you get for entry fee |
+| **Expenses** | Total cost including travel/lodging |
+
+Each dimension scored 1-5. Max 35 per category, 70 combined.
+
+---
+
+## Schema: difficulty-rankings.json
+
+```json
+{
+  "generated": "2026-01-13T00:00:00Z",
+  "schema_version": "2.1",
+  "scoring_systems": {
+    "course_profile": {
+      "dimensions": ["length", "technicality", "elevation", "climate", "altitude", "logistics", "adventure"],
+      "scale": "1-5 each, max 35"
+    },
+    "editorial": {
+      "dimensions": ["prestige", "race_quality", "experience", "community", "field_depth", "value", "expenses"],
+      "scale": "1-5 each, max 35"
+    }
+  },
+  "races": [
+    {
+      "name": "Unbound Gravel 200",
+      "slug": "unbound-200",
+      "overall_score": 93,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "course_profile": {
+        "length": 5, "technicality": 3, "elevation": 4,
+        "climate": 4, "altitude": 2, "logistics": 3, "adventure": 5
+      },
+      "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5, "race_quality": 4, "experience": 5,
+        "community": 5, "field_depth": 5, "value": 4, "expenses": 3
+      },
+      "editorial_total": 31,
+      "combined_total": 57,
+      "distance_mi": 200,
+      "elevation_ft": 11000
+    }
+  ]
+}
+```
+
+### Top Races by Score
+
+| Rank | Race | Overall | Course | Editorial |
+|------|------|---------|--------|-----------|
+| 1 | Unbound 200 | 93/100 | 26/35 | 31/35 |
+| 2 | Badlands | 91/100 | 35/35 | 27/35 |
+| 3 | The Traka | 87/100 | 26/35 | 32/35 |
+| 4 | Crusher in the Tushar | 84/100 | 29/35 | 30/35 |
+| 5 | Strade Bianche | 81/100 | 22/35 | 31/35 |
 
 ---
 
@@ -54,61 +139,6 @@ JSON data files for the `/races` section of the GravelGod Cycling website.
   ]
 }
 ```
-
----
-
-## Schema: difficulty-rankings.json
-
-Uses the GravelGod course profile system with 7 dimensions (1-5 scale each):
-
-```json
-{
-  "generated": "2026-01-13T00:00:00Z",
-  "schema_version": "2.0",
-  "tier_system": {
-    "1": "Premier events",
-    "2": "Established events",
-    "3": "Regional/emerging events"
-  },
-  "course_profile_dimensions": [
-    "length", "technicality", "elevation",
-    "climate", "altitude", "logistics", "adventure"
-  ],
-  "races": [
-    {
-      "name": "Unbound Gravel 200",
-      "slug": "unbound-200",
-      "overall_score": 93,
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
-      "course_profile": {
-        "length": 5,
-        "technicality": 3,
-        "elevation": 4,
-        "climate": 4,
-        "altitude": 2,
-        "logistics": 3,
-        "adventure": 5
-      },
-      "course_profile_total": 26,
-      "distance_mi": 200,
-      "elevation_ft": 11000
-    }
-  ]
-}
-```
-
-### Course Profile Dimensions
-
-| Dimension | What it measures |
-|-----------|-----------------|
-| **Length** | Distance - 5 = 200+ miles, 1 = under 40 miles |
-| **Technicality** | Surface difficulty, descents, bike handling required |
-| **Elevation** | Total climbing - 5 = 10,000+ ft |
-| **Climate** | Weather challenges - heat, cold, storms |
-| **Altitude** | Max elevation impact - 5 = 10,000+ ft finish |
-| **Logistics** | Travel difficulty, remoteness, support availability |
-| **Adventure** | Epic factor, scenery, memorable experience |
 
 ---
 
@@ -184,12 +214,12 @@ fetch('/wp-content/themes/your-theme/data/race-calendar.json')
 |--------|---------|--------------|
 | `gravel_races_full_database.json` | 388 | Basic (tier, location, dates) |
 | `race-data/*.json` | 53 | Enhanced (vitals, terrain) |
-| `research-dumps/*.md` | 61 | Full research (21 with course profiles) |
+| Full scoring (course + editorial) | 20 | Complete 14-dimension profiles |
 
 ---
 
 ## Updates
 
 - **Generated**: January 13, 2026
-- **Schema version**: 2.0 (GravelGod 3-tier system)
+- **Schema version**: 2.1 (dual scoring systems)
 - **Source repo**: https://github.com/wattgod/gravel-race-automation

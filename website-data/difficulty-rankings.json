@@ -1,23 +1,39 @@
 {
-  "generated": "2026-01-12T23:39:37.453004Z",
-  "schema_version": "2.0",
-  "tier_system": {
-    "description": "GravelGod 3-tier classification system",
-    "tiers": {
-      "1": "Premier events - major races, Life Time Grand Prix, UCI qualifiers",
-      "2": "Established events - strong reputation, quality organization",
-      "3": "Regional/emerging events - local favorites, growing scene"
+  "generated": "2026-01-12T23:45:09.215947Z",
+  "schema_version": "2.1",
+  "scoring_systems": {
+    "course_profile": {
+      "description": "7 dimensions measuring physical/logistical demands",
+      "dimensions": [
+        "length",
+        "technicality",
+        "elevation",
+        "climate",
+        "altitude",
+        "logistics",
+        "adventure"
+      ],
+      "scale": "1-5 each, max 35"
+    },
+    "editorial": {
+      "description": "7 dimensions measuring race quality/value",
+      "dimensions": [
+        "prestige",
+        "race_quality",
+        "experience",
+        "community",
+        "field_depth",
+        "value",
+        "expenses"
+      ],
+      "scale": "1-5 each, max 35"
     }
   },
-  "course_profile_dimensions": [
-    "length (1-5)",
-    "technicality (1-5)",
-    "elevation (1-5)",
-    "climate (1-5)",
-    "altitude (1-5)",
-    "logistics (1-5)",
-    "adventure (1-5)"
-  ],
+  "tier_system": {
+    "1": "Premier events - LTGP, UCI, iconic races",
+    "2": "Established events - strong reputation",
+    "3": "Regional/emerging events"
+  },
   "total_races": 20,
   "tier_counts": {
     "tier_1": 13,
@@ -35,8 +51,6 @@
       "overall_score": 93,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 1,
-      "business_tier": 1,
       "course_profile": {
         "length": 5,
         "technicality": 3,
@@ -47,6 +61,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 3
+      },
+      "editorial_total": 31,
+      "combined_total": 57,
       "rank": 1
     },
     {
@@ -59,8 +84,6 @@
       "overall_score": 91,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 1,
-      "business_tier": 2,
       "course_profile": {
         "length": 5,
         "technicality": 5,
@@ -71,6 +94,17 @@
         "adventure": 5
       },
       "course_profile_total": 35,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 27,
+      "combined_total": 62,
       "rank": 2
     },
     {
@@ -83,8 +117,6 @@
       "overall_score": 87,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 1,
-      "business_tier": 1,
       "course_profile": {
         "length": 5,
         "technicality": 4,
@@ -95,6 +127,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 4,
+        "expenses": 3
+      },
+      "editorial_total": 32,
+      "combined_total": 58,
       "rank": 3
     },
     {
@@ -107,8 +150,6 @@
       "overall_score": 84,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 3,
         "technicality": 3,
@@ -119,6 +160,17 @@
         "adventure": 5
       },
       "course_profile_total": 29,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 5,
+        "value": 4,
+        "expenses": 3
+      },
+      "editorial_total": 30,
+      "combined_total": 59,
       "rank": 4
     },
     {
@@ -131,8 +183,6 @@
       "overall_score": 81,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 3,
         "technicality": 3,
@@ -143,6 +193,17 @@
         "adventure": 4
       },
       "course_profile_total": 22,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 3
+      },
+      "editorial_total": 31,
+      "combined_total": 53,
       "rank": 5
     },
     {
@@ -155,8 +216,6 @@
       "overall_score": 80,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 4,
         "technicality": 2,
@@ -167,6 +226,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 30,
+      "combined_total": 56,
       "rank": 6
     },
     {
@@ -179,8 +249,6 @@
       "overall_score": 79,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 3,
         "technicality": 4,
@@ -191,6 +259,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 27,
+      "combined_total": 53,
       "rank": 7
     },
     {
@@ -203,8 +282,6 @@
       "overall_score": 77,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 4,
         "technicality": 2,
@@ -215,6 +292,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 2,
+        "expenses": 2
+      },
+      "editorial_total": 28,
+      "combined_total": 54,
       "rank": 8
     },
     {
@@ -227,8 +315,6 @@
       "overall_score": 76,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 4,
         "technicality": 5,
@@ -239,6 +325,17 @@
         "adventure": 4
       },
       "course_profile_total": 25,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 28,
+      "combined_total": 53,
       "rank": 9
     },
     {
@@ -251,8 +348,6 @@
       "overall_score": 72,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 3,
-      "business_tier": 1,
       "course_profile": {
         "length": 4,
         "technicality": 2,
@@ -263,6 +358,17 @@
         "adventure": 2
       },
       "course_profile_total": 22,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 5,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 4
+      },
+      "editorial_total": 28,
+      "combined_total": 50,
       "rank": 10
     },
     {
@@ -275,8 +381,6 @@
       "overall_score": 70,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 3,
-      "business_tier": 1,
       "course_profile": {
         "length": 2,
         "technicality": 4,
@@ -287,6 +391,17 @@
         "adventure": 4
       },
       "course_profile_total": 21,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 3
+      },
+      "editorial_total": 28,
+      "combined_total": 49,
       "rank": 11
     },
     {
@@ -299,8 +414,6 @@
       "overall_score": 70,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 3,
-      "business_tier": 1,
       "course_profile": {
         "length": 3,
         "technicality": 2,
@@ -311,6 +424,17 @@
         "adventure": 3
       },
       "course_profile_total": 20,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 5,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 4
+      },
+      "editorial_total": 29,
+      "combined_total": 49,
       "rank": 12
     },
     {
@@ -323,8 +447,6 @@
       "overall_score": 66,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "editorial_tier": 2,
-      "business_tier": 1,
       "course_profile": {
         "length": 3,
         "technicality": 3,
@@ -335,6 +457,17 @@
         "adventure": 3
       },
       "course_profile_total": 18,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 3
+      },
+      "editorial_total": 28,
+      "combined_total": 46,
       "rank": 13
     },
     {
@@ -347,8 +480,6 @@
       "overall_score": 82,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 2,
-      "business_tier": 2,
       "course_profile": {
         "length": 4,
         "technicality": 4,
@@ -359,6 +490,17 @@
         "adventure": 5
       },
       "course_profile_total": 26,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 3,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 25,
+      "combined_total": 51,
       "rank": 14
     },
     {
@@ -371,8 +513,6 @@
       "overall_score": 74,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 3,
-      "business_tier": 2,
       "course_profile": {
         "length": 3,
         "technicality": 3,
@@ -383,6 +523,17 @@
         "adventure": 5
       },
       "course_profile_total": 25,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 2
+      },
+      "editorial_total": 27,
+      "combined_total": 52,
       "rank": 15
     },
     {
@@ -395,8 +546,6 @@
       "overall_score": 67,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 4,
-      "business_tier": 2,
       "course_profile": {
         "length": 4,
         "technicality": 2,
@@ -407,6 +556,17 @@
         "adventure": 3
       },
       "course_profile_total": 21,
+      "editorial": {
+        "prestige": 3,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 3,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 4
+      },
+      "editorial_total": 26,
+      "combined_total": 47,
       "rank": 16
     },
     {
@@ -419,8 +579,6 @@
       "overall_score": 67,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 2,
-      "business_tier": 2,
       "course_profile": {
         "length": 3,
         "technicality": 4,
@@ -431,6 +589,17 @@
         "adventure": 4
       },
       "course_profile_total": 22,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 3,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 3
+      },
+      "editorial_total": 25,
+      "combined_total": 47,
       "rank": 17
     },
     {
@@ -443,8 +612,6 @@
       "overall_score": 66,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 4,
-      "business_tier": 2,
       "course_profile": {
         "length": 4,
         "technicality": 2,
@@ -455,6 +622,17 @@
         "adventure": 4
       },
       "course_profile_total": 21,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 3,
+        "value": 4,
+        "expenses": 2
+      },
+      "editorial_total": 25,
+      "combined_total": 46,
       "rank": 18
     },
     {
@@ -467,8 +645,6 @@
       "overall_score": 63,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "editorial_tier": 3,
-      "business_tier": 2,
       "course_profile": {
         "length": 4,
         "technicality": 3,
@@ -479,6 +655,17 @@
         "adventure": 3
       },
       "course_profile_total": 19,
+      "editorial": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 3,
+        "community": 3,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 3
+      },
+      "editorial_total": 25,
+      "combined_total": 44,
       "rank": 19
     },
     {
@@ -491,8 +678,6 @@
       "overall_score": 69,
       "display_tier": 3,
       "display_tier_label": "TIER 3",
-      "editorial_tier": 3,
-      "business_tier": 3,
       "course_profile": {
         "length": 2,
         "technicality": 3,
@@ -503,6 +688,17 @@
         "adventure": 4
       },
       "course_profile_total": 20,
+      "editorial": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 4
+      },
+      "editorial_total": 28,
+      "combined_total": 48,
       "rank": 20
     }
   ]

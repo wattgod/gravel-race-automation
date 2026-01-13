@@ -1,121 +1,295 @@
 {
-    "raceId": "grinduro",
-    "name": "Grinduro",
+  "race": {
+    "name": "GRINDURO",
     "slug": "grinduro",
-    "location": {
-          "multiLocation": true,
-          "venues": [
-                  {
-                            "name": "Grinduro California",
-                            "city": "Quincy",
-                            "state": "California",
-                            "country": "USA",
-                            "venue": "Sierra-Plumas Fairgrounds, Mt. Hough",
-                            "month": "September",
-                            "typical": "September 11-14, 2025"
-                  },
-                  {
-                            "name": "Grinduro Scotland",
-                            "city": "Cairngorms",
-                            "country": "Scotland",
-                            "venue": "Cairngorms National Park",
-                            "month": "June-July",
-                            "typical": "Summer"
-                  },
-                  {
-                            "name": "Grinduro Japan",
-                            "city": "Minakami",
-                            "country": "Japan",
-                            "venue": "Minakami region",
-                            "month": "October",
-                            "typical": "Fall"
-                  }
-          ]
+    "display_name": "Grinduro",
+    "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
+
+    "vitals": {
+      "distance_mi": 60,
+      "distance_range": "56-100km depending on venue",
+      "elevation_ft": 7800,
+      "elevation_range": "3,300-7,800 ft depending on venue/course",
+      "location": "Multi-Location Global Series",
+      "location_badge": "GLOBAL SERIES",
+      "locations": [
+        {
+          "name": "Grinduro California",
+          "city": "Quincy",
+          "state": "California",
+          "country": "USA",
+          "venue": "Plumas-Sierra County Fairgrounds",
+          "distance_mi": 56,
+          "elevation_ft": 7800,
+          "month": "September",
+          "date_2026": "September 2026"
+        },
+        {
+          "name": "Grinduro Scotland",
+          "city": "Kingussie / Drumlanrig Castle",
+          "country": "Scotland",
+          "venue": "Highlands / Dumfries & Galloway",
+          "distance_mi": 62,
+          "elevation_ft": 5000,
+          "month": "June-July"
+        },
+        {
+          "name": "Grinduro Italy",
+          "city": "Massa Marittima",
+          "region": "Tuscany",
+          "country": "Italy",
+          "distance_km": 100,
+          "elevation_m": 1500,
+          "month": "June"
+        },
+        {
+          "name": "Grinduro Wales",
+          "city": "Machynlleth",
+          "country": "Wales",
+          "venue": "Dyfi Forest",
+          "distance_km": 82,
+          "month": "TBD - currently on hiatus"
+        },
+        {
+          "name": "Grinduro Pennsylvania",
+          "city": "Lock Haven",
+          "state": "Pennsylvania",
+          "country": "USA",
+          "venue": "Sproul State Forest",
+          "distance_mi": 73,
+          "elevation_ft": 6000,
+          "month": "Summer"
+        },
+        {
+          "name": "Grinduro Japan",
+          "city": "Shinshiro",
+          "region": "Aichi Prefecture",
+          "country": "Japan",
+          "distance_mi": 19,
+          "elevation_ft": 3000,
+          "month": "October-November"
+        },
+        {
+          "name": "Grinduro South Africa",
+          "city": "Greyton",
+          "region": "Western Cape",
+          "country": "South Africa",
+          "venue": "Oewerzicht Farm",
+          "distance_km": 100,
+          "elevation_m": 1500,
+          "month": "October"
+        }
+      ],
+      "date": "Various dates year-round (global series)",
+      "date_specific": "2026: Multiple events across continents",
+      "format": "Enduro-style with 4 timed segments",
+      "timed_segments": 4,
+      "segment_duration": "5-15 minutes each",
+      "terrain_mix": {
+        "dirt": 70,
+        "gravel": 20,
+        "pavement": 10
+      },
+      "grindurito_option": true,
+      "grindurito_distance": "27-34 miles / 3 timed segments",
+      "founded": 2015,
+      "origin": "Quincy, California"
     },
-    "organizer": {
-          "name": "Grinduro / Northern Consultancy",
-          "founded": 2015,
-          "founder": "Dain Zaffke",
-          "partners": ["Sierra Buttes Trail Stewardship (CA)", "Outsider Events (Scotland)", "Shimano (Japan)"],
-          "website": "https://www.grinduro.com/"
+
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "course_profile": 24,
+      "biased_opinion": 27,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
-    "distances": [
-          {
-                  "name": "Main Course",
-                  "distance": 60,
-                  "unit": "miles",
-                  "distanceKm": 100,
-                  "elevationGain": 6500,
-                  "elevationGainMeters": 1980,
-                  "category": "Main Event",
-                  "timedStages": 4,
-                  "description": "4 timed segments (5-15 min each) plus untimed transfer sections"
-          },
-          {
-                  "name": "Grindurito (Half)",
-                  "distance": 30,
-                  "unit": "miles",
-                  "distanceKm": 50,
-                  "elevationGain": 3200,
-                  "elevationGainMeters": 975,
-                  "category": "Beginner/Intermediate"
-          }
+
+    "course_profile": {
+      "length": {
+        "score": 2,
+        "explanation": "Main courses range from 56-73 miles (California to Pennsylvania), placing it in the 40-60 mile category. While the total loop distance is moderate, the unique format means only 20-60 minutes of actual racing across 4 timed segments. The Grindurito half-course option (~27-34 miles) makes it accessible to newer riders."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Grinduro pushes the boundaries of what a gravel bike can handle. Courses feature singletrack descents (10-mile singletrack descent in California), MTB-style technical sections with A-line and B-line options (Wales), steep loose slate, and terrain that has been won by former professional downhill racers. The research explicitly notes 'the last timed segment would probably have been best tackled on a full suspension mountain bike' - this is extreme terrain for gravel bikes."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "California flagship event packs 7,800 feet of climbing into 56 miles - that's 139 feet per mile, a punishing ratio. Pennsylvania adds ~6,000-6,250 feet, while international events (Italy, South Africa) hit 1,500m/4,900ft. The China Grade climb in California averages 10% with sections over 20%. This isn't casual climbing."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Weather is the true wildcard across the series. Scotland is notorious - 'the weather cycles between steady drizzle, heavy mist and occasional downpour' with courses turning into 'skating rinks of mud-greased grass.' California 2019 saw snow and hail. Even 'usually sunny' California sits at high elevation where weather apps show snowflake icons for September dates. Scotland specifically earns a 4/10 weather rating in the research."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "California events sit in the Sierra Nevada at elevation, with courses reaching significant altitude on mountain climbs. Pennsylvania peaks at ~2,051 feet (modest), but California and Scotland (Highlands) operate at elevations between 3,000-6,000 feet where the thin air starts to matter. Not extreme altitude racing, but enough to feel it on the climbs."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Remote locations are a feature, not a bug. Quincy, California requires driving from Sacramento or Reno with no nearby airport. Scotland's Isle of Arran events required CalMac Ferry crossings. Japan is 90 minutes by bullet train from Tokyo. Italy requires a medical certificate from the Italian Cycling Federation. Camping at fairgrounds is the norm, not hotels. Brexit complications nearly killed UK events with customs fees hitting sponsors."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Grinduro delivers bucket-list experiences across three continents. The unique enduro format - invented here in 2015 - creates something genuinely different: race hard for 5-15 minute timed segments, then cruise with friends through stunning scenery. Forum consensus: 'Without a doubt, Grinduro was the most fun I've ever had with drop bars.' The festival atmosphere with live music, gourmet food, bike expo, and camping communities adds to the life-changing experience."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Grinduro isn't Unbound-level famous, but it's earned iconic status within gravel culture. Voted 'Event of the Year' by Design and Innovation Awards. The series created an entirely new race format that has influenced the sport. Past winners include former American Downhill Champion Duncan Riffle, pro cyclocross racers like Katerina Nash and Meredith Miller, and World Tour riders like Tiffany Cromwell (Canyon/SRAM). It's nationally significant and internationally recognized, but not quite the household name of the LTGP races."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional organization with quality timing systems across timed segments. Aid stations and feed zones strategically placed in untimed liaison sections. However, the 'black pill' truths are real: flat tire epidemics are endemic ('dozens of flat tires, particularly on the final timed segment'), cutoff times have left riders in tears, and course difficulty is often underestimated. The production is professional, but the event's wildness creates quality variance."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing is not hyperbole here. Forum reviews are unanimously glowing: 'The most fun I've ever had with drop bars.' The format is genius - 'fully satisfy that competitive itch, then regroup with your mates and chat your way to the start of the next segment.' Festival atmosphere with live music, handbuilt bike show, gourmet food, and camping communities creates something beyond a race. 'Perfect party to race ratio' captures it perfectly."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Legendary community spirit is Grinduro's defining characteristic. 'In a famously tribal community, Grinduro creates a space where pros and beginners ride the same course, share the same struggles, and celebrate the same achievements.' Elitism has no place - everyone is genuinely welcome. The format eliminates start-line anxiety and road-rage mid-race because timed sections are brief. Theme camps, vibrant tented communities, and shared suffering create bonds. This is a 10/10 community score per the research."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Strong pro attendance across disciplines - not just gravel specialists. Winners include former professional downhill racers, pro road racers, current cyclocross pros like Katerina Nash, Meredith Miller, and Rebecca Fahringer, plus World Tour rider Tiffany Cromwell. Michael van den Ham (Canadian champion) has won. The cross-discipline appeal means you're racing against genuine talent from MTB, road, and CX, but this isn't an LTGP stop with mandatory pro attendance."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees run $180-235 USD (£150 GBP for UK), which is substantial for a single-day event. However, inclusion matters: breakfast, lunch, dinner on race day, camping, live music, festival access, bike expo, and aid stations are all bundled in. The all-inclusive nature partially justifies the cost, but forum debates exist - 'If it's worth it, pay it. If it isn't, don't.' Compared to events like Unbound ($130-200+), it's in the upper range for what you get."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Total trip cost is moderate to high. Entry: $180-235. Camping is included (tent camping) but is basic fairground camping, not glamping. Remote locations mean driving from major airports/cities. International events (Scotland, Italy, Japan, South Africa) require significant travel investment - flights, rental cars, potentially ferry crossings. Scotland events have faced Brexit-related sponsor complications adding cost pressure. Budget $500-1,000+ depending on location."
+      }
+    },
+
+    "format_details": {
+      "description": "Grinduro combines gravel racing with mountain bike enduro format - the name is a portmanteau of Gravel + Enduro",
+      "timed_segments": {
+        "count": 4,
+        "duration": "5-15 minutes each",
+        "terrain": "Varied - climbing segments, technical descents, singletrack, fast fire-roads",
+        "results_calculation": "Sum of all 4 timed segment times = final result"
+      },
+      "liaison_sections": {
+        "description": "Untimed transfer sections between timed stages",
+        "purpose": "Social riding and recovery at conversational pace",
+        "features": "Most scenic parts of course, aid stations, feed zones",
+        "ethos": "No time pressure - ride hard or cruise with friends"
+      },
+      "why_it_works": "Takes pressure off the start, allows grouping with friends, accessible to casuals while competitive for racers"
+    },
+
+    "history": {
+      "founded": 2015,
+      "founding_location": "Quincy, California (Sierra Nevada Mountains)",
+      "key_milestones": [
+        {"year": 2015, "event": "First Grinduro in Quincy, California"},
+        {"year": 2017, "event": "First international event on Isle of Arran, Scotland"},
+        {"year": 2019, "event": "Global expansion to Canada and Japan"},
+        {"year": 2025, "event": "10th anniversary celebration with return to Quincy, Mondraker partnership"}
+      ],
+      "recognition": "Voted 'Event of the Year' by Design and Innovation Awards committee",
+      "legacy": "Part of Lost Sierra Triple Crown series with Lost and Found gravel race and Downieville Classic"
+    },
+
+    "notable_winners": [
+      {"year": 2016, "location": "Quincy, CA", "men": "Duncan Riffle (former American Downhill Champion)", "women": "Meredith Miller"},
+      {"year": 2019, "location": "Quincy, CA (wintry conditions)", "men": "Stephan Davoust (Giant Factory Off-Road)", "women": "Katerina Nash (Clif Bar Pro Racing)"},
+      {"year": 2022, "location": "Mt. Shasta, CA", "men": "Michael van den Ham (Canadian champion) - 41:43.65", "women": "Caitlin Bernstein (Easton Overland) - 48:22.02"},
+      {"year": 2024, "location": "Pennsylvania", "men": "Gordon Wadsworth (Revel)", "women": "Meredith Miller (Shimano)"}
     ],
-    "terrain": {
-          "surface": {
-                  "dirt": 70,
-                  "gravel": 20,
-                  "paved": 10
-          },
-          "technicalDifficulty": "Moderate-Hard",
-          "technicalRating": 7,
-          "description": "Mixed-terrain loop with gravel roads, doubletrack, MTB-style singletrack, and strategic pavement. Timed enduro segments feature technical descents and climbs."
+
+    "black_pill_truths": [
+      "Flat tire epidemic is real - dozens per event, tubeless mandatory, bring 2+ spare tubes anyway",
+      "Course difficulty is consistently underestimated - '70% on dirt' and 'the second half was death'",
+      "Wrong bike dilemma: gravel bikes struggle on technical MTB sections, MTBs lose time on transfers",
+      "Scotland weather is brutal - courses become 'skating rinks of mud-greased grass'",
+      "Cutoff times are enforced - tears of disappointment for stragglers told they've missed cutoff",
+      "Remote locations mean limited services - camping in fairgrounds, not hotels",
+      "$220+ entry fee is steep even with inclusions",
+      "Medical certificate required for Italy (Italian Cycling Federation mandate)",
+      "Brexit nearly killed UK events with unexpected customs fees for sponsors"
+    ],
+
+    "who_should_race": {
+      "perfect_for": [
+        "Riders who love both competition AND community",
+        "Multi-discipline athletes (road/CX/MTB crossover)",
+        "Those seeking festival experience beyond just racing",
+        "Anyone wanting to 'race but not really race'",
+        "Groups of friends wanting shared adventure"
+      ],
+      "avoid_if": [
+        "Pure time trialists wanting point-to-point racing",
+        "Uncomfortable on technical terrain",
+        "Allergic to camping/festival atmosphere",
+        "Need hotel accommodation",
+        "On tight budget"
+      ]
     },
+
+    "equipment_recommendations": {
+      "essential": [
+        "Disc-brake gravel bike (MTB acceptable and sometimes advantageous)",
+        "Tubeless tires 40mm+ width minimum",
+        "2+ water bottles",
+        "At least 2 spare tubes despite tubeless",
+        "Multi-tool and mini-pump",
+        "Dynaplug or tire repair kit"
+      ],
+      "recommended": [
+        "Dropper seatpost (50-125mm travel) - increasingly standard",
+        "Arm/leg warmers for high elevation",
+        "Rain jacket (Scotland/Wales especially)",
+        "Layers for temperature changes"
+      ],
+      "tire_recommendations": ["WTB Vulpine", "WTB Resolute 50", "WTB Nano 52", "700c or 650b both valid"]
+    },
+
     "registration": {
-          "opens": "TBD - typically 6-8 months before",
-          "selloutPattern": "Sells out weeks-months in advance",
-          "cost": {
-                  "regular": 175,
-                  "currency": "USD"
-          }
+      "platforms": {
+        "US": "BikeReg.com",
+        "UK": "Outside Events Eventrac",
+        "South_Africa": "Entry Ninja"
+      },
+      "typical_cost": {
+        "grinduro": "$180-235 USD / £150 GBP",
+        "grindurito": "$150-180 USD"
+      },
+      "included": [
+        "Race entry with professional timing",
+        "Breakfast, lunch, dinner on race day",
+        "Tent camping",
+        "Live music and festival access",
+        "Bike expo access",
+        "Aid stations and feed zones",
+        "On-course lunch"
+      ]
     },
-    "fieldSize": {
-          "participantCap": 800,
-          "typical": "600-800 per event"
-    },
-    "competition": {
-          "level": "Recreational to Competitive",
-          "format": "Timed stages - lowest cumulative time wins",
-          "prizeDepth": "Varies by location"
-    },
-    "weather": {
-          "california": {
-                  "tempHigh": 75,
-                  "tempLow": 45,
-                  "conditions": "Dry, sunny September weather"
-          },
-          "scotland": {
-                  "tempHigh": 65,
-                  "tempLow": 50,
-                  "conditions": "Variable, possible rain"
-          },
-          "japan": {
-                  "tempHigh": 68,
-                  "tempLow": 50,
-                  "conditions": "Cool fall conditions"
-          }
-    },
-    "uniqueCharacteristics": [
-          "Global series across 3 continents",
-          "Fusion of gravel grinding and MTB enduro",
-          "4 timed stages with untimed transfers",
-          "Festival atmosphere with camping",
-          "Mixed bike types welcome (gravel/MTB)",
-          "Founded the gravel-enduro format"
+
+    "sources": [
+      "https://grinduro.com",
+      "BikeRadar",
+      "CX Magazine",
+      "The Radavist",
+      "Cycling Weekly",
+      "Patagonia Stories",
+      "off.road.cc",
+      "Bike Perfect",
+      "Bicycling Magazine",
+      "MTBR Forum",
+      "Road Bike Review Forum"
     ],
-    "tier": 1,
-    "popularity": 80,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Good",
-    "sources": ["https://www.grinduro.com", "Perplexity research 2026-01-08"]
+
+    "last_updated": "2026-01-12",
+    "data_quality": "Comprehensive"
+  }
 }

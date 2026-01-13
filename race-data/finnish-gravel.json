@@ -1,47 +1,219 @@
 {
-    "raceId": "finnish-gravel",
-    "name": "Finnish Gravel Cycling",
+  "race": {
+    "name": "FNLD GRVL",
     "slug": "finnish-gravel",
-    "location": {
-          "city": "Various Locations",
-          "state": "Finland",
-          "country": "Finland",
-          "region": "Nordic Region"
+    "display_name": "Finnish Gravel",
+    "tagline": "The happiest gravel in the world. F1 glamour meets midnight sun in a UNESCO Geopark. Fast, flat, and fckng Finnish.",
+
+    "vitals": {
+      "distance_mi": 110,
+      "elevation_ft": 2129,
+      "location": "Lahti, Paijanne Tavastia, Finland",
+      "location_badge": "LAHTI, FINLAND",
+      "country": "Finland",
+      "date": "August annually",
+      "date_specific": "2026: August 8",
+      "terrain_types": ["Well-maintained gravel roads", "Forest paths", "Nordic ski trails", "Lakeside routes"],
+      "field_size": "~1,500 riders",
+      "start_time": "Morning start from Lahti harbor",
+      "registration": "Via BikeReg. VIP Package: $1,000 USD",
+      "prize_purse": "EUR 7,000 (2025)",
+      "aid_stations": "Fully stocked aid stations throughout course",
+      "cutoff_time": "Not specified"
     },
-    "date": {
-          "month": "July/August",
-          "typical": "summer",
-          "season": "Summer",
-          "year2026": "Summer 2026"
+
+    "climate": {
+      "primary": "Mild Nordic summer with extended daylight",
+      "description": "August in Lahti means pleasant 21C highs (70F), with lows around 10C (50F). The white nights phenomenon provides near-24-hour daylight, with sunset after 11 PM and sunrise at 4 AM. Variable weather possible with occasional rain showers. Pack for layers and potential rain.",
+      "challenges": ["Rain possible any day", "Temperature swings of 15C within a week", "Mosquitoes and elk flies in forest areas", "Cooler evening temperatures"]
     },
-    "organizer": {
-          "name": "Finnish Gravel Community",
-          "website": "https://www.finnishgravel.fi/"
+
+    "terrain": {
+      "primary": "Fast-rolling Finnish gravel roads through UNESCO Geopark",
+      "surface": "Mix of gravel, tarmac, and Nordic ski paths. Well-maintained public gravel roads, some loose stony gravel on hills",
+      "technical_rating": 2,
+      "features": ["Salpausselka ridges", "Hundreds of lakes", "Pine forests", "Ancient bedrock outcrops (2 billion years old)", "Eskers and kettle holes"]
     },
-    "distances": [
-          {
-                  "name": "Various",
-                  "distance": "80-200 km",
-                  "elevationGain": "Variable",
-                  "description": "Multiple events and distances across Finnish gravel roads"
-          }
+
+    "gravel_god_rating": {
+      "overall_score": 72,
+      "course_profile": 17,
+      "biased_opinion": 26,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "The flagship Lakes Route is 77km (48mi), with the Midnight Sun Route at 177km (110mi) for the truly ambitious. The 2025 edition reimagined as FNLD TRVL offers 112km and 42km options. Solid middle-distance racing that's accessible without being trivial."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Finland's gravel roads are famously well-maintained, devoid of deep erosion ruts or corrugations. The course is fast and flowing rather than technical. Some sections through Nordic ski paths are undulating and twisting, but this is flat-out gravel racing, not technical mountain biking. Riders average 35 kph on ski path sections."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The Lakes Route offers 2,129ft (650m) of climbing with a max elevation of just 710ft (216m). Continuous undulations with steep kickers, but nothing approaching alpine challenges. This is rolling Nordic terrain, not mountain gravel. Those seeking epic climbing will find it tame."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "August in Finland offers mild, pleasant conditions with highs around 21C (70F). Rain is possible but not extreme. The biggest challenge is the mosquitoes and elk flies during forest sections, and potential temperature variability. Not a weather-suffering event like cold spring races."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Lahti sits at essentially sea level. Max elevation on course is 216m (710ft). Zero altitude concerns. Your lungs will have no excuse."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Helsinki-Vantaa Airport (HEL) offers good international connections, with Lahti just 1 hour by train or bus. The infrastructure is excellent by European standards. However, Finland is an expensive country, accommodation options in small-city Lahti are limited, and international travel from North America requires long-haul flights."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing through a UNESCO Global Geopark shaped by the Ice Age, under the midnight sun, in one of the world's happiest countries. The unique Nordic landscape of lakes, forests, and ancient ridges creates a genuine bucket-list experience. The F1 connection (Valtteri Bottas) adds celebrity glamour. A real Nordic cultural immersion."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Founded by F1 driver Valtteri Bottas and WorldTour pro Tiffany Cromwell in partnership with the SBT GRVL team. Part of the UCI Gravel World Series ecosystem. Finland will host the 2027 UEC European Gravel Championships in Lahti. International media coverage and WorldTour pro participation (10% of field). Not Unbound-level iconic, but genuinely prestigious."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "SBT GRVL team brings world-class event production expertise. F1-level professionalism meets gravel racing. Fully stocked aid stations, marked routes, post-race meal, evening award ceremony, 4-day festival proceedings with shakedown rides and yoga. Strong sustainability focus. This is premium event organization."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Bills itself as 'the happiest gravel in the world' and delivers. Beautiful variation of gravel, tarmac, and everything in-between through stunning Finnish landscape. Inaugural riders from 27 countries. The midnight sun phenomenon, lakeside scenery, and unique Nordic hospitality create a memorable experience. Pro-am atmosphere with WorldTour riders mixing with first-timers."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong inclusive culture with family-friendly 4-day festival. Post-race beer culture with all participants. Mix of 150+ WorldTour professionals and first-time gravel racers. Focus on environmental sustainability and climate change advocacy. The Nordic gravel community is growing rapidly with the event as a centerpiece."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "10% pro field including WorldTour names like Toms Skujins (inaugural winner), Greg Van Avermaet, Petr Vakoc, and Andre Greipel. Tiffany Cromwell has won both editions. EUR 20,000 inaugural prize purse (reduced to EUR 7,000 in 2025). Genuine racing at the front with UCI Gravel World Series connection."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Excellent event production and inclusions (aid stations, meal, finisher's hat, 4-day activities). But Finland is expensive, and entry fees are not transparently listed (VIP Package is $1,000 USD). Good value for what you get, but premium pricing in a premium-cost country."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Finland is one of Europe's most expensive countries. Long-haul flights from North America. Nordic accommodation and food costs are high. VIP package alone is $1,000 USD. Total trip cost easily exceeds $2,000 for international travelers. Budget-conscious riders should look elsewhere."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "Nordic Experience",
+      "summary": "FNLD GRVL is what happens when an F1 driver falls in love with gravel. It's not the most challenging course or the deepest pro field, but for a unique Nordic cultural experience wrapped in world-class event production, it delivers. The midnight sun, the UNESCO Geopark, the Finnish hospitality, and the SBT GRVL pedigree create something genuinely special.",
+      "strengths": [
+        "World-class event production from SBT GRVL team",
+        "Unique midnight sun and Nordic cultural experience",
+        "UNESCO Geopark setting with stunning lakes and forests",
+        "Strong pro field with WorldTour participation"
+      ],
+      "weaknesses": [
+        "Expensive destination with high total trip costs",
+        "Relatively flat with limited climbing challenge",
+        "Participant numbers declining (1,000 to 700 riders)",
+        "Mosquitoes and bugs in summer forest terrain"
+      ],
+      "bottom_line": "A bucket-list Nordic gravel experience for those who value culture, scenery, and event quality over extreme physical challenge. Worth the trip for the unique experience; not worth it if you're only chasing climbing meters."
+    },
+
+    "black_pill": {
+      "title": "THE BUGS, THE COST, AND THE DECLINING NUMBERS",
+      "reality": "Finland's summer brings the 'rakka' season of mosquitoes and elk flies. Close-fitting cycling clothes allow mosquitoes to bite through. Elk flies are considered worse than mosquitoes by locals. Ticks carrying Lyme disease are present. And then there's the money: Finland is expensive, VIP packages are $1,000, and your total trip will easily hit $2,000+. Meanwhile, participation has dropped from 1,000 riders (2023) to 700 riders (2024), with 2025 reimagined as the more casual 'FNLD TRVL'.",
+      "consequences": [
+        "Bug spray is mandatory; expect bites during rest stops",
+        "Budget significantly more than for US or Southern European events",
+        "Event may be finding its sustainable format after initial hype"
+      ],
+      "expectation_reset": "Bring serious bug repellent. Budget $2,500+ for the full international trip. Accept that this is a premium experience at premium prices. The event is finding its identity post-hype, which could mean either refinement or decline."
+    },
+
+    "final_verdict": {
+      "score": "72 / 100",
+      "one_liner": "F1 glamour meets Nordic gravel in a UNESCO Geopark—premium experience, premium price tag, unique bucket-list appeal.",
+      "should_you_race": "Yes if you want a unique Nordic cultural experience with world-class event production. Yes if you're an F1/Bottas fan. Skip if you're chasing big climbing or watching your budget. International travelers should weigh the high costs against the unique experience.",
+      "alternatives": "Dirty Reiver (UK, cheaper, more climbing); The Traka (Spain, bigger field, better weather); SBT GRVL (Colorado, same organizers, more established)"
+    },
+
+    "logistics": {
+      "airport": "HEL (Helsinki-Vantaa) - 1hr by train/bus to Lahti",
+      "lodging_strategy": "Book early in Lahti city center. Options include Scandic Lahti City, Solo Sokos Hotel, and Cumulus Lahti (cycling-friendly). Limited capacity for race weekend. Lake Paijanne accommodations offer scenic alternatives ~24km from station.",
+      "food": "Aid stations fully stocked. Post-race meal included. Finland is expensive for dining out.",
+      "packet_pickup": "Event weekend at Lahti. 4-day festival includes shakedown rides and activities.",
+      "parking": "Lahti harbor start area",
+      "official_site": "https://fnldgrvl.com"
+    },
+
+    "history": {
+      "founded": 2023,
+      "founder": "Valtteri Bottas, Tiffany Cromwell, Amy Charity (GRVL Events)",
+      "origin_story": "Born from a chance encounter between F1 driver Valtteri Bottas and the American gravel racing scene. In 2021, Bottas participated in SBT GRVL in Steamboat Springs and was so impressed he approached the organizers about bringing a similar event to his hometown of Lahti, Finland. The partnership with Amy Charity's GRVL Events team created a premium Nordic gravel experience.",
+      "notable_moments": [
+        "2023: Inaugural edition draws 1,000+ riders from 27 countries",
+        "2023: Toms Skujins (Trek-Segafredo) wins men's race; Tiffany Cromwell wins women's by 9 minutes",
+        "2024: Markus Pajur wins men's in sprint finish; Cromwell defends title",
+        "2027: UEC European Gravel Championships confirmed for Lahti"
+      ],
+      "reputation": "The Nordic entry point to premium international gravel racing. F1 glamour meets Finnish hospitality."
+    },
+
+    "course_description": {
+      "character": "Fast, flowing Finnish gravel through UNESCO Geopark terrain. Well-maintained gravel roads, lakeside routes, and Nordic ski paths create a high-speed experience rather than a technical challenge. The continuous undulations and steep kickers separate riders, but this is racing, not survival. Riders average 35 kph on the twisting ski path sections.",
+      "suffering_zones": [
+        {"km": 20, "label": "Forest Entrance", "desc": "Where groups fragment on the first real climbs. The continuous undulations become apparent."},
+        {"km": 50, "label": "Lake Circuit", "desc": "Exposed lakeside sections where wind can play a factor. Beautiful but potentially draining."},
+        {"km": 100, "label": "Ski Trail Sections", "desc": "Twisting Nordic ski paths with steep kickers. Where legs that are already tired face relentless small climbs."},
+        {"km": 150, "label": "Final Forest Push", "desc": "For those on the Midnight Sun 177km route, mental and physical fatigue combine in remote forest sections."}
+      ],
+      "signature_challenge": "Not one killer climb, but the relentless accumulation of steep kickers and undulations that 'will separate' riders. Plus the bugs at every stop."
+    },
+
+    "distance_options": [
+      {
+        "name": "Forest Route",
+        "distance_km": 40,
+        "distance_mi": 25,
+        "description": "Beginner-friendly option through picturesque pine forests. Includes e-bike category. Ideal for first-time gravel riders."
+      },
+      {
+        "name": "Lakes Route",
+        "distance_km": 77,
+        "distance_mi": 48,
+        "elevation_ft": 2129,
+        "description": "Moderate challenge routing around stunning Finnish lakes. 650m of climbing with max elevation 216m. Beautiful scenery throughout."
+      },
+      {
+        "name": "Midnight Sun Route",
+        "distance_km": 177,
+        "distance_mi": 110,
+        "description": "Most challenging option for experienced cyclists. Pro prize purse competition. Diverse terrain from forests to lakes under the enchanting light of the midnight sun."
+      }
     ],
-    "terrain": "Nordic forest roads, lakeside gravel paths, remote Finnish countryside with rolling terrain",
-    "registration": "Varies by event",
-    "weather": "Nordic summer - long daylight hours, cool temperatures (15-25°C / 59-77°F), potential rain",
-    "uniqueCharacteristics": [
-          "Growing gravel scene in Nordic countries",
-          "Stunning Finnish lake district and forest scenery",
-          "Midnight sun conditions in summer months",
-          "Remote and peaceful Nordic countryside",
-          "Well-maintained Finnish forest roads",
-          "Part of growing European gravel movement",
-          "Unique Nordic gravel experience",
-          "Often features multiple distance options"
-    ],
-    "seriesAffiliation": "Independent",
-    "tier": "Regional",
-    "popularity": "Medium - growing Nordic gravel scene",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+
+    "organizers": {
+      "primary": "GRVL Events (SBT GRVL team)",
+      "key_figures": [
+        {"name": "Valtteri Bottas", "role": "Co-founder", "background": "10-time F1 Grand Prix winner, Finnish native from Lahti"},
+        {"name": "Tiffany Cromwell", "role": "Co-founder", "background": "Professional cyclist for Canyon//SRAM (Women's WorldTour)"},
+        {"name": "Amy Charity", "role": "CEO, GRVL Events", "background": "Former professional American cyclist, SBT GRVL co-founder"}
+      ]
+    },
+
+    "uci_affiliation": {
+      "series": "UCI Gravel World Series (connected through Nordic Gravel Series)",
+      "championship_host": "UEC European Gravel Championships 2027 confirmed for Lahti",
+      "qualifier_events": "Nordic Gravel Series will host 2 UCI World Championships Qualifier races during 2026 season"
+    }
+  },
+  "dataQuality": "High"
 }

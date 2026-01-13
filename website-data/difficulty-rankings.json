@@ -1,90 +1,87 @@
 {
-  "generated": "2026-01-12T23:45:09.215947Z",
-  "schema_version": "2.1",
-  "scoring_systems": {
-    "course_profile": {
-      "description": "7 dimensions measuring physical/logistical demands",
-      "dimensions": [
-        "length",
-        "technicality",
-        "elevation",
-        "climate",
-        "altitude",
-        "logistics",
-        "adventure"
-      ],
-      "scale": "1-5 each, max 35"
-    },
-    "editorial": {
-      "description": "7 dimensions measuring race quality/value",
-      "dimensions": [
-        "prestige",
-        "race_quality",
-        "experience",
-        "community",
-        "field_depth",
-        "value",
-        "expenses"
-      ],
-      "scale": "1-5 each, max 35"
+  "meta": {
+    "generated": "2026-01-13",
+    "scoring_system": "GravelGod 14-Dimension v2.1",
+    "total_scored_races": 30,
+    "tier_distribution": {
+      "TIER 1": 19,
+      "TIER 2": 10,
+      "TIER 3": 1
     }
-  },
-  "tier_system": {
-    "1": "Premier events - LTGP, UCI, iconic races",
-    "2": "Established events - strong reputation",
-    "3": "Regional/emerging events"
-  },
-  "total_races": 20,
-  "tier_counts": {
-    "tier_1": 13,
-    "tier_2": 6,
-    "tier_3": 1
   },
   "races": [
     {
-      "name": "Unbound Gravel 200",
-      "slug": "unbound-200",
-      "location": "Emporia, Kansas",
-      "date": "2026: June 6",
-      "distance_mi": 202,
-      "elevation_ft": 10122,
-      "overall_score": 93,
+      "slug": "tour-divide",
+      "name": "Tour Divide",
+      "overall_score": 98,
+      "course_profile_total": 35,
+      "editorial_total": 33,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Banff, Alberta to Antelope Wells, New Mexico",
+      "distance_mi": 2745,
+      "elevation_ft": 200000,
+      "course_profile_scores": {
         "length": 5,
         "technicality": 3,
-        "elevation": 4,
+        "elevation": 5,
         "climate": 5,
-        "altitude": 1,
-        "logistics": 3,
+        "altitude": 5,
+        "logistics": 5,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 5,
         "experience": 5,
         "community": 5,
         "field_depth": 5,
-        "value": 3,
+        "value": 5,
         "expenses": 3
-      },
-      "editorial_total": 31,
-      "combined_total": 57,
-      "rank": 1
+      }
     },
     {
-      "name": "Badlands",
-      "slug": "badlands",
-      "location": "Granada, Andalusia, Spain",
-      "date": "2025: Early August (TBD)",
-      "distance_mi": 497,
-      "elevation_ft": 52493,
-      "overall_score": 91,
+      "slug": "transcontinental-race",
+      "name": "Transcontinental Race",
+      "overall_score": 98,
+      "course_profile_total": 35,
+      "editorial_total": 33,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Across Europe (route changes annually)",
+      "distance_mi": 3100,
+      "elevation_ft": 210000,
+      "course_profile_scores": {
+        "length": 5,
+        "technicality": 3,
+        "elevation": 5,
+        "climate": 5,
+        "altitude": 4,
+        "logistics": 5,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 4,
+        "expenses": 2
+      }
+    },
+    {
+      "slug": "colorado-trail-race",
+      "name": "Colorado Trail Race",
+      "overall_score": 97,
+      "course_profile_total": 33,
+      "editorial_total": 31,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Durango to Denver, Colorado",
+      "distance_mi": 530,
+      "elevation_ft": 72500,
+      "course_profile_scores": {
         "length": 5,
         "technicality": 5,
         "elevation": 5,
@@ -93,8 +90,97 @@
         "logistics": 5,
         "adventure": 5
       },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 3,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 4,
+        "value": 5,
+        "expenses": 2
+      }
+    },
+    {
+      "slug": "unbound-200",
+      "name": "Unbound Gravel 200",
+      "overall_score": 93,
+      "course_profile_total": 30,
+      "editorial_total": 35,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Emporia, Kansas",
+      "distance_mi": 202,
+      "elevation_ft": 10122,
+      "course_profile_scores": {
+        "length": 5,
+        "technicality": 3,
+        "elevation": 4,
+        "climate": 5,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "bwr-san-diego",
+      "name": "Belgian Waffle Ride San Diego",
+      "overall_score": 91,
+      "course_profile_total": 27,
+      "editorial_total": 31,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Del Mar, California",
+      "distance_mi": 131,
+      "elevation_ft": 12000,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 4,
+        "elevation": 5,
+        "climate": 2,
+        "altitude": 2,
+        "logistics": 2,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 5,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 5,
+        "value": 4,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "badlands",
+      "name": "Badlands",
+      "overall_score": 91,
       "course_profile_total": 35,
-      "editorial": {
+      "editorial_total": 29,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Granada, Andalusia, Spain",
+      "distance_mi": 497,
+      "elevation_ft": 52493,
+      "course_profile_scores": {
+        "length": 5,
+        "technicality": 5,
+        "elevation": 5,
+        "climate": 5,
+        "altitude": 5,
+        "logistics": 5,
+        "adventure": 5
+      },
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 4,
         "experience": 5,
@@ -102,22 +188,50 @@
         "field_depth": 4,
         "value": 3,
         "expenses": 2
-      },
-      "editorial_total": 27,
-      "combined_total": 62,
-      "rank": 2
+      }
     },
     {
-      "name": "The Traka",
-      "slug": "the-traka",
-      "location": "Girona, Catalonia, Spain",
-      "date": "2025: April 30 - May 4",
-      "distance_mi": 224,
-      "elevation_ft": 12140,
-      "overall_score": 87,
+      "slug": "torino-nice-rally",
+      "name": "Torino Nice Rally",
+      "overall_score": 89,
+      "course_profile_total": 33,
+      "editorial_total": 30,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Turin, Italy to Nice, France",
+      "distance_mi": 435,
+      "elevation_ft": 52493,
+      "course_profile_scores": {
+        "length": 5,
+        "technicality": 4,
+        "elevation": 5,
+        "climate": 4,
+        "altitude": 5,
+        "logistics": 4,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 3,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 3,
+        "value": 5,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "the-traka",
+      "name": "The Traka",
+      "overall_score": 87,
+      "course_profile_total": 28,
+      "editorial_total": 33,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Girona, Catalonia, Spain",
+      "distance_mi": 224,
+      "elevation_ft": 12140,
+      "course_profile_scores": {
         "length": 5,
         "technicality": 4,
         "elevation": 4,
@@ -126,8 +240,7 @@
         "logistics": 4,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 5,
         "experience": 5,
@@ -135,22 +248,20 @@
         "field_depth": 5,
         "value": 4,
         "expenses": 3
-      },
-      "editorial_total": 32,
-      "combined_total": 58,
-      "rank": 3
+      }
     },
     {
-      "name": "Crusher in the Tushar",
       "slug": "crusher-in-the-tushar",
-      "location": "Beaver, Utah",
-      "date": "2026: July 11",
-      "distance_mi": 70,
-      "elevation_ft": 10000,
+      "name": "Crusher in the Tushar",
       "overall_score": 84,
+      "course_profile_total": 29,
+      "editorial_total": 30,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Beaver, Utah",
+      "distance_mi": 70,
+      "elevation_ft": 10000,
+      "course_profile_scores": {
         "length": 3,
         "technicality": 3,
         "elevation": 5,
@@ -159,8 +270,7 @@
         "logistics": 3,
         "adventure": 5
       },
-      "course_profile_total": 29,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 4,
         "experience": 5,
@@ -168,22 +278,80 @@
         "field_depth": 5,
         "value": 4,
         "expenses": 3
-      },
-      "editorial_total": 30,
-      "combined_total": 59,
-      "rank": 4
+      }
     },
     {
-      "name": "Gran Fondo Strade Bianche",
-      "slug": "strade-bianche-gran-fondo",
-      "location": "Siena, Tuscany, Italy",
-      "date": "2026: March 8",
-      "distance_mi": 86,
-      "elevation_ft": 6560,
-      "overall_score": 81,
+      "slug": "gravel-earth",
+      "name": "Gravel Earth Series",
+      "overall_score": 82,
+      "course_profile_total": 26,
+      "editorial_total": 28,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Global (HQ: Girona, Spain)",
+      "distance_mi": 208,
+      "elevation_ft": 12139,
+      "course_profile_scores": {
+        "length": 5,
+        "technicality": 4,
+        "elevation": 4,
+        "climate": 4,
+        "altitude": 3,
+        "logistics": 4,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 5,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 2
+      }
+    },
+    {
+      "slug": "the-rift",
+      "name": "The Rift",
+      "overall_score": 82,
+      "course_profile_total": 29,
+      "editorial_total": 28,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Hvolsv\u00f6llur, Iceland",
+      "distance_mi": 124,
+      "elevation_ft": 8530,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 4,
+        "elevation": 3,
+        "climate": 5,
+        "altitude": 2,
+        "logistics": 3,
+        "adventure": 5
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 3,
+        "value": 3,
+        "expenses": 2
+      }
+    },
+    {
+      "slug": "strade-bianche-gran-fondo",
+      "name": "Gran Fondo Strade Bianche",
+      "overall_score": 81,
+      "course_profile_total": 22,
+      "editorial_total": 35,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Siena, Tuscany, Italy",
+      "distance_mi": 86,
+      "elevation_ft": 6560,
+      "course_profile_scores": {
         "length": 3,
         "technicality": 3,
         "elevation": 3,
@@ -192,8 +360,7 @@
         "logistics": 4,
         "adventure": 4
       },
-      "course_profile_total": 22,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 5,
         "experience": 5,
@@ -201,22 +368,20 @@
         "field_depth": 4,
         "value": 4,
         "expenses": 3
-      },
-      "editorial_total": 31,
-      "combined_total": 53,
-      "rank": 5
+      }
     },
     {
-      "name": "SBT GRVL",
       "slug": "sbt-grvl",
-      "location": "Steamboat Springs, Colorado",
-      "date": "2026: August (TBD)",
-      "distance_mi": 125,
-      "elevation_ft": 10897,
+      "name": "SBT GRVL",
       "overall_score": 80,
+      "course_profile_total": 26,
+      "editorial_total": 30,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Steamboat Springs, Colorado",
+      "distance_mi": 125,
+      "elevation_ft": 10897,
+      "course_profile_scores": {
         "length": 4,
         "technicality": 2,
         "elevation": 5,
@@ -225,8 +390,7 @@
         "logistics": 3,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 5,
         "experience": 5,
@@ -234,22 +398,20 @@
         "field_depth": 5,
         "value": 3,
         "expenses": 2
-      },
-      "editorial_total": 30,
-      "combined_total": 56,
-      "rank": 6
+      }
     },
     {
-      "name": "Seven",
       "slug": "seven",
-      "location": "Nannup, Western Australia",
-      "date": "2025: May 17",
-      "distance_mi": 78,
-      "elevation_ft": 10500,
+      "name": "Seven",
       "overall_score": 79,
+      "course_profile_total": 27,
+      "editorial_total": 28,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Nannup, Western Australia",
+      "distance_mi": 78,
+      "elevation_ft": 10500,
+      "course_profile_scores": {
         "length": 3,
         "technicality": 4,
         "elevation": 5,
@@ -258,8 +420,7 @@
         "logistics": 4,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 4,
         "experience": 5,
@@ -267,22 +428,20 @@
         "field_depth": 4,
         "value": 3,
         "expenses": 2
-      },
-      "editorial_total": 27,
-      "combined_total": 53,
-      "rank": 7
+      }
     },
     {
-      "name": "Leadville Trail 100 MTB",
       "slug": "leadville-100",
-      "location": "Leadville, Colorado",
-      "date": "2026: August 15",
-      "distance_mi": 104,
-      "elevation_ft": 12000,
+      "name": "Leadville Trail 100 MTB",
       "overall_score": 77,
+      "course_profile_total": 26,
+      "editorial_total": 28,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "Leadville, Colorado",
+      "distance_mi": 104,
+      "elevation_ft": 12000,
+      "course_profile_scores": {
         "length": 4,
         "technicality": 2,
         "elevation": 5,
@@ -291,8 +450,7 @@
         "logistics": 2,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 4,
         "experience": 5,
@@ -300,22 +458,20 @@
         "field_depth": 5,
         "value": 2,
         "expenses": 2
-      },
-      "editorial_total": 28,
-      "combined_total": 54,
-      "rank": 8
+      }
     },
     {
-      "name": "Belgian Waffle Ride California",
       "slug": "bwr-california",
-      "location": "San Marcos, California",
-      "date": "2026: May 2-3",
-      "distance_mi": 130,
-      "elevation_ft": 10500,
+      "name": "Belgian Waffle Ride California",
       "overall_score": 76,
+      "course_profile_total": 25,
+      "editorial_total": 28,
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "course_profile": {
+      "location": "San Marcos, California",
+      "distance_mi": 130,
+      "elevation_ft": 10500,
+      "course_profile_scores": {
         "length": 4,
         "technicality": 5,
         "elevation": 4,
@@ -324,8 +480,7 @@
         "logistics": 4,
         "adventure": 4
       },
-      "course_profile_total": 25,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 5,
         "race_quality": 4,
         "experience": 5,
@@ -333,187 +488,50 @@
         "field_depth": 5,
         "value": 3,
         "expenses": 2
-      },
-      "editorial_total": 28,
-      "combined_total": 53,
-      "rank": 9
+      }
     },
     {
-      "name": "Gravel Worlds",
-      "slug": "gravel-worlds",
-      "location": "Lincoln, Nebraska",
-      "date": "2026: August 20-24",
-      "distance_mi": 150,
-      "elevation_ft": 10000,
-      "overall_score": 72,
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
-      "course_profile": {
-        "length": 4,
-        "technicality": 2,
-        "elevation": 4,
-        "climate": 5,
-        "altitude": 1,
-        "logistics": 4,
-        "adventure": 2
-      },
-      "course_profile_total": 22,
-      "editorial": {
-        "prestige": 4,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 5,
-        "field_depth": 4,
-        "value": 3,
-        "expenses": 4
-      },
-      "editorial_total": 28,
-      "combined_total": 50,
-      "rank": 10
-    },
-    {
-      "name": "Paris to Ancaster",
-      "slug": "paris-to-ancaster",
-      "location": "Paris to Ancaster, Ontario, Canada",
-      "date": "2025: April 27",
-      "distance_mi": 62,
-      "elevation_ft": 4000,
-      "overall_score": 70,
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
-      "course_profile": {
-        "length": 2,
-        "technicality": 4,
-        "elevation": 3,
-        "climate": 4,
-        "altitude": 1,
-        "logistics": 3,
-        "adventure": 4
-      },
-      "course_profile_total": 21,
-      "editorial": {
-        "prestige": 4,
-        "race_quality": 4,
-        "experience": 5,
-        "community": 4,
-        "field_depth": 4,
-        "value": 4,
-        "expenses": 3
-      },
-      "editorial_total": 28,
-      "combined_total": 49,
-      "rank": 11
-    },
-    {
-      "name": "Barry-Roubaix Killer Gravel Road Race",
-      "slug": "barry-roubaix",
-      "location": "Hastings, Michigan",
-      "date": "2026: April 18",
-      "distance_mi": 62,
-      "elevation_ft": 4000,
-      "overall_score": 70,
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
-      "course_profile": {
-        "length": 3,
-        "technicality": 2,
-        "elevation": 2,
-        "climate": 5,
-        "altitude": 1,
-        "logistics": 4,
-        "adventure": 3
-      },
-      "course_profile_total": 20,
-      "editorial": {
-        "prestige": 4,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 5,
-        "field_depth": 4,
-        "value": 4,
-        "expenses": 4
-      },
-      "editorial_total": 29,
-      "combined_total": 49,
-      "rank": 12
-    },
-    {
-      "name": "Big Sugar Gravel",
-      "slug": "big-sugar",
-      "location": "Bentonville, Arkansas",
-      "date": "2025: TBD (Life Time Grand Prix finale)",
-      "distance_mi": 100,
-      "elevation_ft": 6500,
-      "overall_score": 66,
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
-      "course_profile": {
-        "length": 3,
-        "technicality": 3,
-        "elevation": 3,
-        "climate": 2,
-        "altitude": 1,
-        "logistics": 3,
-        "adventure": 3
-      },
-      "course_profile_total": 18,
-      "editorial": {
-        "prestige": 5,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 4,
-        "field_depth": 5,
-        "value": 3,
-        "expenses": 3
-      },
-      "editorial_total": 28,
-      "combined_total": 46,
-      "rank": 13
-    },
-    {
-      "name": "The Rift",
-      "slug": "the-rift",
-      "location": "Hvolsv\u00f6llur, Iceland",
-      "date": "2026: July 18",
-      "distance_mi": 124,
-      "elevation_ft": 8530,
-      "overall_score": 82,
+      "slug": "grinduro",
+      "name": "Grinduro",
+      "overall_score": 74,
+      "course_profile_total": 24,
+      "editorial_total": 27,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "course_profile": {
-        "length": 4,
-        "technicality": 4,
-        "elevation": 3,
-        "climate": 5,
-        "altitude": 2,
+      "location": "Multi-Location Global Series",
+      "distance_mi": 60,
+      "elevation_ft": 7800,
+      "course_profile_scores": {
+        "length": 2,
+        "technicality": 5,
+        "elevation": 4,
+        "climate": 4,
+        "altitude": 3,
         "logistics": 3,
         "adventure": 5
       },
-      "course_profile_total": 26,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 4,
         "race_quality": 4,
         "experience": 5,
-        "community": 4,
-        "field_depth": 3,
+        "community": 5,
+        "field_depth": 4,
         "value": 3,
-        "expenses": 2
-      },
-      "editorial_total": 25,
-      "combined_total": 51,
-      "rank": 14
+        "expenses": 3
+      }
     },
     {
-      "name": "Rebecca's Private Idaho",
       "slug": "rebeccas-private-idaho",
-      "location": "Ketchum/Sun Valley, Idaho",
-      "date": "2025: August 28-31",
-      "distance_mi": 103,
-      "elevation_ft": 6200,
+      "name": "Rebecca's Private Idaho",
       "overall_score": 74,
+      "course_profile_total": 25,
+      "editorial_total": 27,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "course_profile": {
+      "location": "Ketchum/Sun Valley, Idaho",
+      "distance_mi": 103,
+      "elevation_ft": 6200,
+      "course_profile_scores": {
         "length": 3,
         "technicality": 3,
         "elevation": 3,
@@ -522,8 +540,7 @@
         "logistics": 4,
         "adventure": 5
       },
-      "course_profile_total": 25,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 4,
         "race_quality": 4,
         "experience": 5,
@@ -531,154 +548,200 @@
         "field_depth": 4,
         "value": 3,
         "expenses": 2
-      },
-      "editorial_total": 27,
-      "combined_total": 52,
-      "rank": 15
+      }
     },
     {
-      "name": "Gravel Locos",
-      "slug": "gravel-locos",
-      "location": "Hico, Texas",
-      "date": "2025: May 24",
-      "distance_mi": 118,
-      "elevation_ft": 6000,
-      "overall_score": 67,
-      "display_tier": 2,
-      "display_tier_label": "TIER 2",
-      "course_profile": {
-        "length": 4,
-        "technicality": 2,
-        "elevation": 3,
-        "climate": 5,
-        "altitude": 1,
-        "logistics": 3,
-        "adventure": 3
-      },
-      "course_profile_total": 21,
-      "editorial": {
-        "prestige": 3,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 3,
-        "field_depth": 4,
-        "value": 4,
-        "expenses": 4
-      },
-      "editorial_total": 26,
-      "combined_total": 47,
-      "rank": 16
-    },
-    {
-      "name": "BWR Arizona",
-      "slug": "bwr-arizona",
-      "location": "Cave Creek / McDowell Region, Arizona",
-      "date": "2025: March 1",
-      "distance_mi": 104,
-      "elevation_ft": 6600,
-      "overall_score": 67,
-      "display_tier": 2,
-      "display_tier_label": "TIER 2",
-      "course_profile": {
-        "length": 3,
-        "technicality": 4,
-        "elevation": 3,
-        "climate": 3,
-        "altitude": 2,
-        "logistics": 3,
-        "adventure": 4
-      },
+      "slug": "almanzo-100",
+      "name": "Almanzo 100",
+      "overall_score": 74,
       "course_profile_total": 22,
-      "editorial": {
-        "prestige": 4,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 3,
-        "field_depth": 4,
-        "value": 3,
-        "expenses": 3
-      },
-      "editorial_total": 25,
-      "combined_total": 47,
-      "rank": 17
-    },
-    {
-      "name": "Dirty Reiver",
-      "slug": "dirty-reiver",
-      "location": "Kielder Forest, Northumberland, UK",
-      "date": "2026: April 24-25",
-      "distance_mi": 125,
-      "elevation_ft": 10170,
-      "overall_score": 66,
+      "editorial_total": 27,
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "course_profile": {
-        "length": 4,
-        "technicality": 2,
-        "elevation": 4,
-        "climate": 4,
-        "altitude": 1,
-        "logistics": 2,
-        "adventure": 4
-      },
-      "course_profile_total": 21,
-      "editorial": {
-        "prestige": 4,
-        "race_quality": 4,
-        "experience": 4,
-        "community": 4,
-        "field_depth": 3,
-        "value": 4,
-        "expenses": 2
-      },
-      "editorial_total": 25,
-      "combined_total": 46,
-      "rank": 18
-    },
-    {
-      "name": "USA Cycling Gravel Nationals",
-      "slug": "usa-cycling-gravel-nationals",
-      "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
-      "date": "2025: September 20; 2026: September 12",
-      "distance_mi": 131,
-      "elevation_ft": 7000,
-      "overall_score": 63,
-      "display_tier": 2,
-      "display_tier_label": "TIER 2",
-      "course_profile": {
+      "location": "Spring Valley, Minnesota",
+      "distance_mi": 100,
+      "elevation_ft": 6500,
+      "course_profile_scores": {
         "length": 4,
         "technicality": 3,
         "elevation": 3,
+        "climate": 4,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 4
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 3,
+        "experience": 4,
+        "community": 5,
+        "field_depth": 2,
+        "value": 5,
+        "expenses": 4
+      }
+    },
+    {
+      "slug": "finnish-gravel",
+      "name": "Finnish Gravel",
+      "overall_score": 72,
+      "course_profile_total": 17,
+      "editorial_total": 26,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Lahti, Paijanne Tavastia, Finland",
+      "distance_mi": 110,
+      "elevation_ft": 2129,
+      "course_profile_scores": {
+        "length": 3,
+        "technicality": 2,
+        "elevation": 2,
         "climate": 2,
         "altitude": 1,
         "logistics": 3,
-        "adventure": 3
+        "adventure": 4
       },
-      "course_profile_total": 19,
-      "editorial": {
-        "prestige": 5,
-        "race_quality": 4,
-        "experience": 3,
-        "community": 3,
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 5,
+        "experience": 4,
+        "community": 4,
         "field_depth": 4,
         "value": 3,
-        "expenses": 3
-      },
-      "editorial_total": 25,
-      "combined_total": 44,
-      "rank": 19
+        "expenses": 2
+      }
     },
     {
-      "name": "Highlands Gravel Classic",
+      "slug": "heck-of-the-north",
+      "name": "Heck of the North",
+      "overall_score": 72,
+      "course_profile_total": 22,
+      "editorial_total": 27,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Two Harbors, Minnesota",
+      "distance_mi": 105,
+      "elevation_ft": 3500,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 4,
+        "elevation": 2,
+        "climate": 4,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 4
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 3,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 2,
+        "value": 5,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "gravel-worlds",
+      "name": "Gravel Worlds",
+      "overall_score": 72,
+      "course_profile_total": 22,
+      "editorial_total": 28,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Lincoln, Nebraska",
+      "distance_mi": 150,
+      "elevation_ft": 10000,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 2,
+        "elevation": 4,
+        "climate": 5,
+        "altitude": 1,
+        "logistics": 4,
+        "adventure": 2
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 5,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 4
+      }
+    },
+    {
+      "slug": "paris-to-ancaster",
+      "name": "Paris to Ancaster",
+      "overall_score": 70,
+      "course_profile_total": 21,
+      "editorial_total": 28,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Paris to Ancaster, Ontario, Canada",
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "course_profile_scores": {
+        "length": 2,
+        "technicality": 4,
+        "elevation": 3,
+        "climate": 4,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 4
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 5,
+        "community": 4,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "barry-roubaix",
+      "name": "Barry-Roubaix Killer Gravel Road Race",
+      "overall_score": 70,
+      "course_profile_total": 20,
+      "editorial_total": 29,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Hastings, Michigan",
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "course_profile_scores": {
+        "length": 3,
+        "technicality": 2,
+        "elevation": 2,
+        "climate": 5,
+        "altitude": 1,
+        "logistics": 4,
+        "adventure": 3
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 5,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 4
+      }
+    },
+    {
       "slug": "highlands-gravel-classic",
-      "location": "Goshen, Arkansas",
-      "date": "2026: April 25",
-      "distance_mi": 67,
-      "elevation_ft": 4850,
+      "name": "Highlands Gravel Classic",
       "overall_score": 69,
+      "course_profile_total": 20,
+      "editorial_total": 28,
       "display_tier": 3,
       "display_tier_label": "TIER 3",
-      "course_profile": {
+      "location": "Goshen, Arkansas",
+      "distance_mi": 67,
+      "elevation_ft": 4850,
+      "course_profile_scores": {
         "length": 2,
         "technicality": 3,
         "elevation": 3,
@@ -687,8 +750,7 @@
         "logistics": 4,
         "adventure": 4
       },
-      "course_profile_total": 20,
-      "editorial": {
+      "editorial_scores": {
         "prestige": 4,
         "race_quality": 4,
         "experience": 4,
@@ -696,10 +758,157 @@
         "field_depth": 4,
         "value": 4,
         "expenses": 4
+      }
+    },
+    {
+      "slug": "gravel-locos",
+      "name": "Gravel Locos",
+      "overall_score": 67,
+      "course_profile_total": 21,
+      "editorial_total": 26,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Hico, Texas",
+      "distance_mi": 118,
+      "elevation_ft": 6000,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 2,
+        "elevation": 3,
+        "climate": 5,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 3
       },
+      "editorial_scores": {
+        "prestige": 3,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 3,
+        "field_depth": 4,
+        "value": 4,
+        "expenses": 4
+      }
+    },
+    {
+      "slug": "bwr-arizona",
+      "name": "BWR Arizona",
+      "overall_score": 67,
+      "course_profile_total": 22,
+      "editorial_total": 25,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Cave Creek / McDowell Region, Arizona",
+      "distance_mi": 104,
+      "elevation_ft": 6600,
+      "course_profile_scores": {
+        "length": 3,
+        "technicality": 4,
+        "elevation": 3,
+        "climate": 3,
+        "altitude": 2,
+        "logistics": 3,
+        "adventure": 4
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 3,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "big-sugar",
+      "name": "Big Sugar Gravel",
+      "overall_score": 66,
+      "course_profile_total": 18,
       "editorial_total": 28,
-      "combined_total": 48,
-      "rank": 20
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Bentonville, Arkansas",
+      "distance_mi": 100,
+      "elevation_ft": 6500,
+      "course_profile_scores": {
+        "length": 3,
+        "technicality": 3,
+        "elevation": 3,
+        "climate": 2,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 3
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 5,
+        "value": 3,
+        "expenses": 3
+      }
+    },
+    {
+      "slug": "dirty-reiver",
+      "name": "Dirty Reiver",
+      "overall_score": 66,
+      "course_profile_total": 21,
+      "editorial_total": 25,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Kielder Forest, Northumberland, UK",
+      "distance_mi": 125,
+      "elevation_ft": 10170,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 2,
+        "elevation": 4,
+        "climate": 4,
+        "altitude": 1,
+        "logistics": 2,
+        "adventure": 4
+      },
+      "editorial_scores": {
+        "prestige": 4,
+        "race_quality": 4,
+        "experience": 4,
+        "community": 4,
+        "field_depth": 3,
+        "value": 4,
+        "expenses": 2
+      }
+    },
+    {
+      "slug": "usa-cycling-gravel-nationals",
+      "name": "USA Cycling Gravel Nationals",
+      "overall_score": 63,
+      "course_profile_total": 19,
+      "editorial_total": 25,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+      "distance_mi": 131,
+      "elevation_ft": 7000,
+      "course_profile_scores": {
+        "length": 4,
+        "technicality": 3,
+        "elevation": 3,
+        "climate": 2,
+        "altitude": 1,
+        "logistics": 3,
+        "adventure": 3
+      },
+      "editorial_scores": {
+        "prestige": 5,
+        "race_quality": 4,
+        "experience": 3,
+        "community": 3,
+        "field_depth": 4,
+        "value": 3,
+        "expenses": 3
+      }
     }
   ]
 }

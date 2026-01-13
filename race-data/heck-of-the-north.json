@@ -1,52 +1,223 @@
 {
-    "raceId": "heck-of-the-north",
-    "name": "Heck of the North",
+  "race": {
+    "name": "HECK OF THE NORTH",
     "slug": "heck-of-the-north",
-    "location": {
-          "city": "Grand Rapids",
-          "state": "Minnesota",
-          "country": "USA",
-          "region": "Northern Minnesota"
+    "display_name": "Heck of the North",
+    "tagline": "Minnesota's self-supported fall sufferfest through the Superior National Forest - where navigation by cue cards and Type 2 fun reign supreme.",
+
+    "vitals": {
+      "distance_mi": 105,
+      "elevation_ft": 3500,
+      "location": "Two Harbors, Minnesota",
+      "location_badge": "TWO HARBORS, MN",
+      "date": "Early October annually",
+      "date_specific": "2025: October 4",
+      "distances_available": [
+        {
+          "name": "Full Heck",
+          "distance_mi": 105,
+          "elevation_ft": 3500,
+          "description": "The complete North Shore gravel odyssey with maximum exposure to technical sections"
+        },
+        {
+          "name": "Half Heck",
+          "distance_mi": 56,
+          "elevation_ft": 1600,
+          "description": "Includes beautiful Langley River Road with varied and challenging terrain"
+        },
+        {
+          "name": "Mini Heck",
+          "distance_mi": 19,
+          "elevation_ft": 500,
+          "description": "Introduction to gravel racing - still includes the brutal Alger Grade Forest finish"
+        }
+      ],
+      "entry_fee": "$80.75",
+      "field_size": "250+",
+      "founded": 2009,
+      "anniversary": "17th annual (2025)",
+      "organizer": "Heck of the North Productions (Jeremy Kershaw & Avesa Rockwell)",
+      "website": "https://www.heckofthenorth.com",
+      "registration_url": "https://runsignup.com/Race/Events/MN/TwoHarbors/HeckOfTheNorthGravelClassic"
     },
-    "date": {
-          "month": "August",
-          "typical": "mid-August",
-          "season": "Summer",
-          "year2026": "August 2026"
+
+    "gravel_god_rating": {
+      "overall_score": 72,
+      "course_profile": 22,
+      "biased_opinion": 27,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
-    "organizer": {
-          "name": "Expo Race",
-          "website": "https://www.heckofthenorth.com/"
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship 105-mile route puts this firmly in the century-plus category. While not ultra-distance territory, spending 8+ hours on rough two-track and gravel through the Superior National Forest is a serious undertaking. The 56-mile and 19-mile options exist, but the 105 is the true Heck experience."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "This is not a smooth gravel cruise. Briton Pit Road's rough two-track will sort you out in the first 5 miles. The North Shore State Trail crossings feature slow grassy sections with spring-fed wet spots. Bear Pit Road and the infamous Alger Grade Forest finish are rough enough that some riders wish they had a mountain bike. Stream crossings, sand, rubble, and mud are all part of the deal. Hike-a-bike is likely."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "At 3,400-3,600 feet of climbing over 105 miles, this is relatively modest for a serious gravel event. The terrain is rolling rather than mountainous - you're in lake country, not the Rockies. The challenge here comes from surface conditions and weather, not sustained climbing."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Early October in Northern Minnesota is weather roulette. Average highs of 46-52F with lows near freezing, 27% chance of rain, and October typically brings the region's first snow (averaging 0.91 inches). You could get 50F and sunny, or 35F and sleeting. The organizers explicitly warn to prepare for cold, wet conditions - and they mean it. Dress in layers and pack for the worst."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Two Harbors sits at around 600-700 feet elevation on the shore of Lake Superior. The course climbs into the Superior National Forest but never reaches significant altitude. No thin air concerns here - your lungs will be fine, even if your hands are frozen."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Getting to Two Harbors requires some planning. Duluth International Airport (DLH) is 27 miles away but has limited direct flights. Minneapolis-St. Paul (MSP) is 150 miles and 2.5-3 hours driving. Lodging in Two Harbors is limited (Superior Shores Resort, AmericInn, a few motels) - book early or stay in Duluth. Friday night packet pickup is mandatory since that's when you receive the secret course via cue cards. Not impossible, but requires more effort than driving to a race in a major city."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is bucket-list territory for gravel purists seeking authentic adventure. Peak fall colors in the Superior National Forest, the remote North Shore of Lake Superior, secret courses revealed only at packet pickup, navigation by cue cards with humorous instructions, and a self-supported ethos that harkens back to gravel's roots before it became commercialized. The 'Alger Grade Forest' finish is an homage to Paris-Roubaix's legendary Arenberg Forest. It's not just a race - it's an experience that connects to gravel cycling history."
+      }
     },
-    "distances": [
-          {
-                  "name": "100K",
-                  "distance": "62 miles",
-                  "elevationGain": "2,500+ feet",
-                  "description": "Full distance through Minnesota north woods"
-          },
-          {
-                  "name": "50K",
-                  "distance": "31 miles",
-                  "elevationGain": "1,200+ feet",
-                  "description": "Half distance option"
-          }
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Heck of the North is one of the original gravel races, founded in 2009 after Jeremy Kershaw was inspired by Ragnarok and Almanzo - the events that kicked off Minnesota's gravel scene. It's consistently listed among bucket-list gravel races in the U.S. and is considered the race that 'started it all' for North Shore gravel cycling. Not at Unbound or LTGP level, but carries serious cred in the gravel community as an OG event with 17 years of history."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is intentionally NOT a polished production. One aid station per distance offering water, Gatorade, PB&J, bananas, and gummy bears - that's it. No sag wagons, no course markings, no hand-holding. The cue card navigation system is part of the charm but requires riders to pay attention. The organization is competent and clear about rules, but the minimal support is by design, not negligence. If you want a Life Time Grand Prix experience, look elsewhere. This is grassroots gravel as it was meant to be."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Heck of the North delivers a memorable Type 2 fun experience that riders talk about for years. The secret course reveal, the fall colors, the challenging conditions, the self-reliance requirement - it all adds up to something special. Participants describe it as the 'perfect annual closer' for gravel season. The funky vibe and anti-corporate ethos create an experience that feels authentic rather than manufactured. You'll earn your finish and have stories to tell."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The event cultivates a strong sense of community among riders who embrace adventure over competition. Jeremy Kershaw has been organizing events in the region for 17 years and the local cycling community shows up strong. Salsa Cycles has had 10+ employees racing in single years. The 'funky vibe and sense of inclusion for all types of riders' is a core value. It's not the massive gravel mecca vibe of Emporia, but it's a tight-knit community of like-minded sufferers."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is not where elite pros come to battle for UCI points or series standings. With a field of 250+ riders, it's a regional event that attracts self-reliant gravel veterans rather than the top names in the sport. You'll find strong local and regional competitors, but the self-supported format and remote location don't draw the LTGP crowd. The competition is honest but not deep - most riders are racing against the course and conditions, not each other."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "At approximately $80.75 (including processing fee) with youth 18 and under riding FREE with an adult, this is exceptional value for a bucket-list gravel experience with 17 years of history. You're getting authentic adventure through the Superior National Forest at peak fall colors, run by organizers who do this for the love of cycling. There's no corporate bloat in the entry fee. For what you pay, Heck of the North delivers one of the best value propositions in gravel racing."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate total trip cost depending on your starting point. Flying into Duluth (DLH) is more convenient but often pricier with limited flights - MSP gives more options at 2.5-3 hours driving. Lodging in Two Harbors is limited and should be booked early (budget to mid-range options available). Duluth has more hotel inventory as backup. Rental car is essential. Figure $400-700 all-in for a long weekend trip from the Midwest, potentially $700-1000+ if flying from coasts. Not budget-friendly like a local race, but reasonable for a destination event."
+    }
+    },
+
+    "course_signature_features": [
+      {
+        "name": "Briton Pit Road",
+        "miles": "0-5",
+        "description": "Opens all distances with tight, rough two-track. Your ride gets sorted out fast - this is where the race shows its teeth immediately."
+      },
+      {
+        "name": "North Shore State Trail Crossings",
+        "miles": "11 and 88",
+        "description": "Slow, grassy winter trails with spring-fed wet sections. Cross at miles 11 and 88 on the 105-mile course."
+      },
+      {
+        "name": "Bear Pit Road",
+        "miles": "40/87",
+        "description": "Rough two-track section that challenges riders on the longer routes."
+      },
+      {
+        "name": "Alger Grade Forest",
+        "miles": "Final 3 miles",
+        "description": "Named as a nod to Paris-Roubaix's Arenberg Forest. Tough two-track finish that all distances must navigate. The race's signature challenge."
+      }
     ],
-    "terrain": "Northern Minnesota forest roads and gravel - rolling wooded terrain, lake country, remote north woods",
-    "registration": "Opens spring, limited field",
-    "weather": "Northern Minnesota summer - pleasant temperatures (60s-70s°F), potential for rain",
-    "uniqueCharacteristics": [
-          "Scenic north woods Minnesota setting",
-          "Through lake country and pine forests",
-          "Remote northern Minnesota atmosphere",
-          "Well-organized regional event",
-          "Beautiful summer conditions",
-          "Growing Minnesota gravel classic",
-          "Named with tongue-in-cheek reference to Hell of the North (Paris-Roubaix)"
+
+    "weather_profile": {
+      "average_high_f": 49,
+      "average_low_f": 39,
+      "precipitation_chance": "27%",
+      "rainfall_days_monthly": 11.9,
+      "snow_possibility": "Yes - October typically brings first snow of the season (avg 0.91 inches)",
+      "conditions": "Cold, potentially wet, variable. Can range from pleasant fall day to freezing rain or early snow. Dress in layers.",
+      "daylight_hours": "10h 52min average",
+      "sunrise": "~7:06am",
+      "sunset": "~6:45pm"
+    },
+
+    "equipment_recommendations": {
+      "tires": "40-50mm at pressures under 35 psi recommended. Run as wide as your frame allows.",
+      "minimum_tire_width": "35-40mm",
+      "bike_notes": "Gravel bike preferred, though some sections would be more comfortable on a suspension trail bike.",
+      "gear_notes": "Cold/wet weather gear essential. Layers, waterproof shell, warm gloves and shoe covers."
+    },
+
+    "event_philosophy": "The Heck of the North is an event that lives solely for the love of the cyclists, their bikes and the countryside they ride through. It shares the premise of other great adventure-style events, namely, you are on your own and responsible for getting home by only your own hard work. No support from aid stations or spectators. There is no prize money or licenses.",
+
+    "who_this_race_is_for": [
+      "Self-reliant gravel veterans seeking adventure",
+      "Riders who embrace Type 2 fun",
+      "Those seeking a different gravel experience away from corn country",
+      "Cyclists who value the journey over the competition"
     ],
-    "seriesAffiliation": "Independent",
-    "tier": "Regional",
-    "popularity": "High - popular Minnesota north woods race",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+
+    "who_this_race_is_not_for": [
+      "Beginners who have never ridden gravel",
+      "Riders uncomfortable with navigation by cue sheet",
+      "Anyone expecting course support or spectators",
+      "Those who need to pre-ride courses for confidence",
+      "Riders without proper cold/wet weather gear"
+    ],
+
+    "black_pill_realities": [
+      "Briton Pit Road will humble you in the first 5 miles if you're not ready",
+      "One aid station per distance - bring everything else you need",
+      "No refunds, no deferrals - pay your money, show up or lose it",
+      "Course is secret until Friday night packet pickup - no pre-riding",
+      "Even the 19-mile intro course includes the brutal Alger Grade Forest finish",
+      "Mechanical failure in the backcountry means a long walk or wait",
+      "Registration fills and transfers are at the mercy of finding someone willing to give up their spot"
+    ],
+
+    "related_events": [
+      {
+        "name": "Le Grand Du Nord Gravel Classic",
+        "timing": "May",
+        "location": "Grand Marais area",
+        "distances": "100/54/26 miles",
+        "organizer": "Same (Heck of the North Productions)"
+      },
+      {
+        "name": "The Wolf Bikepacking Race",
+        "timing": "Varies",
+        "description": "Multi-day bikepacking event by same organizers"
+      }
+    ],
+
+    "founder_credentials": {
+      "name": "Jeremy Kershaw",
+      "background": "Registered nurse from Duluth, lived in Minnesota since 1997",
+      "experience": "7 years guiding sled dogs at Wintergreen, co-managed outfitting at Piragis Northwoods in Ely",
+      "ultra_credentials": "Multiple Arrowhead 135 finishes, Trans Wisconsin, Trans Iowa, Tour Divide finish in 2017 (2,740 miles in 22 days)"
+    },
+
+    "historical_notes": {
+      "founding_year": 2009,
+      "first_race_size": 40,
+      "name_origin": "Tongue-in-cheek reference to Paris-Roubaix, nicknamed 'Hell of the North'",
+      "inspiration": "Founded after Kershaw competed in Ragnarok (Red Wing) and Almanzo (Northfield) - the events that kicked off endurance gravel cycling in Minnesota"
+    },
+
+    "metadata": {
+      "last_updated": "2026-01-12",
+      "data_quality": "Complete",
+      "research_source": "heck-of-the-north-raw.md",
+      "scoring_system": "GravelGod v2.1"
+    }
+  }
 }

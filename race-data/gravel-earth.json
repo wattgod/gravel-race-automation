@@ -1,0 +1,202 @@
+{
+  "race": {
+    "name": "GRAVEL EARTH SERIES",
+    "slug": "gravel-earth",
+    "display_name": "Gravel Earth Series",
+    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
+
+    "vitals": {
+      "distance_mi": 208,
+      "elevation_ft": 12139,
+      "location": "Global (HQ: Girona, Spain)",
+      "location_badge": "GLOBAL SERIES",
+      "county": "Klassmark (Girona)",
+      "date": "February-September annually",
+      "date_specific": "2026: 12 events across 7 countries",
+      "terrain_types": ["European gravel", "Volcanic fields", "Desert terrain", "Forest trails", "Safari tracks", "Alpine climbs"],
+      "field_size": "~800 riders per flagship event (The Traka)",
+      "start_time": "Varies by event (The Traka 360: 5:50 AM)",
+      "registration": "Individual race registration. EUR 60-500+ depending on event",
+      "prize_purse": "EUR 37,500 total series prize pool (EUR 2,500 per category winner)",
+      "aid_stations": "Varies by event. The Traka has aid stations; Migration is more self-supported.",
+      "cutoff_time": "Varies by event"
+    },
+
+    "climate": {
+      "primary": "Highly variable—Mediterranean to volcanic to equatorial",
+      "description": "The global nature means everything from ideal Girona conditions (mild Mediterranean, 15-25C) to Iceland's 10C horizontal rain to Kenya's 40C+ desert heat. Weather can shift dramatically mid-race, especially in Iceland and Kenya. The Traka 2024 experienced severe storms that cancelled the 560km distance.",
+      "challenges": ["Iceland's unpredictable weather", "Kenya's extreme heat on plains", "Variable conditions even in Spain", "Flash storms possible anywhere"]
+    },
+
+    "terrain": {
+      "primary": "Mixed gravel, from smooth European roads to technical African game trails",
+      "surface": "The Traka: 85% gravel, 15% paved. Migration: Single track, game trails, red clay. The Rift: Volcanic sand, lava fields.",
+      "technical_rating": 4,
+      "features": ["Mediterranean forest trails (Spain)", "Volcanic terrain (Iceland)", "Safari game trails (Kenya)", "Rocky Catalan descents", "River crossings", "Hike-a-bike sections"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "course_profile": 26,
+      "biased_opinion": 28,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "World's leading gravel race circuit with flagship The Traka as Europe's Unbound",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "The flagship Traka 360 covers 335km (208mi), with The Traka Adventure at 560km. Migration spans 450-650km across 4 stages. Oregon Trail Gravel Grinder runs 580km over 5 days. This series consistently features ultra-distance events that push beyond typical gravel races."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Mixed terrain across events. The Traka includes technical singletrack, rocky descents, and hike-a-bike sections. Migration features game trails, river crossings, and rough hard-pack. Iceland (Cuckoo/The Rift) offers volcanic sand, lava fields, and glacial river crossings. More technical than Life Time events but not extreme MTB."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The Traka 360: 3,700m climbing. Migration: 8,000m across 4 stages. Oregon Trail: 25,000-33,000ft across 5 days. These are serious climbing events without reaching Crusher-level concentrated gains. Significant but not maximal."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Variable and challenging across the circuit. Iceland's 10C with horizontal rain and sudden weather changes. Kenya's intense heat on open plains with flash storms. Even Girona can deliver severe weather (2024 Traka storms cancelled the Adventure distance). Climate is a significant factor in most events."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Migration averages 1,900m with climbs to 2,800m at the escarpment. Oregon Trail reaches moderate Cascade altitudes. The Traka stays relatively low despite climbing. Altitude is a factor in some events but not the series hallmark—this isn't Colorado."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Global circuit requires significant travel planning. Kenya needs visa, vaccinations, and included concierge services for a reason. Iceland is remote. Spain is accessible via Barcelona. Multi-event participation means continental travel. More complex than single-location races, though Klassmark helps with packages."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "This is where Gravel Earth shines. Riding with giraffes and zebras in Kenya's Maasai Mara. Volcanic tectonic rift zones in Iceland. Mediterranean forests with sea views in Girona. 'The hardest and wildest gravel race in the world' (Migration). True bucket-list adventure across multiple continents."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Europe's premier gravel series and the global alternative to Life Time. The Traka is called 'Europe's Unbound' and the 'crown jewel of European gravel.' Established champions like Magnus Bak Klaris and Rosa Kloser. However, Life Time's deeper pockets and American media dominance mean GES remains second-tier in global consciousness."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Klassmark runs professional events with good organization, though the 2024 Traka weather cancellation and 2026 calendar controversies (Ranxo scheduled week after Unbound, Cuckoo Gravel drama) have raised concerns. 'It felt human. It felt independent' is the vibe—not Life Time production polish, but authentic and competent."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable across the series. 'The most scenic gravel I've ever ridden' (The Traka). Riding through Kenya with wildlife encounters is life-changing. Iceland's otherworldly landscapes. Each flagship event delivers memorable experiences that go far beyond typical race day—this is adventure racing at its best."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "GES maintains a strong community feel despite going global. 'It felt like ours. Built on passion.' Strong YouTube storytelling and genuine engagement. The series was founded specifically to preserve the adventurous essence of gravel against UCI formalization. Inclusive categories (Elite, Non-Binary, Age Groups, Open) welcome all levels."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Attracts top European gravel talent and growing international presence. Champions include serious competitors from Canyon Factory Racing and PAS Racing. The Traka draws ~800 riders including world-class racers. However, Life Time's $590,000 purse versus GES's EUR 37,500 means top American pros often skip GES for LTGP. Competitive but not quite elite-complete."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees are reasonable (EUR 60+ for individual events), and the experience-to-cost ratio is strong for adventure-seekers. However, the global travel requirements add up fast. Tour packages help but add cost. The EUR 37,500 total prize purse is dwarfed by Life Time's $590,000. Value exists, but it's adventure value, not financial value."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Multi-continent racing is expensive. Kenya requires flights to Nairobi, domestic flights, premium accommodation packages (included but priced accordingly), visa, and specialized insurance. Iceland is notoriously expensive. Even Spain adds Barcelona flights plus accommodation during peak Girona cycling season. Full series participation is a significant financial commitment—'jet lag just looking at the calendar.'"
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Global Adventure Alternative",
+      "summary": "Gravel Earth Series represents the soul of gravel racing—adventure, community, and global exploration rather than pure competition. Where Life Time offers production polish and prize money, GES offers riding with giraffes in Kenya, volcanic rifts in Iceland, and Mediterranean forests in Girona. It's 'more of an experience than a competition,' as founder Cristina Freixes puts it. The 2026 consolidation (from 23 to 12 events) and calendar controversies suggest growing pains, but the core experience remains world-class.",
+      "strengths": [
+        "Unmatched adventure across multiple continents",
+        "The Traka is legitimately Europe's Unbound",
+        "Strong community feel versus corporate competition",
+        "Migration Gravel Race is truly bucket-list unique"
+      ],
+      "weaknesses": [
+        "Prize purse (EUR 37,500) trails Life Time ($590,000) dramatically",
+        "2026 calendar controversies raised concerns about direction",
+        "Global travel requirements create high expense barrier",
+        "Increasing Klassmark control may reduce independent spirit"
+      ],
+      "bottom_line": "Choose GES for adventure and experience. Choose Life Time for prize money and American production values. For European-based riders or anyone seeking truly unique gravel experiences beyond Kansas flatlands, Gravel Earth delivers something special."
+    },
+
+    "black_pill": {
+      "title": "THE MONEY PROBLEM AND CORPORATE CREEP",
+      "reality": "Life Time offers $590,000 in prize money for 2026. Gravel Earth offers EUR 37,500. That's not a gap—that's a chasm. 'I feel like we are going to see Life Time eat Gravel Earth Series' lunch as the wealth gap increases,' one pro noted bluntly. Meanwhile, the 2026 calendar consolidation raised eyebrows: The Rift (Iceland) was dropped after Klassmark announced Cuckoo Iceland in the same region two weeks prior—the organizer reportedly found out 'weeks before.' Ranxo Gravel is now scheduled just eight days after Unbound. Five of 13 races are now Klassmark-operated directly. The independent, community-first ethos is facing real pressure.",
+      "consequences": [
+        "Top American pros will increasingly choose Life Time over GES",
+        "Calendar conflicts force riders to choose between events",
+        "Klassmark consolidation may reduce event diversity",
+        "20% completion rate at Migration reflects genuine brutality"
+      ],
+      "expectation_reset": "GES is not competing with Life Time for prize money—don't pretend it is. Come for the adventure and experience, not the payout. The 2026 season will test whether consolidation strengthens or weakens the series identity. Migration's 20% completion rate means you're as likely to DNF as finish. And that flight from Kenya to Iceland to Oregon really does give you jet lag just reading the schedule."
+    },
+
+    "final_verdict": {
+      "score": "82 / 100",
+      "one_liner": "Europe's premier gravel circuit—global adventure racing from Girona to Kenya to Iceland, built on passion over profit.",
+      "should_you_race": "Yes if you want adventure beyond typical gravel racing and value experience over prize money. Yes if you're European-based or seeking unique global destinations. Yes if community vibe matters more than production polish. Skip if you need significant prize purses, prefer USA-based racing, or can't handle the travel logistics and expenses.",
+      "alternatives": "Life Time Grand Prix (USA focus, bigger prizes); UCI Gravel World Series (institutional, global); Individual events like Unbound, Badlands, or SBT GRVL"
+    },
+
+    "logistics": {
+      "airport": "BCN (Barcelona) for The Traka - 30min train to Girona. JKIA (Nairobi) for Migration - concierge service included. Various for other events.",
+      "lodging_strategy": "Book early for Girona during Traka week—cycling mecca fills up. Kenya packages include Holiday Inn Two Rivers and safari camps. Use Klassmark/Eat Sleep Cycle tour packages for convenience.",
+      "food": "Mediterranean cuisine in Spain is excellent. Migration includes meals in packages. Plan for self-sufficiency in more remote events.",
+      "packet_pickup": "Varies by event. Pre-race registration typically day before.",
+      "parking": "Varies by event. Girona has good city parking; safari events have organized transport.",
+      "official_site": "https://gravelearthseries.com/"
+    },
+
+    "history": {
+      "founded": 2023,
+      "founder": "Gerard and Cristina Freixes (Klassmark, Girona)",
+      "origin_story": "Created in response to UCI's formalization of gravel racing, GES was founded 'to provide more of an experience than a competition.' The series launched with 8 events in 2023, expanded to 26 events in 16 countries by 2025, then consolidated to 12 events in 7 countries for 2026. The Traka (Girona) serves as flagship and crown jewel.",
+      "notable_moments": [
+        "2023: Inaugural season with 8 events",
+        "2024: Expansion to 20 events; Mattia De Marchi and Annabel Fisher crowned champions",
+        "2025: Peak at 26 events, 16 countries; Rosa Kloser and Magnus Bak Klaris win titles",
+        "2026: Consolidation to 12 events; The Rift controversy; calendar conflicts emerge"
+      ],
+      "past_champions": [
+        {"year": 2025, "men": "Magnus Bak Klaris (DEN, PAS Racing)", "women": "Rosa Kloser (GER, Canyon Factory Racing)"},
+        {"year": 2024, "men": "Mattia De Marchi / Simen Nordahl Svendsen", "women": "Annabel Fisher / Karolina Migon"}
+      ],
+      "reputation": "Europe's premier gravel circuit and the adventure-focused alternative to Life Time's American dominance."
+    },
+
+    "course_description": {
+      "character": "A global circuit that delivers genuine adventure across continents. The Traka offers Mediterranean gravel with sea views and Catalan forest trails. Migration throws riders into Kenya's safari lands with wildlife encounters and Maasai villages. Iceland provides volcanic otherworldliness. The Oregon Trail delivers American multi-day stage racing. Each event is distinct, but all share the GES ethos: adventure over pure competition.",
+      "suffering_zones": [
+        {"event": "The Traka 360", "label": "3,700m climbing", "desc": "85% gravel over 335km with punchy climbs, technical singletrack, and hike-a-bike sections through Catalan forests."},
+        {"event": "Migration (Kenya)", "label": "20% completion rate", "desc": "450-650km across 4 stages at 1,900m altitude. Game trails, river crossings, 'Dutch Mountains' headwinds. Wildlife included."},
+        {"event": "Iceland", "label": "Volcanic chaos", "desc": "Lava fields, tectonic rifts, glacial river crossings. 10C with horizontal rain possible. Weather changes in minutes."},
+        {"event": "Oregon Trail", "label": "5-day stage race", "desc": "580km with 30,000ft climbing across Cascade Mountains. Snow possible. The 'Grand Tour of Gravel.'"}
+      ],
+      "signature_challenge": "The sheer variety—committing to GES means racing Mediterranean forests, African safari lands, volcanic Iceland, and American mountain ranges. No other series delivers this breadth of adventure."
+    },
+
+    "series_events_2026": [
+      {"name": "La Santa Vall", "date": "February 15-16", "location": "Sant Gregori, Girona, Spain", "format": "Stage race"},
+      {"name": "The Hills Gravel Race", "date": "March 28", "location": "TBD", "format": "TBD"},
+      {"name": "Gravel Desert", "date": "April 11", "location": "Monegros, Huesca, Spain", "distance_km": 169},
+      {"name": "The Traka 360", "date": "May 1", "location": "Girona, Spain", "distance_km": 335},
+      {"name": "The Traka 200", "date": "May 2", "location": "Girona, Spain", "distance_km": 200},
+      {"name": "Ranxo Gravel", "date": "June 7", "location": "Ponts, La Noguera, Spain", "format": "67/104/161 miles"},
+      {"name": "Cuckoo Iceland by The Traka", "date": "June 28", "location": "Fluoir, Iceland", "format": "TBD"},
+      {"name": "Oregon Trail Gravel Grinder", "date": "July 8-12", "location": "Bend, Oregon, USA", "distance_km": 580, "format": "5-day stage race"},
+      {"name": "Lost and Found Gravel Festival", "date": "TBD", "location": "California, USA", "format": "TBD"},
+      {"name": "Core4 Gravel", "date": "TBD", "location": "Iowa, USA", "format": "TBD"},
+      {"name": "Migration Gravel Race", "date": "TBD", "location": "Kenya", "format": "4-stage race, 450-650km"},
+      {"name": "The River by The Traka", "date": "September 6", "location": "Bouillon, Belgium", "format": "Series Finale"}
+    ]
+  }
+}

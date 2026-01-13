@@ -1,0 +1,226 @@
+{
+  "race": {
+    "name": "TOUR DIVIDE",
+    "slug": "tour-divide",
+    "display_name": "Tour Divide",
+    "tagline": "2,745 miles from Banff to Mexico. The longest mountain bike time trial on earth. Self-supported. Unsupported. Unforgettable.",
+
+    "vitals": {
+      "distance_mi": 2745,
+      "elevation_ft": 200000,
+      "location": "Banff, Alberta to Antelope Wells, New Mexico",
+      "location_badge": "BANFF TO MEXICO",
+      "county": "Continental Divide (5 US states, 2 Canadian provinces)",
+      "date": "Second Friday in June annually (Grand Depart)",
+      "date_specific": "2026: Friday, June 12th at 8AM",
+      "terrain_types": ["Gravel roads", "Forest service roads", "BLM roads", "Singletrack", "Paved roads", "Hike-a-bike sections"],
+      "field_size": "~200+ starters (Grand Depart)",
+      "start_time": "8AM Mountain Time",
+      "registration": "Free entry—submit letter of intent. ITT available year-round.",
+      "prize_purse": "None—pure amateur ethos. No sponsors, no prizes.",
+      "aid_stations": "None—completely self-supported. Resupply at commercial establishments only.",
+      "cutoff_time": "No official cutoff. Competitive finish ~25 days (men), ~29 days (women)."
+    },
+
+    "climate": {
+      "primary": "Everything—snow to desert heat across 2,700+ miles",
+      "description": "June start means snow on Canadian/Montana passes, spring mud in Wyoming, afternoon thunderstorms in Colorado's high country, and desert heat in New Mexico. Temperature swings from below freezing at 11,000+ feet to 100°F+ in the desert. Weather changes rapidly at altitude. Wildfires and smoke increasingly common.",
+      "challenges": ["Snow at elevation any time", "Peanut butter mud in Wyoming", "Lightning storms in Colorado (especially above treeline)", "60-70 mph wind gusts on exposed ridges", "Monsoon season in New Mexico (July-August)", "Extreme desert heat in final sections"]
+    },
+
+    "terrain": {
+      "primary": "Mixed mountain bike terrain following the Continental Divide",
+      "surface": "~90% unpaved: 2,100 miles of gravel/dirt roads, ~60 miles singletrack, ~950 miles paved. Surfaces range from smooth gravel to unmaintained trails to rocky New Mexico terrain.",
+      "technical_rating": 3,
+      "features": ["Indiana Pass—highest point at 11,913ft", "Fleecer Ridge—toughest climb with infamous descent", "Great Divide Basin—100+ miles of waterless desert", "30+ Continental Divide crossings", "Gila Wilderness—steep, rugged New Mexico mountains"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 98,
+      "course_profile": 35,
+      "biased_opinion": 33,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "tier_override_reason": "The halo event of bikepacking ultra-racing. Legendary status despite no commercial organization.",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "2,745 miles is beyond ultra-endurance—it's expedition territory. The longest mountain bike time trial on the planet. Typical finishers take 15-40 days of continuous 24/7 effort. Current record is 13 days, 2 hours (Justinas Leveika, 2024). This is not a race; it's a way of life for 2-4 weeks."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Despite the epic scale, technical difficulty is moderate. Route is largely gravel and forest service roads requiring only intermediate off-road skills. Hike-a-bike sections (Koko Claims, Fleecer Ridge descent) are well-documented. However, weather transforms any section into technical challenge—mud, snow, and water crossings can turn rideable roads impassable."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "200,000 feet of total climbing over the course—roughly equivalent to climbing Everest from sea level seven times. Daily climbing averages 2,500-4,500 feet, some days exceeding 4,500 feet. The scale of accumulated vertical is unprecedented in cycling events."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "You experience every climate zone across 2,700 miles. Snow possible any time at elevation. June snowstorms in Colorado can stop progress entirely. Wyoming's Great Basin mud stops riders in their tracks. New Mexico monsoons create impassable quagmires. Desert sections hit 100°F+. Weather is the primary race factor—adaptability determines survival."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Indiana Pass reaches 11,913 feet—highest point. Colorado sections regularly exceed 10,000 feet with multiple 11,000+ foot passes. Extended time above 8,000 feet throughout route. Sleep deprivation compounds altitude effects. Acclimatization impossible for most starters who arrive from sea level."
+      },
+      "logistics": {
+        "score": 5,
+        "explanation": "Complete self-sufficiency across 2,700 miles. No outside assistance permitted. Resupply only at commercial establishments in ~20 towns spaced 100-200 miles apart. Must carry days of food and water for sections like the Great Basin (100+ miles, no natural water). GPS tracking recommended but not required. Mail drops to post offices permitted but not pre-arranged private support. True expedition logistics for 2-4 weeks."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The bikepacking version of the Great American Road Trip. Canada to Mexico along the Continental Divide through some of North America's most spectacular and varied terrain: Canadian Rockies, Glacier country, Wyoming's Red Desert, Colorado's high country, New Mexico's Gila Wilderness. Daily geography changes dramatically. Bucket list doesn't capture it—this is a life-defining experience that riders describe as 'the ultimate expression of freedom.'"
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "The halo event of bikepacking ultra-racing. The longest, arguably most challenging mountain bike time trial on the planet. Established in 2008, it has defined the genre of self-supported ultra-endurance cycling. Names like Mike Hall, Lael Wilcox, and Justinas Leveika are legends specifically because of Tour Divide. Only ~716 finishers in history. Finishing is a lifetime achievement."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Paradoxically elite despite zero organization. No entry fee, no prizes, no sponsors—pure amateur ethos. SPOT tracking provides live race following via TrackLeaders and DotWatcher. Rules are clear and enforced by community honor. The minimalist approach creates a purer racing experience where every decision is yours alone."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable doesn't begin to describe 2-4 weeks alone on the Continental Divide. Riders experience every emotion: terror (grizzly encounters), despair (mechanicals in nowhere), transcendence (sunrise over the Tetons), and ultimately transformation. The suffering and beauty combine into something that reshapes how finishers see themselves. Forum wisdom: 'The Tour Divide is more of a mental battle than a physical one.'"
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Legendary culture built on mutual respect and shared suffering. Those who finish share a bond that transcends typical racing camaraderie. Experienced riders mentor newcomers generously. No commercialization preserves authentic adventure cycling values. DotWatcher commentary creates engaged following. The community is small but intensely dedicated—a true tribe."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "The deepest field in ultra-endurance cycling. Attracts the absolute elite of bikepacking: world record holders, transcontinental racers, adventure cycling legends. 2024 saw multiple riders break the 8-year-old course record. Competition at the front is world-class. Even mid-pack finishers are serious athletes who have trained for months or years. The 47-60% DNF rate proves only the prepared survive."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "No entry fee. The race costs what you spend on resupply and travel. For a 2-4 week adventure across the Continental Divide, the value is extraordinary. Hotels in resort towns (Breckenridge, Steamboat) can be expensive, but bivvy camping is the competitive strategy anyway. The experience-to-cost ratio is unmatched in endurance sports."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "No entry fee, but real costs accumulate: flights to Banff (or transport from Antelope Wells), 2-4 weeks of resupply food, occasional hotels, pre-race gear preparation, post-race travel home. Bivvy strategy minimizes accommodation costs. Resort town stops (Breckenridge, Steamboat Springs) are expensive. Total trip budget: $1,500-3,000+ depending on style. Mid-range for a multi-week adventure."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Ultimate",
+      "summary": "Tour Divide is bikepacking racing at its purest and most extreme. 2,745 miles from Banff to Mexico, completely self-supported, no entry fee, no prizes, no sponsors—just you, your bike, and the Continental Divide for 2-4 weeks. It's not really comparable to other races; it's an expedition that happens to be timed. The combination of distance, elevation, terrain diversity, climate extremes, and complete self-reliance creates something unique in endurance sports. With only ~716 finishers in history and a 47-60% DNF rate, completing Tour Divide joins a very exclusive club.",
+      "strengths": [
+        "The definitive ultra-endurance bikepacking race—nothing else compares",
+        "Spectacular terrain variety: Canadian Rockies to New Mexico desert",
+        "Pure amateur ethos—no commercialization, just adventure",
+        "Legendary community and lifetime achievement upon finishing"
+      ],
+      "weaknesses": [
+        "47-60% DNF rate reflects genuine brutality—not for the underprepared",
+        "2-4 week time commitment excludes most working athletes",
+        "Equipment failures across 2,700 miles require bike mechanic skills",
+        "Mental challenge may exceed physical—isolation and sleep deprivation compound"
+      ],
+      "bottom_line": "If you have the time, preparation, and mental fortitude for the ultimate test of self-supported cycling endurance, Tour Divide is the answer. But respect what 2,745 miles alone on the Continental Divide actually means."
+    },
+
+    "black_pill": {
+      "title": "THE MONSTER THAT BREAKS HALF OF ALL STARTERS",
+      "reality": "47-60% of starters do not finish. Let that sink in. These are not casual cyclists—they are dedicated athletes who trained for months and committed to a 2-4 week expedition. Half of them fail anyway. Reasons: physical breakdown (feet swell, hands go numb, altitude sickness), mental defeat (alone for weeks, sleep-deprived, the doubts become overwhelming), mechanical failures beyond repair (you are 50+ miles from any bike shop), impassable weather (mud that stops all progress, snowstorms at 11,000 feet), fear (grizzly bears, lightning, exposure). The route is extremely hard on equipment—wheels, tires, and drivetrains take abuse that destroys components.",
+      "consequences": [
+        "Loss of feeling in toes can last 1-4 months post-race",
+        "Something WILL go wrong mechanically—be able to fix it yourself",
+        "100+ mile stretches with no water, no services, no cell coverage",
+        "Sleep deprivation compounds every problem—3-4 hours/night for front runners"
+      ],
+      "expectation_reset": "This is NOT recommended as your first bikepacking ultra. Multi-day shakedown rides (1,000km+) are essential. You need to be skilled at bike repair, nutrition management, sleep strategy, and mental resilience. The Tour Divide is called 'a monster' for a reason. Respect it or it will destroy your attempt."
+    },
+
+    "final_verdict": {
+      "score": "98 / 100",
+      "one_liner": "The longest mountain bike time trial on earth—2,745 miles from Banff to Mexico, completely self-supported, pure amateur ethos.",
+      "should_you_race": "Yes if you have serious ultra-endurance experience and can commit 2-4 weeks to the Continental Divide. Yes if you can handle complete self-sufficiency across remote terrain. Yes if you want the ultimate test. Skip if you haven't completed multi-day self-supported events. Skip if you need race organization, aid stations, or support crews. Skip if you cannot repair your own bike.",
+      "alternatives": "Trans Am Bike Race (4,400 miles, more paved); Colorado Trail Race (500 miles, high-altitude focus); Arizona Trail Race (800 miles, desert bikepacking); Badlands (800km, self-supported in Spain)"
+    },
+
+    "logistics": {
+      "airport": "YYC (Calgary) - 90min to Banff start; ELP (El Paso) - 85 miles from Antelope Wells finish; alternative Columbus NM finish has services",
+      "lodging_strategy": "Banff for pre-race (book early, resort town prices). During race: bivvy/wild camping saves time vs hotels. Resort towns (Breckenridge, Steamboat) expensive. Fernie hostel good value. Towns every 100-200 miles for resupply.",
+      "food": "Self-supported—resupply at ~20 towns along route. Carry 2-3 days food for long stretches. Great Basin (Wyoming) has 100+ miles with no natural water. Binge at restaurants, carry Snickers and hand food for riding.",
+      "packet_pickup": "No formal packet pickup—show up at Banff start line. Submit letter of intent beforehand encouraged.",
+      "parking": "Banff staging area. Coordinate with Whitefish-area bike shops (Glacier Cyclery) for post-race transport.",
+      "official_site": "https://tourdivide.org"
+    },
+
+    "history": {
+      "founded": 2008,
+      "founder": "Matthew Lee (expanded from Mike Curiak's Great Divide Race)",
+      "origin_story": "The Great Divide Mountain Bike Route (GDMBR) was created by Adventure Cycling Association in 1997. Mike Curiak conceived the Great Divide Race in 2004, originally starting at Roosville, Montana. When Adventure Cycling added a 221-mile Canadian section in 2008, Matthew Lee amended the race to start in Banff and renamed it Tour Divide.",
+      "notable_moments": [
+        "2015: Lael Wilcox sets women's record on rookie attempt, then lowers it again two weeks later",
+        "2016: Mike Hall sets course record of 13d 22h 51m that stood for 8 years",
+        "2017: Mike Hall tragically killed during Indian Pacific Wheel Race in Australia",
+        "2024: Justinas Leveika breaks record on full-suspension Trek Supercaliber (13d 2h 16m)",
+        "2024: Austin Killips sets women's record of 14d 23h 12m on ITT"
+      ],
+      "reputation": "The halo event of bikepacking ultra-racing. The longest—arguably most challenging—mountain bike time trial on the planet."
+    },
+
+    "course_description": {
+      "character": "A 2,745-mile expedition along the Continental Divide from Canada to Mexico. The route passes through 5 US states and 2 Canadian provinces, crossing the Divide 30+ times. Terrain ranges from glaciated Canadian Rockies to Wyoming's Red Desert to Colorado's 11,000+ foot passes to New Mexico's rocky Gila Wilderness. Surface is roughly 90% unpaved—mostly gravel and forest service roads with some singletrack and paved connectors. The character changes daily as you ride south through changing ecosystems, elevations, and climates.",
+      "suffering_zones": [
+        {"mile": 254, "label": "Canada/Montana Border", "desc": "First major psychological milestone. Koko Claims hike-a-bike section early. Grizzly bear territory begins."},
+        {"mile": 800, "label": "Fleecer Ridge (Montana)", "desc": "Toughest climb on Tour Divide. Infamous descent so steep riders report brake rotors hot enough to turn water to steam."},
+        {"mile": 1400, "label": "Great Divide Basin (Wyoming)", "desc": "100+ miles of Red Desert. Second-longest stretch without natural water. Peanut butter mud if it rains. Psychological wasteland."},
+        {"mile": 2000, "label": "Indiana Pass (Colorado)", "desc": "Highest point at 11,913 feet. 4,038 feet of climbing over 23 miles. 13 miles riding above 11,000 feet. Lightning danger."},
+        {"mile": 2500, "label": "Gila to Antelope Wells (New Mexico)", "desc": "Final 250 miles through deteriorating roads, rocky terrain, desert heat. Last 123 miles from Silver City have no services. Mental finish line torture."}
+      ],
+      "signature_challenge": "The complete package—2,745 miles of self-supported suffering through every climate zone, every terrain type, and every mental state across 2-4 weeks on the Continental Divide."
+    },
+
+    "records": {
+      "mens_overall": {
+        "name": "Justinas Leveika",
+        "time": "13 days, 2 hours, 16 minutes",
+        "year": 2024,
+        "note": "First rider to win on full-suspension mountain bike (Trek Supercaliber)"
+      },
+      "womens_overall": {
+        "name": "Austin Killips",
+        "time": "14 days, 23 hours, 12 minutes",
+        "year": 2024,
+        "note": "ITT attempt, broke Lael Wilcox's long-standing record by 12 hours"
+      },
+      "womens_grand_depart": {
+        "name": "Meaghan Hackinen",
+        "time": "15 days, 23 hours",
+        "year": 2024,
+        "note": "Finished 7th overall"
+      },
+      "historical_mens": {
+        "name": "Mike Hall",
+        "time": "13 days, 22 hours, 51 minutes",
+        "year": 2016,
+        "note": "Record stood for 8 years until 2024"
+      }
+    },
+
+    "wildlife": {
+      "primary_concern": "Grizzly bears from Pinedale, WY north through all of Canada",
+      "requirements": ["Bear spray essential and recommended to be accessible", "Food storage awareness", "Know how to respond to bluff charges"],
+      "reality": "Injury/death from wildlife is virtually zero in race history, but encounters happen regularly. Bears waking sleeping riders has been reported. Black bears throughout route."
+    },
+
+    "key_towns": {
+      "canada": ["Banff (start, full services)", "Elkford", "Sparwood", "Fernie (good value hostel)"],
+      "montana": ["Whitefish (Glacier Cyclery—excellent shop)", "Helena", "Butte"],
+      "wyoming": ["Pinedale", "Rawlins"],
+      "colorado": ["Steamboat Springs (expensive)", "Breckenridge/Frisco (expensive)", "Salida", "Del Norte"],
+      "new_mexico": ["Grants", "Pie Town (Toaster House hostel, famous pie)", "Silver City", "Antelope Wells (NO services—border crossing only)"]
+    }
+  }
+}

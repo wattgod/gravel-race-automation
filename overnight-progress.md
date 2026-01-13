@@ -3,33 +3,35 @@
 
 ### RESEARCH QUEUE (from database)
 Races still needing research:
-1. dirty-french
-2. fuego-mtb
-3. gravel-fondo-switzerland
-4. gravel-roubaix
-5. little-sugar-mtb
-6. rad-dirt-fest
-7. steamboat-gravel
-8. trans-am-bike-race
-9. trans-iowa
-10. unbound-100
-11. unbound-xl
-12. walburg-dirty-30
+1. gravel-fondo-switzerland
+2. steamboat-gravel
+3. trans-am-bike-race
+4. trans-iowa
+5. unbound-100
+6. unbound-xl
+7. walburg-dirty-30
 
 ---
 
 ### BATCH STATUS
 
-**Currently Running (Batch 3):**
-- Big Horn Gravel - in progress
-- Chequamegon MTB - in progress
-- Grinduro - in progress
-- Jeroboam - in progress
-- Ouray Gravel Grinder - in progress
+**Currently Running (Batch 4):**
+- Dirty French - in progress
+- Fuego MTB - in progress
+- Gravel Roubaix - in progress
+- Little Sugar MTB - in progress
+- Rad Dirt Fest - in progress
 
 ---
 
 ### COMPLETED TONIGHT
+
+**Batch 3 (5 dumps - auto-committed):**
+- Big Horn Gravel (17KB)
+- Chequamegon MTB (20KB)
+- Grinduro (23KB)
+- Jeroboam (17KB)
+- Ouray Gravel Grinder (23KB)
 
 **Batch 2 (5 dumps - auto-committed):**
 - Colorado Trail Race (23KB)
@@ -61,6 +63,7 @@ Races still needing research:
 
 ---
 
-**Total completed tonight: 24 research dumps**
+**Total completed tonight: 29 research dumps**
+**Remaining in queue: 7 races**
 
 *Auto-updating as batches complete*

@@ -1,53 +1,211 @@
 {
-    "raceId": "grasshopper-series",
-    "name": "Grasshopper Adventure Series",
-    "slug": "grasshopper-series",
-    "location": {
-          "city": "Multiple Locations",
-          "state": "California, Oregon, Colorado",
-          "country": "USA",
-          "region": "Western United States"
-    },
-    "date": {
-          "month": "Various",
-          "typical": "April through September",
-          "season": "Spring through Fall",
-          "year2026": "Multiple dates 2026"
-    },
-    "organizer": {
-          "name": "Grasshopper Adventure Series",
-          "website": "https://grasshopperadventureseries.com/"
-    },
-    "distances": [
-          {
-                  "name": "Long Course",
-                  "distance": "60-80 miles",
-                  "elevationGain": "4,000-8,000 feet",
-                  "description": "Challenging distance varies by location with significant climbing"
-          },
-          {
-                  "name": "Short Course",
-                  "distance": "30-40 miles",
-                  "elevationGain": "2,000-4,000 feet",
-                  "description": "Accessible distance for intermediate riders"
-          }
-    ],
-    "terrain": "Varies by location - mountain trails, forest roads, high-altitude gravel, coastal routes depending on venue",
-    "registration": "Series registration or individual event entry available",
-    "weather": "Varies significantly by location and season - from coastal fog to high-altitude mountain conditions",
-    "uniqueCharacteristics": [
-          "Multi-event series across Western US states",
-          "Each event features unique regional terrain",
-          "Points series for overall championship",
-          "Welcoming community atmosphere",
-          "Well-supported events with aid stations",
-          "Beautiful scenic locations throughout the West",
-          "Accessible to wide range of abilities",
-          "Post-race celebrations at each venue"
-    ],
-    "seriesAffiliation": "Grasshopper Adventure Series",
-    "tier": "Regional",
-    "popularity": "High - popular Western US series",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+    "race": {
+        "name": "Grasshopper Adventure Series",
+        "slug": "grasshopper-series",
+        "display_name": "Grasshopper Adventure Series",
+        "tagline": "The OG of gravel racing - 25+ years of Northern California dirt, redwoods, and pure cycling soul.",
+
+        "vitals": {
+            "distance_mi": "48-91",
+            "distance_range": "48 miles (Low Gap) to 91 miles (King Ridge)",
+            "elevation_ft": "4,500-9,116",
+            "elevation_range": "4,500 ft (Jackson Forest) to 9,116 ft (King Ridge)",
+            "location": "Northern California",
+            "location_badge": "NORCAL",
+            "date": "January through May annually",
+            "date_specific": "2026: Jan 25, Feb 28, Mar 28, Apr 25, May 24",
+            "series_events": [
+                {
+                    "name": "Low Gap",
+                    "date": "January 25, 2026",
+                    "location": "Ukiah, CA",
+                    "distance_mi": 48,
+                    "elevation_ft": 6162,
+                    "terrain": "95% dirt/gravel"
+                },
+                {
+                    "name": "Huffmaster",
+                    "date": "February 28, 2026",
+                    "location": "Maxwell, CA",
+                    "distance_mi": 90,
+                    "elevation_ft": 4866,
+                    "terrain": "Mixed gravel/paved"
+                },
+                {
+                    "name": "King Ridge",
+                    "date": "March 28, 2026",
+                    "location": "Duncan Hills, Sonoma County",
+                    "distance_mi": 91,
+                    "elevation_ft": 9116,
+                    "terrain": "96% paved, one gravel section"
+                },
+                {
+                    "name": "Jackson Forest",
+                    "date": "April 25, 2026",
+                    "location": "Caspar, CA",
+                    "distance_mi": 51,
+                    "elevation_ft": 4500,
+                    "terrain": "100% off-road (singletrack + gravel)"
+                },
+                {
+                    "name": "Ukiah Mendo Gravel Epic",
+                    "date": "May 24, 2026",
+                    "location": "Ukiah, CA",
+                    "distance_mi": 76,
+                    "elevation_ft": 8423,
+                    "terrain": "Mixed gravel/dirt/pavement"
+                }
+            ]
+        },
+
+        "gravel_god_rating": {
+            "overall_score": 75,
+            "course_profile": 22,
+            "biased_opinion": 29,
+            "editorial_tier": 2,
+            "editorial_tier_label": "TIER 2",
+            "business_tier": 2,
+            "business_tier_label": "TIER 2",
+            "display_tier": 2,
+            "display_tier_label": "TIER 2"
+        },
+
+        "course_profile": {
+            "length": {
+                "score": 3,
+                "explanation": "Events range from 48 miles (Low Gap) to 91 miles (King Ridge), averaging around 70 miles across the series. Squarely in the 60-100 mile category for most events, with shorter and longer options available."
+            },
+            "technicality": {
+                "score": 3,
+                "explanation": "Mixed terrain varying by event - Jackson Forest features 9.5 miles of flowing singletrack per lap with rooty/rocky sections, while King Ridge is 96% paved. Low Gap and Ukiah Mendo Epic offer chunky gravel and logging roads. Overall a diverse technical challenge across the series."
+            },
+            "elevation": {
+                "score": 4,
+                "explanation": "Serious climbing at every event - from 4,500 ft at Jackson Forest to a leg-breaking 9,116 ft at King Ridge. Multiple events feature 6,000-8,000+ ft of elevation gain with pitches exceeding 12%. This is a climbing series through and through."
+            },
+            "climate": {
+                "score": 3,
+                "explanation": "January through May in Northern California means variable winter/spring conditions. Potential for rain, mud, and cool temperatures, especially early season. The 2025 Ukiah Mendo Epic was won in muddy conditions. Not extreme, but conditions require preparation."
+            },
+            "altitude": {
+                "score": 2,
+                "explanation": "Northern California coastal and inland routes at relatively low elevation - most courses stay below 3,000 ft. Altitude is not a significant factor, though the climbing is relentless."
+            },
+            "logistics": {
+                "score": 3,
+                "explanation": "Events span Ukiah, Maxwell, Caspar, and Sonoma County - all within a few hours of San Francisco Bay Area. Requires moderate planning for NorCal travel, but well-established venues with hotels and airports accessible. Series pass option simplifies multi-event logistics."
+            },
+            "adventure": {
+                "score": 4,
+                "explanation": "This is the OG of gravel racing - founded in 1998 by Miguel Crawford. Routes traverse exclusive private Mendocino Redwood Company roads, coastal views, redwood forests, and hidden NorCal gems. The self-sufficiency ethos and diverse terrain create memorable adventures. Not quite bucket-list epic, but genuinely special."
+            }
+        },
+
+        "biased_opinion_ratings": {
+            "prestige": {
+                "score": 4,
+                "explanation": "The world's first and longest-running gravel series, now celebrating over 25 years. The Grasshopper Adventure Series sparked the entire mixed-terrain movement. Attracts World Cup pros like Kate Courtney, Peter Stetina, and US gravel national champion Brennan Wertz. Not LTGP or UCI, but historic significance and strong reputation."
+            },
+            "race_quality": {
+                "score": 4,
+                "explanation": "Professional organization from founder Miguel Crawford with well-stocked aid stations (Skratch, GU, grilled cheese sandwiches), course marshals, SAG support for emergencies, and clear categories. Points system rewards consistency across the series. Smooth registration with series pass options and junior discounts."
+            },
+            "experience": {
+                "score": 4,
+                "explanation": "Five unique events through stunning Northern California landscapes - from the redwoods of Montgomery Woods to coastal views at King Ridge, flowing singletrack in Jackson Forest, and remote gravel through the Sacramento Valley. Each Hopper has its own character. The emphasis on bicycle diversity, artistry, and personal challenge creates memorable race days."
+            },
+            "community": {
+                "score": 5,
+                "explanation": "Legendary community vibe - this is what makes the Hoppers special. The self-sufficiency philosophy creates strong camaraderie. Forum comments rave: 'Best group ride vibe around' and 'So much better than any Fondo.' Welcomes everyone from beginners to World Cup pros. Team classification encourages group participation. The 'Hopper Super Hero King, Queen and Rider of the Universe' title says it all."
+            },
+            "field_depth": {
+                "score": 4,
+                "explanation": "Pro category with $500/250/150 cash prizes attracts serious competition. Recent winners include Peter Stetina, Kate Courtney (4 consecutive Low Gap wins), Brennan Wertz (US gravel national champion), and Jen Tave. Strong competitive field beyond just the pros, with deep age group categories. Not quite LTGP depth, but well above regional."
+            },
+            "value": {
+                "score": 4,
+                "explanation": "Series pass at $650-700 for 5 events works out to ~$130-140 per event - excellent value for professionally organized races. Individual events $120-185. Group discounts, junior discounts, and early-bird pricing available. First 50 women get additional $50 off. Quality aid stations, medals, coffee prizes, and sponsor swag add value."
+            },
+            "expenses": {
+                "score": 4,
+                "explanation": "Northern California is accessible from major West Coast airports. Ukiah and Sonoma County have reasonable lodging options. Total per-event costs likely $300-500 including registration, travel, and lodging for most participants. Series pass makes multi-event participation economical. Not budget-friendly for out-of-state travelers, but reasonable for the region."
+            }
+        },
+
+        "historical_significance": {
+            "founded": 1998,
+            "founder": "Miguel Crawford",
+            "claim_to_fame": "World's first and longest-running gravel/mixed-terrain adventure series",
+            "philosophy": "Bicycle diversity, artistry in movement, personal challenge, perseverance, and self-sufficiency"
+        },
+
+        "recent_champions": {
+            "2025": {
+                "series_overall_men": "Taj Krieger",
+                "series_overall_women": "Jen Tave",
+                "notable_winners": ["Peter Stetina", "Kate Courtney", "Brennan Wertz", "Justin Peck", "Jen Tave"]
+            },
+            "2024": {
+                "series_overall_men": "Peter Stetina",
+                "series_overall_women": "Flavia Oliveira Parks"
+            }
+        },
+
+        "location": {
+            "city": "Multiple Locations",
+            "state": "California",
+            "country": "USA",
+            "region": "Northern California",
+            "counties": ["Sonoma", "Mendocino", "Lake", "Colusa"]
+        },
+
+        "organizer": {
+            "name": "Grasshopper Adventure Series / Hopper Adventures",
+            "website": "https://grasshopperadventureseries.com/",
+            "founder": "Miguel Crawford"
+        },
+
+        "registration": {
+            "series_pass_early": "$650 (Nov 1 - Dec 1)",
+            "series_pass_regular": "$700 (Dec 1 - Jan 21)",
+            "individual_events": "$120-185 per event",
+            "discounts": "Groups 5+, juniors, first 50 women, referral program"
+        },
+
+        "categories": {
+            "gender": ["Male", "Female", "Non-Binary"],
+            "age_groups": ["Pro", "U19", "19-29", "30-39", "40-49", "50-59", "60+", "70+"],
+            "junior_series": ["Juniors U16", "Juniors 16-18"]
+        },
+
+        "terrain": "Diverse - gravel roads, logging roads, singletrack, pavement. Varies significantly by event from 95% dirt (Low Gap) to 96% paved (King Ridge) to 100% off-road (Jackson Forest).",
+
+        "weather": "January-May Northern California - variable winter/spring conditions with potential for rain, mud, fog, and cool temperatures",
+
+        "unique_characteristics": [
+            "World's first gravel series (founded 1998)",
+            "25+ years of continuous operation",
+            "Self-sufficiency philosophy - no personal SAG allowed",
+            "Exclusive access to private Mendocino Redwood Company roads",
+            "5-event series with points championship",
+            "Diverse terrain from singletrack to road",
+            "Pro cash prizes and age group podiums",
+            "Welcoming community from beginners to World Cup pros",
+            "Team classification encouraging group participation",
+            "Nonprofit beneficiaries including youth cycling programs"
+        ],
+
+        "nonprofit_beneficiaries": [
+            "NorCal Interscholastic Cycling League",
+            "Monarch Racing Team",
+            "Redwood Trails Alliance",
+            "Adventure Therapy Foundation",
+            "Be Good Foundation",
+            "Redwood Forest Foundation",
+            "Small Monsters Project"
+        ],
+
+        "lastUpdated": "2026-01-13",
+        "dataQuality": "Excellent - scored with GravelGod 14-Dimension system"
+    }
 }

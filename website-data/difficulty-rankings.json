@@ -2,10 +2,10 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 45,
+    "total_scored_races": 49,
     "tier_distribution": {
-      "TIER 1": 26,
-      "TIER 2": 17,
+      "TIER 1": 27,
+      "TIER 2": 20,
       "TIER 3": 2
     }
   },
@@ -117,6 +117,18 @@
       "location": "Turin, Italy to Nice, France",
       "distance_mi": 435,
       "elevation_ft": 52493
+    },
+    {
+      "slug": "jeroboam",
+      "name": "Jeroboam",
+      "overall_score": 88,
+      "course_profile_total": 31,
+      "editorial_total": 26,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Erbusco, Lombardy, Italy",
+      "distance_mi": 186,
+      "elevation_ft": 23000
     },
     {
       "slug": "the-traka",
@@ -275,6 +287,18 @@
       "elevation_ft": 5940
     },
     {
+      "slug": "gravel-fondo-switzerland",
+      "name": "UCI Gravel Suisse",
+      "overall_score": 78,
+      "course_profile_total": 27,
+      "editorial_total": 25,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Aigle / Villars-sur-Ollon, Switzerland",
+      "distance_mi": 68,
+      "elevation_ft": 11300
+    },
+    {
       "slug": "lauf-true-grit",
       "name": "Lauf True Grit Gravel Epic",
       "overall_score": 78,
@@ -357,6 +381,18 @@
       "location": "San Marcos, California",
       "distance_mi": 130,
       "elevation_ft": 10500
+    },
+    {
+      "slug": "grasshopper-series",
+      "name": "Grasshopper Adventure Series",
+      "overall_score": 75,
+      "course_profile_total": 22,
+      "editorial_total": 29,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Northern California",
+      "distance_mi": "48-91",
+      "elevation_ft": "4,500-9,116"
     },
     {
       "slug": "grinduro",
@@ -477,6 +513,18 @@
       "location": "Goshen, Arkansas",
       "distance_mi": 67,
       "elevation_ft": 4850
+    },
+    {
+      "slug": "grinduro-canada",
+      "name": "Grinduro Canada",
+      "overall_score": 68,
+      "course_profile_total": 22,
+      "editorial_total": 25,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Saint-Urbain-de-Charlevoix, Quebec, Canada",
+      "distance_mi": 67,
+      "elevation_ft": 5900
     },
     {
       "slug": "dirty-french",

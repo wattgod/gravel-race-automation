@@ -1,44 +1,177 @@
 {
-    "raceId": "little-sugar-mtb",
-    "name": "Life Time Little Sugar",
+  "race": {
+    "name": "LITTLE SUGAR MTB",
     "slug": "little-sugar-mtb",
+    "display_name": "Little Sugar MTB",
+    "tagline": "62 miles of Ozark limestone singletrack that'll humble your tires and test your soul in America's mountain biking capital.",
+
+    "vitals": {
+      "distance_mi": 61.7,
+      "distance_km": 99.3,
+      "elevation_ft": 7000,
+      "location": "Bentonville, Arkansas",
+      "location_badge": "BENTONVILLE, AR",
+      "date": "October annually",
+      "date_specific": "2026: October 11"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 81,
+      "course_profile": 23,
+      "biased_opinion": 30,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "100K (61.7 miles) places this solidly in the mid-range marathon category. Substantial but not ultra-distance, though the technical nature makes every mile count double."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Nearly pure singletrack with rock gardens, The Ledges section that sounds like riding on glass, sharp Ozark limestone, switchbacks, roots, and exposure. This is as technical as marathon MTB gets."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6,558-7,000 feet of climbing delivered as death by 1000 cuts - relentless punchy efforts with no sustained climbs to find rhythm. Mentally and physically devastating."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "October Arkansas is a wildcard - 2023 brought 50F rain, 2024 was unseasonably hot and dusty. Average highs of 72F are ideal, but conditions are unpredictable and trail surface changes dramatically with weather."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Bentonville sits at roughly 1,300 feet elevation. No altitude concerns whatsoever - this race tests your legs and skills, not your ability to breathe thin air."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "XNA Regional Airport is nearby, but race week during Big Sugar Classic means hotels book up fast at premium rates. Plan months ahead. Point-to-point format adds transport complexity."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "World-class trail systems (Coler, Slaughter Pen, Back 40), fall foliage, caves, waterfalls, bluff lines, and a downtown Bentonville finish. The mountain biking capital delivers an epic experience."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix event #5 of 6, Leadville Trail 100 MTB qualifier, $30,000 prize purse. This is where the world's best marathon MTB racers throw down in October."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time production quality with well-stocked aid stations, proper course marking (GPS still recommended), packet pickup expo, and festival week integration. Professional execution."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Authentic Ozark singletrack through three legendary trail systems, fall colors, unique rock features, and finishing on Bentonville's downtown square. Memorable, challenging, character-building."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Bentonville is the self-proclaimed Mountain Biking Capital of the World - and the infrastructure backs it up. Bike racks at restaurants, cars yield to cyclists, trails minutes from downtown. The culture is legendary."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix brings the heavyweights: Keegan Swenson, Christopher Blevins, Matt Beers, Haley Batten, Sofia Gomez Villafane. Elite field with LTGP overall standings on the line."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$160 for the 100K is premium but includes world-class trails, Leadville qualifier opportunity, professional support, and festival week access. Worth it for the caliber of event."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate total cost - race entry $160, flights to XNA reasonable, but hotels spike during race week ($80-240/night). Budget $600-1000 for the full experience. Book lodging early."
+      }
+    },
+
     "location": {
-          "city": "St. George",
-          "state": "Utah",
-          "country": "USA",
-          "region": "Southern Utah"
+      "city": "Bentonville",
+      "state": "Arkansas",
+      "country": "USA",
+      "region": "Northwest Arkansas"
     },
+
     "date": {
-          "month": "October",
-          "typical": "early to mid-October",
-          "season": "Fall",
-          "year2026": "October 2026"
+      "month": "October",
+      "typical": "Second Sunday in October",
+      "season": "Fall",
+      "year2026": "October 11, 2026"
     },
+
     "organizer": {
-          "name": "Life Time",
-          "website": "https://www.lifetime.life/"
+      "name": "Life Time",
+      "website": "https://www.bigsugarclassic.com/mtb/"
     },
+
     "distances": [
-          {
-                  "name": "Little Sugar",
-                  "distance": "50 miles",
-                  "elevationGain": "5,500+ feet",
-                  "description": "Desert and mountain terrain with significant climbing near St. George"
-          }
+      {
+        "name": "100K",
+        "distance_km": 99.3,
+        "distance_mi": 61.7,
+        "elevation_ft": 7000,
+        "description": "The flagship distance - nearly pure singletrack through Coler, Back 40, and Slaughter Pen. Leadville Trail 100 MTB qualifier."
+      },
+      {
+        "name": "50K",
+        "distance_km": 52.8,
+        "distance_mi": 32.8,
+        "elevation_ft": 3474,
+        "description": "Intermediate distance covering the best of Bentonville's trail systems. Perfect for Semi-Sweet challenge pairing with Big Sugar 50-mile gravel."
+      },
+      {
+        "name": "20K",
+        "distance_km": 18.9,
+        "distance_mi": 11.7,
+        "elevation_ft": 1115,
+        "description": "Beginner-friendly intro to the Ozark singletrack experience."
+      }
     ],
-    "terrain": "High desert landscape with red rock formations, technical sections, and sustained climbing in Southern Utah terrain",
-    "registration": "Via Life Time registration system",
-    "weather": "Desert fall conditions - warm days, cool nights, typically dry",
+
+    "terrain": "Sharp Ozark limestone singletrack, rock gardens, punchy climbs, technical descents, roots, switchbacks, The Ledges, bluff lines, caves, and flow sections. Almost entirely off-road.",
+
+    "registration": {
+      "opens": {
+        "deferral": "February 16, 2026",
+        "lifetime_members": "February 23, 2026",
+        "general": "March 2, 2026"
+      },
+      "fees": {
+        "100K": "$160",
+        "50K": "$95",
+        "20K": "$50"
+      },
+      "sells_out": true
+    },
+
+    "weather": {
+      "average_high_f": 72,
+      "average_low_f": 49,
+      "conditions": "Variable - can be hot/dusty or cold/rainy. October Arkansas is unpredictable.",
+      "precipitation_chance": "25%"
+    },
+
     "uniqueCharacteristics": [
-          "Part of Life Time Grand Prix off-road series",
-          "Stunning red rock desert scenery of Southern Utah",
-          "Challenging climbing with over 5,500 feet of elevation gain",
-          "Technical sections through varied desert terrain",
-          "Often one of the final Grand Prix rounds of the season"
+      "Life Time Grand Prix event #5 of 6",
+      "Leadville Trail 100 MTB qualifier (35+ coins available)",
+      "Nearly pure singletrack for 62 miles - rare for marathon distance",
+      "Sharp Ozark limestone 'sugar rocks' notorious for flats",
+      "The Ledges - race-defining technical section",
+      "Death by 1000 cuts climbing profile",
+      "Point-to-point: Coler to Downtown Bentonville Square",
+      "Part of Big Sugar Classic week with combined Sweet Tooth challenge",
+      "World-class pro field with $30,000 purse",
+      "Bentonville: Mountain Biking Capital of the World"
     ],
+
     "seriesAffiliation": "Life Time Grand Prix",
-    "tier": "Professional",
-    "popularity": "High - Life Time Grand Prix event",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+    "tier": "TIER 1",
+    "popularity": "High - sells out, 1,200+ participants",
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Excellent"
+  }
 }

@@ -1,4 +1,5 @@
 {
+  "race": {
     "raceId": "sea-otter-gravel",
     "name": "Sea Otter Gravel",
     "officialName": "Life Time Sea Otter Classic Gravel Race",
@@ -322,11 +323,86 @@
     },
     "tier": 1,
     "popularity": 85,
-    "lastUpdated": "2026-01-08",
+    "lastUpdated": "2026-01-13",
     "dataQuality": "High",
     "sources": [
           "https://www.seaotterclassic.com",
           "https://www.lifetimegrandprix.com",
           "Perplexity research 2026-01-08"
-    ]
+    ],
+
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "course_profile": 20,
+      "biased_opinion": 29,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship 90-mile (88.8 elite) distance falls solidly in the 60-100 mile range. Multiple distance options (30/60/90) but the marquee race is substantial endurance."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain with sandy climbs, loose-over-hard descents, and some singletrack sections through Fort Ord. Technical enough to gap less-skilled riders but not extreme rock gardens or hike-a-bike."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8,157 feet of climbing for the elite 3-lap race (2,719 ft per lap). Constant rollers and punchy climbs create significant cumulative gain in the 6,000-10,000 ft range."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Monterey April weather is near-ideal for racing: 62F highs, 49F lows, only 13% rain chance. Morning fog and coastal breeze are minor challenges but conditions are generally mild."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level to approximately 1,000 feet maximum elevation. No altitude concerns whatsoever - this is a coastal California course with zero oxygen debt considerations."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Excellent access via Monterey Regional, San Jose, or SFO airports. Abundant lodging in Monterey/Carmel, dedicated shuttle services with Sea Otter discounts. Minor planning required but very accessible."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Historic Fort Ord National Monument (former Army base, 14,000 acres), iconic Laguna Seca raceway start/finish, world's largest cycling festival atmosphere. Memorable but not remote bucket-list adventure."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix Race #1 (series opener since 2025), official Unbound Gravel Qualifier, embedded in world's largest cycling festival with 74,000 attendees. Olympic-caliber pros compete here."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time production quality with professional organization, multiple aid stations per lap, gear bag drops, and festival-level infrastructure. Can feel chaotic amid 10,000+ athletes across disciplines."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Massive expo with 1,000+ bike brands, free demos, beer garden, food courts, pro athlete autograph sessions. The race is one highlight of a multi-day cycling extravaganza. Memorable but busy."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Sea Otter draws a passionate cycling community across all disciplines. Strong gravel scene with welcoming vibe and multiple distance options for all levels. Festival energy is infectious."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Elite LTGP field features Olympic silver medalists (Haley Batten), multi-time champions (Keegan Swenson - 4 consecutive Sea Otter wins), and world-class gravel professionals. Top-tier competition."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Registration includes 4-day festival pass, post-race meal at Casa Amigos lounge, parking pass, and access to massive expo/demos. Strong value proposition for the complete package."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "California lodging is pricey, especially in Monterey during Sea Otter (overlaps with Big Sur Marathon). Multiple airport options and shuttle discounts help. Estimate $500-1,000 total trip cost."
+      }
+    }
+  }
 }

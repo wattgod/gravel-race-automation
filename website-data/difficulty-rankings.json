@@ -2,11 +2,11 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 50,
+    "total_scored_races": 55,
     "tier_distribution": {
-      "TIER 1": 27,
-      "TIER 2": 21,
-      "TIER 3": 2
+      "TIER 1": 29,
+      "TIER 2": 23,
+      "TIER 3": 3
     }
   },
   "races": [
@@ -179,6 +179,18 @@
       "elevation_ft": 3000
     },
     {
+      "slug": "sea-otter-gravel",
+      "name": "Sea Otter Gravel",
+      "overall_score": 82,
+      "course_profile_total": 20,
+      "editorial_total": 29,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "",
+      "distance_mi": null,
+      "elevation_ft": null
+    },
+    {
       "slug": "gravel-earth",
       "name": "Gravel Earth Series",
       "overall_score": 82,
@@ -225,6 +237,18 @@
       "location": "Gypsum, Colorado",
       "distance_mi": 85,
       "elevation_ft": 10500
+    },
+    {
+      "slug": "little-sugar-mtb",
+      "name": "Little Sugar MTB",
+      "overall_score": 81,
+      "course_profile_total": 23,
+      "editorial_total": 30,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Bentonville, Arkansas",
+      "distance_mi": 61.7,
+      "elevation_ft": 7000
     },
     {
       "slug": "strade-bianche-gran-fondo",
@@ -309,6 +333,18 @@
       "location": "Santa Clara, Utah",
       "distance_mi": 84,
       "elevation_ft": 9000
+    },
+    {
+      "slug": "pirinexus-360",
+      "name": "Pirinexus 360",
+      "overall_score": 78,
+      "course_profile_total": 26,
+      "editorial_total": 27,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Girona, Catalonia, Spain",
+      "distance_mi": 211,
+      "elevation_ft": 11150
     },
     {
       "slug": "fuego-mtb",
@@ -405,6 +441,18 @@
       "location": "Multi-Location Global Series",
       "distance_mi": 60,
       "elevation_ft": 7800
+    },
+    {
+      "slug": "rad-dirt-fest",
+      "name": "Rad Dirt Fest",
+      "overall_score": 74,
+      "course_profile_total": 25,
+      "editorial_total": 27,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Trinidad, Colorado",
+      "distance_mi": 113,
+      "elevation_ft": 10613
     },
     {
       "slug": "rebeccas-private-idaho",
@@ -609,6 +657,18 @@
       "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
       "distance_mi": 131,
       "elevation_ft": 7000
+    },
+    {
+      "slug": "ouray-gravel-grinder",
+      "name": "Ouray Gravel Grinder",
+      "overall_score": 58,
+      "course_profile_total": 29,
+      "editorial_total": 20,
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "location": "Ouray, Colorado",
+      "distance_mi": 80,
+      "elevation_ft": 7800
     }
   ]
 }

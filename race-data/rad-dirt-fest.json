@@ -1,22 +1,192 @@
 {
+  "race": {
     "raceId": "rad-dirt-fest",
     "name": "The Rad Dirt Fest",
     "slug": "rad-dirt-fest",
-    "location": {"city": "Trinidad", "state": "Colorado", "country": "USA"},
-    "date": {"month": "September", "typical": "Late September", "season": "Fall", "specific": "2025-09-27"},
-    "organizer": {"name": "The Rad Dirt Fest", "website": "theraddirtfest.com"},
+    "display_name": "Rad Dirt Fest",
+    "tagline": "Champagne gravel and Spanish Peaks views - Colorado's hidden high-altitude gem that'll humble sea-level flatlanders.",
+
+    "vitals": {
+      "distance_mi": 113,
+      "elevation_ft": 10613,
+      "location": "Trinidad, Colorado",
+      "location_badge": "TRINIDAD, COLORADO",
+      "date": "September annually",
+      "date_specific": "2026: September 26"
+    },
+
+    "location": {
+      "city": "Trinidad",
+      "state": "Colorado",
+      "country": "USA"
+    },
+
+    "date": {
+      "month": "September",
+      "typical": "Late September",
+      "season": "Fall",
+      "specific": "2025-09-27"
+    },
+
+    "organizer": {
+      "name": "Life Time Events",
+      "website": "theraddirt.com"
+    },
+
     "distances": [
-          {"name": "Stubborn Delores", "distance": 113, "unit": "miles", "distanceKm": 182, "elevationGain": 10613, "elevationGainMeters": 3234, "category": "Extreme", "maxElevation": 8900},
-          {"name": "Anteloop", "distance": 70, "unit": "miles", "distanceKm": 113, "elevationGain": 5000, "elevationGainMeters": 1524, "category": "Advanced", "description": "Substantial climbing over rolling, high-plains and mountain-view terrain"},
-          {"name": "Frijole", "distance": 47.2, "unit": "miles", "distanceKm": 76, "elevationGain": 4540, "elevationGainMeters": 1384, "category": "Intermediate", "maxElevation": 7221}
+      {
+        "name": "Stubborn Delores",
+        "distance": 113,
+        "unit": "miles",
+        "distanceKm": 182,
+        "elevationGain": 10613,
+        "elevationGainMeters": 3234,
+        "category": "Extreme",
+        "maxElevation": 8921
+      },
+      {
+        "name": "Anteloop",
+        "distance": 68.2,
+        "unit": "miles",
+        "distanceKm": 110,
+        "elevationGain": 6000,
+        "elevationGainMeters": 1829,
+        "category": "Advanced",
+        "description": "Desert meets snowcapped mountains with gradual climbs"
+      },
+      {
+        "name": "Frijole",
+        "distance": 47.2,
+        "unit": "miles",
+        "distanceKm": 76,
+        "elevationGain": 4632,
+        "elevationGainMeters": 1412,
+        "category": "Intermediate",
+        "maxElevation": 7500
+      }
     ],
-    "terrain": {"surface": {"gravel": 90, "dirt": 5, "paved": 5}, "technicalDifficulty": "Moderate", "technicalRating": 6, "description": "Mostly maintained gravel roads with ~2-mile technical section on South Shore Trail in Trinidad Lake State Park"},
-    "registration": {"cost": {"regular": 350, "currency": "USD"}, "website": "theraddirtfest.com"},
-    "weather": {"typical": {"tempHigh": 75, "tempLow": 45, "unit": "°F", "conditions": "High plains fall weather, sunny and cool"}},
-    "uniqueCharacteristics": ["UNBOUND Gravel qualifier", "Spanish Peaks and mesas terrain", "Start/finish downtown Trinidad (218 W Main St)", "Three gravel routes over maintained roads", "High plains Colorado setting"],
-    "seriesAffiliation": {"series": ["UNBOUND Gravel Qualifier"]},
-    "tier": 2,
-    "popularity": 55,
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+
+    "terrain": {
+      "surface": {
+        "gravel": 90,
+        "dirt": 5,
+        "paved": 5
+      },
+      "technicalDifficulty": "Low-Moderate",
+      "technicalRating": 4,
+      "description": "90%+ maintained gravel roads described as 'champagne gravel' - buttery smooth with minimal washboarding. One 2-mile technical section on South Shore Trail at Trinidad Lake State Park."
+    },
+
+    "registration": {
+      "cost": {
+        "regular": 350,
+        "currency": "USD"
+      },
+      "website": "theraddirt.com"
+    },
+
+    "weather": {
+      "typical": {
+        "tempHigh": 75,
+        "tempLow": 51,
+        "unit": "F",
+        "conditions": "High desert fall weather - sunny, dry, with potential afternoon wind. 18% rain chance, 72% sunshine."
+      }
+    },
+
+    "uniqueCharacteristics": [
+      "Life Time Grand Prix race (2026)",
+      "UNBOUND Gravel qualifier (50 coins)",
+      "Spanish Peaks and mesas terrain",
+      "Champagne gravel surface quality",
+      "High altitude challenge (6,000-9,000 ft)",
+      "Remote Old West character",
+      "31 miles between aid stations on backside"
+    ],
+
+    "seriesAffiliation": {
+      "series": [
+        "Life Time Grand Prix (2026)",
+        "UNBOUND Gravel Qualifier"
+      ]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "course_profile": 25,
+      "biased_opinion": 27,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship Stubborn Delores course covers 113 miles - substantial endurance territory that demands serious preparation but not ultra-distance extremity."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Despite being labeled gravel, this is 'champagne gravel' - buttery smooth, well-maintained roads with minimal washboarding. Only a 2-mile technical section exists at Trinidad Lake State Park. Fast rolling terrain, not a technical challenge."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "10,613 ft of climbing on the 110mi course is substantial. The cumulative effect at altitude is punishing - every climb hits harder when you're already at 7,000+ feet."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late September in high desert Colorado offers ideal racing temps (70s) but the dry air demands serious hydration. Wind can be a factor late in the race, and weather roulette is always possible in the mountains."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Start line sits at 6,025 ft and the course tops out near 9,000 ft. This is real altitude that will humble sea-level athletes. Expect 10-15% performance degradation without proper acclimatization."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Trinidad is remote - 200 miles from Denver, 130 from Colorado Springs. Limited lodging options strain quickly with 1,000+ participants. Small town infrastructure means book early or face long drives. Bring your own spares."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Spanish Peaks backdrop, expansive mesas, Old West character with dilapidated brick homes and railroad ruins. The landscape transitions from high desert to aspen forests near 9,000 ft. Memorable and photogenic, though not quite bucket-list iconic."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Part of Life Time Grand Prix for 2026 with enhanced prize purse, plus UNBOUND qualifier status with 50 coins available. Has attracted Keegan Swenson, Peter Stetina, and Lauren De Crescenzo. National significance but still building toward iconic status."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time production value is evident - professional timing, clear cutoffs, well-stocked aid stations, quality expo and post-race festivities. The 31-mile gap between aid stations on the backside is the only knock."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Riders describe the gravel as living up to all the hype, with mesmerizing views rewarding every climb. The remote sections create both challenge and character. A satisfying endurance test, though the isolation can be tough if you're struggling."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Described as 'one of the most incredible and accepting communities' - particularly welcoming for women racers. Trinidad has embraced the event, and the festival atmosphere with downtown after-party adds to the vibe."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "LTGP inclusion brings strong pro field - Swenson, Stetina, De Crescenzo, Vermeulen have all competed. Not quite the depth of Unbound's elite field, but legitimate top-tier racing with international participation from 11 countries."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "At $350 entry with Life Time organization, UNBOUND qualifier coins (better odds than major qualifiers), and quality course/support, this represents solid value for the endurance gravel category."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Remote location adds travel costs - 2-3 hour drive from nearest airports, limited lodging that fills fast. Entry ($350) plus travel/lodging easily reaches $700-1,000 total. Not budget-friendly but not extreme either."
+      }
+    },
+
+    "popularity": 65,
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Comprehensive"
+  }
 }

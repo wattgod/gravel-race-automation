@@ -1,65 +1,201 @@
 {
-    "raceId": "pirinexus-360",
-    "name": "Pirinexus 360",
+  "race": {
+    "name": "PIRINEXUS 360",
     "slug": "pirinexus-360",
-    "location": {
-          "city": "Figueres",
-          "state": "Catalonia",
-          "country": "Spain",
-          "region": "Eastern Pyrenees"
+    "display_name": "Pirinexus 360",
+    "tagline": "Trans-Pyrenean ultra-gravel through volcanic zones, medieval villages, and Costa Brava coast - Spain's answer to the 200-mile question",
+
+    "vitals": {
+      "distance_km": 340,
+      "distance_mi": 211,
+      "elevation_m": 3400,
+      "elevation_ft": 11150,
+      "location": "Girona, Catalonia, Spain",
+      "location_badge": "GIRONA, SPAIN",
+      "country": "Spain",
+      "region": "Eastern Pyrenees / Costa Brava",
+      "date": "September annually (Sea Otter Europe)",
+      "date_specific": "2026: September 18-20",
+      "time_limit": "18 hours",
+      "terrain_split": "55% gravel/dirt, 45% asphalt",
+      "max_altitude_m": 1513,
+      "max_altitude_ft": 4964,
+      "start_time": "6:13 AM (sunrise)",
+      "course_record": "12 hours"
     },
-    "date": {
-          "month": "May",
-          "typical": "early May",
-          "season": "Spring",
-          "year2026": "May 2026"
+
+    "gravel_god_rating": {
+      "overall_score": 78,
+      "course_profile": 26,
+      "biased_opinion": 27,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
-    "organizer": {
-          "name": "Pirinexus Organization",
-          "website": "https://www.pirinexus.cat/"
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "At 340 km (211 miles), this is true ultra-distance territory. Exceeds 150+ mile threshold significantly, placing it among the longest single-day gravel events in Europe."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain with 55% gravel. Via Verde sections are smooth, but the border crossing descent after Col d'Ares is genuinely technical - 'road simply disappears' requiring 40mm+ tires. Not extreme singletrack, but skill-demanding sections exist."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "3,400 meters (11,150 ft) of climbing with two significant passes: Coll de Coubet and Col d'Ares. The 70km section from Olot to Sant Joan features 900m of climbing alone. Relentless undulation throughout."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "September in Girona offers comfortable 20-25C temps, but 24% rain chance adds unpredictability. Night riding portion (final 2-3 hours for most) brings cooler temps. Col d'Ares summit significantly colder - hypothermia risk in wet conditions."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Maximum altitude at Col d'Ares is 1,513m (4,964 ft) - moderate elevation with minimal altitude effects. Start/finish at sea level in Girona. No significant altitude acclimatization needed."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Girona is the cycling capital of Europe with excellent infrastructure. Barcelona El Prat (118 km) offers international flights; Girona airport closer but limited. Sea Otter Europe festival sells out accommodation - early booking essential."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Exceptional scenic variety: La Garrotxa volcanic zone, Pyrenean border crossings, medieval villages (Peratallada, Pals), DO Emporda vineyards, Costa Brava coast. Crosses Spain-France border via ancient Roman Via Augusta. Night finish under the stars. Bucket-list European ultra."
+      }
     },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Part of UCI Gravel World Series and Gran Fondo World Tour Gravel Series. Sea Otter Europe integration adds legitimacy. 7 editions and growing - established as one of Europe's most respected ultra-gravel events, though not yet at Badlands-level iconic status."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with multiple food stations, medical assistance, and tracking via Track the Race. Sea Otter Europe backing provides professional infrastructure. Checkpoint-based format with route book/stamps adds brevet-style authenticity."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable journey from volcanic cones to Pyrenean passes to Mediterranean coast in a single push. The Col d'Ares crucible - 'a huge nightmare that breaks riders mentally and physically' - creates shared suffering. Night finish through singletrack toward Girona is legendary."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Growing community around the event, but primarily European. Sea Otter Europe festival brings 68,000+ visitors creating atmosphere. Girona's cycling culture provides welcoming infrastructure, but race-specific community not yet at iconic levels."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Attracts experienced ultra-endurance cyclists from across Europe, but not Life Time Grand Prix or major pro field depth. Strong regional competition with international participants. Personal challenge format means less emphasis on elite racing."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry includes Sea Otter Europe festival access, multiple aid stations, finisher award, and festival services (bike cleaning, showers, expo). Reasonable for a 340km ultra event with full support infrastructure."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Girona offers reasonable European pricing. Budget flights to Barcelona or Girona from European hubs. Accommodation varies but available. No extreme remoteness premium. Total trip cost moderate by European standards - estimated $500-800 including travel from within Europe."
+      }
+    },
+
     "distances": [
-          {
-                  "name": "360K",
-                  "distance": "360 km",
-                  "distanceMiles": "224 miles",
-                  "elevationGain": "4,500 meters",
-                  "elevationGainFeet": "14,750+ feet",
-                  "description": "Full ultra-distance route through Pyrenees foothills and coastal regions"
-          },
-          {
-                  "name": "180K",
-                  "distance": "180 km",
-                  "distanceMiles": "112 miles",
-                  "elevationGain": "2,200 meters",
-                  "elevationGainFeet": "7,200+ feet",
-                  "description": "Half distance through scenic Catalonian countryside"
-          },
-          {
-                  "name": "90K",
-                  "distance": "90 km",
-                  "distanceMiles": "56 miles",
-                  "elevationGain": "1,100 meters",
-                  "elevationGainFeet": "3,600+ feet",
-                  "description": "Introductory distance through rolling terrain"
-          }
+      {
+        "name": "Pirinexus 360",
+        "distance_km": 340,
+        "distance_mi": 211,
+        "elevation_m": 3400,
+        "elevation_ft": 11150,
+        "description": "Full ultra-distance loop crossing Spain-France border via Col d'Ares",
+        "time_limit": "18 hours"
+      },
+      {
+        "name": "Half Pirinexus",
+        "distance_km": 145,
+        "distance_mi": 90,
+        "elevation_m": 1000,
+        "elevation_ft": 3280,
+        "description": "Shorter challenge option with reduced climbing",
+        "time_limit": "Not specified"
+      }
     ],
-    "terrain": "Varied terrain including Pyrenees foothills, coastal paths, agricultural tracks, and mountain roads with significant climbing",
-    "registration": "Opens months in advance, international field",
-    "weather": "Mediterranean spring conditions - mild temperatures (15-25°C / 59-77°F), generally dry, potential for wind",
-    "uniqueCharacteristics": [
-          "One of Europe's premier ultra-distance gravel races",
-          "Course traverses from Pyrenees mountains to Mediterranean coast",
-          "360km distance is true ultra-endurance challenge",
-          "Passes through historic Catalonian villages",
-          "Beautiful Mediterranean and mountain scenery",
-          "Self-supported format with checkpoints",
-          "International field from across Europe",
-          "Combines mountain climbing with coastal riding"
+
+    "organizer": {
+      "name": "Jordi Cantal / Sea Otter Europe",
+      "website": "http://www.thepirinexuschallenge.com",
+      "festival": "https://www.seaottereurope.com",
+      "registration": "https://www.ticketoci.net"
+    },
+
+    "history": {
+      "first_edition": 2015,
+      "editions_held": 7,
+      "founder": "Jordi Cantal",
+      "origin_story": "Created after Jordi Cantal completed the 340km Pirinexus route alone in 18 hours during summer 2014. What began as a personal challenge evolved into an organized event that has become 'one of the most authentic, beautiful, tough and prestigious gravel races in Europe.'"
+    },
+
+    "series_affiliation": [
+      "UCI Gravel World Series",
+      "Gran Fondo World Tour Gravel Series",
+      "Sea Otter Europe Festival"
     ],
-    "seriesAffiliation": "Independent",
-    "tier": "Elite",
-    "popularity": "High - major European gravel event",
-    "lastUpdated": "2026-01-09",
-    "dataQuality": "Good"
+
+    "key_features": [
+      "Trans-Pyrenean crossing via Col d'Ares (1,513m)",
+      "La Garrotxa Volcanic Zone with 40 volcanic cones",
+      "Medieval villages: Peratallada, Pals, Palau-sator",
+      "DO Emporda wine region traverse",
+      "Costa Brava coastal greenways",
+      "Roman Via Augusta/Via Domitia history",
+      "Night finish under the stars",
+      "55% gravel, 45% asphalt mix",
+      "18-hour time limit with checkpoint validation"
+    ],
+
+    "weather": {
+      "month": "September",
+      "avg_temp_c": 20,
+      "high_c": 25,
+      "low_c": 13,
+      "rain_chance": "24%",
+      "sunshine_hours": 197,
+      "notes": "One of the best cycling months in Girona. Night riding portion cooler. Summit weather unpredictable."
+    },
+
+    "logistics": {
+      "nearest_airports": [
+        {
+          "code": "GRO",
+          "name": "Girona-Costa Brava",
+          "distance_km": 12,
+          "notes": "Closest, limited flights"
+        },
+        {
+          "code": "BCN",
+          "name": "Barcelona El Prat",
+          "distance_km": 118,
+          "notes": "Major hub, bus to Girona ~20 EUR"
+        }
+      ],
+      "accommodation_notes": "Book early - Sea Otter Europe brings 68,000+ visitors",
+      "bike_services": "Girona is cycling capital of Europe - excellent shops, rentals, transfers"
+    },
+
+    "gear_recommendations": {
+      "tires": "40mm+ essential, 42-45mm ideal",
+      "lights": "1000+ lumens front, rear light, spare batteries",
+      "clothing": "Layers for 10-26C range, rain jacket mandatory",
+      "navigation": "GPS with GPX, backup phone, route book"
+    },
+
+    "dnf_factors": [
+      "Col d'Ares historically main DNF point",
+      "Technical border descent requires skill",
+      "18-hour time limit creates pressure",
+      "Sleep deprivation affects decision-making",
+      "Estimated finish rate: 70-80%"
+    ],
+
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Comprehensive"
+  }
 }

@@ -3,28 +3,30 @@
 
 ### RESEARCH QUEUE (from database)
 Races still needing research:
-1. gravel-fondo-switzerland
-2. steamboat-gravel
-3. trans-am-bike-race
-4. trans-iowa
-5. unbound-100
-6. unbound-xl
-7. walburg-dirty-30
+1. unbound-xl
+2. walburg-dirty-30
 
 ---
 
 ### BATCH STATUS
 
-**Currently Running (Batch 4):**
-- Dirty French - in progress
-- Fuego MTB - in progress
-- Gravel Roubaix - in progress
-- Little Sugar MTB - in progress
-- Rad Dirt Fest - in progress
+**Currently Running (Batch 5):**
+- Gravel Fondo Switzerland - in progress
+- Steamboat Gravel - in progress
+- Trans Am Bike Race - in progress
+- Trans Iowa - in progress
+- Unbound 100 - in progress
 
 ---
 
 ### COMPLETED TONIGHT
+
+**Batch 4 (5 dumps - auto-committed):**
+- Dirty French (15KB)
+- Fuego MTB (21KB)
+- Gravel Roubaix (21KB)
+- Little Sugar MTB (21KB)
+- Rad Dirt Fest (16KB)
 
 **Batch 3 (5 dumps - auto-committed):**
 - Big Horn Gravel (17KB)
@@ -63,7 +65,7 @@ Races still needing research:
 
 ---
 
-**Total completed tonight: 29 research dumps**
-**Remaining in queue: 7 races**
+**Total completed tonight: 34 research dumps**
+**Remaining in queue: 2 races (after Batch 5)**
 
 *Auto-updating as batches complete*

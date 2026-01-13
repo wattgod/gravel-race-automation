@@ -1,123 +1,110 @@
 {
-    "raceId": "rasputitsa",
-    "name": "Rasputitsa",
-    "officialName": "Rasputitsa Spring Classic",
+  "race": {
+    "name": "RASPUTITSA",
     "slug": "rasputitsa",
-    "location": {
-          "city": "Jay",
-          "state": "Vermont",
-          "country": "USA",
-          "region": "Northeast Kingdom",
-          "venue": "Jay Peak Resort",
-          "nearestMajorCity": "Burlington, VT (65 miles)"
+    "display_name": "Rasputitsa",
+    "tagline": "Vermont's mud season sufferfest where bikes go to die and legends are born",
+
+    "vitals": {
+      "distance_mi": 53,
+      "elevation_ft": 5300,
+      "location": "East Burke, Vermont",
+      "location_badge": "NORTHEAST KINGDOM, VT",
+      "date": "Mid-April annually",
+      "date_specific": "2026: April 18 (tentative)"
     },
-    "date": {
-          "month": "April",
-          "typical": "Late April",
-          "dayOfWeek": "Saturday",
-          "season": "Spring / Mud Season"
+
+    "gravel_god_rating": {
+      "overall_score": 78,
+      "course_profile": 23,
+      "biased_opinion": 28,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
-    "organizer": {
-          "name": "Rasputitsa Spring Classic",
-          "founded": 2014,
-          "founders": ["Anthony Moccia", "Heidi Myers"],
-          "website": "https://www.rasputitsadirt.com/",
-          "history": "Founded to showcase Northeast Kingdom back roads and drive shoulder-season tourism during Vermont's notorious mud season"
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "53 miles puts it squarely in the 40-60 mile bracket. Multiple distance options available including 100K with 7,000+ feet climbing, but the Classic distance defines the race character."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Class IV unmaintained roads, the infamous Cyberia section with 23% grades, and conditions that regularly force hike-a-bike. In bad years, sections are completely unrideable with ankle-deep mud and ice."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "5,300+ feet of climbing over 53 miles equates to roughly 110 feet per mile. Relentless rolling terrain with no flat sections - 'flat does not exist here no matter which direction you are headed.'"
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Extreme and unpredictable Vermont spring weather is THE defining feature. Temps range from 27F to 70F. Snow, sleet, rain, mud, or perfect conditions - you won't know until race day. 2019 saw 27% DNF rate due to hypothermic conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Northeast Kingdom sits at relatively low elevation. No altitude concerns - the challenge is horizontal, not vertical thin air."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Burlington airport is 68 miles away (1.5 hour drive). Good lodging options at Jay Peak Resort and East Burke area. Remote location requires car rental. Doable but not convenient."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Named after the Russian 'mud season' that stopped Napoleon's army. Cult following, legendary suffering stories, yeti-dressed volunteers serving maple syrup shots in ice cups. Not quite bucket-list iconic nationally, but an absolute Northeast institution."
+      }
     },
-    "distances": [
-          {
-                  "name": "Single Distance",
-                  "distance": 53,
-                  "unit": "miles",
-                  "distanceKm": 85,
-                  "elevationGain": 5300,
-                  "elevationGainMeters": 1615,
-                  "category": "Challenging"
-          }
-    ],
-    "terrain": {
-          "surface": {
-                  "gravel": 45,
-                  "dirt": 40,
-                  "mud": 10,
-                  "paved": 5
-          },
-          "technicalDifficulty": "Hard",
-          "technicalRating": 8,
-          "description": "Northeast Kingdom dirt and gravel roads transformed by spring thaw. Notorious mud sectors including 'Cyberia' climb. Snow, ice, and deep mud common. Self-supported challenge through unpredictable conditions.",
-          "features": [
-                  "Cyberia - notorious mud/snow climb",
-                  "Northeast Kingdom back roads",
-                  "Spring thaw conditions",
-                  "Freeze-thaw rutted roads",
-                  "Self-supported format"
-          ]
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Named 'Best Cycling Event in the Northeast' by Competitor Magazine. Draws Olympians, WorldTour racers, and gravel royalty like Ted King. National recognition in gravel circles, but not LTGP or UCI level."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized event with 5 wave starts, excellent aid stations with maple syrup shots, and professional timing. Founders Anthony Moccia and Heidi Myers run it with passion and the '3 C's' philosophy."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing sufferfest that bonds survivors for life. From the chaos of Cyberia to the poutine and Vermont beers at the finish, it's an unforgettable experience. The Lanterne Rouge prize for last place captures the spirit perfectly."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Legendary community vibe. Riders from 46+ states and 5 Canadian provinces. Volunteers in yeti and unicorn costumes. All proceeds go to Little Bellas charity. Podiums for male, female, AND nonbinary. 'Business in the front, party in the back.'"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Strong regional pros and occasional national names (Ted King, Lea Davison, Jeremy Powers have raced). Competitive but not consistently stacked with elite pros like LTGP events."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Grassroots event that delivers an authentic, character-building experience. Founders have never personally profited - all proceeds go to charity. You get what you pay for and then some."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate total cost. Burlington flights plus 90-minute drive. Lodging at Jay Peak Resort or East Burke inns is reasonable. Plan $500-800 total for flight, hotel, and registration."
+      }
     },
-    "registration": {
-          "opens": "TBD - typically fall/winter",
-          "selloutPattern": "Sells out weeks-months in advance",
-          "cost": {
-                  "regular": 100,
-                  "currency": "USD"
-          },
-          "lottery": false
+
+    "black_pill": {
+      "headline": "This Race Will Break Your Bike and Your Spirit",
+      "content": "Let's be real: Rasputitsa has a 27% DNF rate in bad years. Riders have abandoned expensive bikes on the roadside to escape hypothermia. The Cyberia section is a 5km Class IV unmaintained road that ratchets to 23% grades through mud, ice, and snow. Even pro mountain biker Lea Davison called it 'the second hardest thing I've ever done.' The founders themselves describe the first edition as 'a shitshow.' You might get lucky with 70F sunshine, or you might be hiking through thigh-deep mud in sleet. There are no refunds from Mother Nature.",
+      "warnings": [
+        "High DNF rates in bad weather years (27%+ in 2019)",
+        "Cyberia section regularly unrideable - expect to hike-a-bike",
+        "Weather unpredictable: can range from 27F snow to 70F sunshine",
+        "Remote location with limited cell service",
+        "Mud will destroy drivetrains - bring a sacrificial bike",
+        "If you're not prepared for Type 2 fun, stay home"
+      ]
     },
-    "fieldSize": {
-          "participantCap": 1500,
-          "typical": "1000-1500 riders"
-    },
-    "competition": {
-          "level": "Recreational to Competitive",
-          "format": "Self-supported, single distance",
-          "timing": "Chip timed"
-    },
-    "weather": {
-          "typical": {
-                  "tempHigh": 50,
-                  "tempLow": 30,
-                  "unit": "°F",
-                  "conditions": "Highly unpredictable - snow, rain, mud, or sun possible",
-                  "precipitation": "High - 60%+ chance",
-                  "mud": "Expected and celebrated"
-          },
-          "challenges": [
-                  "Spring snowstorms possible",
-                  "Freeze-thaw cycle creates deep ruts",
-                  "Mud season at peak",
-                  "Cold temperatures (30s-50s°F)",
-                  "Unpredictable conditions year to year"
-          ]
-    },
-    "uniqueCharacteristics": [
-          "Legendary Vermont mud race",
-          "Russian name means 'sea of mud'",
-          "Celebrated for Type-2 fun and suffering",
-          "Grassroots community-focused event",
-          "Shoulder-season tourism driver",
-          "Self-supported challenge format",
-          "Northeast Kingdom showcase",
-          "Resistance to over-commercialization"
-    ],
-    "logistics": {
-          "format": "Self-supported - no aid stations",
-          "startLocation": "Jay Peak Resort",
-          "finishLocation": "Jay Peak Resort",
-          "facilities": "Resort amenities available"
-    },
-    "reputation": {
-          "difficulty": "Hard",
-          "knownFor": [
-                  "Legendary mud conditions",
-                  "Spring suffering classic",
-                  "Type-2 fun",
-                  "Vermont's toughest gravel race",
-                  "Unpredictable weather",
-                  "Community atmosphere"
-          ]
-    },
-    "tier": 1,
-    "popularity": 75,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Good",
-    "sources": ["https://www.rasputitsadirt.com", "Perplexity research 2026-01-08"]
+
+    "final_verdict": {
+      "who_should_race": "Gravel masochists who want to test themselves against Vermont's infamous mud season. Northeast riders looking for a spring rite of passage. Anyone who thinks suffering builds character and stories worth telling.",
+      "who_should_skip": "Fair-weather riders, those who baby their bikes, anyone expecting predictable conditions, and folks who don't understand why people would pay money to suffer.",
+      "bottom_line": "Rasputitsa isn't just a race - it's a gauntlet that separates the gravel faithful from the tourists. Named after the Russian mud season that stopped armies, this Vermont spring classic delivers biblical conditions, unparalleled community, and the kind of Type 2 fun that becomes legend. The founders started with $50 and a dream; now it draws thousands to the Northeast Kingdom for poutine, maple syrup, and shared suffering. If you finish, you've earned your place in gravel's Northeast brotherhood. If you DNF, you'll be back."
+    }
+  }
 }

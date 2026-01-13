@@ -1,109 +1,177 @@
 {
   "race": {
-    "name": "Hell of Hunterdon",
+    "name": "HELL OF HUNTERDON",
+    "slug": "hell-of-hunterdon",
     "display_name": "Hell of Hunterdon",
+    "tagline": "The Mid-Atlantic's Belgian spring classic that tests early-season legs on Jersey's rolling farmland. Road bike with 28mm tires, show up, and suffer.",
+
     "vitals": {
-      "location": "Blawenburg, New Jersey",
       "distance_mi": 81,
       "elevation_ft": 5800,
-      "date": "2025-04-05",
-      "date_specific": "April 5, 2025",
-      "location_badge": "BLAWENBURG, NJ"
+      "location": "Blawenburg, NJ",
+      "location_badge": "BLAWENBURG, NJ",
+      "date": "First Saturday in April annually",
+      "date_specific": "2025: April 5"
     },
-    "tagline": "The Mid-Atlantic's Belgian spring classic. Road bike, gravel sectors, early-season suffering.",
+
     "gravel_god_rating": {
       "overall_score": 72,
-      "tier_label": "TIER 3 / REGIONAL CLASSIC",
-      "course_profile": {
-        "logistics": 4,
-        "length": 2,
-        "technicality": 2,
-        "elevation": 3,
-        "climate": 3,
-        "altitude": 1,
-        "adventure": 3
+      "course_profile": 18,
+      "biased_opinion": 26,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 2,
+        "explanation": "81 miles for the long course sits in moderate territory. Not ultra-endurance, not a quick spin. This is a full day but not a death march."
       },
-      "editorial": {
-        "prestige": 3,
-        "cultural_weight": 4,
-        "race_quality": 4,
-        "experience": 4,
-        "community_vibe": 4,
-        "field_depth": 3,
-        "value_proposition": 4
+      "technicality": {
+        "score": 2,
+        "explanation": "Only 16% unpaved across maintained public roads. Most riders use road bikes with 28mm tires. The gravel sectors add character but this isn't technical singletrack territory."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "~5,800 ft of climbing on the long course through the Sourland Mountains. Rolling, punchy climbs with the brutal 13%+ Hopewell-Amwell Road at mile 73 to break what's left of your legs."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early April in New Jersey means anything goes: 35-55F, rain highly probable, and gusting wind is the true hidden boss. The Belgian classics ethos means they embrace the suffering."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level riding in central New Jersey. The Sourland Mountains peak around 500 ft. Zero altitude concerns for any rider."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Newark airport 45 miles away, Philly an option at 60 miles. Princeton hotels nearby. Easy NJ Turnpike access. Day-of packet pickup only, but straightforward logistics for the Northeast corridor."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Belgian flags at aid stations, authentic spring classics vibes, rolling Sourland farmland scenery. It's memorable and genuine, but you're still 45 minutes from Newark airport, not the Ronde van Vlaanderen."
       }
     },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 3,
+        "explanation": "Regional institution since 2009 and the definitive Mid-Atlantic season opener. Well-known from NYC to Philly, but nationally it's under the radar compared to Life Time events."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Kermesse Sport runs a tight ship. Well-stocked aid stations, SAG support, technical assistance from local shops, GPS files provided. The Belgian aesthetics aren't marketing fluff - founder Brian Ignatin raced in Belgium and the authenticity shows."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Post-ride party at the Elks Lodge with Athletic Brewing, hot food, and door prizes. Welcoming vibe across all rider levels. This is the spring classic suffering-then-beer experience without the Euro flight."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Most riders wear retail clothing, not team kits. Equipment ranges from adventure bikes to vintage steel. Attracts riders who may never race categorized events. Welcoming, diverse, and focused on fun over competitive hierarchy."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "400 rider cap with strong regional turnout. Sells out in 24 hours. Competitive local talent but few nationally recognized names. This is where the NYC/Philly cycling tribe gathers, not where pros chase points."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Solid value for a well-organized ride with aid stations, support vehicles, GPS files, and quality swag. Registration reasonable for what you get. The Belgian authenticity is a genuine differentiator."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Central New Jersey means reasonable costs. Princeton area lodging is available and not exorbitant. No flights needed for the massive NYC/Philly population. Budget-friendly by gravel event standards."
+      }
+    },
+
+    "black_pill": {
+      "reality_check": [
+        "It's NOT a gravel grinder - only 16% unpaved. This is a road ride with gravel sectors. Don't show up on 50mm tires expecting a party.",
+        "Wind is the real boss - Forum reports consistently cite gusting wind as the primary difficulty factor, not gravel. New Jersey in April is windy.",
+        "Hurricane damage changed the course - Two bridges still out from Hurricane Ida. The 'classic' course people wrote about pre-2021 no longer exists.",
+        "Sells out in 24 hours - Set an alarm for registration day. No lottery, just first-come-first-served chaos.",
+        "Weather will test you - The Belgian classics ethos means they want bad weather. Rain or shine, this ride happens."
+      ],
+      "gear_truth": "Most riders use road bikes with 28-32mm tires. Show up on your road bike, not your gravel rig. Cyclocross and gravel bikes work but aren't required or even optimal.",
+      "training_truth": "Primary focus: road fitness. Secondary: wind management and paceline skills. This is an early-season fitness test disguised as a gravel event."
+    },
+
+    "final_verdict": {
+      "summary": "The Hell of Hunterdon is the Mid-Atlantic's answer to the Belgian spring classics - and it delivers authentically. It's not trying to be Unbound or a gravel grinder. It's a road ride with gravel sectors that tests early-season fitness, rewards bike handling, and captures the suffering-then-beer ethos of Flanders.",
+      "who_should_race": "Anyone in the NYC/Philly corridor looking for their non-negotiable season opener. Road cyclists curious about mixed-surface events. Riders who want the Belgian classics experience without the transatlantic flight.",
+      "who_should_skip": "Gravel purists expecting 50+ miles of unpaved adventure. Ultra-endurance athletes seeking death marches. Anyone allergic to early-season cold, wind, and potential rain.",
+      "bottom_line": "For the Mid-Atlantic tribe, this is THE spring classic. Just don't overthink the equipment - bring your road bike and prepare to suffer."
+    },
+
     "course_description": {
       "ridewithgps_id": 41863233,
       "ridewithgps_name": "2023 Hell of Hunterdon Long Course",
       "character": "81 miles through New Jersey's Sourland Mountains with 13 gravel sectors covering 16% of the course. Belgian classics vibes without the transatlantic flight. Hollow Road punches you in the mouth in mile one. Montgomery Road's unpaved descent reminds you this isn't your Sunday group ride. Aunt Molly Road's hidden potholes and ruts separate the attentive from the mechanical'd. Hopewell-Amwell's 13% gradient 8 miles from home is where dreams go to die. The rest is rolling NJ farmland at its finest."
     },
+
     "history": {
-      "origin_story": "Brian Ignatin raced in Belgium and Germany, then came home and missed the suffering. In 2009, he convinced 35 masochists to ride 82 miles of New Jersey in early April. 'I wanted to create a ride that captured the spirit of the Belgian Classics, which everyone could enjoy.' By 2019, 875 riders showed up. The Belgian flags at aid stations aren't marketing – they're doctrine."
+      "founded": 2009,
+      "inaugural_field": 35,
+      "organizer": "Kermesse Sport (Brian Ignatin, founder)",
+      "origin_story": "Brian Ignatin raced in Belgium and Germany, then came home and missed the suffering. In 2009, he convinced 35 masochists to ride 82 miles of New Jersey in early April. 'I wanted to create a ride that captured the spirit of the Belgian Classics, which everyone could enjoy.' By 2019, 875 riders showed up. The Belgian flags at aid stations aren't marketing - they're doctrine."
     },
+
+    "logistics_snapshot": {
+      "airport": "Newark (EWR) - 45 miles, 1 hour. Alt: Philadelphia (PHL) - 60 miles, 1.25 hours",
+      "lodging": "Princeton area hotels. Book if staying overnight - sells out with race registration.",
+      "packet_pickup": "Event day only, 7:30-8:45 AM at Princeton Elks Lodge. No advance pickup.",
+      "parking": "Princeton Elks Lodge, 354 Route 518, Blawenburg, NJ 08504",
+      "field_size": 400,
+      "registration_notes": "Opens mid-February on BikeReg, sells out in ~24 hours"
+    },
+
     "logistics": {
       "official_site": "https://www.hellofhunterdon.com",
       "registration_url": "https://www.bikereg.com/hell-of-hunterdon"
     },
-    "biased_opinion": {
-      "summary": "This is the Mid-Atlantic's answer to Flanders, and it actually delivers. Not trying to be a 'gravel grinder' – it's a road ride with gravel sectors that rewards early-season fitness and bike handling. The Belgian aesthetics are genuine, the post-ride party is proper, and for anyone in the NYC/Philly corridor, it's the non-negotiable season opener.",
-      "verdict": "Regional Classic",
-      "strengths": [
-        "Authentic Belgian classics experience without the plane ticket",
-        "Well-organized by Kermesse Sport with real support",
-        "Accessible for road cyclists – don't need gravel-specific gear",
-        "Welcoming vibe for riders of all levels",
-        "Post-ride party with real food and local beer"
-      ],
-      "weaknesses": [
-        "Sells out in 24 hours – set an alarm for registration",
-        "Only 16% unpaved – not a 'gravel grinder' if that's what you want",
-        "Early April NJ weather is a dice roll",
-        "Course changed post-Hurricane Ida – bridges still out",
-        "Not nationally recognized outside Mid-Atlantic"
-      ],
-      "bottom_line": "If you're within 3 hours of Princeton and own a road bike, this is your spring classic. Bring 28mm tires, not 50mm. Embrace the wind."
-    },
-    "black_pill": {
-      "truth": "It's NOT a gravel grinder. Only 16% unpaved. This is a road ride with gravel sectors thrown in to test your bike handling and keep things interesting. Don't show up on your 50mm tire gravel rig expecting 100 miles of dirt – you'll be on pavement 84% of the time feeling silly.",
-      "consequences": [
-        "Over-biking it makes you slower on 68 miles of pavement",
-        "Wind is the actual boss – forum reports cite gusting wind as primary difficulty, not gravel",
-        "Registration chaos – no lottery, just first-come-first-served selling out in 24 hours",
-        "Hurricane Ida changed the course permanently – pre-2021 race reports describe a different ride"
-      ],
-      "expectation_reset": "Train your road fitness. Learn to paceline and shelter from wind. Show up on your road bike with the tires you'd use for a spring training ride. The Belgian classics ethos means they WANT bad weather – that's the point."
-    },
+
     "training_implications": {
       "protocol_triggers": {
         "heat_adaptation": false,
         "altitude_protocol": false,
-        "technical_skills": true,
+        "technical_skills": "mild",
         "durability_focus": false,
-        "fueling_strategy": false
+        "fueling_strategy": "mild"
       },
       "training_emphasis": {
-        "primary": "Road fitness – 84% paved, this is a road ride with gravel flavor",
-        "secondary": "Wind management – learn to paceline, shelter, handle crosswinds",
-        "tertiary": "Early-season conditioning – April means your base isn't fully built yet"
+        "primary": "Road fitness - 84% paved, this is a road ride with gravel flavor",
+        "secondary": "Wind management - learn to paceline, shelter, handle crosswinds",
+        "tertiary": "Early-season conditioning - April means your base isn't fully built yet"
       },
       "the_one_thing": "Don't over-bike it. Most riders use road bikes with 28mm tires. Show up on your road bike, not your gravel rig."
     },
+
     "quotes": [
-      "I am not sure whether it was the gusting wind, the hills or the gravel that did the most damage, but between them they made the Hell of Hunterdon of 2015 a tough old day.",
-      "Without the Hell of Hunterdon, the cycling calendar never has its official start.",
-      "Most opt for their regular road bikes fitted with tires in the 28mm range rather than cyclocross or dedicated gravel bikes.",
-      "I wanted to create a ride that captured the spirit of the Belgian Classics, which everyone could enjoy."
-    ],
-    "logistics_snapshot": {
-      "airport": "Newark (EWR) – 45 miles, 1 hour. Alt: Philadelphia (PHL) – 60 miles, 1.25 hours",
-      "lodging": "Princeton area hotels. Book if staying overnight – sells out with race registration.",
-      "packet_pickup": "Event day only, 7:30-8:45 AM at Princeton Elks Lodge. No advance pickup.",
-      "parking": "Princeton Elks Lodge, 354 Route 518, Blawenburg, NJ 08504"
-    }
+      {
+        "text": "I am not sure whether it was the gusting wind, the hills or the gravel that did the most damage, but between them they made the Hell of Hunterdon of 2015 a tough old day.",
+        "source": "GranFondo.com race report"
+      },
+      {
+        "text": "Without the Hell of Hunterdon, the cycling calendar never has its official start.",
+        "source": "Creaky Bottom Bracket"
+      },
+      {
+        "text": "Most opt for their regular road bikes fitted with tires in the 28mm range rather than cyclocross or dedicated gravel bikes.",
+        "source": "GranFondo Guide"
+      },
+      {
+        "text": "I wanted to create a ride that captured the spirit of the Belgian Classics, which everyone could enjoy.",
+        "source": "Brian Ignatin, founder"
+      }
+    ]
   },
+
   "seo": {
-    "title": "Hell of Hunterdon – Gravel Race Info & Training Guide | Gravel God",
+    "title": "Hell of Hunterdon - Gravel Race Info & Training Guide | Gravel God",
     "description": "Complete guide to Hell of Hunterdon: New Jersey's Belgian-themed spring classic with 81 miles, 13 gravel sectors, and 5,800 ft of climbing. Course details, history, and how to train.",
     "slug": "hell-of-hunterdon",
     "focus_keyword": "Hell of Hunterdon"

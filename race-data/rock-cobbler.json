@@ -1,81 +1,102 @@
 {
-    "raceId": "rock-cobbler",
-    "name": "Rock Cobbler",
+  "race": {
+    "name": "THE ROCK COBBLER",
     "slug": "rock-cobbler",
-    "location": {
-          "city": "Bakersfield",
-          "state": "California",
-          "country": "USA",
-          "region": "Southern California"
+    "display_name": "The Rock Cobbler",
+    "tagline": "A stupidly hard ride through California's death cookie terrain where you'll ride through houses, dodge bulls, and question every life choice.",
+
+    "vitals": {
+      "distance_mi": 80,
+      "elevation_ft": 8700,
+      "location": "Bakersfield, California",
+      "location_badge": "BAKERSFIELD, CA",
+      "date": "February annually",
+      "date_specific": "2026: February 7"
     },
-    "date": {
-          "month": "February",
-          "typical": "Early February",
-          "season": "Winter"
+
+    "gravel_god_rating": {
+      "overall_score": 78,
+      "course_profile": 23,
+      "biased_opinion": 29,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
-    "organizer": {
-          "name": "Rock Cobbler",
-          "founded": 2012,
-          "website": "https://www.rockcobbler.com/"
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The flagship Cobbler course covers 70-85 miles with the Boulder option pushing to 115 miles. Substantial distance that demands proper endurance preparation."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Mandatory hike-a-bike sections, 30% grade run-ups, scree fields, river crossings, and single track through private ranchland. Peter Stetina calls it 'one minute nice surface, next you're slip-sliding down a scree field.' Carbon road shoes are suicide."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8,700 feet of climbing on the Cobbler, up to 12,000 feet on the Boulder. Relentless punchy climbs rather than sustained grades - the 'ridiculous amount of steep climbs' will test anyone's legs and gearing."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "February in Bakersfield offers mild racing weather with temperatures from 40-64F. Low rain probability (18%), though when it does rain, the local dirt becomes 'really sticky' and creates legendary mud conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Bakersfield sits at 400 feet elevation with foothills topping out around 2,000-3,000 feet. Zero altitude acclimatization needed - your lungs can focus on the suffering from the climbs themselves."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Easy 2-hour drive from LA, Meadows Field Airport has connections, ample hotels from budget to boutique, and on-site camping at $50/night. No international complexity - just show up ready to hurt."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Peak gravel insanity: ride through someone's actual house with donut hand-ups, navigate a cowboy bar full of customers, ball pits, White Claw hand-ups, mysterious 'Tacoman,' and bulls that have literally charged riders. Private ranchland access granted only one day per year. Course changes annually with new surprises."
+      }
     },
-    "distances": [
-          {
-                  "name": "Long Course",
-                  "distance": 140,
-                  "unit": "miles",
-                  "distanceKm": 225,
-                  "elevationGain": 8500,
-                  "elevationGainMeters": 2591,
-                  "category": "Ultra-distance"
-          },
-          {
-                  "name": "Short Course",
-                  "distance": 70,
-                  "unit": "miles",
-                  "distanceKm": 113,
-                  "elevationGain": 4200,
-                  "elevationGainMeters": 1280,
-                  "category": "Advanced"
-          }
-    ],
-    "terrain": {
-          "surface": {
-                  "gravel": 60,
-                  "dirt": 25,
-                  "singletrack": 10,
-                  "paved": 5
-          },
-          "technicalDifficulty": "Hard",
-          "technicalRating": 8,
-          "description": "Technical desert terrain with rocky climbs, loose descents, and challenging navigation"
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "California cult classic since 2013, rated among the best gravel events in California and the Southwest by Strambecco. Attracts pros like Peter Stetina, Amanda Nauman, and Lance Haidet. The 'World Famous' tagline is earned, not aspirational."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Sam Ames and SamBarn Promotions run a tight ship with 4-5 SAG stops, included meals (pasta dinner, breakfast burritos), live music, brewery presence, and finisher gifts. It's not Life Time polish, but the grassroots execution is dialed after 12+ editions."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable and unclassifiable. The 'kookiest bike race' according to Stetina. You'll tell war stories about this one forever - whether it's the house ride-through, the bull encounter, or the hike-a-bike that broke you. This is gravel at its most creative and unhinged."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The event philosophy says it all: 'Cobbler Soup - the key ingredient is always the community.' Born from 40 riders in 2013, grown into a cult following that spans jean shorts and work boots to world-class pros. Friday night camping party, Bicycle Barrel Racing, and shared suffering create bonds."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Strong regional pros attend and use it as Leadville practice, but this isn't a LTGP race or UCI qualifier. The Boulder option is limited to 50 riders. Mix of serious racers and recreational sufferers - the event celebrates both equally."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry around $130-150 includes two meals, t-shirt, swag bag, SAG support, finisher gift, raffle entry, and access to private ranchland you can't ride any other day. Sam Ames explicitly prioritizes giving Cobblers 'the best food, fun and value.' This isn't a cash grab."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Budget-friendly for California: hotels from $46/night near the airport, on-site camping at $50/night, 2-hour drive from LA saves airfare for SoCal residents. Total trip cost under $500 easily achievable if camping and driving."
+      }
     },
-    "registration": {
-          "cost": {
-                  "regular": 120,
-                  "currency": "USD"
-          },
-          "selloutPattern": "Moderate - weeks before"
+
+    "black_pill": {
+      "title": "The Reality Check",
+      "content": "Many endurance athletes see '80 miles, 7,000 feet' and think easy day. They're wrong. The terrain is rough, the climbs are relentless, and most of this race is on some kind of dirt, grass, gravel and 'unroad.' You WILL hike with your bike - it's not optional, not avoidable. The 4:30 PM cutoff at the final SAG is real and organizers will pull you. Road bikes mean 'suffer 1000 deaths.' Wrong tires in mud means disaster. Carbon road shoes on hike-a-bike sections will destroy your feet and soul. DNF risk is high for the underprepared. When you finish (if you finish) you will know WHY it's called the Rock Cobbler. Expect to cuss at the organizers. That's the point."
     },
-    "fieldSize": {
-          "participantCap": 800
-    },
-    "weather": {
-          "typical": {
-                  "tempHigh": 65,
-                  "tempLow": 40,
-                  "unit": "°F",
-                  "conditions": "Cool winter desert conditions"
-          }
-    },
-    "uniqueCharacteristics": [
-          "Technical desert gravel challenge",
-          "Early season race",
-          "Bakersfield oil field routes",
-          "Self-supported ultra-distance option",
-          "Rocky technical terrain"
-    ],
-    "tier": 2,
-    "popularity": 70,
-    "lastUpdated": "2026-01-08",
-    "dataQuality": "Moderate"
+
+    "final_verdict": {
+      "who_its_for": "Experienced gravel cyclists with MTB skills who want genuine adventure over manicured racing. Riders who value community, creativity, and type-2 fun over prize money and podiums. Anyone who's ever thought 'gravel racing is getting too corporate' will find their people here.",
+      "who_should_skip": "Pure roadies without off-bike skills. Anyone allergic to hike-a-bike. Racers who need chip timing and prize purses. Riders who take themselves too seriously. If you can't laugh while suffering, this isn't your event.",
+      "bottom_line": "The Rock Cobbler is gravel's answer to the question 'what if we made a race that was actually fun and stupid hard?' Accessible logistics hide extreme difficulty. The death cookie terrain, creative course features, and legendary community atmosphere make this a bucket-list ride for anyone who wants to experience gravel at its most authentically unhinged. Not a Tier 1 race by prestige metrics, but a Tier 1 experience for the right rider."
+    }
+  }
 }

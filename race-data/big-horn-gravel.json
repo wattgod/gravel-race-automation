@@ -1,21 +1,176 @@
 {
-        "raceId": "big-horn-gravel",
-        "name": "Big Horn Gravel",
-        "slug": "big-horn-gravel",
-        "location": {"city": "Gypsum", "state": "Colorado", "country": "USA", "region": "White River National Forest and Vail Valley"},
-        "date": {"month": "June", "typical": "Mid-June", "season": "Summer", "specific": "2026-06-20"},
-        "organizer": {"name": "Big Horn Gravel", "website": "https://www.bighorngravel.com/"},
-        "distances": [
-                  {"name": "Ram's Horn Escape", "distance": 85, "unit": "miles", "distanceKm": 137, "elevationGain": 10000, "elevationGainMeters": 3048, "category": "Extreme", "maxElevation": 11000, "description": "High, rough, and lonesome - tops out at ~11,000 ft"},
-                  {"name": "Little Bighorn", "distance": 50, "unit": "miles", "distanceKm": 80, "elevationGain": 5700, "elevationGainMeters": 1737, "category": "Advanced"},
-                  {"name": "Gravel Curious", "distance": 20, "unit": "miles", "distanceKm": 32, "elevationGain": 2000, "elevationGainMeters": 610, "category": "Beginner", "description": "E-bike friendly"}
-        ],
-        "terrain": {"surface": {"gravel": 70, "dirt": 25, "paved": 5}, "technicalDifficulty": "Extreme", "technicalRating": 8, "description": "High altitude Colorado Rockies terrain starting/finishing near Gypsum Sports Complex, extended time above 9,000ft in White River National Forest"},
-        "registration": {"cost": {"regular": 175, "currency": "USD", "range": "$91-$265 depending on distance and tier"}, "website": "https://www.bighorngravel.com/"},
-        "weather": {"typical": {"tempHigh": 75, "tempLow": 45, "unit": "°F", "conditions": "High altitude mountain weather, possible afternoon storms, extended time above 9,000ft"}},
-        "uniqueCharacteristics": ["High altitude racing (8000+ ft base, reaching 11,000 ft)", "White River National Forest and Vail Valley backcountry", "Three distance options including e-bike friendly route", "Extreme elevation and technical terrain", "Series expansion adding separate Bighorn Road event"],
-        "tier": 2,
-        "popularity": 70,
-        "lastUpdated": "2026-01-09",
-        "dataQuality": "Good"
+  "race": {
+    "name": "BIGHORN GRAVEL",
+    "slug": "bighorn-gravel",
+    "display_name": "Bighorn Gravel",
+    "tagline": "10,500 feet of climbing, 11,000 feet of altitude, and zero champagne gravel - this is Colorado suffering at its finest.",
+
+    "vitals": {
+      "distance_mi": 85,
+      "elevation_ft": 10500,
+      "location": "Gypsum, Colorado",
+      "location_badge": "GYPSUM, COLORADO",
+      "date": "June annually",
+      "date_specific": "2026: June 20"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "course_profile": 28,
+      "biased_opinion": 26,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "85 miles puts this firmly in the substantial category - not quite ultra territory but a full day in the saddle for most riders."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "No champagne gravel here - primitive forest roads, singletrack sections, hike-a-bike mandatory, and descents that will have you white-knuckling. Organizers say you'll wish you were on a different bike at some point."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "10,500 feet of climbing including a single 18-mile grinder with 4,000 feet of gain. This is brutalist climbing - the kind that breaks spirits and builds legends."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "June in the Rockies means morning temps in the 30s F, midday pushing 80s F - a 40+ degree swing. Add unpredictable winds, moon dust, and possible afternoon thunderstorms. Layer game must be strong."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Starting at 7,130 feet and topping out above 11,000 feet where oxygen is 33% less than sea level. Sea-level athletes will suffer significantly without proper acclimatization - altitude sickness is a real threat."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Eagle County Regional Airport is just 2 miles away with direct flights from major hubs. Hotels available in Gypsum, Eagle, and Vail. Not remote access but June is peak season so book early."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "White River National Forest, Colorado high country, alpine views above 11,000 feet. The scenery alone is worth the suffering. Remote backcountry that rewards the prepared and punishes everyone else."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 3,
+        "explanation": "Growing regional reputation but not yet at the Unbound/Crusher level. Attracts quality fields and serves as key prep race for bigger events like Leadville and Crusher in the Tushar."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with four aid stations on the 85-mile course, prize money for top 5, and organizers who care about rider experience over growth. They moved an aid station closer to the 11,000 ft high point for 2025."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Finishers report 'pure stoke' and a huge sense of accomplishment. The combination of brutal climbing, technical terrain, and world-class views creates something memorable - this is proper type-2 fun."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Intimate event that grew from 300 to 500+ riders while maintaining welcoming vibes. Organizers explicitly not trying to be the biggest - focused on rider experience and community over scale."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Attracts Olympians (Howard Grotts, Jessica Yeaton), LifeTime Grand Prix athletes, national champions (Lauren Stephens), and serious regional talent. Not Unbound-level depth but legit competition."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Prize money, quality aid stations, and a course that delivers maximum suffering per dollar. Positioned as a key training race for bigger events which adds strategic value beyond the race itself."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "June is peak season in the Vail Valley - lodging costs escalate quickly. Budget options exist in Gypsum but most stay in pricier Eagle or Vail. Flying into Eagle County Regional keeps travel reasonable."
+      }
+    },
+
+    "black_pill": {
+      "title": "THE BRUTAL TRUTH ABOUT BIGHORN GRAVEL",
+      "warnings": [
+        {
+          "category": "THE ALTITUDE WILL WRECK YOU",
+          "details": "Starting at 7,130 feet and maxing above 11,000 feet means 33% less oxygen than sea level. Altitude sickness symptoms - headaches, nausea, dizziness, fatigue - can appear 6-24 hours after arrival. Arrive 3+ days early or pay the price."
+        },
+        {
+          "category": "THE CLIMBING NEVER STOPS",
+          "details": "10,500 feet of elevation gain including a single 18-mile climb with 4,000 feet of gain. That's ~123 ft/mile average with the hard stuff concentrated in leg-destroying chunks. Hike-a-bike sections are mandatory, not optional."
+        },
+        {
+          "category": "NO CHAMPAGNE GRAVEL EXISTS",
+          "details": "Forget your smooth crushed limestone dreams. This is primitive forest roads, deep moon dust, technical singletrack, and descents that destroy equipment. Your bike choice will feel wrong at some point - organizers guarantee it."
+        },
+        {
+          "category": "SELF-SUFFICIENCY REQUIRED",
+          "details": "Up to 17 miles between aid stations in remote White River National Forest. You are 'solely responsible for your personal well-being' and must 'suffer the consequences' of your decisions. Rescue takes TIME out here."
+        },
+        {
+          "category": "WEATHER ROULETTE",
+          "details": "Morning starts in the 30s F, midday hits 80s F - pack for a 40+ degree temperature swing. Afternoon thunderstorms possible. Unpredictable winds can turn climbs into survival exercises."
+        },
+        {
+          "category": "MECHANICAL DESTRUCTION",
+          "details": "38mm minimum tire width or you're asking for trouble. Tire liners recommended. The rough descents and moon dust destroy equipment. Eric Brunner was leading in 2022 when a flat tire ended his race."
+        },
+        {
+          "category": "THE COMPETITION IS REAL",
+          "details": "Olympians, national champions, and LifeTime Grand Prix pros in the field. Sub-5 hour winning times mean elite pace of 17+ mph with 10K climbing. Know what you're signing up for."
+        }
+      ]
+    },
+
+    "final_verdict": {
+      "summary": "Bighorn Gravel is a legitimate Colorado suffer-fest that punishes the unprepared and rewards those who embrace the brutality. The combination of 10,500 feet of climbing, 11,000+ foot max elevation, technical terrain, and remote backcountry creates an event that sits in the upper tier of difficulty for North American gravel racing.",
+      "who_should_race": "Experienced gravel and mountain bike racers who want altitude prep for events like Leadville and Crusher, athletes seeking a challenging but intimate race experience, and anyone who finds 'champagne gravel' boring.",
+      "who_should_skip": "Sea-level athletes unwilling to acclimatize, riders seeking smooth gravel roads, anyone without experience in technical terrain or hike-a-bike situations, and beginners - the 20-mile Gravel Curious option exists for you.",
+      "bottom_line": "Not a bucket-list iconic event yet, but a damn good race that delivers maximum suffering per dollar with world-class scenery. Growing reputation, quality fields, and organizers who prioritize experience over growth. Give it a few more years and this could be Tier 1 territory."
+    },
+
+    "distance_options": [
+      {
+        "name": "Ram's Horn Escape",
+        "distance_mi": 85,
+        "elevation_ft": 10500,
+        "description": "Flagship distance - the full suffer-fest experience"
+      },
+      {
+        "name": "Little Bighorn",
+        "distance_mi": 50,
+        "elevation_ft": 6500,
+        "description": "Only slightly less rugged according to organizers"
+      },
+      {
+        "name": "Gravel Curious",
+        "distance_mi": 20,
+        "elevation_ft": 2000,
+        "description": "E-bike friendly, beginner entry point"
+      }
+    ],
+
+    "notable_past_winners": {
+      "mens": [
+        {"year": 2024, "name": "Cobe Freeburn", "time": "5:00:36"},
+        {"year": 2023, "name": "Howard Grotts", "time": "4:26:00", "notes": "3x Leadville 100 champion, 2016 Olympian"},
+        {"year": 2022, "name": "Zach Calton", "time": "4:59:33", "notes": "Inaugural winner"}
+      ],
+      "womens": [
+        {"year": 2024, "name": "Cecily Decker", "notes": "Former U.S. Ski Team Alpine athlete"},
+        {"year": 2023, "name": "Michaela Thompson", "time": "5:23:59", "notes": "Fort Lewis College student, gravel debut"}
+      ]
+    },
+
+    "metadata": {
+      "research_date": "2026-01-12",
+      "scoring_system_version": "2.1",
+      "data_sources": [
+        "bighornevents.com",
+        "vaildaily.com",
+        "pactimo.com",
+        "granfondoguide.com"
+      ]
+    }
+  }
 }

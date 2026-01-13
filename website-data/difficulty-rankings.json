@@ -2,11 +2,11 @@
   "meta": {
     "generated": "2026-01-13",
     "scoring_system": "GravelGod 14-Dimension v2.1",
-    "total_scored_races": 35,
+    "total_scored_races": 40,
     "tier_distribution": {
-      "TIER 1": 22,
-      "TIER 2": 12,
-      "TIER 3": 1
+      "TIER 1": 23,
+      "TIER 2": 15,
+      "TIER 3": 2
     }
   },
   "races": [
@@ -33,6 +33,18 @@
       "location": "Across Europe (route changes annually)",
       "distance_mi": 3100,
       "elevation_ft": 210000
+    },
+    {
+      "slug": "unbound-xl",
+      "name": "Unbound XL",
+      "overall_score": 97,
+      "course_profile_total": 31,
+      "editorial_total": 31,
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "location": "Emporia, Kansas",
+      "distance_mi": 350,
+      "elevation_ft": 14000
     },
     {
       "slug": "colorado-trail-race",
@@ -179,6 +191,18 @@
       "elevation_ft": 4500
     },
     {
+      "slug": "bighorn-gravel",
+      "name": "Bighorn Gravel",
+      "overall_score": 82,
+      "course_profile_total": 28,
+      "editorial_total": 26,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Gypsum, Colorado",
+      "distance_mi": 85,
+      "elevation_ft": 10500
+    },
+    {
       "slug": "strade-bianche-gran-fondo",
       "name": "Gran Fondo Strade Bianche",
       "overall_score": 81,
@@ -215,6 +239,18 @@
       "elevation_ft": 10500
     },
     {
+      "slug": "rasputitsa",
+      "name": "Rasputitsa",
+      "overall_score": 78,
+      "course_profile_total": 23,
+      "editorial_total": 28,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "East Burke, Vermont",
+      "distance_mi": 53,
+      "elevation_ft": 5300
+    },
+    {
       "slug": "lauf-true-grit",
       "name": "Lauf True Grit Gravel Epic",
       "overall_score": 78,
@@ -225,6 +261,18 @@
       "location": "Santa Clara, Utah",
       "distance_mi": 84,
       "elevation_ft": 9000
+    },
+    {
+      "slug": "rock-cobbler",
+      "name": "The Rock Cobbler",
+      "overall_score": 78,
+      "course_profile_total": 23,
+      "editorial_total": 29,
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "location": "Bakersfield, California",
+      "distance_mi": 80,
+      "elevation_ft": 8700
     },
     {
       "slug": "whiskey-off-road",
@@ -333,6 +381,18 @@
       "location": "Lincoln, Nebraska",
       "distance_mi": 150,
       "elevation_ft": 10000
+    },
+    {
+      "slug": "hell-of-hunterdon",
+      "name": "Hell of Hunterdon",
+      "overall_score": 72,
+      "course_profile_total": 18,
+      "editorial_total": 26,
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "location": "Blawenburg, NJ",
+      "distance_mi": 81,
+      "elevation_ft": 5800
     },
     {
       "slug": "paris-to-ancaster",

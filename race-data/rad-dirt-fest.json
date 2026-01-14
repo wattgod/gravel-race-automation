@@ -5,7 +5,6 @@
     "slug": "rad-dirt-fest",
     "display_name": "Rad Dirt Fest",
     "tagline": "Champagne gravel and Spanish Peaks views - Colorado's hidden high-altitude gem that'll humble sea-level flatlanders.",
-
     "vitals": {
       "distance_mi": 113,
       "elevation_ft": 10613,
@@ -14,25 +13,21 @@
       "date": "September annually",
       "date_specific": "2026: September 26"
     },
-
     "location": {
       "city": "Trinidad",
       "state": "Colorado",
       "country": "USA"
     },
-
     "date": {
       "month": "September",
       "typical": "Late September",
       "season": "Fall",
       "specific": "2025-09-27"
     },
-
     "organizer": {
       "name": "Life Time Events",
       "website": "theraddirt.com"
     },
-
     "distances": [
       {
         "name": "Stubborn Delores",
@@ -65,7 +60,6 @@
         "maxElevation": 7500
       }
     ],
-
     "terrain": {
       "surface": {
         "gravel": 90,
@@ -76,7 +70,6 @@
       "technicalRating": 4,
       "description": "90%+ maintained gravel roads described as 'champagne gravel' - buttery smooth with minimal washboarding. One 2-mile technical section on South Shore Trail at Trinidad Lake State Park."
     },
-
     "registration": {
       "cost": {
         "regular": 350,
@@ -84,7 +77,6 @@
       },
       "website": "theraddirt.com"
     },
-
     "weather": {
       "typical": {
         "tempHigh": 75,
@@ -93,9 +85,8 @@
         "conditions": "High desert fall weather - sunny, dry, with potential afternoon wind. 18% rain chance, 72% sunshine."
       }
     },
-
     "uniqueCharacteristics": [
-      "Life Time Grand Prix race (2026)",
+      "Former Life Time Grand Prix race (2024 only)",
       "UNBOUND Gravel qualifier (50 coins)",
       "Spanish Peaks and mesas terrain",
       "Champagne gravel surface quality",
@@ -103,18 +94,16 @@
       "Remote Old West character",
       "31 miles between aid stations on backside"
     ],
-
     "seriesAffiliation": {
       "series": [
-        "Life Time Grand Prix (2026)",
         "UNBOUND Gravel Qualifier"
-      ]
+      ],
+      "note": "Was LTGP in 2024, not included in 2025/2026 LTGP lineup"
     },
-
     "gravel_god_rating": {
-      "overall_score": 74,
+      "overall_score": 71,
       "course_profile": 25,
-      "biased_opinion": 27,
+      "biased_opinion": 25,
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
@@ -122,7 +111,6 @@
       "display_tier": 2,
       "display_tier_label": "TIER 2"
     },
-
     "course_profile": {
       "length": {
         "score": 4,
@@ -153,11 +141,10 @@
         "explanation": "Spanish Peaks backdrop, expansive mesas, Old West character with dilapidated brick homes and railroad ruins. The landscape transitions from high desert to aspen forests near 9,000 ft. Memorable and photogenic, though not quite bucket-list iconic."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
-        "score": 4,
-        "explanation": "Part of Life Time Grand Prix for 2026 with enhanced prize purse, plus UNBOUND qualifier status with 50 coins available. Has attracted Keegan Swenson, Peter Stetina, and Lauren De Crescenzo. National significance but still building toward iconic status."
+        "score": 3,
+        "explanation": "Former LTGP event (2024 only), now an UNBOUND qualifier with 50 coins available. Has attracted Keegan Swenson, Peter Stetina, and Lauren De Crescenzo in the past. Building reputation but lost LTGP status for 2025/2026."
       },
       "race_quality": {
         "score": 4,
@@ -172,8 +159,8 @@
         "explanation": "Described as 'one of the most incredible and accepting communities' - particularly welcoming for women racers. Trinidad has embraced the event, and the festival atmosphere with downtown after-party adds to the vibe."
       },
       "field_depth": {
-        "score": 4,
-        "explanation": "LTGP inclusion brings strong pro field - Swenson, Stetina, De Crescenzo, Vermeulen have all competed. Not quite the depth of Unbound's elite field, but legitimate top-tier racing with international participation from 11 countries."
+        "score": 3,
+        "explanation": "Without LTGP status for 2025/2026, pro field may be reduced. Past editions (when LTGP) attracted Swenson, Stetina, De Crescenzo, Vermeulen. International participation from 11 countries but field depth uncertain going forward."
       },
       "value": {
         "score": 4,
@@ -184,7 +171,6 @@
         "explanation": "Remote location adds travel costs - 2-3 hour drive from nearest airports, limited lodging that fills fast. Entry ($350) plus travel/lodging easily reaches $700-1,000 total. Not budget-friendly but not extreme either."
       }
     },
-
     "popularity": 65,
     "lastUpdated": "2026-01-13",
     "dataQuality": "Comprehensive"

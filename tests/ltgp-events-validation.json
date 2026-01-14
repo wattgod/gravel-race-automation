@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "description": "Official Life Time Grand Prix event list for validation. Source: https://www.lifetimegrandprix.com/events/",
+    "last_verified": "2026-01-13",
+    "purpose": "Regression test to prevent races from incorrectly claiming LTGP status"
+  },
+  "official_ltgp_events": {
+    "2026": [
+      {"name": "Sea Otter Classic", "slug": "sea-otter-gravel", "alt_slugs": ["fuego-mtb"], "date": "April 16, 2026", "location": "Monterey, CA"},
+      {"name": "UNBOUND Gravel", "slug": "unbound-200", "date": "May 30, 2026", "location": "Emporia, KS"},
+      {"name": "Leadville Trail 100 MTB", "slug": "leadville-100", "date": "August 15, 2026", "location": "Leadville, CO"},
+      {"name": "Chequamegon MTB Festival", "slug": "chequamegon-mtb", "date": "September 19, 2026", "location": "Cable, WI"},
+      {"name": "Little Sugar MTB", "slug": "little-sugar-mtb", "date": "October 11, 2026", "location": "Bentonville, AR"},
+      {"name": "Big Sugar Gravel", "slug": "big-sugar", "date": "October 17, 2026", "location": "Bentonville, AR"}
+    ],
+    "2025": [
+      {"name": "Sea Otter Classic", "slug": "sea-otter-gravel", "alt_slugs": ["fuego-mtb"], "date": "April 10, 2025", "location": "Monterey, CA"},
+      {"name": "UNBOUND Gravel", "slug": "unbound-200", "date": "May 31, 2025", "location": "Emporia, KS"},
+      {"name": "Leadville Trail 100 MTB", "slug": "leadville-100", "date": "August 9, 2025", "location": "Leadville, CO"},
+      {"name": "Chequamegon MTB Festival", "slug": "chequamegon-mtb", "date": "September 13, 2025", "location": "Cable, WI"},
+      {"name": "Little Sugar MTB", "slug": "little-sugar-mtb", "date": "October 12, 2025", "location": "Bentonville, AR"},
+      {"name": "Big Sugar Gravel", "slug": "big-sugar", "date": "October 18, 2025", "location": "Bentonville, AR"}
+    ],
+    "2024": [
+      {"name": "Sea Otter Classic (Fuego XL)", "slug": "fuego-mtb", "date": "April 19, 2024", "location": "Monterey, CA"},
+      {"name": "UNBOUND Gravel", "slug": "unbound-200", "date": "June 1, 2024", "location": "Emporia, KS"},
+      {"name": "Crusher in the Tushar", "slug": "crusher-in-the-tushar", "date": "July 13, 2024", "location": "Beaver, UT", "note": "Removed from LTGP for 2025/2026"},
+      {"name": "Leadville Trail 100 MTB", "slug": "leadville-100", "date": "August 10, 2024", "location": "Leadville, CO"},
+      {"name": "Chequamegon MTB Festival", "slug": "chequamegon-mtb", "date": "September 14, 2024", "location": "Cable, WI"},
+      {"name": "The Rad Dirt Fest", "slug": "rad-dirt-fest", "date": "September 28, 2024", "location": "Trinidad, CO", "note": "Removed from LTGP for 2025/2026"},
+      {"name": "Big Sugar Gravel", "slug": "big-sugar", "date": "October 19, 2024", "location": "Bentonville, AR"}
+    ]
+  },
+  "NOT_ltgp_events": {
+    "description": "Events commonly mistaken for LTGP that are NOT part of the series",
+    "events": [
+      {"slug": "steamboat-gravel", "name": "SBT GRVL", "note": "Independent event by Amy Charity"},
+      {"slug": "mid-south", "name": "Mid South", "note": "Independent event by Bobby Wintle"},
+      {"slug": "bwr-san-diego", "name": "Belgian Waffle Ride", "note": "Monuments of Cycling series, not LTGP"},
+      {"slug": "the-traka", "name": "The Traka", "note": "Gravel Earth Series"},
+      {"slug": "grinduro", "name": "Grinduro", "note": "Independent global series"},
+      {"slug": "rebeccas-private-idaho", "name": "Rebecca's Private Idaho", "note": "Independent event"},
+      {"slug": "crusher-in-the-tushar", "name": "Crusher in the Tushar", "note": "Was LTGP 2024 ONLY - not 2025/2026"},
+      {"slug": "rad-dirt-fest", "name": "Rad Dirt Fest", "note": "Was LTGP 2024 ONLY - not 2025/2026"}
+    ]
+  },
+  "validation_rules": [
+    "Only events listed in official_ltgp_events for the CURRENT year should claim LTGP status",
+    "Historical LTGP participation should be noted as 'former LTGP' not current",
+    "Check https://www.lifetimegrandprix.com/events/ before adding new LTGP claims",
+    "seriesAffiliation field should only say 'Life Time Grand Prix' for current-year LTGP events"
+  ]
+}

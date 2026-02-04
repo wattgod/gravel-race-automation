@@ -10,6 +10,11 @@ import re
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+try:
+    import requests
+except ImportError:
+    requests = None
+
 
 def validate_json_structure(json_path: str) -> Tuple[bool, List[str]]:
     """Validate JSON matches required schema."""
@@ -164,6 +169,51 @@ def validate_research_quality(research_path: str) -> Tuple[bool, List[str]]:
     return len(errors) == 0, errors + warnings
 
 
+def verify_ridewithgps(json_path: str) -> Tuple[bool, List[str]]:
+    """Verify RideWithGPS route ID exists and is accessible.
+
+    Returns (passed, issues). If no ridewithgps_id is set, returns (True, [warning]).
+    If requests is not installed, returns (True, [warning]).
+    """
+    issues = []
+
+    try:
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError) as e:
+        return False, [f"Cannot read JSON: {e}"]
+
+    race = data.get("race", {})
+
+    # Look for ridewithgps_id in multiple possible locations
+    rwgps_id = None
+    for path_fn in [
+        lambda r: r.get("course_description", {}).get("ridewithgps_id"),
+        lambda r: r.get("ridewithgps_id"),
+        lambda r: r.get("vitals", {}).get("ridewithgps_id"),
+    ]:
+        val = path_fn(race)
+        if val and val != 0:
+            rwgps_id = val
+            break
+
+    if rwgps_id is None or rwgps_id == 0:
+        return True, ["No ridewithgps_id set — not a failure, but route map won't render"]
+
+    if requests is None:
+        return True, ["requests library not installed — skipping HTTP verification"]
+
+    url = f"https://ridewithgps.com/routes/{rwgps_id}"
+    try:
+        resp = requests.head(url, timeout=10, allow_redirects=True)
+        if resp.status_code == 200:
+            return True, []
+        else:
+            return False, [f"RideWithGPS route {rwgps_id} returned HTTP {resp.status_code}: {url}"]
+    except requests.RequestException as e:
+        return False, [f"RideWithGPS verification failed for route {rwgps_id}: {e}"]
+
+
 def validate_all_outputs(race_folder: str) -> Dict[str, Tuple[bool, List[str]]]:
     """Validate all outputs for a race."""
     results = {}
@@ -186,9 +236,11 @@ def validate_all_outputs(race_folder: str) -> Dict[str, Tuple[bool, List[str]]]:
     json_path = f"landing-pages/{race_folder}.json"
     if Path(json_path).exists():
         results["json"] = validate_json_structure(json_path)
+        # Also verify RideWithGPS route
+        results["ridewithgps"] = verify_ridewithgps(json_path)
     else:
         results["json"] = (False, ["JSON file not found"])
-    
+
     return results
 
 

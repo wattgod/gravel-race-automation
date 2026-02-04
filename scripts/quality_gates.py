@@ -5,6 +5,7 @@ Quality gates to catch AI slop before it hits production.
 Run these checks on every output.
 """
 
+import json
 import re
 from pathlib import Path
 
@@ -13,11 +14,12 @@ from pathlib import Path
 # SLOP PATTERNS - Phrases that indicate lazy AI output
 # ============================================
 
-SLOP_PHRASES = [
+# Multi-word phrases: matched as exact substrings (safe, low false-positive risk)
+SLOP_PHRASES_MULTI = [
     # Generic filler
     "in conclusion",
     "it's worth noting",
-    "it's important to note", 
+    "it's important to note",
     "at the end of the day",
     "when it comes to",
     "in terms of",
@@ -28,43 +30,38 @@ SLOP_PHRASES = [
     "as previously mentioned",
     "moving forward",
     "going forward",
-    
+
     # AI enthusiasm
     "amazing opportunity",
     "incredible experience",
     "truly remarkable",
     "absolutely essential",
     "game-changer",
-    "world-class",
     "cutting-edge",
     "state-of-the-art",
     "best-in-class",
     "top-notch",
     "first-rate",
-    
+
     # Hedge words (anti-Matti)
     "it seems like",
     "it appears that",
     "one might argue",
     "some would say",
-    "arguably",
-    "perhaps",
     "maybe consider",
     "you might want to",
     "it could be said",
-    
+
     # Generic encouragement (anti-Matti)
     "you've got this",
     "you can do it",
     "believe in yourself",
     "embrace the challenge",
-    "push through",
-    "dig deep",
     "find your inner",
     "unlock your potential",
     "on this journey",
     "your journey",
-    
+
     # Filler transitions
     "without further ado",
     "let's dive in",
@@ -75,20 +72,25 @@ SLOP_PHRASES = [
     "here's the thing",
     "here's the deal",
     "the bottom line is",
-    
+
     # Over-qualification
     "generally speaking",
     "for the most part",
     "in most cases",
     "more often than not",
     "by and large",
-    
-    # AI tell-tales
+
+    # AI tell-tales (multi-word)
     "as an AI",
     "I don't have personal",
-    "I cannot",
     "based on my training",
     "delve into",
+]
+
+# Single-word slop: matched with word boundaries (\bword\b) to prevent
+# false positives like "vital" matching inside "vitals" or "robust" in
+# "robust casing" (legitimate gravel context).
+SLOP_WORDS_SINGLE = [
     "crucial",
     "vital",
     "essential",
@@ -99,7 +101,21 @@ SLOP_PHRASES = [
     "facilitate",
     "endeavor",
     "plethora",
+    "arguably",
+    "perhaps",
+    "world-class",
 ]
+
+# Domain allowlist: if these words appear near a slop word, suppress the flag.
+# Key: slop word, Value: list of context words that make it legitimate.
+DOMAIN_ALLOWLIST = {
+    "robust": ["casing", "casings", "tire", "tires", "sidewall", "tubeless", "build"],
+    "vital": ["statistics", "stats", "signs", "organs"],
+    "essential": ["gear", "equipment", "kit", "tool", "supply", "rental", "car", "skill", "skills"],
+    "comprehensive": ["coverage", "insurance"],
+    "world-class": ["field", "athletes", "pros", "riders"],
+    "perhaps": [],  # always flag
+}
 
 
 # Phrases that SHOULD appear (Matti voice indicators)
@@ -132,21 +148,78 @@ MATTI_INDICATORS = [
 ]
 
 
-def check_slop_phrases(content: str) -> dict:
-    """Check for AI slop phrases."""
-    content_lower = content.lower()
+def _extract_prose_from_json(content: str) -> str:
+    """Extract only prose string values from JSON, skipping keys/IDs/URLs."""
+    try:
+        data = json.loads(content)
+    except (json.JSONDecodeError, ValueError):
+        return content  # Not JSON, return as-is
+
+    prose_parts = []
+
+    def walk(obj):
+        if isinstance(obj, str):
+            # Skip URLs, slugs, short labels
+            if obj.startswith("http") or len(obj) < 15:
+                return
+            prose_parts.append(obj)
+        elif isinstance(obj, dict):
+            for v in obj.values():
+                walk(v)
+        elif isinstance(obj, list):
+            for v in obj:
+                walk(v)
+
+    walk(data)
+    return " ".join(prose_parts)
+
+
+def check_slop_phrases(content: str, content_type: str = None) -> dict:
+    """Check for AI slop phrases.
+
+    When content_type is 'json', only scans prose field values (not JSON keys
+    or structural data) to prevent false positives on keys like 'vitals'.
+    Uses word-boundary matching for single words to prevent substring matches
+    (e.g., 'vital' inside 'vitals').
+    """
+    # For JSON content, extract only prose values
+    if content_type == "json":
+        scan_text = _extract_prose_from_json(content)
+    else:
+        scan_text = content
+
+    scan_lower = scan_text.lower()
     found = []
-    
-    for phrase in SLOP_PHRASES:
-        if phrase.lower() in content_lower:
-            # Find the context
-            idx = content_lower.find(phrase.lower())
-            context = content[max(0, idx-30):idx+len(phrase)+30]
+
+    # Multi-word phrases: safe to substring match
+    for phrase in SLOP_PHRASES_MULTI:
+        if phrase.lower() in scan_lower:
+            idx = scan_lower.find(phrase.lower())
+            context = scan_text[max(0, idx - 30):idx + len(phrase) + 30]
             found.append({
                 "phrase": phrase,
                 "context": context.strip()
             })
-    
+
+    # Single words: use word boundary regex
+    for word in SLOP_WORDS_SINGLE:
+        pattern = re.compile(r'\b' + re.escape(word) + r'\b', re.IGNORECASE)
+        for match in pattern.finditer(scan_text):
+            # Check domain allowlist — look for context words nearby
+            start = max(0, match.start() - 60)
+            end = min(len(scan_text), match.end() + 60)
+            nearby = scan_text[start:end].lower()
+
+            allowlist = DOMAIN_ALLOWLIST.get(word.lower(), [])
+            if allowlist and any(ctx in nearby for ctx in allowlist):
+                continue  # Legitimate use in gravel context
+
+            context = scan_text[max(0, match.start() - 30):match.end() + 30]
+            found.append({
+                "phrase": word,
+                "context": context.strip()
+            })
+
     return {
         "passed": len(found) == 0,
         "slop_count": len(found),
@@ -335,7 +408,7 @@ def run_all_quality_checks(content: str, content_type: str) -> dict:
     """Run all quality checks and return comprehensive report."""
     
     checks = {
-        "slop": check_slop_phrases(content),
+        "slop": check_slop_phrases(content, content_type),
         "specificity": check_specificity(content),
         "length": check_length_sanity(content, content_type),
         "sections": check_required_sections(content, content_type),

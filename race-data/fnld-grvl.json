@@ -1,0 +1,164 @@
+{
+  "race": {
+    "name": "FNLD GRVL",
+    "slug": "fnld-grvl",
+    "display_name": "FNLD GRVL",
+    "tagline": "Scandinavia's largest gravel event—1,500 riders, Nordic summer, smooth Finnish roads.",
+    "vitals": {
+      "distance_mi": 124,
+      "elevation_ft": 4000,
+      "location": "Finland (location varies)",
+      "location_badge": "FINLAND",
+      "county": "Varies by year",
+      "date": "August annually",
+      "date_specific": "2026: August (check official site)",
+      "terrain_types": [
+        "Finnish gravel roads",
+        "Smooth rolling terrain",
+        "Nordic summer landscape",
+        "Fast conditions"
+      ],
+      "field_size": "1,000-1,500 riders",
+      "start_time": "Morning — check official website",
+      "registration": "Online. Cost: €100-€150",
+      "prize_purse": "Unknown",
+      "aid_stations": "Multiple on course",
+      "cutoff_time": "None"
+    },
+    "climate": {
+      "primary": "August Nordic summer",
+      "description": "Mild temps (55-70°F), long daylight hours, low rain chance.",
+      "challenges": [
+        "Long daylight can disorient pacing",
+        "Cool temps despite summer",
+        "Occasional rain (low probability)",
+        "Wind exposure on open roads"
+      ]
+    },
+    "terrain": {
+      "primary": "Smooth Finnish gravel roads",
+      "surface": "Finnish gravel roads are smooth, well-maintained, fast. Rolling terrain, not mountainous. Nordic summer landscape—forests, lakes, open roads.",
+      "technical_rating": 2,
+      "features": [
+        "Smooth gravel roads",
+        "Rolling terrain",
+        "Finnish forests",
+        "Lake views",
+        "Fast conditions",
+        "Well-maintained surfaces"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 80,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "biased_opinion": {
+      "verdict": "Nordic Gravel Adventure",
+      "summary": "FNLD GRVL is Scandinavia's largest gravel event—1,500 riders, 200+ km (124 miles), smooth Finnish gravel roads, August Nordic summer. This is a destination event: international field, Finnish hospitality, midnight sun vibes. The course is smooth and fast (not technical), the weather is mild (55-70°F), and the scenery is quintessentially Nordic—forests, lakes, rolling terrain. If you want a gravel adventure in Scandinavia, this is the one. If you want technical suffering, look elsewhere.",
+      "strengths": [
+        "Largest gravel event in Scandinavia (1,500 riders)",
+        "Nordic summer—long daylight, mild temps",
+        "Smooth Finnish roads (fast, not technical)",
+        "International field—European gravel community",
+        "Finnish hospitality and organization",
+        "Destination-worthy scenery"
+      ],
+      "weaknesses": [
+        "Europe travel logistics (expensive flights)",
+        "Not technical—smooth roads favor speed over skills",
+        "Limited online English-language coverage",
+        "Location varies by year (requires research)",
+        "Expensive (flights + lodging + €100-€150 entry)"
+      ],
+      "bottom_line": "If you want a Nordic gravel adventure and you're willing to travel, FNLD GRVL is worth it. It's not the hardest race, not the most technical, but it's a unique experience in a beautiful setting. The field is large, the organization is strong, and the Finnish hospitality is real. Just budget for Europe travel costs and don't expect Unbound-level suffering."
+    },
+    "black_pill": {
+      "title": "EUROPE TRAVEL = $$$ AND LOGISTICS",
+      "reality": "FNLD GRVL is in Finland. That means international flights ($800-$1,500), bike shipping or rental ($200-$500), lodging, rental car, and €100-€150 entry. You're looking at $2,000+ for this race. Location varies by year, so you need to research logistics annually. English-language coverage is limited. This is a bucket-list adventure, not a casual race.",
+      "consequences": [
+        "High total cost ($2,000+ for international travel)",
+        "Bike logistics (ship or rent)",
+        "Location varies—need to research each year",
+        "Limited English-language race reports",
+        "Not technical—if you want suffering, this isn't it"
+      ],
+      "expectation_reset": "This is a destination gravel adventure in Scandinavia. Budget accordingly. The race is smooth and fast, not technical. The experience is the draw, not the course difficulty."
+    },
+    "logistics": {
+      "nearest_airport": "Varies by year (Helsinki-Vantaa usually closest major hub)",
+      "alternate_airports": "Check official website for year-specific location",
+      "lodging_note": "Location varies. Finnish lodging generally expensive. Book early.",
+      "parking": "Check official website",
+      "packet_pickup": "Day-before",
+      "travel_summary": "International travel to Finland. Helsinki is major hub. Rental car likely needed. Location varies annually—check official site. Budget for bike shipping or rental.",
+      "food_options": "Aid stations on course. Finnish hospitality known.",
+      "camping": "Check official website",
+      "official_site": "https://www.fnldgrvl.com"
+    },
+    "course_description": {
+      "character": "Smooth Finnish gravel roads. Rolling terrain, not mountainous. 200+ km (124 miles), ~4,000 ft. Fast conditions, well-maintained surfaces. Nordic summer landscape.",
+      "suffering_zones": [
+        {
+          "name": "Long Distance Fatigue",
+          "miles": "100+",
+          "description": "124 miles is long. Smooth roads mean high speeds, which burn matches.",
+          "survival_strategy": "Pace conservatively early. Eat and drink consistently. Save energy for last 30 miles."
+        },
+        {
+          "name": "Wind Exposure",
+          "miles": "Throughout",
+          "description": "Finnish open roads = wind exposure. Can sap energy.",
+          "survival_strategy": "Draft when possible. Aero position helps."
+        }
+      ],
+      "signature_challenge": "Long distance (124 miles) on smooth fast roads. High pace can surprise you."
+    },
+    "history": {
+      "founded": "2010s",
+      "founder": "Finnish gravel community",
+      "origin_story": "FNLD GRVL is Scandinavia's largest gravel event. 1,000-1,500 riders. Location varies by year. International field, strong Finnish organization.",
+      "notable_moments": [],
+      "reputation": "Scandinavia's premier gravel event. Destination race."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 75.1,
+        "grade": "B",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 100,
+          "temporal_depth": 25,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

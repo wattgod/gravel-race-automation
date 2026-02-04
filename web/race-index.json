@@ -103,7 +103,7 @@
     "has_rwgps": false,
     "research": {
       "grade": "B",
-      "score": 72.2,
+      "score": 74.8,
       "weakest": "citation_density"
     }
   },
@@ -175,7 +175,7 @@
     "has_rwgps": false,
     "research": {
       "grade": "B",
-      "score": 65.0,
+      "score": 67.5,
       "weakest": "citation_density"
     }
   },
@@ -463,7 +463,7 @@
     "has_rwgps": false,
     "research": {
       "grade": "C",
-      "score": 60.0,
+      "score": 62.5,
       "weakest": "cross_reference"
     }
   },
@@ -679,7 +679,7 @@
     "has_rwgps": false,
     "research": {
       "grade": "C",
-      "score": 59.5,
+      "score": 62.0,
       "weakest": "cross_reference"
     }
   },
@@ -715,8 +715,44 @@
     "has_rwgps": false,
     "research": {
       "grade": "B",
-      "score": 76.0,
+      "score": 78.5,
       "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Le Grand du Nord",
+    "slug": "le-grand-du-nord",
+    "location": "Grand Marais, Minnesota",
+    "region": "Midwest",
+    "month": "May",
+    "distance_mi": 110,
+    "elevation_ft": 5000,
+    "tier": 2,
+    "overall_score": 80,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "UCI Gravel World Series race through Minnesota's stunning North Shore at Lake Superior.",
+    "has_profile": true,
+    "profile_url": "/le-grand-du-nord-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
     }
   },
   {
@@ -750,8 +786,8 @@
     "profile_url": "/rooted-vermont-race-guide/",
     "has_rwgps": false,
     "research": {
-      "grade": "C",
-      "score": 64.2,
+      "grade": "B",
+      "score": 66.8,
       "weakest": "source_diversity"
     }
   },
@@ -864,6 +900,186 @@
     }
   },
   {
+    "name": "Lost River Classic",
+    "slug": "lost-river-classic",
+    "location": "Mathias, West Virginia",
+    "region": "South",
+    "month": "August",
+    "distance_mi": 85,
+    "elevation_ft": 8500,
+    "tier": 2,
+    "overall_score": 71,
+    "scores": {
+      "logistics": 2,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "West Virginia's Appalachian gravel grinder: 8,500 feet of relentless climbing through humid forest roads where heat management matters more than fitness.",
+    "has_profile": true,
+    "profile_url": "/lost-river-classic-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 89.0,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Crystal Bear",
+    "slug": "crystal-bear",
+    "location": "Laona, WI to Crystal Falls, MI",
+    "region": "Other",
+    "month": "May",
+    "distance_mi": 192,
+    "elevation_ft": 8000,
+    "tier": 2,
+    "overall_score": 70,
+    "scores": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "192-mile overnight bikepacking odyssey from Wisconsin to Michigan's Upper Peninsula where darkness, cold, and solitude break you down and build you back.",
+    "has_profile": true,
+    "profile_url": "/crystal-bear-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 78.5,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Iowa Wind and Rock",
+    "slug": "iowa-wind-and-rock",
+    "location": "Winterset, Iowa",
+    "region": "Midwest",
+    "month": "April",
+    "distance_mi": 340,
+    "elevation_ft": 8000,
+    "tier": 2,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "340 miles of relentless Iowa gravel where the wind never stops, the terrain never flattens, and 40 hours of continuous riding reveals who you really are.",
+    "has_profile": true,
+    "profile_url": "/iowa-wind-and-rock-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 78.5,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Southern Cross Gravel",
+    "slug": "southern-cross-gravel",
+    "location": "Dahlonega, Georgia",
+    "region": "South",
+    "month": "March",
+    "distance_mi": 100,
+    "elevation_ft": 5000,
+    "tier": 3,
+    "overall_score": 77,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
+    "has_profile": true,
+    "profile_url": "/southern-cross-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
+    "name": "Heck of the North",
+    "slug": "heck-of-the-north",
+    "location": "Two Harbors, Minnesota",
+    "region": "Midwest",
+    "month": "September",
+    "distance_mi": 100,
+    "elevation_ft": 4500,
+    "tier": 3,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
+    "has_profile": true,
+    "profile_url": "/heck-of-the-north-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 100.0,
+      "weakest": "source_diversity"
+    }
+  },
+  {
     "name": "The Rift",
     "slug": "the-rift",
     "location": "Hvolsvöllur, Southern Iceland",
@@ -972,6 +1188,42 @@
     }
   },
   {
+    "name": "Gunni Grinder",
+    "slug": "gunni-grinder",
+    "location": "Gunnison, Colorado",
+    "region": "West",
+    "month": "September",
+    "distance_mi": 120,
+    "elevation_ft": 10000,
+    "tier": 3,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 2,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
+    "has_profile": true,
+    "profile_url": "/gunni-grinder-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 100.0,
+      "weakest": "source_diversity"
+    }
+  },
+  {
     "name": "Highlands Gravel Classic",
     "slug": "highlands-gravel-classic",
     "location": "Goshen, Arkansas",
@@ -1039,8 +1291,44 @@
     "has_rwgps": false,
     "research": {
       "grade": "B",
-      "score": 66.2,
+      "score": 68.8,
       "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "THE EQUALIZER - Missouri State Championship",
+    "slug": "the-equalizer",
+    "location": "Marthasville, Missouri",
+    "region": "Midwest",
+    "month": "July",
+    "distance_mi": 100,
+    "elevation_ft": 5000,
+    "tier": 3,
+    "overall_score": 63,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Missouri State Gravel Championship through wine country in brutal July heat.",
+    "has_profile": true,
+    "profile_url": "/the-equalizer-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
     }
   },
   {
@@ -1355,22 +1643,6 @@
     "month": "May",
     "distance_mi": 30,
     "elevation_ft": 4000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Crystal Bear",
-    "slug": "crystal-bear",
-    "location": "Laona WI to Crystal Falls MI",
-    "region": "Other",
-    "month": "May",
-    "distance_mi": 192,
-    "elevation_ft": 8000,
     "tier": 3,
     "overall_score": null,
     "scores": {},
@@ -1764,22 +2036,6 @@
     "has_rwgps": false
   },
   {
-    "name": "Le Grand du Nord",
-    "slug": "le-grand-du-nord",
-    "location": "Grand Marais MN",
-    "region": "Other",
-    "month": "May",
-    "distance_mi": 26,
-    "elevation_ft": 5000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
     "name": "Gray Duck Grit",
     "slug": "gray-duck-grit",
     "location": "Cannon Falls MN",
@@ -1787,22 +2043,6 @@
     "month": "September",
     "distance_mi": 50,
     "elevation_ft": 6000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Heck of the North",
-    "slug": "heck-of-the-north",
-    "location": "Two Harbors MN",
-    "region": "Other",
-    "month": "September",
-    "distance_mi": 19,
-    "elevation_ft": 4500,
     "tier": 3,
     "overall_score": null,
     "scores": {},
@@ -1963,38 +2203,6 @@
     "month": "June",
     "distance_mi": 25,
     "elevation_ft": 2000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Iowa Wind and Rock",
-    "slug": "iowa-wind-and-rock",
-    "location": "Winterset IA",
-    "region": "Other",
-    "month": "April",
-    "distance_mi": 340,
-    "elevation_ft": 8000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Gunni Grinder",
-    "slug": "gunni-grinder",
-    "location": "Gunnison CO",
-    "region": "Other",
-    "month": "September",
-    "distance_mi": 120,
-    "elevation_ft": 10000,
     "tier": 3,
     "overall_score": null,
     "scores": {},
@@ -2948,22 +3156,6 @@
     "has_rwgps": false
   },
   {
-    "name": "Southern Cross Gravel",
-    "slug": "southern-cross-gravel",
-    "location": "Dahlonega GA",
-    "region": "Other",
-    "month": "March",
-    "distance_mi": 50100,
-    "elevation_ft": 5000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
     "name": "Homegrown Gravel Adventure",
     "slug": "homegrown-gravel-adventure",
     "location": "Franklin GA",
@@ -3131,22 +3323,6 @@
     "month": "July",
     "distance_mi": 89,
     "elevation_ft": 8000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Lost River Classic",
-    "slug": "lost-river-classic",
-    "location": "Mathias WV",
-    "region": "Other",
-    "month": "August",
-    "distance_mi": 85,
-    "elevation_ft": 8500,
     "tier": 3,
     "overall_score": null,
     "scores": {},

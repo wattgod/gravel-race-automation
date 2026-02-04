@@ -1260,6 +1260,42 @@
     }
   },
   {
+    "name": "Vermont Overland",
+    "slug": "vermont-overland",
+    "location": "Woodstock, Vermont",
+    "region": "Northeast",
+    "month": "August",
+    "distance_mi": 54,
+    "elevation_ft": 7000,
+    "tier": 3,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "OG gravel since 2009—54 miles of Vermont pavé, 7,000 feet of climbing, and Paris-Roubaix dirt roads.",
+    "has_profile": true,
+    "profile_url": "/vermont-overland-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
     "name": "Big Horn Gravel",
     "slug": "big-horn-gravel",
     "location": "Gypsum, Colorado",
@@ -1365,6 +1401,42 @@
       "grade": "A",
       "score": 100.0,
       "weakest": "source_diversity"
+    }
+  },
+  {
+    "name": "Rasputitsa",
+    "slug": "rasputitsa",
+    "location": "Burke, Vermont",
+    "region": "Northeast",
+    "month": "April",
+    "distance_mi": 46,
+    "elevation_ft": 5000,
+    "tier": 3,
+    "overall_score": 70,
+    "scores": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 5,
+      "elevation": 4,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Vermont's early season mud fest—46 miles of Class 4 roads, self-supported suffering, and guaranteed mud.",
+    "has_profile": true,
+    "profile_url": "/rasputitsa-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
     }
   },
   {
@@ -3152,22 +3224,6 @@
     "has_rwgps": false
   },
   {
-    "name": "Vermont Overland",
-    "slug": "vermont-overland",
-    "location": "Woodstock VT",
-    "region": "Other",
-    "month": "August",
-    "distance_mi": 54,
-    "elevation_ft": 7000,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
     "name": "Raid Rockingham",
     "slug": "raid-rockingham",
     "location": "SE NH",
@@ -4069,22 +4125,6 @@
     "location": "Netherlands",
     "region": "Other",
     "month": "October",
-    "distance_mi": null,
-    "elevation_ft": null,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Rasputitsa",
-    "slug": "rasputitsa",
-    "location": "Burke VT",
-    "region": "Other",
-    "month": "April",
     "distance_mi": null,
     "elevation_ft": null,
     "tier": 3,

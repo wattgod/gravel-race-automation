@@ -28,9 +28,43 @@ Stage 4: Validation (automated)              → PASS or fix queue
 ### Option A: One race at a time
 
 1. Open a Cursor chat with web search enabled
-2. Paste the prompt from `prompts/{slug}-research.txt`
+2. Paste the prompt from `prompts/{slug}-research.txt` (or use the template below)
 3. Cursor will search the web, compile sources, write the research dump
 4. Save output to `research-dumps/{slug}-raw.md`
+
+### Stage 1 Prompt Template
+
+```
+Research the gravel race "{RACE NAME}" in {LOCATION}.
+
+Find and include ALL of the following, with source URLs inline after each fact:
+
+1. Official website — link to homepage, registration page, course map
+2. Course details — distance, elevation gain, surface breakdown (% gravel/dirt/paved), named climbs/sections
+3. Route data — search RideWithGPS (ridewithgps.com) for the race route. Note route ID, elevation profile, surface tags. Search DirtyFreehub (dirtyfreehub.com) for the area — they have curated surface breakdowns and local route knowledge
+4. Registration — cost, lottery/first-come, sell-out history. Check BikeReg (bikereg.com) or RunSignUp for current/past registration pages
+5. Historical results — search Athlinks (athlinks.com) for the race name. Pull finisher counts by year, median finish times, DNF rates, field size trends. This is the best source for hard numbers
+6. Historical data — year founded, founder, participation trends, notable editions
+7. Rider accounts — search Reddit (r/gravelcycling, r/cycling, r/bikepacking), forum posts (Slowtwitch, PackFodder), personal blogs. Quote real users with u/username attribution
+8. Media coverage — search VeloNews, CyclingTips, Escape Collective, RidingGravel.com, In The Know Cycling, GravelCyclist.com for race coverage, previews, and reviews
+9. Video/podcast — search YouTube for race recaps, course previews, and ride-alongs. Check podcast episodes: The Gravel Ride Podcast, TrainerRoad Podcast, EVOQ Bike. Race directors and pros often share specific details not found in written media
+10. Strava — search Strava for race-related segments, note KOM times and segment names
+11. Weather/climate — historical temps, wind, precipitation for race month. Use weather data sites
+12. DNF/attrition data — dropout rates, common causes, cutoff times (cross-reference with Athlinks data)
+13. Controversy or "black pill" — anything that went wrong, common complaints, honest negatives
+14. Community vibe — post-race party, expo, volunteer culture, local town support
+15. Lodging/travel — nearest airport, drive time, camping vs hotels, booking pressure
+
+CRITICAL RULES:
+- Every fact MUST have its source URL on the same line, e.g.: "The race started in 2015 (https://example.com/about)"
+- Tag each source type: [Official], [Reddit], [VeloNews], [CyclingTips], [Strava], [RideWithGPS], [Athlinks], [DirtyFreehub], [Blog], [Forum], [YouTube], [Podcast], etc.
+- Minimum 15 unique source URLs from at least 6 different domains
+- Include direct quotes from riders with attribution
+- No summarizing — include specific numbers, dates, dollar amounts, temperatures, finisher counts
+- For historical results: include at least 3 years of data if available (field size, finish times, DNF%)
+
+Save output to research-dumps/{slug}-raw.md
+```
 
 ### Option B: Batch mode (20 races per session)
 
@@ -99,6 +133,7 @@ Airport, lodging, food, parking, packet pickup.
 Rules:
 - Every score must have a specific justification (not "it's challenging")
 - Every claim must trace back to the research dump
+- Carry forward ALL source URLs from the research dump — do not drop citations
 - No marketing language. Blunt, direct, specific.
 - Matti voice: "You" not "riders", honest not hedging
 ```

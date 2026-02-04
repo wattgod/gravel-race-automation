@@ -63,7 +63,15 @@ SOURCE_DOMAINS = {
     "ridinggravel": r"ridinggravel\.com",
     "strava": r"strava\.com",
     "ridewithgps": r"ridewithgps\.com",
-    "official": r"bikereg\.com|athlinks\.com|runsignup\.com",
+    "athlinks": r"athlinks\.com",
+    "bikereg": r"bikereg\.com",
+    "runsignup": r"runsignup\.com",
+    "dirtyfreehub": r"dirtyfreehub\.com",
+    "gravelmap": r"gravelmap\.com",
+    "intheknowcycling": r"intheknowcycling\.com",
+    "gravelcyclist": r"gravelcyclist\.com",
+    "packfodder": r"packfodder\.com",
+    "podcast": r"podcasts?\.apple\.com|spotify\.com|anchor\.fm",
 }
 
 # Generic suffering zone patterns that indicate weak research

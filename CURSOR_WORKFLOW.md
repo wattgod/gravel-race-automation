@@ -23,6 +23,32 @@ Stage 4: Validation (automated)              → PASS or fix queue
 
 ---
 
+## Stage 0: Pre-Research Check (MANDATORY)
+
+**Before researching ANY race, check if it already has a profile.**
+
+```bash
+# List all existing profiles
+ls race-data/
+
+# Search for a specific race (check slug variants)
+ls race-data/ | grep -i "unbound\|sbt\|bwr\|big-sugar"
+```
+
+**Rules:**
+- If a JSON file exists for the race under ANY slug, **SKIP IT**
+- Check common slug variants — the same race may use different slugs:
+  - `unbound-200` vs `unbound-gravel`
+  - `big-sugar` vs `big-sugar-gravel`
+  - `bwr-california` vs `belgian-waffle-ride`
+  - `crusher-in-the-tushar` vs `crusher-tushar`
+- Only research races with **NO existing JSON profile**
+- If unsure whether a race exists, check the directory first — do not guess
+
+**Why this matters:** Cursor re-researched 5 existing profiles in one batch, producing weaker versions that overwrote the originals. The entire batch was wasted. Always check first.
+
+---
+
 ## Stage 1: Web Research
 
 ### Option A: One race at a time

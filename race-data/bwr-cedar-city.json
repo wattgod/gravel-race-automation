@@ -169,7 +169,24 @@
       "sources": [
         "v2"
       ],
-      "migration_notes": []
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 76.0,
+        "grade": "B",
+        "weakest": "citation_density",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 20,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

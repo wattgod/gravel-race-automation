@@ -28,7 +28,12 @@
     "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
     "has_profile": true,
     "profile_url": "/unbound-200-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "B",
+      "score": 76.8,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Leadville Trail 100 MTB",
@@ -59,7 +64,12 @@
     "tagline": "The Race Across the Sky. 100 miles at 10,000+ feet. The belt buckle that defines mountain biking.",
     "has_profile": true,
     "profile_url": "/leadville-100-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 100.0,
+      "weakest": "source_diversity"
+    }
   },
   {
     "name": "Badlands",
@@ -90,7 +100,12 @@
     "tagline": "800km self-supported through Spanish deserts and 3,400m alpine passes. Where ultra-endurance meets extreme heat.",
     "has_profile": true,
     "profile_url": "/badlands-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 72.2,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Belgian Waffle Ride",
@@ -121,7 +136,12 @@
     "tagline": "The most technical gravel race in America. 130 miles of everything—road, dirt, singletrack, sand, suffering.",
     "has_profile": true,
     "profile_url": "/bwr-california-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "B",
+      "score": 77.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Big Sugar Gravel",
@@ -152,7 +172,12 @@
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
     "has_profile": true,
     "profile_url": "/big-sugar-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 65.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Crusher in the Tushar",
@@ -183,7 +208,12 @@
     "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
     "has_profile": true,
     "profile_url": "/crusher-in-the-tushar-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 80.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Barry-Roubaix",
@@ -214,7 +244,12 @@
     "tagline": "The world's largest gravel race. 5,500 riders. Michigan spring chaos.",
     "has_profile": true,
     "profile_url": "/barry-roubaix-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 80.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Dirty Reiver",
@@ -245,7 +280,12 @@
     "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
     "has_profile": true,
     "profile_url": "/dirty-reiver-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 92.8,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "Gravel Worlds",
@@ -276,7 +316,12 @@
     "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
     "has_profile": true,
     "profile_url": "/gravel-worlds-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 78.8,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "The Mid South",
@@ -307,7 +352,12 @@
     "tagline": "Oklahoma's weather lottery with a $100K prize purse and a guaranteed Bobby hug.",
     "has_profile": true,
     "profile_url": "/mid-south-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 96.4,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Rebecca's Private Idaho",
@@ -338,7 +388,12 @@
     "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
     "has_profile": true,
     "profile_url": "/rebeccas-private-idaho-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 95.8,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "SBT GRVL",
@@ -369,7 +424,12 @@
     "tagline": "Champagne gravel in the Colorado Rockies. 125 miles at 7,000+ feet. The beautiful grind.",
     "has_profile": true,
     "profile_url": "/sbt-grvl-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 80.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Sea Otter Classic Gravel",
@@ -400,7 +460,12 @@
     "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
     "has_profile": true,
     "profile_url": "/sea-otter-gravel-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 60.0,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "Traka 360",
@@ -431,7 +496,12 @@
     "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
     "has_profile": true,
     "profile_url": "/the-traka-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 80.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Gran Fondo Strade Bianche",
@@ -462,7 +532,12 @@
     "tagline": "Ride the white roads of Tuscany. 138km through the iconic sectors. Finish in Siena's Piazza del Campo.",
     "has_profile": true,
     "profile_url": "/strade-bianche-gran-fondo-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 73.5,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Seven",
@@ -493,7 +568,12 @@
     "tagline": "Australia's crown jewel gravel race. 125km through Western Australia's forests. Host of 2026 UCI Gravel World Championships.",
     "has_profile": true,
     "profile_url": "/seven-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "USA Cycling Gravel Nationals",
@@ -524,7 +604,12 @@
     "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
     "has_profile": true,
     "profile_url": "/usa-cycling-gravel-nationals-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 71.8,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Migration Gravel Race",
@@ -555,7 +640,12 @@
     "tagline": "Four days through Kenya's Maasai Mara. Zebras on course.",
     "has_profile": true,
     "profile_url": "/migration-gravel-race-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "C",
+      "score": 61.2,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Oregon Trail Gravel Grinder",
@@ -586,7 +676,12 @@
     "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
     "has_profile": true,
     "profile_url": "/oregon-trail-gravel-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 59.5,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "Belgian Waffle Ride Cedar City",
@@ -617,7 +712,12 @@
     "tagline": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
     "has_profile": true,
     "profile_url": "/bwr-cedar-city-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.0,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Rooted Vermont",
@@ -648,7 +748,12 @@
     "tagline": "Where New England gravel meets Green Mountain grit.",
     "has_profile": true,
     "profile_url": "/rooted-vermont-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 64.2,
+      "weakest": "source_diversity"
+    }
   },
   {
     "name": "Gravel Locos",
@@ -679,7 +784,12 @@
     "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
     "has_profile": true,
     "profile_url": "/gravel-locos-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.0,
+      "weakest": "voice_authenticity"
+    }
   },
   {
     "name": "The Rad Dirt Fest",
@@ -710,7 +820,12 @@
     "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
     "has_profile": true,
     "profile_url": "/the-rad-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 71.8,
+      "weakest": "source_diversity"
+    }
   },
   {
     "name": "Ned Gravel",
@@ -741,7 +856,12 @@
     "tagline": "Colorado high country gravel from Nederland. Altitude included.",
     "has_profile": true,
     "profile_url": "/ned-gravel-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "B",
+      "score": 75.5,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "The Rift",
@@ -772,7 +892,12 @@
     "tagline": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
     "has_profile": true,
     "profile_url": "/the-rift-race-guide/",
-    "has_rwgps": true
+    "has_rwgps": true,
+    "research": {
+      "grade": "A",
+      "score": 94.5,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "Big Horn Gravel",
@@ -803,7 +928,12 @@
     "tagline": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
     "has_profile": true,
     "profile_url": "/big-horn-gravel-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 74.8,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Paris to Ancaster",
@@ -834,7 +964,12 @@
     "tagline": "Canada's Spring Classic. 100km of mud chutes, rail trails, and chaos. The race that eats bikes.",
     "has_profile": true,
     "profile_url": "/paris-to-ancaster-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 100.0,
+      "weakest": "source_diversity"
+    }
   },
   {
     "name": "Highlands Gravel Classic",
@@ -865,7 +1000,12 @@
     "tagline": "The only US qualifier for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
     "has_profile": true,
     "profile_url": "/highlands-gravel-classic-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "cross_reference"
+    }
   },
   {
     "name": "BWR Arizona",
@@ -896,7 +1036,12 @@
     "tagline": "Hell of the North Desert—100+ miles of sand, rock, and technical singletrack through Arizona's high desert.",
     "has_profile": true,
     "profile_url": "/bwr-arizona-race-guide/",
-    "has_rwgps": false
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 66.2,
+      "weakest": "citation_density"
+    }
   },
   {
     "name": "Ottawa Valley Gravel Experience",

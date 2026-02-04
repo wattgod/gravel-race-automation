@@ -220,7 +220,24 @@
         "v1",
         "v2"
       ],
-      "migration_notes": []
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 95.8,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 100,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

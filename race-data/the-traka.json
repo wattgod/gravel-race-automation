@@ -244,7 +244,24 @@
         "v1",
         "v2"
       ],
-      "migration_notes": []
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 80.0,
+        "grade": "A",
+        "weakest": "citation_density",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 5,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

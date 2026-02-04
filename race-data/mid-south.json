@@ -200,7 +200,24 @@
         "v2",
         "v3"
       ],
-      "migration_notes": []
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 96.4,
+        "grade": "A",
+        "weakest": "citation_density",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 92,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
+      }
     },
     "training_config": {
       "workout_modifications": {

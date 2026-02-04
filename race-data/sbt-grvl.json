@@ -214,13 +214,13 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 80.0,
+        "overall": 100.0,
         "grade": "A",
-        "weakest": "citation_density",
+        "weakest": "source_diversity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 100,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,

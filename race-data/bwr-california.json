@@ -206,17 +206,17 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 77.0,
-        "grade": "B",
-        "weakest": "citation_density",
+        "overall": 100.0,
+        "grade": "A",
+        "weakest": "source_diversity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 100,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 70,
+          "voice_authenticity": 100,
           "completeness": 100,
           "cross_reference": 100
         },

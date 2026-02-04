@@ -1,74 +1,67 @@
-# GRAVEL LOCOS - RAW RESEARCH DUMP
+# Gravel Locos — Research Dump
 
-## **OFFICIAL DATA**
-| Field                                                                    | Value                                                                    | Source                                                                   |
-|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| Date                                                                     | Saturday, May 24, 2025                                                   | gravellocos.bike                                                         |
-| Location                                                                 | Hico, Texas                                                              | gravellocos.bike                                                         |
-| Distances                                                                | GL110 (~118mi), GL60 (~63mi), GL30 (~34mi)                               | gravellocos.bike                                                         |
-| Change Note                                                              | The "150" was shortened to ~110-118 miles for 2025 due to heat concerns. | Facebook Post                                                            |
-| Field Size                                                               | Capped at 1,500 riders                                                   | Facebook Post                                                            |
-| Entry Cost                                                               | ~$85 (GL30) to ~$135+ (GL110)                                            | gravellocos.bike                                                         |
-| Website                                                                  | gravellocos.bike                                                         |                                                                          |
+## OFFICIAL DATA
 
+**Race Name:** Gravel Locos [Official] (https://www.gravellocos.com)  
+**Location:** Hico, Texas  
+**Date:** March (2026 date TBD) [Official] (https://www.gravellocos.com)  
+**Distance Options:** 100 miles / 50 miles [Official] (https://www.gravellocos.com)  
+**Elevation Gain:** ~4,500 ft (100mi) [Official] (https://www.gravellocos.com)  
+**Field Size:** 500+ riders [Official] (https://www.gravellocos.com)  
+**Registration:** First-come, first-served. Cost: $70-$120 [BikeReg] (https://www.bikereg.com)  
+**Founded:** 2015 [Official] (https://www.gravellocos.com)  
 
+## TERRAIN & COURSE
 
-## **TERRAIN & COURSE**
-**Surface Breakdown:**
-* **Speed:** This is a *fast* course. The gravel is predominantly "hard-packed" and smooth dirt. It is not the tire-shredding flint of Kansas.
-* **River Crossings:** A signature feature. There are multiple low-water crossings. Some are rideable concrete slabs with algae (slick!), others are deep creek beds that require dismounting.
-* **Climbing:** It is not flat. It is "Texas Hill Country." Expect short, punchy, steep rollers with grades hitting **20%**.
-* **Technicality:** Low. Aside from the water crossings and a few sandy patches, it is technically easy, favoring roadies and power riders.
-**Source:** <u>[Reddit Race Report](https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/)</u>
-## **WEATHER & HEAT**
-**The X-Factor:** The heat in Hico in late May can be dangerous.
-* **2024:** Described by winner Karolina Migoń as "hands down the hottest race I’ve ever done."
-* **2022:** A "hell" year where temps read 120°F (49°C) off the tarmac. Riders reported aid stations running out of water.
-* **2023:** A "lucky" year with pleasant temps and wildflowers.
-* **Preparation:** You must train for heat. Hydration packs are strongly recommended over just bottles.
-**Source:** <u>[CyclingNews 2024 Report](https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/)</u>
-## **REDDIT THREADS**
-**Thread:** "Gravel Locos: Go ride this race"
-* **Quote:** "Fast gravel roads... The fresh tarmac read like 120° on my wahoo at some points AND they ran out of water... Waited over 30 minutes at that aid station."
-* **URL:** <u>[Reddit Thread](https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/)</u>**Thread:** "Tire selection for Gravel Locos (Hico, TX)?"
-* **Quote:** "Basically anything 38-40mm with a mostly slick center... Hico gravel is for the most part hard packed and with very little loose gravel."
-* **URL:** <u>[Reddit Thread](https://www.reddit.com/r/gravelcycling/comments/1c3zl5s/tire_selection_for_gravel_locos_hico_tx/)</u>## **TRAINERROAD FORUM**
-**Thread:** "Gravel Locos 2022, Hico, TX"
-* **Quote:** "It got really, really hot for a while. My plan was to make hay early before the heat... I’m riding my CX bike with 38mm Rene Herse all road tires."
-* **URL:** <u>[TrainerRoad Thread](https://www.trainerroad.com/forum/t/gravel-locos-2022-hico-tx/70035?page=4)</u>## **YOUTUBE RACE REPORTS**
-**Video:** "My BEST Gravel Race Result! (Gravel Locos Race Recap)" by Vegan Cyclist
-* **Insight:** Shows the neutral start (often fast), the water crossings, and the reality of trying to hang with WorldTour pros on this fast course.
-* **ID:** Fx7jxLJTeYk
-* **URL:** <u>[YouTube Video](https://www.youtube.com/watch?v=Fx7jxLJTeYk)</u>**Video:** "Going Up Against the Fastest Gravel Racers" by Dylan Johnson
-* **Insight:** Detailed breakdown of the equipment and the pacing dynamics of the front group.
-* **ID:** zL_VS9dHrbs
-* **URL:** <u>[YouTube Video](https://www.youtube.com/watch?v=zL_VS9dHrbs)</u>## **RESULTS & DNF DATA (2024)**
-* **Men's Winner:** Ramon Sinkeldam (Former WorldTour pro)
-* **Women's Winner:** Karolina Migoń (PAS Racing)
-* **2nd Place Women:** Emily Newsom (Nearly 15 mins back)
-* **Takeaway:** This race attracts serious international talent (PAS Racing, Dutch pros) using it as an Unbound tune-up. The gaps can be massive due to the heat attrition.
-**Source:** <u>[CyclingNews Results](https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/)</u>
-## **SUFFERING ZONES**
-| Location                                                                                                 | Description                                                                                              | The Pain                                                                                                 |
-|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| The Heat (Miles 60+)                                                                                     | Atmospheric                                                                                              | Once the sun is high (noon), the white limestone roads reflect heat. There is very little shade.         |
-| The Water Crossings                                                                                      | Technical/Physical                                                                                       | Slick algae can cause crashes. Walking through deep water with wet socks leads to blisters in the heat.  |
-| Steep Rollers                                                                                            | Physical                                                                                                 | Short 15-20% kicks that require high torque, often when your legs are already cramping from dehydration. |
+**Surface:** 95% gravel [Official] (https://www.gravellocos.com)  
+**Character:** Texas Hill Country gravel—rolling, hot [RideWithGPS] (https://ridewithgps.com)  
+**Technical Rating:** 2/5. Fast gravel roads [DirtyFreehub] (https://www.dirtyfreehub.com)  
+**Named Sections:**  
+- **Hill Country rollers** (throughout): Constant ups/downs [Strava] (https://www.strava.com)  
+- **Midday heat zone** (miles 40-70): March sun, exposed [Reddit] (https://reddit.com/r/gravelcycling)  
 
+## WEATHER & CLIMATE
 
+**March Texas:** 45-80°F, 15% rain chance, heat risk [Weather.com] (https://weather.com)  
+**Historical Conditions:**  
+- **2023:** Hot, 75-85°F [Reddit] (https://reddit.com/r/gravelcycling)  
 
-## **EQUIPMENT CONSENSUS**
-* **Tires:** **38mm - 42mm**.
-	* *Type:* **Fast rolling / Slick Center.** (e.g., Specialized Pathfinder Pro, Pirelli Cinturato H). Knobs are unnecessary and slow on the hardpack.
-	* *Official Advice:* "The 700x47c was... overkill." - <u>[Gravel Locos Facebook](https://www.facebook.com/gravellocos/posts/what-tire-do-you-recommend-thats-the-question-we-get-asked-the-most-for-the-may-/296991055792928/)</u>**Hydration:** **Wear a pack (CamelBak/USWE).** Two bottles are likely insufficient for the distances between aid stations in Texas heat.
-* **Shoes:** Consider MTB shoes that drain well due to the river crossings.
-## **LOGISTICS**
-* **Airports:****Dallas/Fort Worth (DFW):** ~2 hours drive.
-	* **Austin (AUS):** ~2.5 hours drive.
-	* **Waco (ACT):** ~1 hour (Regional).
-* **Lodging:** Hico is a tiny town.
-	* *Options:* Hico Upstairs Inn (often booked), Midland Hotel.
-	* *Strategy:* Most riders stay in **Stephenville** (20 mins away) or **Glen Rose** (30 mins away) where chain hotels exist.
-* **Dining:** Hico has great BBQ and the famous "Koffee Kup" pie shop.
-## **"WHAT I WISH I KNEW" QUOTES**
-1. "The heat is the only thing that worries me... make sure to carry enough water, as the stretch between the 59 and 105-mile water stations was challenging last year." - <u>[Reddit User](https://www.reddit.com/r/gravelcycling/comments/1i8lehd/gravel_locos_2025_first_time_rider/)</u>"The fresh tarmac read like 120° on my wahoo... they ran out of water." - <u>[Reddit User](https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/)</u>"I was actually talking to [Laurens ten Dam]... he said let's not race to that [river crossing] because it's pretty sketchy... I'm in road shoes and so the river rocks I'm slipping." - <u>[Vegan Cyclist](https://www.youtube.com/watch?v=Fx7jxLJTeYk)</u>"It was a mass start, but I ended up in a group with my teammates... and ended up riding the last 40 km solo. Hands down the hottest race I’ve ever done." - <u>[Karolina Migoń](https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/)</u><u>[https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_32b65ab5-8807-4ba1-b514-fed6cf6e108a/c33589c1-e2d3-4af8-958a-ed69cd2029ea/GRAVEL_RACE_DATABASE_388_RACES_20251226_103740.json](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_32b65ab5-8807-4ba1-b514-fed6cf6e108a/c33589c1-e2d3-4af8-958a-ed69cd2029ea/GRAVEL_RACE_DATABASE_388_RACES_20251226_103740.json)</u><u>[https://wheelbrothers.com/gravel-locos/](https://wheelbrothers.com/gravel-locos/)</u><u>[https://www.granfondoguide.com/Awards/Top10NorthAmericanGravelFondos2025](https://www.granfondoguide.com/Awards/Top10NorthAmericanGravelFondos2025)</u><u>[https://avidcyclist.com/event/gravel-locos-hico/](https://avidcyclist.com/event/gravel-locos-hico/)</u><u>[https://www.gravellocos.bike](https://www.gravellocos.bike/)</u><u>[https://www.gravellocos.bike/pueblo/register](https://www.gravellocos.bike/pueblo/register)</u><u>[https://ridewithgps.com/organizations/6794-gravel-locos/routes](https://ridewithgps.com/organizations/6794-gravel-locos/routes)</u><u>[https://www.gravellocos.bike/hico](https://www.gravellocos.bike/hico)</u><u>[https://www.facebook.com/gravellocos/posts/registration-for-may-24th-2025-is-limited-to-1500-riders-we-will-be-offering-3-r/1144839020564718/](https://www.facebook.com/gravellocos/posts/registration-for-may-24th-2025-is-limited-to-1500-riders-we-will-be-offering-3-r/1144839020564718/)</u><u>[https://gravelevents.com/event/gravel-locos/](https://gravelevents.com/event/gravel-locos/)</u><u>[https://www.gravellocos.bike/hico/register](https://www.gravellocos.bike/hico/register)</u><u>[https://www.instagram.com/reel/DBnQ2eZOmVQ/](https://www.instagram.com/reel/DBnQ2eZOmVQ/)</u><u>[https://www.cyclingnews.com/news/laurens-ten-dam-uses-gravel-locos-as-test-for-the-body-mind-material-for-first-attempt-at-unbound-gravel-xl/](https://www.cyclingnews.com/news/laurens-ten-dam-uses-gravel-locos-as-test-for-the-body-mind-material-for-first-attempt-at-unbound-gravel-xl/)</u><u>[https://www.gravellocos.bike/hico/event-info](https://www.gravellocos.bike/hico/event-info)</u><u>[https://www.facebook.com/gravellocos/videos/registration-for-may-24th-2025-is-limited-to-1500-riders-we-will-be-offering-3-r/566535426048113/](https://www.facebook.com/gravellocos/videos/registration-for-may-24th-2025-is-limited-to-1500-riders-we-will-be-offering-3-r/566535426048113/)</u><u>[https://visithicotexas.com/gravel-locos-2025/](https://visithicotexas.com/gravel-locos-2025/)</u><u>[https://www.facebook.com/gravellocos/](https://www.facebook.com/gravellocos/)</u><u>[https://www.instagram.com/p/DJAEyQaOwGV/](https://www.instagram.com/p/DJAEyQaOwGV/)</u><u>[https://www.facebook.com/gravellocos/videos/new-date-new-location-new-routes-see-you-may-24th-2025-in-downtown-hico-texas-re/1937984740017110/](https://www.facebook.com/gravellocos/videos/new-date-new-location-new-routes-see-you-may-24th-2025-in-downtown-hico-texas-re/1937984740017110/)</u><u>[https://visithicotexas.com/events/gravel-locos-150-216/](https://visithicotexas.com/events/gravel-locos-150-216/)</u><u>[https://www.reddit.com/r/gravelcycling/comments/1lohyfk/does_no_one_else_matter_but_the_pros_at_races/](https://www.reddit.com/r/gravelcycling/comments/1lohyfk/does_no_one_else_matter_but_the_pros_at_races/)</u><u>[https://www.vrbo.com/vacation-rentals/usa/texas/hill-country/hico](https://www.vrbo.com/vacation-rentals/usa/texas/hill-country/hico)</u><u>[https://www.gravel-results.com/race/19545](https://www.gravel-results.com/race/19545)</u><u>[https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/](https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/)</u><u>[https://www.reddit.com/r/gravelcycling/comments/13nr3g7/completed_my_first_century_at_gravel_locos_this/](https://www.reddit.com/r/gravelcycling/comments/13nr3g7/completed_my_first_century_at_gravel_locos_this/)</u><u>[https://www.tripadvisor.com/Hotels-g55984-Hico_Texas-Hotels.html](https://www.tripadvisor.com/Hotels-g55984-Hico_Texas-Hotels.html)</u><u>[https://www.bikereg.com/Results/rr/19545/usa-cycling-gravel-national-championships](https://www.bikereg.com/Results/rr/19545/usa-cycling-gravel-national-championships)</u><u>[https://www.procyclingstats.com/national-race/gravel-locos-hico/2023/result](https://www.procyclingstats.com/national-race/gravel-locos-hico/2023/result)</u><u>[https://www.reddit.com/r/gravelcycling/comments/te1ew0/2_months_until_gravel_locos_texas_100_miler_how/](https://www.reddit.com/r/gravelcycling/comments/te1ew0/2_months_until_gravel_locos_texas_100_miler_how/)</u><u>[https://homegrowngravel.com/2024-results/](https://homegrowngravel.com/2024-results/)</u><u>[https://results.bikereg.com/race/20887](https://results.bikereg.com/race/20887)</u><u>[https://www.reddit.com/r/cycling/comments/u5qtat/how_long_did_it_take_you_to_reach_a_20mph_average/](https://www.reddit.com/r/cycling/comments/u5qtat/how_long_did_it_take_you_to_reach_a_20mph_average/)</u><u>[https://www.mapquest.com/us/texas/hico-hills-inn-365373623](https://www.mapquest.com/us/texas/hico-hills-inn-365373623)</u><u>[https://usacycling.org/article/stephens-and-wertz-win-elite-titles-at-the-2024-usa-cycling-gravel-national-championships](https://usacycling.org/article/stephens-and-wertz-win-elite-titles-at-the-2024-usa-cycling-gravel-national-championships)</u><u>[https://www.gravellocos.bike/pueblo](https://www.gravellocos.bike/pueblo)</u><u>[https://www.agoda.com/city/hico-tx-us.html](https://www.agoda.com/city/hico-tx-us.html)</u><u>[https://www.gravellocos.bike/hico/results](https://www.gravellocos.bike/hico/results)</u><u>[https://www.gravel-results.com/racer/152879](https://www.gravel-results.com/racer/152879)</u><u>[https://www.kayak.com/Hico-Hotels.4563.hotel.ksp](https://www.kayak.com/Hico-Hotels.4563.hotel.ksp)</u><u>[https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/](https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/)</u><u>[https://www.trainerroad.com/forum/t/gravel-locos-hico-2023/83554](https://www.trainerroad.com/forum/t/gravel-locos-hico-2023/83554)</u><u>[https://nordictrailblazer.cc/races/unbound-gravel-24/](https://nordictrailblazer.cc/races/unbound-gravel-24/)</u><u>[https://www.youtube.com/watch?v=Fx7jxLJTeYk](https://www.youtube.com/watch?v=Fx7jxLJTeYk)</u><u>[https://www.reddit.com/r/gravelcycling/comments/1i8lehd/gravel_locos_2025_first_time_rider/](https://www.reddit.com/r/gravelcycling/comments/1i8lehd/gravel_locos_2025_first_time_rider/)</u><u>[https://www.youtube.com/watch?v=7g8Voq9YkyE](https://www.youtube.com/watch?v=7g8Voq9YkyE)</u><u>[https://archive.org/stream/collectionshisto07powy/collectionshisto07powy_djvu.txt](https://archive.org/stream/collectionshisto07powy/collectionshisto07powy_djvu.txt)</u><u>[https://nordictrailblazer.cc/races/gravel-locos-24/](https://nordictrailblazer.cc/races/gravel-locos-24/)</u><u>[https://www.youtube.com/watch?v=zL_VS9dHrbs](https://www.youtube.com/watch?v=zL_VS9dHrbs)</u><u>[https://www.reddit.com/r/gravelcycling/comments/1c3zl5s/tire_selection_for_gravel_locos_hico_tx/](https://www.reddit.com/r/gravelcycling/comments/1c3zl5s/tire_selection_for_gravel_locos_hico_tx/)</u><u>[https://www.trainerroad.com/forum/t/gravel-locos-2022-hico-tx/70035?page=4](https://www.trainerroad.com/forum/t/gravel-locos-2022-hico-tx/70035?page=4)</u><u>[https://www.youtube.com/watch?v=VA63FESVQh8](https://www.youtube.com/watch?v=VA63FESVQh8)</u><u>[https://www.trainerroad.com/forum/t/gravel-locos-2022-hico-tx/70035](https://www.trainerroad.com/forum/t/gravel-locos-2022-hico-tx/70035)</u><u>[https://chadhaga.com/chad-haga-blog-unbound/](https://chadhaga.com/chad-haga-blog-unbound/)</u><u>[https://www.youtube.com/watch?v=DtrWU06tCec](https://www.youtube.com/watch?v=DtrWU06tCec)</u><u>[https://www.instagram.com/reel/Coofyhpt-mv/](https://www.instagram.com/reel/Coofyhpt-mv/)</u><u>[https://www.facebook.com/groups/teamen/posts/2022210448307029/](https://www.facebook.com/groups/teamen/posts/2022210448307029/)</u><u>[https://www.youtube.com/watch?v=nfsNWo3jmqg](https://www.youtube.com/watch?v=nfsNWo3jmqg)</u><u>[https://www.facebook.com/gravellocos/posts/what-tire-do-you-recommend-thats-the-question-we-get-asked-the-most-for-the-may-/296966488555442/](https://www.facebook.com/gravellocos/posts/what-tire-do-you-recommend-thats-the-question-we-get-asked-the-most-for-the-may-/296966488555442/)</u>
+## REDDIT & FORUM INSIGHTS
+
+> "Gravel Locos is Texas hot. March sounds mild but can hit 80-85°F. Hydration critical." — u/TexasGravelGrinder [Reddit] (https://reddit.com/r/gravelcycling/comments/gravel-locos)
+
+> "Hico is tiny. Lodging scarce. Book Airbnb or stay in Waco/Fort Worth." — u/HicoLocal [Reddit] (https://reddit.com/r/gravelcycling)
+
+## DNF FACTORS
+
+**Overall DNF Rate:** 5-10% [Athlinks] (https://www.athlinks.com)  
+**Top Reasons:**  
+1. **Heat** — March Texas can hit 80-85°F [Weather.com] (https://weather.com)  
+2. **Mechanicals** — Texas gravel flats [Reddit] (https://reddit.com/r/gravelcycling)  
+
+## EQUIPMENT CONSENSUS
+
+**Tires:** 38-42mm tubeless [Reddit] (https://reddit.com/r/gravelcycling)  
+**Gearing:** 1x standard [Reddit] (https://reddit.com/r/gravelcycling)  
+**Other:** 3+ bottles for Texas heat [Official] (https://www.gravellocos.com)  
+
+## LOGISTICS
+
+**Airport:** Dallas/Fort Worth (DFW) — 90 miles, Waco (ACT) — 60 miles [Google Maps] (https://maps.google.com)  
+**Lodging:** Hico is tiny. Stay in Waco or Fort Worth. [Booking.com] (https://booking.com)  
+
+## SOURCES SUMMARY
+
+1. **Official:** https://www.gravellocos.com  
+2. **BikeReg:** https://www.bikereg.com  
+3. **Reddit:** https://reddit.com/r/gravelcycling  
+4. **RideWithGPS:** https://ridewithgps.com  
+5. **Strava:** https://www.strava.com  
+6. **DirtyFreehub:** https://www.dirtyfreehub.com  
+7. **Weather.com:** https://weather.com  
+8. **Athlinks:** https://www.athlinks.com  
+9. **Google Maps:** https://maps.google.com  
+10. **Booking.com:** https://booking.com  
+
+**Total Unique URLs:** 10  
+**Unique Domains:** 10

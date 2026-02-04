@@ -142,12 +142,24 @@ Rules:
 
 ## Stage 3: JSON Generation
 
+**CRITICAL: Cursor drifts from abstract schemas. Always reference `mid-south.json` directly.**
+
 Paste this prompt in Cursor with the brief attached:
 
 ```
 Read the brief at briefs/{slug}-brief.md.
+FIRST read race-data/mid-south.json — your output MUST match its EXACT key structure.
 
-Generate a canonical race JSON at race-data/{slug}.json matching this structure:
+Generate a canonical race JSON at race-data/{slug}.json matching the EXACT schema from mid-south.json.
+
+Common mistakes to AVOID:
+- Use "course_description" (NOT "course_profile")
+- Use "history" (NOT "race_history")
+- "suffering_zones" go INSIDE "course_description" (NOT at top level)
+- "official_site" goes INSIDE "logistics" (NOT as top-level "website")
+- Do NOT add keys that don't exist in mid-south.json (no "equipment", "community_culture", "media_coverage", "social_media", "registration_url")
+
+The structure is:
 
 {
   "race": {

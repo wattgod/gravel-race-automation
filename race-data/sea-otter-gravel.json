@@ -1,0 +1,159 @@
+{
+  "race": {
+    "name": "Sea Otter Classic Gravel",
+    "slug": "sea-otter-gravel",
+    "display_name": "Sea Otter Classic Gravel",
+    "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
+    "race_challenge_tagline": "6K+ feet of climbing",
+    "vitals": {
+      "distance_mi": 89,
+      "elevation_ft": 8100,
+      "location": "Monterey, California",
+      "location_badge": "MONTEREY, CALIFORNIA",
+      "county": "Monterey County",
+      "date": "Mid-April annually",
+      "date_specific": "2025: April 10-13 (gravel race specific day varies)",
+      "terrain_types": [
+        "Fort Ord fire roads",
+        "Coastal gravel",
+        "Military base terrain",
+        "Technical singletrack connectors"
+      ],
+      "field_size": "500+ gravel riders (festival has 10,000+ total)",
+      "start_time": "Saturday morning (varies)",
+      "registration": "Opens fall prior. Cost: ~$125 race entry",
+      "prize_purse": "$15,000+",
+      "aid_stations": "Multiple on course",
+      "cutoff_time": "Varies by distance"
+    },
+    "climate": {
+      "primary": "California Central Coast",
+      "description": "April brings mild coastal weather—fog possible in morning, clearing to pleasant afternoons",
+      "challenges": [
+        "Morning fog/chill",
+        "Midday can warm quickly",
+        "Coastal wind",
+        "Dry dusty conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Former military base fire roads and coastal gravel",
+      "surface": "Hardpacked fire roads, sandy sections, some technical connectors",
+      "technical_rating": 3,
+      "features": [
+        "Fort Ord terrain",
+        "Ocean views",
+        "Sandy washes",
+        "Technical transitions"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 85,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 5,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 3,
+      "expenses": 4,
+      "course_profile": 18,
+      "biased_opinion": 32,
+      "tier_note": "Lifetime Grand Prix race (as of 2025) - prestige override applied",
+      "score_note": "LTGP status and festival prestige. Course -2 (adjusted for punchy not long), overall +11."
+    },
+    "biased_opinion": {
+      "verdict": "Festival First, Race Second",
+      "summary": "Sea Otter gravel is best understood as part of the larger festival experience. If you want a pure gravel race, look elsewhere. If you want to race gravel AND attend North America's biggest bike expo, this is your event.",
+      "strengths": [
+        "The festival: 10,000+ cyclists, every brand, endless content.",
+        "The destination: Monterey is gorgeous. Make it a long weekend.",
+        "The accessibility: Not an intimidating course for mid-level riders."
+      ],
+      "weaknesses": [
+        "The chaos: So much happening that the race can feel like an afterthought.",
+        "The prestige: Not a gravel-specific bucket list event.",
+        "The cost: Monterey isn't cheap. Hotels, entries, temptations."
+      ],
+      "bottom_line": "Go for the festival, race gravel because you're there. It's a celebration of cycling, not a pure gravel pilgrimage."
+    },
+    "black_pill": {
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The gravel race is one small part of Sea Otter. If you're flying in specifically for gravel racing, you might be disappointed by the course. If you're there for the whole experience, the race is a great bonus.",
+      "consequences": [
+        "Monterey hotels are expensive during Sea Otter. Book 6+ months early.",
+        "The expo will drain your wallet. Budget for impulse purchases.",
+        "Racing tired from expo walking is a real phenomenon."
+      ],
+      "expectation_reset": "This is a cycling vacation with a race attached. Set expectations accordingly. Great experience, not a defining gravel challenge."
+    },
+    "final_verdict": {
+      "score": "85 / 100",
+      "one_liner": "A gravel race wrapped in North America's biggest bike festival. Experience > competition.",
+      "should_you_race": "Yes if you want the full Sea Otter experience and gravel is your discipline. No if you're looking for a pure gravel bucket-list race.",
+      "alternatives": "If you want California gravel without the circus: Lost & Found (Tahoe), Grasshopper. If you want the expo but different racing: Sea Otter MTB or road events."
+    },
+    "logistics": {
+      "airport": "San Jose (SJC) - 75 minutes. San Francisco (SFO) - 2+ hours. Monterey (MRY) - small but close.",
+      "lodging_strategy": "Book immediately when dates announced. Hotels sell out at premium prices. Consider Salinas or Santa Cruz.",
+      "food": "Monterey food scene is excellent. Cannery Row for tourist dining, downtown for locals.",
+      "packet_pickup": "At expo venue. Lines can be long—go early.",
+      "parking": "Laguna Seca parking requires pass or shuttle. Plan accordingly.",
+      "official_site": "https://www.seaotterclassic.com"
+    },
+    "history": {
+      "founded": 1991,
+      "founder": "Frank Yohannan",
+      "origin_story": "Sea Otter Classic began as a mountain bike race and festival. Gravel racing was added as the sport grew. The event is now North America's largest cycling festival.",
+      "notable_moments": [
+        "Gravel added to complement MTB, road, and other disciplines",
+        "Part of the massive Sea Otter festival weekend",
+        "Benefits from expo and vendor ecosystem"
+      ],
+      "reputation": "More festival than pure race. A great excuse to attend the biggest bike party in North America."
+    },
+    "course_description": {
+      "character": "Fast fire roads with coastal character. More about the experience than pure gravel suffering.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Fort Ord Rollers",
+          "desc": "The terrain starts testing your legs. This section demands attention and proper pacing. The cumulative fatigue is real by mile 15.",
+          "terrain_detail": "Key section at mile 15",
+          "named_section": "Fort Ord Rollers"
+        },
+        {
+          "mile": 40,
+          "label": "Sandy Sections",
+          "desc": "Beach proximity means sand. Momentum matters.",
+          "terrain_detail": "Key section at mile 40",
+          "named_section": "Sandy Sections"
+        },
+        {
+          "mile": 55,
+          "label": "Final Challenge",
+          "desc": "Tired legs, dusty conditions, festival finish awaits.",
+          "terrain_detail": "Key section at mile 55"
+        }
+      ],
+      "signature_challenge": "The distraction. There's so much happening at Sea Otter that the race can feel secondary. Stay focused or get caught up in expo madness.",
+      "map_url": "https://ridewithgps.com/routes/50233482"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v2"
+      ],
+      "migration_notes": []
+    }
+  }
+}

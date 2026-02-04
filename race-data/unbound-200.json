@@ -1,53 +1,81 @@
 {
   "race": {
-    "name": "UNBOUND GRAVEL 200",
+    "name": "Unbound 200",
     "slug": "unbound-200",
     "display_name": "Unbound Gravel 200",
     "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
-
+    "race_challenge_tagline": "heat demands and 200 miles of relentless Flint Hills terrain",
     "vitals": {
-      "distance_mi": 202,
-      "elevation_ft": 10122,
+      "distance_mi": 200,
+      "elevation_ft": 11000,
       "location": "Emporia, Kansas",
-      "location_badge": "EMPORIA, KS",
+      "location_badge": "EMPORIA, KANSAS",
       "county": "Lyon County",
-      "date": "First Saturday of June annually",
+      "date": "Early June annually",
       "date_specific": "2026: June 6",
-      "terrain_types": ["Flint rock roads", "Chunky gravel", "Paved transfers", "Cattle pasture B-roads"],
-      "field_size": "~4,000+ total (2,000+ in 200mi)",
-      "start_time": "Saturday 6:00/6:30 AM",
-      "registration": "Lottery November. Cost: $345",
-      "prize_purse": "$10K each for men's/women's winner + LTGP points",
-      "aid_stations": "2 full checkpoints (mi 70, 148) + 2 water oases (mi 40, 112)",
-      "cutoff_time": "20.5 hours (3:00 AM Sunday)"
+      "terrain_types": [
+        "Flint Hills gravel",
+        "rolling hills",
+        "sharp limestone",
+        "cattle guards"
+      ],
+      "field_size": "~1,500 riders in the 200-mile; ~5,000 total across all distances",
+      "start_time": "Saturday 6:00 AM",
+      "registration": "Random lottery plus qualifier coins, charity entries, volunteer & Life Time member paths. You don't buy your way in; you win the right to suffer.",
+      "prize_purse": "$100,000 (split equally men/women)",
+      "aid_stations": "2 full checkpoints + 2 water oases. Everything between those points is on you, your crew, and whatever you can fix in the ditch.",
+      "cutoff_time": "None. (Finish by midnight encouraged)"
     },
-
     "climate": {
-      "primary": "Kansas summer—extreme heat, humidity, thunderstorms possible",
-      "description": "June in Kansas means 85-95°F highs with brutal humidity. Full sun exposure on open prairies. Thunderstorms are a perennial threat. 2023 saw morning mud then 90s°F heat. 2022 had mid-race thunderstorm and peanut butter mud. 'Whatever brutal weather Kansas decides to serve up.'",
-      "challenges": ["Extreme heat (85-100°F possible)", "High humidity causing massive fluid loss", "Thunderstorms with mud potential", "Zero shade on open prairie"]
+      "primary": "Flint Hills heat",
+      "description": "June brings 85-95°F days with high humidity",
+      "challenges": [
+        "Heat adaptation critical",
+        "Hydration demands extreme",
+        "Sun exposure relentless"
+      ]
     },
-
     "terrain": {
-      "primary": "Flint Hills gravel—sharp rocks that destroy tires and spirits",
-      "surface": "~90% unpaved chunky flint rock roads, ~10% paved transfers. Sharp stones slice sidewalls. Clay mud when wet becomes 'peanut butter' that stops bikes.",
+      "primary": "Rolling gravel with punchy climbs",
+      "surface": "Chunky limestone that shreds tires and hands",
       "technical_rating": 3,
-      "features": ["Texaco Hill", "Teter Hill (8-11%)", "BE-YOTCH climb (14-17%)", "The Judge (18% max)", "Endless rolling hills"]
+      "features": [
+        "Sustained rollers",
+        "Cattle guard crossings",
+        "Exposed ridgelines",
+        "Creek crossings in wet years"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 93,
-      "course_profile": 30,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 26,
       "biased_opinion": 35,
+      "tier_note": "Lifetime Grand Prix flagship event - THE race by which all gravel events are measured",
+      "score_note": "THE gravel race. Editorial +5 and overall +13 for flagship status and cultural significance.",
+      "tier_override_reason": "World's largest gravel race, Lifetime Grand Prix flagship, $10K+ purse, 'Super Bowl of Gravel' status",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "World's largest gravel race, Lifetime Grand Prix flagship, $10K+ purse, 'Super Bowl of Gravel' status",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 5,
@@ -78,7 +106,6 @@
         "explanation": "The Flint Hills are stunning in June—wildflowers, big sky, isolated ranch roads. Kids draw chalk messages, locals hand out bacon at mile 150. Riding through the night with lights blazing, finishing at 2 AM to cheering crowds. Epic adventure."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,72 +136,362 @@
         "explanation": "Emporia is affordable IF you can get lodging. Flights to Kansas City plus 2-hour drive. Crew logistics add cost. Budget $1,000+ beyond entry for race-week trip. Many camp to save."
       }
     },
-
     "biased_opinion": {
-      "verdict": "The Championship",
-      "summary": "Unbound is gravel's Super Bowl. The 200-mile distance, Kansas heat, flint rock roads, and potential mud create the ultimate test. The field is the deepest in the sport. Finishing—especially in the 'Sunset Club' or 'Midnight Club'—is a lifetime achievement. It's not the prettiest course or the most technical, but it's THE race. If you want to call yourself a gravel racer, Unbound is the test.",
+      "verdict": "Icon",
+      "summary": "Unbound is gravel racing's Mount Everest—not because it's the hardest course, but because it's the race that defines the sport. Riders don't 'do' Unbound casually. They plan for it, obsess over heat protocols, and show up knowing that crossing the line in Emporia means something. The course itself isn't revolutionary—rolling terrain, gravel, heat. What makes it legendary is the field, the atmosphere, and the weight of the finish line. If you finish Unbound, you've earned it.",
       "strengths": [
-        "THE most prestigious gravel race in the world",
-        "Deepest field—where champions are crowned",
-        "Epic adventure through remote Kansas"
+        "The field: Pros, weekend warriors, and everyone in between. Starting alongside Keegan Swenson or Alexey Vermeulen is surreal.",
+        "The finish line vibe: Bobby Wintle (race director) hugs every single finisher. People cry. It's real.",
+        "The community: Post-race Emporia feels like a pilgrimage site. Shared suffering bonds people."
       ],
       "weaknesses": [
-        "Lottery entry means no guarantee of a spot",
-        "Kansas heat and conditions can be brutal",
-        "Long travel to remote Emporia"
+        "Logistics are chaotic: 4,000+ riders descending on a town of 25,000. Hotels sell out a year in advance. Parking is a nightmare.",
+        "The lottery: You can't just sign up. You enter. You hope. It's part of the mystique, but also frustrating.",
+        "Cost: $225 entry + travel + lodging. This isn't a cheap race."
       ],
-      "bottom_line": "If you can win the lottery and survive the conditions, Unbound is the gravel championship experience."
+      "bottom_line": "If you're serious about gravel, you'll do Unbound eventually. Whether you finish smiling or swearing, you'll never forget it."
     },
-
     "black_pill": {
-      "title": "THE MUD AND HEAT THAT BREAKS EVERYONE",
-      "reality": "In 2023, 910 riders (23%) abandoned—the most ever. Morning mud turned bikes into 5-10lb anchors. Afternoon heat pushed into 90s°F with high humidity. Riders snapped derailleurs in mud or collapsed from heat stroke. The flint rocks slice any tire under 40mm. 'You can be fit and still fail completely.' Weather determines who finishes, not just fitness.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "Finishing Unbound doesn't make you a gravel legend. It makes you someone who survived 200 miles of gravel in Kansas. The Instagram glow lasts a week. The pride lasts longer. But the real reward? Knowing you showed up to the hardest day you could design for yourself—and you didn't quit.",
       "consequences": [
-        "Mud years: Carry a paint stick, accept 20+ minute mud walks",
-        "Heat years: Ice down neck, 90g carbs/hour, accept power loss",
-        "The 'extra 4 miles' at the end feel like 10 when oxygen-depleted"
+        "You'll spend $1,500+ (entry, travel, lodging, gear). For one race.",
+        "You'll train 10-20 hours a week for 12+ weeks. That's time away from family, friends, hobbies.",
+        "You'll probably suffer more than you've ever suffered on a bike. The heat, the distance, the relentless terrain—none of it cares about your FTP."
       ],
-      "expectation_reset": "Run 40-45mm tubeless tires with robust casings. Carry 2-3 spare tubes, plugs, pump. Train in heat and humidity. Have a mud plan (paint stick, grass cleaning). Pace by heart rate, not power—your numbers will drop in heat. Accept that something WILL go wrong—flats, mechanicals, bonking. Mental resilience wins here."
+      "expectation_reset": "Unbound is a test of will, not watts. Show up undertrained, and you'll finish broken. Show up overtrained, and you'll finish tired. The sweet spot? Prepared, durable, and mentally ready to hurt for 10-14 hours. That's what training plans are for."
     },
-
     "final_verdict": {
       "score": "93 / 100",
-      "one_liner": "The Super Bowl of gravel—200 miles through Kansas where legends are made.",
-      "should_you_race": "Yes if you want the ultimate gravel challenge and can handle extreme conditions. Yes if you're chasing the most prestigious finisher award in amateur cycling. Skip if Kansas heat or lottery entry are barriers.",
-      "alternatives": "The Traka 360 (Europe's equivalent); SBT GRVL (more forgiving, Colorado); BWR California (technical focus)"
+      "one_liner": "The gravel race by which all others are measured.",
+      "should_you_race": "If you're asking whether Unbound is 'worth it,' the answer is probably yes—but only if you're willing to commit to the training, the logistics, and the reality that this race will test every assumption you have about your durability. It's not fun. It's not easy. But it's unforgettable.",
+      "alternatives": "If you want the prestige without the chaos: try Belgian Waffle Ride (similar vibe, better logistics). If you want the distance without the heat: try Gravel Worlds in August (still hard, slightly cooler). If you want to test yourself without the hype: try Mid South (intimate, brutal, beautiful)."
     },
-
     "logistics": {
-      "airport": "KCI (Kansas City) - 2hr drive to Emporia",
-      "lodging_strategy": "Hotels book out in MINUTES after lottery results. Many camp at Emporia Fairgrounds (showers available). Towns like Ottawa/Topeka (50-60min) often have rooms. Host housing from locals available through Facebook groups.",
-      "food": "Emporia has restaurants and Walmart. Race week: pasta dinners, expo food. Post-race party on Commercial Street. 'Bacon Hill' around mile 150 from local volunteers.",
-      "packet_pickup": "Thursday-Friday at All Things Gravel Expo in downtown Emporia. Photo ID required.",
-      "parking": "Downtown streets close race day. Park legally nearby or ride from lodging.",
+      "airport": "Wichita (ICT) - 90 minutes to Emporia",
+      "lodging_strategy": "Book 12+ months early. Prioritize proximity to start line over charm. Emporia hotels sell out. Expect $150-250/night for basic rooms.",
+      "food": "Pack your own breakfast. Race-morning lines are absurd. Stock up at Walmart/Dillons day before.",
+      "packet_pickup": "Friday at Emporia State University. Long lines. Budget 45+ minutes.",
+      "parking": "Free lots open 4:00 AM. Arrive early or walk 15+ minutes.",
       "official_site": "https://unboundgravel.com"
     },
-
     "history": {
       "founded": 2006,
-      "founder": "Jim Cummins and local cycling community",
-      "origin_story": "Originally 'Dirty Kanza,' started as a 100-rider challenge through the Flint Hills. Grew into the world's largest gravel race. Renamed 'Unbound' in 2021. Now Lifetime Grand Prix flagship attracting 4,000+ riders annually.",
+      "founder": "Jim Cummins",
+      "origin_story": "Started as 'Dirty Kanza 200' with 34 riders exploring Flint Hills gravel. Grew from underground cult race to North America's most prestigious gravel event.",
       "notable_moments": [
-        "2009: DK200 begins, still the flagship",
-        "2019: Colin Strickland first sub-10 hour finish (9:58)",
-        "2023: 910 DNFs (23%)—most ever from mud + heat",
-        "2024: Cam Jones shatters record in 8:34"
+        "2019: Renamed 'Unbound Gravel' to reflect evolution",
+        "2021: Prize purse equality ($100K split)",
+        "Record field: 4,000+ across all distances"
       ],
-      "reputation": "The Super Bowl of gravel—where the sport's champions are crowned."
+      "reputation": "The Ironman of gravel. Finishing earns respect. Winning earns legend status."
     },
-
     "course_description": {
-      "character": "A 200-mile war of attrition through the Kansas Flint Hills. Alternates north/south of Emporia each year. Relentless rolling hills—'death by a thousand paper cuts.' Sharp flint rocks destroy tires. Named climbs like Texaco Hill, BE-YOTCH (17%), and The Judge (18%) break legs. Open prairie with full sun exposure. Two full checkpoints with crew access at miles 70 and 148.",
+      "character": "Relentless. Not one killer climb, but 200 miles of constant attrition. At 200 miles, this is a full-day effort. With 11K+ feet of climbing, the vertical gain is relentless.",
       "suffering_zones": [
-        {"mile": 30, "label": "Texaco Hill approach", "desc": "The roughest section—chunky flint, cow pies, cattle guards. 'At every descent, 3-5 folks fixing flats.' The gauntlet begins."},
-        {"mile": 59, "label": "BE-YOTCH climb", "desc": "Short but brutal—14-17% grades. 'Saw folks walking.' Named appropriately."},
-        {"mile": 90, "label": "Midday Heat Zone", "desc": "Full exposure, relentless rollers, sun at peak. 'Between 90 and 105 my legs were falling apart.' Where heat exhaustion claims victims."},
-        {"mile": 155, "label": "The Judge", "desc": "The last named climb. 12% average with 18% pitch. 'Everyone was walking.' The gut check before the finale."}
+        {
+          "mile": 60,
+          "label": "First Meltdown Zone",
+          "desc": "Reality sets in. The polite first hour is gone.",
+          "terrain_detail": "Key section at mile 60",
+          "named_section": "First Meltdown Zone"
+        },
+        {
+          "mile": 120,
+          "label": "Checkpoint Salvation",
+          "desc": "Halfway. Decide if you're going back out.",
+          "terrain_detail": "Key section at mile 120",
+          "named_section": "Checkpoint Salvation"
+        },
+        {
+          "mile": 180,
+          "label": "Dark Thoughts Begin",
+          "desc": "20 miles left. Your brain starts negotiating.",
+          "terrain_detail": "Key section at mile 180",
+          "named_section": "Dark Thoughts Begin"
+        }
       ],
-      "signature_challenge": "The complete package—200 miles of flint rock, Kansas heat, potential mud, and the mental battle of riding through the night to cross Commercial Street."
+      "signature_challenge": "The heat. The duration. The Flint Hills don't negotiate. Heat adaptation isn't optional—it's survival. The combination of 200 miles and extreme temperatures creates a unique endurance challenge.",
+      "ridewithgps_id": "46551378",
+      "ridewithgps_name": "Unbound%20200"
+    },
+    "guide_variables": {
+      "race_name": "Unbound Gravel 200",
+      "race_distance": "200 miles",
+      "race_elevation": "11,000 feet",
+      "race_date": "June",
+      "race_location": "Emporia, Kansas",
+      "race_terrain": "Flint Hills gravel roads",
+      "race_weather": "Hot and humid, typically 85-95°F",
+      "race_challenges": [
+        "Extreme heat and humidity",
+        "Long distance requiring exceptional endurance",
+        "Technical gravel sections requiring bike handling skills"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat adaptation protocol built into weeks 6-10",
+        "by_when": "Week 6",
+        "why": "Heat adaptation takes 2-3 weeks. Starting too late means racing unprepared in dangerous conditions."
+      },
+      {
+        "requirement": "Flint-specific cornering and line selection skills",
+        "by_when": "Week 6-8",
+        "why": "Technical skills prevent crashes and save energy. Poor handling wastes watts and increases risk."
+      },
+      {
+        "requirement": "9-hour dress rehearsal in week 9",
+        "by_when": "Week 9",
+        "why": "This tests nutrition, pacing, and mental preparation. Skipping it means discovering problems on race day."
+      }
+    ],
+    "race_specific": {
+      "surface": {
+        "terrain_type": "flint_rock",
+        "description": "Kansas flint rock - sharp, angular, sidewall-eating. This is NOT your typical gravel.",
+        "hazard_sectors": [
+          {
+            "name": "Flint Ridge",
+            "mile_marker": "20-40",
+            "risk_level": "high",
+            "tactics": "Avoid the crown. Ride the smoother edges where limestone is compacted. One puncture here sets the tone for your entire day."
+          },
+          {
+            "name": "The Gauntlet",
+            "mile_marker": "85-95",
+            "risk_level": "extreme",
+            "tactics": "Slow down 2-3 mph through here. Pick your line carefully and commit. One flat costs 15 minutes minimum. This is where races are lost."
+          },
+          {
+            "name": "Final Flint Stretch",
+            "mile_marker": "175-185",
+            "risk_level": "moderate",
+            "tactics": "Tired hands make bad line choices. Stay focused. You've made it this far - don't get sloppy now."
+          }
+        ]
+      },
+      "mechanicals": {
+        "recommended_tires": [
+          "Rene Herse 700x38mm Cayuse Pass",
+          "Panaracer GravelKing SK 700x40mm",
+          "Specialized Pathfinder Pro 700x38mm",
+          "Challenge Gravel Grinder 700x38mm"
+        ],
+        "pressure_by_weight": {
+          "140_160_lbs": {
+            "dry": "36F / 38R psi",
+            "mixed": "34F / 36R psi",
+            "mud": "28F / 30R psi"
+          },
+          "160_180_lbs": {
+            "dry": "38F / 40R psi",
+            "mixed": "36F / 38R psi",
+            "mud": "30F / 32R psi"
+          },
+          "180_200_lbs": {
+            "dry": "40F / 42R psi",
+            "mixed": "38F / 40R psi",
+            "mud": "32F / 34R psi"
+          },
+          "200_plus_lbs": {
+            "dry": "42F / 44R psi",
+            "mixed": "40F / 42R psi",
+            "mud": "34F / 36R psi"
+          }
+        }
+      },
+      "wind_protocol": {
+        "prevailing_direction": "Southwest afternoon headwinds",
+        "when_it_matters": "After 1pm, miles 100-180. This is the crux of Unbound - where the race really begins.",
+        "group_tactics": "Don't pull early. Save bullets for the last 50 miles. Rotate efficiently but let stronger riders do the heavy lifting early. You'll need every match later.",
+        "solo_tactics": "Accept the grind. Lower your power target by 5-10%. Stay aero. Don't fight it - you'll lose. Pace yourself for 3-4 hours of sustained headwind. Mental game matters here."
+      },
+      "environment": {
+        "time_drift": {
+          "note": "Unbound typically runs 1-2 hours longer than best-case estimates. Plan accordingly.",
+          "neutral": "+1 hour over predicted finish time",
+          "mild_mud": "+2-3 hours (course becomes bike-packing trip)",
+          "heavy_mud": "+4-6 hours (survival mode, expect 30%+ DNF rate)"
+        }
+      },
+      "in_race_decision_tree": {
+        "flat_tire": [
+          "Stay calm - this is expected at Unbound, not a crisis",
+          "Flip bike upside down or lean against hip",
+          "Check if sealant is working (spin wheel, look for bubbles)",
+          "If hole visible, insert plug immediately",
+          "If plug fails or sidewall cut, replace tube",
+          "Reinflate to race pressure (check your weight table)",
+          "Spin wheel to verify no rub",
+          "Resume at Z2 for 2-3 minutes to settle back in"
+        ],
+        "bonking": [
+          "STOP IMMEDIATELY - don't try to push through",
+          "Sit down if possible (don't stand around)",
+          "Consume 2-3 gels or 200-300 calories FAST",
+          "Wait 15-20 minutes MINIMUM",
+          "Let sugar hit bloodstream - this takes time, be patient",
+          "Drink 16oz water with gels",
+          "Resume at Z1-Z2 pace ONLY",
+          "Fuel aggressively for next hour to rebuild glycogen stores"
+        ],
+        "cramping": [
+          "Consume sodium (salt tabs or pretzels/chips) + 16oz water immediately",
+          "Stretch gently - don't force it or you'll tear muscle fibers",
+          "Drop to Z1-Z2 for 10-15 minutes minimum",
+          "Back off intensity by 10-15% even after cramps resolve",
+          "Continue aggressive sodium intake rest of race",
+          "Don't resume hard efforts until cramping completely resolved"
+        ],
+        "dropped_from_group": [
+          "Don't panic - emotional response costs more energy than you have",
+          "Assess honestly: were you overextended or did they surge?",
+          "Find YOUR sustainable pace (probably Z2-low Z3)",
+          "Look for riders at similar pace within 30-60 seconds",
+          "Form new working group if possible - communicate intentions",
+          "If solo, accept it - focus on YOUR race, not theirs",
+          "Use solo time gaps to fuel and recover without group pressure"
+        ],
+        "overheating": [
+          "Reduce effort IMMEDIATELY to Z1-Z2 - this is non-negotiable",
+          "Pour water over head, neck, forearms at next opportunity",
+          "Seek shade at next aid station - don't skip this",
+          "Consume cold fluids if available",
+          "Don't resume normal pace until core temp drops and you feel clear-headed",
+          "Monitor for heat exhaustion: dizziness, nausea, confusion, stop racing if present"
+        ]
+      },
+      "psychological_landmarks": {
+        "dark_patch": {
+          "miles": "120-150",
+          "description": "Where motivation dies. You've been out here 7-9 hours. Everything hurts. The finish still feels impossibly far. This is EXPECTED - not a crisis, not unique to you. Use your performance statements. 6-2-7 breathing. Keep. Moving. Forward. One pedal stroke at a time."
+        },
+        "where_field_shatters": {
+          "miles": "80-110",
+          "description": "The rollers blow apart groups. You'll see attacks fly. People will drop. Stay disciplined. DO NOT chase efforts you can't sustain. The real race hasn't started yet. Save your matches for when they matter - miles 150+."
+        },
+        "late_relief": {
+          "miles": "170-180",
+          "description": "Light at end of tunnel becomes real. Emporia is close enough to taste. Bodies hurt but minds lift. Use this energy surge wisely. This is where you collect rewards from earlier discipline. Push through - you've earned this."
+        },
+        "the_honeymoon": {
+          "miles": "25-60",
+          "description": "Everything feels easy. Legs are fresh. Groups rolling smooth. HUGE temptation to go hard and 'get ahead.' DON'T. This is the setup for the dark patch at mile 130. Stay disciplined now, dominate later. Patience wins Unbound."
+        },
+        "second_wind": {
+          "miles": "155-165",
+          "description": "Often happens after CP3 aid station. Body and mind reset briefly. Energy returns like magic. Capitalize on this window - it doesn't last forever. This is your time to move up through the field."
+        }
+      }
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "migration_notes": []
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "tier_3_weeks": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "tier_2_weeks": [
+            4,
+            5
+          ],
+          "tier_1_weeks": [
+            11,
+            12
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 7,
+            "compete": 9,
+            "podium": 10
+          }
+        },
+        "aggressive_fueling": {
+          "enabled": true,
+          "target_carbs_per_hour": 60,
+          "long_ride_min_hours": 3
+        },
+        "robust_taper": {
+          "enabled": true,
+          "weeks": [
+            11,
+            12
+          ]
+        },
+        "gravel_grit": {
+          "enabled": true,
+          "week": 12
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "heat",
+          "fueling",
+          "tactics",
+          "mental",
+          "execution",
+          "recovery"
+        ],
+        "race_specific": true,
+        "topics": {
+          "heat": "The protocol that works—when to start, how to adapt",
+          "fueling": "Calories, hydration, timing for 200+ miles",
+          "tactics": "When to sit in, when to push, when to survive",
+          "mental": "What to do when mile 150 hurts",
+          "execution": "Why most athletes fail intervals",
+          "recovery": "The honest takes"
+        }
+      },
+      "tier_overrides": {
+        "ayahuasca": {
+          "dress_rehearsal_hours": 5,
+          "weekly_hours": "0-5"
+        },
+        "finisher": {
+          "dress_rehearsal_hours": 7,
+          "weekly_hours": "8-12"
+        },
+        "compete": {
+          "dress_rehearsal_hours": 9,
+          "weekly_hours": "12-18"
+        },
+        "podium": {
+          "dress_rehearsal_hours": 10,
+          "weekly_hours": "18+"
+        }
+      },
+      "marketplace_variables": {
+        "race_name": "Unbound Gravel 200",
+        "race_hook": "200 miles across the Flint Hills. 11,000 feet of climbing. June heat that breaks people.",
+        "race_hook_detail": "Unbound isn't a race you survive by accident. It's a race you prepare for—or it prepares you for a very long day.",
+        "distance": "200",
+        "dark_mile": "150",
+        "non_negotiable_1": "Heat adaptation protocol built into weeks 6-10",
+        "non_negotiable_2": "Flint-specific cornering and line selection skills",
+        "non_negotiable_3": "9-hour dress rehearsal in week 9"
+      }
     }
   }
 }

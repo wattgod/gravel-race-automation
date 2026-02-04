@@ -1,0 +1,160 @@
+{
+  "race": {
+    "name": "Oregon Trail Gravel Grinder",
+    "slug": "oregon-trail-gravel",
+    "display_name": "Oregon Trail Gravel Grinder",
+    "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
+    "race_challenge_tagline": "35K+ feet of climbing",
+    "vitals": {
+      "distance_mi": 375,
+      "elevation_ft": 35000,
+      "location": "Central Oregon (multiple towns)",
+      "location_badge": "CENTRAL OREGON",
+      "county": "Multiple counties",
+      "date": "Late June annually",
+      "date_specific": "2025: June 23-27",
+      "terrain_types": [
+        "High desert gravel",
+        "Forest service roads",
+        "Mountain passes",
+        "Volcanic terrain"
+      ],
+      "field_size": "200+ riders",
+      "start_time": "Varies by stage",
+      "registration": "Opens fall prior. Cost: ~$500+",
+      "prize_purse": "Varies",
+      "aid_stations": "Full support with vehicle access",
+      "cutoff_time": "Stage-dependent"
+    },
+    "climate": {
+      "primary": "High desert Oregon",
+      "description": "Late June brings long days, warm temps, and Oregon's classic high desert conditions",
+      "challenges": [
+        "Temperature swings 40-90°F",
+        "High-altitude sun exposure",
+        "Dust in dry years",
+        "Variable weather across 5 days"
+      ]
+    },
+    "terrain": {
+      "primary": "High desert and forest service gravel across Central Oregon",
+      "surface": "Variable—smooth forest roads to chunky volcanic gravel",
+      "technical_rating": 3,
+      "features": [
+        "McKenzie Pass",
+        "Cascade Range views",
+        "High desert landscapes",
+        "Old-growth forests"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 82,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 28,
+      "biased_opinion": 28,
+      "score_note": "Multi-day stage race format adds adventure value. Editorial +3 and overall +6."
+    },
+    "biased_opinion": {
+      "verdict": "Gravel's Grand Tour",
+      "summary": "Oregon Trail is for those who find single-day races limiting. The stage format creates different demands—recovery, consistency, pacing across days. It's closer to bikepacking than racing, with timing chips.",
+      "strengths": [
+        "The format: Multi-day racing is a completely different experience.",
+        "The scenery: Central Oregon delivers world-class landscapes.",
+        "The community: Five days together creates real bonds."
+      ],
+      "weaknesses": [
+        "Commitment: 5 days of racing requires serious vacation time.",
+        "Cost: Entry, lodging, travel adds up. This isn't a cheap race.",
+        "Logistics: Moving between towns requires planning or vehicle support."
+      ],
+      "bottom_line": "If you've exhausted one-day races and want something deeper, Oregon Trail is the next level. It's a proper cycling adventure disguised as a race."
+    },
+    "black_pill": {
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The stage race format sounds romantic until you realize you're waking up on Day 4 with yesterday's fatigue plus three days of accumulated suffering. This isn't five races—it's one long test with sleep breaks.",
+      "consequences": [
+        "Time commitment: 7+ days including travel and buffer.",
+        "Financial commitment: $1,500-2,500+ when all costs included.",
+        "Physical commitment: Training for multi-day events requires different preparation than single-day races."
+      ],
+      "expectation_reset": "This is closer to a bikepacking event with support than a traditional race. Your goal might shift from 'win' to 'finish with dignity' after Stage 2."
+    },
+    "final_verdict": {
+      "score": "92 / 100",
+      "one_liner": "The Grand Tour of American gravel—five days of Oregon's best, compressed into one transformative experience.",
+      "should_you_race": "Yes if you're ready for multi-day racing and want to experience gravel at its deepest. Not if you can't commit the time or prefer the intensity of one-day events.",
+      "alternatives": "If you want Oregon without 5-day commitment: Gorge Gravel Grinder. If you want multi-day elsewhere: Trans-Provence (Europe), Bike Nonstop (various)."
+    },
+    "logistics": {
+      "airport": "Portland (PDX) or Redmond (RDM) depending on stage locations.",
+      "lodging_strategy": "Organized lodging packages available. Or book hotels in each stage town.",
+      "food": "Event provides some meals. Small-town dining in stage communities.",
+      "packet_pickup": "Day before Stage 1 at start location.",
+      "parking": "Vehicle support recommended for gear transport between stages.",
+      "official_site": "https://www.oregontrailgravelgrinder.com"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "Breakaway Promotions",
+      "origin_story": "Created as America's answer to European multi-day stage races. The format brings Grand Tour vibes to gravel, with towns hosting different stages and riders progressing through Oregon's spectacular landscapes.",
+      "notable_moments": [
+        "Pioneered the multi-day gravel stage race format in America",
+        "Featured on Life Time Grand Prix",
+        "Known for spectacular course variety across stages"
+      ],
+      "reputation": "The gravel Grand Tour. Where one-day races feel limiting."
+    },
+    "course_description": {
+      "character": "Five distinct stages showcasing Oregon's diversity—high desert, forests, mountains, and everything between.",
+      "suffering_zones": [
+        {
+          "stage": 1,
+          "label": "Opening Salvo",
+          "desc": "60+ miles to set the tone. Fresh legs meet Oregon reality.",
+          "terrain_detail": "Exposed terrain with no shelter",
+          "named_section": "Opening Salvo"
+        },
+        {
+          "stage": 3,
+          "label": "The Queen Stage",
+          "desc": "The longest, hardest day. Where GC hopes live or die.",
+          "terrain_detail": "Key section at mile 3",
+          "named_section": "The Queen Stage"
+        },
+        {
+          "stage": 5,
+          "label": "Final Test",
+          "desc": "Tired bodies, one more day. Celebrate or suffer to the end.",
+          "terrain_detail": "Key section at mile 5",
+          "named_section": "Final Test"
+        }
+      ],
+      "signature_challenge": "The cumulative nature. Any single stage is manageable. Five consecutive days of 60-80+ miles with major climbing is a different animal.",
+      "map_url": null,
+      "map_note": "Course map coming soon"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v2"
+      ],
+      "migration_notes": []
+    }
+  }
+}

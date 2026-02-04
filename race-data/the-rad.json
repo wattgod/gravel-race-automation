@@ -1,0 +1,167 @@
+{
+  "race": {
+    "name": "The Rad",
+    "slug": "the-rad",
+    "display_name": "The Rad Dirt Fest",
+    "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
+    "race_challenge_tagline": "10,600+ feet of climbing with 18-mile sustained effort",
+    "vitals": {
+      "distance_mi": 113,
+      "elevation_ft": 10613,
+      "location": "Trinidad, Colorado",
+      "location_badge": "TRINIDAD, COLORADO",
+      "county": "Las Animas County",
+      "date": "Early October annually",
+      "date_specific": "2025: Early October",
+      "terrain_types": [
+        "High-desert gravel",
+        "Mesa terrain",
+        "Long sustained climbs",
+        "Technical two-track"
+      ],
+      "field_size": "500+ riders across distances",
+      "start_time": "Saturday morning",
+      "registration": "Opens via theraddirt.com. Tiered pricing by distance.",
+      "prize_purse": "Life Time event purse",
+      "aid_stations": "Multiple aid stations along course",
+      "cutoff_time": "Time limits per route with sweeps"
+    },
+    "climate": {
+      "primary": "High-desert Colorado",
+      "description": "Early fall in Trinidad means cool mornings, warm afternoons. High desert sun plus altitude makes climbs hot.",
+      "challenges": [
+        "Heat on long 18-mile climb",
+        "Exposed mesa terrain",
+        "Localized mud/ruts if rain",
+        "Altitude 6,000-9,000 ft"
+      ]
+    },
+    "terrain": {
+      "primary": "High-desert gravel with long sustained climbs",
+      "surface": "Over 90% maintained gravel roads, short technical section at Trinidad Lake State Park",
+      "technical_rating": 3,
+      "features": [
+        "18-mile climb to 9,000 ft",
+        "Spanish Peaks backdrop",
+        "Technical two-track sections",
+        "Fast descents with ruts"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 27,
+      "biased_opinion": 24,
+      "score_note": "Spanish Peaks scenery, 10K+ climbing at altitude. Life Time production quality. Overall +6 for adventure factor."
+    },
+    "biased_opinion": {
+      "verdict": "Climber's High-Desert Challenge",
+      "summary": "The Rad is a climbing race set against stunning Spanish Peaks scenery. The 18-mile climb to 9,000 ft with grades up to 18% defines the event. Well-organized Life Time production with challenging terrain.",
+      "strengths": [
+        "The scenery: Spanish Peaks and sweeping mesas are stunning.",
+        "The climb: 18-mile sustained effort is a true test of climbing fitness.",
+        "The organization: Life Time event quality and support.",
+        "UNBOUND qualifier: Finishers earn qualifier coins for 2025."
+      ],
+      "weaknesses": [
+        "Logistics: Trinidad is remote. Denver/Colorado Springs are hours away.",
+        "Altitude: 6,000-9,000 ft range affects sea-level riders.",
+        "Technical sections: Muddy/rutted descents can catch riders off-guard."
+      ],
+      "bottom_line": "A serious climbing race in beautiful high-desert Colorado. Come prepared for altitude and long sustained efforts."
+    },
+    "black_pill": {
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The 18-mile climb with grades up to 18% at altitude will humble you. If you train at sea level and show up expecting smooth gravel, the altitude and gradient will wreck your day.",
+      "consequences": [
+        "Trinidad is remote. Nearest major airports are Denver or Colorado Springs, hours away.",
+        "Altitude matters. Start at 6,000 ft, climb to 9,000 ft. Acclimatization helps.",
+        "The muddy/rutted descent at the top can cause flats and crashes. Hold your line."
+      ],
+      "expectation_reset": "This is a legitimate climbing challenge at altitude. Train for long sustained efforts and come prepared for high-desert conditions."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "High-desert climbing race with Spanish Peaks views and 10,000+ feet of vertical.",
+      "should_you_race": "Yes if you love climbing and want a challenging altitude race in stunning Colorado scenery. The 18-mile climb is the real deal.",
+      "alternatives": "If you want Colorado gravel without the massive climb: Ned Gravel. If you want similar climbing: Crusher in the Tushar."
+    },
+    "logistics": {
+      "airport": "Denver (DEN) or Colorado Springs (COS) - several hours drive to Trinidad. Consider Pueblo for closer regional option.",
+      "lodging_strategy": "Trinidad and surrounding area. Event weekend likely sells out local hotels/campsites. Book early.",
+      "food": "Trinidad is a small town. Plan accordingly.",
+      "packet_pickup": "Standard Life Time check-in protocols. Athlete guide covers timing and mandatory gear.",
+      "parking": "Start in downtown Trinidad. Standard event footprint.",
+      "official_site": "https://www.theraddirt.com"
+    },
+    "history": {
+      "founded": 2021,
+      "founder": "Life Time",
+      "origin_story": "Created by Life Time in Trinidad to showcase gravel roads rarely experienced, with Spanish Peaks backdrops and high-desert terrain. Lauren De Crescenzo won the inaugural 110-mile event.",
+      "notable_moments": [
+        "Inaugural 2021 event established Trinidad as gravel destination",
+        "Was Lifetime Grand Prix stop #5 in 2024",
+        "2025 edition includes UNBOUND Gravel qualifier coin allocation"
+      ],
+      "reputation": "High-desert Colorado climbing race with stunning Spanish Peaks scenery. Long sustained climbs at altitude define the challenge."
+    },
+    "course_description": {
+      "character": "Long sustained climbs through high-desert Colorado. Spanish Peaks views and 10,000+ feet of vertical define the challenge.",
+      "suffering_zones": [
+        {
+          "mile": 6,
+          "label": "Trinidad Lake Roller Coaster",
+          "desc": "Six-mile series of hills in the state park. Packs stay together but legs start to sting.",
+          "terrain_detail": "Rolling terrain in state park",
+          "named_section": "Roller Coaster"
+        },
+        {
+          "mile": 24,
+          "label": "18-Mile Climb",
+          "desc": "The main selection. 18 miles up to 9,000 ft with grades up to 18%. Heat, altitude, and gradient blow up groups.",
+          "terrain_detail": "Long sustained climb with steep pitches",
+          "named_section": "The Big Climb"
+        },
+        {
+          "mile": 65,
+          "label": "Highest Point & Descent",
+          "desc": "After climbing to the highest point, screaming descent with mud and deep do-not-change-your-line ruts for about a mile.",
+          "terrain_detail": "Rutted technical descent",
+          "named_section": "Top of Course"
+        },
+        {
+          "mile": 100,
+          "label": "Chunky Sector",
+          "desc": "The chunkiest part of the course. Most susceptible to flatting. Right before fast run-in to town.",
+          "terrain_detail": "Rocky/chunky gravel near Trinidad Lake",
+          "named_section": "Flat Zone"
+        }
+      ],
+      "signature_challenge": "The 18-mile climb to 9,000 ft. Long, steep, at altitude. This is where races are won and lost.",
+      "map_url": "https://www.theraddirt.com"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v2"
+      ],
+      "migration_notes": []
+    }
+  }
+}

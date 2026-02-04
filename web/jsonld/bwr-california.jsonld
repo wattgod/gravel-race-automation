@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Belgian Waffle Ride",
+  "description": "The most technical gravel race in America. 130 miles of everything\u2014road, dirt, singletrack, sand, suffering.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-04-27",
+  "location": {
+    "@type": "Place",
+    "name": "Del Mar, California"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "195",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "88",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://belgianwaffleride.bike"
+}

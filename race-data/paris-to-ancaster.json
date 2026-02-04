@@ -4,7 +4,6 @@
     "slug": "paris-to-ancaster",
     "display_name": "Paris to Ancaster",
     "tagline": "Canada's Spring Classic. 100km of mud chutes, rail trails, and chaos. The race that eats bikes.",
-
     "vitals": {
       "distance_mi": 62,
       "elevation_ft": 4000,
@@ -13,7 +12,13 @@
       "county": "Brant/Hamilton",
       "date": "April annually",
       "date_specific": "2025: April 27",
-      "terrain_types": ["Rail trail", "Farm lanes", "Mud chutes", "Pavement", "Singletrack"],
+      "terrain_types": [
+        "Rail trail",
+        "Farm lanes",
+        "Mud chutes",
+        "Pavement",
+        "Singletrack"
+      ],
       "field_size": "2,500-3,000 riders",
       "start_time": "Sunday morning waves",
       "registration": "Opens November. Cost: ~$100-150 CAD",
@@ -21,33 +26,54 @@
       "aid_stations": "Feed zones on course",
       "cutoff_time": "Time cuts at sectors"
     },
-
     "climate": {
       "primary": "Ontario spring—cold, wet, mud likely",
       "description": "Late April in Ontario means spring thaw conditions. Temperatures range 5-12°C (40-55°F). Rain is common, and even without race-day rain, the course is often muddy from spring melt. 2023 was a 'soupy mess' with 'total carnage.' 2022 was rare warm and fast year.",
-      "challenges": ["Spring mud regardless of race-day weather", "Cold temperatures (5-12°C typical)", "Rain likely in late April"]
+      "challenges": [
+        "Spring mud regardless of race-day weather",
+        "Cold temperatures (5-12°C typical)",
+        "Rain likely in late April"
+      ]
     },
-
     "terrain": {
       "primary": "Multi-surface chaos—rail trails to mud chutes in one race",
       "surface": "Mix of paved roads, packed gravel rail trails, private farm lanes, and infamous mud sectors",
       "technical_rating": 4,
-      "features": ["Mud chutes (hike-a-bike bottlenecks)", "Cambridge to Paris Rail Trail", "Martin Road final climb (18% grades)", "Farm lanes through private property"]
+      "features": [
+        "Mud chutes (hike-a-bike bottlenecks)",
+        "Cambridge to Paris Rail Trail",
+        "Martin Road final climb (18% grades)",
+        "Farm lanes through private property"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 70,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
       "course_profile": 21,
       "biased_opinion": 28,
+      "tier_override_reason": "2,500-3,000 riders (Canada's largest gravel race), UCI World Series",
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "2,500-3,000 riders (Canada's largest gravel race), UCI World Series",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 2,
@@ -78,7 +104,6 @@
         "explanation": "Private farm lane access creates unique experience. The mud chaos is memorable. The Paris-Roubaix inspiration gives it character. Spring classic vibes in Canada."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
@@ -109,7 +134,6 @@
         "explanation": "Southern Ontario has moderate costs. Toronto flights are easy. Hotels in Hamilton/Ancaster are available. Not cheap, not expensive."
       }
     },
-
     "biased_opinion": {
       "verdict": "Spring Chaos",
       "summary": "Paris to Ancaster is Canada's answer to Paris-Roubaix—a spring classic where mud is the defining variable. It's not the longest or hardest on paper, but the combination of cold, mud, and mechanical carnage makes it uniquely brutal. Founded in 1994, it predates the modern 'gravel' movement. If you want to test yourself in conditions that break bikes and spirits, P2A delivers.",
@@ -125,7 +149,6 @@
       ],
       "bottom_line": "If you want to race Canada's spring classic and earn bragging rights in the mud, Paris to Ancaster is mandatory."
     },
-
     "black_pill": {
       "title": "THE MUD THAT EATS DRIVETRAINS",
       "reality": "In wet years, the mud chutes are unrideable. You will walk your bike. The deep Ontario clay clogs frames and snaps derailleurs. 'Total carnage' is a common race report. One video is literally titled 'The Race That Eats Bikes.' Bring a paint stick to clear mud from your fork. Accept that your bike will need a full rebuild after.",
@@ -136,14 +159,12 @@
       ],
       "expectation_reset": "This is not a gravel race—it's a mud survival event that happens to include gravel. Run reinforced tires. Consider a 1x drivetrain (fewer parts to clog). Get to the front before the first mud sector or accept the traffic jam."
     },
-
     "final_verdict": {
       "score": "70 / 100",
       "one_liner": "Canada's spring classic—where mud is the main competitor and surviving is winning.",
       "should_you_race": "Yes if you want Canada's flagship gravel event and can handle mud chaos. Yes if you like spring classics vibes. Skip if you hate cold/wet or can't accept potential mechanical disaster.",
       "alternatives": "Barry-Roubaix (similar spring chaos, Michigan); Dirty Reiver (UK equivalent); Mid South (earlier, similar mud potential)"
     },
-
     "logistics": {
       "airport": "YYZ (Toronto Pearson) - 1hr to Hamilton area; YHM (Hamilton) - 20min",
       "lodging_strategy": "Stay in Ancaster or Hamilton (finish area). Most park at finish (Ancaster Community Centre) and take shuttle to Paris start. Book early—2,500+ riders fill hotels.",
@@ -152,7 +173,6 @@
       "parking": "Ancaster Community Centre / Walmart Plaza for most riders. Shuttle to Paris start.",
       "official_site": "https://parisancaster.com"
     },
-
     "history": {
       "founded": 1994,
       "founder": "Paris to Ancaster committee",
@@ -164,16 +184,39 @@
       ],
       "reputation": "Canada's spring classic—the race where weather determines everything."
     },
-
     "course_description": {
       "character": "A multi-surface chaos ride through Ontario farmland. Fast flat rail trail sections contrast with hike-a-bike mud chutes. The racing is European spring classic style—surge for position before the bottleneck sectors, survive the mud, then sprint for the final climb. Point-to-point from Paris to Ancaster.",
       "suffering_zones": [
-        {"mile": 10, "label": "First Mud Sector", "desc": "If you're not top 300, expect a traffic jam. Walking in deep clay while bikes pile up behind you."},
-        {"mile": 30, "label": "Powerline Mud", "desc": "'Bike-eating' sector. Derailleurs snap. Chains clog. The carnage peaks here."},
-        {"mile": 50, "label": "Late Farm Lanes", "desc": "Fatigued legs + more mud. By now the course is churned up by 2,000 riders ahead of you."},
-        {"mile": 60, "label": "Martin Road Climb", "desc": "Final 1.3km at up to 18% gradient. Cramp central. The sting in the tail after 60 miles of chaos."}
+        {
+          "mile": 10,
+          "label": "First Mud Sector",
+          "desc": "If you're not top 300, expect a traffic jam. Walking in deep clay while bikes pile up behind you."
+        },
+        {
+          "mile": 30,
+          "label": "Powerline Mud",
+          "desc": "'Bike-eating' sector. Derailleurs snap. Chains clog. The carnage peaks here."
+        },
+        {
+          "mile": 50,
+          "label": "Late Farm Lanes",
+          "desc": "Fatigued legs + more mud. By now the course is churned up by 2,000 riders ahead of you."
+        },
+        {
+          "mile": 60,
+          "label": "Martin Road Climb",
+          "desc": "Final 1.3km at up to 18% gradient. Cramp central. The sting in the tail after 60 miles of chaos."
+        }
       ],
       "signature_challenge": "The mud chutes—deep clay sectors that turn racing into survival and break equipment and spirits."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

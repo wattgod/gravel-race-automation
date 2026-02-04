@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Big Horn Gravel",
+  "description": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-06-22",
+  "location": {
+    "@type": "Place",
+    "name": "Gypsum, Colorado"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "100",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.bighornevents.com"
+}

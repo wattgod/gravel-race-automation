@@ -1,53 +1,85 @@
 {
   "race": {
-    "name": "GRAVEL LOCOS",
+    "name": "Gravel Locos",
     "slug": "gravel-locos",
     "display_name": "Gravel Locos",
     "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
-
+    "race_challenge_tagline": "7,884 ft of relentless rollers plus Texas heat that can read 120°F on your Wahoo",
     "vitals": {
-      "distance_mi": 118,
-      "elevation_ft": 6000,
+      "distance_mi": 157,
+      "elevation_ft": 7884,
       "location": "Hico, Texas",
-      "location_badge": "HICO, TX",
-      "county": "Hamilton County",
-      "date": "May annually",
-      "date_specific": "2025: May 24",
-      "terrain_types": ["Hard-packed gravel", "Smooth dirt", "River crossings", "Short steep climbs"],
-      "field_size": "1,500 riders",
-      "start_time": "Saturday morning",
-      "registration": "Opens winter. Cost: $85-$135",
-      "prize_purse": "Pro prizes",
-      "aid_stations": "Multiple feed zones (~50mi apart)",
-      "cutoff_time": "None published"
+      "location_badge": "HICO, TEXAS",
+      "county": "Hamilton County (northern edge of Texas Hill Country)",
+      "date": "Late May annually",
+      "date_specific": "2025: May 24 (Saturday)",
+      "terrain_types": [
+        "Smooth limestone gravel",
+        "Fast Hill Country ranch roads",
+        "Wildflower-lined paths",
+        "Endless rollers",
+        "Occasional chunky gravel patches"
+      ],
+      "field_size": "Deep pro field (Gomez Gagne, Barrow, etc.) plus large amateur turnout - key Unbound tune-up",
+      "start_time": "Hico, Texas (cowboy town associated with Billy the Kid)",
+      "registration": "La Loca 150 is COMPLETELY FREE with donation-driven fundraising for Hico first responders",
+      "prize_purse": "None - charity event",
+      "aid_stations": "Multiple well-stocked. 2022 had one run out of water after 3B climbs - riders waited 30+ minutes.",
+      "cutoff_time": "Not strictly enforced but heat and water logistics are bigger constraints",
+      "distance_options": "La Loca ~157 mi (FREE), La Gran Piedra ~110 mi, La Mediana ~70 mi, La Pequeña ~30 mi"
     },
-
     "climate": {
-      "primary": "Texas Hill Country heat—potentially dangerous",
-      "description": "Late May in Texas means heat. 2024 winner Karolina Migoń called it 'hands down the hottest race I've ever done.' 2022 saw temperatures read 120°F off the pavement, with aid stations running out of water. 2023 was a 'lucky' mild year. Prepare for the worst.",
-      "challenges": ["Extreme heat (90-100°F+ common)", "Limited shade on exposed roads", "Long gaps between aid stations in heat"]
+      "primary": "Texas Hill Country late May - heat is the primary challenge",
+      "description": "Late May means starting warm and climbing into 80s-90s°F with high sun. 2022's Wahoo reading of 120°F on fresh tarmac shows how brutal heat reflection can be.",
+      "challenges": [
+        "2022: 'The weather was hell' - 120°F tarmac readings",
+        "Heat and sun on open ranch roads",
+        "Dehydration risk is the primary concern",
+        "One aid station ran out of water in 2022"
+      ]
     },
-
     "terrain": {
-      "primary": "Fast hard-packed gravel roads through Texas Hill Country",
-      "surface": "Predominantly smooth hard-packed gravel and dirt—not tire-shredding flint",
+      "primary": "Smooth, fast Hill Country gravel with endless rollers",
+      "surface": "'Gorgeous' wildflower-lined gravel roads and fast limestone surfaces. 'Smooth' and 'perfect for gravel' per riders. Some chunkier patches but no singletrack or rock gardens.",
       "technical_rating": 2,
-      "features": ["River crossings (some rideable, some require dismounting)", "Short steep rollers (up to 20% grades)", "Fast rolling terrain favoring power riders"]
+      "features": [
+        "Well-packed limestone gravel",
+        "Loco Hill (60-mile route signature climb)",
+        "Endless rollers (7,884 ft distributed)",
+        "Pavement connectors",
+        "Open ranch roads with little shade"
+      ],
+      "gravel_percentage": 85,
+      "pavement_percentage": 15
     },
-
     "gravel_god_rating": {
-      "overall_score": 67,
-      "course_profile": 21,
-      "biased_opinion": 26,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 5,
+      "expenses": 4,
+      "course_profile": 24,
+      "biased_opinion": 31,
+      "tier_override_reason": "1,500 riders, popular pre-Unbound tune-up",
       "editorial_tier": 4,
       "editorial_tier_label": "TIER 4",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "tier_override_reason": "1,500 riders, popular pre-Unbound tune-up",
       "display_tier": 2,
       "display_tier_label": "TIER 2"
     },
-
     "course_profile": {
       "length": {
         "score": 4,
@@ -78,7 +110,6 @@
         "explanation": "River crossings add unique character. Texas Hill Country is scenic in its own way. But this isn't mountain wilderness—it's ranch roads and small towns. The adventure is the heat battle."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 3,
@@ -109,70 +140,96 @@
         "explanation": "Texas is affordable. Hotels in Stephenville are cheap. Food is cheap. Flying to DFW and renting a car is straightforward. Total trip cost is manageable."
       }
     },
-
     "biased_opinion": {
-      "verdict": "Heat Test",
-      "summary": "Gravel Locos is a fast, smooth course that becomes dangerous when the Texas heat arrives. It's not technically difficult—the gravel is forgiving and the roads roll quickly. But the combination of 100+ degree heat, limited shade, and distance creates a genuine survival challenge. It attracts WorldTour pros as an Unbound tune-up, which tells you the speed is real.",
+      "verdict": "THE FREE UNBOUND TUNE-UP",
+      "summary": "Gravel Locos is what happens when you make a 150-mile Unbound tune-up free. Pros use it as their final rehearsal. Amateurs get to ride with them on gorgeous Texas gravel for zero entry fee. The catch? Texas heat that can hit 120°F and aid stations that occasionally run dry.",
       "strengths": [
-        "Fast hard-packed gravel rewards power and speed",
-        "Attracts international talent as pre-Unbound testing",
-        "River crossings add unique character"
+        "It's FREE: La Loca 150 costs $0 with donations to first responders",
+        "Pro field: Major Unbound tune-up with international winners",
+        "The gravel: 'Smooth' and 'perfect' limestone Hill Country roads"
       ],
       "weaknesses": [
-        "Heat can be dangerous—aid stations have run dry",
-        "Small town logistics require planning",
-        "Not yet established as premier event"
+        "Texas heat: 2022 had 120°F tarmac readings and a dry aid station",
+        "Distance: 157 miles is serious even without heat",
+        "Hico logistics: 'Middle of nowhere' Texas requires planning"
       ],
-      "bottom_line": "Come for the fast gravel, stay because you're too heat-stroked to leave."
+      "bottom_line": "If you want a legitimate 150-mile gravel race for free with pro-level competition and legendary Texas hospitality, Gravel Locos delivers. Just train for heat.",
+      "quote": "'It exceeded all of my expectations… beautiful views, fast gravel roads, and excellent race support. What else could you possibly want?' - Reddit rider"
     },
-
     "black_pill": {
-      "title": "THE HEAT THAT BREAKS EVEN PROS",
-      "reality": "In 2022, the pavement temperature hit 120°F on some riders' computers. Aid stations ran out of water. Riders waited 30+ minutes for resupply. The winner called 2024 'hands down the hottest race I've ever done.' This isn't Kansas—it's Texas in late May, and the heat is a different kind of brutal.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "'The 2022 weather was hell. The fresh tarmac read like 120° on my Wahoo at some points AND they ran out of water after the 3B climbs. Waited over 30 minutes at that aid station.' Free doesn't mean easy. Texas heat is the great equalizer.",
       "consequences": [
-        "Two bottles are not enough—wear a hydration pack",
-        "River crossings in road shoes = slipping on algae-covered rocks",
-        "Wet socks from crossings + extreme heat = blisters"
+        "Heat can end your race. 2022 proved aid stations can run dry.",
+        "157 miles at altitude-free doesn't mean 157 easy miles. 7,884 ft of gain adds up.",
+        "Late May Texas = potential for brutal conditions. 2024 was 'perfect' but that's not guaranteed."
       ],
-      "expectation_reset": "Train for heat. Seriously. Sauna sessions, hot trainer rides, whatever it takes. If you show up without heat adaptation, you'll be walking by mile 60. Carry more water than you think you need."
+      "expectation_reset": "Train for heat specifically. Have a solid hydration/electrolyte plan. This is an Unbound tune-up for pros - respect it accordingly.",
+      "quote": "'The 2022 weather was hell.' - BATTLECATHOTS on Reddit"
     },
-
     "final_verdict": {
-      "score": "67 / 100",
-      "one_liner": "Fast Texas gravel where the course is easy and the heat is the enemy.",
-      "should_you_race": "Yes if you want fast gravel racing and can handle heat. Yes if you're testing for Unbound. Skip if you don't heat train or can't carry enough water.",
-      "alternatives": "Unbound 200 (the main event); Mid South (earlier, different challenge); Gravel Worlds (August, similar heat)"
+      "score": "79 / 100",
+      "one_liner": "Free 150-mile Unbound tune-up on gorgeous Texas gravel where Texas heat is the great equalizer.",
+      "should_you_race": "Yes if you want a legitimate ultra-gravel experience for free with international competition and legendary Texas hospitality. Gravel Locos proves you don't need a $250 entry fee to have a world-class gravel race. Just train for heat.",
+      "alternatives": "If you want similar distance with mud risk: Unbound. If you want Texas gravel with less heat: wait for fall events. If you want free racing: this is the gold standard."
     },
-
     "logistics": {
-      "airport": "DFW (Dallas/Fort Worth) - 2hr drive; AUS (Austin) - 2.5hr drive",
-      "lodging_strategy": "Hico has very limited lodging. Stay in Stephenville (20min) or Glen Rose (30min) where chain hotels exist. Book early.",
-      "food": "Hico has great BBQ and the famous Koffee Kup pie shop. Worth the trip for the food alone.",
-      "packet_pickup": "Friday/Saturday morning in downtown Hico.",
-      "parking": "Downtown Hico. Small town, manageable.",
-      "official_site": "https://gravellocos.bike"
+      "airport": "Dallas-Fort Worth (DFW) - 'a few hours' drive. Hico is 'the middle of nowhere.'",
+      "lodging_strategy": "Many camp - Gravel Locos offers boondocking on site. Glen Rose, Stephenville 10-30 minutes away. Cabins and Airbnbs available. Book early.",
+      "food": "Hico has BBQ and Tex-Mex. 'Great barbecue and Tex-Mex cuisine' - post-race is legendary.",
+      "packet_pickup": "Pre-race in town with local vendors and food. Community-centric weekend vibe.",
+      "parking": "Town-center event with plenty of space and festival atmosphere.",
+      "official_site": "https://www.gravellocos.bike"
     },
-
     "history": {
-      "founded": 2019,
-      "founder": "Gravel Locos team",
-      "origin_story": "Created to bring serious gravel racing to Texas Hill Country. Quickly became a popular pre-Unbound tune-up for pros testing equipment and fitness in heat conditions.",
+      "founded": 2021,
+      "founder": "Community-driven charity event",
+      "origin_story": "Launched as a charity-focused, pro-heavy but community-driven event in 'cowboy town' Hico (associated with Billy the Kid). Flagship 150-mile race offered for FREE with donations to Hico first responders. In just a few years became a major pro tune-up for Unbound.",
       "notable_moments": [
-        "2022: Brutal heat wave—120°F pavement temps, aid stations ran dry",
-        "2024: WorldTour pros Ramon Sinkeldam and Karolina Migoń win",
-        "Course shortened from 150 to 110 miles due to heat concerns"
+        "2021: First year - rain but still fun",
+        "2022: 'The weather was hell' - 120°F tarmac, aid station ran out of water",
+        "2023: 'Rough' conditions compared to 2024",
+        "2024: 'Just about perfect' - ideal Unbound tune-up weather",
+        "Pro winners: Justine Barrow, Julien Gagne"
       ],
-      "reputation": "The Texas heat test—where fast gravel meets dangerous conditions."
+      "reputation": "'Go ride this race.' Free, community-driven, pro-heavy. The anti-corporate gravel race with legendary Texas hospitality and BBQ."
     },
-
     "course_description": {
-      "character": "Fast, smooth gravel through Texas Hill Country. The hard-packed roads roll quickly and reward power. River crossings add memorable moments and wet feet. The terrain is punchy with short steep kicks, but the real challenge is atmospheric—the heat is relentless.",
+      "character": "'The scenery around Hico was stunning, adorned with wildflowers, and the gravel paths were as smooth as other riders had mentioned.' Difficulty is about relentless rollers, heat, and length - not technical terrain.",
       "suffering_zones": [
-        {"mile": 30, "label": "First River Crossing", "desc": "Algae-covered rocks are slick. Road shoes slide. Some crossings require walking through deep water."},
-        {"mile": 60, "label": "Heat Onset", "desc": "By noon, the Texas sun is brutal. Limestone roads reflect heat. Very little shade. This is where heat breaks people."},
-        {"mile": 90, "label": "Final Rollers", "desc": "Short 15-20% kicks when your legs are cramping from dehydration. Heat + steep grades = suffering."}
+        {
+          "mile": 60,
+          "label": "Heat-Soaked Mid-Race",
+          "desc": "Heat typically spikes. Shade is scarce. If you've under-hydrated, you start to unravel here while still far from home.",
+          "terrain_detail": "Open ranch roads, no shade, heat builds",
+          "named_section": "The Heat Zone"
+        },
+        {
+          "mile": 100,
+          "label": "After the 3B Climbs",
+          "desc": "This is where the 2022 aid station ran out of water. Riders waited 30+ minutes at 120°F. Even in good years, this is where under-prepared riders crack.",
+          "terrain_detail": "2022: aid station ran dry here",
+          "named_section": "The Breaking Point"
+        },
+        {
+          "mile": 150,
+          "label": "Final Ascent to Hico",
+          "desc": "Rolling climb back into town. 7,884 ft of gain catches up to you here. Cramps and mental fatigue hit hardest in the final miles.",
+          "terrain_detail": "Final rollers after 150+ miles",
+          "named_section": "The Final Push"
+        }
       ],
-      "signature_challenge": "The heat. Period. In bad years, it's a survival race. In good years, it's fast and fun. You won't know which until you're out there."
+      "signature_challenge": "The heat-soaked late race is the defining suffer zone. In normal years, cumulative rollers plus Texas heat near the end are what everyone talks about. In 2022, riders literally ran out of water.",
+      "map_url": "https://www.gravellocos.bike/hico"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

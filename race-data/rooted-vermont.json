@@ -1,0 +1,159 @@
+{
+  "race": {
+    "name": "Rooted Vermont",
+    "slug": "rooted-vermont",
+    "display_name": "Rooted Vermont",
+    "tagline": "Where New England gravel meets Green Mountain grit.",
+    "race_challenge_tagline": "10K+ feet of climbing",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 10000,
+      "location": "Richmond, Vermont",
+      "location_badge": "RICHMOND, VERMONT",
+      "county": "Chittenden County",
+      "date": "Late July / Early August annually",
+      "date_specific": "2025: August 2",
+      "terrain_types": [
+        "Vermont gravel roads",
+        "Class 4 dirt",
+        "Steep pitches",
+        "New England forest"
+      ],
+      "field_size": "700+ riders",
+      "start_time": "Saturday 7:00 AM",
+      "registration": "Opens early in year. Cost: ~$150",
+      "prize_purse": "Varies",
+      "aid_stations": "Multiple aid stations along course",
+      "cutoff_time": "10+ hours"
+    },
+    "climate": {
+      "primary": "New England summer",
+      "description": "Late July/August brings warm, humid conditions with potential for summer storms",
+      "challenges": [
+        "Humidity can be high",
+        "Summer thunderstorm risk",
+        "Temperature 60-85°F",
+        "Muddy conditions if recent rain"
+      ]
+    },
+    "terrain": {
+      "primary": "Classic Vermont gravel and Class 4 roads with steep pitches",
+      "surface": "Varied—packed gravel to loose rocks to Class 4 'adventure' roads",
+      "technical_rating": 4,
+      "features": [
+        "Steep Vermont pitches",
+        "Class 4 roads",
+        "Covered bridges",
+        "Green Mountain views"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 80,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 23,
+      "biased_opinion": 29,
+      "score_note": "Ted King brand, premier New England gravel showcase with Class 4 roads. Overall +6 for event quality and Vermont character."
+    },
+    "biased_opinion": {
+      "verdict": "New England Classic",
+      "summary": "Rooted Vermont is what New England gravel should be—steep, beautiful, and authentically difficult. The terrain rewards complete cyclists who can climb, descend, and handle adventure roads. It's become the marquee East Coast gravel event.",
+      "strengths": [
+        "Authenticity: This is real Vermont, not a manufactured course.",
+        "The terrain: Steep pitches create drama that steady climbs don't.",
+        "The destination: Kingdom Trails region is cycling paradise."
+      ],
+      "weaknesses": [
+        "Accessibility: East Burke is remote even by Vermont standards.",
+        "The pitches: If you can't climb steep, this course will humble you.",
+        "Weather: Summer humidity and potential mud add variables."
+      ],
+      "bottom_line": "If you want to experience New England gravel at its finest, Rooted Vermont delivers. Steep, beautiful, and genuinely challenging."
+    },
+    "black_pill": {
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The 'average grade' stats hide the reality. Vermont climbs in steep bursts—15-20% pitches that hurt worse than sustained 8% grades. Train for power, not just endurance.",
+      "consequences": [
+        "East Burke requires intentional travel. Burlington airport is 1.5+ hours away.",
+        "Lodging is limited. Book 6+ months early or consider camping.",
+        "The pitches require specific training. VO2max work matters here."
+      ],
+      "expectation_reset": "This isn't a course you diesel through. The steep grades demand punch. Train for short, hard efforts or suffer the consequences."
+    },
+    "final_verdict": {
+      "score": "85 / 100",
+      "one_liner": "The New England gravel showcase—steep pitches, covered bridges, and Green Mountain beauty.",
+      "should_you_race": "Yes if you want East Coast gravel at its finest. Yes if you can handle steep grades. Not if you're strictly a tempo/steady-state rider.",
+      "alternatives": "If you want Vermont without the intensity: Vermont Overland. If you want East Coast gravel elsewhere: Rasputitsa, Gravel Worlds."
+    },
+    "logistics": {
+      "airport": "Burlington (BTV) - 1.5+ hours. Boston (BOS) - 3 hours.",
+      "lodging_strategy": "East Burke has very limited lodging. Book immediately. Consider Lyndonville, St. Johnsbury, or camping.",
+      "food": "Small-town dining. East Burke has basics. Pack provisions.",
+      "packet_pickup": "Friday at event venue.",
+      "parking": "Start area parking available but limited. Arrive early.",
+      "official_site": "https://rootedvermont.com"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "Ted King & Laura King",
+      "origin_story": "Created by ex-WorldTour pro Ted King and Laura King to 'cultivate a welcoming and celebratory gravel community' with a 'physically challenging and Vermont-centric race experience.' Based in Richmond, VT (not East Burke), the race showcases central Vermont's legendary gravel roads with Class IV sectors and steep punchy climbs.",
+      "notable_moments": [
+        "Part of Life Time Grand Prix series",
+        "Features iconic Vermont covered bridges",
+        "Known for punchy, relentless terrain"
+      ],
+      "reputation": "New England gravel at its finest. Where steep pitches and covered bridges define the experience."
+    },
+    "course_description": {
+      "character": "Quintessential Vermont—steep pitches, beautiful forests, Class 4 adventure. Nothing is flat.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "First Reality Check",
+          "desc": "The pitches start adding up. Vermont doesn't do gradual.",
+          "terrain_detail": "Key section at mile 25",
+          "named_section": "First Reality Check"
+        },
+        {
+          "mile": 50,
+          "label": "Deep Woods",
+          "desc": "Class 4 terrain. True Vermont gravel experience.",
+          "terrain_detail": "Key section at mile 50",
+          "named_section": "Deep Woods"
+        },
+        {
+          "mile": 75,
+          "label": "Final Pitches",
+          "desc": "Tired legs meet steep grades. Vermont isn't done yet.",
+          "terrain_detail": "Key section at mile 75",
+          "named_section": "Final Pitches"
+        }
+      ],
+      "signature_challenge": "The pitch grades. Vermont climbs aren't long—they're steep. 15-20% pitches shred legs that expected steady grades.",
+      "map_url": "https://ridewithgps.com/routes/30629483"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v2"
+      ],
+      "migration_notes": []
+    }
+  }
+}

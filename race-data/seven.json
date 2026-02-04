@@ -4,7 +4,6 @@
     "slug": "seven",
     "display_name": "Seven",
     "tagline": "Australia's crown jewel gravel race. 125km through Western Australia's forests. Host of 2026 UCI Gravel World Championships.",
-
     "vitals": {
       "distance_mi": 78,
       "elevation_ft": 10500,
@@ -13,7 +12,12 @@
       "county": "South West Region",
       "date": "May annually",
       "date_specific": "2025: May 17",
-      "terrain_types": ["Parallel singletrack", "Pine plantation roads", "Quartz gravel", "Clay base"],
+      "terrain_types": [
+        "Parallel singletrack",
+        "Pine plantation roads",
+        "Quartz gravel",
+        "Clay base"
+      ],
       "field_size": "~1,500 riders",
       "start_time": "Saturday 7:00 AM",
       "registration": "Opens previous year. Cost: ~AUD $200-$250",
@@ -21,33 +25,54 @@
       "aid_stations": "Multiple checkpoints (20-30km gaps)",
       "cutoff_time": "TBD"
     },
-
     "climate": {
       "primary": "Australian autumn—cool mornings, mild days, rain possible",
       "description": "May is autumn in the Southern Hemisphere. Mornings start cold (7-9°C / 45-48°F), warming to comfortable 18-22°C (64-72°F). Nannup receives ~600mm rain annually and May is the start of the wetter season. 2024 saw rain the day before that 'settled the dust' but heavy rain can make descents treacherous.",
-      "challenges": ["Cool morning starts near 7°C", "Rain risk in early wet season", "Wildlife collisions (kangaroos, emus, wild pigs)"]
+      "challenges": [
+        "Cool morning starts near 7°C",
+        "Rain risk in early wet season",
+        "Wildlife collisions (kangaroos, emus, wild pigs)"
+      ]
     },
-
     "terrain": {
       "primary": "Narrow parallel singletrack through pine plantations and state forests",
       "surface": "96% unpaved—quartz grit, mica, and clay base. Sharp rocks slice thin sidewalls.",
       "technical_rating": 4,
-      "features": ["The Crucible (20%+ grades)", "Chainsaw Ridge", "Kinky climb", "Arcadia sector"]
+      "features": [
+        "The Crucible (20%+ grades)",
+        "Chainsaw Ridge",
+        "Kinky climb",
+        "Arcadia sector"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 79,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2,
       "course_profile": 27,
       "biased_opinion": 28,
+      "tier_override_reason": "1,500+ riders (largest in Southern Hemisphere), UCI Gravel World Series, hosting 2026 World Championships",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "1,500+ riders (largest in Southern Hemisphere), UCI Gravel World Series, hosting 2026 World Championships",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +103,6 @@
         "explanation": "Stunning Western Australian forests that look more like North America or Europe than outback. Wildlife warnings are real—kangaroos, emus, wild pigs on course. Zero cell signal in some sectors. Genuine wilderness gravel adventure."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,7 +133,6 @@
         "explanation": "Major travel commitment for most international riders. Perth flights, rental car, accommodation in a tiny town that books out. Budget for a multi-day adventure, not a quick race trip."
       }
     },
-
     "biased_opinion": {
       "verdict": "The World Championship Host",
       "summary": "SEVEN is Australia's answer to the world's great gravel races—and in 2026, it will literally host the World Championships. The 125km course through Western Australian forests is brutally technical with 3,200m of climbing on sharp quartz gravel. The Crucible alone, with 20%+ grades on loose surface, separates this from smooth US gravel. It's a genuine adventure race in a location that surprises everyone who expected red desert.",
@@ -125,7 +148,6 @@
       ],
       "bottom_line": "If you can make the trek to Western Australia, SEVEN delivers a world-class gravel experience unlike anything else."
     },
-
     "black_pill": {
       "title": "THE WILDLIFE AND ROCKS THAT END YOUR RACE",
       "reality": "The official Survival Guide explicitly warns about collisions with kangaroos, emus, and wild pigs—especially on fast, silent descents. The quartz grit slices thin sidewalls like a knife. In some sectors there's zero cell signal—you're reliant on moto marshals. The Crucible's 20%+ grades on loose surface force walking regardless of fitness. You need mullet drivetrain (50t+ granny gear) to climb here.",
@@ -136,14 +158,12 @@
       ],
       "expectation_reset": "Run 40-45mm tires with reinforced sidewalls. Bring mullet gearing (1:1 ratio minimum). Practice MTB-style climbing on loose surfaces. Accept that The Crucible will likely involve some walking. This is not smooth gravel—it's Australian wilderness racing."
     },
-
     "final_verdict": {
       "score": "79 / 100",
       "one_liner": "Australia's crown jewel—hosting 2026 Worlds with brutal climbs, wildlife hazards, and Western Australian wilderness.",
       "should_you_race": "Yes if you want a bucket-list Australian adventure and handle technical terrain. Yes if you're chasing UCI Gravel World Series. Skip if the travel commitment to Western Australia is prohibitive.",
       "alternatives": "The Traka 360 (Europe's equivalent ultra); Crusher in the Tushar (similar climbing ratio); Leadville 100 (altitude challenge)"
     },
-
     "logistics": {
       "airport": "PER (Perth) - 3hr drive to Nannup",
       "lodging_strategy": "Nannup (pop. 1,300) accommodation sells out instantly. Most stay in Busselton or Margaret River (45min). Event village offers unpowered camping/caravan sites—the 'authentic' experience. Rental car essential.",
@@ -152,7 +172,6 @@
       "parking": "Event village in Nannup.",
       "official_site": "https://sevengravelrace.com"
     },
-
     "history": {
       "founded": 2019,
       "founder": "SEVEN Gravel Race team",
@@ -164,16 +183,39 @@
       ],
       "reputation": "The World Championship host—where Australian wilderness meets elite gravel racing."
     },
-
     "course_description": {
       "character": "A relentless climbing race through Western Australian pine plantations and state forests. The 'parallel singletrack' roads are often just two tire tracks wide with grass in the middle. Sharp quartz grit and mica create constant flat tire risk. 12-13 categorized climbs with 3,200m total elevation in 125km—one of the highest climbing ratios in gravel racing.",
       "suffering_zones": [
-        {"mile": 15, "label": "Brockman Farm", "desc": "Early significant climb. Tests legs before they're warm. Sets the tone for what's coming."},
-        {"mile": 35, "label": "The Crucible", "desc": "Signature climb. Steep, loose, relentless. Gradients touch 20%+. 'Iconic gravel ride'—many walk sections."},
-        {"mile": 55, "label": "Chainsaw Ridge", "desc": "Sector 5. Ridge-line traverse that exposes you to wind and fatigue late in the race."},
-        {"mile": 70, "label": "Arcadia", "desc": "Beautiful but energy-sapping due to constant undulations. The quiet killer."}
+        {
+          "mile": 15,
+          "label": "Brockman Farm",
+          "desc": "Early significant climb. Tests legs before they're warm. Sets the tone for what's coming."
+        },
+        {
+          "mile": 35,
+          "label": "The Crucible",
+          "desc": "Signature climb. Steep, loose, relentless. Gradients touch 20%+. 'Iconic gravel ride'—many walk sections."
+        },
+        {
+          "mile": 55,
+          "label": "Chainsaw Ridge",
+          "desc": "Sector 5. Ridge-line traverse that exposes you to wind and fatigue late in the race."
+        },
+        {
+          "mile": 70,
+          "label": "Arcadia",
+          "desc": "Beautiful but energy-sapping due to constant undulations. The quiet killer."
+        }
       ],
       "signature_challenge": "The Crucible—the 20%+ grade climb on loose surface where 'I went to hell and back... gradients frequently touching 20%' is the common refrain."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

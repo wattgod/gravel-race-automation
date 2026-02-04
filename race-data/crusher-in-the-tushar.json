@@ -1,53 +1,81 @@
 {
   "race": {
-    "name": "CRUSHER IN THE TUSHAR",
+    "name": "Crusher in the Tushar",
     "slug": "crusher-in-the-tushar",
     "display_name": "Crusher in the Tushar",
     "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
-
+    "race_challenge_tagline": "The altitude. 10,000+ feet average means your power is down 10-15%. Plan accordi",
     "vitals": {
-      "distance_mi": 70,
+      "distance_mi": 69,
       "elevation_ft": 10000,
       "location": "Beaver, Utah",
-      "location_badge": "BEAVER, UT",
+      "location_badge": "BEAVER, UTAH",
       "county": "Beaver County",
-      "date": "July annually",
+      "date": "Mid-July annually",
       "date_specific": "2026: July 11",
-      "terrain_types": ["Dirt roads", "Gravel", "Pavement", "Steep descents"],
-      "field_size": "~600 riders",
-      "start_time": "Saturday 6:30 AM (waves)",
-      "registration": "Opens January. Cost: ~$200",
-      "prize_purse": "~$1,500 win + LTGP points",
-      "aid_stations": "Miles 18, 27, 38, 51, 59. Well-stocked, neutral support only",
-      "cutoff_time": "Mile 27 by 10:00 AM SHARP"
+      "terrain_types": [
+        "High-altitude gravel",
+        "Paved climbs",
+        "Technical descents",
+        "Exposed alpine"
+      ],
+      "field_size": "500+ riders",
+      "start_time": "Saturday 7:00 AM",
+      "registration": "Jan 9 (deferral), Jan 16 (Life Time members), Jan 23 (general). Qualifies winners for Unbound Gravel.",
+      "prize_purse": "$25,000+",
+      "aid_stations": "Multiple aid stations along course",
+      "cutoff_time": "10 hours"
     },
-
     "climate": {
-      "primary": "Extreme variability—valley heat to alpine storms",
-      "description": "In 2017, riders experienced a 60°F temperature swing: 100°F in the valleys to hail and rain at the finish. July in Utah means hot valleys (90s°F) and unpredictable mountain weather. Afternoon thunderstorms at 10,000ft are common. You can get sunburned and hypothermic in the same race.",
-      "challenges": ["90°F+ heat in valleys", "Afternoon thunderstorms at altitude", "60°F temperature swings possible"]
+      "primary": "High-altitude alpine",
+      "description": "July at 10,000+ feet means intense sun, thin air, and afternoon thunderstorms",
+      "challenges": [
+        "Altitude adaptation critical",
+        "Extreme UV exposure",
+        "Temperature swings 40-80°F",
+        "Afternoon storm risk"
+      ]
     },
-
     "terrain": {
-      "primary": "Two massive climbs to 10,000ft with technical descents",
-      "surface": "60% dirt/gravel, 40% pavement",
-      "technical_rating": 3,
-      "features": ["Col d'Crush final climb (5mi at 9-10% avg)", "The Big Drop descent (4,000ft of washboard)", "Sarlacc Pit (sandy energy-sapping rollers)", "Mountain-top finish at 10,400ft"]
+      "primary": "Mixed surface climbing with extended descents",
+      "surface": "Gravel roads, paved climbs, technical mountain descents",
+      "technical_rating": 4,
+      "features": [
+        "11,500 ft summit",
+        "Extended paved climbs",
+        "Steep gravel descents",
+        "Exposed ridgelines"
+      ]
     },
-
     "gravel_god_rating": {
-      "overall_score": 84,
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4,
       "course_profile": 29,
-      "biased_opinion": 30,
+      "biased_opinion": 31,
+      "tier_note": "Lifetime Grand Prix race - prestige override applied",
+      "tier_override_reason": "Lifetime Grand Prix race, iconic status",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "Lifetime Grand Prix race, iconic status",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +106,6 @@
         "explanation": "A mountain-top finish at a ski resort. Views of the Tushar Mountains. The isolation of riding through Piute Valley. The contrast between baking valleys and alpine meadows. Finishing at 10,400ft after 10,000ft of climbing is genuinely epic."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,72 +136,99 @@
         "explanation": "Rural Utah isn't expensive, but it's remote. Limited hotel options in Beaver mean booking early or staying 30+ minutes away. Flights to Salt Lake City plus 3-hour drive add up. Budget $500-700 for travel/lodging on top of entry."
       }
     },
-
     "biased_opinion": {
-      "verdict": "Altitude Crucible",
-      "summary": "Crusher in the Tushar is where gravel racing meets mountaineering. The combination of steep climbing, high altitude, and unpredictable weather creates a challenge unlike any other gravel event. It's not the longest or most technical, but the density of suffering per mile is unmatched. Finishing is an achievement. Racing for time requires serious altitude preparation.",
+      "verdict": "Climber's Paradise",
+      "summary": "Crusher is what happens when you take a mountain stage of the Tour and add gravel. It's not for everyone—flat-landers and non-climbers will suffer disproportionately. But if you love vertical and want to test yourself against thin air, this is your race.",
       "strengths": [
-        "Unique mountain-top finish at 10,400ft—highest in North America",
-        "LTGP race with elite field and serious competition",
-        "Pure climbing test that rewards fitness over tactics"
+        "The scenery: Tushar Mountains are criminally underrated. World-class alpine beauty.",
+        "The challenge: Pure climbing race with technical descents. Rewards complete cyclists.",
+        "The field: Strong pro attendance brings legitimacy and race-day energy."
       ],
       "weaknesses": [
-        "Remote location requires significant travel planning",
-        "Mid-race cutoff eliminates slower riders before the best parts",
-        "Sea-level athletes face 10%+ power loss without acclimation"
+        "Altitude: If you can't acclimatize, you can't compete. Period.",
+        "Logistics: Beaver, Utah isn't exactly a travel hub. Plan for a road trip.",
+        "The climbing: 10,000 feet in 69 miles is relentless. Recovery from this takes time."
       ],
-      "bottom_line": "If you want to test yourself against altitude and gravity with no place to hide, Crusher is the ultimate proving ground."
+      "bottom_line": "If you're a climber looking for a gravel race that plays to your strengths, Crusher is your Super Bowl. If you're not—this will humble you."
     },
-
     "black_pill": {
-      "title": "THE ALTITUDE NOBODY FROM SEA LEVEL UNDERSTANDS",
-      "reality": "Your FTP drops 10-15% at 10,000ft if you're not acclimated. That threshold effort that felt sustainable at home? It's now above threshold. Your legs empty faster, you recover slower, and the Col d'Crush final climb—5 miles at 9%+ avg—happens when you're already 5 hours deep. Sea-level athletes who didn't acclimate have literally been gasping, walking their bikes up grades they'd normally ride.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "Altitude doesn't care about your FTP. You can be a 4.5 w/kg rider at sea level and feel like a 3.5 at 10,000 feet. If you can't arrive early and adapt, you'll watch climbers you normally drop ride away from you.",
       "consequences": [
-        "Miss the mile 27 cutoff (10am) and your race is over—no exceptions",
-        "Dehydration hits harder at altitude; caffeine becomes a diuretic trap",
-        "Cramping is epidemic on Col d'Crush—even pros like Stetina resort to salt packets"
+        "Travel to Beaver, Utah takes effort. No direct flights. Budget for a road trip.",
+        "Altitude adaptation requires 3-7 days minimum. That's vacation time or remote work.",
+        "The descents will punish poor bike handling. Technical skills matter as much as fitness."
       ],
-      "expectation_reset": "If you live at sea level, add 1-2 hours to your expected finish time. Ride by perceived effort, not power. Arrive a week early if possible, or accept the suffering. The mid-race cutoff requires ~7-8 mph average for the first 27 miles including 4,000ft of climbing—if that sounds easy, you haven't done it at altitude."
+      "expectation_reset": "This isn't a gravel race you can 'just show up' to. The altitude and terrain demand specific preparation. A 12-week training plan with altitude simulation is table stakes for a respectable finish."
     },
-
     "final_verdict": {
-      "score": "84 / 100",
-      "one_liner": "The highest, hardest 70 miles in gravel—where altitude separates the prepared from the destroyed.",
-      "should_you_race": "Yes if you're a strong climber who respects altitude. Yes if you want a LTGP event smaller than Unbound. No if you can't handle the mid-race cutoff pressure or live at sea level with no acclimation plan.",
-      "alternatives": "Leadville 100 MTB (longer, similar altitude); Rebecca's Private Idaho (hard climbs, lower altitude); SBT GRVL (big climbs, more accessible)"
+      "score": "86 / 100",
+      "one_liner": "The climber's gravel race—where thin air separates pretenders from contenders.",
+      "should_you_race": "If you love climbing and want a race that rewards it, absolutely. If you're a diesel-engine flat-lander, consider something else. The altitude alone makes this a specialist's race.",
+      "alternatives": "If you want climbing without altitude: Leadville (higher but different format). If you want gravel without the vertical: SBT GRVL Green offers similar beauty with less suffering per mile."
     },
-
     "logistics": {
-      "airport": "SLC (Salt Lake City) - 3hr drive; LAS (Las Vegas) - 4hr drive",
-      "lodging_strategy": "Beaver has limited hotels—book months in advance. Overflow to Cedar City (45min) or Richfield (30min). Some camp. The event offers shuttles from Beaver to start and finish at Eagle Point.",
-      "food": "Small-town Utah options. Pack nutrition. Post-race party at Eagle Point has food and beer (altitude makes it hit harder).",
-      "packet_pickup": "Friday in downtown Beaver. Mandatory gear check and athlete meeting with weather/course updates.",
-      "parking": "Downtown Beaver. Shuttle to start line. Finish bags shuttled to Eagle Point.",
-      "official_site": "https://crusherinthetushar.com"
+      "airport": "Salt Lake City (SLC) - 3+ hours to Beaver",
+      "lodging_strategy": "Beaver has limited hotels. Book early. Consider Cedar City (45 min south) for more options.",
+      "food": "Pack essentials. Beaver is a small town with limited options.",
+      "packet_pickup": "Friday evening in Beaver. Expo is intimate but covers essentials.",
+      "parking": "Start area parking is manageable. Arrive 60+ minutes early for setup.",
+      "official_site": "https://tusharcrusher.com"
     },
-
     "history": {
       "founded": 2011,
-      "founder": "Burke 'T-Bird' Swindlehurst",
-      "origin_story": "Burke wanted an event where 'the last 5 miles are the hardest'—a true test of character at elevation. He succeeded. The name 'Crusher' was his junior racing nickname. Life Time acquired the event in 2019 but maintains Burke's vision.",
+      "founder": "Burke Swindlehurst",
+      "origin_story": "Created by former pro cyclist Burke Swindlehurst: 'The ultimate race—too much dirt for road bike, too much road for mountain bike. If anyone could even finish it, they would be absolutely crushed.' 20 years of route development. 69 miles, 10,500 ft vertical = crushing profile. Starts historic downtown Beaver, finishes at Eagle Point Resort upper lodge (10,500 ft). 40% tarmac / 60% dirt & gravel.",
       "notable_moments": [
-        "2017: 60°F temperature swing—100°F valleys to hail at finish",
-        "2023: Keegan Swenson breaks 4 hours for first time (3:56)",
-        "2021/2024: Canceled due to wildfires—Utah's new summer reality"
+        "Started as a 70-mile gravel/road hybrid before gravel racing exploded",
+        "Featured on Lifetime Grand Prix circuit",
+        "Known for its pro-level competition"
       ],
-      "reputation": "The toughest 70 miles on the planet—short but utterly brutal."
+      "reputation": "The climber's gravel race. Where road fitness meets mountain bike descending."
     },
-
     "course_description": {
-      "character": "Two massive climbs connected by a white-knuckle descent and soul-crushing valley rollers. You start in a desert valley, climb to 10,000ft, bomb down 4,000ft of washboard, grind through the Sarlacc Pit, then face the Col d'Crush—the marquee 5-mile climb that breaks souls. Every mile either goes up or down. There is no hiding.",
+      "character": "Relentless vertical. You climb for 35 miles, then descend for 35 miles. Simple math, brutal execution.",
       "suffering_zones": [
-        {"mile": 24, "label": "First Summit", "desc": "Top out at 10,000ft after 13 miles of dirt climbing. First encounter with thin air. Many redline here trying to make the cutoff."},
-        {"mile": 30, "label": "The Big Drop", "desc": "4,000ft descent on washboard switchbacks. White-knuckle braking, bottles ejecting, crashes happening. Won't win you the race but can lose it."},
-        {"mile": 48, "label": "Sarlacc Pit", "desc": "Sandy, deceptively graded rollers that sap morale before the final climb. Hot, exposed, energy-draining."},
-        {"mile": 55, "label": "Col d'Crush", "desc": "The signature suffer-fest. 5+ miles at 9-10% avg with 15-20% pitches. At 10,000ft. After 5 hours of racing. Soul-breaking."},
-        {"mile": 69, "label": "Final Kick", "desc": "The cruel last 0.5 mile ramp to Eagle Point. Steep enough to make cooked riders walk."}
+        {
+          "mile": 11,
+          "label": "First Dirt Sector",
+          "desc": "Challenging 21-mile climb begins. The first dirt sector where elevation gain starts in earnest. Technical climbing through Fishlake National Forest.",
+          "terrain_detail": "21-mile technical climb begins",
+          "named_section": "First Dirt Sector"
+        },
+        {
+          "mile": 31,
+          "label": "The Big Drop",
+          "desc": "Descent of switchbacks. Washboard-filled terrain. Loses 4,000 feet in 10 miles. Technical descending that tests your focus and bike handling.",
+          "terrain_detail": "4,000 ft descent in 10 miles, switchbacks, washboard",
+          "named_section": "The Big Drop"
+        },
+        {
+          "mile": 46,
+          "label": "Doc Springs Road",
+          "desc": "'Deceivingly uphill, rutted, and at times loose and sandy.' The time of reckoning. Doubles back toward Circleville. Mental challenge after Big Drop.",
+          "terrain_detail": "Rutted, loose, sandy—deceivingly uphill",
+          "named_section": "Doc Springs Road"
+        },
+        {
+          "mile": 65,
+          "label": "Final Climb to Eagle Point",
+          "desc": "1,000 feet climb on pavement to 10,500 ft finish. Eagle Point upper lodge awaits. Post-race lunch at summit. 'Your first Crusher is the hardest, and then they just keep getting harder after that.'",
+          "terrain_detail": "1,000 ft paved climb to 10,500 ft summit finish",
+          "named_section": "Eagle Point Summit"
+        }
       ],
-      "signature_challenge": "Col d'Crush—the 5-mile, 2,700ft final climb that tops out at 10,500ft. It's where races are won, souls are broken, and the thin air makes every pedal stroke agony."
+      "signature_challenge": "The altitude. 10,000+ feet average means your power is down 10-15%. Plan accordingly.",
+      "map_url": "https://ridewithgps.com/routes/32869577"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

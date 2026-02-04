@@ -1,53 +1,85 @@
 {
   "race": {
-    "name": "THE TRAKA",
+    "name": "Traka 360",
     "slug": "the-traka",
-    "display_name": "The Traka",
+    "display_name": "Traka 360",
     "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
-
+    "race_challenge_tagline": "360km with 10,000+ feet of climbing on technical Mediterranean terrain",
     "vitals": {
       "distance_mi": 224,
-      "elevation_ft": 12140,
+      "elevation_ft": 11000,
       "location": "Girona, Catalonia, Spain",
-      "location_badge": "GIRONA, ESP",
-      "county": "Province of Girona",
-      "date": "Late April/Early May annually",
-      "date_specific": "2025: April 30 - May 4",
-      "terrain_types": ["Gravel roads", "Singletrack", "Rocky climbs", "Paved roads", "Sandy coastal trails"],
-      "field_size": "~1,900+ riders (800+ in 360K)",
-      "start_time": "360K: 5:50 AM Friday",
-      "registration": "Opens July/August. Sells out in hours. Cost: ~150-200 EUR (360K)",
-      "prize_purse": "Gravel Earth Series points (1,000 to 360K winner)",
-      "aid_stations": "3 feed zones on 360K (~90-130km apart)",
-      "cutoff_time": "~30-32 hours for 360K"
+      "location_badge": "GIRONA, CATALONIA, SPAIN",
+      "county": "",
+      "date": "Early May annually",
+      "date_specific": "2026: May 2-3",
+      "terrain_types": [
+        "Rocky Mediterranean gravel",
+        "forest trails",
+        "technical descents",
+        "Pyrenean foothill terrain",
+        "exposed ridgeline traverses"
+      ],
+      "field_size": "4,000+ riders from 74 countries",
+      "start_time": "Saturday early morning",
+      "registration": "Opens winter/spring. Cost: €80-200",
+      "prize_purse": "Varies",
+      "aid_stations": "Multiple feed zones with staffed stops plus town resupply",
+      "cutoff_time": "18-20 hours"
     },
-
     "climate": {
-      "primary": "Catalan spring—variable, mud possible",
-      "description": "Early May in Girona is usually pleasant—20-25°C days, 10-13°C nights. But it's variable. 2023 was perfect (dry, not too hot). 2024 had heavy rain forcing 560K cancellation and creating mud. March/April can see the 'Tramontana' wind. Night temps drop to 8-12°C for 360K riders.",
-      "challenges": ["Rain creates peanut-butter mud", "Night riding in 8-10°C temps", "Variable conditions—4 seasons in a day possible"]
+      "primary": "Variable spring weather",
+      "description": "18-28°C (65-82°F), variable spring weather with morning cold, afternoon heat, possible mountain rain",
+      "challenges": [
+        "Temperature swings throughout the day",
+        "Mountain weather unpredictability",
+        "Layer management critical",
+        "Possible rain in Pyrenean sections"
+      ]
     },
-
     "terrain": {
-      "primary": "Extremely diverse—smooth gravel to MTB-like singletrack in one race",
-      "surface": "~80-85% unpaved (gravel, dirt, singletrack), ~15% paved roads. Mix of fast farm roads, steep rocky climbs, loose descents, sandy coastal trails.",
+      "primary": "Rocky Mediterranean gravel with forest singletrack",
+      "surface": "Rocky Mediterranean gravel, forest trails, technical descents—not smooth gravel",
       "technical_rating": 4,
-      "features": ["16 climbs on 360K", "7km rocky singletrack climb", "Steep 15%+ pitches (walking common)", "Cap de Creus coastal trails"]
+      "features": [
+        "Sustained Category 1 climbs on gravel",
+        "Pyrenean foothill terrain",
+        "Forest singletrack that punishes tired legs",
+        "Exposed ridgeline traverses",
+        "Technical descents at hour 18"
+      ],
+      "gravel_percentage": 85,
+      "pavement_percentage": 15
     },
-
     "gravel_god_rating": {
-      "overall_score": 87,
-      "course_profile": 28,
-      "biased_opinion": 33,
+      "overall_score": 84,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 27,
+      "biased_opinion": 32,
+      "tier_note": "Europe's largest gravel event, UCI World Series, 4,000+ riders from 74 countries - prestige override applied",
+      "tier_override_reason": "1,900+ riders, 'Europe's Unbound' status, Gravel Earth Series flagship, WorldTour pro participation",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "1,900+ riders, 'Europe's Unbound' status, Gravel Earth Series flagship, WorldTour pro participation",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 5,
@@ -78,7 +110,6 @@
         "explanation": "From Girona's medieval streets to Pyrenees foothills to Mediterranean coast in one ride. See sunrise, sunset, and sunrise again. Villages, vineyards, sea views, mountain trails. 'The course had everything you can imagine in it.'"
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,71 +140,111 @@
         "explanation": "Girona is affordable by European standards—not Paris or London pricing. Barcelona flights are cheap. Many good hotel options. Budget for a multi-day gravel festival trip."
       }
     },
-
     "biased_opinion": {
-      "verdict": "Europe's Flagship",
-      "summary": "The Traka is gravel's European championship. The 360K has everything: 360km through Girona's incredible terrain, technical singletrack, coastal trails, mountain climbs, and night riding. The field depth—WorldTour pros mixing with gravel specialists and ultra athletes—is unmatched in Europe. Starting in darkness with 800 headlights climbing out of Girona and finishing (for many) the next morning is unforgettable. If you want to race gravel in Europe, this is the one.",
+      "verdict": "ESSENTIAL EUROPEAN",
+      "summary": "If you're serious about gravel and have any connection to European cycling culture, Traka is a must. It's not just a race—it's a pilgrimage to the sport's spiritual home. Where else can you suffer on the same roads that Pogačar trains on?",
       "strengths": [
-        "Europe's most prestigious gravel event",
-        "Deepest field on the continent—pros and legends",
-        "Girona's world-class cycling infrastructure"
+        "The location: Girona is cycling heaven. The race is the excuse; the destination is the reward.",
+        "The international field: 74 countries. This isn't a regional race.",
+        "The legitimacy: UCI points, WorldTour crossover athletes, equal prize purse."
       ],
       "weaknesses": [
-        "Sells out in hours—entry is competitive",
-        "360K requires night riding and true ultra skills",
-        "Technical terrain punishes road cyclists without skills"
+        "Transatlantic distance: Travel cost and jet lag add complexity for US riders",
+        "Crowded early kilometers: 4,000 riders creates bottlenecks",
+        "Night racing reality: The 360 almost certainly means riding through darkness"
       ],
-      "bottom_line": "Europe's Unbound. If you want the continental gravel championship experience, The Traka is mandatory."
+      "bottom_line": "Traka is Europe's Unbound—and arguably more technical. If European gravel is on your bucket list, this is the defining event.",
+      "quote": "Europe's Unbound—and arguably more technical."
     },
-
     "black_pill": {
-      "title": "THE TECHNICAL TERRAIN THAT EXPOSES EVERYONE",
-      "reality": "This is not smooth American gravel. One 7km singletrack climb is 'strewn with loose rocks' where maintaining traction is so hard many dismount. Steep 15% climbs with headwind force 'almost everyone to push.' The rocky descents cause constant punctures—'many were on the roadside fixing flats.' Even pros admit: 'I'm weak technically, and this is a technical minefield.' Lachlan Morton DNF'd in 2025 from wheel damage on rocks.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "Traka will break you in ways Unbound can't. Some sections are 'questionably rough and better suited to a mountain bike.' Bigger tires are always better—50mm if you can fit them. And Garmin Hill will destroy you after 300km.",
       "consequences": [
-        "Technical skills are mandatory—pure road fitness isn't enough",
-        "Punctures are common—carry multiple repair options",
-        "Mental lows WILL happen—'questioning life decisions' at km 250"
+        "You'll spend $2,000-3,000 minimum (flights, entry, lodging, bike transport)",
+        "You'll ride through the night. 12-18 hours means darkness is likely for back-of-pack",
+        "The technical descents after 15+ hours test skills you don't have when exhausted",
+        "Heat and dehydration in midday Catalan sun—long stretches between resupply if mis-planned"
       ],
-      "expectation_reset": "Run 40-47mm tires with robust sidewalls—Pathfinder Pro recommended by veterans. Inserts help on the rocky descents. Practice MTB-style climbing and descending. Expect to walk some climbs regardless of fitness. The 360K will have you 'questioning your life decisions' around km 250—prepare mentally for the dark moments."
+      "expectation_reset": "This is a 360km ultra-endurance event with rough terrain. Run the biggest tires you can fit. Plan nutrition carefully. And save something for Garmin Hill.",
+      "quote": "Bigger is always better when it comes to tire choice at The Traka. I was lucky to be able to fit 50mm tires."
     },
-
     "final_verdict": {
-      "score": "87 / 100",
-      "one_liner": "Europe's Unbound—360km through Girona's world-class gravel with the continent's deepest field.",
-      "should_you_race": "Yes if you want Europe's premier gravel experience. Yes if you have technical skills and ultra endurance. Skip if you only have road fitness or can't secure the hard-to-get entry.",
-      "alternatives": "Unbound 200 (US equivalent prestige); The Rift (adventure focus); Strade Bianche Gran Fondo (Italian classic)"
+      "score": "88 / 100",
+      "one_liner": "Europe's Unbound—360km of technical Mediterranean gravel with Garmin Hill waiting to break you at km 300.",
+      "should_you_race": "Yes, if you want Europe's premier gravel experience and can handle 12-18+ hours of racing. Traka delivers WorldTour-level legitimacy, stunning Catalan terrain, and a field from 74 countries. Just be ready for rough sections, Garmin Hill after 300km, and run 44-50mm tires.",
+      "alternatives": "If you want European gravel without the ultra distance: Dirty Reiver (UK, 210km). If you want bucket-list adventure: The Rift (Iceland, volcanic terrain). If you want guaranteed good weather: Unbound (Kansas, June)."
     },
-
     "logistics": {
-      "airport": "BCN (Barcelona) - 1hr drive; GRO (Girona) - 20min",
-      "lodging_strategy": "Girona is cycling paradise with endless accommodation. Book early for race week—the town fills with cyclists. Start/finish at Parc de les Ribes del Ter.",
-      "food": "Girona has excellent cycling-friendly cafes and restaurants. Pan con tomate and tortilla at aid stations.",
-      "packet_pickup": "Wednesday-Friday at event village with bike check ('validación') before start.",
-      "parking": "Girona city. Most stay locally and ride to start.",
-      "official_site": "https://thetraka.com"
+      "airport": "Barcelona (BCN) - 100km / Girona (GRO) - 12km",
+      "lodging_strategy": "Book 6+ months early. Race week is chaos. €100-200/night. Consider Barcelona + train to Girona.",
+      "food": "Girona has excellent restaurants. Book reservations race week—town fills with cyclists.",
+      "packet_pickup": "Friday in Girona. Expo atmosphere, budget 90 minutes.",
+      "parking": "Limited. Public transport or hotel shuttles recommended.",
+      "official_site": "https://trfraka.com"
     },
-
     "history": {
       "founded": 2019,
-      "founder": "Klassmark Events",
-      "origin_story": "Created to showcase Girona's incredible gravel terrain—the same roads WorldTour pros train on. Grew from ~100 riders in 2019 to 1,900+ by 2023. Now flagship of Gravel Earth Series.",
+      "founder": "Local Girona cycling community",
+      "origin_story": "Born in Girona—where WorldTour pros live and train. Exploded from grassroots to Europe's largest gravel event in four years.",
       "notable_moments": [
-        "2024: 560K cancelled mid-event due to severe weather",
-        "Dubbed 'Europe's Unbound' by media",
-        "Mattia De Marchi three-time 360K winner"
+        "2022: Joined UCI Gravel World Series",
+        "2023: 4,000+ participants from 74 countries",
+        "Equal prize purse men/women from day one"
       ],
-      "reputation": "Europe's answer to Unbound—where the continent's best gravel racers compete."
+      "reputation": "If Unbound is America's gravel Ironman, Traka is Europe's. The field draws WorldTour crossover athletes and weekend warriors alike.",
+      "random_facts": [
+        "4,000+ riders from 74 countries",
+        "WorldTour pros cross over to race",
+        "Girona is cycling's spiritual home—where Pogačar trains",
+        "UCI Gravel World Series event",
+        "Equal prize purse men/women"
+      ]
     },
-
     "course_description": {
-      "character": "A three-part epic through Catalonia. First third: relentless climbing out of Girona with technical singletrack and rocky descents. Middle third: flatter farm roads toward the Mediterranean coast with fast gravel and tailwinds. Final third: back into the Gavarres mountains for a nasty sting in the tail. 16 climbs, night riding, and terrain that 'has everything you can imagine.'",
+      "character": "Relentless climbing on Mediterranean gravel. 85% gravel with rough sections better suited to MTB. Flowing early terrain gives way to rougher mid-course chunks.",
       "suffering_zones": [
-        {"mile": 50, "label": "7km Rocky Singletrack", "desc": "The 'exhausting highlight.' Loose rocks, steep grades, walking required for many. Where punctures pile up."},
-        {"mile": 85, "label": "15% Headwind Climb", "desc": "Near Roses. 'Almost everyone had to push.' Steep gradient plus headwind equals walking."},
-        {"mile": 150, "label": "Flat Gravel Recovery", "desc": "The middle third. Fast gravel, potential tailwind. Where smart riders recover before the finale."},
-        {"mile": 195, "label": "Final Gavarres Climbs", "desc": "The sting in the tail. Km 278 and 349 climbs. Washboard descents. Into the night for most riders."}
+        {
+          "mile": 84,
+          "label": "Early Sectors",
+          "desc": "First 135km feels great—flowing terrain outside Girona. But burning matches here costs you later.",
+          "terrain_detail": "Nice flowing terrain, cool morning air",
+          "named_section": "The Honeymoon"
+        },
+        {
+          "mile": 140,
+          "label": "Mid-Race Rough Sectors",
+          "desc": "Some sections questionably rough and better suited to a mountain bike. The terrain starts demanding attention.",
+          "terrain_detail": "Rocky farm tracks, rougher gravel",
+          "named_section": "Reality Check"
+        },
+        {
+          "mile": 186,
+          "label": "Garmin Hill",
+          "desc": "The steepest, slowest, most brutal climb of the day. Deep into the ride when legs are cooked. This is where races are decided.",
+          "terrain_detail": "Iconic brutal climb after 300+ km",
+          "named_section": "Garmin Hill"
+        },
+        {
+          "mile": 210,
+          "label": "Final Flat Run",
+          "desc": "After Garmin Hill and one more climb, a long flat roll home. Fatigue and headwind can make riders crawl.",
+          "terrain_detail": "Long flat drag back to Girona",
+          "named_section": "The Grind Home"
+        }
       ],
-      "signature_challenge": "The 360K as a complete package—technical singletrack, steep climbs, coastal trails, night riding, and 360km of Catalan gravel from dawn to dawn."
+      "signature_challenge": "Garmin Hill—the steepest, slowest, most brutal climb of the day, hitting when you have 300+ km in your legs.",
+      "ridewithgps_id": "TBD",
+      "ridewithgps_name": "Traka 360",
+      "map_url": null
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

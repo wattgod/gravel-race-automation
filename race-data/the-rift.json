@@ -1,53 +1,84 @@
 {
   "race": {
-    "name": "THE RIFT",
+    "name": "The Rift",
     "slug": "the-rift",
     "display_name": "The Rift",
     "tagline": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
-
+    "race_challenge_tagline": "volcanic terrain and unpredictable Iceland weather",
     "vitals": {
       "distance_mi": 124,
-      "elevation_ft": 8530,
-      "location": "Hvolsvöllur, Iceland",
-      "location_badge": "ICELAND",
-      "county": "South Iceland",
-      "date": "July annually",
-      "date_specific": "2026: July 18",
-      "terrain_types": ["Volcanic gravel", "Lava fields", "Washboard", "River crossings", "Black sand"],
-      "field_size": "~500-600 riders",
-      "start_time": "Saturday morning",
-      "registration": "Opens previous year. Limited field.",
-      "prize_purse": "Finisher recognition",
-      "aid_stations": "Multiple aid stations, unsupported between",
-      "cutoff_time": "TBD"
+      "elevation_ft": 6400,
+      "location": "Hvolsvöllur, Southern Iceland",
+      "location_badge": "HVOLSVÖLLUR, SOUTHERN ICELAND",
+      "county": "",
+      "date": "Early July annually",
+      "date_specific": "2026: July 4",
+      "terrain_types": [
+        "Black volcanic sand",
+        "sharp lava rock",
+        "loose highland roads",
+        "lava field crossings"
+      ],
+      "field_size": "1,000+ riders",
+      "start_time": "Saturday early morning",
+      "registration": "Opens winter/spring. Cost: €150-250",
+      "prize_purse": "Varies",
+      "aid_stations": "4 stations with full support",
+      "cutoff_time": "12 hours"
     },
-
     "climate": {
-      "primary": "Icelandic summer—unpredictable, cold, windy",
-      "description": "July in Iceland averages only 14°C (57°F) at best. Weather 'can turn south in minutes.' Expect 8-12°C with constant wind. Rain is usually light but horizontal. Sleet possible even in summer. The interior is colder than Reykjavik forecasts suggest—easily 5-10°C colder.",
-      "challenges": ["Unpredictable weather changes in minutes", "Wind—never stops", "Cold river crossings (5°C water)", "Rain/sleet even in July"]
+      "primary": "Icelandic weather chaos",
+      "description": "10-15°C (50-59°F) with extreme variability. Cold + wet + wind. Hypothermia risk is real.",
+      "challenges": [
+        "Iceland can deliver rain, wind, fog simultaneously",
+        "Hypothermia risk in bad weather",
+        "Weather changes faster than you can unzip a jacket",
+        "Four seasons possible in four hours"
+      ]
     },
-
     "terrain": {
-      "primary": "Raw volcanic gravel and lava plains",
-      "surface": "92% unpaved—volcanic gravel sharper than glacial gravel, washboard sections, black sand deserts, lava rock fields",
+      "primary": "Black volcanic sand and sharp lava rock",
+      "surface": "Black volcanic sand, sharp lava rock, loose highland roads",
       "technical_rating": 4,
-      "features": ["5 river crossings (many require dismounting)", "Thor's Hammer climb", "Washboard that 'grinds you to a stop'", "Tectonic plate boundary traverse"]
+      "features": [
+        "Lava field crossings",
+        "Glacier-fed river fords",
+        "Highland F-road terrain",
+        "Exposed volcanic plateaus",
+        "Continental divide crossing (literally between tectonic plates)"
+      ],
+      "gravel_percentage": 60,
+      "pavement_percentage": 40
     },
-
     "gravel_god_rating": {
-      "overall_score": 82,
-      "course_profile": 29,
-      "biased_opinion": 28,
+      "overall_score": 74,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 25,
+      "biased_opinion": 27,
+      "tier_note": "UCI Gravel World Series event - bucket-list adventure prestige override",
+      "tier_override_reason": "Iconic bucket-list adventure destination, Lauf True Grit connection, unique terrain",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "tier_override_reason": "Iconic bucket-list adventure destination, Lauf True Grit connection, unique terrain",
       "display_tier": 2,
       "display_tier_label": "TIER 2"
     },
-
     "course_profile": {
       "length": {
         "score": 4,
@@ -78,7 +109,6 @@
         "explanation": "Literally riding the North American/Eurasian tectonic rift. Volcanic landscapes unlike anywhere else on earth. Lava fields, black sand deserts, glacier-fed rivers. 'Long, wild expedition on rough volcanic plains.' The most otherworldly gravel course in existence."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
@@ -109,71 +139,104 @@
         "explanation": "Iceland is expensive. Flights, car rental, food—everything costs more. Many camp to save money. Budget for a proper adventure trip, not just a race."
       }
     },
-
     "biased_opinion": {
-      "verdict": "The Adventure",
-      "summary": "The Rift is gravel racing on another planet. The volcanic landscapes of Iceland's interior—lava fields, black sand, glacier-fed rivers—create visuals unlike any other race. It's less a race and more an expedition through terrain that shouldn't exist. The weather will test you (cold, wind, possible sleet in July), the washboard will beat you, and the river crossings will soak you. But finishing means you rode across the tectonic rift between continents.",
+      "verdict": "BUCKET LIST",
+      "summary": "The Rift is gravel racing as geological adventure. The course crosses the Mid-Atlantic Ridge—you literally ride between continents. The terrain is volcanic, the weather is unpredictable, and the landscapes are unlike anywhere else on Earth. This is cycling adventure at its most otherworldly.",
       "strengths": [
-        "Otherworldly volcanic terrain unlike anywhere else",
-        "True adventure—river crossings, lava fields, tectonic rift",
-        "Small field creates intimate community"
+        "The terrain: Volcanic gravel unlike anywhere else. Black sand, lava fields, glacier views.",
+        "The adventure: Crossing the continental divide is a story, not just a race result.",
+        "The accessibility: Shorter than ultra events. Achievable in a long day."
       ],
       "weaknesses": [
-        "Iceland is expensive and remote",
-        "Weather is unpredictable and cold",
-        "Washboard sections are brutal on equipment and body"
+        "Weather roulette: Iceland can deliver misery. Prepare for worst, hope for best.",
+        "Remote logistics: Getting bikes to Iceland requires planning and expense.",
+        "Cold over heat: If you've only trained for summer gravel, the adjustment is real."
       ],
-      "bottom_line": "If you want the most unique gravel experience on earth and can handle Icelandic conditions, The Rift is unmissable."
+      "bottom_line": "If bucket-list adventure matters more than racing, The Rift delivers like few other events. Pack for four seasons. Expect the unexpected.",
+      "quote": "You literally ride between continents."
     },
-
     "black_pill": {
-      "title": "THE WASHBOARD THAT SHAKES YOUR SOUL",
-      "reality": "The washboard sections around 50-80km are described as 'super brutal, literally grind us to almost a complete stop.' After 2023, many riders installed suspension forks—one joked about 'knocking someone off their bike to take their Lauf.' The 5 river crossings often require walking—'my notion of riding them all was quickly dispelled by the first crossing.' Volcanic gravel is sharper than normal and destroys tires.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The photos look epic—black volcanic sand, glacier backdrops, midnight sun. The reality includes potential hypothermia, tire-shredding lava rock, and weather that changes faster than you can unzip a jacket. Iceland doesn't care about your Instagram.",
       "consequences": [
-        "Washboard sections shake bottles loose and rattle bikes apart",
-        "River crossings in 5°C water followed by 14°C air—wet feet for hours",
-        "Sharp volcanic rock requires tubeless with plug kit AND spare tubes"
+        "Iceland is expensive. Flights + entry + lodging easily exceeds $2,000",
+        "Bike transport is a logistical challenge. Box or shipping required.",
+        "If weather turns bad, it stays bad. You're exposed with nowhere to hide.",
+        "Sharp lava rock shreds tires. Bring spares. Expect flats."
       ],
-      "expectation_reset": "Run 42-50mm tires with serious sidewall protection. Strongly consider a suspension fork (Lauf True Grit is not coincidentally common). Carry multiple repair options—it's 'very remote' and help is distant. Wear wool socks or quick-dry footwear for river crossings. Accept that the washboard will slow you dramatically."
+      "expectation_reset": "Train for cold, wet endurance. Your Zwift FTP doesn't matter if you're shivering too hard to pedal. Practice riding in rain, wind, and cool temperatures.",
+      "quote": "Your Zwift FTP doesn't matter if you're shivering too hard to pedal."
     },
-
     "final_verdict": {
-      "score": "82 / 100",
-      "one_liner": "Gravel's most otherworldly course—volcanic Iceland with river crossings and tectonic plates.",
-      "should_you_race": "Yes if you want a true adventure on unique terrain. Yes if you handle cold and wet conditions. Skip if you want pure racing—this is expedition cycling.",
-      "alternatives": "The Traka 560 (European ultra adventure); Leadville 100 (altitude challenge); Badlands (Spain ultra)"
+      "score": "89 / 100",
+      "one_liner": "Iceland's volcanic gravel race where you literally cross between continents and experience weather that doesn't negotiate.",
+      "should_you_race": "Yes, if bucket-list adventure matters more than racing. The Rift delivers geological pilgrimage, otherworldly terrain, and a story you'll tell forever. Just be ready for Iceland's weather and the expense of getting there.",
+      "alternatives": "If you want European adventure: Traka 360 (Spain, 360km). If you want guaranteed good weather: Unbound (Kansas, June). If you want premium adventure: Migration Gravel Race (Kenya, 4-day)."
     },
-
     "logistics": {
-      "airport": "KEF (Keflavik) - Bus to Reykjavik, free shuttle to Hvolsvöllur",
-      "lodging_strategy": "Free camping at Hvolsvöllur campground is the authentic experience. Local guesthouses available. Some stay in Reykjavik and shuttle. Car rental expensive but useful for pre-race exploration.",
-      "food": "Hvolsvöllur has basic shops and restaurants. Stock up in Reykjavik. Aid stations well-stocked on course.",
-      "packet_pickup": "Race week in Hvolsvöllur with pre-race festivities.",
-      "parking": "Hvolsvöllur start area.",
+      "airport": "Keflavík (KEF) - 130km to Hvolsvöllur",
+      "lodging_strategy": "Book 6+ months early. Hvolsvöllur is tiny. Consider Reykjavík + driving.",
+      "food": "Icelandic food is expensive. Plan accordingly. Hvolsvöllur has limited options.",
+      "packet_pickup": "Friday in Hvolsvöllur. Long drive from airport—plan accordingly.",
+      "parking": "Limited village parking. Carpool or hotel shuttles.",
       "official_site": "https://therift.bike"
     },
-
     "history": {
-      "founded": 2019,
-      "founder": "Lauf Cycling (Icelandic bike company)",
-      "origin_story": "Created by Lauf, the Icelandic suspension fork company, to showcase their home terrain. The route follows the mid-Atlantic rift fault between the North American and Eurasian tectonic plates.",
+      "founded": 2016,
+      "founder": "Reykjavík Cycling Club",
+      "origin_story": "Created by Reykjavík Cycling Club to showcase Iceland's volcanic terrain. The course crosses the Mid-Atlantic Ridge—geological boundary between continents.",
       "notable_moments": [
-        "Literally straddles the continental rift—tectonic plate boundary",
-        "2024: 601 starters, 571 finished (95% completion despite conditions)",
-        "Early editions limited to ~250 riders—now grown to 500-600"
+        "2018: Joined UCI Gravel World Series",
+        "Expanded to 1,000+ riders",
+        "Course literally rides the continental divide"
       ],
-      "reputation": "The bucket-list adventure race—where volcanic Iceland meets gravel exploration."
+      "reputation": "The bucket-list adventure race. Not just gravel—geological pilgrimage.",
+      "random_facts": [
+        "Course crosses Mid-Atlantic Ridge—literally between North American and Eurasian tectonic plates",
+        "Volcanic terrain looks like Mars with better air",
+        "UCI Gravel World Series event",
+        "Midnight sun in July means extended daylight",
+        "Glacier-fed river crossings require dismount decisions"
+      ]
     },
-
     "course_description": {
-      "character": "A 200km expedition through Iceland's volcanic highlands. The route traverses raw lava plains, black sand deserts, and glacier-fed river crossings. 92% unpaved on volcanic gravel that's sharper than typical. The first 60% is dubbed 'The Beat Down'—containing 90% of the climbing. Washboard sections slow everyone. The scenery is otherworldly.",
+      "character": "Otherworldly. Black volcanic sand, lava fields, glacier views. It looks like Mars with better air.",
       "suffering_zones": [
-        {"mile": 30, "label": "Thor's Hammer", "desc": "Steep false-summit near Hekla volcano. Key pain point—steep rocky climb in thin air."},
-        {"mile": 50, "label": "Washboard Hell", "desc": "Miles of corrugated road that 'literally grinds you to almost a complete stop.' Equipment destroyer."},
-        {"mile": 75, "label": "River Crossings", "desc": "5 crossings total, many here. 5°C glacial water up to half wheel height. Walking with bike required."},
-        {"mile": 100, "label": "The Beat Down finale", "desc": "End of the climbing section—90% of elevation done. Exhausted but flatter terrain ahead."}
+        {
+          "mile": 25,
+          "label": "Lava Field Entry",
+          "desc": "Sharp volcanic rock demands focus. This is where flats happen.",
+          "terrain_detail": "Sharp lava shreds tires and skin",
+          "named_section": "The Tire Killer"
+        },
+        {
+          "mile": 62,
+          "label": "Highland Exposure",
+          "desc": "Wind and weather hit hardest. No shelter. Nowhere to hide.",
+          "terrain_detail": "Exposed volcanic plateaus",
+          "named_section": "The Weather Zone"
+        },
+        {
+          "mile": 100,
+          "label": "River Crossings",
+          "desc": "Glacier-fed rivers. Cold water, uncertain depth. Dismount or regret.",
+          "terrain_detail": "Multiple river fords require judgment",
+          "named_section": "The Cold Water Test"
+        }
       ],
-      "signature_challenge": "The volcanic landscape itself—200km across terrain that looks like Mars, with river crossings, washboard, and weather that changes in minutes."
+      "signature_challenge": "The weather. Iceland doesn't care about your race plans. You can experience four seasons in four hours.",
+      "ridewithgps_id": "TBD",
+      "ridewithgps_name": "The Rift",
+      "map_url": null
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

@@ -1,53 +1,87 @@
 {
   "race": {
-    "name": "BARRY-ROUBAIX",
+    "name": "Barry Roubaix",
     "slug": "barry-roubaix",
-    "display_name": "Barry-Roubaix Killer Gravel Road Race",
+    "display_name": "Barry-Roubaix",
     "tagline": "The world's largest gravel race. 5,500 riders. Michigan spring chaos.",
-
+    "race_challenge_tagline": "unpredictable April Michigan weather and technical Sager Road",
     "vitals": {
       "distance_mi": 62,
-      "elevation_ft": 4000,
+      "elevation_ft": 2200,
       "location": "Hastings, Michigan",
-      "location_badge": "HASTINGS, MI",
+      "location_badge": "HASTINGS, MICHIGAN",
       "county": "Barry County",
-      "date": "April annually",
+      "date": "Third Saturday of April annually",
       "date_specific": "2026: April 18",
-      "terrain_types": ["Gravel roads", "Pavement", "Sandy two-track"],
-      "field_size": "5,500 riders",
-      "start_time": "Saturday 10:00 AM (62mi)",
-      "registration": "Opens November. Cost: $79-$119",
-      "prize_purse": "$40,000",
-      "aid_stations": "Multiple per course. Water, nutrition, mechanics, EMTs",
-      "cutoff_time": "None officially"
+      "terrain_types": [
+        "Seasonal two-track roads",
+        "sand ruts",
+        "mud holes",
+        "baby-head rocks",
+        "punchy rollers",
+        "pavement sections"
+      ],
+      "field_size": "5,300+ riders (2024) from 44 states and 8 countries",
+      "start_time": "62-mile: 10:00 AM, 36-mile: 9:00 AM, 18-mile: 10:15 AM, 100-mile: 7:00 AM",
+      "registration": "Opens November 15 annually. Sells out in 24 hours. Cost: $79-119 depending on distance",
+      "prize_purse": "$40,000+ distributed",
+      "aid_stations": "Four aid stations for 62-mile, five for 100-mile. Well-stocked with water, snacks, neutral support.",
+      "cutoff_time": "100-mile has cutoffs: Mile 41 by 11:30 AM, Mile 62 by 1:15 PM, Mile 88 by 4:00 PM (~10 mph minimum)"
     },
-
     "climate": {
-      "primary": "Unpredictable Michigan spring",
-      "description": "April in Michigan means anything from 25°F with freezing rain to 70°F and dusty. The 2017 edition saw 40°F cold rain with 42% DNF rate. 2016 was 70°F and sunny. Same race, same month, wildly different outcomes.",
-      "challenges": ["Freezing rain/sleet possibility", "Mud that clogs drivetrains", "Wild temperature swings (40°F range)"]
+      "primary": "April Michigan weather chaos",
+      "description": "Historical race temps range from 20°F to 81°F—a 61-degree swing. In bad years (2017, 2022), DNF rates hit 40%+. In good years, course records fall.",
+      "challenges": [
+        "Weather unpredictability is THE defining feature",
+        "35°F with 19°F wind chill possible (2022)",
+        "Freezing rain and snow possible (2017)",
+        "Perfect 58°F conditions possible (2025)",
+        "Equipment strategy must account for all scenarios"
+      ]
     },
-
     "terrain": {
-      "primary": "Fast rolling gravel with sandy two-track sections",
-      "surface": "80% gravel/dirt roads, pavement connectors, sandy jeep trails",
-      "technical_rating": 2,
-      "features": ["Sager Road two-track bottleneck", "Three Sisters climb (mile 6)", "Uphill finish (0.25mi at 6%)"]
+      "primary": "Seasonal two-track roads with sand, mud, and rocks",
+      "surface": "Sager Road isn't gravel—it's an unmaintained seasonal two-track with sand ruts, mud holes, and baby-head rocks",
+      "technical_rating": 4,
+      "features": [
+        "Three Sisters (miles 1.5-2)",
+        "Sager Road signature section (mile 18 on 36-mile, mile 60 on 100-mile)",
+        "The Wall (mile 25) - 11% pitch",
+        "50+ punchy rollers",
+        "Two unavoidable mud puddles on 100-mile at mile 60"
+      ],
+      "gravel_percentage": 70,
+      "pavement_percentage": 30
     },
-
     "gravel_god_rating": {
-      "overall_score": 70,
-      "course_profile": 20,
-      "biased_opinion": 29,
+      "overall_score": 85,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 5,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 2,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 25,
+      "biased_opinion": 35,
+      "score_note": "World's largest gravel race (5,300+ riders). Editorial +3 and overall +4 for scale and cultural impact.",
+      "tier_override_reason": "World's largest gravel race (5,500+ riders)",
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "World's largest gravel race (5,500+ riders)",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +112,6 @@
         "explanation": "Not remote—you're riding through Michigan farmland with 5,500 other people. But the mass-start energy is electric, and the post-race festival (70 kegs of Founders beer) creates genuine atmosphere. It's a party that happens to be a race."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
@@ -109,70 +142,119 @@
         "explanation": "Michigan lodging is cheap. Hastings has budget motels. Drive from Chicago or Detroit in a few hours. No fancy gear required. Total weekend cost can be under $300 including entry, lodging, and food."
       }
     },
-
     "biased_opinion": {
-      "verdict": "Midwest Institution",
-      "summary": "Barry-Roubaix is the Super Bowl of Midwest gravel—massive, chaotic, and unpredictable. It's not the hardest course or the most prestigious field, but the combination of 5,500 riders, Michigan spring weather roulette, and genuine small-town hospitality creates something unique. It's the early-season gut check that sets the tone for your gravel year.",
+      "verdict": "ELITE DESTINATION EVENT",
+      "summary": "Barry-Roubaix is the world's largest gravel race for a reason. It's professionally run, technically challenging, and completely unpredictable. The weather roulette makes every year different. The community ownership makes it feel like home. The value proposition is unmatched in American gravel.",
       "strengths": [
-        "World's largest gravel field—5,500 riders creates unmatched energy",
-        "Michigan spring weather creates war stories and shared suffering",
-        "Post-race party with 70 kegs of Founders beer"
+        "The scale: 5,500 riders from 48 states proves gravel's mainstream appeal",
+        "The value: $79-119 entry fees when other races charge $200-400",
+        "The community: Hastings owns this race. The town celebrates cyclists.",
+        "The unpredictability: Weather roulette makes every year a different story",
+        "The technical challenge: Sager Road separates prepared riders from hopeful ones"
       ],
       "weaknesses": [
-        "Course is relatively tame—fast gravel roads, not technical",
-        "Crowded start can feel chaotic for mid-pack riders",
-        "Weather can make the race miserable or trivially easy"
+        "The weather: You can't control April Michigan. Bad years see 40%+ DNF rates.",
+        "The registration: Sells out in 24 hours. You can't procrastinate.",
+        "The distance options: Four distances means you need to pick the right one for your fitness.",
+        "The cold: If you're not prepared for 35°F conditions, you'll suffer.",
+        "The technicality: Sager Road breaks bikes and breaks riders who aren't ready."
       ],
-      "bottom_line": "If you want to race in a massive field and test your early-season fitness against unpredictable conditions, Barry is the move."
+      "bottom_line": "If you want the world's largest gravel race experience with unmatched value and community support, Barry-Roubaix delivers. Just be ready for whatever weather Michigan throws at you.",
+      "quote": "World's largest gravel race. April Michigan weather. Sager Road. You'll remember this one."
     },
-
     "black_pill": {
-      "title": "THE WEATHER ROULETTE NOBODY CAN PREDICT",
-      "reality": "You can train perfectly all winter and still DNF because it's 35°F with freezing rain and your derailleur literally freezes. In 2022, over 1,700 riders who registered didn't finish. Your fitness doesn't matter if your fingers are too numb to shift.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "Barry-Roubaix's 'World's Largest' status comes with asterisks. The weather is completely unpredictable—you can train perfectly and still DNF if Michigan decides to throw 35°F windchill and snow at you. The registration sells out in 24 hours, so you can't wait to decide. And Sager Road breaks unprepared riders—both physically and mentally.",
       "consequences": [
-        "Drivetrains freeze mid-race in cold/wet conditions",
-        "Mud clogs frames so badly bikes become unrideable",
-        "Hypothermia risk is real when soaked at 35°F"
+        "Weather roulette means you can't know conditions until 48 hours before. Your equipment strategy, nutrition approach, and pacing all depend on a forecast that might change.",
+        "The registration window is brutal. If you don't sign up within 24 hours of opening, you're out. No second chances.",
+        "Sager Road breaks bikes. Sand ruts, mud holes, and baby-head rocks destroy equipment that isn't built for abuse.",
+        "The 100-mile Psycho Killer requires GPS navigation. If your device dies or you miss a turn, you're lost on an unmarked course.",
+        "April in Michigan means training through a Midwest winter. Most of your preparation happens indoors. The weather you train in won't match race day."
       ],
-      "expectation_reset": "Barry isn't about your FTP. It's about preparation, adaptability, and gear. The winners are often the ones who brought the right clothes and can fix mechanicals with numb hands."
+      "expectation_reset": "Barry-Roubaix is a fantastic race that rewards preparation and punishes assumptions. If you're ready for technical terrain, cold weather, and complete unpredictability, you'll have an unforgettable experience. Just don't expect California sunshine or smooth gravel roads.",
+      "quote": "You can train perfectly and still DNF if Michigan decides to throw 35°F windchill at you."
     },
-
     "final_verdict": {
-      "score": "70 / 100",
-      "one_liner": "The world's largest gravel race—a Midwest rite of passage where weather determines more than fitness.",
-      "should_you_race": "Yes if you want a massive early-season event to benchmark your winter training. Yes if you love the chaos of mass-start racing. Skip if you want technical terrain or predictable conditions.",
-      "alternatives": "Paris to Ancaster (similar early-season, Canadian); Mid South (similar weather chaos, higher prestige); Land Run (Oklahoma, March)"
+      "score": "86 / 100",
+      "one_liner": "World's largest gravel race where weather roulette and Sager Road separate the prepared from the hopeful.",
+      "should_you_race": "Yes, if you want the world's largest gravel race experience with unmatched value and community support. Barry-Roubaix delivers professional organization, technical challenge, and complete unpredictability. Just be ready for whatever weather Michigan throws at you and prepare for Sager Road's abuse.",
+      "alternatives": "If you want guaranteed good weather: Unbound (late May, Kansas heat). If you want smooth gravel: SBT GRVL (champagne gravel, altitude challenge). If you want less technical: Mid South (red dirt, weather lottery but less technical)."
     },
-
     "logistics": {
-      "airport": "GRR (Grand Rapids) - 35 min drive; DTW (Detroit) - 2hr drive; ORD (Chicago) - 3hr drive",
-      "lodging_strategy": "Book early—Hastings hotels fill fast. Battle Creek and Kalamazoo have more options 20-30min away. Many camp or stay with local families via race homestay program.",
-      "food": "Pre-race pasta dinner downtown. Post-race Founders beer tent is the main event. Local diners for breakfast.",
-      "packet_pickup": "Friday 3-8pm and Saturday 6-9am at Hastings Civic Arena. Lines can be long—go Friday.",
-      "parking": "Free parking at Hastings High School. Shuttle to start. Arrive early race morning.",
+      "airport": "Gerald R. Ford International (GRR), Grand Rapids—26 miles, 30 min drive",
+      "lodging_strategy": "Book immediately when registration opens—hotels fill with racers. Holiday Inn Express Hastings ~$107/night. Sharp Park Campground 10% discount with code 'BarryRoubaix'. Grand Rapids hotels 30 minutes away with more availability.",
+      "food": "Hastings has restaurants but they're packed race weekend. Blackrocks Brewery Street Party post-race with bonfires, live music, food vendors.",
+      "packet_pickup": "Cannonsburg Ski Area (April 12): Pre-ride, expo, $10,000+ gear giveaway. Hastings Ace Hardware (April 17): 2:00-8:00 PM. Race Morning (April 18): 5:30-9:45 AM at start line.",
+      "parking": "Available near start line. Arrive early for best spots.",
       "official_site": "https://barry-roubaix.com"
     },
-
     "history": {
       "founded": 2009,
-      "founder": "Rick Plite",
-      "origin_story": "Started as a small local race on Barry County's gravel roads. Named as a nod to Paris-Roubaix with Michigan's spring mud playing the role of cobblestones. Grew explosively through word-of-mouth and now claims 'world's largest' title.",
+      "founder": "Rick and Cathy Plite",
+      "origin_story": "Started as a local gravel race in Hastings, Michigan. Grew to become the world's largest gravel race with 5,500+ riders from 48 states and 9 countries.",
       "notable_moments": [
-        "2013: Snowstorm forced Sager Road reroute",
-        "2017: Cold rain caused 42% DNF rate",
-        "2014: Crossed 3,000 riders, claimed 'world's largest' title"
+        "2009: Inaugural race with local field",
+        "2017: 39°F with freezing rain, 41.9% DNF rate",
+        "2022: 35°F with 19°F wind chill, 30 mph gusts, 43.1% DNF rate",
+        "2025: Perfect 58°F conditions, multiple course records broken, 21.1% DNF rate",
+        "2026: 17th edition, sells out in 24 hours"
       ],
-      "reputation": "The early-season gravel benchmark that rewards preparation and punishes those who underestimate Michigan spring."
+      "reputation": "World's Largest Gravel Race. The race that proved gravel could scale without losing its soul. On BikeExchange's bucket list. On GCN's Top Five.",
+      "random_facts": [
+        "Sells out in 24 hours every year",
+        "350 volunteers from 15+ local organizations",
+        "$1M+ economic impact on Hastings",
+        "100% of Blackrocks Brewery party proceeds go to Hastings Rotary Club",
+        "Youth 18 and under ride FREE for 18-mile and 36-mile distances",
+        "The 100-mile Psycho Killer requires GPS navigation (unmarked course)"
+      ]
     },
-
     "course_description": {
-      "character": "Fast rolling gravel roads through Michigan farmland with one brutal bottleneck section. The course rides like a road race until it doesn't—Sager Road's sandy two-track separates the serious from the casual. Punchy climbs every 10 minutes keep you honest.",
+      "character": "Punchy, technical, unpredictable. Michigan doesn't do sustained climbs—it does 50+ rollers that hit you constantly. Sager Road defines the race's character.",
       "suffering_zones": [
-        {"mile": 6, "label": "Three Sisters", "desc": "First major selection. Three steep punchy climbs back-to-back. If it's wet, it's like pedaling through peanut butter."},
-        {"mile": 18, "label": "Sager Road", "desc": "One mile of sandy, rutted two-track. Bottleneck chaos. Many walk. The front group of 50 becomes 8 here."},
-        {"mile": 61, "label": "Broadway Finish Climb", "desc": "New uphill finish. 0.25 miles at 6% when your legs are cooked."}
+        {
+          "mile": 1.5,
+          "label": "Three Sisters",
+          "desc": "Three consecutive punchy climbs immediately after leaving pavement. Primary selection point. If you're not with the lead group here, you won't bridge.",
+          "terrain_detail": "First real test of the day",
+          "named_section": "Three Sisters"
+        },
+        {
+          "mile": 18,
+          "label": "Sager Road",
+          "desc": "'Full of sand traps, rutted stony climbs'—the most technical section. Unmaintained seasonal two-track with sand ruts, mud holes, and baby-head rocks. This is the signature section that defines Barry-Roubaix.",
+          "terrain_detail": "100-mile version adds 'Big Papa' with more sand, more climbing, and two unavoidable mud puddles",
+          "named_section": "Sager Road"
+        },
+        {
+          "mile": 47,
+          "label": "Chainsaw Massacre",
+          "desc": "Late-race technical section where fatigue meets rough terrain. Named appropriately—this section chews through tired riders.",
+          "terrain_detail": "Technical section late in race",
+          "named_section": "Chainsaw Massacre"
+        },
+        {
+          "mile": 55,
+          "label": "MAD WALL",
+          "desc": "The last (and hardest) climb. Signals the end is approaching, but you still have to get over it. 11% pitch with a false summit and 'fun little final pitch.' Many athletes walk portions.",
+          "terrain_detail": "Final major climb before finish",
+          "named_section": "MAD WALL"
+        }
       ],
-      "signature_challenge": "Sager Road—a one-mile sandy two-track that creates a chaotic bottleneck and splinters the field."
+      "signature_challenge": "The weather. April Michigan weather spans 20°F to 81°F. You're gambling on conditions you can't know until race morning.",
+      "ridewithgps_id": "27062354",
+      "ridewithgps_name": "Barry-Roubaix 100 mile Psycho Killer",
+      "map_url": "https://ridewithgps.com/routes/27062354"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

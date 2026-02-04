@@ -4,7 +4,6 @@
     "slug": "bwr-arizona",
     "display_name": "BWR Arizona",
     "tagline": "Hell of the North Desert—100+ miles of sand, rock, and technical singletrack through Arizona's high desert.",
-
     "vitals": {
       "distance_mi": 104,
       "elevation_ft": 6600,
@@ -13,7 +12,14 @@
       "county": "Maricopa County",
       "date": "March annually",
       "date_specific": "2025: March 1",
-      "terrain_types": ["Desert gravel", "Technical singletrack", "Sand", "Rocky terrain", "Double-track", "Paved connectors"],
+      "terrain_types": [
+        "Desert gravel",
+        "Technical singletrack",
+        "Sand",
+        "Rocky terrain",
+        "Double-track",
+        "Paved connectors"
+      ],
       "field_size": "~300-400 riders (Waffle)",
       "start_time": "Early morning start",
       "registration": "Early-bird pricing; mid-hundreds USD for Waffle",
@@ -21,33 +27,56 @@
       "aid_stations": "5 Feed Zones on Waffle course (Neversecond hydration/nutrition)",
       "cutoff_time": "Course-specific cutoffs"
     },
-
     "climate": {
       "primary": "High desert spring—cool mornings, warm afternoons, windy",
       "description": "March in the Phoenix desert means morning temperatures in the low 40s°F climbing to upper 60s-low 70s°F by mid-day. Wind is common (10-15 mph typical). Afternoon thunderstorm risk is low-moderate in spring. Sun exposure is intense in open desert sections.",
-      "challenges": ["Wind exposure in open desert", "Rapid temperature changes", "Intense sun on exposed terrain", "Afternoon heat potential"]
+      "challenges": [
+        "Wind exposure in open desert",
+        "Rapid temperature changes",
+        "Intense sun on exposed terrain",
+        "Afternoon heat potential"
+      ]
     },
-
     "terrain": {
       "primary": "Desert gravel, singletrack, sand, rock",
       "surface": "~60-70% gravel/dirt roads and double-track, ~15-20% technical singletrack/MTB-style trail, ~15-25% paved connectors. Heavy emphasis on 'unroad' terrain—sand, loose rock, and rough service roads throughout.",
       "technical_rating": 4,
-      "features": ["McDowell region desert terrain", "Technical desert singletrack", "Sandy washes", "Rocky climbs with 20% ramps", "Classic BWR 'unroad' sectors"]
+      "features": [
+        "McDowell region desert terrain",
+        "Technical desert singletrack",
+        "Sandy washes",
+        "Rocky climbs with 20% ramps",
+        "Classic BWR 'unroad' sectors"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 67,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
       "course_profile": 22,
       "biased_opinion": 25,
+      "tier_override_reason": null,
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "tier_override_reason": null,
       "display_tier": 2,
       "display_tier_label": "TIER 2"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +107,6 @@
         "explanation": "The 'Hell of the North Desert' delivers unique desert landscapes—Sonoran scenery, technical desert singletrack, and the unmistakable BWR suffering ethos. Riders consistently describe it as 'a hard but amazing race.'"
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
@@ -109,7 +137,6 @@
         "explanation": "Phoenix is a major hub with reasonable flight and lodging options. Cave Creek area isn't expensive. Overall trip costs are manageable compared to destination races in smaller markets."
       }
     },
-
     "biased_opinion": {
       "verdict": "Hell of the North Desert",
       "summary": "BWR Arizona delivers the BWR suffering formula in a desert package—technical singletrack, sand, rocks, and punchy climbs through Sonoran landscapes. It's less climby than California but compensates with unroad technical demands. Not an LTGP race, but attracts that caliber of competition. The 'lowest vert BWR' is still a beast.",
@@ -125,7 +152,6 @@
       ],
       "bottom_line": "If you want the BWR experience with desert flavor—sand, rock, and technical singletrack—Arizona delivers. Just bring appropriate tires and respect the unroad."
     },
-
     "black_pill": {
       "title": "THE SAND AND ROCK REALITY",
       "reality": "This isn't smooth gravel road racing. BWR AZ emphasizes 'more unroad' terrain—sand washes that grab your front wheel, rocky singletrack that punishes poor line choice, and 20% desert ramps. The 6,600 ft of climbing sounds moderate until you're grinding through loose rock at 15%.",
@@ -136,14 +162,12 @@
       ],
       "expectation_reset": "Don't assume 'lowest vert BWR' means easier. The technical terrain and desert conditions create their own difficulty multiplier. Come prepared for unroad, not gravel roads."
     },
-
     "final_verdict": {
       "score": "67 / 100",
       "one_liner": "Technical desert suffering through sand, rock, and singletrack—a true BWR experience in Sonoran landscapes.",
       "should_you_race": "Yes if you want technical gravel racing with genuine unroad terrain. Yes if you're chasing BWR cred without LTGP pressure. Skip if you expect smooth gravel roads or hate sand and rocks.",
       "alternatives": "BWR California (more climbing, iconic); BWR Cedar City (altitude + unroad); Unbound 200 (longer, less technical)"
     },
-
     "logistics": {
       "airport": "PHX (Phoenix Sky Harbor) - major hub, 45-60min to venue",
       "lodging_strategy": "Cave Creek/Carefree area or North Scottsdale for proximity. Phoenix metro has extensive options at all price points.",
@@ -152,7 +176,6 @@
       "parking": "Event parking at start/finish",
       "official_site": "https://www.belgianwaffleride.bike"
     },
-
     "history": {
       "founded": 2022,
       "founder": "Belgian Waffle Ride organization",
@@ -164,16 +187,39 @@
       ],
       "reputation": "Technical desert suffering in the BWR tradition—attracts elite riders to an underrated gem in the series."
     },
-
     "course_description": {
       "character": "A desert gravel experience that emphasizes technical unroad over pure climbing. Sand washes, rocky singletrack, and punchy desert climbs through Sonoran landscapes. The BWR formula adapted to high-desert terrain.",
       "suffering_zones": [
-        {"mile": 25, "label": "Desert Singletrack", "desc": "Technical desert trail sectors where tire choice and bike handling matter. Sand grabs, rocks punish."},
-        {"mile": 50, "label": "Sand Washes", "desc": "Loose sandy sections that test power application and steering. Energy-sapping terrain."},
-        {"mile": 75, "label": "Rocky Climbs", "desc": "20% desert ramps on loose rock. The moderate vert hides punchy difficulty."},
-        {"mile": 100, "label": "Final Unroad", "desc": "Cumulative fatigue meets remaining technical terrain. The last 25 miles test everything."}
+        {
+          "mile": 25,
+          "label": "Desert Singletrack",
+          "desc": "Technical desert trail sectors where tire choice and bike handling matter. Sand grabs, rocks punish."
+        },
+        {
+          "mile": 50,
+          "label": "Sand Washes",
+          "desc": "Loose sandy sections that test power application and steering. Energy-sapping terrain."
+        },
+        {
+          "mile": 75,
+          "label": "Rocky Climbs",
+          "desc": "20% desert ramps on loose rock. The moderate vert hides punchy difficulty."
+        },
+        {
+          "mile": 100,
+          "label": "Final Unroad",
+          "desc": "Cumulative fatigue meets remaining technical terrain. The last 25 miles test everything."
+        }
       ],
       "signature_challenge": "The combination of sand, rock, and technical singletrack in desert conditions—'more unroad' means the terrain difficulty compensates for lower elevation gain."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

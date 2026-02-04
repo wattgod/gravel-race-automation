@@ -1,53 +1,81 @@
 {
   "race": {
-    "name": "BIG SUGAR GRAVEL",
+    "name": "Big Sugar",
     "slug": "big-sugar",
     "display_name": "Big Sugar Gravel",
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
-
+    "race_challenge_tagline": "9K+ feet of climbing",
     "vitals": {
       "distance_mi": 100,
-      "elevation_ft": 6500,
+      "elevation_ft": 9500,
       "location": "Bentonville, Arkansas",
-      "location_badge": "BENTONVILLE, AR",
-      "county": "Benton County",
-      "date": "October annually (mid-October)",
-      "date_specific": "2025: TBD (Life Time Grand Prix finale)",
-      "terrain_types": ["Ozark gravel roads", "Rolling terrain", "Punchy climbs", "Paved connectors"],
-      "field_size": "1,000+ riders across all distances",
-      "start_time": "Morning start",
-      "registration": "Life Time pricing structure; sells out",
-      "prize_purse": "Significant as LTGP finale—series championship money on the line",
-      "aid_stations": "Full Life Time support with multiple aid stations",
-      "cutoff_time": "Course cutoffs apply"
+      "location_badge": "BENTONVILLE, ARKANSAS",
+      "county": "Benton County / McDonald County (crosses into Missouri)",
+      "date": "Late October annually",
+      "date_specific": "2025: October 5 (festival Oct 3-5)",
+      "terrain_types": [
+        "Ozark gravel",
+        "Punchy climbs",
+        "Technical descents",
+        "Forest roads"
+      ],
+      "field_size": "2,000+ riders across all distances",
+      "start_time": "Saturday 7:00 AM",
+      "registration": "Opens early in year. Cost: ~$175",
+      "prize_purse": "$50,000+",
+      "aid_stations": "Well-stocked aid stations throughout course",
+      "cutoff_time": "12 hours for 100-mile distance"
     },
-
     "climate": {
-      "primary": "Mild October conditions—favorable fall racing weather",
-      "description": "October in Bentonville offers ideal gravel racing conditions. Temperatures typically range from 50s°F in the morning to 60-70°F by afternoon. Fall colors add scenery. Rain is possible but conditions are generally cooperative.",
-      "challenges": ["Moderate rain potential for October in Arkansas", "Cool morning start", "Variable conditions possible"]
+      "primary": "Ozark fall",
+      "description": "Late October brings crisp mornings, mild afternoons, and peak fall colors",
+      "challenges": [
+        "Morning temps 35-50°F",
+        "Afternoon can reach 65-70°F",
+        "Occasional rain creates mud",
+        "Humidity varies"
+      ]
     },
-
     "terrain": {
-      "primary": "Rolling Ozark gravel roads with punchy climbs",
-      "surface": "Primarily gravel roads with paved connectors. Classic Ozark rolling terrain—not flat, but not mountain passes. Punchy climbs throughout that accumulate over 100 miles. Well-maintained gravel surfaces.",
-      "technical_rating": 3,
-      "features": ["Rolling Ozark terrain", "Punchy gravel climbs", "Bentonville trail system proximity", "Scenic Arkansas countryside"]
+      "primary": "Ozark Mountain gravel with punchy repeated climbs",
+      "surface": "Chunky, loose, and sharp gravel over hardpack. Higher mechanical failure rate than typical races.",
+      "technical_rating": 4,
+      "features": [
+        "Sugar Creek descent",
+        "War Eagle Mill",
+        "Punchy Ozark climbs",
+        "Creek crossings"
+      ]
     },
-
     "gravel_god_rating": {
-      "overall_score": 66,
-      "course_profile": 18,
-      "biased_opinion": 28,
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 24,
+      "biased_opinion": 32,
+      "score_note": "Life Time Grand Prix fall classic in America's cycling capital (Bentonville). Overall +6 for event quality and destination appeal.",
+      "tier_override_reason": "Life Time Grand Prix finale event—automatic TIER 1",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "Life Time Grand Prix finale event—automatic TIER 1",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +106,6 @@
         "explanation": "Ozark countryside provides pleasant scenery. Bentonville's reputation as a cycling hub adds context. Fall colors in October enhance the experience. More 'nice' than 'epic' but satisfying."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,71 +136,93 @@
         "explanation": "Bentonville is reasonably affordable compared to coastal destinations. XNA has good flight options. Hotels are plentiful. Overall trip costs are manageable for a major gravel event."
       }
     },
-
     "biased_opinion": {
-      "verdict": "The Season Finale",
-      "summary": "Big Sugar is where Life Time Grand Prix seasons end. The course itself is solid Ozark gravel—rolling, punchy, scenic—but the real story is the championship implications. When overall titles are on the line, the racing intensity is unmatched. Bentonville's cycling infrastructure makes it an ideal host. The event matters because of what it decides, not just what it is.",
+      "verdict": "Fall Showstopper",
+      "summary": "Big Sugar takes everything great about fall gravel—colors, weather, community—and combines it with a legitimately hard course. The Ozarks' endless punchy terrain creates a unique challenge. Add Bentonville's cycling culture and you've got a complete experience.",
       "strengths": [
-        "Life Time Grand Prix finale with championship implications",
-        "Elite field depth unmatched in gravel racing",
-        "Bentonville cycling infrastructure and community support"
+        "The destination: Bentonville is cycling paradise. Trails, restaurants, coffee, culture.",
+        "The scenery: Peak fall colors make suffering beautiful.",
+        "The competition: Grand Prix field brings energy and racing."
       ],
       "weaknesses": [
-        "Course itself is solid but not spectacular compared to destination races",
-        "Premium Life Time pricing",
-        "For non-LTGP participants, some magic is lost"
+        "The punchy terrain: If you're a diesel, this course will frustrate you.",
+        "Travel: Bentonville is accessible but not a major hub. Northwest Arkansas (XNA) is the airport.",
+        "October weather: Generally great, but rain creates mud fest potential."
       ],
-      "bottom_line": "If you're chasing LTGP glory, this is the culmination. If you just want great gravel racing with championship atmosphere, Bentonville delivers. The course serves the drama."
+      "bottom_line": "If you want a fall gravel destination with a legitimately hard course and world-class town, Big Sugar delivers. Just bring your climbing legs."
     },
-
     "black_pill": {
-      "title": "THE FINALE PRESSURE",
-      "reality": "Big Sugar's difficulty isn't the course—it's the context. For LTGP contenders, every position matters for series standings. The racing is tactical, aggressive, and unforgiving. For everyone else, you're watching that drama unfold while riding your own race on Ozark gravel.",
+      "title": "THE THING NOBODY TELLS YOU",
+      "reality": "The 'punchy' climbing style of the Ozarks rewards a specific rider type. If you're all about steady-state power and long climbs, this course will shred you with its repeated accelerations.",
       "consequences": [
-        "Elite racing is survival-mode intensity when titles are on the line",
-        "Mid-pack experience differs significantly from front-of-race drama",
-        "Course difficulty is moderate—the stakes create the suffering"
+        "Training should include VO2max work and repeated short efforts—not just tempo.",
+        "Bentonville is awesome but hotels book up. Plan early.",
+        "The technical descents when tired create real crash risk. Stay focused late in the race."
       ],
-      "expectation_reset": "This is a championship event that happens to be on gravel, not a course-defined adventure. Come for the atmosphere and competition, not for the terrain to break you."
+      "expectation_reset": "This isn't a race you can diesel through. The constant on/off nature of Ozark terrain requires specific fitness. A 12-week plan with punchy interval focus is essential."
     },
-
     "final_verdict": {
-      "score": "66 / 100",
-      "one_liner": "The Life Time Grand Prix finale—where gravel seasons end and championships are decided on Ozark roads.",
-      "should_you_race": "Yes if you're in LTGP or want to experience championship gravel atmosphere. Yes if Bentonville's cycling scene appeals. Skip if you want course-driven adventure over competition-driven drama.",
-      "alternatives": "Unbound 200 (LTGP season opener, bigger course); SBT GRVL (LTGP mid-season, mountain scenery); Crusher in the Tushar (harder course, different vibe)"
+      "score": "88 / 100",
+      "one_liner": "Fall gravel perfection—stunning scenery, world-class town, legitimately hard course.",
+      "should_you_race": "Yes if you love punchy terrain and want a complete cycling destination experience. Maybe not if you're strictly a flat-course diesel.",
+      "alternatives": "If you want fall gravel without the punchy terrain: Gravel Worlds (Nebraska, flatter). If you want Ozarks without the distance: shorter Big Sugar distances."
     },
-
     "logistics": {
-      "airport": "XNA (Northwest Arkansas Regional) - 15-20min to Bentonville; TUL (Tulsa) - 2hr drive",
-      "lodging_strategy": "Bentonville has extensive lodging options at all price points. Book early for race weekend as the cycling community fills hotels. Downtown Bentonville puts you near restaurants and race festivities.",
-      "food": "Bentonville has a strong food and beverage scene. Excellent dining options from casual to upscale. Race day nutrition handled by Life Time aid stations.",
-      "packet_pickup": "Pre-race expo in Bentonville with full Life Time production",
-      "parking": "Event parking at start/finish; Bentonville has good infrastructure",
-      "official_site": "https://www.bigsugargravelrace.com"
+      "airport": "Northwest Arkansas (XNA) - 20 minutes to Bentonville. Tulsa (TUL) - 2 hours.",
+      "lodging_strategy": "Book 3+ months early. Bentonville hotels are nice but limited. Consider Rogers or surrounding areas.",
+      "food": "Bentonville food scene is excellent. Plan a nice dinner.",
+      "packet_pickup": "Friday at event expo. Great vendors, good energy.",
+      "parking": "Downtown start requires early arrival or shuttle from remote lots.",
+      "official_site": "https://bigsugargravelevents.com"
     },
-
     "history": {
       "founded": 2019,
-      "founder": "Life Time",
-      "origin_story": "Big Sugar was established as a Life Time gravel event in Bentonville, leveraging the region's cycling infrastructure and Walmart support. It became the LTGP finale, giving it championship significance beyond the course itself.",
+      "founder": "Erik Spelde / Life Time",
+      "origin_story": "Created as part of Life Time's Grand Prix series, leveraging Bentonville's growing reputation as a cycling destination. Named for the beautiful Sugar Creek that runs through the course.",
       "notable_moments": [
-        "Establishment as Life Time Grand Prix finale event",
-        "Championship-deciding finishes in LTGP overall standings",
-        "Growth of Bentonville as premiere cycling destination"
+        "Featured on Life Time Grand Prix circuit",
+        "Attracts world-class pro field",
+        "Known for stunning fall colors and challenging course",
+        "Benefits from Bentonville's cycling infrastructure"
       ],
-      "reputation": "The season-ender—where Life Time Grand Prix titles are won and lost on Arkansas gravel."
+      "reputation": "The fall classic. Where the Grand Prix battles play out in the Ozark Mountains."
     },
-
     "course_description": {
-      "character": "Rolling Ozark gravel roads with punchy climbs throughout. Well-maintained surfaces, scenic Arkansas countryside, and the kind of terrain that rewards consistent power over technical skill. The course serves championship racing well—selective enough to matter, accessible enough for mass participation.",
+      "character": "Relentless punchy climbing with technical descents. The Ozarks don't have long climbs—they have endless short ones.",
       "suffering_zones": [
-        {"mile": 25, "label": "Early Punchy Climbs", "desc": "The rolling Ozark terrain reveals itself. Punchy efforts that seem manageable early but accumulate."},
-        {"mile": 50, "label": "Halfway Grind", "desc": "50 miles of rolling terrain adds up. The race begins to shape based on course position and LTGP stakes."},
-        {"mile": 75, "label": "Late-Race Selection", "desc": "Accumulated fatigue from punchy climbs. This is where championship battles intensify."},
-        {"mile": 95, "label": "Final Push", "desc": "Last 5 miles with everything on the line. LTGP drama reaches climax. Sprint positioning matters."}
+        {
+          "mile": 21,
+          "label": "Suicide Hill",
+          "desc": "The legendary Suicide Hill. Brutal reputation earned through years of carnage. 90° corners with descents—straight down into a turn at the bottom. Sharp gravel increases crash and puncture risk.",
+          "terrain_detail": "Steep descent with 90° turn at bottom, sharp loose gravel",
+          "named_section": "Suicide Hill"
+        },
+        {
+          "mile": 55,
+          "label": "Missouri Border Grind",
+          "desc": "You've crossed into Missouri. The punchy 13%+ grade climbs keep coming. No sustained efforts—just repeated accelerations that shred diesel riders.",
+          "terrain_detail": "Punchy climbs 13%+ grade, crosses state line",
+          "named_section": "Missouri Section"
+        },
+        {
+          "mile": 80,
+          "label": "Exposed Gravel Stretch",
+          "desc": "Two miles of exposed threshold effort at 9-10 mph pace. 20+ mph wind gusts with nowhere to hide. The finish is close but these final 20 miles will empty you.",
+          "terrain_detail": "Exposed windy section, threshold pace required",
+          "named_section": "The Finishing Grind"
+        }
       ],
-      "signature_challenge": "The championship pressure—when series titles depend on every position, the moderate course becomes a high-stakes battlefield."
+      "signature_challenge": "The accumulated vertical. 9,500 feet sounds manageable until you realize it comes in 50+ individual climbs. Death by a thousand punches.",
+      "map_url": "https://ridewithgps.com/routes/52306059"
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1",
+        "v2"
+      ],
+      "migration_notes": []
     }
   }
 }

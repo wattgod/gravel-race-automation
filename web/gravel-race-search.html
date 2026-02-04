@@ -1,0 +1,427 @@
+<!--
+  Gravel God Race Search — Embeddable in WordPress via Elementor HTML widget.
+
+  Loads race-index.json, renders filterable race cards with:
+  - Distance, elevation, tier, region, month filters
+  - Mini radar chart SVGs
+  - Links to race profile pages
+
+  Self-contained: no React, no build step, vanilla JS + CSS.
+  Drop into an Elementor HTML widget and point DATA_URL to your JSON.
+-->
+<div id="gg-race-search">
+  <style>
+    #gg-race-search {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #1a1a1a;
+    }
+    .gg-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: #f8f8f8;
+      border-radius: 8px;
+    }
+    .gg-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 140px;
+    }
+    .gg-filter-group label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+    }
+    .gg-filter-group select,
+    .gg-filter-group input {
+      padding: 6px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      background: #fff;
+    }
+    .gg-search-input {
+      flex: 1;
+      min-width: 200px;
+    }
+    .gg-search-input input {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 15px;
+    }
+    .gg-results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #666;
+    }
+    .gg-sort-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .gg-sort-btn.active {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+    .gg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .gg-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px;
+      transition: box-shadow 0.2s;
+      background: #fff;
+    }
+    .gg-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .gg-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .gg-card-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .gg-card-name:hover { color: #c4421a; }
+    .gg-card-name.no-link { cursor: default; }
+    .gg-card-name.no-link:hover { color: #1a1a1a; }
+    .gg-tier-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .gg-tier-1 { background: #c4421a; color: #fff; }
+    .gg-tier-2 { background: #d4830a; color: #fff; }
+    .gg-tier-3 { background: #888; color: #fff; }
+    .gg-card-meta {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .gg-card-stats {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .gg-stat { display: flex; flex-direction: column; }
+    .gg-stat-val { font-weight: 700; font-size: 15px; color: #1a1a1a; }
+    .gg-stat-label { font-size: 11px; color: #888; text-transform: uppercase; }
+    .gg-card-tagline {
+      font-size: 13px;
+      color: #444;
+      font-style: italic;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .gg-score-bar {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gg-score-track {
+      flex: 1;
+      height: 6px;
+      background: #eee;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .gg-score-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+    .gg-score-num {
+      font-size: 14px;
+      font-weight: 700;
+      min-width: 28px;
+      text-align: right;
+    }
+    .gg-radar {
+      margin-top: 8px;
+    }
+    .gg-no-results {
+      text-align: center;
+      padding: 40px;
+      color: #888;
+      font-size: 15px;
+    }
+    @media (max-width: 600px) {
+      .gg-grid {
+        grid-template-columns: 1fr;
+      }
+      .gg-filters {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <div class="gg-filters">
+    <div class="gg-search-input">
+      <label>Search</label>
+      <input type="text" id="gg-search" placeholder="Race name or location...">
+    </div>
+    <div class="gg-filter-group">
+      <label>Tier</label>
+      <select id="gg-tier">
+        <option value="">All Tiers</option>
+        <option value="1">Tier 1</option>
+        <option value="2">Tier 2</option>
+        <option value="3">Tier 3</option>
+      </select>
+    </div>
+    <div class="gg-filter-group">
+      <label>Region</label>
+      <select id="gg-region">
+        <option value="">All Regions</option>
+      </select>
+    </div>
+    <div class="gg-filter-group">
+      <label>Distance</label>
+      <select id="gg-distance">
+        <option value="">Any Distance</option>
+        <option value="0-50">Under 50 mi</option>
+        <option value="50-100">50-100 mi</option>
+        <option value="100-200">100-200 mi</option>
+        <option value="200-999">200+ mi</option>
+      </select>
+    </div>
+    <div class="gg-filter-group">
+      <label>Month</label>
+      <select id="gg-month">
+        <option value="">Any Month</option>
+      </select>
+    </div>
+    <div class="gg-filter-group">
+      <label>Profile</label>
+      <select id="gg-profile">
+        <option value="">All</option>
+        <option value="yes">Has Profile</option>
+        <option value="no">No Profile</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="gg-results-header">
+    <span id="gg-count"></span>
+    <div>
+      <button class="gg-sort-btn active" data-sort="score">Score</button>
+      <button class="gg-sort-btn" data-sort="name">Name</button>
+      <button class="gg-sort-btn" data-sort="distance">Distance</button>
+    </div>
+  </div>
+
+  <div class="gg-grid" id="gg-grid"></div>
+
+  <script>
+    (function() {
+      // CONFIGURE: Update this URL to your hosted race-index.json
+      const DATA_URL = '/wp-content/uploads/race-index.json';
+
+      let allRaces = [];
+      let currentSort = 'score';
+
+      function init() {
+        fetch(DATA_URL)
+          .then(r => r.json())
+          .then(data => {
+            allRaces = data;
+            populateFilterOptions();
+            render();
+            bindEvents();
+          })
+          .catch(err => {
+            document.getElementById('gg-grid').innerHTML =
+              '<div class="gg-no-results">Failed to load race data. Check console.</div>';
+            console.error('Race index load error:', err);
+          });
+      }
+
+      function populateFilterOptions() {
+        const regions = [...new Set(allRaces.map(r => r.region).filter(Boolean))].sort();
+        const regionSel = document.getElementById('gg-region');
+        regions.forEach(r => {
+          const opt = document.createElement('option');
+          opt.value = r; opt.textContent = r;
+          regionSel.appendChild(opt);
+        });
+
+        const months = ['January','February','March','April','May','June',
+                        'July','August','September','October','November','December'];
+        const monthSel = document.getElementById('gg-month');
+        months.forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m; opt.textContent = m;
+          monthSel.appendChild(opt);
+        });
+      }
+
+      function getFilters() {
+        const search = document.getElementById('gg-search').value.toLowerCase();
+        const tier = document.getElementById('gg-tier').value;
+        const region = document.getElementById('gg-region').value;
+        const distance = document.getElementById('gg-distance').value;
+        const month = document.getElementById('gg-month').value;
+        const profile = document.getElementById('gg-profile').value;
+        return { search, tier, region, distance, month, profile };
+      }
+
+      function filterRaces() {
+        const f = getFilters();
+        return allRaces.filter(r => {
+          if (f.search && !r.name.toLowerCase().includes(f.search) &&
+              !(r.location || '').toLowerCase().includes(f.search)) return false;
+          if (f.tier && r.tier != f.tier) return false;
+          if (f.region && r.region !== f.region) return false;
+          if (f.month && r.month !== f.month) return false;
+          if (f.profile === 'yes' && !r.has_profile) return false;
+          if (f.profile === 'no' && r.has_profile) return false;
+          if (f.distance) {
+            const [min, max] = f.distance.split('-').map(Number);
+            const d = r.distance_mi || 0;
+            if (d < min || d > max) return false;
+          }
+          return true;
+        });
+      }
+
+      function sortRaces(races) {
+        const sorted = [...races];
+        switch(currentSort) {
+          case 'score':
+            sorted.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+            break;
+          case 'name':
+            sorted.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case 'distance':
+            sorted.sort((a, b) => (b.distance_mi || 0) - (a.distance_mi || 0));
+            break;
+        }
+        return sorted;
+      }
+
+      function scoreColor(score) {
+        if (score >= 85) return '#c4421a';
+        if (score >= 75) return '#d4830a';
+        return '#888';
+      }
+
+      function renderMiniRadar(scores) {
+        if (!scores || Object.keys(scores).length < 7) return '';
+        const vars = ['length','technicality','elevation','climate','altitude','logistics','adventure'];
+        const cx = 40, cy = 40, r = 30;
+        const n = vars.length;
+        const points = vars.map((v, i) => {
+          const val = (scores[v] || 1) / 5;
+          const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+          return [cx + r * val * Math.cos(angle), cy + r * val * Math.sin(angle)];
+        });
+        const poly = points.map(p => p.join(',')).join(' ');
+        const grid = [0.2, 0.4, 0.6, 0.8, 1.0].map(s => {
+          const gp = Array.from({length: n}, (_, i) => {
+            const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+            return [cx + r * s * Math.cos(angle), cy + r * s * Math.sin(angle)];
+          });
+          return `<polygon points="${gp.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#eee" stroke-width="0.5"/>`;
+        }).join('');
+        return `<svg class="gg-radar" width="80" height="80" viewBox="0 0 80 80">
+          ${grid}
+          <polygon points="${poly}" fill="rgba(196,66,26,0.2)" stroke="#c4421a" stroke-width="1.5"/>
+        </svg>`;
+      }
+
+      function renderCard(race) {
+        const nameTag = race.has_profile
+          ? `<a class="gg-card-name" href="${race.profile_url}">${race.name}</a>`
+          : `<span class="gg-card-name no-link">${race.name}</span>`;
+
+        const scoreBar = race.overall_score
+          ? `<div class="gg-score-bar">
+              <div class="gg-score-track">
+                <div class="gg-score-fill" style="width:${race.overall_score}%;background:${scoreColor(race.overall_score)}"></div>
+              </div>
+              <span class="gg-score-num">${race.overall_score}</span>
+            </div>`
+          : '';
+
+        const radar = renderMiniRadar(race.scores);
+
+        return `<div class="gg-card">
+          <div class="gg-card-header">
+            ${nameTag}
+            <span class="gg-tier-badge gg-tier-${race.tier}">TIER ${race.tier}</span>
+          </div>
+          <div class="gg-card-meta">${race.location || 'Location TBD'}${race.month ? ' &middot; ' + race.month : ''}</div>
+          <div class="gg-card-stats">
+            ${race.distance_mi ? `<div class="gg-stat"><span class="gg-stat-val">${race.distance_mi}</span><span class="gg-stat-label">Miles</span></div>` : ''}
+            ${race.elevation_ft ? `<div class="gg-stat"><span class="gg-stat-val">${Number(race.elevation_ft).toLocaleString()}</span><span class="gg-stat-label">Ft Elev</span></div>` : ''}
+          </div>
+          ${scoreBar}
+          ${radar}
+          ${race.tagline ? `<div class="gg-card-tagline">${race.tagline}</div>` : ''}
+        </div>`;
+      }
+
+      function render() {
+        const filtered = sortRaces(filterRaces());
+        document.getElementById('gg-count').textContent =
+          `${filtered.length} race${filtered.length !== 1 ? 's' : ''} found`;
+        document.getElementById('gg-grid').innerHTML =
+          filtered.length > 0
+            ? filtered.map(renderCard).join('')
+            : '<div class="gg-no-results">No races match your filters.</div>';
+      }
+
+      function bindEvents() {
+        ['gg-search','gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(id => {
+          document.getElementById(id).addEventListener('input', render);
+          document.getElementById(id).addEventListener('change', render);
+        });
+
+        document.querySelectorAll('.gg-sort-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.gg-sort-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentSort = btn.dataset.sort;
+            render();
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</div>

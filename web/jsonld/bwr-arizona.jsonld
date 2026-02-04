@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "BWR Arizona",
+  "description": "Hell of the North Desert\u2014100+ miles of sand, rock, and technical singletrack through Arizona's high desert.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-03-01",
+  "location": {
+    "@type": "Place",
+    "name": "Cave Creek / McDowell Region, Arizona"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.belgianwaffleride.bike"
+}

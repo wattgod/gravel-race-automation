@@ -4,7 +4,6 @@
     "slug": "badlands",
     "display_name": "Badlands",
     "tagline": "800km self-supported through Spanish deserts and 3,400m alpine passes. Where ultra-endurance meets extreme heat.",
-
     "vitals": {
       "distance_mi": 497,
       "elevation_ft": 52493,
@@ -13,7 +12,14 @@
       "county": "Province of Granada",
       "date": "August annually",
       "date_specific": "2025: Early August (TBD)",
-      "terrain_types": ["Desert gravel", "Alpine passes", "Technical MTB trails", "Paved roads", "Sand", "Rocky terrain"],
+      "terrain_types": [
+        "Desert gravel",
+        "Alpine passes",
+        "Technical MTB trails",
+        "Paved roads",
+        "Sand",
+        "Rocky terrain"
+      ],
       "field_size": "~200-300 riders",
       "start_time": "Morning start",
       "registration": "Limited entry, sells out. Cost: ~200-300 EUR",
@@ -21,33 +27,55 @@
       "aid_stations": "None—self-supported. Resupply at public establishments only.",
       "cutoff_time": "~5 days (varies by year)"
     },
-
     "climate": {
       "primary": "Extreme Spanish summer—desert heat to alpine cold",
       "description": "August in Andalusia is brutal. Desert sections reach 40-45°C (104-113°F). Pico Veleta at 3,396m can drop to 5-10°C at night with potential freezing. 30-40°C temperature swings in a single day. Afternoon thunderstorms in mountains possible.",
-      "challenges": ["Extreme heat in desert (40°C+)", "Alpine cold at altitude", "30-40°C temperature swings", "Long stretches without water"]
+      "challenges": [
+        "Extreme heat in desert (40°C+)",
+        "Alpine cold at altitude",
+        "30-40°C temperature swings",
+        "Long stretches without water"
+      ]
     },
-
     "terrain": {
       "primary": "Desert gravel, alpine passes, technical trails",
       "surface": "~60-70% gravel roads, ~15-20% paved, ~10-15% technical MTB trails. Sand, loose rock, and dry riverbeds (ramblas) throughout.",
       "technical_rating": 5,
-      "features": ["Pico Veleta (3,396m—highest paved road in Europe)", "Gorafe Desert (lunar badlands)", "Tabernas Desert (Europe's only true desert)", "Technical rambla descents"]
+      "features": [
+        "Pico Veleta (3,396m—highest paved road in Europe)",
+        "Gorafe Desert (lunar badlands)",
+        "Tabernas Desert (Europe's only true desert)",
+        "Technical rambla descents"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 91,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 5,
+      "length": 5,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2,
       "course_profile": 35,
       "biased_opinion": 29,
+      "tier_override_reason": "Iconic ultra-endurance status, world's hardest gravel race reputation",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "tier_override_reason": "Iconic ultra-endurance status, world's hardest gravel race reputation",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 5,
@@ -78,7 +106,6 @@
         "explanation": "Deserts, alpine passes, ancient Andalusian villages, lunar landscapes. Riding through Gorafe and Tabernas (Europe's only true desert) is otherworldly. Pico Veleta views are spectacular. This is adventure at the extreme."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,7 +136,6 @@
         "explanation": "Travel to Granada, pre/post accommodation, extensive self-support supplies, mandatory equipment. Málaga flights plus driving. Budget as a multi-day adventure trip, not a race entry."
       }
     },
-
     "biased_opinion": {
       "verdict": "The Ultra Extreme",
       "summary": "Badlands is gravel racing taken to its logical extreme. 800km, 16,000m climbing, 40°C+ deserts, 3,400m alpine passes, completely self-supported. It's not really comparable to other gravel races—it's an expedition that happens to be timed. The combination of distance, elevation, heat, and self-reliance creates something uniquely brutal. Finishing Badlands is a lifetime achievement that earns permanent respect in ultra-endurance circles.",
@@ -125,7 +151,6 @@
       ],
       "bottom_line": "If you want the ultimate test of gravel endurance, Badlands is the answer. But respect what 800km in 40°C heat actually means."
     },
-
     "black_pill": {
       "title": "THE HEAT THAT KILLS DREAMS",
       "reality": "40-45°C in the desert sections isn't 'hot racing weather'—it's survival conditions. Riders have been pulled from course with heat exhaustion. Then you climb to 3,400m where it can be near freezing. The temperature swing in a single day can exceed 35°C. Self-supported means no one is coming to save you if you run out of water between villages.",
@@ -136,14 +161,12 @@
       ],
       "expectation_reset": "This is not a race you 'try' without serious ultra-endurance experience. Heat adaptation training is mandatory. Multi-day bikepacking experience is mandatory. Having a genuine plan for 800km self-supported in extreme conditions is mandatory. Respect the Badlands or it will break you."
     },
-
     "final_verdict": {
       "score": "91 / 100",
       "one_liner": "The world's hardest gravel race—800km through Spanish deserts and alpine passes, completely self-supported.",
       "should_you_race": "Yes if you have genuine ultra-endurance experience and want the ultimate test. Yes if you can handle extreme heat and self-support logistics. Skip if you haven't completed multi-day bikepacking events or can't adapt to 40°C+ conditions.",
       "alternatives": "The Traka 560 (similar European ultra, less extreme); Unbound XL (350mi, supported); GB Duro (UK ultra, cooler climate)"
     },
-
     "logistics": {
       "airport": "AGP (Málaga) - 90min drive; GRX (Granada) - local but limited; SVQ (Seville) - 2.5hr",
       "lodging_strategy": "Granada city for pre/post race. During race: bivvy/sleeping bag as needed, occasional hotel/hostel stops for resupply and rest. Plan your sleep strategy.",
@@ -152,7 +175,6 @@
       "parking": "Granada start/finish area.",
       "official_site": "https://www.yourbadlands.cc"
     },
-
     "history": {
       "founded": 2018,
       "founder": "Badlands organization team",
@@ -164,16 +186,39 @@
       ],
       "reputation": "The world's hardest gravel race—where ultra-endurance meets extreme conditions."
     },
-
     "course_description": {
       "character": "An 800km expedition through Andalusia's extremes. Desert badlands that look like Mars, Europe's only true desert (Tabernas), and the 3,396m Pico Veleta climb. Self-supported means you carry what you need between remote villages. The combination of distance, elevation, heat, and self-reliance is unmatched in gravel racing.",
       "suffering_zones": [
-        {"mile": 100, "label": "Gorafe Desert", "desc": "Lunar badlands terrain at 40°C+. No shade, no water, no mercy. Where the heat begins to break riders."},
-        {"mile": 200, "label": "Tabernas Desert", "desc": "Europe's only true desert. Extreme heat, exposed terrain. The psychological middle-ground of suffering."},
-        {"mile": 300, "label": "Pico Veleta", "desc": "3,396m summit—highest paved road in Europe. From 40°C desert to potential freezing. The signature challenge."},
-        {"mile": 400, "label": "Final 200km", "desc": "Cumulative fatigue after 3+ days. Sleep deprivation, heat damage, mechanical wear. Pure survival to the finish."}
+        {
+          "mile": 100,
+          "label": "Gorafe Desert",
+          "desc": "Lunar badlands terrain at 40°C+. No shade, no water, no mercy. Where the heat begins to break riders."
+        },
+        {
+          "mile": 200,
+          "label": "Tabernas Desert",
+          "desc": "Europe's only true desert. Extreme heat, exposed terrain. The psychological middle-ground of suffering."
+        },
+        {
+          "mile": 300,
+          "label": "Pico Veleta",
+          "desc": "3,396m summit—highest paved road in Europe. From 40°C desert to potential freezing. The signature challenge."
+        },
+        {
+          "mile": 400,
+          "label": "Final 200km",
+          "desc": "Cumulative fatigue after 3+ days. Sleep deprivation, heat damage, mechanical wear. Pure survival to the finish."
+        }
       ],
       "signature_challenge": "The complete package—800km of desert heat, alpine altitude, and multi-day self-supported suffering through some of Europe's most extreme terrain."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

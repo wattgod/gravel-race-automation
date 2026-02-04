@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel Locos",
+  "description": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-05-24",
+  "location": {
+    "@type": "Place",
+    "name": "Hico, Texas"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.gravellocos.bike"
+}

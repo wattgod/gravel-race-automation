@@ -4,7 +4,6 @@
     "slug": "strade-bianche-gran-fondo",
     "display_name": "Gran Fondo Strade Bianche",
     "tagline": "Ride the white roads of Tuscany. 138km through the iconic sectors. Finish in Siena's Piazza del Campo.",
-
     "vitals": {
       "distance_mi": 86,
       "elevation_ft": 6560,
@@ -13,7 +12,12 @@
       "county": "Province of Siena",
       "date": "March annually",
       "date_specific": "2026: March 8",
-      "terrain_types": ["Strade bianche (white roads)", "Compacted clay", "Paved roads", "Cobbled climbs"],
+      "terrain_types": [
+        "Strade bianche (white roads)",
+        "Compacted clay",
+        "Paved roads",
+        "Cobbled climbs"
+      ],
       "field_size": "~6,500 riders",
       "start_time": "Sunday morning",
       "registration": "Opens September. Sells out quickly.",
@@ -21,33 +25,54 @@
       "aid_stations": "Feed zones on course",
       "cutoff_time": "7 hours (strict)"
     },
-
     "climate": {
       "primary": "Tuscan spring—volatile March weather",
       "description": "March in Tuscany is a gamble. Best case: cool spring sun (10-15°C), dusty and fast. Worst case: 'epic' cold rain (2-8°C) where white dust turns to grey paste that destroys brake pads and drivetrains. Mornings near freezing—arm warmers and gilets mandatory at start.",
-      "challenges": ["Cold rain possible (2-8°C)", "Morning temperatures near freezing", "Mud becomes 'concrete paste' when wet"]
+      "challenges": [
+        "Cold rain possible (2-8°C)",
+        "Morning temperatures near freezing",
+        "Mud becomes 'concrete paste' when wet"
+      ]
     },
-
     "terrain": {
       "primary": "Compacted earth/clay with crushed stones—the famous 'strade bianche'",
       "surface": "~70% paved roads, ~30-50km of gravel sectors (9-10 sectors on Gran Fondo). Not American gravel—closer to Paris-Roubaix.",
       "technical_rating": 3,
-      "features": ["Monte Sante Marie (11.5km—hardest sector)", "San Martino in Grania (9.5km)", "Le Tolfe (1.1km, 18%)", "Via Santa Caterina (final 500m, 16% cobbles)"]
+      "features": [
+        "Monte Sante Marie (11.5km—hardest sector)",
+        "San Martino in Grania (9.5km)",
+        "Le Tolfe (1.1km, 18%)",
+        "Via Santa Caterina (final 500m, 16% cobbles)"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 81,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
       "course_profile": 22,
       "biased_opinion": 35,
+      "tier_override_reason": "6,500+ riders, iconic WorldTour pro race connection, bucket-list status",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
-      "tier_override_reason": "6,500+ riders, iconic WorldTour pro race connection, bucket-list status",
       "display_tier": 1,
       "display_tier_label": "TIER 1"
     },
-
     "course_profile": {
       "length": {
         "score": 3,
@@ -78,7 +103,6 @@
         "explanation": "Riding the same white roads as WorldTour pros. Medieval Tuscan villages, cypress-lined roads, finish in Piazza del Campo. The romance of Italian cycling meets gravel suffering."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 5,
@@ -109,7 +133,6 @@
         "explanation": "Tuscan tourism pricing. Siena accommodation is available but not cheap during race week. Flights to Florence/Pisa are accessible. Budget for a proper Italian cycling trip."
       }
     },
-
     "biased_opinion": {
       "verdict": "The Bucket List",
       "summary": "Gran Fondo Strade Bianche is the ride every cycling fan dreams about—the same white roads, same sectors, same Piazza del Campo finish as the WorldTour race. It's not the longest or hardest gravel event, but it might be the most romantic. The Tuscan landscape, medieval villages, and Italian cycling culture create something unique. When you hit Via Santa Caterina's 16% finish and thousands cheer, you understand why cyclists make pilgrimages here.",
@@ -125,7 +148,6 @@
       ],
       "bottom_line": "If you love cycling and have never ridden the strade bianche, fix that. It's the bucket-list ride."
     },
-
     "black_pill": {
       "title": "THE TIRE CHOICE THAT CONFUSES EVERYONE",
       "reality": "This is not American gravel. 70% of the course is asphalt. 40mm gravel tires are 'overkill' and slow you down on climbs and transfers. The consensus is 30-32mm tubeless road tires at 50-70 psi. But if it rains, the white roads become 'concrete paste' that clogs everything. You'll see pros on 25mm tires destroy drivetrains in wet years.",
@@ -136,14 +158,12 @@
       ],
       "expectation_reset": "Run 30-32mm tubeless road tires if you're racing. Endurance road bike is ideal—gravel bike works but feels slow on transfers. Bring extra brake pads and chain lube if rain is forecast. The final climb on Via Santa Caterina at 16% will force walking if you don't have the legs—save matches."
     },
-
     "final_verdict": {
       "score": "81 / 100",
       "one_liner": "The cycling bucket list—Tuscan white roads and Piazza del Campo finish like the WorldTour pros.",
       "should_you_race": "Yes if you love cycling culture and want the iconic experience. Yes if you can handle March weather variability. Skip if you want pure gravel racing—this is Italian road cycling with gravel sectors.",
       "alternatives": "Paris-Roubaix Challenge (similar spring classic feel); L'Eroica (vintage Tuscan gravel); The Traka (harder gravel, Spain)"
     },
-
     "logistics": {
       "airport": "FLR (Florence) - 1hr drive; PSA (Pisa) - 1.5hr drive",
       "lodging_strategy": "Stay in Siena—start (Fortezza Medicea) and finish (Piazza del Campo) are in city center. Book early—race week fills up.",
@@ -152,7 +172,6 @@
       "parking": "Limited in historic center. Stay in Siena and walk/ride to start.",
       "official_site": "https://gfstradebianche.it"
     },
-
     "history": {
       "founded": 2007,
       "founder": "RCS Sport (same as pro race)",
@@ -164,16 +183,39 @@
       ],
       "reputation": "The cycling pilgrimage—where fans ride the roads of their heroes."
     },
-
     "course_description": {
       "character": "A mini spring classic through Tuscan countryside. The strade bianche sectors are the stars—compacted clay roads that become dusty highways when dry and grey paste when wet. Between sectors, fast paved roads with constant punchy climbs. The finish on Via Santa Caterina into Piazza del Campo is cycling theater at its finest.",
       "suffering_zones": [
-        {"mile": 35, "label": "San Martino in Grania", "desc": "9.5km sector. Long, dragging gravel that grinds riders down. Exposed to wind."},
-        {"mile": 55, "label": "Monte Sante Marie", "desc": "11.5km—the hardest sector. Steep climbs and technical descents. 'Separates the men from the boys.'"},
-        {"mile": 75, "label": "Le Tolfe", "desc": "Late sector. Short but brutal kick—max 18% gradient when legs are gone."},
-        {"mile": 85, "label": "Via Santa Caterina", "desc": "Final 500m paved/cobbled climb into Siena. 12% avg, 16% max. 'Many amateurs are walking' with crowds watching."}
+        {
+          "mile": 35,
+          "label": "San Martino in Grania",
+          "desc": "9.5km sector. Long, dragging gravel that grinds riders down. Exposed to wind."
+        },
+        {
+          "mile": 55,
+          "label": "Monte Sante Marie",
+          "desc": "11.5km—the hardest sector. Steep climbs and technical descents. 'Separates the men from the boys.'"
+        },
+        {
+          "mile": 75,
+          "label": "Le Tolfe",
+          "desc": "Late sector. Short but brutal kick—max 18% gradient when legs are gone."
+        },
+        {
+          "mile": 85,
+          "label": "Via Santa Caterina",
+          "desc": "Final 500m paved/cobbled climb into Siena. 12% avg, 16% max. 'Many amateurs are walking' with crowds watching."
+        }
       ],
       "signature_challenge": "Via Santa Caterina—the 16% cobbled finish into Piazza del Campo where you either crush it or walk in front of thousands."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

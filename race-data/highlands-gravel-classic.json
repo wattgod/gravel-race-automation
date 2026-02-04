@@ -4,7 +4,6 @@
     "slug": "highlands-gravel-classic",
     "display_name": "Highlands Gravel Classic",
     "tagline": "The only US qualifier for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
-
     "vitals": {
       "distance_mi": 67,
       "elevation_ft": 4850,
@@ -13,7 +12,12 @@
       "county": "Washington County",
       "date": "April annually",
       "date_specific": "2026: April 25",
-      "terrain_types": ["Chunky gravel", "Loose rock", "Tree-covered roads", "Fast descents"],
+      "terrain_types": [
+        "Chunky gravel",
+        "Loose rock",
+        "Tree-covered roads",
+        "Fast descents"
+      ],
       "field_size": "400-600 riders",
       "start_time": "Saturday morning",
       "registration": "Opens winter. Cost: ~$100",
@@ -21,33 +25,54 @@
       "aid_stations": "Feed zones on course",
       "cutoff_time": "None published"
     },
-
     "climate": {
       "primary": "Variable Arkansas spring",
       "description": "Late April in the Ozarks is unpredictable. Could be 80°F and humid or 40°F and raining. Tree canopy provides shade but can make wet corners dangerous. The course drains well—not Kansas peanut butter mud—but rain creates slick loose corners.",
-      "challenges": ["Wide temperature variability (40-80°F)", "Rain makes loose gravel dangerous", "High humidity possible"]
+      "challenges": [
+        "Wide temperature variability (40-80°F)",
+        "Rain makes loose gravel dangerous",
+        "High humidity possible"
+      ]
     },
-
     "terrain": {
       "primary": "Chunky Ozark gravel with constant rolling hills",
       "surface": "95% gravel—chunky, loose, and sharp. Not smooth champagne gravel.",
       "technical_rating": 3,
-      "features": ["Relentless rollers (death by a thousand cuts)", "Fast descents with limited visibility", "Sharp gravel that cuts sidewalls", "Tree canopy throughout"]
+      "features": [
+        "Relentless rollers (death by a thousand cuts)",
+        "Fast descents with limited visibility",
+        "Sharp gravel that cuts sidewalls",
+        "Tree canopy throughout"
+      ]
     },
-
     "gravel_god_rating": {
       "overall_score": 69,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 4,
       "course_profile": 20,
       "biased_opinion": 28,
+      "tier_override_reason": null,
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "business_tier": 3,
       "business_tier_label": "TIER 3",
-      "tier_override_reason": null,
       "display_tier": 3,
       "display_tier_label": "TIER 3"
     },
-
     "course_profile": {
       "length": {
         "score": 2,
@@ -78,7 +103,6 @@
         "explanation": "The Ozark mountains are beautiful. Tree-canopied roads, rolling hills, genuine wilderness feel. NW Arkansas has become a cycling destination. More scenic than Midwest flatlands."
       }
     },
-
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
@@ -109,7 +133,6 @@
         "explanation": "NW Arkansas is affordable. Fayetteville hotels are reasonable. Flying to XNA is manageable. Midwest pricing keeps total cost down."
       }
     },
-
     "biased_opinion": {
       "verdict": "UCI Qualifier",
       "summary": "Highlands Gravel Classic is the only US path to UCI Gravel World Championships—that alone makes it significant. The race itself is a 67-mile smashfest through chunky Ozark gravel with constant climbs and technical descents. It's short enough to race hard and long enough to hurt. For anyone chasing UCI qualification, this is mandatory.",
@@ -125,7 +148,6 @@
       ],
       "bottom_line": "If you're chasing UCI qualification or want a short, intense Ozark race, Highlands delivers."
     },
-
     "black_pill": {
       "title": "THE DESCENTS THAT CRASH PEOPLE INTO FENCES",
       "reality": "The fast descents through tree canopy create limited visibility on loose corners. Riders have crashed into fences because they couldn't slow down quickly enough. The sharp Ozark gravel slices light sidewalls. 'The course kicked everybody's ass' is how the race director describes it. This isn't a long day of survival—it's 4 hours of full-gas racing on unforgiving terrain.",
@@ -136,14 +158,12 @@
       ],
       "expectation_reset": "Run reinforced sidewall tires (40-45mm). Display the course map live on your computer. Practice high-speed gravel descending. This is a race, not a ride—if you're not ready to hurt from mile 1, you'll be dropped."
     },
-
     "final_verdict": {
       "score": "69 / 100",
       "one_liner": "The only US path to UCI Gravel Worlds—67 miles of Ozark smashfest.",
       "should_you_race": "Yes if you're chasing UCI qualification. Yes if you want a short, intense race on technical terrain. Skip if you want ultra-endurance or smooth gravel.",
       "alternatives": "Big Sugar (same region, longer); BWR California (more technical); SBT GRVL (longer, Colorado mountains)"
     },
-
     "logistics": {
       "airport": "XNA (Northwest Arkansas National) - 20min to Fayetteville",
       "lodging_strategy": "Stay in Fayetteville—major college town with ample hotels and Airbnbs. University area and Dickson Street have good food options. Goshen start is 15min from Fayetteville.",
@@ -152,7 +172,6 @@
       "parking": "On-site parking at Goshen Community Center provided.",
       "official_site": "https://highlandsgravelclassic.com"
     },
-
     "history": {
       "founded": 2022,
       "founder": "Bruce Dunn and team",
@@ -164,16 +183,39 @@
       ],
       "reputation": "The US gateway to UCI Gravel World Championships—short, sharp, and unforgiving."
     },
-
     "course_description": {
       "character": "A concentrated smashfest through Ozark gravel. Tree canopy covers much of the course, providing shade but limiting descent visibility. The gravel is chunky and sharp—not smooth hardpack. Over a dozen climbs in 67 miles means you're either going up or bombing down. No recovery.",
       "suffering_zones": [
-        {"mile": 20, "label": "Early Selection", "desc": "High pace from the gun. Weak riders shed on the constant rollers."},
-        {"mile": 40, "label": "Technical Descents", "desc": "Fast loose corners through trees. Limited visibility. Where crashes happen."},
-        {"mile": 51, "label": "12% Kick", "desc": "Steep grade that breaks legs late in the race when you're already hurting."},
-        {"mile": 60, "label": "Final Push", "desc": "7 miles left. Legs empty. Still climbing. Sprint finish awaits."}
+        {
+          "mile": 20,
+          "label": "Early Selection",
+          "desc": "High pace from the gun. Weak riders shed on the constant rollers."
+        },
+        {
+          "mile": 40,
+          "label": "Technical Descents",
+          "desc": "Fast loose corners through trees. Limited visibility. Where crashes happen."
+        },
+        {
+          "mile": 51,
+          "label": "12% Kick",
+          "desc": "Steep grade that breaks legs late in the race when you're already hurting."
+        },
+        {
+          "mile": 60,
+          "label": "Final Push",
+          "desc": "7 miles left. Legs empty. Still climbing. Sprint finish awaits."
+        }
       ],
       "signature_challenge": "The relentless rollers on chunky sharp gravel—death by a thousand cuts with technical descents mixed in."
+    },
+    "research_metadata": {
+      "data_confidence": "migrated",
+      "validation_status": "pending",
+      "sources": [
+        "v1"
+      ],
+      "migration_notes": []
     }
   }
 }

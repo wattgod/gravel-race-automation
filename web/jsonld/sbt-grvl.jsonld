@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "SBT GRVL",
+  "description": "Champagne gravel in the Colorado Rockies. 125 miles at 7,000+ feet. The beautiful grind.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Steamboat Springs, Colorado"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "295",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "85",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.sbtgrvl.com"
+}

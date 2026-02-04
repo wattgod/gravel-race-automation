@@ -864,6 +864,42 @@
     }
   },
   {
+    "name": "Mammoth Tuff",
+    "slug": "mammoth-tuff",
+    "location": "Mammoth Lakes, California",
+    "region": "West",
+    "month": "June",
+    "distance_mi": 100,
+    "elevation_ft": 7500,
+    "tier": 2,
+    "overall_score": 80,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "UCI Gravel World Series qualifier at 8,000 feet—High Sierra alpine gravel where altitude humbles everyone.",
+    "has_profile": true,
+    "profile_url": "/mammoth-tuff-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
     "name": "Rooted Vermont",
     "slug": "rooted-vermont",
     "location": "Richmond, Vermont",
@@ -1401,6 +1437,42 @@
       "grade": "A",
       "score": 97.5,
       "weakest": "cross_reference"
+    }
+  },
+  {
+    "name": "Rock Cobbler",
+    "slug": "rock-cobbler",
+    "location": "Bakersfield, California",
+    "region": "West",
+    "month": "February",
+    "distance_mi": 100,
+    "elevation_ft": 5000,
+    "tier": 3,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4
+    },
+    "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
+    "has_profile": true,
+    "profile_url": "/rock-cobbler-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.5,
+      "weakest": "temporal_depth"
     }
   },
   {
@@ -3896,22 +3968,6 @@
     "has_rwgps": false
   },
   {
-    "name": "Mammoth Tuff",
-    "slug": "mammoth-tuff",
-    "location": "Mammoth Lakes, CA",
-    "region": "Other",
-    "month": "June",
-    "distance_mi": 100,
-    "elevation_ft": 7500,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
     "name": "Rad Dirt Fest",
     "slug": "rad-dirt-fest",
     "location": "Salida, CO",
@@ -3933,22 +3989,6 @@
     "location": "South Australia",
     "region": "Oceania",
     "month": "January",
-    "distance_mi": 100,
-    "elevation_ft": null,
-    "tier": 3,
-    "overall_score": null,
-    "scores": {},
-    "tagline": "",
-    "has_profile": false,
-    "profile_url": null,
-    "has_rwgps": false
-  },
-  {
-    "name": "Rock Cobbler",
-    "slug": "rock-cobbler",
-    "location": "Bakersfield, CA",
-    "region": "Other",
-    "month": "February",
     "distance_mi": 100,
     "elevation_ft": null,
     "tier": 3,

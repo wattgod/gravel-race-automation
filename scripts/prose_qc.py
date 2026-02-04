@@ -347,8 +347,9 @@ def run_prose_qc(data: dict) -> dict:
     all_issues.extend(check_placeholder_content(prose_fields))
 
     # Classify severity
-    critical_types = {"missing_field", "score_math_mismatch", "placeholder_content"}
-    warning_types = {"run_on_sentence", "filler_phrase", "generic_suffering_zone", "stub_field", "incomplete_scores"}
+    critical_types = {"missing_field", "placeholder_content"}
+    warning_types = {"run_on_sentence", "filler_phrase", "generic_suffering_zone", "stub_field",
+                     "incomplete_scores", "score_math_mismatch"}  # score mismatch is warning — prestige overrides are intentional
 
     critical = [i for i in all_issues if i["type"] in critical_types]
     warnings = [i for i in all_issues if i["type"] in warning_types]

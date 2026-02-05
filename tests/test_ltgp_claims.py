@@ -33,7 +33,8 @@ LTGP_RACES = {
         "unbound-200",
         "crusher-in-the-tushar",
         "leadville-100",
-        "chequamegon",           # MTB
+        "chequamegon",           # MTB (alternate slug)
+        "chequamegon-mtb",       # MTB (current slug)
         "the-rad",
         "big-sugar",
     },
@@ -41,16 +42,20 @@ LTGP_RACES = {
         "sea-otter-gravel",
         "unbound-200",
         "leadville-100",
-        "chequamegon",           # MTB
-        "little-sugar",          # MTB (new)
+        "chequamegon",           # MTB (alternate slug)
+        "chequamegon-mtb",       # MTB (current slug)
+        "little-sugar",          # MTB (alternate slug)
+        "little-sugar-mtb",      # MTB (current slug)
         "big-sugar",
     },
     2026: {
         "sea-otter-gravel",
         "unbound-200",
         "leadville-100",
-        "chequamegon",           # MTB
-        "little-sugar",          # MTB
+        "chequamegon",           # MTB (alternate slug)
+        "chequamegon-mtb",       # MTB (current slug)
+        "little-sugar",          # MTB (alternate slug)
+        "little-sugar-mtb",      # MTB (current slug)
         "big-sugar",
     },
 }

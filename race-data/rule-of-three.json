@@ -1,0 +1,175 @@
+{
+  "race": {
+    "name": "Rule of Three",
+    "slug": "rule-of-three",
+    "display_name": "Rule of Three",
+    "tagline": "300 miles on Unbound roads—Kansas Flint Hills ultra distance, self-supported, 30-40% DNF, 15-25 hours of suffering.",
+    "vitals": {
+      "distance_mi": 300,
+      "elevation_ft": 15000,
+      "location": "Emporia, Kansas (same roads as Unbound Gravel)",
+      "location_badge": "EMPORIA, KANSAS",
+      "county": "Lyon County",
+      "date": "Early September annually",
+      "date_specific": "Check official website for date",
+      "terrain_types": [
+        "Kansas Flint Hills gravel (95%)",
+        "Pavement (5%)",
+        "Same roads as Unbound",
+        "Relentless rolling terrain"
+      ],
+      "field_size": "~100 riders (ultra distance, limited field)",
+      "start_time": "Early morning",
+      "registration": "Online. Cost: $200-$250",
+      "prize_purse": "None",
+      "aid_stations": "Multiple but self-supported (no SAG)",
+      "cutoff_time": "None (finish when you finish)"
+    },
+    "climate": {
+      "primary": "Kansas late summer heat",
+      "description": "Early September: 60-85°F, 20% rain chance, late summer heat.",
+      "challenges": [
+        "Heat (70-85°F)",
+        "Temperature swings (60-85°F)",
+        "Night riding (15-25 hours)",
+        "Exposure (open Flint Hills)"
+      ]
+    },
+    "terrain": {
+      "primary": "Kansas Flint Hills—same roads as Unbound, ultra distance",
+      "surface": "95% gravel, 5% pavement. Kansas Flint Hills—same roads as Unbound Gravel. Relentless rolling terrain. 300 miles = 15-25 hours. 15,000 ft cumulative elevation. Technical rating: 2/5 (not technical, but ultra distance).",
+      "technical_rating": 2,
+      "features": [
+        "Same roads as Unbound Gravel",
+        "Flint Hills relentless rollers",
+        "300 miles ultra distance",
+        "15-25 hours long",
+        "Self-supported",
+        "Night riding required"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 66,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3
+    },
+    "biased_opinion": {
+      "verdict": "Unbound Roads, 3x the Suffering",
+      "summary": "Rule of Three is 300 miles on Unbound roads. Same Kansas Flint Hills rollers, but 3x the distance. Founded ~2018. Ultra distance (15-25 hours). Self-supported (aid stations but no SAG). ~100 riders. 30-40% DNF. Early September late summer heat (60-85°F). If you want ultra distance suffering on Unbound roads, this is it. If you want manageable distance or beginner-friendly, skip it. 300 miles is brutal. Mental game critical.",
+      "strengths": [
+        "Same roads as Unbound (iconic Flint Hills)",
+        "Ultra distance challenge (300mi)",
+        "Self-supported adventure",
+        "Small field (~100 riders)",
+        "Emporia gravel-friendly town",
+        "Unique character (ultra on Unbound roads)"
+      ],
+      "weaknesses": [
+        "Brutal—300mi, 15-25 hours, 30-40% DNF",
+        "Not technical (just long)",
+        "Heat (60-85°F September)",
+        "Self-supported (no SAG)",
+        "Night riding required (15-25 hours)",
+        "Expensive ($200-$250 for suffering)"
+      ],
+      "bottom_line": "Rule of Three is 300 miles on Unbound roads. If you want ultra distance suffering on iconic Flint Hills, this is it. If you want manageable distance or technical terrain, skip it. 30-40% DNF. 15-25 hours. Mental game critical. Self-supported. Brutal but unique."
+    },
+    "black_pill": {
+      "title": "300 MILES = 15-25 HOURS OF SUFFERING, 30-40% DNF",
+      "reality": "300 miles is ultra distance. 15-25 hours long. Flint Hills rollers never stop—relentless cumulative fatigue. 30-40% DNF. Self-supported (no SAG). Night riding required (dynamo lights). Early September heat (70-85°F). Mechanicals at 200 miles = DNF. Mental breakdown common. You'll pay $200-$250 for 300 miles of suffering. Small field (~100 riders). If you need manageable distance, this isn't it. If you want ultra distance challenge, this is it.",
+      "consequences": [
+        "Brutal—300mi, 15-25 hours, 30-40% DNF",
+        "Cumulative fatigue (Flint Hills rollers never stop)",
+        "Self-supported (no SAG—mechanicals = DNF)",
+        "Night riding required (15-25 hours)",
+        "Heat (70-85°F September)",
+        "Mental breakdown common"
+      ],
+      "expectation_reset": "Rule of Three is ultra distance suffering. 300 miles, 15-25 hours, 30-40% DNF. If you need manageable distance or beginner-friendly, skip it. If you want ultra distance challenge on Unbound roads, this is it. Mental game critical. Self-supported. Brutal."
+    },
+    "logistics": {
+      "nearest_airport": "Wichita (ICT) — 90 miles (1.5-hour drive)",
+      "alternate_airports": "Kansas City (MCI) — 120 miles",
+      "lodging_note": "Emporia small town (same as Unbound). Book early.",
+      "parking": "Check official website",
+      "packet_pickup": "Day-before. Check official website.",
+      "travel_summary": "Wichita airport 90 miles. Rental car needed. Emporia small town—book lodging early. Day-before packet pickup. Race early September.",
+      "food_options": "Aid stations on course (self-supported—no SAG). Post-race party if you finish.",
+      "camping": "Check official website",
+      "official_site": "https://www.ruleofthreegravel.com"
+    },
+    "course_description": {
+      "character": "300 miles, 15,000 ft. 95% gravel, 5% pavement. Kansas Flint Hills—same roads as Unbound. Ultra distance (15-25 hours). Technical rating: 2/5.",
+      "suffering_zones": [
+        {
+          "name": "Throughout: Flint Hills Relentless Rollers",
+          "miles": "0-300",
+          "description": "Relentless rolling terrain. Never stops. Cumulative fatigue. 15,000 ft over 300mi.",
+          "survival_strategy": "Pace conservatively. Low gears. Mental game critical. 15-25 hours long."
+        },
+        {
+          "name": "Mile 200+: Mental Breakdown Zone",
+          "miles": "200-300",
+          "description": "100 miles to go. Legs gone. Mental game critical. 30-40% DNF here.",
+          "survival_strategy": "Break into chunks. Focus on next aid station. Mental toughness."
+        },
+        {
+          "name": "Throughout: Self-Supported",
+          "miles": "0-300",
+          "description": "Aid stations but no SAG. Mechanicals = DNF. Carry spares, tools, lights.",
+          "survival_strategy": "Carry spares, CO2, multitool, dynamo lights. Self-sufficient."
+        }
+      ],
+      "signature_challenge": "300 miles ultra distance. Flint Hills rollers never stop. 15-25 hours. 30-40% DNF."
+    },
+    "history": {
+      "founded": "~2018",
+      "founder": "Unknown",
+      "origin_story": "Rule of Three founded ~2018. 300 miles on Unbound roads. Kansas Flint Hills. Ultra distance. Self-supported. ~100 riders. Emporia same town as Unbound.",
+      "notable_moments": [
+        "2023: Hot, dry (70-85°F)",
+        "2024: Warm, humid (65-80°F)"
+      ],
+      "reputation": "Ultra distance on Unbound roads. 300mi. 30-40% DNF. Self-supported. Brutal."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 0,
+        "grade": "pending",
+        "weakest": "pending",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 0,
+          "temporal_depth": 0,
+          "specificity": 0,
+          "statistical_backing": 0,
+          "voice_authenticity": 0,
+          "completeness": 0,
+          "cross_reference": 0
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

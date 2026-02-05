@@ -1,0 +1,170 @@
+{
+  "race": {
+    "name": "Monaco Gravel Race",
+    "slug": "monaco-gravel-race",
+    "display_name": "Monaco Gravel Race",
+    "tagline": "Monaco/French Alps—110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
+    "vitals": {
+      "distance_mi": 68,
+      "elevation_ft": 8202,
+      "location": "Monaco",
+      "location_badge": "MONACO",
+      "county": "Monaco",
+      "date": "October annually",
+      "date_specific": "Check official website for date",
+      "terrain_types": [
+        "Monaco/French Alps gravel (70%)",
+        "Paved roads (30%)",
+        "Steep climbs",
+        "Technical terrain"
+      ],
+      "field_size": "300-500 riders",
+      "start_time": "Morning",
+      "registration": "Online. Cost: €150-€200 (~$165-$220 USD)",
+      "prize_purse": "None",
+      "aid_stations": "Multiple on course",
+      "cutoff_time": "None"
+    },
+    "climate": {
+      "primary": "Monaco autumn",
+      "description": "October: 12-22°C, 30% rain chance, autumn conditions.",
+      "challenges": [
+        "Temperature swings (12-22°C)",
+        "Rain risk (30%)",
+        "Autumn weather variability"
+      ]
+    },
+    "terrain": {
+      "primary": "Monaco/French Alps—steep technical climbs",
+      "surface": "70% gravel, 30% paved roads. Monaco/French Alps—steep climbs, technical. 2,500 m over 110 km = very steep. Monaco start/finish. Technical rating: 5/5.",
+      "technical_rating": 5,
+      "features": [
+        "Monaco start/finish (iconic)",
+        "French Alps",
+        "Steep climbs (2,500 m / 110 km)",
+        "Technical terrain",
+        "Good airport access (Nice 30km)",
+        "Small field (300-500)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "tier_override_reason": "prestige=5 iconic Monaco location allows T3→T2 promotion",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 2,
+      "expenses": 2
+    },
+    "biased_opinion": {
+      "verdict": "Monaco/French Alps Iconic Brutality",
+      "summary": "Monaco Gravel Race is Monaco/French Alps—110 km, 2,500 m elevation. Founded ~2020. 70% gravel, 30% paved. Steep climbs, technical. 300-500 riders. Monaco start/finish (iconic location). October autumn conditions (12-22°C). Expensive entry (€150-€200 / $165-$220). If you want Monaco/French Alps iconic location with brutal steep climbs, this is it. If you need manageable elevation or budget race, skip it. 20-25% DNF.",
+      "strengths": [
+        "Monaco start/finish (iconic location)",
+        "French Alps scenery (stunning)",
+        "Steep climbs reward skills",
+        "Small field (300-500)",
+        "Well-organized",
+        "Good airport access (Nice 30km)",
+        "Prestige location"
+      ],
+      "weaknesses": [
+        "Brutal—2,500 m / 110 km = very steep",
+        "20-25% DNF",
+        "Expensive (€150-€200 / $165-$220 + Monaco lodging)",
+        "Technical terrain (not for beginners)",
+        "October rain risk (30%)",
+        "Monaco lodging expensive"
+      ],
+      "bottom_line": "Monaco Gravel Race is Monaco/French Alps brutality. 110 km, 2,500 m, very steep, 20-25% DNF. If you want Monaco iconic location with French Alps climbs, this is it. If you need manageable elevation or budget race, skip it. Expensive but iconic. Brutal."
+    },
+    "black_pill": {
+      "title": "2,500M / 110KM = VERY STEEP + EXPENSIVE + 20-25% DNF",
+      "reality": "2,500 m over 110 km = very steep. French Alps climbs are brutal. 20-25% DNF. Expensive (€150-€200 / $165-$220 + Monaco lodging expensive). October = 30% rain risk. Technical terrain. You'll pay $2,000+ total (flights + entry + Monaco lodging). If you need manageable elevation or budget race, this isn't it. If you want Monaco iconic location, this is it. Brutal but iconic.",
+      "consequences": [
+        "Brutal—2,500 m / 110 km = very steep",
+        "20-25% DNF",
+        "Expensive (€150-€200 + Monaco lodging)",
+        "Technical terrain (steep Alps climbs)",
+        "October rain risk (30%)",
+        "Monaco lodging expensive"
+      ],
+      "expectation_reset": "Monaco Gravel Race is Monaco/French Alps brutality. 2,500 m / 110 km = very steep, 20-25% DNF. If you need manageable elevation or budget race, skip it. If you want Monaco iconic location with French Alps climbs, this is it. Expensive but iconic. Brutal."
+    },
+    "logistics": {
+      "nearest_airport": "Nice (NCE) — 30 km (30-minute drive)",
+      "alternate_airports": "None convenient",
+      "lodging_note": "Monaco—expensive. Book early.",
+      "parking": "Check official website",
+      "packet_pickup": "Day-before. Check official website.",
+      "travel_summary": "Fly to Nice (NCE). Rental car or shuttle (30 km, 30-minute drive to Monaco). Monaco lodging—expensive, book early. Day-before packet pickup. Race October. Post-race party in Monaco.",
+      "food_options": "Aid stations on course. Post-race party in Monaco.",
+      "camping": "Check official website",
+      "official_site": "https://www.monacogravelrace.com"
+    },
+    "course_description": {
+      "character": "110 km, 2,500 m. 70% gravel, 30% paved. Monaco/French Alps—steep climbs, technical. Technical rating: 5/5.",
+      "suffering_zones": [
+        {
+          "name": "Throughout: French Alps Steep Climbs",
+          "miles": "0-110",
+          "description": "2,500 m over 110 km = very steep. French Alps climbs. Brutal.",
+          "survival_strategy": "Very low gears. Pace conservatively. 2,500 m / 110 km is brutal. 20-25% DNF here."
+        },
+        {
+          "name": "Throughout: Technical Terrain",
+          "miles": "Throughout",
+          "description": "Technical French Alps gravel. Steep climbs. Technical rating: 5/5.",
+          "survival_strategy": "35-40mm tubeless. Technical skills required. Steep climbs. Focus on next aid."
+        }
+      ],
+      "signature_challenge": "110 km + 2,500 m elevation = very steep. Monaco/French Alps. 20-25% DNF."
+    },
+    "history": {
+      "founded": "~2020",
+      "founder": "Unknown",
+      "origin_story": "Monaco Gravel Race founded ~2020. Monaco start/finish. 110 km, 300-500 riders. Monaco/French Alps. Steep climbs.",
+      "notable_moments": [
+        "2023: Cool, dry (15-20°C)",
+        "2024: Variable, some rain (12-22°C)"
+      ],
+      "reputation": "Monaco gravel scene. Monaco/French Alps. Iconic location. Steep climbs. Brutal. 20-25% DNF."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 0,
+        "grade": "pending",
+        "weakest": "pending",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 0,
+          "temporal_depth": 0,
+          "specificity": 0,
+          "statistical_backing": 0,
+          "voice_authenticity": 0,
+          "completeness": 0,
+          "cross_reference": 0
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

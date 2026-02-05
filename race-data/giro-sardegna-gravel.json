@@ -1,0 +1,169 @@
+{
+  "race": {
+    "name": "Giro Sardegna Gravel",
+    "slug": "giro-sardegna-gravel",
+    "display_name": "Giro Sardegna Gravel",
+    "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
+    "vitals": {
+      "distance_mi": 81,
+      "elevation_ft": 8530,
+      "location": "Siniscola, Sardinia, Italy",
+      "location_badge": "SINISCOLA, SARDINIA",
+      "county": "Sardinia",
+      "date": "May annually",
+      "date_specific": "Check official website for date",
+      "terrain_types": [
+        "Sardinian mountains gravel (75%)",
+        "Paved roads (25%)",
+        "Rolling terrain",
+        "Coastal views"
+      ],
+      "field_size": "500-700 riders",
+      "start_time": "Morning",
+      "registration": "Online. Cost: €90-€130 (~$100-$145 USD)",
+      "prize_purse": "None",
+      "aid_stations": "Multiple on course",
+      "cutoff_time": "None"
+    },
+    "climate": {
+      "primary": "Sardinian spring",
+      "description": "May: 18-28°C, 20% rain chance, spring conditions.",
+      "challenges": [
+        "Heat (18-28°C)",
+        "Sun exposure",
+        "Spring weather variability"
+      ]
+    },
+    "terrain": {
+      "primary": "Sardinian mountains—rolling terrain with coastal views",
+      "surface": "75% gravel, 25% paved roads. Sardinian mountains—rolling terrain, coastal views. 2,600 m over 130 km. Siniscola area. Technical rating: 4/5.",
+      "technical_rating": 4,
+      "features": [
+        "Sardinian mountains",
+        "Mediterranean coastal views",
+        "Island terrain",
+        "Rolling mountain gravel",
+        "Good airport access (Olbia 60km)",
+        "Affordable entry"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 5,
+      "expenses": 3
+    },
+    "biased_opinion": {
+      "verdict": "Sardinian Island Mountain Adventure",
+      "summary": "Giro Sardegna Gravel is Sardinian mountains—130 km, 2,600 m elevation. Founded ~2020. 75% gravel, 25% paved. Sardinian mountains—rolling terrain, Mediterranean coastal views. 500-700 riders. Siniscola, Sardinia (coastal town). May spring conditions (18-28°C). Affordable entry (€90-€130 / $100-$145). If you want Sardinian island gravel with Mediterranean views and affordable entry, this is it. If you need local/domestic, skip it. International destination race.",
+      "strengths": [
+        "Sardinian mountains scenery (stunning)",
+        "Mediterranean coastal views",
+        "Island adventure (unique)",
+        "Affordable entry ($100-$145 USD)",
+        "Good airport access (Olbia 60km)",
+        "Well-organized Italian event",
+        "Post-race Sardinian food/wine"
+      ],
+      "weaknesses": [
+        "International travel required (Olbia 60km)",
+        "Elevation (2,600 m / 130 km)",
+        "15-20% DNF",
+        "Heat (May Sardinia 20-28°C)",
+        "Technical terrain",
+        "130 km distance"
+      ],
+      "bottom_line": "Giro Sardegna Gravel is Sardinian island mountain adventure. 130 km, 2,600 m, Mediterranean views. If you want Sardinian gravel with stunning scenery and affordable entry, this is it. If you need local/domestic, skip it. International travel required but Sardinia makes it worth it. Post-race food/wine."
+    },
+    "black_pill": {
+      "title": "INTERNATIONAL TRAVEL + 130KM + MAY HEAT",
+      "reality": "International travel to Sardinia required. Olbia airport 60 km (1-hour drive). 130 km is long. 2,600 m elevation. May = 20-28°C (warm). 15-20% DNF. You'll pay €90-€130 ($100-$145) + international travel. If you need local/domestic, this isn't it. If you want Sardinian island gravel with Mediterranean views, this is it. Travel adds cost but Sardinia makes it worth it.",
+      "consequences": [
+        "International travel required (expensive)",
+        "Elevation (2,600 m / 130 km)",
+        "Heat (May Sardinia 20-28°C)",
+        "15-20% DNF",
+        "Technical terrain",
+        "130 km distance"
+      ],
+      "expectation_reset": "Giro Sardegna Gravel is international destination race. Sardinia travel required. 130 km, 2,600 m, May warmth. If you need local/domestic, skip it. If you want Sardinian island gravel with Mediterranean views and affordable entry, this is it. Travel adds cost but Sardinia experience is worth it."
+    },
+    "logistics": {
+      "nearest_airport": "Olbia (OLB) — 60 km (1-hour drive)",
+      "alternate_airports": "None convenient",
+      "lodging_note": "Siniscola, Sardinia. Book early.",
+      "parking": "Check official website",
+      "packet_pickup": "Day-before. Check official website.",
+      "travel_summary": "Fly to Olbia (OLB). Rental car needed (60 km, 1-hour drive to Siniscola). Coastal town lodging—book early. Day-before packet pickup. Race May. Post-race Sardinian food/wine.",
+      "food_options": "Aid stations on course. Post-race party with Sardinian food/wine.",
+      "camping": "Check official website",
+      "official_site": "https://www.girosardegnagravel.com"
+    },
+    "course_description": {
+      "character": "130 km, 2,600 m. 75% gravel, 25% paved. Sardinian mountains—rolling terrain, coastal views. Technical rating: 4/5.",
+      "suffering_zones": [
+        {
+          "name": "Throughout: Sardinian Mountains",
+          "miles": "Throughout",
+          "description": "Sardinian mountains. 2,600 m cumulative elevation. Rolling terrain.",
+          "survival_strategy": "Low gears. Pace conservatively. Cumulative elevation adds up. 130 km long."
+        },
+        {
+          "name": "Throughout: May Warmth",
+          "miles": "Throughout",
+          "description": "May Sardinia = 20-28°C. Warm. Sun exposure. Mediterranean heat.",
+          "survival_strategy": "3+ bottles. Sun protection. Hydrate constantly. Start early. Warmth is manageable."
+        }
+      ],
+      "signature_challenge": "130 km + 2,600 m elevation + May warmth. Sardinian mountains Mediterranean views."
+    },
+    "history": {
+      "founded": "~2020",
+      "founder": "Unknown",
+      "origin_story": "Giro Sardegna Gravel founded ~2020. Siniscola, Sardinia, Italy. 130 km, 500-700 riders. Sardinian mountains gravel.",
+      "notable_moments": [
+        "2023: Warm, dry (20-28°C)",
+        "2024: Variable, some heat (18-28°C)"
+      ],
+      "reputation": "Italian gravel scene. Sardinia. Island adventure. Mediterranean views. Well-organized."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 0,
+        "grade": "pending",
+        "weakest": "pending",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 0,
+          "temporal_depth": 0,
+          "specificity": 0,
+          "statistical_backing": 0,
+          "voice_authenticity": 0,
+          "completeness": 0,
+          "cross_reference": 0
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

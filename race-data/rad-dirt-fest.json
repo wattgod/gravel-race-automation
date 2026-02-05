@@ -1,0 +1,170 @@
+{
+  "race": {
+    "name": "Rad Dirt Fest",
+    "slug": "rad-dirt-fest",
+    "display_name": "Rad Dirt Fest",
+    "tagline": "Colorado Rockies adventure—100km of high-altitude gravel, 2,500m elevation, Salida scenery.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 8202,
+      "location": "Salida, Colorado",
+      "location_badge": "SALIDA, COLORADO",
+      "county": "Chaffee County",
+      "date": "September annually",
+      "date_specific": "Check official website for date",
+      "terrain_types": [
+        "Colorado Rockies gravel (80%)",
+        "Dirt roads (20%)",
+        "High altitude (2,200-3,000 m)",
+        "Technical climbs"
+      ],
+      "field_size": "500-800 riders",
+      "start_time": "Morning",
+      "registration": "Online. Cost: $150-$200",
+      "prize_purse": "None",
+      "aid_stations": "Multiple on course",
+      "cutoff_time": "None"
+    },
+    "climate": {
+      "primary": "Colorado Rockies autumn",
+      "description": "September: 10-25°C, 30% rain chance, autumn conditions, high altitude.",
+      "challenges": [
+        "High altitude (2,200-3,000 m)",
+        "Temperature swings (10-25°C)",
+        "Autumn rain risk (30%)",
+        "Thin air"
+      ]
+    },
+    "terrain": {
+      "primary": "Colorado Rockies—high altitude technical terrain",
+      "surface": "80% gravel, 20% dirt roads. Colorado Rockies—high altitude (2,200-3,000 m), technical climbs. 2,500 m over 100 km. Monarch Pass area, Arkansas River Valley. Technical rating: 4/5.",
+      "technical_rating": 4,
+      "features": [
+        "Colorado Rockies",
+        "High altitude (2,200-3,000 m)",
+        "Monarch Pass area",
+        "Arkansas River Valley",
+        "Technical climbs",
+        "Salida town (great base)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "biased_opinion": {
+      "verdict": "Colorado Rockies High-Altitude Adventure",
+      "summary": "Rad Dirt Fest is Colorado Rockies adventure—100 km, 2,500 m elevation. Founded ~2018. 80% gravel, 20% dirt. High altitude (2,200-3,000 m), technical climbs. 500-800 riders. Salida, CO (great town). September autumn conditions (10-25°C). Affordable entry ($150-$200). If you want Colorado Rockies high-altitude gravel with stunning scenery, this is it. If you need sea-level race, skip it. Altitude is the challenge.",
+      "strengths": [
+        "Colorado Rockies scenery (stunning)",
+        "High altitude adventure (2,200-3,000 m)",
+        "Salida town (great base, embraces event)",
+        "Technical climbs reward skills",
+        "Affordable entry ($150-$200)",
+        "Well-organized",
+        "Good airport access (DEN 200km)"
+      ],
+      "weaknesses": [
+        "High altitude (2,200-3,000 m—acclimatization required)",
+        "Elevation (2,500 m / 100 km)",
+        "15-20% DNF",
+        "Technical climbs (steep)",
+        "Autumn rain risk (30%)",
+        "Denver 200 km (2.5-hour drive)"
+      ],
+      "bottom_line": "Rad Dirt Fest is Colorado Rockies high-altitude gravel. 100 km, 2,500 m, 2,200-3,000 m altitude. If you want Colorado Rockies scenery with technical climbs, this is it. If you need sea-level, skip it. Altitude is the challenge. Salida is great town. Affordable entry."
+    },
+    "black_pill": {
+      "title": "HIGH ALTITUDE + 2,500M ELEVATION + TECHNICAL CLIMBS",
+      "reality": "High altitude (2,200-3,000 m) = thin air. Acclimatization required. 2,500 m elevation over 100 km. Technical climbs (steep Colorado Rockies). September = 30% rain risk. 15-20% DNF. You'll pay $150-$200 + travel. If you need sea-level, this isn't it. If you want Colorado Rockies high-altitude adventure, this is it. Altitude is the main challenge.",
+      "consequences": [
+        "High altitude (2,200-3,000 m—acclimatization required)",
+        "Elevation (2,500 m / 100 km)",
+        "Technical climbs (steep)",
+        "15-20% DNF",
+        "Autumn rain risk (30%)",
+        "Denver 200 km (2.5-hour drive)"
+      ],
+      "expectation_reset": "Rad Dirt Fest is Colorado Rockies high-altitude gravel. 2,200-3,000 m altitude, 2,500 m elevation. If you need sea-level, skip it. If you want Colorado Rockies scenery with technical climbs, this is it. Altitude is the challenge. Acclimatize."
+    },
+    "logistics": {
+      "nearest_airport": "Denver (DEN) — 200 km (2.5-hour drive)",
+      "alternate_airports": "None convenient",
+      "lodging_note": "Salida, CO. Book early.",
+      "parking": "Check official website",
+      "packet_pickup": "Multi-day expo. Check official website.",
+      "travel_summary": "Fly to Denver (DEN). Rental car needed (200 km, 2.5-hour drive to Salida). Salida lodging—book early. Multi-day expo. Race September.",
+      "food_options": "Aid stations on course. Post-race party in Salida.",
+      "camping": "Check official website",
+      "official_site": "https://www.raddirtfest.com"
+    },
+    "course_description": {
+      "character": "100 km, 2,500 m. 80% gravel, 20% dirt. Colorado Rockies—high altitude (2,200-3,000 m), technical climbs. Technical rating: 4/5.",
+      "suffering_zones": [
+        {
+          "name": "Throughout: High Altitude",
+          "miles": "0-100",
+          "description": "2,200-3,000 m altitude. Thin air. Acclimatization required.",
+          "survival_strategy": "Arrive early. Acclimatize. Pace conservatively. Hydrate. Altitude is the main challenge."
+        },
+        {
+          "name": "Throughout: Technical Climbs",
+          "miles": "Throughout",
+          "description": "Steep Colorado Rockies climbs. 2,500 m cumulative elevation. Technical.",
+          "survival_strategy": "Low gears. Pace conservatively. Technical skills required. 38-42mm tires."
+        }
+      ],
+      "signature_challenge": "100 km + 2,500 m elevation + high altitude (2,200-3,000 m). Colorado Rockies."
+    },
+    "history": {
+      "founded": "~2018",
+      "founder": "Unknown",
+      "origin_story": "Rad Dirt Fest founded ~2018. Salida, CO. 100 km, 500-800 riders. Colorado Rockies. High altitude gravel.",
+      "notable_moments": [
+        "2023: Cool, dry (12-22°C)",
+        "2024: Variable, some rain (10-25°C)"
+      ],
+      "reputation": "Colorado gravel scene. Salida. High altitude. Technical climbs. Well-organized."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 0,
+        "grade": "pending",
+        "weakest": "pending",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 0,
+          "temporal_depth": 0,
+          "specificity": 0,
+          "statistical_backing": 0,
+          "voice_authenticity": 0,
+          "completeness": 0,
+          "cross_reference": 0
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

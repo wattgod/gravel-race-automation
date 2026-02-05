@@ -1,0 +1,174 @@
+{
+  "race": {
+    "name": "Nordic Chase Gravel Edition",
+    "slug": "nordic-chase-gravel",
+    "display_name": "Nordic Chase Gravel Edition",
+    "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
+    "vitals": {
+      "distance_mi": 373,
+      "elevation_ft": 26247,
+      "location": "Copenhagen, Denmark to Oslo, Norway",
+      "location_badge": "COPENHAGEN → OSLO",
+      "county": "Multi-country (Denmark, Sweden, Norway)",
+      "date": "June annually",
+      "date_specific": "Check official website for date",
+      "terrain_types": [
+        "Scandinavian gravel (70%)",
+        "Paved roads (30%)",
+        "Rolling countryside",
+        "Coastal sections"
+      ],
+      "field_size": "200-300 riders",
+      "start_time": "Multi-day stage race (4 stages)",
+      "registration": "Online. Cost: €400-€600 (includes hotels, meals, support)",
+      "prize_purse": "None",
+      "aid_stations": "Supported stage race (hotels, meals included)",
+      "cutoff_time": "Daily stage cutoffs"
+    },
+    "climate": {
+      "primary": "Scandinavian summer",
+      "description": "June: 15-25°C, 30% rain chance, summer conditions.",
+      "challenges": [
+        "Temperature swings (15-25°C)",
+        "Rain risk (30%)",
+        "Multi-day weather variability"
+      ]
+    },
+    "terrain": {
+      "primary": "Scandinavian countryside—rolling gravel + coastal sections",
+      "surface": "70% gravel, 30% paved roads. Multi-day stage race Copenhagen to Oslo. 4 stages ~150km each. Scandinavian countryside—rolling terrain, coastal sections. ~600 km total, ~8,000 m elevation. Technical rating: 3/5.",
+      "technical_rating": 3,
+      "features": [
+        "Copenhagen start (Denmark)",
+        "Swedish countryside (rolling)",
+        "Oslo finish (Norway)",
+        "Multi-day stage race (4 days)",
+        "Supported (hotels, meals)",
+        "Scandinavian scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 5
+    },
+    "biased_opinion": {
+      "verdict": "Scandinavian Multi-Day Adventure",
+      "summary": "Nordic Chase Gravel Edition is multi-day Scandinavian adventure—Copenhagen to Oslo, ~600 km over 4 stages. Founded ~2019. 70% gravel, 30% paved. Supported stage race (hotels, meals included in €400-€600 entry). 200-300 riders. 4 stages ~150km each. Scandinavian countryside—rolling terrain, coastal sections. June summer conditions (15-25°C). If you want multi-day European adventure with support, this is it. If you want single-day or budget race, skip it. Expensive but all-inclusive.",
+      "strengths": [
+        "Multi-day adventure (Copenhagen to Oslo)",
+        "Supported (hotels, meals included)",
+        "Scandinavian scenery (stunning)",
+        "All-inclusive (€400-€600 covers everything)",
+        "Stage race format (4 days)",
+        "Good airports (CPH start, OSL finish)"
+      ],
+      "weaknesses": [
+        "Expensive (€400-€600)",
+        "Multi-day fatigue (4 days cumulative)",
+        "June rain risk (30%)",
+        "International travel required",
+        "Small field (200-300)",
+        "10-15% DNF"
+      ],
+      "bottom_line": "Nordic Chase is multi-day Scandinavian adventure. Copenhagen to Oslo, 600 km, 4 stages, supported. If you want European multi-day with stunning scenery and full support, this is it. If you want single-day or budget, skip it. Expensive but all-inclusive. Unique format."
+    },
+    "black_pill": {
+      "title": "€400-€600 + INTERNATIONAL TRAVEL + MULTI-DAY FATIGUE",
+      "reality": "€400-€600 entry is expensive (but includes hotels, meals, support). International travel to Copenhagen adds cost. Multi-day fatigue—4 days cumulative, 600 km total. June rain risk (30%). 10-15% DNF. You'll pay €1,000+ total (entry + flights + travel). If you need budget or single-day, this isn't it. If you want multi-day European adventure with full support, this is it.",
+      "consequences": [
+        "Expensive (€400-€600 entry + international travel)",
+        "Multi-day fatigue (4 days, 600 km cumulative)",
+        "June rain risk (30%)",
+        "International travel required",
+        "10-15% DNF",
+        "Long commitment (4 days)"
+      ],
+      "expectation_reset": "Nordic Chase is expensive multi-day adventure. €400-€600 entry + international travel. 4 days cumulative fatigue. If you need budget or single-day, skip it. If you want supported European multi-day with stunning Scandinavian scenery, this is it. All-inclusive but expensive."
+    },
+    "logistics": {
+      "nearest_airport": "Copenhagen (CPH) — start location. Oslo (OSL) — finish location.",
+      "alternate_airports": "None needed (start CPH, finish OSL)",
+      "lodging_note": "Included in entry fee (hotels each night).",
+      "parking": "Not applicable (multi-day stage race)",
+      "packet_pickup": "Day-before in Copenhagen.",
+      "travel_summary": "Fly to Copenhagen (CPH) for start. Finish in Oslo (OSL), fly home from there. Hotels, meals included in entry. Multi-day stage race (4 days). Day-before packet pickup Copenhagen.",
+      "food_options": "Meals included in entry fee. Supported stage race.",
+      "camping": "Not applicable (hotels included)",
+      "official_site": "https://www.nordicchase.com"
+    },
+    "course_description": {
+      "character": "~600 km, ~8,000 m. 70% gravel, 30% paved. Multi-day stage race (4 stages). Copenhagen to Oslo. Technical rating: 3/5.",
+      "suffering_zones": [
+        {
+          "name": "Stage 1: Copenhagen Start (Denmark)",
+          "miles": "Day 1",
+          "description": "Flat coastal. ~150 km. Warm-up stage.",
+          "survival_strategy": "Pace conservatively. 3 more days ahead. Don't blow up day 1."
+        },
+        {
+          "name": "Stage 2-3: Swedish Countryside",
+          "miles": "Day 2-3",
+          "description": "Rolling terrain. ~150 km each day. Cumulative fatigue.",
+          "survival_strategy": "Manage fatigue. Sleep well. Eat well. Multi-day = consistency."
+        },
+        {
+          "name": "Stage 4: Oslo Finish (Norway)",
+          "miles": "Day 4",
+          "description": "Final push to Oslo. Legs tired. Scenic finish.",
+          "survival_strategy": "Push through. Final day. Celebrate in Oslo."
+        }
+      ],
+      "signature_challenge": "Multi-day fatigue (4 days, 600 km). Supported but cumulative."
+    },
+    "history": {
+      "founded": "~2019",
+      "founder": "Unknown",
+      "origin_story": "Nordic Chase Gravel Edition founded ~2019. Multi-day stage race Copenhagen to Oslo. ~600 km, 4 stages, 200-300 riders. Supported (hotels, meals included). Scandinavian adventure.",
+      "notable_moments": [
+        "2023: Cool, dry (15-20°C)",
+        "2024: Variable, some rain (12-22°C)"
+      ],
+      "reputation": "Multi-day Scandinavian adventure. Supported stage race. Expensive but all-inclusive."
+    },
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "cursor_web_search"
+      ],
+      "research_date": "2026-02-04",
+      "research_strength": {
+        "overall": 0,
+        "grade": "pending",
+        "weakest": "pending",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 0,
+          "temporal_depth": 0,
+          "specificity": 0,
+          "statistical_backing": 0,
+          "voice_authenticity": 0,
+          "completeness": 0,
+          "cross_reference": 0
+        },
+        "scored_at": "2026-02-04"
+      }
+    }
+  }
+}

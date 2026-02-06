@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Rift Gravel Race",
+    "slug": "rift-gravel-race",
+    "display_name": "Rift Gravel Race",
+    "tagline": "Icelandic volcanic gravel in Hvolsvöllur.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 3500,
+      "location": "Hvolsvöllur, Iceland",
+      "location_badge": "HVOLSVÖLLUR, ICELAND",
+      "county": "South Iceland",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Icelandic volcanic",
+        "Remote gravel",
+        "Regional event",
+        "Iceland"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€150-250+",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Icelandic summer",
+      "description": "Variable and harsh conditions.",
+      "challenges": [
+        "Variable weather",
+        "Harsh conditions",
+        "Wind",
+        "Remote terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "Icelandic volcanic gravel",
+      "surface": "Gravel roads through Icelandic volcanic landscape. Moderate elevation with volcanic scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate volcanic (3500 feet)",
+        "Volcanic scenery",
+        "Hvolsvöllur setting",
+        "Multiple distances",
+        "Remote event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 4,
+      "community": 2,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 1,
+      "course_profile": 10,
+      "biased_opinion": 18,
+      "score_note": "Regional Icelandic event. Volcanic terrain with difficult access, high costs, and small field."
+    },
+    "biased_opinion": {
+      "verdict": "Icelandic Volcanic Adventure",
+      "summary": "Rift Gravel Race is a regional event in Hvolsvöllur, Iceland—volcanic terrain with moderate elevation. The Icelandic volcanic scenery is unique and impressive, but the difficult/expensive access, harsh weather, and small field keep it firmly in Tier 3. Iceland travel is very expensive.",
+      "strengths": [
+        "Unique volcanic scenery",
+        "Icelandic adventure",
+        "Remote experience",
+        "Unique setting",
+        "Volcanic landscape"
+      ],
+      "weaknesses": [
+        "Very difficult/expensive Iceland access",
+        "Harsh variable weather",
+        "Small field only",
+        "Limited organization",
+        "Very high travel costs"
+      ],
+      "bottom_line": "A unique Icelandic gravel race with volcanic terrain. Worth it for adventure seekers with big budgets. Not practical for most riders due to cost and access."
+    },
+    "black_pill": {
+      "title": "EXPENSIVE ICELANDIC ADVENTURE",
+      "reality": "The volcanic scenery is unique. But this is expensive and difficult to access. The field is small. Weather is harsh. Travel costs are very high.",
+      "consequences": [
+        "Very expensive Iceland travel",
+        "Difficult access",
+        "Small field only",
+        "Harsh weather"
+      ],
+      "expectation_reset": "This is an expensive adventure race. The terrain is unique, but budget $3000+ for travel and set expectations for harsh conditions."
+    },
+    "final_verdict": {
+      "score": "46 / 100",
+      "one_liner": "Icelandic volcanic gravel in Hvolsvöllur.",
+      "should_you_race": "If you have a big budget and want a unique Icelandic adventure—maybe. For most riders—there are better value options.",
+      "alternatives": "For better value: European mainland gravel races. For similar adventure: other remote international races."
+    },
+    "logistics": {
+      "airport": "Reykjavik (KEF) 1.5 hours",
+      "lodging_strategy": "Hvolsvöllur has limited lodging options. Book early.",
+      "food": "Hvolsvöllur has limited dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Rift Gravel Race website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Icelandic organizers",
+      "origin_story": "Regional Icelandic gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Icelandic event."
+    },
+    "course_description": {
+      "character": "Icelandic volcanic gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Volcanic",
+          "desc": "First volcanic sections.",
+          "terrain_detail": "Volcanic",
+          "named_section": "Early Volcanic"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Volcanic",
+          "desc": "Final volcanic sections before finish.",
+          "terrain_detail": "Late volcanic",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Icelandic volcanic terrain in Hvolsvöllur.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Rift Gravel Race",
+      "race_distance": "65 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Hvolsvöllur, Iceland",
+      "race_terrain": "Icelandic volcanic gravel",
+      "race_weather": "Icelandic summer variable/harsh",
+      "race_challenges": [
+        "Volcanic terrain",
+        "Small field",
+        "Very high costs",
+        "Harsh weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Volcanic endurance",
+        "by_when": "Week 8-10",
+        "why": "Icelandic volcanic terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Icelandic weather is harsh and variable."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Iceland travel is very expensive ($3000+)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "icelandic_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "volcanic_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "volcanic"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Volcanic terrain pacing",
+          "fueling": "Nutrition for volcanic riding",
+          "weather": "Riding in harsh Icelandic weather",
+          "volcanic": "Volcanic terrain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Rift Gravel Race",
+        "race_hook": "Icelandic volcanic gravel in Hvolsvöllur.",
+        "race_hook_detail": "Regional event with volcanic terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Volcanic endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

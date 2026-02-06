@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Gravel des Flandres",
+    "slug": "gravel-des-flandres",
+    "display_name": "Gravel des Flandres",
+    "tagline": "Belgian Flanders rolling gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 3500,
+      "location": "Flanders, Belgium",
+      "location_badge": "FLANDERS, BELGIUM",
+      "county": "Flanders",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Belgian Flanders",
+        "Rolling gravel",
+        "Regional event",
+        "Belgium"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Belgian spring",
+      "description": "Variable conditions.",
+      "challenges": [
+        "Variable weather",
+        "Belgian spring conditions",
+        "Rolling terrain",
+        "Wind"
+      ]
+    },
+    "terrain": {
+      "primary": "Belgian Flanders rolling gravel",
+      "surface": "Gravel roads through Flanders. Moderate elevation with Belgian countryside scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Belgian countryside scenery",
+        "Flanders setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional Belgian event. Rolling Flanders terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Belgian Flanders Rolling Gravel",
+      "summary": "Gravel des Flandres is a regional event in Flanders, Belgium\u2014rolling terrain with moderate elevation. The Belgian countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Belgian countryside scenery",
+        "Belgian cycling community",
+        "Belgian mild spring weather",
+        "Good Belgium access",
+        "European pricing"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling only",
+        "Limited international draw",
+        "European travel costs"
+      ],
+      "bottom_line": "A solid regional Belgian gravel race with Flanders rolling terrain. Worth it for Belgian/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL BELGIAN ROLLING",
+      "reality": "The Belgian countryside is nice. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Belgian event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Belgian Flanders rolling gravel.",
+      "should_you_race": "If you're in Belgium/Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For similar Belgian events: Houffa Gravel, Ardenne Gravel Stages."
+    },
+    "logistics": {
+      "airport": "Brussels (BRU) 1-2 hours depending on location",
+      "lodging_strategy": "Flanders has good lodging options.",
+      "food": "Flanders has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Gravel des Flandres website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Belgian organizers",
+      "origin_story": "Regional Belgian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Belgian event."
+    },
+    "course_description": {
+      "character": "Belgian Flanders rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Belgian Flanders rolling countryside.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gravel des Flandres",
+      "race_distance": "65 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Spring",
+      "race_location": "Flanders, Belgium",
+      "race_terrain": "Belgian Flanders rolling gravel",
+      "race_weather": "Belgian spring variable",
+      "race_challenges": [
+        "Rolling terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Belgian Flanders rolling requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Belgian spring weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "belgian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable Belgian weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gravel des Flandres",
+        "race_hook": "Belgian Flanders rolling gravel.",
+        "race_hook_detail": "Regional event with rolling terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

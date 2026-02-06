@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Haute Route Gravel",
+    "slug": "haute-route-gravel",
+    "display_name": "Haute Route Gravel",
+    "tagline": "European Alpine multi-stage gravel event.",
+    "vitals": {
+      "distance_mi": 350,
+      "elevation_ft": 30000,
+      "location": "Various Europe",
+      "location_badge": "EUROPE",
+      "county": "Various",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "European Alps",
+        "Multi-stage",
+        "Commercial event",
+        "Europe"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac1500-2500+",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations per stage",
+      "cutoff_time": "Varies per stage"
+    },
+    "climate": {
+      "primary": "Alpine summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Variable mountain weather",
+        "Alpine terrain",
+        "Multi-day event",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "European Alpine gravel",
+      "surface": "Gravel roads through European Alps. Multi-stage format with significant elevation and Alpine scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Multi-stage format",
+        "Significant Alpine (30000 feet total)",
+        "Alpine scenery",
+        "Professional organization",
+        "Commercial event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 1,
+      "expenses": 1,
+      "course_profile": 21,
+      "biased_opinion": 18,
+      "score_note": "Commercial multi-stage event. Alpine terrain with professional organization but very high costs keep it in Tier 3."
+    },
+    "biased_opinion": {
+      "verdict": "Expensive Alpine Multi-Stage",
+      "summary": "Haute Route Gravel is a commercial multi-stage event across European Alps\u2014Alpine terrain with significant elevation. The professional organization and Alpine scenery are impressive, but the very high costs (\u20ac1500-2500+ plus travel) keep it firmly in Tier 3.",
+      "strengths": [
+        "Professional organization",
+        "Stunning Alpine scenery",
+        "Multi-stage format",
+        "Good support",
+        "International community"
+      ],
+      "weaknesses": [
+        "Very high costs (\u20ac1500-2500+)",
+        "Very expensive Europe multi-day travel",
+        "Commercial event",
+        "Moderate field only",
+        "Limited value"
+      ],
+      "bottom_line": "A professionally organized Alpine multi-stage gravel event. Worth it for wealthy cyclists seeking a supported Alpine experience. Not practical for most riders due to very high costs."
+    },
+    "black_pill": {
+      "title": "VERY EXPENSIVE COMMERCIAL EVENT",
+      "reality": "The Alps are stunning and organization is professional. But this is very expensive (\u20ac1500-2500+ plus \u20ac2000+ travel). Commercial event with moderate field.",
+      "consequences": [
+        "Very high costs",
+        "Expensive multi-day travel",
+        "Commercial event",
+        "Limited value"
+      ],
+      "expectation_reset": "This is a luxury commercial event. Budget \u20ac3500-5000+ total. Set expectations for a paid experience, not a grassroots race."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "European Alpine multi-stage gravel event.",
+      "should_you_race": "If you have a large budget and want a supported Alpine multi-stage experience\u2014maybe. For most riders\u2014there are better value options.",
+      "alternatives": "For better value: Ardenne Gravel Stages, Trans-Sylvania Epic. For similar Alpine terrain: local Alpine races."
+    },
+    "logistics": {
+      "airport": "Varies by year (typically Geneva, Zurich, or regional)",
+      "lodging_strategy": "Included in package or arranged by organizers.",
+      "food": "Support provided. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Haute Route website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Haute Route organization",
+      "origin_story": "Commercial European multi-stage gravel event.",
+      "notable_moments": [],
+      "reputation": "Commercial professional event."
+    },
+    "course_description": {
+      "character": "European Alpine multi-stage gravel.",
+      "suffering_zones": [
+        {
+          "mile": 70,
+          "label": "Stage 1 Alps",
+          "desc": "First stage Alpine sections.",
+          "terrain_detail": "Alpine",
+          "named_section": "Stage 1"
+        },
+        {
+          "mile": 180,
+          "label": "Stage 3 Midpoint",
+          "desc": "Halfway through multi-stage.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Stage 3"
+        },
+        {
+          "mile": 320,
+          "label": "Final Stage Alps",
+          "desc": "Final stage Alpine sections.",
+          "terrain_detail": "Late Alpine",
+          "named_section": "Final Stage"
+        }
+      ],
+      "signature_challenge": "European Alpine multi-stage terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Haute Route Gravel",
+      "race_distance": "350 miles (multi-stage)",
+      "race_elevation": "30,000 feet (total)",
+      "race_date": "Summer",
+      "race_location": "Various Europe",
+      "race_terrain": "European Alpine gravel",
+      "race_weather": "Alpine summer variable",
+      "race_challenges": [
+        "Multi-stage format",
+        "Alpine terrain",
+        "Very high costs",
+        "Variable mountain weather",
+        "Significant elevation"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-stage Alpine endurance",
+        "by_when": "Week 8-10",
+        "why": "European Alpine multi-stage requires sustained effort over multiple days."
+      },
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 4-6",
+        "why": "Alpine elevation requires altitude adaptation."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Very expensive event (\u20ac3500-5000+ total)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "haute_route_series"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "multistage_alpine_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday-Sunday",
+          "duration_hours": {
+            "ayahuasca": 10,
+            "finisher": 12,
+            "compete": 14,
+            "podium": 16
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "altitude",
+          "multistage"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Multi-stage Alpine pacing",
+          "fueling": "Nutrition for multi-day Alpine riding",
+          "altitude": "Riding at Alpine elevation",
+          "multistage": "Multi-stage recovery strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Haute Route Gravel",
+        "race_hook": "European Alpine multi-stage gravel event.",
+        "race_hook_detail": "Commercial event with professional organization.",
+        "distance": "350",
+        "dark_mile": "180",
+        "non_negotiable_1": "Multi-stage Alpine endurance",
+        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

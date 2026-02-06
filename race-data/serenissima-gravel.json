@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Serenissima Gravel",
+    "slug": "serenissima-gravel",
+    "display_name": "Serenissima Gravel",
+    "tagline": "Italian flat to rolling gravel near Venice.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 2000,
+      "location": "Venice, Italy",
+      "location_badge": "VENICE, ITALY",
+      "county": "Veneto",
+      "date": "Spring/Fall annually",
+      "date_specific": "2026: Spring/Fall TBD",
+      "terrain_types": [
+        "Venice area",
+        "Flat to rolling",
+        "Regional event",
+        "Italy"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Italian spring/fall",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Flat to rolling terrain",
+        "Spring/Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Italian flat to rolling gravel",
+      "surface": "Gravel roads near Venice. Minimal to moderate elevation with Venice area scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Minimal to moderate elevation (2000 feet)",
+        "Venice area scenery",
+        "Venice setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional Italian event. Flat to rolling terrain near Venice with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Venice Area Flat Gravel",
+      "summary": "Serenissima Gravel is a regional event near Venice, Italy\u2014flat to rolling terrain with minimal elevation. The Venice area is scenic, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Venice area scenery",
+        "Italian cycling community",
+        "Italian mild spring/fall weather",
+        "Good Venice access",
+        "European pricing"
+      ],
+      "weaknesses": [
+        "Flat terrain (minimal elevation)",
+        "Moderate organization",
+        "Regional field only",
+        "Limited international draw",
+        "European travel costs"
+      ],
+      "bottom_line": "A scenic Italian gravel race near Venice. Worth it for European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL VENICE FLAT",
+      "reality": "The Venice area is scenic. But this is a regional event with moderate organization. The field is regional only. Flat terrain.",
+      "consequences": [
+        "Flat terrain",
+        "Moderate organization",
+        "Regional field only",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Italian event. The setting is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Italian flat to rolling gravel near Venice.",
+      "should_you_race": "If you're in Italy/Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For similar Italian events: Veneto Gravel. For more elevation: Italian mountain races."
+    },
+    "logistics": {
+      "airport": "Venice (VCE) 30 minutes",
+      "lodging_strategy": "Venice area has good lodging options.",
+      "food": "Venice area has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Serenissima Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Italian organizers",
+      "origin_story": "Regional Italian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Italian event."
+    },
+    "course_description": {
+      "character": "Italian flat to rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Flat",
+          "desc": "First flat sections.",
+          "terrain_detail": "Flat",
+          "named_section": "Early Flat"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Venice area flat to rolling gravel.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Serenissima Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "2,000 feet",
+      "race_date": "Spring/Fall",
+      "race_location": "Venice, Italy",
+      "race_terrain": "Italian flat to rolling gravel",
+      "race_weather": "Italian spring/fall mild",
+      "race_challenges": [
+        "Flat to rolling terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Minimal elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Flat endurance",
+        "by_when": "Week 8-10",
+        "why": "Flat to rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Italian spring/fall weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Flat to rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "italian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "flat_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "flat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Flat to rolling terrain pacing",
+          "fueling": "Nutrition for flat riding",
+          "weather": "Riding in variable Italian weather",
+          "flat": "Sustained flat strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Serenissima Gravel",
+        "race_hook": "Italian flat to rolling gravel near Venice.",
+        "race_hook_detail": "Regional event with Venice area scenery.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Flat endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Carpathian Gravel",
+    "slug": "carpathian-gravel",
+    "display_name": "Carpathian Gravel",
+    "tagline": "Romanian Carpathian mountainous gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 5500,
+      "location": "Carpathian Mountains, Romania",
+      "location_badge": "CARPATHIANS, ROMANIA",
+      "county": "Romania",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Carpathian Mountains",
+        "Mountainous gravel",
+        "Regional event",
+        "Romania"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€30-60",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Carpathian summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Variable mountain weather",
+        "Mountainous terrain",
+        "Summer conditions",
+        "Remote location"
+      ]
+    },
+    "terrain": {
+      "primary": "Carpathian mountainous gravel",
+      "surface": "Gravel roads through Carpathian Mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant mountainous (5500 feet)",
+        "Carpathian scenery",
+        "Romania setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 53,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 2,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 2,
+      "course_profile": 15,
+      "biased_opinion": 17,
+      "score_note": "Regional Romanian event. Mountainous Carpathian terrain with moderate organization and small field."
+    },
+    "biased_opinion": {
+      "verdict": "Carpathian Mountain Adventure",
+      "summary": "Carpathian Gravel is a regional event in Romania—mountainous terrain with significant elevation. The Carpathian mountains are impressive and pricing is low, but the moderate to difficult access, limited organization, and small field keep it firmly in Tier 3.",
+      "strengths": [
+        "Impressive Carpathian scenery",
+        "Lower pricing",
+        "Mountain adventure",
+        "Unique Romanian setting",
+        "Significant elevation"
+      ],
+      "weaknesses": [
+        "Romania access (moderate to difficult)",
+        "Limited organization",
+        "Small field only",
+        "Limited support",
+        "European travel costs"
+      ],
+      "bottom_line": "An adventurous Carpathian mountain gravel race with low pricing. Worth it for adventure seekers on a budget. Not practical for most international riders."
+    },
+    "black_pill": {
+      "title": "REMOTE CARPATHIAN ADVENTURE",
+      "reality": "The Carpathians are impressive. But this is remote with limited organization. The field is small. Access is challenging.",
+      "consequences": [
+        "Difficult access",
+        "Limited organization",
+        "Small field only",
+        "Limited support"
+      ],
+      "expectation_reset": "This is a remote adventure race. The terrain is impressive, but set expectations for limited infrastructure."
+    },
+    "final_verdict": {
+      "score": "53 / 100",
+      "one_liner": "Romanian Carpathian mountainous gravel.",
+      "should_you_race": "If you're an adventure seeker on a budget—maybe. For most riders—there are better options.",
+      "alternatives": "For similar mountain terrain: Balkan Gravel. For better organization: Alpine races."
+    },
+    "logistics": {
+      "airport": "Bucharest (OTP) 3-4 hours depending on location",
+      "lodging_strategy": "Carpathians have limited lodging options. Plan ahead.",
+      "food": "Limited dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Carpathian Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Romanian organizers",
+      "origin_story": "Regional Romanian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Romanian event."
+    },
+    "course_description": {
+      "character": "Carpathian mountainous gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Mountains",
+          "desc": "First mountainous sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Mountains",
+          "desc": "Final mountainous sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Carpathian mountainous terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Carpathian Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "5,500 feet",
+      "race_date": "Summer",
+      "race_location": "Carpathian Mountains, Romania",
+      "race_terrain": "Carpathian mountainous gravel",
+      "race_weather": "Carpathian summer variable",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Small field",
+        "Difficult access",
+        "Variable mountain weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "Carpathian mountains require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Carpathian weather is variable."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 2-4",
+        "why": "Limited support requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "romanian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountainous terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable Carpathian weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Carpathian Gravel",
+        "race_hook": "Romanian Carpathian mountainous gravel.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

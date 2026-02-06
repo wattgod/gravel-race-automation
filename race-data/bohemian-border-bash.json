@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Bohemian Border Bash",
+    "slug": "bohemian-border-bash",
+    "display_name": "Bohemian Border Bash",
+    "tagline": "Czech rolling to hilly gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 3500,
+      "location": "Czech Republic",
+      "location_badge": "CZECH REPUBLIC",
+      "county": "Czech Republic",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Czech countryside",
+        "Rolling to hilly",
+        "Regional event",
+        "Czech Republic"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac50-80",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Czech summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Rolling to hilly terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Czech rolling to hilly gravel",
+      "surface": "Gravel roads through Czech countryside. Moderate elevation with countryside scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling to hilly (3500 feet)",
+        "Czech countryside scenery",
+        "Czech setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional Czech event. Rolling to hilly terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Czech Rolling Gravel",
+      "summary": "Bohemian Border Bash is a regional event in Czech Republic\u2014rolling to hilly terrain with moderate elevation. The Czech countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Czech countryside scenery",
+        "Czech cycling community",
+        "Czech mild summer weather",
+        "Lower European pricing",
+        "Czech setting"
+      ],
+      "weaknesses": [
+        "Czech Republic access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Limited international draw",
+        "European travel costs"
+      ],
+      "bottom_line": "A solid regional Czech gravel race with rolling terrain. Worth it for Czech/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL CZECH ROLLING",
+      "reality": "The Czech countryside is nice. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate access",
+        "Moderate organization",
+        "Regional field only",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Czech event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "46 / 100",
+      "one_liner": "Czech rolling to hilly gravel.",
+      "should_you_race": "If you're in Czech Republic/Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For similar Central European events: Polish Gravel."
+    },
+    "logistics": {
+      "airport": "Prague (PRG) varies by location",
+      "lodging_strategy": "Czech Republic has moderate lodging options.",
+      "food": "Czech Republic has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Bohemian Border Bash website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Czech organizers",
+      "origin_story": "Regional Czech gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Czech event."
+    },
+    "course_description": {
+      "character": "Czech rolling to hilly gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Czech rolling countryside.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Bohemian Border Bash",
+      "race_distance": "65 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Czech Republic",
+      "race_terrain": "Czech rolling to hilly gravel",
+      "race_weather": "Czech summer mild",
+      "race_challenges": [
+        "Rolling to hilly terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Czech rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Czech summer weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "czech_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable Czech weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Bohemian Border Bash",
+        "race_hook": "Czech rolling to hilly gravel.",
+        "race_hook_detail": "Regional event with rolling terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

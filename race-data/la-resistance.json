@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "La Resistance",
+    "slug": "la-resistance",
+    "display_name": "La Resistance",
+    "tagline": "French Alpine gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 5500,
+      "location": "French Alps",
+      "location_badge": "FRENCH ALPS",
+      "county": "French Alps",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "French Alps",
+        "Alpine gravel",
+        "Regional event",
+        "France"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac80-120",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Alpine summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Variable mountain weather",
+        "Alpine terrain",
+        "Summer conditions",
+        "Altitude"
+      ]
+    },
+    "terrain": {
+      "primary": "French Alpine gravel",
+      "surface": "Gravel roads through French Alps. Significant elevation with Alpine scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant Alpine (5500 feet)",
+        "Alpine scenery",
+        "French Alps setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 16,
+      "biased_opinion": 19,
+      "score_note": "Regional French event. Alpine terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "French Alpine Gravel",
+      "summary": "La Resistance is a regional event in French Alps\u2014Alpine terrain with significant elevation. The French Alps scenery is stunning, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Stunning French Alps scenery",
+        "French cycling community",
+        "Alpine mild summer weather",
+        "European pricing",
+        "Alpine challenge"
+      ],
+      "weaknesses": [
+        "French Alps access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "European travel costs",
+        "Limited international draw"
+      ],
+      "bottom_line": "A scenic French Alpine gravel race. Worth it for European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL FRENCH ALPS",
+      "reality": "The French Alps are stunning. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate access",
+        "Moderate organization",
+        "Regional field only",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional French event. The terrain is stunning, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "French Alpine gravel.",
+      "should_you_race": "If you're in France/Europe\u2014yes, the Alps are worth it. If you're international\u2014there are better options.",
+      "alternatives": "For better value: 66\u00b0 South Pyr\u00e9n\u00e9es. For similar Alpine terrain: Gravel Suisse."
+    },
+    "logistics": {
+      "airport": "Geneva (GVA) or Lyon (LYS) depending on location",
+      "lodging_strategy": "French Alps has moderate lodging options.",
+      "food": "French Alps has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check La Resistance website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "French organizers",
+      "origin_story": "Regional French Alpine gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional French event."
+    },
+    "course_description": {
+      "character": "French Alpine gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Alps",
+          "desc": "First Alpine sections.",
+          "terrain_detail": "Alpine",
+          "named_section": "Early Alps"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Alps",
+          "desc": "Final Alpine sections before finish.",
+          "terrain_detail": "Late Alpine",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "French Alpine terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "La Resistance",
+      "race_distance": "65 miles",
+      "race_elevation": "5,500 feet",
+      "race_date": "Summer",
+      "race_location": "French Alps",
+      "race_terrain": "French Alpine gravel",
+      "race_weather": "Alpine summer variable",
+      "race_challenges": [
+        "Alpine terrain",
+        "Regional field",
+        "European costs",
+        "Variable mountain weather",
+        "Significant elevation"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Alpine endurance",
+        "by_when": "Week 8-10",
+        "why": "French Alpine terrain requires sustained effort."
+      },
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 4-6",
+        "why": "Alpine elevation requires altitude adaptation."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Alpine terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "french_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "alpine_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "altitude",
+          "alpine"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Alpine terrain pacing",
+          "fueling": "Nutrition for Alpine riding",
+          "altitude": "Riding at Alpine elevation",
+          "alpine": "Alpine terrain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "La Resistance",
+        "race_hook": "French Alpine gravel.",
+        "race_hook_detail": "Regional event with Alpine terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Alpine endurance",
+        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

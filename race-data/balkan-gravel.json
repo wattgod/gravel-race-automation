@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Balkan Gravel",
+    "slug": "balkan-gravel",
+    "display_name": "Balkan Gravel",
+    "tagline": "Balkan mountainous gravel in Slovenia/Croatia.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4500,
+      "location": "Slovenia/Croatia",
+      "location_badge": "BALKANS",
+      "county": "Balkans",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Balkan Mountains",
+        "Mountainous gravel",
+        "Regional event",
+        "Balkans"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac50-80",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Balkan summer",
+      "description": "Generally mild mountain conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Mountainous terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Balkan mountainous gravel",
+      "surface": "Gravel roads through Balkan mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant mountainous (4500 feet)",
+        "Balkan scenery",
+        "Slovenia/Croatia setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 13,
+      "biased_opinion": 17,
+      "score_note": "Regional Balkan event. Mountainous terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Balkan Mountain Gravel",
+      "summary": "Balkan Gravel is a regional event in Slovenia/Croatia\u2014mountainous terrain with significant elevation. The Balkan mountains are scenic, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Balkan mountain scenery",
+        "Balkan cycling community",
+        "Balkan mild summer weather",
+        "European pricing",
+        "Slovenia/Croatia setting"
+      ],
+      "weaknesses": [
+        "Balkans access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Limited international draw",
+        "European travel costs"
+      ],
+      "bottom_line": "A scenic Balkan mountain gravel race. Worth it for Balkan/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL BALKAN MOUNTAINS",
+      "reality": "The Balkan mountains are scenic. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate access",
+        "Moderate organization",
+        "Regional field only",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Balkan event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "50 / 100",
+      "one_liner": "Balkan mountainous gravel in Slovenia/Croatia.",
+      "should_you_race": "If you're in Balkans/Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For similar mountain terrain: Carpathian Gravel, Greek Gravel."
+    },
+    "logistics": {
+      "airport": "Ljubljana (LJU) or Zagreb (ZAG) depending on location",
+      "lodging_strategy": "Slovenia/Croatia has moderate lodging options.",
+      "food": "Slovenia/Croatia has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Balkan Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Balkan organizers",
+      "origin_story": "Regional Balkan gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Balkan event."
+    },
+    "course_description": {
+      "character": "Balkan mountainous gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Mountains",
+          "desc": "First mountainous sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Mountains",
+          "desc": "Final mountainous sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Balkan mountainous terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Balkan Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Summer",
+      "race_location": "Slovenia/Croatia",
+      "race_terrain": "Balkan mountainous gravel",
+      "race_weather": "Balkan summer mild",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "Balkan mountains require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Balkan summer weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Mountainous terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "balkan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountainous terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable Balkan weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Balkan Gravel",
+        "race_hook": "Balkan mountainous gravel in Slovenia/Croatia.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Trans-Sylvania Epic",
+    "slug": "trans-sylvania-epic",
+    "display_name": "Trans-Sylvania Epic",
+    "tagline": "Pennsylvania multi-stage mountain gravel.",
+    "vitals": {
+      "distance_mi": 225,
+      "elevation_ft": 15000,
+      "location": "Pennsylvania",
+      "location_badge": "PENNSYLVANIA",
+      "county": "Pennsylvania",
+      "date": "Late Spring/Summer annually",
+      "date_specific": "2026: Late Spring/Summer TBD",
+      "terrain_types": [
+        "PA mountains",
+        "Multi-stage",
+        "Regional event",
+        "Northeast USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$300-500",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations per stage",
+      "cutoff_time": "Varies per stage"
+    },
+    "climate": {
+      "primary": "PA spring/summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Multi-day event",
+        "Spring/Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "PA mountain gravel",
+      "surface": "Gravel roads through PA mountains. Multi-stage format with significant elevation and mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Multi-stage format",
+        "Significant mountainous (15000 feet total)",
+        "Mountain scenery",
+        "PA setting",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "course_profile": 14,
+      "biased_opinion": 16,
+      "score_note": "Regional PA multi-stage event. Mountainous terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "PA Multi-Stage Mountain Gravel",
+      "summary": "Trans-Sylvania Epic is a regional multi-stage event in Pennsylvania—mountainous terrain with significant elevation. The multi-stage format and PA mountains are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Pennsylvania provides good access.",
+      "strengths": [
+        "Multi-stage format",
+        "PA mountain scenery",
+        "PA cycling community",
+        "PA mild spring/summer weather",
+        "Good PA access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Multi-day logistics",
+        "Higher multi-stage pricing",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional PA multi-stage gravel race with mountainous terrain. Worth it for PA/Northeast cyclists seeking a stage race experience. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL PA MULTI-STAGE",
+      "reality": "The multi-stage format and PA mountains are appealing. But this is a regional event with moderate organization. The field is regional only. Multi-day logistics.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Multi-day logistics",
+        "Higher pricing"
+      ],
+      "expectation_reset": "This is a regional PA multi-stage event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "52 / 100",
+      "one_liner": "Pennsylvania multi-stage mountain gravel.",
+      "should_you_race": "If you're in PA/Northeast and want a multi-stage local event—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For better PA events: Iron Cross. For similar multi-stage events: other regional stage races."
+    },
+    "logistics": {
+      "airport": "Varies by location in PA",
+      "lodging_strategy": "PA has moderate lodging options. Multi-day stay required.",
+      "food": "PA has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Trans-Sylvania Epic website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "PA organizers",
+      "origin_story": "Regional PA multi-stage gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional PA multi-stage event."
+    },
+    "course_description": {
+      "character": "PA mountain multi-stage gravel.",
+      "suffering_zones": [
+        {
+          "mile": 50,
+          "label": "Stage 1 Mountains",
+          "desc": "First stage mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Stage 1"
+        },
+        {
+          "mile": 120,
+          "label": "Stage 2 Midpoint",
+          "desc": "Halfway through multi-stage.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Stage 2"
+        },
+        {
+          "mile": 200,
+          "label": "Final Stage Mountains",
+          "desc": "Final stage mountain sections.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Stage"
+        }
+      ],
+      "signature_challenge": "PA multi-stage mountains.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Trans-Sylvania Epic",
+      "race_distance": "225 miles (multi-stage)",
+      "race_elevation": "15,000 feet (total)",
+      "race_date": "Late Spring/Summer",
+      "race_location": "Pennsylvania",
+      "race_terrain": "PA mountain gravel",
+      "race_weather": "PA spring/summer mild",
+      "race_challenges": [
+        "Multi-stage format",
+        "Mountainous terrain",
+        "Regional field",
+        "Higher pricing",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-stage endurance",
+        "by_when": "Week 8-10",
+        "why": "PA multi-stage mountains require sustained effort over multiple days."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "PA spring/summer weather is variable."
+      },
+      {
+        "requirement": "Recovery strategy",
+        "by_when": "Week 2-4",
+        "why": "Multi-stage format requires daily recovery discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "pa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "multistage_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday-Sunday",
+          "duration_hours": {
+            "ayahuasca": 8,
+            "finisher": 10,
+            "compete": 12,
+            "podium": 14
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "recovery",
+          "multistage"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Multi-stage terrain pacing",
+          "fueling": "Nutrition for multi-day riding",
+          "recovery": "Daily recovery in stage races",
+          "multistage": "Multi-stage strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Trans-Sylvania Epic",
+        "race_hook": "Pennsylvania multi-stage mountain gravel.",
+        "race_hook_detail": "Regional multi-stage event with mountainous terrain.",
+        "distance": "225",
+        "dark_mile": "120",
+        "non_negotiable_1": "Multi-stage endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Recovery strategy",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

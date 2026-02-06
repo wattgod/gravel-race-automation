@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Iron Cross",
+    "slug": "iron-cross",
+    "display_name": "Iron Cross",
+    "tagline": "Pennsylvania gravel/cyclocross with technical elements.",
+    "vitals": {
+      "distance_mi": 60,
+      "elevation_ft": 4500,
+      "location": "Pennsylvania",
+      "location_badge": "PENNSYLVANIA",
+      "county": "Pennsylvania",
+      "date": "Fall annually",
+      "date_specific": "2026: Fall TBD",
+      "terrain_types": [
+        "PA hills",
+        "Cyclocross elements",
+        "Regional event",
+        "Northeast USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-125",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "PA fall",
+      "description": "Generally mild to cool conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild to cool",
+        "Hilly terrain",
+        "Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "PA hilly gravel with cyclocross elements",
+      "surface": "Gravel roads with cyclocross obstacles. Significant elevation with PA scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant hilly (4500 feet)",
+        "Cyclocross barriers/obstacles",
+        "PA setting",
+        "~60-mile distance",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 13,
+      "biased_opinion": 17,
+      "score_note": "Regional PA event. Hilly terrain with cyclocross elements, moderate organization, and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "PA Gravel/Cyclocross",
+      "summary": "Iron Cross is a regional event in Pennsylvania—hilly terrain with cyclocross obstacles. The cyclocross elements and PA hills are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Pennsylvania provides good access.",
+      "strengths": [
+        "Cyclocross obstacles",
+        "PA hill scenery",
+        "PA cycling community",
+        "PA fall mild/cool weather",
+        "Good PA access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Technical cyclocross elements",
+        "Limited national recognition",
+        "US travel costs"
+      ],
+      "bottom_line": "A solid regional PA gravel/cyclocross race with hilly terrain and technical elements. Worth it for PA/Northeast cyclists seeking a cyclocross-style gravel race. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL PA CYCLOCROSS",
+      "reality": "The cyclocross elements and PA hills are appealing. But this is a regional event with moderate organization. The field is regional only. Technical obstacles.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Technical cyclocross elements",
+        "US costs"
+      ],
+      "expectation_reset": "This is a regional PA event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "52 / 100",
+      "one_liner": "Pennsylvania gravel/cyclocross with technical elements.",
+      "should_you_race": "If you're in PA/Northeast and want a cyclocross-style gravel race—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For better PA events: Trans-Sylvania Epic. For similar cyclocross gravel events: other regional cyclocross races."
+    },
+    "logistics": {
+      "airport": "Varies by location in PA",
+      "lodging_strategy": "PA has moderate lodging options.",
+      "food": "PA has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Iron Cross website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "PA organizers",
+      "origin_story": "Regional PA gravel/cyclocross event.",
+      "notable_moments": [],
+      "reputation": "Regional PA cyclocross-style event."
+    },
+    "course_description": {
+      "character": "PA hilly gravel with cyclocross obstacles.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Hills",
+          "desc": "First hilly sections with obstacles.",
+          "terrain_detail": "Hilly",
+          "named_section": "Early Hills"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 50,
+          "label": "Late Hills",
+          "desc": "Final hilly sections with obstacles before finish.",
+          "terrain_detail": "Late hills",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "PA hills with cyclocross obstacles.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Iron Cross",
+      "race_distance": "60 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Fall",
+      "race_location": "Pennsylvania",
+      "race_terrain": "PA hilly gravel with cyclocross elements",
+      "race_weather": "PA fall mild/cool",
+      "race_challenges": [
+        "Hilly terrain",
+        "Cyclocross obstacles",
+        "Regional field",
+        "US costs",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Hill endurance",
+        "by_when": "Week 8-10",
+        "why": "PA hills with cyclocross obstacles require sustained effort."
+      },
+      {
+        "requirement": "Technical skills",
+        "by_when": "Week 4-6",
+        "why": "Cyclocross obstacles require technical handling skills."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Hilly terrain with obstacles requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "pa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "hill_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "technical_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "technical",
+          "hills"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Hilly terrain pacing with obstacles",
+          "fueling": "Nutrition for technical riding",
+          "technical": "Cyclocross obstacle handling",
+          "hills": "Sustained hill strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Iron Cross",
+        "race_hook": "Pennsylvania gravel/cyclocross with technical elements.",
+        "race_hook_detail": "Regional event with hilly terrain and cyclocross obstacles.",
+        "distance": "60",
+        "dark_mile": "30",
+        "non_negotiable_1": "Hill endurance",
+        "non_negotiable_2": "Technical skills",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

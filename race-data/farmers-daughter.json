@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Farmer's Daughter",
+    "slug": "farmers-daughter",
+    "display_name": "Farmer's Daughter",
+    "tagline": "New York rolling gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 3500,
+      "location": "New York",
+      "location_badge": "NEW YORK",
+      "county": "New York",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "NY countryside",
+        "Rolling gravel",
+        "Regional event",
+        "Northeast USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-125",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "NY summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "NY rolling gravel",
+      "surface": "Gravel roads through NY countryside. Moderate elevation with countryside scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Countryside scenery",
+        "NY setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 49,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional NY event. Rolling terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "NY Rolling Gravel",
+      "summary": "Farmer's Daughter is a regional event in New York—rolling terrain with moderate elevation. The NY countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3. New York provides good access.",
+      "strengths": [
+        "NY countryside scenery",
+        "NY cycling community",
+        "NY mild summer weather",
+        "US pricing",
+        "Good NY access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling only",
+        "Limited national recognition",
+        "US travel costs"
+      ],
+      "bottom_line": "A solid regional NY gravel race with rolling terrain. Worth it for NY/Northeast cyclists. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL NY ROLLING",
+      "reality": "The NY countryside is nice. But this is a regional event with moderate organization. The field is regional only. Moderate rolling terrain.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling",
+        "US costs"
+      ],
+      "expectation_reset": "This is a regional NY event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "49 / 100",
+      "one_liner": "New York rolling gravel.",
+      "should_you_race": "If you're in NY/Northeast and want a local event—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For better NY events: Dirty Hector (NY State Championship). For similar regional events: other Northeast gravel races."
+    },
+    "logistics": {
+      "airport": "Varies by location in NY",
+      "lodging_strategy": "NY has moderate lodging options.",
+      "food": "NY has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Farmer's Daughter website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "NY organizers",
+      "origin_story": "Regional NY gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional NY event."
+    },
+    "course_description": {
+      "character": "NY rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "NY rolling countryside.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Farmer's Daughter",
+      "race_distance": "65 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "New York",
+      "race_terrain": "NY rolling gravel",
+      "race_weather": "NY summer mild",
+      "race_challenges": [
+        "Rolling terrain",
+        "Regional field",
+        "US costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "NY rolling countryside requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "NY summer weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "ny_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable NY weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Farmer's Daughter",
+        "race_hook": "New York rolling gravel.",
+        "race_hook_detail": "Regional event with rolling terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

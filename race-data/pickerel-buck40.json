@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Pickerel Buck40",
+    "slug": "pickerel-buck40",
+    "display_name": "Pickerel Buck40",
+    "tagline": "Wisconsin 40-mile rolling gravel.",
+    "vitals": {
+      "distance_mi": 40,
+      "elevation_ft": 2500,
+      "location": "Wisconsin",
+      "location_badge": "WISCONSIN",
+      "county": "Wisconsin",
+      "date": "Summer/Fall annually",
+      "date_specific": "2026: Summer/Fall TBD",
+      "terrain_types": [
+        "WI countryside",
+        "Rolling gravel",
+        "Regional event",
+        "Midwest USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "WI summer/fall",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Rolling terrain",
+        "Summer/Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "WI rolling gravel",
+      "surface": "Gravel roads through WI countryside. Moderate elevation with countryside scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (2500 feet)",
+        "Countryside scenery",
+        "WI setting",
+        "40-mile distance",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 48,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional WI event. Rolling terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "WI 40-Mile Rolling Gravel",
+      "summary": "Pickerel Buck40 is a regional event in Wisconsin—rolling terrain with moderate elevation. The WI countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3. Wisconsin provides good access.",
+      "strengths": [
+        "WI countryside scenery",
+        "WI cycling community",
+        "WI mild summer/fall weather",
+        "US pricing",
+        "Good WI access"
+      ],
+      "weaknesses": [
+        "Shorter 40-mile distance",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling only",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional WI gravel race with rolling terrain. Worth it for WI/Midwest cyclists seeking a shorter event. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL WI 40-MILER",
+      "reality": "The WI countryside is nice. But this is a regional event with moderate organization. The field is regional only. Shorter 40-mile distance.",
+      "consequences": [
+        "Shorter distance",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling"
+      ],
+      "expectation_reset": "This is a regional WI event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "Wisconsin 40-mile rolling gravel.",
+      "should_you_race": "If you're in WI/Midwest and want a local shorter event—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For longer WI events: Bear 100, Hungry Bear 100. For similar regional events: other WI gravel races."
+    },
+    "logistics": {
+      "airport": "Varies by location in WI",
+      "lodging_strategy": "WI has moderate lodging options.",
+      "food": "WI has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Pickerel Buck40 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "WI organizers",
+      "origin_story": "Regional WI gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional WI event."
+    },
+    "course_description": {
+      "character": "WI rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 20,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 35,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "WI rolling countryside.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Pickerel Buck40",
+      "race_distance": "40 miles",
+      "race_elevation": "2,500 feet",
+      "race_date": "Summer/Fall",
+      "race_location": "Wisconsin",
+      "race_terrain": "WI rolling gravel",
+      "race_weather": "WI summer/fall mild",
+      "race_challenges": [
+        "Rolling terrain",
+        "Regional field",
+        "US costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "WI rolling countryside requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "WI summer/fall weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wi_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 2.5,
+            "compete": 3,
+            "podium": 3.5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for 40-mile rolling",
+          "weather": "Riding in variable WI weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Pickerel Buck40",
+        "race_hook": "Wisconsin 40-mile rolling gravel.",
+        "race_hook_detail": "Regional event with rolling terrain.",
+        "distance": "40",
+        "dark_mile": "20",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

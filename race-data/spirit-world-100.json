@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Spirit World 100",
+    "slug": "spirit-world-100",
+    "display_name": "Spirit World 100",
+    "tagline": "Arizona desert gravel 100-miler.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3500,
+      "location": "Arizona",
+      "location_badge": "ARIZONA",
+      "county": "Arizona",
+      "date": "Spring/Fall annually",
+      "date_specific": "2026: Spring/Fall TBD",
+      "terrain_types": [
+        "Arizona desert",
+        "100-mile",
+        "Regional event",
+        "Southwest USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-125",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Arizona desert",
+      "description": "Hot or mild depending on season.",
+      "challenges": [
+        "Variable weather",
+        "Desert heat",
+        "Desert terrain",
+        "Spring/Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Arizona desert gravel",
+      "surface": "Gravel roads through Arizona desert. Moderate elevation with desert scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate desert (3500 feet)",
+        "Desert scenery",
+        "Arizona setting",
+        "100-mile distance",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 13,
+      "biased_opinion": 17,
+      "score_note": "Regional Arizona event. Desert terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Arizona Desert 100-Miler",
+      "summary": "Spirit World 100 is a regional event in Arizona—desert terrain with moderate elevation. The desert scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Arizona provides good access.",
+      "strengths": [
+        "Desert scenery",
+        "Arizona cycling community",
+        "100-mile challenge",
+        "US pricing",
+        "Good Arizona access"
+      ],
+      "weaknesses": [
+        "Desert heat challenges",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate elevation only",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional Arizona gravel race with desert terrain. Worth it for Arizona/Southwest cyclists. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL ARIZONA DESERT",
+      "reality": "The desert scenery is nice. But this is a regional event with moderate organization. The field is regional only. Desert heat challenges.",
+      "consequences": [
+        "Desert heat",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate elevation"
+      ],
+      "expectation_reset": "This is a regional Arizona event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Arizona desert gravel 100-miler.",
+      "should_you_race": "If you're in Arizona/Southwest and want a local 100-miler—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For better Arizona events: check other Southwest gravel races. For similar regional 100-milers: other regional century events."
+    },
+    "logistics": {
+      "airport": "Phoenix (PHX) or Tucson (TUS) depending on location",
+      "lodging_strategy": "Arizona has moderate lodging options.",
+      "food": "Arizona has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Spirit World 100 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Arizona organizers",
+      "origin_story": "Regional Arizona gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Arizona event."
+    },
+    "course_description": {
+      "character": "Arizona desert gravel.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Desert",
+          "desc": "First desert sections.",
+          "terrain_detail": "Desert",
+          "named_section": "Early Desert"
+        },
+        {
+          "mile": 50,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "Late Desert",
+          "desc": "Final desert sections before finish.",
+          "terrain_detail": "Late desert",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Arizona desert 100-miler.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Spirit World 100",
+      "race_distance": "100 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Spring/Fall",
+      "race_location": "Arizona",
+      "race_terrain": "Arizona desert gravel",
+      "race_weather": "Arizona desert hot/mild",
+      "race_challenges": [
+        "Desert terrain",
+        "Regional field",
+        "Desert heat",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Desert endurance",
+        "by_when": "Week 8-10",
+        "why": "Arizona desert 100-miler requires sustained effort."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Arizona desert weather requires heat training."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "100-mile distance requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "arizona_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "desert_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "desert"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "100-mile desert pacing",
+          "fueling": "Nutrition for desert century",
+          "heat": "Riding in desert heat",
+          "desert": "Desert riding strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Spirit World 100",
+        "race_hook": "Arizona desert gravel 100-miler.",
+        "race_hook_detail": "Regional event with desert terrain.",
+        "distance": "100",
+        "dark_mile": "50",
+        "non_negotiable_1": "Desert endurance",
+        "non_negotiable_2": "Heat preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

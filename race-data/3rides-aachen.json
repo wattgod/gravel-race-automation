@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "3Rides Aachen",
+    "slug": "3rides-aachen",
+    "display_name": "3Rides Aachen",
+    "tagline": "German mountain gravel in Winterberg/Aachen.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4500,
+      "location": "Winterberg/Aachen, Germany",
+      "location_badge": "WINTERBERG/AACHEN, GERMANY",
+      "county": "North Rhine-Westphalia",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "German mountains",
+        "Mountain gravel",
+        "Regional event",
+        "Western Germany"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€80-120",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "German summer",
+      "description": "Mountain weather with variability.",
+      "challenges": [
+        "Mountain weather variability",
+        "Variable conditions",
+        "Mountain climbing",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "German mountain gravel",
+      "surface": "Gravel roads through German mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (4500 feet)",
+        "Mountain scenery",
+        "Winterberg/Aachen setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional German event. Mountain terrain with good organization but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "German Mountain Gravel",
+      "summary": "3Rides Aachen is a regional event in Winterberg/Aachen, Germany—mountain terrain with significant elevation. The organization is good and access is solid. However, the regional field keeps it in Tier 3. German summer mountain weather adds variability.",
+      "strengths": [
+        "Winterberg/Aachen (good access)",
+        "Good organization",
+        "German mountain terrain",
+        "Significant climbing (4500 feet)",
+        "German cycling community"
+      ],
+      "weaknesses": [
+        "Regional field only",
+        "European pricing",
+        "European travel costs",
+        "Mountain weather variability",
+        "Limited international recognition"
+      ],
+      "bottom_line": "A solid regional German gravel race with mountain terrain. Worth it for German/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL GERMAN MOUNTAINS",
+      "reality": "The German mountain terrain is nice with good organization. But this is a regional event. The field is regional only.",
+      "consequences": [
+        "Regional field only",
+        "European costs",
+        "Mountain weather",
+        "Regional event"
+      ],
+      "expectation_reset": "This is a regional German event. The organization and terrain are solid, but set expectations accordingly for field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "German mountain gravel in Winterberg/Aachen.",
+      "should_you_race": "If you're in Germany/Europe and want a mountain event—yes, it's solid. If you're international—there are better options.",
+      "alternatives": "For better European events: The Traka, Grinduro. For similar regional events: other German gravel races."
+    },
+    "logistics": {
+      "airport": "Cologne (CGN) 1 hour or Düsseldorf (DUS) 1.5 hours",
+      "lodging_strategy": "Winterberg/Aachen area has good lodging options.",
+      "food": "Full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check 3Rides Aachen website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "German organizers",
+      "origin_story": "Regional German gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional German event."
+    },
+    "course_description": {
+      "character": "German mountain gravel with significant climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Climbs",
+          "desc": "First mountain climbs.",
+          "terrain_detail": "Mountain climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Climbs",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late climbing",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "German mountain climbing in Winterberg/Aachen.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "3Rides Aachen",
+      "race_distance": "65 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Summer",
+      "race_location": "Winterberg/Aachen, Germany",
+      "race_terrain": "German mountain gravel",
+      "race_weather": "German summer mountain",
+      "race_challenges": [
+        "Mountain climbing",
+        "Mountain weather variability",
+        "Significant elevation",
+        "Regional field",
+        "European costs"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "German mountains require solid climbing fitness (4500 feet)."
+      },
+      {
+        "requirement": "Mountain weather preparation",
+        "by_when": "Week 4-6",
+        "why": "German mountain weather is variable."
+      },
+      {
+        "requirement": "Mountain pacing",
+        "by_when": "Week 2-4",
+        "why": "Mountain terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "german_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "mountain_weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "weather",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "climbing": "Sustained German mountain climbing",
+          "weather": "Riding in variable mountain weather",
+          "fueling": "Nutrition for mountain climbing"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "3Rides Aachen",
+        "race_hook": "German mountain gravel in Winterberg/Aachen.",
+        "race_hook_detail": "Regional event with mountain climbing.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Mountain weather preparation",
+        "non_negotiable_3": "Mountain pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

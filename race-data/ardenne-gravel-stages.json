@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Ardenne Gravel Stages",
+    "slug": "ardenne-gravel-stages",
+    "display_name": "Ardenne Gravel Stages",
+    "tagline": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+    "vitals": {
+      "distance_mi": 180,
+      "elevation_ft": 12000,
+      "location": "Vielsalm/Engreux, Belgian Ardennes",
+      "location_badge": "VIELSALM, BELGIUM",
+      "county": "Luxembourg Province",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Belgian Ardennes",
+        "Multi-stage",
+        "Regional event",
+        "Belgium"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€150-250",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations per stage",
+      "cutoff_time": "Varies per stage"
+    },
+    "climate": {
+      "primary": "Belgian summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Multi-day event",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Belgian Ardennes gravel",
+      "surface": "Gravel roads through Belgian Ardennes. Multi-stage format with significant elevation and forest scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Multi-stage format",
+        "Significant hilly (12000 feet total)",
+        "Forest scenery",
+        "Vielsalm/Engreux setting",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 13,
+      "biased_opinion": 17,
+      "score_note": "Regional Belgian multi-stage event. Hilly Ardennes terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Belgian Ardennes Multi-Stage Gravel",
+      "summary": "Ardenne Gravel Stages is a regional multi-stage event in Vielsalm/Engreux, Belgian Ardennes—hilly terrain with significant elevation. The multi-stage format and Ardennes forest are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Vielsalm provides good access.",
+      "strengths": [
+        "Multi-stage format",
+        "Ardennes forest scenery",
+        "Belgian cycling community",
+        "Belgian mild summer weather",
+        "Good Belgium access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Multi-day logistics",
+        "Limited international recognition",
+        "European travel costs"
+      ],
+      "bottom_line": "A solid regional Belgian multi-stage gravel race with hilly Ardennes terrain. Worth it for Belgian/European cyclists seeking a stage race experience. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL BELGIAN MULTI-STAGE",
+      "reality": "The multi-stage format and Ardennes forest are appealing. But this is a regional event with moderate organization. The field is regional only. Multi-day logistics.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Multi-day logistics",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Belgian multi-stage event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "52 / 100",
+      "one_liner": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+      "should_you_race": "If you're in Belgium/Europe and want a multi-stage local event—yes, it's solid. If you're international—there are better options.",
+      "alternatives": "For better Belgian events: Houffa Gravel. For similar multi-stage events: other European stage races."
+    },
+    "logistics": {
+      "airport": "Brussels (BRU) 2 hours or Luxembourg (LUX) 1 hour",
+      "lodging_strategy": "Vielsalm/Engreux has moderate lodging options. Multi-day stay required.",
+      "food": "Vielsalm has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Ardenne Gravel Stages website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Belgian organizers",
+      "origin_story": "Regional Belgian multi-stage gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Belgian multi-stage event."
+    },
+    "course_description": {
+      "character": "Belgian Ardennes multi-stage gravel.",
+      "suffering_zones": [
+        {
+          "mile": 40,
+          "label": "Stage 1 Hills",
+          "desc": "First stage hilly sections.",
+          "terrain_detail": "Hilly",
+          "named_section": "Stage 1"
+        },
+        {
+          "mile": 90,
+          "label": "Stage 2 Midpoint",
+          "desc": "Halfway through multi-stage.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Stage 2"
+        },
+        {
+          "mile": 160,
+          "label": "Final Stage Hills",
+          "desc": "Final stage hilly sections.",
+          "terrain_detail": "Late hills",
+          "named_section": "Final Stage"
+        }
+      ],
+      "signature_challenge": "Belgian Ardennes multi-stage hills in Vielsalm/Engreux.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Ardenne Gravel Stages",
+      "race_distance": "180 miles (multi-stage)",
+      "race_elevation": "12,000 feet (total)",
+      "race_date": "Summer",
+      "race_location": "Vielsalm/Engreux, Belgian Ardennes",
+      "race_terrain": "Belgian Ardennes gravel",
+      "race_weather": "Belgian summer mild",
+      "race_challenges": [
+        "Multi-stage format",
+        "Hilly terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-stage endurance",
+        "by_when": "Week 8-10",
+        "why": "Belgian Ardennes multi-stage requires sustained effort over multiple days."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Belgian summer weather is variable."
+      },
+      {
+        "requirement": "Recovery strategy",
+        "by_when": "Week 2-4",
+        "why": "Multi-stage format requires daily recovery discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "belgian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "multistage_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday-Sunday",
+          "duration_hours": {
+            "ayahuasca": 6,
+            "finisher": 8,
+            "compete": 10,
+            "podium": 12
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "recovery",
+          "multistage"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Multi-stage terrain pacing",
+          "fueling": "Nutrition for multi-day riding",
+          "recovery": "Daily recovery in stage races",
+          "multistage": "Multi-stage strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Ardenne Gravel Stages",
+        "race_hook": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+        "race_hook_detail": "Regional multi-stage event with hilly terrain.",
+        "distance": "180",
+        "dark_mile": "90",
+        "non_negotiable_1": "Multi-stage endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Recovery strategy",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

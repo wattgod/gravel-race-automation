@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Dirty Pecan",
+    "slug": "dirty-pecan",
+    "display_name": "Dirty Pecan",
+    "tagline": "Florida flat gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 800,
+      "location": "Florida",
+      "location_badge": "FLORIDA",
+      "county": "Florida",
+      "date": "Winter/Spring annually",
+      "date_specific": "2026: Winter/Spring TBD",
+      "terrain_types": [
+        "FL countryside",
+        "Flat gravel",
+        "Regional event",
+        "Southeast USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-125",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "FL winter/spring",
+      "description": "Generally mild to warm conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild to warm",
+        "Flat terrain",
+        "Winter/Spring conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "FL flat gravel",
+      "surface": "Gravel roads through FL countryside. Minimal elevation with FL scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Minimal flat (800 feet)",
+        "FL scenery",
+        "FL setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 48,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Regional FL event. Flat terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "FL Flat Gravel",
+      "summary": "Dirty Pecan is a regional event in Florida—flat terrain with minimal elevation. The FL scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Florida provides good access.",
+      "strengths": [
+        "FL scenery",
+        "FL cycling community",
+        "FL mild/warm winter/spring weather",
+        "US pricing",
+        "Good FL access"
+      ],
+      "weaknesses": [
+        "Flat terrain (minimal elevation)",
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition",
+        "US travel costs"
+      ],
+      "bottom_line": "A solid regional FL gravel race with flat terrain. Worth it for FL/Southeast cyclists. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL FL FLAT",
+      "reality": "The FL scenery is nice. But this is a regional event with moderate organization. The field is regional only. Flat terrain.",
+      "consequences": [
+        "Flat terrain",
+        "Moderate organization",
+        "Regional field only",
+        "US costs"
+      ],
+      "expectation_reset": "This is a regional FL event. The terrain is flat, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "Florida flat gravel.",
+      "should_you_race": "If you're in FL/Southeast and want a local event—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For similar regional events: other FL gravel races. For more elevation: GA/NC gravel races."
+    },
+    "logistics": {
+      "airport": "Varies by location in FL",
+      "lodging_strategy": "FL has moderate lodging options.",
+      "food": "FL has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Dirty Pecan website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "FL organizers",
+      "origin_story": "Regional FL gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional FL event."
+    },
+    "course_description": {
+      "character": "FL flat gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Flat",
+          "desc": "First flat sections.",
+          "terrain_detail": "Flat",
+          "named_section": "Early Flat"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Flat",
+          "desc": "Final flat sections before finish.",
+          "terrain_detail": "Late flat",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "FL flat gravel.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Dirty Pecan",
+      "race_distance": "65 miles",
+      "race_elevation": "800 feet",
+      "race_date": "Winter/Spring",
+      "race_location": "Florida",
+      "race_terrain": "FL flat gravel",
+      "race_weather": "FL winter/spring mild/warm",
+      "race_challenges": [
+        "Flat terrain",
+        "Regional field",
+        "US costs",
+        "Variable weather",
+        "Minimal elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Flat endurance",
+        "by_when": "Week 8-10",
+        "why": "FL flat terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "FL winter/spring weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Flat terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "fl_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "flat_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "flat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Flat terrain pacing",
+          "fueling": "Nutrition for flat riding",
+          "weather": "Riding in variable FL weather",
+          "flat": "Sustained flat strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Dirty Pecan",
+        "race_hook": "Florida flat gravel.",
+        "race_hook_detail": "Regional event with flat terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Flat endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

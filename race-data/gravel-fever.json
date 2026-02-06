@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Gravel Fever",
+    "slug": "gravel-fever",
+    "display_name": "Gravel Fever",
+    "tagline": "French rolling gravel in Châtellerault.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 3500,
+      "location": "Châtellerault, France",
+      "location_badge": "CHÂTELLERAULT, FRANCE",
+      "county": "Vienne",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "French countryside",
+        "Rolling gravel",
+        "Regional event",
+        "Central France"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "French summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "French rolling gravel",
+      "surface": "Gravel roads through French countryside. Moderate elevation with countryside scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Countryside scenery",
+        "Châtellerault setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 48,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional French event. Rolling terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "French Countryside Rolling Gravel",
+      "summary": "Gravel Fever is a regional event in Châtellerault, France—rolling countryside with moderate elevation. The French countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3. Châtellerault provides moderate access.",
+      "strengths": [
+        "French countryside scenery",
+        "French cycling community",
+        "French mild summer weather",
+        "Regional pricing",
+        "Countryside setting"
+      ],
+      "weaknesses": [
+        "Central France access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling only",
+        "Limited international recognition"
+      ],
+      "bottom_line": "A solid regional French gravel race with rolling countryside. Worth it for French/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL FRENCH COUNTRYSIDE",
+      "reality": "The French countryside is nice. But this is a regional event with moderate organization. The field is regional only. Moderate rolling terrain.",
+      "consequences": [
+        "Central France access",
+        "Moderate organization",
+        "Regional field only",
+        "Moderate rolling"
+      ],
+      "expectation_reset": "This is a regional French event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "French rolling gravel in Châtellerault.",
+      "should_you_race": "If you're in France/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
+      "alternatives": "For better French events: Wish One Millau, 66° South Pyrénées. For similar regional events: other French gravel races."
+    },
+    "logistics": {
+      "airport": "Paris (CDG) 2.5 hours or Bordeaux (BOD) 2 hours",
+      "lodging_strategy": "Châtellerault has moderate lodging options.",
+      "food": "Châtellerault has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Gravel Fever website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "French organizers",
+      "origin_story": "Regional French gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional French event."
+    },
+    "course_description": {
+      "character": "French countryside rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "French countryside rolling in Châtellerault.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gravel Fever",
+      "race_distance": "65 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Châtellerault, France",
+      "race_terrain": "French rolling gravel",
+      "race_weather": "French summer mild",
+      "race_challenges": [
+        "Rolling terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "French rolling countryside requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "French summer weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "french_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for moderate rolling",
+          "weather": "Riding in variable French weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gravel Fever",
+        "race_hook": "French rolling gravel in Châtellerault.",
+        "race_hook_detail": "Regional event with rolling countryside.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Hellhole Gravel Grind Stage Race",
+    "slug": "hellhole-gravel-grind",
+    "display_name": "Hellhole Gravel Grind Stage Race",
+    "tagline": "Multi-day South Carolina gravel in Jamestown.",
+    "vitals": {
+      "distance_mi": 150,
+      "elevation_ft": 6000,
+      "location": "Jamestown, South Carolina",
+      "location_badge": "JAMESTOWN, SC",
+      "county": "Berkeley County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "South Carolina rolling gravel",
+        "Multi-day stage race",
+        "Regional event",
+        "Central South Carolina"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning starts daily",
+      "registration": "Online. Cost: ~$150-250",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations daily",
+      "cutoff_time": "Daily cutoffs"
+    },
+    "climate": {
+      "primary": "South Carolina spring/fall",
+      "description": "Variable conditions over multiple days.",
+      "challenges": [
+        "Heat possible",
+        "Humidity",
+        "Variable weather",
+        "Multi-day exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "South Carolina rolling gravel",
+      "surface": "Gravel roads through rolling SC terrain over multiple days. Moderate elevation per day.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling per day (6000 feet total)",
+        "Rural scenery",
+        "Multi-day format",
+        "Jamestown setting",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 18,
+      "score_note": "Regional SC event. Multi-day format is significant but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "South Carolina Multi-Day Gravel",
+      "summary": "Hellhole Gravel Grind is a multi-day stage race in Jamestown, South Carolina—rolling terrain over multiple days. The multi-day format creates a challenge, but the moderate organization and regional field keep it in Tier 3. Jamestown provides moderate access.",
+      "strengths": [
+        "Multi-day format (significant challenge)",
+        "SC cycling community",
+        "Adventure factor",
+        "Regional pricing",
+        "Stage race experience"
+      ],
+      "weaknesses": [
+        "Central SC access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Heat/humidity concerns",
+        "Multi-day logistics"
+      ],
+      "bottom_line": "A solid regional South Carolina multi-day gravel race. Worth it for South Carolina cyclists seeking a stage race experience. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL MULTI-DAY",
+      "reality": "The multi-day format is interesting. But this is a regional event with moderate organization. The field is regional only. Heat and humidity over multiple days.",
+      "consequences": [
+        "Central SC access",
+        "Moderate organization",
+        "Regional field only",
+        "Multi-day heat/humidity"
+      ],
+      "expectation_reset": "This is a regional SC stage race. The format is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Multi-day South Carolina gravel in Jamestown.",
+      "should_you_race": "If you're in South Carolina and want a multi-day experience—yes, it's solid. If you're from out of state—there are better options.",
+      "alternatives": "For better stage races: other multi-day events. For similar regional events: other SC gravel races."
+    },
+    "logistics": {
+      "airport": "Charleston (CHS) 1 hour or Columbia (CAE) 1.5 hours",
+      "lodging_strategy": "Jamestown has limited lodging. Nearby towns have options.",
+      "food": "Small town with limited dining. Stock nutrition.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check South Carolina cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "South Carolina organizers",
+      "origin_story": "Regional South Carolina stage race.",
+      "notable_moments": [],
+      "reputation": "Regional SC event."
+    },
+    "course_description": {
+      "character": "Rolling SC gravel over multiple days.",
+      "suffering_zones": [
+        {
+          "mile": 50,
+          "label": "Day 1 Complete",
+          "desc": "First day done.",
+          "terrain_detail": "Day 1",
+          "named_section": "Day 1"
+        },
+        {
+          "mile": 100,
+          "label": "Day 2 Complete",
+          "desc": "Halfway through, cumulative fatigue.",
+          "terrain_detail": "Day 2",
+          "named_section": "Day 2"
+        },
+        {
+          "mile": 150,
+          "label": "Final Day",
+          "desc": "Last day to finish.",
+          "terrain_detail": "Final day",
+          "named_section": "Final Day"
+        }
+      ],
+      "signature_challenge": "Multi-day endurance in South Carolina.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Hellhole Gravel Grind Stage Race",
+      "race_distance": "150 miles (multi-day)",
+      "race_elevation": "6,000 feet (total)",
+      "race_date": "Spring or Fall",
+      "race_location": "Jamestown, South Carolina",
+      "race_terrain": "South Carolina rolling gravel",
+      "race_weather": "SC spring/fall variability",
+      "race_challenges": [
+        "Multi-day format",
+        "Heat/humidity possible",
+        "Cumulative fatigue",
+        "Regional field",
+        "Multi-day logistics"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day endurance",
+        "by_when": "Week 12-14",
+        "why": "Multi-day format requires extensive endurance and recovery preparation."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "SC spring/fall means heat and humidity over multiple days."
+      },
+      {
+        "requirement": "Multi-day pacing",
+        "by_when": "Week 2-4",
+        "why": "Multi-day format requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "south_carolina_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "multi_day_endurance": {
+          "enabled": true,
+          "weeks": [
+            12,
+            13,
+            14
+          ]
+        },
+        "heat_humidity_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 14,
+          "day": "Saturday-Sunday",
+          "duration_hours": {
+            "ayahuasca": 6,
+            "finisher": 8,
+            "compete": 10,
+            "podium": 12
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "recovery",
+          "pacing",
+          "fueling",
+          "heat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "recovery": "Multi-day recovery strategies",
+          "pacing": "Multi-day pacing discipline",
+          "fueling": "Nutrition for multi-day racing",
+          "heat": "Racing in SC heat and humidity"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Hellhole Gravel Grind Stage Race",
+        "race_hook": "Multi-day South Carolina gravel in Jamestown.",
+        "race_hook_detail": "Regional stage race with multi-day challenge.",
+        "distance": "150",
+        "dark_mile": "100",
+        "non_negotiable_1": "Multi-day endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Multi-day pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

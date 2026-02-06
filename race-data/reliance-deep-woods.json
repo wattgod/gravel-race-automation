@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Reliance Deep Woods",
+    "slug": "reliance-deep-woods",
+    "display_name": "Reliance Deep Woods",
+    "tagline": "Tennessee mountain gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4500,
+      "location": "Tennessee",
+      "location_badge": "TENNESSEE",
+      "county": "Tennessee",
+      "date": "Spring/Fall annually",
+      "date_specific": "2026: Spring/Fall TBD",
+      "terrain_types": [
+        "TN mountains",
+        "Forest gravel",
+        "Regional event",
+        "Southeast USA"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-125",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "TN spring/fall",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Mountainous terrain",
+        "Spring/Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "TN mountain gravel",
+      "surface": "Gravel roads through TN mountains. Significant elevation with mountain/forest scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant mountainous (4500 feet)",
+        "Mountain/forest scenery",
+        "TN setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 12,
+      "biased_opinion": 17,
+      "score_note": "Regional TN event. Mountainous terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "TN Mountain Gravel",
+      "summary": "Reliance Deep Woods is a regional event in Tennessee—mountainous terrain with significant elevation. The TN mountain/forest scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Tennessee provides good access.",
+      "strengths": [
+        "TN mountain/forest scenery",
+        "TN cycling community",
+        "TN mild spring/fall weather",
+        "US pricing",
+        "Good TN access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Mountainous terrain challenges",
+        "Limited national recognition",
+        "US travel costs"
+      ],
+      "bottom_line": "A solid regional TN gravel race with mountainous terrain. Worth it for TN/Southeast cyclists. Not a destination race for national travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL TN MOUNTAIN",
+      "reality": "The TN mountain/forest scenery is nice. But this is a regional event with moderate organization. The field is regional only. Mountainous terrain.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Mountainous terrain",
+        "US costs"
+      ],
+      "expectation_reset": "This is a regional TN event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Tennessee mountain gravel.",
+      "should_you_race": "If you're in TN/Southeast and want a local mountain event—yes, it's solid. If you're from out of region—there are better options.",
+      "alternatives": "For similar regional events: other TN gravel races. For better mountain events: NC/VA gravel races."
+    },
+    "logistics": {
+      "airport": "Chattanooga (CHA) or Knoxville (TYS) depending on location",
+      "lodging_strategy": "TN has moderate lodging options.",
+      "food": "TN has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Reliance Deep Woods website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "TN organizers",
+      "origin_story": "Regional TN gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional TN event."
+    },
+    "course_description": {
+      "character": "TN mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "TN mountain/forest terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Reliance Deep Woods",
+      "race_distance": "65 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Spring/Fall",
+      "race_location": "Tennessee",
+      "race_terrain": "TN mountain gravel",
+      "race_weather": "TN spring/fall mild",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Regional field",
+        "US costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "TN mountain terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "TN spring/fall weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Mountainous terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "tn_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable TN weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Reliance Deep Woods",
+        "race_hook": "Tennessee mountain gravel.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

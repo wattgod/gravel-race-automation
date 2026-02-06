@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Houffa Gravel",
+    "slug": "houffa-gravel",
+    "display_name": "Houffa Gravel",
+    "tagline": "Belgian Ardennes gravel in Houffalize.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4500,
+      "location": "Houffalize, Belgian Ardennes",
+      "location_badge": "HOUFFALIZE, BELGIUM",
+      "county": "Luxembourg Province",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Belgian Ardennes",
+        "Hilly gravel",
+        "Regional event",
+        "Belgium"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Belgian summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Hilly terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Belgian Ardennes gravel",
+      "surface": "Gravel roads through Belgian Ardennes. Significant elevation with forest scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant hilly (4500 feet)",
+        "Forest scenery",
+        "Houffalize setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 12,
+      "biased_opinion": 16,
+      "score_note": "Regional Belgian event. Hilly Ardennes terrain with moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Belgian Ardennes Hilly Gravel",
+      "summary": "Houffa Gravel is a regional event in Houffalize, Belgian Ardennes—hilly terrain with significant elevation. The Ardennes forest is scenic, but the moderate organization and regional field keep it firmly in Tier 3. Houffalize provides good access.",
+      "strengths": [
+        "Ardennes forest scenery",
+        "Belgian cycling community",
+        "Belgian mild summer weather",
+        "Regional pricing",
+        "Good Belgium access"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Hilly elevation only",
+        "Limited international recognition",
+        "European travel costs"
+      ],
+      "bottom_line": "A solid regional Belgian gravel race with hilly Ardennes terrain. Worth it for Belgian/European cyclists. Not a destination race for international travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL BELGIAN ARDENNES",
+      "reality": "The Ardennes forest is scenic. But this is a regional event with moderate organization. The field is regional only. Hilly terrain.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Hilly elevation",
+        "European costs"
+      ],
+      "expectation_reset": "This is a regional Belgian event. The terrain is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "50 / 100",
+      "one_liner": "Belgian Ardennes gravel in Houffalize.",
+      "should_you_race": "If you're in Belgium/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
+      "alternatives": "For better Belgian events: Ardenne Gravel Stages. For similar regional events: other Belgian gravel races."
+    },
+    "logistics": {
+      "airport": "Brussels (BRU) 2 hours or Luxembourg (LUX) 1 hour",
+      "lodging_strategy": "Houffalize has moderate lodging options.",
+      "food": "Houffalize has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Houffa Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Belgian organizers",
+      "origin_story": "Regional Belgian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Belgian event."
+    },
+    "course_description": {
+      "character": "Belgian Ardennes hilly gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Hills",
+          "desc": "First hilly sections.",
+          "terrain_detail": "Hilly",
+          "named_section": "Early Hills"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Hills",
+          "desc": "Final hilly sections before finish.",
+          "terrain_detail": "Late hills",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Belgian Ardennes hills in Houffalize.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Houffa Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Summer",
+      "race_location": "Houffalize, Belgian Ardennes",
+      "race_terrain": "Belgian Ardennes gravel",
+      "race_weather": "Belgian summer mild",
+      "race_challenges": [
+        "Hilly terrain",
+        "Regional field",
+        "European costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Hill endurance",
+        "by_when": "Week 8-10",
+        "why": "Belgian Ardennes hills require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Belgian summer weather is variable."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Hilly terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "belgian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "hill_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "hills"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Hilly terrain pacing",
+          "fueling": "Nutrition for hilly riding",
+          "weather": "Riding in variable Belgian weather",
+          "hills": "Sustained hill strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Houffa Gravel",
+        "race_hook": "Belgian Ardennes gravel in Houffalize.",
+        "race_hook_detail": "Regional event with hilly terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Hill endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

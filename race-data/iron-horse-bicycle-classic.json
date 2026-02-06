@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Iron Horse Bicycle Classic",
+    "slug": "iron-horse-bicycle-classic",
+    "display_name": "Iron Horse Bicycle Classic",
+    "tagline": "Colorado mountain cycling in Durango.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 6000,
+      "location": "Durango, Colorado",
+      "location_badge": "DURANGO, CO",
+      "county": "La Plata County",
+      "date": "Late Spring annually",
+      "date_specific": "2026: Late May TBD",
+      "terrain_types": [
+        "Colorado mountains",
+        "Mixed surfaces",
+        "Mountain gravel",
+        "Regional event"
+      ],
+      "field_size": "400-800 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Colorado mountain spring",
+      "description": "Variable mountain conditions with altitude considerations.",
+      "challenges": [
+        "Altitude (6500ft base)",
+        "Mountain weather variability",
+        "Spring conditions",
+        "Mountain climbing"
+      ]
+    },
+    "terrain": {
+      "primary": "Colorado mountain mixed terrain",
+      "surface": "Mixed paved and gravel roads through Colorado mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (6000 feet)",
+        "Mountain scenery",
+        "Durango setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 13,
+      "biased_opinion": 18,
+      "score_note": "Regional CO event. Mountain terrain is nice with good organization but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Colorado Mountain Cycling Classic",
+      "summary": "Iron Horse Bicycle Classic is a regional cycling event in Durango, Colorado\u2014mountain terrain with mixed surfaces and significant elevation. Durango provides good access and the organization is solid. However, the regional field and mixed-surface format keep it in Tier 3. Spring mountain weather and altitude add challenges.",
+      "strengths": [
+        "Durango (good access)",
+        "Mountain terrain with significant climbing (6000 feet)",
+        "Good organization",
+        "CO cycling community",
+        "Mountain scenery"
+      ],
+      "weaknesses": [
+        "Regional field only",
+        "Mixed surfaces (not pure gravel)",
+        "Altitude considerations",
+        "Spring mountain weather",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional Colorado mountain cycling event. Worth it for Colorado cyclists seeking a mountain challenge. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL COLORADO MOUNTAIN EVENT",
+      "reality": "The mountain terrain is nice with solid climbing and good organization. But this is a regional event with a regional field. Mixed surfaces mean it's not pure gravel.",
+      "consequences": [
+        "Regional field only",
+        "Mixed surfaces",
+        "Altitude",
+        "Spring mountain weather"
+      ],
+      "expectation_reset": "This is a regional CO event. The terrain is solid, but set expectations accordingly for field and format."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "Colorado mountain cycling in Durango.",
+      "should_you_race": "If you're in Colorado and want a mountain cycling event\u2014yes, it's solid. If you want pure gravel or pro field depth\u2014look elsewhere.",
+      "alternatives": "For better CO events: Crusher in the Tushar, Leadville 100. For similar regional events: other CO cycling races."
+    },
+    "logistics": {
+      "airport": "Durango (DRO) 20 minutes or Albuquerque (ABQ) 3 hours",
+      "lodging_strategy": "Durango has good lodging options.",
+      "food": "Durango has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Iron Horse Bicycle Classic website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Durango organizers",
+      "origin_story": "Colorado mountain cycling event.",
+      "notable_moments": [],
+      "reputation": "Regional CO event."
+    },
+    "course_description": {
+      "character": "Mountain terrain with mixed surfaces and significant climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Climbing",
+          "desc": "First mountain climbs.",
+          "terrain_detail": "Mountain climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Climbs",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late climbing",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Colorado mountain climbing in Durango with altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Iron Horse Bicycle Classic",
+      "race_distance": "65 miles",
+      "race_elevation": "6,000 feet",
+      "race_date": "Late Spring",
+      "race_location": "Durango, Colorado",
+      "race_terrain": "Colorado mountain mixed terrain",
+      "race_weather": "CO mountain spring variability",
+      "race_challenges": [
+        "Mountain climbing",
+        "Altitude (6500ft base)",
+        "Spring mountain weather",
+        "Regional field",
+        "Mixed surfaces"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6500
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "Colorado mountains require solid climbing fitness (6000 feet)."
+      },
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 4-6",
+        "why": "6500ft base elevation requires altitude acclimation."
+      },
+      {
+        "requirement": "Mountain pacing",
+        "by_when": "Week 2-4",
+        "why": "Mountain terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "colorado_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "altitude",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "climbing": "Sustained mountain climbing",
+          "altitude": "Racing at 6500ft+",
+          "fueling": "Nutrition for mountain climbing"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Iron Horse Bicycle Classic",
+        "race_hook": "Colorado mountain cycling in Durango.",
+        "race_hook_detail": "Regional event with mountain climbing and altitude.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_3": "Mountain pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

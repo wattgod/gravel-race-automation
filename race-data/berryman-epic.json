@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Berryman Epic",
+    "slug": "berryman-epic",
+    "display_name": "Berryman Epic",
+    "tagline": "Missouri Berryman Trail mixed surfaces in Potosi.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4500,
+      "location": "Potosi, Missouri",
+      "location_badge": "POTOSI, MO",
+      "county": "Washington County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Missouri Berryman Trail",
+        "Mixed surfaces",
+        "Ozark foothills",
+        "Regional event"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Missouri spring/fall",
+      "description": "Variable conditions with heat possible.",
+      "challenges": [
+        "Heat possible",
+        "Variable weather",
+        "Technical terrain",
+        "Ozark foothills"
+      ]
+    },
+    "terrain": {
+      "primary": "Missouri Berryman Trail mixed surfaces",
+      "surface": "Mixed singletrack and gravel on Berryman Trail. Moderate elevation with Ozark foothills scenery.",
+      "technical_rating": 4,
+      "features": [
+        "Moderate Ozark foothills (4500 feet)",
+        "Technical mixed terrain",
+        "Berryman Trail scenery",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 17,
+      "score_note": "Regional MO event. Technical Berryman Trail terrain is interesting but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Missouri Berryman Trail Mixed Surfaces",
+      "summary": "Berryman Epic is a regional event in Potosi, Missouri—Berryman Trail with mixed technical terrain and Ozark foothills. The technical terrain is interesting, but the moderate organization and regional field keep it firmly in Tier 3. Potosi provides moderate access. Spring/fall weather adds variability.",
+      "strengths": [
+        "Technical mixed terrain",
+        "Berryman Trail scenery",
+        "Ozark foothills",
+        "MO cycling community",
+        "Regional pricing"
+      ],
+      "weaknesses": [
+        "Southeast MO access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Mixed surfaces (not pure gravel)",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional Missouri event with technical Berryman Trail terrain. Worth it for Missouri cyclists seeking a technical challenge. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL BERRYMAN TRAIL",
+      "reality": "The Berryman Trail terrain is technical and interesting. But this is a regional event with moderate organization. The field is regional only. Mixed surfaces.",
+      "consequences": [
+        "Southeast MO access",
+        "Moderate organization",
+        "Regional field only",
+        "Mixed surfaces"
+      ],
+      "expectation_reset": "This is a regional MO event. The terrain is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "52 / 100",
+      "one_liner": "Missouri Berryman Trail mixed surfaces in Potosi.",
+      "should_you_race": "If you're in Missouri and want a technical Berryman Trail event—yes, it's solid. If you're from out of state—there are better options.",
+      "alternatives": "For better regional events: other MO cycling events. For similar technical events: other trail-based races."
+    },
+    "logistics": {
+      "airport": "St. Louis (STL) 1.5 hours",
+      "lodging_strategy": "Potosi has limited lodging options.",
+      "food": "Small town with limited dining. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Missouri cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Missouri organizers",
+      "origin_story": "Regional Missouri event.",
+      "notable_moments": [],
+      "reputation": "Regional MO event."
+    },
+    "course_description": {
+      "character": "Technical Berryman Trail mixed surfaces with Ozark foothills.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Technical",
+          "desc": "First technical sections.",
+          "terrain_detail": "Technical",
+          "named_section": "Early Technical"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Technical",
+          "desc": "Final technical sections before finish.",
+          "terrain_detail": "Late technical",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Technical Berryman Trail mixed surfaces in Ozark foothills.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Berryman Epic",
+      "race_distance": "65 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Potosi, Missouri",
+      "race_terrain": "Missouri Berryman Trail mixed surfaces",
+      "race_weather": "MO spring/fall variability",
+      "race_challenges": [
+        "Technical mixed terrain",
+        "Heat possible",
+        "Ozark foothills",
+        "Regional field",
+        "Variable conditions"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Technical skills",
+        "by_when": "Week 8-10",
+        "why": "Berryman Trail has technical sections requiring bike handling."
+      },
+      {
+        "requirement": "Ozark foothills endurance",
+        "by_when": "Week 4-6",
+        "why": "Ozark foothills require sustained climbing effort."
+      },
+      {
+        "requirement": "Technical pacing",
+        "by_when": "Week 2-4",
+        "why": "Technical terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "missouri_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "technical_skills": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "technical",
+          "pacing",
+          "climbing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "technical": "Riding technical Berryman Trail",
+          "pacing": "Technical terrain pacing",
+          "climbing": "Ozark foothills climbing",
+          "fueling": "Nutrition for technical terrain"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Berryman Epic",
+        "race_hook": "Missouri Berryman Trail mixed surfaces in Potosi.",
+        "race_hook_detail": "Regional event with technical terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Technical skills",
+        "non_negotiable_2": "Ozark foothills endurance",
+        "non_negotiable_3": "Technical pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

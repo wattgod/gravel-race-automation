@@ -1,0 +1,271 @@
+{
+  "race": {
+    "name": "Vapor Trail 125",
+    "slug": "vapor-trail-125",
+    "display_name": "Vapor Trail 125",
+    "tagline": "125-mile high-altitude Colorado mountain gravel in Leadville.",
+    "vitals": {
+      "distance_mi": 125,
+      "elevation_ft": 9000,
+      "location": "Leadville, Colorado",
+      "location_badge": "LEADVILLE, CO",
+      "county": "Lake County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Colorado high-altitude mountains",
+        "Mountain gravel",
+        "125-mile distance",
+        "Regional event"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies (typically 14-16 hours)"
+    },
+    "climate": {
+      "primary": "Colorado high-altitude summer",
+      "description": "High-altitude mountain conditions with extreme altitude challenges.",
+      "challenges": [
+        "Extreme altitude (10,000ft+)",
+        "Mountain weather variability",
+        "Summer mountain conditions",
+        "Long exposure at altitude"
+      ]
+    },
+    "terrain": {
+      "primary": "Colorado high-altitude mountain gravel",
+      "surface": "Gravel roads through high-altitude Colorado mountains. 125-mile distance with significant elevation and extreme altitude.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (9000 feet)",
+        "Extreme altitude (10,000ft+)",
+        "Mountain scenery",
+        "125-mile distance",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 62,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 15,
+      "biased_opinion": 19,
+      "score_note": "Regional CO event. High-altitude 125-mile challenge is significant but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "High-Altitude Mountain Century+ Challenge",
+      "summary": "Vapor Trail 125 is a 125-mile high-altitude gravel race in Leadville, Colorado—mountain terrain with extreme altitude (10,000ft+). The combination of 125 miles and extreme altitude is a serious challenge, but the moderate organization and regional field keep it in Tier 3. Leadville provides moderate access. Summer mountain weather at altitude adds complexity.",
+      "strengths": [
+        "125-mile distance (significant challenge)",
+        "Extreme altitude (10,000ft+)",
+        "Mountain climbing (9000 feet)",
+        "Leadville high-altitude setting",
+        "CO cycling community"
+      ],
+      "weaknesses": [
+        "Central CO access (moderate)",
+        "Moderate organization",
+        "Regional field only",
+        "Extreme altitude (requires serious acclimation)",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A serious high-altitude 125-mile mountain gravel challenge. Worth it for the altitude and distance test. Not a destination race for out-of-state travelers seeking organization or field depth."
+    },
+    "black_pill": {
+      "title": "125 MILES AT 10,000+ FEET",
+      "reality": "125 miles is a long way. At 10,000+ feet, it's brutal. The altitude is real and requires serious acclimation. The field is regional only. Moderate organization.",
+      "consequences": [
+        "Extreme altitude (10,000ft+)",
+        "125-mile distance",
+        "Regional field only",
+        "Moderate organization"
+      ],
+      "expectation_reset": "This is a high-altitude endurance test. The challenge is real, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "62 / 100",
+      "one_liner": "125-mile high-altitude Colorado mountain gravel in Leadville.",
+      "should_you_race": "If you want a high-altitude endurance test—yes, it's a serious challenge. If you want organization or pro field depth—look elsewhere.",
+      "alternatives": "For better high-altitude events: Leadville 100, Crusher in the Tushar. For similar regional events: other CO mountain gravel races."
+    },
+    "logistics": {
+      "airport": "Denver (DEN) 2 hours or Colorado Springs (COS) 2 hours",
+      "lodging_strategy": "Leadville has limited lodging. Book early or stay in nearby towns.",
+      "food": "Leadville has limited dining. Stock nutrition for 125 miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Vapor Trail 125 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Colorado organizers",
+      "origin_story": "Colorado high-altitude gravel century+ event.",
+      "notable_moments": [],
+      "reputation": "Regional CO event."
+    },
+    "course_description": {
+      "character": "High-altitude mountain gravel for 125 miles.",
+      "suffering_zones": [
+        {
+          "mile": 40,
+          "label": "First Third",
+          "desc": "40 miles in, altitude begins to bite.",
+          "terrain_detail": "High-altitude",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 60,
+          "label": "Halfway",
+          "desc": "Halfway point, 60+ miles to go at altitude.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 90,
+          "label": "The Grind",
+          "desc": "90 miles in at altitude, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 115,
+          "label": "Final Push",
+          "desc": "Last 10 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "125-mile distance at extreme altitude (10,000ft+) with mountain climbing.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Vapor Trail 125",
+      "race_distance": "125 miles",
+      "race_elevation": "9,000 feet",
+      "race_date": "Summer",
+      "race_location": "Leadville, Colorado",
+      "race_terrain": "Colorado high-altitude mountain gravel",
+      "race_weather": "CO high-altitude summer variability",
+      "race_challenges": [
+        "125-mile distance",
+        "Extreme altitude (10,000ft+)",
+        "Mountain climbing",
+        "Regional field",
+        "Century+ pacing at altitude"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 10000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century+ endurance at altitude",
+        "by_when": "Week 12-14",
+        "why": "125 miles at 10,000ft+ requires extensive endurance and altitude preparation."
+      },
+      {
+        "requirement": "Extreme altitude acclimation",
+        "by_when": "Week 4-6",
+        "why": "10,000ft+ base elevation requires serious altitude acclimation."
+      },
+      {
+        "requirement": "High-altitude pacing",
+        "by_when": "Week 2-4",
+        "why": "125 miles at altitude requires extreme pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "colorado_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_plus_altitude_endurance": {
+          "enabled": true,
+          "weeks": [
+            12,
+            13,
+            14
+          ]
+        },
+        "extreme_altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 14,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 6,
+            "finisher": 8,
+            "compete": 9,
+            "podium": 10
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "fueling",
+          "climbing"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at 10,000ft+",
+          "pacing": "Century+ pacing at altitude",
+          "fueling": "Nutrition for 125 miles at altitude",
+          "climbing": "Mountain climbing at altitude"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Vapor Trail 125",
+        "race_hook": "125 miles at 10,000+ feet in Leadville.",
+        "race_hook_detail": "High-altitude century+ challenge.",
+        "distance": "125",
+        "dark_mile": "90",
+        "non_negotiable_1": "Century+ endurance at altitude",
+        "non_negotiable_2": "Extreme altitude acclimation",
+        "non_negotiable_3": "High-altitude pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

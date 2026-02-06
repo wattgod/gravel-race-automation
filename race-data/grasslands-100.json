@@ -1,0 +1,271 @@
+{
+  "race": {
+    "name": "Grasslands 100",
+    "slug": "grasslands-100",
+    "display_name": "Grasslands 100",
+    "tagline": "100-mile Texas grasslands gravel in Decatur.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3500,
+      "location": "Decatur, Texas",
+      "location_badge": "DECATUR, TX",
+      "county": "Wise County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Texas grasslands",
+        "Rolling gravel",
+        "100-mile distance",
+        "Regional event"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies (typically 10-12 hours)"
+    },
+    "climate": {
+      "primary": "Texas spring/fall",
+      "description": "Variable conditions with heat and wind possible.",
+      "challenges": [
+        "Heat possible",
+        "Wind exposure",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Texas rolling grasslands gravel",
+      "surface": "Gravel roads through rolling Texas grasslands. 100-mile distance with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Grasslands scenery",
+        "100-mile distance",
+        "North Texas setting",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional TX event. 100 miles is significant but rolling grasslands terrain and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Texas Grasslands Century Challenge",
+      "summary": "Grasslands 100 is a 100-mile gravel race in Decatur, Texas—rolling grasslands with moderate elevation. The 100-mile distance is the main challenge, but it's rolling grasslands terrain with a regional field, keeping it in Tier 3. Decatur provides moderate access. Spring/fall weather brings heat and wind challenges.",
+      "strengths": [
+        "100-mile distance (significant challenge)",
+        "North TX access (moderate)",
+        "Moderate organization",
+        "TX cycling community",
+        "Century challenge"
+      ],
+      "weaknesses": [
+        "Rolling grasslands (minimal climbing)",
+        "Regional field only",
+        "Heat/wind concerns",
+        "Repetitive scenery",
+        "Texas grasslands (not destination)"
+      ],
+      "bottom_line": "A solid 100-mile gravel challenge with rolling grasslands. Worth it for the distance challenge. Not a destination race for terrain variety or field depth."
+    },
+    "black_pill": {
+      "title": "100 MILES OF TEXAS GRASSLANDS",
+      "reality": "100 miles is a long way. But it's rolling Texas grasslands—repetitive scenery with minimal climbing. The field is regional only. Heat and wind are real concerns.",
+      "consequences": [
+        "Rolling grasslands (minimal climbing)",
+        "Regional field only",
+        "Heat/wind",
+        "Repetitive scenery"
+      ],
+      "expectation_reset": "This is a 100-mile grasslands event. The distance is real, but set expectations accordingly for terrain and field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "100-mile Texas grasslands gravel in Decatur.",
+      "should_you_race": "If you want a 100-mile challenge—yes, it's a solid distance test. If you want terrain variety or pro field depth—look elsewhere.",
+      "alternatives": "For better century events: Land Run 100. For similar regional events: other TX gravel races."
+    },
+    "logistics": {
+      "airport": "Dallas/Fort Worth (DFW) 1 hour",
+      "lodging_strategy": "Decatur has moderate lodging options.",
+      "food": "Decatur has moderate dining options. Stock nutrition for 100 miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Grasslands 100 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Texas organizers",
+      "origin_story": "Texas gravel century event.",
+      "notable_moments": [],
+      "reputation": "Regional TX event."
+    },
+    "course_description": {
+      "character": "Rolling grasslands gravel for 100 miles.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "First Third",
+          "desc": "30 miles in, settling into pace.",
+          "terrain_detail": "Grasslands",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 50,
+          "label": "Halfway",
+          "desc": "Halfway point, 50 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 75,
+          "label": "The Grind",
+          "desc": "75 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 90,
+          "label": "Final Push",
+          "desc": "Last 10 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100-mile distance through Texas grasslands with heat and wind.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Grasslands 100",
+      "race_distance": "100 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Decatur, Texas",
+      "race_terrain": "Texas rolling grasslands gravel",
+      "race_weather": "TX spring/fall variability",
+      "race_challenges": [
+        "100-mile distance",
+        "Heat/wind possible",
+        "Rolling terrain endurance",
+        "Regional field",
+        "Century pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 10-12",
+        "why": "100 miles requires extensive endurance base and long-distance preparation."
+      },
+      {
+        "requirement": "Heat and wind preparation",
+        "by_when": "Week 4-6",
+        "why": "TX spring/fall means heat and wind are likely."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "100 miles requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "texas_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            10,
+            11,
+            12
+          ]
+        },
+        "heat_wind_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 12,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 6,
+            "compete": 7,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "wind"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Century pacing discipline",
+          "fueling": "Nutrition for 100 miles",
+          "heat": "Racing in TX heat",
+          "wind": "Riding in Texas wind"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Grasslands 100",
+        "race_hook": "100 miles of Texas grasslands gravel.",
+        "race_hook_detail": "Century challenge in Decatur.",
+        "distance": "100",
+        "dark_mile": "75",
+        "non_negotiable_1": "Century endurance",
+        "non_negotiable_2": "Heat and wind preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

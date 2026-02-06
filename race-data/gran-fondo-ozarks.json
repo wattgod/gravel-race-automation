@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Gran Fondo Ozarks",
+    "slug": "gran-fondo-ozarks",
+    "display_name": "Gran Fondo Ozarks",
+    "tagline": "Arkansas Ozark Mountains gravel in Eureka Springs.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 6000,
+      "location": "Eureka Springs, Arkansas",
+      "location_badge": "EUREKA SPRINGS, AR",
+      "county": "Carroll County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Arkansas Ozark Mountains",
+        "Mountain gravel",
+        "Regional event",
+        "Northwest Arkansas"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Arkansas spring/fall",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Mountain weather variability",
+        "Heat possible",
+        "Variable conditions",
+        "Mountain climbing"
+      ]
+    },
+    "terrain": {
+      "primary": "Arkansas Ozark Mountains gravel",
+      "surface": "Gravel roads through Ozark Mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (6000 feet)",
+        "Ozark Mountains scenery",
+        "Eureka Springs setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 53,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 17,
+      "score_note": "Regional AR event. Ozark Mountains terrain is nice but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Arkansas Ozark Mountains Gravel",
+      "summary": "Gran Fondo Ozarks is a regional event in Eureka Springs, Arkansas—Ozark Mountains terrain with significant elevation. Eureka Springs provides good access and the mountain scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Spring/fall mountain weather adds variability.",
+      "strengths": [
+        "Eureka Springs (good access)",
+        "Ozark Mountains terrain",
+        "Significant climbing (6000 feet)",
+        "Mountain scenery",
+        "AR cycling community"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Mountain weather variability",
+        "Limited national recognition",
+        "Ozark Mountains (not destination)"
+      ],
+      "bottom_line": "A solid regional Arkansas gravel race with Ozark Mountains terrain. Worth it for Arkansas cyclists seeking a mountain event. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL OZARK MOUNTAINS",
+      "reality": "The Ozark Mountains terrain is nice with solid climbing. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Mountain weather",
+        "Ozark Mountains"
+      ],
+      "expectation_reset": "This is a regional AR event. The terrain is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "53 / 100",
+      "one_liner": "Arkansas Ozark Mountains gravel in Eureka Springs.",
+      "should_you_race": "If you're in Arkansas and want a mountain event—yes, it's solid. If you're from out of state—there are better options.",
+      "alternatives": "For better regional events: Ozark Gravel, Ouachita Challenge. For similar mountain events: other AR mountain gravel races."
+    },
+    "logistics": {
+      "airport": "Northwest Arkansas (XNA) 45 minutes",
+      "lodging_strategy": "Eureka Springs has good lodging options.",
+      "food": "Eureka Springs has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Arkansas cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Arkansas organizers",
+      "origin_story": "Regional Arkansas gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional AR event."
+    },
+    "course_description": {
+      "character": "Ozark Mountains gravel with significant climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Climbs",
+          "desc": "First mountain climbs.",
+          "terrain_detail": "Mountain climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Climbs",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late climbing",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Ozark Mountains climbing in northwest Arkansas.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Ozarks",
+      "race_distance": "65 miles",
+      "race_elevation": "6,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Eureka Springs, Arkansas",
+      "race_terrain": "Arkansas Ozark Mountains gravel",
+      "race_weather": "AR mountain variability",
+      "race_challenges": [
+        "Mountain climbing",
+        "Mountain weather variability",
+        "Significant elevation",
+        "Regional field",
+        "Variable conditions"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "Ozark Mountains require solid climbing fitness (6000 feet)."
+      },
+      {
+        "requirement": "Mountain weather preparation",
+        "by_when": "Week 4-6",
+        "why": "AR mountain weather is variable."
+      },
+      {
+        "requirement": "Mountain pacing",
+        "by_when": "Week 2-4",
+        "why": "Mountain terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "arkansas_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "mountain_weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "climbing": "Sustained Ozark climbing",
+          "fueling": "Nutrition for mountain climbing",
+          "weather": "Riding in variable mountain weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gran Fondo Ozarks",
+        "race_hook": "Arkansas Ozark Mountains gravel in Eureka Springs.",
+        "race_hook_detail": "Regional event with mountain climbing.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Mountain weather preparation",
+        "non_negotiable_3": "Mountain pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

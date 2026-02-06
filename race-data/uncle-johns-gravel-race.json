@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Uncle John's Gravel Race",
+    "slug": "uncle-johns-gravel-race",
+    "display_name": "Uncle John's Gravel Race",
+    "tagline": "Michigan local gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 2000,
+      "location": "St Johns, Michigan",
+      "location_badge": "ST JOHNS, MI",
+      "county": "Clinton County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Michigan rolling",
+        "Local event",
+        "Midwest gravel",
+        "Michigan"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-75",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Michigan summer",
+      "description": "Variable conditions.",
+      "challenges": [
+        "Variable weather",
+        "Humidity possible",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Michigan rolling gravel",
+      "surface": "Gravel roads through Michigan countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (2000 feet)",
+        "Michigan countryside scenery",
+        "Local community event",
+        "50-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 7,
+      "biased_opinion": 13,
+      "score_note": "Local Michigan event. Rolling terrain with good access, low costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Michigan Local Gravel",
+      "summary": "Uncle John's Gravel Race is a local event in Michigan\u2014rolling terrain with moderate elevation. The Michigan countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Michigan countryside scenery",
+        "Good value",
+        "Local community",
+        "Low costs",
+        "St Johns access"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Moderate terrain",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local Michigan gravel race. Worth it for Michigan/Midwest riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL MICHIGAN EVENT",
+      "reality": "This is a small local Michigan race. The field is local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a local Michigan event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "41 / 100",
+      "one_liner": "Michigan local gravel challenge.",
+      "should_you_race": "If you're local to Michigan\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+    },
+    "logistics": {
+      "airport": "Lansing (LAN) 30 minutes",
+      "lodging_strategy": "St Johns has good lodging options.",
+      "food": "St Johns has full dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Uncle John's Gravel Race website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local Michigan organizers",
+      "origin_story": "Local Michigan gravel event.",
+      "notable_moments": [],
+      "reputation": "Local Michigan event."
+    },
+    "course_description": {
+      "character": "Michigan rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Michigan rolling terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Uncle John's Gravel Race",
+      "race_distance": "50 miles",
+      "race_elevation": "2,000 feet",
+      "race_date": "Summer",
+      "race_location": "St Johns, Michigan",
+      "race_terrain": "Michigan rolling gravel",
+      "race_weather": "Michigan summer variable",
+      "race_challenges": [
+        "Rolling terrain",
+        "Small local field",
+        "Variable weather",
+        "Limited organization",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Michigan summer weather is variable."
+      },
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 6-8",
+        "why": "Michigan rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable Michigan weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Uncle John's Gravel Race",
+        "race_hook": "Michigan local gravel challenge.",
+        "race_hook_detail": "Local event with rolling terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

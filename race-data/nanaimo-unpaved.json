@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Nanaimo Unpaved",
+    "slug": "nanaimo-unpaved",
+    "display_name": "Nanaimo Unpaved",
+    "tagline": "BC coastal gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 3500,
+      "location": "Nanaimo, British Columbia, Canada",
+      "location_badge": "NANAIMO, BC",
+      "county": "British Columbia",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "BC coastal",
+        "Local event",
+        "Canadian gravel",
+        "British Columbia"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-100 CAD",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "BC coastal summer",
+      "description": "Variable coastal conditions.",
+      "challenges": [
+        "Variable weather",
+        "Rain possible",
+        "Coastal terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "BC coastal gravel",
+      "surface": "Gravel roads through BC coastal countryside. Moderate elevation with coastal scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "BC coastal scenery",
+        "Local community event",
+        "50-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 39,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 2,
+      "course_profile": 7,
+      "biased_opinion": 12,
+      "score_note": "Local BC event. Coastal terrain with moderate access, moderate costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "BC Coastal Gravel",
+      "summary": "Nanaimo Unpaved is a local event in BC\u2014coastal terrain with moderate elevation. The BC coastal scenery is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "BC coastal scenery",
+        "Good value",
+        "Local community",
+        "Moderate costs",
+        "Nanaimo access"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Moderate terrain",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local BC coastal gravel race. Worth it for BC/Canadian riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL BC EVENT",
+      "reality": "This is a small local BC race. The field is local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a local BC event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "39 / 100",
+      "one_liner": "BC coastal gravel challenge.",
+      "should_you_race": "If you're local to BC\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better BC races: Kettle Mettle, TransRockies Gravel Royale."
+    },
+    "logistics": {
+      "airport": "Nanaimo (YCD) 30 minutes",
+      "lodging_strategy": "Nanaimo has good lodging options.",
+      "food": "Nanaimo has full dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Nanaimo Unpaved website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local BC organizers",
+      "origin_story": "Local BC gravel event.",
+      "notable_moments": [],
+      "reputation": "Local BC event."
+    },
+    "course_description": {
+      "character": "BC coastal gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Coastal",
+          "desc": "First coastal sections.",
+          "terrain_detail": "Coastal",
+          "named_section": "Early Coastal"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Coastal",
+          "desc": "Final coastal sections before finish.",
+          "terrain_detail": "Late coastal",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "BC coastal terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Nanaimo Unpaved",
+      "race_distance": "50 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Nanaimo, British Columbia, Canada",
+      "race_terrain": "BC coastal gravel",
+      "race_weather": "BC coastal summer variable",
+      "race_challenges": [
+        "Coastal terrain",
+        "Small local field",
+        "Variable weather",
+        "Limited organization",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "BC coastal weather is variable with rain possible."
+      },
+      {
+        "requirement": "Coastal endurance",
+        "by_when": "Week 6-8",
+        "why": "BC coastal terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "canadian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "coastal_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "coastal"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Coastal terrain pacing",
+          "fueling": "Nutrition for coastal riding",
+          "weather": "Riding in variable BC weather",
+          "coastal": "Coastal terrain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Nanaimo Unpaved",
+        "race_hook": "BC coastal gravel challenge.",
+        "race_hook_detail": "Local event with coastal terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Coastal endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Raid Rockingham",
+    "slug": "raid-rockingham",
+    "display_name": "Raid Rockingham",
+    "tagline": "New Hampshire local gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 3500,
+      "location": "SE New Hampshire",
+      "location_badge": "SE NH",
+      "county": "Rockingham County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "New Hampshire rolling",
+        "Local event",
+        "Northeast gravel",
+        "New Hampshire"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-75",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "New Hampshire summer",
+      "description": "Variable conditions.",
+      "challenges": [
+        "Variable weather",
+        "Humidity possible",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "New Hampshire rolling gravel",
+      "surface": "Gravel roads through New Hampshire countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "New Hampshire countryside scenery",
+        "Local community event",
+        "50-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 7,
+      "biased_opinion": 13,
+      "score_note": "Local New Hampshire event. Rolling terrain with good access, low costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "New Hampshire Local Gravel",
+      "summary": "Raid Rockingham is a local event in New Hampshire\u2014rolling terrain with moderate elevation. The New Hampshire countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "New Hampshire countryside scenery",
+        "Good value",
+        "Local community",
+        "Low costs",
+        "SE NH access"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Moderate terrain",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local New Hampshire gravel race. Worth it for New Hampshire/Northeast riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL NEW HAMPSHIRE EVENT",
+      "reality": "This is a small local New Hampshire race. The field is local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a local New Hampshire event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "41 / 100",
+      "one_liner": "New Hampshire local gravel challenge.",
+      "should_you_race": "If you're local to New Hampshire\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better New Hampshire races: Rasputitsa, D2R2."
+    },
+    "logistics": {
+      "airport": "Manchester (MHT) 30 minutes",
+      "lodging_strategy": "SE New Hampshire has good lodging options.",
+      "food": "SE New Hampshire has full dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Raid Rockingham website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local New Hampshire organizers",
+      "origin_story": "Local New Hampshire gravel event.",
+      "notable_moments": [],
+      "reputation": "Local New Hampshire event."
+    },
+    "course_description": {
+      "character": "New Hampshire rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "New Hampshire rolling terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Raid Rockingham",
+      "race_distance": "50 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "SE New Hampshire",
+      "race_terrain": "New Hampshire rolling gravel",
+      "race_weather": "New Hampshire summer variable",
+      "race_challenges": [
+        "Rolling terrain",
+        "Small local field",
+        "Variable weather",
+        "Limited organization",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "New Hampshire summer weather is variable."
+      },
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 6-8",
+        "why": "New Hampshire rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "new_hampshire_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable New Hampshire weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Raid Rockingham",
+        "race_hook": "New Hampshire local gravel challenge.",
+        "race_hook_detail": "Local event with rolling terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

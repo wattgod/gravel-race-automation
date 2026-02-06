@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Spring Valley 100",
+    "slug": "spring-valley-100",
+    "display_name": "Spring Valley 100",
+    "tagline": "Minnesota local gravel challenge.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 4000,
+      "location": "Spring Valley, Minnesota",
+      "location_badge": "SPRING VALLEY, MN",
+      "county": "Fillmore County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Minnesota rolling",
+        "Local event",
+        "Midwest gravel",
+        "Minnesota"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Minnesota summer",
+      "description": "Variable conditions.",
+      "challenges": [
+        "Variable weather",
+        "Humidity possible",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Minnesota rolling gravel",
+      "surface": "Gravel roads through Minnesota countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (4000 feet)",
+        "Minnesota countryside scenery",
+        "Local community event",
+        "100-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 11,
+      "score_note": "Local Minnesota event. Rolling terrain with good access, moderate costs, 100-mile distance, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Minnesota Local Century",
+      "summary": "Spring Valley 100 is a local event in Minnesota\u2014rolling terrain with moderate elevation over 100 miles. The Minnesota countryside is nice and the distance is challenging, but the small local field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Minnesota countryside scenery",
+        "100-mile challenge",
+        "Good value",
+        "Spring Valley access",
+        "Moderate costs"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Moderate terrain",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local Minnesota century gravel race. Worth it for Minnesota/Midwest riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL MINNESOTA EVENT",
+      "reality": "This is a small local Minnesota race. The field is local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a local Minnesota event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "44 / 100",
+      "one_liner": "Minnesota local gravel challenge.",
+      "should_you_race": "If you're local to Minnesota\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin."
+    },
+    "logistics": {
+      "airport": "Rochester (RST) 45 minutes",
+      "lodging_strategy": "Spring Valley has good lodging options.",
+      "food": "Spring Valley has full dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Spring Valley 100 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local Minnesota organizers",
+      "origin_story": "Local Minnesota gravel event.",
+      "notable_moments": [],
+      "reputation": "Local Minnesota event."
+    },
+    "course_description": {
+      "character": "Minnesota rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 50,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Minnesota rolling terrain over 100 miles.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Spring Valley 100",
+      "race_distance": "100 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Spring Valley, Minnesota",
+      "race_terrain": "Minnesota rolling gravel",
+      "race_weather": "Minnesota summer variable",
+      "race_challenges": [
+        "Rolling terrain",
+        "Small local field",
+        "100-mile distance",
+        "Limited organization",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Minnesota summer weather is variable."
+      },
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 6-8",
+        "why": "100-mile distance requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "minnesota_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 5,
+            "compete": 7,
+            "podium": 9
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "century"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Century pacing strategy",
+          "fueling": "Nutrition for 100-mile riding",
+          "weather": "Riding in variable Minnesota weather",
+          "century": "100-mile endurance strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Spring Valley 100",
+        "race_hook": "Minnesota local gravel challenge.",
+        "race_hook_detail": "Local event with 100-mile rolling terrain.",
+        "distance": "100",
+        "dark_mile": "50",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Century endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

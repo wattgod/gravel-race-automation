@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Iowa State Gravel TT Championship",
+    "slug": "iowa-state-gravel-tt-championship",
+    "display_name": "Iowa State Gravel TT Championship",
+    "tagline": "Iowa state championship gravel challenge.",
+    "vitals": {
+      "distance_mi": 40,
+      "elevation_ft": 1500,
+      "location": "Amana, Iowa",
+      "location_badge": "AMANA, IA",
+      "county": "Iowa County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Iowa rolling",
+        "State championship",
+        "Midwest gravel",
+        "Iowa"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-75",
+      "prize_purse": "State championship prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Iowa summer",
+      "description": "Variable conditions.",
+      "challenges": [
+        "Variable weather",
+        "Humidity possible",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Iowa rolling gravel",
+      "surface": "Gravel roads through Iowa countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (1500 feet)",
+        "Iowa countryside scenery",
+        "State championship event",
+        "40-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 43,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 7,
+      "biased_opinion": 13,
+      "score_note": "Iowa state championship. Rolling terrain with good access, low costs, and small field."
+    },
+    "biased_opinion": {
+      "verdict": "Iowa State Championship",
+      "summary": "Iowa State Gravel TT Championship is a state championship in Iowa\u2014rolling terrain with moderate elevation. The Iowa countryside is nice and it's good value, but the small field and limited national draw keep it in Tier 4.",
+      "strengths": [
+        "Iowa countryside scenery",
+        "State championship",
+        "Good value",
+        "Low costs",
+        "Amana access"
+      ],
+      "weaknesses": [
+        "Small field",
+        "Limited organization",
+        "Moderate terrain",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid Iowa state championship gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "STATE CHAMPIONSHIP EVENT",
+      "reality": "This is an Iowa state championship. The field is mostly local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small field",
+        "Limited organization",
+        "No national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a state championship event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "43 / 100",
+      "one_liner": "Iowa state championship gravel challenge.",
+      "should_you_race": "If you're local to Iowa\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+    },
+    "logistics": {
+      "airport": "Cedar Rapids (CID) 30 minutes",
+      "lodging_strategy": "Amana has good lodging options.",
+      "food": "Amana has full dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Iowa State Gravel TT Championship website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Iowa cycling organizers",
+      "origin_story": "Iowa state championship gravel event.",
+      "notable_moments": [],
+      "reputation": "Iowa state championship."
+    },
+    "course_description": {
+      "character": "Iowa rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 10,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 20,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 35,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Iowa rolling terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Iowa State Gravel TT Championship",
+      "race_distance": "40 miles",
+      "race_elevation": "1,500 feet",
+      "race_date": "Summer",
+      "race_location": "Amana, Iowa",
+      "race_terrain": "Iowa rolling gravel",
+      "race_weather": "Iowa summer variable",
+      "race_challenges": [
+        "Rolling terrain",
+        "Small field",
+        "Variable weather",
+        "Limited organization",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Iowa summer weather is variable."
+      },
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 6-8",
+        "why": "Iowa rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "iowa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable Iowa weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Iowa State Gravel TT Championship",
+        "race_hook": "Iowa state championship gravel challenge.",
+        "race_hook_detail": "State championship event with rolling terrain.",
+        "distance": "40",
+        "dark_mile": "20",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

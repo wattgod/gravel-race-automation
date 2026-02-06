@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Wörthersee Gravel Race",
+    "slug": "worthersee-gravel-race",
+    "display_name": "Wörthersee Gravel Race",
+    "tagline": "Austrian Alps gravel challenge.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 6000,
+      "location": "Wörthersee, Austria",
+      "location_badge": "WÖRTHERSEE, AUSTRIA",
+      "county": "Carinthia",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Austrian Alps",
+        "European gravel",
+        "Regional event",
+        "Austria"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~€60-90",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Austrian summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Mountainous terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Austrian Alps gravel",
+      "surface": "Gravel roads through Austrian Alps near Wörthersee. Significant elevation with Alpine scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (6000 feet)",
+        "Austrian Alps scenery",
+        "Wörthersee lake setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 53,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 11,
+      "biased_opinion": 17,
+      "score_note": "Regional Austrian event. Alpine terrain with moderate access, moderate costs, and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Austrian Alps Gravel",
+      "summary": "Wörthersee Gravel Race is a regional event in Austria—Alpine terrain with significant elevation. The Austrian Alps are scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Austrian Alps scenery",
+        "Good organization",
+        "Austrian mild summer weather",
+        "Wörthersee lake setting",
+        "European cycling community"
+      ],
+      "weaknesses": [
+        "Moderate Europe access",
+        "Moderate costs ($1500+ total)",
+        "Regional field only",
+        "Limited international draw",
+        "Variable weather"
+      ],
+      "bottom_line": "A scenic Austrian Alps gravel race. Worth it for European riders. Not practical for most international riders."
+    },
+    "black_pill": {
+      "title": "MODERATE EUROPEAN ADVENTURE",
+      "reality": "The Austrian Alps are scenic. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
+      "consequences": [
+        "Moderate access",
+        "Moderate costs",
+        "Regional field only",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a moderate European adventure. Budget $1500+ total for travel and set expectations for regional field."
+    },
+    "final_verdict": {
+      "score": "53 / 100",
+      "one_liner": "Austrian Alps gravel challenge.",
+      "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
+      "alternatives": "For better value: regional gravel races. For similar Alpine terrain: Gravel Suisse."
+    },
+    "logistics": {
+      "airport": "Klagenfurt (KLU) or Ljubljana (LJU) 1 hour",
+      "lodging_strategy": "Wörthersee has good lodging options.",
+      "food": "Wörthersee has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Wörthersee Gravel Race website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Austrian organizers",
+      "origin_story": "Regional Austrian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Austrian event."
+    },
+    "course_description": {
+      "character": "Austrian Alps gravel.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Early Alps",
+          "desc": "First Alpine sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Alps"
+        },
+        {
+          "mile": 38,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Alps",
+          "desc": "Final Alpine sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Austrian Alps mountainous terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Wörthersee Gravel Race",
+      "race_distance": "75 miles",
+      "race_elevation": "6,000 feet",
+      "race_date": "Summer",
+      "race_location": "Wörthersee, Austria",
+      "race_terrain": "Austrian Alps gravel",
+      "race_weather": "Austrian summer mild",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Regional field",
+        "Moderate costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "Austrian Alps require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Austrian summer weather is variable."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Moderate costs ($1500+ total)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "european_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountainous terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable Austrian weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Wörthersee Gravel Race",
+        "race_hook": "Austrian Alps gravel challenge.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "75",
+        "dark_mile": "38",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

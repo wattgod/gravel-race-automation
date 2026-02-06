@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Grasshopper Adventure Series",
+    "slug": "grasshopper-adventure-series",
+    "display_name": "Grasshopper Adventure Series",
+    "tagline": "California gravel series at various locations.",
+    "vitals": {
+      "distance_mi": 55,
+      "elevation_ft": 4500,
+      "location": "Various California locations",
+      "location_badge": "VARIOUS, CA",
+      "county": "Various",
+      "date": "Year-round series",
+      "date_specific": "2026: Multiple dates",
+      "terrain_types": [
+        "California varied gravel",
+        "Series format",
+        "Regional events",
+        "Various locations"
+      ],
+      "field_size": "200-400 riders per event",
+      "start_time": "Morning starts",
+      "registration": "Online. Cost: ~$60-100 per event",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies by event"
+    },
+    "climate": {
+      "primary": "California varied",
+      "description": "Generally mild conditions varying by location and season.",
+      "challenges": [
+        "Variable by location",
+        "Variable by season",
+        "Generally mild",
+        "Varied terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "California varied gravel",
+      "surface": "Gravel roads through various California regions. Variable elevation with varied scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Variable elevation (3000-6000 feet)",
+        "Varied California scenery",
+        "Multiple locations",
+        "Series format",
+        "Regional events"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 49,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Regional CA series. Varied locations are nice but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "California Gravel Series",
+      "summary": "Grasshopper Adventure Series is a regional gravel series across various California locations—varied terrain with variable elevation. The series format provides variety, but the moderate organization and regional field keep it firmly in Tier 3. California pricing and expenses are higher than other regions.",
+      "strengths": [
+        "Varied CA locations",
+        "Series format (multiple events)",
+        "CA mild weather",
+        "CA cycling community",
+        "Varied terrain"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "CA pricing (higher)",
+        "CA expenses (higher)",
+        "Series format (not single destination event)"
+      ],
+      "bottom_line": "A solid regional California gravel series with varied locations. Worth it for California cyclists seeking multiple local events. Not a destination series for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL CALIFORNIA SERIES",
+      "reality": "The series format provides variety across CA locations. But these are regional events with moderate organization. The field is regional only. CA costs are higher.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "CA pricing",
+        "Series format"
+      ],
+      "expectation_reset": "This is a regional CA series. The variety is nice, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "49 / 100",
+      "one_liner": "California gravel series at various locations.",
+      "should_you_race": "If you're in California and want a local series—yes, it's solid. If you're from out of state—there are better options.",
+      "alternatives": "For better CA events: BWR, Grinduro. For similar series: other CA gravel series."
+    },
+    "logistics": {
+      "airport": "Varies by event location",
+      "lodging_strategy": "Varies by event location.",
+      "food": "Varies by event location. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Grasshopper Adventure Series website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "California organizers",
+      "origin_story": "Regional California gravel series.",
+      "notable_moments": [],
+      "reputation": "Regional CA series."
+    },
+    "course_description": {
+      "character": "Varied California gravel across multiple locations.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Section",
+          "desc": "First sections (varies by location).",
+          "terrain_detail": "Varied",
+          "named_section": "Early"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 45,
+          "label": "Final Section",
+          "desc": "Final sections before finish.",
+          "terrain_detail": "Late",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Varied California gravel across different locations.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Grasshopper Adventure Series",
+      "race_distance": "55 miles (varies)",
+      "race_elevation": "4,500 feet (varies)",
+      "race_date": "Year-round",
+      "race_location": "Various California locations",
+      "race_terrain": "California varied gravel",
+      "race_weather": "CA mild weather (varies)",
+      "race_challenges": [
+        "Varied terrain",
+        "Variable elevation",
+        "Regional field",
+        "CA costs",
+        "Series format"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Varied terrain adaptability",
+        "by_when": "Week 8-10",
+        "why": "Series features varied CA terrain requiring adaptability."
+      },
+      {
+        "requirement": "Variable elevation preparation",
+        "by_when": "Week 4-6",
+        "why": "Elevation varies by event location."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Varied terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "california_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "varied_terrain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "variable_elevation_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "adaptability",
+          "fueling",
+          "terrain"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Varied terrain pacing",
+          "adaptability": "Adapting to different CA locations",
+          "fueling": "Nutrition for varied terrain",
+          "terrain": "Riding varied California gravel"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Grasshopper Adventure Series",
+        "race_hook": "California gravel series at various locations.",
+        "race_hook_detail": "Regional series with varied terrain.",
+        "distance": "55",
+        "dark_mile": "30",
+        "non_negotiable_1": "Varied terrain adaptability",
+        "non_negotiable_2": "Variable elevation preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

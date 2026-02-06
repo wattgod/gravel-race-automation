@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Pirate Cycling League Gravel",
+    "slug": "pirate-cycling-league-gravel",
+    "display_name": "Pirate Cycling League Gravel",
+    "tagline": "California coastal mountains gravel in Ojai.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 6000,
+      "location": "Ojai, California",
+      "location_badge": "OJAI, CA",
+      "county": "Ventura County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "California coastal mountains",
+        "Mountain gravel",
+        "Regional event",
+        "Southern California"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "California coastal spring/fall",
+      "description": "Generally mild conditions with mountain weather variability.",
+      "challenges": [
+        "Mountain weather variability",
+        "Heat possible",
+        "Coastal mountains",
+        "Mountain climbing"
+      ]
+    },
+    "terrain": {
+      "primary": "California coastal mountains gravel",
+      "surface": "Gravel roads through coastal mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (6000 feet)",
+        "Coastal mountains scenery",
+        "Ojai setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "course_profile": 11,
+      "biased_opinion": 16,
+      "score_note": "Regional CA event. Coastal mountains terrain is nice but moderate organization and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "California Coastal Mountains Gravel",
+      "summary": "Pirate Cycling League Gravel is a regional event in Ojai, California—coastal mountains terrain with significant elevation. Ojai provides good access and the mountain scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. California pricing and expenses are higher than other regions.",
+      "strengths": [
+        "Ojai (good access)",
+        "Coastal mountains terrain",
+        "Significant climbing (6000 feet)",
+        "CA mild weather",
+        "Mountain scenery"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "CA pricing (higher)",
+        "CA expenses (higher)",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional California gravel race with coastal mountains terrain. Worth it for California cyclists seeking a mountain event. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL CALIFORNIA COASTAL MOUNTAINS",
+      "reality": "The coastal mountains terrain is nice with solid climbing. But this is a regional event with moderate organization. The field is regional only. CA costs are higher.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "CA pricing",
+        "CA expenses"
+      ],
+      "expectation_reset": "This is a regional CA event. The terrain is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "52 / 100",
+      "one_liner": "California coastal mountains gravel in Ojai.",
+      "should_you_race": "If you're in California and want a coastal mountains event—yes, it's solid. If you're from out of state—there are better options.",
+      "alternatives": "For better CA events: BWR, Grinduro. For similar regional events: other CA mountain gravel races."
+    },
+    "logistics": {
+      "airport": "Los Angeles (LAX) 1.5 hours or Burbank (BUR) 1.5 hours",
+      "lodging_strategy": "Ojai has moderate lodging options.",
+      "food": "Ojai has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Pirate Cycling League website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "California organizers",
+      "origin_story": "Regional California gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional CA event."
+    },
+    "course_description": {
+      "character": "Coastal mountains gravel with significant climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Climbs",
+          "desc": "First mountain climbs.",
+          "terrain_detail": "Mountain climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Climbs",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late climbing",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Coastal mountains climbing in Ojai.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Pirate Cycling League Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "6,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Ojai, California",
+      "race_terrain": "California coastal mountains gravel",
+      "race_weather": "CA coastal mild weather",
+      "race_challenges": [
+        "Mountain climbing",
+        "Coastal mountains",
+        "Significant elevation",
+        "Regional field",
+        "CA costs"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "Coastal mountains require solid climbing fitness (6000 feet)."
+      },
+      {
+        "requirement": "Mountain weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Coastal mountain weather is variable."
+      },
+      {
+        "requirement": "Mountain pacing",
+        "by_when": "Week 2-4",
+        "why": "Mountain terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "california_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "mountain_weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "climbing": "Sustained coastal mountains climbing",
+          "fueling": "Nutrition for mountain climbing",
+          "weather": "Riding in variable mountain weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Pirate Cycling League Gravel",
+        "race_hook": "California coastal mountains gravel in Ojai.",
+        "race_hook_detail": "Regional event with mountain climbing.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Mountain weather preparation",
+        "non_negotiable_3": "Mountain pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "race": {
+    "name": "Sagan Fondo",
+    "slug": "sagan-fondo",
+    "display_name": "Sagan Fondo",
+    "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 7000,
+      "location": "Truckee, California",
+      "location_badge": "TRUCKEE, CA",
+      "county": "Nevada County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "California Sierra Nevada/Tahoe",
+        "Mountain gravel",
+        "Regional event",
+        "Northern California"
+      ],
+      "field_size": "400-800 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "California Sierra Nevada summer",
+      "description": "Mountain weather with significant altitude.",
+      "challenges": [
+        "Altitude (6000ft+)",
+        "Mountain weather variability",
+        "Summer mountain conditions",
+        "Mountain climbing"
+      ]
+    },
+    "terrain": {
+      "primary": "California Sierra Nevada/Tahoe gravel",
+      "surface": "Gravel roads through Sierra Nevada/Tahoe mountains. Significant elevation with mountain and lake scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (7000 feet)",
+        "Tahoe/Sierra scenery",
+        "Truckee setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "course_profile": 14,
+      "biased_opinion": 19,
+      "score_note": "Regional CA event. Tahoe/Sierra terrain is excellent with good organization but regional field and CA costs."
+    },
+    "biased_opinion": {
+      "verdict": "California Tahoe/Sierra Gravel",
+      "summary": "Sagan Fondo is a regional event in Truckee, California—Sierra Nevada/Tahoe mountain terrain with significant elevation and altitude. Named after Peter Sagan, it has good organization and the Tahoe/Sierra setting is spectacular. However, the regional field and California costs keep it in Tier 3. Truckee provides good access.",
+      "strengths": [
+        "Truckee/Tahoe (good access, spectacular setting)",
+        "Sierra Nevada terrain",
+        "Significant climbing (7000 feet)",
+        "Altitude (6000ft+)",
+        "Good organization",
+        "Named after Sagan"
+      ],
+      "weaknesses": [
+        "Regional field only",
+        "CA pricing (higher $100-150)",
+        "CA expenses (higher)",
+        "Altitude challenges",
+        "Limited national draw"
+      ],
+      "bottom_line": "A solid regional California gravel race with spectacular Tahoe/Sierra terrain. Worth it for California cyclists and Tahoe visitors. Not quite a destination race for out-of-state travelers due to regional field."
+    },
+    "black_pill": {
+      "title": "REGIONAL TAHOE/SIERRA",
+      "reality": "The Tahoe/Sierra terrain is spectacular with solid climbing and altitude. Organization is good. But the field is regional only. CA costs are higher ($100-150 entry).",
+      "consequences": [
+        "Regional field only",
+        "CA pricing ($100-150)",
+        "Altitude (6000ft+)",
+        "CA expenses"
+      ],
+      "expectation_reset": "This is a regional CA event in a spectacular setting. The terrain and organization are solid, but set expectations for field and costs."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "California Sierra Nevada/Tahoe gravel in Truckee.",
+      "should_you_race": "If you're in California or visiting Tahoe—yes, it's a solid event with spectacular terrain. If you're from out of state—consider the costs and regional field.",
+      "alternatives": "For better CA events: Grinduro, BWR. For similar Tahoe events: other Tahoe gravel races."
+    },
+    "logistics": {
+      "airport": "Reno (RNO) 45 minutes or Sacramento (SMF) 2 hours",
+      "lodging_strategy": "Truckee has good lodging options (Tahoe area).",
+      "food": "Truckee has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Sagan Fondo website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "California organizers",
+      "origin_story": "Named after Peter Sagan.",
+      "notable_moments": [],
+      "reputation": "Regional CA event."
+    },
+    "course_description": {
+      "character": "Tahoe/Sierra mountain gravel with significant climbing and altitude.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Early Climbs",
+          "desc": "First Sierra climbs at altitude.",
+          "terrain_detail": "Mountain climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Final Climbs",
+          "desc": "Final Sierra sections before finish.",
+          "terrain_detail": "Late climbing",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Tahoe/Sierra mountain climbing at 6000ft+ altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Sagan Fondo",
+      "race_distance": "75 miles",
+      "race_elevation": "7,000 feet",
+      "race_date": "Summer",
+      "race_location": "Truckee, California",
+      "race_terrain": "California Sierra Nevada/Tahoe gravel",
+      "race_weather": "CA Sierra summer mountain weather",
+      "race_challenges": [
+        "Mountain climbing",
+        "Altitude (6000ft+)",
+        "Tahoe/Sierra mountains",
+        "Regional field",
+        "CA costs"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 10-12",
+        "why": "Tahoe/Sierra mountains require solid climbing fitness (7000 feet)."
+      },
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 4-6",
+        "why": "6000ft+ base elevation requires altitude acclimation."
+      },
+      {
+        "requirement": "Mountain pacing at altitude",
+        "by_when": "Week 2-4",
+        "why": "Mountain terrain at altitude requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "california_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            10,
+            11,
+            12
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 12,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "climbing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at 6000ft+",
+          "pacing": "Mountain terrain pacing at altitude",
+          "climbing": "Sustained Tahoe/Sierra climbing",
+          "fueling": "Nutrition for mountain climbing at altitude"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Sagan Fondo",
+        "race_hook": "California Tahoe/Sierra gravel in Truckee.",
+        "race_hook_detail": "Regional event with mountain climbing and altitude.",
+        "distance": "75",
+        "dark_mile": "40",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_3": "Mountain pacing at altitude",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

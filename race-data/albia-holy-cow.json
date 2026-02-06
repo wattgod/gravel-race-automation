@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Albia Holy Cow",
+    "slug": "albia-holy-cow",
+    "display_name": "Albia Holy Cow",
+    "tagline": "Iowa local gravel challenge.",
+    "vitals": {
+      "distance_mi": 60,
+      "elevation_ft": 2500,
+      "location": "Albia, Iowa",
+      "location_badge": "ALBIA, IA",
+      "county": "Monroe County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Iowa rolling",
+        "Local event",
+        "Midwest gravel",
+        "Iowa"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-75",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Iowa summer",
+      "description": "Warm to hot conditions.",
+      "challenges": [
+        "Heat",
+        "Warm conditions",
+        "Rolling terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Iowa rolling gravel",
+      "surface": "Gravel roads through Iowa countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (2500 feet)",
+        "Iowa countryside scenery",
+        "Local community event",
+        "60-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 13,
+      "score_note": "Local Iowa event. Rolling terrain with good access, low costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Iowa Local Gravel",
+      "summary": "Albia Holy Cow is a local event in Iowa\u2014rolling terrain with moderate elevation. The Iowa countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Iowa countryside scenery",
+        "Good value",
+        "Local community",
+        "Low costs",
+        "Midwest access"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Moderate terrain",
+        "Heat challenges",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local Iowa gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL IOWA EVENT",
+      "reality": "This is a small local Iowa race. The field is local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No national draw",
+        "Heat challenges"
+      ],
+      "expectation_reset": "This is a local Iowa event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "44 / 100",
+      "one_liner": "Iowa local gravel challenge.",
+      "should_you_race": "If you're local to Iowa\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better Iowa races: Trans Iowa, Spotted Horse Ultra."
+    },
+    "logistics": {
+      "airport": "Des Moines (DSM) 1.5 hours",
+      "lodging_strategy": "Albia has limited lodging options. Book ahead.",
+      "food": "Albia has limited dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Albia Holy Cow website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local Iowa organizers",
+      "origin_story": "Local Iowa gravel event.",
+      "notable_moments": [],
+      "reputation": "Local Iowa event."
+    },
+    "course_description": {
+      "character": "Iowa rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 50,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Iowa rolling terrain in heat.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Albia Holy Cow",
+      "race_distance": "60 miles",
+      "race_elevation": "2,500 feet",
+      "race_date": "Summer",
+      "race_location": "Albia, Iowa",
+      "race_terrain": "Iowa rolling gravel",
+      "race_weather": "Iowa summer warm to hot",
+      "race_challenges": [
+        "Rolling terrain",
+        "Small local field",
+        "Heat",
+        "Limited organization",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat training",
+        "by_when": "Week 6-8",
+        "why": "Iowa summer heat requires adaptation."
+      },
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 6-8",
+        "why": "Iowa rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "iowa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "heat": "Riding in Iowa summer heat",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Albia Holy Cow",
+        "race_hook": "Iowa local gravel challenge.",
+        "race_hook_detail": "Local event with rolling terrain.",
+        "distance": "60",
+        "dark_mile": "30",
+        "non_negotiable_1": "Heat training",
+        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Beaver Dam Gravel Grinder",
+    "slug": "beaver-dam-gravel-grinder",
+    "display_name": "Beaver Dam Gravel Grinder",
+    "tagline": "Nevada desert gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 3000,
+      "location": "Beaver Dam State Park, Nevada",
+      "location_badge": "BEAVER DAM, NV",
+      "county": "Lincoln County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Nevada desert",
+        "Local event",
+        "Mountain West gravel",
+        "Nevada"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-75",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Nevada desert spring",
+      "description": "Variable desert conditions.",
+      "challenges": [
+        "Variable weather",
+        "Wind",
+        "Desert terrain",
+        "Spring conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Nevada desert gravel",
+      "surface": "Gravel roads through Nevada desert. Moderate elevation with desert scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Nevada desert scenery",
+        "Local community event",
+        "50-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 2,
+      "course_profile": 8,
+      "biased_opinion": 12,
+      "score_note": "Local Nevada event. Desert terrain with remote access, low costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Nevada Desert Gravel",
+      "summary": "Beaver Dam Gravel Grinder is a local event in Nevada\u2014desert terrain with moderate elevation. The Nevada desert is scenic, but the very small field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Nevada desert scenery",
+        "Good value",
+        "Desert adventure",
+        "Low costs",
+        "Remote experience"
+      ],
+      "weaknesses": [
+        "Very small field only",
+        "Limited organization",
+        "Remote location",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local Nevada desert gravel race. Worth it for Nevada/Southwest riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL NEVADA EVENT",
+      "reality": "This is a small local Nevada race. The field is very small. Organization is basic. Remote location. Don't travel far for this one.",
+      "consequences": [
+        "Very small field",
+        "Limited organization",
+        "No national draw",
+        "Remote location"
+      ],
+      "expectation_reset": "This is a local Nevada event. Set expectations for very small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "41 / 100",
+      "one_liner": "Nevada desert gravel challenge.",
+      "should_you_race": "If you're local to Nevada\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better Nevada races: Ruby Roubaix, Gravel Worlds."
+    },
+    "logistics": {
+      "airport": "Las Vegas (LAS) 3 hours",
+      "lodging_strategy": "Beaver Dam has very limited lodging options. Plan ahead.",
+      "food": "Beaver Dam has very limited dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Beaver Dam Gravel Grinder website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local Nevada organizers",
+      "origin_story": "Local Nevada gravel event.",
+      "notable_moments": [],
+      "reputation": "Local Nevada event."
+    },
+    "course_description": {
+      "character": "Nevada desert gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Desert",
+          "desc": "First desert sections.",
+          "terrain_detail": "Desert",
+          "named_section": "Early Desert"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Desert",
+          "desc": "Final desert sections before finish.",
+          "terrain_detail": "Late desert",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Nevada desert terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Beaver Dam Gravel Grinder",
+      "race_distance": "50 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Spring",
+      "race_location": "Beaver Dam State Park, Nevada",
+      "race_terrain": "Nevada desert gravel",
+      "race_weather": "Nevada desert spring variable",
+      "race_challenges": [
+        "Desert terrain",
+        "Very small field",
+        "Remote location",
+        "Limited organization",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Desert preparation",
+        "by_when": "Week 4-6",
+        "why": "Nevada desert requires specific preparation."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Nevada desert weather is variable."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization and remote location require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "nevada_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "desert_preparation": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "desert"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Desert terrain pacing",
+          "fueling": "Nutrition for desert riding",
+          "weather": "Riding in variable Nevada weather",
+          "desert": "Desert terrain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Beaver Dam Gravel Grinder",
+        "race_hook": "Nevada desert gravel challenge.",
+        "race_hook_detail": "Local event with desert terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Desert preparation",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

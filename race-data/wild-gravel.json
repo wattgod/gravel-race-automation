@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Wild Gravel",
+    "slug": "wild-gravel",
+    "display_name": "Wild Gravel",
+    "tagline": "Australian remote gravel challenge.",
+    "vitals": {
+      "distance_mi": 60,
+      "elevation_ft": 3500,
+      "location": "Gnowangerup, Western Australia, Australia",
+      "location_badge": "GNOWANGERUP, WA",
+      "county": "Shire of Gnowangerup",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Australian remote",
+        "Local event",
+        "Australian gravel",
+        "Western Australia"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-100 AUD",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Australian remote spring",
+      "description": "Variable remote conditions.",
+      "challenges": [
+        "Variable weather",
+        "Wind",
+        "Remote terrain",
+        "Spring conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Australian remote gravel",
+      "surface": "Gravel roads through Australian remote countryside. Moderate elevation with remote scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Australian remote scenery",
+        "Local community event",
+        "60-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 40,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 8,
+      "biased_opinion": 12,
+      "score_note": "Local Australian event. Remote terrain with very remote access, moderate costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Australian Remote Gravel",
+      "summary": "Wild Gravel is a local event in Western Australia\u2014remote terrain with moderate elevation. The Australian remote scenery is scenic, but the very small field, very remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Australian remote scenery",
+        "Good value",
+        "Remote adventure",
+        "Moderate costs",
+        "Extreme remote experience"
+      ],
+      "weaknesses": [
+        "Very small field only",
+        "Limited organization",
+        "Very remote location",
+        "Variable weather",
+        "No national draw"
+      ],
+      "bottom_line": "A solid local Australian remote gravel race. Worth it for Western Australia/Australian riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL AUSTRALIAN EVENT",
+      "reality": "This is a small local Australian race. The field is very small. Organization is basic. Very remote location. Don't travel far for this one.",
+      "consequences": [
+        "Very small field",
+        "Limited organization",
+        "No national draw",
+        "Very remote location"
+      ],
+      "expectation_reset": "This is a local Australian event. Set expectations for very small field, basic organization, and extreme remoteness."
+    },
+    "final_verdict": {
+      "score": "40 / 100",
+      "one_liner": "Australian remote gravel challenge.",
+      "should_you_race": "If you're local to Western Australia\u2014yes, it's good value. If you're traveling\u2014skip it.",
+      "alternatives": "For better Australian races: Gravel Gong, Dirty Gravel."
+    },
+    "logistics": {
+      "airport": "Perth (PER) 4 hours",
+      "lodging_strategy": "Gnowangerup has very limited lodging options. Plan ahead.",
+      "food": "Gnowangerup has very limited dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Wild Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local Australian organizers",
+      "origin_story": "Local Australian gravel event.",
+      "notable_moments": [],
+      "reputation": "Local Australian event."
+    },
+    "course_description": {
+      "character": "Australian remote gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Remote",
+          "desc": "First remote sections.",
+          "terrain_detail": "Remote",
+          "named_section": "Early Remote"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 50,
+          "label": "Late Remote",
+          "desc": "Final remote sections before finish.",
+          "terrain_detail": "Late remote",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Australian remote terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Wild Gravel",
+      "race_distance": "60 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Spring",
+      "race_location": "Gnowangerup, Western Australia, Australia",
+      "race_terrain": "Australian remote gravel",
+      "race_weather": "Australian remote spring variable",
+      "race_challenges": [
+        "Remote terrain",
+        "Very small field",
+        "Very remote location",
+        "Limited organization",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Remote preparation",
+        "by_when": "Week 4-6",
+        "why": "Australian remote conditions require specific preparation."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Australian remote weather is variable."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization and very remote location require extreme self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "australian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "remote_preparation": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "remote"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Remote terrain pacing",
+          "fueling": "Nutrition for remote riding",
+          "weather": "Riding in variable Australian weather",
+          "remote": "Remote terrain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Wild Gravel",
+        "race_hook": "Australian remote gravel challenge.",
+        "race_hook_detail": "Local event with remote terrain.",
+        "distance": "60",
+        "dark_mile": "30",
+        "non_negotiable_1": "Remote preparation",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

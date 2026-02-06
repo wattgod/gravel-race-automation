@@ -1,0 +1,270 @@
+{
+  "race": {
+    "name": "Ruby Roubaix",
+    "slug": "ruby-roubaix",
+    "display_name": "Ruby Roubaix",
+    "tagline": "Northeast Nevada gravel in remote Ruby Mountains near Elko.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 5000,
+      "location": "Lamoille, Nevada",
+      "location_badge": "LAMOILLE, NV",
+      "county": "Elko County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Mountain gravel",
+        "High desert",
+        "Ruby Mountains",
+        "Remote wilderness"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Minimal aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Nevada mountain summer",
+      "description": "High altitude with variable mountain conditions.",
+      "challenges": [
+        "High altitude (6000-8000+ feet)",
+        "Variable mountain weather",
+        "Sun exposure at altitude",
+        "Remote location"
+      ]
+    },
+    "terrain": {
+      "primary": "Ruby Mountains gravel",
+      "surface": "Mountain and high desert gravel roads. Significant elevation with remote wilderness setting.",
+      "technical_rating": 2,
+      "features": [
+        "Significant climbing (5000 feet)",
+        "High altitude (6000-8000+ feet)",
+        "Ruby Mountains scenery",
+        "Remote wilderness",
+        "Mountain terrain"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 53,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 13,
+      "biased_opinion": 16,
+      "score_note": "Tiny grassroots Nevada event. Remote Ruby Mountains setting but extremely limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Remote Ruby Mountains Wilderness Ride",
+      "summary": "Ruby Roubaix is a tiny grassroots gravel race in the remote Ruby Mountains of northeast Nevada. Lamoille is a tiny town with minimal amenities. The mountain scenery is beautiful and the altitude challenge is real, but it's an extremely small field with basic organization. It's an honest local event for hardy Nevada cyclists who want a remote wilderness gravel ride.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Beautiful Ruby Mountains scenery",
+        "High altitude challenge",
+        "Remote wilderness setting",
+        "Authentic grassroots vibe"
+      ],
+      "weaknesses": [
+        "Extremely remote location",
+        "Tiny town with minimal amenities",
+        "Very small field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A tiny local gravel race in remote Nevada wilderness. Perfect for locals or those seeking a remote Ruby Mountains experience. Not worth the long drive for most riders unless you're combining with Nevada tourism."
+    },
+    "black_pill": {
+      "title": "EXTREMELY REMOTE",
+      "reality": "Lamoille is a tiny town in remote northeast Nevada—20 minutes from Elko, which itself is remote. This is a tiny grassroots event with minimal infrastructure. You're driving a very long way for a very small local ride in the wilderness.",
+      "consequences": [
+        "Extremely remote location",
+        "Minimal amenities",
+        "Tiny field",
+        "Basic support",
+        "Very long drive"
+      ],
+      "expectation_reset": "This is a remote wilderness ride for local riders. The remoteness makes it impractical for most."
+    },
+    "final_verdict": {
+      "score": "53 / 100",
+      "one_liner": "Tiny grassroots Nevada wilderness ride with extremely remote location.",
+      "should_you_race": "Only if you're in Nevada or seeking extreme remote wilderness. Not worth the long drive for the race alone.",
+      "alternatives": "For better Nevada events: other regional events. For similar remote wilderness vibes: other Great Basin events."
+    },
+    "logistics": {
+      "airport": "Elko (EKO) 20 min, or Reno (RNO) 5+ hours",
+      "lodging_strategy": "Lamoille has very limited lodging. Elko (20 min) has more options.",
+      "food": "Tiny town with minimal dining. Bring your own.",
+      "packet_pickup": "Race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Nevada cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in Ruby Mountains.",
+      "notable_moments": [],
+      "reputation": "Tiny regional Nevada event."
+    },
+    "course_description": {
+      "character": "Mountain gravel through Ruby Mountains wilderness.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Mountain Climbing",
+          "desc": "Elevation gain at altitude.",
+          "terrain_detail": "Mountain ascent",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through mountains.",
+          "terrain_detail": "Continued climbing",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "High altitude climbing in remote Ruby Mountains.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Ruby Roubaix",
+      "race_distance": "62 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Summer",
+      "race_location": "Lamoille, Nevada",
+      "race_terrain": "Ruby Mountains gravel",
+      "race_weather": "Mountain variability",
+      "race_challenges": [
+        "High altitude (6000-8000+ feet)",
+        "5000 feet of climbing",
+        "Remote wilderness location",
+        "Variable weather"
+      ],
+      "altitude_section": true,
+      "altitude_feet": "6000-8000+"
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 6-8",
+        "why": "Racing at 6000-8000+ feet requires altitude acclimatization or preparation."
+      },
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "5000 feet of climbing requires strong aerobic capacity."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 5-7",
+        "why": "Extremely remote location and minimal support mean managing your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "nevada_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "climbing",
+          "pacing"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "climbing": "Pacing for mountain climbing",
+          "pacing": "Managing effort on climbs"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Ruby Roubaix",
+        "race_hook": "62 miles of Ruby Mountains gravel at 6000-8000+ feet.",
+        "race_hook_detail": "Tiny grassroots event in remote Lamoille.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Altitude preparation",
+        "non_negotiable_2": "Climbing strength",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

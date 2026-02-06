@@ -1,0 +1,279 @@
+{
+  "race": {
+    "name": "Little Apple 100",
+    "slug": "little-apple-100",
+    "display_name": "Little Apple 100 - Illinois State Championship",
+    "tagline": "Illinois State Championship 100-mile gravel through farmland.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3000,
+      "location": "Manhattan, Illinois",
+      "location_badge": "MANHATTAN, IL",
+      "county": "Will County",
+      "date": "Spring or Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Farmland gravel",
+        "Rolling terrain",
+        "State championship",
+        "100-mile distance"
+      ],
+      "field_size": "150-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "State championship prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies (typically 10-12 hours)"
+    },
+    "climate": {
+      "primary": "Illinois spring/summer",
+      "description": "Variable conditions with heat, wind, and humidity possible.",
+      "challenges": [
+        "Heat possible",
+        "Wind exposure",
+        "Humidity",
+        "Variable weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Illinois farmland gravel",
+      "surface": "Farmland and rolling gravel roads. Moderate elevation with 100-mile distance challenge.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Farmland scenery",
+        "100-mile distance",
+        "State championship course",
+        "Northern Illinois setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 20,
+      "score_note": "Illinois State Championship. 100 miles is significant but flat farmland terrain and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Illinois State Championship Century",
+      "summary": "Little Apple 100 is Illinois' State Championship gravel race—a 100-mile challenge through northern Illinois farmland. The state championship status and century distance elevate it above typical regional events, but it's still flat farmland terrain with regional field depth. Manhattan is a small town near Chicago with basic amenities. It's well-organized for a state championship with moderate field size.",
+      "strengths": [
+        "Illinois State Championship status",
+        "100-mile distance challenge",
+        "Near Chicago (1 hour)",
+        "Well-organized state championship",
+        "Illinois cycling community support"
+      ],
+      "weaknesses": [
+        "Flat farmland terrain (limited climbing)",
+        "Regional/state field only",
+        "Heat, wind, and humidity concerns",
+        "Limited national recognition",
+        "Repetitive farmland scenery"
+      ],
+      "bottom_line": "A solid Illinois State Championship gravel race with 100-mile distance challenge. Worth it for Illinois cyclists seeking state championship status. Not a destination race for out-of-state travelers, but a good state-level century event."
+    },
+    "black_pill": {
+      "title": "FLAT FARMLAND CENTURY",
+      "reality": "State championship status is nice, and 100 miles is a long way. But it's flat Illinois farmland—repetitive scenery with minimal climbing. The field is regional/state level. Heat, wind, and humidity are real concerns.",
+      "consequences": [
+        "Flat farmland (minimal climbing)",
+        "Regional/state field only",
+        "Heat/wind/humidity",
+        "Repetitive scenery"
+      ],
+      "expectation_reset": "This is a state championship century. The distance is real, but set expectations accordingly for terrain and field."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "Illinois State Championship 100-mile gravel through flat farmland.",
+      "should_you_race": "If you're in Illinois and want state championship status—yes, it's a well-organized century event. If you're from out of state—there are more prestigious events elsewhere.",
+      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar state championships: other state championship events."
+    },
+    "logistics": {
+      "airport": "Chicago (ORD/MDW) 1 hour",
+      "lodging_strategy": "Manhattan has basic lodging. Chicago suburbs have more options.",
+      "food": "Small town with basic dining. Stock nutrition for 100 miles.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Illinois cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Illinois organizers",
+      "origin_story": "Illinois State Championship gravel event.",
+      "notable_moments": [],
+      "reputation": "Illinois State Championship event."
+    },
+    "course_description": {
+      "character": "Flat to rolling farmland gravel for 100 miles.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "First Third",
+          "desc": "30 miles in, settling into pace.",
+          "terrain_detail": "Farmland",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 50,
+          "label": "Halfway",
+          "desc": "Halfway point, 50 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 75,
+          "label": "The Grind",
+          "desc": "75 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 90,
+          "label": "Final Push",
+          "desc": "Last 10 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100-mile distance through Illinois farmland with heat, wind, and humidity.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Little Apple 100",
+      "race_distance": "100 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Spring or Summer",
+      "race_location": "Manhattan, Illinois",
+      "race_terrain": "Illinois farmland gravel",
+      "race_weather": "Illinois variability",
+      "race_challenges": [
+        "100-mile distance",
+        "Heat possible",
+        "Wind exposure",
+        "Humidity",
+        "State championship competition"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 8-10",
+        "why": "100 miles requires extensive endurance base and long-distance preparation."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "Illinois summer means heat and humidity are real concerns."
+      },
+      {
+        "requirement": "Wind preparation",
+        "by_when": "Week 4-6",
+        "why": "Illinois farmland means significant wind exposure."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "illinois_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "wind_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 6,
+            "compete": 7,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "wind"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Century pacing discipline",
+          "fueling": "Nutrition strategy for 100 miles",
+          "heat": "Racing in Illinois heat and humidity",
+          "wind": "Riding in farmland wind"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Little Apple 100",
+        "race_hook": "100 miles of Illinois State Championship farmland gravel.",
+        "race_hook_detail": "State championship century event near Chicago.",
+        "distance": "100",
+        "dark_mile": "50",
+        "non_negotiable_1": "Century endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Wind preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

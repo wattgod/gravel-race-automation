@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Opelika Okey Dokey",
+    "slug": "opelika-okey-dokey",
+    "display_name": "Opelika Okey Dokey",
+    "tagline": "Rolling Alabama gravel in east Alabama's Opelika.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 3000,
+      "location": "Opelika, Alabama",
+      "location_badge": "OPELIKA, AL",
+      "county": "Lee County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Rolling gravel",
+        "Rural Alabama",
+        "Regional event",
+        "East Alabama"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Alabama spring/fall",
+      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "challenges": [
+        "Heat possible (spring)",
+        "Cool possible (fall)",
+        "Humidity",
+        "Variable weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Alabama rolling gravel",
+      "surface": "Gravel roads through rolling east Alabama. Moderate elevation with rural scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Rural scenery",
+        "East Alabama setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 48,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional Alabama event. Rolling terrain is moderate with moderate access near Auburn but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "East Alabama Regional Gravel",
+      "summary": "Opelika Okey Dokey is a regional event in Opelika, east Alabama near Auburn. The rolling terrain offers moderate climbing with rural scenery, and the proximity to Auburn provides moderate access. However, the moderate organization and regional field keep it firmly in Tier 3. It's a solid regional event for Alabama cyclists.",
+      "strengths": [
+        "Rolling Alabama terrain",
+        "Near Auburn (moderate access)",
+        "Moderate climbing",
+        "Rural scenery",
+        "Alabama cycling community"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition",
+        "Heat and humidity concerns",
+        "Standard gravel terrain"
+      ],
+      "bottom_line": "A solid regional Alabama gravel race with rolling terrain near Auburn. Worth it for Alabama cyclists seeking a local event. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL ALABAMA EVENT",
+      "reality": "The rolling terrain is moderate, and Auburn access is decent. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Heat and humidity",
+        "Standard gravel terrain"
+      ],
+      "expectation_reset": "This is a regional Alabama event. The terrain is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "Rolling Alabama gravel in east Alabama's Opelika.",
+      "should_you_race": "If you're in Alabama and want a local rolling gravel event near Auburn—yes, it's a solid regional race. If you're from out of state—there are better options.",
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Alabama gravel races."
+    },
+    "logistics": {
+      "airport": "Columbus (CSG) 30 minutes or Atlanta (ATL) 2 hours",
+      "lodging_strategy": "Opelika and Auburn have lodging options.",
+      "food": "Moderate dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Alabama cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Alabama organizers",
+      "origin_story": "Regional Alabama gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Alabama event."
+    },
+    "course_description": {
+      "character": "Rolling Alabama gravel with moderate climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rollers",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rollers"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Rollers",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Rolling Alabama gravel in east Alabama.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Opelika Okey Dokey",
+      "race_distance": "75 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Opelika, Alabama",
+      "race_terrain": "Alabama rolling gravel",
+      "race_weather": "Alabama variability",
+      "race_challenges": [
+        "Rolling terrain",
+        "Heat or cool possible",
+        "Humidity",
+        "Moderate climbing",
+        "Regional field"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Rolling Alabama terrain requires sustained effort."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "Alabama spring/fall means heat and humidity are possible."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "alabama_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for moderate rolling",
+          "heat": "Racing in Alabama heat and humidity",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Opelika Okey Dokey",
+        "race_hook": "Rolling Alabama gravel in east Alabama's Opelika.",
+        "race_hook_detail": "Regional event with moderate climbing near Auburn.",
+        "distance": "75",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

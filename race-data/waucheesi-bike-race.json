@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Waucheesi Bike Race",
+    "slug": "waucheesi-bike-race",
+    "display_name": "Waucheesi Bike Race",
+    "tagline": "Appalachian gravel in remote southeast Tennessee mountains.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 5000,
+      "location": "Tellico Plains, Tennessee",
+      "location_badge": "TELLICO PLAINS, TN",
+      "county": "Monroe County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Appalachian mountains",
+        "Forest gravel",
+        "Regional event",
+        "Cherokee National Forest area"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Tennessee spring/fall",
+      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "challenges": [
+        "Heat possible (spring)",
+        "Cool possible (fall)",
+        "Humidity",
+        "Variable weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Appalachian gravel",
+      "surface": "Gravel roads through Appalachian mountains. Challenging elevation with mountain and forest scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Challenging climbing (5000 feet)",
+        "Mountain scenery",
+        "Cherokee National Forest area",
+        "Appalachian setting",
+        "Remote southeast Tennessee"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 17,
+      "score_note": "Regional Tennessee event. Appalachian terrain is challenging but remote location and limited organization."
+    },
+    "biased_opinion": {
+      "verdict": "Remote Appalachian Mountain Gravel",
+      "summary": "Waucheesi Bike Race is a regional event in remote Tellico Plains, southeast Tennessee near Cherokee National Forest. The Appalachian terrain offers challenging climbing with mountain scenery, but the remote location, limited amenities, and moderate organization keep it firmly in Tier 3. Tellico Plains is a small town with limited lodging and dining. It's a solid regional event for Tennessee cyclists seeking a mountain challenge.",
+      "strengths": [
+        "Appalachian mountain terrain",
+        "Cherokee National Forest area",
+        "Challenging climbing (5000 feet)",
+        "Mountain scenery",
+        "Tennessee cycling community"
+      ],
+      "weaknesses": [
+        "Remote location (limited access)",
+        "Limited amenities in Tellico Plains",
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional Tennessee gravel race with Appalachian mountain terrain. Worth it for Tennessee cyclists seeking a remote mountain challenge. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REMOTE MOUNTAIN REGIONAL EVENT",
+      "reality": "The Appalachian mountain terrain is challenging, but this is a remote regional event with limited amenities and moderate organization. The field is regional only.",
+      "consequences": [
+        "Remote location (limited access)",
+        "Limited amenities",
+        "Moderate organization",
+        "Regional field only"
+      ],
+      "expectation_reset": "This is a regional Tennessee event. The terrain is challenging, but set expectations accordingly for logistics and field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Remote Appalachian mountain gravel in southeast Tennessee.",
+      "should_you_race": "If you're in Tennessee and want a remote mountain challenge—yes, it's a solid regional event. If you're from out of state—there are better options.",
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races."
+    },
+    "logistics": {
+      "airport": "Chattanooga (CHA) 1.5 hours or Knoxville (TYS) 1.5 hours",
+      "lodging_strategy": "Tellico Plains has limited lodging. Cleveland or Chattanooga have more options.",
+      "food": "Small town with limited dining. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Tennessee cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Tennessee organizers",
+      "origin_story": "Regional Tennessee gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Tennessee event."
+    },
+    "course_description": {
+      "character": "Appalachian mountain gravel with challenging climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Climbs",
+          "desc": "First significant mountain climbs.",
+          "terrain_detail": "Mountains",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Climbs",
+          "desc": "Final mountain climbs before finish.",
+          "terrain_detail": "Late climbs",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Appalachian mountain climbing in remote southeast Tennessee.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Waucheesi Bike Race",
+      "race_distance": "75 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Tellico Plains, Tennessee",
+      "race_terrain": "Appalachian gravel",
+      "race_weather": "Tennessee variability",
+      "race_challenges": [
+        "Appalachian mountain climbing",
+        "Remote location",
+        "Heat or cool possible",
+        "Humidity",
+        "Limited amenities"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "Appalachian mountains require serious climbing fitness (5000 feet)."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "Tennessee spring/fall means heat and humidity are possible."
+      },
+      {
+        "requirement": "Remote self-sufficiency",
+        "by_when": "Week 2-4",
+        "why": "Remote location requires self-sufficiency and preparation."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "tennessee_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "heat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Appalachian mountain pacing",
+          "climbing": "Sustained mountain climbing strategy",
+          "fueling": "Nutrition for challenging climbing",
+          "heat": "Racing in Tennessee heat and humidity"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Waucheesi Bike Race",
+        "race_hook": "Appalachian mountain gravel in remote southeast Tennessee.",
+        "race_hook_detail": "Regional event near Cherokee National Forest.",
+        "distance": "75",
+        "dark_mile": "40",
+        "non_negotiable_1": "Mountain climbing endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Remote self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

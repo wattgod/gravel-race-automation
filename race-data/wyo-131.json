@@ -1,0 +1,273 @@
+{
+  "race": {
+    "name": "WYO 131",
+    "slug": "wyo-131",
+    "display_name": "WYO 131",
+    "tagline": "Central Wyoming ultra-distance gravel through mountain and high desert.",
+    "vitals": {
+      "distance_mi": 131,
+      "elevation_ft": 7500,
+      "location": "Lander, Wyoming",
+      "location_badge": "LANDER, WY",
+      "county": "Fremont County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Mountain gravel",
+        "High desert",
+        "Wyoming wilderness",
+        "Ultra-distance"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "None or minimal",
+      "aid_stations": "Multiple aid stations for ultra distance",
+      "cutoff_time": "Varies (typically 16-20 hours)"
+    },
+    "climate": {
+      "primary": "Wyoming summer",
+      "description": "High altitude with variable conditions. Wind and sun exposure.",
+      "challenges": [
+        "High altitude (6000-8000+ feet)",
+        "Wind exposure",
+        "Variable weather",
+        "Sun exposure",
+        "Long day riding"
+      ]
+    },
+    "terrain": {
+      "primary": "Wyoming mountain and high desert gravel",
+      "surface": "Mix of mountain and high desert gravel roads. Significant elevation with remote wilderness setting.",
+      "technical_rating": 2,
+      "features": [
+        "Mountain terrain",
+        "High desert sections",
+        "Significant climbing (7500 feet)",
+        "Remote wilderness",
+        "Wind River Range setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 61,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 15,
+      "biased_opinion": 20,
+      "score_note": "Regional ultra-distance event. 131 miles is serious challenge but regional field and infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Wyoming Ultra-Distance Challenge",
+      "summary": "WYO 131 offers a genuine ultra-distance challenge—131 miles through Wyoming mountain and high desert terrain. It's a well-organized regional ultra event with good support, but the field is regional and it's remote central Wyoming. The adventure of riding through Wind River Range country is the main appeal, along with the ultra-distance challenge.",
+      "strengths": [
+        "Genuine ultra-distance challenge (131 miles)",
+        "Beautiful Wyoming mountain and desert scenery",
+        "Wind River Range setting",
+        "Well-organized regional ultra",
+        "High altitude challenge"
+      ],
+      "weaknesses": [
+        "Remote central Wyoming location",
+        "Regional field depth only",
+        "Long drive from anywhere",
+        "Wind exposure",
+        "Limited prestige outside Wyoming"
+      ],
+      "bottom_line": "A solid regional ultra-distance gravel race with genuine Wyoming wilderness appeal. Worth it for Wyoming cyclists or those seeking an ultra-distance challenge in the Rockies. Not a destination race for distant travelers, but a good regional ultra event."
+    },
+    "black_pill": {
+      "title": "REMOTE ULTRA",
+      "reality": "Lander is remote central Wyoming—3 hours from Casper. 131 miles is a long way, and you're doing it in remote wilderness. This is a regional ultra event—don't expect Unbound-level fields or prestige. But the challenge is real.",
+      "consequences": [
+        "Remote location",
+        "Regional field only",
+        "Long day in wilderness",
+        "Wind exposure"
+      ],
+      "expectation_reset": "This is a regional ultra-distance event. The challenge is real, but set expectations accordingly for field and prestige."
+    },
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "Regional Wyoming ultra-distance through mountain and high desert.",
+      "should_you_race": "If you're in Wyoming or the Rockies and want an ultra-distance challenge—yes, it's a well-organized event with genuine wilderness appeal. If you're traveling from far away—there are more prestigious ultra events elsewhere.",
+      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza. For similar regional ultras: other Rocky Mountain ultra events."
+    },
+    "logistics": {
+      "airport": "Casper (CPR) 3 hours, or Denver (DEN) 6+ hours",
+      "lodging_strategy": "Lander has basic lodging. Small city with limited options. Book early.",
+      "food": "Small city with basic dining. Stock nutrition for ultra distance.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Wyoming cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Wyoming organizers",
+      "origin_story": "Ultra-distance gravel event in central Wyoming.",
+      "notable_moments": [],
+      "reputation": "Growing regional ultra-distance event."
+    },
+    "course_description": {
+      "character": "Mix of mountain and high desert terrain through Wyoming wilderness.",
+      "suffering_zones": [
+        {
+          "mile": 40,
+          "label": "First Third",
+          "desc": "40 miles in, settling into ultra pace.",
+          "terrain_detail": "Early miles",
+          "named_section": "First Third"
+        },
+        {
+          "mile": 65,
+          "label": "Halfway",
+          "desc": "Halfway point, 65 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 100,
+          "label": "The Grind",
+          "desc": "100 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 120,
+          "label": "Final Push",
+          "desc": "Last 11 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "131-mile ultra-distance at high altitude through Wyoming wilderness.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "WYO 131",
+      "race_distance": "131 miles",
+      "race_elevation": "7,500 feet",
+      "race_date": "Summer",
+      "race_location": "Lander, Wyoming",
+      "race_terrain": "Wyoming mountain and high desert gravel",
+      "race_weather": "Wyoming variability",
+      "race_challenges": [
+        "131-mile ultra-distance",
+        "High altitude (6000-8000+ feet)",
+        "Wind exposure",
+        "Remote wilderness"
+      ],
+      "altitude_section": true,
+      "altitude_feet": "6000-8000+"
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-distance endurance",
+        "by_when": "Week 8-12",
+        "why": "131 miles requires extensive endurance base and ultra-distance preparation."
+      },
+      {
+        "requirement": "Altitude preparation",
+        "by_when": "Week 6-8",
+        "why": "Racing at 6000-8000+ feet requires altitude acclimatization or preparation."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 8-10",
+        "why": "Ultra-distance success depends on conservative pacing and not going out too hard."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wyoming_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "ultra_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 6,
+            "finisher": 8,
+            "compete": 10,
+            "podium": 12
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "altitude",
+          "fueling",
+          "endurance"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Ultra-distance pacing discipline",
+          "altitude": "Racing at high altitude",
+          "fueling": "Nutrition strategy for 130+ miles",
+          "endurance": "Building ultra-distance base"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "WYO 131",
+        "race_hook": "131 miles of Wyoming mountain and high desert gravel.",
+        "race_hook_detail": "Regional ultra-distance challenge through Wind River Range country.",
+        "distance": "131",
+        "dark_mile": "65",
+        "non_negotiable_1": "Ultra-distance endurance",
+        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

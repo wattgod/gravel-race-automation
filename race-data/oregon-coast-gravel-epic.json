@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "Oregon Coast Gravel Epic",
+    "slug": "oregon-coast-gravel-epic",
+    "display_name": "Oregon Coast Gravel Epic",
+    "tagline": "Central Oregon coast gravel with coastal and mountain terrain.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 5000,
+      "location": "Waldport, Oregon",
+      "location_badge": "WALDPORT, OR",
+      "county": "Lincoln County",
+      "date": "Spring or Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Coastal gravel",
+        "Coast Range",
+        "Forest roads",
+        "Coastal views"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-100",
+      "prize_purse": "None or minimal",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Oregon coast",
+      "description": "Variable Oregon coast conditions with rain and wind possible.",
+      "challenges": [
+        "Rain possible",
+        "Wind possible",
+        "Variable weather",
+        "Moderate temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Coastal and Coast Range gravel",
+      "surface": "Mix of coastal and mountain gravel roads. Significant elevation with forest roads and coastal views.",
+      "technical_rating": 3,
+      "features": [
+        "Significant climbing (5000 feet)",
+        "Coastal views",
+        "Forest roads",
+        "Coast Range terrain",
+        "Technical mountain gravel"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 20,
+      "score_note": "Regional Oregon coast event. Significant climbing and coastal scenery but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Oregon Coast Mountain Challenge",
+      "summary": "Oregon Coast Gravel Epic offers a unique mix of coastal and mountain gravel with significant climbing and beautiful coastal views. Waldport is a small coastal town with basic amenities. The course is challenging with 5000 feet of climbing through Coast Range forests with ocean views. It's a well-organized regional event with a moderate field.",
+      "strengths": [
+        "Significant climbing challenge",
+        "Beautiful coastal and mountain scenery",
+        "Unique coastal/mountain mix",
+        "Well-organized regional event",
+        "Coastal setting"
+      ],
+      "weaknesses": [
+        "Remote coastal location (2 hours from Eugene)",
+        "Regional field depth only",
+        "Rain and wind are concerns",
+        "Limited prestige outside Oregon",
+        "Small town amenities"
+      ],
+      "bottom_line": "A solid regional Oregon coast gravel race with genuine climbing challenges and beautiful scenery. Worth it for Oregon cyclists or those seeking a coastal mountain experience. Not a destination race for distant travelers, but a good regional event."
+    },
+    "black_pill": {
+      "title": "REMOTE COAST EVENT",
+      "reality": "Waldport is a small coastal town 2 hours from Eugene. This is a regional event with basic infrastructure. Oregon coast weather means rain and wind are real concerns.",
+      "consequences": [
+        "Remote coastal location",
+        "Regional field only",
+        "Rain and wind possible",
+        "Limited prestige"
+      ],
+      "expectation_reset": "This is a regional coastal event. The scenery is beautiful, but set expectations accordingly for field and weather."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Regional Oregon coast gravel with coastal and mountain terrain.",
+      "should_you_race": "If you're in Oregon and want a unique coastal/mountain gravel challenge—yes, it's a well-organized event with beautiful scenery. If you're traveling from far away—there are more prestigious events elsewhere.",
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar coastal vibes: other Pacific coast gravel events."
+    },
+    "logistics": {
+      "airport": "Eugene (EUG) 2 hours, or Portland (PDX) 3 hours",
+      "lodging_strategy": "Waldport has basic coastal lodging. Small town with limited options.",
+      "food": "Small coastal town with basic dining options.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Oregon cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Regional gravel event on Oregon coast.",
+      "notable_moments": [],
+      "reputation": "Growing regional Oregon coast event."
+    },
+    "course_description": {
+      "character": "Mix of coastal and mountain gravel with significant climbing.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "First Climb",
+          "desc": "Early climbing into Coast Range.",
+          "terrain_detail": "Mountain ascent",
+          "named_section": "Early Climb"
+        },
+        {
+          "mile": 35,
+          "label": "High Point",
+          "desc": "Highest elevation with coastal views.",
+          "terrain_detail": "Forest summit",
+          "named_section": "Summit"
+        },
+        {
+          "mile": 50,
+          "label": "Final Climb",
+          "desc": "Last major climb to finish.",
+          "terrain_detail": "Final ascent",
+          "named_section": "Finish Climb"
+        }
+      ],
+      "signature_challenge": "5000 feet of climbing with coastal and mountain terrain mix.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Oregon Coast Gravel Epic",
+      "race_distance": "62 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Spring or Summer",
+      "race_location": "Waldport, Oregon",
+      "race_terrain": "Coastal and Coast Range gravel",
+      "race_weather": "Oregon coast variability",
+      "race_challenges": [
+        "5000 feet of climbing",
+        "Rain and wind possible",
+        "Coastal/mountain mix",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "5000 feet of climbing requires strong aerobic capacity and climbing fitness."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Oregon coast weather means rain and wind are possible. Prepare for wet and windy conditions."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "oregon_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "weather_preparation": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "weather",
+          "pacing"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for coastal mountain climbing",
+          "weather": "Racing in Oregon coast rain and wind",
+          "pacing": "Managing effort on climbs"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Oregon Coast Gravel Epic",
+        "race_hook": "62 miles of Oregon coast gravel with 5000 feet of climbing.",
+        "race_hook_detail": "Regional coastal event in Waldport with mountain and ocean views.",
+        "distance": "62",
+        "dark_mile": "35",
+        "non_negotiable_1": "Climbing strength",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

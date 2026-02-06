@@ -1,0 +1,252 @@
+{
+  "race": {
+    "name": "Oregon Gran Fondo",
+    "slug": "oregon-gran-fondo",
+    "display_name": "Oregon Gran Fondo",
+    "tagline": "Southern Oregon Cascade foothills gravel near Eugene.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Cottage Grove, Oregon",
+      "location_badge": "COTTAGE GROVE, OR",
+      "county": "Lane County",
+      "date": "Spring or Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Cascade foothills",
+        "Forest roads",
+        "Rolling to hilly",
+        "Rural Oregon"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-100",
+      "prize_purse": "None or minimal",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Oregon spring/summer",
+      "description": "Variable Oregon conditions with rain possible.",
+      "challenges": [
+        "Rain possible",
+        "Variable weather",
+        "Moderate temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Cascade foothills gravel",
+      "surface": "Rolling to hilly gravel roads through Cascade foothills. Moderate to significant elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate to significant climbing (4000 feet)",
+        "Cascade foothills",
+        "Forest roads",
+        "Rural scenery",
+        "Rolling to hilly terrain"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 20,
+      "score_note": "Regional Oregon event. Moderate climbing but regional field and infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Cascade Foothills Regional Ride",
+      "summary": "Oregon Gran Fondo offers a solid gravel challenge through Cascade foothills near Eugene. Cottage Grove is a small city with decent amenities and good access from Eugene. The course has 4000 feet of climbing through rolling to hilly terrain. It's a well-organized regional event with a moderate field.",
+      "strengths": [
+        "Moderate to significant climbing",
+        "Cascade foothills scenery",
+        "Near Eugene (30 min)",
+        "Small city amenities",
+        "Well-organized regional event"
+      ],
+      "weaknesses": [
+        "Regional field depth only",
+        "Rain is a concern in Oregon",
+        "Limited prestige outside Oregon",
+        "Standard terrain (not dramatic)"
+      ],
+      "bottom_line": "A solid regional Oregon gravel race with moderate climbing challenges. Worth it for Oregon cyclists or those in the Eugene area. Not a destination race for distant travelers, but a good regional event."
+    },
+    "black_pill": {
+      "title": "REGIONAL EVENT",
+      "reality": "This is a regional Oregon event. The climbing is moderate, the field is regional, and it's not a destination race. Oregon rain is a concern.",
+      "consequences": [
+        "Regional field only",
+        "Rain possible",
+        "Limited prestige"
+      ],
+      "expectation_reset": "This is a regional ride. Set expectations accordingly for field and prestige."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "Regional Oregon Cascade foothills gravel near Eugene.",
+      "should_you_race": "If you're in Oregon or the Eugene area and want a gravel challenge—yes, it's a well-organized event. If you're traveling from far away—there are more prestigious events elsewhere.",
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional vibes: other Pacific Northwest events."
+    },
+    "logistics": {
+      "airport": "Eugene (EUG) 30 min",
+      "lodging_strategy": "Cottage Grove has basic lodging. Eugene (30 min) has more options.",
+      "food": "Small city with dining options.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Oregon cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Regional gravel event in southern Oregon.",
+      "notable_moments": [],
+      "reputation": "Regional Oregon event."
+    },
+    "course_description": {
+      "character": "Rolling to hilly gravel through Cascade foothills.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Foothills Climbing",
+          "desc": "Rolling to hilly terrain begins.",
+          "terrain_detail": "Foothills",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through course.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "4000 feet of climbing through Cascade foothills.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Oregon Gran Fondo",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Spring or Summer",
+      "race_location": "Cottage Grove, Oregon",
+      "race_terrain": "Cascade foothills gravel",
+      "race_weather": "Oregon variability",
+      "race_challenges": [
+        "4000 feet of climbing",
+        "Rain possible",
+        "Rolling to hilly terrain"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "4000 feet of climbing requires good aerobic capacity."
+      },
+      {
+        "requirement": "Rain preparation",
+        "by_when": "Week 4-6",
+        "why": "Oregon weather means rain is possible. Prepare for wet conditions."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "oregon_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "rain_preparation": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "pacing",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for foothills climbing",
+          "pacing": "Managing effort on rolling to hilly terrain",
+          "weather": "Racing in Oregon rain"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Oregon Gran Fondo",
+        "race_hook": "62 miles of Cascade foothills gravel near Eugene.",
+        "race_hook_detail": "Regional event in Cottage Grove with 4000 feet of climbing.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Climbing strength",
+        "non_negotiable_2": "Rain preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

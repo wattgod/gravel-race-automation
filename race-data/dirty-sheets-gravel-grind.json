@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Dirty Sheets Gravel Grind",
+    "slug": "dirty-sheets-gravel-grind",
+    "display_name": "Dirty Sheets Gravel Grind",
+    "tagline": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 3000,
+      "location": "Chattahoochee Hills, Georgia",
+      "location_badge": "CHATTAHOOCHEE HILLS, GA",
+      "county": "Fulton County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Rolling gravel",
+        "Rural Georgia",
+        "Regional event",
+        "Metro Atlanta area"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Georgia spring/fall",
+      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "challenges": [
+        "Heat possible (spring)",
+        "Cool possible (fall)",
+        "Humidity",
+        "Variable weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Georgia rolling gravel",
+      "surface": "Gravel roads through rolling Chattahoochee Hills. Moderate elevation with rural scenery near Atlanta.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Rural scenery",
+        "Near Atlanta",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 48,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional Georgia event. Rolling terrain is moderate with good access near Atlanta but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Metro Atlanta Regional Gravel",
+      "summary": "Dirty Sheets Gravel Grind is a regional event in Chattahoochee Hills near Atlanta. The rolling terrain offers moderate climbing with rural scenery, and the proximity to Atlanta provides good access. However, the moderate organization and regional field keep it firmly in Tier 3. It's a solid regional event for Georgia cyclists.",
+      "strengths": [
+        "Rolling Georgia terrain",
+        "Near Atlanta (good access)",
+        "Moderate climbing",
+        "Rural scenery",
+        "Georgia cycling community"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition",
+        "Heat and humidity concerns",
+        "Standard gravel terrain"
+      ],
+      "bottom_line": "A solid regional Georgia gravel race with rolling terrain near Atlanta. Worth it for Georgia cyclists seeking a local event. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "REGIONAL EVENT NEAR ATLANTA",
+      "reality": "The rolling terrain is moderate, and Atlanta access is good. But this is a regional event with moderate organization. The field is regional only.",
+      "consequences": [
+        "Moderate organization",
+        "Regional field only",
+        "Heat and humidity",
+        "Standard gravel terrain"
+      ],
+      "expectation_reset": "This is a regional Georgia event. The terrain is solid, but set expectations accordingly for organization and field."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
+      "should_you_race": "If you're in Georgia and want a local rolling gravel event near Atlanta—yes, it's a solid regional race. If you're from out of state—there are better options.",
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races."
+    },
+    "logistics": {
+      "airport": "Atlanta (ATL) 45 minutes",
+      "lodging_strategy": "Atlanta has extensive lodging options. Chattahoochee Hills has limited options.",
+      "food": "Moderate dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Georgia cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Georgia organizers",
+      "origin_story": "Regional Georgia gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Georgia event."
+    },
+    "course_description": {
+      "character": "Rolling Georgia gravel with moderate climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rollers",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rollers"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Rollers",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Rolling Georgia gravel near Atlanta.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Dirty Sheets Gravel Grind",
+      "race_distance": "75 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Chattahoochee Hills, Georgia",
+      "race_terrain": "Georgia rolling gravel",
+      "race_weather": "Georgia variability",
+      "race_challenges": [
+        "Rolling terrain",
+        "Heat or cool possible",
+        "Humidity",
+        "Moderate climbing",
+        "Regional field"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Rolling Georgia terrain requires sustained effort."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "Georgia spring/fall means heat and humidity are possible."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "georgia_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for moderate rolling",
+          "heat": "Racing in Georgia heat and humidity",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Dirty Sheets Gravel Grind",
+        "race_hook": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
+        "race_hook_detail": "Regional event with moderate climbing and good Atlanta access.",
+        "distance": "75",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "race": {
+    "name": "Dead Swede Gravel",
+    "slug": "dead-swede-gravel",
+    "display_name": "Dead Swede Gravel",
+    "tagline": "Northern Wyoming high plains gravel in Sheridan ranch country.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3500,
+      "location": "Sheridan, Wyoming",
+      "location_badge": "SHERIDAN, WY",
+      "county": "Sheridan County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "High plains gravel",
+        "Ranch country",
+        "Wyoming foothills",
+        "Open terrain"
+      ],
+      "field_size": "50-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Minimal aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Wyoming high plains summer",
+      "description": "High plains conditions with variable weather and wind.",
+      "challenges": [
+        "Wind exposure",
+        "Variable weather",
+        "Sun exposure",
+        "Temperature swings"
+      ]
+    },
+    "terrain": {
+      "primary": "Wyoming high plains gravel",
+      "surface": "Gravel roads through ranch country with Bighorn Mountains backdrop. Moderate elevation with open terrain.",
+      "technical_rating": 2,
+      "features": [
+        "High plains terrain",
+        "Ranch country roads",
+        "Bighorn Mountains views",
+        "Moderate climbing",
+        "Open Wyoming scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 49,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Wyoming event. Remote ranch country setting but very limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Wyoming Ranch Country Ride",
+      "summary": "Dead Swede Gravel is a small grassroots gravel race in northern Wyoming ranch country. Sheridan is a small city with decent amenities, but the race itself is a tiny regional event with minimal infrastructure. The high plains scenery with Bighorn Mountains backdrop is beautiful, but it's remote with a small field and basic organization.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Beautiful Wyoming ranch country scenery",
+        "Bighorn Mountains backdrop",
+        "Authentic grassroots vibe",
+        "Moderate altitude challenge"
+      ],
+      "weaknesses": [
+        "Remote northern Wyoming location",
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition",
+        "Wind exposure on high plains"
+      ],
+      "bottom_line": "A small local gravel race in remote Wyoming ranch country. Perfect for locals or those seeking a Wyoming high plains experience. Not worth the long drive for most riders unless you're combining with Wyoming tourism."
+    },
+    "black_pill": {
+      "title": "REMOTE WYOMING",
+      "reality": "Sheridan is remote northern Wyoming—2.5 hours from Billings. This is a tiny grassroots event with minimal infrastructure. You're driving a long way for a small local ride in ranch country.",
+      "consequences": [
+        "Remote location",
+        "Small field",
+        "Basic support",
+        "Wind exposure",
+        "Limited amenities"
+      ],
+      "expectation_reset": "This is a remote ranch country ride for local riders. Set expectations accordingly."
+    },
+    "final_verdict": {
+      "score": "49 / 100",
+      "one_liner": "Small grassroots Wyoming ranch country ride with remote location.",
+      "should_you_race": "Only if you're in Wyoming or seeking a remote high plains experience. Not worth traveling far for.",
+      "alternatives": "For better Wyoming events: other regional events. For similar ranch country vibes: Montana or Colorado high plains events."
+    },
+    "logistics": {
+      "airport": "Billings (BIL) 2.5 hours, or Denver (DEN) 6+ hours",
+      "lodging_strategy": "Sheridan has basic lodging. Small city with limited options.",
+      "food": "Small city with basic dining. Stock up beforehand.",
+      "packet_pickup": "Race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Wyoming cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in northern Wyoming ranch country.",
+      "notable_moments": [],
+      "reputation": "Small regional Wyoming event."
+    },
+    "course_description": {
+      "character": "High plains gravel through ranch country with mountain views.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "High Plains Rolling",
+          "desc": "Open terrain with wind.",
+          "terrain_detail": "Ranch roads",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through ranch country.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Wyoming high plains wind and open terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Dead Swede Gravel",
+      "race_distance": "62 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Sheridan, Wyoming",
+      "race_terrain": "Wyoming high plains gravel",
+      "race_weather": "High plains variability",
+      "race_challenges": [
+        "Wind exposure",
+        "Open terrain",
+        "Variable weather",
+        "Moderate altitude"
+      ],
+      "altitude_section": true,
+      "altitude_feet": "4000-5000"
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Wind preparation",
+        "by_when": "Week 4-6",
+        "why": "Wyoming high plains means significant wind exposure."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 5-7",
+        "why": "Remote location and minimal support mean managing your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wyoming_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "wind_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "wind",
+          "pacing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "wind": "Riding in Wyoming high plains wind",
+          "pacing": "Managing effort in wind",
+          "fueling": "Nutrition for moderate distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Dead Swede Gravel",
+        "race_hook": "62 miles of Wyoming high plains gravel in ranch country.",
+        "race_hook_detail": "Small grassroots event in remote Sheridan.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Wind preparation",
+        "non_negotiable_2": "Self-sufficiency",
+        "non_negotiable_3": "Weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

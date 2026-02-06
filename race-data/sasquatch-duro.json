@@ -1,0 +1,254 @@
+{
+  "race": {
+    "name": "Sasquatch Duro",
+    "slug": "sasquatch-duro",
+    "display_name": "Sasquatch Duro",
+    "tagline": "Western Oregon Coast Range mountain gravel in wine country.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 5000,
+      "location": "Carlton, Oregon",
+      "location_badge": "CARLTON, OR",
+      "county": "Yamhill County",
+      "date": "Spring or Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Mountain gravel",
+        "Coast Range",
+        "Forest roads",
+        "Wine country"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-100",
+      "prize_purse": "None or minimal",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Oregon Coast Range",
+      "description": "Variable Oregon conditions with rain possible.",
+      "challenges": [
+        "Rain possible",
+        "Variable weather",
+        "Moderate temperatures",
+        "Forest conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Coast Range mountain gravel",
+      "surface": "Mountain gravel roads and forest roads. Significant elevation with technical terrain.",
+      "technical_rating": 3,
+      "features": [
+        "Significant climbing (5000 feet)",
+        "Coast Range mountains",
+        "Forest roads",
+        "Wine country scenery",
+        "Technical mountain gravel"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 20,
+      "score_note": "Regional Oregon mountain event. Significant climbing but regional field and infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Coast Range Mountain Challenge",
+      "summary": "Sasquatch Duro offers a genuine mountain gravel challenge with significant climbing in Oregon's Coast Range. Carlton is a small wine country town near Portland with good access and amenities. The course is challenging with 5000 feet of climbing through forests and wine country. It's a well-organized regional event with a moderate field.",
+      "strengths": [
+        "Significant climbing challenge",
+        "Beautiful Coast Range scenery",
+        "Near Portland (1 hour)",
+        "Wine country amenities",
+        "Well-organized regional event"
+      ],
+      "weaknesses": [
+        "Regional field depth only",
+        "Rain is a concern in Oregon",
+        "Limited prestige outside Oregon",
+        "Moderate elevation (not high altitude)"
+      ],
+      "bottom_line": "A solid regional Oregon mountain gravel race with genuine climbing challenges. Worth it for Oregon cyclists or those seeking a Coast Range mountain experience near Portland. Not a destination race for distant travelers, but a good regional mountain event."
+    },
+    "black_pill": {
+      "title": "REGIONAL MOUNTAIN EVENT",
+      "reality": "This is a regional Oregon mountain event. The climbing is real, but the field is regional and it's not a destination race. Oregon rain is a legitimate concern.",
+      "consequences": [
+        "Regional field only",
+        "Rain possible",
+        "Limited prestige"
+      ],
+      "expectation_reset": "This is a regional mountain event. The challenge is real, but set expectations accordingly for field and prestige."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "Regional Oregon Coast Range mountain gravel with significant climbing near Portland.",
+      "should_you_race": "If you're in Oregon or the Pacific Northwest and want a mountain gravel challenge—yes, it's a well-organized event with genuine climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional mountain vibes: other Pacific Northwest mountain events."
+    },
+    "logistics": {
+      "airport": "Portland (PDX) 1 hour",
+      "lodging_strategy": "Carlton has wine country lodging. Small town with good options. Portland (1 hour) has more.",
+      "food": "Wine country town with good dining options.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Oregon cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Regional gravel event in Coast Range wine country.",
+      "notable_moments": [],
+      "reputation": "Growing regional Oregon mountain event."
+    },
+    "course_description": {
+      "character": "Mountain gravel with significant climbing through Coast Range forests.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "First Climb",
+          "desc": "Early climbing into Coast Range.",
+          "terrain_detail": "Mountain ascent",
+          "named_section": "Early Climb"
+        },
+        {
+          "mile": 35,
+          "label": "High Point",
+          "desc": "Highest elevation point.",
+          "terrain_detail": "Forest summit",
+          "named_section": "Summit"
+        },
+        {
+          "mile": 50,
+          "label": "Final Climb",
+          "desc": "Last major climb to finish.",
+          "terrain_detail": "Final ascent",
+          "named_section": "Finish Climb"
+        }
+      ],
+      "signature_challenge": "5000 feet of climbing through Coast Range mountains.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Sasquatch Duro",
+      "race_distance": "62 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Spring or Summer",
+      "race_location": "Carlton, Oregon",
+      "race_terrain": "Coast Range mountain gravel",
+      "race_weather": "Oregon variability",
+      "race_challenges": [
+        "5000 feet of climbing",
+        "Rain possible",
+        "Mountain terrain",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "5000 feet of climbing requires strong aerobic capacity and climbing fitness."
+      },
+      {
+        "requirement": "Rain preparation",
+        "by_when": "Week 4-6",
+        "why": "Oregon weather means rain is possible. Prepare for wet conditions."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "oregon_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "rain_preparation": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "pacing",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for Coast Range climbing",
+          "pacing": "Managing effort on climbs",
+          "weather": "Racing in Oregon rain"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Sasquatch Duro",
+        "race_hook": "62 miles of Coast Range mountain gravel near Portland.",
+        "race_hook_detail": "Regional mountain event in Carlton with 5000 feet of climbing.",
+        "distance": "62",
+        "dark_mile": "35",
+        "non_negotiable_1": "Climbing strength",
+        "non_negotiable_2": "Rain preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

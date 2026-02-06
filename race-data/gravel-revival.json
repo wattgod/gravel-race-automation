@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Gravel Revival",
+    "slug": "gravel-revival",
+    "display_name": "Gravel Revival",
+    "tagline": "Rolling Tennessee gravel in rural Hickman County.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 3000,
+      "location": "Hickman County, Tennessee",
+      "location_badge": "HICKMAN COUNTY, TN",
+      "county": "Hickman County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Rolling gravel",
+        "Rural Tennessee",
+        "Regional event",
+        "Central Tennessee"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Tennessee spring/fall",
+      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "challenges": [
+        "Heat possible (spring)",
+        "Cool possible (fall)",
+        "Humidity",
+        "Variable weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Tennessee rolling gravel",
+      "surface": "Gravel roads through rolling central Tennessee. Moderate elevation with rural scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Rural scenery",
+        "Central Tennessee setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 16,
+      "score_note": "Regional Tennessee event. Rolling terrain is moderate but rural location and limited organization."
+    },
+    "biased_opinion": {
+      "verdict": "Rural Tennessee Regional Gravel",
+      "summary": "Gravel Revival is a regional event in rural Hickman County, central Tennessee. The rolling terrain offers moderate climbing with rural scenery, but the rural location, limited amenities, and moderate organization keep it firmly in Tier 3. Hickman County is a rural area with limited lodging and dining. It's a solid regional event for Tennessee cyclists.",
+      "strengths": [
+        "Rolling Tennessee terrain",
+        "Central Tennessee location",
+        "Moderate climbing",
+        "Rural scenery",
+        "Tennessee cycling community"
+      ],
+      "weaknesses": [
+        "Rural location (limited access)",
+        "Limited amenities",
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition"
+      ],
+      "bottom_line": "A solid regional Tennessee gravel race with rolling terrain. Worth it for Tennessee cyclists seeking a local event. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "RURAL REGIONAL EVENT",
+      "reality": "The rolling terrain is moderate, but this is a rural regional event with limited amenities and moderate organization. The field is regional only.",
+      "consequences": [
+        "Rural location (limited access)",
+        "Limited amenities",
+        "Moderate organization",
+        "Regional field only"
+      ],
+      "expectation_reset": "This is a regional Tennessee event. The terrain is solid, but set expectations accordingly for logistics and field."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Rural rolling Tennessee gravel in Hickman County.",
+      "should_you_race": "If you're in Tennessee and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races."
+    },
+    "logistics": {
+      "airport": "Nashville (BNA) 1 hour",
+      "lodging_strategy": "Hickman County has limited lodging. Nashville or Columbia have more options.",
+      "food": "Rural area with limited dining. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Tennessee cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Tennessee organizers",
+      "origin_story": "Regional Tennessee gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Tennessee event."
+    },
+    "course_description": {
+      "character": "Rolling Tennessee gravel with moderate climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rollers",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rollers"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Rollers",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Rolling Tennessee gravel in rural Hickman County.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gravel Revival",
+      "race_distance": "75 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "Hickman County, Tennessee",
+      "race_terrain": "Tennessee rolling gravel",
+      "race_weather": "Tennessee variability",
+      "race_challenges": [
+        "Rolling terrain",
+        "Rural location",
+        "Heat or cool possible",
+        "Humidity",
+        "Limited amenities"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Rolling Tennessee terrain requires sustained effort."
+      },
+      {
+        "requirement": "Heat and humidity preparation",
+        "by_when": "Week 4-6",
+        "why": "Tennessee spring/fall means heat and humidity are possible."
+      },
+      {
+        "requirement": "Rural self-sufficiency",
+        "by_when": "Week 2-4",
+        "why": "Rural location requires self-sufficiency and preparation."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "tennessee_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for moderate rolling",
+          "heat": "Racing in Tennessee heat and humidity",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gravel Revival",
+        "race_hook": "Rolling Tennessee gravel in rural Hickman County.",
+        "race_hook_detail": "Regional event in central Tennessee.",
+        "distance": "75",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_3": "Rural self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

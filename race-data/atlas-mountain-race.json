@@ -1,0 +1,267 @@
+{
+  "race": {
+    "name": "Atlas Mountain Race",
+    "slug": "atlas-mountain-race",
+    "display_name": "Atlas Mountain Race",
+    "tagline": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+    "vitals": {
+      "distance_mi": 750,
+      "elevation_ft": 80000,
+      "location": "Morocco",
+      "location_badge": "MOROCCO",
+      "county": "Atlas Mountains",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Atlas Mountains",
+        "Ultra-endurance",
+        "Self-supported",
+        "Morocco"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac200-300",
+      "prize_purse": "None (self-supported)",
+      "aid_stations": "None (self-supported)",
+      "cutoff_time": "No cutoff"
+    },
+    "climate": {
+      "primary": "Moroccan spring",
+      "description": "Variable mountain and desert conditions.",
+      "challenges": [
+        "Extreme heat",
+        "Cold nights",
+        "Desert conditions",
+        "Mountain weather",
+        "Self-supported"
+      ]
+    },
+    "terrain": {
+      "primary": "Atlas Mountains ultra-endurance gravel",
+      "surface": "Gravel roads and tracks through Atlas Mountains. Extreme elevation with mountain and desert scenery. Self-supported ultra-endurance format.",
+      "technical_rating": 4,
+      "features": [
+        "Extreme elevation (80000 feet total)",
+        "Atlas Mountains scenery",
+        "750-mile ultra-endurance",
+        "Self-supported format",
+        "Morocco adventure"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 2,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 2,
+      "experience": 5,
+      "community": 2,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 1,
+      "course_profile": 23,
+      "biased_opinion": 19,
+      "score_note": "Ultra-endurance adventure race. Extreme Atlas Mountains terrain with very difficult access, high costs, and small field."
+    },
+    "biased_opinion": {
+      "verdict": "Extreme Atlas Mountains Ultra-Endurance",
+      "summary": "Atlas Mountain Race is an ultra-endurance self-supported race through Morocco\u2014750 miles with 80,000 feet of climbing. The Atlas Mountains are stunning and the adventure is extreme, but the very difficult access, extreme conditions, high costs, and self-supported format keep it in Tier 3.",
+      "strengths": [
+        "Stunning Atlas Mountains",
+        "Extreme adventure",
+        "Ultra-endurance challenge",
+        "Unique Morocco experience",
+        "Massive elevation"
+      ],
+      "weaknesses": [
+        "Very difficult Morocco access",
+        "Very high costs (\u20ac2000+ total)",
+        "Self-supported (no aid)",
+        "Extreme conditions",
+        "Small field only"
+      ],
+      "bottom_line": "An extreme Atlas Mountains ultra-endurance adventure. Worth it for elite ultra-endurance riders with big budgets. Not practical for most riders."
+    },
+    "black_pill": {
+      "title": "EXTREME SELF-SUPPORTED ULTRA",
+      "reality": "This is 750 miles and 80,000 feet of climbing through Morocco. Self-supported. Extreme heat and cold. Very expensive. Small field.",
+      "consequences": [
+        "Very difficult access",
+        "Very high costs",
+        "Self-supported format",
+        "Extreme conditions"
+      ],
+      "expectation_reset": "This is an extreme ultra-endurance adventure. Budget \u20ac2000+ total. Train for self-sufficiency and extreme conditions."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+      "should_you_race": "If you're an elite ultra-endurance rider with a big budget\u2014maybe. For most riders\u2014there are better options.",
+      "alternatives": "For similar ultra-endurance: Transcontinental Race. For better value: regional gravel races."
+    },
+    "logistics": {
+      "airport": "Marrakech (RAK) varies by start location",
+      "lodging_strategy": "Self-supported. Plan your own accommodation.",
+      "food": "Self-supported. Carry all nutrition and resupply in villages.",
+      "packet_pickup": "Pre-race briefing",
+      "parking": "Varies",
+      "official_site": "Check Atlas Mountain Race website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Ultra-endurance organizers",
+      "origin_story": "Ultra-endurance self-supported race through Atlas Mountains.",
+      "notable_moments": [],
+      "reputation": "Extreme ultra-endurance adventure."
+    },
+    "course_description": {
+      "character": "Atlas Mountains ultra-endurance self-supported gravel.",
+      "suffering_zones": [
+        {
+          "mile": 200,
+          "label": "First Mountain Range",
+          "desc": "Initial Atlas Mountains climbing.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 400,
+          "label": "Midpoint",
+          "desc": "Halfway through 750 miles.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 650,
+          "label": "Final Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "750 miles and 80,000 feet through Atlas Mountains.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Atlas Mountain Race",
+      "race_distance": "750 miles",
+      "race_elevation": "80,000 feet",
+      "race_date": "Spring",
+      "race_location": "Morocco",
+      "race_terrain": "Atlas Mountains ultra-endurance gravel",
+      "race_weather": "Moroccan spring extreme",
+      "race_challenges": [
+        "Ultra-endurance 750 miles",
+        "Self-supported format",
+        "Very high costs",
+        "Extreme conditions",
+        "80,000 feet climbing"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-endurance training",
+        "by_when": "Week 12+",
+        "why": "750 miles requires months of ultra-endurance preparation."
+      },
+      {
+        "requirement": "Self-sufficiency skills",
+        "by_when": "Week 8-10",
+        "why": "Self-supported format requires complete self-sufficiency."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Very expensive (\u20ac2000+ total)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "ultra_endurance_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "ultra_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday-Sunday",
+          "duration_hours": {
+            "ayahuasca": 20,
+            "finisher": 24,
+            "compete": 30,
+            "podium": 36
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "self_sufficiency",
+          "ultra"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Ultra-endurance pacing",
+          "fueling": "Multi-day nutrition strategy",
+          "self_sufficiency": "Self-supported racing",
+          "ultra": "Ultra-endurance strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Atlas Mountain Race",
+        "race_hook": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+        "race_hook_detail": "750-mile self-supported ultra-endurance adventure.",
+        "distance": "750",
+        "dark_mile": "400",
+        "non_negotiable_1": "Ultra-endurance training",
+        "non_negotiable_2": "Self-sufficiency skills",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

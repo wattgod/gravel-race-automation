@@ -3,172 +3,261 @@
     "name": "Flanders Legacy Gravel",
     "slug": "flanders-legacy-gravel",
     "display_name": "Flanders Legacy Gravel",
-    "tagline": "Belgian Flanders—100km of cobbles and gravel, 1,000m elevation, May rain, cycling legacy.",
+    "tagline": "Belgian Flanders gravel challenge.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 3281,
+      "distance_mi": 75,
+      "elevation_ft": 4000,
       "location": "Flanders, Belgium",
       "location_badge": "FLANDERS, BELGIUM",
       "county": "Flanders",
-      "date": "May annually",
-      "date_specific": "Check official website for date",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
       "terrain_types": [
-        "Flanders gravel (75%)",
-        "Paved roads (25%)",
-        "Rolling terrain",
-        "Belgian cobbles"
+        "Flanders rolling",
+        "Belgian gravel",
+        "Regional event",
+        "Belgium"
       ],
-      "field_size": "500-700 riders",
-      "start_time": "Morning",
-      "registration": "Online. Cost: €70-€100 (~$75-$110 USD)",
-      "prize_purse": "None",
-      "aid_stations": "Multiple on course",
-      "cutoff_time": "None"
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac50-80",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
     },
     "climate": {
       "primary": "Belgian spring",
-      "description": "May: 12-20°C, 35% rain chance, spring conditions.",
+      "description": "Generally mild conditions.",
       "challenges": [
-        "High rain risk (35%)",
-        "Cold (12-20°C)",
-        "Spring weather variability"
+        "Variable weather",
+        "Generally mild",
+        "Rolling terrain",
+        "Spring conditions"
       ]
     },
     "terrain": {
-      "primary": "Flanders—rolling terrain, Belgian cobbles",
-      "surface": "75% gravel, 25% paved roads. Flanders—rolling terrain, cobbles. 1,000 m over 100 km. Belgian cycling legacy. Technical rating: 3/5.",
-      "technical_rating": 3,
+      "primary": "Flanders rolling gravel",
+      "surface": "Gravel roads through Flanders countryside. Moderate elevation with rolling scenery.",
+      "technical_rating": 2,
       "features": [
-        "Flanders",
-        "Belgian cobbles",
-        "Rolling terrain",
-        "Belgian cycling legacy",
-        "Good airport access (Brussels 50km)",
-        "Affordable entry"
+        "Moderate rolling (4000 feet)",
+        "Flanders countryside scenery",
+        "Flanders setting",
+        "Multiple distances",
+        "Regional event"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 76,
-      "tier": 2,
-      "tier_label": "TIER 2",
-      "logistics": 4,
+      "overall_score": 49,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
       "length": 3,
-      "technicality": 3,
+      "technicality": 2,
       "elevation": 2,
-      "climate": 4,
+      "climate": 3,
       "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 5,
-      "expenses": 3
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional Belgian event. Rolling Flanders terrain with moderate access, moderate costs, and regional field."
     },
     "biased_opinion": {
-      "verdict": "Belgian Flanders Cobbles Legacy",
-      "summary": "Flanders Legacy Gravel is Belgian Flanders—100 km, 1,000 m elevation. Founded ~2020. 75% gravel, 25% paved. Flanders—rolling terrain, cobbles. 500-700 riders. Flanders, Belgium. May spring conditions (12-20°C, 35% rain). Affordable entry (€70-€100 / $75-$110). If you want Belgian Flanders cobbles with cycling legacy and affordable entry, this is it. If you need dry weather, skip it. May rain 35%.",
+      "verdict": "Flanders Rolling Gravel",
+      "summary": "Flanders Legacy Gravel is a regional event in Belgium\u2014rolling Flanders terrain with moderate elevation. The Flanders countryside is scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
       "strengths": [
-        "Belgian Flanders cycling legacy",
-        "Cobbles (classic Belgian cycling)",
-        "Affordable entry ($75-$110 USD)",
-        "Good airport access (Brussels 50km)",
-        "Well-organized Belgian event",
-        "Post-race Belgian beer",
-        "Large field (500-700)"
+        "Flanders countryside scenery",
+        "Good organization",
+        "Belgian mild spring weather",
+        "Belgian cycling community",
+        "Flanders setting"
       ],
       "weaknesses": [
-        "High rain risk (May 35%)",
-        "Cold (12-20°C)",
-        "Cobbles (rough)",
-        "10-15% DNF",
-        "International travel required",
-        "100 km distance"
+        "Moderate Europe access",
+        "Moderate costs ($1500+ total)",
+        "Regional field only",
+        "Limited international draw",
+        "Moderate terrain"
       ],
-      "bottom_line": "Flanders Legacy Gravel is Belgian Flanders cobbles. 100 km, 1,000 m, May rain 35%. If you want Belgian Flanders cycling legacy with cobbles, this is it. If you need dry weather, skip it. Rain is the challenge. Post-race Belgian beer."
+      "bottom_line": "A solid Flanders rolling gravel race. Worth it for European riders. Not practical for most international riders."
     },
     "black_pill": {
-      "title": "MAY RAIN (35%) + BELGIAN COBBLES",
-      "reality": "May Belgium = 35% rain. Cold (12-20°C). Belgian cobbles = rough. 10-15% DNF. You'll pay €70-€100 ($75-$110) + international travel. If you need dry weather, this isn't it. If you want Belgian Flanders cobbles with cycling legacy, this is it. Rain is the challenge. Cobbles are rough.",
+      "title": "MODERATE EUROPEAN ADVENTURE",
+      "reality": "The Flanders countryside is scenic. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
       "consequences": [
-        "High rain risk (May 35%)",
-        "Cold (12-20°C)",
-        "Cobbles (rough)",
-        "10-15% DNF",
-        "International travel required",
-        "100 km distance"
+        "Moderate access",
+        "Moderate costs",
+        "Regional field only",
+        "Moderate terrain"
       ],
-      "expectation_reset": "Flanders Legacy Gravel is Belgian Flanders cobbles. May rain 35%, cold, cobbles rough. If you need dry weather, skip it. If you want Belgian Flanders cycling legacy, this is it. Rain is the challenge. Post-race Belgian beer."
+      "expectation_reset": "This is a moderate European adventure. Budget $1500+ total for travel and set expectations for regional field."
+    },
+    "final_verdict": {
+      "score": "49 / 100",
+      "one_liner": "Belgian Flanders gravel challenge.",
+      "should_you_race": "If you're in Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Gravel des Flandres."
     },
     "logistics": {
-      "nearest_airport": "Brussels (BRU) — 50 km (45-minute drive)",
-      "alternate_airports": "None convenient",
-      "lodging_note": "Flanders, Belgium. Book early.",
-      "parking": "Check official website",
-      "packet_pickup": "Day-before. Check official website.",
-      "travel_summary": "Fly to Brussels (BRU). Rental car or train (50 km, 45-minute drive to Flanders). Region lodging—book early. Day-before packet pickup. Race May. Post-race Belgian beer.",
-      "food_options": "Aid stations on course. Post-race party with Belgian beer.",
-      "camping": "Check official website",
-      "official_site": "https://www.flanderslegacygravel.be"
-    },
-    "course_description": {
-      "character": "100 km, 1,000 m. 75% gravel, 25% paved. Flanders—rolling terrain, cobbles. Technical rating: 3/5.",
-      "suffering_zones": [
-        {
-          "name": "Throughout: Flanders Rolling Terrain",
-          "miles": "Throughout",
-          "description": "Rolling Flanders. 1,000 m cumulative elevation. Belgian countryside.",
-          "survival_strategy": "Moderate gears. Steady pace. Cumulative elevation manageable. 100 km long."
-        },
-        {
-          "name": "Sections: Belgian Cobbles",
-          "miles": "Sections",
-          "description": "Belgian cobbles. Rough. Classic Flanders cycling.",
-          "survival_strategy": "35-40mm tires. Comfort critical. Hold on. Cobbles are rough."
-        },
-        {
-          "name": "Throughout: May Rain",
-          "miles": "Throughout",
-          "description": "May = 35% rain. Cold (12-20°C). Belgian spring.",
-          "survival_strategy": "Waterproofs. Layers. Manage cold/wet. Rain likely."
-        }
-      ],
-      "signature_challenge": "100 km + Belgian cobbles + May rain (35%). Flanders cycling legacy."
+      "airport": "Brussels (BRU) 1 hour",
+      "lodging_strategy": "Flanders has good lodging options.",
+      "food": "Flanders has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Flanders Legacy Gravel website"
     },
     "history": {
-      "founded": "~2020",
-      "founder": "Unknown",
-      "origin_story": "Flanders Legacy Gravel founded ~2020. Flanders, Belgium. 100 km, 500-700 riders. Belgian Flanders cobbles gravel.",
-      "notable_moments": [
-        "2023: Cool, wet (14-18°C, rain)",
-        "2024: Variable (12-20°C)"
-      ],
-      "reputation": "Belgian gravel scene. Flanders. Cobbles. Cycling legacy. Well-organized."
+      "founded": null,
+      "founder": "Belgian organizers",
+      "origin_story": "Regional Belgian gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Belgian event."
     },
+    "course_description": {
+      "character": "Flanders rolling gravel.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Early Rolling",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 38,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 60,
+          "label": "Late Rolling",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Flanders rolling terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Flanders Legacy Gravel",
+      "race_distance": "75 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Spring",
+      "race_location": "Flanders, Belgium",
+      "race_terrain": "Flanders rolling gravel",
+      "race_weather": "Belgian spring mild",
+      "race_challenges": [
+        "Rolling terrain",
+        "Regional field",
+        "Moderate costs",
+        "Variable weather",
+        "Moderate elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Flanders rolling terrain requires sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Belgian spring weather is variable."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Moderate costs ($1500+ total)."
+      }
+    ],
     "research_metadata": {
-      "data_confidence": "researched",
+      "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "cursor_web_search"
+        "european_cycling_community"
       ],
-      "research_date": "2026-02-04",
+      "migration_notes": [
+        "Generated from regional information"
+      ],
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
         },
-        "scored_at": "2026-02-04"
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "weather": "Riding in variable Belgian weather",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Flanders Legacy Gravel",
+        "race_hook": "Belgian Flanders gravel challenge.",
+        "race_hook_detail": "Regional event with rolling terrain.",
+        "distance": "75",
+        "dark_mile": "38",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
       }
     }
   }

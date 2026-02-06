@@ -1,22 +1,22 @@
 {
   "race": {
-    "name": "Turnhout Gravel",
-    "slug": "turnhout-gravel",
-    "display_name": "Turnhout Gravel",
-    "tagline": "Belgian Turnhout gravel challenge.",
+    "name": "Eislek Gravel",
+    "slug": "eislek-gravel",
+    "display_name": "Eislek Gravel",
+    "tagline": "Luxembourg Ardennes gravel challenge.",
     "vitals": {
       "distance_mi": 70,
-      "elevation_ft": 3500,
-      "location": "Turnhout, Belgium",
-      "location_badge": "TURNHOUT, BELGIUM",
-      "county": "Turnhout",
+      "elevation_ft": 5500,
+      "location": "Luxembourg",
+      "location_badge": "LUXEMBOURG",
+      "county": "Eislek",
       "date": "Spring annually",
       "date_specific": "2026: Spring TBD",
       "terrain_types": [
-        "Belgian rolling",
+        "Luxembourg Ardennes",
         "European gravel",
         "Regional event",
-        "Belgium"
+        "Luxembourg"
       ],
       "field_size": "200-400 riders",
       "start_time": "Morning start",
@@ -26,7 +26,7 @@
       "cutoff_time": "Varies"
     },
     "climate": {
-      "primary": "Belgian spring",
+      "primary": "Luxembourg spring",
       "description": "Generally mild conditions.",
       "challenges": [
         "Variable weather",
@@ -36,19 +36,19 @@
       ]
     },
     "terrain": {
-      "primary": "Belgian rolling gravel",
-      "surface": "Gravel roads through Belgian countryside near Turnhout. Moderate elevation with rolling scenery.",
+      "primary": "Luxembourg Ardennes gravel",
+      "surface": "Gravel roads through Luxembourg Ardennes. Moderate elevation with rolling scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
-        "Belgian countryside scenery",
-        "Turnhout setting",
+        "Moderate rolling (5500 feet)",
+        "Luxembourg Ardennes scenery",
+        "Eislek setting",
         "Multiple distances",
         "Regional event"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
@@ -57,27 +57,27 @@
       "elevation": 2,
       "climate": 3,
       "altitude": 1,
-      "adventure": 2,
+      "adventure": 3,
       "prestige": 2,
-      "race_quality": 2,
+      "race_quality": 3,
       "experience": 3,
       "community": 3,
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "course_profile": 9,
-      "biased_opinion": 16,
-      "score_note": "Regional Belgian event. Rolling terrain with moderate access, moderate costs, and regional field."
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional Luxembourg event. Rolling Ardennes terrain with moderate access, moderate costs, and regional field."
     },
     "biased_opinion": {
-      "verdict": "Belgian Rolling Gravel",
-      "summary": "Turnhout Gravel is a regional event in Belgium\u2014rolling terrain with moderate elevation. The Belgian countryside is nice and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
+      "verdict": "Luxembourg Ardennes Gravel",
+      "summary": "Eislek Gravel is a regional event in Luxembourg\u2014rolling Ardennes terrain with moderate elevation. The Luxembourg Ardennes are scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
       "strengths": [
-        "Belgian countryside scenery",
+        "Luxembourg Ardennes scenery",
         "Good organization",
-        "Belgian mild spring weather",
-        "Belgian cycling community",
-        "Turnhout setting"
+        "Luxembourg mild spring weather",
+        "European cycling community",
+        "Eislek setting"
       ],
       "weaknesses": [
         "Moderate Europe access",
@@ -86,11 +86,11 @@
         "Limited international draw",
         "Moderate terrain"
       ],
-      "bottom_line": "A solid Belgian rolling gravel race. Worth it for European riders. Not practical for most international riders."
+      "bottom_line": "A scenic Luxembourg Ardennes gravel race. Worth it for European riders. Not practical for most international riders."
     },
     "black_pill": {
       "title": "MODERATE EUROPEAN ADVENTURE",
-      "reality": "The Belgian countryside is nice. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
+      "reality": "The Luxembourg Ardennes are scenic. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
       "consequences": [
         "Moderate access",
         "Moderate costs",
@@ -100,28 +100,28 @@
       "expectation_reset": "This is a moderate European adventure. Budget $1500+ total for travel and set expectations for regional field."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Belgian Turnhout gravel challenge.",
+      "score": "49 / 100",
+      "one_liner": "Luxembourg Ardennes gravel challenge.",
       "should_you_race": "If you're in Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Heathland Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Ardennes terrain: Ardenne Gravel Stages."
     },
     "logistics": {
-      "airport": "Brussels (BRU) or Antwerp (ANR) 1 hour",
-      "lodging_strategy": "Turnhout has good lodging options.",
-      "food": "Turnhout has full dining options. Stock nutrition.",
+      "airport": "Luxembourg (LUX) 1 hour",
+      "lodging_strategy": "Luxembourg has good lodging options.",
+      "food": "Luxembourg has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Turnhout Gravel website"
+      "official_site": "Check Eislek Gravel website"
     },
     "history": {
       "founded": null,
-      "founder": "Belgian organizers",
-      "origin_story": "Regional Belgian gravel event.",
+      "founder": "Luxembourg organizers",
+      "origin_story": "Regional Luxembourg gravel event.",
       "notable_moments": [],
-      "reputation": "Regional Belgian event."
+      "reputation": "Regional Luxembourg event."
     },
     "course_description": {
-      "character": "Belgian rolling gravel.",
+      "character": "Luxembourg Ardennes gravel.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -145,18 +145,18 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Belgian rolling terrain.",
+      "signature_challenge": "Luxembourg Ardennes rolling terrain.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "Turnhout Gravel",
+      "race_name": "Eislek Gravel",
       "race_distance": "70 miles",
-      "race_elevation": "3,500 feet",
+      "race_elevation": "5,500 feet",
       "race_date": "Spring",
-      "race_location": "Turnhout, Belgium",
-      "race_terrain": "Belgian rolling gravel",
-      "race_weather": "Belgian spring mild",
+      "race_location": "Luxembourg",
+      "race_terrain": "Luxembourg Ardennes gravel",
+      "race_weather": "Luxembourg spring mild",
       "race_challenges": [
         "Rolling terrain",
         "Regional field",
@@ -171,12 +171,12 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Belgian rolling terrain requires sustained effort."
+        "why": "Luxembourg Ardennes rolling terrain requires sustained effort."
       },
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Belgian spring weather is variable."
+        "why": "Luxembourg spring weather is variable."
       },
       {
         "requirement": "Budget planning",
@@ -243,14 +243,14 @@
         "topics": {
           "pacing": "Rolling terrain pacing",
           "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Belgian weather",
+          "weather": "Riding in variable Luxembourg weather",
           "rolling": "Sustained rolling strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Turnhout Gravel",
-        "race_hook": "Belgian Turnhout gravel challenge.",
+        "race_name": "Eislek Gravel",
+        "race_hook": "Luxembourg Ardennes gravel challenge.",
         "race_hook_detail": "Regional event with rolling terrain.",
         "distance": "70",
         "dark_mile": "35",

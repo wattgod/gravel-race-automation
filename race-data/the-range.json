@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "The Range",
+    "slug": "the-range",
+    "display_name": "The Range",
+    "tagline": "Alberta mountain gravel challenge.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 8000,
+      "location": "Alberta, Canada",
+      "location_badge": "ALBERTA, CANADA",
+      "county": "Alberta",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Alberta mountains",
+        "Canadian gravel",
+        "Regional event",
+        "Canada"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$100-150 CAD",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Alberta summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Mountainous terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Alberta mountain gravel",
+      "surface": "Gravel roads through Alberta mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (8000 feet)",
+        "Alberta mountain scenery",
+        "Mountain setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 14,
+      "biased_opinion": 17,
+      "score_note": "Regional Alberta event. Mountainous terrain with moderate access, moderate costs, and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Alberta Mountain Gravel",
+      "summary": "The Range is a regional event in Alberta\u2014mountainous terrain with significant elevation. The Alberta mountains are scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Alberta mountain scenery",
+        "Good organization",
+        "Alberta mild summer weather",
+        "Canadian cycling community",
+        "Mountain setting"
+      ],
+      "weaknesses": [
+        "Moderate Canada access",
+        "Moderate costs ($1500+ total)",
+        "Regional field only",
+        "Limited international draw",
+        "Variable weather"
+      ],
+      "bottom_line": "A scenic Alberta mountain gravel race. Worth it for Canadian riders. Not practical for most international riders."
+    },
+    "black_pill": {
+      "title": "MODERATE CANADIAN ADVENTURE",
+      "reality": "The Alberta mountains are scenic. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
+      "consequences": [
+        "Moderate access",
+        "Moderate costs",
+        "Regional field only",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a moderate Canadian adventure. Budget $1500+ total for travel and set expectations for regional field."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "Alberta mountain gravel challenge.",
+      "should_you_race": "If you're in Canada\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: Ghost of the Gravel."
+    },
+    "logistics": {
+      "airport": "Calgary (YYC) varies by location",
+      "lodging_strategy": "Alberta has good lodging options.",
+      "food": "Alberta has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check The Range website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Alberta organizers",
+      "origin_story": "Regional Alberta gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Alberta event."
+    },
+    "course_description": {
+      "character": "Alberta mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 50,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Alberta mountainous terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "The Range",
+      "race_distance": "100 miles",
+      "race_elevation": "8,000 feet",
+      "race_date": "Summer",
+      "race_location": "Alberta, Canada",
+      "race_terrain": "Alberta mountain gravel",
+      "race_weather": "Alberta summer mild",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Regional field",
+        "Moderate costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "Alberta mountains require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Alberta summer weather is variable."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Moderate costs ($1500+ total)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "canadian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountainous terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable Alberta weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The Range",
+        "race_hook": "Alberta mountain gravel challenge.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "100",
+        "dark_mile": "50",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

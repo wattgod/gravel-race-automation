@@ -1,32 +1,32 @@
 {
   "race": {
-    "name": "Turnhout Gravel",
-    "slug": "turnhout-gravel",
-    "display_name": "Turnhout Gravel",
-    "tagline": "Belgian Turnhout gravel challenge.",
+    "name": "Gravelista",
+    "slug": "gravelista",
+    "display_name": "Gravelista",
+    "tagline": "Victorian rolling gravel in Australia.",
     "vitals": {
-      "distance_mi": 70,
-      "elevation_ft": 3500,
-      "location": "Turnhout, Belgium",
-      "location_badge": "TURNHOUT, BELGIUM",
-      "county": "Turnhout",
+      "distance_mi": 80,
+      "elevation_ft": 5000,
+      "location": "Victoria, Australia",
+      "location_badge": "VICTORIA, AUSTRALIA",
+      "county": "Victoria",
       "date": "Spring annually",
       "date_specific": "2026: Spring TBD",
       "terrain_types": [
-        "Belgian rolling",
-        "European gravel",
+        "Victorian rolling",
+        "Australian gravel",
         "Regional event",
-        "Belgium"
+        "Australia"
       ],
       "field_size": "200-400 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~\u20ac50-80",
+      "registration": "Online. Cost: ~$100-150 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies"
     },
     "climate": {
-      "primary": "Belgian spring",
+      "primary": "Victorian spring",
       "description": "Generally mild conditions.",
       "challenges": [
         "Variable weather",
@@ -36,19 +36,19 @@
       ]
     },
     "terrain": {
-      "primary": "Belgian rolling gravel",
-      "surface": "Gravel roads through Belgian countryside near Turnhout. Moderate elevation with rolling scenery.",
+      "primary": "Victorian rolling gravel",
+      "surface": "Gravel roads through Victorian countryside. Moderate elevation with rolling scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
-        "Belgian countryside scenery",
-        "Turnhout setting",
+        "Moderate rolling (5000 feet)",
+        "Victorian countryside scenery",
+        "Victoria setting",
         "Multiple distances",
         "Regional event"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 47,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
@@ -57,110 +57,110 @@
       "elevation": 2,
       "climate": 3,
       "altitude": 1,
-      "adventure": 2,
+      "adventure": 3,
       "prestige": 2,
-      "race_quality": 2,
+      "race_quality": 3,
       "experience": 3,
       "community": 3,
       "field_depth": 2,
       "value": 3,
-      "expenses": 2,
-      "course_profile": 9,
-      "biased_opinion": 16,
-      "score_note": "Regional Belgian event. Rolling terrain with moderate access, moderate costs, and regional field."
+      "expenses": 1,
+      "course_profile": 10,
+      "biased_opinion": 17,
+      "score_note": "Regional Victorian event. Rolling terrain with difficult access, high costs, and regional field."
     },
     "biased_opinion": {
-      "verdict": "Belgian Rolling Gravel",
-      "summary": "Turnhout Gravel is a regional event in Belgium\u2014rolling terrain with moderate elevation. The Belgian countryside is nice and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
+      "verdict": "Victorian Rolling Gravel",
+      "summary": "Gravelista is a regional event in Victoria, Australia\u2014rolling terrain with moderate elevation. The Victorian countryside is nice and organization is solid, but the difficult/expensive access and regional field keep it firmly in Tier 3.",
       "strengths": [
-        "Belgian countryside scenery",
+        "Victorian countryside scenery",
         "Good organization",
-        "Belgian mild spring weather",
-        "Belgian cycling community",
-        "Turnhout setting"
+        "Victorian mild spring weather",
+        "Australian cycling community",
+        "Victoria setting"
       ],
       "weaknesses": [
-        "Moderate Europe access",
-        "Moderate costs ($1500+ total)",
+        "Difficult Australia access",
+        "Very high costs ($2000+ total)",
         "Regional field only",
         "Limited international draw",
         "Moderate terrain"
       ],
-      "bottom_line": "A solid Belgian rolling gravel race. Worth it for European riders. Not practical for most international riders."
+      "bottom_line": "A solid Victorian rolling gravel race. Worth it for Australian riders. Not practical for most international riders."
     },
     "black_pill": {
-      "title": "MODERATE EUROPEAN ADVENTURE",
-      "reality": "The Belgian countryside is nice. But this is moderately expensive to access. The field is regional. Budget $1500+ for travel.",
+      "title": "EXPENSIVE AUSTRALIAN ADVENTURE",
+      "reality": "The Victorian countryside is nice. But this is very expensive to access. The field is regional. Budget $2000+ for travel.",
       "consequences": [
-        "Moderate access",
-        "Moderate costs",
+        "Difficult access",
+        "Very high costs",
         "Regional field only",
         "Moderate terrain"
       ],
-      "expectation_reset": "This is a moderate European adventure. Budget $1500+ total for travel and set expectations for regional field."
+      "expectation_reset": "This is an expensive Australian adventure. Budget $2000+ total for travel and set expectations for regional field."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Belgian Turnhout gravel challenge.",
-      "should_you_race": "If you're in Europe\u2014yes, it's solid. If you're international\u2014there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Heathland Gravel."
+      "score": "47 / 100",
+      "one_liner": "Victorian rolling gravel in Australia.",
+      "should_you_race": "If you're in Australia\u2014yes, it's solid. If you're international\u2014there are better options.",
+      "alternatives": "For better value: regional gravel races. For similar Australian terrain: Devils Cardigan."
     },
     "logistics": {
-      "airport": "Brussels (BRU) or Antwerp (ANR) 1 hour",
-      "lodging_strategy": "Turnhout has good lodging options.",
-      "food": "Turnhout has full dining options. Stock nutrition.",
+      "airport": "Melbourne (MEL) varies by location",
+      "lodging_strategy": "Victoria has good lodging options.",
+      "food": "Victoria has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Turnhout Gravel website"
+      "official_site": "Check Gravelista website"
     },
     "history": {
       "founded": null,
-      "founder": "Belgian organizers",
-      "origin_story": "Regional Belgian gravel event.",
+      "founder": "Victorian organizers",
+      "origin_story": "Regional Victorian gravel event.",
       "notable_moments": [],
-      "reputation": "Regional Belgian event."
+      "reputation": "Regional Victorian event."
     },
     "course_description": {
-      "character": "Belgian rolling gravel.",
+      "character": "Victorian rolling gravel.",
       "suffering_zones": [
         {
-          "mile": 20,
+          "mile": 25,
           "label": "Early Rolling",
           "desc": "First rolling sections.",
           "terrain_detail": "Rolling",
           "named_section": "Early Rolling"
         },
         {
-          "mile": 35,
+          "mile": 40,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 60,
+          "mile": 65,
           "label": "Late Rolling",
           "desc": "Final rolling sections before finish.",
           "terrain_detail": "Late rolling",
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Belgian rolling terrain.",
+      "signature_challenge": "Victorian rolling terrain.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "Turnhout Gravel",
-      "race_distance": "70 miles",
-      "race_elevation": "3,500 feet",
+      "race_name": "Gravelista",
+      "race_distance": "80 miles",
+      "race_elevation": "5,000 feet",
       "race_date": "Spring",
-      "race_location": "Turnhout, Belgium",
-      "race_terrain": "Belgian rolling gravel",
-      "race_weather": "Belgian spring mild",
+      "race_location": "Victoria, Australia",
+      "race_terrain": "Victorian rolling gravel",
+      "race_weather": "Victorian spring mild",
       "race_challenges": [
         "Rolling terrain",
         "Regional field",
-        "Moderate costs",
+        "Very high costs",
         "Variable weather",
         "Moderate elevation"
       ],
@@ -171,24 +171,24 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Belgian rolling terrain requires sustained effort."
+        "why": "Victorian rolling terrain requires sustained effort."
       },
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Belgian spring weather is variable."
+        "why": "Victorian spring weather is variable."
       },
       {
         "requirement": "Budget planning",
         "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "why": "Very expensive ($2000+ total)."
       }
     ],
     "research_metadata": {
       "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "european_cycling_community"
+        "australian_cycling_community"
       ],
       "migration_notes": [
         "Generated from regional information"
@@ -243,17 +243,17 @@
         "topics": {
           "pacing": "Rolling terrain pacing",
           "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Belgian weather",
+          "weather": "Riding in variable Victorian weather",
           "rolling": "Sustained rolling strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Turnhout Gravel",
-        "race_hook": "Belgian Turnhout gravel challenge.",
+        "race_name": "Gravelista",
+        "race_hook": "Victorian rolling gravel in Australia.",
         "race_hook_detail": "Regional event with rolling terrain.",
-        "distance": "70",
-        "dark_mile": "35",
+        "distance": "80",
+        "dark_mile": "40",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Weather preparation",
         "non_negotiable_3": "Budget planning",

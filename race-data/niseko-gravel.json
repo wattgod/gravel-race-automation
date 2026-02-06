@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Niseko Gravel",
+    "slug": "niseko-gravel",
+    "display_name": "Niseko Gravel",
+    "tagline": "Japanese Hokkaido mountain gravel.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 5000,
+      "location": "Niseko, Hokkaido, Japan",
+      "location_badge": "NISEKO, JAPAN",
+      "county": "Hokkaido",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Hokkaido mountains",
+        "Japanese gravel",
+        "Regional event",
+        "Japan"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u00a515000-25000",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Hokkaido summer",
+      "description": "Generally mild conditions.",
+      "challenges": [
+        "Variable weather",
+        "Generally mild",
+        "Mountainous terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Hokkaido mountain gravel",
+      "surface": "Gravel roads through Hokkaido mountains. Significant elevation with Japanese mountain scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant mountainous (5000 feet)",
+        "Japanese mountain scenery",
+        "Niseko setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 1,
+      "course_profile": 13,
+      "biased_opinion": 19,
+      "score_note": "Regional Japanese event. Mountainous Hokkaido terrain with difficult access, high costs, and regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Japanese Hokkaido Mountain Gravel",
+      "summary": "Niseko Gravel is a regional event in Hokkaido, Japan\u2014mountainous terrain with significant elevation. The Japanese mountains are scenic and organization is good, but the difficult/expensive access and regional field keep it firmly in Tier 3.",
+      "strengths": [
+        "Japanese mountain scenery",
+        "Good Japanese organization",
+        "Hokkaido mild summer weather",
+        "Unique Japanese experience",
+        "Niseko setting"
+      ],
+      "weaknesses": [
+        "Difficult Japan access",
+        "Very high costs ($2000+ total)",
+        "Regional field only",
+        "Limited international draw",
+        "Language barrier"
+      ],
+      "bottom_line": "A scenic Japanese Hokkaido mountain gravel race. Worth it for adventure seekers with big budgets. Not practical for most international riders."
+    },
+    "black_pill": {
+      "title": "EXPENSIVE JAPANESE ADVENTURE",
+      "reality": "The Japanese mountains are scenic. But this is very expensive to access. The field is regional. Budget $2000+ for travel.",
+      "consequences": [
+        "Difficult access",
+        "Very high costs",
+        "Regional field only",
+        "Language barrier"
+      ],
+      "expectation_reset": "This is an expensive Japanese adventure. Budget $2000+ total for travel and set expectations for regional field."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Japanese Hokkaido mountain gravel.",
+      "should_you_race": "If you have a big budget and want a Japanese experience\u2014maybe. For most riders\u2014there are better options.",
+      "alternatives": "For better value: regional gravel races. For similar Asian terrain: Taiwan KOM Gravel."
+    },
+    "logistics": {
+      "airport": "New Chitose (CTS) 2 hours",
+      "lodging_strategy": "Niseko has good lodging options but expensive.",
+      "food": "Niseko has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Niseko Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Japanese organizers",
+      "origin_story": "Regional Japanese gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional Japanese event."
+    },
+    "course_description": {
+      "character": "Hokkaido mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Hokkaido mountainous terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Niseko Gravel",
+      "race_distance": "65 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Summer",
+      "race_location": "Niseko, Hokkaido, Japan",
+      "race_terrain": "Hokkaido mountain gravel",
+      "race_weather": "Hokkaido summer mild",
+      "race_challenges": [
+        "Mountainous terrain",
+        "Regional field",
+        "Very high costs",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 8-10",
+        "why": "Hokkaido mountains require sustained effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Hokkaido summer weather is variable."
+      },
+      {
+        "requirement": "Budget planning",
+        "by_when": "Week 12+",
+        "why": "Very expensive ($2000+ total)."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "japanese_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "mountains"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountainous terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "weather": "Riding in variable Hokkaido weather",
+          "mountains": "Sustained mountain strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Niseko Gravel",
+        "race_hook": "Japanese Hokkaido mountain gravel.",
+        "race_hook_detail": "Regional event with mountainous terrain.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Mountain endurance",
+        "non_negotiable_2": "Weather preparation",
+        "non_negotiable_3": "Budget planning",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

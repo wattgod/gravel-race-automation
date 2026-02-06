@@ -1,0 +1,279 @@
+{
+  "race": {
+    "name": "Gran Fondo Hincapie",
+    "slug": "gran-fondo-hincapie",
+    "display_name": "Gran Fondo Hincapie",
+    "tagline": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
+    "vitals": {
+      "distance_mi": 105,
+      "elevation_ft": 7000,
+      "location": "Greenville, South Carolina",
+      "location_badge": "GREENVILLE, SC",
+      "county": "Greenville County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "South Carolina mountains",
+        "Mixed road/gravel",
+        "100+ mile distance",
+        "Gran fondo format"
+      ],
+      "field_size": "1000+ riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "Gran fondo prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "South Carolina spring",
+      "description": "Variable spring conditions with heat and humidity possible.",
+      "challenges": [
+        "Spring heat",
+        "Humidity",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "South Carolina mixed road/gravel",
+      "surface": "Mixed road and gravel through upstate South Carolina. Significant elevation with mountain scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant climbing (7000 feet)",
+        "Mountain scenery",
+        "Mixed road/gravel",
+        "100+ mile distance",
+        "Gran fondo format"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 58,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 20,
+      "score_note": "Gran fondo (mixed road/gravel). 100+ miles and significant climbing but regional field and mixed surfaces."
+    },
+    "biased_opinion": {
+      "verdict": "Upstate SC Mixed Surface Gran Fondo",
+      "summary": "Gran Fondo Hincapie is a 100+ mile gran fondo in Greenville, SC—mixed road and gravel with significant climbing. The Hincapie name carries weight, and the organization is excellent. However, it's a gran fondo (mixed surfaces, not pure gravel) with a regional field, keeping it in Tier 3. Greenville provides excellent access. The 100+ miles and 7000 feet of climbing are the main challenges.",
+      "strengths": [
+        "100+ mile distance (significant challenge)",
+        "Significant climbing (7000 feet)",
+        "Hincapie name recognition",
+        "Excellent organization",
+        "Greenville (excellent access)"
+      ],
+      "weaknesses": [
+        "Mixed road/gravel (not pure gravel)",
+        "Regional field only",
+        "Spring heat/humidity",
+        "Gran fondo format",
+        "Limited gravel content"
+      ],
+      "bottom_line": "A solid 100+ mile gran fondo with significant climbing. Worth it for the distance and elevation challenge. Not a pure gravel race—this is mixed road/gravel gran fondo format."
+    },
+    "black_pill": {
+      "title": "MIXED ROAD/GRAVEL GRAN FONDO",
+      "reality": "100+ miles and 7000 feet of climbing is legit. But this is a gran fondo—mixed road and gravel, not pure gravel. The field is regional. Spring heat and humidity are real concerns.",
+      "consequences": [
+        "Mixed road/gravel (not pure gravel)",
+        "Regional field only",
+        "Spring heat/humidity",
+        "Gran fondo format"
+      ],
+      "expectation_reset": "This is a gran fondo. The distance and climbing are real, but set expectations accordingly for mixed surfaces and format."
+    },
+    "final_verdict": {
+      "score": "58 / 100",
+      "one_liner": "100+ mile South Carolina mixed road/gravel gran fondo.",
+      "should_you_race": "If you want a 100+ mile gran fondo with significant climbing—yes, it's a well-organized event. If you want pure gravel or pro field depth—look elsewhere.",
+      "alternatives": "For pure gravel events: other Southeast gravel races. For similar gran fondos: other mixed surface events."
+    },
+    "logistics": {
+      "airport": "Greenville (GSP) 15 minutes",
+      "lodging_strategy": "Greenville has extensive lodging options.",
+      "food": "Greenville has full dining options. Stock nutrition for 100+ miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Gran Fondo Hincapie website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "George Hincapie",
+      "origin_story": "Gran fondo event by George Hincapie.",
+      "notable_moments": [],
+      "reputation": "Hincapie gran fondo event."
+    },
+    "course_description": {
+      "character": "Mixed road/gravel for 100+ miles.",
+      "suffering_zones": [
+        {
+          "mile": 35,
+          "label": "First Third",
+          "desc": "35 miles in, settling into pace.",
+          "terrain_detail": "Mixed",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 52,
+          "label": "Halfway",
+          "desc": "Halfway point, 52 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "The Grind",
+          "desc": "80 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 95,
+          "label": "Final Push",
+          "desc": "Last 10 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100+ miles with 7000 feet of climbing on mixed surfaces.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Hincapie",
+      "race_distance": "105 miles",
+      "race_elevation": "7,000 feet",
+      "race_date": "Spring",
+      "race_location": "Greenville, South Carolina",
+      "race_terrain": "South Carolina mixed road/gravel",
+      "race_weather": "SC spring variability",
+      "race_challenges": [
+        "100+ mile distance",
+        "Significant climbing (7000 feet)",
+        "Spring heat/humidity",
+        "Mixed surfaces",
+        "Gran fondo pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century+ endurance",
+        "by_when": "Week 10-12",
+        "why": "100+ miles requires extensive endurance base."
+      },
+      {
+        "requirement": "Climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "7000 feet of climbing requires sustained climbing fitness."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "SC spring means heat and humidity are possible."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "south_carolina_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            10,
+            11,
+            12
+          ]
+        },
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 12,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 7,
+            "compete": 8,
+            "podium": 9
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "heat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Gran fondo pacing discipline",
+          "climbing": "Sustained climbing strategy",
+          "fueling": "Nutrition for 100+ miles",
+          "heat": "Racing in SC spring heat"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gran Fondo Hincapie",
+        "race_hook": "100+ miles of South Carolina mixed road/gravel.",
+        "race_hook_detail": "Gran fondo with significant climbing in Greenville.",
+        "distance": "105",
+        "dark_mile": "80",
+        "non_negotiable_1": "Century+ endurance",
+        "non_negotiable_2": "Climbing endurance",
+        "non_negotiable_3": "Heat preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

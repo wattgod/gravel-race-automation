@@ -1,0 +1,279 @@
+{
+  "race": {
+    "name": "Gravel Worlds Amateur",
+    "slug": "gravel-worlds-amateur",
+    "display_name": "Gravel Worlds Amateur",
+    "tagline": "150-mile Nebraska gravel challenge in Lincoln.",
+    "vitals": {
+      "distance_mi": 150,
+      "elevation_ft": 3500,
+      "location": "Lincoln, Nebraska",
+      "location_badge": "LINCOLN, NE",
+      "county": "Lancaster County",
+      "date": "August annually",
+      "date_specific": "2026: August TBD",
+      "terrain_types": [
+        "Nebraska farmland",
+        "Rolling gravel",
+        "150-mile distance",
+        "Amateur division"
+      ],
+      "field_size": "500+ riders",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "Amateur prizes",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies (typically 12-15 hours)"
+    },
+    "climate": {
+      "primary": "Nebraska August",
+      "description": "Hot conditions with wind exposure and variable weather.",
+      "challenges": [
+        "August heat",
+        "Wind exposure",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Nebraska rolling farmland gravel",
+      "surface": "Gravel roads through rolling Nebraska farmland. 150-mile distance with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "Farmland scenery",
+        "150-mile distance",
+        "Amateur division",
+        "Gravel Worlds event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 20,
+      "score_note": "Amateur division of Gravel Worlds. 150 miles is extreme but flat farmland terrain and amateur field."
+    },
+    "biased_opinion": {
+      "verdict": "150-Mile Nebraska Farmland Challenge",
+      "summary": "Gravel Worlds Amateur is the amateur division of the Gravel Worlds series—a 150-mile challenge through Nebraska farmland. The Gravel Worlds name carries weight, and the organization is solid. Lincoln provides excellent access and amenities. However, it's flat farmland terrain with an amateur field, keeping it in Tier 3. The 150-mile distance is the main challenge—heat, wind, and endurance.",
+      "strengths": [
+        "150-mile distance (extreme challenge)",
+        "Gravel Worlds name recognition",
+        "Lincoln (excellent access/amenities)",
+        "Well-organized event",
+        "Large field (500+ riders)"
+      ],
+      "weaknesses": [
+        "Flat farmland terrain (minimal climbing)",
+        "Amateur division (not pro field)",
+        "August heat and wind",
+        "Repetitive scenery",
+        "Regional field depth"
+      ],
+      "bottom_line": "A solid 150-mile gravel challenge with Gravel Worlds organization. Worth it for the distance challenge and event quality. Not a destination race for terrain or field depth, but a legitimate ultra-distance test."
+    },
+    "black_pill": {
+      "title": "150 MILES OF FLAT FARMLAND",
+      "reality": "150 miles is a long way, and the Gravel Worlds name is legit. But it's flat Nebraska farmland—repetitive scenery with minimal climbing. The field is amateur division. August heat and wind are real concerns.",
+      "consequences": [
+        "Flat farmland (minimal climbing)",
+        "Amateur field only",
+        "August heat/wind",
+        "Repetitive scenery"
+      ],
+      "expectation_reset": "This is an ultra-distance challenge. The distance is real, but set expectations accordingly for terrain and field."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "150-mile Nebraska farmland gravel challenge in Lincoln.",
+      "should_you_race": "If you want a 150-mile ultra-distance challenge with solid organization—yes, it's a legitimate test. If you want terrain variety or pro field depth—look elsewhere.",
+      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar amateur events: other Gravel Worlds divisions."
+    },
+    "logistics": {
+      "airport": "Lincoln (LNK) 15 minutes",
+      "lodging_strategy": "Lincoln has extensive lodging options.",
+      "food": "Lincoln has full dining options. Stock nutrition for 150 miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Gravel Worlds website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Gravel Worlds organizers",
+      "origin_story": "Amateur division of Gravel Worlds series.",
+      "notable_moments": [],
+      "reputation": "Gravel Worlds amateur event."
+    },
+    "course_description": {
+      "character": "Flat to rolling farmland gravel for 150 miles.",
+      "suffering_zones": [
+        {
+          "mile": 50,
+          "label": "First Third",
+          "desc": "50 miles in, settling into pace.",
+          "terrain_detail": "Farmland",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 75,
+          "label": "Halfway",
+          "desc": "Halfway point, 75 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 100,
+          "label": "The Grind",
+          "desc": "100 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 130,
+          "label": "Final Push",
+          "desc": "Last 20 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "150-mile distance through Nebraska farmland with heat and wind.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gravel Worlds Amateur",
+      "race_distance": "150 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "August",
+      "race_location": "Lincoln, Nebraska",
+      "race_terrain": "Nebraska farmland gravel",
+      "race_weather": "Nebraska August heat",
+      "race_challenges": [
+        "150-mile distance",
+        "August heat",
+        "Wind exposure",
+        "Flat terrain endurance",
+        "Ultra-distance pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-distance endurance",
+        "by_when": "Week 10-12",
+        "why": "150 miles requires extensive ultra-distance preparation and back-to-back long rides."
+      },
+      {
+        "requirement": "Heat training",
+        "by_when": "Week 6-8",
+        "why": "Nebraska August means serious heat exposure for 10-15 hours."
+      },
+      {
+        "requirement": "Wind preparation",
+        "by_when": "Week 4-6",
+        "why": "Nebraska farmland means significant wind exposure."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "gravel_worlds_events"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "ultra_distance_endurance": {
+          "enabled": true,
+          "weeks": [
+            10,
+            11,
+            12
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "wind_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 12,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 7,
+            "finisher": 9,
+            "compete": 11,
+            "podium": 13
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "ultra"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Ultra-distance pacing discipline",
+          "fueling": "Nutrition strategy for 150 miles",
+          "heat": "Racing in Nebraska August heat",
+          "ultra": "Mental strategies for ultra-distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gravel Worlds Amateur",
+        "race_hook": "150 miles of Nebraska farmland gravel.",
+        "race_hook_detail": "Amateur division ultra-distance challenge in Lincoln.",
+        "distance": "150",
+        "dark_mile": "100",
+        "non_negotiable_1": "Ultra-distance endurance",
+        "non_negotiable_2": "Heat training",
+        "non_negotiable_3": "Wind preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

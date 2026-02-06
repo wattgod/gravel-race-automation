@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Iceman Cometh",
+    "slug": "iceman-cometh",
+    "display_name": "Iceman Cometh",
+    "tagline": "30-mile Michigan mountain bike race with 4000+ riders in November.",
+    "vitals": {
+      "distance_mi": 30,
+      "elevation_ft": 2000,
+      "location": "Kalkaska, Michigan",
+      "location_badge": "KALKASKA, MI",
+      "county": "Kalkaska County",
+      "date": "November annually",
+      "date_specific": "2026: November TBD",
+      "terrain_types": [
+        "Michigan singletrack",
+        "Mountain bike",
+        "30-mile distance",
+        "Massive field (4000+ riders)"
+      ],
+      "field_size": "4000+ riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Michigan November",
+      "description": "Cold November conditions with snow possible and variable weather.",
+      "challenges": [
+        "November cold",
+        "Snow possible",
+        "Variable weather",
+        "Cold exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Michigan mountain bike singletrack",
+      "surface": "Singletrack mountain bike course through northern Michigan forest. Moderate elevation with technical sections.",
+      "technical_rating": 4,
+      "features": [
+        "Moderate elevation (2000 feet)",
+        "Technical singletrack",
+        "Forest scenery",
+        "30-mile distance",
+        "Massive field (4000+ riders)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 4,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 22,
+      "score_note": "Iconic Michigan mountain bike event. Massive field and organization but mountain bike race (not gravel) with short distance."
+    },
+    "biased_opinion": {
+      "verdict": "Iconic Michigan Mountain Bike Festival",
+      "summary": "Iceman Cometh is an iconic Michigan mountain bike race—4000+ riders tackling 30 miles of singletrack in November. The massive field, festival atmosphere, and organization are impressive. However, it's a mountain bike race (not gravel) with a short 30-mile distance, keeping it in Tier 3 for gravel riders. Kalkaska provides moderate access. November weather adds cold and possible snow challenges.",
+      "strengths": [
+        "Massive field (4000+ riders)",
+        "Iconic Michigan event",
+        "Festival atmosphere",
+        "Excellent organization",
+        "Michigan cycling community"
+      ],
+      "weaknesses": [
+        "Mountain bike race (not gravel)",
+        "Short distance (30 miles)",
+        "November cold/snow",
+        "Regional field only",
+        "Technical singletrack (not gravel)"
+      ],
+      "bottom_line": "An iconic Michigan mountain bike event with massive field and festival atmosphere. Worth it for mountain bikers seeking a unique November challenge. Not a gravel race—this is singletrack mountain biking."
+    },
+    "black_pill": {
+      "title": "MOUNTAIN BIKE RACE, NOT GRAVEL",
+      "reality": "4000+ riders and festival atmosphere are impressive. But this is a mountain bike race with singletrack—not gravel. 30 miles is short. November weather means cold and possible snow.",
+      "consequences": [
+        "Mountain bike race (not gravel)",
+        "Short distance (30 miles)",
+        "November cold/snow",
+        "Technical singletrack"
+      ],
+      "expectation_reset": "This is a mountain bike race. If you're looking for gravel, this isn't it. Set expectations accordingly."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "30-mile Michigan mountain bike race with 4000+ riders in November.",
+      "should_you_race": "If you're a mountain biker seeking an iconic November challenge with massive field—yes, it's a unique event. If you're a gravel rider—this isn't a gravel race.",
+      "alternatives": "For gravel events: Barry-Roubaix, Marji Gesick. For similar mountain bike events: other Michigan mountain bike races."
+    },
+    "logistics": {
+      "airport": "Traverse City (TVC) 30 minutes",
+      "lodging_strategy": "Kalkaska and Traverse City have lodging options.",
+      "food": "Moderate dining options. Stock nutrition for 30 miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Iceman Cometh website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Michigan organizers",
+      "origin_story": "Iconic Michigan mountain bike event.",
+      "notable_moments": [],
+      "reputation": "Iconic Michigan mountain bike event."
+    },
+    "course_description": {
+      "character": "Technical singletrack mountain bike for 30 miles.",
+      "suffering_zones": [
+        {
+          "mile": 10,
+          "label": "First Third",
+          "desc": "10 miles in, technical sections.",
+          "terrain_detail": "Technical",
+          "named_section": "Early Technical"
+        },
+        {
+          "mile": 15,
+          "label": "Halfway",
+          "desc": "Halfway point, 15 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 25,
+          "label": "Final Push",
+          "desc": "Last 5 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "30-mile technical mountain bike in November cold.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Iceman Cometh",
+      "race_distance": "30 miles",
+      "race_elevation": "2,000 feet",
+      "race_date": "November",
+      "race_location": "Kalkaska, Michigan",
+      "race_terrain": "Michigan mountain bike singletrack",
+      "race_weather": "Michigan November cold",
+      "race_challenges": [
+        "November cold/snow",
+        "Technical singletrack",
+        "Massive field navigation",
+        "Mountain bike skills",
+        "Cold weather endurance"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain bike skills",
+        "by_when": "Week 8-10",
+        "why": "Technical singletrack requires mountain bike handling skills."
+      },
+      {
+        "requirement": "Cold weather preparation",
+        "by_when": "Week 4-6",
+        "why": "November Michigan means cold exposure and possible snow."
+      },
+      {
+        "requirement": "Massive field navigation",
+        "by_when": "Week 2-4",
+        "why": "4000+ riders requires navigation and positioning skills."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "mountain_bike_skills": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "cold_weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 2.5,
+            "compete": 3,
+            "podium": 3.5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "technical",
+          "cold",
+          "navigation",
+          "pacing"
+        ],
+        "race_specific": true,
+        "topics": {
+          "technical": "Technical mountain bike handling",
+          "cold": "Cold weather racing strategies",
+          "navigation": "Massive field positioning",
+          "pacing": "Short distance pacing"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Iceman Cometh",
+        "race_hook": "30 miles of Michigan mountain bike singletrack with 4000+ riders in November.",
+        "race_hook_detail": "Iconic mountain bike event (not gravel).",
+        "distance": "30",
+        "dark_mile": "15",
+        "non_negotiable_1": "Mountain bike skills",
+        "non_negotiable_2": "Cold weather preparation",
+        "non_negotiable_3": "Massive field navigation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

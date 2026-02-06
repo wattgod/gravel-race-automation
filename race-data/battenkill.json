@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Battenkill",
+    "slug": "battenkill",
+    "display_name": "Battenkill",
+    "tagline": "New York rolling hills gravel in Cambridge.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 5000,
+      "location": "Cambridge, New York",
+      "location_badge": "CAMBRIDGE, NY",
+      "county": "Washington County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "New York rolling hills",
+        "Rural gravel",
+        "Regional event",
+        "Eastern New York"
+      ],
+      "field_size": "400-800 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "New York spring",
+      "description": "Variable spring conditions with cool temperatures and rain possible.",
+      "challenges": [
+        "Spring cool",
+        "Rain possible",
+        "Variable weather",
+        "Rolling hills"
+      ]
+    },
+    "terrain": {
+      "primary": "New York rolling hills gravel",
+      "surface": "Gravel roads through rolling eastern New York hills. Significant elevation with rural scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Significant rolling hills (5000 feet)",
+        "Rural scenery",
+        "Eastern New York setting",
+        "60+ mile distance",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 18,
+      "score_note": "Regional NY event. Significant rolling hills but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Eastern New York Rolling Hills Gravel",
+      "summary": "Battenkill is an eastern New York gravel race—60+ miles of rolling hills with significant climbing. The organization is solid, and the Northeast reputation is decent. However, it's a regional field with standard gravel terrain, keeping it in Tier 3. Cambridge provides moderate access. The 60+ miles and 5000 feet of climbing are the main challenges.",
+      "strengths": [
+        "Significant climbing (5000 feet)",
+        "60+ mile distance",
+        "Well-organized event",
+        "Eastern NY rolling hills",
+        "Northeast cycling community"
+      ],
+      "weaknesses": [
+        "Regional field only",
+        "Standard gravel terrain",
+        "Spring weather variability",
+        "Limited national recognition",
+        "Moderate access"
+      ],
+      "bottom_line": "A solid 60+ mile gravel challenge with significant climbing. Worth it for the distance and elevation challenge. Not a destination race for terrain variety or field depth."
+    },
+    "black_pill": {
+      "title": "ROLLING HILLS REGIONAL",
+      "reality": "60+ miles and 5000 feet of climbing is solid. But it's rolling hills—repetitive terrain with a regional field. Spring weather is variable.",
+      "consequences": [
+        "Rolling hills (repetitive)",
+        "Regional field only",
+        "Spring weather",
+        "Standard gravel"
+      ],
+      "expectation_reset": "This is a rolling hills event. The distance and climbing are real, but set expectations accordingly for terrain variety and field."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "New York rolling hills gravel with significant climbing.",
+      "should_you_race": "If you want a 60+ mile challenge with significant climbing—yes, it's a solid event. If you want terrain variety or pro field depth—look elsewhere.",
+      "alternatives": "For better Northeast events: Vermont Overland, D2R2. For similar distance events: other regional gravel races."
+    },
+    "logistics": {
+      "airport": "Albany (ALB) 45 minutes",
+      "lodging_strategy": "Cambridge has limited lodging. Saratoga Springs or Albany have more options.",
+      "food": "Small town with limited dining. Stock nutrition.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Battenkill website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "New York organizers",
+      "origin_story": "Eastern New York gravel event.",
+      "notable_moments": [],
+      "reputation": "Northeast regional event."
+    },
+    "course_description": {
+      "character": "Rolling hills gravel for 60+ miles.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Hills",
+          "desc": "First rolling hills.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Hills"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Final Hills",
+          "desc": "Final rolling hills before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "60+ miles with 5000 feet of rolling hills climbing.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Battenkill",
+      "race_distance": "65 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Spring",
+      "race_location": "Cambridge, New York",
+      "race_terrain": "New York rolling hills gravel",
+      "race_weather": "NY spring variability",
+      "race_challenges": [
+        "Significant climbing (5000 feet)",
+        "60+ mile distance",
+        "Spring weather",
+        "Rolling hills endurance",
+        "Regional field"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "5000 feet of rolling hills requires sustained climbing fitness."
+      },
+      {
+        "requirement": "Spring weather preparation",
+        "by_when": "Week 4-6",
+        "why": "NY spring means variable conditions and rain possible."
+      },
+      {
+        "requirement": "Distance endurance",
+        "by_when": "Week 8-10",
+        "why": "60+ miles requires solid endurance base."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "new_york_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "spring_weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling hills pacing",
+          "climbing": "Sustained rolling strategy",
+          "fueling": "Nutrition for 60+ miles",
+          "weather": "Spring weather management"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Battenkill",
+        "race_hook": "New York rolling hills gravel with significant climbing.",
+        "race_hook_detail": "60+ mile challenge in Cambridge.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Climbing endurance",
+        "non_negotiable_2": "Spring weather preparation",
+        "non_negotiable_3": "Distance endurance",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

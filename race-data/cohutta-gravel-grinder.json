@@ -1,0 +1,279 @@
+{
+  "race": {
+    "name": "Cohutta Gravel Grinder",
+    "slug": "cohutta-gravel-grinder",
+    "display_name": "Cohutta Gravel Grinder",
+    "tagline": "100-mile Georgia mountain gravel through Cohutta Wilderness.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 9000,
+      "location": "Chatsworth, Georgia",
+      "location_badge": "CHATSWORTH, GA",
+      "county": "Murray County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "North Georgia mountains",
+        "Cohutta Wilderness",
+        "100-mile distance",
+        "Mountain gravel"
+      ],
+      "field_size": "400-800 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-120",
+      "prize_purse": "Prizes for top finishers",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies (typically 12-15 hours)"
+    },
+    "climate": {
+      "primary": "Georgia spring",
+      "description": "Variable spring conditions with heat and humidity possible.",
+      "challenges": [
+        "Spring heat",
+        "Humidity",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Georgia Cohutta mountain gravel",
+      "surface": "Gravel roads through Cohutta Wilderness area. Significant elevation with 100-mile distance.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountain climbing (9000 feet)",
+        "Cohutta Wilderness scenery",
+        "100-mile distance",
+        "North Georgia mountains",
+        "Wilderness setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 62,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 13,
+      "biased_opinion": 22,
+      "score_note": "Regional GA event. 100 miles and significant mountain climbing are notable but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "North Georgia Mountain Century Challenge",
+      "summary": "Cohutta Gravel Grinder is a 100-mile mountain gravel race through north Georgia's Cohutta Wilderness—significant climbing with wilderness scenery. The organization is solid, and the Georgia reputation is decent. However, it's a regional field, keeping it in Tier 3. Chatsworth provides moderate access. The 100 miles and 9000 feet of climbing are serious challenges.",
+      "strengths": [
+        "100-mile distance (significant challenge)",
+        "Significant mountain climbing (9000 feet)",
+        "Cohutta Wilderness scenery",
+        "Well-organized event",
+        "North Georgia mountains"
+      ],
+      "weaknesses": [
+        "Regional field only",
+        "Spring heat/humidity",
+        "Limited national recognition",
+        "Moderate access",
+        "North GA mountains (not destination)"
+      ],
+      "bottom_line": "A solid 100-mile mountain gravel challenge with significant climbing. Worth it for the distance and elevation challenge in Cohutta Wilderness. Not a destination race for out-of-state travelers."
+    },
+    "black_pill": {
+      "title": "100 MILES OF GEORGIA MOUNTAIN SUFFERING",
+      "reality": "100 miles and 9000 feet of climbing is legit suffering. But it's a regional field in north Georgia. Spring heat and humidity are real concerns.",
+      "consequences": [
+        "Regional field only",
+        "Spring heat/humidity",
+        "100 miles of climbing",
+        "North GA mountains"
+      ],
+      "expectation_reset": "This is a 100-mile mountain event. The distance and climbing are real, but set expectations accordingly for field and conditions."
+    },
+    "final_verdict": {
+      "score": "62 / 100",
+      "one_liner": "100-mile Georgia mountain gravel through Cohutta Wilderness.",
+      "should_you_race": "If you want a 100-mile mountain challenge with significant climbing—yes, it's a solid event. If you want pro field depth or cooler conditions—look elsewhere.",
+      "alternatives": "For better mountain events: Leadville, Crusher. For similar regional events: other Georgia gravel races."
+    },
+    "logistics": {
+      "airport": "Chattanooga (CHA) 45 minutes or Atlanta (ATL) 1.5 hours",
+      "lodging_strategy": "Chatsworth has limited lodging. Dalton or Chattanooga have more options.",
+      "food": "Small town with limited dining. Stock nutrition for 100 miles.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Cohutta website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Georgia organizers",
+      "origin_story": "North Georgia mountain gravel event.",
+      "notable_moments": [],
+      "reputation": "Georgia mountain event."
+    },
+    "course_description": {
+      "character": "Mountain gravel for 100 miles.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "First Third",
+          "desc": "30 miles in, mountain climbing begins.",
+          "terrain_detail": "Mountains",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 50,
+          "label": "Halfway",
+          "desc": "Halfway point, 50 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 75,
+          "label": "The Grind",
+          "desc": "75 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 90,
+          "label": "Final Push",
+          "desc": "Last 10 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100 miles with 9000 feet of mountain climbing through Cohutta Wilderness.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Cohutta Gravel Grinder",
+      "race_distance": "100 miles",
+      "race_elevation": "9,000 feet",
+      "race_date": "Spring",
+      "race_location": "Chatsworth, Georgia",
+      "race_terrain": "Georgia Cohutta mountain gravel",
+      "race_weather": "GA spring variability",
+      "race_challenges": [
+        "100-mile distance",
+        "Significant mountain climbing (9000 feet)",
+        "Spring heat/humidity",
+        "Cohutta Wilderness",
+        "Century mountain pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century mountain endurance",
+        "by_when": "Week 10-12",
+        "why": "100 miles with 9000 feet of climbing requires extensive preparation."
+      },
+      {
+        "requirement": "Mountain climbing fitness",
+        "by_when": "Week 8-10",
+        "why": "9000 feet of mountain climbing requires serious climbing fitness."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "GA spring means heat and humidity are likely."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "georgia_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            10,
+            11,
+            12
+          ]
+        },
+        "climbing_fitness": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 12,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 7,
+            "compete": 8,
+            "podium": 9
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling",
+          "heat"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Century mountain pacing",
+          "climbing": "Sustained mountain climbing",
+          "fueling": "Nutrition for 100 miles",
+          "heat": "Racing in GA spring heat"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Cohutta Gravel Grinder",
+        "race_hook": "100 miles of Georgia mountain gravel through Cohutta Wilderness.",
+        "race_hook_detail": "Century mountain challenge in north Georgia.",
+        "distance": "100",
+        "dark_mile": "75",
+        "non_negotiable_1": "Century mountain endurance",
+        "non_negotiable_2": "Mountain climbing fitness",
+        "non_negotiable_3": "Heat preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

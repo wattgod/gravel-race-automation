@@ -1,0 +1,283 @@
+{
+  "race": {
+    "name": "Trans Iowa",
+    "slug": "trans-iowa",
+    "display_name": "Trans Iowa",
+    "tagline": "300+ mile self-supported Iowa gravel ultra-distance challenge.",
+    "vitals": {
+      "distance_mi": 320,
+      "elevation_ft": 9000,
+      "location": "Checkpoint, Iowa",
+      "location_badge": "CHECKPOINT, IA",
+      "county": "Central Iowa",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Iowa farmland",
+        "Rolling gravel",
+        "300+ mile distance",
+        "Self-supported"
+      ],
+      "field_size": "50-150 riders (limited)",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$100-200. Limited entries.",
+      "prize_purse": "Finisher recognition",
+      "aid_stations": "Self-supported (no aid stations)",
+      "cutoff_time": "Varies (typically 24-36 hours)"
+    },
+    "climate": {
+      "primary": "Iowa spring",
+      "description": "Variable spring conditions with cold, wind, and rain possible.",
+      "challenges": [
+        "Spring cold",
+        "Wind exposure",
+        "Rain possible",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Iowa rolling farmland gravel",
+      "surface": "Gravel roads through rolling Iowa farmland. 300+ miles self-supported with moderate elevation over extreme distance.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling over distance (9000 feet)",
+        "Farmland scenery",
+        "300+ mile distance",
+        "Self-supported format",
+        "Ultra-distance challenge"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 2,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 21,
+      "score_note": "300+ mile self-supported ultra-distance. Extreme challenge but flat farmland terrain and small field."
+    },
+    "biased_opinion": {
+      "verdict": "300-Mile Self-Supported Farmland Epic",
+      "summary": "Trans Iowa is a 300+ mile self-supported ultra-distance gravel race—one of the most extreme challenges in gravel racing. The self-supported format means no aid stations, no support, just you and 300+ miles of Iowa farmland. The ultra-distance reputation is legit, but it's flat farmland terrain with a small field. Checkpoint is rural Iowa with limited amenities. This is for ultra-distance purists seeking an extreme test.",
+      "strengths": [
+        "300+ mile distance (extreme challenge)",
+        "Self-supported format (pure test)",
+        "Ultra-distance reputation",
+        "Small field (exclusive)",
+        "Iowa cycling community"
+      ],
+      "weaknesses": [
+        "Flat farmland terrain (minimal climbing)",
+        "Self-supported (no aid stations)",
+        "Rural location (limited amenities)",
+        "Small field only",
+        "Spring weather variability"
+      ],
+      "bottom_line": "An extreme 300+ mile self-supported ultra-distance challenge. Worth it for ultra-distance purists seeking the ultimate test. Not for everyone—this is flat farmland with no support for 24-36 hours."
+    },
+    "black_pill": {
+      "title": "300 MILES OF FLAT FARMLAND, NO SUPPORT",
+      "reality": "300+ miles is an extreme distance, and self-supported is legit. But it's flat Iowa farmland—repetitive scenery with minimal climbing. No aid stations, no support. Spring weather can be brutal. This is suffering.",
+      "consequences": [
+        "Flat farmland (minimal climbing)",
+        "Self-supported (no aid stations)",
+        "300+ miles of repetitive scenery",
+        "Spring cold/wind/rain",
+        "Small field only"
+      ],
+      "expectation_reset": "This is an extreme ultra-distance self-supported challenge. The distance is real, but set expectations accordingly for terrain and support."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "300+ mile self-supported Iowa farmland gravel ultra-distance.",
+      "should_you_race": "If you want an extreme 300+ mile self-supported ultra-distance challenge—yes, it's a legitimate test. If you want terrain variety or support—look elsewhere.",
+      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar self-supported events: other ultra-distance self-supported races."
+    },
+    "logistics": {
+      "airport": "Des Moines (DSM) 2 hours",
+      "lodging_strategy": "Checkpoint has very limited lodging. Des Moines or nearby towns have options.",
+      "food": "Rural area with limited dining. Self-supported format requires full nutrition planning.",
+      "packet_pickup": "Day before",
+      "parking": "At start/finish",
+      "official_site": "Check Trans Iowa website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Iowa organizers",
+      "origin_story": "Ultra-distance self-supported gravel event.",
+      "notable_moments": [],
+      "reputation": "Ultra-distance self-supported event."
+    },
+    "course_description": {
+      "character": "Flat to rolling farmland gravel for 300+ miles self-supported.",
+      "suffering_zones": [
+        {
+          "mile": 100,
+          "label": "First Third",
+          "desc": "100 miles in, settling into pace.",
+          "terrain_detail": "Farmland",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 160,
+          "label": "Halfway",
+          "desc": "Halfway point, 160 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 240,
+          "label": "The Grind",
+          "desc": "240 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 300,
+          "label": "Final Push",
+          "desc": "Last 20 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "300+ mile self-supported distance through Iowa farmland.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Trans Iowa",
+      "race_distance": "320 miles",
+      "race_elevation": "9,000 feet",
+      "race_date": "Spring",
+      "race_location": "Checkpoint, Iowa",
+      "race_terrain": "Iowa farmland gravel",
+      "race_weather": "Iowa spring variability",
+      "race_challenges": [
+        "300+ mile distance",
+        "Self-supported (no aid)",
+        "Spring cold/wind/rain",
+        "Flat terrain endurance",
+        "Ultra-distance pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Extreme ultra-distance endurance",
+        "by_when": "Week 12-16",
+        "why": "300+ miles self-supported requires extensive ultra-distance preparation and back-to-back-to-back long rides."
+      },
+      {
+        "requirement": "Self-sufficiency skills",
+        "by_when": "Week 8-10",
+        "why": "Self-supported format requires navigation, mechanical, and nutrition self-sufficiency."
+      },
+      {
+        "requirement": "Cold weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Iowa spring means cold exposure for 24-36 hours."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "iowa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "extreme_ultra_distance": {
+          "enabled": true,
+          "weeks": [
+            12,
+            13,
+            14,
+            15,
+            16
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "cold_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 14,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 10,
+            "finisher": 14,
+            "compete": 18,
+            "podium": 22
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "ultra",
+          "self_sufficiency",
+          "pacing",
+          "cold"
+        ],
+        "race_specific": true,
+        "topics": {
+          "ultra": "Extreme ultra-distance strategies",
+          "self_sufficiency": "Self-supported navigation and mechanics",
+          "pacing": "300+ mile pacing discipline",
+          "cold": "Cold weather endurance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Trans Iowa",
+        "race_hook": "300+ miles of self-supported Iowa farmland gravel.",
+        "race_hook_detail": "Extreme ultra-distance self-supported challenge.",
+        "distance": "320",
+        "dark_mile": "200",
+        "non_negotiable_1": "Extreme ultra-distance endurance",
+        "non_negotiable_2": "Self-sufficiency skills",
+        "non_negotiable_3": "Cold weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

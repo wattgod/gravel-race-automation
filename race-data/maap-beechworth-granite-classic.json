@@ -1,0 +1,265 @@
+{
+  "race": {
+    "name": "MAAP Beechworth Granite Classic",
+    "slug": "maap-beechworth-granite-classic",
+    "display_name": "MAAP Beechworth Granite Classic",
+    "tagline": "Victorian high country gravel in historic gold rush territory.",
+    "vitals": {
+      "distance_mi": 93,
+      "elevation_ft": 8000,
+      "location": "Beechworth, Victoria",
+      "location_badge": "BEECHWORTH, VICTORIA",
+      "county": "Alpine Shire",
+      "date": "Spring or autumn annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Forest tracks",
+        "High country terrain",
+        "Technical climbs"
+      ],
+      "field_size": "300-600 riders",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$80-150 AUD",
+      "prize_purse": "Varies",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies by distance"
+    },
+    "climate": {
+      "primary": "Australian spring/autumn variability",
+      "description": "Can range from cool to warm depending on season and elevation. Variable conditions.",
+      "challenges": [
+        "Temperature variability with elevation",
+        "Potential for heat or cold",
+        "Dust on dry gravel",
+        "Exposure on high country sections"
+      ]
+    },
+    "terrain": {
+      "primary": "High country gravel and forest tracks",
+      "surface": "Mix of gravel roads and forest tracks through Victorian high country. Technical climbs and descents with significant elevation.",
+      "technical_rating": 3,
+      "features": [
+        "Hilly to mountainous terrain",
+        "Significant elevation gain",
+        "Technical climbs and descents",
+        "Historic gold rush region",
+        "Forest and high country scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 18,
+      "biased_opinion": 20,
+      "score_note": "Well-organized Australian event with challenging high country terrain. MAAP sponsorship adds quality. Regional field."
+    },
+    "biased_opinion": {
+      "verdict": "High Country Challenge",
+      "summary": "MAAP Beechworth Granite Classic offers serious climbing and technical terrain in Victoria's beautiful high country. The MAAP sponsorship brings professional touches, and Beechworth is a charming historic town. The 150km option with 8000+ feet of climbing is no joke. It's a regional Australian event with limited international presence, but the terrain and organization are solid.",
+      "strengths": [
+        "Challenging high country terrain with serious climbing",
+        "MAAP brand sponsorship adds quality and style",
+        "Historic Beechworth is a great event base",
+        "Multiple distance options including serious 150km",
+        "Well-organized with proper support"
+      ],
+      "weaknesses": [
+        "3-hour drive from Melbourne",
+        "Regional Australian field only",
+        "Weather can be highly variable",
+        "Challenging terrain may be too much for some",
+        "Limited international recognition"
+      ],
+      "bottom_line": "If you're in Australia and want a challenging gravel race with serious climbing, this is a good option. The MAAP branding and Beechworth setting add appeal. For international travelers, it's a regional event that's hard to justify unless you're already in Australia for other reasons."
+    },
+    "black_pill": {
+      "title": "IT'S A LONG WAY TO BEECHWORTH",
+      "reality": "Beechworth is 3 hours from Melbourne in regional Victoria. If you're international, you're looking at a long-haul flight to Australia, then a 3-hour drive to a regional town for a race that's well-organized but ultimately regional in scope. The terrain is excellent, but the travel commitment is significant.",
+      "consequences": [
+        "Major travel commitment for international riders",
+        "Regional field depth only",
+        "3-hour drive from Melbourne",
+        "Weather variability can impact experience"
+      ],
+      "expectation_reset": "This is a regional Australian event with good terrain and organization. Set expectations accordingly\u2014it's not a destination race for international travelers."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "Challenging Victorian high country gravel with MAAP polish.",
+      "should_you_race": "If you're in Australia\u2014yes, it's a well-organized event with excellent terrain. If you're international\u2014probably not worth the travel unless you're combining with Australian tourism or other races.",
+      "alternatives": "For other Australian gravel: Gravel Grit (NSW), Dirty Detour (Victoria). For similar high country terrain: Colorado or European gravel events."
+    },
+    "logistics": {
+      "airport": "Melbourne (MEL) 3 hours drive",
+      "lodging_strategy": "Beechworth has hotels, B&Bs, and vacation rentals. Historic town with tourism infrastructure. Book early during event weekend.",
+      "food": "Beechworth has restaurants and cafes. Stock race nutrition beforehand.",
+      "packet_pickup": "Typically day before",
+      "parking": "At start/finish in town",
+      "official_site": "Check MAAP or Australian cycling event calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "MAAP (cycling apparel brand)",
+      "origin_story": "MAAP-sponsored gravel event showcasing Victorian high country terrain in historic Beechworth.",
+      "notable_moments": [],
+      "reputation": "Growing reputation in Australian gravel scene. Well-organized with brand sponsorship."
+    },
+    "course_description": {
+      "character": "Hilly to mountainous high country with significant climbing and technical descents.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "First Major Climb",
+          "desc": "Elevation gain begins in earnest.",
+          "terrain_detail": "High country climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 60,
+          "label": "High Country Grind",
+          "desc": "Sustained climbing and technical terrain.",
+          "terrain_detail": "Peak elevation sections",
+          "named_section": "High Country"
+        },
+        {
+          "mile": 80,
+          "label": "Final Descent and Finish",
+          "desc": "Technical descents back to Beechworth.",
+          "terrain_detail": "Descending to finish",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "Significant elevation gain and technical high country terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "MAAP Beechworth Granite Classic",
+      "race_distance": "93 miles",
+      "race_elevation": "8,000 feet",
+      "race_date": "Spring or autumn",
+      "race_location": "Beechworth, Victoria",
+      "race_terrain": "High country gravel and forest tracks",
+      "race_weather": "Variable Australian conditions",
+      "race_challenges": [
+        "Significant climbing (8000+ feet)",
+        "Technical high country terrain",
+        "Weather variability",
+        "Sustained elevation gain"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength and endurance",
+        "by_when": "Week 6-10",
+        "why": "8000+ feet of climbing requires serious aerobic capacity and climbing strength."
+      },
+      {
+        "requirement": "Technical descending skills",
+        "by_when": "Week 5-7",
+        "why": "High country descents are technical and require confident handling."
+      },
+      {
+        "requirement": "Heat and variable weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Australian conditions can vary significantly. Train for heat and variable weather."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "australian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "technical_descending": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 6,
+            "compete": 7,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "handling",
+          "pacing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for sustained high country climbs",
+          "handling": "Technical descending on gravel",
+          "pacing": "Managing effort over significant elevation",
+          "fueling": "Nutrition for long distance with climbing"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "MAAP Beechworth Granite Classic",
+        "race_hook": "93 miles and 8000 feet of Victorian high country climbing.",
+        "race_hook_detail": "MAAP-sponsored gravel challenge in historic Beechworth.",
+        "distance": "93",
+        "dark_mile": "60",
+        "non_negotiable_1": "Climbing strength and endurance",
+        "non_negotiable_2": "Technical descending skills",
+        "non_negotiable_3": "Heat and variable weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

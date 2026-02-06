@@ -1,0 +1,272 @@
+{
+  "race": {
+    "name": "Coast to Coast",
+    "slug": "coast-to-coast",
+    "display_name": "Coast to Coast",
+    "tagline": "Michigan ultra-distance crossing from Lake Huron to Lake Michigan.",
+    "vitals": {
+      "distance_mi": 204,
+      "elevation_ft": 5000,
+      "location": "Au Gres to Ludington, Michigan",
+      "location_badge": "AU GRES TO LUDINGTON, MI",
+      "county": "Multiple counties",
+      "date": "June annually",
+      "date_specific": "2026: TBD (typically 4th Saturday in June)",
+      "terrain_types": [
+        "Gravel roads",
+        "Rural Michigan",
+        "Rolling terrain",
+        "State crossing"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Early morning start (204-mile requires day/night riding)",
+      "registration": "Online. Cost: ~$100-150",
+      "prize_purse": "None",
+      "aid_stations": "Multiple aid stations for ultra distance",
+      "cutoff_time": "Varies (204-mile typically 24-30 hours)"
+    },
+    "climate": {
+      "primary": "Michigan June",
+      "description": "June conditions with potential for heat. Day/night riding for 204-mile option.",
+      "challenges": [
+        "Heat possible during day",
+        "Night riding for 204-mile",
+        "Variable weather",
+        "Long exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Michigan gravel roads",
+      "surface": "Gravel roads across lower Michigan. Relatively flat to rolling terrain with moderate elevation overall.",
+      "technical_rating": 2,
+      "features": [
+        "Relatively flat Michigan terrain",
+        "Rolling sections",
+        "Rural Michigan scenery",
+        "State crossing (Lake Huron to Lake Michigan)",
+        "Ultra-distance challenge"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 20,
+      "score_note": "Regional ultra-distance event. 204 miles is serious challenge but regional field and infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Michigan Ultra-Distance Challenge",
+      "summary": "Coast to Coast offers a genuine ultra-distance challenge\u2014204 miles crossing Michigan from Lake Huron to Lake Michigan. The 100-mile loop option provides a more accessible alternative. It's a well-organized regional ultra event with good support, but the field is regional and the terrain is relatively flat Michigan gravel. The adventure of crossing the state is the main appeal.",
+      "strengths": [
+        "Genuine ultra-distance challenge (204 miles)",
+        "100-mile loop option for accessibility",
+        "Crossing Michigan coast-to-coast is unique",
+        "Well-organized with ultra-distance support",
+        "Michigan cycling community support"
+      ],
+      "weaknesses": [
+        "Regional field depth only",
+        "Relatively flat terrain (less challenging than mountain ultras)",
+        "Logistics of crossing state",
+        "Long day/night for 204-mile",
+        "Limited prestige outside Michigan"
+      ],
+      "bottom_line": "A solid regional ultra-distance gravel race with the unique appeal of crossing Michigan. The 204-mile option is a serious challenge, though the terrain is less demanding than mountain ultras. Worth it for Michigan cyclists or those seeking an ultra-distance challenge in the Midwest. Not a destination race for distant travelers."
+    },
+    "black_pill": {
+      "title": "FLAT ULTRA-DISTANCE",
+      "reality": "204 miles is a long way, but Michigan is relatively flat. You're grinding out ultra-distance on rolling gravel roads without the dramatic elevation of mountain ultras. It's a mental and endurance challenge more than a technical or climbing challenge. And it's a regional event\u2014don't expect Unbound-level fields or prestige.",
+      "consequences": [
+        "Long, flat grind (less dramatic than mountain ultras)",
+        "Regional field only",
+        "Day/night riding for 204-mile",
+        "Logistics of state crossing"
+      ],
+      "expectation_reset": "This is a regional ultra-distance event. The challenge is real, but set expectations accordingly for terrain and field."
+    },
+    "final_verdict": {
+      "score": "68 / 100",
+      "one_liner": "Regional Michigan ultra-distance crossing the state from coast to coast.",
+      "should_you_race": "If you're in Michigan or the Midwest and want an ultra-distance challenge\u2014yes, it's a well-organized event with unique appeal. If you're traveling from far away\u2014there are more prestigious ultra-distance events elsewhere.",
+      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza (Kansas), Trans Iowa. For similar regional ultras: other Midwest ultra-distance events."
+    },
+    "logistics": {
+      "airport": "Detroit (DTW) or Grand Rapids (GRR) - varies by start/finish",
+      "lodging_strategy": "Au Gres (start) and Ludington (finish) have lodging. Book early. Shuttle logistics for 204-mile.",
+      "food": "Stock nutrition for ultra distance. Aid stations provided.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start (shuttle to finish for 204-mile)",
+      "official_site": "micoasttocoast.com"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Michigan organizers",
+      "origin_story": "Ultra-distance gravel event crossing Michigan from Lake Huron to Lake Michigan.",
+      "notable_moments": [],
+      "reputation": "Growing regional ultra-distance event in Michigan."
+    },
+    "course_description": {
+      "character": "Relatively flat to rolling Michigan gravel crossing the state.",
+      "suffering_zones": [
+        {
+          "mile": 50,
+          "label": "First Quarter",
+          "desc": "50 miles in, settling into ultra pace.",
+          "terrain_detail": "Early miles",
+          "named_section": "First Quarter"
+        },
+        {
+          "mile": 100,
+          "label": "Halfway",
+          "desc": "Halfway point, 100 miles to go.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 150,
+          "label": "The Grind",
+          "desc": "150 miles in, mental game begins.",
+          "terrain_detail": "Late miles",
+          "named_section": "The Grind"
+        },
+        {
+          "mile": 180,
+          "label": "Final Push",
+          "desc": "Last 24 miles to Lake Michigan.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "204-mile ultra-distance across Michigan.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Coast to Coast",
+      "race_distance": "204 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "June",
+      "race_location": "Au Gres to Ludington, Michigan",
+      "race_terrain": "Michigan gravel roads",
+      "race_weather": "Michigan June",
+      "race_challenges": [
+        "204-mile ultra-distance",
+        "Day/night riding",
+        "Mental endurance",
+        "Pacing discipline"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-distance endurance",
+        "by_when": "Week 8-12",
+        "why": "204 miles requires extensive endurance base and ultra-distance preparation."
+      },
+      {
+        "requirement": "Night riding preparation",
+        "by_when": "Week 6-8",
+        "why": "204-mile option requires riding through the night with lights and navigation."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 8-10",
+        "why": "Ultra-distance success depends on conservative pacing and not going out too hard."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "ultra_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        "night_riding": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 8,
+            "finisher": 10,
+            "compete": 12,
+            "podium": 14
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mental",
+          "endurance"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Ultra-distance pacing discipline",
+          "fueling": "Nutrition strategy for 200+ miles",
+          "mental": "Mental strategies for ultra-distance",
+          "endurance": "Building ultra-distance base"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Coast to Coast",
+        "race_hook": "204 miles crossing Michigan from Lake Huron to Lake Michigan.",
+        "race_hook_detail": "Regional ultra-distance challenge with 100-mile loop option.",
+        "distance": "204",
+        "dark_mile": "100",
+        "non_negotiable_1": "Ultra-distance endurance",
+        "non_negotiable_2": "Night riding preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

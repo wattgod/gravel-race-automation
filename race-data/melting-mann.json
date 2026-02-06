@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "Melting Mann",
+    "slug": "melting-mann",
+    "display_name": "Melting Mann",
+    "tagline": "Southwest Michigan spring thaw gravel in Vandalia.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 2500,
+      "location": "Vandalia, Michigan",
+      "location_badge": "VANDALIA, MICHIGAN",
+      "county": "Cass County",
+      "date": "Spring annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Rural Michigan",
+        "Rolling hills",
+        "Farmland"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Michigan spring",
+      "description": "Spring thaw conditions. Variable weather with potential for mud.",
+      "challenges": [
+        "Spring weather variability",
+        "Potential for mud (spring thaw)",
+        "Cool to mild temperatures",
+        "Rain possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Michigan gravel roads",
+      "surface": "Gravel roads through southwest Michigan farmland. Rolling terrain with moderate elevation. Spring conditions may include mud.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Michigan terrain",
+        "Rural farmland scenery",
+        "Mix of road conditions",
+        "Moderate elevation changes",
+        "Spring thaw conditions"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Michigan spring event. Affordable but limited infrastructure and potential mud."
+    },
+    "biased_opinion": {
+      "verdict": "Spring Thaw Grassroots Ride",
+      "summary": "Melting Mann is a small grassroots gravel race in southwest Michigan during spring thaw. The name tells you what you're getting\u2014potential for mud and variable spring conditions. It's an honest local event with rolling farmland terrain and affordable pricing for Michigan cyclists who don't mind unpredictable spring weather.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Spring season option",
+        "Grassroots community vibe",
+        "Accessible rolling terrain",
+        "Authentic small-town event"
+      ],
+      "weaknesses": [
+        "Small town with basic amenities",
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "Spring thaw = potential mud",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A small local gravel race in southwest Michigan during spring thaw. Perfect for locals who want an affordable early-season ride and don't mind mud. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "SPRING MUD LOTTERY",
+      "reality": "Spring in Michigan means unpredictable conditions. The name 'Melting Mann' is a hint\u2014you could be riding through mud from spring thaw. It's a grassroots local event with minimal infrastructure. Set expectations accordingly.",
+      "consequences": [
+        "Potential for muddy conditions",
+        "Small town with basic amenities",
+        "Very small field",
+        "Basic support",
+        "Spring weather variability"
+      ],
+      "expectation_reset": "This is a spring thaw local ride. Bring mud tires and low expectations for conditions."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Small grassroots Michigan spring thaw ride with mud potential.",
+      "should_you_race": "Only if you're in Michigan and want an affordable early-season gravel ride. Not worth traveling for.",
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest spring events."
+    },
+    "logistics": {
+      "airport": "Kalamazoo (AZO) 1 hour, or Chicago (ORD)/Detroit (DTW) 2-3 hours",
+      "lodging_strategy": "Limited lodging in Vandalia. Look for nearby towns.",
+      "food": "Small town with basic dining. Stock up beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Michigan cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots spring gravel event in southwest Michigan.",
+      "notable_moments": [],
+      "reputation": "Small regional Michigan event."
+    },
+    "course_description": {
+      "character": "Rolling Michigan farmland gravel with spring thaw conditions.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Farmland Rolling",
+          "desc": "Rolling terrain through farmland.",
+          "terrain_detail": "Rural hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through course.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling Michigan terrain and spring thaw conditions (potential mud).",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Melting Mann",
+      "race_distance": "62 miles",
+      "race_elevation": "2,500 feet",
+      "race_date": "Spring",
+      "race_location": "Vandalia, Michigan",
+      "race_terrain": "Michigan gravel roads",
+      "race_weather": "Michigan spring variability",
+      "race_challenges": [
+        "Rolling terrain",
+        "Spring thaw mud possible",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Mud handling skills",
+        "by_when": "Week 4-6",
+        "why": "Spring thaw conditions may include mud requiring bike handling skills."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "mud_handling": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "handling",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "handling": "Riding in mud and variable conditions",
+          "fueling": "Nutrition for moderate distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Melting Mann",
+        "race_hook": "62 miles of Michigan spring thaw gravel.",
+        "race_hook_detail": "Small grassroots event in Vandalia with potential mud.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Mud handling skills",
+        "non_negotiable_3": "Spring weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

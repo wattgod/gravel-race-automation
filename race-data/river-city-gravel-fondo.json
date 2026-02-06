@@ -1,0 +1,268 @@
+{
+  "race": {
+    "name": "River City Gravel Fondo",
+    "slug": "river-city-gravel-fondo",
+    "display_name": "River City Gravel Fondo",
+    "tagline": "Vancouver Island gravel through forest roads and coastal terrain.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Campbell River, British Columbia",
+      "location_badge": "CAMPBELL RIVER, BC",
+      "county": "Strathcona Regional District",
+      "date": "Spring/summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Forest service roads",
+        "Coastal terrain",
+        "Technical descents"
+      ],
+      "field_size": "200-500 riders",
+      "start_time": "Morning start (typically 8:00-9:00 AM)",
+      "registration": "Online registration. Cost: ~$80-120 CAD",
+      "prize_purse": "None (fondo format)",
+      "aid_stations": "Multiple aid stations with food and water",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "BC coastal weather",
+      "description": "Mild temperatures with potential for rain year-round. Forest cover provides some protection.",
+      "challenges": [
+        "Rain possible any time",
+        "Wet gravel can be slippery",
+        "Coastal weather variability",
+        "Cool temperatures possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Forest service roads and gravel",
+      "surface": "Mix of maintained gravel roads and forest service roads. Technical sections with descents. Variable surface quality.",
+      "technical_rating": 3,
+      "features": [
+        "Rolling to hilly Vancouver Island terrain",
+        "Dense forest sections",
+        "Technical descents on forest roads",
+        "Coastal influence",
+        "Moderate elevation changes"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 16,
+      "biased_opinion": 19,
+      "score_note": "Well-organized BC fondo with good technical terrain. Regional event with solid community support."
+    },
+    "biased_opinion": {
+      "verdict": "BC Island Adventure",
+      "summary": "River City Gravel Fondo offers a taste of Vancouver Island's excellent gravel roads in a well-organized fondo format. The forest service roads provide technical challenge and beautiful scenery. It's not a high-prestige event, but the BC cycling community knows how to put on a good fondo, and Campbell River is a pleasant base. Expect rain gear and good bike handling skills.",
+      "strengths": [
+        "Technical Vancouver Island terrain with forest roads",
+        "Well-organized event with proper support",
+        "Beautiful island setting and scenery",
+        "Good BC cycling community atmosphere",
+        "Campbell River has decent amenities"
+      ],
+      "weaknesses": [
+        "Ferry access adds travel complexity and cost",
+        "Weather can be wet and challenging",
+        "Regional field depth only",
+        "No significant prestige or competitive depth",
+        "Fondo format may not appeal to pure racers"
+      ],
+      "bottom_line": "If you're on Vancouver Island or want an excuse to visit, this is a solid gravel fondo with good terrain and organization. The ferry logistics and weather uncertainty are the main barriers. For BC residents, it's a worthwhile regional event. For travelers from afar, probably not worth the trip unless you're combining it with island tourism."
+    },
+    "black_pill": {
+      "title": "FERRY LOGISTICS AND RAIN",
+      "reality": "Getting to Campbell River means either a ferry from the mainland (time and cost) or a long drive up-island from Victoria. And this is BC\u2014rain is always possible. You might spend hours on ferries and drive through rain to ride wet gravel in the forest. The event itself is good, but the logistics and weather can test your commitment to regional gravel racing.",
+      "consequences": [
+        "Ferry costs and scheduling add complexity",
+        "Weather can make the course slippery and challenging",
+        "Regional field means limited competitive depth",
+        "Travel time from major cities is significant"
+      ],
+      "expectation_reset": "This is a regional BC fondo, not a destination event. If you're local or already on the island, great. If you're traveling specifically for this race, manage your expectations about weather and logistics."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Well-organized Vancouver Island fondo with technical terrain and BC weather.",
+      "should_you_race": "If you're in BC or on Vancouver Island\u2014yes, it's a good regional event with solid terrain. If you're traveling from elsewhere\u2014probably not worth the ferry logistics and weather uncertainty unless you're making it part of a bigger island trip.",
+      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger, more established), Grinduro Whistler (more prestige). For similar forest road racing: Oregon gravel events, Washington State gravel races."
+    },
+    "logistics": {
+      "airport": "Campbell River Airport (YBL) - regional flights. Or fly to Victoria (YYJ) or Vancouver (YVR) and drive/ferry.",
+      "lodging_strategy": "Campbell River has hotels and vacation rentals. Book early during summer season. Camping options available in the area.",
+      "food": "Campbell River is a mid-sized city with restaurants and grocery stores. Stock race nutrition beforehand.",
+      "packet_pickup": "Typically day-before or race morning. Check event website.",
+      "parking": "Parking at start/finish area.",
+      "official_site": "Check BC cycling event calendars or registration platforms"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers/cycling club",
+      "origin_story": "Part of the growing BC gravel and fondo scene, showcasing Vancouver Island's excellent forest service roads.",
+      "notable_moments": [
+        "Growing reputation in BC cycling community"
+      ],
+      "reputation": "Well-regarded regional fondo with good organization and technical terrain."
+    },
+    "course_description": {
+      "character": "Rolling to hilly forest service roads with technical sections and beautiful island scenery.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Forest Climbs Begin",
+          "desc": "Elevation gain starts in earnest.",
+          "terrain_detail": "Forest road climbing",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Technical Midpoint",
+          "desc": "Technical descents and varied terrain.",
+          "terrain_detail": "Forest service road descents",
+          "named_section": "Technical Section"
+        },
+        {
+          "mile": 55,
+          "label": "Final Grind",
+          "desc": "Last climbs before finish.",
+          "terrain_detail": "Final elevation gain",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "Technical forest service road descents and BC coastal weather.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "River City Gravel Fondo",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Spring/summer",
+      "race_location": "Campbell River, British Columbia",
+      "race_terrain": "Forest service roads and gravel",
+      "race_weather": "BC coastal weather with rain possible",
+      "race_challenges": [
+        "Technical forest road descents",
+        "Wet and slippery conditions possible",
+        "Rolling to hilly terrain",
+        "Weather variability"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Technical descending skills",
+        "by_when": "Week 5-7",
+        "why": "Forest service road descents require confident handling, especially in wet conditions."
+      },
+      {
+        "requirement": "Climbing endurance for rolling terrain",
+        "by_when": "Week 6-8",
+        "why": "Vancouver Island terrain is rolling to hilly with sustained climbing sections."
+      },
+      {
+        "requirement": "Wet weather preparation",
+        "by_when": "Week 4-6",
+        "why": "BC coastal weather means rain is always possible. Train and prepare for wet conditions."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "bc_cycling_community",
+        "regional_knowledge"
+      ],
+      "migration_notes": [
+        "Generated from regional race information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "technical_descending": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "handling",
+          "climbing",
+          "weather",
+          "fueling",
+          "execution"
+        ],
+        "race_specific": true,
+        "topics": {
+          "handling": "Technical descending on forest roads",
+          "climbing": "Pacing for rolling to hilly terrain",
+          "weather": "Racing in wet BC conditions",
+          "fueling": "Nutrition strategy for fondo format",
+          "execution": "Race day tactics for fondos"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "River City Gravel Fondo",
+        "race_hook": "62 miles of Vancouver Island forest roads and gravel.",
+        "race_hook_detail": "Technical BC fondo with forest service roads and coastal scenery.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Technical descending skills",
+        "non_negotiable_2": "Climbing endurance for rolling terrain",
+        "non_negotiable_3": "Wet weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

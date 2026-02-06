@@ -1,0 +1,271 @@
+{
+  "race": {
+    "name": "Noosa Gravel Enduro",
+    "slug": "noosa-gravel-enduro",
+    "display_name": "Noosa Gravel Enduro",
+    "tagline": "Queensland hinterland enduro with technical terrain and tourist town base.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 5000,
+      "location": "Noosa Hinterland, Queensland",
+      "location_badge": "NOOSA HINTERLAND, QLD",
+      "county": "Noosa Shire",
+      "date": "Winter/spring annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Forest tracks",
+        "Hinterland terrain",
+        "Technical climbs"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-130 AUD",
+      "prize_purse": "Varies",
+      "aid_stations": "Aid stations on course",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "Queensland subtropical",
+      "description": "Warm to hot with potential humidity. Rain possible.",
+      "challenges": [
+        "Heat and humidity",
+        "Potential for rain",
+        "Sun exposure",
+        "Subtropical conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Hinterland gravel and forest roads",
+      "surface": "Mix of gravel roads and forest tracks through Queensland hinterland. Technical climbs and descents with significant elevation.",
+      "technical_rating": 3,
+      "features": [
+        "Hilly hinterland terrain",
+        "Significant climbing",
+        "Technical descents",
+        "Forest and hinterland scenery",
+        "Enduro format with timed sections"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 14,
+      "biased_opinion": 19,
+      "score_note": "Well-organized enduro in tourist destination. Good terrain and amenities but regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Hinterland Adventure",
+      "summary": "Noosa Gravel Enduro offers challenging hinterland terrain in an enduro format with Noosa's excellent tourist amenities as a base. The climbing is significant, the descents are technical, and the subtropical setting is beautiful. It's a regional Australian event with limited international presence, but the combination of good terrain and tourist infrastructure makes it appealing for a gravel/vacation combo.",
+      "strengths": [
+        "Challenging hinterland terrain with serious climbing",
+        "Enduro format adds adventure element",
+        "Noosa has excellent tourist amenities",
+        "Beautiful subtropical scenery",
+        "2 hours from Brisbane"
+      ],
+      "weaknesses": [
+        "Heat and humidity can be challenging",
+        "Regional field depth only",
+        "Tourist destination = higher costs",
+        "Limited international recognition",
+        "Subtropical weather variability"
+      ],
+      "bottom_line": "If you're in Queensland or planning a Noosa vacation, this is a solid gravel event with good terrain and excellent amenities. The enduro format and hinterland climbing make it interesting. For international travelers, it's a regional event that's hard to justify unless you're combining with Australian tourism."
+    },
+    "black_pill": {
+      "title": "TOURIST TOWN PRICING",
+      "reality": "Noosa is a popular tourist destination, which means lodging and dining costs are higher than typical regional events. You're paying tourist-town prices for a regional gravel race. The event itself is good, but the overall trip cost adds up quickly.",
+      "consequences": [
+        "Higher lodging and dining costs",
+        "Regional field only",
+        "Heat and humidity can be brutal",
+        "Long travel for international riders"
+      ],
+      "expectation_reset": "This is a regional Australian event in a tourist town. Budget accordingly and combine with vacation to justify costs."
+    },
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "Challenging hinterland enduro with tourist town amenities and costs.",
+      "should_you_race": "If you're in Queensland or planning a Noosa trip\u2014yes, it's a good event with excellent terrain. If you're traveling from afar\u2014the tourist town costs and regional field make it a harder sell unless you're combining with tourism.",
+      "alternatives": "For other Australian gravel: MAAP Beechworth, Gravel Grit. For similar enduro format: Grinduro events (various locations)."
+    },
+    "logistics": {
+      "airport": "Brisbane (BNE) 2 hours drive, or Sunshine Coast Airport (MCY) 30 min",
+      "lodging_strategy": "Noosa has extensive lodging but book early and expect tourist pricing. Many hotels, resorts, and vacation rentals.",
+      "food": "Noosa has excellent dining options. Tourist town with full amenities.",
+      "packet_pickup": "Typically day before",
+      "parking": "At start/finish",
+      "official_site": "Check Australian cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Gravel enduro showcasing Noosa Hinterland terrain.",
+      "notable_moments": [],
+      "reputation": "Growing regional Queensland event with enduro format."
+    },
+    "course_description": {
+      "character": "Hilly hinterland terrain with technical climbs and descents in enduro format.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Hinterland Climbing",
+          "desc": "Significant elevation gain begins.",
+          "terrain_detail": "Hinterland climbs",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Technical Midpoint",
+          "desc": "Technical descents and timed sections.",
+          "terrain_detail": "Enduro sections",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Push",
+          "desc": "Last climbs and descents to finish.",
+          "terrain_detail": "Final sections",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Significant hinterland climbing and technical descents in subtropical heat.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Noosa Gravel Enduro",
+      "race_distance": "62 miles",
+      "race_elevation": "5,000 feet",
+      "race_date": "Winter/spring",
+      "race_location": "Noosa Hinterland, QLD",
+      "race_terrain": "Hinterland gravel and forest roads",
+      "race_weather": "Queensland subtropical, heat and humidity",
+      "race_challenges": [
+        "Significant climbing (5000+ feet)",
+        "Technical descents",
+        "Heat and humidity",
+        "Enduro format with timed sections"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "5000+ feet of hinterland climbing requires strong aerobic base."
+      },
+      {
+        "requirement": "Technical descending",
+        "by_when": "Week 5-7",
+        "why": "Enduro format includes technical timed descents."
+      },
+      {
+        "requirement": "Heat acclimatization",
+        "by_when": "Week 4-6",
+        "why": "Queensland subtropical conditions require heat adaptation."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "australian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "technical_descending": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "handling",
+          "heat",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for hinterland climbs",
+          "handling": "Technical descending in enduro format",
+          "heat": "Racing in subtropical conditions",
+          "fueling": "Nutrition for heat and climbing"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Noosa Gravel Enduro",
+        "race_hook": "62 miles of Queensland hinterland climbing and descents.",
+        "race_hook_detail": "Enduro format in subtropical Noosa with 5000 feet of climbing.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Climbing strength",
+        "non_negotiable_2": "Technical descending",
+        "non_negotiable_3": "Heat acclimatization",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

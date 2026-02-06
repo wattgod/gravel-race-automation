@@ -1,0 +1,246 @@
+{
+  "race": {
+    "name": "Burnt Bridge Classic",
+    "slug": "burnt-bridge-classic",
+    "display_name": "Burnt Bridge Classic",
+    "tagline": "Cowichan Valley wine country gravel on Vancouver Island.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3200,
+      "location": "Cowichan Valley, British Columbia",
+      "location_badge": "COWICHAN VALLEY, BC",
+      "county": "Cowichan Valley Regional District",
+      "date": "Spring or fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Paved sections",
+        "Wine country terrain",
+        "Rolling hills"
+      ],
+      "field_size": "100-300 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100 CAD",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "BC coastal weather",
+      "description": "Mild temperatures with potential for rain. Wine country microclimate.",
+      "challenges": [
+        "Rain possible",
+        "Wet roads when raining",
+        "Mild but variable temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Mixed gravel and paved roads",
+      "surface": "Combination of gravel roads and paved sections through wine country. Moderate rolling terrain.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling wine country hills",
+        "Mix of gravel and pavement",
+        "Agricultural land",
+        "Forest sections",
+        "Scenic valley views"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 13,
+      "biased_opinion": 18,
+      "score_note": "Small regional wine country event. Scenic but limited field and infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Wine Country Ride",
+      "summary": "Burnt Bridge Classic is a small regional gravel race in BC's wine country. The Cowichan Valley setting is beautiful, and the mix of gravel and paved roads makes it accessible. But it's a small event with limited field depth and basic organization. Best for locals or those combining it with wine tourism.",
+      "strengths": [
+        "Scenic wine country setting",
+        "Affordable regional pricing",
+        "Accessible mixed terrain",
+        "BC cycling community vibe",
+        "Combine with wine tourism"
+      ],
+      "weaknesses": [
+        "Small field with limited depth",
+        "Ferry access adds complexity",
+        "Basic organization and amenities",
+        "Limited lodging in area",
+        "No significant prestige"
+      ],
+      "bottom_line": "A pleasant regional gravel race in beautiful wine country. Perfect if you're local or want an excuse to visit Cowichan Valley. Not worth traveling far for the race alone, but combine it with wine tasting and it's a nice weekend."
+    },
+    "black_pill": {
+      "title": "SMALL REGIONAL EVENT",
+      "reality": "This is a small local race in a small valley. Don't expect big fields, professional organization, or competitive depth. It's a community event that happens to be in wine country. The scenery is nice, but the race itself is modest.",
+      "consequences": [
+        "Very limited competitive field",
+        "Basic support and organization",
+        "Ferry logistics for non-islanders",
+        "Limited lodging options"
+      ],
+      "expectation_reset": "Treat this as a scenic ride in wine country that happens to be timed, not a serious gravel race."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "Small wine country gravel race on Vancouver Island.",
+      "should_you_race": "Only if you're local to Vancouver Island or planning a wine country trip anyway. Not worth traveling specifically for the race.",
+      "alternatives": "For better BC events: RBC Gran Fondo, River City Gravel Fondo. For wine country gravel: California events like BWR."
+    },
+    "logistics": {
+      "airport": "Victoria (YYJ) 1 hour south, or Vancouver (YVR) + ferry",
+      "lodging_strategy": "Limited lodging in Cowichan Valley. Duncan is main town. Book early or stay in Victoria and drive up.",
+      "food": "Small towns with basic dining. Wine country has tasting rooms and restaurants.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check BC cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Regional gravel event showcasing Cowichan Valley wine country.",
+      "notable_moments": [],
+      "reputation": "Small regional event with scenic setting."
+    },
+    "course_description": {
+      "character": "Rolling wine country roads with mix of gravel and pavement.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Wine Country Hills",
+          "desc": "Rolling terrain begins.",
+          "terrain_detail": "Valley hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through the valley.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling wine country terrain and potential wet conditions.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Burnt Bridge Classic",
+      "race_distance": "62 miles",
+      "race_elevation": "3,200 feet",
+      "race_date": "Spring or fall",
+      "race_location": "Cowichan Valley, BC",
+      "race_terrain": "Mixed gravel and paved wine country roads",
+      "race_weather": "BC coastal weather, rain possible",
+      "race_challenges": [
+        "Rolling terrain",
+        "Mixed surfaces",
+        "Weather variability"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling hills require sustained effort."
+      },
+      {
+        "requirement": "Mixed surface handling",
+        "by_when": "Week 5-7",
+        "why": "Transitioning between gravel and pavement requires adaptability."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "bc_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "execution"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "fueling": "Nutrition for moderate distance",
+          "execution": "Race day tactics"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Burnt Bridge Classic",
+        "race_hook": "62 miles of Cowichan Valley wine country gravel.",
+        "race_hook_detail": "Small regional event in scenic BC wine country.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Mixed surface handling",
+        "non_negotiable_3": "Weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

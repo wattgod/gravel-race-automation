@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "Hungry Bear 100",
+    "slug": "hungry-bear-100",
+    "display_name": "Hungry Bear 100",
+    "tagline": "Northern Wisconsin century in the Chequamegon area.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 4500,
+      "location": "Cable, Wisconsin",
+      "location_badge": "CABLE, WISCONSIN",
+      "county": "Bayfield County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Northwoods terrain",
+        "Rolling to hilly",
+        "Forest and lakes"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$70-110",
+      "prize_purse": "None",
+      "aid_stations": "Aid stations on course",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Wisconsin summer",
+      "description": "Variable summer conditions. Potential for heat or rain.",
+      "challenges": [
+        "Heat possible",
+        "Rain possible",
+        "Variable Wisconsin weather",
+        "Humidity"
+      ]
+    },
+    "terrain": {
+      "primary": "Northwoods gravel roads",
+      "surface": "Gravel roads through northern Wisconsin Chequamegon area. Rolling to hilly terrain with moderate to significant elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling to hilly terrain",
+        "Chequamegon area scenery",
+        "Forest and lake views",
+        "Moderate to significant climbing",
+        "Mix of road conditions"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 12,
+      "biased_opinion": 18,
+      "score_note": "Regional Wisconsin century in Chequamegon area. Better infrastructure than some Northwoods events."
+    },
+    "biased_opinion": {
+      "verdict": "Chequamegon Area Century",
+      "summary": "Hungry Bear 100 offers a 100-mile gravel challenge in Wisconsin's Chequamegon area, known for mountain biking and outdoor recreation. Cable has better amenities than typical Northwoods towns, and the terrain is rolling to hilly with good scenery. It's a regional event with modest field depth, but the Chequamegon setting adds appeal for Wisconsin cyclists.",
+      "strengths": [
+        "100-mile distance with good terrain",
+        "Chequamegon area has tourism infrastructure",
+        "Beautiful Northwoods and lake scenery",
+        "Wisconsin cycling community support",
+        "Better amenities than some remote events"
+      ],
+      "weaknesses": [
+        "Still remote (4 hours from Milwaukee)",
+        "Regional field depth only",
+        "Basic organization",
+        "No significant prestige",
+        "Weather variability"
+      ],
+      "bottom_line": "A solid regional 100-miler in a beautiful Wisconsin setting. Better than some remote Northwoods events due to Cable's tourism infrastructure. Worth it for Wisconsin cyclists, but not a destination race for distant travelers."
+    },
+    "black_pill": {
+      "title": "STILL REMOTE WISCONSIN",
+      "reality": "Cable is better than some Northwoods towns, but it's still remote northern Wisconsin. You're 4 hours from Milwaukee for a regional gravel race with limited competitive depth. The Chequamegon area is nice, but this is still a regional event.",
+      "consequences": [
+        "Long drive from major cities",
+        "Regional field only",
+        "Basic event organization",
+        "Weather can be challenging"
+      ],
+      "expectation_reset": "This is a regional Wisconsin century. The Chequamegon setting is a plus, but set expectations accordingly."
+    },
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "Regional Wisconsin century in the Chequamegon area with good terrain.",
+      "should_you_race": "If you're in Wisconsin or the Upper Midwest and want a 100-miler in a beautiful setting\u2014yes. If you're traveling from far away\u2014probably not worth the trip.",
+      "alternatives": "For better Wisconsin events: Chequamegon (mountain bike), Driftless Gravel. For similar regional centuries: other Midwest gravel events."
+    },
+    "logistics": {
+      "airport": "Duluth (DLH) or Minneapolis (MSP) ~2-3 hours, Milwaukee (MKE) 4 hours",
+      "lodging_strategy": "Cable has lodging due to Chequamegon area tourism. Book early during summer season.",
+      "food": "Small town with dining options. Better than typical Northwoods towns.",
+      "packet_pickup": "Typically day before or race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Wisconsin cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Gravel century in Wisconsin's Chequamegon area.",
+      "notable_moments": [],
+      "reputation": "Growing regional Wisconsin event."
+    },
+    "course_description": {
+      "character": "Rolling to hilly Northwoods gravel through Chequamegon area.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Hills",
+          "desc": "Rolling terrain establishes pace.",
+          "terrain_detail": "Early climbing",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 60,
+          "label": "Midpoint Grind",
+          "desc": "Halfway, legs feeling it.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 85,
+          "label": "Final Push",
+          "desc": "Last 15 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100-mile distance on rolling to hilly Northwoods terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Hungry Bear 100",
+      "race_distance": "100 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Summer",
+      "race_location": "Cable, Wisconsin",
+      "race_terrain": "Northwoods gravel roads",
+      "race_weather": "Wisconsin summer variability",
+      "race_challenges": [
+        "100-mile distance",
+        "Rolling to hilly terrain",
+        "Weather variability",
+        "Moderate to significant climbing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 8-10",
+        "why": "100 miles requires proper endurance base."
+      },
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "4500 feet of climbing requires good aerobic capacity."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wisconsin_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 6,
+            "compete": 7,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "climbing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing 100-mile effort",
+          "climbing": "Pacing for rolling to hilly terrain",
+          "fueling": "Century nutrition strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Hungry Bear 100",
+        "race_hook": "100 miles of Chequamegon area Northwoods gravel.",
+        "race_hook_detail": "Regional Wisconsin century with 4500 feet of climbing.",
+        "distance": "100",
+        "dark_mile": "60",
+        "non_negotiable_1": "Century endurance",
+        "non_negotiable_2": "Climbing strength",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

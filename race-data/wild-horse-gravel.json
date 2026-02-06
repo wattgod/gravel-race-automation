@@ -1,0 +1,257 @@
+{
+  "race": {
+    "name": "Wild Horse Gravel",
+    "slug": "wild-horse-gravel",
+    "display_name": "Wild Horse Gravel",
+    "tagline": "Western Colorado high desert gravel in De Beque.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3500,
+      "location": "De Beque, Colorado",
+      "location_badge": "DE BEQUE, CO",
+      "county": "Mesa County",
+      "date": "Spring or Fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "High desert gravel",
+        "Canyon roads",
+        "Western Colorado",
+        "Desert terrain"
+      ],
+      "field_size": "50-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Minimal aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "High desert",
+      "description": "High desert conditions with variable weather. Heat possible depending on season.",
+      "challenges": [
+        "Sun exposure",
+        "Variable desert weather",
+        "Heat possible",
+        "Dry conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "High desert gravel",
+      "surface": "Gravel roads through western Colorado high desert. Moderate elevation with desert and canyon scenery.",
+      "technical_rating": 2,
+      "features": [
+        "High desert terrain",
+        "Canyon scenery",
+        "Moderate climbing",
+        "Desert roads",
+        "Western Colorado setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 18,
+      "score_note": "Small grassroots western Colorado event. Remote high desert setting but very limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "High Desert Grassroots Ride",
+      "summary": "Wild Horse Gravel is a small grassroots gravel race in western Colorado's high desert. De Beque is a small remote town with minimal amenities. The high desert scenery is beautiful and unique, but it's a tiny field with basic organization. It's an honest local event for hardy western Colorado cyclists who want an affordable desert gravel ride.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Unique high desert scenery",
+        "Moderate altitude challenge",
+        "Authentic grassroots vibe",
+        "Western Colorado setting"
+      ],
+      "weaknesses": [
+        "Remote location (2.5 hours from Denver)",
+        "Minimal amenities",
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A small local gravel race in remote western Colorado high desert. Perfect for locals or those seeking a unique desert gravel experience. Not worth the long drive for most riders unless you're combining with western Colorado tourism."
+    },
+    "black_pill": {
+      "title": "REMOTE DESERT EVENT",
+      "reality": "De Beque is remote\u20142.5 hours from Denver in the high desert. This is a tiny grassroots event with minimal infrastructure. You're driving a long way for a small local ride in the desert.",
+      "consequences": [
+        "Remote location",
+        "Minimal amenities",
+        "Small field",
+        "Basic support",
+        "Long drive"
+      ],
+      "expectation_reset": "This is a remote desert ride for local riders. The drive makes it impractical for most."
+    },
+    "final_verdict": {
+      "score": "62 / 100",
+      "one_liner": "Small grassroots western Colorado high desert ride with remote location.",
+      "should_you_race": "Only if you're in western Colorado or seeking unique desert gravel. Not worth the long drive for the race alone.",
+      "alternatives": "For better Colorado events: Leadville 100, Steamboat Gravel. For similar desert vibes: other western desert events."
+    },
+    "logistics": {
+      "airport": "Grand Junction (GJT) 45 min, or Denver (DEN) 2.5 hours",
+      "lodging_strategy": "De Beque has very limited lodging. Look for nearby towns or camping.",
+      "food": "Small town with minimal dining. Bring your own.",
+      "packet_pickup": "Race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Colorado cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in western Colorado high desert.",
+      "notable_moments": [],
+      "reputation": "Small regional western Colorado event."
+    },
+    "course_description": {
+      "character": "High desert gravel through canyons and desert terrain.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Desert Climbing",
+          "desc": "Elevation gain in desert.",
+          "terrain_detail": "Desert hills",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through desert.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "High desert terrain and remote location.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Wild Horse Gravel",
+      "race_distance": "62 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Spring or Fall",
+      "race_location": "De Beque, Colorado",
+      "race_terrain": "High desert gravel",
+      "race_weather": "High desert variability",
+      "race_challenges": [
+        "High desert conditions",
+        "Sun exposure",
+        "Remote location",
+        "Variable weather"
+      ],
+      "altitude_section": true,
+      "altitude_feet": "5000-7000"
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat and sun preparation",
+        "by_when": "Week 4-6",
+        "why": "High desert means intense sun exposure and potential heat."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 5-7",
+        "why": "Remote location and minimal support mean managing your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "colorado_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "heat",
+          "pacing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "heat": "Racing in high desert heat",
+          "pacing": "Managing effort in desert conditions",
+          "fueling": "Hydration and nutrition in dry conditions"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Wild Horse Gravel",
+        "race_hook": "62 miles of western Colorado high desert gravel.",
+        "race_hook_detail": "Small grassroots event in remote De Beque.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Heat and sun preparation",
+        "non_negotiable_2": "Self-sufficiency",
+        "non_negotiable_3": "Hydration strategy",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

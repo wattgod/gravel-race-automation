@@ -1,0 +1,262 @@
+{
+  "race": {
+    "name": "Cowichan Crusher Gravel Fondo",
+    "slug": "cowichan-crusher-gravel-fondo",
+    "display_name": "Cowichan Crusher Gravel Fondo",
+    "tagline": "Vancouver Island forest roads around Lake Cowichan.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 4500,
+      "location": "Lake Cowichan, British Columbia",
+      "location_badge": "LAKE COWICHAN, BC",
+      "county": "Cowichan Valley Regional District",
+      "date": "Spring/summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Forest service roads",
+        "Lake scenery",
+        "Rolling to hilly terrain"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$70-110 CAD",
+      "prize_purse": "None (fondo format)",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "BC coastal weather",
+      "description": "Mild temperatures with rain possible. Forest cover provides some protection.",
+      "challenges": [
+        "Rain possible",
+        "Wet gravel conditions",
+        "Cool temperatures in forest"
+      ]
+    },
+    "terrain": {
+      "primary": "Forest service roads and gravel",
+      "surface": "Mix of gravel roads and forest service roads around Lake Cowichan. Variable surface quality with technical sections.",
+      "technical_rating": 3,
+      "features": [
+        "Rolling to hilly terrain",
+        "Forest service roads",
+        "Lake views",
+        "Dense forest sections",
+        "Technical descents"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 16,
+      "biased_opinion": 19,
+      "score_note": "Well-organized BC fondo with good terrain and scenery. Regional event with solid community."
+    },
+    "biased_opinion": {
+      "verdict": "Lake and Forest Adventure",
+      "summary": "Cowichan Crusher offers a solid Vancouver Island gravel experience with forest roads and lake scenery. The 120km option provides a substantial challenge, and the fondo format is well-organized. It's a regional event with limited field depth, but the terrain and setting are excellent for BC gravel riding.",
+      "strengths": [
+        "Substantial distance options (up to 120km)",
+        "Technical forest service roads",
+        "Beautiful lake and forest scenery",
+        "Well-organized BC fondo",
+        "Good community atmosphere"
+      ],
+      "weaknesses": [
+        "Small town with very limited amenities",
+        "Ferry logistics for non-islanders",
+        "Regional field depth only",
+        "Weather can be wet and challenging",
+        "Limited lodging options"
+      ],
+      "bottom_line": "A good regional gravel fondo with excellent terrain and scenery. Worth it for Vancouver Island residents or those combining with island tourism. The ferry logistics and small-town amenities make it less appealing for distant travelers."
+    },
+    "black_pill": {
+      "title": "SMALL TOWN, BIG LOGISTICS",
+      "reality": "Lake Cowichan is a very small town at the end of a lake. Amenities are limited. Getting there requires ferry from mainland plus significant driving. The race itself is good, but the logistics can be challenging for anyone not local to Vancouver Island.",
+      "consequences": [
+        "Very limited lodging and dining options",
+        "Ferry costs and scheduling",
+        "Long travel time from major cities",
+        "Regional field only"
+      ],
+      "expectation_reset": "This is a remote regional event. Plan accordingly for limited amenities and significant travel."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Solid Vancouver Island fondo with excellent terrain but challenging logistics.",
+      "should_you_race": "If you're on Vancouver Island or planning an island trip\u2014yes, it's a good event with great terrain. If you're traveling from elsewhere\u2014the ferry logistics and limited amenities make it a harder sell unless you're combining with tourism.",
+      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger), River City Gravel Fondo (Campbell River, better amenities). For similar forest road racing: Oregon or Washington gravel events."
+    },
+    "logistics": {
+      "airport": "Victoria (YYJ) 1.5 hours, or Vancouver (YVR) + ferry + drive",
+      "lodging_strategy": "Very limited lodging in Lake Cowichan. Book early or stay in Duncan (30 min away) or Victoria (1.5 hours). Camping may be available.",
+      "food": "Small town with limited dining. Stock up beforehand or bring your own.",
+      "packet_pickup": "Typically race morning",
+      "parking": "At start/finish",
+      "official_site": "Check BC cycling calendars or registration platforms"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Regional gravel fondo showcasing Lake Cowichan area forest roads.",
+      "notable_moments": [],
+      "reputation": "Well-regarded regional BC fondo with good terrain."
+    },
+    "course_description": {
+      "character": "Rolling to hilly forest service roads with lake views and technical sections.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Forest Climbing",
+          "desc": "Elevation gain into forest roads.",
+          "terrain_detail": "Forest service road climbs",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 50,
+          "label": "Midpoint Grind",
+          "desc": "Halfway point, legs feeling it.",
+          "terrain_detail": "Continued rolling terrain",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 65,
+          "label": "Final Push",
+          "desc": "Last miles back to Lake Cowichan.",
+          "terrain_detail": "Final climbs and descents",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "Technical forest service roads and sustained climbing.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Cowichan Crusher Gravel Fondo",
+      "race_distance": "75 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Spring/summer",
+      "race_location": "Lake Cowichan, BC",
+      "race_terrain": "Forest service roads and gravel",
+      "race_weather": "BC coastal weather, rain possible",
+      "race_challenges": [
+        "Technical forest roads",
+        "Sustained climbing",
+        "Wet conditions possible",
+        "Rolling to hilly terrain"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Technical descending skills",
+        "by_when": "Week 5-7",
+        "why": "Forest service roads have technical descents requiring confident handling."
+      },
+      {
+        "requirement": "Climbing endurance",
+        "by_when": "Week 6-8",
+        "why": "Sustained climbing on rolling to hilly terrain requires strong aerobic base."
+      },
+      {
+        "requirement": "Wet weather preparation",
+        "by_when": "Week 4-6",
+        "why": "BC weather means rain is always possible. Train for wet conditions."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "bc_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "technical_descending": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "handling",
+          "climbing",
+          "weather",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "handling": "Technical forest road descending",
+          "climbing": "Pacing for sustained climbs",
+          "weather": "Racing in wet BC conditions",
+          "fueling": "Nutrition for longer distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Cowichan Crusher Gravel Fondo",
+        "race_hook": "75 miles of Vancouver Island forest roads and gravel.",
+        "race_hook_detail": "Technical BC fondo with lake and forest scenery.",
+        "distance": "75",
+        "dark_mile": "50",
+        "non_negotiable_1": "Technical descending skills",
+        "non_negotiable_2": "Climbing endurance",
+        "non_negotiable_3": "Wet weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

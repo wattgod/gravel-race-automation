@@ -1,0 +1,253 @@
+{
+  "race": {
+    "name": "Gray Duck Grit",
+    "slug": "gray-duck-grit",
+    "display_name": "Gray Duck Grit",
+    "tagline": "Southeast Minnesota gravel in Cannon Falls near Twin Cities.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3000,
+      "location": "Cannon Falls, Minnesota",
+      "location_badge": "CANNON FALLS, MN",
+      "county": "Goodhue County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Rural Minnesota",
+        "Rolling hills",
+        "Farmland"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Minnesota summer",
+      "description": "Summer conditions with potential for heat.",
+      "challenges": [
+        "Heat possible",
+        "Variable weather",
+        "Humidity"
+      ]
+    },
+    "terrain": {
+      "primary": "Minnesota gravel roads",
+      "surface": "Gravel roads through southeast Minnesota. Rolling terrain with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Minnesota terrain",
+        "Rural and farmland scenery",
+        "Mix of road conditions",
+        "Moderate elevation changes",
+        "Southeast Minnesota setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Minnesota event. Near Twin Cities but limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Twin Cities Area Grassroots Ride",
+      "summary": "Gray Duck Grit is a small grassroots gravel race in southeast Minnesota near the Twin Cities. The proximity to the Twin Cities gives it better access than some rural events, but it's still a small regional race with basic organization and limited field depth. It's an honest local event with rolling terrain and affordable pricing for Minnesota cyclists.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Near Twin Cities (better access)",
+        "Grassroots community vibe",
+        "Accessible rolling terrain",
+        "Small city amenities"
+      ],
+      "weaknesses": [
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition",
+        "Limited appeal beyond locals"
+      ],
+      "bottom_line": "A small local gravel race in southeast Minnesota. Perfect for locals or Twin Cities area cyclists who want an affordable summer ride. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "SMALL REGIONAL EVENT",
+      "reality": "This is a grassroots local event near the Twin Cities. Small field, basic organization, no prestige. The proximity to the Twin Cities is the main advantage\u2014otherwise it's a standard small regional gravel race.",
+      "consequences": [
+        "Small field",
+        "Basic support",
+        "No competitive depth",
+        "Limited recognition"
+      ],
+      "expectation_reset": "This is a local ride for local riders. The Twin Cities proximity is convenient, but that's about it."
+    },
+    "final_verdict": {
+      "score": "58 / 100",
+      "one_liner": "Small grassroots southeast Minnesota ride near Twin Cities.",
+      "should_you_race": "Only if you're in Minnesota or the Twin Cities area and want an affordable gravel ride. Not worth traveling for.",
+      "alternatives": "For better Minnesota events: Almanzo 100, Dirty Benjamin. For similar grassroots vibes: other regional Midwest events."
+    },
+    "logistics": {
+      "airport": "Minneapolis-St. Paul (MSP) 45 min",
+      "lodging_strategy": "Cannon Falls has basic lodging. Twin Cities (45 min) has more options.",
+      "food": "Small city with dining options. Stock race nutrition beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Minnesota cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in southeast Minnesota.",
+      "notable_moments": [],
+      "reputation": "Small regional Minnesota event."
+    },
+    "course_description": {
+      "character": "Rolling Minnesota gravel through rural areas.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Minnesota Rolling",
+          "desc": "Rolling terrain begins.",
+          "terrain_detail": "Rural hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through course.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling Minnesota terrain and summer heat.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Gray Duck Grit",
+      "race_distance": "62 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Summer",
+      "race_location": "Cannon Falls, Minnesota",
+      "race_terrain": "Minnesota gravel roads",
+      "race_weather": "Minnesota summer",
+      "race_challenges": [
+        "Rolling terrain",
+        "Summer heat",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Summer conditions may include heat."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "minnesota_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "execution"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "fueling": "Nutrition for moderate distance",
+          "execution": "Race day tactics"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gray Duck Grit",
+        "race_hook": "62 miles of Minnesota gravel near Twin Cities.",
+        "race_hook_detail": "Small grassroots event in Cannon Falls.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Heat preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

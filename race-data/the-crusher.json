@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "The Crusher",
+    "slug": "the-crusher",
+    "display_name": "The Crusher",
+    "tagline": "Remote Upper Peninsula Michigan wilderness gravel.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Upper Peninsula, Michigan",
+      "location_badge": "UPPER PENINSULA, MI",
+      "county": "Upper Peninsula",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Upper Peninsula terrain",
+        "Rolling to hilly",
+        "Forest roads"
+      ],
+      "field_size": "50-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Minimal aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Upper Peninsula summer",
+      "description": "Variable conditions. Can be cooler than lower Michigan.",
+      "challenges": [
+        "Variable weather",
+        "Cooler temperatures possible",
+        "Rain possible",
+        "Remote location"
+      ]
+    },
+    "terrain": {
+      "primary": "Upper Peninsula gravel roads",
+      "surface": "Gravel roads through Upper Peninsula wilderness. Rolling to hilly terrain with moderate to significant elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling to hilly terrain",
+        "Remote wilderness setting",
+        "Forest roads",
+        "Moderate to significant climbing",
+        "Upper Peninsula scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 11,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Upper Peninsula event. Remote wilderness setting but very limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Remote Wilderness Ride",
+      "summary": "The Crusher is a small grassroots gravel race in Michigan's remote Upper Peninsula. The wilderness setting is beautiful and the terrain is more challenging than lower Michigan, but it's extremely remote with minimal amenities and a tiny field. It's an honest local event for hardy Upper Peninsula cyclists who want an affordable wilderness gravel ride.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Remote wilderness setting",
+        "More challenging terrain than lower Michigan",
+        "Authentic grassroots vibe",
+        "Beautiful Upper Peninsula scenery"
+      ],
+      "weaknesses": [
+        "Extremely remote location (5+ hours from Detroit)",
+        "Minimal amenities",
+        "Tiny field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A small local gravel race in remote Upper Peninsula wilderness. Perfect for locals or those seeking a remote wilderness ride. Not worth the long drive for most riders unless you're combining with Upper Peninsula tourism."
+    },
+    "black_pill": {
+      "title": "EXTREMELY REMOTE",
+      "reality": "The Upper Peninsula is remote\u20145+ hours from Detroit, far from everything. This is a tiny grassroots event in the wilderness with minimal infrastructure. You're driving a long way for a small local ride in the woods.",
+      "consequences": [
+        "Extremely remote location",
+        "Minimal amenities",
+        "Tiny field",
+        "Basic support",
+        "Long drive from anywhere"
+      ],
+      "expectation_reset": "This is a remote wilderness ride for local riders. The drive alone makes it impractical for most."
+    },
+    "final_verdict": {
+      "score": "58 / 100",
+      "one_liner": "Small grassroots Upper Peninsula wilderness ride with remote location.",
+      "should_you_race": "Only if you're in the Upper Peninsula or planning UP tourism. Not worth the long drive for the race alone.",
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar remote wilderness vibes: other Upper Midwest wilderness events."
+    },
+    "logistics": {
+      "airport": "Marquette (MQT) or Green Bay (GRB) - varies, or Detroit (DTW) 5+ hours",
+      "lodging_strategy": "Very limited lodging in Upper Peninsula. Look for nearby towns or camping.",
+      "food": "Rural area with minimal dining. Bring your own.",
+      "packet_pickup": "Race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Michigan cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in Upper Peninsula wilderness.",
+      "notable_moments": [],
+      "reputation": "Small regional Upper Peninsula event."
+    },
+    "course_description": {
+      "character": "Rolling to hilly Upper Peninsula wilderness gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Wilderness Climbing",
+          "desc": "Elevation gain in forest.",
+          "terrain_detail": "Forest hills",
+          "named_section": "Early Climbs"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through wilderness.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling to hilly Upper Peninsula terrain and remote location.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "The Crusher",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Upper Peninsula, Michigan",
+      "race_terrain": "Upper Peninsula gravel roads",
+      "race_weather": "Upper Peninsula variability",
+      "race_challenges": [
+        "Rolling to hilly terrain",
+        "Remote wilderness location",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Climbing strength",
+        "by_when": "Week 6-8",
+        "why": "4000 feet of climbing requires good aerobic capacity."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 5-7",
+        "why": "Remote location and minimal support mean managing your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_strength": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "pacing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Pacing for Upper Peninsula hills",
+          "pacing": "Managing effort on rolling to hilly terrain",
+          "fueling": "Nutrition for moderate distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The Crusher",
+        "race_hook": "62 miles of Upper Peninsula wilderness gravel.",
+        "race_hook_detail": "Small grassroots event in remote Michigan wilderness.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Climbing strength",
+        "non_negotiable_2": "Self-sufficiency",
+        "non_negotiable_3": "Weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

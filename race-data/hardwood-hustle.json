@@ -1,0 +1,254 @@
+{
+  "race": {
+    "name": "Hardwood Hustle",
+    "slug": "hardwood-hustle",
+    "display_name": "Hardwood Hustle",
+    "tagline": "Remote Wisconsin hardwood forest gravel in tiny Nelma.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3000,
+      "location": "Nelma, Wisconsin",
+      "location_badge": "NELMA, WISCONSIN",
+      "county": "Forest County",
+      "date": "Summer or fall annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Hardwood forest",
+        "Rolling hills",
+        "Forest roads"
+      ],
+      "field_size": "50-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$50-80",
+      "prize_purse": "None",
+      "aid_stations": "Minimal aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Wisconsin summer/fall",
+      "description": "Variable conditions. Cool if fall event.",
+      "challenges": [
+        "Variable weather",
+        "Cool temperatures possible",
+        "Rain possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Hardwood forest gravel roads",
+      "surface": "Gravel roads through northern Wisconsin hardwood forest. Rolling terrain with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Wisconsin terrain",
+        "Hardwood forest scenery",
+        "Mix of road conditions",
+        "Moderate elevation changes",
+        "Remote forest setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 1,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 10,
+      "biased_opinion": 15,
+      "score_note": "Extremely small grassroots event. Very affordable but minimal infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Tiny Northwoods Ride",
+      "summary": "Hardwood Hustle is an extremely small grassroots gravel race in remote Nelma, Wisconsin. This is about as bare-bones as gravel racing gets\u2014tiny field, minimal amenities, very basic organization. It's an honest local ride through beautiful hardwood forest for Wisconsin cyclists who want the most affordable, low-key gravel experience possible.",
+      "strengths": [
+        "Very affordable pricing",
+        "Beautiful hardwood forest scenery",
+        "Authentic grassroots vibe",
+        "Accessible rolling terrain",
+        "Tiny field = no crowds"
+      ],
+      "weaknesses": [
+        "Extremely remote with minimal amenities",
+        "Tiny field with no competitive depth",
+        "Very basic organization and support",
+        "No prestige whatsoever",
+        "Long drive from anywhere"
+      ],
+      "bottom_line": "An extremely small local gravel ride in remote Wisconsin. Only for locals who want the most affordable, low-key option in a beautiful forest setting. Not worth traveling for unless you're already in the area."
+    },
+    "black_pill": {
+      "title": "BARE-BONES GRASSROOTS",
+      "reality": "Nelma is tiny and remote. This is the definition of a grassroots local ride\u2014minimal infrastructure, tiny field, very basic organization. You're paying $50-80 to ride gravel roads in the forest with a small group of locals. That's it.",
+      "consequences": [
+        "Extremely remote location",
+        "Minimal to no amenities",
+        "Tiny field",
+        "Very basic support"
+      ],
+      "expectation_reset": "This is a local ride for local riders. It's as grassroots as it gets."
+    },
+    "final_verdict": {
+      "score": "55 / 100",
+      "one_liner": "Tiny grassroots Wisconsin hardwood forest ride with bare-bones organization.",
+      "should_you_race": "Only if you're local to Wisconsin and want the most affordable, low-key gravel ride possible. Not worth traveling for.",
+      "alternatives": "For better Wisconsin events: any other Wisconsin gravel race. For similar ultra-grassroots vibes: other tiny regional Midwest events."
+    },
+    "logistics": {
+      "airport": "Green Bay (GRB) or Milwaukee (MKE) ~3-4 hours",
+      "lodging_strategy": "Extremely limited lodging. Look for nearby towns or camping.",
+      "food": "Tiny community with minimal options. Bring your own.",
+      "packet_pickup": "Race morning",
+      "parking": "At start/finish",
+      "official_site": "Check Wisconsin cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel ride in Wisconsin hardwood forest.",
+      "notable_moments": [],
+      "reputation": "Tiny regional Wisconsin event."
+    },
+    "course_description": {
+      "character": "Rolling hardwood forest gravel roads.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Forest Rolling",
+          "desc": "Rolling terrain through hardwoods.",
+          "terrain_detail": "Forest hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through forest.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling hardwood forest terrain and remote location.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Hardwood Hustle",
+      "race_distance": "62 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Summer or fall",
+      "race_location": "Nelma, Wisconsin",
+      "race_terrain": "Hardwood forest gravel roads",
+      "race_weather": "Wisconsin variability",
+      "race_challenges": [
+        "Rolling terrain",
+        "Remote location",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 5-7",
+        "why": "Minimal support means managing your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wisconsin_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            5,
+            6,
+            7
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "execution"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "fueling": "Nutrition for moderate distance",
+          "execution": "Race day tactics for grassroots events"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Hardwood Hustle",
+        "race_hook": "62 miles of Wisconsin hardwood forest gravel.",
+        "race_hook_detail": "Tiny grassroots event in remote Nelma.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Self-sufficiency",
+        "non_negotiable_3": "Weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

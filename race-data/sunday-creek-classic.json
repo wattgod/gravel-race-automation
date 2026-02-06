@@ -1,0 +1,254 @@
+{
+  "race": {
+    "name": "Sunday Creek Classic",
+    "slug": "sunday-creek-classic",
+    "display_name": "Sunday Creek Classic",
+    "tagline": "Queensland hinterland gravel through dairy country.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Kenilworth, Queensland",
+      "location_badge": "KENILWORTH, QLD",
+      "county": "Sunshine Coast Regional Council",
+      "date": "Winter/spring annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Hinterland terrain",
+        "Dairy country",
+        "Rolling hills"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100 AUD",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Queensland subtropical",
+      "description": "Warm conditions typical. Variable Queensland weather.",
+      "challenges": [
+        "Heat possible",
+        "Sun exposure",
+        "Variable conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Hinterland gravel roads",
+      "surface": "Gravel roads through Queensland hinterland dairy country. Rolling to hilly terrain with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling to hilly terrain",
+        "Dairy country scenery",
+        "Hinterland gravel roads",
+        "Moderate climbing",
+        "Rural Queensland setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Queensland event. Affordable and community-focused but very limited infrastructure and field."
+    },
+    "biased_opinion": {
+      "verdict": "Grassroots Hinterland Ride",
+      "summary": "Sunday Creek Classic is a small grassroots gravel race in Queensland's hinterland dairy country. Kenilworth is tiny, amenities are minimal, and the field is small. It's an honest local event with rolling terrain and affordable pricing, but it's not trying to be more than a regional ride for Queensland cyclists.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Scenic hinterland dairy country",
+        "Grassroots community vibe",
+        "Accessible rolling terrain",
+        "Authentic small-town event"
+      ],
+      "weaknesses": [
+        "Very small town with minimal amenities",
+        "Tiny field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition",
+        "Limited appeal beyond locals"
+      ],
+      "bottom_line": "A small local gravel race in rural Queensland. Perfect for locals who want an affordable weekend ride. Not worth traveling for unless you're already in the area or combining with hinterland tourism."
+    },
+    "black_pill": {
+      "title": "TINY TOWN, TINY RACE",
+      "reality": "Kenilworth is a very small hinterland town. This is a grassroots local event with minimal infrastructure, tiny field, and basic organization. It's not a destination race\u2014it's a local ride that happens to be timed.",
+      "consequences": [
+        "Minimal lodging and dining options",
+        "Very small field",
+        "Basic support",
+        "No competitive depth"
+      ],
+      "expectation_reset": "This is a local ride for local riders. Set expectations accordingly."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Small grassroots Queensland hinterland ride with modest ambitions.",
+      "should_you_race": "Only if you're local to Queensland and want an affordable, low-key gravel ride. Not worth traveling for.",
+      "alternatives": "For better Queensland events: Noosa Gravel Enduro. For similar grassroots vibes: other regional Australian events."
+    },
+    "logistics": {
+      "airport": "Brisbane (BNE) 1.5-2 hours drive, or Sunshine Coast Airport (MCY) 1 hour",
+      "lodging_strategy": "Very limited lodging in Kenilworth. Stay in nearby towns or Sunshine Coast. Book early.",
+      "food": "Small town with minimal dining. Stock up beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Queensland cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in Queensland hinterland.",
+      "notable_moments": [],
+      "reputation": "Small regional Queensland event."
+    },
+    "course_description": {
+      "character": "Rolling hinterland gravel through dairy country.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Hinterland Rolling",
+          "desc": "Rolling terrain begins.",
+          "terrain_detail": "Dairy country hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through hinterland.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling hinterland terrain and Queensland heat.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Sunday Creek Classic",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Winter/spring",
+      "race_location": "Kenilworth, QLD",
+      "race_terrain": "Hinterland gravel roads",
+      "race_weather": "Queensland subtropical",
+      "race_challenges": [
+        "Rolling terrain",
+        "Heat possible",
+        "Sun exposure"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Queensland conditions can be warm."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "australian_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "heat",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "heat": "Racing in Queensland conditions",
+          "fueling": "Nutrition for moderate distance"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Sunday Creek Classic",
+        "race_hook": "62 miles of Queensland hinterland dairy country gravel.",
+        "race_hook_detail": "Small grassroots event in rural Kenilworth.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Heat preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

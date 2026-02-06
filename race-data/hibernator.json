@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "Hibernator",
+    "slug": "hibernator",
+    "display_name": "Hibernator",
+    "tagline": "Northern Wisconsin cooler-season Northwoods gravel.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 3500,
+      "location": "Laona, Wisconsin",
+      "location_badge": "LAONA, WISCONSIN",
+      "county": "Forest County",
+      "date": "Fall or early spring annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Northwoods terrain",
+        "Rolling hills",
+        "Forest roads"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Wisconsin cooler season",
+      "description": "Fall or early spring conditions. Potential for cold weather.",
+      "challenges": [
+        "Cold weather possible",
+        "Variable conditions",
+        "Potential for rain or snow",
+        "Cooler temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Northwoods gravel roads",
+      "surface": "Gravel roads through northern Wisconsin Northwoods. Rolling terrain with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Wisconsin terrain",
+        "Northwoods forest scenery",
+        "Mix of road conditions",
+        "Moderate elevation changes",
+        "Cooler season conditions"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 43,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Wisconsin cooler-season event. Affordable but limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Cooler Season Northwoods Ride",
+      "summary": "Hibernator is a small grassroots gravel race in remote Laona during cooler months (fall or early spring). The name suggests shoulder-season timing, which means potential for cold weather. It's an honest local event with rolling Northwoods terrain and affordable pricing for Wisconsin cyclists who don't mind cooler conditions.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Beautiful Northwoods scenery",
+        "Grassroots community vibe",
+        "Cooler season option for hardy riders",
+        "Authentic small-town event"
+      ],
+      "weaknesses": [
+        "Remote location with minimal amenities",
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "Cold weather can be challenging",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A small local gravel race in remote Wisconsin during cooler months. Perfect for locals who want an affordable shoulder-season ride in the Northwoods. Not worth traveling far for unless you're combining with Wisconsin vacation."
+    },
+    "black_pill": {
+      "title": "COLD AND REMOTE",
+      "reality": "Laona is remote, and this is a cooler-season event. You could be riding in cold, potentially wet conditions in the middle of nowhere. It's a grassroots local event with minimal infrastructure. The name 'Hibernator' tells you what you're getting into.",
+      "consequences": [
+        "Remote location",
+        "Cold weather possible",
+        "Minimal amenities",
+        "Very small field",
+        "Basic support"
+      ],
+      "expectation_reset": "This is a shoulder-season local ride for hardy Wisconsin cyclists. Dress warm."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "Small grassroots Wisconsin cooler-season Northwoods ride.",
+      "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key cooler-season gravel ride. Not worth traveling far for.",
+      "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events."
+    },
+    "logistics": {
+      "airport": "Green Bay (GRB) or Milwaukee (MKE) 3-4 hours",
+      "lodging_strategy": "Very limited lodging in Laona. Book early or look for nearby towns.",
+      "food": "Small town with minimal dining. Stock up beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Wisconsin cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots cooler-season gravel event in northern Wisconsin.",
+      "notable_moments": [],
+      "reputation": "Small regional Wisconsin event."
+    },
+    "course_description": {
+      "character": "Rolling Northwoods gravel in cooler conditions.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Northwoods Rolling",
+          "desc": "Rolling terrain in cool conditions.",
+          "terrain_detail": "Forest hills",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through Northwoods.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling Northwoods terrain in cooler weather conditions.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Hibernator",
+      "race_distance": "62 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Fall or early spring",
+      "race_location": "Laona, Wisconsin",
+      "race_terrain": "Northwoods gravel roads",
+      "race_weather": "Wisconsin cooler season",
+      "race_challenges": [
+        "Rolling terrain",
+        "Cold weather possible",
+        "Remote location"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Cold weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Cooler season event requires cold weather training and gear."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wisconsin_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "cold_weather": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "weather",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "weather": "Racing in cold conditions",
+          "fueling": "Nutrition for cooler weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Hibernator",
+        "race_hook": "62 miles of cooler-season Wisconsin Northwoods gravel.",
+        "race_hook_detail": "Small grassroots event in remote Laona.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Cold weather preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

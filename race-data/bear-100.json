@@ -1,0 +1,257 @@
+{
+  "race": {
+    "name": "Bear 100",
+    "slug": "bear-100",
+    "display_name": "Bear 100",
+    "tagline": "Northern Wisconsin Northwoods gravel century.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3500,
+      "location": "Laona, Wisconsin",
+      "location_badge": "LAONA, WISCONSIN",
+      "county": "Forest County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Northwoods terrain",
+        "Forest roads",
+        "Rolling hills"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-100",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Wisconsin summer",
+      "description": "Summer conditions with potential for heat or rain. Variable Wisconsin weather.",
+      "challenges": [
+        "Heat possible",
+        "Rain and mud possible",
+        "Variable conditions",
+        "Humidity"
+      ]
+    },
+    "terrain": {
+      "primary": "Northwoods gravel roads",
+      "surface": "Gravel roads through northern Wisconsin Northwoods. Rolling terrain with moderate elevation gain.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Wisconsin terrain",
+        "Northwoods forest scenery",
+        "Mix of maintained and unmaintained roads",
+        "Moderate elevation changes",
+        "Rural and forest roads"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 1,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 11,
+      "biased_opinion": 16,
+      "score_note": "Remote grassroots Wisconsin event. Affordable and authentic but very limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Northwoods Grassroots Century",
+      "summary": "Bear 100 is a remote northern Wisconsin gravel century in the Northwoods. Laona is tiny, amenities are minimal, and the field is small. It's an honest grassroots 100-miler for Wisconsin cyclists who want an affordable, low-key challenge in a beautiful forest setting. Don't expect professional organization or competitive depth\u2014this is a local ride that happens to be 100 miles long.",
+      "strengths": [
+        "Affordable 100-mile option",
+        "Beautiful Northwoods scenery",
+        "Grassroots community vibe",
+        "Low-key and unpretentious",
+        "Authentic Wisconsin cycling"
+      ],
+      "weaknesses": [
+        "Very remote location with minimal amenities",
+        "Tiny field with no competitive depth",
+        "Basic organization and support",
+        "Long drive from major cities",
+        "No prestige or recognition"
+      ],
+      "bottom_line": "A small grassroots 100-miler in remote northern Wisconsin. Perfect for locals who want an affordable century in the Northwoods. Not worth traveling far for unless you're combining with Wisconsin vacation or visiting the area."
+    },
+    "black_pill": {
+      "title": "REMOTE AND BASIC",
+      "reality": "Laona is a tiny town in remote northern Wisconsin. This is a grassroots local event with minimal infrastructure, tiny field, and basic organization. It's 100 miles, which is respectable, but everything else is bare-bones. You're 3-4 hours from Milwaukee in the middle of nowhere.",
+      "consequences": [
+        "Very remote location",
+        "Minimal lodging and dining",
+        "Very small field",
+        "Basic support",
+        "Long travel for most riders"
+      ],
+      "expectation_reset": "This is a local century for local riders. It's 100 miles of honest gravel, but don't expect anything beyond that."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Remote grassroots Wisconsin century in the Northwoods.",
+      "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key 100-miler in a beautiful setting. Not worth traveling far for.",
+      "alternatives": "For better Wisconsin events: Driftless Gravel, Chequamegon. For similar grassroots centuries: regional Midwest gravel events."
+    },
+    "logistics": {
+      "airport": "Green Bay (GRB) or Milwaukee (MKE) 3-4 hours drive",
+      "lodging_strategy": "Very limited lodging in Laona. Look for nearby towns or camping. Book early.",
+      "food": "Small town with minimal dining. Stock up beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Wisconsin cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots 100-mile gravel event in northern Wisconsin Northwoods.",
+      "notable_moments": [],
+      "reputation": "Small regional Wisconsin event."
+    },
+    "course_description": {
+      "character": "Rolling Northwoods gravel through forest and rural areas.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Reality Check",
+          "desc": "First 30 miles set the pace.",
+          "terrain_detail": "Rolling terrain begins",
+          "named_section": "Early Miles"
+        },
+        {
+          "mile": 60,
+          "label": "Midpoint Grind",
+          "desc": "Halfway, legs starting to feel it.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 85,
+          "label": "Final Push",
+          "desc": "Last 15 miles to finish.",
+          "terrain_detail": "Final miles",
+          "named_section": "Homestretch"
+        }
+      ],
+      "signature_challenge": "100-mile distance on rolling Northwoods gravel.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Bear 100",
+      "race_distance": "100 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Laona, Wisconsin",
+      "race_terrain": "Northwoods gravel roads",
+      "race_weather": "Wisconsin summer variability",
+      "race_challenges": [
+        "100-mile distance",
+        "Rolling terrain",
+        "Heat or rain possible",
+        "Remote location"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 8-10",
+        "why": "100 miles requires proper endurance base and pacing."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 6-8",
+        "why": "Remote location and basic support mean you need to manage your own nutrition and mechanicals."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wisconsin_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "self_sufficiency": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 6,
+            "compete": 7,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "endurance"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing effort over 100 miles",
+          "fueling": "Nutrition strategy for century distance",
+          "endurance": "Building base for 100-mile gravel"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Bear 100",
+        "race_hook": "100 miles of northern Wisconsin Northwoods gravel.",
+        "race_hook_detail": "Grassroots century in remote Laona with rolling forest terrain.",
+        "distance": "100",
+        "dark_mile": "60",
+        "non_negotiable_1": "Century endurance",
+        "non_negotiable_2": "Self-sufficiency",
+        "non_negotiable_3": "Rolling terrain pacing",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

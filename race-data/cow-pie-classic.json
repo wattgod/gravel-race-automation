@@ -1,0 +1,256 @@
+{
+  "race": {
+    "name": "Cow Pie Classic",
+    "slug": "cow-pie-classic",
+    "display_name": "Cow Pie Classic",
+    "tagline": "Central Michigan farmland gravel in Ionia.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 2500,
+      "location": "Ionia, Michigan",
+      "location_badge": "IONIA, MICHIGAN",
+      "county": "Ionia County",
+      "date": "Summer annually",
+      "date_specific": "2026: TBD",
+      "terrain_types": [
+        "Gravel roads",
+        "Farmland",
+        "Rolling hills",
+        "Rural Michigan"
+      ],
+      "field_size": "100-250 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-90",
+      "prize_purse": "None",
+      "aid_stations": "Basic aid stations",
+      "cutoff_time": "None official"
+    },
+    "climate": {
+      "primary": "Michigan summer",
+      "description": "Summer conditions with potential for heat.",
+      "challenges": [
+        "Heat possible",
+        "Sun exposure on farmland",
+        "Variable weather",
+        "Humidity"
+      ]
+    },
+    "terrain": {
+      "primary": "Michigan farmland gravel roads",
+      "surface": "Gravel roads through central Michigan farmland. Rolling terrain with moderate elevation.",
+      "technical_rating": 2,
+      "features": [
+        "Rolling Michigan terrain",
+        "Farmland scenery",
+        "Mix of road conditions",
+        "Moderate elevation changes",
+        "Rural setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 44,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 3,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "course_profile": 10,
+      "biased_opinion": 16,
+      "score_note": "Small grassroots Michigan farmland event. Affordable but limited infrastructure."
+    },
+    "biased_opinion": {
+      "verdict": "Farmland Grassroots Ride",
+      "summary": "Cow Pie Classic is a small grassroots gravel race through central Michigan farmland. The name is tongue-in-cheek but accurate\u2014you're riding gravel roads through farm country. It's an honest local event with rolling terrain and affordable pricing for Michigan cyclists who want a straightforward summer gravel ride.",
+      "strengths": [
+        "Affordable regional pricing",
+        "Central Michigan location (decent access)",
+        "Grassroots community vibe",
+        "Accessible rolling terrain",
+        "Small city amenities better than rural towns"
+      ],
+      "weaknesses": [
+        "Small field with no competitive depth",
+        "Basic organization and support",
+        "No prestige or recognition",
+        "Farmland scenery may be repetitive",
+        "Heat exposure in summer"
+      ],
+      "bottom_line": "A small local gravel race in central Michigan farmland. Perfect for locals who want an affordable summer ride. Not worth traveling far for unless you're combining with Michigan tourism."
+    },
+    "black_pill": {
+      "title": "FARMLAND GRAVEL",
+      "reality": "This is straightforward farmland gravel racing. The name 'Cow Pie Classic' tells you what you're getting\u2014rural farm roads with modest scenery. It's a grassroots local event with minimal infrastructure and small field.",
+      "consequences": [
+        "Repetitive farmland scenery",
+        "Small field",
+        "Basic support",
+        "No competitive depth",
+        "Heat exposure in summer"
+      ],
+      "expectation_reset": "This is a local farmland ride. Set expectations accordingly."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Small grassroots Michigan farmland gravel with modest ambitions.",
+      "should_you_race": "Only if you're in Michigan and want an affordable summer gravel ride. Not worth traveling for.",
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events."
+    },
+    "logistics": {
+      "airport": "Grand Rapids (GRR) 1 hour, or Detroit (DTW) 2 hours",
+      "lodging_strategy": "Ionia has basic lodging. Small city with more options than rural towns.",
+      "food": "Small city with dining options. Stock race nutrition beforehand.",
+      "packet_pickup": "Race morning typically",
+      "parking": "At start/finish",
+      "official_site": "Check Michigan cycling calendars"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local organizers",
+      "origin_story": "Grassroots gravel event in central Michigan farmland.",
+      "notable_moments": [],
+      "reputation": "Small regional Michigan event."
+    },
+    "course_description": {
+      "character": "Rolling Michigan farmland gravel roads.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Farmland Rolling",
+          "desc": "Rolling terrain through farms.",
+          "terrain_detail": "Farm roads",
+          "named_section": "Early Rolling"
+        },
+        {
+          "mile": 40,
+          "label": "Midpoint",
+          "desc": "Halfway through farmland.",
+          "terrain_detail": "Continued rolling",
+          "named_section": "Mid-Course"
+        },
+        {
+          "mile": 55,
+          "label": "Final Stretch",
+          "desc": "Last miles to finish.",
+          "terrain_detail": "Final hills",
+          "named_section": "Finish"
+        }
+      ],
+      "signature_challenge": "Rolling farmland terrain and summer heat.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Cow Pie Classic",
+      "race_distance": "62 miles",
+      "race_elevation": "2,500 feet",
+      "race_date": "Summer",
+      "race_location": "Ionia, Michigan",
+      "race_terrain": "Farmland gravel roads",
+      "race_weather": "Michigan summer",
+      "race_challenges": [
+        "Rolling terrain",
+        "Summer heat",
+        "Sun exposure"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling terrain endurance",
+        "by_when": "Week 6-8",
+        "why": "Constant rolling requires sustained effort."
+      },
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Summer farmland riding means sun exposure and potential heat."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "michigan_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": true,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_terrain": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "heat",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Managing rolling terrain",
+          "heat": "Racing in summer heat",
+          "fueling": "Hydration and nutrition in warm conditions"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Cow Pie Classic",
+        "race_hook": "62 miles of Michigan farmland gravel.",
+        "race_hook_detail": "Small grassroots event in Ionia.",
+        "distance": "62",
+        "dark_mile": "40",
+        "non_negotiable_1": "Rolling terrain endurance",
+        "non_negotiable_2": "Heat preparation",
+        "non_negotiable_3": "Hydration strategy",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

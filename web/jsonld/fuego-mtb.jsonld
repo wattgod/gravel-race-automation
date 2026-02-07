@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Sea Otter Fuego XL",
+  "description": "Where the Life Time Grand Prix begins and Leadville dreams are made in California sand",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-18",
+  "location": {
+    "@type": "Place",
+    "name": "Monterey, California"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

@@ -4,7 +4,6 @@
     "slug": "colorado-trail-race",
     "display_name": "Colorado Trail Race",
     "tagline": "530 miles of high-altitude suffering across the spine of the Rockies - 75% of starters don't finish, and that's the point.",
-
     "vitals": {
       "distance_mi": 530,
       "elevation_ft": 72500,
@@ -46,20 +45,60 @@
       },
       "dnf_rate": "~75%"
     },
-
     "gravel_god_rating": {
-      "overall_score": 97,
-      "course_profile": 33,
-      "biased_opinion": 31,
+      "overall_score": 90,
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
       "display_tier": 1,
-      "display_tier_label": "TIER 1"
+      "display_tier_label": "TIER 1",
+      "logistics": 5,
+      "length": 5,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 5,
+      "expenses": 2,
+      "tier": 1,
+      "tier_label": "TIER 1"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "The CTR holds legendary status in the bikepacking world as one of the most prestigious and difficult events globally. Founded in 2007 by Stefan Griebel, it has attracted WorldTour professionals like Lachlan Morton and ultra-endurance legends. Being the middle event of the Triple Crown Challenge adds to its mystique. The CTR is not just a race - it is a rite of passage for serious bikepackers. Finishing makes you part of bikepacking royalty, and holding the record (like Timon Fish or Katya Rakhmatulina) places you among the all-time greats of the discipline."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The CTR is intentionally minimalist. There is no formal registration system - slots open on Facebook a month before the race. There are no aid stations, no timing mats, no support. This is by design. The race director provides GPS tracking through TrackLeaders, the route is well-established with GPX files available, and the $50 donation supports the Colorado Trail Foundation. For those expecting major series production value, look elsewhere. For purists who want the authentic, self-supported bikepacking experience, this is exactly how it should be."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "This is the definition of Type 2 fun - miserable in the moment but transformative in retrospect. The experience is genuinely life-changing. You will suffer altitude sickness, weather exposure, extreme fatigue, saddle sores, and mental anguish. You will also see sunrise over the San Juan Mountains at 13,000 feet, push your body to limits you didn't know existed, and discover what you're truly capable of. Most who finish describe it as one of the defining experiences of their lives. The 75% who DNF often come back to try again."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The CTR community is tight-knit, supportive, and deeply passionate about bikepacking culture. The race director Jefe Branham is himself a single-speed record holder and genuine member of the community. Trail angels, former racers, and bikepacking enthusiasts create a supportive ecosystem. The Facebook group provides real information exchange. However, with only 74 grand depart slots and the intensely individual nature of a self-supported ITT, this is not the massive community atmosphere of events like Unbound. It's more intimate - a small tribe of dedicated sufferers."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The CTR consistently attracts elite ultra-endurance athletes. Lachlan Morton (EF Pro Cycling WorldTour rider) held the record. Timon Fish is a multiple record holder across ultra events. Katya Rakhmatulina dominates women's ultra-distance racing. Jefe Branham, Neil Beltchenko, and other legends of the sport have pushed the limits here. However, this is not a mass-participation event with thousands of riders - the 74-person limit and self-selected nature (due to extreme difficulty) means the field is smaller than major gravel races. What it lacks in numbers it makes up for in the caliber of those who dare to start."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "At just $50 (a donation to the Colorado Trail Foundation), the CTR offers perhaps the best value in all of ultra-endurance cycling. There's no inflated entry fee, no premium pricing, no upsells. You get access to one of the world's most iconic bikepacking routes, GPS tracking through TrackLeaders, and the chance to test yourself against the best in the sport - all for the cost of a tank of gas. The money goes directly to trail maintenance. This is bikepacking as it should be: accessible, authentic, and community-driven."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "While the entry fee is minimal, the total cost of doing the CTR is significant. Travel to Durango (flights to regional airports or long drives), accommodation for pre-race acclimatization (recommended 10 days at elevation), specialized bikepacking gear, on-trail resupply costs, post-race transportation from Denver back to Durango, and potentially lodging during the multi-day effort all add up. Plan for $1,500-2,500+ total investment depending on your starting location and gear needs. This is not a cheap weekend getaway - it's an expedition requiring serious financial commitment."
+      },
       "length": {
         "score": 5,
         "explanation": "At 530+ miles, the CTR is ultra-distance bikepacking at its most demanding. This is not a gravel race - it is a multi-day expedition that takes even elite racers 4+ days and most finishers 6-10 days. The distance alone would be challenging, but combined with the terrain and altitude, it becomes one of the longest and most difficult bikepacking routes in North America."
@@ -89,38 +128,6 @@
         "explanation": "The Colorado Trail Race is a bucket-list, life-changing experience that ranks among the most iconic bikepacking events in the world. Traversing 8 mountain ranges, 6 National Forests, and 5 major river systems through some of America's most spectacular high alpine terrain, the CTR delivers scenery that few humans ever witness. The 75% DNF rate speaks to its legendary difficulty. Finishing is a significant life achievement that places riders in an elite club of ultra-endurance athletes. Part of the Triple Crown of bikepacking alongside Tour Divide and Arizona Trail Race."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 5,
-        "explanation": "The CTR holds legendary status in the bikepacking world as one of the most prestigious and difficult events globally. Founded in 2007 by Stefan Griebel, it has attracted WorldTour professionals like Lachlan Morton and ultra-endurance legends. Being the middle event of the Triple Crown Challenge adds to its mystique. The CTR is not just a race - it is a rite of passage for serious bikepackers. Finishing makes you part of bikepacking royalty, and holding the record (like Timon Fish or Katya Rakhmatulina) places you among the all-time greats of the discipline."
-      },
-      "race_quality": {
-        "score": 3,
-        "explanation": "The CTR is intentionally minimalist. There is no formal registration system - slots open on Facebook a month before the race. There are no aid stations, no timing mats, no support. This is by design. The race director provides GPS tracking through TrackLeaders, the route is well-established with GPX files available, and the $50 donation supports the Colorado Trail Foundation. For those expecting Life Time Grand Prix production value, look elsewhere. For purists who want the authentic, self-supported bikepacking experience, this is exactly how it should be."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "This is the definition of Type 2 fun - miserable in the moment but transformative in retrospect. The experience is genuinely life-changing. You will suffer altitude sickness, weather exposure, extreme fatigue, saddle sores, and mental anguish. You will also see sunrise over the San Juan Mountains at 13,000 feet, push your body to limits you didn't know existed, and discover what you're truly capable of. Most who finish describe it as one of the defining experiences of their lives. The 75% who DNF often come back to try again."
-      },
-      "community": {
-        "score": 4,
-        "explanation": "The CTR community is tight-knit, supportive, and deeply passionate about bikepacking culture. The race director Jefe Branham is himself a single-speed record holder and genuine member of the community. Trail angels, former racers, and bikepacking enthusiasts create a supportive ecosystem. The Facebook group provides real information exchange. However, with only 74 grand depart slots and the intensely individual nature of a self-supported ITT, this is not the massive community atmosphere of events like Unbound. It's more intimate - a small tribe of dedicated sufferers."
-      },
-      "field_depth": {
-        "score": 4,
-        "explanation": "The CTR consistently attracts elite ultra-endurance athletes. Lachlan Morton (EF Pro Cycling WorldTour rider) held the record. Timon Fish is a multiple record holder across ultra events. Katya Rakhmatulina dominates women's ultra-distance racing. Jefe Branham, Neil Beltchenko, and other legends of the sport have pushed the limits here. However, this is not a mass-participation event with thousands of riders - the 74-person limit and self-selected nature (due to extreme difficulty) means the field is smaller than major gravel races. What it lacks in numbers it makes up for in the caliber of those who dare to start."
-      },
-      "value": {
-        "score": 5,
-        "explanation": "At just $50 (a donation to the Colorado Trail Foundation), the CTR offers perhaps the best value in all of ultra-endurance cycling. There's no inflated entry fee, no premium pricing, no upsells. You get access to one of the world's most iconic bikepacking routes, GPS tracking through TrackLeaders, and the chance to test yourself against the best in the sport - all for the cost of a tank of gas. The money goes directly to trail maintenance. This is bikepacking as it should be: accessible, authentic, and community-driven."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "While the entry fee is minimal, the total cost of doing the CTR is significant. Travel to Durango (flights to regional airports or long drives), accommodation for pre-race acclimatization (recommended 10 days at elevation), specialized bikepacking gear, on-trail resupply costs, post-race transportation from Denver back to Durango, and potentially lodging during the multi-day effort all add up. Plan for $1,500-2,500+ total investment depending on your starting location and gear needs. This is not a cheap weekend getaway - it's an expedition requiring serious financial commitment."
-      }
-    },
-
     "additional_info": {
       "triple_crown": {
         "description": "The CTR is the middle event of the Triple Crown of bikepacking",

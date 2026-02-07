@@ -186,7 +186,8 @@ def _score_temporal_depth(content: str) -> tuple:
 def _score_specificity(race: dict) -> tuple:
     """Score: real geographic names vs generic labels. 0-100."""
     zones = race.get("course_description", {}).get("suffering_zones", [])
-    features = race.get("terrain", {}).get("features", [])
+    terrain = race.get("terrain", {})
+    features = terrain.get("features", []) if isinstance(terrain, dict) else []
     history_moments = race.get("history", {}).get("notable_moments", [])
 
     total_named = 0

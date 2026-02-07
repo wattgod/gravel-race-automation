@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Whiskey Off-Road",
+  "description": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-24",
+  "location": {
+    "@type": "Place",
+    "name": "Prescott, Arizona"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "76",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://epicrides.com/events/whiskey-off-road"
+}

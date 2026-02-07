@@ -4,7 +4,6 @@
     "slug": "tour-de-nebraska",
     "display_name": "Tour de Nebraska",
     "tagline": "Five days of supported gravel cruising through Nebraska's rolling farmland - more family reunion than race, and that's exactly the point",
-
     "vitals": {
       "distance_mi": 250,
       "distance_note": "250+ miles over 5 days (35-59 mi daily)",
@@ -15,20 +14,60 @@
       "date": "Late June annually",
       "date_specific": "2026: June 23-28"
     },
-
     "gravel_god_rating": {
-      "overall_score": 52,
-      "course_profile": 14,
-      "biased_opinion": 24,
+      "overall_score": 56,
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "business_tier": 3,
       "business_tier_label": "TIER 3",
-      "display_tier": 3,
-      "display_tier_label": "TIER 3"
+      "display_tier": 4,
+      "display_tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "tier": 4,
+      "tier_label": "TIER 4"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 2,
+        "explanation": "A beloved regional tour in its 37th year, but overshadowed by Gravel Worlds (Lincoln) and Unbound in the gravel world. Not a competitive event and not on the national gravel radar. Recognition is primarily within Nebraska cycling community."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Exceptional organization with 37 years of refinement. Testimonials consistently praise the crew, logistics, and hospitality. Rest stops every 15 miles, SAG support, shower trucks, luggage transport, daily yoga - this is professional-grade tour operation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The 'big rolling family reunion' atmosphere creates genuinely memorable experiences. Small-town Nebraska hospitality, meaningful connections with repeat riders, and the satisfaction of multi-day cycling adventure. Not life-changing but definitely enjoyable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the standout dimension. Capped at 500 riders specifically to preserve community feel. Strong repeat rider base creates actual friendships. 'Camaraderie among cyclists' is the explicit purpose. Intentionally prioritizes connection over competition."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is explicitly NOT a race - no categories, no officials, no prize money. Minimum pace requirement of 10 mph for support logistics. Attracts recreational cyclists, first-timers, and social riders rather than competitive athletes. Zero racing element."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Five days of fully supported riding with camping, SAG support, shower trucks, luggage transport, meals, and rest stops included. Student discounts available. For a multi-day supported tour, the included amenities represent solid value."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration likely $300-500 range for multi-day supported tour. Food budget ~$250 additional. However, the 4+ hour drive from major airports adds significant travel cost. Camping provided reduces lodging expense. Total weekend cost: moderate $500-1k range."
+      },
       "length": {
         "score": 2,
         "explanation": "Daily distances of 35-59 miles are modest by gravel standards. While the 5-day total exceeds 250 miles, the per-day mileage fits squarely in the 40-60 mile range, designed for recreational cyclists rather than endurance athletes."
@@ -58,38 +97,6 @@
         "explanation": "This is a pleasant supported tour through Nebraska farmland rather than an epic adventure. Beautiful in an understated Great Plains way with century-old cemeteries and historic points, but not bucket-list scenery. The adventure is social, not scenic."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "A beloved regional tour in its 37th year, but overshadowed by Gravel Worlds (Lincoln) and Unbound in the gravel world. Not a competitive event and not on the national gravel radar. Recognition is primarily within Nebraska cycling community."
-      },
-      "race_quality": {
-        "score": 5,
-        "explanation": "Exceptional organization with 37 years of refinement. Testimonials consistently praise the crew, logistics, and hospitality. Rest stops every 15 miles, SAG support, shower trucks, luggage transport, daily yoga - this is professional-grade tour operation."
-      },
-      "experience": {
-        "score": 4,
-        "explanation": "The 'big rolling family reunion' atmosphere creates genuinely memorable experiences. Small-town Nebraska hospitality, meaningful connections with repeat riders, and the satisfaction of multi-day cycling adventure. Not life-changing but definitely enjoyable."
-      },
-      "community": {
-        "score": 5,
-        "explanation": "This is the standout dimension. Capped at 500 riders specifically to preserve community feel. Strong repeat rider base creates actual friendships. 'Camaraderie among cyclists' is the explicit purpose. Intentionally prioritizes connection over competition."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "This is explicitly NOT a race - no categories, no officials, no prize money. Minimum pace requirement of 10 mph for support logistics. Attracts recreational cyclists, first-timers, and social riders rather than competitive athletes. Zero racing element."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Five days of fully supported riding with camping, SAG support, shower trucks, luggage transport, meals, and rest stops included. Student discounts available. For a multi-day supported tour, the included amenities represent solid value."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Registration likely $300-500 range for multi-day supported tour. Food budget ~$250 additional. However, the 4+ hour drive from major airports adds significant travel cost. Camping provided reduces lodging expense. Total weekend cost: moderate $500-1k range."
-      }
-    },
-
     "raceId": "tour-de-nebraska",
     "location": {
       "city": "Curtis/McCook",

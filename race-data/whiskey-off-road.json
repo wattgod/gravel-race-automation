@@ -4,7 +4,6 @@
     "slug": "whiskey-off-road",
     "display_name": "Whiskey Off-Road",
     "tagline": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
-
     "vitals": {
       "distance_mi": 50,
       "elevation_ft": 6523,
@@ -13,7 +12,12 @@
       "county": "Yavapai County",
       "date": "April annually",
       "date_specific": "2026: April 24-26 (Race Day: Sunday, April 26)",
-      "terrain_types": ["Singletrack", "Doubletrack", "Gravel roads", "Fire roads"],
+      "terrain_types": [
+        "Singletrack",
+        "Doubletrack",
+        "Gravel roads",
+        "Fire roads"
+      ],
       "field_size": "~2,000 riders",
       "start_time": "Sunday morning (waves)",
       "registration": "Tiered pricing, register early for best rate. Sells out.",
@@ -21,40 +25,110 @@
       "aid_stations": "Multiple well-stocked aid stations throughout course",
       "cutoff_time": "None specified, but 94-95% finish rate"
     },
-
     "distance_options": [
-      {"name": "50 Proof", "distance_mi": 50, "elevation_ft": 6523, "flagship": true},
-      {"name": "30 Proof", "distance_mi": 32, "elevation_ft": 3336, "flagship": false},
-      {"name": "25 Proof", "distance_mi": 26, "elevation_ft": 2814, "flagship": false},
-      {"name": "15 Proof Fun Ride", "distance_mi": 20, "elevation_ft": 1980, "flagship": false}
+      {
+        "name": "50 Proof",
+        "distance_mi": 50,
+        "elevation_ft": 6523,
+        "flagship": true
+      },
+      {
+        "name": "30 Proof",
+        "distance_mi": 32,
+        "elevation_ft": 3336,
+        "flagship": false
+      },
+      {
+        "name": "25 Proof",
+        "distance_mi": 26,
+        "elevation_ft": 2814,
+        "flagship": false
+      },
+      {
+        "name": "15 Proof Fun Ride",
+        "distance_mi": 20,
+        "elevation_ft": 1980,
+        "flagship": false
+      }
     ],
-
     "climate": {
       "primary": "High desert spring—mild average, but wildly unpredictable",
       "description": "April in Prescott averages 66-67F highs and 34F lows with minimal precipitation. But race weekend is notorious for weather roulette. Past years have seen everything from 80F+ with 102F exposed climb readings to freezing rain, hail, and snow at elevation. The forum consensus: 'come prepared to ride in all kinds of weather.'",
-      "challenges": ["102F possible on exposed Skull Valley climb", "Freezing rain/snow possible at 7,000ft elevation", "30mph mountain-top winds documented", "60F+ temperature swings start to finish"]
+      "challenges": [
+        "102F possible on exposed Skull Valley climb",
+        "Freezing rain/snow possible at 7,000ft elevation",
+        "30mph mountain-top winds documented",
+        "60F+ temperature swings start to finish"
+      ]
     },
-
     "terrain": {
       "primary": "Classic Southwest MTB with singletrack, fire roads, and technical descents",
       "surface": "Mixed: singletrack, doubletrack, gravel roads, some pavement",
       "technical_rating": 3,
-      "features": ["Whiskey Row downtown start", "Trail 48 rocky singletrack with water bars", "Skull Valley 12-mile exposed climb (2,500-2,700ft gain)", "Trail 260 fast loose descent", "Trail 367 boulder drop section near finish", "Spence Basin flowy singletrack"]
+      "features": [
+        "Whiskey Row downtown start",
+        "Trail 48 rocky singletrack with water bars",
+        "Skull Valley 12-mile exposed climb (2,500-2,700ft gain)",
+        "Trail 260 fast loose descent",
+        "Trail 367 boulder drop section near finish",
+        "Spence Basin flowy singletrack"
+      ]
     },
-
     "gravel_god_rating": {
-      "overall_score": 78,
-      "course_profile": 25,
-      "biased_opinion": 29,
+      "overall_score": 76,
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "display_tier": 2,
-      "display_tier_label": "TIER 2"
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "tier_override_reason": "prestige=4 override: T2→T1 promotion",
+      "tier": 1,
+      "tier_label": "TIER 1"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "20+ years of history makes this an American MTB classic. Todd Sadow's Epic Rides empire launched here. The 'Whiskey model' was replicated across multiple states. $30k pro purse attracts serious talent. Industry insiders consider it essential. It's not major series-level prestige, but it's established legacy status."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Epic Rides has refined this event for two decades. Well-marked course, well-stocked aid stations, professional timing, multiple distance options. The Friday-through-Sunday format with expo, crit racing, live music, and mandatory meeting shows attention to detail. This is what 20 years of iteration looks like."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable. The Skull Valley climb alone creates stories you'll tell forever. The contrast between suffering on exposed fire roads and flowing Spence Basin singletrack. Finishing to live music and a festival atmosphere. The whole weekend package—expo, crit, concert, race—delivers memories beyond just the ride."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "'Killer vibes' appears repeatedly in forum reviews. The festival atmosphere creates genuine camaraderie. Fans set up 'pickle juice stands' for cramping riders—that's community. Historic Prescott adds charm. Smaller than mega-events like Unbound, creating more intimate connections."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Strong regional pros and dedicated MTB racers, but not major series-level elite depth. The $30k purse attracts talent but this isn't where the biggest names battle for series points. Competitive age-group racing with quality mid-pack athletes. More accessible than premier gravel events."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "'Expensive' appears consistently in forum reviews. High production value justifies the cost—you're getting a weekend festival, not just a race. Includes shirt, finisher pint, expo access, concert. But budget-conscious riders notice the premium pricing. Entry tier pricing rewards early registration."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Phoenix flights are affordable (major hub). But add 2-hour drive, lodging in tourist-friendly Prescott, and premium registration fees. Budget $500-1,000 total for travel/lodging/entry. Not extreme, but not budget-friendly either. Camping options can reduce costs significantly."
+      },
       "length": {
         "score": 3,
         "explanation": "The flagship 50 Proof course is 50 miles—substantial but not ultra territory. Multiple distance options (15-50 miles) allow scalability. Finishing times for 50 Proof run 3-7+ hours depending on ability, making it a significant day without the daunting commitment of 100+ mile events."
@@ -84,38 +158,6 @@
         "explanation": "Starting from historic Whiskey Row is iconic. Prescott National Forest offers genuine high-desert beauty—granite formations, pine forests, expansive vistas. The Skull Valley suffer-fest creates lasting memories. The weekend festival atmosphere with free Greensky Bluegrass concert elevates it beyond just a race."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 4,
-        "explanation": "20+ years of history makes this an American MTB classic. Todd Sadow's Epic Rides empire launched here. The 'Whiskey model' was replicated across multiple states. $30k pro purse attracts serious talent. Industry insiders consider it essential. It's not LTGP-level prestige, but it's established legacy status."
-      },
-      "race_quality": {
-        "score": 5,
-        "explanation": "Epic Rides has refined this event for two decades. Well-marked course, well-stocked aid stations, professional timing, multiple distance options. The Friday-through-Sunday format with expo, crit racing, live music, and mandatory meeting shows attention to detail. This is what 20 years of iteration looks like."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "Unforgettable. The Skull Valley climb alone creates stories you'll tell forever. The contrast between suffering on exposed fire roads and flowing Spence Basin singletrack. Finishing to live music and a festival atmosphere. The whole weekend package—expo, crit, concert, race—delivers memories beyond just the ride."
-      },
-      "community": {
-        "score": 5,
-        "explanation": "'Killer vibes' appears repeatedly in forum reviews. The festival atmosphere creates genuine camaraderie. Fans set up 'pickle juice stands' for cramping riders—that's community. Historic Prescott adds charm. Smaller than mega-events like Unbound, creating more intimate connections."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Strong regional pros and dedicated MTB racers, but not LTGP-level elite depth. The $30k purse attracts talent but this isn't where the biggest names battle for series points. Competitive age-group racing with quality mid-pack athletes. More accessible than premier gravel events."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "'Expensive' appears consistently in forum reviews. High production value justifies the cost—you're getting a weekend festival, not just a race. Includes shirt, finisher pint, expo access, concert. But budget-conscious riders notice the premium pricing. Entry tier pricing rewards early registration."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Phoenix flights are affordable (major hub). But add 2-hour drive, lodging in tourist-friendly Prescott, and premium registration fees. Budget $500-1,000 total for travel/lodging/entry. Not extreme, but not budget-friendly either. Camping options can reduce costs significantly."
-      }
-    },
-
     "biased_opinion": {
       "verdict": "Southwest MTB Pilgrimage",
       "summary": "The Whiskey Off-Road is the Southwest's premier mountain bike festival—a 20-year institution that combines genuine physical challenge with exceptional event production. Skull Valley will humble you. The technical sections demand MTB skills. But the weekend package—historic Whiskey Row, live music, expo, community—elevates it beyond just a race. It's what happens when an event organizer spends two decades perfecting their craft.",
@@ -133,7 +175,6 @@
       ],
       "bottom_line": "If you want to experience what a mature, well-produced MTB festival looks like, Whiskey delivers. Just come prepared for Skull Valley to test your limits."
     },
-
     "black_pill": {
       "title": "SKULL VALLEY DOESN'T CARE ABOUT YOUR TRAINING PLAN",
       "reality": "The Skull Valley climb is 12 miles of exposed fire road with 2,500-2,700ft of elevation gain. It comes at the halfway point when you're already depleted. Even Payson McElveen admits he cramps 75% of Whiskey races. Past riders have documented heat exhaustion, knife-like cramps that drop them trailside, and complete mental breakdown. The forum testimonials read like war stories: 'I started screaming from knife-like cramps seizing both legs about 10 miles from the finish.'",
@@ -146,14 +187,12 @@
       ],
       "expectation_reset": "Respect Skull Valley. Don't go out too hard. Hydrate aggressively for days before the race. Bring more electrolytes than you think you need. Accept that cramping might happen anyway. The start bottleneck means passing is nearly impossible on singletrack—seed yourself appropriately or accept your pack. And check the weather obsessively, but accept that April in Arizona can throw anything at you."
     },
-
     "final_verdict": {
       "score": "78 / 100",
       "one_liner": "The Southwest's 20-year MTB institution where Skull Valley tests your suffering and Whiskey Row rewards your survival.",
       "should_you_race": "Yes if you want a world-class MTB festival experience with genuine physical challenge. Yes if you appreciate 20 years of event refinement. No if you're a gravel purist uncomfortable on technical terrain. No if you need budget-friendly entry.",
       "alternatives": "Grand Junction Off-Road (Epic Rides sister event); Sea Otter Classic (bigger festival, coastal); Crusher in the Tushar (more altitude suffering, less festival)"
     },
-
     "logistics": {
       "airport": "PHX (Phoenix Sky Harbor) - 1hr 56min drive, 106 miles",
       "shuttle": "Groome Transportation: 23+ daily round trips, $45-90, 2hr 15min",
@@ -163,7 +202,6 @@
       "parking": "Designated areas—respect local businesses. Event designed for walkability once parked.",
       "official_site": "https://epicrides.com/events/whiskey-off-road"
     },
-
     "history": {
       "founded": 2004,
       "founder": "Todd Sadow / Epic Rides",
@@ -176,19 +214,37 @@
       ],
       "reputation": "The original Epic Rides model—proof that 20 years of iteration creates exceptional events."
     },
-
     "course_description": {
       "character": "A greatest-hits tour of Prescott National Forest combining technical singletrack, flowing trails, exposed fire road grinding, and tactical racing. You start on historic Whiskey Row, climb through granite formations, suffer through Skull Valley, flow through Spence Basin, and navigate technical descents when your legs are cooked. Every type of MTB terrain represented.",
       "suffering_zones": [
-        {"mile": 4, "label": "Copper Basin Climb", "desc": "3.8-mile opening climb sets the tone. Get in your pack here—singletrack bottleneck coming."},
-        {"mile": 12, "label": "Trail 48", "desc": "Classic rocky singletrack with multiple water bars. Technical climbing where passing is nearly impossible."},
-        {"mile": 25, "label": "Skull Valley", "desc": "The signature suffer-fest. 12 miles of exposed fire road with 2,500-2,700ft gain. Hot, relentless, cramping epidemic. This is where races are lost and legends are made."},
-        {"mile": 40, "label": "Cramp Hill", "desc": "Just when you think you're recovering from Skull Valley. Another climb when your legs are toast."},
-        {"mile": 48, "label": "Trail 367 Boulder Drop", "desc": "Technical descent with boulder sections. Hits when you're most depleted and least focused."}
+        {
+          "mile": 4,
+          "label": "Copper Basin Climb",
+          "desc": "3.8-mile opening climb sets the tone. Get in your pack here—singletrack bottleneck coming."
+        },
+        {
+          "mile": 12,
+          "label": "Trail 48",
+          "desc": "Classic rocky singletrack with multiple water bars. Technical climbing where passing is nearly impossible."
+        },
+        {
+          "mile": 25,
+          "label": "Skull Valley",
+          "desc": "The signature suffer-fest. 12 miles of exposed fire road with 2,500-2,700ft gain. Hot, relentless, cramping epidemic. This is where races are lost and legends are made."
+        },
+        {
+          "mile": 40,
+          "label": "Cramp Hill",
+          "desc": "Just when you think you're recovering from Skull Valley. Another climb when your legs are toast."
+        },
+        {
+          "mile": 48,
+          "label": "Trail 367 Boulder Drop",
+          "desc": "Technical descent with boulder sections. Hits when you're most depleted and least focused."
+        }
       ],
       "signature_challenge": "Skull Valley—a 12-mile exposed fire road climb at the halfway mark. 2,500-2,700ft of gain when you're already depleted. Documented 102F readings in hot years. Where cramping becomes universal and mental fortitude separates finishers from DNFs."
     },
-
     "special_features": {
       "duo_team": "50-Proof Duo Team Category: Team relay format modeled after South Africa's Cape Epic",
       "single_speed": "Dedicated single speed categories—course is 'very rigid SS friendly' per forum consensus",

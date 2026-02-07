@@ -27,20 +27,20 @@
     },
     "climate": {
       "primary": "Late July Missouri summer heat",
-      "description": "Hot (75-95\u00b0F) with high humidity (70-85%). Heat index can exceed 100\u00b0F. Summer storm risk.",
+      "description": "Hot (75-95°F) with high humidity (70-85%). Heat index can exceed 100°F. Summer storm risk.",
       "challenges": [
-        "Extreme heat (90-95\u00b0F mid-day)",
+        "Extreme heat (90-95°F mid-day)",
         "High humidity (70-85%) = heat exhaustion risk",
-        "Heat index can exceed 100\u00b0F",
+        "Heat index can exceed 100°F",
         "Dehydration and bonking accelerated by heat"
       ]
     },
     "terrain": {
       "primary": "Rolling Missouri wine country gravel",
-      "surface": "85% smooth gravel county roads, 15% paved connectors. Missouri gravel is smoother than mountain states\u2014well-maintained county roads.",
+      "surface": "85% smooth gravel county roads, 15% paved connectors. Missouri gravel is smoother than mountain states—well-maintained county roads.",
       "technical_rating": 2,
       "features": [
-        "Constant rolling terrain\u2014Missouri River Valley ups and downs",
+        "Constant rolling terrain—Missouri River Valley ups and downs",
         "Wine country scenic roads",
         "Katy Trail crossing (historic rail trail)",
         "No sustained climbs, just relentless rollers",
@@ -48,9 +48,9 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 63,
-      "tier": 3,
-      "tier_label": "TIER 3",
+      "overall_score": 60,
+      "tier": 4,
+      "tier_label": "TIER 4",
       "logistics": 4,
       "length": 4,
       "technicality": 2,
@@ -68,30 +68,30 @@
     },
     "biased_opinion": {
       "verdict": "The July Heat Survival Test",
-      "summary": "THE EQUALIZER is Missouri's state gravel championship\u2014100 miles through wine country in late July heat. The course is rolling but not brutal (5,000 ft, constant ups and downs, no mountain climbs). The challenge is the weather: 90-95\u00b0F with 70-85% humidity means heat index over 100\u00b0F. This is a hydration and heat-management test more than a fitness test. The wine country setting is scenic, and Missouri gravel is smooth compared to mountain states. But the heat is relentless\u201415-20% DNF rates are heat-related. State championship brings some fast racers, but the field is mostly recreational (200-300 riders). St. Louis airport is 1 hour away, making travel easy. Marthasville is small, but nearby St. Charles has lodging. This is an emerging Midwest gravel scene event\u2014not iconic, but solid.",
+      "summary": "THE EQUALIZER is Missouri's state gravel championship—100 miles through wine country in late July heat. The course is rolling but not brutal (5,000 ft, constant ups and downs, no mountain climbs). The challenge is the weather: 90-95°F with 70-85% humidity means heat index over 100°F. This is a hydration and heat-management test more than a fitness test. The wine country setting is scenic, and Missouri gravel is smooth compared to mountain states. But the heat is relentless—15-20% DNF rates are heat-related. State championship brings some fast racers, but the field is mostly recreational (200-300 riders). St. Louis airport is 1 hour away, making travel easy. Marthasville is small, but nearby St. Charles has lodging. This is an emerging Midwest gravel scene event—not iconic, but solid.",
       "strengths": [
-        "Missouri State Championship\u2014USAC recognition",
-        "Accessible\u2014St. Louis airport 1 hour away",
+        "Missouri State Championship—USAC recognition",
+        "Accessible—St. Louis airport 1 hour away",
         "Wine country scenic setting",
-        "Smooth Missouri gravel\u2014well-maintained county roads",
+        "Smooth Missouri gravel—well-maintained county roads",
         "Emerging Midwest gravel scene"
       ],
       "weaknesses": [
-        "Brutal July heat\u201490-95\u00b0F + humidity = heat exhaustion risk",
+        "Brutal July heat—90-95°F + humidity = heat exhaustion risk",
         "Small field (200-300 riders) = less energy than big events",
-        "Course is rolling but not extreme\u2014challenge is heat, not terrain",
-        "Limited lodging in Marthasville\u2014need to drive from St. Charles",
-        "Not nationally recognized\u2014regional event"
+        "Course is rolling but not extreme—challenge is heat, not terrain",
+        "Limited lodging in Marthasville—need to drive from St. Charles",
+        "Not nationally recognized—regional event"
       ],
-      "bottom_line": "If you want a legitimate suffer fest from terrain, look elsewhere. If you want to test heat survival and hydration management\u2014THE EQUALIZER delivers. Come in July shape (heat-acclimated), hydrate obsessively, and start early. The wine country scenery is nice, but you'll be too hot to care. The state championship jersey is a nice bonus if you podium. Otherwise, this is a regional heat test, not a bucket-list race."
+      "bottom_line": "If you want a legitimate suffer fest from terrain, look elsewhere. If you want to test heat survival and hydration management—THE EQUALIZER delivers. Come in July shape (heat-acclimated), hydrate obsessively, and start early. The wine country scenery is nice, but you'll be too hot to care. The state championship jersey is a nice bonus if you podium. Otherwise, this is a regional heat test, not a bucket-list race."
     },
     "logistics": {
-      "nearest_airport": "St. Louis (STL) \u2014 50 miles, 1-hour drive",
+      "nearest_airport": "St. Louis (STL) — 50 miles, 1-hour drive",
       "alternate_airports": "N/A (St. Louis is convenient)",
-      "lodging_note": "Marthasville is small\u2014limited options. St. Charles (20 miles east) has more hotels.",
+      "lodging_note": "Marthasville is small—limited options. St. Charles (20 miles east) has more hotels.",
       "parking": "Marthasville Community Center",
       "packet_pickup": "Day-before and day-of",
-      "travel_summary": "St. Louis airport very accessible (1 hour). Rental car helpful. Lodging tight in Marthasville\u2014stay in St. Charles.",
+      "travel_summary": "St. Louis airport very accessible (1 hour). Rental car helpful. Lodging tight in Marthasville—stay in St. Charles.",
       "food_options": "Multiple aid stations. Wine country dining post-race.",
       "camping": "Limited camping nearby",
       "official_site": "https://www.theequalizermostatechampionship.com"
@@ -102,25 +102,25 @@
         {
           "name": "Mid-Day Heat",
           "miles": "40-80",
-          "description": "Peak temps (90-95\u00b0F) hit hardest mid-race. No shade. Heat index over 100\u00b0F. Where heat exhaustion happens.",
+          "description": "Peak temps (90-95°F) hit hardest mid-race. No shade. Heat index over 100°F. Where heat exhaustion happens.",
           "survival_strategy": "Hottest part of day when you're already depleted. Humidity makes breathing hard. Dehydration accelerates."
         },
         {
           "name": "Constant Rollers",
           "miles": "50-90",
           "description": "Relentless ups and downs. No recovery. Heat amplifies fatigue.",
-          "survival_strategy": "Never flat. Power surges on climbs in heat. Mentally exhausting\u201440 miles of no-rest rolling."
+          "survival_strategy": "Never flat. Power surges on climbs in heat. Mentally exhausting—40 miles of no-rest rolling."
         }
       ],
-      "signature_challenge": "Peak temps (90-95\u00b0F) hit hardest mid-race. No shade. Heat index over 100\u00b0F. Where heat exhaustion happens."
+      "signature_challenge": "Peak temps (90-95°F) hit hardest mid-race. No shade. Heat index over 100°F. Where heat exhaustion happens."
     },
     "history": {
       "founded": "DATA NOT FOUND",
       "founder": "Missouri Gravel Events",
       "origin_story": "Steady 200-300 riders. State championship brings competitive racers but mostly recreational field.",
       "notable_moments": [
-        "2024: Hot (85-95\u00b0F), humid. 15% DNF from heat.",
-        "2023: Extreme heat (90-98\u00b0F). 20% DNF."
+        "2024: Hot (85-95°F), humid. 15% DNF from heat.",
+        "2023: Extreme heat (90-98°F). 20% DNF."
       ],
       "reputation": ""
     },

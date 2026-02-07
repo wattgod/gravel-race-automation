@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Grinduro Canada",
+  "description": "Race inside a 450-million-year-old meteorite crater where the party is as legendary as the singletrack",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Saint-Urbain-de-Charlevoix, Quebec, Canada"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Trans Am Bike Race",
+  "description": "4,200 miles from the Pacific to the Atlantic. The longest road ultra-race on earth. Self-supported across 10 states. America, coast to coast.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-07",
+  "location": {
+    "@type": "Place",
+    "name": "Astoria, Oregon to Yorktown, Virginia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "300",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "90",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://rideyrbike.com/transambikenonstop/"
+}

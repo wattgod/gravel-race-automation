@@ -30,7 +30,7 @@ CANONICAL_KEYS = {
     'name', 'slug', 'display_name', 'tagline', 'tldr',
     'vitals', 'climate', 'terrain', 'gravel_god_rating',
     'course_description', 'biased_opinion', 'biased_opinion_ratings',
-    'black_pill', 'logistics', 'history', 'quotes', 'race_specific',
+    'logistics', 'history', 'quotes', 'race_specific',
     'guide_variables', 'training_implications', 'seo',
     'training_plans', 'final_verdict', 'research_metadata',
     'training_config', 'non_negotiables',

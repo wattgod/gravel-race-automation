@@ -166,6 +166,40 @@
       min-width: 28px;
       text-align: right;
     }
+    .gg-score-bar { cursor: pointer; position: relative; }
+    .gg-score-breakdown {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      background: #f8f8f8;
+      border-radius: 6px;
+      border: 1px solid #eee;
+    }
+    .gg-score-breakdown.open { display: block; }
+    .gg-score-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 16px;
+    }
+    .gg-score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding: 2px 0;
+    }
+    .gg-score-row-label { color: #666; text-transform: capitalize; }
+    .gg-score-row-dots {
+      display: flex;
+      gap: 3px;
+    }
+    .gg-score-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ddd;
+    }
+    .gg-score-dot.filled { background: #c4421a; }
     .gg-radar {
       margin-top: 8px;
     }
@@ -233,16 +267,46 @@
       background: #666;
       color: #fff;
     }
+    .gg-filter-toggle {
+      display: none;
+      width: 100%;
+      padding: 10px;
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+      text-align: left;
+      color: #1a1a1a;
+    }
+    .gg-filter-toggle::after {
+      content: ' ▾';
+      float: right;
+    }
+    .gg-filter-toggle.open::after {
+      content: ' ▴';
+    }
     @media (max-width: 600px) {
       .gg-grid {
         grid-template-columns: 1fr;
       }
+      .gg-filter-toggle { display: block; }
       .gg-filters {
         flex-direction: column;
+        display: none;
+      }
+      .gg-filters.open {
+        display: flex;
+      }
+      .gg-score-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 
+  <button class="gg-filter-toggle" id="gg-filter-toggle" onclick="document.querySelector('.gg-filters').classList.toggle('open');this.classList.toggle('open')">Filters</button>
   <div class="gg-filters">
     <div class="gg-search-input">
       <label>Search</label>
@@ -479,7 +543,28 @@
       function scoreColor(score) {
         if (score >= 85) return '#c4421a';
         if (score >= 75) return '#d4830a';
-        return '#888';
+        if (score >= 65) return '#888';
+        return '#aaa';
+      }
+
+      const SCORE_LABELS = {
+        logistics: 'Logistics', length: 'Length', technicality: 'Technicality',
+        elevation: 'Elevation', climate: 'Climate', altitude: 'Altitude',
+        adventure: 'Adventure', prestige: 'Prestige', race_quality: 'Race Quality',
+        experience: 'Experience', community: 'Community', field_depth: 'Field Depth',
+        value: 'Value', expenses: 'Expenses'
+      };
+
+      function renderScoreBreakdown(scores) {
+        if (!scores || Object.keys(scores).length < 7) return '';
+        const rows = Object.entries(SCORE_LABELS).map(([key, label]) => {
+          const val = scores[key] || 0;
+          const dots = Array.from({length: 5}, (_, i) =>
+            `<span class="gg-score-dot${i < val ? ' filled' : ''}"></span>`
+          ).join('');
+          return `<div class="gg-score-row"><span class="gg-score-row-label">${label}</span><span class="gg-score-row-dots">${dots}</span></div>`;
+        }).join('');
+        return `<div class="gg-score-breakdown"><div class="gg-score-grid">${rows}</div></div>`;
       }
 
       function renderMiniRadar(scores) {
@@ -511,13 +596,14 @@
           ? `<a class="gg-card-name" href="${race.profile_url}">${race.name}</a>`
           : `<span class="gg-card-name no-link">${race.name}</span>`;
 
+        const breakdown = renderScoreBreakdown(race.scores);
         const scoreBar = race.overall_score
-          ? `<div class="gg-score-bar">
+          ? `<div class="gg-score-bar" onclick="this.nextElementSibling&&this.nextElementSibling.classList.toggle('open')" title="Click for score breakdown">
               <div class="gg-score-track">
                 <div class="gg-score-fill" style="width:${race.overall_score}%;background:${scoreColor(race.overall_score)}"></div>
               </div>
               <span class="gg-score-num">${race.overall_score}</span>
-            </div>`
+            </div>${breakdown}`
           : '';
 
         const radar = renderMiniRadar(race.scores);

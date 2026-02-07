@@ -1,0 +1,72 @@
+# RACE RESEARCH TASK: Pickerel Buck40
+
+## Seed Data (from flat database — VERIFY everything)
+- **Name:** Pickerel Buck40
+- **Location:** Pickerel WI
+- **Distance:** 140 miles
+- **Elevation:** 4500 ft ft
+- **Date:** June 1
+- **Website:** https://www.ironbear1000.com
+- **Data Quality:** Verified — Seed data is verified. Use as starting point but still cross-reference.
+
+## Research Instructions
+
+You are researching **Pickerel Buck40** for the Gravel God Cycling race database.
+
+### Step 1: Web Research (find 5+ distinct sources)
+
+Search for and open at minimum:
+1. Official race website — extract vitals, registration, course info
+2. Reddit threads (r/gravelcycling, r/cycling) — rider experiences, race reports
+3. YouTube race recaps — look for course footage and commentary
+4. Forum threads (TrainerRoad, Slowtwitch) — training/equipment discussions
+5. News coverage (VeloNews, CyclingTips, Escape Collective) — race results, profiles
+6. RideWithGPS or Strava — route data, segment info
+
+For each source, extract:
+- Specific mile markers and named course features
+- Weather data (temperatures, conditions by month/year)
+- Equipment recommendations with reasons
+- DNF rates and reasons
+- Real rider quotes (with attribution: username, source)
+- Logistics details (parking, lodging, aid stations)
+
+### Step 2: Write Research Dump
+
+Output a markdown research dump with these sections:
+
+```
+## OFFICIAL DATA
+[Race vitals, registration, course details from official site]
+
+## TERRAIN & COURSE
+[Surface types, named climbs/features, mile-by-mile breakdown]
+
+## WEATHER & CLIMATE
+[Historical conditions, temperature ranges, wind patterns]
+
+## REDDIT & FORUM INSIGHTS
+[Real rider quotes with u/username attribution]
+
+## SUFFERING ZONES
+[Specific named sections where the race gets hard — real geographic names]
+
+## DNF FACTORS
+[What makes people quit, with data if available]
+
+## EQUIPMENT CONSENSUS
+[Tire recommendations, gear setup, what experienced riders run]
+
+## LOGISTICS
+[Airport, lodging, parking, food, packet pickup]
+```
+
+### Step 3: Quality Requirements
+
+- Every statistic must have a source URL
+- Every suffering zone must have a real geographic name (not "the hard part")
+- At least 1 real rider quote with attribution
+- No generic filler phrases ("amazing experience", "world-class")
+- No fabricated data — if you can't find it, say "DATA NOT FOUND"
+
+Save output to: `research-dumps/pickerel-buck40-raw.md`

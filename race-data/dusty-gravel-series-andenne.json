@@ -3,52 +3,52 @@
     "name": "Dusty Gravel Series - Andenne",
     "slug": "dusty-gravel-series-andenne",
     "display_name": "Dusty Gravel Series - Andenne",
-    "tagline": "Belgian local gravel challenge.",
+    "tagline": "Belgium gravel series event.",
     "vitals": {
       "distance_mi": 50,
       "elevation_ft": 2500,
       "location": "Andenne, Belgium",
-      "location_badge": "ANDENNE, BE",
-      "county": "Wallonia",
-      "date": "Summer annually",
-      "date_specific": "2026: Summer TBD",
+      "location_badge": "ANDENNE, BELGIUM",
+      "county": "Namur Province",
+      "date": "Spring/Summer annually",
+      "date_specific": "2026: Spring/Summer TBD",
       "terrain_types": [
-        "Belgian rolling",
-        "Local event",
+        "Belgian Ardennes",
         "European gravel",
-        "Belgium"
+        "Belgium",
+        "Ardennes"
       ],
-      "field_size": "50-100 riders",
+      "field_size": "100-150 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~\u20ac50-75",
+      "registration": "Online. Cost: ~€60-80",
       "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies"
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "7 hours"
     },
     "climate": {
-      "primary": "Belgian summer",
-      "description": "Variable conditions.",
+      "primary": "Belgian spring/summer",
+      "description": "Variable Belgian conditions.",
       "challenges": [
         "Variable weather",
         "Rain possible",
-        "Rolling terrain",
-        "Summer conditions"
+        "Belgian terrain",
+        "Spring/summer conditions"
       ]
     },
     "terrain": {
-      "primary": "Belgian rolling gravel",
-      "surface": "Gravel roads through Belgian countryside. Moderate elevation with rolling scenery.",
+      "primary": "Belgian Ardennes gravel",
+      "surface": "Gravel roads through Belgian Ardennes. Moderate elevation with scenic countryside.",
       "technical_rating": 2,
       "features": [
         "Moderate rolling (2500 feet)",
-        "Belgian countryside scenery",
-        "Local community event",
+        "Belgian Ardennes scenery",
+        "European gravel experience",
         "50-mile distance",
-        "Small field"
+        "Small-medium field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 39,
+      "overall_score": 43,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
@@ -57,78 +57,78 @@
       "elevation": 2,
       "climate": 2,
       "altitude": 1,
-      "adventure": 2,
+      "adventure": 3,
       "prestige": 1,
       "race_quality": 2,
       "experience": 2,
       "community": 2,
       "field_depth": 1,
-      "value": 4,
+      "value": 3,
       "expenses": 2,
       "course_profile": 7,
-      "biased_opinion": 12,
-      "score_note": "Local Belgian event. Rolling terrain with moderate access, moderate costs, and small local field."
+      "biased_opinion": 11,
+      "score_note": "Regional Belgium event. Ardennes terrain with small-medium local field."
     },
     "biased_opinion": {
-      "verdict": "Belgian Local Gravel",
-      "summary": "Dusty Gravel Series - Andenne is a local event in Belgium\u2014rolling terrain with moderate elevation. The Belgian countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "verdict": "Belgian Ardennes Gravel",
+      "summary": "Dusty Gravel Series - Andenne is a regional event in Belgium—Ardennes terrain with moderate elevation. The Belgian countryside is scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
       "strengths": [
-        "Belgian countryside scenery",
+        "Belgian Ardennes scenery",
+        "European gravel experience",
+        "Ardennes challenge",
         "Good value",
-        "Local community",
-        "Moderate costs",
-        "European experience"
+        "Belgian community"
       ],
       "weaknesses": [
-        "Small local field only",
-        "Limited organization",
-        "Moderate terrain",
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
         "Variable weather",
-        "No international draw"
+        "Higher European costs"
       ],
-      "bottom_line": "A solid local Belgian gravel race. Worth it for Belgian/European riders. Not worth traveling for."
+      "bottom_line": "A solid regional Belgium gravel race. Worth it for Belgium/European riders. Not worth traveling internationally for."
     },
     "black_pill": {
-      "title": "LOCAL BELGIAN EVENT",
-      "reality": "This is a small local Belgian race. The field is local. Organization is basic. Don't travel far for this one.",
+      "title": "REGIONAL BELGIUM EVENT",
+      "reality": "This is a small regional Belgium race. The field is mostly local. Organization is regional. Don't travel internationally for this one.",
       "consequences": [
-        "Small local field",
-        "Limited organization",
-        "No international draw",
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
         "Variable weather"
       ],
-      "expectation_reset": "This is a local Belgian event. Set expectations for small field and basic organization."
+      "expectation_reset": "This is a regional Belgium event. Set expectations for small field, regional organization, and Belgian weather."
     },
     "final_verdict": {
-      "score": "39 / 100",
-      "one_liner": "Belgian local gravel challenge.",
-      "should_you_race": "If you're local to Belgium\u2014yes, it's good value. If you're traveling\u2014skip it.",
-      "alternatives": "For better Belgian races: Gravel des Flandres, Houffa Gravel."
+      "score": "43 / 100",
+      "one_liner": "Belgium gravel series event.",
+      "should_you_race": "If you're local to Belgium/Europe—yes, it's solid. If you're traveling internationally—skip it.",
+      "alternatives": "For better Belgium races: Flanders Legacy Gravel, Houffa Gravel."
     },
     "logistics": {
-      "airport": "Brussels (BRU) 60 minutes",
-      "lodging_strategy": "Andenne has good lodging options.",
-      "food": "Andenne has full dining options. Stock nutrition.",
+      "airport": "Brussels (BRU) 90 minutes",
+      "lodging_strategy": "Andenne has limited lodging. Consider nearby cities.",
+      "food": "Andenne has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dusty Gravel website"
+      "official_site": "Check Dusty Gravel Series website"
     },
     "history": {
       "founded": null,
-      "founder": "Local Belgian organizers",
-      "origin_story": "Local Belgian gravel event.",
+      "founder": "Local Belgium organizers",
+      "origin_story": "Regional Belgium gravel series event.",
       "notable_moments": [],
-      "reputation": "Local Belgian event."
+      "reputation": "Regional Belgium event."
     },
     "course_description": {
-      "character": "Belgian rolling gravel.",
+      "character": "Belgian Ardennes gravel.",
       "suffering_zones": [
         {
           "mile": 15,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
+          "label": "Early Ardennes",
+          "desc": "First Ardennes sections.",
           "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "named_section": "Early Ardennes"
         },
         {
           "mile": 25,
@@ -139,13 +139,13 @@
         },
         {
           "mile": 40,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
+          "label": "Late Ardennes",
+          "desc": "Final Ardennes sections before finish.",
           "terrain_detail": "Late rolling",
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Belgian rolling terrain.",
+      "signature_challenge": "Belgian Ardennes terrain.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -153,16 +153,16 @@
       "race_name": "Dusty Gravel Series - Andenne",
       "race_distance": "50 miles",
       "race_elevation": "2,500 feet",
-      "race_date": "Summer",
+      "race_date": "Spring/Summer",
       "race_location": "Andenne, Belgium",
-      "race_terrain": "Belgian rolling gravel",
-      "race_weather": "Belgian summer variable",
+      "race_terrain": "Belgian Ardennes gravel",
+      "race_weather": "Belgian spring/summer",
       "race_challenges": [
-        "Rolling terrain",
-        "Small local field",
+        "Ardennes terrain",
         "Variable weather",
-        "Limited organization",
-        "Moderate elevation"
+        "Rain possible",
+        "Limited support",
+        "Regional field"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -171,24 +171,24 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Belgian summer weather is variable with rain possible."
+        "why": "Belgian weather is variable with rain possible."
       },
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 6-8",
-        "why": "Belgian rolling terrain requires sustained effort."
+        "why": "Belgian Ardennes require sustained rolling effort."
       },
       {
         "requirement": "Self-sufficiency",
         "by_when": "Week 4-6",
-        "why": "Limited organization requires self-sufficiency."
+        "why": "Limited aid stations require self-sufficiency."
       }
     ],
     "research_metadata": {
       "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "belgian_cycling_community"
+        "belgium_cycling_community"
       ],
       "migration_notes": [
         "Generated from regional information"
@@ -241,7 +241,7 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
+          "pacing": "Ardennes terrain pacing",
           "fueling": "Nutrition for rolling riding",
           "weather": "Riding in variable Belgian weather",
           "rolling": "Sustained rolling strategy"
@@ -250,8 +250,8 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Dusty Gravel Series - Andenne",
-        "race_hook": "Belgian local gravel challenge.",
-        "race_hook_detail": "Local event with rolling terrain.",
+        "race_hook": "Belgium gravel series event.",
+        "race_hook_detail": "Regional event with Ardennes terrain.",
         "distance": "50",
         "dark_mile": "25",
         "non_negotiable_1": "Weather preparation",

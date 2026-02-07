@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Salty Lizard",
+    "slug": "salty-lizard",
+    "display_name": "Salty Lizard",
+    "tagline": "Utah desert gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 2800,
+      "location": "Wendover, UT",
+      "location_badge": "WENDOVER, UT",
+      "county": "Tooele County",
+      "date": "Spring/Fall annually",
+      "date_specific": "2026: Spring/Fall TBD",
+      "terrain_types": [
+        "Utah desert",
+        "Desert gravel",
+        "High altitude",
+        "Utah"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$70-90",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2 aid stations",
+      "cutoff_time": "8 hours"
+    },
+    "climate": {
+      "primary": "Utah desert variable",
+      "description": "Variable desert conditions.",
+      "challenges": [
+        "High altitude (4000+ feet)",
+        "Variable weather",
+        "Desert terrain",
+        "Heat or cold possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Utah desert gravel",
+      "surface": "Gravel roads through Utah desert. Moderate elevation with desert scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (2800 feet)",
+        "High altitude",
+        "Utah desert scenery",
+        "50-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 8,
+      "biased_opinion": 11,
+      "score_note": "Regional UT event. Desert terrain with remote location, high altitude, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "Utah Desert Gravel",
+      "summary": "Salty Lizard is a regional event in Utah\u2014desert terrain with moderate elevation and high altitude. The Utah desert is unique, but the small local field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Unique Utah desert scenery",
+        "Adventure factor",
+        "High altitude experience",
+        "Good value",
+        "Small field intimacy"
+      ],
+      "weaknesses": [
+        "Small local field",
+        "Remote location",
+        "Limited organization",
+        "High altitude",
+        "Variable weather"
+      ],
+      "bottom_line": "A solid regional UT desert gravel race. Worth it for UT/Mountain West riders seeking desert experience. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL UT EVENT",
+      "reality": "This is a small regional UT race. The field is local. Organization is basic. Remote desert location. High altitude. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "Remote location",
+        "High altitude challenges"
+      ],
+      "expectation_reset": "This is a regional UT event. Set expectations for small field, basic organization, and desert conditions."
+    },
+    "final_verdict": {
+      "score": "41 / 100",
+      "one_liner": "Utah desert gravel challenge.",
+      "should_you_race": "If you're local to UT and want desert experience\u2014yes. If you're traveling\u2014skip it.",
+      "alternatives": "For better UT races: Wasatch All-Road, Dirty Dino."
+    },
+    "logistics": {
+      "airport": "Salt Lake City (SLC) 2 hours",
+      "lodging_strategy": "Wendover has limited lodging. Plan ahead.",
+      "food": "Wendover has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Salty Lizard website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local UT organizers",
+      "origin_story": "Regional UT desert gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional UT event."
+    },
+    "course_description": {
+      "character": "Utah desert gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Desert",
+          "desc": "First desert sections.",
+          "terrain_detail": "Desert",
+          "named_section": "Early Desert"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Desert",
+          "desc": "Final desert sections before finish.",
+          "terrain_detail": "Late desert",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Utah desert terrain at high altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Salty Lizard",
+      "race_distance": "50 miles",
+      "race_elevation": "2,800 feet",
+      "race_date": "Spring/Fall",
+      "race_location": "Wendover, UT",
+      "race_terrain": "Utah desert gravel",
+      "race_weather": "Utah desert variable",
+      "race_challenges": [
+        "High altitude",
+        "Desert terrain",
+        "Remote location",
+        "Variable weather",
+        "Limited support"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 4000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization",
+        "by_when": "Week 2-4",
+        "why": "Race at 4000+ feet elevation."
+      },
+      {
+        "requirement": "Desert preparation",
+        "by_when": "Week 4-6",
+        "why": "Utah desert conditions require specific preparation."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations and remote location require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "ut_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            2,
+            3,
+            4
+          ]
+        },
+        "desert_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "desert",
+          "pacing",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "desert": "Desert riding strategy",
+          "pacing": "Desert terrain pacing",
+          "fueling": "Nutrition for desert riding"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Salty Lizard",
+        "race_hook": "Utah desert gravel challenge.",
+        "race_hook_detail": "Regional event with desert terrain and high altitude.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Altitude acclimatization",
+        "non_negotiable_2": "Desert preparation",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

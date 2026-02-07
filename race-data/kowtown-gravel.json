@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "KowTown Gravel",
+    "slug": "kowtown-gravel",
+    "display_name": "KowTown Gravel",
+    "tagline": "Colorado mountain gravel challenge.",
+    "vitals": {
+      "distance_mi": 60,
+      "elevation_ft": 4500,
+      "location": "Kremmling, CO",
+      "location_badge": "KREMMLING, CO",
+      "county": "Grand County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Colorado Rockies",
+        "Mountain gravel",
+        "High altitude",
+        "Colorado"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "8-10 hours"
+    },
+    "climate": {
+      "primary": "Colorado mountain summer",
+      "description": "High altitude mountain conditions.",
+      "challenges": [
+        "High altitude (8000+ feet)",
+        "Variable weather",
+        "Mountain terrain",
+        "Summer thunderstorms possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Colorado Rockies gravel",
+      "surface": "Gravel roads through Colorado Rockies. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (4500 feet)",
+        "High altitude start",
+        "Colorado Rockies scenery",
+        "60-mile distance",
+        "Regional field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 14,
+      "biased_opinion": 11,
+      "score_note": "Regional CO event. Mountain terrain with remote location, high altitude, and small regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Colorado Mountain Gravel",
+      "summary": "KowTown Gravel is a regional event in Colorado\u2014mountain terrain with significant elevation and high altitude. The Colorado Rockies are scenic, but the small regional field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Colorado Rockies scenery",
+        "Mountain challenge",
+        "High altitude experience",
+        "Good value",
+        "Regional community"
+      ],
+      "weaknesses": [
+        "Small regional field",
+        "Remote location",
+        "Limited organization",
+        "High altitude",
+        "Variable weather"
+      ],
+      "bottom_line": "A solid regional CO mountain gravel race. Worth it for CO/Mountain West riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL CO EVENT",
+      "reality": "This is a small regional CO race. The field is regional. Organization is basic. Remote location. High altitude. Don't travel far for this one.",
+      "consequences": [
+        "Small regional field",
+        "Limited organization",
+        "Remote location",
+        "High altitude challenges"
+      ],
+      "expectation_reset": "This is a regional CO event. Set expectations for small field, basic organization, and high altitude."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Colorado mountain gravel challenge.",
+      "should_you_race": "If you're local to CO\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel."
+    },
+    "logistics": {
+      "airport": "Denver (DEN) 2 hours",
+      "lodging_strategy": "Kremmling has limited lodging. Plan ahead or stay in nearby towns.",
+      "food": "Kremmling has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check KowTown Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local CO organizers",
+      "origin_story": "Regional CO mountain gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional CO event."
+    },
+    "course_description": {
+      "character": "Colorado Rockies mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 50,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Colorado Rockies mountain terrain at high altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "KowTown Gravel",
+      "race_distance": "60 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Summer",
+      "race_location": "Kremmling, CO",
+      "race_terrain": "Colorado Rockies gravel",
+      "race_weather": "Colorado mountain summer",
+      "race_challenges": [
+        "High altitude",
+        "Mountain terrain",
+        "Remote location",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization",
+        "by_when": "Week 2-4",
+        "why": "Race starts at 8000+ feet elevation."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Colorado Rockies require sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations and remote location require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "co_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            2,
+            3,
+            4
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "mountains",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "pacing": "Mountain terrain pacing",
+          "mountains": "Sustained mountain strategy",
+          "fueling": "Nutrition for mountain riding"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "KowTown Gravel",
+        "race_hook": "Colorado mountain gravel challenge.",
+        "race_hook_detail": "Regional event with mountain terrain and high altitude.",
+        "distance": "60",
+        "dark_mile": "30",
+        "non_negotiable_1": "Altitude acclimatization",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

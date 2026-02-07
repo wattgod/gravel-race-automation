@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Salida 76",
+    "slug": "salida-76",
+    "display_name": "Salida 76",
+    "tagline": "Colorado mountain gravel challenge.",
+    "vitals": {
+      "distance_mi": 76,
+      "elevation_ft": 6000,
+      "location": "Salida, CO",
+      "location_badge": "SALIDA, CO",
+      "county": "Chaffee County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Colorado Rockies",
+        "Mountain gravel",
+        "High altitude",
+        "Colorado"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$90-110",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "3-4 aid stations",
+      "cutoff_time": "10-12 hours"
+    },
+    "climate": {
+      "primary": "Colorado mountain summer",
+      "description": "High altitude mountain conditions.",
+      "challenges": [
+        "High altitude (7000+ feet)",
+        "Variable weather",
+        "Mountain terrain",
+        "Summer thunderstorms possible"
+      ]
+    },
+    "terrain": {
+      "primary": "Colorado Rockies gravel",
+      "surface": "Gravel roads through Colorado Rockies. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (6000 feet)",
+        "High altitude start",
+        "Colorado Rockies scenery",
+        "76-mile distance",
+        "Regional field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 15,
+      "biased_opinion": 11,
+      "score_note": "Regional CO event. Mountain terrain with good access, high altitude, and small regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Colorado Mountain Gravel",
+      "summary": "Salida 76 is a regional event in Colorado—mountain terrain with significant elevation and high altitude. The Colorado Rockies are scenic and Salida is accessible, but the small regional field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Colorado Rockies scenery",
+        "Mountain challenge",
+        "High altitude experience",
+        "Salida access",
+        "Good value"
+      ],
+      "weaknesses": [
+        "Small regional field",
+        "Limited organization",
+        "High altitude",
+        "Variable weather",
+        "Moderate costs"
+      ],
+      "bottom_line": "A solid regional CO mountain gravel race. Worth it for CO/Mountain West riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL CO EVENT",
+      "reality": "This is a small regional CO race. The field is regional. Organization is basic. High altitude. Don't travel far for this one.",
+      "consequences": [
+        "Small regional field",
+        "Limited organization",
+        "High altitude challenges",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional CO event. Set expectations for small field, basic organization, and high altitude."
+    },
+    "final_verdict": {
+      "score": "50 / 100",
+      "one_liner": "Colorado mountain gravel challenge.",
+      "should_you_race": "If you're local to CO—yes, it's solid. If you're traveling—skip it.",
+      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel."
+    },
+    "logistics": {
+      "airport": "Colorado Springs (COS) 2 hours",
+      "lodging_strategy": "Salida has good lodging options.",
+      "food": "Salida has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Salida 76 website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local CO organizers",
+      "origin_story": "Regional CO mountain gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional CO event."
+    },
+    "course_description": {
+      "character": "Colorado Rockies mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 38,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 65,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Colorado Rockies mountain terrain at high altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Salida 76",
+      "race_distance": "76 miles",
+      "race_elevation": "6,000 feet",
+      "race_date": "Summer",
+      "race_location": "Salida, CO",
+      "race_terrain": "Colorado Rockies gravel",
+      "race_weather": "Colorado mountain summer",
+      "race_challenges": [
+        "High altitude",
+        "Mountain terrain",
+        "Significant elevation",
+        "Variable weather",
+        "Summer thunderstorms"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization",
+        "by_when": "Week 2-4",
+        "why": "Race starts at 7000+ feet elevation."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Colorado Rockies require sustained mountain effort."
+      },
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Summer thunderstorms possible at high altitude."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "co_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            2,
+            3,
+            4
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "mountains",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "pacing": "Mountain terrain pacing",
+          "mountains": "Sustained mountain strategy",
+          "fueling": "Nutrition for mountain riding"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Salida 76",
+        "race_hook": "Colorado mountain gravel challenge.",
+        "race_hook_detail": "Regional event with mountain terrain and high altitude.",
+        "distance": "76",
+        "dark_mile": "38",
+        "non_negotiable_1": "Altitude acclimatization",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Weather preparation",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

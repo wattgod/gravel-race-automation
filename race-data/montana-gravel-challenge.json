@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Montana Gravel Challenge",
+    "slug": "montana-gravel-challenge",
+    "display_name": "Montana Gravel Challenge",
+    "tagline": "Montana mountain gravel challenge.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 4800,
+      "location": "Huson, MT",
+      "location_badge": "HUSON, MT",
+      "county": "Missoula County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Montana mountains",
+        "Mountain gravel",
+        "High altitude",
+        "Montana"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$80-100",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "8-10 hours"
+    },
+    "climate": {
+      "primary": "Montana mountain summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "High altitude",
+        "Variable weather",
+        "Mountain terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Montana mountains gravel",
+      "surface": "Gravel roads through Montana mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (4800 feet)",
+        "High altitude",
+        "Montana mountains scenery",
+        "65-mile distance",
+        "Regional field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 14,
+      "biased_opinion": 11,
+      "score_note": "Regional MT event. Mountain terrain with remote location, high altitude, and small regional field."
+    },
+    "biased_opinion": {
+      "verdict": "Montana Mountain Gravel",
+      "summary": "Montana Gravel Challenge is a regional event in Montana\u2014mountain terrain with significant elevation and high altitude. The Montana mountains are scenic, but the small regional field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Montana mountains scenery",
+        "Mountain challenge",
+        "High altitude experience",
+        "Good value",
+        "Regional community"
+      ],
+      "weaknesses": [
+        "Small regional field",
+        "Remote location",
+        "Limited organization",
+        "High altitude",
+        "Variable weather"
+      ],
+      "bottom_line": "A solid regional MT mountain gravel race. Worth it for MT/Mountain West riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL MT EVENT",
+      "reality": "This is a small regional MT race. The field is regional. Organization is basic. Remote location. High altitude. Don't travel far for this one.",
+      "consequences": [
+        "Small regional field",
+        "Limited organization",
+        "Remote location",
+        "High altitude challenges"
+      ],
+      "expectation_reset": "This is a regional MT event. Set expectations for small field, basic organization, and high altitude."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Montana mountain gravel challenge.",
+      "should_you_race": "If you're local to MT\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better MT races: Big Sky Gravel, Dusty Bandita."
+    },
+    "logistics": {
+      "airport": "Missoula (MSO) 30 minutes",
+      "lodging_strategy": "Huson has limited lodging. Stay in Missoula.",
+      "food": "Huson has limited dining. Stock nutrition or eat in Missoula.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Montana Gravel Challenge website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local MT organizers",
+      "origin_story": "Regional MT mountain gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional MT event."
+    },
+    "course_description": {
+      "character": "Montana mountains gravel.",
+      "suffering_zones": [
+        {
+          "mile": 22,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 32,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Montana mountains terrain at high altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Montana Gravel Challenge",
+      "race_distance": "65 miles",
+      "race_elevation": "4,800 feet",
+      "race_date": "Summer",
+      "race_location": "Huson, MT",
+      "race_terrain": "Montana mountains gravel",
+      "race_weather": "Montana mountain summer",
+      "race_challenges": [
+        "High altitude",
+        "Mountain terrain",
+        "Remote location",
+        "Variable weather",
+        "Significant elevation"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization",
+        "by_when": "Week 2-4",
+        "why": "Race at high altitude."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Montana mountains require sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations and remote location require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "mt_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            2,
+            3,
+            4
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "mountains",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "pacing": "Mountain terrain pacing",
+          "mountains": "Sustained mountain strategy",
+          "fueling": "Nutrition for mountain riding"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Montana Gravel Challenge",
+        "race_hook": "Montana mountain gravel challenge.",
+        "race_hook_detail": "Regional event with mountain terrain and high altitude.",
+        "distance": "65",
+        "dark_mile": "32",
+        "non_negotiable_1": "Altitude acclimatization",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

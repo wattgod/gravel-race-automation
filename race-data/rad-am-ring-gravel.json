@@ -3,166 +3,166 @@
     "name": "Rad am Ring Gravel",
     "slug": "rad-am-ring-gravel",
     "display_name": "Rad am Ring Gravel",
-    "tagline": "German local gravel challenge.",
+    "tagline": "Germany gravel challenge.",
     "vitals": {
-      "distance_mi": 50,
-      "elevation_ft": 3500,
-      "location": "N\u00fcrburgring, Germany",
-      "location_badge": "N\u00dcRBURGRING, DE",
+      "distance_mi": 62,
+      "elevation_ft": 4000,
+      "location": "Nürburg, Germany",
+      "location_badge": "NÜRBURG, GERMANY",
       "county": "Rhineland-Palatinate",
       "date": "Summer annually",
       "date_specific": "2026: Summer TBD",
       "terrain_types": [
         "German Eifel",
-        "Local event",
         "European gravel",
-        "Germany"
+        "Germany",
+        "Eifel"
       ],
-      "field_size": "50-100 riders",
+      "field_size": "150-200 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~\u20ac60-80",
+      "registration": "Online. Cost: ~€70-90",
       "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies"
+      "aid_stations": "3 aid stations",
+      "cutoff_time": "8 hours"
     },
     "climate": {
       "primary": "German summer",
-      "description": "Variable conditions.",
+      "description": "Variable German conditions.",
       "challenges": [
         "Variable weather",
         "Rain possible",
-        "Rolling terrain",
-        "Summer conditions"
+        "Summer conditions",
+        "Eifel terrain"
       ]
     },
     "terrain": {
       "primary": "German Eifel gravel",
-      "surface": "Gravel roads through German Eifel region. Moderate elevation with rolling scenery.",
-      "technical_rating": 2,
+      "surface": "Gravel roads through German Eifel. Moderate elevation with scenic countryside.",
+      "technical_rating": 3,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "Moderate mountainous (4000 feet)",
         "German Eifel scenery",
-        "Local community event",
-        "50-mile distance",
-        "Small field"
+        "European gravel experience",
+        "62-mile distance",
+        "Medium field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 39,
+      "overall_score": 48,
       "tier": 4,
       "tier_label": "TIER 4",
-      "logistics": 3,
-      "length": 2,
-      "technicality": 2,
-      "elevation": 2,
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
       "climate": 2,
       "altitude": 1,
-      "adventure": 2,
-      "prestige": 1,
+      "adventure": 3,
+      "prestige": 2,
       "race_quality": 2,
-      "experience": 2,
+      "experience": 3,
       "community": 2,
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "course_profile": 7,
-      "biased_opinion": 12,
-      "score_note": "Local German event. Rolling terrain with good access, moderate costs, and small local field."
+      "course_profile": 10,
+      "biased_opinion": 14,
+      "score_note": "Regional Germany event. Eifel terrain with medium field and moderate elevation."
     },
     "biased_opinion": {
-      "verdict": "German Local Gravel",
-      "summary": "Rad am Ring Gravel is a local event in Germany\u2014rolling terrain with moderate elevation. The German Eifel region is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "verdict": "German Eifel Gravel",
+      "summary": "Rad am Ring Gravel is a regional event in Germany—Eifel terrain with moderate elevation. The countryside is scenic, but the medium local field, regional organization, and limited prestige keep it in Tier 4.",
       "strengths": [
         "German Eifel scenery",
+        "European gravel experience",
+        "Eifel challenge",
         "Good value",
-        "Local community",
-        "N\u00fcrburgring access",
-        "European experience"
+        "German community"
       ],
       "weaknesses": [
-        "Small local field only",
-        "Limited organization",
-        "Moderate terrain",
+        "Medium local field",
+        "Regional organization",
+        "Limited prestige",
         "Variable weather",
-        "No international draw"
+        "Higher European costs"
       ],
-      "bottom_line": "A solid local German gravel race. Worth it for German/European riders. Not worth traveling for."
+      "bottom_line": "A solid regional Germany gravel race. Worth it for Germany/European riders. Not worth traveling internationally for."
     },
     "black_pill": {
-      "title": "LOCAL GERMAN EVENT",
-      "reality": "This is a small local German race. The field is local. Organization is basic. Don't travel far for this one.",
+      "title": "REGIONAL GERMANY EVENT",
+      "reality": "This is a regional Germany race. The field is mostly local. Organization is regional. Don't travel internationally for this one.",
       "consequences": [
-        "Small local field",
-        "Limited organization",
-        "No international draw",
+        "Medium local field",
+        "Regional organization",
+        "Limited prestige",
         "Variable weather"
       ],
-      "expectation_reset": "This is a local German event. Set expectations for small field and basic organization."
+      "expectation_reset": "This is a regional Germany event. Set expectations for medium field, regional organization, and German weather."
     },
     "final_verdict": {
-      "score": "39 / 100",
-      "one_liner": "German local gravel challenge.",
-      "should_you_race": "If you're local to Germany\u2014yes, it's good value. If you're traveling\u2014skip it.",
-      "alternatives": "For better German races: Hegau Gravel Race, King of the Lake."
+      "score": "48 / 100",
+      "one_liner": "Germany gravel challenge.",
+      "should_you_race": "If you're local to Germany/Europe—yes, it's solid. If you're traveling internationally—skip it.",
+      "alternatives": "For better Germany races: Hegau Gravel Race, 3Rides Aachen."
     },
     "logistics": {
-      "airport": "Frankfurt (FRA) 90 minutes",
-      "lodging_strategy": "N\u00fcrburgring area has good lodging options.",
-      "food": "N\u00fcrburgring area has full dining options. Stock nutrition.",
+      "airport": "Cologne (CGN) 90 minutes",
+      "lodging_strategy": "Nürburg has limited lodging. Consider nearby cities.",
+      "food": "Nürburg has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Rad am Ring website"
+      "official_site": "Check Rad am Ring Gravel website"
     },
     "history": {
       "founded": null,
-      "founder": "Local German organizers",
-      "origin_story": "Local German gravel event.",
+      "founder": "Local Germany organizers",
+      "origin_story": "Regional Germany Eifel gravel event.",
       "notable_moments": [],
-      "reputation": "Local German event."
+      "reputation": "Regional Germany event."
     },
     "course_description": {
       "character": "German Eifel gravel.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 20,
+          "label": "Early Eifel",
+          "desc": "First Eifel sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Eifel"
         },
         {
-          "mile": 25,
+          "mile": 31,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 40,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
+          "mile": 52,
+          "label": "Late Eifel",
+          "desc": "Final Eifel sections before finish.",
+          "terrain_detail": "Late mountains",
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "German Eifel rolling terrain.",
+      "signature_challenge": "German Eifel terrain.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Rad am Ring Gravel",
-      "race_distance": "50 miles",
-      "race_elevation": "3,500 feet",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
       "race_date": "Summer",
-      "race_location": "N\u00fcrburgring, Germany",
+      "race_location": "Nürburg, Germany",
       "race_terrain": "German Eifel gravel",
-      "race_weather": "German summer variable",
+      "race_weather": "German summer",
       "race_challenges": [
-        "Rolling terrain",
-        "Small local field",
+        "Eifel terrain",
         "Variable weather",
-        "Limited organization",
-        "Moderate elevation"
+        "Rain possible",
+        "Moderate elevation",
+        "Regional field"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -171,24 +171,24 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "German summer weather is variable with rain possible."
+        "why": "German weather is variable with rain possible."
       },
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Mountain endurance",
         "by_when": "Week 6-8",
-        "why": "German Eifel rolling terrain requires sustained effort."
+        "why": "German Eifel requires sustained mountain effort."
       },
       {
         "requirement": "Self-sufficiency",
         "by_when": "Week 4-6",
-        "why": "Limited organization requires self-sufficiency."
+        "why": "Mountain terrain requires self-sufficiency."
       }
     ],
     "research_metadata": {
       "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "german_cycling_community"
+        "germany_cycling_community"
       ],
       "migration_notes": [
         "Generated from regional information"
@@ -212,7 +212,7 @@
             6
           ]
         },
-        "rolling_endurance": {
+        "mountain_endurance": {
           "enabled": true,
           "weeks": [
             6,
@@ -236,26 +236,26 @@
         "priority_order": [
           "pacing",
           "fueling",
-          "weather",
-          "rolling"
+          "mountains",
+          "weather"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable German weather",
-          "rolling": "Sustained rolling strategy"
+          "pacing": "Eifel terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable German weather"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Rad am Ring Gravel",
-        "race_hook": "German local gravel challenge.",
-        "race_hook_detail": "Local event with rolling terrain.",
-        "distance": "50",
-        "dark_mile": "25",
+        "race_hook": "Germany gravel challenge.",
+        "race_hook_detail": "Regional event with Eifel terrain.",
+        "distance": "62",
+        "dark_mile": "31",
         "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_2": "Mountain endurance",
         "non_negotiable_3": "Self-sufficiency",
         "trainingpeaks_url": null
       }

@@ -1,0 +1,272 @@
+{
+  "race": {
+    "name": "Santa Fe Century Gravel\u00f3n",
+    "slug": "santa-fe-century-gravelon",
+    "display_name": "Santa Fe Century Gravel\u00f3n",
+    "tagline": "New Mexico mountain gravel challenge.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 7500,
+      "location": "Santa Fe, NM",
+      "location_badge": "SANTA FE, NM",
+      "county": "Santa Fe County",
+      "date": "Fall annually",
+      "date_specific": "2026: Fall TBD",
+      "terrain_types": [
+        "New Mexico mountains",
+        "Mountain gravel",
+        "High altitude",
+        "New Mexico"
+      ],
+      "field_size": "100-200 riders",
+      "start_time": "Early morning start",
+      "registration": "Online. Cost: ~$100-120",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "4-5 aid stations",
+      "cutoff_time": "12-14 hours"
+    },
+    "climate": {
+      "primary": "New Mexico mountain fall",
+      "description": "High altitude mountain conditions.",
+      "challenges": [
+        "High altitude (7000+ feet)",
+        "Variable weather",
+        "Mountain terrain",
+        "Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "New Mexico mountains gravel",
+      "surface": "Gravel roads through New Mexico mountains. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (7500 feet)",
+        "High altitude start",
+        "New Mexico mountains scenery",
+        "100-mile distance",
+        "Regional field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 16,
+      "biased_opinion": 11,
+      "score_note": "Regional NM event. Mountain terrain with good access, high altitude, and small regional field."
+    },
+    "biased_opinion": {
+      "verdict": "New Mexico Mountain Gravel",
+      "summary": "Santa Fe Century Gravel\u00f3n is a regional event in New Mexico\u2014mountain terrain with significant elevation and high altitude. The 100-mile distance and New Mexico mountains are scenic, but the small regional field and limited organization keep it in Tier 4.",
+      "strengths": [
+        "New Mexico mountains scenery",
+        "Century distance challenge",
+        "High altitude experience",
+        "Santa Fe access",
+        "Good value"
+      ],
+      "weaknesses": [
+        "Small regional field",
+        "Limited organization",
+        "High altitude",
+        "Variable weather",
+        "Moderate costs"
+      ],
+      "bottom_line": "A solid regional NM mountain gravel race. Worth it for NM/Mountain West riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL NM EVENT",
+      "reality": "This is a small regional NM race. The field is regional. Organization is basic. High altitude. Don't travel far for this one.",
+      "consequences": [
+        "Small regional field",
+        "Limited organization",
+        "High altitude challenges",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional NM event. Set expectations for small field, basic organization, and high altitude."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "New Mexico mountain gravel challenge.",
+      "should_you_race": "If you're local to NM\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better NM races: Check regional options."
+    },
+    "logistics": {
+      "airport": "Albuquerque (ABQ) 60 minutes",
+      "lodging_strategy": "Santa Fe has excellent lodging options.",
+      "food": "Santa Fe has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": "Check Santa Fe Century Gravel\u00f3n website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local NM organizers",
+      "origin_story": "Regional NM mountain gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional NM event."
+    },
+    "course_description": {
+      "character": "New Mexico mountains gravel.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 50,
+          "label": "Midpoint",
+          "desc": "Halfway through the century.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "New Mexico mountains terrain at high altitude.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Santa Fe Century Gravel\u00f3n",
+      "race_distance": "100 miles",
+      "race_elevation": "7,500 feet",
+      "race_date": "Fall",
+      "race_location": "Santa Fe, NM",
+      "race_terrain": "New Mexico mountains gravel",
+      "race_weather": "New Mexico mountain fall",
+      "race_challenges": [
+        "High altitude",
+        "Mountain terrain",
+        "Century distance",
+        "Significant elevation",
+        "Variable weather"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization",
+        "by_when": "Week 2-4",
+        "why": "Race starts at 7000+ feet elevation."
+      },
+      {
+        "requirement": "Century endurance",
+        "by_when": "Week 8-10",
+        "why": "100-mile distance requires century training."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "New Mexico mountains require sustained mountain effort."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "nm_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_training": {
+          "enabled": true,
+          "weeks": [
+            2,
+            3,
+            4
+          ]
+        },
+        "century_training": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 8
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "altitude",
+          "pacing",
+          "mountains",
+          "fueling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "altitude": "Racing at high altitude",
+          "pacing": "Century pacing strategy",
+          "mountains": "Sustained mountain strategy",
+          "fueling": "Century nutrition strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Santa Fe Century Gravel\u00f3n",
+        "race_hook": "New Mexico mountain gravel challenge.",
+        "race_hook_detail": "Regional century event with mountain terrain and high altitude.",
+        "distance": "100",
+        "dark_mile": "50",
+        "non_negotiable_1": "Altitude acclimatization",
+        "non_negotiable_2": "Century endurance",
+        "non_negotiable_3": "Mountain endurance",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

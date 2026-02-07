@@ -1,0 +1,222 @@
+{
+  "race": {
+    "name": "GRINDURO CANADA",
+    "slug": "grinduro-canada",
+    "display_name": "Grinduro Canada",
+    "tagline": "Race inside a 450-million-year-old meteorite crater where the party is as legendary as the singletrack",
+
+    "vitals": {
+      "distance_mi": 67,
+      "distance_km": 107,
+      "elevation_ft": 5900,
+      "elevation_m": 1800,
+      "location": "Saint-Urbain-de-Charlevoix, Quebec, Canada",
+      "location_badge": "CHARLEVOIX, QUEBEC",
+      "date": "Mid-August annually",
+      "date_specific": "Status: UNCERTAIN - Last held August 2022",
+      "format": "4 timed enduro stages within gravel course"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 68,
+      "course_profile": 22,
+      "biased_opinion": 25,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "At 67 miles (107 km), Grinduro Canada falls squarely in the 60-100 mile range. The enduro format with timed stages means you're not racing the full distance, but the total riding commitment is substantial for a festival-style event."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "This course demands serious MTB skills - 20-30% singletrack, technical descents with roots and rocks, soul-sucking sand sections, and terrain that causes even experienced riders to dismount. Dropper post strongly recommended; pure gravel bikes will suffer."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "5,900 ft (1,800m) of climbing provides a solid challenge without being extreme. The terrain is relentlessly rolling with no flat sections to recover, making the climbing feel harder than the numbers suggest."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August in Charlevoix offers comfortable temperatures (68-77F) but high rain risk - August is one of the rainiest months. The humid continental climate can turn trails muddy and slick without warning."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Racing at sea level in the St. Lawrence lowlands means zero altitude concerns. No acclimatization needed - just bring your lungs and legs."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Remote Quebec location requires significant planning. Quebec City airport is 60+ miles away, Montreal is 4 hours. French is the primary language, cell coverage is spotty, and international travelers need passport/border crossing. Rental car mandatory."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing inside a 450-million-year-old meteorite crater in a UNESCO Biosphere Reserve is genuinely bucket-list material. The Charlevoix landscape - shaped by cosmic impact, featuring the Laurentian Mountains and St. Lawrence views - delivers epic scenery found nowhere else in gravel racing."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 3,
+        "explanation": "Part of the legendary Grinduro series that pioneered the gravel-enduro format, but the Canada edition never achieved the iconic status of California or Scotland. Its uncertain future (not held since 2022) further diminishes its prestige."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "When running, Grinduro events are professionally organized with clear course markings, solid aid stations, and the 'event-in-a-box' model that's been refined globally. The festival production (art, music, catering) is genuinely excellent."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "This is Grinduro's calling card - 'the perfect party to race ratio.' Three-course dinners, live music, art installations, camping with fellow riders, French-Canadian culture, and a course that reveals itself as you ride. The meteorite crater setting elevates everything."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Grinduro attracts a specific tribe - riders who value experience over results, who can laugh at the sand sections while their legs burn. The festival format creates genuine connections. The French-Canadian influence adds unique character."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Regional competitive field without major pro presence. Not part of any major series or qualification pathway. The enduro format and remote location limit elite field depth compared to mainstream gravel events."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry fee ($200-300 CAD) includes substantial meals - Saturday breakfast, lunch, and three-course dinner, plus Sunday breakfast. Add festival access, camping available for $25, and you're getting genuine value for a weekend experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Remote Quebec location drives up total costs. Flight to Quebec City + rental car + accommodation (limited options near Saint-Urbain) + border crossing logistics for international travelers. Budget $800-1200 total for US-based riders."
+      }
+    },
+
+    "location": {
+      "city": "Saint-Urbain-de-Charlevoix",
+      "state": "Quebec",
+      "country": "Canada",
+      "region": "Charlevoix (UNESCO Biosphere Reserve)",
+      "geological_feature": "Charlevoix Impact Crater - 54km diameter, 450 million years old"
+    },
+
+    "date": {
+      "month": "August",
+      "typical": "Mid-August",
+      "season": "Summer",
+      "event_duration": "3 days (Friday-Sunday)",
+      "status": "UNCERTAIN - Last held 2022, not on 2024-2025 schedules"
+    },
+
+    "organizer": {
+      "name": "Northern Consultancy Co. / Grinduro Series",
+      "founding_sponsor": "Giro Sport Design",
+      "website": "https://grinduro.com/canada/"
+    },
+
+    "distances": [
+      {
+        "name": "Full Course",
+        "distance_km": 107,
+        "distance_mi": 67,
+        "elevation_m": 1800,
+        "elevation_ft": 5900,
+        "timed_stages": 4,
+        "description": "4 timed enduro stages (5-15 min each), untimed linking sections"
+      },
+      {
+        "name": "Grindurito (Short Course)",
+        "distance_km": 50,
+        "distance_mi": 31,
+        "elevation_m": null,
+        "elevation_ft": null,
+        "timed_stages": 0,
+        "description": "First loop only, NOT timed, no awards - recreational option"
+      }
+    ],
+
+    "terrain": {
+      "surface_breakdown": {
+        "gravel_roads": "40-50%",
+        "singletrack": "20-30%",
+        "pavement": "15-20%",
+        "sand_loose": "10-15%",
+        "doubletrack": "Variable"
+      },
+      "description": "Inside meteorite crater - mix of hardpack gravel, technical MTB-style singletrack with roots/rocks, soul-sucking sand, and paved linking sections. Eastern side rugged with canyons, western side rolling."
+    },
+
+    "equipment_recommendations": {
+      "tires": "Minimum 40mm, ideally 45-50mm with aggressive knobby tread",
+      "wheels": "650b with 2.0\"+ tires OR 700c with 45-50mm",
+      "gearing": "MTB-style 1x with wide range cassette (10-50+)",
+      "dropper_post": "HIGHLY recommended for technical descents",
+      "setup": "Tubeless mandatory, tire inserts recommended"
+    },
+
+    "weather": {
+      "typical_high_f": 72,
+      "typical_low_f": 57,
+      "climate": "Continental with humid summers",
+      "rain_risk": "HIGH - August is one of rainiest months",
+      "considerations": "Pack rain gear, choose tires for wet conditions"
+    },
+
+    "registration": {
+      "entry_fee_cad": "200-300",
+      "camping_addon_cad": 25,
+      "included": [
+        "Saturday breakfast, lunch, and three-course dinner",
+        "Sunday continental breakfast",
+        "Festival activities (art, music, camping area)",
+        "Course markings and aid stations",
+        "Awards ceremony"
+      ]
+    },
+
+    "logistics": {
+      "nearest_airport": {
+        "primary": "Quebec City Jean Lesage International (YQB)",
+        "distance_km": 95,
+        "drive_time": "1 hr 10 min"
+      },
+      "ground_transport": "Rental car STRONGLY recommended",
+      "language": "French primary, English understood in tourist areas",
+      "border_crossing": "US citizens need passport"
+    },
+
+    "unique_characteristics": [
+      "Racing inside 450-million-year-old Charlevoix meteorite crater",
+      "Part of international Grinduro series - pioneers of gravel-enduro format",
+      "UNESCO Biosphere Reserve setting",
+      "4 timed technical stages with untimed linking sections",
+      "Festival atmosphere with art, music, multi-course dining",
+      "French-Canadian cultural influence",
+      "Technical MTB skills required - dropper post recommended",
+      "Perfect party to race ratio philosophy"
+    ],
+
+    "who_should_race": [
+      "Riders comfortable with technical singletrack on gravel bikes",
+      "Those who value experience and atmosphere over results",
+      "Festival/party-oriented cyclists",
+      "Riders with versatile do-it-all gravel/MTB setups",
+      "Those seeking unique Canadian cycling experiences",
+      "Francophone or French-friendly riders"
+    ],
+
+    "who_should_skip": [
+      "Pure road cyclists new to gravel",
+      "Those wanting straightforward gravel racing",
+      "Results-focused racers needing predictable courses",
+      "Riders limited to narrow tires (<40mm)",
+      "Those uncomfortable with significant technical descents"
+    ],
+
+    "series_affiliation": "Grinduro Series (Global)",
+    "tier": "TIER 2",
+    "popularity": "Cult following - beloved by those who experienced it",
+    "status": "UNCERTAIN - Event appears on hiatus since 2022",
+    "last_updated": "2026-01-13",
+    "data_quality": "Good - comprehensive research from active years"
+  }
+}

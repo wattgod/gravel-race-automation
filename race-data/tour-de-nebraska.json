@@ -1,0 +1,149 @@
+{
+  "race": {
+    "name": "TOUR DE NEBRASKA",
+    "slug": "tour-de-nebraska",
+    "display_name": "Tour de Nebraska",
+    "tagline": "Five days of supported gravel cruising through Nebraska's rolling farmland - more family reunion than race, and that's exactly the point",
+
+    "vitals": {
+      "distance_mi": 250,
+      "distance_note": "250+ miles over 5 days (35-59 mi daily)",
+      "elevation_ft": 3500,
+      "elevation_note": "Rolling terrain, estimated total across 5 days",
+      "location": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+      "location_badge": "SOUTHWEST NEBRASKA",
+      "date": "Late June annually",
+      "date_specific": "2026: June 23-28"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "course_profile": 14,
+      "biased_opinion": 24,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 2,
+        "explanation": "Daily distances of 35-59 miles are modest by gravel standards. While the 5-day total exceeds 250 miles, the per-day mileage fits squarely in the 40-60 mile range, designed for recreational cyclists rather than endurance athletes."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Mostly maintained gravel roads suitable for various bike types including road bikes. The optional gravel adventure includes single-lane maintenance roads and fresh gravel sections, but routes are intentionally accessible rather than technical."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Rolling Nebraska terrain with 'hill after hill' but no major climbs. Despite the flat Nebraska stereotype being false, daily elevation is moderate. Total estimated around 3,500 ft over 5 days - roughly 700 ft per day average."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "June in Nebraska brings real weather challenges: average highs in the 80s with potential for 100F heat spells, thunderstorm season peak, tornado risk, and constant wind exposure on the open plains. Heat and humidity combine for tough conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Southwest Nebraska sits around 2,500-3,000 feet elevation. No altitude acclimatization needed - sea level fitness transfers directly. This is pure Great Plains riding with no high-altitude factors."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Southwest Nebraska is genuinely remote - 4+ hours from Denver or Omaha airports. McCook has limited services and no major commercial flights. Rental car required. However, the tour handles camping, luggage transport, and support, reducing individual logistics burden."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "This is a pleasant supported tour through Nebraska farmland rather than an epic adventure. Beautiful in an understated Great Plains way with century-old cemeteries and historic points, but not bucket-list scenery. The adventure is social, not scenic."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 2,
+        "explanation": "A beloved regional tour in its 37th year, but overshadowed by Gravel Worlds (Lincoln) and Unbound in the gravel world. Not a competitive event and not on the national gravel radar. Recognition is primarily within Nebraska cycling community."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Exceptional organization with 37 years of refinement. Testimonials consistently praise the crew, logistics, and hospitality. Rest stops every 15 miles, SAG support, shower trucks, luggage transport, daily yoga - this is professional-grade tour operation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The 'big rolling family reunion' atmosphere creates genuinely memorable experiences. Small-town Nebraska hospitality, meaningful connections with repeat riders, and the satisfaction of multi-day cycling adventure. Not life-changing but definitely enjoyable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the standout dimension. Capped at 500 riders specifically to preserve community feel. Strong repeat rider base creates actual friendships. 'Camaraderie among cyclists' is the explicit purpose. Intentionally prioritizes connection over competition."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is explicitly NOT a race - no categories, no officials, no prize money. Minimum pace requirement of 10 mph for support logistics. Attracts recreational cyclists, first-timers, and social riders rather than competitive athletes. Zero racing element."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Five days of fully supported riding with camping, SAG support, shower trucks, luggage transport, meals, and rest stops included. Student discounts available. For a multi-day supported tour, the included amenities represent solid value."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration likely $300-500 range for multi-day supported tour. Food budget ~$250 additional. However, the 4+ hour drive from major airports adds significant travel cost. Camping provided reduces lodging expense. Total weekend cost: moderate $500-1k range."
+      }
+    },
+
+    "raceId": "tour-de-nebraska",
+    "location": {
+      "city": "Curtis/McCook",
+      "state": "Nebraska",
+      "country": "USA",
+      "region": "Great Plains"
+    },
+    "date": {
+      "month": "June",
+      "typical": "late June",
+      "season": "Summer",
+      "year2026": "June 23-28, 2026"
+    },
+    "organizer": {
+      "name": "Tour de Nebraska",
+      "directors": "Charlie & Kim Schilling",
+      "founders": "Rich & Susan Rodenburg (1988)",
+      "website": "https://www.tourdenebraska.com/",
+      "beneficiary": "Nebraska Trails Foundation (501c3)"
+    },
+    "distances": [
+      {
+        "name": "5-Day Tour",
+        "distance": "250+ miles total",
+        "daily_breakdown": "Day 1: 41mi, Day 2: 35mi, Day 3: 59mi, Day 4: 56mi (optional), Day 5: 40mi",
+        "elevationGain": "~3,500 ft total (rolling)",
+        "description": "Multi-day supported tour across Southwest Nebraska with optional gravel adventure component"
+      },
+      {
+        "name": "Gravel Adventure",
+        "distance": "2-day gravel option (Days 2-3)",
+        "capacity": "Limited to 30 spots",
+        "description": "Single-lane maintenance roads and fresh gravel sections for gravel enthusiasts"
+      }
+    ],
+    "terrain": "Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+    "registration": "Limited to 500 riders (main tour), 30 spots for Gravel Adventure; opens on BikeReg with early registration discounts",
+    "weather": "June Nebraska - highs 81-85F, potential for 100F+ heat, thunderstorm season, tornado risk, constant wind, June is wettest month",
+    "uniqueCharacteristics": [
+      "Multi-day supported tour (5 days) - NOT a race",
+      "37-year history (founded 1988)",
+      "Capped at 500 riders for community feel",
+      "Optional Gravel Adventure limited to 30 spots",
+      "Fully supported: SAG, shower trucks, luggage transport, rest stops every 15 miles",
+      "Circle tour format - start and end in same town",
+      "Small-town Nebraska hospitality and community focus",
+      "Suitable for various bike types including road bikes and e-bikes",
+      "First-timer friendly with 10 mph minimum pace",
+      "Fundraiser for Nebraska Trails Foundation"
+    ],
+    "seriesAffiliation": "Independent",
+    "tier": "TIER 3",
+    "popularity": "Regional favorite - loyal repeat rider community",
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Comprehensive - scored with GravelGod 14-Dimension system"
+  }
+}

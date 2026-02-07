@@ -1,0 +1,183 @@
+{
+  "race": {
+    "name": "TRANSCONTINENTAL RACE",
+    "slug": "transcontinental-race",
+    "display_name": "Transcontinental Race",
+    "tagline": "4,000-5,000km self-supported across Europe. The clock never stops. The ultimate test of human endurance, navigation, and self-reliance.",
+
+    "vitals": {
+      "distance_mi": 3100,
+      "elevation_ft": 210000,
+      "location": "Across Europe (route changes annually)",
+      "location_badge": "EUROPE",
+      "county": "Multiple countries",
+      "date": "Late July annually",
+      "date_specific": "2026: July 19 (Trondheim, Norway to Kalamata, Greece)",
+      "terrain_types": ["Paved roads", "Gravel parcours", "Cobblestones", "Alpine passes", "Variable Balkan roads", "Technical descents"],
+      "field_size": "~350 riders (selected from 1,000+ applicants)",
+      "start_time": "Mass start",
+      "registration": "Application-based entry. ~350 GBP entry fee. Closes December for following year.",
+      "prize_purse": "Finisher recognition and legacy (self-supported ethos)",
+      "aid_stations": "None—completely self-supported. Commercial services only.",
+      "cutoff_time": "15-16 days (clock never stops)"
+    },
+
+    "climate": {
+      "primary": "Extreme variability—alpine cold to Balkan heat",
+      "description": "The TCR is 'two races in one.' Alpine sections can hit near-freezing with storms, sleet, and snow at high passes. Then the Balkans and Eastern Europe bring 40C+ heatwaves, brutal sun exposure, and zero shade. Riders must prepare for 0-40C temperature range within a single race. Flooding, thunderstorms, and heatwaves are all common.",
+      "challenges": ["Near-freezing Alpine conditions", "40C+ Balkan heat", "Violent thunderstorms", "Climate-related flooding", "30-40C temperature swings"]
+    },
+
+    "terrain": {
+      "primary": "Predominantly paved roads, mandatory gravel parcours, variable surfaces",
+      "surface": "~70-80% paved roads (quality varies dramatically), ~10-15% gravel parcours (mandatory), ~5-10% cobblestones and rough surfaces. Balkans feature 'horrible Albanian roads' with missing cobbles and rough gravel.",
+      "technical_rating": 3,
+      "features": ["Alpine passes (Stelvio 2,757m)", "Mandatory mountain parcours", "Free route navigation", "Balkan rough roads", "Belgian cobblestones", "Variable surface transitions"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 98,
+      "course_profile": 35,
+      "biased_opinion": 33,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "tier_override_reason": "Flagship European ultra-endurance race, Mike Hall legacy, iconic status in ultra-cycling world",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "4,000-5,000+ km (2,500-3,100+ mi) is among the longest unsupported races on earth. The 2026 edition is ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days, back of pack 15-16 days. This is not a race—it's a continental crossing measured in weeks, not hours."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Predominantly road-focused, but mandatory parcours include significant gravel and technical terrain. Albanian roads are notoriously brutal with 'half the cobbles missing.' Alpine descents demand technical skill. Navigation complexity adds mental technicality—riders plan and execute their own 4,000km+ route across multiple countries."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "40,000-64,000+ meters (131,000-210,000+ ft) of cumulative climbing is almost incomprehensible. The 2026 edition features 64,000m. That's climbing Everest seven times. Daily climbing often exceeds 1,000m. Major Alpine passes like Stelvio (2,757m), plus mountain parcours at every checkpoint. The climbing never stops."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "The TCR spans climate extremes few races can match. Alpine passes hit near-freezing with snow possible even in July. Then the Balkans deliver 40C+ heatwaves. Riders experience 30-40C temperature swings within days. 'The Transcontinental has really been two races—the Alps with cold, then the Balkans with heat and rugged roads.' Climate change has intensified flooding and heatwaves."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Extended time above 2,000m on Alpine passes. Stelvio at 2,757m, with multiple other cols. The 2026 route includes Rallarvegen climb and Tatra Mountains. Not Himalayan altitude, but sustained high-altitude riding for days, combined with sleep deprivation and physical exhaustion, creates real altitude stress."
+      },
+      "logistics": {
+        "score": 5,
+        "explanation": "Completely self-supported across an entire continent. No third-party support, no pre-arranged lodging, no resupply planned in advance. Riders navigate their own 4,000+ km route through 10+ countries, managing visas, languages, resupply, accommodation, navigation, and bike maintenance entirely alone. Commercial services only. True expedition logistics at racing pace."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Crossing an entire continent by bicycle—from Norwegian fjords to Greek antiquity. Alpine passes at sunrise, Balkan villages off the tourist track, sleeping in bivvies behind churches, navigating by GPS through remote terrain. The 2026 route goes from Winter Olympic host city to ancient Olympic Games site. This is bucket-list, life-defining adventure."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "The flagship European ultra-endurance race. Founded by Mike Hall, the legend of ultra-distance cycling who won Tour Divide and Trans Am before his tragic death in 2017. TCR's winners are cycling legends: Kristof Allegaert (3x), James Hayden (2x), Christoph Strasser (2x), and Fiona Kolbinger's historic 2019 overall victory. Finishing TCR earns permanent respect in ultra-cycling."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Lost Dot runs a meticulously organized race despite its self-supported nature. GPS tracking every 5 minutes via Follow My Challenge, brevet cards stamped at control points, mandatory equipment checks, clear rules (the famous 10 Rules). Control points have volunteers and support. The organization honors Mike Hall's legacy with professional execution."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable by any measure. Sleep deprivation hallucinations become your 'entertainment.' Days and nights blend into 'a never-ending continuum of pedaling, eating, and occasional short sleep.' The suffering creates bonds and memories that define who you are. Finishing the TCR is a transformative life experience that stays with riders forever."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The dotwatcher community follows every edition obsessively. Mikko Makipaa has started and finished all 7+ editions. The Mike Hall Bursary supports riders from lower-income households. #100TCRWomen campaign promotes diversity. Post-race camaraderie is legendary—those who finish share an unbreakable bond. The community carries Mike Hall's spirit forward."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "350 riders selected from 1,000+ applicants—the entry is competitive. Winners are legitimate ultra-cycling legends. Christoph Strasser is a 6-time RAAM winner. Fiona Kolbinger's 2019 victory—beating 224 men and 40 women as a 24-year-old first-timer—is one of cycling's greatest stories. The field represents the global elite of ultra-endurance cycling."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~350 GBP entry for a 2-week continental crossing is reasonable. The organization provides GPS tracking, control point support, and safety monitoring. But the true value is what TCR represents—a life-defining challenge with Mike Hall's legacy. The experience transcends cost-benefit analysis."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Budget 2,000-3,500 EUR total. Entry ~350 GBP, travel to/from start/finish 200-500 EUR, food 400-500 EUR, accommodation 600-900 EUR (hotels plus bivvy nights), insurance/visa. Western Europe costs more; prices halve in the Balkans. Self-supported means funding your own multi-week expedition across a continent."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Continental Crossing",
+      "summary": "The Transcontinental Race is ultra-distance cycling's most iconic European event. Founded by Mike Hall in 2013, it established the template for self-supported racing that defines the sport. 4,000-5,000km across a continent, free-route format, clock never stops, completely self-supported. TCR doesn't compare to other races—it's the standard against which all European ultra races are measured. Finishing is a lifetime achievement. Winning is legend.",
+      "strengths": [
+        "The flagship European ultra—Mike Hall's legacy lives here",
+        "Free-route format creates unique strategic challenge",
+        "True continental crossing through 10+ countries",
+        "Elite field of ultra-endurance athletes"
+      ],
+      "weaknesses": [
+        "40-50% DNF rate—only 60% finish, only 37% make time cutoff",
+        "Requires 6+ months preparation and extensive ultra experience",
+        "Sleep deprivation effects last weeks post-race"
+      ],
+      "bottom_line": "If you want to cross a continent by bicycle, self-supported, racing against the best in the world—TCR is the only answer."
+    },
+
+    "black_pill": {
+      "title": "THE 40% WHO DON'T FINISH",
+      "reality": "Only about 60% of TCR starters finish. 40-50% scratch every year—2022 saw 45% DNF rate. Only 37% make the cutoff for the finish party. The second quarter of the race (days 3-6) is when most dreams die—'level of mental deflation' when you realize you're 18 hours behind leaders after 36 hours. Sleep deprivation brings hallucinations, microsleep crashes into fences, cycling around cities in a sleep-drunk daze. 'One of the women's favorites scratched on first day when charging system failed.' Equipment failure can end your race instantly.",
+      "consequences": [
+        "40-50% DNF rate every single year",
+        "Sleep deprivation hallucinations are 'your entertainment'",
+        "Mood alterations last up to a month post-race",
+        "Three deaths in ultra-cycling in 2017 alone, including Mike Hall"
+      ],
+      "expectation_reset": "This is not a race you 'try' without years of ultra-endurance experience. Complete a 1,200km+ audax. Finish a shorter bikepacking race. Practice sleep deprivation riding. Master route planning across multiple countries. The TCR is the final exam of ultra-cycling—and the failure rate proves most aren't ready."
+    },
+
+    "final_verdict": {
+      "score": "98 / 100",
+      "one_liner": "The flagship European ultra—4,000-5,000km self-supported across a continent. Mike Hall's legacy. The ultimate test.",
+      "should_you_race": "Yes if you have 2+ years ultra-distance experience, can ride 300-400km days consistently, handle extreme sleep deprivation, and want cycling's ultimate European challenge. Skip if you haven't completed multi-day unsupported rides, can't commit to 6+ months training, or expect it to be 'just a long race.'",
+      "alternatives": "Trans Am Bike Race (6,800km fixed route across USA), Tour Divide (4,400km MTB fixed route), The Accursed Race (Lost Dot's Balkans race), Badlands (800km Spanish ultra—shorter, similar self-supported intensity)"
+    },
+
+    "logistics": {
+      "airport": "Varies by year. 2026: TRD (Trondheim) for start, ATH (Athens) + transfer for Kalamata finish",
+      "lodging_strategy": "Mix of hotels (when need wash/recovery) and bivvy (when time-pressed or remote). Budget 3-6 hotel nights during race plus bivvy nights. Western Europe hotels ~50 EUR/night, Balkans much cheaper.",
+      "food": "Self-supported—grocery stores, petrol stations (often 24hr with hot food), restaurants, bakeries. Budget 50-100 EUR/day. Prices halve in Balkans.",
+      "packet_pickup": "Pre-race briefing at start location with mandatory equipment check.",
+      "parking": "Varies by year—start/finish locations change each edition.",
+      "official_site": "https://www.lostdot.cc/tcr"
+    },
+
+    "history": {
+      "founded": 2013,
+      "founder": "Mike Hall",
+      "origin_story": "Founded by Mike Hall after his 2012 World Cycle Race experience. First edition ran London to Istanbul with 30 starters. Mike won Tour Divide (2013, 2016) and Trans Am (2014), establishing himself as ultra-cycling's greatest racer. His tragic death in March 2017 during the Indian Pacific Wheel Race shocked the cycling world. Lost Dot, created by his colleagues, continues TCR in his honor. TCR No.5 (2017) went ahead with the largest turnout to date as tribute.",
+      "notable_moments": [
+        "2013: First edition, 30 starters, London to Istanbul",
+        "2017: Mike Hall's death; TCR continues in his honor with record turnout",
+        "2019: Fiona Kolbinger becomes first female overall winner, beating 264 riders",
+        "2022: Christoph Strasser (6x RAAM winner) wins in 9d 15h",
+        "2024: Robin Gemperle wins in 8d 23h 59m"
+      ],
+      "reputation": "The benchmark for European ultra-endurance cycling. Where legends are made."
+    },
+
+    "course_description": {
+      "character": "A continental crossing by bicycle. Start and finish points change each year—London to Istanbul, Geraardsbergen to Thessaloniki, Roubaix to Istanbul, and now Trondheim to Kalamata. Free-route format means riders plan their own path between mandatory control points. Alpine passes, Balkan heat, multiple countries, zero support. The TCR isn't about any single course—it's about the concept: cross Europe by bike, self-supported, as fast as you can.",
+      "suffering_zones": [
+        {"mile": 500, "label": "The Alps", "desc": "Near-freezing temperatures, storms, major passes like Stelvio at 2,757m. Where cold, altitude, and early fatigue test resolve."},
+        {"mile": 1200, "label": "Second Quarter", "desc": "Days 3-6 where most scratches happen. Mental deflation sets in. '18 hours behind leaders in 36 hours' reality check."},
+        {"mile": 2000, "label": "The Balkans", "desc": "40C+ heat, rough roads, remote terrain. 'The heat and rugged roads' where the race becomes survival."},
+        {"mile": 2800, "label": "Final Push", "desc": "Sleep deprivation peaks. Hallucinations are 'your entertainment.' Pure survival to finish."}
+      ],
+      "signature_challenge": "4,000-5,000km self-supported across a continent. Free-route navigation. 40,000-64,000m climbing. 0-40C temperature range. Clock never stops. The ultimate test of human endurance."
+    }
+  }
+}

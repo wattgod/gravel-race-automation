@@ -1,0 +1,197 @@
+{
+  "race": {
+    "name": "FUEGO XL",
+    "slug": "fuego-xl",
+    "display_name": "Sea Otter Fuego XL",
+    "tagline": "Where the Life Time Grand Prix begins and Leadville dreams are made in California sand",
+
+    "vitals": {
+      "distance_mi": 70,
+      "elevation_ft": 7800,
+      "location": "Monterey, California",
+      "location_badge": "MONTEREY, CA",
+      "date": "April annually",
+      "date_specific": "2026: April 18"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 78,
+      "course_profile": 23,
+      "biased_opinion": 27,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 3,
+        "explanation": "At 70 miles (2 x 34-mile laps), Fuego XL sits squarely in the middle-distance range - substantial but not ultra territory."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain with signature sandy climbs, flowy singletrack, and fire roads. XC-style racing described as 'non-technical but demanding' with loose-over-hard descents and deepening ruts."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "7,800 feet of climbing over 70 miles is a serious challenge - that's 2,566 ft per 34-mile lap. The relentless short punchy climbs compound the difficulty."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Variable April weather at Laguna Seca can swing from 40°F to 90°F+. Morning fog, afternoon heat spikes, and brutal crosshead winds on Lookout Ridge create moderate climate challenge."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Max elevation of just 918 feet means zero altitude concerns. This is coastal California riding - sea level performance fully accessible."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Monterey is easily accessible via three airports (MRY, SJC, SFO). Sea Otter is a massive event with excellent infrastructure, expo, camping, and nearby hotels - though booking early is essential."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Fort Ord's former military training grounds offer memorable character - sandy climbs, the legendary Corkscrew, and finishing at the Laguna Seca motorsports track. Part of the Sea Otter festival experience."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Life Time Grand Prix season opener gives Fuego XL elite status. It's a Leadville Trail 100 qualifier with minimum 35 qualifier coins available. Keegan Swenson has dominated since 2022, cementing its importance."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time production values with professional organization. 4-day festival pass included, quality aid stations, and the full Sea Otter expo experience. Registration includes parking and race-day lunch."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Unique combination of competitive racing and festival atmosphere. The Sea Otter Classic is cycling's biggest expo, and finishing at the iconic Laguna Seca motorsports track creates a memorable race day."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Sea Otter draws thousands of cycling enthusiasts across disciplines. Strong XC/gravel community presence with the LTGP crowd bringing elite racing energy to complement the recreational atmosphere."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "LTGP points on the line brings the world's best. Keegan Swenson, Sofia Gomez Villafane, Alexey Vermeulen, and pro MTB/gravel racers competing for Leadville qualifiers create elite-level field depth."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Premium Life Time event pricing, but includes 4-day festival access, expo entry, parking, and race-day lunch. Good value considering the complete Sea Otter experience beyond just the race."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Monterey/Carmel area is expensive for lodging, especially during Sea Otter when thousands descend on the region. California travel costs add up, though camping at venue helps budget-conscious racers."
+      }
+    },
+
+    "race_details": {
+      "format": "2-lap XC race",
+      "lap_distance_mi": 34,
+      "lap_elevation_ft": 2566,
+      "max_elevation_ft": 918,
+      "trails_per_lap": 12,
+      "start_location": "Sea Otter Bridge",
+      "finish_location": "Laguna Seca Raceway"
+    },
+
+    "qualifications": {
+      "leadville_qualifier": true,
+      "leadville_coins_available": 35,
+      "ltgp_event": true,
+      "ltgp_status": "Season Opener"
+    },
+
+    "terrain": {
+      "surface": {
+        "sandy_climbs": 25,
+        "singletrack": 30,
+        "fire_roads": 25,
+        "double_track": 15,
+        "paved": 5
+      },
+      "technical_difficulty": "Moderate XC",
+      "notable_features": [
+        "Signature sandy climbs that worsen throughout race day",
+        "The Corkscrew climb",
+        "Lookout Ridge with crosshead winds",
+        "6km final climb to Laguna Seca finish",
+        "Loose over hard descents",
+        "Sandy loamy corners with deepening ruts"
+      ]
+    },
+
+    "weather": {
+      "typical": {
+        "temp_high": 70,
+        "temp_low": 49,
+        "unit": "F",
+        "conditions": "Variable spring weather"
+      },
+      "challenges": [
+        "Temperature swings from 40°F to 90°F+ possible",
+        "Morning fog common",
+        "Strong westerly winds",
+        "Full sun exposure on course"
+      ]
+    },
+
+    "logistics": {
+      "airports": [
+        {"code": "MRY", "name": "Monterey Regional", "distance": "Direct"},
+        {"code": "SJC", "name": "San Jose", "distance": "1.5 hours"},
+        {"code": "SFO", "name": "San Francisco", "distance": "2 hours"}
+      ],
+      "accommodation": {
+        "on_site": "Camping available at venue",
+        "nearby": "Monterey/Carmel hotels - book early"
+      },
+      "notes": "Many roads surrounding Laguna Seca CLOSED during event"
+    },
+
+    "registration": {
+      "opens": "Fall prior year",
+      "early_bird": "Through December 1",
+      "closes": "6:00 PM day before event",
+      "onsite_available": true,
+      "onsite_opens": "Wednesday April 15 at noon",
+      "refund_policy": "Non-refundable, non-transferable",
+      "deferral": "50% of entry fee for guaranteed next year spot",
+      "includes": [
+        "4-day festival pass",
+        "Parking",
+        "Race-day lunch",
+        "Medals for top 3 in category"
+      ]
+    },
+
+    "notable_winners": {
+      "men": [
+        {"name": "Keegan Swenson", "years": "2022, 2023, 2024", "notes": "3 consecutive wins, 2024 was 49-sec margin victory"}
+      ],
+      "women": [
+        {"name": "Sofia Gomez Villafane", "years": "2023, 2024", "notes": "Back-to-back champion"},
+        {"name": "Haley Smith", "years": "2022", "notes": "LTGP champion season"}
+      ]
+    },
+
+    "companion_events": [
+      {"name": "Fuego XC", "distance_mi": 26, "elevation_ft": 3900, "format": "1 lap", "date": "Sunday April 19"},
+      {"name": "Fuego Short", "distance_mi": 6, "format": "Juniors Grades 4-6", "date": "Sunday April 19"}
+    ],
+
+    "metadata": {
+      "last_updated": "2026-01-13",
+      "data_quality": "High",
+      "sources": [
+        "Sea Otter Classic official website",
+        "Life Time Grand Prix",
+        "TrainerRoad forum race reports",
+        "Alto Velo Racing Club reports"
+      ]
+    }
+  }
+}

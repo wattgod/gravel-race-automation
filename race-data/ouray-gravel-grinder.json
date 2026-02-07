@@ -1,0 +1,173 @@
+{
+  "race": {
+    "raceId": "ouray-gravel-grinder",
+    "name": "Ouray Gravel Grinder",
+    "slug": "ouray-gravel-grinder",
+    "display_name": "Ouray Gravel Grinder",
+    "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
+
+    "vitals": {
+      "distance_mi": 80,
+      "elevation_ft": 7800,
+      "location": "Ouray, Colorado",
+      "location_badge": "OURAY, CO",
+      "date": "September annually",
+      "date_specific": "2026: Early September (weather dependent)"
+    },
+
+    "location": {
+      "city": "Ouray",
+      "state": "Colorado",
+      "country": "USA"
+    },
+
+    "date": {
+      "month": "September",
+      "typical": "Early September",
+      "season": "Fall"
+    },
+
+    "organizer": {
+      "name": "Local/Undocumented"
+    },
+
+    "distances": [
+      {
+        "name": "Alpine Loop",
+        "distance": 80,
+        "unit": "miles",
+        "distanceKm": 129,
+        "elevationGain": 7800,
+        "elevationGainMeters": 2377,
+        "category": "Extreme",
+        "description": "High elevation loop topping 12,000+ ft via Engineer and Cinnamon Passes"
+      },
+      {
+        "name": "Black Bear Pass",
+        "distance": 50,
+        "unit": "miles",
+        "distanceKm": 80,
+        "elevationGain": 5000,
+        "elevationGainMeters": 1524,
+        "category": "Advanced",
+        "description": "Classic San Juan jeep road - most dangerous 4x4 road in Colorado"
+      }
+    ],
+
+    "terrain": {
+      "surface": {
+        "gravel": 50,
+        "jeepRoad": 40,
+        "paved": 10
+      },
+      "technicalDifficulty": "Extreme",
+      "technicalRating": 9,
+      "description": "Extreme high-altitude San Juan Mountain passes on jeep roads, topping above 12,000 ft"
+    },
+
+    "registration": {
+      "cost": {
+        "regular": 150,
+        "currency": "USD"
+      }
+    },
+
+    "weather": {
+      "typical": {
+        "tempHigh": 65,
+        "tempLow": 35,
+        "unit": "F",
+        "conditions": "High altitude mountain weather, 72-81 thunderstorm days/year, monsoon season July-August, hypothermia risk"
+      }
+    },
+
+    "uniqueCharacteristics": [
+      "Extreme elevation gain",
+      "High altitude mountain passes (12,000+ ft)",
+      "Switzerland of America terrain",
+      "Alpine Loop and Black Bear Pass routes",
+      "San Juan Mountains",
+      "Significant hike-a-bike sections",
+      "Natural hot springs recovery"
+    ],
+
+    "gravel_god_rating": {
+      "overall_score": 58,
+      "course_profile": 29,
+      "biased_opinion": 20,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "At 80 miles for the Alpine Loop route, this falls squarely in the 60-100 mile substantial distance category. Not ultra-distance but a full day of high-altitude suffering that will test endurance limits."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Extreme technical terrain with jeep roads, bare rock sections, 10%+ grades, and mandatory hike-a-bike on passes above 12,000 ft. Imogene is 'barely a road, a trail' - this is as technical as gravel gets."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "7,800+ feet of climbing on the Alpine Loop with additional routes hitting 10,000 ft of gain. This exceeds the 10,000+ ft threshold for maximum difficulty, especially given the altitude where it occurs."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Extreme weather risk with 72-81 thunderstorm days annually in the San Juans. Lightning exposure above treeline, hypothermia risk even in summer, flash flood danger, and storms that can go from blue sky to hail in minutes."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Starting at 7,792 ft and topping out at 12,800+ ft on Engineer Pass (13,114 ft on Imogene). This is among the highest gravel riding in the Lower 48 with severe physiological impact - expect 20-30% power loss."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Remote but accessible. Montrose airport is 35 miles, Durango 70 miles. Small-town services with limited hours. Requires 5+ days for altitude acclimation. Not extreme remoteness but significant planning required."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Absolute bucket-list territory. The 'Switzerland of America' with 13,000+ ft peaks, historic mining towns, alpine meadows, and routes that push riders to their absolute limits. Life-changing scenery matched by life-changing difficulty."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 2,
+        "explanation": "No official organized event exists - this is regional/self-supported riding only. Local recognition in bikepacking circles through Rodeo Labs' 'Silverton Project' and nearby Telluride Gravel Race, but no standalone prestige as an event."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "As there is no organized 'Ouray Gravel Grinder' event, there's no race organization to evaluate. Self-supported riding means no aid stations, no course marking, no official support. Riders are on their own."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Despite lack of organization, the experience itself is unforgettable - for better or worse. The scenery is 10/10, the challenge is severe, and completing routes like the Alpine Loop or Imogene Pass creates lasting memories. You'll remember this forever."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Small, dedicated bikepacking community rather than organized race culture. The Rodeo Labs expeditions and nearby events create some community, but there's no race-day vibe or legendary culture specific to this event."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "No organized competition means no competitive field. Self-supported riders only. For actual racing, the nearby Telluride Gravel Race draws regional competitors but not elite fields."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Without entry fees (no organized event), the riding itself offers exceptional value. World-class terrain accessible to anyone who can get there and is prepared for the challenge. Hot springs recovery is a bonus."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Moderate total cost with lodging at $200-300/night, reasonable airport access, and no entry fee for self-supported riding. A week trip can be done for under $500 excluding flights - reasonable for such exceptional terrain."
+      }
+    },
+
+    "popularity": 40,
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Medium",
+    "notes": "No clearly documented recurring 'Ouray Gravel Grinder' event with fixed organization. Scoring reflects the self-supported gravel riding experience in the Ouray/San Juan region based on Alpine Loop, Black Bear Pass, and Imogene Pass routes. Course profile scores reflect the exceptional difficulty of the terrain; editorial scores reflect the lack of organized event infrastructure. For organized racing, consider nearby Telluride Gravel Race."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "race": {
+    "raceId": "walburg-dirty-30",
+    "name": "Walburg Dirty 30",
+    "slug": "walburg-dirty-30",
+    "display_name": "Walburg Dirty 30",
+    "tagline": "Thirty miles of pure Texas Hill Country grit - where limestone legends are made",
+
+    "location": {
+      "city": "Walburg",
+      "state": "Texas",
+      "country": "USA",
+      "region": "Texas Hill Country"
+    },
+
+    "vitals": {
+      "distance_mi": 30,
+      "elevation_ft": 2000,
+      "location": "Walburg, Texas",
+      "location_badge": "WALBURG, TX",
+      "date": "December annually",
+      "date_specific": "2026: December 2026"
+    },
+
+    "date": {
+      "month": "December",
+      "typical": "early December",
+      "season": "Fall/Winter",
+      "year2026": "December 2026"
+    },
+
+    "organizer": {
+      "name": "Dirty 30 Events",
+      "website": "https://www.walburgdirty30.com/"
+    },
+
+    "distances": [
+      {
+        "name": "30 Mile",
+        "distance": "30 miles",
+        "elevationGain": "2,000+ feet",
+        "description": "Challenging 30 miles through Texas Hill Country"
+      }
+    ],
+
+    "terrain": "Texas Hill Country gravel - rolling hills, limestone roads, ranch land, technical sections",
+    "registration": "Opens in summer",
+    "weather": "Texas December - mild to cool temperatures (50s-60s°F), generally pleasant racing conditions",
+
+    "uniqueCharacteristics": [
+      "Classic Texas Hill Country gravel race",
+      "30-mile format is perfect for beginners and experienced riders",
+      "Beautiful Texas ranch land",
+      "Festive post-race atmosphere",
+      "December timing provides ideal Texas weather",
+      "Technical limestone sections",
+      "Growing Texas gravel institution"
+    ],
+
+    "seriesAffiliation": "Independent",
+    "popularity": "High - Texas Hill Country favorite",
+
+    "gravel_god_rating": {
+      "overall_score": 52,
+      "course_profile": 14,
+      "biased_opinion": 21,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 1,
+        "explanation": "At 30 miles, this falls under the <40mi threshold. It's a manageable single-distance format that works well for both newcomers to gravel and experienced riders looking for a shorter effort."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Texas Hill Country limestone gravel with some rough sections and technical elements, but nothing extreme. The terrain includes ranch roads and rolling hills without singletrack or highly technical descents."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "With 2,000+ feet of climbing over 30 miles, this averages out to steady but moderate climbing. The Texas Hill Country provides rolling terrain rather than sustained mountain climbs."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "December in Texas Hill Country offers mild to cool temperatures (50s-60s°F), which is actually quite pleasant for racing. Occasional cold fronts possible but generally rider-friendly conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Texas Hill Country sits at relatively low elevation, well below 3,000 feet. No altitude acclimatization required - sea level performance applies."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Walburg is located in the Austin metro area, requiring moderate travel planning. Austin-Bergstrom International Airport is nearby, and hotels are available in Georgetown and Austin, though Walburg itself is a small community."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Texas Hill Country provides memorable ranch scenery, rolling limestone landscapes, and genuine Texas gravel character. While not a bucket-list epic, it offers a distinctively Texan gravel experience with festive post-race atmosphere."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 2,
+        "explanation": "As a regional Texas gravel race, Walburg Dirty 30 has local recognition and is becoming a growing institution in the Texas gravel scene, but lacks national significance or series affiliation."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Good organization with proper course marking, aid stations, and a festive finish line atmosphere. Solid regional race production without the polish of elite-tier events."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "An enjoyable day of Texas gravel racing with beautiful Hill Country views, a manageable distance, and a welcoming post-race celebration. Riders leave satisfied but not transformed."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Good Texas gravel community vibe with friendly locals and growing participation. The December timing adds a festive, end-of-season celebration feel."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Primarily draws regional Texas riders with some competition at the front. No elite pro field or series points, though strong local racers show up to compete."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Good value for a well-organized 30-mile gravel race. Registration fees are reasonable for a regional event, and you get a quality Texas Hill Country gravel experience without premium pricing."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Reasonable total expenses with Austin-area access. Lodging options range from budget to mid-range in Georgetown and Austin. The short distance means minimal gear requirements and travel is straightforward from a major metro area."
+      }
+    },
+
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Good"
+  }
+}

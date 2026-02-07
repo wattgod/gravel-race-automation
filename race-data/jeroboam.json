@@ -1,0 +1,309 @@
+{
+  "race": {
+    "name": "JEROBOAM",
+    "slug": "jeroboam",
+    "display_name": "Jeroboam",
+    "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
+
+    "vitals": {
+      "distance_mi": 186,
+      "distance_km": 300,
+      "elevation_ft": 23000,
+      "elevation_m": 7000,
+      "location": "Erbusco, Lombardy, Italy",
+      "location_badge": "FRANCIACORTA, ITALY",
+      "date": "July annually (flagship Italy event)",
+      "date_specific": "2025: July 10-13 (Franciacorta)"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 88,
+      "course_profile": 31,
+      "biased_opinion": 26,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "The flagship 300km (186 miles) Jeroboam distance is true ultra territory, with a new 600km Mathusalem option for the certifiably insane. Even the 'Magnum' at 150km is substantial."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "This is MTB terrain masquerading as gravel. Unrideable hike-a-bike sections, 30% gradients, Roman cobbles, sweet singletrack, and loose rock descents. Riders consistently surprised by how technical it actually is."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "A savage 7,000m+ (23,000ft) of climbing on the 300km, with 1,200m gained in just the first 30km. The Dolomites edition pushes to 10,000m. The Mathusalem 600km features 14,500m. This is alpine warfare."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Northern Italian autumn brings variable conditions - fog, mist, thunderstorms, and rain are common. Cold wet night riding is virtually guaranteed. Weather has repeatedly 'added an unpredictable layer' to the suffering."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Routes traverse the Lombard Prealps with alpine road climbs. While not at extreme altitude, the continuous climbing through 3,000-6,000ft terrain affects performance over 20+ hours."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "International travel to Italy required for most participants. Milan-area airports are accessible, but it's a multi-day commitment in a wine country region. Free camping available, but quality accommodation runs $100-600/night."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Absolute bucket list material. Mandatory night riding through alpine passes, watching sunrise after 20+ hours of suffering, circumnavigating Lake Iseo, passing through legendary Franciacorta vineyards. The wine bottle naming, 3T heritage, and 'world's toughest gravel' reputation create an unforgettable experience."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Legendary status in the ultra-gravel community as arguably 'the world's toughest gravel ride.' Backed by 3T's Gerard Vroomen and embodying the brand's gravel philosophy. However, no UCI or Life Time Grand Prix affiliation limits global recognition outside dedicated ultra circles."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional organization by REVERB Cycling and 3T. GPS tracking on 300km, structured aid stations with gate closures, quality event village with camping, and well-planned checkpoints. The 'not a race' philosophy is executed authentically."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing for those who finish. The combination of night riding, sunrise over Italian alps, wine culture integration, suffering alongside international riders, and the sheer accomplishment of completing 300km with 7,000m climbing creates memories that last a lifetime. 'An experience I'll never forget' is a common refrain."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong emphasis on 'riding together' rather than racing. Organisers actively stress the community over competition ethos. Everyone described as 'super friendly and positive' despite grueling conditions. The 3T gravel philosophy attracts like-minded suffering enthusiasts."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Competitive but primarily European-focused. No LTGP or UCI points attracts serious ultra-endurance specialists rather than marquee pro names. Japan events sold out with 50 riders - this is quality over quantity."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR 100-110 for the 300km is remarkably reasonable for an ultra-endurance event with GPS tracking, organic shirts, aid stations, and 24-hour support. The experience delivered significantly exceeds the entry fee."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The entry is cheap; everything else is not. International flights to Italy, 3-4 nights in wine country accommodation ($100-600/night), meals, and bike logistics easily push total trip costs to $1,500-2,500+ for North American riders."
+      }
+    },
+
+    "distances": [
+      {
+        "name": "Mathusalem",
+        "distance_km": 600,
+        "distance_mi": 373,
+        "elevation_m": 14500,
+        "elevation_ft": 47572,
+        "description": "The ultimate ultra gravel odyssey - 600km with 14,500m climbing. New for 2025. For the most expert riders only."
+      },
+      {
+        "name": "Jeroboam",
+        "distance_km": 300,
+        "distance_mi": 186,
+        "elevation_m": 7000,
+        "elevation_ft": 22966,
+        "description": "The flagship distance - 300km with 7,000m+ climbing. Starts late afternoon, mandatory night riding, 24-hour cutoff."
+      },
+      {
+        "name": "Magnum",
+        "distance_km": 150,
+        "distance_mi": 93,
+        "elevation_m": 3000,
+        "elevation_ft": 9843,
+        "description": "Half the distance, still a proper challenge. 150km with ~3,000m climbing."
+      },
+      {
+        "name": "Standard",
+        "distance_km": 75,
+        "distance_mi": 47,
+        "elevation_m": 1500,
+        "elevation_ft": 4921,
+        "description": "The accessible option - 75km through Franciacorta vineyards."
+      },
+      {
+        "name": "Demi",
+        "distance_km": 37.5,
+        "distance_mi": 23,
+        "elevation_m": null,
+        "elevation_ft": null,
+        "description": "Family-friendly route designed for wine discovery through renowned vineyards."
+      }
+    ],
+
+    "location": {
+      "city": "Erbusco",
+      "state": "Lombardy",
+      "country": "Italy",
+      "region": "Franciacorta Wine Region",
+      "coordinates": {
+        "lat": 45.5833,
+        "lng": 10.0333
+      },
+      "nearest_airports": [
+        "Milan Bergamo (BGY) - closest",
+        "Milan Malpensa (MXP)",
+        "Milan Linate (LIN)",
+        "Verona (VRN)"
+      ]
+    },
+
+    "series": {
+      "name": "Jeroboam Gravel Series",
+      "locations": [
+        "Italy (Franciacorta - flagship)",
+        "Austria (Worthersee)",
+        "Spain (Mallorca)",
+        "Czech Republic",
+        "Japan",
+        "Costa Rica",
+        "Malaysia",
+        "Greece"
+      ]
+    },
+
+    "organizer": {
+      "name": "REVERB Cycling in collaboration with 3T Cycling",
+      "website": "https://jeroboam.bike/",
+      "heritage": "Founded 2017 by 3T Bikes, co-founded by Gerard Vroomen (Cervelo co-founder)"
+    },
+
+    "registration": {
+      "opens": "February 1st typically",
+      "early_bird_deadline": "March 1",
+      "prices": {
+        "jeroboam_300km": {
+          "early_bird_eur": 100,
+          "regular_eur": 110
+        },
+        "magnum_150km": {
+          "early_bird_eur": 60,
+          "regular_eur": 70
+        },
+        "standard_75km": {
+          "early_bird_eur": 30,
+          "regular_eur": 40
+        },
+        "demi_37km": {
+          "price_eur": 10
+        }
+      },
+      "includes": [
+        "Organic Jeroboam shirt",
+        "GPS tracker rental (300km)",
+        "Aid station access",
+        "Slow food vouchers",
+        "Event village access"
+      ]
+    },
+
+    "terrain": {
+      "surface_breakdown": {
+        "gravel_offroad_percent": 33,
+        "asphalt_percent": 67,
+        "note": "Despite percentages, 'it averaged out to gravel' - the technical nature makes it feel like more"
+      },
+      "terrain_types": [
+        "Big alpine road climbs",
+        "Cobbled paths and Roman roads",
+        "Mountain bike trails and singletrack",
+        "Gravelly double track through vineyards",
+        "Loose rock descents",
+        "Technical wet sections",
+        "Unrideable hike-a-bike sections"
+      ],
+      "max_gradient": "30%"
+    },
+
+    "race_format": {
+      "philosophy": "Not a race, it's an endurance challenge",
+      "timing": "Timed with results, but emphasis on completion",
+      "start_time": "300km starts 4-6pm (late afternoon)",
+      "night_riding": "Mandatory - significant portion in complete darkness",
+      "cutoff_hours": 24,
+      "gate_closures": "Aid stations based on 15 km/h average speed",
+      "typical_finish_times": {
+        "fastest": "20-21 hours",
+        "slowest": "30-40 hours (with checkpoint stops)"
+      }
+    },
+
+    "weather": {
+      "typical_conditions": "Variable Italian autumn - fog, mist, rain possible",
+      "temperature_range": {
+        "day_celsius": "18-21",
+        "night_celsius": "12-15"
+      },
+      "historical_notes": [
+        "Hills covered in mist and fog",
+        "Thunderstorms with heavy rain reported",
+        "Wet rocks and roots challenging",
+        "Cold wet night riding common"
+      ]
+    },
+
+    "equipment_requirements": {
+      "lights": "Mandatory - sufficient for all-night riding",
+      "tires": "Tubeless virtually mandatory, 40-45mm+ recommended",
+      "backup_batteries": "Critical for navigation and lights"
+    },
+
+    "unique_characteristics": [
+      "Distances named after wine bottle sizes (Jeroboam = 3 liters)",
+      "Set in Italy's premier sparkling wine region (Franciacorta)",
+      "Organized by 3T Bikes - they practice what they preach",
+      "Mandatory night riding creates unforgettable sunrise experiences",
+      "World's toughest gravel ride reputation",
+      "Multi-country series spanning Europe, Asia, Americas",
+      "Up to 30% gradients and hike-a-bike sections",
+      "Wine culture integral to event DNA"
+    ],
+
+    "who_this_is_for": [
+      "Ultra-endurance specialists",
+      "Riders who've completed 200km+ gravel events",
+      "Those seeking 'world's toughest gravel' bragging rights",
+      "Wine lovers who also suffer on bikes",
+      "Night riding enthusiasts",
+      "Cyclists seeking European gravel adventure"
+    ],
+
+    "who_should_avoid": [
+      "First-time gravel racers",
+      "Those uncomfortable with night riding",
+      "Riders without tubeless setup",
+      "Anyone expecting 'just gravel'",
+      "Those with limited vacation time/budget"
+    ],
+
+    "comparable_events": [
+      "Badlands (similar ultra-endurance, European)",
+      "Unbound 200 (similar distance but easier - less climbing)",
+      "Transcontinental Race (harder - multi-day)",
+      "Silk Road Mountain Race (harder - multi-day)"
+    ],
+
+    "history": {
+      "founded": 2017,
+      "founding_story": "First Jeroboam Bike Festival held in Franciacorta, backed by 3T Bikes",
+      "notable_years": {
+        "2018": "Gained reputation as brutally difficult",
+        "2019": "Third edition - first finisher matched last finisher time at Dirty Kanza",
+        "2024": "Four European events (Asiago, Czech Republic, Austria, Franciacorta)",
+        "2025": "Introduction of 600km Mathusalem ultra-distance option"
+      }
+    },
+
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Comprehensive - verified against official sources and rider reports",
+    "research_sources": [
+      "jeroboam.bike (official)",
+      "3T Bike Blog",
+      "BikeRadar race reports",
+      "Off.road.cc feature",
+      "Gravel Cyclist ride reports"
+    ]
+  }
+}

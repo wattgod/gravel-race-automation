@@ -1,0 +1,198 @@
+{
+  "race": {
+    "name": "BELGIAN WAFFLE RIDE NORTH CAROLINA",
+    "slug": "bwr-north-carolina",
+    "display_name": "Belgian Waffle Ride North Carolina",
+    "tagline": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
+
+    "vitals": {
+      "distance_mi": 131,
+      "elevation_ft": 13000,
+      "location": "Hendersonville, North Carolina",
+      "location_badge": "HENDERSONVILLE, NC",
+      "date": "October annually",
+      "date_specific": "2026: TBA (typically early October)"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "course_profile": 24,
+      "biased_opinion": 26,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "The Waffle course ranges from 100-137 miles depending on year. Even the shortened 2025 course was 100 miles. Substantial distance in the century-plus category without reaching ultra territory."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "This is the most technical BWR course. Singletrack sections, 29% grades, rocky descents, creek crossings, and mandatory hike-a-bike sections. MTB skills are essential - pure road fitness won't save you here."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Brutal Appalachian climbing with 9,000-14,000 ft of gain depending on year. Over 20 categorized climbs with relentless punchy efforts. The steepest sectors hit 29% grade."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "October timing provides near-ideal conditions - 67F highs, moderate humidity, minimal rain risk. The move from June eliminated the brutal heat that plagued earlier editions. Fall foliage is a bonus."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Blue Ridge Mountains venue sits around 2,500 ft elevation. No significant altitude concerns - sea-level athletes won't notice any performance impact."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Asheville Regional Airport is just 11 miles/17 minutes from the venue. Charlotte Douglas offers more flight options at 97 miles. Hendersonville has good lodging, and Kanuga Resort on-site is ideal but books fast."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Stunning Blue Ridge Mountain scenery with peak fall colors, 30-acre lake views, waterfalls, dense Appalachian forests, and a two-state course crossing into South Carolina. Memorable and photogenic throughout."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Part of the respected Belgian Waffle Ride series with the 'Hell of the East' nickname. Attracts top gravel pros and is part of the Quadrupel Crown series championship. National recognition in the gravel community."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Monuments of Cycling delivers world-class production. Professional expo at Kanuga Resort, quality aid stations, well-marked course, and Belgian-themed post-race festivities. Minor deduction for packet pickup chaos issues."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The combination of challenging 'Unroad' sectors, stunning mountain scenery, and Belgian beer culture creates a memorable race day. You'll remember the suffering and the celebration equally."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong gravel community vibe with dedicated BWR fans. Belgian theme creates unique culture - beer, waffles, and shared suffering. Hardcore crowd that respects the challenge."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Top gravel pros attend - past winners include Peter Stetina, Adam Roberge, and Lauren De Crescenzo. Quadrupel Crown points bring competitive fields. Not LTGP level but strong pro presence."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$195 entry is premium gravel pricing. The organization quality, venue, and overall experience justify the cost, but it's not cheap. You're paying for a well-produced event, not budget gravel."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate total costs. Asheville flights are available but not the cheapest. Hotels run $100-200/night. On-site Kanuga Resort is premium but eliminates logistics headaches. Budget $800-1,200 total trip cost."
+      }
+    },
+
+    "race_details": {
+      "inaugural_year": 2022,
+      "organizer": "Monuments of Cycling",
+      "race_director": "Michael Marckx",
+      "venue": "Kanuga Resort",
+      "venue_address": "130 Kanuga Chapel Dr, Hendersonville, NC 28739",
+      "gravel_percentage": 40,
+      "unroad_sectors": "16-20",
+      "steepest_grade_percent": 29,
+      "nickname": "The Hell of the East",
+      "series": "Belgian Waffle Ride Series / Quadrupel Crown"
+    },
+
+    "distance_options": [
+      {
+        "name": "Waffle",
+        "distance_mi": "100-137",
+        "elevation_ft": "9,000-14,000",
+        "entry_fee": 195,
+        "description": "Full distance through challenging Appalachian terrain with all Unroad sectors"
+      },
+      {
+        "name": "Wafer",
+        "distance_mi": "68-84",
+        "elevation_ft": "5,000-7,000",
+        "entry_fee": 195,
+        "description": "Half distance with substantial climbing through Blue Ridge Mountains"
+      },
+      {
+        "name": "Wanna",
+        "distance_mi": "35-40",
+        "elevation_ft": "2,500-4,000",
+        "entry_fee": 100,
+        "description": "Entry-level BWR experience with select Unroad sectors"
+      }
+    ],
+
+    "past_winners": [
+      { "year": 2022, "mens_winner": "Peter Stetina", "womens_winner": "Sarah Max" },
+      { "year": 2023, "mens_winner": "Adam Roberge", "womens_winner": "Austin Killips" },
+      { "year": 2024, "mens_winner": "Josh Burnett", "womens_winner": "Lauren De Crescenzo" },
+      { "year": 2025, "mens_winner": "Adam Roberge", "womens_winner": "Emily Newsom" }
+    ],
+
+    "logistics": {
+      "primary_airport": {
+        "code": "AVL",
+        "name": "Asheville Regional Airport",
+        "distance_miles": 11,
+        "drive_time_minutes": 17
+      },
+      "secondary_airport": {
+        "code": "CLT",
+        "name": "Charlotte Douglas International",
+        "distance_miles": 97,
+        "drive_time_minutes": 110
+      },
+      "lodging_options": [
+        "Kanuga Resort (on-site, recommended)",
+        "Hendersonville hotels (10-15 min drive)",
+        "Asheville hotels (30-40 min drive)"
+      ]
+    },
+
+    "weather": {
+      "october_avg_high_f": 67,
+      "october_avg_low_f": 47,
+      "humidity_percent": 75,
+      "conditions": "Near-ideal fall weather with potential for cool mornings and spectacular foliage"
+    },
+
+    "black_pill": [
+      "You WILL hike-a-bike. Multiple sections have near-100% hike rates by design.",
+      "29% grades are real. Anything larger than 40t chainring means walking.",
+      "Early singletrack creates massive bottlenecks - you'll walk rideable sections.",
+      "A gravel bike is the wrong tool for significant portions. MTB skills essential.",
+      "$195 is premium pricing for a gravel race.",
+      "Packet pickup chaos - pick up Friday or risk missing your start.",
+      "The hardest BWR course. 'Hell of the East' is earned, not marketing."
+    ],
+
+    "who_should_race": [
+      "Experienced gravel racers seeking genuine challenge",
+      "Riders with MTB or cyclocross backgrounds",
+      "Those who embrace epic suffering as part of the experience",
+      "Athletes who've trained specifically on similar terrain",
+      "Anyone who wants to test themselves against the hardest BWR"
+    ],
+
+    "who_should_not_race": [
+      "First-time gravel racers",
+      "Roadies seeking a casual 'gravel experience'",
+      "Anyone uncomfortable with mandatory hike-a-bike",
+      "Riders without technical off-road skills",
+      "Those who expect predictable pacing"
+    ],
+
+    "links": {
+      "website": "https://www.belgianwaffleride.bike/pages/northcarolina",
+      "registration": "https://www.bikereg.com/belgian-waffle-ride-north-carolina",
+      "instagram": "https://www.instagram.com/belgianwaffleride/"
+    },
+
+    "lastUpdated": "2026-01-13",
+    "dataQuality": "Complete",
+    "scoringVersion": "GravelGod v2.1"
+  }
+}

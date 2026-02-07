@@ -1,0 +1,184 @@
+{
+  "race": {
+    "name": "TORINO NICE RALLY",
+    "slug": "torino-nice-rally",
+    "display_name": "Torino Nice Rally",
+    "tagline": "700km crossing the Alps from Italy to France on legendary military roads. Where bikepacking pilgrimage meets high-altitude adventure.",
+
+    "vitals": {
+      "distance_mi": 435,
+      "elevation_ft": 52493,
+      "location": "Turin, Italy to Nice, France",
+      "location_badge": "TURIN, ITA - NICE, FRA",
+      "county": "Piedmont (Italy) to Provence-Alpes-Cote d'Azur (France)",
+      "date": "First week of September annually",
+      "date_specific": "2025: Status uncertain - check official website",
+      "terrain_types": ["Paved alpine roads", "Military gravel roads", "Rough doubletrack", "Hike-a-bike sections", "Rocky terrain"],
+      "field_size": "~150 riders (official group start)",
+      "start_time": "Friday/Monday morning",
+      "registration": "Postcard lottery, ~25 EUR entry fee (includes finisher's party)",
+      "prize_purse": "Non-competitive event - finisher recognition only",
+      "aid_stations": "None - fully self-supported. Resupply at villages, refugios, and public establishments.",
+      "cutoff_time": "None - typical finish 4-8 days"
+    },
+
+    "climate": {
+      "primary": "High Alpine September - extreme temperature swings from valley heat to alpine cold",
+      "description": "Early September in the Alps presents dramatic conditions. Valley floors can hit 30°C+ heat waves while passes above 2,500m drop below 10°C with potential snow. Col Agnel descents are particularly cold and bleak. Afternoon thunderstorms build ominously in the mountains. Riders must prepare for 20-30°C temperature swings within a single day.",
+      "challenges": ["30°C+ valley heat causing dehydration", "Near-freezing temperatures at 2,750m passes", "Snow possible on highest cols even in September", "Unpredictable mountain thunderstorms", "Dust on dry gravel with motor traffic"]
+    },
+
+    "terrain": {
+      "primary": "Mixed Alpine terrain - paved cols, military gravel roads, rocky doubletrack",
+      "surface": "~65% paved alpine roads, ~35% gravel/military roads. Rocky sections on Strada dei Cannoni require MTB-level skills. Some optional hike-a-bike sections.",
+      "technical_rating": 4,
+      "features": ["Col Agnel (2,750m - highest point)", "Colle delle Finestre (Giro d'Italia fame)", "Gardetta Pass 'Little Peru' - 35km of high mountain gravel", "Strada dell'Assietta ridgeline above 2,000m", "Via del Sale - 30km of dream gravel finale"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 89,
+      "course_profile": 33,
+      "biased_opinion": 30,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "tier_override_reason": "One of the original European bikepacking events with legendary status. Founded 2015, inspired by Tour Divide ethos.",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 5,
+        "explanation": "700km (435mi) is firmly in ultra-endurance territory. This is a multi-day expedition crossing the entire Maritime Alps from Italy to France. Fast riders complete in 4-5 days, typical finishers in 5-7 days. The distance alone qualifies as a serious bikepacking challenge before considering the terrain."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Not technically difficult in a mountain biking sense, but the military roads demand respect. Strada dei Cannoni features the biggest rocks on the route - more suited to MTB than gravel bikes. Colle del Colombardo regularly hits 14-18% gradients on degrading gravel. Optional hike-a-bike sections at Col du Peas and Little Peru add expedition character. Has been done on 35mm tires - not recommended."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "15,000-20,000m (49,200-65,600ft) cumulative gain rivals the most extreme gravel events globally. Every single day takes riders over passes above 2,000m. Ten major cols including Col Agnel, Colle delle Finestre, Col d'Izoard (Tour de France), and Col de Turini's 26km unrelenting climb. The climbing is absolutely relentless across 700km."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Early September in the high Alps presents significant challenges but not extreme survival conditions. Valley heat can drain riders at altitude, causing dehydration. Col Agnel descent is notoriously cold and bleak for exposed toes. Snow and unrelenting rain have forced riders to shelter in Sampeyre. Anyone motivated and well-equipped can finish - but must prepare for mountain weather."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Col Agnel tops out at 2,750m (9,022ft). Extended riding above 2,000m on Strada dell'Assietta and Gardetta Pass. The sweet spot of 2,000-3,000m where peaks escape trees and rocks reveal geological beauty. Significant altitude effects for riders from sea level - labored breathing combined with dust from motor traffic creates unpleasant combinations."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Fully self-supported with no external assistance allowed. Turin start and Nice finish require travel planning across two countries. Return logistics via train (5+ hours Tenda Railway scenic route) or FlixBus. Italian villages provide good water tap network, but Via del Sale has very rare fountains - must plan ahead. Refuges can close early unexpectedly. Route files essential for navigation."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Possibly the most adventure-rich gravel event in Europe. Gardetta Pass 'Little Peru' is described as 'possibly the most mesmerizing gravel ride in the world.' Via del Sale's 30km finale offers 'complete joy, dream gravel, and amazing views.' Cross-border journey through Queyras and Mercantour National Parks. Historic military road heritage. Refugio culture. The sweet spot between 2,000-3,000m where sky becomes more blue."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "One of the original European bikepacking events, founded 2015 and inspired by Tour Divide's free, unregulated ethos. Legendary status in the bikepacking community. Lael Wilcox organized the historic 2021 Women's TNR - first women's-only bikepacking event in Europe. Josh Ibbett, Joachim Rosenlund, and other notable ultra-cyclists have participated. Finishing TNR carries permanent respect."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Intentionally minimal organization - this is NOT a race. 25 EUR entry includes finisher's party (first beer and burger). GPX files provided via Komoot. No aid stations, no tracking infrastructure for most editions (TrackLeaders provided tracking for 2021 Women's event). The stripped-back approach is the point - it's about the adventure, not the production."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Life-changing. Sunrise above 2,500m. Stunning remote bivvy spots at high altitude. Rolling ridgelines on ancient military roads. The refugio culture - Refuge d'Agnel with its stunning sunset views, Rifugio Massacan's warm welcome at the finish. 'Food for your soul' - the event philosophy. Riders describe the experience as transformative, not just memorable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Legendary community ethos. 'Not a race - adventure with friends.' Rolling community where participants leapfrog, make friends, and help each other. 100% non-profit supporting Smart Shelter Foundation (provides 60% of their annual budget). Women's TNR 2021 created lasting bonds among 26 finishers from 7 countries. The finisher's party tradition embodies the communal spirit."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Attracts dedicated ultra-endurance enthusiasts and bikepacking specialists rather than competitive racing elite. Notable participants include Lael Wilcox and Josh Ibbett, but this isn't about competition. Croatian riders finished 'almost twice as fast' as typical participants - the range reflects the adventure-first philosophy. Field depth in pure racing terms is moderate."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "25 EUR entry fee is exceptional value - includes finisher's party with food and beer. Route available for independent riding year-round via Komoot. No lottery system when official event runs. Self-supported nature means you control your own accommodation and food costs. The value proposition is remarkable for a world-class bikepacking experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Turin and return from Nice requires planning. Train (24 EUR, 5+ hours) or FlixBus (12-35 USD) for return logistics. Multi-day food and accommodation costs during ride - refugios provide meals or can wild camp at altitude. Total trip budget moderate compared to North American destination races, but not budget-friendly due to duration and international travel."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Alpine Pilgrimage",
+      "summary": "The Torino Nice Rally represents bikepacking at its purest. 700km crossing the Maritime Alps from Italy to France on legendary military roads, fully self-supported, for 25 EUR. It's not a race - it's a pilgrimage. The Gardetta Pass 'Little Peru' section is described as possibly the most mesmerizing gravel ride in the world. Via del Sale's finale is 30km of dream gravel. The refugio culture, the rolling community, the charity mission for Smart Shelter Foundation - this is what the bikepacking ethos looks like when executed with soul. Founded with Tour Divide inspiration, TNR has earned its legendary status.",
+      "strengths": [
+        "One of the original European bikepacking events with legendary status",
+        "Gardetta Pass 'Little Peru' - possibly the world's most mesmerizing gravel",
+        "25 EUR entry fee for a world-class 700km Alpine crossing",
+        "Strong community ethos and charity mission"
+      ],
+      "weaknesses": [
+        "Event status uncertain for 2025 - insurance issues",
+        "Minimal organization reflects adventure-first philosophy",
+        "Rocky military roads punish pure gravel bikes"
+      ],
+      "bottom_line": "If you want the quintessential European bikepacking pilgrimage, TNR is the answer. This is what the sport looks like when it's about adventure, community, and soul."
+    },
+
+    "black_pill": {
+      "title": "ALPINE REALITY CHECK",
+      "reality": "700km and 16,000m+ climbing through the high Alps is not a casual endeavor. Weather can turn brutal - snow and unrelenting rain have stopped riders in Sampeyre. Strada dei Cannoni features rocks that punish anything under 47mm tires. Massive rockslides can wipe away roads completely - one rider descended 1,000m to find the road gone, forcing a choice between retracing steps or sketching across scattered rocks. The hike-a-bike sections are genuinely steep - 4 hours pushing bikes while being overtaken by hikers with trekking poles.",
+      "consequences": [
+        "Weather-forced scratches happen regularly on high passes",
+        "Rocky military roads can destroy equipment and confidence",
+        "Self-supported means no one is coming when things go wrong",
+        "Exhausted brains work less efficiently after 4-5 days in the mountains"
+      ],
+      "expectation_reset": "This requires very good fitness and advanced riding skills. Some portions may require pushing your bike. The climbs will take you out of your touring comfort zone. Bring gear for both 30°C valleys and potential snow at 2,750m. Have contingency plans for road closures and weather delays. Respect what 700km through the Alps actually demands."
+    },
+
+    "final_verdict": {
+      "score": "89 / 100",
+      "one_liner": "The quintessential European bikepacking pilgrimage - 700km crossing the Alps on legendary military roads for 25 EUR.",
+      "should_you_race": "Yes if you want authentic bikepacking adventure without commercial racing pressure. Yes if you appreciate community, charity, and soul over competition. Yes if you're prepared for multi-day Alpine self-sufficiency. Skip if you need race infrastructure and support. Skip if rocky military roads will destroy your pure gravel setup.",
+      "alternatives": "Badlands (similar European ultra, more extreme heat); Transcontinental Race (longer European ultra); The Traka 360 (Spanish bikepacking with more infrastructure)"
+    },
+
+    "logistics": {
+      "airport": "TRN (Turin) - start; NCE (Nice) - finish. Both cities have rail connections from major European hubs.",
+      "lodging_strategy": "Turin for pre-event. During ride: mountain refuges (Refuge d'Agnel, Rifugio Gardetta, Rifugio Casa Assietta), small hotels, wild camping at altitude. Rifugio Massacan at Nice finish provides logistics help, shower, and warm welcome.",
+      "food": "Self-supported - resupply at Italian villages with good water tap networks. Via del Sale has very rare fountains - plan ahead. Refuges provide meals and packed lunches for next day.",
+      "packet_pickup": "Group start from Piazza Giambattista Bodoni, Turin (when official event runs).",
+      "parking": "Turin city center start area.",
+      "official_site": "https://torino-nice.weebly.com"
+    },
+
+    "history": {
+      "founded": 2015,
+      "founder": "James Olsen",
+      "origin_story": "James Olsen created the route in 2015 for a bike testing trip. The first rally event ran in 2016, inspired by the Tour Divide's free, unregulated ethos promoting good ethics. Olsen met Martijn Schildkamp (Smart Shelter Foundation founder) in Nepal in 2008 while building a wind-break bivvy spot at Annapurna base camp - this connection led to TNR's charity partnership.",
+      "notable_moments": [
+        "2016: First official rally event",
+        "2021: Historic Women's TNR led by Lael Wilcox - first women's-only bikepacking event in Europe",
+        "2018-2024: Provided ~60% of Smart Shelter Foundation's annual budget through patches and sponsorships",
+        "2024: No official event - riders rode independently while organizers addressed insurance"
+      ],
+      "reputation": "One of the original European bikepacking events. Legendary status in the community. Where Tour Divide ethos meets Alpine adventure."
+    },
+
+    "course_description": {
+      "character": "A 700km pilgrimage across the Maritime Alps from Turin's Piazza Giambattista Bodoni to Nice's Rifugio Massacan. The route weaves between Italy and France across 10+ major cols, alternating between legendary Tour de France climbs and historic military gravel roads. 65% paved alpine roads, 35% gravel including the sublime Gardetta Pass 'Little Peru' and Via del Sale finale. Every day takes riders over passes above 2,000m. The sweet spot between 2,000-3,000m where peaks escape trees and sky becomes more blue.",
+      "suffering_zones": [
+        {"mile": 0, "label": "Colle del Colombardo", "desc": "First major challenge after leaving Turin. 'Potentially the toughest of them all.' 18%+ gradients on tarmac degrading to rough gravel doubletrack at 14%+."},
+        {"mile": 50, "label": "Colle delle Finestre", "desc": "Famous Giro d'Italia climb. 19km, 1,700m vertical. Last 8km on fine gravel. Site of Chris Froome's 2018 race-winning attack."},
+        {"mile": 120, "label": "Col Agnel", "desc": "Highest point at 2,750m. 20+ km climb at 6.6% average. Descent 'particularly cold and bleak, especially for toes.'"},
+        {"mile": 200, "label": "Gardetta Pass 'Little Peru'", "desc": "35km of high mountain gravel wilderness. 'Possibly the most mesmerizing gravel ride in the world.' The sweet spot of the entire event."},
+        {"mile": 350, "label": "Col de Turini", "desc": "26km unrelenting climb with 1,700m vertical. The final major Alpine test."},
+        {"mile": 400, "label": "Via del Sale", "desc": "30km unpaved finale. 'Complete joy, dream gravel, amazing views.' Last point feeling completely enveloped by Alps. Far from inhabited centers - very rare fountains."}
+      ],
+      "signature_challenge": "The complete Alpine crossing - 700km, 16,000m+ climbing, legendary military roads, self-supported through the Maritime Alps from Italy to France."
+    }
+  }
+}

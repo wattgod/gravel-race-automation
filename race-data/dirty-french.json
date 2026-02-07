@@ -1,0 +1,145 @@
+{
+    "race": {
+        "name": "DIRTY FRENCH",
+        "slug": "dirty-french",
+        "display_name": "Dirty French",
+        "tagline": "Ohio's Appalachian suffer fest - 9,000 feet of vertical brutality in the heartland",
+
+        "vitals": {
+            "distance_mi": 100,
+            "elevation_ft": 9000,
+            "location": "Chillicothe, Ohio",
+            "location_badge": "CHILLICOTHE, OHIO",
+            "date": "May annually",
+            "date_specific": "2026: May 2026"
+        },
+
+        "gravel_god_rating": {
+            "overall_score": 68,
+            "course_profile": 23,
+            "biased_opinion": 22,
+            "editorial_tier": 2,
+            "editorial_tier_label": "TIER 2",
+            "business_tier": 2,
+            "business_tier_label": "TIER 2",
+            "display_tier": 2,
+            "display_tier_label": "TIER 2"
+        },
+
+        "course_profile": {
+            "length": {
+                "score": 4,
+                "explanation": "100 miles places this in substantial territory. Not ultra-distance but a full day of demanding riding through Ohio's toughest terrain."
+            },
+            "technicality": {
+                "score": 3,
+                "explanation": "Mixed terrain with steep Appalachian gravel roads, technical descents, and challenging loose surfaces. Not extreme singletrack but demands respect and bike handling skills."
+            },
+            "elevation": {
+                "score": 4,
+                "explanation": "9,000+ feet of climbing in 100 miles is exceptional for the Midwest. Relentless punchy climbs through Appalachian foothills create leg-destroying accumulated vertical."
+            },
+            "climate": {
+                "score": 3,
+                "explanation": "Ohio spring weather is a dice roll - temps in the 50s-70s with real potential for rain and mud. Not extreme but variable conditions keep riders guessing."
+            },
+            "altitude": {
+                "score": 1,
+                "explanation": "Low elevation throughout at roughly 700-1,200 feet above sea level. No altitude considerations - pure climbing difficulty without thin air complications."
+            },
+            "logistics": {
+                "score": 3,
+                "explanation": "Chillicothe is accessible from Columbus (45 min) and Cincinnati (90 min). Regional airports nearby, modest hotel options available. Not remote but requires planning."
+            },
+            "adventure": {
+                "score": 5,
+                "explanation": "Ohio's Appalachian landscape delivers unexpected beauty - rolling hills, forests, and pastoral countryside that surprises riders expecting flat Midwest terrain. The suffering creates lasting memories."
+            }
+        },
+
+        "biased_opinion_ratings": {
+            "prestige": {
+                "score": 3,
+                "explanation": "Growing reputation as the hardest gravel race in the Midwest. Regional recognition is strong and expanding, but not yet nationally prominent or series-affiliated."
+            },
+            "race_quality": {
+                "score": 3,
+                "explanation": "Solid organization by Wheelhouse Bikes with appropriate aid stations and support for a self-supported format. Good execution without Life Time-level production value."
+            },
+            "experience": {
+                "score": 4,
+                "explanation": "The suffer fest creates a memorable experience - beautiful Appalachian scenery combined with relentless climbing produces stories worth telling. Riders remember this one."
+            },
+            "community": {
+                "score": 3,
+                "explanation": "Limited field creates intimate atmosphere with good camaraderie among participants. Regional gravel community is supportive, though not the legendary vibe of iconic events."
+            },
+            "field_depth": {
+                "score": 2,
+                "explanation": "Strong regional competitors attend but lacks national pro presence. No LTGP or series affiliation means elite riders generally absent. Competitive but not deep."
+            },
+            "value": {
+                "score": 4,
+                "explanation": "Good value for a challenging, well-organized regional event. Registration fees are reasonable for what you get - a genuine suffer fest in beautiful country."
+            },
+            "expenses": {
+                "score": 3,
+                "explanation": "Moderate total costs - affordable lodging in Chillicothe area, reasonable travel for Midwest residents. Easy driving distance from major Ohio cities keeps expenses manageable."
+            }
+        },
+
+        "location": {
+            "city": "Chillicothe",
+            "state": "Ohio",
+            "country": "USA",
+            "region": "Southeast Ohio"
+        },
+
+        "date": {
+            "month": "May",
+            "typical": "May",
+            "season": "Spring",
+            "year2026": "May 2026"
+        },
+
+        "organizer": {
+            "name": "Wheelhouse Bikes",
+            "website": "https://www.dirtyfrench.org/"
+        },
+
+        "distances": [
+            {
+                "name": "100 Mile",
+                "distance": "100 miles",
+                "elevationGain": "9,000+ feet",
+                "description": "Extremely challenging through Ohio's Appalachian foothills"
+            },
+            {
+                "name": "60 Mile",
+                "distance": "60 miles",
+                "elevationGain": "5,000+ feet",
+                "description": "Medium distance with serious climbing"
+            }
+        ],
+
+        "terrain": "Appalachian foothills gravel - steep sustained climbs, technical terrain, challenging Ohio hill country",
+        "registration": "Limited field, opens in winter",
+        "weather": "Ohio spring - variable temperatures (50s-70s F), potential for rain and mud",
+
+        "uniqueCharacteristics": [
+            "One of the hardest gravel races in the Midwest",
+            "9,000+ feet of climbing in 100 miles",
+            "Steep Appalachian foothills terrain",
+            "Challenging Ohio countryside",
+            "Known for tough spring conditions",
+            "Self-supported format",
+            "Growing reputation as a suffer fest",
+            "Beautiful but brutal Ohio Appalachian landscape"
+        ],
+
+        "seriesAffiliation": "Independent",
+        "popularity": "High - toughest Midwest gravel race",
+        "lastUpdated": "2026-01-13",
+        "dataQuality": "Good"
+    }
+}

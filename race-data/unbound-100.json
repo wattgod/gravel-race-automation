@@ -1,0 +1,186 @@
+{
+  "race": {
+    "name": "UNBOUND GRAVEL 100",
+    "slug": "unbound-100",
+    "display_name": "Unbound Gravel 100",
+    "tagline": "The little sibling that still kicks your ass. 100 miles of Flint Hills gravel—all the suffering, half the existential crisis.",
+
+    "vitals": {
+      "distance_mi": 104,
+      "elevation_ft": 4000,
+      "location": "Emporia, Kansas",
+      "location_badge": "EMPORIA, KS",
+      "county": "Lyon County",
+      "date": "First Saturday of June annually",
+      "date_specific": "2026: May 30",
+      "terrain_types": ["Flint rock roads", "Chunky gravel", "Paved transfers", "Cattle pasture B-roads"],
+      "field_size": "~1,500+ riders",
+      "start_time": "Saturday 6:00 AM",
+      "registration": "Lottery November. Cost: ~$245",
+      "prize_purse": "Prize money for elite categories",
+      "aid_stations": "1 full checkpoint (Council Grove, ~mi 50)",
+      "cutoff_time": "10 hours (4:00 PM)"
+    },
+
+    "climate": {
+      "primary": "Kansas summer—extreme heat, humidity, thunderstorms possible",
+      "description": "Late May/early June in Kansas means 85-95°F highs with high humidity. Full sun exposure on open prairies. Thunderstorms are a perennial threat. The 2023 edition saw brutal mud conditions in the morning. 'Whatever brutal weather Kansas decides to serve up.'",
+      "challenges": ["Extreme heat (85-100°F possible)", "High humidity causing fluid loss", "Thunderstorms with mud potential", "Zero shade on open prairie"]
+    },
+
+    "terrain": {
+      "primary": "Flint Hills gravel—sharp rocks that destroy tires and spirits",
+      "surface": "~90% unpaved chunky flint rock roads, ~10% paved transfers. Sharp stones slice sidewalls. Clay mud when wet becomes 'peanut butter' that stops bikes.",
+      "technical_rating": 3,
+      "features": ["Tire-slicing flint", "Washed-out gullies", "Punchy rolling hills", "Rivers to ford", "Primitive unmaintained roads"]
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 85,
+      "course_profile": 22,
+      "biased_opinion": 30,
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "tier_override_reason": "Part of Unbound Gravel festival—world's premier gravel event. Life Time production. Shares prestige with flagship 200.",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "100 miles (actually ~103-108mi depending on year). A serious day in the saddle—elite men finish in ~5 hours, but mid-pack riders face 7-10 hours. The distance alone doesn't break you; the terrain does."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Not MTB-technical, but the flint rocks are brutal on equipment. Sharp, chunky gravel requires line selection. Washed-out gullies and primitive roads demand attention. Mud years add chaos. The terrain is simple but punishing."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "~3,600-4,373ft of climbing across 100 miles. The Flint Hills are 'deceptively challenging'—relentless rollers with punchy climbs that add up. No big peaks, just endless undulation that grinds you down."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Kansas late spring is brutal. Temperatures can exceed 100°F in the afternoon. High humidity, full sun exposure on open prairie, and severe weather risk. 2023 showed the mud can be race-defining. Heat management is survival."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Emporia is ~1,200ft elevation—oxygen abundant. The challenge is heat, humidity, and terrain, not thin air. Sea-level athletes have no disadvantage here."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Emporia is small—hotels book out fast after lottery results. Kansas City airport is ~2 hours away. The town embraces race week but accommodations are tight. Many camp at the fairgrounds or stay in nearby towns."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The Flint Hills in late spring are stunning—wildflowers, big sky country, isolated ranch roads through America's last tall-grass prairie. The mass start experience, Commercial Street finish, and festival atmosphere create lasting memories."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "Part of THE gravel event. The 100 carries Unbound's 'Super Bowl of Gravel' prestige. You're racing the same terrain as the 200-mile legends. The Unbound name on your finisher medal means something in gravel circles."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Life Time runs a professional operation. Mass start with police escort, well-stocked checkpoint, neutral mechanics, Crew For Hire program. The expo and festival rival major cycling events. Cutoffs are strictly enforced for safety."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The experience that defines gravel. 6 AM mass start rolling out of downtown Emporia with thousands of riders. Suffering through the Flint Hills. The iconic Commercial Street finish with crowds roaring. You earn your pint glass and story."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Emporia becomes 'Gravel City' for race week. The town's population swells 50% with 12,000+ visitors. Locals embrace the chaos. The shared suffering creates bonds. Described as 'Glastonbury for bikes.'"
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Strong competitive field with elite pros. Winners like Tiffany Cromwell (2x champ), Lauren Stephens, Stephen Hyde. Not the full LTGP field of the 200, but attracts serious talent. Sprint finishes are common among top contenders."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~$245 entry is reasonable for a world-class event with proper festival atmosphere, professional support, and the Unbound prestige. You get more than your money's worth in experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Emporia is affordable IF you can secure lodging. Housing costs spike during race weekend. Flights to Kansas City plus 2-hour drive. Budget $800-1,200+ beyond entry for the trip. Many camp to save money."
+      }
+    },
+
+    "biased_opinion": {
+      "verdict": "The Gateway Drug",
+      "summary": "The 100 is designed as a launchpad to the 200—and it delivers. All the Flint Hills suffering, the Unbound atmosphere, the iconic finish, but in a (slightly) more digestible package. You'll still get humbled by Kansas. You'll still earn your finisher glass. And you'll probably start eyeing the 200 the moment you cross Commercial Street.",
+      "strengths": [
+        "Full Unbound prestige and atmosphere",
+        "Manageable distance for first-timers to Unbound",
+        "Same brutal terrain as the 200",
+        "Life Time production quality"
+      ],
+      "weaknesses": [
+        "Lottery entry—no guaranteed spot",
+        "Kansas weather can still be brutal",
+        "May feel like 'the other race' compared to 200",
+        "Lodging is still a nightmare"
+      ],
+      "bottom_line": "If you want the Unbound experience without committing to 200 miles of suffering, the 100 is perfect. It's still hard enough to break you, but you'll finish before dark."
+    },
+
+    "black_pill": {
+      "title": "THE FLINT WILL FIND YOUR WEAKNESS",
+      "reality": "The 100 is 'just half' the 200, but Kansas doesn't care about your math. The same tire-slicing flint rocks. The same peanut butter mud. The same relentless heat. Elite times are under 5 hours, but many riders face 8-10 hour days. You only get ONE checkpoint—that's 50+ miles of self-sufficiency each way. When the mud hits or the heat spikes, 100 miles feels like 200.",
+      "consequences": [
+        "Flat tires happen constantly—multiple riders fixing flats at every descent",
+        "Only one checkpoint means you carry everything for 50+ miles",
+        "The 10-hour cutoff is strict—pace wrong and you're pulled",
+        "Heat can exceed 100°F in the afternoon when you're most depleted"
+      ],
+      "expectation_reset": "Run 40mm+ tubeless tires with robust casings. Carry multiple spare tubes, plugs, and a pump. Train in heat and humidity. Pace conservatively—the Flint Hills punish ego. Have a rain/mud plan. Expect something to go wrong. The finish line party makes it worth it."
+    },
+
+    "final_verdict": {
+      "score": "85 / 100",
+      "one_liner": "All the Unbound prestige, all the Kansas suffering, half the distance—still not easy.",
+      "should_you_race": "Yes if you want the world-class Unbound experience in a (relatively) more accessible package. Yes if you're building toward the 200. Skip if lottery entry or Kansas weather are deal-breakers.",
+      "alternatives": "Unbound 200 (the full experience); SBT GRVL (Colorado scenery, better weather); Gravel Worlds (Nebraska alternative)"
+    },
+
+    "logistics": {
+      "airport": "KCI (Kansas City) - 2hr drive to Emporia; ICT (Wichita) - 1.5hr drive",
+      "lodging_strategy": "Hotels book out fast after lottery results. Many camp at Lyon County Fairgrounds (RV hookups available). ESU residence halls sometimes available. Nearby towns like Olpe, Americus have options. HotelPlanner is official partner.",
+      "food": "Emporia has standard restaurant/grocery options. Race week features expo food, pasta dinners. Finish line party with beer garden on Commercial Street.",
+      "packet_pickup": "Thursday-Friday at All Things Gravel Expo in downtown Emporia. Photo ID required.",
+      "parking": "Downtown streets close race day. Park legally nearby. The start is at Granada Theatre on Commercial Street.",
+      "official_site": "https://unboundgravel.com"
+    },
+
+    "history": {
+      "founded": 2013,
+      "founder": "Added to Dirty Kanza lineup as 100-mile option",
+      "origin_story": "Introduced in 2013 as a 'launchpad' to the flagship 200-mile event. Quickly became a race in its own right, attracting serious competition and riders who want the Unbound experience in a single-day format. Rebranded with Unbound name in 2021.",
+      "notable_moments": [
+        "2013: 100-mile distance debuts at Dirty Kanza",
+        "2021: Rebranded to Unbound Gravel with rest of event",
+        "2023: Brutal mud conditions test all distances",
+        "2024: Elliott Barring wins men's in 4:56:30 sprint finish",
+        "2025: Tiffany Cromwell claims second 100-mile title"
+      ],
+      "reputation": "The perfect entry point to Unbound—all the suffering you can handle before graduating to the 200."
+    },
+
+    "course_description": {
+      "character": "A 100-mile test through the Kansas Flint Hills. Leaves Emporia traveling north through Wabaunsee and Morris Counties. One checkpoint at Council Grove (~mile 50). Same brutal flint rock roads, rolling terrain, and open prairie as the 200—just compressed into a faster, more intense package.",
+      "suffering_zones": [
+        {"mile": 15, "label": "Welcome to Flint", "desc": "The smooth pavement ends. Chunky flint begins. Your tires start their battle for survival."},
+        {"mile": 35, "label": "Heat Rising", "desc": "Mid-morning on open prairie. Zero shade. The humidity climbs with the sun."},
+        {"mile": 50, "label": "Council Grove Checkpoint", "desc": "Your only oasis. Refuel, refill, repair. Everything after this is on you."},
+        {"mile": 75, "label": "The Long Road Home", "desc": "25 miles from aid, heat at peak, legs questioning choices. Where the race is won or lost."}
+      ],
+      "signature_challenge": "The combination of tire-destroying flint, Kansas heat, and self-sufficiency with only one checkpoint. Simple but relentless."
+    }
+  },
+  "dataQuality": "High",
+  "lastUpdated": "2026-01-13"
+}

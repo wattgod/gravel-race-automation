@@ -1,0 +1,180 @@
+{
+  "race": {
+    "name": "ALMANZO 100",
+    "slug": "almanzo-100",
+    "display_name": "Almanzo 100",
+    "tagline": "The Granddaddy of All Gravel Races - where the movement was born, and where your legs go to die on Oriole Road.",
+
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 6500,
+      "location": "Spring Valley, Minnesota",
+      "location_badge": "SPRING VALLEY, MN",
+      "date": "May annually (typically first Saturday after Mother's Day)",
+      "date_specific": "2025: May 17",
+      "region": "Driftless Region / Bluff Country",
+      "entry_fee": "FREE (postcard registration)",
+      "participant_cap": "None",
+      "support": "100% self-supported",
+      "distance_options": ["100 miles (flagship)", "162 miles (The Royal)", "380 miles (The Alexander)", "60 miles"],
+      "website": "https://www.almanzo.com/",
+      "alternate_website": "https://springvalleyeda.org/spring-valley-gravel-bike-races/"
+    },
+
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "course_profile": 22,
+      "biased_opinion": 27,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+
+    "course_profile": {
+      "length": {
+        "score": 4,
+        "explanation": "At 100 miles (actually 101), the flagship distance is substantial and puts it firmly in the challenging-but-not-ultra category. The 162-mile Royal and 380-mile Alexander options push into extreme territory for those seeking more punishment."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain including well-maintained gravel, freshly laid loose stone, packed dirt, broken pavement, and creek crossings. The second-half transition to energy-sapping fresh stone and the infamous Oriole Road climb at mile 90 (17% grades) add significant technical challenge. Not singletrack extreme, but far from smooth cruising."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "6,000-7,000 feet of climbing over 100 miles through the Driftless Region's rolling terrain. The constant ups and downs through bluffs and river valleys accumulate brutally, especially on gravel. Falls just short of the 6,000+ ft threshold for a score of 4, but the relentless nature of Driftless climbing makes every foot count."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "May in Minnesota is weather roulette. Historical conditions have ranged from 30s to 80s Fahrenheit. The infamous 2017 'Hellmanzo' edition brought 40F temperatures, driving rain, high winds, mud blindness, hypothermia cases, and hospital visits. Only 24% finished that year. You might get perfect spring weather or conditions that would make a Viking weep."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Driftless Region sits at relatively low elevation (roughly 800-1,400 feet above sea level). Altitude is not a factor in this race - your legs will suffer from the gravel and climbing, not from thin air."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Spring Valley has extremely limited lodging options - essentially one small hotel. Rochester is 19 miles away with more options due to Mayo Clinic, but Minneapolis airport is 2+ hours away. The race embodies DIY spirit - you need to plan your own logistics with no SAG support or aid stations. Not extremely remote, but certainly not convenient either."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is a pilgrimage for gravel purists - the birthplace of modern gravel racing. Riding through the stunning Driftless Region with its towering bluffs, Amish farms, covered bridges, and Forestville/Mystery Cave State Park is genuinely beautiful. The creek crossing at mile 80, the soul-crushing Oriole Road climb, and the pioneer heritage connection to Almanzo Wilder create an epic, memorable experience. Just short of bucket-list status for non-purists."
+      }
+    },
+
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "The Almanzo 100 is widely recognized as 'The Granddaddy of All Gravel Races' - the event that helped kickstart the entire movement. Chris Skogen is in the Gravel Cycling Hall of Fame. The Salsa Warbird and Challenge Almanzo tire were literally named after this race. It's not Life Time Grand Prix or UCI, but its historical significance and cultural impact are undeniable. Every serious gravel rider knows this name."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is a grassroots, free event with zero frills - and that's entirely by design. No aid stations, no SAG support, no timing chips in some years. The organizational history has been turbulent with multiple transitions between Chris Skogen, Spring Valley Tourism, and now split between the Heywood Ride and Spring Valley 100. The ethos is admirable ('100% free, 100% self-supported') but organization is basic at best."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The race experience is authentic and memorable in ways modern commercialized events cannot replicate. Hours of riding through moon-like parallel dimensions without seeing another human. The laid-back vibe. The shared suffering of fresh stone and Oriole Road. The Fight Club rules ('You are on your own x3'). Veterans describe it as transformative, though it lacks the production value and polish of bigger events."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is where gravel culture was BORN. 'A lot of laid back, beard having, Surly riding, tattoo sporting guys having fun and enjoying each other's company.' The community is passionate, authentic, and welcoming in a way that corporate events simply cannot match. Forum discussions overflow with trip reports and genuine camaraderie. The vibe is legendary and irreplaceable."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Without professional timing, prize money, or series affiliation, the Almanzo doesn't attract top pro fields like LTGP events. The competition is regional at best - fast locals, dedicated amateurs, and gravel pilgrims. Some strong riders come for the history, but this isn't where you go to race against the best in the world. That's not the point."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "FREE. The entry fee is literally zero dollars - always has been, always will be. You register by mailing a postcard. In an era of $200+ race entries, this is almost unheard of. Chris Skogen started the race specifically as a rejection of 'pay-to-play events.' You simply cannot beat the value proposition of a 100-mile race that costs nothing to enter."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "With free entry, your only costs are travel and lodging. From the Midwest, this is extremely budget-friendly - drive in, stay at a cheap hotel in Rochester or Spring Valley, race for free, drive home. Even from further away, the total trip cost should stay well under $500 for most. The DIY nature keeps everything lean and affordable."
+      }
+    },
+
+    "history": {
+      "founded": 2007,
+      "founder": "Chris Skogen",
+      "original_participants": 13,
+      "original_finishers": 4,
+      "significance": "One of the founding events of modern gravel racing in America",
+      "hall_of_fame": "Chris Skogen inducted into Gravel Cycling Hall of Fame",
+      "industry_impact": [
+        "2012: Salsa released the Warbird - first gravel-specific race bike",
+        "2013: Challenge Tires debuted the 'Almanzo' tire"
+      ],
+      "name_origin": "Named after Almanzo Wilder, husband of Laura Ingalls Wilder, whose family farm was near Spring Valley"
+    },
+
+    "notable_features": {
+      "oriole_road_climb": {
+        "location": "Mile 90",
+        "gradient": "Up to 17%",
+        "description": "The soul-crusher. Even front-runners often hike-a-bike. 'Resembles a wall' after 90 miles of gravel."
+      },
+      "creek_crossing": {
+        "location": "Mile 80",
+        "description": "A memorable water crossing that guarantees wet feet regardless of conditions."
+      },
+      "second_half_stone": {
+        "location": "Starting around mile 65",
+        "description": "Gravel transitions from hard-pack to freshly laid loose stone. Groups ride grass shoulders seeking respite."
+      }
+    },
+
+    "hellmanzo_2017": {
+      "date": "2017",
+      "conditions": "40F, driving rain (1.47 inches), high winds",
+      "registered": 730,
+      "finished": 177,
+      "finish_rate": "24%",
+      "incidents": [
+        "Multiple hypothermia cases",
+        "Hospital visits for eye injuries from grit",
+        "Riders found holed up in laundromats",
+        "Equipment failures widespread",
+        "Riders blind from mud within 10 miles"
+      ]
+    },
+
+    "logistics_detail": {
+      "nearest_major_airport": {
+        "code": "MSP",
+        "name": "Minneapolis-St. Paul International",
+        "distance_miles": 110,
+        "drive_time": "~2 hours"
+      },
+      "nearest_regional_airport": {
+        "code": "RST",
+        "name": "Rochester International",
+        "distance_miles": 16,
+        "drive_time": "~25-30 minutes"
+      },
+      "lodging": {
+        "spring_valley": "Very limited - Americas Best Value Inn & Suites (~$85/night)",
+        "rochester": "Multiple options due to Mayo Clinic presence ($56-120+/night)",
+        "tip": "Book early - limited options in Spring Valley"
+      }
+    },
+
+    "black_pill": [
+      "The race can break you - 2017 saw only 24% finish rate",
+      "Weather is a complete gamble - 30F to 80F conditions have occurred",
+      "100% self-supported means if you bonk, flat, or freeze - you are on your own",
+      "The course doesn't care about your fitness - fresh stone destroys legs, Oriole Road makes elites walk",
+      "The 'Almanzo 100' name is technically retired - now split between Heywood Ride and Spring Valley 100",
+      "Organizational history has been turbulent with multiple leadership transitions",
+      "Remote location with limited lodging and 2+ hours from major airport",
+      "Your bike will suffer - fresh gravel destroys drivetrains, mud clogs everything"
+    ],
+
+    "meta": {
+      "research_date": "January 2026",
+      "scoring_system": "GravelGod 14-Dimension v2.1",
+      "notes": "Scored as Tier 2 based on iconic status and historical significance, but lacking LTGP/UCI affiliation and professional field depth. The cultural importance and community score would arguably merit Tier 1, but organizational instability and grassroots nature keep it in the established-but-not-premier category."
+    }
+  }
+}

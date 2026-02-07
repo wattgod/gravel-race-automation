@@ -88,11 +88,37 @@ def extract_region(location: str) -> str:
 
     # International
     country_map = {
+        # Europe
         "iceland": "Europe", "uk": "Europe", "england": "Europe",
-        "scotland": "Europe", "spain": "Europe", "italy": "Europe",
-        "france": "Europe", "belgium": "Europe", "australia": "Oceania",
-        "new zealand": "Oceania", "canada": "North America",
-        "south africa": "Africa", "mexico": "North America",
+        "scotland": "Europe", "wales": "Europe", "spain": "Europe",
+        "italy": "Europe", "france": "Europe", "belgium": "Europe",
+        "germany": "Europe", "netherlands": "Europe", "switzerland": "Europe",
+        "austria": "Europe", "portugal": "Europe", "poland": "Europe",
+        "czech republic": "Europe", "romania": "Europe", "slovenia": "Europe",
+        "croatia": "Europe", "greece": "Europe", "denmark": "Europe",
+        "norway": "Europe", "finland": "Europe", "sweden": "Europe",
+        "luxembourg": "Europe", "monaco": "Europe", "ardennes": "Europe",
+        "flanders": "Europe", "eifel": "Europe", "drenthe": "Europe",
+        "sardinia": "Europe", "tuscany": "Europe", "veneto": "Europe",
+        "catalonia": "Europe", "andalusia": "Europe", "vosges": "Europe",
+        "pyrénées": "Europe", "pyrenees": "Europe", "nürburgring": "Europe",
+        # Oceania
+        "australia": "Oceania", "new zealand": "Oceania",
+        "queensland": "Oceania", "victoria": "Oceania", "tasmania": "Oceania",
+        "new south wales": "Oceania", "western australia": "Oceania",
+        "south australia": "Oceania",
+        # North America
+        "canada": "North America", "mexico": "North America",
+        "ontario": "North America", "british columbia": "North America",
+        "alberta": "North America",
+        # South America
+        "colombia": "South America", "argentina": "South America",
+        "chile": "South America", "brazil": "South America",
+        "patagonia": "South America",
+        # Africa
+        "south africa": "Africa", "morocco": "Africa", "kenya": "Africa",
+        # Asia
+        "japan": "Asia", "thailand": "Asia",
     }
     for country, region in country_map.items():
         if country in location_lower:
@@ -101,7 +127,8 @@ def extract_region(location: str) -> str:
     # US regions
     us_regions = {
         "West": ["california", "oregon", "washington", "colorado", "utah",
-                 "montana", "wyoming", "idaho", "nevada", "arizona", "new mexico"],
+                 "montana", "wyoming", "idaho", "nevada", "arizona", "new mexico",
+                 "alaska", "hawaii"],
         "Midwest": ["kansas", "nebraska", "iowa", "illinois", "indiana", "ohio",
                     "michigan", "wisconsin", "minnesota", "missouri", "oklahoma"],
         "South": ["texas", "arkansas", "louisiana", "mississippi", "alabama",
@@ -109,7 +136,7 @@ def extract_region(location: str) -> str:
                  "south carolina", "virginia", "west virginia"],
         "Northeast": ["new york", "pennsylvania", "connecticut", "massachusetts",
                      "vermont", "new hampshire", "maine", "maryland", "new jersey",
-                     "delaware", "rhode island"],
+                     "delaware", "rhode island", "district of columbia", "d.c."],
     }
     for region, states in us_regions.items():
         if any(s in location_lower for s in states):

@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Colorado Trail Race",
+  "description": "530 miles of high-altitude suffering across the spine of the Rockies - 75% of starters don't finish, and that's the point.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-02",
+  "location": {
+    "@type": "Place",
+    "name": "Durango to Denver, Colorado"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "90",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

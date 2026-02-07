@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import List
 
 
-FLAT_DB = Path(__file__).parent.parent / "gravel_races_full_database.json"
+FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
 RACE_DATA = Path(__file__).parent.parent / "race-data"
 PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
 RESEARCH_DUMPS_DIR = Path(__file__).parent.parent / "research-dumps"

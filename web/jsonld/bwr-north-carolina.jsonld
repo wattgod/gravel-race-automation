@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Belgian Waffle Ride North Carolina",
+  "description": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Hendersonville, North Carolina"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

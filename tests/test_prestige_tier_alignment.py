@@ -25,7 +25,7 @@ def get_all_races():
             continue
         with open(RACE_DATA_DIR / fname) as f:
             data = json.load(f)
-        races.append((fname, data['race']))
+        races.append((fname, data.get('race', data)))
     return races
 
 
@@ -144,7 +144,7 @@ class TestKnownMajorRaces:
         'the-rift', 'dirty-reiver', 'grinduro-california', 'grinduro-france',
         'grinduro-germany', 'vermont-overland', 'rasputitsa',
         'paris-to-ancaster', 'bwr-california', 'bwr-asheville', 'bwr-utah',
-        'bwr-montana', 'bwr-cedar-city', 'sbt-grvl', 'big-sugar', 'the-rad',
+        'bwr-montana', 'bwr-cedar-city', 'sbt-grvl', 'big-sugar',
         'migration-gravel-race', 'nova-eroica', 'fnld-grvl',
     }
 

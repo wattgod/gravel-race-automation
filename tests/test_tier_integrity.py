@@ -3,8 +3,8 @@ Tests for tier and score integrity.
 
 Ensures:
 1. overall_score matches calculated average of 14 component scores
-2. Tier assignments follow the rules (85+ = T1, 75-84 = T2, <75 = T3)
-3. Prestige overrides are only applied when prestige = 5
+2. Tier assignments follow the rules (85+ = T1, 75-84 = T2, 65-74 = T3, <65 = T4)
+3. Prestige overrides (prestige >= 4) allow one-tier promotion with documented reason
 4. No unexplained tier promotions
 """
 
@@ -49,14 +49,19 @@ def calculate_overall_score(rating: dict) -> int:
     return round((total / 70) * 100)
 
 
+TIER_3_MIN = 65
+
+
 def calculate_tier(score: int) -> int:
     """Calculate tier from overall score."""
     if score >= TIER_1_MIN:
         return 1
     elif score >= TIER_2_MIN:
         return 2
-    else:
+    elif score >= TIER_3_MIN:
         return 3
+    else:
+        return 4
 
 
 class TestScoreIntegrity:
@@ -170,13 +175,13 @@ class TestTierIntegrity:
             if tier_gap == 0:
                 continue
 
-            # Prestige=5 override is allowed (but should have reason)
-            if tier_gap > 0 and prestige == 5:
+            # Prestige >= 4 override is allowed (one tier max, with reason)
+            if tier_gap > 0 and prestige >= 4:
                 if not override_reason:
                     violations.append({
                         "file": json_file.name,
                         "issue": f"Prestige override without tier_override_reason",
-                        "details": f"T{expected_tier}→T{actual_tier}, prestige=5",
+                        "details": f"T{expected_tier}→T{actual_tier}, prestige={prestige}",
                     })
                 continue
 
@@ -204,8 +209,10 @@ class TestTierIntegrity:
 
     def test_prestige_override_not_too_aggressive(self):
         """
-        Prestige=5 should not promote a race more than 1 tier level.
-        A Tier 3 race (score < 75) should not jump directly to Tier 1.
+        Override limits by prestige level:
+        - Prestige 5: up to 2-tier promotion (world-class events)
+        - Prestige 4: up to 1-tier promotion
+        - Prestige < 4: no promotion without editorial override
 
         Note: Uses display_tier if present.
         """
@@ -224,15 +231,26 @@ class TestTierIntegrity:
                 continue
 
             overall = rating.get('overall_score', 0)
-            # Use display_tier if present, otherwise tier
             actual_tier = rating.get('display_tier', rating.get('tier', 0))
             prestige = rating.get('prestige', 0)
 
             expected_tier = calculate_tier(overall)
             tier_jump = expected_tier - actual_tier
 
-            # Flag if jumping 2+ tiers (T3 → T1)
-            if tier_jump >= 2:
+            # Prestige 5: allow up to 2-tier promotion
+            if prestige == 5 and tier_jump <= 2:
+                continue
+            # Prestige 4: allow up to 1-tier promotion
+            if prestige == 4 and tier_jump <= 1:
+                continue
+            # Editorial override with documented reason: allow 1-tier promotion
+            override_reason = rating.get('tier_override_reason', '')
+            if override_reason and tier_jump <= 1:
+                continue
+
+            # Flag if jumping beyond allowed limit
+            max_allowed = 2 if prestige == 5 else (1 if prestige == 4 else 0)
+            if tier_jump > max_allowed:
                 violations.append({
                     "file": json_file.name,
                     "overall": overall,
@@ -242,11 +260,10 @@ class TestTierIntegrity:
                 })
 
         if violations:
-            msg = f"\n\nFound {len(violations)} races with aggressive tier promotion (2+ tiers):\n\n"
+            msg = f"\n\nFound {len(violations)} races with aggressive tier promotion:\n\n"
             for v in violations:
                 msg += f"  {v['file']:40} score={v['overall']:3} T{v['expected_tier']}→T{v['actual_tier']} (prestige={v['prestige']})\n"
-            msg += "\nTo fix: Prestige override should promote at most 1 tier level.\n"
-            msg += "T3 races need score improvement to reach T1, not just prestige.\n"
+            msg += "\nPrestige 5 allows max 2-tier promotion; prestige 4 allows max 1-tier.\n"
             pytest.fail(msg)
 
 

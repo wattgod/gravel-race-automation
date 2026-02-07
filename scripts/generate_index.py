@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from research_strength import score_race
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
-FLAT_DB = Path(__file__).parent.parent / "gravel_races_full_database.json"
+FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
 OUTPUT_DIR = Path(__file__).parent.parent / "web"
 
 
@@ -242,7 +242,7 @@ def build_index_entry_from_flat(race: dict) -> dict:
         "month": extract_month(date_str),
         "distance_mi": distance,
         "elevation_ft": elevation,
-        "tier": 3,  # Default for unresearched
+        "tier": int(race.get("TIER", 3)) if str(race.get("TIER", "3")).isdigit() else 3,
         "overall_score": None,
         "scores": {},
         "tagline": "",
@@ -381,7 +381,7 @@ def main():
         print(f"Without profile: {len(index) - with_profile}")
         print()
         # By tier
-        for t in [1, 2, 3]:
+        for t in [1, 2, 3, 4]:
             tier_races = [e for e in index if e["tier"] == t]
             print(f"Tier {t}: {len(tier_races)} races")
         # By region

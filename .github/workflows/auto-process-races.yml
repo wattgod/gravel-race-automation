@@ -44,7 +44,7 @@ jobs:
           import json
           import os
           
-          with open("gravel_races_full_database.json") as f:
+          with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
           
           # Get tier from input or default to 2

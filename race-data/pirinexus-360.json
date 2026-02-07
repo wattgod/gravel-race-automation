@@ -4,7 +4,6 @@
     "slug": "pirinexus-360",
     "display_name": "Pirinexus 360",
     "tagline": "Trans-Pyrenean ultra-gravel through volcanic zones, medieval villages, and Costa Brava coast - Spain's answer to the 200-mile question",
-
     "vitals": {
       "distance_km": 340,
       "distance_mi": 211,
@@ -23,20 +22,61 @@
       "start_time": "6:13 AM (sunrise)",
       "course_record": "12 hours"
     },
-
     "gravel_god_rating": {
-      "overall_score": 78,
-      "course_profile": 26,
-      "biased_opinion": 27,
+      "overall_score": 74,
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
       "display_tier": 2,
-      "display_tier_label": "TIER 2"
+      "display_tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "tier_override_reason": "prestige=4 override: T3→T2 promotion",
+      "tier": 2,
+      "tier_label": "TIER 2"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 4,
+        "explanation": "Part of UCI Gravel World Series and Gran Fondo World Tour Gravel Series. Sea Otter Europe integration adds legitimacy. 7 editions and growing - established as one of Europe's most respected ultra-gravel events, though not yet at Badlands-level iconic status."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with multiple food stations, medical assistance, and tracking via Track the Race. Sea Otter Europe backing provides professional infrastructure. Checkpoint-based format with route book/stamps adds brevet-style authenticity."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable journey from volcanic cones to Pyrenean passes to Mediterranean coast in a single push. The Col d'Ares crucible - 'a huge nightmare that breaks riders mentally and physically' - creates shared suffering. Night finish through singletrack toward Girona is legendary."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Growing community around the event, but primarily European. Sea Otter Europe festival brings 68,000+ visitors creating atmosphere. Girona's cycling culture provides welcoming infrastructure, but race-specific community not yet at iconic levels."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Attracts experienced ultra-endurance cyclists from across Europe, but not major series or major pro field depth. Strong regional competition with international participants. Personal challenge format means less emphasis on elite racing."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry includes Sea Otter Europe festival access, multiple aid stations, finisher award, and festival services (bike cleaning, showers, expo). Reasonable for a 340km ultra event with full support infrastructure."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Girona offers reasonable European pricing. Budget flights to Barcelona or Girona from European hubs. Accommodation varies but available. No extreme remoteness premium. Total trip cost moderate by European standards - estimated $500-800 including travel from within Europe."
+      },
       "length": {
         "score": 5,
         "explanation": "At 340 km (211 miles), this is true ultra-distance territory. Exceeds 150+ mile threshold significantly, placing it among the longest single-day gravel events in Europe."
@@ -66,38 +106,6 @@
         "explanation": "Exceptional scenic variety: La Garrotxa volcanic zone, Pyrenean border crossings, medieval villages (Peratallada, Pals), DO Emporda vineyards, Costa Brava coast. Crosses Spain-France border via ancient Roman Via Augusta. Night finish under the stars. Bucket-list European ultra."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 4,
-        "explanation": "Part of UCI Gravel World Series and Gran Fondo World Tour Gravel Series. Sea Otter Europe integration adds legitimacy. 7 editions and growing - established as one of Europe's most respected ultra-gravel events, though not yet at Badlands-level iconic status."
-      },
-      "race_quality": {
-        "score": 4,
-        "explanation": "Well-organized with multiple food stations, medical assistance, and tracking via Track the Race. Sea Otter Europe backing provides professional infrastructure. Checkpoint-based format with route book/stamps adds brevet-style authenticity."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "Unforgettable journey from volcanic cones to Pyrenean passes to Mediterranean coast in a single push. The Col d'Ares crucible - 'a huge nightmare that breaks riders mentally and physically' - creates shared suffering. Night finish through singletrack toward Girona is legendary."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Growing community around the event, but primarily European. Sea Otter Europe festival brings 68,000+ visitors creating atmosphere. Girona's cycling culture provides welcoming infrastructure, but race-specific community not yet at iconic levels."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Attracts experienced ultra-endurance cyclists from across Europe, but not Life Time Grand Prix or major pro field depth. Strong regional competition with international participants. Personal challenge format means less emphasis on elite racing."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Entry includes Sea Otter Europe festival access, multiple aid stations, finisher award, and festival services (bike cleaning, showers, expo). Reasonable for a 340km ultra event with full support infrastructure."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Girona offers reasonable European pricing. Budget flights to Barcelona or Girona from European hubs. Accommodation varies but available. No extreme remoteness premium. Total trip cost moderate by European standards - estimated $500-800 including travel from within Europe."
-      }
-    },
-
     "distances": [
       {
         "name": "Pirinexus 360",
@@ -118,27 +126,23 @@
         "time_limit": "Not specified"
       }
     ],
-
     "organizer": {
       "name": "Jordi Cantal / Sea Otter Europe",
       "website": "http://www.thepirinexuschallenge.com",
       "festival": "https://www.seaottereurope.com",
       "registration": "https://www.ticketoci.net"
     },
-
     "history": {
       "first_edition": 2015,
       "editions_held": 7,
       "founder": "Jordi Cantal",
       "origin_story": "Created after Jordi Cantal completed the 340km Pirinexus route alone in 18 hours during summer 2014. What began as a personal challenge evolved into an organized event that has become 'one of the most authentic, beautiful, tough and prestigious gravel races in Europe.'"
     },
-
     "series_affiliation": [
       "UCI Gravel World Series",
       "Gran Fondo World Tour Gravel Series",
       "Sea Otter Europe Festival"
     ],
-
     "key_features": [
       "Trans-Pyrenean crossing via Col d'Ares (1,513m)",
       "La Garrotxa Volcanic Zone with 40 volcanic cones",
@@ -150,7 +154,6 @@
       "55% gravel, 45% asphalt mix",
       "18-hour time limit with checkpoint validation"
     ],
-
     "weather": {
       "month": "September",
       "avg_temp_c": 20,
@@ -160,7 +163,6 @@
       "sunshine_hours": 197,
       "notes": "One of the best cycling months in Girona. Night riding portion cooler. Summit weather unpredictable."
     },
-
     "logistics": {
       "nearest_airports": [
         {
@@ -179,14 +181,12 @@
       "accommodation_notes": "Book early - Sea Otter Europe brings 68,000+ visitors",
       "bike_services": "Girona is cycling capital of Europe - excellent shops, rentals, transfers"
     },
-
     "gear_recommendations": {
       "tires": "40mm+ essential, 42-45mm ideal",
       "lights": "1000+ lumens front, rear light, spare batteries",
       "clothing": "Layers for 10-26C range, rain jacket mandatory",
       "navigation": "GPS with GPX, backup phone, route book"
     },
-
     "dnf_factors": [
       "Col d'Ares historically main DNF point",
       "Technical border descent requires skill",
@@ -194,7 +194,6 @@
       "Sleep deprivation affects decision-making",
       "Estimated finish rate: 70-80%"
     ],
-
     "lastUpdated": "2026-01-13",
     "dataQuality": "Comprehensive"
   }

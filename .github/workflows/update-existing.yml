@@ -29,7 +29,7 @@ jobs:
           from datetime import datetime, timedelta
           
           # Load database
-          with open("gravel_races_full_database.json") as f:
+          with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
           
           # Find races with briefs older than 30 days

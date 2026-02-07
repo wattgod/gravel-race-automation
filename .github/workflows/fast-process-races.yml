@@ -44,7 +44,7 @@ jobs:
           import json
           import os
           
-          with open("gravel_races_full_database.json") as f:
+          with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
           
           tier = "${{ github.event.inputs.tier || '2' }}"

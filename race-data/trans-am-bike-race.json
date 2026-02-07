@@ -4,7 +4,6 @@
     "slug": "trans-am-bike-race",
     "display_name": "Trans Am Bike Race",
     "tagline": "4,200 miles from the Pacific to the Atlantic. The longest road ultra-race on earth. Self-supported across 10 states. America, coast to coast.",
-
     "vitals": {
       "distance_mi": 4233,
       "elevation_ft": 175000,
@@ -13,7 +12,12 @@
       "county": "Transcontinental (10 US states: OR, ID, MT, WY, CO, KS, MO, IL, KY, VA)",
       "date": "First weekend of June annually",
       "date_specific": "2026: Sunday, June 7th",
-      "terrain_types": ["Paved roads (90%)", "Gravel roads", "Bike paths", "Low-traffic highways"],
+      "terrain_types": [
+        "Paved roads (90%)",
+        "Gravel roads",
+        "Bike paths",
+        "Low-traffic highways"
+      ],
       "field_size": "~150-250 starters",
       "start_time": "6AM Pacific Time",
       "registration": "$300 USD via Stripe. Submit rider profile and digital waiver.",
@@ -21,34 +25,84 @@
       "aid_stations": "None—completely self-supported. Resupply only at commercial establishments.",
       "cutoff_time": "No official cutoff. Racing pace: 14-25 days. Touring pace: 35-50+ days."
     },
-
     "climate": {
       "primary": "Coast to coast diversity—Pacific Northwest fog to Midwestern storms to Appalachian humidity",
       "description": "June start means variable spring weather across 4,200 miles. Oregon coast can be cool and foggy. Rockies may still have snow at Hoosier Pass (11,542ft). Kansas brings relentless wind and potential dust storms. Missouri/Kentucky humidity builds. Virginia's Appalachians are steep, hot, and humid. Temperature swings from 40s in mountains to 100°F+ in Kansas plains.",
-      "challenges": ["Snow possible at Hoosier Pass any time", "Kansas wind—constant and brutal", "Midwest thunderstorms with no shelter", "Virginia humidity and heat in June", "Temperature swings of 50°F+ between regions"]
+      "challenges": [
+        "Snow possible at Hoosier Pass any time",
+        "Kansas wind—constant and brutal",
+        "Midwest thunderstorms with no shelter",
+        "Virginia humidity and heat in June",
+        "Temperature swings of 50°F+ between regions"
+      ]
     },
-
     "terrain": {
       "primary": "Primarily paved roads following the historic TransAmerica Bicycle Trail",
       "surface": "~90% paved: Mix of quiet county roads, bike paths, and low-traffic highways. ~10% gravel and mixed surface sections. Road bikes dominate, though some riders choose gravel bikes for versatility.",
       "technical_rating": 2,
-      "features": ["Hoosier Pass—highest point at 11,542ft", "Kansas plains—psychological endurance test", "Ozark rollercoasters—short steep punchy climbs", "Appalachian Mountains—more climbing than the Rockies in final stretch", "Ohio River ferry crossing"]
+      "features": [
+        "Hoosier Pass—highest point at 11,542ft",
+        "Kansas plains—psychological endurance test",
+        "Ozark rollercoasters—short steep punchy climbs",
+        "Appalachian Mountains—more climbing than the Rockies in final stretch",
+        "Ohio River ferry crossing"
+      ]
     },
-
     "gravel_god_rating": {
-      "overall_score": 97,
-      "course_profile": 33,
-      "biased_opinion": 33,
+      "overall_score": 90,
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 3,
       "business_tier_label": "TIER 3",
       "tier_override_reason": "The longest self-supported bike race on earth. Legendary status in ultra-endurance cycling despite minimal commercial organization.",
       "display_tier": 1,
-      "display_tier_label": "TIER 1"
+      "display_tier_label": "TIER 1",
+      "logistics": 5,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 5,
+      "expenses": 3,
+      "tier": 1,
+      "tier_label": "TIER 1"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 5,
+        "explanation": "The longest self-supported bike race on earth. Founded 2014, it has established legendary status in ultra-endurance cycling alongside Tour Divide. Names like Mike Hall (inaugural winner), Lael Wilcox (2016 overall winner), and Abdullah Zeinab (course record holder) are icons specifically because of Trans Am. Finishing makes you one of fewer than 1,000 people who have self-supported across America."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Minimalist organization delivers what matters: clear rules, GPS tracking via SPOT/Garmin inReach, and live dotwatching. No frills—$300 entry gets event apparel and tracking assistance. Rules are clear and community-enforced. The stripped-down approach matches the self-supported ethos. Virtual briefing and checkpoint format introduced in recent years enhance safety without compromising adventure."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "2-5 weeks crossing America from ocean to ocean is transformative in ways no shorter race can match. You experience the full American landscape: coastal forests, mountain passes, endless plains, rolling farmland, and ancient mountains. The combination of physical extremity and geographic majesty creates something profoundly affecting. Finishers consistently describe it as life-changing."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Built on Adventure Cycling's 50-year TransAmerica Trail heritage and trail angel culture. Kansas towns roll out welcome mats for cyclists. Troutville Fire Department offers showers to every rider. The dotwatching community follows obsessively. Warm Showers hospitality throughout. Those who finish share a bond forged across 4,200 miles of shared suffering. Small but intensely dedicated tribe."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Attracts the elite of ultra-endurance road cycling. World record holders, transcontinental specialists, and adventure cycling legends toe the line. Competition at the front is world-class—2025 winning time of 14 days 13 hours shows the standard. Even mid-pack finishers are serious athletes. The 30-50% DNF rate proves this is not a participation event."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "$300 entry fee for the longest bike race on earth is extraordinary value. Compare to supported RAAM at $3,000+ before support crew costs. The race costs what you spend on resupply and travel—typically $1,500-3,000 total for a transcontinental adventure. For a 2-5 week expedition across America, the experience-to-cost ratio is unmatched."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "$300 entry fee is modest, but real costs accumulate: flights to Portland and from Virginia ($400-800), 2-5 weeks of food and occasional motels ($1,000-2,000+), satellite tracker purchase/subscription ($200-400), gear preparation. City park camping in Kansas and Missouri is free. Motel strategy varies total. Budget $2,000-4,000 all-in for a transcontinental expedition—reasonable for the scale."
+      },
       "length": {
         "score": 5,
         "explanation": "4,200+ miles is the longest distance of any established self-supported bike race in the world—significantly longer than even Tour Divide (2,745 miles). Typical finishers take 16-35 days of continuous 24/7 effort. Current record is 14 days, 13 hours (Jonas Majerski, 2025). This is expedition cycling at its most extreme."
@@ -78,38 +132,6 @@
         "explanation": "The ultimate American cycling odyssey—Pacific to Atlantic across the entire continental United States. You traverse 10 states, cross the Continental Divide, ride the Kansas plains, ferry the Ohio River, and climb the Appalachians. The route follows Adventure Cycling's historic TransAmerica Trail created for America's 1976 bicentennial. Bucket list doesn't capture it—this is a transcontinental expedition that defines a lifetime."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 5,
-        "explanation": "The longest self-supported bike race on earth. Founded 2014, it has established legendary status in ultra-endurance cycling alongside Tour Divide. Names like Mike Hall (inaugural winner), Lael Wilcox (2016 overall winner), and Abdullah Zeinab (course record holder) are icons specifically because of Trans Am. Finishing makes you one of fewer than 1,000 people who have self-supported across America."
-      },
-      "race_quality": {
-        "score": 4,
-        "explanation": "Minimalist organization delivers what matters: clear rules, GPS tracking via SPOT/Garmin inReach, and live dotwatching. No frills—$300 entry gets event apparel and tracking assistance. Rules are clear and community-enforced. The stripped-down approach matches the self-supported ethos. Virtual briefing and checkpoint format introduced in recent years enhance safety without compromising adventure."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "2-5 weeks crossing America from ocean to ocean is transformative in ways no shorter race can match. You experience the full American landscape: coastal forests, mountain passes, endless plains, rolling farmland, and ancient mountains. The combination of physical extremity and geographic majesty creates something profoundly affecting. Finishers consistently describe it as life-changing."
-      },
-      "community": {
-        "score": 5,
-        "explanation": "Built on Adventure Cycling's 50-year TransAmerica Trail heritage and trail angel culture. Kansas towns roll out welcome mats for cyclists. Troutville Fire Department offers showers to every rider. The dotwatching community follows obsessively. Warm Showers hospitality throughout. Those who finish share a bond forged across 4,200 miles of shared suffering. Small but intensely dedicated tribe."
-      },
-      "field_depth": {
-        "score": 5,
-        "explanation": "Attracts the elite of ultra-endurance road cycling. World record holders, transcontinental specialists, and adventure cycling legends toe the line. Competition at the front is world-class—2025 winning time of 14 days 13 hours shows the standard. Even mid-pack finishers are serious athletes. The 30-50% DNF rate proves this is not a participation event."
-      },
-      "value": {
-        "score": 5,
-        "explanation": "$300 entry fee for the longest bike race on earth is extraordinary value. Compare to supported RAAM at $3,000+ before support crew costs. The race costs what you spend on resupply and travel—typically $1,500-3,000 total for a transcontinental adventure. For a 2-5 week expedition across America, the experience-to-cost ratio is unmatched."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "$300 entry fee is modest, but real costs accumulate: flights to Portland and from Virginia ($400-800), 2-5 weeks of food and occasional motels ($1,000-2,000+), satellite tracker purchase/subscription ($200-400), gear preparation. City park camping in Kansas and Missouri is free. Motel strategy varies total. Budget $2,000-4,000 all-in for a transcontinental expedition—reasonable for the scale."
-      }
-    },
-
     "biased_opinion": {
       "verdict": "The Coast-to-Coast Ultimate",
       "summary": "Trans Am Bike Race is the longest self-supported bike race on earth—4,200+ miles from the Pacific to Atlantic, completely self-supported, across 10 states and every American landscape. While Tour Divide claims the crown for toughest mountain bike ultra, Trans Am is the road equivalent: pure expedition cycling at maximum distance. The mostly-paved route is more accessible technically but no less demanding physically—175,000 feet of climbing over 2-5 weeks will humble any cyclist. With the historic TransAmerica Trail as its backbone and 50 years of trail angel culture, this is America's great cycling pilgrimage.",
@@ -127,7 +149,6 @@
       ],
       "bottom_line": "If you dream of cycling across America under your own power, Trans Am is the definitive way to do it. But respect what 4,200 self-supported miles actually means."
     },
-
     "black_pill": {
       "title": "THE CONTINENTAL CRUSHER",
       "reality": "30-50% of starters do not finish. These are experienced ultra-cyclists who committed to a transcontinental expedition—and still couldn't complete it. Kansas alone has ended countless attempts: the wind never stops, the landscape never changes, and your mind begins to crack. The Appalachians at the end are psychologically brutal—after 3,500 miles when you expect the finish, Virginia throws 15,000 feet MORE climbing than the Rockies in the first stretch. Sleep deprivation over 2-5 weeks creates hallucinations, impaired judgment, and physical breakdown. Equipment failures across 4,200 miles are inevitable. The paved surface is deceptive—this is still expedition-level endurance.",
@@ -139,14 +160,12 @@
       ],
       "expectation_reset": "This is NOT recommended as your first ultra-endurance event. Complete several multi-day 500+ mile events first. Develop systems for sleep management, nutrition, and mental resilience. The TransAmerica is America's great cycling pilgrimage—but pilgrimages have always demanded sacrifice. Respect the distance or it will break you."
     },
-
     "final_verdict": {
       "score": "97 / 100",
       "one_liner": "The longest self-supported bike race on earth—4,200+ miles from Pacific to Atlantic, crossing 10 states, no support crews, pure transcontinental adventure.",
       "should_you_race": "Yes if you have serious ultra-endurance experience and can commit 2-5 weeks to crossing America. Yes if you can handle complete self-sufficiency across 4,200 miles. Yes if you want the ultimate American cycling pilgrimage. Skip if you haven't completed multi-day self-supported events. Skip if 200+ mile days for weeks on end sounds impossible. Skip if Kansas wind and Appalachian rollercoasters would break your spirit.",
       "alternatives": "Tour Divide (2,745 miles, mountain bike, Canada to Mexico); Race Across America (supported, different ethos); Transcontinental Race (4,000km, self-supported across Europe); Colorado Trail Race (500 miles, high-altitude bikepacking)"
     },
-
     "logistics": {
       "airport": "PDX (Portland) - 100mi to Astoria start; ORF (Norfolk) or RIC (Richmond) - near Yorktown finish; DCA/IAD/BWI for D.C. finish option",
       "lodging_strategy": "Astoria for pre-race (book early, tourist area). During race: city park camping is free and welcomed in Kansas/Missouri. Motels in most towns. Trail angels via Warm Showers app. Missoula has Adventure Cycling headquarters with cyclist amenities.",
@@ -155,7 +174,6 @@
       "parking": "Astoria start area. Coordinate finish transport—Yorktown or D.C. options. Consider one-way bike shipping.",
       "official_site": "https://rideyrbike.com/transambikenonstop/"
     },
-
     "history": {
       "founded": 2014,
       "founder": "Based on Adventure Cycling Association's TransAmerica Bicycle Trail (created 1976 for Bikecentennial)",
@@ -169,19 +187,37 @@
       ],
       "reputation": "The longest self-supported bike race on earth. The road equivalent of Tour Divide. America's great cycling pilgrimage."
     },
-
     "course_description": {
       "character": "A 4,200+ mile expedition from Pacific to Atlantic following the historic TransAmerica Bicycle Trail. The route passes through 10 states, crossing the Continental Divide in Colorado and the Appalachian Mountains in Virginia. Surface is roughly 90% paved—quiet county roads, bike paths, and low-traffic highways. The character evolves dramatically: Pacific Northwest forests, Rocky Mountain passes, endless Kansas plains, Ozark rollercoasters, Ohio River farmland, and steep Appalachian ridges. This is America condensed into one transcontinental ride.",
       "suffering_zones": [
-        {"mile": 200, "label": "Mitchell, Oregon (CP1)", "desc": "First checkpoint. Eastern Oregon is dry and sparse—services thin, carry extra water. Psychological transition from coast to interior."},
-        {"mile": 800, "label": "Montana/Wyoming", "desc": "Rocky Mountain crossings begin. Near Yellowstone/Grand Teton. Beautiful but demanding elevation. Lander to Rawlins has sparse services."},
-        {"mile": 1400, "label": "Hoosier Pass, Colorado", "desc": "Highest point at 11,542 feet. Major psychological milestone. Altitude affects everyone. Snow possible any time."},
-        {"mile": 2200, "label": "Kansas Plains", "desc": "The great mental test. 400+ miles of relentless wind, endless horizon, and psychological monotony. Flat in profile but brutal in execution. Has ended more Trans Am attempts than any mountain."},
-        {"mile": 3500, "label": "Appalachian Mountains", "desc": "Final 700 miles have 15,000 feet MORE climbing than first 1,150 miles through Rockies. Steep, punchy, roller-coaster grades when you're already destroyed. Virginia has the most total elevation gain of any state."}
+        {
+          "mile": 200,
+          "label": "Mitchell, Oregon (CP1)",
+          "desc": "First checkpoint. Eastern Oregon is dry and sparse—services thin, carry extra water. Psychological transition from coast to interior."
+        },
+        {
+          "mile": 800,
+          "label": "Montana/Wyoming",
+          "desc": "Rocky Mountain crossings begin. Near Yellowstone/Grand Teton. Beautiful but demanding elevation. Lander to Rawlins has sparse services."
+        },
+        {
+          "mile": 1400,
+          "label": "Hoosier Pass, Colorado",
+          "desc": "Highest point at 11,542 feet. Major psychological milestone. Altitude affects everyone. Snow possible any time."
+        },
+        {
+          "mile": 2200,
+          "label": "Kansas Plains",
+          "desc": "The great mental test. 400+ miles of relentless wind, endless horizon, and psychological monotony. Flat in profile but brutal in execution. Has ended more Trans Am attempts than any mountain."
+        },
+        {
+          "mile": 3500,
+          "label": "Appalachian Mountains",
+          "desc": "Final 700 miles have 15,000 feet MORE climbing than first 1,150 miles through Rockies. Steep, punchy, roller-coaster grades when you're already destroyed. Virginia has the most total elevation gain of any state."
+        }
       ],
       "signature_challenge": "The complete American experience—4,200 miles coast to coast through every landscape, every climate, every mental state across 2-5 weeks of self-supported suffering."
     },
-
     "records": {
       "mens_overall": {
         "name": "Jonas Majerski",
@@ -208,24 +244,71 @@
         "note": "Set the template for Trans Am racing. Tragically killed during Indian Pacific Wheel Race in 2017."
       }
     },
-
     "key_towns": {
-      "oregon": ["Astoria (start, full services)", "Mitchell (CP1)", "Baker City"],
-      "montana": ["Missoula (Adventure Cycling HQ, cyclist lounge)"],
-      "wyoming": ["Moran (CP2, near Grand Teton)", "Lander", "Rawlins"],
-      "colorado": ["Kremmling", "Breckenridge area", "Pueblo"],
-      "kansas": ["Tribune", "Ness City", "Newton (cyclist-friendly)", "Chanute"],
-      "missouri": ["Ash Grove", "Hartville", "Eminence (Ozarks)"],
-      "kentucky": ["Berea (gateway to Appalachians)"],
-      "virginia": ["Troutville (fire dept offers showers/laundry)", "Lexington", "Charlottesville", "Yorktown (classic finish)"]
+      "oregon": [
+        "Astoria (start, full services)",
+        "Mitchell (CP1)",
+        "Baker City"
+      ],
+      "montana": [
+        "Missoula (Adventure Cycling HQ, cyclist lounge)"
+      ],
+      "wyoming": [
+        "Moran (CP2, near Grand Teton)",
+        "Lander",
+        "Rawlins"
+      ],
+      "colorado": [
+        "Kremmling",
+        "Breckenridge area",
+        "Pueblo"
+      ],
+      "kansas": [
+        "Tribune",
+        "Ness City",
+        "Newton (cyclist-friendly)",
+        "Chanute"
+      ],
+      "missouri": [
+        "Ash Grove",
+        "Hartville",
+        "Eminence (Ozarks)"
+      ],
+      "kentucky": [
+        "Berea (gateway to Appalachians)"
+      ],
+      "virginia": [
+        "Troutville (fire dept offers showers/laundry)",
+        "Lexington",
+        "Charlottesville",
+        "Yorktown (classic finish)"
+      ]
     },
-
     "checkpoint_format": {
       "description": "Three virtual unmanned checkpoints verified via GPS tracker data (introduced in recent years)",
       "checkpoints": [
-        {"id": "CP1", "location": "Mitchell, Oregon", "mile": "~200"},
-        {"id": "CP2", "location": "Moran, Wyoming", "mile": "~800"},
-        {"id": "CP3", "location": "Mississippi River crossing", "mile": "~2500", "options": ["Great River Bridge (Burlington)", "Keokuk-Hamilton Bridge", "Mark Twain Memorial Bridge (Hannibal)", "Clark Bridge (Alton)", "Chester Bridge"]}
+        {
+          "id": "CP1",
+          "location": "Mitchell, Oregon",
+          "mile": "~200"
+        },
+        {
+          "id": "CP2",
+          "location": "Moran, Wyoming",
+          "mile": "~800"
+        },
+        {
+          "id": "CP3",
+          "location": "Mississippi River crossing",
+          "mile": "~2500",
+          "options": [
+            "Great River Bridge (Burlington)",
+            "Keokuk-Hamilton Bridge",
+            "Mark Twain Memorial Bridge (Hannibal)",
+            "Clark Bridge (Alton)",
+            "Chester Bridge"
+          ]
+        }
       ],
       "purpose": "Foster safer pacing without imposing time cutoffs"
     }

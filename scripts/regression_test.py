@@ -64,7 +64,7 @@ def test_database_loads() -> Tuple[bool, str]:
         db_path = Path("data/master_database.json")
         if not db_path.exists():
             # Try alternative location
-            db_path = Path("gravel_races_full_database.json")
+            db_path = Path("db/gravel_races_full_database.json")
         
         if not db_path.exists():
             return False, "Database file not found"

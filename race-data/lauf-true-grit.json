@@ -4,7 +4,6 @@
     "slug": "lauf-true-grit",
     "display_name": "Lauf True Grit Gravel Epic",
     "tagline": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams",
-
     "vitals": {
       "distance_mi": 84,
       "elevation_ft": 9000,
@@ -13,20 +12,60 @@
       "date": "March annually",
       "date_specific": "2026: March 19-21"
     },
-
     "gravel_god_rating": {
-      "overall_score": 78,
-      "course_profile": 26,
-      "biased_opinion": 26,
+      "overall_score": 74,
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
       "business_tier_label": "TIER 2",
-      "display_tier": 2,
-      "display_tier_label": "TIER 2"
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "tier": 3,
+      "tier_label": "TIER 3"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 3,
+        "explanation": "Respected technical gravel test with strong reputation among experienced riders. NUE Series opener brings credibility. Not yet major series level but growing recognition as one of the gnarliest gravel courses in North America."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "GRO Promotions brings 15+ years of experience and genuine local expertise. Race director Cimarron Chacon designed and authorized many course segments herself. Weather has forced past course changes but organization handles it professionally."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Unforgettable for anyone who finishes. The combination of technical demands, physical suffering, and otherworldly scenery creates a race that haunts your dreams. Small town start/finish with expo and live music adds character."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "250-person cap creates intimate racing atmosphere versus mass-start chaos. Strong local community investment from founder-led organization. The shared suffering of technical terrain bonds finishers in a unique way."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Attracts strong regional competition and technical specialists. NUE Series connection brings endurance talent. Not elite pro-dominated field but quality depth among those who seek out technical gravel challenges."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Outstanding course quality and organization for the price. Smaller event means less expo spectacle but more meaningful race experience. You're paying for one of the most unique gravel courses on the planet."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Utah location requires travel investment. Las Vegas flight plus shuttle or rental adds up. St. George hotels are reasonable ($100-200/night range). Total trip likely $800-1,200 depending on travel choices."
+      },
       "length": {
         "score": 4,
         "explanation": "84 miles officially, but the brutal technical terrain makes it ride like 100+ miles. Course multiplier is real - 5 miles here equals 10 at easier venues."
@@ -56,38 +95,6 @@
         "explanation": "Stunning convergence of three distinct ecosystems - red sandstone formations, white cliffs, ancient volcanic remnants, and otherworldly desert vegetation. Universally praised as bucket-list beautiful, if brutally demanding."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 3,
-        "explanation": "Respected technical gravel test with strong reputation among experienced riders. NUE Series opener brings credibility. Not yet LTGP level but growing recognition as one of the gnarliest gravel courses in North America."
-      },
-      "race_quality": {
-        "score": 4,
-        "explanation": "GRO Promotions brings 15+ years of experience and genuine local expertise. Race director Cimarron Chacon designed and authorized many course segments herself. Weather has forced past course changes but organization handles it professionally."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "Unforgettable for anyone who finishes. The combination of technical demands, physical suffering, and otherworldly scenery creates a race that haunts your dreams. Small town start/finish with expo and live music adds character."
-      },
-      "community": {
-        "score": 4,
-        "explanation": "250-person cap creates intimate racing atmosphere versus mass-start chaos. Strong local community investment from founder-led organization. The shared suffering of technical terrain bonds finishers in a unique way."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Attracts strong regional competition and technical specialists. NUE Series connection brings endurance talent. Not elite pro-dominated field but quality depth among those who seek out technical gravel challenges."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Outstanding course quality and organization for the price. Smaller event means less expo spectacle but more meaningful race experience. You're paying for one of the most unique gravel courses on the planet."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Utah location requires travel investment. Las Vegas flight plus shuttle or rental adds up. St. George hotels are reasonable ($100-200/night range). Total trip likely $800-1,200 depending on travel choices."
-      }
-    },
-
     "black_pill": {
       "title": "The Uncomfortable Truths About True Grit",
       "reality_checks": [
@@ -117,7 +124,6 @@
         }
       ]
     },
-
     "final_verdict": {
       "summary": "Lauf True Grit Gravel Epic is the real deal - a brutally technical gravel race set against stunning desert scenery that separates gravel racers from gravel tourists. At 84 miles and 9,000 feet of climbing across rocky, technical terrain where the Mojave, Great Basin, and Colorado Plateau converge, this race rewards preparation, technical skill, and genuine grit.",
       "who_should_race": [

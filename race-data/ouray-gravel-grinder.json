@@ -5,7 +5,6 @@
     "slug": "ouray-gravel-grinder",
     "display_name": "Ouray Gravel Grinder",
     "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
-
     "vitals": {
       "distance_mi": 80,
       "elevation_ft": 7800,
@@ -14,23 +13,19 @@
       "date": "September annually",
       "date_specific": "2026: Early September (weather dependent)"
     },
-
     "location": {
       "city": "Ouray",
       "state": "Colorado",
       "country": "USA"
     },
-
     "date": {
       "month": "September",
       "typical": "Early September",
       "season": "Fall"
     },
-
     "organizer": {
       "name": "Local/Undocumented"
     },
-
     "distances": [
       {
         "name": "Alpine Loop",
@@ -53,7 +48,6 @@
         "description": "Classic San Juan jeep road - most dangerous 4x4 road in Colorado"
       }
     ],
-
     "terrain": {
       "surface": {
         "gravel": 50,
@@ -64,14 +58,12 @@
       "technicalRating": 9,
       "description": "Extreme high-altitude San Juan Mountain passes on jeep roads, topping above 12,000 ft"
     },
-
     "registration": {
       "cost": {
         "regular": 150,
         "currency": "USD"
       }
     },
-
     "weather": {
       "typical": {
         "tempHigh": 65,
@@ -80,7 +72,6 @@
         "conditions": "High altitude mountain weather, 72-81 thunderstorm days/year, monsoon season July-August, hypothermia risk"
       }
     },
-
     "uniqueCharacteristics": [
       "Extreme elevation gain",
       "High altitude mountain passes (12,000+ ft)",
@@ -90,20 +81,60 @@
       "Significant hike-a-bike sections",
       "Natural hot springs recovery"
     ],
-
     "gravel_god_rating": {
-      "overall_score": 58,
-      "course_profile": 29,
-      "biased_opinion": 20,
+      "overall_score": 74,
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "business_tier": 3,
       "business_tier_label": "TIER 3",
       "display_tier": 3,
-      "display_tier_label": "TIER 3"
+      "display_tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 5,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "tier": 3,
+      "tier_label": "TIER 3"
     },
-
-    "course_profile": {
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 2,
+        "explanation": "No official organized event exists - this is regional/self-supported riding only. Local recognition in bikepacking circles through Rodeo Labs' 'Silverton Project' and nearby Telluride Gravel Race, but no standalone prestige as an event."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "As there is no organized 'Ouray Gravel Grinder' event, there's no race organization to evaluate. Self-supported riding means no aid stations, no course marking, no official support. Riders are on their own."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Despite lack of organization, the experience itself is unforgettable - for better or worse. The scenery is 10/10, the challenge is severe, and completing routes like the Alpine Loop or Imogene Pass creates lasting memories. You'll remember this forever."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Small, dedicated bikepacking community rather than organized race culture. The Rodeo Labs expeditions and nearby events create some community, but there's no race-day vibe or legendary culture specific to this event."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "No organized competition means no competitive field. Self-supported riders only. For actual racing, the nearby Telluride Gravel Race draws regional competitors but not elite fields."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Without entry fees (no organized event), the riding itself offers exceptional value. World-class terrain accessible to anyone who can get there and is prepared for the challenge. Hot springs recovery is a bonus."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Moderate total cost with lodging at $200-300/night, reasonable airport access, and no entry fee for self-supported riding. A week trip can be done for under $500 excluding flights - reasonable for such exceptional terrain."
+      },
       "length": {
         "score": 4,
         "explanation": "At 80 miles for the Alpine Loop route, this falls squarely in the 60-100 mile substantial distance category. Not ultra-distance but a full day of high-altitude suffering that will test endurance limits."
@@ -133,38 +164,6 @@
         "explanation": "Absolute bucket-list territory. The 'Switzerland of America' with 13,000+ ft peaks, historic mining towns, alpine meadows, and routes that push riders to their absolute limits. Life-changing scenery matched by life-changing difficulty."
       }
     },
-
-    "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "No official organized event exists - this is regional/self-supported riding only. Local recognition in bikepacking circles through Rodeo Labs' 'Silverton Project' and nearby Telluride Gravel Race, but no standalone prestige as an event."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "As there is no organized 'Ouray Gravel Grinder' event, there's no race organization to evaluate. Self-supported riding means no aid stations, no course marking, no official support. Riders are on their own."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "Despite lack of organization, the experience itself is unforgettable - for better or worse. The scenery is 10/10, the challenge is severe, and completing routes like the Alpine Loop or Imogene Pass creates lasting memories. You'll remember this forever."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Small, dedicated bikepacking community rather than organized race culture. The Rodeo Labs expeditions and nearby events create some community, but there's no race-day vibe or legendary culture specific to this event."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No organized competition means no competitive field. Self-supported riders only. For actual racing, the nearby Telluride Gravel Race draws regional competitors but not elite fields."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Without entry fees (no organized event), the riding itself offers exceptional value. World-class terrain accessible to anyone who can get there and is prepared for the challenge. Hot springs recovery is a bonus."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Moderate total cost with lodging at $200-300/night, reasonable airport access, and no entry fee for self-supported riding. A week trip can be done for under $500 excluding flights - reasonable for such exceptional terrain."
-      }
-    },
-
     "popularity": 40,
     "lastUpdated": "2026-01-13",
     "dataQuality": "Medium",

@@ -1,15 +1,15 @@
 {
   "race": {
-    "name": "La Dr\u00f4moise Gravel",
+    "name": "La Drômoise Gravel",
     "slug": "la-dromoise-gravel",
-    "display_name": "La Dr\u00f4moise Gravel",
+    "display_name": "La Drômoise Gravel",
     "tagline": "French Alps gravel challenge.",
     "vitals": {
       "distance_mi": 62,
       "elevation_ft": 5500,
-      "location": "Dr\u00f4me, France",
-      "location_badge": "DR\u00d4ME, FRANCE",
-      "county": "Dr\u00f4me Department",
+      "location": "Drôme, France",
+      "location_badge": "DRÔME, FRANCE",
+      "county": "Drôme Department",
       "date": "Summer annually",
       "date_specific": "2026: Summer TBD",
       "terrain_types": [
@@ -20,7 +20,7 @@
       ],
       "field_size": "150-200 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~\u20ac70-90",
+      "registration": "Online. Cost: ~€70-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "3-4 aid stations",
       "cutoff_time": "8 hours"
@@ -65,13 +65,11 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "course_profile": 11,
-      "biased_opinion": 15,
       "score_note": "Regional France event. Alps terrain with medium local field and scenic challenge."
     },
     "biased_opinion": {
       "verdict": "French Alps Gravel Challenge",
-      "summary": "La Dr\u00f4moise Gravel is a regional event in France\u2014Alps terrain with significant elevation. The French Alps are stunning, but the medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "summary": "La Drômoise Gravel is a regional event in France—Alps terrain with significant elevation. The French Alps are stunning, but the medium local field, regional organization, and limited prestige keep it in Tier 4.",
       "strengths": [
         "French Alps scenery",
         "Mountain challenge",
@@ -91,16 +89,16 @@
     "final_verdict": {
       "score": "50 / 100",
       "one_liner": "French Alps gravel challenge.",
-      "should_you_race": "If you're local to France/Europe\u2014yes, it's solid. If you're traveling internationally\u2014skip it.",
+      "should_you_race": "If you're local to France/Europe—yes, it's solid. If you're traveling internationally—skip it.",
       "alternatives": "For better France races: Gravel Fever, Wish One Millau."
     },
     "logistics": {
       "airport": "Lyon (LYS) 2 hours",
-      "lodging_strategy": "Dr\u00f4me has limited lodging. Consider nearby cities.",
-      "food": "Dr\u00f4me has dining. Stock nutrition.",
+      "lodging_strategy": "Drôme has limited lodging. Consider nearby cities.",
+      "food": "Drôme has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check La Dr\u00f4moise Gravel website"
+      "official_site": "Check La Drômoise Gravel website"
     },
     "history": {
       "founded": null,
@@ -139,11 +137,11 @@
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "La Dr\u00f4moise Gravel",
+      "race_name": "La Drômoise Gravel",
       "race_distance": "62 miles",
       "race_elevation": "5,500 feet",
       "race_date": "Summer",
-      "race_location": "Dr\u00f4me, France",
+      "race_location": "Drôme, France",
       "race_terrain": "French Alps gravel",
       "race_weather": "French Alps summer",
       "race_challenges": [
@@ -238,7 +236,7 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "La Dr\u00f4moise Gravel",
+        "race_name": "La Drômoise Gravel",
         "race_hook": "French Alps gravel challenge.",
         "race_hook_detail": "Regional event with Alps terrain.",
         "distance": "62",

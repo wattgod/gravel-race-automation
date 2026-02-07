@@ -120,6 +120,7 @@
     .gg-tier-1 { background: #c4421a; color: #fff; }
     .gg-tier-2 { background: #d4830a; color: #fff; }
     .gg-tier-3 { background: #888; color: #fff; }
+    .gg-tier-4 { background: #aaa; color: #fff; }
     .gg-card-meta {
       font-size: 13px;
       color: #666;
@@ -168,6 +169,21 @@
     .gg-radar {
       margin-top: 8px;
     }
+    .gg-load-more {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 16px;
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .gg-load-more:hover { background: #333; }
     .gg-no-results {
       text-align: center;
       padding: 40px;
@@ -291,8 +307,10 @@
       // CONFIGURE: Update this URL to your hosted race-index.json
       const DATA_URL = '/wp-content/uploads/race-index.json';
 
+      const PAGE_SIZE = 50;
       let allRaces = [];
       let currentSort = 'score';
+      let visibleCount = PAGE_SIZE;
 
       function init() {
         fetch(DATA_URL)
@@ -362,7 +380,7 @@
         // Tier counts
         const tierSel = document.getElementById('gg-tier');
         tierSel.innerHTML = '<option value="">All Tiers</option>';
-        [1, 2, 3].forEach(t => {
+        [1, 2, 3, 4].forEach(t => {
           const count = countByFilter('tier', t);
           const opt = document.createElement('option');
           opt.value = t; opt.textContent = `Tier ${t} (${count})`;
@@ -565,17 +583,31 @@
       // Expose to global scope for onclick handlers
       window.clearAllFilters = clearAllFilters;
 
-      function render() {
+      function render(resetPage) {
+        if (resetPage !== false) visibleCount = PAGE_SIZE;
         const filtered = sortRaces(filterRaces());
+        const showing = filtered.slice(0, visibleCount);
+        const remaining = filtered.length - showing.length;
         document.getElementById('gg-count').textContent =
           `${filtered.length} race${filtered.length !== 1 ? 's' : ''} found`;
-        document.getElementById('gg-grid').innerHTML =
-          filtered.length > 0
-            ? filtered.map(renderCard).join('')
-            : '<div class="gg-no-results">No races match your filters.</div>';
+        const grid = document.getElementById('gg-grid');
+        if (filtered.length > 0) {
+          grid.innerHTML = showing.map(renderCard).join('');
+          if (remaining > 0) {
+            grid.innerHTML += `<button class="gg-load-more" onclick="loadMore()">Show ${Math.min(remaining, PAGE_SIZE)} more of ${remaining} remaining</button>`;
+          }
+        } else {
+          grid.innerHTML = '<div class="gg-no-results">No races match your filters.</div>';
+        }
         renderActivePills();
         saveToURL();
       }
+
+      function loadMore() {
+        visibleCount += PAGE_SIZE;
+        render(false);
+      }
+      window.loadMore = loadMore;
 
       function bindEvents() {
         ['gg-search','gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(id => {

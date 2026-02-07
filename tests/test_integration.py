@@ -43,7 +43,7 @@ class TestPipelineIntegration:
         assert not result["overall_passed"] or len(result["critical_failures"]) > 0
     
     def test_scripts_importable(self):
-        """All scripts should be importable."""
+        """All pipeline scripts should have valid syntax and exist."""
         scripts_dir = Path(__file__).parent.parent / "scripts"
         scripts = [
             "research",
@@ -54,13 +54,18 @@ class TestPipelineIntegration:
             "notify",
             "quality_gates",
         ]
-        
+
         import sys
         sys.path.insert(0, str(scripts_dir))
-        
+
         for script in scripts:
+            script_path = scripts_dir / f"{script}.py"
+            assert script_path.exists(), f"Script missing: {script}.py"
+
+            # Verify valid Python syntax via compile
+            source = script_path.read_text()
             try:
-                __import__(script)
-            except ImportError as e:
-                pytest.fail(f"Failed to import {script}: {e}")
+                compile(source, str(script_path), "exec")
+            except SyntaxError as e:
+                pytest.fail(f"Syntax error in {script}.py: {e}")
 

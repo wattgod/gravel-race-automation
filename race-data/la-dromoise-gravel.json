@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "La Dr\u00f4moise Gravel",
+    "slug": "la-dromoise-gravel",
+    "display_name": "La Dr\u00f4moise Gravel",
+    "tagline": "French local gravel challenge.",
+    "vitals": {
+      "distance_mi": 55,
+      "elevation_ft": 4000,
+      "location": "Die, Dr\u00f4me, France",
+      "location_badge": "DIE, DR\u00d4ME",
+      "county": "Dr\u00f4me",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "French Alps foothills",
+        "Local event",
+        "European gravel",
+        "France"
+      ],
+      "field_size": "50-100 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u20ac60-80",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "Limited aid stations",
+      "cutoff_time": "Varies"
+    },
+    "climate": {
+      "primary": "French Alps summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Variable weather",
+        "Heat possible",
+        "Mountain terrain",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "French Alps foothills gravel",
+      "surface": "Gravel roads through French Alps foothills. Moderate elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Moderate mountainous (4000 feet)",
+        "French Alps scenery",
+        "Local community event",
+        "55-mile distance",
+        "Small field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 43,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 10,
+      "biased_opinion": 12,
+      "score_note": "Local French event. Mountain terrain with remote access, moderate costs, and small local field."
+    },
+    "biased_opinion": {
+      "verdict": "French Alps Local Gravel",
+      "summary": "La Dr\u00f4moise Gravel is a local event in France\u2014mountain terrain with moderate elevation. The French Alps foothills are scenic, but the small local field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "French Alps scenery",
+        "Mountain challenge",
+        "Good value",
+        "Remote experience",
+        "European experience"
+      ],
+      "weaknesses": [
+        "Small local field only",
+        "Limited organization",
+        "Remote location",
+        "Variable weather",
+        "No international draw"
+      ],
+      "bottom_line": "A solid local French Alps gravel race. Worth it for French/European riders. Not worth traveling for."
+    },
+    "black_pill": {
+      "title": "LOCAL FRENCH EVENT",
+      "reality": "This is a small local French race. The field is local. Organization is basic. Remote location. Don't travel far for this one.",
+      "consequences": [
+        "Small local field",
+        "Limited organization",
+        "No international draw",
+        "Remote location"
+      ],
+      "expectation_reset": "This is a local French event. Set expectations for small field and basic organization."
+    },
+    "final_verdict": {
+      "score": "43 / 100",
+      "one_liner": "French local gravel challenge.",
+      "should_you_race": "If you're local to France\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better French races: Gravel Fever, Wish One Millau."
+    },
+    "logistics": {
+      "airport": "Lyon (LYS) 2 hours",
+      "lodging_strategy": "Die has limited lodging options. Plan ahead.",
+      "food": "Die has limited dining options. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check La Dr\u00f4moise Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local French organizers",
+      "origin_story": "Local French gravel event.",
+      "notable_moments": [],
+      "reputation": "Local French event."
+    },
+    "course_description": {
+      "character": "French Alps foothills gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Mountains",
+          "desc": "First mountain sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Mountains"
+        },
+        {
+          "mile": 27,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 45,
+          "label": "Late Mountains",
+          "desc": "Final mountain sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "French Alps foothills terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "La Dr\u00f4moise Gravel",
+      "race_distance": "55 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Die, Dr\u00f4me, France",
+      "race_terrain": "French Alps foothills gravel",
+      "race_weather": "French Alps summer variable",
+      "race_challenges": [
+        "Mountain terrain",
+        "Small local field",
+        "Remote location",
+        "Limited organization",
+        "Variable weather"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "French Alps weather is variable."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "French Alps foothills require sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited organization and remote location require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "french_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mountains",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Mountain terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable French Alps weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "La Dr\u00f4moise Gravel",
+        "race_hook": "French local gravel challenge.",
+        "race_hook_detail": "Local event with mountain terrain.",
+        "distance": "55",
+        "dark_mile": "27",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

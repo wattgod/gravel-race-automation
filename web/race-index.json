@@ -1399,7 +1399,7 @@
     "has_rwgps": false,
     "research": {
       "grade": "A",
-      "score": 85.1,
+      "score": 82.1,
       "weakest": "citation_density"
     }
   },
@@ -1645,7 +1645,7 @@
       "value": 3,
       "expenses": 2
     },
-    "tagline": "Where the Life Time Grand Prix begins and Leadville dreams are made in California sand",
+    "tagline": "Where the major series begins and Leadville dreams are made in California sand",
     "has_profile": true,
     "profile_url": "/fuego-mtb-race-guide/",
     "has_rwgps": false,
@@ -1956,42 +1956,6 @@
     }
   },
   {
-    "name": "FNLD GRVL",
-    "slug": "fnld-grvl",
-    "location": "Finland (location varies)",
-    "region": "Europe",
-    "month": "August",
-    "distance_mi": 124,
-    "elevation_ft": 4000,
-    "tier": 2,
-    "overall_score": 71,
-    "scores": {
-      "logistics": 2,
-      "length": 4,
-      "technicality": 2,
-      "elevation": 4,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Scandinavia's largest gravel event—1,500 riders, Nordic summer, smooth Finnish roads.",
-    "has_profile": true,
-    "profile_url": "/fnld-grvl-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 74.2,
-      "weakest": "temporal_depth"
-    }
-  },
-  {
     "name": "Gravel Brazil",
     "slug": "gravel-brazil",
     "location": "Balneário Camboriú, Santa Catarina, Brazil",
@@ -2275,8 +2239,8 @@
     "has_rwgps": false,
     "research": {
       "grade": "A",
-      "score": 92.8,
-      "weakest": "voice_authenticity"
+      "score": 89.8,
+      "weakest": "citation_density"
     }
   },
   {
@@ -2314,6 +2278,22 @@
       "score": 94.8,
       "weakest": "voice_authenticity"
     }
+  },
+  {
+    "name": "FNLD GRVL",
+    "slug": "fnld-grvl",
+    "location": "Finland",
+    "region": "Europe",
+    "month": "August",
+    "distance_mi": 200,
+    "elevation_ft": null,
+    "tier": 2,
+    "overall_score": null,
+    "scores": {},
+    "tagline": "",
+    "has_profile": false,
+    "profile_url": null,
+    "has_rwgps": false
   },
   {
     "name": "Belgian Waffle Ride San Diego",
@@ -3187,8 +3167,8 @@
     "has_rwgps": false,
     "research": {
       "grade": "A",
-      "score": 94.1,
-      "weakest": "voice_authenticity"
+      "score": 91.1,
+      "weakest": "citation_density"
     }
   },
   {
@@ -9960,42 +9940,6 @@
     "research": {
       "grade": "C",
       "score": 53.0,
-      "weakest": "source_diversity"
-    }
-  },
-  {
-    "name": "Grasshopper Adventure Series",
-    "slug": "grasshopper-adventure-series",
-    "location": "Various California locations",
-    "region": "West",
-    "month": null,
-    "distance_mi": 55,
-    "elevation_ft": 4500,
-    "tier": 4,
-    "overall_score": 47,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 2,
-      "elevation": 3,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 2,
-      "prestige": 2,
-      "race_quality": 2,
-      "experience": 3,
-      "community": 3,
-      "field_depth": 2,
-      "value": 2,
-      "expenses": 2
-    },
-    "tagline": "California gravel series at various locations.",
-    "has_profile": true,
-    "profile_url": "/grasshopper-adventure-series-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 51.0,
       "weakest": "source_diversity"
     }
   },

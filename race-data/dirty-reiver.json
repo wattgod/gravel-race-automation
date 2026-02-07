@@ -78,7 +78,7 @@
     },
     "biased_opinion_ratings": {
       "prestige": {
-        "score": 4,
+        "score": 5,
         "explanation": "Called 'the UK's answer to Unbound' by British media. It's THE flagship UK gravel event—2,000 riders fighting for entry slots. Sells out within hours. For UK gravel riders, it's the bucket-list event."
       },
       "race_quality": {
@@ -86,7 +86,7 @@
         "explanation": "Well-organized with proper feed stations, GPS tracking, and mandatory kit requirements. No prizes (finishers listed alphabetically), which emphasizes the personal challenge over competition. Good safety protocols with cutoffs."
       },
       "experience": {
-        "score": 4,
+        "score": 5,
         "explanation": "Epic forest riding through one of Britain's most remote areas. The mass start energy, the long hours in the forest, the satisfaction of finishing 200km. It's memorable for the right reasons—and sometimes the wrong ones (weather suffering)."
       },
       "community": {
@@ -94,7 +94,7 @@
         "explanation": "The heart of UK gravel culture. Passionate local community, camping vibes at Kielder, shared suffering in British rain. The non-competitive format encourages camaraderie over racing. Everyone's in it together."
       },
       "field_depth": {
-        "score": 3,
+        "score": 4,
         "explanation": "Primarily UK-focused field. No major pro presence or international prestige. The top finishers are fast UK amateurs and semi-pros. It's about participation and challenge, not elite racing."
       },
       "value": {
@@ -102,8 +102,36 @@
         "explanation": "£85 (~$105) for a well-supported 200km event is reasonable. Three feed stations, GPS tracking, mandatory kit requirements, and a proper event village. Comparable to UK sportive pricing."
       },
       "expenses": {
-        "score": 2,
+        "score": 4,
         "explanation": "UK travel and lodging aren't cheap. Getting to Kielder requires driving (rental car if flying). Limited local accommodation means camping or 30+ mile commutes. Budget for UK prices plus logistical hassle."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Entries sell out fast for the UK's biggest gravel race, capped at 2,000 riders, so planning ahead is non-negotiable. At £85 for the 130km, it's reasonably priced with decent feed station support and mandatory kit requirements that show they take safety seriously. The remote Kielder Forest location means you're committed once you're there, but the organization handles the essentials competently without unnecessary frills."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "130 miles with 14,100 feet of climbing puts you in serious hurt-locker territory without crossing into masochistic ultraendurance nonsense. It's the sweet spot distance that gives you nearly all the suffering of the full 200km route but won't completely wreck your next week. Long enough to separate the pretenders from the real deal, short enough that most fit riders can finish if they pace intelligently."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Kielder's wide forestry roads range from fast smooth gravel to loose rock patches and arm-pumping rocky descents that'll test your bike handling. One rider noted surfaces vary dramatically from smooth gravel to very loose rocks often placed perfectly on corners to catch you off guard. It's not single-track technical, but the mix of conditions and weather-dependent surfaces demand real gravel skills and proper equipment—standard road bikes are explicitly not suitable."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Over 14,000 feet of climbing across 130 miles means you're grinding uphill roughly 110 feet per mile on average, with plenty of punchy climbs mixed in. The relentless undulating terrain through Kielder Forest doesn't give you many flat recovery sections to soft-pedal. It's not Alpine brutal, but it's enough vertical to crack legs and expose fitness gaps throughout the field."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "April in Northumberland averages 9-11°C highs with 15-16 rainy days per month, and riders report everything from snow to mud depending on the year. Kielder Forest weather changes rapidly and some editions have been soaked, turning those forestry roads into slippery, treacherous surfaces. The mandatory kit requirements including thermal blankets aren't just bureaucratic box-ticking—they're acknowledging this place can get genuinely nasty when conditions turn."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "You're in Northumberland, not Nepal—altitude is completely irrelevant here. The highest points in Kielder Forest barely register above sea level in any meaningful way. Save your altitude concerns for races that actually climb into thin air territory."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Nearly 100% off-road through Britain's largest forest creates genuine isolation and self-reliance demands that separate this from sanitized sportives. Cut-offs at specific kilometer marks add real consequences for poor pacing or mechanical issues. The combination of unpredictable Northumberland weather, remote forest setting, and mandatory survival kit requirements creates legitimate adventure elements where your decisions and preparation actually matter."
       }
     },
     "biased_opinion": {

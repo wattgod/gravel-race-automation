@@ -19,14 +19,8 @@ SCORE_COMPONENTS = [
     'community', 'field_depth', 'value', 'expenses'
 ]
 
-# These profiles have known score differences between biased_opinion_ratings
-# and gravel_god_rating — the explanations were written for earlier score
-# values. Don't fail on these; they need manual reconciliation.
-KNOWN_SCORE_MISMATCH_PROFILES = {
-    "big-sugar", "bwr-california", "crusher-in-the-tushar",
-    "dirty-reiver", "gravel-locos", "gravel-worlds", "leadville-100",
-    "rebeccas-private-idaho", "the-rift", "the-traka", "unbound-200",
-}
+# Previously 11 profiles had score mismatches — all reconciled.
+KNOWN_SCORE_MISMATCH_PROFILES = set()
 
 
 def get_enriched_profiles():

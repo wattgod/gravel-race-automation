@@ -79,7 +79,7 @@
         "explanation": "The most famous mountain bike race in America. 30-year history. Lance Armstrong's 2009 win put it on the global map. The belt buckle is the most coveted finisher award in cycling. Part of Lifetime Grand Prix."
       },
       "race_quality": {
-        "score": 4,
+        "score": 5,
         "explanation": "Professionally organized by Lifetime. Proper aid stations with crew access. Wave starts to manage 1,800 riders. Good course marking. The lottery system and high demand create quality-of-field effect."
       },
       "experience": {
@@ -95,12 +95,40 @@
         "explanation": "LTGP brings the world's best: Keegan Swenson, Sofia Gomez Villafañe, plus ex-WorldTour pros. But the 12-hour cutoff means amateurs share the course with elites. The field is deep at all levels."
       },
       "value": {
-        "score": 2,
+        "score": 3,
         "explanation": "$575 is expensive—one of the most costly gravel/MTB entries. The lottery system means you might not even get in. But for those who earn a buckle, the value is priceless."
       },
       "expenses": {
-        "score": 2,
+        "score": 3,
         "explanation": "Leadville lodging is scarce and expensive during race week. Denver flights plus 2-hour drive. Crew support adds logistics costs. Budget $1,000+ beyond entry for a race-week trip."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "Getting into Leadville is like winning the lottery—literally. Over 5,000 people chase roughly 1,600 spots through a December lottery system, with backup qualifier races if you miss out. Once you're in, the $575 entry fee auto-charges your card and you're committed to showing up in remote Leadville, Colorado where everything revolves around race weekend but accommodation fills up fast."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "One hundred miles through the Colorado Rockies, though GPS tells the truth—you're actually riding closer to 104 miles by the time you hit the finish line routing. Twelve hours to complete it or you don't get the coveted finisher's buckle. This isn't some gentle century ride; it's a legitimate suffer-fest that separates tourists from cyclists."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "The course throws legitimate technical challenges at you—Powerline descent, Pipeline climbs, and rocky sections that demand bike handling skills beyond just grinding watts. But this isn't Moab slickrock or North Shore stunts; it's mountain trail riding that rewards smart line choice and descending confidence more than trials bike wizardry. Technical enough to punish the unprepared, manageable enough that fitness matters more than fear."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Roughly 12,000 feet of climbing packed into 100 miles—that's 120 feet per mile average, but the reality hits harder on climbs like Columbine Mine. You're grinding uphill for hours, not just tackling a few punchy climbs. The relentless vertical gain breaks legs and spirits; there's no hiding from the math when every mile averages more elevation than most people climb in a weekend ride."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "August in the Colorado Rockies means you start in pre-dawn cold and finish in afternoon heat, but altitude keeps temperatures manageable compared to desert races. Weather can turn fast above treeline—thunderstorms, hail, or blazing sun within hours of each other. The thin air dries you out faster than sea level, but you won't be melting in 110-degree furnace conditions like Arizona summer races."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Starting at 10,152 feet and climbing to 12,424 feet at Columbine Mine—this is legitimate high-altitude suffering where every breath delivers less oxygen. Most people live at sea level; here you're racing where the air is 40% thinner than your lungs expect. Altitude sickness isn't theoretical—it's the invisible hand choking your power output for hours on end."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "This is the race that made ultra-endurance cycling mainstream, where finishing earns you a belt buckle and legitimate bragging rights. You're riding through genuine Colorado wilderness, hitting historic mining territory, and joining a select group—only those who survive 12 hours in the thin air get the buckle. The sub-9-hour 'big buckle' is cycling's version of a black belt; maybe 150-200 riders out of 1,600 starters earn it each year."
       }
     },
     "biased_opinion": {

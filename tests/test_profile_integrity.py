@@ -21,10 +21,7 @@ KNOWN_SLUG_MISMATCHES = {
     "fuego-mtb": "fuego-xl",  # Historical: renamed from Fuego XL to Fuego MTB
 }
 
-KNOWN_DUPLICATE_NAMES = {
-    "FNLD GRVL",                    # finnish-gravel.json + fnld-grvl.json (same race, two slugs)
-    "Grasshopper Adventure Series", # grasshopper-adventure-series.json + grasshopper-series.json
-}
+KNOWN_DUPLICATE_NAMES = set()  # Previously: FNLD GRVL, Grasshopper — resolved by removing stubs
 
 
 def get_all_profiles():

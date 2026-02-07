@@ -106,6 +106,27 @@ def needs_enrichment(race):
     return explained < 7
 
 
+def needs_completion(race):
+    """Check if profile has partial enrichment (7-13 explanations) needing completion."""
+    bor = race.get("biased_opinion_ratings", {})
+    if not bor or not isinstance(bor, dict):
+        return False
+    explained = sum(1 for k in SCORE_COMPONENTS
+                    if isinstance(bor.get(k), dict) and bor[k].get("explanation", "").strip())
+    return 7 <= explained < 14
+
+
+def get_missing_criteria(race):
+    """Return list of criteria missing explanations."""
+    bor = race.get("biased_opinion_ratings", {})
+    missing = []
+    for k in SCORE_COMPONENTS:
+        entry = bor.get(k)
+        if not isinstance(entry, dict) or not entry.get("explanation", "").strip():
+            missing.append(k)
+    return missing
+
+
 def build_enrichment_prompt(race, research_text, voice_guide):
     """Build the API prompt for enrichment."""
     name = race.get("name", "Unknown")
@@ -205,6 +226,56 @@ Rules:
 - Output ONLY the JSON object, no markdown, no code blocks"""
 
 
+def build_completion_prompt(race, research_text, voice_guide, missing_criteria):
+    """Build API prompt for completing partial enrichment (v1 → full)."""
+    name = race.get("name", "Unknown")
+    rating = race.get("gravel_god_rating", {})
+    location = race.get("vitals", {}).get("location", "Unknown")
+    distance = race.get("vitals", {}).get("distance_mi", "?")
+    elevation = race.get("vitals", {}).get("elevation_ft", "?")
+
+    scores_block = "\n".join(f"  - {k}: {rating.get(k, 3)}/5" for k in missing_criteria)
+
+    json_template = ",\n  ".join(
+        f'"{k}": {{\n    "score": {rating.get(k, 3)},\n    "explanation": "..."\n  }}'
+        for k in missing_criteria
+    )
+
+    return f"""You are writing biased_opinion_ratings for the Gravel God cycling race database.
+
+RACE: {name}
+LOCATION: {location}
+DISTANCE: {distance} mi | ELEVATION: {elevation} ft
+
+This profile already has explanations for some criteria. You are writing ONLY the missing ones listed below.
+
+CRITERIA TO WRITE (with existing scores):
+{scores_block}
+
+VOICE GUIDE (write in this voice):
+{voice_guide[:800]}
+
+RESEARCH DATA:
+{research_text[:8000]}
+
+---
+
+For EACH criterion listed above, write a 2-4 sentence explanation justifying the score. Use specific details from the research — real place names, real numbers, real rider quotes. No generic filler.
+
+Output ONLY valid JSON in this exact format:
+{{
+  {json_template}
+}}
+
+Rules:
+- Keep the existing scores — don't change them
+- Each explanation: 2-4 sentences, specific, Matti voice
+- Reference specific course features, weather data, logistics details from research
+- No generic filler ("amazing experience", "world-class")
+- If research lacks detail for a criterion, say what you know honestly
+- Output ONLY the JSON object, no markdown, no code blocks"""
+
+
 def call_api(prompt, max_retries=3, retry_delay=30):
     """Call Claude API with retry logic."""
     import anthropic
@@ -243,8 +314,12 @@ def parse_json_response(text):
     return json.loads(text)
 
 
-def enrich_profile(slug, dry_run=False):
-    """Enrich a single profile. Returns (success, message)."""
+def enrich_profile(slug, dry_run=False, complete_mode=False):
+    """Enrich a single profile. Returns (success, message).
+
+    complete_mode: If True, complete partial profiles (7→14) instead of
+                   requiring <7 explanations.
+    """
     profile_path = RACE_DATA / f"{slug}.json"
     if not profile_path.exists():
         return False, f"No profile: {slug}.json"
@@ -252,18 +327,37 @@ def enrich_profile(slug, dry_run=False):
     data = json.loads(profile_path.read_text())
     race = data.get("race", data)
 
-    if not needs_enrichment(race):
-        return False, f"Already enriched: {slug}"
+    if complete_mode:
+        if not needs_completion(race):
+            # Check if it's already full or needs full enrichment
+            bor = race.get("biased_opinion_ratings", {})
+            explained = sum(1 for k in SCORE_COMPONENTS
+                            if isinstance(bor.get(k), dict) and bor[k].get("explanation", "").strip())
+            if explained >= 14:
+                return False, f"Already complete: {slug} (14/14)"
+            if explained < 7:
+                return False, f"Needs full enrichment, not completion: {slug} ({explained}/14)"
+            return False, f"Unexpected state: {slug} ({explained}/14)"
+        missing = get_missing_criteria(race)
+    else:
+        if not needs_enrichment(race):
+            return False, f"Already enriched: {slug}"
+        missing = None
 
     research = load_research(slug)
     if not research:
         return False, f"No research dump: {slug}"
 
     voice_guide = load_voice_guide()
-    prompt = build_enrichment_prompt(race, research, voice_guide)
+
+    if complete_mode and missing:
+        prompt = build_completion_prompt(race, research, voice_guide, missing)
+    else:
+        prompt = build_enrichment_prompt(race, research, voice_guide)
 
     if dry_run:
-        return True, f"Would enrich: {slug} ({len(research)} chars research)"
+        label = f"missing {missing}" if missing else "full enrichment"
+        return True, f"Would enrich: {slug} ({label}, {len(research)} chars research)"
 
     try:
         response_text = call_api(prompt)
@@ -282,14 +376,21 @@ def enrich_profile(slug, dry_run=False):
     if not response_keys.intersection(valid_keys):
         return False, f"API response has no valid keys: {response_keys}"
 
-    # Merge: set biased_opinion_ratings, preserving scores from gravel_god_rating
+    # Merge: set scores from gravel_god_rating
     rating = race.get("gravel_god_rating", {})
     for key in SCORE_COMPONENTS:
         if key in enriched and isinstance(enriched[key], dict):
-            # Keep the existing score from gravel_god_rating
             enriched[key]["score"] = rating.get(key, enriched[key].get("score", 3))
 
-    race["biased_opinion_ratings"] = enriched
+    if complete_mode:
+        # Merge new explanations into existing biased_opinion_ratings
+        existing_bor = race.get("biased_opinion_ratings", {})
+        for key in SCORE_COMPONENTS:
+            if key in enriched and isinstance(enriched[key], dict):
+                existing_bor[key] = enriched[key]
+        race["biased_opinion_ratings"] = existing_bor
+    else:
+        race["biased_opinion_ratings"] = enriched
 
     # Write back
     if "race" in data:
@@ -298,23 +399,65 @@ def enrich_profile(slug, dry_run=False):
         data = race
 
     profile_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
-    explained = sum(1 for v in enriched.values()
+    bor = race["biased_opinion_ratings"]
+    explained = sum(1 for v in bor.values()
                     if isinstance(v, dict) and v.get("explanation", "").strip())
     return True, f"Enriched: {slug} ({explained}/14 explanations)"
+
+
+def get_completion_candidates(n, min_research_kb=3.0):
+    """Get v1 profiles that need completion (7→14 explanations)."""
+    candidates = []
+
+    for path in sorted(RACE_DATA.glob("*.json")):
+        slug = path.stem
+        dump_path = RESEARCH_DUMPS / f"{slug}-raw.md"
+        if not dump_path.exists():
+            continue
+        dump_kb = dump_path.stat().st_size / 1024
+        if dump_kb < min_research_kb:
+            continue
+
+        data = json.loads(path.read_text())
+        race = data.get("race", data)
+        if not needs_completion(race):
+            continue
+
+        tier = race.get("gravel_god_rating", {}).get("tier", 4)
+        candidates.append({
+            "slug": slug,
+            "tier": tier,
+            "research_kb": dump_kb,
+        })
+
+    candidates.sort(key=lambda r: (r["tier"], -r["research_kb"]))
+    return [r["slug"] for r in candidates[:n]]
 
 
 def main():
     parser = argparse.ArgumentParser(description="Batch profile enrichment")
     parser.add_argument("--auto", type=int, metavar="N",
                         help="Auto-select top N enrichment candidates")
+    parser.add_argument("--complete", type=int, metavar="N",
+                        help="Complete top N partial profiles (7→14 explanations)")
     parser.add_argument("--slugs", nargs="+", help="Specific slugs to enrich")
+    parser.add_argument("--complete-slugs", nargs="+",
+                        help="Complete specific partial profiles")
     parser.add_argument("--dry-run", action="store_true",
                         help="Preview without calling API or writing files")
     parser.add_argument("--delay", type=int, default=3,
                         help="Seconds between API calls (default: 3)")
     args = parser.parse_args()
 
-    if args.auto:
+    complete_mode = False
+    if args.complete:
+        slugs = get_completion_candidates(args.complete)
+        complete_mode = True
+        print(f"Auto-selected {len(slugs)} partial profiles to complete")
+    elif args.complete_slugs:
+        slugs = args.complete_slugs
+        complete_mode = True
+    elif args.auto:
         slugs = get_enrichment_candidates(args.auto)
         print(f"Auto-selected {len(slugs)} candidates")
     elif args.slugs:
@@ -323,7 +466,8 @@ def main():
         parser.print_help()
         return
 
-    print(f"\n{'DRY RUN - ' if args.dry_run else ''}Enriching {len(slugs)} profiles\n")
+    mode_label = "COMPLETING" if complete_mode else "ENRICHING"
+    print(f"\n{'DRY RUN - ' if args.dry_run else ''}{mode_label} {len(slugs)} profiles\n")
 
     success = 0
     failed = 0
@@ -331,12 +475,12 @@ def main():
 
     for i, slug in enumerate(slugs, 1):
         print(f"[{i}/{len(slugs)}] {slug}...", end=" ", flush=True)
-        ok, msg = enrich_profile(slug, dry_run=args.dry_run)
+        ok, msg = enrich_profile(slug, dry_run=args.dry_run, complete_mode=complete_mode)
         print(msg)
 
         if ok:
             success += 1
-        elif "Already enriched" in msg or "No research dump" in msg:
+        elif "Already" in msg or "No research dump" in msg:
             skipped += 1
         else:
             failed += 1

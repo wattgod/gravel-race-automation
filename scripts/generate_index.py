@@ -37,6 +37,48 @@ def slugify(name: str) -> str:
     return slug
 
 
+def normalize_slug(slug: str) -> str:
+    """Normalize slug for fuzzy matching - removes common suffixes/prefixes."""
+    s = slug.lower().strip()
+    # Remove common suffixes
+    for suffix in ['-gravel', '-gravel-race', '-race', '-grinder', '-fondo', '-100', '-200']:
+        if s.endswith(suffix):
+            s = s[:-len(suffix)]
+    # Remove common prefixes
+    for prefix in ['the-']:
+        if s.startswith(prefix):
+            s = s[len(prefix):]
+    return s
+
+
+def find_matching_profile(name: str, profiles: dict, seen_slugs: set) -> Optional[str]:
+    """Try to find a matching profile using fuzzy slug matching."""
+    # Exact match first
+    slug = slugify(name)
+    if slug in seen_slugs:
+        return slug
+
+    # Try normalized match
+    normalized = normalize_slug(slug)
+    for profile_slug in profiles.keys():
+        if normalize_slug(profile_slug) == normalized:
+            return profile_slug
+
+    # Try common variations
+    variations = [
+        slug + '-gravel',
+        slug + '-gravel-race',
+        'the-' + slug,
+        slug.replace('-gravel', ''),
+        slug.replace('-race', ''),
+    ]
+    for var in variations:
+        if var in seen_slugs:
+            return var
+
+    return None
+
+
 def extract_region(location: str) -> str:
     """Extract broad region from location string."""
     if not location:
@@ -285,8 +327,17 @@ def main():
         seen_slugs.add(slug)
 
     # Then: add flat DB races that don't have profiles
+    # Use fuzzy matching to avoid duplicates
     for race in flat_db:
-        slug = slugify(race.get("RACE_NAME", race.get("name", "")))
+        name = race.get("RACE_NAME", race.get("name", ""))
+        slug = slugify(name)
+
+        # Try to find a matching profile with fuzzy matching
+        matched = find_matching_profile(name, profiles, seen_slugs)
+        if matched:
+            # Already have this race, skip
+            continue
+
         if slug and slug not in seen_slugs:
             entry = build_index_entry_from_flat(race)
             index.append(entry)

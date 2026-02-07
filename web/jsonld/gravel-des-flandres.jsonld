@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel des Flandres",
+  "description": "Belgian Flanders rolling gravel.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Flanders, Belgium"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "47",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Gravel des Flandres website"
+}

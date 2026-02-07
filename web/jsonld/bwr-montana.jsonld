@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "BWR Montana (Belgian Waffle Ride Montana)",
+  "description": "Montana Rockies adventure\u2014140km of mountain gravel, 2,800m elevation, Missoula scenery, waffles.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Missoula, Montana"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "180",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.belgianwaffleride.com"
+}

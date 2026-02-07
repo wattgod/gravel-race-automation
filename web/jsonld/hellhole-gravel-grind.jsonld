@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Hellhole Gravel Grind Stage Race",
+  "description": "Multi-day South Carolina gravel in Jamestown.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Jamestown, South Carolina"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "150",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "51",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check South Carolina cycling calendars"
+}

@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Crystal Bear",
+  "description": "192-mile overnight bikepacking odyssey from Wisconsin to Michigan's Upper Peninsula where darkness, cold, and solitude break you down and build you back.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-17",
+  "location": {
+    "@type": "Place",
+    "name": "Laona, WI to Crystal Falls, MI"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "75",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.ironbear1000.com"
+}

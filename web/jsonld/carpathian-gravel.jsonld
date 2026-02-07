@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Carpathian Gravel",
+  "description": "Romanian Carpathian mountainous gravel.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Carpathian Mountains, Romania"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "53",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Carpathian Gravel website"
+}

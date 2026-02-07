@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Mammoth Tuff",
+  "description": "UCI Gravel World Series qualifier at 8,000 feet\u2014High Sierra alpine gravel where altitude humbles everyone.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Mammoth Lakes, California"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "100",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "80",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.mammothtuff.com"
+}

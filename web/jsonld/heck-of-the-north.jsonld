@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Heck of the North",
+  "description": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-26",
+  "location": {
+    "@type": "Place",
+    "name": "Two Harbors, Minnesota"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "90",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.heckofthenorth.com"
+}

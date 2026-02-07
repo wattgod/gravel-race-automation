@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Dirty 30",
+  "description": "Early season Michigan gravel with cold starts, mud risk, and MGRS community.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-19",
+  "location": {
+    "@type": "Place",
+    "name": "Saranac, Michigan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "45",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.dirty30.com"
+}

@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Le Grand du Nord",
+  "description": "UCI Gravel World Series race through Minnesota's stunning North Shore at Lake Superior.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-23",
+  "location": {
+    "@type": "Place",
+    "name": "Grand Marais, Minnesota"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "90",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.legranddunord.com"
+}

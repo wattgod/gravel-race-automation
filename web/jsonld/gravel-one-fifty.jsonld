@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel One Fifty",
+  "description": "Dutch flat gravel in Roden, Drenthe.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Roden, Drenthe, Netherlands"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "49",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Gravel One Fifty website"
+}

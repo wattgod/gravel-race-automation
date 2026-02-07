@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Eislek Gravel",
+  "description": "Luxembourg Ardennes gravel challenge.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Luxembourg"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "49",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Eislek Gravel website"
+}

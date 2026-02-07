@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Hot Springs Gravel Gauntlet",
+  "description": "Appalachian gravel in remote western North Carolina mountains.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Hot Springs, North Carolina"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "60",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "51",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check North Carolina cycling calendars"
+}

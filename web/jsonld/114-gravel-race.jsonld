@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "114 Gravel Race",
+  "description": "Portuguese rolling gravel challenge.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Portugal"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "47",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check 114 Gravel Race website"
+}

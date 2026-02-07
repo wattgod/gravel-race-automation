@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel Suisse",
+  "description": "Swiss Alpine gravel in Aigle.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Aigle, Switzerland"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "54",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Gravel Suisse website"
+}

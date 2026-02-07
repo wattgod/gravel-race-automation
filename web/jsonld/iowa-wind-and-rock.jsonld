@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Iowa Wind and Rock",
+  "description": "340 miles of relentless Iowa gravel where the wind never stops, the terrain never flattens, and 40 hours of continuous riding reveals who you really are.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-19",
+  "location": {
+    "@type": "Place",
+    "name": "Winterset, Iowa"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "150",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.iowagravel.com"
+}

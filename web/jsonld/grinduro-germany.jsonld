@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Grinduro Germany",
+  "description": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-23",
+  "location": {
+    "@type": "Place",
+    "name": "Hellenthal, Eifel, Germany"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.grinduro.com/germany"
+}

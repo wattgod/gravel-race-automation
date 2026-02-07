@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Farmer's Daughter",
+  "description": "New York rolling gravel.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "New York"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "75",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "49",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Farmer's Daughter website"
+}

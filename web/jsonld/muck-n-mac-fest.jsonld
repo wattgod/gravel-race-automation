@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Muck n Mac Fest",
+  "description": "UK Scotland gravel challenge.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Traquair House, Scotland, UK"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "40",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Muck n Mac Fest website"
+}

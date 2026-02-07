@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Wish One Millau",
+  "description": "French plateau gravel in Millau Grands Causses.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Millau Grands Causses, France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "51",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Wish One Millau website"
+}

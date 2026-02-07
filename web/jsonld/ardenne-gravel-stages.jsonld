@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Ardenne Gravel Stages",
+  "description": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Vielsalm/Engreux, Belgian Ardennes"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "52",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Ardenne Gravel Stages website"
+}

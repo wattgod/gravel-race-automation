@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "BWR Utah (Belgian Waffle Ride Utah)",
+  "description": "Utah red rock adventure\u2014135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Cedar City, Utah"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "180",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.belgianwaffleride.com"
+}

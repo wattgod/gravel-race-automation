@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Heathland Gravel",
+  "description": "Belgian heathland gravel challenge.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Belgium"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "46",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Heathland Gravel website"
+}

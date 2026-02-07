@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Alentejo Gravel",
+  "description": "Portuguese Alentejo gravel adventure.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Alentejo, Portugal"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "47",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Alentejo Gravel website"
+}

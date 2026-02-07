@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Yorkshire Coast Dirt Dash",
+  "description": "UK Yorkshire coast gravel challenge.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Whitby, UK"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "39",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check Yorkshire Coast Dirt Dash website"
+}

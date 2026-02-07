@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "TransRockies Gravel Royale",
+  "description": "British Columbia multi-stage gravel adventure.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "British Columbia, Canada"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "500",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "57",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "Check TransRockies Gravel Royale website"
+}

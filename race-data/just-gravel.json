@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "JUST.GRAVEL",
+    "slug": "just-gravel",
+    "display_name": "JUST.GRAVEL",
+    "tagline": "UK Lake District gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 4000,
+      "location": "Southern Lake District, UK",
+      "location_badge": "LAKE DISTRICT, UK",
+      "county": "Cumbria",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "UK Lake District",
+        "British gravel",
+        "UK",
+        "Lake District"
+      ],
+      "field_size": "100-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u00a370-90",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "3 aid stations",
+      "cutoff_time": "8 hours"
+    },
+    "climate": {
+      "primary": "UK summer",
+      "description": "Variable Lake District conditions.",
+      "challenges": [
+        "Variable weather",
+        "Rain likely",
+        "Cold possible",
+        "Lake District terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "UK Lake District gravel",
+      "surface": "Gravel roads through Lake District. Moderate elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Moderate mountainous (4000 feet)",
+        "Lake District scenery",
+        "UK gravel experience",
+        "50-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 41,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 11,
+      "score_note": "Regional UK event. Lake District terrain with small-medium local field."
+    },
+    "biased_opinion": {
+      "verdict": "UK Lake District Gravel",
+      "summary": "JUST.GRAVEL is a regional event in UK\u2014Lake District terrain with moderate elevation. The mountains are scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "Lake District scenery",
+        "UK gravel experience",
+        "Mountain challenge",
+        "Good value",
+        "British community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather",
+        "Rain likely"
+      ],
+      "bottom_line": "A solid regional UK gravel race. Worth it for UK riders. Not worth traveling internationally for."
+    },
+    "black_pill": {
+      "title": "REGIONAL UK EVENT",
+      "reality": "This is a regional UK race. The field is mostly local. Organization is regional. Don't travel internationally for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional UK event. Set expectations for small field, regional organization, and Lake District weather."
+    },
+    "final_verdict": {
+      "score": "41 / 100",
+      "one_liner": "UK Lake District gravel challenge.",
+      "should_you_race": "If you're local to UK\u2014yes, it's solid. If you're traveling internationally\u2014skip it.",
+      "alternatives": "For better UK races: Lauf Gritfest."
+    },
+    "logistics": {
+      "airport": "Manchester (MAN) 2 hours",
+      "lodging_strategy": "Lake District has lodging. Book ahead.",
+      "food": "Lake District has dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check JUST.GRAVEL website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local UK organizers",
+      "origin_story": "Regional UK Lake District gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional UK event."
+    },
+    "course_description": {
+      "character": "UK Lake District gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Lake District",
+          "desc": "First Lake District sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Lake District"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Lake District",
+          "desc": "Final Lake District sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "UK Lake District terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "JUST.GRAVEL",
+      "race_distance": "50 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Southern Lake District, UK",
+      "race_terrain": "UK Lake District gravel",
+      "race_weather": "UK summer",
+      "race_challenges": [
+        "Mountain terrain",
+        "Variable weather",
+        "Rain likely",
+        "Regional field",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Lake District weather is variable with rain likely."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Lake District requires sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Mountain terrain requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "uk_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mountains",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Lake District terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable Lake District weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "JUST.GRAVEL",
+        "race_hook": "UK Lake District gravel challenge.",
+        "race_hook_detail": "Regional event with Lake District terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

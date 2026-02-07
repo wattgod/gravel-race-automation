@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "North Wales Gravel X",
+    "slug": "north-wales-gravel-x",
+    "display_name": "North Wales Gravel X",
+    "tagline": "UK Wales gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 4000,
+      "location": "Ruthin, Wales, UK",
+      "location_badge": "RUTHIN, WALES",
+      "county": "Denbighshire",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "UK Wales",
+        "British gravel",
+        "UK",
+        "North Wales"
+      ],
+      "field_size": "100-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u00a370-90",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "3 aid stations",
+      "cutoff_time": "8 hours"
+    },
+    "climate": {
+      "primary": "UK summer",
+      "description": "Variable Welsh conditions.",
+      "challenges": [
+        "Variable weather",
+        "Rain likely",
+        "Cold possible",
+        "Welsh terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "UK Wales gravel",
+      "surface": "Gravel roads through North Wales. Moderate elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Moderate mountainous (4000 feet)",
+        "North Wales scenery",
+        "UK gravel experience",
+        "50-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 43,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 9,
+      "biased_opinion": 12,
+      "score_note": "Regional UK event. North Wales terrain with small-medium local field."
+    },
+    "biased_opinion": {
+      "verdict": "UK Wales Gravel",
+      "summary": "North Wales Gravel X is a regional event in UK\u2014North Wales terrain with moderate elevation. The mountains are scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "North Wales scenery",
+        "UK gravel experience",
+        "Mountain challenge",
+        "Good value",
+        "Welsh community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather",
+        "Rain likely"
+      ],
+      "bottom_line": "A solid regional UK Wales gravel race. Worth it for UK riders. Not worth traveling internationally for."
+    },
+    "black_pill": {
+      "title": "REGIONAL UK EVENT",
+      "reality": "This is a regional UK race. The field is mostly local. Organization is regional. Don't travel internationally for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional UK event. Set expectations for small field, regional organization, and Welsh weather."
+    },
+    "final_verdict": {
+      "score": "43 / 100",
+      "one_liner": "UK Wales gravel challenge.",
+      "should_you_race": "If you're local to UK\u2014yes, it's solid. If you're traveling internationally\u2014skip it.",
+      "alternatives": "For better UK races: Lauf Gritfest."
+    },
+    "logistics": {
+      "airport": "Manchester (MAN) 90 minutes",
+      "lodging_strategy": "Ruthin has lodging. Book ahead.",
+      "food": "Ruthin has dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check North Wales Gravel X website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local UK organizers",
+      "origin_story": "Regional UK North Wales gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional UK event."
+    },
+    "course_description": {
+      "character": "UK North Wales gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Wales",
+          "desc": "First Wales sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Wales"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Wales",
+          "desc": "Final Wales sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "UK North Wales terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "North Wales Gravel X",
+      "race_distance": "50 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Ruthin, Wales, UK",
+      "race_terrain": "UK Wales gravel",
+      "race_weather": "UK summer",
+      "race_challenges": [
+        "Mountain terrain",
+        "Variable weather",
+        "Rain likely",
+        "Regional field",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Welsh weather is variable with rain likely."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "North Wales requires sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Mountain terrain requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "uk_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mountains",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Wales terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable Welsh weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "North Wales Gravel X",
+        "race_hook": "UK Wales gravel challenge.",
+        "race_hook_detail": "Regional event with Wales terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

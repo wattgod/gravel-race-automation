@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "The GRiT Adventure",
+    "slug": "the-grit-adventure",
+    "display_name": "The GRiT Adventure",
+    "tagline": "Washington Cascades gravel adventure.",
+    "vitals": {
+      "distance_mi": 65,
+      "elevation_ft": 5500,
+      "location": "Snoqualmie Pass, WA",
+      "location_badge": "SNOQUALMIE PASS, WA",
+      "county": "Kittitas County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Washington Cascades",
+        "Mountain gravel",
+        "Pacific Northwest",
+        "Washington"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$85-105",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "3 aid stations",
+      "cutoff_time": "9 hours"
+    },
+    "climate": {
+      "primary": "Washington Cascades summer",
+      "description": "Variable mountain conditions.",
+      "challenges": [
+        "Variable weather",
+        "Mountain terrain",
+        "Summer conditions",
+        "Elevation changes"
+      ]
+    },
+    "terrain": {
+      "primary": "Washington Cascades gravel",
+      "surface": "Gravel roads through Washington Cascades. Significant elevation with mountain scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (5500 feet)",
+        "Washington Cascades scenery",
+        "Pacific Northwest adventure",
+        "65-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 11,
+      "biased_opinion": 13,
+      "score_note": "Regional WA event. Cascades terrain with small-medium field and significant elevation."
+    },
+    "biased_opinion": {
+      "verdict": "Washington Cascades Adventure",
+      "summary": "The GRiT Adventure is a regional event in Washington\u2014Cascades terrain with significant elevation. The mountains are scenic, but the small-medium local field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Washington Cascades scenery",
+        "Mountain adventure",
+        "Pacific Northwest experience",
+        "Good value",
+        "Cascades challenge"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Remote location",
+        "Limited organization",
+        "Variable weather",
+        "Moderate costs"
+      ],
+      "bottom_line": "A solid regional WA Cascades gravel race. Worth it for WA/Northwest riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL WA EVENT",
+      "reality": "This is a regional WA race. The field is mostly local. Organization is basic. Remote Cascades location. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Limited organization",
+        "Remote location",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional WA event. Set expectations for small field, basic organization, and Cascades mountain conditions."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Washington Cascades gravel adventure.",
+      "should_you_race": "If you're local to WA\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better WA races: Check regional options."
+    },
+    "logistics": {
+      "airport": "Seattle (SEA) 90 minutes",
+      "lodging_strategy": "Snoqualmie Pass has limited lodging. Plan ahead.",
+      "food": "Snoqualmie Pass has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check The GRiT Adventure website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local WA organizers",
+      "origin_story": "Regional WA Cascades gravel adventure.",
+      "notable_moments": [],
+      "reputation": "Regional WA event."
+    },
+    "course_description": {
+      "character": "Washington Cascades mountain gravel.",
+      "suffering_zones": [
+        {
+          "mile": 22,
+          "label": "Early Cascades",
+          "desc": "First Cascades sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Cascades"
+        },
+        {
+          "mile": 32,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Cascades",
+          "desc": "Final Cascades sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Washington Cascades mountain terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "The GRiT Adventure",
+      "race_distance": "65 miles",
+      "race_elevation": "5,500 feet",
+      "race_date": "Summer",
+      "race_location": "Snoqualmie Pass, WA",
+      "race_terrain": "Washington Cascades gravel",
+      "race_weather": "Washington Cascades summer",
+      "race_challenges": [
+        "Mountain terrain",
+        "Variable weather",
+        "Significant elevation",
+        "Remote location",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Washington Cascades weather is variable."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Washington Cascades require sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Remote location and limited aid require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "wa_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mountains",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Cascades terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable Cascades weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The GRiT Adventure",
+        "race_hook": "Washington Cascades gravel adventure.",
+        "race_hook_detail": "Regional event with Cascades mountain terrain.",
+        "distance": "65",
+        "dark_mile": "32",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

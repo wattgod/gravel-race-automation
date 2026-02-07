@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Dalby Grit",
+    "slug": "dalby-grit",
+    "display_name": "Dalby Grit",
+    "tagline": "UK North York Moors gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 3500,
+      "location": "Dalby Forest, North York Moors, UK",
+      "location_badge": "DALBY FOREST, UK",
+      "county": "North Yorkshire",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "UK North York Moors",
+        "British gravel",
+        "UK",
+        "Yorkshire"
+      ],
+      "field_size": "100-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~\u00a365-85",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "7 hours"
+    },
+    "climate": {
+      "primary": "UK summer",
+      "description": "Variable British conditions.",
+      "challenges": [
+        "Variable weather",
+        "Rain possible",
+        "Summer conditions",
+        "Moorland terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "UK North York Moors gravel",
+      "surface": "Gravel roads through North York Moors. Moderate elevation with moorland scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3500 feet)",
+        "North York Moors scenery",
+        "UK gravel experience",
+        "50-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 39,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "course_profile": 7,
+      "biased_opinion": 11,
+      "score_note": "Regional UK event. North York Moors terrain with small-medium local field."
+    },
+    "biased_opinion": {
+      "verdict": "UK North York Moors Gravel",
+      "summary": "Dalby Grit is a regional event in UK\u2014North York Moors terrain with moderate elevation. The moorland is scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "North York Moors scenery",
+        "UK gravel experience",
+        "Moorland challenge",
+        "Good value",
+        "British community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather",
+        "Rain possible"
+      ],
+      "bottom_line": "A solid regional UK gravel race. Worth it for UK riders. Not worth traveling internationally for."
+    },
+    "black_pill": {
+      "title": "REGIONAL UK EVENT",
+      "reality": "This is a regional UK race. The field is mostly local. Organization is regional. Don't travel internationally for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional UK event. Set expectations for small field, regional organization, and British weather."
+    },
+    "final_verdict": {
+      "score": "39 / 100",
+      "one_liner": "UK North York Moors gravel challenge.",
+      "should_you_race": "If you're local to UK\u2014yes, it's solid. If you're traveling internationally\u2014skip it.",
+      "alternatives": "For better UK races: Lauf Gritfest."
+    },
+    "logistics": {
+      "airport": "Leeds Bradford (LBA) 90 minutes",
+      "lodging_strategy": "Dalby Forest has limited lodging. Plan ahead.",
+      "food": "Dalby Forest has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Dalby Grit website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local UK organizers",
+      "origin_story": "Regional UK North York Moors gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional UK event."
+    },
+    "course_description": {
+      "character": "UK North York Moors gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Moors",
+          "desc": "First moors sections.",
+          "terrain_detail": "Moorland",
+          "named_section": "Early Moors"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Moors",
+          "desc": "Final moors sections before finish.",
+          "terrain_detail": "Late moorland",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "UK North York Moors terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Dalby Grit",
+      "race_distance": "50 miles",
+      "race_elevation": "3,500 feet",
+      "race_date": "Summer",
+      "race_location": "Dalby Forest, North York Moors, UK",
+      "race_terrain": "UK North York Moors gravel",
+      "race_weather": "UK summer",
+      "race_challenges": [
+        "Moorland terrain",
+        "Variable weather",
+        "Rain possible",
+        "Regional field",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "UK weather is variable with rain possible."
+      },
+      {
+        "requirement": "Moorland endurance",
+        "by_when": "Week 6-8",
+        "why": "North York Moors require sustained moorland effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "uk_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "moorland_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "weather",
+          "moorland"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Moorland terrain pacing",
+          "fueling": "Nutrition for moorland riding",
+          "weather": "Riding in variable UK weather",
+          "moorland": "Sustained moorland strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Dalby Grit",
+        "race_hook": "UK North York Moors gravel challenge.",
+        "race_hook_detail": "Regional event with moorland terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Moorland endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

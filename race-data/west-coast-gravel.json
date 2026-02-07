@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "West Coast Gravel",
+    "slug": "west-coast-gravel",
+    "display_name": "West Coast Gravel",
+    "tagline": "Oregon coast gravel challenge.",
+    "vitals": {
+      "distance_mi": 55,
+      "elevation_ft": 4000,
+      "location": "Yachats, OR",
+      "location_badge": "YACHATS, OR",
+      "county": "Lincoln County",
+      "date": "Summer annually",
+      "date_specific": "2026: Summer TBD",
+      "terrain_types": [
+        "Oregon coast",
+        "Coastal gravel",
+        "Pacific Northwest",
+        "Oregon"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-95",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "8 hours"
+    },
+    "climate": {
+      "primary": "Oregon coast summer",
+      "description": "Variable coastal conditions.",
+      "challenges": [
+        "Variable weather",
+        "Rain possible",
+        "Coastal winds",
+        "Summer conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Oregon coast gravel",
+      "surface": "Gravel roads through Oregon coast. Moderate elevation with coastal scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Moderate mountainous (4000 feet)",
+        "Oregon coast scenery",
+        "Pacific Northwest experience",
+        "55-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 43,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 9,
+      "biased_opinion": 11,
+      "score_note": "Regional OR event. Coastal terrain with small-medium field and remote location."
+    },
+    "biased_opinion": {
+      "verdict": "Oregon Coast Gravel",
+      "summary": "West Coast Gravel is a regional event in Oregon\u2014coastal terrain with moderate elevation. The Oregon coast is scenic, but the small-medium local field, remote location, and limited organization keep it in Tier 4.",
+      "strengths": [
+        "Oregon coast scenery",
+        "Coastal adventure",
+        "Pacific Northwest experience",
+        "Good value",
+        "Coastal challenge"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Remote location",
+        "Limited organization",
+        "Variable weather",
+        "Rain possible"
+      ],
+      "bottom_line": "A solid regional OR coast gravel race. Worth it for OR/Northwest riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL OR EVENT",
+      "reality": "This is a regional OR race. The field is mostly local. Organization is basic. Remote coastal location. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Limited organization",
+        "Remote location",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional OR event. Set expectations for small field, basic organization, and coastal conditions."
+    },
+    "final_verdict": {
+      "score": "43 / 100",
+      "one_liner": "Oregon coast gravel challenge.",
+      "should_you_race": "If you're local to OR\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo."
+    },
+    "logistics": {
+      "airport": "Eugene (EUG) 90 minutes",
+      "lodging_strategy": "Yachats has limited lodging. Plan ahead.",
+      "food": "Yachats has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check West Coast Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local OR organizers",
+      "origin_story": "Regional OR coast gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional OR event."
+    },
+    "course_description": {
+      "character": "Oregon coast gravel.",
+      "suffering_zones": [
+        {
+          "mile": 18,
+          "label": "Early Coast",
+          "desc": "First coastal sections.",
+          "terrain_detail": "Coastal",
+          "named_section": "Early Coast"
+        },
+        {
+          "mile": 27,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 45,
+          "label": "Late Coast",
+          "desc": "Final coastal sections before finish.",
+          "terrain_detail": "Late coastal",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Oregon coast terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "West Coast Gravel",
+      "race_distance": "55 miles",
+      "race_elevation": "4,000 feet",
+      "race_date": "Summer",
+      "race_location": "Yachats, OR",
+      "race_terrain": "Oregon coast gravel",
+      "race_weather": "Oregon coast summer",
+      "race_challenges": [
+        "Coastal terrain",
+        "Variable weather",
+        "Rain possible",
+        "Remote location",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Oregon coast weather is variable with rain possible."
+      },
+      {
+        "requirement": "Coastal endurance",
+        "by_when": "Week 6-8",
+        "why": "Oregon coast terrain requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Remote location and limited aid require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "or_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "coastal_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "coastal",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Coastal terrain pacing",
+          "fueling": "Nutrition for coastal riding",
+          "coastal": "Sustained coastal strategy",
+          "weather": "Riding in variable Oregon coast weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "West Coast Gravel",
+        "race_hook": "Oregon coast gravel challenge.",
+        "race_hook_detail": "Regional event with coastal terrain.",
+        "distance": "55",
+        "dark_mile": "27",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Coastal endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

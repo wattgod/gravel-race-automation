@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Rose City Rampage Gravel Race",
+    "slug": "rose-city-rampage",
+    "display_name": "Rose City Rampage Gravel Race",
+    "tagline": "Georgia gravel challenge.",
+    "vitals": {
+      "distance_mi": 55,
+      "elevation_ft": 2000,
+      "location": "Thomasville, GA",
+      "location_badge": "THOMASVILLE, GA",
+      "county": "Thomas County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Georgia plains",
+        "Southern gravel",
+        "Southeast US",
+        "Georgia"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$65-85",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "7 hours"
+    },
+    "climate": {
+      "primary": "Georgia spring",
+      "description": "Variable Southern conditions.",
+      "challenges": [
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Spring conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Georgia plains gravel",
+      "surface": "Gravel roads through Georgia plains. Light elevation with Southern scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Light rolling (2000 feet)",
+        "Georgia scenery",
+        "Southern gravel experience",
+        "55-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 37,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 5,
+      "biased_opinion": 11,
+      "score_note": "Regional GA event. Plains terrain with small-medium local field and light elevation."
+    },
+    "biased_opinion": {
+      "verdict": "Georgia Plains Gravel",
+      "summary": "Rose City Rampage is a regional event in Georgia\u2014plains terrain with light elevation. The Southern scenery is pleasant, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "Georgia scenery",
+        "Southern gravel experience",
+        "Good value",
+        "Thomasville charm",
+        "Local community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity",
+        "Light elevation"
+      ],
+      "bottom_line": "A solid regional GA gravel race. Worth it for GA/Southeast riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL GA EVENT",
+      "reality": "This is a regional GA race. The field is mostly local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity"
+      ],
+      "expectation_reset": "This is a regional GA event. Set expectations for small field, basic organization, and Southern conditions."
+    },
+    "final_verdict": {
+      "score": "37 / 100",
+      "one_liner": "Georgia gravel challenge.",
+      "should_you_race": "If you're local to GA/Southeast\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better GA races: Cohutta Gravel Grinder, Southern Cross."
+    },
+    "logistics": {
+      "airport": "Tallahassee (TLH) 45 minutes",
+      "lodging_strategy": "Thomasville has limited lodging. Plan ahead.",
+      "food": "Thomasville has dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Rose City Rampage website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local GA organizers",
+      "origin_story": "Regional GA gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional GA event."
+    },
+    "course_description": {
+      "character": "Georgia plains gravel.",
+      "suffering_zones": [
+        {
+          "mile": 18,
+          "label": "Early Plains",
+          "desc": "First plains sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Plains"
+        },
+        {
+          "mile": 27,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 45,
+          "label": "Late Plains",
+          "desc": "Final plains sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Georgia plains terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Rose City Rampage Gravel Race",
+      "race_distance": "55 miles",
+      "race_elevation": "2,000 feet",
+      "race_date": "Spring",
+      "race_location": "Thomasville, GA",
+      "race_terrain": "Georgia plains gravel",
+      "race_weather": "Georgia spring",
+      "race_challenges": [
+        "Plains terrain",
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Georgia spring can be hot and humid."
+      },
+      {
+        "requirement": "Endurance training",
+        "by_when": "Week 6-8",
+        "why": "Georgia plains require sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "ga_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "endurance_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "endurance"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Plains terrain pacing",
+          "fueling": "Nutrition for endurance riding",
+          "heat": "Riding in Georgia heat and humidity",
+          "endurance": "Sustained endurance strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Rose City Rampage Gravel Race",
+        "race_hook": "Georgia gravel challenge.",
+        "race_hook_detail": "Regional event with plains terrain.",
+        "distance": "55",
+        "dark_mile": "27",
+        "non_negotiable_1": "Heat preparation",
+        "non_negotiable_2": "Endurance training",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

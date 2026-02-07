@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Unravel Gravel (VA State Championship)",
+    "slug": "unravel-gravel-va",
+    "display_name": "Unravel Gravel (VA State Championship)",
+    "tagline": "Virginia state championship gravel race.",
+    "vitals": {
+      "distance_mi": 60,
+      "elevation_ft": 4500,
+      "location": "Cumberland, VA",
+      "location_badge": "CUMBERLAND, VA",
+      "county": "Cumberland County",
+      "date": "Fall annually",
+      "date_specific": "2026: Fall TBD",
+      "terrain_types": [
+        "Virginia piedmont",
+        "Mid-Atlantic gravel",
+        "Southeast US",
+        "Virginia"
+      ],
+      "field_size": "100-150 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$75-95",
+      "prize_purse": "State championship prizes",
+      "aid_stations": "3 aid stations",
+      "cutoff_time": "8 hours"
+    },
+    "climate": {
+      "primary": "Virginia fall",
+      "description": "Variable fall conditions.",
+      "challenges": [
+        "Variable weather",
+        "Fall conditions",
+        "Elevation changes",
+        "Piedmont terrain"
+      ]
+    },
+    "terrain": {
+      "primary": "Virginia piedmont gravel",
+      "surface": "Gravel roads through Virginia piedmont. Significant elevation with rolling scenery.",
+      "technical_rating": 3,
+      "features": [
+        "Significant mountainous (4500 feet)",
+        "Virginia piedmont scenery",
+        "State championship event",
+        "60-mile distance",
+        "Medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 47,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 10,
+      "biased_opinion": 14,
+      "score_note": "Regional VA state championship. Piedmont terrain with medium field and significant elevation."
+    },
+    "biased_opinion": {
+      "verdict": "Virginia State Championship",
+      "summary": "Unravel Gravel is Virginia's state championship\u2014piedmont terrain with significant elevation. The state championship status adds prestige, but the medium local field, regional organization, and limited national draw keep it in Tier 4.",
+      "strengths": [
+        "Virginia piedmont scenery",
+        "State championship status",
+        "Significant elevation",
+        "Good value",
+        "VA community"
+      ],
+      "weaknesses": [
+        "Medium local field",
+        "Regional organization",
+        "Limited national draw",
+        "Variable weather",
+        "Moderate costs"
+      ],
+      "bottom_line": "A solid VA state championship gravel race. Worth it for VA/Mid-Atlantic riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL STATE CHAMPIONSHIP",
+      "reality": "This is a VA state championship. The field is mostly regional. Organization is solid but regional. Don't travel far for this one.",
+      "consequences": [
+        "Medium regional field",
+        "Regional organization",
+        "Limited national draw",
+        "Variable weather"
+      ],
+      "expectation_reset": "This is a regional state championship. Set expectations for medium field, regional organization, and piedmont conditions."
+    },
+    "final_verdict": {
+      "score": "47 / 100",
+      "one_liner": "Virginia state championship gravel race.",
+      "should_you_race": "If you're local to VA/Mid-Atlantic\u2014yes, it's solid. If you're traveling far\u2014skip it.",
+      "alternatives": "For better VA races: Check regional options."
+    },
+    "logistics": {
+      "airport": "Richmond (RIC) 60 minutes",
+      "lodging_strategy": "Cumberland has limited lodging. Consider Farmville.",
+      "food": "Cumberland has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Unravel Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local VA organizers",
+      "origin_story": "Virginia state championship gravel event.",
+      "notable_moments": [],
+      "reputation": "VA state championship."
+    },
+    "course_description": {
+      "character": "Virginia piedmont gravel.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Piedmont",
+          "desc": "First piedmont sections.",
+          "terrain_detail": "Mountainous",
+          "named_section": "Early Piedmont"
+        },
+        {
+          "mile": 30,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 50,
+          "label": "Late Piedmont",
+          "desc": "Final piedmont sections before finish.",
+          "terrain_detail": "Late mountains",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Virginia piedmont terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Unravel Gravel (VA State Championship)",
+      "race_distance": "60 miles",
+      "race_elevation": "4,500 feet",
+      "race_date": "Fall",
+      "race_location": "Cumberland, VA",
+      "race_terrain": "Virginia piedmont gravel",
+      "race_weather": "Virginia fall",
+      "race_challenges": [
+        "Piedmont terrain",
+        "Variable weather",
+        "Significant elevation",
+        "State championship field",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Virginia fall weather is variable."
+      },
+      {
+        "requirement": "Mountain endurance",
+        "by_when": "Week 6-8",
+        "why": "Virginia piedmont requires sustained mountain effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Mountain terrain requires self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "va_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "mountain_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "mountains",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Piedmont terrain pacing",
+          "fueling": "Nutrition for mountain riding",
+          "mountains": "Sustained mountain strategy",
+          "weather": "Riding in variable Virginia weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Unravel Gravel (VA State Championship)",
+        "race_hook": "Virginia state championship gravel race.",
+        "race_hook_detail": "State championship event with piedmont terrain.",
+        "distance": "60",
+        "dark_mile": "30",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Mountain endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

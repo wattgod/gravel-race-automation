@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Scratch Ankle Gravel",
+    "slug": "scratch-ankle-gravel",
+    "display_name": "Scratch Ankle Gravel",
+    "tagline": "Florida gravel challenge.",
+    "vitals": {
+      "distance_mi": 45,
+      "elevation_ft": 1500,
+      "location": "Milton, FL",
+      "location_badge": "MILTON, FL",
+      "county": "Santa Rosa County",
+      "date": "Winter annually",
+      "date_specific": "2026: Winter TBD",
+      "terrain_types": [
+        "Florida panhandle",
+        "Southern gravel",
+        "Southeast US",
+        "Florida"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$60-80",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2 aid stations",
+      "cutoff_time": "6 hours"
+    },
+    "climate": {
+      "primary": "Florida winter",
+      "description": "Mild winter conditions.",
+      "challenges": [
+        "Variable weather",
+        "Humidity possible",
+        "Winter conditions",
+        "Mild temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Florida panhandle gravel",
+      "surface": "Gravel roads through Florida panhandle. Minimal elevation with flat scenery.",
+      "technical_rating": 1,
+      "features": [
+        "Minimal rolling (1500 feet)",
+        "Florida scenery",
+        "Southern gravel experience",
+        "45-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 36,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 4,
+      "biased_opinion": 11,
+      "score_note": "Regional FL event. Panhandle terrain with small-medium local field and minimal elevation."
+    },
+    "biased_opinion": {
+      "verdict": "Florida Panhandle Gravel",
+      "summary": "Scratch Ankle Gravel is a regional event in Florida\u2014panhandle terrain with minimal elevation. The scenery is pleasant, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "Florida scenery",
+        "Southern gravel experience",
+        "Good value",
+        "Winter escape",
+        "Local community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Minimal elevation",
+        "Flat terrain"
+      ],
+      "bottom_line": "A solid regional FL gravel race. Worth it for FL/Southeast riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL FL EVENT",
+      "reality": "This is a regional FL race. The field is mostly local. Organization is basic. Flat terrain. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Minimal elevation"
+      ],
+      "expectation_reset": "This is a regional FL event. Set expectations for small field, basic organization, and flat conditions."
+    },
+    "final_verdict": {
+      "score": "36 / 100",
+      "one_liner": "Florida gravel challenge.",
+      "should_you_race": "If you're local to FL/Southeast\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better FL races: Dirty Pecan."
+    },
+    "logistics": {
+      "airport": "Pensacola (PNS) 30 minutes",
+      "lodging_strategy": "Milton has limited lodging. Consider Pensacola.",
+      "food": "Milton has limited dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Scratch Ankle Gravel website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local FL organizers",
+      "origin_story": "Regional FL panhandle gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional FL event."
+    },
+    "course_description": {
+      "character": "Florida panhandle gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Panhandle",
+          "desc": "First panhandle sections.",
+          "terrain_detail": "Flat",
+          "named_section": "Early Panhandle"
+        },
+        {
+          "mile": 22,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 38,
+          "label": "Late Panhandle",
+          "desc": "Final panhandle sections before finish.",
+          "terrain_detail": "Late flat",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Florida panhandle terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Scratch Ankle Gravel",
+      "race_distance": "45 miles",
+      "race_elevation": "1,500 feet",
+      "race_date": "Winter",
+      "race_location": "Milton, FL",
+      "race_terrain": "Florida panhandle gravel",
+      "race_weather": "Florida winter",
+      "race_challenges": [
+        "Flat terrain",
+        "Variable weather",
+        "Humidity possible",
+        "Limited support",
+        "Minimal elevation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Weather preparation",
+        "by_when": "Week 4-6",
+        "why": "Florida winter weather can be variable."
+      },
+      {
+        "requirement": "Endurance training",
+        "by_when": "Week 6-8",
+        "why": "Florida panhandle requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "fl_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "weather_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "endurance_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "endurance",
+          "weather"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Flat terrain pacing",
+          "fueling": "Nutrition for endurance riding",
+          "endurance": "Sustained endurance strategy",
+          "weather": "Riding in variable Florida weather"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Scratch Ankle Gravel",
+        "race_hook": "Florida gravel challenge.",
+        "race_hook_detail": "Regional event with panhandle terrain.",
+        "distance": "45",
+        "dark_mile": "22",
+        "non_negotiable_1": "Weather preparation",
+        "non_negotiable_2": "Endurance training",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

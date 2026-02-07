@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "OMG (Oxford MS Gravel)",
+    "slug": "omg-oxford-ms-gravel",
+    "display_name": "OMG (Oxford MS Gravel)",
+    "tagline": "Mississippi gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 2500,
+      "location": "Oxford, MS",
+      "location_badge": "OXFORD, MS",
+      "county": "Lafayette County",
+      "date": "Fall annually",
+      "date_specific": "2026: Fall TBD",
+      "terrain_types": [
+        "Mississippi hills",
+        "Southern gravel",
+        "Southeast US",
+        "Mississippi"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$65-85",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "7 hours"
+    },
+    "climate": {
+      "primary": "Mississippi fall",
+      "description": "Variable Southern conditions.",
+      "challenges": [
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Fall conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Mississippi hills gravel",
+      "surface": "Gravel roads through Mississippi hills. Moderate elevation with Southern scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (2500 feet)",
+        "Mississippi scenery",
+        "Southern gravel experience",
+        "50-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 39,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 7,
+      "biased_opinion": 11,
+      "score_note": "Regional MS event. Hills terrain with small-medium local field."
+    },
+    "biased_opinion": {
+      "verdict": "Mississippi Gravel",
+      "summary": "OMG (Oxford MS Gravel) is a regional event in Mississippi\u2014hills terrain with moderate elevation. The Southern scenery is pleasant, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "Mississippi scenery",
+        "Southern gravel experience",
+        "Good value",
+        "Oxford college town",
+        "Local community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity",
+        "Moderate costs"
+      ],
+      "bottom_line": "A solid regional MS gravel race. Worth it for MS/Southeast riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL MS EVENT",
+      "reality": "This is a regional MS race. The field is mostly local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity"
+      ],
+      "expectation_reset": "This is a regional MS event. Set expectations for small field, basic organization, and Southern conditions."
+    },
+    "final_verdict": {
+      "score": "39 / 100",
+      "one_liner": "Mississippi gravel challenge.",
+      "should_you_race": "If you're local to MS/Southeast\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better Southeast races: Check regional options."
+    },
+    "logistics": {
+      "airport": "Memphis (MEM) 90 minutes",
+      "lodging_strategy": "Oxford has lodging (college town). Book ahead.",
+      "food": "Oxford has excellent dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check OMG website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local MS organizers",
+      "origin_story": "Regional MS gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional MS event."
+    },
+    "course_description": {
+      "character": "Mississippi hills gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Hills",
+          "desc": "First hill sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Hills"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Hills",
+          "desc": "Final hill sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Mississippi hills terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "OMG (Oxford MS Gravel)",
+      "race_distance": "50 miles",
+      "race_elevation": "2,500 feet",
+      "race_date": "Fall",
+      "race_location": "Oxford, MS",
+      "race_terrain": "Mississippi hills gravel",
+      "race_weather": "Mississippi fall",
+      "race_challenges": [
+        "Hills terrain",
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Mississippi fall can still be hot and humid."
+      },
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 6-8",
+        "why": "Mississippi hills require sustained rolling effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "ms_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "rolling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Hills terrain pacing",
+          "fueling": "Nutrition for rolling riding",
+          "heat": "Riding in Mississippi heat and humidity",
+          "rolling": "Sustained rolling strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "OMG (Oxford MS Gravel)",
+        "race_hook": "Mississippi gravel challenge.",
+        "race_hook_detail": "Regional event with hills terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Heat preparation",
+        "non_negotiable_2": "Rolling endurance",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

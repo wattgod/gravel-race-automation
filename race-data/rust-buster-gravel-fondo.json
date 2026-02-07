@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Rust Buster Gravel Fondo",
+    "slug": "rust-buster-gravel-fondo",
+    "display_name": "Rust Buster Gravel Fondo",
+    "tagline": "Tennessee gravel challenge.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 2000,
+      "location": "Memphis, TN",
+      "location_badge": "MEMPHIS, TN",
+      "county": "Shelby County",
+      "date": "Spring annually",
+      "date_specific": "2026: Spring TBD",
+      "terrain_types": [
+        "Tennessee delta",
+        "Southern gravel",
+        "Southeast US",
+        "Tennessee"
+      ],
+      "field_size": "75-125 riders",
+      "start_time": "Morning start",
+      "registration": "Online. Cost: ~$65-85",
+      "prize_purse": "Modest prizes",
+      "aid_stations": "2-3 aid stations",
+      "cutoff_time": "7 hours"
+    },
+    "climate": {
+      "primary": "Tennessee spring",
+      "description": "Variable Southern conditions.",
+      "challenges": [
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Spring conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Tennessee delta gravel",
+      "surface": "Gravel roads through Tennessee delta. Light elevation with delta scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Light rolling (2000 feet)",
+        "Tennessee delta scenery",
+        "Southern gravel experience",
+        "50-mile distance",
+        "Small-medium field"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 37,
+      "tier": 4,
+      "tier_label": "TIER 4",
+      "logistics": 2,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 1,
+      "race_quality": 2,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "course_profile": 5,
+      "biased_opinion": 11,
+      "score_note": "Regional TN event. Delta terrain with small-medium local field and light elevation."
+    },
+    "biased_opinion": {
+      "verdict": "Tennessee Delta Gravel",
+      "summary": "Rust Buster Gravel Fondo is a regional event in Tennessee\u2014delta terrain with light elevation. The delta scenery is pleasant, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "strengths": [
+        "Tennessee delta scenery",
+        "Southern gravel experience",
+        "Good value",
+        "Memphis access",
+        "Local community"
+      ],
+      "weaknesses": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity",
+        "Light elevation"
+      ],
+      "bottom_line": "A solid regional TN gravel race. Worth it for TN/Southeast riders. Not worth traveling far for."
+    },
+    "black_pill": {
+      "title": "REGIONAL TN EVENT",
+      "reality": "This is a regional TN race. The field is mostly local. Organization is basic. Don't travel far for this one.",
+      "consequences": [
+        "Small-medium local field",
+        "Regional organization",
+        "Limited prestige",
+        "Heat and humidity"
+      ],
+      "expectation_reset": "This is a regional TN event. Set expectations for small field, basic organization, and Southern conditions."
+    },
+    "final_verdict": {
+      "score": "37 / 100",
+      "one_liner": "Tennessee gravel challenge.",
+      "should_you_race": "If you're local to TN/Southeast\u2014yes, it's solid. If you're traveling\u2014skip it.",
+      "alternatives": "For better TN races: Reliance Tennessee Gravel, Gravel Revival."
+    },
+    "logistics": {
+      "airport": "Memphis (MEM) 30 minutes",
+      "lodging_strategy": "Memphis has lodging. Book ahead.",
+      "food": "Memphis has excellent dining. Stock nutrition.",
+      "packet_pickup": "Day of typically",
+      "parking": "At start/finish",
+      "official_site": "Check Rust Buster website"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Local TN organizers",
+      "origin_story": "Regional TN delta gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional TN event."
+    },
+    "course_description": {
+      "character": "Tennessee delta gravel.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Early Delta",
+          "desc": "First delta sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Delta"
+        },
+        {
+          "mile": 25,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 40,
+          "label": "Late Delta",
+          "desc": "Final delta sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Tennessee delta terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Rust Buster Gravel Fondo",
+      "race_distance": "50 miles",
+      "race_elevation": "2,000 feet",
+      "race_date": "Spring",
+      "race_location": "Memphis, TN",
+      "race_terrain": "Tennessee delta gravel",
+      "race_weather": "Tennessee spring",
+      "race_challenges": [
+        "Delta terrain",
+        "Variable weather",
+        "Heat possible",
+        "Humidity",
+        "Limited support"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat preparation",
+        "by_when": "Week 4-6",
+        "why": "Tennessee spring can be hot and humid."
+      },
+      {
+        "requirement": "Endurance training",
+        "by_when": "Week 6-8",
+        "why": "Tennessee delta requires sustained effort."
+      },
+      {
+        "requirement": "Self-sufficiency",
+        "by_when": "Week 4-6",
+        "why": "Limited aid stations require self-sufficiency."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "tn_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": null,
+        "grade": null,
+        "weakest": null,
+        "has_research_dump": false,
+        "dimensions": {},
+        "scored_at": null
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "endurance_training": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 8,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "endurance"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Delta terrain pacing",
+          "fueling": "Nutrition for endurance riding",
+          "heat": "Riding in Tennessee heat and humidity",
+          "endurance": "Sustained endurance strategy"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Rust Buster Gravel Fondo",
+        "race_hook": "Tennessee gravel challenge.",
+        "race_hook_detail": "Regional event with delta terrain.",
+        "distance": "50",
+        "dark_mile": "25",
+        "non_negotiable_1": "Heat preparation",
+        "non_negotiable_2": "Endurance training",
+        "non_negotiable_3": "Self-sufficiency",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

@@ -246,6 +246,64 @@
         "non_negotiable_3": "Self-sufficiency",
         "trainingpeaks_url": null
       }
+    },
+    "biased_opinion_ratings": {
+      "prestige": {
+        "score": 1,
+        "explanation": "This is a non-timed reliability trial, not a race. No pro field, no winners, no results list to put your name on. It's a weekend bikepacking trip with friends, which is lovely, but calling it prestigious would be delusional."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Markus Stitz designs solid routes, but this isn't actually a race - it's a self-supported tour split over two days. No timing, no competition, no race infrastructure beyond a support vehicle for emergencies. The course isn't even marked; you're following a GPX file through the North York Moors like a fancy group ride."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "73 miles over two days with overnight camping and meals included sounds pleasant enough for a weekend getaway. Starting and finishing at YHA Whitby with Yorkshire Coast scenery provides decent atmosphere. But without any competitive element or race day energy, you're basically paying £95 for a guided tour."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The Dirt Dash series cultivates a 'big riding family' vibe with many repeat participants returning year after year. That's genuinely nice for those who want a social cycling weekend. But small field sizes and the touring format mean you're not joining any significant gravel racing community here."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "It's a non-competitive touring event - there is no field depth because there's no field to speak of. No elite riders, no age group battles, no one pushing limits. Everyone's just pedaling through Yorkshire at whatever pace feels good with 45mm tires."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "£95 gets you two days of riding, overnight camping, evening meal, breakfast, and professional route design through North York Moors National Park. That's reasonable for what amounts to a supported bikepacking weekend. The infrastructure and meals justify the cost, even if you're not getting actual racing."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "£95 entry plus travel to Whitby keeps costs moderate for UK standards. Accommodation and meals are included, which saves money, but you'll still need transport to a somewhat remote Yorkshire location. The YHA start/finish suggests they're trying to keep things accessible rather than boutique expensive."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "73 miles over two days is more weekend touring than serious gravel racing distance. That's barely 35 miles per day on average - hardly taxing for anyone with basic fitness. Good for beginners or those wanting a relaxed scenic ride, but won't challenge experienced gravel racers."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Singletrack, gravel paths, and forestry roads through North York Moors with minimum 45mm tire recommendation suggests moderate technical demands. Not beginner-friendly pavement, but not gnarly either. The fact they allow e-bikes tells you everything about the difficulty level."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "North York Moors National Park means hills, but no specific elevation data available and it's split over two days anyway. Yorkshire terrain provides decent climbing, but nothing that would be considered mountainous or particularly challenging by gravel standards. Moderate ups and downs at tourist pace."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "June/July in Yorkshire Coast means variable British weather - could be lovely, could be miserable, probably both. Whitby's coastal location adds wind potential, and Yorkshire weather changes fast. No historical data on mud years or extreme conditions, but you're rolling the dice on British summer weather."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "This is Yorkshire, not the Alps. Starting at sea level in Whitby and riding through North York Moors means you'll gain some elevation but nothing significant. No altitude effects, no thin air, no mountain passes - just rolling British countryside."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "Getting to Whitby requires either driving to a small Yorkshire coastal town or taking the train via Middlesbrough. YHA start/finish provides basic accommodation, but packet pickup details are vague beyond 'register at the event.' Self-navigation via GPX means you're on your own if technology fails."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Two-day format with overnight wild camping and North York Moors scenery delivers genuine adventure vibes. Self-supported navigation through Yorkshire Coast terrain with only emergency vehicle backup means you're actually on your own out there. It's bikepacking masquerading as a gravel event, which has its appeal."
+      }
     }
   }
 }

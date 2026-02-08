@@ -432,42 +432,6 @@
     }
   },
   {
-    "name": "Jeroboam",
-    "slug": "jeroboam",
-    "location": "Erbusco, Lombardy, Italy",
-    "region": "Europe",
-    "month": "July",
-    "distance_mi": 186,
-    "elevation_ft": 23000,
-    "tier": 1,
-    "overall_score": 81,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 2
-    },
-    "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
-    "has_profile": true,
-    "profile_url": "/jeroboam-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 58.0,
-      "weakest": "specificity"
-    }
-  },
-  {
     "name": "Big Sugar Gravel",
     "slug": "big-sugar",
     "location": "Bentonville, Arkansas",
@@ -501,42 +465,6 @@
       "grade": "A",
       "score": 93.6,
       "weakest": "cross_reference"
-    }
-  },
-  {
-    "name": "Gravel Earth Series",
-    "slug": "gravel-earth",
-    "location": "Global (HQ: Girona, Spain)",
-    "region": "Europe",
-    "month": "February",
-    "distance_mi": 208,
-    "elevation_ft": 12139,
-    "tier": 1,
-    "overall_score": 80,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 2
-    },
-    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
-    "has_profile": true,
-    "profile_url": "/gravel-earth-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 89.5,
-      "weakest": "citation_density"
     }
   },
   {
@@ -684,78 +612,6 @@
     }
   },
   {
-    "name": "BWR Utah (Belgian Waffle Ride Utah)",
-    "slug": "bwr-utah",
-    "location": "Cedar City, Utah",
-    "region": "West",
-    "month": "May",
-    "distance_mi": 84,
-    "elevation_ft": 9843,
-    "tier": 1,
-    "overall_score": 79,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 5,
-      "climate": 4,
-      "altitude": 2,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Utah red rock adventure—135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
-    "has_profile": true,
-    "profile_url": "/bwr-utah-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Gravel Locos",
-    "slug": "gravel-locos",
-    "location": "Hico, Texas",
-    "region": "South",
-    "month": "May",
-    "distance_mi": 157,
-    "elevation_ft": 7884,
-    "tier": 1,
-    "overall_score": 79,
-    "scores": {
-      "logistics": 3,
-      "length": 5,
-      "technicality": 2,
-      "elevation": 4,
-      "climate": 5,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 5,
-      "expenses": 4
-    },
-    "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
-    "has_profile": true,
-    "profile_url": "/gravel-locos-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 77.6,
-      "weakest": "citation_density"
-    }
-  },
-  {
     "name": "Gravel Worlds",
     "slug": "gravel-worlds",
     "location": "Lincoln, Nebraska (Sandhills Global Event Center)",
@@ -788,114 +644,6 @@
     "research": {
       "grade": "B",
       "score": 77.8,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Belgian Waffle Ride Asheville",
-    "slug": "bwr-asheville",
-    "location": "Asheville, North Carolina",
-    "region": "South",
-    "month": "May",
-    "distance_mi": 129,
-    "elevation_ft": 10000,
-    "tier": 1,
-    "overall_score": 77,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 5,
-      "climate": 4,
-      "altitude": 2,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Blue Ridge brutality—129 miles, 10,000 feet, Belgian-style mixed terrain in Asheville humidity.",
-    "has_profile": true,
-    "profile_url": "/bwr-asheville-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 96.6,
-      "weakest": "temporal_depth"
-    }
-  },
-  {
-    "name": "Belgian Waffle Ride Cedar City",
-    "slug": "bwr-cedar-city",
-    "location": "Cedar City, Utah",
-    "region": "West",
-    "month": "April",
-    "distance_mi": 127,
-    "elevation_ft": 6500,
-    "tier": 1,
-    "overall_score": 77,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 3,
-      "climate": 5,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 3,
-      "field_depth": 4,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
-    "has_profile": true,
-    "profile_url": "/bwr-cedar-city-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 94.1,
-      "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "BWR Montana (Belgian Waffle Ride Montana)",
-    "slug": "bwr-montana",
-    "location": "Missoula, Montana",
-    "region": "West",
-    "month": "August",
-    "distance_mi": 87,
-    "elevation_ft": 9186,
-    "tier": 1,
-    "overall_score": 77,
-    "scores": {
-      "logistics": 4,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 2,
-      "altitude": 2,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Montana Rockies adventure—140km of mountain gravel, 2,800m elevation, Missoula scenery, waffles.",
-    "has_profile": true,
-    "profile_url": "/bwr-montana-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 79.1,
       "weakest": "citation_density"
     }
   },
@@ -936,42 +684,6 @@
     }
   },
   {
-    "name": "Grinduro",
-    "slug": "grinduro",
-    "location": "Multi-Location Global Series",
-    "region": "Other",
-    "month": null,
-    "distance_mi": 60,
-    "elevation_ft": 7800,
-    "tier": 1,
-    "overall_score": 77,
-    "scores": {
-      "logistics": 3,
-      "length": 2,
-      "technicality": 5,
-      "elevation": 4,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
-    "has_profile": true,
-    "profile_url": "/grinduro-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 58.0,
-      "weakest": "specificity"
-    }
-  },
-  {
     "name": "Little Sugar MTB",
     "slug": "little-sugar-mtb",
     "location": "Bentonville, Arkansas",
@@ -1008,150 +720,6 @@
     }
   },
   {
-    "name": "Giro Sardegna Gravel",
-    "slug": "giro-sardegna-gravel",
-    "location": "Siniscola, Sardinia, Italy",
-    "region": "Europe",
-    "month": "May",
-    "distance_mi": 81,
-    "elevation_ft": 8530,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 4,
-      "value": 5,
-      "expenses": 3
-    },
-    "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
-    "has_profile": true,
-    "profile_url": "/giro-sardegna-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Grinduro France",
-    "slug": "grinduro-france",
-    "location": "Xonrupt-Longemer, Vosges, France",
-    "region": "Europe",
-    "month": "June",
-    "distance_mi": 62,
-    "elevation_ft": 6562,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Enduro-style gravel festival in France's Vosges with timed descents, French wine, and mountain views.",
-    "has_profile": true,
-    "profile_url": "/grinduro-france-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 68.5,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Grinduro Germany",
-    "slug": "grinduro-germany",
-    "location": "Hellenthal, Eifel, Germany",
-    "region": "Europe",
-    "month": "May",
-    "distance_mi": 62,
-    "elevation_ft": 6562,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
-    "has_profile": true,
-    "profile_url": "/grinduro-germany-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 93.6,
-      "weakest": "temporal_depth"
-    }
-  },
-  {
-    "name": "Mammoth Tuff",
-    "slug": "mammoth-tuff",
-    "location": "Mammoth Lakes, California",
-    "region": "West",
-    "month": "June",
-    "distance_mi": 100,
-    "elevation_ft": 7500,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 2,
-      "elevation": 4,
-      "climate": 2,
-      "altitude": 5,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 4,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "UCI Gravel World Series qualifier at 8,000 feet—High Sierra alpine gravel where altitude humbles everyone.",
-    "has_profile": true,
-    "profile_url": "/mammoth-tuff-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 75.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
     "name": "The Mid South",
     "slug": "mid-south",
     "location": "Stillwater, Oklahoma",
@@ -1184,78 +752,6 @@
     "research": {
       "grade": "B",
       "score": 73.2,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Nordic Chase Gravel Edition",
-    "slug": "nordic-chase-gravel",
-    "location": "Copenhagen, Denmark to Oslo, Norway",
-    "region": "Europe",
-    "month": "June",
-    "distance_mi": 373,
-    "elevation_ft": 26247,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 5,
-      "technicality": 3,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
-      "value": 3,
-      "expenses": 5
-    },
-    "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
-    "has_profile": true,
-    "profile_url": "/nordic-chase-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Oregon Trail Gravel Grinder",
-    "slug": "oregon-trail-gravel",
-    "location": "Central Oregon (multiple towns)",
-    "region": "West",
-    "month": "June",
-    "distance_mi": 375,
-    "elevation_ft": 35000,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 5,
-      "technicality": 3,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 4,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 3,
-      "field_depth": 3,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
-    "has_profile": true,
-    "profile_url": "/oregon-trail-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 69.3,
       "weakest": "citation_density"
     }
   },
@@ -1328,42 +824,6 @@
     "research": {
       "grade": "A",
       "score": 94.1,
-      "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "Whiskey Off-Road",
-    "slug": "whiskey-off-road",
-    "location": "Prescott, Arizona",
-    "region": "West",
-    "month": "April",
-    "distance_mi": 50,
-    "elevation_ft": 6523,
-    "tier": 1,
-    "overall_score": 76,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 3,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
-    "has_profile": true,
-    "profile_url": "/whiskey-off-road-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 95.0,
       "weakest": "voice_authenticity"
     }
   },
@@ -1656,6 +1116,654 @@
     }
   },
   {
+    "name": "USA Cycling Gravel Nationals",
+    "slug": "usa-cycling-gravel-nationals",
+    "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+    "region": "Midwest",
+    "month": "September",
+    "distance_mi": 131,
+    "elevation_ft": 7000,
+    "tier": 1,
+    "overall_score": 63,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
+    "has_profile": true,
+    "profile_url": "/usa-cycling-gravel-nationals-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 94.8,
+      "weakest": "voice_authenticity"
+    }
+  },
+  {
+    "name": "Jeroboam",
+    "slug": "jeroboam",
+    "location": "Erbusco, Lombardy, Italy",
+    "region": "Europe",
+    "month": "July",
+    "distance_mi": 186,
+    "elevation_ft": 23000,
+    "tier": 2,
+    "overall_score": 81,
+    "scores": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 2
+    },
+    "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
+    "has_profile": true,
+    "profile_url": "/jeroboam-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 58.0,
+      "weakest": "specificity"
+    }
+  },
+  {
+    "name": "Gravel Earth Series",
+    "slug": "gravel-earth",
+    "location": "Global (HQ: Girona, Spain)",
+    "region": "Europe",
+    "month": "February",
+    "distance_mi": 208,
+    "elevation_ft": 12139,
+    "tier": 2,
+    "overall_score": 80,
+    "scores": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2
+    },
+    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
+    "has_profile": true,
+    "profile_url": "/gravel-earth-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 89.5,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "BWR Utah (Belgian Waffle Ride Utah)",
+    "slug": "bwr-utah",
+    "location": "Cedar City, Utah",
+    "region": "West",
+    "month": "May",
+    "distance_mi": 84,
+    "elevation_ft": 9843,
+    "tier": 2,
+    "overall_score": 79,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Utah red rock adventure—135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
+    "has_profile": true,
+    "profile_url": "/bwr-utah-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Gravel Locos",
+    "slug": "gravel-locos",
+    "location": "Hico, Texas",
+    "region": "South",
+    "month": "May",
+    "distance_mi": 157,
+    "elevation_ft": 7884,
+    "tier": 2,
+    "overall_score": 79,
+    "scores": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 5,
+      "expenses": 4
+    },
+    "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
+    "has_profile": true,
+    "profile_url": "/gravel-locos-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 77.6,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Belgian Waffle Ride Asheville",
+    "slug": "bwr-asheville",
+    "location": "Asheville, North Carolina",
+    "region": "South",
+    "month": "May",
+    "distance_mi": 129,
+    "elevation_ft": 10000,
+    "tier": 2,
+    "overall_score": 77,
+    "scores": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Blue Ridge brutality—129 miles, 10,000 feet, Belgian-style mixed terrain in Asheville humidity.",
+    "has_profile": true,
+    "profile_url": "/bwr-asheville-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 96.6,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
+    "name": "Belgian Waffle Ride Cedar City",
+    "slug": "bwr-cedar-city",
+    "location": "Cedar City, Utah",
+    "region": "West",
+    "month": "April",
+    "distance_mi": 127,
+    "elevation_ft": 6500,
+    "tier": 2,
+    "overall_score": 77,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 5,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
+    "has_profile": true,
+    "profile_url": "/bwr-cedar-city-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 94.1,
+      "weakest": "voice_authenticity"
+    }
+  },
+  {
+    "name": "BWR Montana (Belgian Waffle Ride Montana)",
+    "slug": "bwr-montana",
+    "location": "Missoula, Montana",
+    "region": "West",
+    "month": "August",
+    "distance_mi": 87,
+    "elevation_ft": 9186,
+    "tier": 2,
+    "overall_score": 77,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Montana Rockies adventure—140km of mountain gravel, 2,800m elevation, Missoula scenery, waffles.",
+    "has_profile": true,
+    "profile_url": "/bwr-montana-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 79.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Grinduro",
+    "slug": "grinduro",
+    "location": "Multi-Location Global Series",
+    "region": "Other",
+    "month": null,
+    "distance_mi": 60,
+    "elevation_ft": 7800,
+    "tier": 2,
+    "overall_score": 77,
+    "scores": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 5,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
+    "has_profile": true,
+    "profile_url": "/grinduro-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 58.0,
+      "weakest": "specificity"
+    }
+  },
+  {
+    "name": "Giro Sardegna Gravel",
+    "slug": "giro-sardegna-gravel",
+    "location": "Siniscola, Sardinia, Italy",
+    "region": "Europe",
+    "month": "May",
+    "distance_mi": 81,
+    "elevation_ft": 8530,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 5,
+      "expenses": 3
+    },
+    "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
+    "has_profile": true,
+    "profile_url": "/giro-sardegna-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Grinduro France",
+    "slug": "grinduro-france",
+    "location": "Xonrupt-Longemer, Vosges, France",
+    "region": "Europe",
+    "month": "June",
+    "distance_mi": 62,
+    "elevation_ft": 6562,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Enduro-style gravel festival in France's Vosges with timed descents, French wine, and mountain views.",
+    "has_profile": true,
+    "profile_url": "/grinduro-france-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 68.5,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Grinduro Germany",
+    "slug": "grinduro-germany",
+    "location": "Hellenthal, Eifel, Germany",
+    "region": "Europe",
+    "month": "May",
+    "distance_mi": 62,
+    "elevation_ft": 6562,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
+    "has_profile": true,
+    "profile_url": "/grinduro-germany-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 93.6,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
+    "name": "Mammoth Tuff",
+    "slug": "mammoth-tuff",
+    "location": "Mammoth Lakes, California",
+    "region": "West",
+    "month": "June",
+    "distance_mi": 100,
+    "elevation_ft": 7500,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "UCI Gravel World Series qualifier at 8,000 feet—High Sierra alpine gravel where altitude humbles everyone.",
+    "has_profile": true,
+    "profile_url": "/mammoth-tuff-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 75.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Nordic Chase Gravel Edition",
+    "slug": "nordic-chase-gravel",
+    "location": "Copenhagen, Denmark to Oslo, Norway",
+    "region": "Europe",
+    "month": "June",
+    "distance_mi": 373,
+    "elevation_ft": 26247,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 5
+    },
+    "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
+    "has_profile": true,
+    "profile_url": "/nordic-chase-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Oregon Trail Gravel Grinder",
+    "slug": "oregon-trail-gravel",
+    "location": "Central Oregon (multiple towns)",
+    "region": "West",
+    "month": "June",
+    "distance_mi": 375,
+    "elevation_ft": 35000,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
+    "has_profile": true,
+    "profile_url": "/oregon-trail-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 69.3,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Whiskey Off-Road",
+    "slug": "whiskey-off-road",
+    "location": "Prescott, Arizona",
+    "region": "West",
+    "month": "April",
+    "distance_mi": 50,
+    "elevation_ft": 6523,
+    "tier": 2,
+    "overall_score": 76,
+    "scores": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
+    "has_profile": true,
+    "profile_url": "/whiskey-off-road-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 95.0,
+      "weakest": "voice_authenticity"
+    }
+  },
+  {
+    "name": "Gunni Grinder",
+    "slug": "gunni-grinder",
+    "location": "Gunnison, Colorado",
+    "region": "West",
+    "month": "September",
+    "distance_mi": 120,
+    "elevation_ft": 10000,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 2,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
+    "has_profile": true,
+    "profile_url": "/gunni-grinder-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 99.1,
+      "weakest": "completeness"
+    }
+  },
+  {
+    "name": "Lauf True Grit Gravel Epic",
+    "slug": "lauf-true-grit",
+    "location": "Santa Clara, Utah",
+    "region": "West",
+    "month": "March",
+    "distance_mi": 84,
+    "elevation_ft": 9000,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams",
+    "has_profile": true,
+    "profile_url": "/lauf-true-grit-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 61.0,
+      "weakest": "specificity"
+    }
+  },
+  {
     "name": "Migration Gravel Race",
     "slug": "migration-gravel-race",
     "location": "Maasai Mara, Kenya",
@@ -1725,6 +1833,42 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Ouray Gravel Grinder",
+    "slug": "ouray-gravel-grinder",
+    "location": "Ouray, Colorado",
+    "region": "West",
+    "month": "September",
+    "distance_mi": 80,
+    "elevation_ft": 7800,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 5,
+      "community": 2,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
+    "has_profile": true,
+    "profile_url": "/ouray-gravel-grinder-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 61.0,
+      "weakest": "specificity"
     }
   },
   {
@@ -1800,6 +1944,42 @@
     }
   },
   {
+    "name": "Big Horn Gravel",
+    "slug": "big-horn-gravel",
+    "location": "Gypsum, Colorado",
+    "region": "West",
+    "month": "June",
+    "distance_mi": 85,
+    "elevation_ft": 10000,
+    "tier": 2,
+    "overall_score": 73,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
+    "has_profile": true,
+    "profile_url": "/big-horn-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 88.6,
+      "weakest": "citation_density"
+    }
+  },
+  {
     "name": "Grasshopper Adventure Series",
     "slug": "grasshopper-series",
     "location": "Northern California",
@@ -1868,6 +2048,42 @@
     "research": {
       "grade": "B",
       "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "The Rad Dirt Fest",
+    "slug": "the-rad",
+    "location": "Trinidad, Colorado",
+    "region": "West",
+    "month": "October",
+    "distance_mi": 113,
+    "elevation_ft": 10613,
+    "tier": 2,
+    "overall_score": 73,
+    "scores": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
+    "has_profile": true,
+    "profile_url": "/the-rad-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 73.8,
       "weakest": "citation_density"
     }
   },
@@ -1944,6 +2160,114 @@
     }
   },
   {
+    "name": "Heck of the North",
+    "slug": "heck-of-the-north",
+    "location": "Two Harbors, Minnesota",
+    "region": "Midwest",
+    "month": "September",
+    "distance_mi": 100,
+    "elevation_ft": 4500,
+    "tier": 2,
+    "overall_score": 71,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 5,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
+    "has_profile": true,
+    "profile_url": "/heck-of-the-north-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 99.1,
+      "weakest": "completeness"
+    }
+  },
+  {
+    "name": "Rad Dirt Fest",
+    "slug": "rad-dirt-fest",
+    "location": "Salida, Colorado",
+    "region": "West",
+    "month": "September",
+    "distance_mi": 62,
+    "elevation_ft": 8202,
+    "tier": 2,
+    "overall_score": 71,
+    "scores": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Colorado Rockies adventure—100km of high-altitude gravel, 2,500m elevation, Salida scenery.",
+    "has_profile": true,
+    "profile_url": "/rad-dirt-fest-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 91.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Southern Cross Gravel",
+    "slug": "southern-cross-gravel",
+    "location": "Dahlonega, Georgia",
+    "region": "South",
+    "month": "March",
+    "distance_mi": 100,
+    "elevation_ft": 5000,
+    "tier": 2,
+    "overall_score": 71,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
+    "has_profile": true,
+    "profile_url": "/southern-cross-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 96.6,
+      "weakest": "temporal_depth"
+    }
+  },
+  {
     "name": "Vermont Overland",
     "slug": "vermont-overland",
     "location": "Woodstock, Vermont",
@@ -2013,6 +2337,42 @@
       "grade": "C",
       "score": 61.0,
       "weakest": "specificity"
+    }
+  },
+  {
+    "name": "Bootlegger 100",
+    "slug": "bootlegger-100",
+    "location": "Dahlonega, Georgia (North Georgia mountains)",
+    "region": "South",
+    "month": "April",
+    "distance_mi": 100,
+    "elevation_ft": 10000,
+    "tier": 2,
+    "overall_score": 70,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Southeast gravel staple—100 miles, 10,000 feet of North Georgia mountains, technical descents, Dahlonega charm.",
+    "has_profile": true,
+    "profile_url": "/bootlegger-100-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 77.6,
+      "weakest": "citation_density"
     }
   },
   {
@@ -2160,6 +2520,114 @@
     }
   },
   {
+    "name": "Pisgah Monster Cross",
+    "slug": "pisgah-monster-cross",
+    "location": "Brevard, North Carolina (Pisgah National Forest)",
+    "region": "South",
+    "month": "October",
+    "distance_mi": 50,
+    "elevation_ft": 8000,
+    "tier": 2,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "Southeast gravel classic—50 miles, 8,000 feet of technical Appalachian terrain in Pisgah National Forest.",
+    "has_profile": true,
+    "profile_url": "/pisgah-monster-cross-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Rock Cobbler",
+    "slug": "rock-cobbler",
+    "location": "Bakersfield, California",
+    "region": "West",
+    "month": "February",
+    "distance_mi": 100,
+    "elevation_ft": 5000,
+    "tier": 2,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4
+    },
+    "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
+    "has_profile": true,
+    "profile_url": "/rock-cobbler-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "The Gralloch",
+    "slug": "the-gralloch",
+    "location": "Scottish Highlands, Scotland",
+    "region": "Europe",
+    "month": "September",
+    "distance_mi": 124,
+    "elevation_ft": 11483,
+    "tier": 2,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Scottish Highlands ultra—200km of remote terrain, 3,500m elevation, brutal weather, 25-35% DNF.",
+    "has_profile": true,
+    "profile_url": "/the-gralloch-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
     "name": "BWR Arizona",
     "slug": "bwr-arizona",
     "location": "Cave Creek / McDowell Region, Arizona",
@@ -2196,474 +2664,6 @@
     }
   },
   {
-    "name": "USA Cycling Gravel Nationals",
-    "slug": "usa-cycling-gravel-nationals",
-    "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
-    "region": "Midwest",
-    "month": "September",
-    "distance_mi": 131,
-    "elevation_ft": 7000,
-    "tier": 2,
-    "overall_score": 63,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 3,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 3,
-      "community": 3,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
-    "has_profile": true,
-    "profile_url": "/usa-cycling-gravel-nationals-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 94.8,
-      "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "Gunni Grinder",
-    "slug": "gunni-grinder",
-    "location": "Gunnison, Colorado",
-    "region": "West",
-    "month": "September",
-    "distance_mi": 120,
-    "elevation_ft": 10000,
-    "tier": 3,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 2,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 5,
-      "climate": 2,
-      "altitude": 5,
-      "adventure": 5,
-      "prestige": 2,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
-    "has_profile": true,
-    "profile_url": "/gunni-grinder-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 99.1,
-      "weakest": "completeness"
-    }
-  },
-  {
-    "name": "Lauf True Grit Gravel Epic",
-    "slug": "lauf-true-grit",
-    "location": "Santa Clara, Utah",
-    "region": "West",
-    "month": "March",
-    "distance_mi": 84,
-    "elevation_ft": 9000,
-    "tier": 3,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 5,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 2,
-      "adventure": 5,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams",
-    "has_profile": true,
-    "profile_url": "/lauf-true-grit-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 61.0,
-      "weakest": "specificity"
-    }
-  },
-  {
-    "name": "Ouray Gravel Grinder",
-    "slug": "ouray-gravel-grinder",
-    "location": "Ouray, Colorado",
-    "region": "West",
-    "month": "September",
-    "distance_mi": 80,
-    "elevation_ft": 7800,
-    "tier": 3,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 5,
-      "altitude": 5,
-      "adventure": 5,
-      "prestige": 2,
-      "race_quality": 2,
-      "experience": 5,
-      "community": 2,
-      "field_depth": 1,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
-    "has_profile": true,
-    "profile_url": "/ouray-gravel-grinder-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 61.0,
-      "weakest": "specificity"
-    }
-  },
-  {
-    "name": "Big Horn Gravel",
-    "slug": "big-horn-gravel",
-    "location": "Gypsum, Colorado",
-    "region": "West",
-    "month": "June",
-    "distance_mi": 85,
-    "elevation_ft": 10000,
-    "tier": 3,
-    "overall_score": 73,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 5,
-      "adventure": 5,
-      "prestige": 2,
-      "race_quality": 3,
-      "experience": 4,
-      "community": 3,
-      "field_depth": 2,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
-    "has_profile": true,
-    "profile_url": "/big-horn-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 88.6,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "The Rad Dirt Fest",
-    "slug": "the-rad",
-    "location": "Trinidad, Colorado",
-    "region": "West",
-    "month": "October",
-    "distance_mi": 113,
-    "elevation_ft": 10613,
-    "tier": 3,
-    "overall_score": 73,
-    "scores": {
-      "logistics": 3,
-      "length": 5,
-      "technicality": 3,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 4,
-      "adventure": 4,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 3,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
-    "has_profile": true,
-    "profile_url": "/the-rad-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 73.8,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Heck of the North",
-    "slug": "heck-of-the-north",
-    "location": "Two Harbors, Minnesota",
-    "region": "Midwest",
-    "month": "September",
-    "distance_mi": 100,
-    "elevation_ft": 4500,
-    "tier": 3,
-    "overall_score": 71,
-    "scores": {
-      "logistics": 4,
-      "length": 4,
-      "technicality": 5,
-      "elevation": 3,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 3,
-      "race_quality": 3,
-      "experience": 4,
-      "community": 5,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
-    "has_profile": true,
-    "profile_url": "/heck-of-the-north-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 99.1,
-      "weakest": "completeness"
-    }
-  },
-  {
-    "name": "Rad Dirt Fest",
-    "slug": "rad-dirt-fest",
-    "location": "Salida, Colorado",
-    "region": "West",
-    "month": "September",
-    "distance_mi": 62,
-    "elevation_ft": 8202,
-    "tier": 3,
-    "overall_score": 71,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 4,
-      "adventure": 4,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "Colorado Rockies adventure—100km of high-altitude gravel, 2,500m elevation, Salida scenery.",
-    "has_profile": true,
-    "profile_url": "/rad-dirt-fest-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 91.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Southern Cross Gravel",
-    "slug": "southern-cross-gravel",
-    "location": "Dahlonega, Georgia",
-    "region": "South",
-    "month": "March",
-    "distance_mi": 100,
-    "elevation_ft": 5000,
-    "tier": 3,
-    "overall_score": 71,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
-    "has_profile": true,
-    "profile_url": "/southern-cross-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 96.6,
-      "weakest": "temporal_depth"
-    }
-  },
-  {
-    "name": "Bootlegger 100",
-    "slug": "bootlegger-100",
-    "location": "Dahlonega, Georgia (North Georgia mountains)",
-    "region": "South",
-    "month": "April",
-    "distance_mi": 100,
-    "elevation_ft": 10000,
-    "tier": 3,
-    "overall_score": 70,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 4,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "Southeast gravel staple—100 miles, 10,000 feet of North Georgia mountains, technical descents, Dahlonega charm.",
-    "has_profile": true,
-    "profile_url": "/bootlegger-100-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 77.6,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Pisgah Monster Cross",
-    "slug": "pisgah-monster-cross",
-    "location": "Brevard, North Carolina (Pisgah National Forest)",
-    "region": "South",
-    "month": "October",
-    "distance_mi": 50,
-    "elevation_ft": 8000,
-    "tier": 3,
-    "overall_score": 69,
-    "scores": {
-      "logistics": 3,
-      "length": 2,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 2,
-      "adventure": 5,
-      "prestige": 3,
-      "race_quality": 3,
-      "experience": 3,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "Southeast gravel classic—50 miles, 8,000 feet of technical Appalachian terrain in Pisgah National Forest.",
-    "has_profile": true,
-    "profile_url": "/pisgah-monster-cross-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Rock Cobbler",
-    "slug": "rock-cobbler",
-    "location": "Bakersfield, California",
-    "region": "West",
-    "month": "February",
-    "distance_mi": 100,
-    "elevation_ft": 5000,
-    "tier": 3,
-    "overall_score": 69,
-    "scores": {
-      "logistics": 4,
-      "length": 4,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 4,
-      "altitude": 1,
-      "adventure": 3,
-      "prestige": 3,
-      "race_quality": 4,
-      "experience": 3,
-      "community": 4,
-      "field_depth": 3,
-      "value": 5,
-      "expenses": 4
-    },
-    "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
-    "has_profile": true,
-    "profile_url": "/rock-cobbler-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "The Gralloch",
-    "slug": "the-gralloch",
-    "location": "Scottish Highlands, Scotland",
-    "region": "Europe",
-    "month": "September",
-    "distance_mi": 124,
-    "elevation_ft": 11483,
-    "tier": 3,
-    "overall_score": 69,
-    "scores": {
-      "logistics": 2,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 5,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 3,
-      "race_quality": 3,
-      "experience": 3,
-      "community": 4,
-      "field_depth": 3,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Scottish Highlands ultra—200km of remote terrain, 3,500m elevation, brutal weather, 25-35% DNF.",
-    "has_profile": true,
-    "profile_url": "/the-gralloch-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
     "name": "Gravel and Tar Classic",
     "slug": "gravel-and-tar-classic",
     "location": "Manawatū-Whanganui, New Zealand",
@@ -2671,7 +2671,7 @@
     "month": "February",
     "distance_mi": 99,
     "elevation_ft": 6562,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 67,
     "scores": {
       "logistics": 2,
@@ -2707,7 +2707,7 @@
     "month": "April",
     "distance_mi": 100,
     "elevation_ft": 8000,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 67,
     "scores": {
       "logistics": 2,
@@ -2743,7 +2743,7 @@
     "month": "August",
     "distance_mi": 67,
     "elevation_ft": 5900,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 67,
     "scores": {
       "logistics": 4,
@@ -2779,7 +2779,7 @@
     "month": "July",
     "distance_mi": 50,
     "elevation_ft": 3000,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 66,
     "scores": {
       "logistics": 4,
@@ -2815,7 +2815,7 @@
     "month": "August",
     "distance_mi": 85,
     "elevation_ft": 8500,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 66,
     "scores": {
       "logistics": 2,
@@ -2851,7 +2851,7 @@
     "month": "April",
     "distance_mi": 81,
     "elevation_ft": 8202,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 66,
     "scores": {
       "logistics": 2,
@@ -2887,7 +2887,7 @@
     "month": "September",
     "distance_mi": 300,
     "elevation_ft": 15000,
-    "tier": 3,
+    "tier": 2,
     "overall_score": 66,
     "scores": {
       "logistics": 2,
@@ -2916,42 +2916,6 @@
     }
   },
   {
-    "name": "Finnish Gravel",
-    "slug": "finnish-gravel",
-    "location": "Lahti, Paijanne Tavastia, Finland",
-    "region": "Europe",
-    "month": "August",
-    "distance_mi": 110,
-    "elevation_ft": 2129,
-    "tier": 3,
-    "overall_score": 61,
-    "scores": {
-      "logistics": 3,
-      "length": 3,
-      "technicality": 2,
-      "elevation": 2,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 2
-    },
-    "tagline": "The happiest gravel in the world. F1 glamour meets midnight sun in a UNESCO Geopark. Fast, flat, and fckng Finnish.",
-    "has_profile": true,
-    "profile_url": "/finnish-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 90.8,
-      "weakest": "citation_density"
-    }
-  },
-  {
     "name": "Crystal Bear",
     "slug": "crystal-bear",
     "location": "Laona, WI to Crystal Falls, MI",
@@ -2959,7 +2923,7 @@
     "month": "May",
     "distance_mi": 192,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 64,
     "scores": {
       "logistics": 2,
@@ -2995,7 +2959,7 @@
     "month": "May",
     "distance_mi": 100,
     "elevation_ft": 9000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 64,
     "scores": {
       "logistics": 3,
@@ -3031,7 +2995,7 @@
     "month": "February",
     "distance_mi": 750,
     "elevation_ft": 80000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 63,
     "scores": {
       "logistics": 1,
@@ -3067,7 +3031,7 @@
     "month": "April",
     "distance_mi": 100,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 63,
     "scores": {
       "logistics": 4,
@@ -3103,7 +3067,7 @@
     "month": "April",
     "distance_mi": 340,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 63,
     "scores": {
       "logistics": 3,
@@ -3139,7 +3103,7 @@
     "month": "July",
     "distance_mi": 75,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 63,
     "scores": {
       "logistics": 3,
@@ -3175,7 +3139,7 @@
     "month": "September",
     "distance_mi": 125,
     "elevation_ft": 9000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 63,
     "scores": {
       "logistics": 2,
@@ -3211,7 +3175,7 @@
     "month": "April",
     "distance_mi": 100,
     "elevation_ft": 9000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 61,
     "scores": {
       "logistics": 3,
@@ -3240,6 +3204,42 @@
     }
   },
   {
+    "name": "Finnish Gravel",
+    "slug": "finnish-gravel",
+    "location": "Lahti, Paijanne Tavastia, Finland",
+    "region": "Europe",
+    "month": "August",
+    "distance_mi": 110,
+    "elevation_ft": 2129,
+    "tier": 2,
+    "overall_score": 61,
+    "scores": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2
+    },
+    "tagline": "The happiest gravel in the world. F1 glamour meets midnight sun in a UNESCO Geopark. Fast, flat, and fckng Finnish.",
+    "has_profile": true,
+    "profile_url": "/finnish-gravel-race-guide/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 90.8,
+      "weakest": "citation_density"
+    }
+  },
+  {
     "name": "Transcordilleras",
     "slug": "transcordilleras",
     "location": "Colombian Andes, Colombia",
@@ -3247,7 +3247,7 @@
     "month": null,
     "distance_mi": 120,
     "elevation_ft": 15000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 61,
     "scores": {
       "logistics": 1,
@@ -3283,7 +3283,7 @@
     "month": "September",
     "distance_mi": 131,
     "elevation_ft": 7500,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 61,
     "scores": {
       "logistics": 2,
@@ -3319,7 +3319,7 @@
     "month": "June",
     "distance_mi": 62,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 3,
@@ -3355,7 +3355,7 @@
     "month": "March",
     "distance_mi": 60,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 2,
@@ -3391,7 +3391,7 @@
     "month": "June",
     "distance_mi": 75,
     "elevation_ft": 7000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 3,
@@ -3427,7 +3427,7 @@
     "month": "July",
     "distance_mi": 100,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 4,
@@ -3463,7 +3463,7 @@
     "month": "March",
     "distance_mi": 100,
     "elevation_ft": 12000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 1,
@@ -3499,7 +3499,7 @@
     "month": "August",
     "distance_mi": 62,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 2,
     "overall_score": 60,
     "scores": {
       "logistics": 3,
@@ -3535,7 +3535,7 @@
     "month": "March",
     "distance_mi": 150,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 3,
@@ -3571,7 +3571,7 @@
     "month": "August",
     "distance_mi": 62,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 3,
@@ -3607,7 +3607,7 @@
     "month": "October",
     "distance_mi": 105,
     "elevation_ft": 7000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 4,
@@ -3643,7 +3643,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 3,
@@ -3679,7 +3679,7 @@
     "month": "April",
     "distance_mi": 93,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 3,
@@ -3715,7 +3715,7 @@
     "month": "September",
     "distance_mi": 100,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 2,
@@ -3751,7 +3751,7 @@
     "month": "April",
     "distance_mi": 62,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 2,
@@ -3787,7 +3787,7 @@
     "month": "October",
     "distance_mi": 150,
     "elevation_ft": 2800,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 59,
     "scores": {
       "logistics": 3,
@@ -3823,7 +3823,7 @@
     "month": "November",
     "distance_mi": 30,
     "elevation_ft": 2000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 57,
     "scores": {
       "logistics": 3,
@@ -3859,7 +3859,7 @@
     "month": "August",
     "distance_mi": 200,
     "elevation_ft": 20000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 57,
     "scores": {
       "logistics": 2,
@@ -3895,7 +3895,7 @@
     "month": "October",
     "distance_mi": 80,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 3,
@@ -3931,7 +3931,7 @@
     "month": "August",
     "distance_mi": 112,
     "elevation_ft": 7000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 3,
@@ -3967,7 +3967,7 @@
     "month": "August",
     "distance_mi": 150,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 4,
@@ -4003,7 +4003,7 @@
     "month": "August",
     "distance_mi": 350,
     "elevation_ft": 30000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 2,
@@ -4039,7 +4039,7 @@
     "month": null,
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 2,
@@ -4075,7 +4075,7 @@
     "month": "June",
     "distance_mi": 62,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 4,
@@ -4111,7 +4111,7 @@
     "month": "April",
     "distance_mi": 62,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 3,
@@ -4147,7 +4147,7 @@
     "month": "October",
     "distance_mi": 150,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 3,
@@ -4183,7 +4183,7 @@
     "month": "June",
     "distance_mi": 250,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 3,
@@ -4219,7 +4219,7 @@
     "month": "April",
     "distance_mi": 320,
     "elevation_ft": 9000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 56,
     "scores": {
       "logistics": 2,
@@ -4255,7 +4255,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 3,
@@ -4291,7 +4291,7 @@
     "month": "June",
     "distance_mi": 204,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 3,
@@ -4327,7 +4327,7 @@
     "month": "May",
     "distance_mi": 75,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 2,
@@ -4363,7 +4363,7 @@
     "month": "June",
     "distance_mi": 120,
     "elevation_ft": 12000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 1,
@@ -4399,7 +4399,7 @@
     "month": "November",
     "distance_mi": 100,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 1,
@@ -4435,7 +4435,7 @@
     "month": "October",
     "distance_mi": 50,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 3,
@@ -4471,7 +4471,7 @@
     "month": null,
     "distance_mi": 80,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 1,
@@ -4507,7 +4507,7 @@
     "month": "December",
     "distance_mi": 120,
     "elevation_ft": 10000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 1,
@@ -4543,7 +4543,7 @@
     "month": "May",
     "distance_mi": 62,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 2,
@@ -4579,7 +4579,7 @@
     "month": "June",
     "distance_mi": 65,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 4,
@@ -4615,7 +4615,7 @@
     "month": "May",
     "distance_mi": 160,
     "elevation_ft": 12000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 2,
@@ -4651,7 +4651,7 @@
     "month": "April",
     "distance_mi": 62,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 3,
@@ -4687,7 +4687,7 @@
     "month": "June",
     "distance_mi": 62,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 1,
@@ -4723,7 +4723,7 @@
     "month": "July",
     "distance_mi": 100,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 54,
     "scores": {
       "logistics": 2,
@@ -4759,7 +4759,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -4795,7 +4795,7 @@
     "month": "April",
     "distance_mi": 100,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 3,
@@ -4831,7 +4831,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -4867,7 +4867,7 @@
     "month": "May",
     "distance_mi": 62,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 3,
@@ -4903,7 +4903,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 3,
@@ -4939,7 +4939,7 @@
     "month": "March",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 3,
@@ -4975,7 +4975,7 @@
     "month": "April",
     "distance_mi": 100,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 1,
@@ -5011,7 +5011,7 @@
     "month": null,
     "distance_mi": 75,
     "elevation_ft": 7500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 1,
@@ -5047,7 +5047,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -5083,7 +5083,7 @@
     "month": "September",
     "distance_mi": 60,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -5119,7 +5119,7 @@
     "month": "June",
     "distance_mi": 80,
     "elevation_ft": 7000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -5155,7 +5155,7 @@
     "month": "May",
     "distance_mi": 250,
     "elevation_ft": 20000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 1,
@@ -5191,7 +5191,7 @@
     "month": "March",
     "distance_mi": 65,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 3,
@@ -5227,7 +5227,7 @@
     "month": "April",
     "distance_mi": 75,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 53,
     "scores": {
       "logistics": 2,
@@ -5263,7 +5263,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5299,7 +5299,7 @@
     "month": "March",
     "distance_mi": 50,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5335,7 +5335,7 @@
     "month": "April",
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5371,7 +5371,7 @@
     "month": "September",
     "distance_mi": 180,
     "elevation_ft": 12000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5407,7 +5407,7 @@
     "month": "October",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5443,7 +5443,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5479,7 +5479,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5515,7 +5515,7 @@
     "month": "December",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5551,7 +5551,7 @@
     "month": "May",
     "distance_mi": 75,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5587,7 +5587,7 @@
     "month": "October",
     "distance_mi": 60,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5623,7 +5623,7 @@
     "month": "August",
     "distance_mi": 100,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5659,7 +5659,7 @@
     "month": "June",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5695,7 +5695,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5731,7 +5731,7 @@
     "month": "May",
     "distance_mi": 62,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5767,7 +5767,7 @@
     "month": "March",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5803,7 +5803,7 @@
     "month": null,
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5839,7 +5839,7 @@
     "month": "April",
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5875,7 +5875,7 @@
     "month": "May",
     "distance_mi": 100,
     "elevation_ft": 7500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5911,7 +5911,7 @@
     "month": "September",
     "distance_mi": 75,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -5947,7 +5947,7 @@
     "month": "May",
     "distance_mi": 225,
     "elevation_ft": 15000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -5983,7 +5983,7 @@
     "month": "February",
     "distance_mi": 75,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 3,
@@ -6019,7 +6019,7 @@
     "month": "March",
     "distance_mi": 75,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 51,
     "scores": {
       "logistics": 2,
@@ -6055,7 +6055,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6091,7 +6091,7 @@
     "month": "March",
     "distance_mi": 100,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 3,
@@ -6127,7 +6127,7 @@
     "month": "March",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6163,7 +6163,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6199,7 +6199,7 @@
     "month": "October",
     "distance_mi": 150,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6235,7 +6235,7 @@
     "month": "May",
     "distance_mi": 100,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6271,7 +6271,7 @@
     "month": "November",
     "distance_mi": 100,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6307,7 +6307,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 4,
@@ -6343,7 +6343,7 @@
     "month": "April",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 3,
@@ -6379,7 +6379,7 @@
     "month": "September",
     "distance_mi": 75,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6415,7 +6415,7 @@
     "month": null,
     "distance_mi": 75,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6451,7 +6451,7 @@
     "month": "June",
     "distance_mi": 100,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 1,
@@ -6487,7 +6487,7 @@
     "month": "September",
     "distance_mi": 76,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 3,
@@ -6523,7 +6523,7 @@
     "month": "November",
     "distance_mi": 100,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 3,
@@ -6559,7 +6559,7 @@
     "month": "November",
     "distance_mi": 81,
     "elevation_ft": 2756,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6595,7 +6595,7 @@
     "month": "December",
     "distance_mi": 30,
     "elevation_ft": 2000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 3,
@@ -6631,7 +6631,7 @@
     "month": "May",
     "distance_mi": 62,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6667,7 +6667,7 @@
     "month": "June",
     "distance_mi": 70,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 50,
     "scores": {
       "logistics": 2,
@@ -6703,7 +6703,7 @@
     "month": "June",
     "distance_mi": 62,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -6739,7 +6739,7 @@
     "month": "June",
     "distance_mi": 70,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -6775,7 +6775,7 @@
     "month": "October",
     "distance_mi": 75,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -6811,7 +6811,7 @@
     "month": "April",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -6847,7 +6847,7 @@
     "month": "August",
     "distance_mi": 50,
     "elevation_ft": 2000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -6883,7 +6883,7 @@
     "month": "April",
     "distance_mi": 75,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 3,
@@ -6919,7 +6919,7 @@
     "month": "August",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 3,
@@ -6955,7 +6955,7 @@
     "month": "February",
     "distance_mi": 100,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 3,
@@ -6991,7 +6991,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 3,
@@ -7027,7 +7027,7 @@
     "month": "September",
     "distance_mi": 62,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7063,7 +7063,7 @@
     "month": "June",
     "distance_mi": 65,
     "elevation_ft": 6000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7099,7 +7099,7 @@
     "month": "September",
     "distance_mi": 120,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7135,7 +7135,7 @@
     "month": "November",
     "distance_mi": 100,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7171,7 +7171,7 @@
     "month": "March",
     "distance_mi": 200,
     "elevation_ft": 8000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7207,7 +7207,7 @@
     "month": "November",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 49,
     "scores": {
       "logistics": 2,
@@ -7243,7 +7243,7 @@
     "month": "March",
     "distance_mi": 70,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7279,7 +7279,7 @@
     "month": "October",
     "distance_mi": 80,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7315,7 +7315,7 @@
     "month": "September",
     "distance_mi": 62,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7351,7 +7351,7 @@
     "month": "April",
     "distance_mi": 60,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7387,7 +7387,7 @@
     "month": null,
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7423,7 +7423,7 @@
     "month": "July",
     "distance_mi": 95,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7459,7 +7459,7 @@
     "month": "June",
     "distance_mi": 62,
     "elevation_ft": 3200,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7495,7 +7495,7 @@
     "month": "February",
     "distance_mi": 75,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7531,7 +7531,7 @@
     "month": "October",
     "distance_mi": 62,
     "elevation_ft": 2500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7567,7 +7567,7 @@
     "month": "February",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7603,7 +7603,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7639,7 +7639,7 @@
     "month": "August",
     "distance_mi": 65,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7675,7 +7675,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7711,7 +7711,7 @@
     "month": null,
     "distance_mi": 65,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7747,7 +7747,7 @@
     "month": "April",
     "distance_mi": 93,
     "elevation_ft": 800,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7783,7 +7783,7 @@
     "month": "October",
     "distance_mi": 80,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7819,7 +7819,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7855,7 +7855,7 @@
     "month": "June",
     "distance_mi": 60,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7891,7 +7891,7 @@
     "month": "September",
     "distance_mi": 62,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7927,7 +7927,7 @@
     "month": "October",
     "distance_mi": 65,
     "elevation_ft": 4800,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -7963,7 +7963,7 @@
     "month": "May",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -7999,7 +7999,7 @@
     "month": null,
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -8035,7 +8035,7 @@
     "month": "October",
     "distance_mi": 65,
     "elevation_ft": 2000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 3,
@@ -8071,7 +8071,7 @@
     "month": "April",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -8107,7 +8107,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 5500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -8143,7 +8143,7 @@
     "month": "September",
     "distance_mi": 60,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -8179,7 +8179,7 @@
     "month": "December",
     "distance_mi": 62,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 47,
     "scores": {
       "logistics": 2,
@@ -8215,7 +8215,7 @@
     "month": "August",
     "distance_mi": 70,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8251,7 +8251,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8287,7 +8287,7 @@
     "month": "June",
     "distance_mi": 60,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8323,7 +8323,7 @@
     "month": "February",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8359,7 +8359,7 @@
     "month": "March",
     "distance_mi": 65,
     "elevation_ft": 800,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8395,7 +8395,7 @@
     "month": "June",
     "distance_mi": 65,
     "elevation_ft": 4500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8431,7 +8431,7 @@
     "month": "June",
     "distance_mi": 65,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8467,7 +8467,7 @@
     "month": "June",
     "distance_mi": 100,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8503,7 +8503,7 @@
     "month": "September",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8539,7 +8539,7 @@
     "month": "October",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8575,7 +8575,7 @@
     "month": "October",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8611,7 +8611,7 @@
     "month": "September",
     "distance_mi": 44,
     "elevation_ft": 2500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8647,7 +8647,7 @@
     "month": "August",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8683,7 +8683,7 @@
     "month": "March",
     "distance_mi": 75,
     "elevation_ft": 1500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8719,7 +8719,7 @@
     "month": "February",
     "distance_mi": 75,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8755,7 +8755,7 @@
     "month": "July",
     "distance_mi": 70,
     "elevation_ft": 3200,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8791,7 +8791,7 @@
     "month": "May",
     "distance_mi": 65,
     "elevation_ft": 1500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8827,7 +8827,7 @@
     "month": "June",
     "distance_mi": 40,
     "elevation_ft": 2500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 3,
@@ -8863,7 +8863,7 @@
     "month": "August",
     "distance_mi": 65,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8899,7 +8899,7 @@
     "month": "July",
     "distance_mi": 62,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -8935,7 +8935,7 @@
     "month": null,
     "distance_mi": 62,
     "elevation_ft": 4000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 1,
@@ -8971,7 +8971,7 @@
     "month": "May",
     "distance_mi": 60,
     "elevation_ft": 5000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -9007,7 +9007,7 @@
     "month": "July",
     "distance_mi": 65,
     "elevation_ft": 3000,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,
@@ -9043,7 +9043,7 @@
     "month": "August",
     "distance_mi": 70,
     "elevation_ft": 3500,
-    "tier": 4,
+    "tier": 3,
     "overall_score": 46,
     "scores": {
       "logistics": 2,

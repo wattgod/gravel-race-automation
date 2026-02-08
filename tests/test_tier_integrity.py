@@ -3,7 +3,7 @@ Tests for tier and score integrity.
 
 Ensures:
 1. overall_score matches calculated average of 14 component scores
-2. Tier assignments follow the rules (85+ = T1, 75-84 = T2, 65-74 = T3, <65 = T4)
+2. Tier assignments follow the rules (80+ = T1, 60-79 = T2, 45-59 = T3, <45 = T4)
 3. Prestige overrides (prestige >= 4) allow one-tier promotion with documented reason
 4. No unexplained tier promotions
 """
@@ -39,17 +39,15 @@ SCORE_COMPONENTS = [
 MAX_SCORE_DEVIATION = 2
 
 # Tier thresholds
-TIER_1_MIN = 85
-TIER_2_MIN = 75
+TIER_1_MIN = 80
+TIER_2_MIN = 60
+TIER_3_MIN = 45
 
 
 def calculate_overall_score(rating: dict) -> int:
     """Calculate overall score from 14 components."""
     total = sum(rating.get(k, 0) for k in SCORE_COMPONENTS)
     return round((total / 70) * 100)
-
-
-TIER_3_MIN = 65
 
 
 def calculate_tier(score: int) -> int:
@@ -210,8 +208,8 @@ class TestTierIntegrity:
     def test_prestige_override_not_too_aggressive(self):
         """
         Override limits by prestige level:
-        - Prestige 5: up to 2-tier promotion (world-class events)
-        - Prestige 4: up to 1-tier promotion
+        - Prestige 5: up to 1-tier promotion (world-class events)
+        - Prestige 4: up to 1-tier promotion, but NOT into Tier 1
         - Prestige < 4: no promotion without editorial override
 
         Note: Uses display_tier if present.
@@ -233,24 +231,24 @@ class TestTierIntegrity:
             overall = rating.get('overall_score', 0)
             actual_tier = rating.get('display_tier', rating.get('tier', 0))
             prestige = rating.get('prestige', 0)
+            override_reason = rating.get('tier_override_reason', '')
 
             expected_tier = calculate_tier(overall)
             tier_jump = expected_tier - actual_tier
 
-            # Prestige 5: allow up to 2-tier promotion
-            if prestige == 5 and tier_jump <= 2:
+            # Prestige 5: allow up to 1-tier promotion
+            if prestige == 5 and tier_jump <= 1:
                 continue
-            # Prestige 4: allow up to 1-tier promotion
-            if prestige == 4 and tier_jump <= 1:
+            # Prestige 4: allow up to 1-tier promotion, but NOT into T1
+            if prestige == 4 and tier_jump <= 1 and actual_tier >= 2:
                 continue
             # Editorial override with documented reason: allow 1-tier promotion
-            override_reason = rating.get('tier_override_reason', '')
             if override_reason and tier_jump <= 1:
                 continue
 
             # Flag if jumping beyond allowed limit
-            max_allowed = 2 if prestige == 5 else (1 if prestige == 4 else 0)
-            if tier_jump > max_allowed:
+            max_allowed = 1 if prestige >= 4 else 0
+            if tier_jump > max_allowed or (prestige == 4 and actual_tier == 1 and expected_tier > 1):
                 violations.append({
                     "file": json_file.name,
                     "overall": overall,

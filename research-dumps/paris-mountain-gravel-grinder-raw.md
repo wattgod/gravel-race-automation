@@ -1,21 +1,44 @@
 # PARIS MOUNTAIN GRAVEL GRINDER - RAW RESEARCH DUMP
 
-No information found on the "Paris Mountain Gravel Grinder" in Travelers Rest, South Carolina (65 miles, 5000 ft elevation) across searched results. No matches for official data, terrain/course, climate, logistics, community/reputation, or race reports.
+No information on the **Paris Mountain Gravel Grinder** was found in the provided search results. Searches covered US gravel events, national calendars, and specific grinders, but this race is not listed.
 
 **OFFICIAL DATA**  
-No 2025 or 2026 race dates, registration costs, field sizes, distance options, prize purses, start locations/times, aid stations, or cutoff times available. Searches returned unrelated events like Uwharrie Forest Gravel Grinder (54.7 miles long course, aid at miles 21/24/46/49; Feb 22, 2026)[1] and Tour de Paris (road event, Paris, TX)[7].
+- 2025 and 2026 race dates: Unavailable.  
+- Registration cost/entry fees: Unavailable.  
+- Field size: Unavailable.  
+- Distance options and elevation gain: Known info states 65 miles and 5000 ft, but no confirmation or additional options found.  
+- Prize purse: Unavailable.  
+- Start location and time: Known info notes Travelers Rest, South Carolina, but no specifics found.  
+- Aid station details, cutoff times: Unavailable.  
 
 **TERRAIN & COURSE**  
-No surface breakdowns, key features, climbs, technical difficulty, or elevation profiles found. Known query info (65 miles, 5000 ft) not corroborated in results.
+- Surface breakdown: Unavailable.  
+- Key course features, named climbs/sectors: Unavailable.  
+- Technical difficulty level: Unavailable.  
+- Elevation profile description: Unavailable.  
 
 **CLIMATE & CONDITIONS**  
-No typical weather, historical incidents, or altitude data (starting/max elevation) located for this event.
+- Typical weather: Unavailable.  
+- Historical weather incidents: Unavailable.  
+- Altitude: Unavailable.  
 
 **LOGISTICS**  
-No nearest airport, lodging, parking, or packet pickup details available.
+- Nearest airport: Unavailable.  
+- Lodging options and strategy: Unavailable.  
+- Parking situation: Unavailable.  
+- Packet pickup details: Unavailable.  
 
 **COMMUNITY & REPUTATION**  
-No race history, founders, past winners, rider reviews/quotes, YouTube coverage, or community perception found. Event not listed in major calendars like UCI Gravel World Series[3], US Gravel Bike Races[4], or Gran Fondo Guide[6].
+- Race history: Unavailable.  
+- Notable past winners/pro riders: Unavailable.  
+- Rider reviews and quotes: Unavailable.  
+- YouTube race coverage: Unavailable.  
+- Perception in gravel community: Unavailable.  
 
 **RACE REPORTS & RIDER EXPERIENCE**  
-No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates available. No Reddit/forums or race reports surfaced in searches.
+- Specific rider experiences and quotes: Unavailable.  
+- "What I wish I knew" insights: Unavailable.  
+- Equipment recommendations: Unavailable.  
+- DNF rates: Unavailable.  
+
+Note: Search results included similar events like **Camp Michaux Gravel Grinder** (June 28, 2026, 64.4 miles/7,211 ft full route, Travelers Rest not mentioned, per [1]) and other US grinders (e.g., Pennsylvania listings in [3]), but none match **Paris Mountain Gravel Grinder** by name, location, or known details. No official site, reviews, or calendars reference it. If additional searches are possible, target "Paris Mountain Gravel Grinder Travelers Rest SC" directly.

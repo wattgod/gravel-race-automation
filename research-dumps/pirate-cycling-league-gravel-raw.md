@@ -1,25 +1,19 @@
-I cannot find any information about a "Pirate Cycling League Gravel" race in the search results provided, nor do the results contain references to this event existing in California cycling calendars for 2025 or 2026.
+# PIRATE CYCLING LEAGUE GRAVEL - RAW RESEARCH DUMP
 
-The search results include comprehensive California gravel cycling calendars from multiple sources covering February through October 2026, yet this race does not appear in any of them. I searched through:
+**OFFICIAL DATA**  
+No information found on "Pirate Cycling League Gravel" in Ojai, California for 2025 or 2026 race dates, registration costs, field size, distance options, prize purse, start location/time, aid stations, or cutoff times. Searches across California gravel calendars, SoCal cycling schedules, and event listings returned no matches for this event name or the known details (65 miles, 6000 ft elevation).[1][2][3]
 
-- Gravelstoke's complete 2026 California Gravel Event Calendar[1]
-- Gravel Bike California's detailed monthly schedule[2]
-- Southern California bike racing calendars[3]
+**TERRAIN & COURSE**  
+No data available on surface breakdown, key features, named climbs/sectors, technical difficulty, or elevation profile for Pirate Cycling League Gravel. Ojai-area events like Ojai Valley Century mention gravel options (e.g., "half the ride on gravel of the Ojai hills") but are road-focused centuries, not matching the query's gravel race specs.[4]
 
-Additionally, the search results include information about the **Ojai Valley Century** (scheduled for May 30, 2026 in Ojai, California)[5], which is the only cycling event in Ojai mentioned across these sources. This is a road cycling century ride, not a gravel race.
+**CLIMATE & CONDITIONS**  
+No specific weather data, historical incidents, or altitude details found for this race. Ojai, CA, generally features mild coastal climates with mountain influences, but no race-tied records identified.[4]
 
-**Why I cannot complete this research:**
+**LOGISTICS**  
+No details on airports, lodging, parking, or packet pickup for Pirate Cycling League Gravel. Nearest airport to Ojai is typically Los Angeles International (LAX), ~80 miles away, based on general Ojai event info, but unconfirmed for this race.[4][5]
 
-1. **No search results contain references to "Pirate Cycling League Gravel"** — The provided search results don't include this event, and I was instructed to base my answers on provided search results.
+**COMMUNITY & REPUTATION**  
+No race history, founders, past winners, rider reviews, YouTube coverage, or community perception located for Pirate Cycling League Gravel. It does not appear in 2025-2026 California gravel calendars or SoCal cycling lists.[1][2][3]
 
-2. **The event may not exist** — Despite being provided with the location (Ojai, California), distance (65 miles), and elevation (6000 ft), no credible cycling calendar or race database in the search results lists this event.
-
-3. **I cannot fabricate race details** — Per my instructions, I do not make up information about real-world events.
-
-**Recommendation:** To research this race, I would need search results from direct sources such as:
-- The official Pirate Cycling League website
-- BikeReg or other race registration platforms
-- Gravel cycling forums and communities
-- Local Ojai cycling clubs or websites
-
-If this is a real event, it may be very new, small/local, or known by a different name. Can you provide additional details or verify the exact event name?
+**RACE REPORTS & RIDER EXPERIENCE**  
+No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates available. Searches yielded zero race reports or forum mentions matching the event name, location, and specs.

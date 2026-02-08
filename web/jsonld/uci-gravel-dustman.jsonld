@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "UCI Gravel Dustman",
+  "description": "UCI Gravel World Series stop at a Khmer Empire outpost\u2014jungle gravel in Kanchanaburi, Thailand.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-11-14",
+  "location": {
+    "@type": "Place",
+    "name": "Kanchanaburi, Thailand"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "60",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

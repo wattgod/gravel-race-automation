@@ -1,117 +1,65 @@
-# SBT GRVL — Research Dump
+# SBT GRVL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
+**2025 and 2026 race dates**: 2025 event spans Sat Jun 28 - Sun Jun 29 per BikeReg listing[7]. 2026 event is June 26-28, with rides/races on Sunday, June 28, 2026; expo Friday June 26 and Saturday June 27[1][4][5][6].
 
-**Race Name:** SBT GRVL (Steamboat Gravel) [Official] (https://www.sbtgrvl.com)  
-**Location:** Steamboat Springs, Colorado  
-**Date:** Late August (August 17-18, 2026) [Official] (https://www.sbtgrvl.com)  
-**Distance Options:** Black (144 miles) / Blue (100 miles) / Green (50 miles) [Official] (https://www.sbtgrvl.com)  
-**Elevation Gain:** ~10,000 ft (Black/144mi) [Official] (https://www.sbtgrvl.com)  
-**Altitude:** Start/finish 6,700 ft, max elevation 10,000 ft [Official] (https://www.sbtgrvl.com)  
-**Field Size:** 2,750 riders total [Official] (https://www.sbtgrvl.com)  
-**Registration:** Lottery system. Opens winter. Cost: $200-$275 [BikeReg] (https://www.bikereg.com)  
-**Founded:** 2019 by AmGen Tour of California organizers [VeloNews] (https://www.velonews.com)  
+**Registration cost / entry fees**: For 2026, Black Course Race: $295; Green, Red, and Blue Rides: Blue $275, Red $275, Green $200 (junior entries 1/2 price, tandem 2x price)[1][5]. Fees do not roll forward on deferrals; deferred riders pay full next-year fees[1][2].
+
+**Field size (number of participants)**: Information unavailable in search results.
+
+**Distance options and elevation gain for each**: 
+- Black Course Race: Distance not specified in results (user-known 144 miles, 10,000 ft unconfirmed here); separate starts for Elite Men/Open, Women, Amateur[4].
+- Blue Ride: 73 miles, 5,843 ft, 65% gravel; time cutoffs enforced (8mph average or redirected)[4].
+- Green Ride: 25 miles, 1,822 ft, 31% gravel; beginner/e-bike friendly[4].
+- Red Ride: Pricing listed but distance/elevation unavailable[1].
+
+**Prize purse (if any)**: $22,000 for 2026 Black Course, split evenly between top Elite Men’s/Open and Women’s Elite fields; GRVL Femmes cash prize; podium prizes for fastest amateurs in age groups[4].
+
+**Start location and time**: Start location in Steamboat Springs, CO; specific time unavailable[6][7].
+
+**Aid station details, cutoff times**: Time cutoffs strictly enforced for Blue and Black courses (riders not averaging 8mph elapsed time redirected to shorter course); aid station details unavailable[4].
 
 ## TERRAIN & COURSE
+**Surface breakdown (% gravel, pavement, singletrack, dirt)**: Blue Ride 65% gravel[4]; Green Ride 31% gravel (starts pavement, transitions to gravel, ends on Zipp Cow Creek section)[4]. Full breakdowns for other courses unavailable.
 
-**Surface:** 80% gravel, 20% paved [Official] (https://www.sbtgrvl.com)  
-**Character:** Colorado Rockies—big climbs, fast descents, altitude [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Mostly gravel roads, some chunky sections [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Climbs (Black/144mi):**  
-- **Elk River Valley climb** (miles 20-40): 2,000 ft gain [Strava] (https://www.strava.com)  
-- **Buffalo Pass** (mile 60-70): Highpoint at ~10,000 ft [Strava] (https://www.strava.com)  
-- **Spring Creek descent** (mile 70-90): Fast, technical, chunky [Reddit] (https://reddit.com/r/gravelcycling)  
-- **Final rollers** (mile 120-144): Legs gone, altitude bites [Reddit] (https://reddit.com/r/gravelcycling)  
+**Key course features, named climbs/sectors**: Zipp Cow Creek section (infamous, featured in Green finish); long scenic climbs at 7,000+ ft altitude[4]. Other named features unavailable.
 
-## WEATHER & CLIMATE
+**Technical difficulty level**: Black most challenging for pros/amateurs; Green provides challenge despite short distance due to climbs/altitude; Blue with cutoffs implies demanding[4].
 
-**Late August Steamboat:** 40-75°F, 20% afternoon thunderstorm risk [Weather.com] (https://weather.com)  
-**Altitude Effects:** 6,700-10,000 ft = 30% less oxygen. Non-locals suffer [VeloNews] (https://www.velonews.com)  
-**Historical Conditions:**  
-- **2019 (inaugural):** Perfect, dry (50-70°F) [CyclingTips] (https://www.cyclingtips.com)  
-- **2021:** Afternoon thunderstorms, cold rain at altitude [Escape Collective] (https://www.escapecollective.com)  
-- **2023:** Warm, dry, fast times [RidingGravel] (https://www.ridingravel.com)  
+**Elevation profile description**: Profiles via Wahoo App routes (virtual recon available); high altitude climbs noted for Green[4]. No full profiles detailed.
 
-## REDDIT & FORUM INSIGHTS
+## CLIMATE & CONDITIONS
+**Typical weather for the race date/location**: Information unavailable.
 
-> "SBT is Unbound with altitude and real climbs. Buffalo Pass at mile 70 is where non-locals blow up." — u/SteamboatLocal [Reddit] (https://reddit.com/r/gravelcycling/comments/sbt-grvl-2023)
+**Historical weather incidents (mud years, heat, wind)**: Information unavailable.
 
-> "Spring Creek descent (miles 70-90) is FAST and chunky. Saw 3 crashes in 2023. Don't brake, pick lines." — u/ColoradoGravelGrinder [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Altitude hits hard if you're not acclimated. Arrive 3-5 days early or suffer." — u/AltitudeSufferer [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 40-42mm for Black course. Chunky sections punish 38mm." — u/SBTVeteran [Reddit] (https://reddit.com/r/gravelcycling)
-
-## SUFFERING ZONES
-
-**Mile 60-70: Buffalo Pass** — Highpoint at 10,000 ft. Altitude + climbing = suffer. Non-locals DNF here [Reddit] (https://reddit.com/r/gravelcycling)  
-**Mile 70-90: Spring Creek Descent** — Fast, technical, chunky. Crashes common. Brake fade risk [Strava] (https://www.strava.com)  
-**Mile 120-144: Final Rollers** — Legs gone, altitude still biting, 24 miles feels like 50 [TrainerRoad Podcast] (https://www.trainerroad.com/podcast)  
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 5-10% (good conditions), 15% (weather/altitude) [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Altitude sickness** — Non-locals at 10,000 ft [VeloNews] (https://www.velonews.com)  
-2. **Mechanical** — Chunky gravel flats, crashes on descents [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Bonking** — Long climbs burn glycogen fast [TrainerRoad] (https://www.trainerroad.com)  
-4. **Thunderstorms** — Cold rain at altitude = hypothermia risk [Escape Collective] (https://www.escapecollective.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 40-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King SK+) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** Compact double or 1x with low gear (e.g., 34/50 or 40T / 50T cassette) [PackFodder] (https://www.packfodder.com)  
-**Hydration:** 3+ bottles. Aid stations at miles 40, 80, 120 [Official] (https://www.sbtgrvl.com)  
-**Altitude Prep:** Arrive 3-5 days early. Sleep high, train low. [TrainerRoad] (https://www.trainerroad.com)  
-**Other:** Tubeless mandatory. Spare tube, CO2, multitool. Layers for 40-75°F swings. [Reddit] (https://reddit.com/r/gravelcycling)  
+**Altitude (starting elevation, max elevation)**: Green course climbs at 7,000+ ft; Steamboat Springs base ~6,700 ft (general knowledge, unconfirmed in results)[4].
 
 ## LOGISTICS
+**Nearest airport**: Information unavailable.
 
-**Airport:** Yampa Valley (HDN, Hayden) — 30 miles west. Seasonal, expensive. [Google Maps] (https://maps.google.com)  
-**Alternate:** Denver (DEN) — 160 miles south (3-hour scenic drive) [Google Maps] (https://maps.google.com)  
-**Lodging:** Steamboat is ski resort town—expensive. Book 4+ months early. Hotels, Airbnb, camping. [Booking.com] (https://booking.com)  
-**Expo:** Friday. Packet pickup, vendor expo. [Official] (https://www.sbtgrvl.com)  
-**Post-Race:** BBQ, beer, live music at finish. Resort town amenities. [Official] (https://www.sbtgrvl.com)  
+**Lodging options and strategy**: Information unavailable beyond general Steamboat Springs vacation rentals mentioned in context[3].
 
-## COMMUNITY VIBE
+**Parking situation**: Information unavailable.
 
-**Premium Event:** Founded by AmGen Tour organizers—polished, professional [VeloNews] (https://www.velonews.com)  
-**Steamboat Support:** Resort town embraces event. Strong local volunteer support [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels welcome, but altitude is equalizer [Reddit] (https://reddit.com/r/gravelcycling)  
+**Packet pickup details**: Each participant must pick up their own packet with valid ID—no exceptions; expo Friday June 26-Saturday June 27, 2026[3][5].
 
-## HISTORICAL RESULTS
+## COMMUNITY & REPUTATION
+**Race history (founded year, founder if known)**: Information unavailable.
 
-**2023 Winners:**  
-- Men: Keegan Swenson (6:45:12) [Athlinks] (https://www.athlinks.com)  
-- Women: Amity Rockwell (7:32:18) [Athlinks] (https://www.athlinks.com)  
+**Notable past winners / pro riders who have raced it**: Information unavailable.
 
-**2021:** Payson McElveen (men), Alexey Vermeulen (women) [Athlinks] (https://www.athlinks.com)  
-**2019 (inaugural):** Colin Strickland (men), Alison Tetrick (women) [Athlinks] (https://www.athlinks.com)  
+**Rider reviews and quotes (Reddit, forums, race reports)**: Information unavailable.
 
-**Participation Growth:**  
-- 2019: 1,200 riders [Official] (https://www.sbtgrvl.com)  
-- 2023: 2,750 riders [Official] (https://www.sbtgrvl.com)  
+**YouTube race coverage**: Information unavailable.
 
----
+**How the race is perceived in the gravel community**: Staple for gravel enthusiasts, inclusive/competitive atmosphere for pros/amateurs; "epic day on the gravel," "signature course," "respect the Routt" ethos[3][4][6].
 
-## SOURCES SUMMARY
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes**: No direct rider quotes found.
 
-1. **Official:** https://www.sbtgrvl.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **Escape Collective:** https://www.escapecollective.com  
-6. **RidingGravel:** https://www.ridingravel.com  
-7. **Reddit:** https://reddit.com/r/gravelcycling  
-8. **RideWithGPS:** https://ridewithgps.com  
-9. **Strava:** https://www.strava.com  
-10. **DirtyFreehub:** https://www.dirtyfreehub.com  
-11. **TrainerRoad Podcast:** https://www.trainerroad.com/podcast  
-12. **Weather.com:** https://weather.com  
-13. **Athlinks:** https://www.athlinks.com  
-14. **PackFodder:** https://www.packfodder.com  
-15. **Google Maps:** https://maps.google.com  
-16. **Booking.com:** https://booking.com  
+**"What I wish I knew" insights**: Information unavailable.
 
-**Total Unique URLs:** 16  
-**Unique Domains:** 16
+**Equipment recommendations from participants**: Information unavailable.
+
+**DNF rates if available**: Information unavailable.

@@ -1,21 +1,38 @@
 # GRAN FONDO OZARKS - RAW RESEARCH DUMP
 
-**OFFICIAL DATA**  
-No specific information found on 2025 or 2026 race dates, registration costs, field size, distance options, elevation gain, prize purse, start location/time, aid stations, or cutoff times for "Gran Fondo Ozarks" in Eureka Springs, Arkansas. Known user-provided info lists a 65-mile distance with 6000 ft elevation, but no confirming sources in search results.
+## STATUS & AVAILABILITY NOTE
 
-**TERRAIN & COURSE**  
-No data available on surface breakdown, key features, named climbs/sectors, technical difficulty, or elevation profile for Gran Fondo Ozarks.
+Based on the search results provided, I must be transparent: **the search results do not contain detailed information about a specific event called "Gran Fondo Ozarks."** The results reference several Ozarks-area cycling events, but none match the parameters you've specified (Eureka Springs location, 65-mile distance, 6000 ft elevation).
 
-**CLIMATE & CONDITIONS**  
-No typical weather, historical incidents, or altitude details found for this event.
+The search results show:
 
-**LOGISTICS**  
-No information on nearest airport, lodging, parking, or packet pickup available.
+- **High In The Ozarks** - a cycling event in Ozark, AR (not Eureka Springs) that occurred on November 15, 2025[4]
+- **Doom** - a March 12-13, 2026 cycling event in Jasper, AR[5]
+- **Vino Fondo/Grindo Fondo** - a May 16, 2026 event (location and distance unclear from excerpts)[1]
 
-**COMMUNITY & REPUTATION**  
-No race history, founders, past winners, rider reviews, YouTube coverage, or community perception identified in search results. Nearby Ozarks gravel events exist (e.g., "High In The Ozarks" on Nov 15, 2025 in Ozark, AR per BikeReg[5]; "Doom" March 12-13, 2026 in Jasper, AR per Gran Fondo Guide[6]), but none match "Gran Fondo Ozarks".
+## WHAT I CANNOT CONFIRM
 
-**RACE REPORTS & RIDER EXPERIENCE**  
-No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates found. A Sorella Cycling article mentions positive gravel riding in the Ozarks during Big Sugar Gravel in Bentonville, AR: "I had the joy of racing through the Ozarks under a canopy of fall colors on a sunny October day... the gravel was sweet" (per sorellacycling.org[4]), but this is unrelated to Gran Fondo Ozarks.  
+Given the current search results, I cannot provide:
 
-*Note: Search results primarily reference other Ozarks-area events like Vino Fondo Gran Fondo (May 16, 2026, St. Louis, MO[1]), Mission Run in the Ozarks (running event, March 28, 2026[2]), and High In The Ozarks (Nov 15, 2025[5]). No direct matches for "Gran Fondo Ozarks" in Eureka Springs; event may not exist, be defunct, or lack online presence.*
+- Confirmation that "Gran Fondo Ozarks" is the official race name
+- 2025 and 2026 race dates for this specific event
+- Registration costs or field size
+- Distance options or elevation breakdown
+- Prize purse information
+- Course terrain details
+- Historical weather data
+- Lodging and logistics
+- Community reputation or past winners
+- Rider reviews or race reports
+
+## RECOMMENDATION
+
+To compile the comprehensive research dump you've requested, I would need to conduct additional targeted searches specifically for:
+
+1. "Gran Fondo Ozarks Eureka Springs" exact event name
+2. The race organizer/promoter name
+3. Official race website or registration platforms (BikeReg, Active, etc.)
+4. Gravel cycling forums and Reddit communities discussing this specific event
+5. YouTube race coverage
+
+**Could you provide the official race name, organizer, or website URL?** This would allow me to locate the detailed information you're seeking across registration sites, race reports, and community discussions.

@@ -1,95 +1,72 @@
-# Croatan Buck Fifty — Research Dump
+# CROATAN BUCK FIFTY - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
+**2025 and 2026 race dates**: No 2025 date found in search results. 2026 date is **March 21, 2026** (Saturday), per official website, VisitNC, BikeReg, and CroatanResults[1][2][3][4].
 
-**Race Name:** Croatan Buck Fifty [Official] (https://www.croatanbuckfifty.com)  
-**Location:** New Bern, North Carolina (Croatan National Forest)  
-**Date:** Early March annually [Official] (https://www.croatanbuckfifty.com)  
-**Distance:** 150 miles [Official] (https://www.croatanbuckfifty.com)  
-**Elevation Gain:** ~5,000 ft [Official] (https://www.croatanbuckfifty.com)  
-**Field Size:** 200-300 riders [Official] (https://www.croatanbuckfifty.com)  
-**Registration:** Online. Cost: $100-$150 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2015 [VeloNews] (https://www.velonews.com)  
-**Format:** 150mi ultra gravel race, Croatan National Forest [Official] (https://www.croatanbuckfifty.com)  
+**Registration cost / entry fees**: Unavailable in search results.
+
+**Field size (number of participants)**: Unavailable in search results.
+
+**Distance options and elevation gain for each**:
+- **The Fifty**: 46.4 miles (one 46.4-mile lap).
+- **The Buck**: 92.8 miles (two 46.4-mile laps).
+- **The Buck Fifty**: 139.2 miles (three 46.4-mile laps).
+Elevation gain unavailable. Age categories for The Fifty include Open, 40+, 50+, 60+[1][4].
+
+**Prize purse**: Unavailable in search results.
+
+**Start location and time**: Starts and finishes at **Carteret Speedway, 501 Whitehouse Fork Rd., Swansboro, NC 28584** (also listed as Cape Carteret, NC)[1][2][3].
+- **Buck Fifty**: Lines up 7:20am, rolls neutral under escort to gravel at 7:30am.
+- **Buck**: Lines up 8:20am, rolls at 8:30am.
+- **Fifty & Twenty**: Lines up 9:20am, rolls at 9:30am[1].
+
+**Aid station details, cutoff times**: **Black Swamp Aid Station at Mile 23**. Lights required if departing for final lap after **2pm**. No cutoff times specified[1].
 
 ## TERRAIN & COURSE
+**Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable in search results. Course held in **Croatan National Forest** with neutral escort rollout to the gravel[1][2].
 
-**Surface:** 90% gravel, 10% dirt roads [Official] (https://www.croatanbuckfifty.com)  
-**Character:** Croatan National Forest—flat coastal terrain, sandy gravel [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 2/5. Not technical, but ultra distance + sand [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Croatan forest roads** (throughout): Sandy gravel, coastal terrain [Strava] (https://www.strava.com)  
-- **150 miles** (all): Ultra distance, 10-15 hours [Reddit] (https://reddit.com/r/gravelcycling)  
+**Key course features, named climbs/sectors**: **DO NOT RIDE THE FARM BYPASS OR THE** (incomplete note on official site). Laps-based structure on 46.4-mile loop. No named climbs or sectors detailed[1].
 
-## WEATHER & CLIMATE
+**Technical difficulty level**: Unavailable in search results.
 
-**Early March North Carolina:** 45-65°F, 30% rain chance, early spring [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, dry (50-60°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (45-65°F) [CyclingTips] (https://www.cyclingtips.com)  
+**Elevation profile description**: Unavailable in search results. Known info notes 5000 ft total elevation (unverified by results).
 
-## REDDIT & FORUM INSIGHTS
+## CLIMATE & CONDITIONS
+**Typical weather for the race date/location**: Unavailable in search results. March in coastal North Carolina (Swansboro/New Bern area) generally mild.
 
-> "Croatan Buck Fifty is 150 miles of flat coastal gravel. Sandy sections slow you down. Not technical, just long." — u/CroatanVet [Reddit] (https://reddit.com/r/gravelcycling/comments/croatan-buck-fifty)
+**Historical weather incidents (mud years, heat, wind)**: Unavailable in search results.
 
-> "Sandy gravel is unique. Wider tires (38-42mm) help. Too narrow = sink in sand." — u/NewBernLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. Croatan sand is soft. Wider = better float." — u/BuckFiftyRacer [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "East Coast ultra. 150mi is long. 10-15 hours. Mental game critical." — u/UltraGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 15-20% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Distance** — 150mi ultra is long [VeloNews] (https://www.velonews.com)  
-2. **Sandy gravel** — Slows pace, cumulative fatigue [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — 150mi = high mechanical risk [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, moderate gears (flat terrain) [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 4+ bottles, layers for 45-65°F, lights (long day) [Reddit] (https://reddit.com/r/gravelcycling)  
+**Altitude (starting elevation, max elevation)**: Unavailable in search results. Croatan National Forest is low-lying coastal area near sea level.
 
 ## LOGISTICS
+**Nearest airport**: Unavailable in search results. Nearest major airport to Swansboro/New Bern, NC is likely Coastal Carolina Regional Airport (EWN) in New Bern.
 
-**Airport:** Raleigh-Durham (RDU) — 110 miles (2-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** New Bern small coastal town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.croatanbuckfifty.com)  
-**Post-Race:** Post-race party. [Official] (https://www.croatanbuckfifty.com)  
+**Lodging options and strategy**: Unavailable in search results.
 
-## COMMUNITY VIBE
+**Parking situation**: Speedway opens at **6am**; packet pickup inside speedway infield. Pit setup mentioned[1].
 
-**East Coast Ultra:** 150mi ultra on coastal gravel. 200-300 riders. [VeloNews] (https://www.velonews.com)  
-**New Bern Support:** Small coastal town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** Ultra distance self-selects. 15-20% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
+**Packet pickup details**:
+- **3pm-6pm day before** inside speedway infield (optional pre-race meeting at 6pm).
+- **6am-7am race day** inside speedway infield; last call for timing number issues at 7am[1].
 
-## HISTORICAL RESULTS
+Additional: **12-7pm Food Truck Rodeo** open[1][2].
 
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+## COMMUNITY & REPUTATION
+**Race history (founded year, founder if known)**: Unavailable in search results. 2024 edition noted as Sat Mar 23 - Sun Mar 24[5].
 
----
+**Notable past winners / pro riders who have raced it**: Unavailable in search results.
 
-## SOURCES SUMMARY
+**Rider reviews and quotes (Reddit, forums, race reports)**: Unavailable in search results.
 
-1. **Official:** https://www.croatanbuckfifty.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+**YouTube race coverage**: Unavailable in search results.
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+**How the race is perceived in the gravel community**: Described as a "great way to check out the beautiful nature of the Croatan National Forest" and "action-packed Race Day" per VisitNC[2]. Registration opened October 21, 2025 per Gran Fondo Guide[6].
+
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes**: Unavailable in search results.
+
+**"What I wish I knew" insights**: Unavailable in search results.
+
+**Equipment recommendations from participants**: Unavailable in search results. Lights required for final lap departures after 2pm[1].
+
+**DNF rates if available**: Unavailable in search results.

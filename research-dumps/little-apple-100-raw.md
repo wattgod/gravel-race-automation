@@ -1,49 +1,39 @@
-# Little Apple 100 - Illinois State Championship - Research Dump
+# LITTLE APPLE 100 - RAW RESEARCH DUMP
 
-## Race Overview
-**Location:** Manhattan, Illinois  
-**Distance:** 100 miles  
-**Terrain:** Illinois farmland and rolling terrain  
-**Region:** Northern Illinois  
+Based on my search results, I must clarify an important finding: **The search results do not confirm the existence of a race specifically called "Little Apple 100."** Instead, the available data documents the **Little Apple Gravel Race: Illinois State Championships**, which offers multiple distance options including a 100km distance.
 
-## Event Details
-- Annual gravel race in Manhattan
-- Illinois State Championship designation
-- Manhattan is a small town southwest of Chicago
-- 100-mile distance
-- Part of Illinois gravel scene
-- Typically held in spring or summer
+## What the Search Results Actually Show
 
-## Course Characteristics
-- Illinois terrain: farmland and rolling
-- Gravel roads through rural areas
-- Moderate elevation
-- Farmland scenery
-- Mix of road conditions
+**Race Name & Dates:**
+The official race is called the **Little Apple Gravel Race: Illinois State Championships**, held in **Manhattan, Illinois**[2][3][5]. The most recent documented date in the search results is **Sunday, August 3, 2025**[1][2][3][4][5].
 
-## Logistics
-- Manhattan is northern Illinois (~1 hour from Chicago)
-- Small town with basic amenities
-- State championship event with moderate organization
-- Moderate support
+**Location & Start Details:**
+- Address: **525 South State Street, Manhattan, Illinois 60442**[4][5]
+- Start time: **8:00 AM CDT** (as of the 2025 event)[4]
 
-## Community & Atmosphere
-- Illinois cycling community
-- State championship status
-- Growing event
-- Moderate field
+**Distance Options:**
+The race offers **multiple distance options**: 150km, 100km, and 50km, with the 150km leaving at 8:00 AM[4]. The search results do not specifically isolate a standalone "100-mile" option or provide separate elevation data for the 100km distance.
 
-## Weather Considerations
-- Illinois spring/summer weather
-- Variable conditions
-- Heat possible
-- Wind possible
-- Humidity
+## Data Gaps & What Cannot Be Confirmed
 
-## Registration & Costs
-- State championship pricing ($80-120 typical)
-- Moderate field
+The search results do **not** provide:
+- Registration costs or entry fees
+- Field size or participant numbers
+- Prize purse information
+- Detailed terrain breakdown (% gravel vs. pavement vs. singletrack)
+- Named climbs or sector details
+- Technical difficulty ratings
+- Elevation profiles or specific elevation gain figures
+- Weather history or typical conditions
+- Lodging or parking details
+- Nearest airport information
+- Race history, founding year, or founder information
+- Notable past winners or professional participants
+- Rider reviews, Reddit discussions, or YouTube coverage
+- DNF rates or detailed race reports
 
-## Sources
-- Illinois cycling community
-- Illinois State Championship events
+**Historical Note:** The search results show earlier iterations of this race—one dated August 13, 2023[6], and another dated August 3-4, 2024[7]—suggesting the race has been held annually in early August, though exact consistency is not confirmed.
+
+## Conclusion
+
+To compile the comprehensive research dump you've requested, I would need access to additional sources beyond these initial results: the official race website, registration platforms like BikeReg or Bike Signup, cycling forums (Reddit's r/gravelcycling), Strava segments, race reports, and local cycling community coverage. The current search results confirm the race exists and is held in Manhattan, Illinois, but lack the depth of detail needed for a complete research document.

@@ -1,46 +1,25 @@
-# Purgatory Road Race - Research Dump
+# PURGATORY ROAD RACE - RAW RESEARCH DUMP
 
-## Race Overview
-**Location:** Fredericksburg, Texas  
-**Distance:** Multiple distances  
-**Terrain:** Texas Hill Country gravel  
-**Region:** Central Texas  
+No specific information on a gravel or cycling race named "Purgatory Road Race" in Fredericksburg, Texas (or elsewhere) was found across multiple searches targeting official sites, race calendars, BikeReg, gravel event listings, local Texas Hill Country races, Reddit, forums, and YouTube. The known info provided (65 miles, 3500 ft elevation, Fredericksburg location) does not match any documented event.
 
-## Event Details
-- Annual gravel race in Fredericksburg
-- Fredericksburg is in central Texas
-- Multiple distance options
-- Part of Texas gravel scene
-- Typically held in spring or fall
+**OFFICIAL DATA**  
+No 2025 or 2026 race dates found.  
+No registration costs, entry fees, field sizes, distance options, prize purses, start locations/times, aid stations, or cutoff times identified for this race. Searches of BikeReg.com results and Texas cycling calendars returned no matches[6].
 
-## Course Characteristics
-- Texas Hill Country terrain: rolling hills
-- Gravel roads through Hill Country
-- Moderate elevation
-- Hill Country scenery
-- Mix of road conditions
+**TERRAIN & COURSE**  
+No surface breakdowns, key features, named climbs/sectors, technical difficulty, or elevation profiles specific to "Purgatory Road Race" located. Nearby RAAM Challenge routes north and west of Fredericksburg describe rolling Hill Country with 50-57 ft/mile elevation gain, short climbs (100-400 ft), mostly low-traffic farm/ranch roads, <1% highways, but these are not confirmed as the race course[1]. Purgatory Creek (a stream in Hays County, ~60 miles southeast of Fredericksburg) sits at ~571 ft elevation, but no race connection[2].
 
-## Logistics
-- Fredericksburg is central Texas
-- Good access
-- Moderate organization
-- Moderate support
+**CLIMATE & CONDITIONS**  
+No typical weather, historical incidents, or altitude details for the race found. Fredericksburg-area routes in search results note elevations averaging 1,800-2,100 ft early, high points ~2,092 ft, low ~1,274 ft, but not race-specific[1].
 
-## Community & Atmosphere
-- Texas cycling community
-- Growing event
-- Moderate field
+**LOGISTICS**  
+No airport, lodging, parking, or packet pickup info available for this event.
 
-## Weather Considerations
-- Texas spring/fall weather
-- Variable conditions
-- Heat possible
-- Wind exposure
+**COMMUNITY & REPUTATION**  
+No race history, founding year, founders, past winners, pro riders, rider reviews, quotes, YouTube coverage, or community perception located. Hill Country MTB trails exist with total region stats (1,347 miles, 96,469 ft descent, max 2,295 ft), but no link to this race[3].
 
-## Registration & Costs
-- Regional pricing ($60-100 typical)
-- Moderate field
+**RACE REPORTS & RIDER EXPERIENCE**  
+No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates found. No Reddit/forum posts or race reports reference "Purgatory Road Race."
 
-## Sources
-- Texas cycling community
-- Hill Country gravel events
+**Search Notes**  
+Searches covered gravel race databases, Texas cycling events 2024-2026, Fredericksburg races, Purgatory-specific terms, and variants (e.g., "Purgatory Gravel Fredericksburg"). Unrelated results included RAAM routes[1], a creek[2], Hill Country trails[3], USGS stream gazetteer[4], old trail roads[5], BikeReg 2017 results[6], and non-cycling content[7][8]. If this is a new/local/unofficial event, details may not be online yet. Recommend checking local Fredericksburg bike shops or Texas Gravel Cup series for similar unlisted races.

@@ -37,10 +37,23 @@ INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
 # Minimum KB for a research dump to be considered "substantial"
 MIN_RESEARCH_KB = 5.0
 
-# Kimi API config
-KIMI_MODEL = "kimi-k2-0905-preview"
-KIMI_BASE_URL = "https://api.moonshot.ai/v1"
-MAX_SEARCH_ROUNDS = 15  # Cap tool-call loops to prevent runaway
+# API provider configs
+PROVIDERS = {
+    "perplexity": {
+        "model": "sonar",
+        "base_url": "https://api.perplexity.ai",
+        "env_key": "PERPLEXITY_API_KEY",
+        "signup": "https://www.perplexity.ai/api-platform",
+    },
+    "kimi": {
+        "model": "kimi-k2-0905-preview",
+        "base_url": "https://api.moonshot.ai/v1",
+        "env_key": "MOONSHOT_API_KEY",
+        "signup": "https://platform.moonshot.ai/console/api-keys",
+    },
+}
+DEFAULT_PROVIDER = "perplexity"
+MAX_SEARCH_ROUNDS = 15  # Cap tool-call loops for Kimi
 
 
 def get_research_candidates(n, include_no_profile=False, min_kb=None):
@@ -175,22 +188,58 @@ FORMAT RULES:
 - Start the document with: # {name.upper()} - RAW RESEARCH DUMP"""
 
 
-def call_kimi_with_search(prompt, api_key, max_retries=2):
-    """Call Kimi API with built-in web search. Returns (text, search_rounds)."""
+def call_perplexity(prompt, api_key, provider_cfg, max_retries=2):
+    """Call Perplexity Sonar API — search is native, no tool loop needed."""
     from openai import OpenAI
 
     client = OpenAI(
         api_key=api_key,
-        base_url=KIMI_BASE_URL,
+        base_url=provider_cfg["base_url"],
+    )
+
+    system_msg = (
+        "You are a cycling race researcher. Search the web thoroughly to find "
+        "detailed, factual information about gravel and cycling races. "
+        "Be specific — include real dates, numbers, names, quotes, and sources. "
+        "Do not make up information. If you cannot find something, say so."
+    )
+
+    for attempt in range(max_retries + 1):
+        try:
+            completion = client.chat.completions.create(
+                model=provider_cfg["model"],
+                messages=[
+                    {"role": "system", "content": system_msg},
+                    {"role": "user", "content": prompt},
+                ],
+                max_tokens=8000,
+            )
+            return completion.choices[0].message.content, 1
+        except Exception as e:
+            if attempt < max_retries:
+                wait = 30 * (attempt + 1)
+                print(f"\n  Error: {e}. Retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+
+
+def call_kimi(prompt, api_key, provider_cfg, max_retries=2):
+    """Call Kimi API with built-in $web_search tool."""
+    from openai import OpenAI
+
+    client = OpenAI(
+        api_key=api_key,
+        base_url=provider_cfg["base_url"],
     )
 
     messages = [
         {
             "role": "system",
             "content": (
-                "You are a cycling race researcher. Your job is to use web search "
+                "You are a cycling race researcher. Use web search multiple times "
                 "to find detailed, factual information about gravel and cycling races. "
-                "Search multiple times to build comprehensive coverage. "
+                "Search at least 3 different queries. "
                 "Be specific — include real dates, numbers, names, quotes, and sources. "
                 "Do not make up information. If you cannot find something, say so."
             ),
@@ -212,7 +261,7 @@ def call_kimi_with_search(prompt, api_key, max_retries=2):
 
             while finish_reason != "stop" and rounds < MAX_SEARCH_ROUNDS:
                 completion = client.chat.completions.create(
-                    model=KIMI_MODEL,
+                    model=provider_cfg["model"],
                     messages=messages,
                     temperature=0.6,
                     tools=tools,
@@ -244,7 +293,16 @@ def call_kimi_with_search(prompt, api_key, max_retries=2):
                 raise
 
 
-def research_race(race_info, api_key, dry_run=False):
+def call_api(prompt, api_key, provider_name):
+    """Route to the right provider."""
+    cfg = PROVIDERS[provider_name]
+    if provider_name == "perplexity":
+        return call_perplexity(prompt, api_key, cfg)
+    else:
+        return call_kimi(prompt, api_key, cfg)
+
+
+def research_race(race_info, api_key, provider_name, dry_run=False):
     """Research a single race. Returns (success, message, slug)."""
     slug = race_info["slug"]
     name = race_info["name"]
@@ -256,7 +314,7 @@ def research_race(race_info, api_key, dry_run=False):
     prompt = build_research_prompt(race_info)
 
     try:
-        result, search_rounds = call_kimi_with_search(prompt, api_key)
+        result, search_rounds = call_api(prompt, api_key, provider_name)
     except Exception as e:
         return False, f"API error: {e}", slug
 
@@ -332,13 +390,16 @@ def show_status():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Batch research via Kimi K2 web search",
-        epilog="Pipeline: batch_research.py (Kimi) → batch_enrich.py (Claude)"
+        description="Batch research via web search API",
+        epilog="Pipeline: batch_research.py (search) → batch_enrich.py (Claude)"
     )
     parser.add_argument("--auto", type=int, metavar="N",
                         help="Auto-select top N research candidates")
     parser.add_argument("--slugs", nargs="+",
                         help="Research specific slugs")
+    parser.add_argument("--provider", choices=list(PROVIDERS.keys()),
+                        default=DEFAULT_PROVIDER,
+                        help=f"API provider (default: {DEFAULT_PROVIDER})")
     parser.add_argument("--include-no-profile", action="store_true",
                         help="Include index-only races (no profile yet)")
     parser.add_argument("--dry-run", action="store_true",
@@ -357,10 +418,11 @@ def main():
         show_status()
         return
 
-    api_key = os.environ.get("MOONSHOT_API_KEY")
+    provider_cfg = PROVIDERS[args.provider]
+    api_key = os.environ.get(provider_cfg["env_key"])
     if not api_key and not args.dry_run:
-        print("Error: MOONSHOT_API_KEY environment variable not set")
-        print("Get your key at: https://platform.moonshot.ai/console/api-keys")
+        print(f"Error: {provider_cfg['env_key']} environment variable not set")
+        print(f"Get your key at: {provider_cfg['signup']}")
         sys.exit(1)
 
     # Build candidate list
@@ -430,7 +492,7 @@ def main():
         # Parallel execution
         with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
             futures = {
-                pool.submit(research_race, c, api_key, args.dry_run): c
+                pool.submit(research_race, c, api_key, args.provider, args.dry_run): c
                 for c in candidates
             }
             for i, future in enumerate(as_completed(futures), 1):
@@ -449,7 +511,7 @@ def main():
         # Sequential execution
         for i, candidate in enumerate(candidates, 1):
             print(f"[{i}/{len(candidates)}] {candidate['slug']}...", end=" ", flush=True)
-            ok, msg, slug = research_race(candidate, api_key, args.dry_run)
+            ok, msg, slug = research_race(candidate, api_key, args.provider, args.dry_run)
             print(msg)
 
             if ok:

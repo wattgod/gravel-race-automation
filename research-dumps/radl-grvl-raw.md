@@ -1,95 +1,43 @@
-# RADL GRVL — Research Dump
+# RADL GRVL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** RADL GRVL [Official] (https://www.radlgrvl.com.au)  
-**Location:** Adelaide Hills, South Australia  
-**Date:** April annually [Official] (https://www.radlgrvl.com.au)  
-**Distance:** 130 km [Official] (https://www.radlgrvl.com.au)  
-**Elevation Gain:** ~2,500 m [Official] (https://www.radlgrvl.com.au)  
-**Field Size:** 400-600 riders [Official] (https://www.radlgrvl.com.au)  
-**Registration:** Online. Cost: A$150-A$200 (~$100-$135 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2020 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Adelaide Hills [Official] (https://www.radlgrvl.com.au)  
+**2025 and 2026 race dates**: 2026 race is **Friday, January 23, 2026** (main ride day within a festival from January 20-24, 2026)[1][2][3][5][9][10]. No specific 2025 date found in results; 2025 was the second edition after a 2024 pilot[1][6].  
+**Registration cost / entry fees**: Unavailable in search results.  
+**Field size (number of participants)**: Attracts hundreds of professional and amateur riders from more than a dozen countries[3]; 2024 pilot sold out in weeks and 2025 doubled in size[1][6], but no exact numbers.  
+**Distance options and elevation gain for each**:  
+- **Blue / “Adelaide Hills” Course**: ~127 km (or ~115 km in some refs), ~2,296 m climbing, about 70% gravel[1][2].  
+- **Red / “Gum Course”**: ~65 km (or 64 km), ~1,153 m climbing, roughly 60% gravel[1][9].  
+- **Green / “Vineyard” Course**: ~35 km (or 34 km), more accessible/e-bike friendly, mostly vineyards/paved/less technical; elevation not specified[1][3][9].  
+**Prize purse**: Unavailable in search results.  
+**Start location and time**: **32 Hamilton Rd, McLaren Flat, South Australia, 5171** (Oliver & Press Winemakers hub)[1][2][9]. Elite Open/Men's Blue: **07.30**; Elite Women's Blue: **07.35**; Amateur Blue: **08.00**; Amateur Red: **08.30**; Green: **08.45** (local time)[2][5]. First finishers expected **11.00**, final **15.30**[2].  
+**Aid station details, cutoff times**: Unavailable in search results.
 
 ## TERRAIN & COURSE
+**Surface breakdown (% gravel, pavement, singletrack, dirt)**: Blue ~70% gravel[1]; Red ~60% gravel[1]; Green mostly paved/less technical through vineyards[1]. Remote gravel and paved roads through vineyards/hills[4][6].  
+**Key course features, named climbs/sectors**: Shiraz Trail, private vineyard paths, scenic Adelaide Hills[7]; Red route: back streets of McLaren Vale, past Battle of Bosworth Wines on Gafney Rd, **Kings Hill Rd** (most difficult), forest trails through Kuitpo to Kyeema National Park boundary, downhill **Taylors Hill Rd**[9].  
+**Technical difficulty level**: Demanding for Blue (experienced riders, steep climbs)[1][9]; substantial for Red[1]; gentler/accessible for Green (beginners/e-bikes)[1][9].  
+**Elevation profile description**: Challenging climbs through hills (Blue: ~2,296 m; Red: ~1,153 m); "ridiculously steep climbs" on Blue[9]; no full profile details.
 
-**Surface:** 85% gravel, 15% dirt roads [Official] (https://www.radlgrvl.com.au)  
-**Character:** Adelaide Hills—rolling terrain, Australian bush [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain, some technical sections [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Adelaide Hills climbs** (throughout): Rolling Australian terrain [Strava] (https://www.strava.com)  
-- **Bush roads** (throughout): Australian gravel [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**April South Australia:** 12-22°C, 30% rain chance, autumn conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, dry (15-20°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (12-22°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "RADL GRVL is Adelaide Hills gravel. 130 km, 2,500 m elevation. Rolling Australian bush terrain. Beautiful scenery." — u/RADLVet [Reddit] (https://reddit.com/r/gravelcycling/comments/radl-grvl)
-
-> "Adelaide Hills are rolling but relentless. 2,500 m cumulative adds up." — u/AdelaideLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-40mm. Australian gravel is chunky." — u/AussieGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "400-600 riders. Growing Australian gravel scene. Well-organized." — u/SAGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 2,500 m over 130 km cumulative [VeloNews] (https://www.velonews.com)  
-2. **Distance** — 130 km is long [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — Chunky gravel [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-40mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for cumulative elevation [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 12-22°C [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+**Typical weather for the race date/location**: Unavailable in search results.  
+**Historical weather incidents (mud years, heat, wind)**: Unavailable in search results.  
+**Altitude (starting elevation, max elevation)**: Unavailable in search results (Adelaide Hills/McLaren Vale area, low elevation overall).
 
 ## LOGISTICS
+**Nearest airport**: Unavailable in search results (Adelaide implied via Santos Tour Down Under ties[2][3][8]).  
+**Lodging options and strategy**: Shuttles from Oliver and Press to **Pullman Hotel in Adelaide** at **15.45**[2]; festival in Adelaide/McLaren Vale[8].  
+**Parking situation**: Unavailable in search results.  
+**Packet pickup details**: RADL Rider Registration Packet Pickup at **GRVL EXPO, City of Adelaide Tour Village** (Thu Jan 22: 11.00-17.00; possibly Wed too)[2].
 
-**Airport:** Adelaide (ADL) — 30 km (30-minute drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Adelaide city. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.radlgrvl.com.au)  
-**Post-Race:** Post-race party, Adelaide. [Official] (https://www.radlgrvl.com.au)  
+## COMMUNITY & REPUTATION
+**Race history (founded year, founder if known)**: Pilot in **2024** (sold out quickly), expanded **2025**, **third edition 2026**; presented by Quad Lock, emerged as major South Australia gravel event with gravel pioneers' backing[1][3][6]. No founder named. Serves as **Oceania Continental Gravel Championships**[5].  
+**Notable past winners / pro riders who have raced it**: Unavailable in search results (attracts top talent from Australia/NZ, Brits/Americans/Frenchman[5]; pros present[6]).  
+**Rider reviews and quotes (Reddit, forums, race reports)**: No Reddit/forums in results.  
+**YouTube race coverage**: Unavailable in search results.  
+**How the race is perceived in the gravel community**: Australia's premier/signature gravel cycling event/festival; top gravel event, festive/inclusive atmosphere, action-packed multi-day program with expo/pro panels/socials; "Australian gravel monument" opening international calendar[1][3][5][6][8].
 
-## COMMUNITY VIBE
-
-**Australian Gravel Scene:** Adelaide Hills. 400-600 riders. Growing scene. [VeloNews] (https://www.velonews.com)  
-**Adelaide Support:** City embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.radlgrvl.com.au  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes**: Unavailable in search results.  
+**"What I wish I knew" insights**: Unavailable in search results.  
+**Equipment recommendations from participants**: E-bike friendly, especially Green/Red[1][7][9].  
+**DNF rates if available**: Unavailable in search results.

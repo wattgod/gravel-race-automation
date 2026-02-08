@@ -1,96 +1,43 @@
-# Nova Eroica — Research Dump
+# NOVA EROICA - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Nova Eroica [Official] (https://www.novaeroica.it)  
-**Location:** Buonconvento, Tuscany, Italy  
-**Date:** October annually [Official] (https://www.novaeroica.it)  
-**Distance:** 135 km [Official] (https://www.novaeroica.it)  
-**Elevation Gain:** ~2,800 m [Official] (https://www.novaeroica.it)  
-**Field Size:** 1,000-1,500 riders [Official] (https://www.novaeroica.it)  
-**Registration:** Online. Cost: €80-€120 (~$85-$130 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2015 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Tuscan strade bianche (white roads) [Official] (https://www.novaeroica.it)  
+**2025 race date:** No confirmed 2025 date for Nova Eroica Buonconvento found in search results; a related event, NOVA Eroica Istria – Truffle Tour, is scheduled for Sunday, September 21, 2025, in Istria, Croatia (starting and finishing in Novigrad), per istra.hr event calendar[1].  
+**2026 race date:** April 12, 2026, in Buonconvento, Italy (date confirmed), per Gran Fondo Guide[2]. No 2026 details for other editions found.  
+**Registration cost/entry fees:** Unavailable in search results.  
+**Field size (number of participants):** Unavailable in search results.  
+**Distance options and elevation gain:** Unavailable for Buonconvento edition; NOVA Eroica Istria offers three main cycling routes on Sunday (specific distances/elevations not detailed), per istra.hr[1]. Known info lists 84 miles / 9186 ft for Buonconvento, but unverified in results.  
+**Prize purse:** Unavailable in search results.  
+**Start location and time:** Buonconvento, Tuscany, Italy (per known info); NOVA Eroica Istria starts/finishes in Novigrad, no specific time listed, per istra.hr[1].  
+**Aid station details, cutoff times:** Unavailable in search results.
 
 ## TERRAIN & COURSE
+**Surface breakdown (% gravel, pavement, singletrack, dirt):** NOVA Eroica Istria features ~80% gravel roads, per istra.hr[1]. No breakdown for Buonconvento edition found.  
+**Key course features, named climbs/sectors:** NOVA Eroica Istria route follows Parenzana trail through Brtonigla, Buje, Crveni Vrh, Kanegra, Grožnjan, Oprtalj, Livade, and Motovun, with uphill/downhill gravel, per istra.hr[1]. No details for Buonconvento.  
+**Technical difficulty level:** Described as challenging for Istria edition due to gravel, per istra.hr[1]. Unavailable for Buonconvento.  
+**Elevation profile description:** Unavailable in search results.
 
-**Surface:** 70% gravel (strade bianche), 30% paved roads [Official] (https://www.novaeroica.it)  
-**Character:** Tuscan strade bianche—rolling hills, white gravel roads [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain, some steep sections [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Strade bianche** (throughout): Iconic Tuscan white roads [Strava] (https://www.strava.com)  
-- **Tuscan hills** (throughout): Rolling Italian countryside [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**October Tuscany:** 12-22°C, 30% rain chance, autumn conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, dry (15-20°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (12-22°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Nova Eroica is Tuscan strade bianche. 135 km, 2,800 m elevation. Rolling hills, white gravel roads. Beautiful scenery." — u/NovaEroicaVet [Reddit] (https://reddit.com/r/gravelcycling/comments/nova-eroica)
-
-> "Buonconvento is medieval town. Tuscan countryside is stunning. Strade bianche are iconic." — u/TuscanyLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 32-38mm. Strade bianche are smooth but dusty. Wider = better comfort." — u/ItalyGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "1,000-1,500 riders. Large Italian field. Well-organized. Affordable entry." — u/EuroGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 2,800 m over 135 km cumulative [VeloNews] (https://www.velonews.com)  
-2. **Distance** — 135 km is long [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — Dusty strade bianche [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 32-38mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, moderate gears [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 12-22°C [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+**Typical weather for race date/location:** Unavailable in search results.  
+**Historical weather incidents:** Unavailable in search results.  
+**Altitude (starting elevation, max elevation):** Unavailable in search results.
 
 ## LOGISTICS
+**Nearest airport:** Unavailable in search results.  
+**Lodging options and strategy:** Unavailable in search results.  
+**Parking situation:** Unavailable in search results.  
+**Packet pickup details:** Unavailable in search results. NOVA Eroica Istria includes a three-day festival in Novigrad with EXPO zone starting September 19-20, 2025, per istra.hr[1].
 
-**Airport:** Florence (FLR) — 80 km (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Alternate Airports:** Rome (FCO) — 200 km  
-**Lodging:** Buonconvento medieval town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.novaeroica.it)  
-**Post-Race:** Post-race party, Tuscan food/wine celebration. [Official] (https://www.novaeroica.it)  
+## COMMUNITY & REPUTATION
+**Race history (founded year, founder):** Part of the Eroica family; NOVA Eroica Istria is the first Croatian edition in 2025, per istra.hr[1]. No founding details for Buonconvento edition found.  
+**Notable past winners/pro riders:** Unavailable in search results.  
+**Rider reviews and quotes:** Unavailable in search results.  
+**YouTube race coverage:** Unavailable in search results.  
+**Perception in gravel community:** NOVA Eroica Istria promoted as "spectacular," "authentic Eroica" with sustainable focus and stunning Istrian landscape, per istra.hr[1]. No community perception data for Buonconvento.
 
-## COMMUNITY VIBE
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes:** Unavailable in search results.  
+**"What I wish I knew" insights:** Unavailable in search results.  
+**Equipment recommendations:** Unavailable in search results.  
+**DNF rates:** Unavailable in search results.
 
-**Italian Gravel Scene:** Tuscan strade bianche. 1,000-1,500 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Buonconvento Support:** Medieval town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.novaeroica.it  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+*Note: Search results primarily cover NOVA Eroica Istria (Croatia, 2025) rather than the Buonconvento (Italy) edition. Comprehensive data for the queried Buonconvento event is limited or unavailable in provided results; official website (novaeroica.it) not directly accessed here.*

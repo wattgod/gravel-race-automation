@@ -1,94 +1,40 @@
-# Vermont Overland — Research Dump
+# VERMONT OVERLAND - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Vermont Overland [Official] (https://www.vermontoverland.com)  
-**Location:** Woodstock, Vermont  
-**Date:** Late August (August 30, 2026) [Official] (https://www.vermontoverland.com)  
-**Distance:** 54 miles [Official] (https://www.vermontoverland.com)  
-**Elevation Gain:** 7,000 ft [Official] (https://www.vermontoverland.com)  
-**Field Size:** 500+ riders [Official] (https://www.vermontoverland.com)  
-**Registration:** Online. Cost: $100-$150 [BikeReg] (https://www.bikereg.com)  
-**Founded:** 2009 [VeloNews] (https://www.velonews.com)  
-**Character:** "One of oldest/most popular US gravel events" [Official] (https://www.vermontoverland.com)  
+- **2025 and 2026 race dates**: 2025 bike race on Sunday, August 24, 2025 (per official news post shifting date for trail run growth and Overland Trophy)[5]. 2026 bike race on Saturday, August 15, 2026 (confirmed across multiple official pages)[1][4][6][7][8].
+- **Registration cost / entry fees**: Unavailable in search results; registration opens January 1, 2026 at 9 AM via Movemint, with juniors free, spots reserved for West Windsor locals and women[1][4].
+- **Field size**: Limited to 1000 riders[1][2][8].
+- **Distance options and elevation gain**: Single option of 55 miles (fluctuates slightly by year) with 7000 ft climbing; no other distances listed for bike event (Overland Trail is a separate 15-mile run)[1][2][8].
+- **Prize purse**: Unavailable; no mention of prizes or purse.
+- **Start location and time**: Ascutney Outdoors, Ski Tow Road (or 449 Ski Tow Rd, Brownsville), West Windsor, Vermont; 9 AM start (some sources say 10 AM, likely outdated)[1][2][8]. Earlier known info referenced Woodstock but updated to West Windsor/Brownsville.
+- **Aid station details, cutoff times**: Two sag stops (aid stations) mentioned; no specifics on locations, details, or cutoffs[1][2].
 
 ## TERRAIN & COURSE
+- **Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable; described as dirt roads with eight (or seven) sectors of Class 4 Roads (unmaintained ancient public through-ways, aka "Vermont pavé")[1][2].
+- **Key course features, named climbs/sectors**: Eight sectors of Class 4 Roads; barrage of short, punchy climbs in rolling Green Mountain terrain; no named climbs or sectors specified[1][2].
+- **Technical difficulty level**: Challenging with technical Class 4 sectors varying from leisurely to demanding ascents, requiring skills and preparation[2].
+- **Elevation profile description**: 7000 ft climbing over 55 miles with rolling roads and punchy climbs[1][2].
 
-**Surface:** 60% gravel, 30% dirt roads, 10% pavement [Official] (https://www.vermontoverland.com)  
-**Character:** Vermont pavé—7 sectors of rough unmaintained roads [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 4/5. Technical climbs, rough pavé sectors [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **7 sectors Vermont pavé** (throughout): Rough unmaintained roads [Strava] (https://www.strava.com)  
-- **Woodstock climbs** (mile 20-40): Technical elevation [Reddit] (https://reddit.com/r/gravelcycling)  
-- **Final push** (mile 45-54): Steep finish [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**Late August Vermont:** 55-75°F, 20% rain chance, summer peak [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Perfect, dry (60-75°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Warm, humid (65-80°F) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Vermont Overland is OG gravel. 2009 founding makes it one of the oldest. 7 pavé sectors are rough—like Paris-Roubaix but dirt." — u/VermontGravelOG [Reddit] (https://reddit.com/r/gravelcycling/comments/vermont-overland)
-
-> "7,000 ft over 54 miles is relentless. Short but brutal. Technical climbs + pavé = suffering." — u/WoodstockLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. Pavé sectors punish narrow tires." — u/VOVeteran [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 5-10% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Technical terrain** — Pavé sectors, steep climbs [VeloNews] (https://www.velonews.com)  
-2. **Mechanicals** — Rough pavé flats [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Bonking** — 7,000 ft cumulative [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King SK+) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gear for climbs [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless mandatory, 3+ bottles, layers for 55-75°F [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for race date/location**: Unavailable for August in West Windsor, VT.
+- **Historical weather incidents**: Unavailable; no mentions of mud, heat, or wind issues.
+- **Altitude**: Unavailable; starting elevation and max not specified (Vermont Green Mountains imply moderate altitudes).
 
 ## LOGISTICS
+- **Nearest airport**: Unavailable.
+- **Lodging options and strategy**: Unavailable; event benefits local orgs in Reading/West Windsor/Woodstock areas[1].
+- **Parking situation**: Unavailable.
+- **Packet pickup details**: Unavailable.
 
-**Airport:** Burlington (BTV) — 80 miles (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Woodstock tourist town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.vermontoverland.com)  
-**Post-Race:** Post-race party, Woodstock village. [Official] (https://www.vermontoverland.com)  
+## COMMUNITY & REPUTATION
+- **Race history**: 10+ years as of 2024 (founded ~2014 or earlier); promotes overland adventure riding, benefiting Reading/West Windsor Food Shelf, Ascutney Outdoors, and WAMBA[1][4].
+- **Notable past winners / pro riders**: Unavailable; no winner lists or pro mentions.
+- **Rider reviews and quotes**: Strambecco calls it "one of the best gravel events in the country" and "Best Gravel Events in New England"; "epic course unlike any you’ve ever ridden before"[1][2]. No Reddit/forum quotes in results.
+- **YouTube race coverage**: Unavailable.
+- **How perceived in gravel community**: One of the most popular and longest-running US gravel events, sells out in hours; ultimate overland adventure with scenic Vermont pastoral setting[2].
 
-## COMMUNITY VIBE
-
-**OG Gravel:** One of oldest US events (2009) [VeloNews] (https://www.velonews.com)  
-**Woodstock Support:** Strong community support [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. Technical terrain self-selects [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.vermontoverland.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: No direct rider reports; official description: "magnificently scenic route and an awesome party afterwards"[1].
+- **"What I wish I knew" insights**: Unavailable.
+- **Equipment recommendations**: Unavailable; ebikes authorized per one listing[3].
+- **DNF rates**: Unavailable.

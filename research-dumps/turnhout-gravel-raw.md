@@ -1,95 +1,40 @@
-# Turnhout Gravel — Research Dump
+# TURNHOUT GRAVEL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Turnhout Gravel [Official] (https://www.turnhoutgravel.be)  
-**Location:** Turnhout, Belgium  
-**Date:** September annually [Official] (https://www.turnhoutgravel.be)  
-**Distance:** 100 km [Official] (https://www.turnhoutgravel.be)  
-**Elevation Gain:** ~1,200 m [Official] (https://www.turnhoutgravel.be)  
-**Field Size:** 400-600 riders [Official] (https://www.turnhoutgravel.be)  
-**Registration:** Online. Cost: €70-€100 (~$75-$110 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2021 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Belgian Kempen region [Official] (https://www.turnhoutgravel.be)  
+- **2025 and 2026 race dates**: No specific 2025 date found in search results; 2024 was **Sunday, March 23** per official site, serving as Belgian Gravel Championships qualifier for UCI Gravel World Series 2025[1]. For 2026, confirmed as **Sunday, March 8** (UCI Gravel World Series calendar)[4][5] or **Sunday, March 22** (Bolero Gravel Series and other listings)[2][3][6][7]; dates conflict across sources, with UCI official at March 8[4].
+- **Registration cost / entry fees**: Unavailable in search results.
+- **Field size (number of participants)**: Unavailable; 2024 registrations fully booked[1].
+- **Distance options and elevation gain for each**: Unavailable; known info states 70 miles (113 km) with 3500 ft (1067 m) gain, but not confirmed in results.
+- **Prize purse**: Unavailable.
+- **Start location and time**: Starts in **Turnhout, Belgium**; no specific time details[1][2][4].
+- **Aid station details, cutoff times**: Unavailable.
 
 ## TERRAIN & COURSE
+- **Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable.
+- **Key course features, named climbs/sectors**: Features "wide forest and field trails, and Kempen gravel paths"; course "thoroughly redesigned and renewed" post-2024 Belgian Championships where **Gianni Vermeersch** won[1].
+- **Technical difficulty level**: Unavailable.
+- **Elevation profile description**: Unavailable beyond known info of 3500 ft total.
 
-**Surface:** 80% gravel, 20% paved roads [Official] (https://www.turnhoutgravel.be)  
-**Character:** Belgian Kempen—rolling terrain, forest paths [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Kempen forest paths** (throughout): Belgian forest gravel [Strava] (https://www.strava.com)  
-- **Turnhout area** (throughout): Belgian countryside [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**September Belgium:** 12-20°C, 40% rain chance, autumn conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, wet (14-18°C, rain) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (12-20°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Turnhout Gravel is Belgian Kempen. 100 km, 1,200 m elevation. Forest paths. Rolling terrain." — u/TurnhoutVet [Reddit] (https://reddit.com/r/gravelcycling/comments/turnhout-gravel)
-
-> "Turnhout is Kempen region. Belgian forest gravel. September = 40% rain. Bring waterproofs." — u/BelgiumLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-38mm. Belgian gravel is smooth but can be muddy when wet." — u/BelgiumGravel [Reddit] (https://reddit.com/r/gravelcycling)  
-
-> "400-600 riders. Belgian field. Well-organized. Affordable entry." — u/EuroGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Weather** — September rain 40% [VeloNews] (https://www.velonews.com)  
-2. **Distance** — 100 km [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mud** — Belgian gravel when wet [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-38mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, moderate gears [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, waterproofs, layers for 12-20°C [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for the race date/location**: Unavailable.
+- **Historical weather incidents (mud years, heat, wind)**: Unavailable.
+- **Altitude (starting elevation, max elevation)**: Unavailable; Turnhout in flat Kempen region implies low elevation[1][2].
 
 ## LOGISTICS
+- **Nearest airport**: Unavailable.
+- **Lodging options and strategy**: Unavailable.
+- **Parking situation**: Unavailable.
+- **Packet pickup details**: Unavailable.
 
-**Airport:** Brussels (BRU) — 60 km (1-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Turnhout, Belgium. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.turnhoutgravel.be)  
-**Post-Race:** Post-race party, Belgian beer. [Official] (https://www.turnhoutgravel.be)  
+## COMMUNITY & REPUTATION
+- **Race history (founded year, founder if known)**: Second edition in 2026 per Bolero Gravel Series, implying founded ~2024/2025; hosted 2024 Belgian Gravel Championships won by **Gianni Vermeersch**[1][2].
+- **Notable past winners / pro riders who have raced it**: **Gianni Vermeersch** won 2024 Belgian Championship on this course[1].
+- **Rider reviews and quotes (Reddit, forums, race reports)**: Unavailable in results.
+- **YouTube race coverage**: "Watch the full video report of Turnhout Gravel here" and "Relive the Belgian Gravel Championships here" linked on official site[1].
+- **How the race is perceived in the gravel community**: Official qualifier for **2026 UEC Gravel European Championships** (August 30, Houffalize) and **UCI Gravel World Series 2026**; described as "perfect setting for a day full of gravel riding and fun" with "stunning natural surroundings" reflecting "American roots where gravel cycling was born"[1][2][3][4].
 
-## COMMUNITY VIBE
-
-**Belgian Gravel Scene:** Turnhout. 400-600 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Turnhout Support:** Town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.turnhoutgravel.be  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: Unavailable.
+- **"What I wish I knew" insights**: Unavailable.
+- **Equipment recommendations from participants**: Unavailable.
+- **DNF rates if available**: Unavailable.

@@ -1,46 +1,19 @@
-# Gravel Fondo Louisiana - Research Dump
+# GRAVEL FONDO LOUISIANA - RAW RESEARCH DUMP
 
-## Race Overview
-**Location:** St. Francisville, Louisiana  
-**Distance:** Multiple distances  
-**Terrain:** Louisiana gravel  
-**Region:** Southeast Louisiana  
+## OFFICIAL DATA
+No specific information found on "Gravel Fondo Louisiana" in St. Francisville, LA for 2025 or 2026 race dates, registration costs, field size, distance options, elevation gain, prize purse, start location/time, aid stations, or cutoff times across searched results. Known user-provided info lists 65 miles distance and 3000 ft elevation, but unverified by sources. No official website or registration page identified.
 
-## Event Details
-- Annual gravel race in St. Francisville
-- St. Francisville is in southeast Louisiana
-- Multiple distance options
-- Part of Louisiana gravel scene
-- Typically held in spring or fall
+## TERRAIN & COURSE
+No details available on surface breakdown, key features, named climbs/sectors, technical difficulty, or elevation profile for Gravel Fondo Louisiana.
 
-## Course Characteristics
-- Louisiana terrain: rolling hills
-- Gravel roads through rural areas
-- Moderate elevation
-- Rural scenery
-- Mix of road conditions
+## CLIMATE & CONDITIONS
+No data on typical weather, historical incidents, or altitude specifics for this event.
 
-## Logistics
-- St. Francisville is southeast Louisiana
-- Moderate access
-- Moderate organization
-- Moderate support
+## LOGISTICS
+No information found on nearest airport, lodging, parking, or packet pickup.
 
-## Community & Atmosphere
-- Louisiana cycling community
-- Growing event
-- Moderate field
+## COMMUNITY & REPUTATION
+No race history, founders, past winners, rider reviews, YouTube coverage, or community perception identified for Gravel Fondo Louisiana. Note: Rouge Roubaix, another event starting in St. Francisville, LA, is described as a 107-mile (170 km) race with rolling terrain, chip seal, sandy gravel, rough asphalt, and variable weather including heat, humidity, cold, or ideal conditions (per official site rougeroubaix.com)[7]. It is scheduled for February 28, 2026, with a 400-participant limit and online registration deadline February 22, 2026 (per BikeReg.com)[3].
 
-## Weather Considerations
-- Louisiana spring/fall weather
-- Variable conditions
-- Heat possible
-- Humidity
-
-## Registration & Costs
-- Regional pricing ($60-100 typical)
-- Moderate field
-
-## Sources
-- Louisiana cycling community
-- Southeast gravel events
+## RACE REPORTS & RIDER EXPERIENCE
+No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates available. Searches yielded unrelated gran fondo and gravel events in Louisiana/Mississippi regions, such as MS Gravel Cup series (e.g., Feb 1, 2025 in Hattiesburg, MS) and Cycle Zydeco (per NOBC calendar and BikeReg)[2][6], but nothing matching "Gravel Fondo Louisiana". Gran fondo calendars list no matching event (per findarace.com and granfondoguide.com)[1][4].

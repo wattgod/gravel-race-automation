@@ -1,96 +1,41 @@
-# Pisgah Monster Cross — Research Dump
+# PISGAH MONSTER CROSS - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Pisgah Monster Cross [Official] (https://www.pisgahmonstercross.com)  
-**Location:** Brevard, North Carolina (Pisgah National Forest)  
-**Date:** Late October annually [Official] (https://www.pisgahmonstercross.com)  
-**Distance:** ~50 miles [Official] (https://www.pisgahmonstercross.com)  
-**Elevation Gain:** ~8,000 ft [Official] (https://www.pisgahmonstercross.com)  
-**Field Size:** 300-400 riders [Official] (https://www.pisgahmonstercross.com)  
-**Registration:** Online. Cost: $75-$100 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2012 [VeloNews] (https://www.velonews.com)  
-**Format:** Technical gravel/MTB race, Pisgah National Forest [Official] (https://www.pisgahmonstercross.com)  
+- **2025 race date**: Saturday, September 6, 2025, in Pisgah Forest, NC[6].
+- **2026 race date**: Individual entry registration available via BikeReg; specific date listed as 03 May, 2026 (Sun) on Ahotu, but unconfirmed and potentially erroneous as it conflicts with other Pisgah events; CycloWorld notes "Date not yet confirmed" for 2026 (likely early September based on 2025)[1][2][7].
+- **Registration cost/entry fees**: Individual entry $152.50; Tandem $152.50 (2026 pricing per BikeReg); no refunds[1][2].
+- **Field size**: Unavailable in search results.
+- **Distance options and elevation gain**: Single distance: 69.2 miles with 8,777 ft elevation gain (updated from known 50 miles/8000 ft); no other options listed[4][5].
+- **Prize purse**: Unavailable; no mention of cash prizes.
+- **Start location and time**: Field directly across US276 from Davidson River Campground, 1284 Pisgah Highway, Pisgah Forest, NC 28768; 8:00AM start after 7:45AM participant meeting[2].
+- **Aid station details, cutoff times**: Three rest areas stocked with water, food (PB&J, fruit, salty/sweet snacks, bars), first aid, and neutral mechanical support; event cutoff 10:00PM Saturday (14 hours from start)[2][5].
 
 ## TERRAIN & COURSE
+- **Surface breakdown**: Primarily gravel and paved roads in Pisgah and Nantahala National Forests; exact % unavailable, described as "scenic gravel and paved roads" with no singletrack mentioned despite "monster-cross" name[2][4][5].
+- **Key course features, named climbs/sectors**: Route: Start -> 276 -> (R) 477 -> (L) 276 -> (R) 475b -> (R) 475 -> (R) Indian Creek Rd -> (R) 215 -> (L) 4663 -> (L) 4663C -> (L) 1756; maps, cue sheets, GPX available for download; all turns marked with large orange arrows and Pisgah Productions tape; single file riding required[2].
+- **Technical difficulty level**: Brutal terrain described as a "dream gravel endurance event" requiring race tactics, fitness, gear selection, and luck; "premiere all-road racing event" with "finest gravel roads"[4][5].
+- **Elevation profile description**: 69.2 miles, 8,777 ft climbing through quintessential Pisgah forest with breathtaking scenery[4][5].
 
-**Surface:** 60% gravel, 40% singletrack/dirt [Official] (https://www.pisgahmonstercross.com)  
-**Character:** Pisgah National Forest—technical Appalachian terrain, steep climbs/descents [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 5/5. Very technical—rocks, roots, steep descents [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Pisgah climbs** (throughout): Steep Appalachian mountains [Strava] (https://www.strava.com)  
-- **Technical descents** (throughout): Rocks, roots, loose gravel [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**Late October North Carolina:** 40-65°F, 30% rain chance, fall conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, dry (45-60°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (40-65°F) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Pisgah Monster Cross is technical. 8,000 ft over 50 miles = steep. Rocks, roots, loose gravel. Not for pure gravel bikes." — u/PisgahVet [Reddit] (https://reddit.com/r/gravelcycling/comments/pisgah-monster-cross)
-
-> "Dropbar MTB or gravel with big tires (40-45mm). Pure road/gravel bikes struggle." — u/BrevardLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 40-45mm aggressive tread. Pisgah is technical—rocks, roots, steep descents." — u/MonsterCrossRacer [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Southeast gravel classic. Technical terrain self-selects. 15-20% DNF." — u/SEGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 15-20% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Technical terrain** — Rocks, roots, steep descents [VeloNews] (https://www.velonews.com)  
-2. **Elevation** — 8,000 ft over 50 miles = steep [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — Technical terrain flats/breaks [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 40-45mm tubeless aggressive tread (e.g., WTB Resolute, Panaracer GK SK+, Specialized Pathfinder Pro) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for steep climbs [PackFodder] (https://www.packfodder.com)  
-**Bike:** Dropbar MTB or gravel with MTB capability. Pure road/gravel struggles. [Reddit] (https://reddit.com/r/gravelcycling)  
-**Other:** Tubeless, 3+ bottles, layers for 40-65°F [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for race date/location**: Unavailable; early September in Pisgah National Forest (Brevard, NC) typically mild but variable.
+- **Historical weather incidents**: Unavailable.
+- **Altitude**: Unavailable; starting elevation near Pisgah Forest (~2,000-2,500 ft estimated from location, max higher in forests).
 
 ## LOGISTICS
+- **Nearest airport**: Unavailable.
+- **Lodging options and strategy**: Sunset Motel, Davidson River Campground, Hampton Inn Brevard, Holiday Inn Express Brevard[2].
+- **Parking situation**: Unavailable; start/finish in field across from campground.
+- **Packet pickup details**: Friday 5:00PM-10:00PM registration/sign-in; Saturday 5:30AM-7:30AM; raffle drawing 9:00PM Saturday[2].
 
-**Airport:** Asheville (AVL) — 30 miles (45-minute drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Brevard small mountain town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.pisgahmonstercross.com)  
-**Post-Race:** Post-race party, Brevard downtown. [Official] (https://www.pisgahmonstercross.com)  
+## COMMUNITY & REPUTATION
+- **Race history**: Organized by Pisgah Productions; exact founding year unavailable; promoted as "premiere all-road racing event in the region" and "one-of-a-kind opportunity"[2][4][5].
+- **Notable past winners/pro riders**: Unavailable.
+- **Rider reviews and quotes**: Unavailable from Reddit, forums, or similar in results.
+- **YouTube race coverage**: Unavailable.
+- **Perception in gravel community**: Viewed as a top gravel endurance event with brutal climbs and scenic Pisgah/Nantahala roads, emphasizing strategy and gear[4][5].
 
-## COMMUNITY VIBE
-
-**Southeast Gravel Classic:** Technical Pisgah terrain. 300-400 riders. Fall colors. [VeloNews] (https://www.velonews.com)  
-**Brevard Support:** Small mountain town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** Technical terrain self-selects. 15-20% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.pisgahmonstercross.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: Unavailable.
+- **"What I wish I knew" insights**: Unavailable.
+- **Equipment recommendations**: Proper gear selection key to success, per event description (e.g., for gravel endurance)[4].
+- **DNF rates**: Unavailable.

@@ -1,96 +1,42 @@
-# Rule of Three — Research Dump
+# RULE OF THREE - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Rule of Three [Official] (https://www.ruleofthreegravel.com)  
-**Location:** Emporia, Kansas (same roads as Unbound Gravel)  
-**Date:** Early September annually [Official] (https://www.ruleofthreegravel.com)  
-**Distance:** 300 miles [Official] (https://www.ruleofthreegravel.com)  
-**Elevation Gain:** ~15,000 ft [Official] (https://www.ruleofthreegravel.com)  
-**Field Size:** ~100 riders (ultra distance, limited field) [Official] (https://www.ruleofthreegravel.com)  
-**Registration:** Online. Cost: $200-$250 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2018 [VeloNews] (https://www.velonews.com)  
-**Format:** Self-supported 300mi ultra gravel race [Official] (https://www.ruleofthreegravel.com)  
+- **2025 and 2026 race dates**: 2025 edition held May 16-17 (Fri-Sat) in Bentonville, AR[1][4]. 2026 edition scheduled for May 12-17 in Bentonville, AR; registration opens February 2, 2026[2][7].
+- **Registration cost / entry fees**: Rule of $3.99 event (fundraiser/pre-event) costs $3.99, held February 28, 2026, with early registration perks for main event[2][3]. Main event fees not specified in available data; online registration deadline for 2026 is May 13 at 11:59 PM CT[6].
+- **Field size (number of participants)**: No specific field size or participant numbers found.
+- **Distance options and elevation gain for each**: 2025 options: 50 mi, 110 mi, 200+ mi; 200+ mi is self-supported around Beaver Lake with 30-hour limit; 110 mi has 8pm cutoff[1]. 2026 lists 115 mile race category[6]. No elevation gain data found. User-known 300 miles/15,000 ft for Emporia event not matching; this appears to be a separate/different "Rule of Three" in Bentonville, AR (not Kansas).
+- **Prize purse**: No prize purse mentioned; event emphasizes no sponsor cash, community focus[2].
+- **Start location and time**: Rule of $3.99 starts at Bike Rack Brewing (Bentonville/NWA area); 53 mi at 12pm, 22/33 mi at 12:15pm[3][4]. Main event start details unavailable.
+- **Aid station details, cutoff times**: Completely self-supported for 200+ mi (use SPOT/Garmin Inreach, self-resupply); 110 mi cutoff 8pm; 200+ mi 30-hour limit[1]. No aid station details found.
 
 ## TERRAIN & COURSE
+- **Surface breakdown (% gravel, pavement, singletrack, dirt)**: Three surfaces explicitly: tarmac, gravel, singletrack; "healthy dose" of each on one bike[2][3]. 110 mi blends road racing, gravel, MTB, adventure[1]. Rule of $3.99: tarmac, gravel, singletrack (courses unmarked, GPS required)[3].
+- **Key course features, named climbs/sectors**: 200+ mi around Beaver Lake spanning four trail systems[1]. No named climbs/sectors specified. Note: User-mentioned Emporia, KS roads (e.g., Unbound Gravel) not referenced; event is in Bentonville, AR area.
+- **Technical difficulty level**: Described as "really, really, really hard route" that "bites on the way back"; demands strategy, resilience; mixes road, gravel, MTB, adventure[1][2].
+- **Elevation profile description**: No elevation profile or gain data available.
 
-**Surface:** 95% gravel, 5% pavement [Official] (https://www.ruleofthreegravel.com)  
-**Character:** Kansas Flint Hills—same roads as Unbound, ultra distance [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 2/5. Not technical, but ultra distance [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Flint Hills rollers** (throughout): Relentless rolling terrain [Strava] (https://www.strava.com)  
-- **300 miles** (all): Ultra distance, 15-25 hours [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**Early September Kansas:** 60-85°F, 20% rain chance, late summer heat [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Hot, dry (70-85°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Warm, humid (65-80°F) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Rule of Three is 300 miles on Unbound roads. Same Flint Hills rollers, but 3x the distance. Ultra distance suffering." — u/RuleOfThreeVet [Reddit] (https://reddit.com/r/gravelcycling/comments/rule-of-three)
-
-> "Self-supported. Aid stations but no SAG. Carry spares, lights, everything. 15-25 hours." — u/EmporiaLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-40mm. Kansas gravel is chunky. 300mi = durability matters." — u/UltraGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Mental game is huge. 300mi is long. Flint Hills rollers never stop. Cumulative fatigue." — u/300MiSufferer [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 30-40% (ultra distance brutal) [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Distance** — 300mi ultra is brutal [VeloNews] (https://www.velonews.com)  
-2. **Cumulative fatigue** — Flint Hills rollers never stop [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — 300mi = high mechanical risk [TrainerRoad] (https://www.trainerroad.com)  
-4. **Mental breakdown** — 15-25 hours long [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-40mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for cumulative fatigue [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, dynamo lights (night riding), 4+ bottles, self-supported gear [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for the race date/location**: No typical weather data found for mid-May in Bentonville, AR.
+- **Historical weather incidents (mud years, heat, wind)**: No historical incidents reported.
+- **Altitude (starting elevation, max elevation)**: No altitude data found.
 
 ## LOGISTICS
+- **Nearest airport**: No airport info specified (Bentonville, AR area implies Northwest Arkansas National Airport/XNA, but unconfirmed in results).
+- **Lodging options and strategy**: Camping on-site at event location (gorgeous open field for tents, no RVs/camper vans on field; gravel lot nearby first-come; closest RV at Blowing Springs Park, Bella Vista); opens Fri May 17th 3pm, ends Sun May 19th noon; port-o-potties, dumpster, no potable water—bring your own[5].
+- **Parking situation**: No RV parking on road/field; camper vans limited to gravel lot[5].
+- **Packet pickup details**: Merch pickup at packet pickup Fri May 17th for 2024 event (similar implied); Rule of $3.99 has post-ride at Bike Rack Brewing 4-6pm for pizza/registration[3][4][5].
 
-**Airport:** Wichita (ICT) — 90 miles (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Emporia small town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.ruleofthreegravel.com)  
-**Post-Race:** Post-race party (if you finish). [Official] (https://www.ruleofthreegravel.com)  
+## COMMUNITY & REPUTATION
+- **Race history (founded year, founder if known)**: References to "2024" merch/camping imply at least 2024 edition; founded by Rule of Three LLC (USA Cycling Permit #8338); no exact founding year or founder named[2][5]. Philosophy: return to "gravel days of old" with fun, low cost, no sponsors, community focus[2].
+- **Notable past winners / pro riders who have raced it**: No winners or pro riders mentioned.
+- **Rider reviews and quotes (Reddit, forums, race reports)**: No rider reviews, Reddit/forum quotes, or reports found in results.
+- **YouTube race coverage**: No YouTube coverage referenced.
+- **How the race is perceived in the gravel community**: Promoted as community-first ("fewer dollars and more community," "struggle, encourage, conquer," "pure gold"); bans sponsor cash, reasonable fees, hard route, finish-line party with food/beer/stories; fundraiser via Rule of $3.99 for Pedal It Forward[2][3][5].
 
-## COMMUNITY VIBE
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: No specific rider experiences or direct quotes available.
+- **"What I wish I knew" insights**: Courses unmarked/self-supported; must have GPS or written directions; no potable water at camping; no refunds if no-show[3][4][5].
+- **Equipment recommendations from participants**: SPOT or Garmin Inreach for 200+ mi; GPS computer required for navigation[1][3].
+- **DNF rates if available**: No DNF rates found.
 
-**Ultra Distance:** 300mi ultra on Unbound roads. ~100 riders. Self-supported. [VeloNews] (https://www.velonews.com)  
-**Emporia Support:** Same town as Unbound, gravel-friendly [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** Ultra distance self-selects. 30-40% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.ruleofthreegravel.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+**Note**: Search results describe a Bentonville, AR-based "Rule of Three" gravel event with multi-surface routes, not matching user-provided Emporia, KS details (300 mi, 15k ft, unbound roads, ruleofthreegravel.com). No data found for a Kansas edition; official site in results is ruleofthree.bike (AR-focused). Information gaps explicit where unavailable.

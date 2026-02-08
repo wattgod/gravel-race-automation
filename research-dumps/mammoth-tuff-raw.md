@@ -1,95 +1,46 @@
-# Mammoth Tuff — Research Dump
+# MAMMOTH TUFF - RAW RESEARCH DUFF
 
 ## OFFICIAL DATA
-
-**Race Name:** Mammoth Tuff [Official] (https://www.mammothtuff.com)  
-**Location:** Mammoth Lakes, California  
-**Date:** Late June (June 28, 2026) [Official] (https://www.mammothtuff.com)  
-**Distance:** 100 miles [Official] (https://www.mammothtuff.com)  
-**Elevation Gain:** 7,500 ft [Official] (https://www.mammothtuff.com)  
-**Altitude:** Base 7,880 ft, max 8,000 ft [Official] (https://www.mammothtuff.com)  
-**Field Size:** 400+ riders [Official] (https://www.mammothtuff.com)  
-**Registration:** Online. Cost: $100-$150 [BikeReg] (https://www.bikereg.com)  
-**Series:** UCI Gravel World Series qualifier [Official] (https://www.mammothtuff.com)  
-**Founded:** 2010s [VeloNews] (https://www.velonews.com)  
+- **2025 race dates**: September 12-14, 2025, with main rides on Saturday, September 13 (TUFFEST at 7:30AM PDT, TUFFER at 7:55AM PDT, TUFF at 8:20AM PDT)[1][4][6].
+- **2026 race dates**: September 18-20, 2026 (per official site banners); registration opens mid-February 2026 (week after Rock Cobbler), closes September 16, 2026 at 10:00 (one source) or September 19 listing[3][7][9].
+- **Registration cost/entry fees**: Not explicitly listed in sources; registration via BikeReg, opens February 11, 2025 for 2025 event (closes Sept 10, 2025 at 6:00PM PST); no UCI/USA Cycling license needed unless Elite; one outdated listing shows "Free" but marked closed[1][3].
+- **Field size**: Unavailable in search results.
+- **Distance options and elevation gain**:
+  | Course     | Distance | Elevation Gain | Aid Stations | Surface Breakdown |
+  |------------|----------|----------------|--------------|-------------------|
+  | **TUFFEST (Long)** | ~105 miles (~160km) | ~7,500 ft | 3-4 | Paved 30%, Unpaved 70%[5] |
+  | **TUFFER (Medium)** | ~75 miles | ~4,500 ft | 2 | Paved 37%, Unpaved 63%[5] |
+  | **TUFF (Short)** | Unspecified (circles caldera) | Unspecified | Unspecified | Unspecified[5][6] |
+- **Prize purse**: Unavailable; awards to top in each category (one per category per course), UCI category awards on Saturday for 2025; qualifies top 3 per category and top 25% for UCI Gravel Worlds (Elite/19-49 on TUFFEST)[5][8].
+- **Start location and time**: Canyon Blvd next to The Village at Mammoth (6201 Minaret Rd, Mammoth Lakes, CA 93546), under gondola; neutral rollout to first gravel; specific times as above for 2025[1][4][8].
+- **Aid station details, cutoff times**: Aid stations stocked (details in TUFF Guide/Ride w GPS Experience); time cutoffs exist (details in TUFF Guide); courses close 7:30pm Saturday; E-bikes limited to short course[4][5][8].
 
 ## TERRAIN & COURSE
+- **Surface breakdown**: TUFFEST: Paved 30%, Unpaved 70%; TUFFER: Paved 37%, Unpaved 63%; short unspecified[5].
+- **Key course features, named climbs/sectors**: Courses via Ride w GPS (2025 event: https://ridewithgps.com/events/400860-mammoth-tuff-2025); circles Long Valley Caldera (short), through Volcanic Tableland (medium/long); volcanic stone "gravel," hot springs; full courses announced Monday before event; some 2025 markings planned[5][6].
+- **Technical difficulty level**: Described as "TUFF" with altitude, climbing, volcanic gravel; MTB suitable; self-sufficiency encouraged but supported[6][8].
+- **Elevation profile description**: TUFFEST ~7,500 ft gain over 105 miles; TUFFER ~4,500 ft over 75 miles; high altitude throughout[5][8].
 
-**Surface:** 70% gravel, 30% paved [Official] (https://www.mammothtuff.com)  
-**Character:** High Sierra alpine gravel—smooth, fast, altitude [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 2/5. Fast gravel roads, minimal singletrack [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Sierra climbs** (throughout): Altitude + climbing = suffering [Strava] (https://www.strava.com)  
-- **June Lake Loop** (mile 40-60): Scenic, rolling [Reddit] (https://reddit.com/r/gravelcycling)  
-- **Final push** (mile 80-100): Altitude fatigue [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**Late June Mammoth:** 40-70°F, 10% rain chance, high altitude sun [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Perfect, dry (50-70°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Warm, sunny [RidingGravel] (https://www.ridingravel.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Mammoth Tuff is altitude test at 8,000 ft. If you're sea-level, arrive early or suffer." — u/SierraGravelGrinder [Reddit] (https://reddit.com/r/gravelcycling/comments/mammoth-tuff)
-
-> "Smooth gravel, fast roads. Altitude is the challenge, not technical terrain." — u/CaliforniaAltitude [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. Smooth roads reward speed." — u/MammothLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 5-10% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Altitude sickness** — 7,880-8,000 ft [VeloNews] (https://www.velonews.com)  
-2. **Mechanicals** — Flats [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Bonking** — Altitude burns glycogen faster [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King SK+) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gear for altitude climbs [PackFodder] (https://www.packfodder.com)  
-**Altitude Prep:** Arrive 3-5 days early [TrainerRoad] (https://www.trainerroad.com)  
-**Other:** Tubeless mandatory, 3+ bottles, layers for 40-70°F swings [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for race date/location**: Unavailable in results.
+- **Historical weather incidents**: Unavailable.
+- **Altitude**: High altitude noted (starting in Mammoth Lakes ~8,000 ft, riding Volcanic Tableland/caldera); specific starting elevation ~8,000 ft, max unspecified[8].
 
 ## LOGISTICS
+- **Nearest airport**: Unavailable.
+- **Lodging options and strategy**: Lodging partners mentioned in updates; stay in/near The Village at Mammoth[4][7].
+- **Parking situation**: Unavailable.
+- **Packet pickup details**: Friday 2:00-7:30pm Registration/Expo; Saturday 5-6:30am last-minute; drop bag pickup Saturday 5:00-7:30pm or Sunday 8:00-11:00am[4].
 
-**Airport:** Mammoth Yosemite Airport (MMH) — 10 miles (small, seasonal). Reno (RNO) — 160 miles (3-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Mammoth Lakes is ski resort town—expensive in summer. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Friday. Packet pickup, vendor expo. [Official] (https://www.mammothtuff.com)  
-**Post-Race:** BBQ, beer at finish. Resort town amenities. [Official] (https://www.mammothtuff.com)  
+## COMMUNITY & REPUTATION
+- **Race history**: Organized by TUFF Ventures; tied to Long Valley Caldera (formed 760,000 years ago); training ground for DK200/Unbound wins; includes BUFF Beer Mile[6][7][8][10].
+- **Notable past winners/pro riders**: Unavailable; records for related Caldera bikepacking in Google Sheet[2].
+- **Rider reviews and quotes**: No first-hand reviews in results (Findarace notes reviews post-event)[1].
+- **YouTube race coverage**: Unavailable.
+- **Perception in gravel community**: "Best Gravel Ride in California"; "TUFFest" due to altitude/climbing/volcanic gravel; builds "TUFF community"; UCI qualifier[5][6][7][8].
 
-## COMMUNITY VIBE
-
-**UCI Event:** Professional organization [VeloNews] (https://www.velonews.com)  
-**Mammoth Support:** Resort town, strong volunteer support [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** UCI qualifier but all levels welcome. Altitude is equalizer [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2023 Winners:**  
-- Men: Keegan Swenson [Athlinks] (https://www.athlinks.com)  
-- Women: Lauren De Crescenzo [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.mammothtuff.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **RidingGravel:** https://www.ridingravel.com  
-5. **Reddit:** https://reddit.com/r/gravelcycling  
-6. **RideWithGPS:** https://ridewithgps.com  
-7. **Strava:** https://www.strava.com  
-8. **DirtyFreehub:** https://www.dirtyfreehub.com  
-9. **Weather.com:** https://weather.com  
-10. **Athlinks:** https://www.athlinks.com  
-11. **TrainerRoad:** https://www.trainerroad.com  
-12. **PackFodder:** https://www.packfodder.com  
-13. **Google Maps:** https://maps.google.com  
-14. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 14  
-**Unique Domains:** 14
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: Unavailable.
+- **"What I wish I knew" insights**: Attend/watch Riders Meeting (Friday 5:00pm Instagram Live) for neutral rollout/safety; TUFF Guide for all specifics; self-supported but aided; courses pinned via Ride w GPS app[4][5][8].
+- **Equipment recommendations**: MTB fine; gravel bike standard; E-bikes (pedal-assist, 4-5hr charge) on short only, no prizes[8].
+- **DNF rates**: Unavailable.

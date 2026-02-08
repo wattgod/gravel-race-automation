@@ -1,95 +1,120 @@
-# Castellon Gravel Race — Research Dump
+# CASTELLON GRAVEL RACE - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
 
-**Race Name:** Castellon Gravel Race [Official] (https://www.castellongravelrace.com)  
-**Location:** Llucena, Castellon, Spain  
-**Date:** May annually [Official] (https://www.castellongravelrace.com)  
-**Distance:** 120 km [Official] (https://www.castellongravelrace.com)  
-**Elevation Gain:** ~2,200 m [Official] (https://www.castellongravelrace.com)  
-**Field Size:** 400-600 riders [Official] (https://www.castellongravelrace.com)  
-**Registration:** Online. Cost: €80-€120 (~$85-$130 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2019 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Spanish mountains [Official] (https://www.castellongravelrace.com)  
+**Race Dates**
 
-## TERRAIN & COURSE
+The 2026 Castellón Gravel Race is scheduled for **Sunday, February 22, 2026**[1][2][5]. This is the second edition of the race; the inaugural event took place in 2025[2].
 
-**Surface:** 80% gravel, 20% paved roads [Official] (https://www.castellongravelrace.com)  
-**Character:** Spanish mountains—rolling terrain, technical sections [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain, some steep sections [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Llucena climbs** (throughout): Spanish mountain terrain [Strava] (https://www.strava.com)  
-- **Castellon gravel** (throughout): Spanish countryside [Reddit] (https://reddit.com/r/gravelcycling)  
+**Location & Start Time**
 
-## WEATHER & CLIMATE
+The race starts and finishes in **Llucena, Castellón, Spain**[2][5]. Start time is **09:00 (9:00 AM)**[1].
 
-**May Spain:** 15-28°C, 20% rain chance, spring conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm, dry (18-26°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some heat (15-28°C) [CyclingTips] (https://www.cyclingtips.com)  
+**Distance Options**
 
-## REDDIT & FORUM INSIGHTS
+Two distance options are offered[2]:
+- **97 km** for all young categories
+- **85 km** for men 60+ and women 50+
 
-> "Castellon Gravel Race is Llucena, Spain. 120 km, 2,200 m elevation. Spanish mountains. Beautiful scenery." — u/CastellonVet [Reddit] (https://reddit.com/r/gravelcycling/comments/castellon-gravel)
+The user's provided information of 75 miles (approximately 120 km) does not match the official distances listed.
 
-> "Llucena is mountain town. Spanish countryside. May = warm (18-26°C). Stunning." — u/SpainLocal [Reddit] (https://reddit.com/r/gravelcycling)
+**Elevation Gain**
 
-> "Tire choice: 35-38mm. Spanish gravel is smooth but dusty. Wider = better comfort." — u/SpainGravel [Reddit] (https://reddit.com/r/gravelcycling)
+- Full course (97 km): **2,500 meters elevation gain**[2]
+- Short course (85 km): **2,100 meters elevation gain**[2]
 
-> "400-600 riders. Spanish field. Well-organized. Affordable entry." — u/EuroGravel [Reddit] (https://reddit.com/r/gravelcycling)
+The user's provided information of 5,000 ft (approximately 1,524 meters) is lower than the actual elevation gain.
 
-## DNF FACTORS
+**Registration Information**
 
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 2,200 m over 120 km cumulative [VeloNews] (https://www.velonews.com)  
-2. **Heat** — May Spain = 18-28°C [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Distance** — 120 km is long [TrainerRoad] (https://www.trainerroad.com)  
+Registration opened **October 28, 2025, at 18:00** and closed **February 18, 2026, at 23:59**[1]. However, specific entry fees are not provided in the available search results.
 
-## EQUIPMENT CONSENSUS
+**UCI Classification**
 
-**Tires:** 35-38mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, moderate gears [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 15-28°C, sun protection [Reddit] (https://reddit.com/r/gravelcycling)  
+The race is part of the **UCI Gravel World Series**[2][5] and serves as a **qualifying event for the Gravel World Championships**[1]. It was the first UCI Gravel World Series race of the 2026 season globally[1].
 
-## LOGISTICS
+**Field Size, Prize Purse, Aid Stations, Cutoff Times**
 
-**Airport:** Valencia (VLC) — 80 km (1-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Llucena, Castellon. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.castellongravelrace.com)  
-**Post-Race:** Post-race party, Spanish food/wine. [Official] (https://www.castellongravelrace.com)  
-
-## COMMUNITY VIBE
-
-**Spanish Gravel Scene:** Llucena. 400-600 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Llucena Support:** Mountain town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+This information is not available in the search results provided.
 
 ---
 
-## SOURCES SUMMARY
+## TERRAIN & COURSE
 
-1. **Official:** https://www.castellongravelrace.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+**Surface Breakdown**
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+The course features **72% gravel roads and 28% paved roads**[2]. Paved sections are concentrated in the first 7 km and a longer section at the midpoint[2].
+
+**Course Profile & Key Features**
+
+The race is set in a **mountainous region** with the following characteristics[2]:
+
+- **Opening climb**: 1.2 km paved climb at 5% average gradient to leave town
+- **Mid-course terrain**: Mix of shorter and longer climbs ranging from 4–10% average gradient
+- **Final climb**: 1 km at 10% average gradient in town toward the finish, with the summit 300 meters before the finish line
+- The course covers the entire municipal area of Llucena, visiting every corner of the town[2]
+
+**Technical Difficulty Level**
+
+The search results characterize the terrain as **mountainous with varied climbing**[2], but do not provide an explicit difficulty rating.
+
+---
+
+## CLIMATE & CONDITIONS
+
+Information about typical weather conditions, historical weather incidents, or altitude data is not available in the search results provided.
+
+---
+
+## LOGISTICS
+
+**Nearest Airport, Lodging, Parking, Packet Pickup**
+
+These details are not provided in the search results.
+
+---
+
+## COMMUNITY & REPUTATION
+
+**Race History**
+
+The Castellón Gravel Race is in its **second year** (inaugural edition in 2025)[2]. The search results do not provide information about the founder or founding circumstances.
+
+**Notable Past Winners**
+
+**2025 winner**: **Alejandro Valverde Belmonte** (men's elite) and **Sofía Rodríguez** (women's)[2][3]. Valverde is a professional cyclist with significant palmares in road cycling, making his gravel victory notable.
+
+**Race Perception**
+
+The race is described as **"prestigious"** and **"consolidates itself in the maximum category of gravel worldwide"** per the official event description[1]. Its inclusion as the opening event of the 2026 UCI Gravel World Series underscores its elevated status in the gravel community[1].
+
+---
+
+## RACE REPORTS & RIDER EXPERIENCE
+
+Specific rider experiences, quotes, YouTube coverage, Reddit discussions, equipment recommendations, and DNF rates are not available in the search results provided.
+
+---
+
+## INFORMATION GAPS
+
+The following requested information could not be found in the search results:
+
+- Entry fees/registration costs
+- Field size (number of participants)
+- Prize purse
+- Aid station details and cutoff times
+- Specific weather patterns for mid-February in Castellón
+- Historical weather incidents
+- Nearest airport and travel logistics
+- Lodging options
+- Parking details
+- Packet pickup procedures
+- Founder information
+- Rider race reports and direct quotes
+- YouTube coverage
+- Community forum discussions
+- Equipment recommendations from participants
+- DNF rates
+
+To obtain this information, direct contact with the race organizers (ccsepelaco@gmail.com)[5] or the official race website (www.castellongravelrace.com) would be necessary.

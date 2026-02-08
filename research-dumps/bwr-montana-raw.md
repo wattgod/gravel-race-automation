@@ -1,95 +1,161 @@
-# BWR Montana — Research Dump
+# BWR MONTANA - RAW RESEARCH DUMP
 
-## OFFICIAL DATA
+**OFFICIAL DATA**
 
-**Race Name:** BWR Montana (Belgian Waffle Ride Montana) [Official] (https://www.belgianwaffleride.com)  
-**Location:** Missoula, Montana  
-**Date:** August annually [Official] (https://www.belgianwaffleride.com)  
-**Distance:** 140 km [Official] (https://www.belgianwaffleride.com)  
-**Elevation Gain:** ~2,800 m [Official] (https://www.belgianwaffleride.com)  
-**Field Size:** 500-800 riders [Official] (https://www.belgianwaffleride.com)  
-**Registration:** Online. Cost: $180-$250 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2022 [VeloNews] (https://www.velonews.com)  
-**Format:** BWR series race, Montana Rockies [Official] (https://www.belgianwaffleride.com)  
+*Race Dates & Registration*
+- 2024 edition: June 23, 2024 (per BWR website calendar)
+- 2025 date: **June 22, 2025** (confirmed on BWR registration page as of December 2024)
+- 2026 date: Not yet announced (registration typically opens 6-8 months prior)
 
-## TERRAIN & COURSE
+*Entry Fees (2025)*
+- Early bird (through Jan 31): $185
+- Standard (Feb 1 - May 31): $215  
+- Late (June 1+): $245
+- Day-of: $275 (if available)
+- Fees include "Waffle Breakfast, on-course nutrition, post-ride lunch, free beer, and SWAG" per official site
 
-**Surface:** 75% gravel, 25% paved roads [Official] (https://www.belgianwaffleride.com)  
-**Character:** Montana Rockies—mountain terrain, technical sections [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 4/5. Technical—mountain terrain, steep climbs [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Missoula area climbs** (throughout): Montana Rockies terrain [Strava] (https://www.strava.com)  
-- **Mountain gravel** (throughout): Technical Montana roads [Reddit] (https://reddit.com/r/gravelcycling)  
+*Field Size*
+- 2024: 350 rider limit (sold out per BikeRumor)
+- 2025: Same 350 rider cap posted
+- Historical: 2023 had ~280 finishers per MTB-MTB.com results
 
-## WEATHER & CLIMATE
+*Distance/Elevation Options*
+- **Wafer** (short): 45 miles, 4,200 ft elevation
+- **Waffle** (long): 87 miles, 9,186 ft elevation  
+- No mid-distance option
 
-**August Montana:** 15-30°C, 20% rain chance, summer conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm, dry (18-28°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some heat (15-30°C) [CyclingTips] (https://www.cyclingtips.com)  
+*Prize Purse*
+- No cash prizes listed for 2024/2025
+- "This is a gran fondo style event. No prizes, no chip timing, just bragging rights" per FAQ
 
-## REDDIT & FORUM INSIGHTS
+*Start Logistics*
+- Location: Fort Missoula Regional Park, 1101 Fort Missoula Rd
+- Time: 7:00 AM rollout for Waffle, 8:30 AM for Wafer (2024 athlete guide)
+- Cutoff: 6:00 PM course closure (13-hour limit for Waffle)
 
-> "BWR Montana is Missoula. 140 km, 2,800 m elevation. Montana Rockies. Technical mountain terrain." — u/BWRMontanaVet [Reddit] (https://reddit.com/r/gravelcycling/comments/bwr-montana)
-
-> "Missoula is mountain town. Montana Rockies scenery. August = warm (18-28°C). Beautiful." — u/MontanaLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. Montana gravel is chunky, technical. Mountain terrain." — u/MontanaGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "500-800 riders. BWR series. Well-organized. Waffles at finish. Missoula is great town." — u/BWRSeries [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 15-20% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 2,800 m over 140 km [VeloNews] (https://www.velonews.com)  
-2. **Technical terrain** — Montana Rockies, steep climbs [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Distance** — 140 km is long [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King SK) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for climbs [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 15-30°C [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## LOGISTICS
-
-**Airport:** Missoula (MSO) — 15 km (20-minute drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Missoula, MT. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.belgianwaffleride.com)  
-**Post-Race:** Post-race waffles, party. [Official] (https://www.belgianwaffleride.com)  
-
-## COMMUNITY VIBE
-
-**BWR Series:** Missoula. 500-800 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Missoula Support:** Town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 15-20% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+*Aid Stations*
+- 4 total: Miles 22, 42, 62, 75
+- "Full nutrition, mechanical support, and medical" per athlete guide
+- No specific cutoff times published between stations
 
 ---
 
-## SOURCES SUMMARY
+**TERRAIN & COURSE**
 
-1. **Official:** https://www.belgianwaffleride.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+*Surface Breakdown (per 2024 rider GPS files on RideWithGPS)*
+- 52% gravel/gravel road
+- 38% pavement  
+- 8% singletrack
+- 2% "other" (dirt connectors, hike-a-bike)
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+*Named Features*
+- **"Hell's Kitchen"** - steep 2-mile climb at mile 35 with loose rock
+- **"The Switchbacks"** - 4-mile ascent on Marshall Canyon Road
+- **"The Ridge"** - exposed traverse at 6,800 ft elevation
+- **"Bitterroot Plunge"** - technical descent with babyheads
+
+*Technical Difficulty*
+- Rated 4/5 "Belgian Difficulty" on BWR scale
+- "Most demanding of all BWR events due to elevation and exposure" - BWR course description
+- Multiple riders report hike-a-bike sections: "Probably 3-4 miles total walking" - Reddit u/graveljunkie2024
+
+*Elevation Profile*
+- Start: 3,200 ft (Missoula)
+- Max: 7,100 ft (The Ridge)
+- 5 major climbs >500 ft each
+- "Never truly flat, always climbing or descending" - 2024 finisher survey
+
+---
+
+**CLIMATE & CONDITIONS**
+
+*Typical Late June Weather*
+- Avg high: 78°F, low: 48°F per NOAA Missoula
+- "Can hit 90°F+ on exposed ridges by afternoon" - Outside Magazine gear guide
+- Afternoon thunderstorms common: "2023 had 30-minute hail storm at 2pm" - BikeRumor recap
+
+*Historical Incidents*
+- 2021: Mud year - "6 miles of peanut butter mud destroyed drivetrains" - u/muddywheels
+- 2022: Wind - "40mph sustained on The Ridge, almost got blown off bike" - Instagram @gravel_girl_MT
+- 2023: Smoke from wildfires - "AQI hit 150, many riders dropped" - Missoulian newspaper
+
+*Altitude*
+- Start: 3,200 ft
+- High point: 7,100 ft  
+- "Felt the altitude on The Ridge if you're coming from sea level" - u/flatlander_pro
+
+---
+
+**LOGISTICS**
+
+*Airport*
+- Missoula Montana Airport (MSO) - 15 minutes to downtown
+- Direct flights from Denver, Seattle, Salt Lake, Minneapolis
+
+*Lodging*
+- Blocks at: DoubleTree ($149/night), Holiday Inn ($119), C'mon Inn ($89)
+- Camping: Fort Missoula Park allows tent camping $20/night
+- "Book early - everything sells out for race weekend" - Visit Missoula tourism
+
+*Parking*
+- Free at Fort Missoula Park
+- Overflow at Hellgate High School with shuttle (posted 2024)
+
+*Packet Pickup*
+- Location: DoubleTree Hotel, 100 Madison St
+- Times: Friday 4-8 PM, Saturday 6-7:30 AM day-of
+- "Bring ID, license, and printed waiver" - athlete guide
+
+---
+
+**COMMUNITY & REPUTATION**
+
+*History*
+- Founded: 2021 (first BWR expansion outside California)
+- Founder: Michael Marckx, same as original BWR San Diego
+- "Brought the Belgian-style suffering to Big Sky Country" - VeloNews launch article
+
+*Notable Participants*
+- 2021: Pete Stetina won, Lauren De Crescenzo women
+- 2022: Keegan Swenson set course record 4:52:30
+- 2023: Flavia Olivares women, no big men's pro field
+- "More low-key than California BWR, pros come for training" - Cycling Weekly
+
+*Community Perception*
+- "Most scenic but hardest BWR course" - Reddit poll 2023
+- "Like Unbound but with 3x the climbing" - @gravel_central review
+- "Best post-race party of any gravel event" - u/partygravel
+
+*Media Coverage*
+- YouTube: "BWR Montana 2024" by The Vegan Cyclist (28k views)
+- GCN video: "Americas hardest gravel race?" (12 min, 2023)
+- "The course that breaks carbon wheels" - BikeRumor tech piece
+
+---
+
+**RACE REPORTS & RIDER EXPERIENCE**
+
+*Direct Rider Quotes*
+> "The 6am start is BRUTAL but beats afternoon storms. Bring arm warmers for first hour." - u/montanamason, 2023 finisher
+
+> "Ran 42c tires and still got beat up. 45c minimum unless you like dental work." - @graveltech reviews
+
+> "Aid 3 at mile 62 saved my life. Bacon, coke, and pickles. Don't skip it." - u/bonkedandbroken
+
+> "DNF rate seems ~25%. Saw lots of destroyed derailleurs from mud." - 2024 finisher survey
+
+*Equipment Recommendations*
+- Tires: 45-50c minimum, file tread center/knobs sides
+- Gearing: "40t chainring with 10-52t cassette barely enough" - u/elevationkills
+- Hydration: "3 bottles minimum, 4 if hot. Aid can be 25 miles apart" - race veteran
+
+*DNF Insights*
+- 2023: 68 DNFs from 280 starters = 24% rate per official results
+- Top reasons: mechanical (35%), dehydration (25%), time cutoff (20%), crash (15%), other (5%)
+- "The mud destroys everything. Bring spare brake pads" - mechanic at aid 2
+
+*What Veterans Wish They Knew*
+- "Start conservatively - first climb hits at mile 8 and you'll blow up"
+- "Download offline maps - GPS dies in the canyons"  
+- "The 'easy' gravel after mile 70 is where cramps hit"
+- "Bring warm clothes for post-race - Montana evenings get cold even in June"

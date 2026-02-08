@@ -1,95 +1,63 @@
-# Bootlegger 100 — Research Dump
+# BOOTLEGGER 100 - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
+**2025 and 2026 race dates**: 2025 race was on April 19, 2025[5][9]. 2026 race is on April 18, 2026[2][3][4][6][7][8][9]. No specific month/day found for events beyond these.
 
-**Race Name:** Bootlegger 100 [Official] (https://www.bootlegger100.com)  
-**Location:** Dahlonega, Georgia (North Georgia mountains)  
-**Date:** Mid-April annually [Official] (https://www.bootlegger100.com)  
-**Distance:** 100 miles [Official] (https://www.bootlegger100.com)  
-**Elevation Gain:** ~10,000 ft [Official] (https://www.bootlegger100.com)  
-**Field Size:** 500-600 riders [Official] (https://www.bootlegger100.com)  
-**Registration:** Online. Cost: $100-$150 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2013 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, North Georgia mountains [Official] (https://www.bootlegger100.com)  
+**Registration cost / entry fees**: 85 Mile Junior Men category is $105 (online registration deadline April 18, 2026)[3]. No other fees detailed in results.
+
+**Field size (number of participants)**: Unavailable in search results.
+
+**Distance options and elevation gain for each**: Options include 58 miles and 85 miles (both start/finish in downtown Lenoir, NC)[3][6]; also listed as 58 miles and 107 miles for 2025[5]. No elevation gain specified. Note: Separate "Bootlegger 100 Mile Trail Race" (not cycling) offers 100 miles (8x 12.5-mile loops), 50 miles (4 loops), and 12 miles (1 loop), but this appears to be a running event in a different location[1].
+
+**Prize purse (if any)**: Unavailable; no cash prizes mentioned. Running event offers $250 raffles for finishers and medals/buckles[1].
+
+**Start location and time**: Starts at 210 Main St. NW, Lenoir, NC; racer meeting at 7:45 AM, race start at 8:00 AM[2][9]. Finish at 100 Boundary Street NW, sign-in at 122 Boundary Street NW[2].
+
+**Aid station details, cutoff times**: Unavailable for cycling event. Running event has 2 aid stations per 12.5-mile loop with snacks, drinks, and hot food (soup, hotdogs, grilled cheese) in evening; final cutoff 9:00 PM[1][2].
 
 ## TERRAIN & COURSE
+**Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable.
 
-**Surface:** 80% gravel, 20% dirt roads [Official] (https://www.bootlegger100.com)  
-**Character:** North Georgia mountains—steep climbs, technical descents [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 4/5. Technical—steep climbs, loose gravel descents [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **North Georgia climbs** (throughout): Steep Appalachian mountains [Strava] (https://www.strava.com)  
-- **Technical descents** (throughout): Loose gravel, steep [Reddit] (https://reddit.com/r/gravelcycling)  
+**Key course features, named climbs/sectors**: Travels through Wilson Creek Gorge; described as one of the most challenging and scenic gravel events[6]. No named climbs or sectors detailed.
 
-## WEATHER & CLIMATE
+**Technical difficulty level**: Challenging and rugged gravel routes[5][6].
 
-**Mid-April Georgia:** 55-75°F, 30% rain chance, spring conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm, dry (60-75°F) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (55-70°F) [CyclingTips] (https://www.cyclingtips.com)  
+**Elevation profile description**: Unavailable. User-known info of 10,000 ft gain for 100 miles in Dahlonega, GA not confirmed in results; current data points to Lenoir, NC location.
 
-## REDDIT & FORUM INSIGHTS
+## CLIMATE & CONDITIONS
+**Typical weather for race date/location**: Unavailable.
 
-> "Bootlegger 100 is Southeast gravel staple. 10,000 ft over 100 miles = steep North Georgia mountains. Technical descents." — u/BootleggerVet [Reddit] (https://reddit.com/r/gravelcycling/comments/bootlegger-100)
+**Historical weather incidents (mud years, heat, wind)**: Unavailable.
 
-> "Dahlonega is mountain town. Steep climbs, loose gravel descents. Not for beginners." — u/DahlonegaLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. North Georgia gravel is chunky, loose on descents." — u/Bootlegger100Racer [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Southeast classic. 500-600 riders. 10,000 ft cumulative is relentless." — u/SEGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 15-20% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 10,000 ft over 100 miles = steep [VeloNews] (https://www.velonews.com)  
-2. **Technical terrain** — Loose gravel descents [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — Technical terrain flats/breaks [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for steep climbs [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 55-75°F [Reddit] (https://reddit.com/r/gravelcycling)  
+**Altitude (starting elevation, max elevation)**: Unavailable.
 
 ## LOGISTICS
+**Nearest airport**: Unavailable.
 
-**Airport:** Atlanta (ATL) — 70 miles (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Dahlonega small mountain town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.bootlegger100.com)  
-**Post-Race:** Post-race party, Dahlonega downtown. [Official] (https://www.bootlegger100.com)  
+**Lodging options and strategy**: Unavailable.
 
-## COMMUNITY VIBE
+**Parking situation**: Hundreds of parking spots in downtown Lenoir area; specific lots noted on city website[2].
 
-**Southeast Gravel Staple:** North Georgia mountains. 500-600 riders. [VeloNews] (https://www.velonews.com)  
-**Dahlonega Support:** Small mountain town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** Technical terrain self-selects. 15-20% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
+**Packet pickup details**: Sign-in Friday 5:00-10:00 PM and Saturday 5:30-7:30 AM at 122 Boundary Street NW, Lenoir, NC[2].
 
-## HISTORICAL RESULTS
+## COMMUNITY & REPUTATION
+**Race history (founded year, founder if known)**: Produced by Pisgah Productions; part of King of Pisgah Series (includes Bootlegger 100, PMBAR, Old Fort 50, etc.)[6][9]. Founded year unavailable.
 
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+**Notable past winners / pro riders who have raced it**: Unavailable.
 
----
+**Rider reviews and quotes (Reddit, forums, race reports)**: Unavailable in results.
 
-## SOURCES SUMMARY
+**YouTube race coverage**: Unavailable.
 
-1. **Official:** https://www.bootlegger100.com  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+**How the race is perceived in the gravel community**: Perceived as one of the most challenging and scenic gravel events of the year[6].
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes**: Unavailable.
+
+**"What I wish I knew" insights**: Unavailable.
+
+**Equipment recommendations from participants**: E-bikes prohibited[2].
+
+**DNF rates if available**: Unavailable; sign-in required for DNF racers[2].
+
+**Additional notes**: Search results distinguish two events sharing the name. A trail *running* Bootlegger 100 Mile is March 28, 2026, pursuing Western States qualifier status, hosted by Rev Run events at Dauset Trails/Indian Springs State Park (not GA mountains), with 12.5-mile loops, swag (shirt, backpack, buckle, medal), and 400-mile completer jacket[1]. Cycling version consistently in Lenoir, NC, by Pisgah Productions[2][3][4][5][6][7][9]. No confirmation of Dahlonega, GA location or 100-mile/10,000 ft specs in results; user-known info may refer to a different/prior edition. Official cycling site not directly in results (user-provided https://www.bootlegger100.com unverified here). No 2025/2026 dates match GA; insufficient data on many categories.

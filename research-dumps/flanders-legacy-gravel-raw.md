@@ -1,95 +1,43 @@
-# Flanders Legacy Gravel — Research Dump
+# FLANDERS LEGACY GRAVEL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Flanders Legacy Gravel [Official] (https://www.flanderslegacygravel.be)  
-**Location:** Flanders, Belgium  
-**Date:** May annually [Official] (https://www.flanderslegacygravel.be)  
-**Distance:** 100 km [Official] (https://www.flanderslegacygravel.be)  
-**Elevation Gain:** ~1,000 m [Official] (https://www.flanderslegacygravel.be)  
-**Field Size:** 500-700 riders [Official] (https://www.flanderslegacygravel.be)  
-**Registration:** Online. Cost: €70-€100 (~$75-$110 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2020 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Flanders region [Official] (https://www.flanderslegacygravel.be)  
+**2025 race date:** Sunday, October 19, 2025, in Leuven, Flanders, Belgium. This is the first edition and an official qualifying race for the 2026 UCI Gravel World Championships.[1][2][5]  
+**2026 race date:** Sunday, October 18, 2026, in Leuven. It will serve as a qualifier for the 2027 UCI Gravel World Championships.[2][5]  
+**Registration cost/entry fees:** €57 for 96 km; €67 for 147 km. Online pre-registrations only; no on-site registration. Participation limit of 2000 riders. UCI ID holders register until October 14; others until October 18 (for 2025 dates).[4]  
+**Field size:** Capped at 2000 participants total.[4]  
+**Distance options and elevation gain:** 147 km (3 laps, qualifying for elite men/women, men 19-59, women 19-49); 96 km (2 laps, qualifying for men 60+, women 50+). User-provided 75 miles (~120 km) and 4000 ft elevation not confirmed in sources; official distances are longer.[1][3][4]  
+**Prize purse:** No information available.  
+**Start location and time:** Start in Leuven (Vlaams-Brabant). First category starts at 9:30 AM, with others following at intervals by category.[1][3][6]  
+**Aid station details, cutoff times:** Cut-off time at 14:00 (must start final lap before then to stay in race bubble). Race uses red/green flag system for secured course bubble.[3] No specific aid station details found.
 
 ## TERRAIN & COURSE
+**Surface breakdown:** No specific % breakdown (gravel, pavement, singletrack, dirt) available.  
+**Key course features, named climbs/sectors:** Rolling landscapes, challenging climbs, iconic gravel roads in/around Leuven region (famed from 2021 Road Worlds and 2024 Gravel Worlds). Multi-lap course in Flemish Brabant.[1][2]  
+**Technical difficulty level:** No explicit rating found.  
+**Elevation profile description:** No detailed profile available. User-provided 4000 ft not confirmed.
 
-**Surface:** 75% gravel, 25% paved roads [Official] (https://www.flanderslegacygravel.be)  
-**Character:** Flanders—rolling terrain, cobbles [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain, some cobbles [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Flanders cobbles** (sections): Belgian cobbled sections [Strava] (https://www.strava.com)  
-- **Rolling Flanders** (throughout): Belgian countryside [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**May Belgium:** 12-20°C, 35% rain chance, spring conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Cool, wet (14-18°C, rain) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable (12-20°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Flanders Legacy Gravel is Flanders, Belgium. 100 km, 1,000 m elevation. Cobbles. Rolling terrain." — u/FlandersVet [Reddit] (https://reddit.com/r/gravelcycling/comments/flanders-legacy)
-
-> "Flanders is rolling. Belgian cobbles. May = 35% rain. Classic Belgian cycling." — u/BelgiumLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-40mm. Belgian cobbles require wider tires. Comfort critical." — u/BelgiumGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "500-700 riders. Belgian field. Well-organized. Affordable entry. Flanders legacy." — u/EuroGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Weather** — May rain 35% [VeloNews] (https://www.velonews.com)  
-2. **Cobbles** — Belgian cobbles [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Distance** — 100 km [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-40mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, waterproofs, layers for 12-20°C [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+**Typical weather for race date/location:** No specific data found for mid-October in Leuven.  
+**Historical weather incidents:** No records available (first edition in 2025).  
+**Altitude:** No starting or max elevation data; Leuven is at low elevation (~30m above sea level, per general knowledge, but not in search results).
 
 ## LOGISTICS
+**Nearest airport:** No information found. Brussels Airport (BRU) is closest major hub (~15km from Leuven), but not specified in sources.  
+**Lodging options and strategy:** No details available.  
+**Parking situation:** No information found.  
+**Packet pickup details:** Bib/frame plate pickup Saturday, October 18 (16:00-20:00) or Sunday, October 19 (07:30-09:00) at registration counters. Present race number from confirmation email.[3]
 
-**Airport:** Brussels (BRU) — 50 km (45-minute drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Flanders, Belgium. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.flanderslegacygravel.be)  
-**Post-Race:** Post-race party, Belgian beer. [Official] (https://www.flanderslegacygravel.be)  
+## COMMUNITY & REPUTATION
+**Race history:** First edition October 19, 2025. Part of Bolero Gravel Series finale. Builds on Leuven's 2024 Gravel Worlds legacy.[1][2] No founder named.  
+**Notable past winners/pro riders:** No past winners (inaugural event in 2025).  
+**Rider reviews and quotes:** No reviews found (pre-2025 event).  
+**YouTube race coverage:** No coverage found (future/first event).  
+**Perception in gravel community:** Positioned as premium event in Bolero series, UCI qualifier, leveraging Leuven's Worlds history for "true legacy for gravel enthusiasts."[1]
 
-## COMMUNITY VIBE
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes:** None available (race not yet held).  
+**"What I wish I knew" insights:** None found.  
+**Equipment recommendations:** No participant insights.  
+**DNF rates:** No data (inaugural event).
 
-**Belgian Gravel Scene:** Flanders. 500-700 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Flanders Support:** Region embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.flanderslegacygravel.be  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+**Note:** Much data unavailable due to this being the first edition in 2025; search results focus on announcements. User-provided distance (75 miles) and elevation (4000 ft) do not match official 147/96 km listings. Additional searches yielded no further details on missing items.

@@ -1,95 +1,88 @@
-# Collegiate Gravel Nationals — Research Dump
+# COLLEGIATE GRAVEL NATIONALS - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
 
-**Race Name:** Collegiate Gravel Nationals [Official] (https://www.usacycling.org)  
-**Location:** Turkey, Texas  
-**Date:** April annually [Official] (https://www.usacycling.org)  
-**Distance:** 100 km [Official] (https://www.usacycling.org)  
-**Elevation Gain:** ~1,500 m [Official] (https://www.usacycling.org)  
-**Field Size:** 200-400 collegiate riders [Official] (https://www.usacycling.org)  
-**Registration:** Through collegiate teams. Cost: $50-$75 [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2019 [VeloNews] (https://www.velonews.com)  
-**Format:** USA Cycling National Championship for collegiate gravel [Official] (https://www.usacycling.org)  
+**2026 Race Date**
+
+The 2026 USA Cycling Collegiate Gravel National Championships is scheduled for **March 7, 2026** in Turkey, Texas[1][2][3]. This is the inaugural year for the USA Cycling Collegiate Gravel National Championships[3].
+
+**Distance & Course Details**
+
+The race will use the **medium course length of approximately 50 miles**[3], featuring gravel roads, old rail trail, and singletrack in Caprock Canyon State Park[3]. You provided that the distance is 62 miles with 4,921 ft elevation gain; however, the official Valley of Tears event page (the host organization) specifies "about 50 miles" for the medium course[3]. The search results do not indicate whether multiple distance options exist.
+
+**Registration & Entry Fees**
+
+Registration is open on the Valley of Tears registration platform[3]. The search results do not provide specific entry fee amounts.
+
+**Field Size, Prize Purse, Start Time, and Aid Station Details**
+
+The search results do not contain information about participant numbers, prize purse, official start time, or aid station specifics. USA Cycling notes that "more information on this page as it becomes available from USA Cycling--eligibility, rules, and anything else you need to know"[3].
 
 ## TERRAIN & COURSE
 
-**Surface:** 80% gravel, 20% dirt roads [Official] (https://www.usacycling.org)  
-**Character:** Texas Panhandle—rolling plains, red dirt [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 2/5. Moderate—rolling terrain, some wind [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Texas Panhandle plains** (throughout): Rolling red dirt roads [Strava] (https://www.strava.com)  
-- **Turkey terrain** (throughout): Remote Texas gravel [Reddit] (https://reddit.com/r/gravelcycling)  
+**Surface Breakdown & Key Features**
 
-## WEATHER & CLIMATE
+The course incorporates **gravel roads, old rail trail, and singletrack terrain within Caprock Canyon State Park**[3]. The search results do not provide a percentage breakdown of surface types or identification of named climbs or technical sectors.
 
-**April Texas:** 15-25°C, 20% rain chance, spring conditions, wind [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm, windy (18-25°C, 30 km/h wind) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (15-22°C) [CyclingTips] (https://www.cyclingtips.com)  
+**Technical Difficulty**
 
-## REDDIT & FORUM INSIGHTS
+No specific technical difficulty rating is provided in the search results.
 
-> "Collegiate Gravel Nationals is Turkey, TX. 100 km, 1,500 m elevation. USA Cycling National Championship. Collegiate field only." — u/CollegiateVet [Reddit] (https://reddit.com/r/gravelcycling/comments/collegiate-gravel)
+## CLIMATE & CONDITIONS
 
-> "Turkey is remote Texas Panhandle. Rolling plains, red dirt. Wind is the main challenge." — u/TexasLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-40mm. Texas gravel is chunky but fast. Wind matters more than tires." — u/TexasGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "200-400 collegiate riders. Competitive field. National Championship = fast racing." — u/CollegiateRacer [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 5-10% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Wind** — Texas Panhandle wind is relentless [VeloNews] (https://www.velonews.com)  
-2. **Distance** — 100 km is long for collegiate field [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Mechanicals** — Chunky gravel [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-40mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, moderate gears [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 15-25°C, wind protection [Reddit] (https://reddit.com/r/gravelcycling)  
+No historical weather data, typical conditions for early March in Turkey, Texas, or elevation details beyond your provided 4,921 ft are included in the search results.
 
 ## LOGISTICS
 
-**Airport:** Lubbock (LBB) — 100 km (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Turkey, TX—remote. Limited options. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.usacycling.org)  
-**Post-Race:** Post-race awards ceremony. [Official] (https://www.usacycling.org)  
+**Location & Nearest Airport**
 
-## COMMUNITY VIBE
+The race is held in Turkey, Texas[1][2][3]. The search results do not specify the nearest commercial airport.
 
-**Collegiate National Championship:** USA Cycling. 200-400 collegiate riders. Competitive field. [VeloNews] (https://www.velonews.com)  
-**Turkey Support:** Remote Texas town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** Collegiate only. Competitive. [Reddit] (https://reddit.com/r/gravelcycling)  
+**Lodging & Packet Pickup**
 
-## HISTORICAL RESULTS
+The Valley of Tears event page indicates "more information on this page as it becomes available from USA Cycling" regarding lodging and logistics[3]. No packet pickup details are provided in the search results.
 
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+**Parking**
 
----
+No parking information is available in the search results.
 
-## SOURCES SUMMARY
+## RACE HISTORY & COMMUNITY REPUTATION
 
-1. **Official:** https://www.usacycling.org  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+**Race Founding**
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+The 2026 Collegiate Gravel National Championships is the **inaugural USA Cycling Collegiate Gravel National Championships**[3]. It is hosted by Valley of Tears, a gravel event organization based in Turkey, Texas.
+
+**Past Winners & Notable Riders**
+
+Since this is the first year, no past winners or historical participation data exist.
+
+**Community Perception**
+
+The search results contain no rider reviews, Reddit discussions, YouTube coverage, or community commentary about this specific event (as it has not yet occurred).
+
+## ADDITIONAL CONTEXT
+
+The Collegiate Gravel National Championships exists within a broader **USA Cycling Junior Gravel National Series** featuring ten gravel events nationwide, where the junior nationals conclude in La Crescent, Minnesota on July 25, 2026[4]. However, the junior series and the collegiate nationals are separate competitions.
+
+## DATA GAPS
+
+**Information NOT available in search results:**
+- 2025 race data (this is a new 2026 event)
+- Specific registration fees
+- Participant capacity/field size
+- Prize purse details
+- Official start time
+- Aid station locations and cutoff times
+- Detailed elevation profile
+- Surface percentage breakdown
+- Technical difficulty rating
+- Weather history for the location/date
+- Nearest airport
+- Lodging options
+- Parking logistics
+- Packet pickup procedures
+- Past winners or notable participants
+- Rider reviews, race reports, or YouTube coverage
+- Equipment recommendations from past racers
+
+The event is too new (and currently only 28 days away from the current date) to have accumulated the race reports, community discussion, and historical data you requested.

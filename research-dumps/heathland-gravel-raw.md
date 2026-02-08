@@ -1,95 +1,55 @@
-# Heathland Gravel — Research Dump
+# HEATHLAND GRAVEL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
+Heathland Gravel is a three-day event in Maasmechelen, Belgium, with the main raceday on **Sunday, August 9, 2026** (third edition); prior editions were in 2024 (first) and 2025 (second, with raceday August 10).[1][2][3][4] The 2025 programme lists Friday August 8 (warm-up), Saturday August 9 (get the Heath on), and Sunday August 10 (raceday), but 2026 is confirmed as Friday 7th, Saturday 8th, Sunday 9th August across multiple pages.[1][3][4] No 2025-specific dates beyond that; 2026 registration is open for the 160 km qualifier.[3][4]
 
-**Race Name:** Heathland Gravel [Official] (https://www.heathlandgravel.be)  
-**Location:** Limburg, Belgium  
-**Date:** June annually [Official] (https://www.heathlandgravel.be)  
-**Distance:** 110 km [Official] (https://www.heathlandgravel.be)  
-**Elevation Gain:** ~1,400 m [Official] (https://www.heathlandgravel.be)  
-**Field Size:** 400-600 riders [Official] (https://www.heathlandgravel.be)  
-**Registration:** Online. Cost: €75-€110 (~$80-$120 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2021 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Belgian heathland [Official] (https://www.heathlandgravel.be)  
+**Registration costs** (all-inclusive ticket for 2026, early rates sold out): Rate 2 (Jan 1 - June 7): €89.95; Rate 3 (June 8 - July 26): €99.95; Rate 4 (July 27 - August 9): €104.95. 160 km requires a valid license (€10 day license available at checkout); fun rides (no license) register until Aug 8.[3] Registration for 160 km closes Thursday August 6, 2026, 23:59 CET.[3]
+
+**Distance options**: 160 km (Unbound Gravel Qualifier, performance-based lottery for 50 spots to Unbound 2027: 25 performance, 25 lottery), 110 km, 70 km.[2][3] User-provided 65 miles (~105 km) and 3500 ft elevation not matching listed distances; no exact confirmation found for those figures.[1-7]
+
+**Field size**: Minimum 50 qualifiers awarded; no total participant numbers available.[2][3][4]
+
+**Prize purse**: None mentioned.[1-7]
+
+**Start location and time**: Terhills, Maasmechelen, Belgium (Hoge Kempen National Park area). 2025 schedule: 08:00 official start for 160 km Unbound Qualifier; 08:10-09:30 free start for all categories/distances (likely similar for 2026).[1] 2026 raceday Sunday August 9.[3][4]
+
+**Aid station details, cutoff times**: No specifics available.[1-7]
 
 ## TERRAIN & COURSE
+Courses through Terhills domain and Hoge Kempen National Park, featuring "some of the best gravel roads of Flanders" with timed sections.[2] Distances: 160 km, 110 km, 70 km; no surface breakdown (% gravel, pavement, singletrack, dirt), named climbs/sectors, technical difficulty, or elevation profile details found.[1-7] "Panorama Push" hill climb challenge (social event, Friday night 2026).[4]
 
-**Surface:** 80% gravel, 20% paved roads [Official] (https://www.heathlandgravel.be)  
-**Character:** Belgian heathland—rolling terrain, forest paths [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 3/5. Moderate—rolling terrain [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Limburg heathland** (throughout): Belgian heathland terrain [Strava] (https://www.strava.com)  
-- **Forest paths** (sections): Belgian forest gravel [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+**Typical weather**: No data for early August in Maasmechelen/Terhills.[1-7]
 
-## WEATHER & CLIMATE
+**Historical weather incidents**: None reported (mud, heat, wind).[1-7]
 
-**June Belgium:** 15-23°C, 30% rain chance, summer conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm (18-23°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable (15-23°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Heathland Gravel is Limburg, Belgium. 110 km, 1,400 m elevation. Heathland terrain. Rolling." — u/HeathlandVet [Reddit] (https://reddit.com/r/gravelcycling/comments/heathland-gravel)
-
-> "Limburg is heathland. Belgian forest gravel. June = warm (18-23°C). Beautiful." — u/BelgiumLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 35-38mm. Belgian gravel is smooth. Rolling terrain." — u/BelgiumGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "400-600 riders. Belgian field. Well-organized. Affordable entry." — u/EuroGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 10-15% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Distance** — 110 km [VeloNews] (https://www.velonews.com)  
-2. **Elevation** — 1,400 m cumulative [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Weather** — June rain 30% [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 35-38mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles, layers for 15-23°C [Reddit] (https://reddit.com/r/gravelcycling)  
+**Altitude**: Starting elevation and max elevation unavailable.[1-7]
 
 ## LOGISTICS
+**Nearest airport**: Unavailable.[1-7]
 
-**Airport:** Brussels (BRU) — 80 km (1-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Limburg, Belgium. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.heathlandgravel.be)  
-**Post-Race:** Post-race party, Belgian beer. [Official] (https://www.heathlandgravel.be)  
+**Lodging options and strategy**: No specifics; event pitches "tents in Limburg in the shadow of the Maasmechelen mine shaft" implying camping possible.[2][4]
 
-## COMMUNITY VIBE
+**Parking situation**: Unavailable.[1-7]
 
-**Belgian Gravel Scene:** Limburg. 400-600 riders. Well-organized. [VeloNews] (https://www.velonews.com)  
-**Limburg Support:** Region embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 10-15% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
+**Packet pickup details**: 2025/2026: Friday 16:00-22:00 opening/check-in/bib collection; Saturday 14:00-18:00 check-in/bib + expo; Sunday 07:00 opening startbox/coffee/bib collection.[1]
 
-## HISTORICAL RESULTS
+## COMMUNITY & REPUTATION
+**Race history**: Founded 2024 as first European Unbound Gravel Qualifier by Flanders Classics and partners (Belgium/USA collaboration); second edition 2025; third in 2026 with Shimano as title partner.[2][4] "Heathland Gravel stands as the premier Unbound Gravel Qualifier in Europe."[2]
 
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
+**Notable past winners**: 2025: Jasper Ockeloen (men), Lucia Gonzalez Blanco (women).[3][4]
 
----
+**Rider reviews and quotes**: No Reddit, forums, or race reports found in results.[1-7]
 
-## SOURCES SUMMARY
+**YouTube race coverage**: Unavailable.[1-7]
 
-1. **Official:** https://www.heathlandgravel.be  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
+**Perception in gravel community**: Seen as "official European qualifier for Unbound Gravel" bucket-list event with "unique gravel atmosphere, live music"; sole European qualifier.[2][3][4]
 
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+## RACE REPORTS & RIDER EXPERIENCE
+**Specific rider experiences and quotes**: None available.[1-7]
+
+**"What I wish I knew" insights**: Unavailable.[1-7]
+
+**Equipment recommendations**: Unavailable.[1-7]
+
+**DNF rates**: Unavailable.[1-7]

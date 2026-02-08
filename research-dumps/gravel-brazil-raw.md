@@ -1,95 +1,42 @@
-# Gravel Brazil — Research Dump
+# GRAVEL BRAZIL - RAW RESEARCH DUMP
 
 ## OFFICIAL DATA
-
-**Race Name:** Gravel Brazil [Official] (https://www.gravelbrazil.com.br)  
-**Location:** Balneário Camboriú, Santa Catarina, Brazil  
-**Date:** September annually [Official] (https://www.gravelbrazil.com.br)  
-**Distance:** 100 km [Official] (https://www.gravelbrazil.com.br)  
-**Elevation Gain:** ~2,000 m [Official] (https://www.gravelbrazil.com.br)  
-**Field Size:** 800-1,000 riders [Official] (https://www.gravelbrazil.com.br)  
-**Registration:** Online. Cost: R$400-R$600 (~$80-$120 USD) [BikeReg] (https://www.bikereg.com)  
-**Founded:** ~2019 [VeloNews] (https://www.velonews.com)  
-**Format:** Gravel race, Brazilian coastal mountains [Official] (https://www.gravelbrazil.com.br)  
+- **2025 and 2026 race dates**: 2025 was the first edition (exact date unavailable in results); 2026 is Sunday, March 8 (08.03.2026)[1][2][3][5][7].
+- **Registration cost / entry fees**: Unavailable in search results.
+- **Field size (number of participants)**: Unavailable in search results.
+- **Distance options and elevation gain for each**: 69 km and 113 km options listed; known info provides 62 miles (~100 km) with 6562 ft elevation, but not confirmed per distance[1]. Longer "Gravel Granfondo 120km" category mentioned for World Championship qualification[2].
+- **Prize purse**: Unavailable specifically for Gravel Brazil; a separate 2025 UCI Gravel World Series event had $25,500 distributed evenly among pro men and women[4].
+- **Start location and time**: Start in Camboriú (also listed as Balneário Camboriú per known info); specific time unavailable[1][2][3][5].
+- **Aid station details, cutoff times**: Unavailable in search results.
 
 ## TERRAIN & COURSE
+- **Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable in search results.
+- **Key course features, named climbs/sectors**: Unavailable in search results.
+- **Technical difficulty level**: Unavailable in search results.
+- **Elevation profile description**: Unavailable in search results; known info notes 6562 ft total gain.
 
-**Surface:** 80% gravel, 20% dirt roads [Official] (https://www.gravelbrazil.com.br)  
-**Character:** Brazilian coastal mountains—steep climbs, technical descents [RideWithGPS] (https://ridewithgps.com)  
-**Technical Rating:** 4/5. Technical—steep climbs, loose gravel descents [DirtyFreehub] (https://www.dirtyfreehub.com)  
-**Named Sections:**  
-- **Coastal climbs** (throughout): Steep Brazilian mountains [Strava] (https://www.strava.com)  
-- **Technical descents** (throughout): Loose gravel, steep [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## WEATHER & CLIMATE
-
-**September Brazil:** 18-28°C, 30% rain chance, spring conditions [Weather.com] (https://weather.com)  
-**Historical Conditions:**  
-- **2023:** Warm, humid (20-26°C) [VeloNews] (https://www.velonews.com)  
-- **2024:** Variable, some rain (18-28°C) [CyclingTips] (https://www.cyclingtips.com)  
-
-## REDDIT & FORUM INSIGHTS
-
-> "Gravel Brazil is Brazilian coastal mountains. 100 km, 2,000 m elevation. Steep climbs, technical descents. Beautiful scenery." — u/GravelBrazilVet [Reddit] (https://reddit.com/r/gravelcycling/comments/gravel-brazil)
-
-> "Balneário Camboriú is beach town. Coastal mountains are steep. Technical terrain." — u/BrazilLocal [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "Tire choice: 38-42mm. Brazilian gravel is loose on descents." — u/BrazilGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-> "800-1,000 riders. Growing Brazilian gravel scene. Affordable entry." — u/SouthAmericaGravel [Reddit] (https://reddit.com/r/gravelcycling)
-
-## DNF FACTORS
-
-**Overall DNF Rate:** 15-20% [Athlinks] (https://www.athlinks.com)  
-**Top Reasons:**  
-1. **Elevation** — 2,000 m over 100 km = steep [VeloNews] (https://www.velonews.com)  
-2. **Technical terrain** — Loose gravel descents [Reddit] (https://reddit.com/r/gravelcycling)  
-3. **Heat/humidity** — September can be warm/humid [TrainerRoad] (https://www.trainerroad.com)  
-
-## EQUIPMENT CONSENSUS
-
-**Tires:** 38-42mm tubeless (e.g., WTB Resolute, Panaracer Gravel King) [Reddit] (https://reddit.com/r/gravelcycling)  
-**Gearing:** 1x or compact double, low gears for steep climbs [PackFodder] (https://www.packfodder.com)  
-**Other:** Tubeless, 3+ bottles (heat/humidity), layers for 18-28°C [Reddit] (https://reddit.com/r/gravelcycling)  
+## CLIMATE & CONDITIONS
+- **Typical weather for the race date/location**: Unavailable in search results.
+- **Historical weather incidents (mud years, heat, wind)**: Unavailable; only one prior edition in 2025.
+- **Altitude (starting elevation, max elevation)**: Unavailable in search results.
 
 ## LOGISTICS
+- **Nearest airport**: Unavailable in search results.
+- **Lodging options and strategy**: Unavailable in search results.
+- **Parking situation**: Unavailable in search results.
+- **Packet pickup details**: Unavailable in search results.
 
-**Airport:** Florianópolis (FLN) — 80 km (1.5-hour drive). [Google Maps] (https://maps.google.com)  
-**Lodging:** Balneário Camboriú beach town. Book early. [Booking.com] (https://booking.com)  
-**Expo:** Day-before packet pickup. [Official] (https://www.gravelbrazil.com.br)  
-**Post-Race:** Post-race party, beach town celebration. [Official] (https://www.gravelbrazil.com.br)  
+## COMMUNITY & REPUTATION
+- **Race history (founded year, founder if known)**: First edition in 2025 as the first UCI Gravel race in Southern America; hosted by the team behind UCI Gran Fondo Brazil (November annually in same region); organized by Riders Sports Experience[1][2].
+- **Notable past winners / pro riders who have raced it**: Unavailable in search results.
+- **Rider reviews and quotes (Reddit, forums, race reports)**: Unavailable in search results.
+- **YouTube race coverage**: Unavailable in search results.
+- **How the race is perceived in the gravel community**: Positioned as a high-level elite qualifier for 2026 UCI Gravel World Championships; only official gravel event in Brazil for elite/pro and amateur/age group athletes; part of rapidly evolving UCI Gravel World Series modeled on successful Gran Fondo series[1][2].
 
-## COMMUNITY VIBE
+## RACE REPORTS & RIDER EXPERIENCE
+- **Specific rider experiences and quotes**: Unavailable in search results.
+- **"What I wish I knew" insights**: Unavailable in search results.
+- **Equipment recommendations from participants**: Unavailable in search results.
+- **DNF rates if available**: Unavailable in search results.
 
-**Brazilian Gravel Scene:** Coastal mountains. 800-1,000 riders. Growing scene. [VeloNews] (https://www.velonews.com)  
-**Balneário Camboriú Support:** Beach town embraces event [RidingGravel] (https://www.ridingravel.com)  
-**Inclusivity:** All levels. 15-20% DNF. [Reddit] (https://reddit.com/r/gravelcycling)  
-
-## HISTORICAL RESULTS
-
-**2024 Winners:**  
-- Men: Unknown [Athlinks] (https://www.athlinks.com)  
-- Women: Unknown [Athlinks] (https://www.athlinks.com)  
-
----
-
-## SOURCES SUMMARY
-
-1. **Official:** https://www.gravelbrazil.com.br  
-2. **BikeReg:** https://www.bikereg.com  
-3. **VeloNews:** https://www.velonews.com  
-4. **CyclingTips:** https://www.cyclingtips.com  
-5. **RidingGravel:** https://www.ridingravel.com  
-6. **Reddit:** https://reddit.com/r/gravelcycling  
-7. **RideWithGPS:** https://ridewithgps.com  
-8. **Strava:** https://www.strava.com  
-9. **DirtyFreehub:** https://www.dirtyfreehub.com  
-10. **Weather.com:** https://weather.com  
-11. **Athlinks:** https://www.athlinks.com  
-12. **TrainerRoad:** https://www.trainerroad.com  
-13. **PackFodder:** https://www.packfodder.com  
-14. **Google Maps:** https://maps.google.com  
-15. **Booking.com:** https://booking.com  
-
-**Total Unique URLs:** 15  
-**Unique Domains:** 15
+**Notes**: Search results primarily cover the 2026 UCI Gravel World Series event in Camboriú/Balneário Camboriú; a separate "Gravel Brasil Ride Bonito" (August 6-9, 2025, multi-day stage race in Bonito/MS) appears unrelated[6]. Official website (gravelbrazil.com.br per known info) not directly accessed in results; limited details available beyond dates and basic context—further searches needed for comprehensive data. No 2026 dates beyond March 8 found; registration open until March 1, 2026[2][7].

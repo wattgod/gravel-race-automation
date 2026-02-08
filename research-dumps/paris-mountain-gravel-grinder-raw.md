@@ -1,46 +1,21 @@
-# Paris Mountain Gravel Grinder - Research Dump
+# PARIS MOUNTAIN GRAVEL GRINDER - RAW RESEARCH DUMP
 
-## Race Overview
-**Location:** Travelers Rest, South Carolina  
-**Distance:** Multiple distances  
-**Terrain:** South Carolina gravel  
-**Region:** Upstate South Carolina  
+No information found on the "Paris Mountain Gravel Grinder" in Travelers Rest, South Carolina (65 miles, 5000 ft elevation) across searched results. No matches for official data, terrain/course, climate, logistics, community/reputation, or race reports.
 
-## Event Details
-- Annual gravel race in Travelers Rest
-- Travelers Rest is near Greenville, upstate South Carolina
-- Multiple distance options
-- Part of South Carolina gravel scene
-- Typically held in spring or fall
+**OFFICIAL DATA**  
+No 2025 or 2026 race dates, registration costs, field sizes, distance options, prize purses, start locations/times, aid stations, or cutoff times available. Searches returned unrelated events like Uwharrie Forest Gravel Grinder (54.7 miles long course, aid at miles 21/24/46/49; Feb 22, 2026)[1] and Tour de Paris (road event, Paris, TX)[7].
 
-## Course Characteristics
-- Upstate SC terrain: rolling to mountainous
-- Gravel roads through Paris Mountain area
-- Significant elevation
-- Mountain scenery
-- Mix of road conditions
+**TERRAIN & COURSE**  
+No surface breakdowns, key features, climbs, technical difficulty, or elevation profiles found. Known query info (65 miles, 5000 ft) not corroborated in results.
 
-## Logistics
-- Travelers Rest is near Greenville
-- Good access
-- Moderate organization
-- Moderate support
+**CLIMATE & CONDITIONS**  
+No typical weather, historical incidents, or altitude data (starting/max elevation) located for this event.
 
-## Community & Atmosphere
-- South Carolina cycling community
-- Growing event
-- Moderate field
+**LOGISTICS**  
+No nearest airport, lodging, parking, or packet pickup details available.
 
-## Weather Considerations
-- South Carolina spring/fall weather
-- Variable conditions
-- Heat possible
-- Humidity
+**COMMUNITY & REPUTATION**  
+No race history, founders, past winners, rider reviews/quotes, YouTube coverage, or community perception found. Event not listed in major calendars like UCI Gravel World Series[3], US Gravel Bike Races[4], or Gran Fondo Guide[6].
 
-## Registration & Costs
-- Regional pricing ($60-100 typical)
-- Moderate field
-
-## Sources
-- South Carolina cycling community
-- Upstate SC gravel events
+**RACE REPORTS & RIDER EXPERIENCE**  
+No rider experiences, quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates available. No Reddit/forums or race reports surfaced in searches.

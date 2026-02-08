@@ -6,8 +6,15 @@ Push landing page JSON or race index to WordPress.
 import argparse
 import json
 import os
+import subprocess
 import requests
+from dotenv import load_dotenv
 from pathlib import Path
+
+load_dotenv()
+
+SSH_KEY = Path.home() / ".ssh" / "siteground_key"
+WP_UPLOADS = "~/www/gravelgodcycling.com/public_html/wp-content/uploads"
 
 
 def get_wp_credentials():
@@ -21,6 +28,22 @@ def get_wp_credentials():
         print("   WP_URL, WP_USER, WP_APP_PASSWORD")
         return None
     return wp_url, wp_user, wp_password
+
+
+def get_ssh_credentials():
+    """Return (host, user, port) or None with warning."""
+    host = os.environ.get("SSH_HOST")
+    user = os.environ.get("SSH_USER")
+    port = os.environ.get("SSH_PORT", "18765")
+
+    if not all([host, user]):
+        print("⚠️  SSH credentials not set. Required env vars:")
+        print("   SSH_HOST, SSH_USER (optional: SSH_PORT)")
+        return None
+    if not SSH_KEY.exists():
+        print(f"⚠️  SSH key not found: {SSH_KEY}")
+        return None
+    return host, user, port
 
 
 def push_to_wordpress(json_path: str):
@@ -74,74 +97,39 @@ def push_to_wordpress(json_path: str):
 
 
 def sync_index(index_file: str):
-    """Upload or replace race-index.json in WP Media Library."""
-    creds = get_wp_credentials()
-    if not creds:
+    """Upload race-index.json to WP uploads via SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
         return None
-    wp_url, wp_user, wp_password = creds
-    auth = (wp_user, wp_password)
+    host, user, port = ssh
 
     index_path = Path(index_file)
     if not index_path.exists():
         print(f"✗ Index file not found: {index_path}")
         return None
 
-    filename = index_path.name
-    media_endpoint = f"{wp_url}/wp-json/wp/v2/media"
-
-    # Check for existing attachment
+    remote_path = f"{WP_UPLOADS}/{index_path.name}"
     try:
-        search_resp = requests.get(
-            media_endpoint,
-            params={"search": index_path.stem},
-            auth=auth,
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(index_path),
+                f"{user}@{host}:{remote_path}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
             timeout=30,
         )
-        search_resp.raise_for_status()
-        existing = [
-            m for m in search_resp.json()
-            if m.get("source_url", "").endswith(f"/{filename}")
-        ]
-    except Exception as e:
-        print(f"✗ Error searching WP media: {e}")
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        public_url = f"{wp_url}/wp-content/uploads/{index_path.name}"
+        print(f"✓ Uploaded: {public_url}")
+        return public_url
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed: {e.stderr.strip()}")
         return None
-
-    file_data = index_path.read_bytes()
-    headers = {
-        "Content-Disposition": f'attachment; filename="{filename}"',
-        "Content-Type": "application/json",
-    }
-
-    try:
-        if existing:
-            media_id = existing[0]["id"]
-            resp = requests.post(
-                f"{media_endpoint}/{media_id}",
-                data=file_data,
-                headers=headers,
-                auth=auth,
-                timeout=30,
-            )
-        else:
-            resp = requests.post(
-                media_endpoint,
-                data=file_data,
-                headers=headers,
-                auth=auth,
-                timeout=30,
-            )
-
-        if resp.status_code in [200, 201]:
-            url = resp.json().get("source_url", "(unknown)")
-            action = "Updated" if existing else "Uploaded"
-            print(f"✓ {action}: {url}")
-            return url
-        else:
-            print(f"✗ Failed to upload index: {resp.status_code}")
-            print(resp.text)
-            return None
     except Exception as e:
-        print(f"✗ Error uploading to WordPress: {e}")
+        print(f"✗ Error uploading: {e}")
         return None
 
 
@@ -152,7 +140,7 @@ if __name__ == "__main__":
     parser.add_argument("--json", help="Path to landing page JSON")
     parser.add_argument(
         "--sync-index", action="store_true",
-        help="Upload/replace race-index.json in WP Media Library"
+        help="Upload race-index.json to WP uploads via SCP"
     )
     parser.add_argument(
         "--index-file", default="web/race-index.json",

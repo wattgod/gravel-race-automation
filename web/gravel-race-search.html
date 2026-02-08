@@ -11,23 +11,25 @@
   Self-contained: no React, no build step, vanilla JS + CSS.
 -->
 <div id="gg-race-search">
+  <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     #gg-race-search {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Sometype Mono', monospace;
       max-width: 1200px;
       margin: 0 auto;
-      color: #1a1a1a;
+      color: #000;
+    }
+    #gg-race-search *, #gg-race-search *::before, #gg-race-search *::after {
+      border-radius: 0 !important;
     }
 
     /* ── Questionnaire ── */
     .gg-questionnaire {
       margin-bottom: 24px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
+      border: 3px solid #000;
     }
     .gg-questionnaire-header {
-      background: linear-gradient(135deg, #c4421a, #d4830a);
+      background: #000;
       color: #fff;
       padding: 14px 20px;
       display: flex;
@@ -38,8 +40,10 @@
     }
     .gg-questionnaire-header h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     .gg-questionnaire-toggle {
       font-size: 18px;
@@ -48,7 +52,8 @@
     .gg-questionnaire-toggle.collapsed { transform: rotate(-90deg); }
     .gg-questionnaire-body {
       padding: 20px;
-      background: #fafafa;
+      background: #fff;
+      border-top: 2px solid #000;
     }
     .gg-questionnaire-body.collapsed { display: none; }
     .gg-slider-grid {
@@ -62,19 +67,23 @@
       gap: 4px;
     }
     .gg-slider-label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: #333;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .gg-slider-endpoints {
       display: flex;
       justify-content: space-between;
-      font-size: 11px;
-      color: #888;
+      font-size: 10px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .gg-slider-row input[type="range"] {
       width: 100%;
-      accent-color: #c4421a;
+      accent-color: #000;
       cursor: pointer;
     }
     .gg-questionnaire-actions {
@@ -85,35 +94,41 @@
     }
     .gg-btn-match {
       padding: 10px 24px;
-      background: #c4421a;
+      background: #000;
       color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
+      border: 3px solid #000;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 13px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       cursor: pointer;
-      transition: background 0.2s;
     }
-    .gg-btn-match:hover { background: #a33615; }
+    .gg-btn-match:hover { background: #fff; color: #000; }
     .gg-btn-reset {
       padding: 10px 24px;
-      background: none;
-      color: #666;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .gg-btn-reset:hover { background: #f0f0f0; }
-    .gg-match-badge {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: #fff;
+      color: #000;
+      border: 2px solid #000;
+      font-family: 'Sometype Mono', monospace;
       font-size: 12px;
       font-weight: 700;
-      background: linear-gradient(135deg, #c4421a, #d4830a);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .gg-btn-reset:hover { background: #000; color: #fff; }
+    .gg-match-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #000;
       color: #fff;
+      border: 2px solid #000;
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* ── Filters ── */
@@ -123,8 +138,8 @@
       gap: 12px;
       margin-bottom: 24px;
       padding: 16px;
-      background: #f8f8f8;
-      border-radius: 8px;
+      background: #fff;
+      border: 2px solid #000;
     }
     .gg-filter-group {
       display: flex;
@@ -133,18 +148,18 @@
       min-width: 140px;
     }
     .gg-filter-group label {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #666;
+      letter-spacing: 1.5px;
+      color: #000;
     }
     .gg-filter-group select,
     .gg-filter-group input {
       padding: 6px 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 14px;
+      border: 2px solid #000;
+      font-size: 13px;
+      font-family: 'Sometype Mono', monospace;
       background: #fff;
     }
     .gg-search-input {
@@ -154,7 +169,7 @@
     .gg-search-input input {
       width: 100%;
       padding: 8px 12px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     /* ── Results header ── */
@@ -163,29 +178,33 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
-      font-size: 14px;
-      color: #666;
+      font-size: 12px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .gg-sort-btn {
-      background: none;
-      border: 1px solid #ddd;
+      background: #fff;
+      border: 2px solid #000;
       padding: 4px 10px;
-      border-radius: 4px;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 11px;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .gg-sort-btn.active {
-      background: #1a1a1a;
+      background: #000;
       color: #fff;
-      border-color: #1a1a1a;
+      border-color: #000;
     }
+    .gg-sort-btn:hover { background: #000; color: #fff; }
 
     /* ── Tier sections ── */
     .gg-tier-section {
       margin-bottom: 24px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
+      border: 3px solid #000;
     }
     .gg-tier-section-header {
       display: flex;
@@ -195,11 +214,13 @@
       cursor: pointer;
       user-select: none;
       background: #fff;
-      border-left: 4px solid #aaa;
+      border-left: 6px solid #000;
     }
-    .gg-tier-section-header.tier-1 { border-left-color: #c4421a; }
-    .gg-tier-section-header.tier-2 { border-left-color: #d4830a; }
-    .gg-tier-section-header.tier-3 { border-left-color: #888; }
+    .gg-tier-section-header.tier-1 { border-left-color: #000; background: #000; color: #fff; }
+    .gg-tier-section-header.tier-1 .gg-tier-section-count { color: #999; }
+    .gg-tier-section-header.tier-1 .gg-tier-section-chevron { color: #fff; }
+    .gg-tier-section-header.tier-2 { border-left-color: #000; }
+    .gg-tier-section-header.tier-3 { border-left-color: #999; }
     .gg-tier-section-header.tier-4 { border-left-color: #ccc; }
     .gg-tier-section-title {
       display: flex;
@@ -208,22 +229,27 @@
     }
     .gg-tier-section-title h3 {
       margin: 0;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     .gg-tier-section-count {
-      font-size: 13px;
-      color: #888;
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .gg-tier-section-chevron {
       font-size: 16px;
-      color: #888;
+      color: #000;
       transition: transform 0.2s;
     }
     .gg-tier-section-chevron.collapsed { transform: rotate(-90deg); }
     .gg-tier-section-body {
       padding: 16px;
-      background: #fafafa;
+      background: #fff;
+      border-top: 2px solid #000;
     }
     .gg-tier-section-body.collapsed { display: none; }
 
@@ -234,14 +260,12 @@
       gap: 16px;
     }
     .gg-card {
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
+      border: 2px solid #000;
       padding: 16px;
-      transition: box-shadow 0.2s;
       background: #fff;
     }
     .gg-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #f5f5f5;
     }
     .gg-card-header {
       display: flex;
@@ -250,44 +274,47 @@
       margin-bottom: 8px;
     }
     .gg-card-name {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
-      color: #1a1a1a;
+      color: #000;
       text-decoration: none;
       line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .gg-card-name:hover { color: #c4421a; }
+    .gg-card-name:hover { text-decoration: underline; color: #000; }
     .gg-card-name.no-link { cursor: default; }
-    .gg-card-name.no-link:hover { color: #1a1a1a; }
+    .gg-card-name.no-link:hover { text-decoration: none; }
     .gg-tier-badge {
       display: inline-block;
       padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 1.5px;
       white-space: nowrap;
+      text-transform: uppercase;
+      border: 2px solid #000;
     }
-    .gg-tier-1 { background: #c4421a; color: #fff; }
-    .gg-tier-2 { background: #d4830a; color: #fff; }
-    .gg-tier-3 { background: #888; color: #fff; }
-    .gg-tier-4 { background: #aaa; color: #fff; }
+    .gg-tier-1 { background: #000; color: #fff; }
+    .gg-tier-2 { background: #fff; color: #000; }
+    .gg-tier-3 { background: #fff; color: #666; border-color: #666; }
+    .gg-tier-4 { background: #fff; color: #999; border-color: #999; }
     .gg-card-meta {
-      font-size: 13px;
+      font-size: 12px;
       color: #666;
       margin-bottom: 8px;
     }
     .gg-card-stats {
       display: flex;
       gap: 16px;
-      font-size: 13px;
+      font-size: 12px;
       margin-bottom: 8px;
     }
     .gg-stat { display: flex; flex-direction: column; }
-    .gg-stat-val { font-weight: 700; font-size: 15px; color: #1a1a1a; }
-    .gg-stat-label { font-size: 11px; color: #888; text-transform: uppercase; }
+    .gg-stat-val { font-weight: 700; font-size: 15px; color: #000; }
+    .gg-stat-label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
     .gg-card-tagline {
-      font-size: 13px;
+      font-size: 12px;
       color: #444;
       font-style: italic;
       margin-top: 8px;
@@ -306,17 +333,16 @@
     .gg-score-track {
       flex: 1;
       height: 6px;
-      background: #eee;
-      border-radius: 3px;
+      background: #ddd;
+      border: 1px solid #000;
       overflow: hidden;
     }
     .gg-score-fill {
       height: 100%;
-      border-radius: 3px;
       transition: width 0.3s;
     }
     .gg-score-num {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       min-width: 28px;
       text-align: right;
@@ -325,9 +351,8 @@
       display: none;
       margin-top: 8px;
       padding: 10px;
-      background: #f8f8f8;
-      border-radius: 6px;
-      border: 1px solid #eee;
+      background: #fff;
+      border: 2px solid #000;
     }
     .gg-score-breakdown.open { display: block; }
     .gg-score-grid {
@@ -339,18 +364,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      font-size: 11px;
       padding: 2px 0;
     }
-    .gg-score-row-label { color: #666; text-transform: capitalize; }
+    .gg-score-row-label { color: #000; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
     .gg-score-row-dots { display: flex; gap: 3px; }
     .gg-score-dot {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
       background: #ddd;
+      border: 1px solid #000;
     }
-    .gg-score-dot.filled { background: #c4421a; }
+    .gg-score-dot.filled { background: #000; }
     .gg-radar { margin-top: 8px; }
 
     /* ── Load more (per-tier) ── */
@@ -359,16 +384,17 @@
       width: 100%;
       padding: 10px;
       margin-top: 12px;
-      background: #1a1a1a;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
+      background: #fff;
+      color: #000;
+      border: 2px solid #000;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       cursor: pointer;
-      transition: background 0.2s;
     }
-    .gg-load-more:hover { background: #333; }
+    .gg-load-more:hover { background: #000; color: #fff; }
 
     /* ── Active filter pills ── */
     .gg-active-filters {
@@ -381,12 +407,14 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
-      background: #1a1a1a;
+      padding: 3px 10px;
+      background: #000;
       color: #fff;
-      border-radius: 16px;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 2px solid #000;
     }
     .gg-filter-pill button {
       background: none;
@@ -400,22 +428,27 @@
     }
     .gg-filter-pill button:hover { opacity: 1; }
     .gg-clear-all {
-      background: none;
-      border: 1px solid #666;
-      color: #666;
-      padding: 4px 10px;
-      border-radius: 16px;
-      font-size: 12px;
+      background: #fff;
+      border: 2px solid #000;
+      color: #000;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       cursor: pointer;
     }
-    .gg-clear-all:hover { background: #666; color: #fff; }
+    .gg-clear-all:hover { background: #000; color: #fff; }
 
     /* ── No results ── */
     .gg-no-results {
       text-align: center;
       padding: 40px;
-      color: #888;
-      font-size: 15px;
+      color: #666;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* ── Mobile filter toggle ── */
@@ -423,15 +456,17 @@
       display: none;
       width: 100%;
       padding: 10px;
-      background: #f8f8f8;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
+      background: #fff;
+      border: 2px solid #000;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       cursor: pointer;
       margin-bottom: 12px;
       text-align: left;
-      color: #1a1a1a;
+      color: #000;
     }
     .gg-filter-toggle::after { content: ' ▾'; float: right; }
     .gg-filter-toggle.open::after { content: ' ▴'; }
@@ -443,22 +478,27 @@
       align-items: center;
       padding: 10px 16px;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, #c4421a, #d4830a);
+      background: #000;
       color: #fff;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
+      border: 3px solid #000;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .gg-match-banner button {
       padding: 6px 14px;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 4px;
-      font-size: 13px;
+      background: #fff;
+      color: #000;
+      border: 2px solid #fff;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       cursor: pointer;
     }
-    .gg-match-banner button:hover { background: rgba(255,255,255,0.3); }
+    .gg-match-banner button:hover { background: #000; color: #fff; border-color: #fff; }
 
     @media (max-width: 600px) {
       .gg-grid { grid-template-columns: 1fr; }
@@ -828,10 +868,10 @@
 
       // ── Score / rendering helpers ──
       function scoreColor(score) {
-        if (score >= 85) return '#c4421a';
-        if (score >= 75) return '#d4830a';
+        if (score >= 85) return '#000';
+        if (score >= 75) return '#333';
         if (score >= 65) return '#888';
-        return '#aaa';
+        return '#bbb';
       }
 
       const SCORE_LABELS = {
@@ -870,11 +910,11 @@
             const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
             return [cx + r * s * Math.cos(angle), cy + r * s * Math.sin(angle)];
           });
-          return `<polygon points="${gp.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#eee" stroke-width="0.5"/>`;
+          return `<polygon points="${gp.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#ddd" stroke-width="0.5"/>`;
         }).join('');
         return `<svg class="gg-radar" width="80" height="80" viewBox="0 0 80 80">
           ${grid}
-          <polygon points="${poly}" fill="rgba(196,66,26,0.2)" stroke="#c4421a" stroke-width="1.5"/>
+          <polygon points="${poly}" fill="rgba(0,0,0,0.1)" stroke="#000" stroke-width="1.5"/>
         </svg>`;
       }
 

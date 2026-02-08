@@ -447,6 +447,8 @@ def main():
                         help="Preview without calling API or writing files")
     parser.add_argument("--delay", type=int, default=3,
                         help="Seconds between API calls (default: 3)")
+    parser.add_argument("--min-research-kb", type=float, default=5.0,
+                        help="Minimum research dump size in KB (default: 5.0)")
     args = parser.parse_args()
 
     complete_mode = False
@@ -458,7 +460,7 @@ def main():
         slugs = args.complete_slugs
         complete_mode = True
     elif args.auto:
-        slugs = get_enrichment_candidates(args.auto)
+        slugs = get_enrichment_candidates(args.auto, min_research_kb=args.min_research_kb)
         print(f"Auto-selected {len(slugs)} candidates")
     elif args.slugs:
         slugs = args.slugs

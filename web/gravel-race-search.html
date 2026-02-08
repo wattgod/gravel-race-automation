@@ -11,8 +11,8 @@
   Self-contained: no React, no build step, vanilla JS + CSS.
 -->
 <div id="gg-race-search">
-  <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap');
     #gg-race-search {
       font-family: 'Sometype Mono', monospace;
       max-width: 1200px;
@@ -29,7 +29,7 @@
       border: 3px solid #000;
     }
     .gg-questionnaire-header {
-      background: #000;
+      background: #59473c;
       color: #fff;
       padding: 14px 20px;
       display: flex;
@@ -94,9 +94,9 @@
     }
     .gg-btn-match {
       padding: 10px 24px;
-      background: #000;
+      background: #59473c;
       color: #fff;
-      border: 3px solid #000;
+      border: 3px solid #59473c;
       font-family: 'Sometype Mono', monospace;
       font-size: 13px;
       font-weight: 700;
@@ -104,12 +104,12 @@
       letter-spacing: 1.5px;
       cursor: pointer;
     }
-    .gg-btn-match:hover { background: #fff; color: #000; }
+    .gg-btn-match:hover { background: #8c7568; border-color: #8c7568; }
     .gg-btn-reset {
       padding: 10px 24px;
       background: #fff;
-      color: #000;
-      border: 2px solid #000;
+      color: #59473c;
+      border: 2px solid #59473c;
       font-family: 'Sometype Mono', monospace;
       font-size: 12px;
       font-weight: 700;
@@ -117,7 +117,7 @@
       letter-spacing: 1px;
       cursor: pointer;
     }
-    .gg-btn-reset:hover { background: #000; color: #fff; }
+    .gg-btn-reset:hover { background: #59473c; color: #fff; }
     .gg-match-badge {
       display: inline-block;
       padding: 2px 6px;
@@ -195,11 +195,11 @@
       letter-spacing: 1px;
     }
     .gg-sort-btn.active {
-      background: #000;
+      background: #59473c;
       color: #fff;
-      border-color: #000;
+      border-color: #59473c;
     }
-    .gg-sort-btn:hover { background: #000; color: #fff; }
+    .gg-sort-btn:hover { background: #59473c; color: #fff; border-color: #59473c; }
 
     /* ── Tier sections ── */
     .gg-tier-section {
@@ -216,10 +216,10 @@
       background: #fff;
       border-left: 6px solid #000;
     }
-    .gg-tier-section-header.tier-1 { border-left-color: #000; background: #000; color: #fff; }
-    .gg-tier-section-header.tier-1 .gg-tier-section-count { color: #999; }
+    .gg-tier-section-header.tier-1 { border-left-color: #59473c; background: #59473c; color: #fff; }
+    .gg-tier-section-header.tier-1 .gg-tier-section-count { color: #c4b5ab; }
     .gg-tier-section-header.tier-1 .gg-tier-section-chevron { color: #fff; }
-    .gg-tier-section-header.tier-2 { border-left-color: #000; }
+    .gg-tier-section-header.tier-2 { border-left-color: #8c7568; }
     .gg-tier-section-header.tier-3 { border-left-color: #999; }
     .gg-tier-section-header.tier-4 { border-left-color: #ccc; }
     .gg-tier-section-title {
@@ -394,7 +394,7 @@
       letter-spacing: 1px;
       cursor: pointer;
     }
-    .gg-load-more:hover { background: #000; color: #fff; }
+    .gg-load-more:hover { background: #59473c; color: #fff; border-color: #59473c; }
 
     /* ── Active filter pills ── */
     .gg-active-filters {
@@ -408,13 +408,13 @@
       align-items: center;
       gap: 6px;
       padding: 3px 10px;
-      background: #000;
+      background: #59473c;
       color: #fff;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border: 2px solid #000;
+      border: 2px solid #59473c;
     }
     .gg-filter-pill button {
       background: none;
@@ -439,7 +439,7 @@
       letter-spacing: 0.5px;
       cursor: pointer;
     }
-    .gg-clear-all:hover { background: #000; color: #fff; }
+    .gg-clear-all:hover { background: #59473c; color: #fff; border-color: #59473c; }
 
     /* ── No results ── */
     .gg-no-results {
@@ -478,9 +478,9 @@
       align-items: center;
       padding: 10px 16px;
       margin-bottom: 16px;
-      background: #000;
+      background: #59473c;
       color: #fff;
-      border: 3px solid #000;
+      border: 3px solid #59473c;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -489,7 +489,7 @@
     .gg-match-banner button {
       padding: 6px 14px;
       background: #fff;
-      color: #000;
+      color: #59473c;
       border: 2px solid #fff;
       font-family: 'Sometype Mono', monospace;
       font-size: 11px;
@@ -498,15 +498,28 @@
       letter-spacing: 1px;
       cursor: pointer;
     }
-    .gg-match-banner button:hover { background: #000; color: #fff; border-color: #fff; }
+    .gg-match-banner button:hover { background: #8c7568; color: #fff; border-color: #8c7568; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .gg-grid { grid-template-columns: 1fr; }
       .gg-filter-toggle { display: block; }
       .gg-filters { flex-direction: column; display: none; }
       .gg-filters.open { display: flex; }
       .gg-score-grid { grid-template-columns: 1fr; }
       .gg-slider-grid { grid-template-columns: 1fr; }
+      .gg-questionnaire-header h3 { font-size: 13px; letter-spacing: 1px; }
+      .gg-questionnaire-body { padding: 14px; }
+      .gg-slider-grid { gap: 12px; }
+      .gg-questionnaire-actions { flex-direction: column; align-items: stretch; }
+      .gg-btn-match, .gg-btn-reset { text-align: center; }
+      .gg-results-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .gg-tier-section-title h3 { font-size: 12px; letter-spacing: 1px; }
+      .gg-tier-section-header { padding: 10px 12px; }
+      .gg-tier-section-body { padding: 12px; }
+      .gg-card { padding: 12px; }
+      .gg-card-name { font-size: 13px; }
+      .gg-card-header { flex-direction: column; gap: 6px; }
+      .gg-match-banner { flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
 

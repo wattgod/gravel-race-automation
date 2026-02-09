@@ -24,7 +24,7 @@ import json
 import math
 import re
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Optional
 
@@ -1528,7 +1528,7 @@ def build_webpage_jsonld(rd: dict) -> dict:
         "@type": "WebPage",
         "name": f"{rd['name']} — Gravel God Race Profile",
         "url": canonical_url,
-        "dateModified": date.today().isoformat(),
+        "dateModified": rd.get('_file_mtime', date.today().isoformat()),
         "isPartOf": {
             "@type": "WebSite",
             "name": "Gravel God Cycling",
@@ -2028,7 +2028,10 @@ def load_race_data(filepath: Path) -> dict:
     """Load and normalize race data from a JSON file."""
     with open(filepath, 'r', encoding='utf-8') as f:
         raw = json.load(f)
-    return normalize_race_data(raw)
+    rd = normalize_race_data(raw)
+    # Store file mtime for accurate dateModified in JSON-LD
+    rd['_file_mtime'] = datetime.fromtimestamp(filepath.stat().st_mtime).strftime('%Y-%m-%d')
+    return rd
 
 
 def main():

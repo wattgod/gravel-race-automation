@@ -257,7 +257,7 @@ MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, 
                             import re
                             tool_urls = re.findall(r'https?://[^\s\)\]\"\'<>]+', block.content)
                             urls_found.extend(tool_urls)
-                    except:
+                    except Exception:
                         pass
         
         # If we found URLs in tool results but not in text, append them

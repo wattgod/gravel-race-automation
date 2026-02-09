@@ -39,6 +39,7 @@ def build_nav() -> str:
     <div class="gg-site-nav-inner">
       <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
+      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link" style="color:#1A8A82">HOW WE RATE</a>
     </div>
     <div class="gg-breadcrumb">
       <a href="{SITE_BASE_URL}/">Home</a>
@@ -59,7 +60,7 @@ def build_hero() -> str:
 
 
 def build_tier_system() -> str:
-    return '''<div class="gg-section" id="tier-system">
+    return f'''<div class="gg-section" id="tier-system">
     <div class="gg-section-header">
       <span class="gg-section-kicker">01</span>
       <h2 class="gg-section-title">The Tier System</h2>
@@ -69,7 +70,7 @@ def build_tier_system() -> str:
 
       <table class="gg-method-table">
         <thead>
-          <tr><th>Tier</th><th>Name</th><th>Score</th><th>Description</th></tr>
+          <tr><th>Tier</th><th>Name</th><th>Score</th><th>Description</th><th>Example</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -77,24 +78,28 @@ def build_tier_system() -> str:
             <td style="font-weight:700">Elite</td>
             <td>&ge; 80</td>
             <td>The definitive gravel events. World-class fields, iconic courses, bucket-list status.</td>
+            <td><a href="{SITE_BASE_URL}/race/unbound-200/" style="color:#1A8A82;font-weight:700">Unbound 200</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#000;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #000">TIER 2</span></td>
             <td style="font-weight:700">Contender</td>
             <td>&ge; 60</td>
             <td>Established races with strong reputations and competitive fields. The next tier of must-do events.</td>
+            <td><a href="{SITE_BASE_URL}/race/barry-roubaix/" style="color:#1A8A82;font-weight:700">Barry-Roubaix</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#666;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #666">TIER 3</span></td>
             <td style="font-weight:700">Solid</td>
             <td>&ge; 45</td>
             <td>Regional favorites and emerging races. Strong local scenes, genuine gravel character.</td>
+            <td><a href="{SITE_BASE_URL}/race/rooted-vermont/" style="color:#1A8A82;font-weight:700">Rooted Vermont</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#999;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #999">TIER 4</span></td>
             <td style="font-weight:700">Roster</td>
             <td>&lt; 45</td>
             <td>Up-and-coming races and local grinders. Grassroots gravel &mdash; small fields, raw vibes.</td>
+            <td><a href="{SITE_BASE_URL}/race/114-gravel-race/" style="color:#1A8A82;font-weight:700">114 Gravel Race</a></td>
           </tr>
         </tbody>
       </table>

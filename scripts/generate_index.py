@@ -373,27 +373,6 @@ def main():
     # Sort by tier (ascending) then overall_score (descending)
     index.sort(key=lambda x: (x["tier"], -(x["overall_score"] or 0)))
 
-    if args.stats:
-        print(f"\n=== RACE INDEX STATS ===\n")
-        print(f"Total races:     {len(index)}")
-        with_profile = sum(1 for e in index if e["has_profile"])
-        print(f"With profile:    {with_profile}")
-        print(f"Without profile: {len(index) - with_profile}")
-        print()
-        # By tier
-        for t in [1, 2, 3, 4]:
-            tier_races = [e for e in index if e["tier"] == t]
-            print(f"Tier {t}: {len(tier_races)} races")
-        # By region
-        print()
-        regions = {}
-        for e in index:
-            r = e.get("region", "Unknown")
-            regions[r] = regions.get(r, 0) + 1
-        for r, count in sorted(regions.items(), key=lambda x: -x[1]):
-            print(f"  {r}: {count}")
-        return
-
     # Write index
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = Path(args.output) if args.output else OUTPUT_DIR / "race-index.json"
@@ -413,6 +392,25 @@ def main():
                 jsonld_file.write_text(json.dumps(jsonld, indent=2) + "\n")
                 count += 1
         print(f"✓ Generated {count} JSON-LD files in {jsonld_dir}/")
+
+    # Show stats if requested
+    if args.stats:
+        print(f"\n=== RACE INDEX STATS ===\n")
+        print(f"Total races:     {len(index)}")
+        with_profile = sum(1 for e in index if e["has_profile"])
+        print(f"With profile:    {with_profile}")
+        print(f"Without profile: {len(index) - with_profile}")
+        print()
+        for t in [1, 2, 3, 4]:
+            tier_races = [e for e in index if e["tier"] == t]
+            print(f"Tier {t}: {len(tier_races)} races")
+        print()
+        regions = {}
+        for e in index:
+            r = e.get("region", "Unknown")
+            regions[r] = regions.get(r, 0) + 1
+        for r, count in sorted(regions.items(), key=lambda x: -x[1]):
+            print(f"  {r}: {count}")
 
 
 if __name__ == "__main__":

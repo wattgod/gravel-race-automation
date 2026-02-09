@@ -88,9 +88,39 @@
       letter-spacing: 0.5px;
     }
     #gg-race-search .gg-slider-row input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
       width: 100%;
-      accent-color: #59473c !important;
+      height: 6px;
+      background: #ccc;
+      outline: none;
       cursor: pointer;
+      margin: 8px 0;
+    }
+    #gg-race-search .gg-slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: #59473c;
+      border: 2px solid #000;
+      cursor: pointer;
+    }
+    #gg-race-search .gg-slider-row input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      background: #59473c;
+      border: 2px solid #000;
+      border-radius: 0;
+      cursor: pointer;
+    }
+    #gg-race-search .gg-slider-row input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+      background: #ccc;
+    }
+    #gg-race-search .gg-slider-row input[type="range"]::-moz-range-track {
+      height: 6px;
+      background: #ccc;
     }
     #gg-race-search .gg-questionnaire-actions {
       display: flex;

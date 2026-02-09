@@ -115,8 +115,8 @@ def recalculate_race(data: dict, slug: str) -> dict:
 
     if override_reason:
         rating["tier_override_reason"] = override_reason
-    elif "tier_override_reason" in rating and prestige < 4:
-        # Remove stale override reason if no override applies
+    elif "tier_override_reason" in rating:
+        # Remove stale override reason if no override was applied
         del rating["tier_override_reason"]
 
     return change

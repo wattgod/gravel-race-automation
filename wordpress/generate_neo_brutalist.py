@@ -810,12 +810,19 @@ def build_sports_event_jsonld(rd: dict) -> dict:
         }
 
     if rd['overall_score']:
-        jsonld["aggregateRating"] = {
-            "@type": "AggregateRating",
-            "ratingValue": str(rd['overall_score']),
-            "bestRating": "100",
-            "reviewCount": "1",
-            "name": "Gravel God Rating",
+        jsonld["review"] = {
+            "@type": "Review",
+            "author": {
+                "@type": "Organization",
+                "name": "Gravel God",
+                "url": SITE_BASE_URL,
+            },
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": str(rd['overall_score']),
+                "bestRating": "100",
+                "worstRating": "0",
+            },
         }
 
     official_site = rd['logistics'].get('official_site', '')
@@ -1499,13 +1506,6 @@ def build_similar_races(rd: dict, race_index: list) -> str:
 
 def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
     """Build BreadcrumbList JSON-LD schema."""
-    # Find region from index
-    region = 'Gravel Races'
-    for r in race_index:
-        if r.get('slug') == rd['slug']:
-            region = r.get('region', 'Gravel Races')
-            break
-
     return {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -1513,10 +1513,8 @@ def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
             {"@type": "ListItem", "position": 1, "name": "Home",
              "item": SITE_BASE_URL},
             {"@type": "ListItem", "position": 2, "name": "Gravel Races",
-             "item": f"{SITE_BASE_URL}/races/"},
-            {"@type": "ListItem", "position": 3, "name": region,
-             "item": f"{SITE_BASE_URL}/races/{region.lower().replace(' ', '-')}/"},
-            {"@type": "ListItem", "position": 4, "name": rd['name'],
+             "item": f"{SITE_BASE_URL}/gravel-races/"},
+            {"@type": "ListItem", "position": 3, "name": rd['name'],
              "item": f"{SITE_BASE_URL}/race/{rd['slug']}/"},
         ]
     }
@@ -1549,24 +1547,16 @@ def build_webpage_jsonld(rd: dict) -> dict:
 
 def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
-    region = 'Gravel Races'
-    for r in race_index:
-        if r.get('slug') == rd['slug']:
-            region = r.get('region', 'Gravel Races')
-            break
-
-    region_slug = region.lower().replace(' ', '-')
     return f'''<nav class="gg-site-nav">
     <div class="gg-site-nav-inner">
       <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
+      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link">HOW WE RATE</a>
     </div>
     <div class="gg-breadcrumb">
       <a href="{SITE_BASE_URL}/">Home</a>
       <span class="gg-breadcrumb-sep">&rsaquo;</span>
       <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
-      <span class="gg-breadcrumb-sep">&rsaquo;</span>
-      <a href="{SITE_BASE_URL}/races/{esc(region_slug)}/">{esc(region)}</a>
       <span class="gg-breadcrumb-sep">&rsaquo;</span>
       <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
     </div>

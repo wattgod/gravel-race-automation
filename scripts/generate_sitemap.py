@@ -33,6 +33,20 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None)
     SubElement(url, 'changefreq').text = 'weekly'
     SubElement(url, 'priority').text = '1.0'
 
+    # Gravel Races search page
+    url = SubElement(urlset, 'url')
+    SubElement(url, 'loc').text = f"{SITE_BASE_URL}/gravel-races/"
+    SubElement(url, 'lastmod').text = today
+    SubElement(url, 'changefreq').text = 'weekly'
+    SubElement(url, 'priority').text = '0.9'
+
+    # Methodology page
+    url = SubElement(urlset, 'url')
+    SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/methodology/"
+    SubElement(url, 'lastmod').text = today
+    SubElement(url, 'changefreq').text = 'monthly'
+    SubElement(url, 'priority').text = '0.8'
+
     # Race pages
     for race in race_index:
         slug = race.get('slug', '')

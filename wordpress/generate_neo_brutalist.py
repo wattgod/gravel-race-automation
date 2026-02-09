@@ -1547,11 +1547,19 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-logistics-item-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8c7568; margin-bottom: 4px; }
 .gg-neo-brutalist-page .gg-logistics-item-value { font-size: 12px; color: #333; line-height: 1.5; }
 
+/* Instagram carousel */
+.gg-neo-brutalist-page .gg-instagram-body { padding: 0; }
+.gg-neo-brutalist-page .gg-instagram-carousel { min-height: 200px; display: flex; align-items: center; justify-content: center; }
+.gg-neo-brutalist-page .gg-instagram-placeholder { text-align: center; padding: 40px 20px; }
+.gg-neo-brutalist-page .gg-instagram-icon { margin-bottom: 12px; }
+.gg-neo-brutalist-page .gg-instagram-hashtag { font-size: 16px; font-weight: 700; color: #59473c; letter-spacing: 1px; margin: 0 0 4px 0; }
+.gg-neo-brutalist-page .gg-instagram-cta-text { font-size: 12px; color: #8c7568; margin: 0; }
+
 /* News ticker */
 .gg-neo-brutalist-page .gg-news-ticker { background: #000; border: 3px solid #000; margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }
 .gg-neo-brutalist-page .gg-news-ticker-label { background: #B7950B; color: #000; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0 16px; display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: 3px solid #000; }
 .gg-neo-brutalist-page .gg-news-ticker-track { flex: 1; overflow: hidden; position: relative; display: flex; align-items: center; }
-.gg-neo-brutalist-page .gg-news-ticker-content { display: flex; align-items: center; white-space: nowrap; animation: gg-ticker-scroll 60s linear infinite; padding-left: 100%; }
+.gg-neo-brutalist-page .gg-news-ticker-content { display: flex; align-items: center; white-space: nowrap; animation: gg-ticker-scroll 80s linear infinite; padding-left: 100%; }
 .gg-neo-brutalist-page .gg-news-ticker-content:hover { animation-play-state: paused; }
 .gg-neo-brutalist-page .gg-news-ticker-item { display: inline-flex; align-items: center; gap: 6px; padding: 0 32px; }
 .gg-neo-brutalist-page .gg-news-ticker-item a { color: #d4c5b9; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
@@ -1630,6 +1638,7 @@ def generate_page(rd: dict) -> str:
     history = build_history(rd)
     pullquote = build_pullquote(rd)
     course_route = build_course_route(rd)
+    instagram = build_instagram_section(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd)
     news = build_news_section(rd)
@@ -1642,7 +1651,7 @@ def generate_page(rd: dict) -> str:
 
     # Section order: overview → history → pullquote → course → ratings → verdict → news → training → logistics
     content_sections = []
-    for section in [course_overview, history, pullquote, course_route,
+    for section in [course_overview, history, pullquote, course_route, instagram,
                     ratings, verdict, news, training, logistics_sec]:
         if section:
             content_sections.append(section)

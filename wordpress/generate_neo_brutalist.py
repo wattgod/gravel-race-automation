@@ -19,6 +19,7 @@ Usage:
 """
 
 import argparse
+import hashlib
 import html
 import json
 import math
@@ -1897,10 +1898,54 @@ def get_page_css() -> str:
 </style>'''
 
 
+# ── Shared Assets ─────────────────────────────────────────────
+
+
+def _extract_css_content() -> str:
+    """Extract raw CSS from get_page_css() (strip <style> tags)."""
+    raw = get_page_css()
+    return raw.replace('<style>', '').replace('</style>', '').strip()
+
+
+def _extract_js_content() -> str:
+    """Extract raw JS from build_inline_js() (strip <script> tags)."""
+    raw = build_inline_js()
+    return raw.replace('<script>', '').replace('</script>', '').strip()
+
+
+def write_shared_assets(output_dir: Path) -> dict:
+    """Write shared CSS/JS to external files with content hash. Returns asset info."""
+    assets_dir = output_dir / "assets"
+    assets_dir.mkdir(parents=True, exist_ok=True)
+
+    css_content = _extract_css_content()
+    js_content = _extract_js_content()
+
+    css_hash = hashlib.md5(css_content.encode()).hexdigest()[:8]
+    js_hash = hashlib.md5(js_content.encode()).hexdigest()[:8]
+
+    css_file = f"gg-styles.{css_hash}.css"
+    js_file = f"gg-scripts.{js_hash}.js"
+
+    (assets_dir / css_file).write_text(css_content, encoding='utf-8')
+    (assets_dir / js_file).write_text(js_content, encoding='utf-8')
+
+    print(f"  Wrote {assets_dir / css_file} ({len(css_content):,} bytes)")
+    print(f"  Wrote {assets_dir / js_file} ({len(js_content):,} bytes)")
+
+    return {
+        "css_tag": f'<link rel="stylesheet" href="/race/assets/{css_file}">',
+        "js_tag": f'<script src="/race/assets/{js_file}"></script>',
+    }
+
+
 # ── Page Assembly ──────────────────────────────────────────────
 
-def generate_page(rd: dict, race_index: list = None) -> str:
-    """Generate complete HTML page from normalized race data."""
+def generate_page(rd: dict, race_index: list = None, external_assets: dict = None) -> str:
+    """Generate complete HTML page from normalized race data.
+
+    If external_assets is provided, references external CSS/JS files instead of inlining.
+    """
     race_index = race_index or []
     q_url = get_questionnaire_url(rd['slug'])
     canonical_url = f"{SITE_BASE_URL}/race/{rd['slug']}/"
@@ -1943,8 +1988,14 @@ def generate_page(rd: dict, race_index: list = None) -> str:
     similar = build_similar_races(rd, race_index)
     footer = build_footer()
     sticky_cta = build_sticky_cta(rd['name'], q_url)
-    inline_js = build_inline_js()
-    css = get_page_css()
+
+    # Use external assets if provided, otherwise inline
+    if external_assets:
+        css = external_assets['css_tag']
+        inline_js = external_assets['js_tag']
+    else:
+        css = get_page_css()
+        inline_js = build_inline_js()
 
     # Section order
     content_sections = []
@@ -2089,11 +2140,14 @@ def main():
         success = 0
         errors = []
 
+        # Write shared CSS/JS assets
+        assets = write_shared_assets(output_dir)
+
         for i, f in enumerate(files, 1):
             slug = f.stem.replace('-data', '')
             try:
                 rd = load_race_data(f)
-                page_html = generate_page(rd, race_index)
+                page_html = generate_page(rd, race_index, external_assets=assets)
                 out = output_dir / f"{slug}.html"
                 out.write_text(page_html, encoding='utf-8')
                 success += 1

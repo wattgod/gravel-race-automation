@@ -21,6 +21,7 @@ from generate_neo_brutalist import (
     SUBSTACK_URL,
     get_page_css,
     build_inline_js,
+    write_shared_assets,
 )
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -333,7 +334,7 @@ def build_jsonld() -> str:
 # ── Assemble page ──────────────────────────────────────────────
 
 
-def generate_methodology_page() -> str:
+def generate_methodology_page(external_assets: dict = None) -> str:
     canonical_url = f"{SITE_BASE_URL}/race/methodology/"
 
     nav = build_nav()
@@ -344,10 +345,15 @@ def generate_methodology_page() -> str:
     prestige = build_prestige_override()
     faq = build_faq()
     footer = build_footer()
-    page_css = get_page_css()
     method_css = build_methodology_css()
-    inline_js = build_inline_js()
     jsonld = build_jsonld()
+
+    if external_assets:
+        page_css = external_assets['css_tag']
+        inline_js = external_assets['js_tag']
+    else:
+        page_css = get_page_css()
+        inline_js = build_inline_js()
 
     og_tags = f'''<meta property="og:title" content="How We Rate Gravel Races — Gravel God Methodology">
   <meta property="og:description" content="The complete scoring methodology behind Gravel God race ratings.">
@@ -408,7 +414,10 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    html_content = generate_methodology_page()
+    # Reuse shared assets if they exist, otherwise write them
+    assets = write_shared_assets(output_dir)
+
+    html_content = generate_methodology_page(external_assets=assets)
     output_file = output_dir / "methodology.html"
     output_file.write_text(html_content, encoding="utf-8")
     print(f"Generated {output_file} ({len(html_content):,} bytes)")

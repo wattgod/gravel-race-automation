@@ -24,6 +24,7 @@ import json
 import math
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any, Optional
 
@@ -760,6 +761,8 @@ def build_sports_event_jsonld(rd: dict) -> dict:
         "name": rd['name'],
         "description": rd['tagline'],
         "sport": "Gravel Cycling",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     }
 
     # Parse ISO date
@@ -773,9 +776,27 @@ def build_sports_event_jsonld(rd: dict) -> dict:
         month_num = months.get(month_name.lower(), "01")
         jsonld["startDate"] = f"{year}-{month_num}-{int(day):02d}"
 
+    # Location with PostalAddress
     location = rd['vitals'].get('location', '')
     if location and location != '--':
-        jsonld["location"] = {"@type": "Place", "name": location}
+        parts = [p.strip() for p in location.split(',')]
+        place = {"@type": "Place", "name": location}
+        if len(parts) >= 2:
+            place["address"] = {
+                "@type": "PostalAddress",
+                "addressLocality": parts[0],
+                "addressRegion": parts[1],
+                "addressCountry": "US",
+            }
+        jsonld["location"] = place
+
+    # OG image
+    jsonld["image"] = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
+
+    # Organizer from history.founder
+    founder = rd.get('history', {}).get('founder', '')
+    if founder:
+        jsonld["organizer"] = {"@type": "Person", "name": founder}
 
     # Parse price
     reg = rd['vitals'].get('registration', '')
@@ -1495,9 +1516,61 @@ def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
              "item": f"{SITE_BASE_URL}/races/"},
             {"@type": "ListItem", "position": 3, "name": region,
              "item": f"{SITE_BASE_URL}/races/{region.lower().replace(' ', '-')}/"},
-            {"@type": "ListItem", "position": 4, "name": rd['name']},
+            {"@type": "ListItem", "position": 4, "name": rd['name'],
+             "item": f"{SITE_BASE_URL}/race/{rd['slug']}/"},
         ]
     }
+
+
+def build_webpage_jsonld(rd: dict) -> dict:
+    """Build WebPage JSON-LD with speakable targeting key content sections."""
+    canonical_url = f"{SITE_BASE_URL}/race/{rd['slug']}/"
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": f"{rd['name']} — Gravel God Race Profile",
+        "url": canonical_url,
+        "dateModified": date.today().isoformat(),
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Gravel God Cycling",
+            "url": SITE_BASE_URL,
+        },
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [
+                ".gg-hero-tagline",
+                ".gg-verdict-text",
+                ".gg-faq-answer",
+            ],
+        },
+    }
+
+
+def build_nav_header(rd: dict, race_index: list) -> str:
+    """Build visible navigation header with breadcrumb trail."""
+    region = 'Gravel Races'
+    for r in race_index:
+        if r.get('slug') == rd['slug']:
+            region = r.get('region', 'Gravel Races')
+            break
+
+    region_slug = region.lower().replace(' ', '-')
+    return f'''<nav class="gg-site-nav">
+    <div class="gg-site-nav-inner">
+      <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
+      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
+    </div>
+    <div class="gg-breadcrumb">
+      <a href="{SITE_BASE_URL}/">Home</a>
+      <span class="gg-breadcrumb-sep">&rsaquo;</span>
+      <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
+      <span class="gg-breadcrumb-sep">&rsaquo;</span>
+      <a href="{SITE_BASE_URL}/races/{esc(region_slug)}/">{esc(region)}</a>
+      <span class="gg-breadcrumb-sep">&rsaquo;</span>
+      <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
+    </div>
+  </nav>'''
 
 
 def build_footer() -> str:
@@ -1789,6 +1862,18 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-similar-name { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
 .gg-neo-brutalist-page .gg-similar-meta { display: block; font-size: 10px; color: #8c7568; letter-spacing: 0.5px; }
 
+/* Site nav */
+.gg-site-nav { background: #59473c; padding: 12px 20px; border: 3px solid #000; border-bottom: none; }
+.gg-site-nav-inner { display: flex; align-items: center; gap: 24px; margin-bottom: 6px; }
+.gg-site-nav-brand { color: #fff; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 3px; }
+.gg-site-nav-link { color: #d4c5b9; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.gg-site-nav-link:hover { color: #fff; }
+.gg-breadcrumb { font-family: 'Sometype Mono', monospace; font-size: 11px; }
+.gg-breadcrumb a { color: #c4b5ab; text-decoration: none; }
+.gg-breadcrumb a:hover { color: #fff; }
+.gg-breadcrumb-sep { color: #8c7568; margin: 0 4px; }
+.gg-breadcrumb-current { color: #d4c5b9; }
+
 /* Footer */
 .gg-neo-brutalist-page .gg-footer { background: #000; color: #d4c5b9; padding: 24px 20px; border: 3px solid #000; margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }
 .gg-neo-brutalist-page .gg-footer a { color: #fff; text-decoration: none; }
@@ -1841,12 +1926,16 @@ def generate_page(rd: dict, race_index: list = None) -> str:
         breadcrumb = build_breadcrumb_jsonld(rd, race_index)
         jsonld_parts.append(json.dumps(breadcrumb, indent=2, ensure_ascii=False))
 
+    webpage = build_webpage_jsonld(rd)
+    jsonld_parts.append(json.dumps(webpage, indent=2, ensure_ascii=False))
+
     jsonld_html = '\n'.join(
         f'<script type="application/ld+json">\n{j}\n</script>'
         for j in jsonld_parts
     )
 
     # Build sections
+    nav_header = build_nav_header(rd, race_index)
     hero = build_hero(rd)
     toc = build_toc()
     course_overview = build_course_overview(rd)
@@ -1886,6 +1975,7 @@ def generate_page(rd: dict, race_index: list = None) -> str:
   <meta property="og:image" content="{esc(og_image_url)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Profile">
   <meta name="twitter:description" content="{esc(rd['tagline'])}">
@@ -1909,6 +1999,8 @@ def generate_page(rd: dict, race_index: list = None) -> str:
 <body>
 
 <div class="gg-neo-brutalist-page">
+  {nav_header}
+
   {hero}
 
   {toc}

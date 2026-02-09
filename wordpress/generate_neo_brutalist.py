@@ -86,6 +86,8 @@ QUESTIONNAIRE_SLUGS = {
 
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 COACHING_URL = "https://www.wattgod.com/apply"
+SITE_BASE_URL = "https://gravelgodcycling.com"
+EMAIL_FORM_ACTION = "https://gravelgodcycling.com/subscribe"  # Wire to Mailchimp/ConvertKit
 
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
@@ -412,7 +414,7 @@ def build_sticky_cta(race_name: str, url: str) -> str:
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
-    <a href="{esc(url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY PLAN</a>
+    <a href="{esc(url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY FREE PLAN</a>
   </div>
 </div>'''
 
@@ -429,6 +431,23 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
     trigger.setAttribute('aria-expanded', expanded);
   });
 });
+
+// Race day countdown
+(function() {
+  var cd = document.querySelector('.gg-countdown');
+  if (!cd) return;
+  var dateStr = cd.getAttribute('data-date');
+  if (!dateStr) return;
+  var raceDate = new Date(dateStr + 'T00:00:00');
+  var now = new Date();
+  var diff = Math.ceil((raceDate - now) / (1000 * 60 * 60 * 24));
+  var el = document.getElementById('gg-days-left');
+  if (el && diff > 0) {
+    el.textContent = diff;
+  } else if (el && diff <= 0) {
+    cd.style.display = 'none';
+  }
+})();
 
 // Hero score counter animation
 (function() {
@@ -870,7 +889,7 @@ def build_course_overview(rd: dict) -> str:
     rwgps_name = rd['course'].get('ridewithgps_name', '')
     if rwgps_id:
         map_html = f'''<div class="gg-map-embed">
-        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;title={esc(rwgps_name)}" scrolling="no" allowfullscreen></iframe>
+        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;title={esc(rwgps_name)}" scrolling="no" allowfullscreen loading="lazy"></iframe>
       </div>'''
 
     # Stat cards — (value, label, countable) where countable means "animate the number"
@@ -1129,8 +1148,21 @@ def build_verdict(rd: dict) -> str:
 
 
 def build_training(rd: dict, q_url: str) -> str:
-    """Build [06] Training section — two distinct paths, clear differentiation."""
+    """Build [06] Training section — two distinct paths, countdown, clear differentiation."""
     race_name = rd['name']
+
+    # Race date countdown — parsed from date_specific
+    countdown_html = ''
+    date_specific = rd['vitals'].get('date_specific', '')
+    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
+    if date_match:
+        year, month_name, day = date_match.groups()
+        months = {"january": "01", "february": "02", "march": "03", "april": "04",
+                  "may": "05", "june": "06", "july": "07", "august": "08",
+                  "september": "09", "october": "10", "november": "11", "december": "12"}
+        month_num = months.get(month_name.lower(), "01")
+        iso_date = f"{year}-{month_num}-{int(day):02d}"
+        countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">--</span> DAYS UNTIL {esc(race_name.upper())}</div>'
 
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
@@ -1138,15 +1170,16 @@ def build_training(rd: dict, q_url: str) -> str:
       <h2 class="gg-section-title">Training</h2>
     </div>
     <div class="gg-section-body">
+      {countdown_html}
       <div class="gg-training-primary">
-        <h3>Structured Plan</h3>
-        <p class="gg-training-subtitle">Self-guided. Built for {esc(race_name)}.</p>
+        <h3>Free Structured Plan</h3>
+        <p class="gg-training-subtitle">Self-guided. Built for {esc(race_name)}. Yours in 2 minutes.</p>
         <ul class="gg-training-bullets">
-          <li>Answer a 2-minute questionnaire about your fitness and schedule</li>
+          <li>Answer a quick questionnaire about your fitness and schedule</li>
           <li>Get a periodized plan calibrated to {esc(race_name)}</li>
           <li>Follow it on your own, at your pace</li>
         </ul>
-        <a href="{esc(q_url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY PLAN</a>
+        <a href="{esc(q_url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY FREE PLAN</a>
       </div>
       <div class="gg-training-divider">
         <span class="gg-training-divider-line"></span>
@@ -1319,6 +1352,156 @@ def linkify_alternatives(alt_text: str, all_slugs: set) -> str:
     return result
 
 
+def build_email_capture(rd: dict) -> str:
+    """Build email capture section — placed after verdict for peak-interest conversion."""
+    race_name = rd['name']
+    return f'''<div class="gg-email-capture gg-fade-section">
+    <div class="gg-email-capture-inner">
+      <h3 class="gg-email-capture-title">RACE INTEL, DELIVERED</h3>
+      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races. Free. No spam.</p>
+      <form class="gg-email-capture-form" action="{esc(EMAIL_FORM_ACTION)}" method="POST">
+        <input type="email" name="email" placeholder="YOUR EMAIL" required class="gg-email-input" aria-label="Email address">
+        <button type="submit" class="gg-btn gg-btn--primary">SUBSCRIBE</button>
+      </form>
+    </div>
+  </div>'''
+
+
+def build_visible_faq(rd: dict) -> str:
+    """Build visible FAQ section for long-tail SEO. Uses same data as FAQ schema
+    but renders as on-page content with H3 headings for search engines."""
+    explanations = rd.get('explanations', {})
+    name = rd['name']
+    fv = rd['final_verdict']
+
+    questions = []
+    # Top FAQ dimensions
+    for dim in FAQ_PRIORITY:
+        if len(questions) >= 4:
+            break
+        entry = explanations.get(dim, {})
+        expl = entry.get('explanation', '').strip()
+        if not expl:
+            continue
+        q_template = FAQ_TEMPLATES.get(dim, f'What about {dim} at {{name}}?')
+        questions.append((q_template.format(name=name), expl))
+
+    # Verdict question
+    should_race = fv.get('should_you_race', '').strip()
+    if should_race:
+        questions.append((f"Should I race {name}?", should_race))
+
+    if not questions:
+        return ''
+
+    items = []
+    for q, a in questions:
+        items.append(f'''<div class="gg-faq-item">
+        <h3 class="gg-faq-question">{esc(q)}</h3>
+        <p class="gg-faq-answer">{esc(a)}</p>
+      </div>''')
+
+    return f'''<section id="faq" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[&mdash;]</span>
+      <h2 class="gg-section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="gg-section-body">
+      {''.join(items)}
+    </div>
+  </section>'''
+
+
+def build_similar_races(rd: dict, race_index: list) -> str:
+    """Build Similar Races section from the race index.
+    Finds 4 races in same region or adjacent tier, excluding self."""
+    if not race_index:
+        return ''
+
+    slug = rd['slug']
+    tier = rd.get('tier', 4)
+    score = rd.get('overall_score', 0)
+    # Derive region from location
+    location = rd['vitals'].get('location', '')
+
+    # Find region by matching this slug in the index
+    my_region = ''
+    for r in race_index:
+        if r.get('slug') == slug:
+            my_region = r.get('region', '')
+            break
+
+    candidates = []
+    for r in race_index:
+        if r.get('slug') == slug:
+            continue
+        r_region = r.get('region', '')
+        r_tier = r.get('tier', 4)
+        r_score = r.get('overall_score', 0)
+        # Score: same region = 10 points, same tier = 5, adjacent tier = 2, score proximity
+        relevance = 0
+        if my_region and r_region == my_region:
+            relevance += 10
+        if r_tier == tier:
+            relevance += 5
+        elif abs(r_tier - tier) == 1:
+            relevance += 2
+        relevance += max(0, 10 - abs(r_score - score) / 5)
+        candidates.append((relevance, r))
+
+    # Sort by relevance descending, take top 4
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    top = [c[1] for c in candidates[:4]]
+
+    if not top:
+        return ''
+
+    cards = []
+    for r in top:
+        tier_num = r.get('tier', 4)
+        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card">
+        <span class="gg-similar-tier">T{tier_num}</span>
+        <span class="gg-similar-name">{esc(r['name'])}</span>
+        <span class="gg-similar-meta">{esc(r.get('location', ''))} &middot; {r.get('overall_score', 0)}/100</span>
+      </a>''')
+
+    return f'''<section class="gg-section gg-fade-section">
+    <div class="gg-section-header gg-section-header--dark">
+      <span class="gg-section-kicker">[&mdash;]</span>
+      <h2 class="gg-section-title">Similar Races</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-similar-grid">
+        {''.join(cards)}
+      </div>
+    </div>
+  </section>'''
+
+
+def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
+    """Build BreadcrumbList JSON-LD schema."""
+    # Find region from index
+    region = 'Gravel Races'
+    for r in race_index:
+        if r.get('slug') == rd['slug']:
+            region = r.get('region', 'Gravel Races')
+            break
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home",
+             "item": SITE_BASE_URL},
+            {"@type": "ListItem", "position": 2, "name": "Gravel Races",
+             "item": f"{SITE_BASE_URL}/races/"},
+            {"@type": "ListItem", "position": 3, "name": region,
+             "item": f"{SITE_BASE_URL}/races/{region.lower().replace(' ', '-')}/"},
+            {"@type": "ListItem", "position": 4, "name": rd['name']},
+        ]
+    }
+
+
 def build_footer() -> str:
     """Build page footer with disclaimer."""
     return '''<div class="gg-footer">
@@ -1332,7 +1515,6 @@ def get_page_css() -> str:
     """Return the full page CSS. Brand colors: #59473c (primary brown),
     #8c7568 (lighter brown), #1A8A82 (dark teal), #B7950B (dark gold), #c4b5ab (tan)."""
     return '''<style>
-@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap');
 
 /* Page wrapper */
 .gg-neo-brutalist-page {
@@ -1582,6 +1764,36 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-fade-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .gg-neo-brutalist-page .gg-fade-section.is-visible { opacity: 1; transform: translateY(0); }
 
+/* Email capture */
+.gg-neo-brutalist-page .gg-email-capture { margin-bottom: 32px; border: 3px solid #000; background: #59473c; padding: 0; }
+.gg-neo-brutalist-page .gg-email-capture-inner { padding: 32px; text-align: center; }
+.gg-neo-brutalist-page .gg-email-capture-title { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; margin: 0 0 8px 0; }
+.gg-neo-brutalist-page .gg-email-capture-text { font-size: 12px; color: #d4c5b9; line-height: 1.6; margin: 0 0 20px 0; max-width: 500px; margin-left: auto; margin-right: auto; }
+.gg-neo-brutalist-page .gg-email-capture-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+.gg-neo-brutalist-page .gg-email-input { flex: 1; padding: 10px 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; border: 2px solid #000; border-right: none; background: #fff; color: #000; letter-spacing: 1px; }
+.gg-neo-brutalist-page .gg-email-input::placeholder { color: #c4b5ab; letter-spacing: 2px; }
+.gg-neo-brutalist-page .gg-email-capture .gg-btn { border-left: none; }
+
+/* Countdown */
+.gg-neo-brutalist-page .gg-countdown { border: 3px solid #1A8A82; background: #000; color: #fff; padding: 16px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; }
+.gg-neo-brutalist-page .gg-countdown-num { font-size: 32px; color: #1A8A82; display: block; line-height: 1.2; }
+
+/* FAQ */
+.gg-neo-brutalist-page .gg-faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0d6cc; }
+.gg-neo-brutalist-page .gg-faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.gg-neo-brutalist-page .gg-faq-question { font-size: 13px; font-weight: 700; color: #000; margin: 0 0 8px 0; text-transform: none; letter-spacing: 0; }
+.gg-neo-brutalist-page .gg-faq-answer { font-size: 12px; color: #555; line-height: 1.7; margin: 0; }
+
+/* Similar races */
+.gg-neo-brutalist-page .gg-similar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gg-neo-brutalist-page .gg-similar-card { display: block; border: 2px solid #000; padding: 16px; background: #f5f0eb; text-decoration: none; color: #000; transition: transform 0.15s, background 0.15s; position: relative; }
+.gg-neo-brutalist-page .gg-similar-card:hover { transform: translate(-2px, -2px); background: #fff; }
+.gg-neo-brutalist-page .gg-similar-card::after { content: ''; position: absolute; top: 4px; left: 4px; width: 100%; height: 100%; background: #000; z-index: -1; transition: top 0.15s, left 0.15s; }
+.gg-neo-brutalist-page .gg-similar-card:hover::after { top: 6px; left: 6px; }
+.gg-neo-brutalist-page .gg-similar-tier { display: inline-block; background: #000; color: #fff; padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+.gg-neo-brutalist-page .gg-similar-name { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.gg-neo-brutalist-page .gg-similar-meta { display: block; font-size: 10px; color: #8c7568; letter-spacing: 0.5px; }
+
 /* Footer */
 .gg-neo-brutalist-page .gg-footer { background: #000; color: #d4c5b9; padding: 24px 20px; border: 3px solid #000; margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }
 .gg-neo-brutalist-page .gg-footer a { color: #fff; text-decoration: none; }
@@ -1608,15 +1820,22 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pullquote { padding: 24px 20px; }
   .gg-neo-brutalist-page .gg-pullquote-text { font-size: 15px; }
   .gg-neo-brutalist-page .gg-news-ticker-label { font-size: 9px; padding: 0 10px; letter-spacing: 1px; }
+  .gg-neo-brutalist-page .gg-email-capture-form { flex-direction: column; }
+  .gg-neo-brutalist-page .gg-email-input { border-right: 2px solid #000; border-bottom: none; }
+  .gg-neo-brutalist-page .gg-email-capture .gg-btn { border-left: 2px solid #000; }
+  .gg-neo-brutalist-page .gg-similar-grid { grid-template-columns: 1fr; }
+  .gg-neo-brutalist-page .gg-countdown-num { font-size: 24px; }
 }
 </style>'''
 
 
 # ── Page Assembly ──────────────────────────────────────────────
 
-def generate_page(rd: dict) -> str:
+def generate_page(rd: dict, race_index: list = None) -> str:
     """Generate complete HTML page from normalized race data."""
+    race_index = race_index or []
     q_url = get_questionnaire_url(rd['slug'])
+    canonical_url = f"{SITE_BASE_URL}/race/{rd['slug']}/"
 
     # JSON-LD
     jsonld_parts = []
@@ -1625,6 +1844,9 @@ def generate_page(rd: dict) -> str:
     faq = build_faq_jsonld(rd)
     if faq:
         jsonld_parts.append(json.dumps(faq, indent=2, ensure_ascii=False))
+    if race_index:
+        breadcrumb = build_breadcrumb_jsonld(rd, race_index)
+        jsonld_parts.append(json.dumps(breadcrumb, indent=2, ensure_ascii=False))
 
     jsonld_html = '\n'.join(
         f'<script type="application/ld+json">\n{j}\n</script>'
@@ -1641,18 +1863,22 @@ def generate_page(rd: dict) -> str:
     instagram = build_instagram_section(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd)
+    email_capture = build_email_capture(rd)
+    visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
     training = build_training(rd, q_url)
     logistics_sec = build_logistics_section(rd)
+    similar = build_similar_races(rd, race_index)
     footer = build_footer()
     sticky_cta = build_sticky_cta(rd['name'], q_url)
     inline_js = build_inline_js()
     css = get_page_css()
 
-    # Section order: overview → history → pullquote → course → ratings → verdict → news → training → logistics
+    # Section order
     content_sections = []
     for section in [course_overview, history, pullquote, course_route, instagram,
-                    ratings, verdict, news, training, logistics_sec]:
+                    ratings, verdict, email_capture, visible_faq, news,
+                    training, logistics_sec, similar]:
         if section:
             content_sections.append(section)
 
@@ -1662,6 +1888,7 @@ def generate_page(rd: dict) -> str:
     og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Profile">
   <meta property="og:description" content="{esc(rd['tagline'])}">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="{esc(canonical_url)}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Profile">
   <meta name="twitter:description" content="{esc(rd['tagline'])}">'''
@@ -1673,6 +1900,10 @@ def generate_page(rd: dict) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{esc(rd["name"])} — Gravel God Race Profile</title>
   <meta name="description" content="{esc(rd["tagline"])}">
+  <link rel="canonical" href="{esc(canonical_url)}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap">
   {og_tags}
   {jsonld_html}
   {css}
@@ -1750,6 +1981,14 @@ def main():
         output_dir = script_dir / 'output'
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Load race index for internal linking + breadcrumbs
+    index_path = project_root / 'web' / 'race-index.json'
+    race_index = []
+    if index_path.exists():
+        with open(index_path, 'r', encoding='utf-8') as f:
+            race_index = json.load(f)
+        print(f"Loaded race index: {len(race_index)} races")
+
     if args.all:
         # Generate for all races in the primary data directory
         primary = None
@@ -1771,7 +2010,7 @@ def main():
             slug = f.stem.replace('-data', '')
             try:
                 rd = load_race_data(f)
-                page_html = generate_page(rd)
+                page_html = generate_page(rd, race_index)
                 out = output_dir / f"{slug}.html"
                 out.write_text(page_html, encoding='utf-8')
                 success += 1
@@ -1795,13 +2034,13 @@ def main():
             sys.exit(1)
 
         rd = load_race_data(filepath)
-        page_html = generate_page(rd)
+        page_html = generate_page(rd, race_index)
         out = output_dir / f"{args.slug}.html"
         out.write_text(page_html, encoding='utf-8')
         print(f"Generated: {out}")
         print(f"  Race: {rd['name']}")
         print(f"  Tier: {rd['tier_label']} (Score: {rd['overall_score']})")
-        print(f"  Sections: 7 (Course Overview, History, The Course, Ratings, Verdict, Training, Logistics)")
+        print(f"  Sections: Course Overview, History, Course, Ratings, Verdict, FAQ, Training, Logistics, Similar Races")
 
 
 if __name__ == '__main__':

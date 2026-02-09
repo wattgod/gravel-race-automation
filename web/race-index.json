@@ -27,7 +27,7 @@
     },
     "tagline": "2,745 miles from Banff to Mexico. The longest mountain bike time trial on earth. Self-supported. Unsupported. Unforgettable.",
     "has_profile": true,
-    "profile_url": "/tour-divide-race-guide/",
+    "profile_url": "/race/tour-divide/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -63,7 +63,7 @@
     },
     "tagline": "530 miles of high-altitude suffering across the spine of the Rockies - 75% of starters don't finish, and that's the point.",
     "has_profile": true,
-    "profile_url": "/colorado-trail-race-race-guide/",
+    "profile_url": "/race/colorado-trail-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -99,7 +99,7 @@
     },
     "tagline": "4,200 miles from the Pacific to the Atlantic. The longest road ultra-race on earth. Self-supported across 10 states. America, coast to coast.",
     "has_profile": true,
-    "profile_url": "/trans-am-bike-race-race-guide/",
+    "profile_url": "/race/trans-am-bike-race/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -135,7 +135,7 @@
     },
     "tagline": "4,000-5,000km self-supported across Europe. The clock never stops. The ultimate test of human endurance, navigation, and self-reliance.",
     "has_profile": true,
-    "profile_url": "/transcontinental-race-race-guide/",
+    "profile_url": "/race/transcontinental-race/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -171,7 +171,7 @@
     },
     "tagline": "800km self-supported through Spanish deserts and 3,400m alpine passes. Where ultra-endurance meets extreme heat.",
     "has_profile": true,
-    "profile_url": "/badlands-race-guide/",
+    "profile_url": "/race/badlands/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -207,7 +207,7 @@
     },
     "tagline": "The Race Across the Sky. 100 miles at 10,000+ feet. The belt buckle that defines mountain biking.",
     "has_profile": true,
-    "profile_url": "/leadville-100-race-guide/",
+    "profile_url": "/race/leadville-100/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -243,7 +243,7 @@
     },
     "tagline": "700km crossing the Alps from Italy to France on legendary military roads. Where bikepacking pilgrimage meets high-altitude adventure.",
     "has_profile": true,
-    "profile_url": "/torino-nice-rally-race-guide/",
+    "profile_url": "/race/torino-nice-rally/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -279,7 +279,7 @@
     },
     "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
     "has_profile": true,
-    "profile_url": "/crusher-in-the-tushar-race-guide/",
+    "profile_url": "/race/crusher-in-the-tushar/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -315,7 +315,7 @@
     },
     "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
     "has_profile": true,
-    "profile_url": "/the-traka-race-guide/",
+    "profile_url": "/race/the-traka/",
     "has_rwgps": true,
     "research": {
       "grade": "B",
@@ -351,7 +351,7 @@
     },
     "tagline": "UCI World Championship—180km elite, rainbow jersey, fastest field in gravel, rotating locations.",
     "has_profile": true,
-    "profile_url": "/uci-gravel-worlds-race-guide/",
+    "profile_url": "/race/uci-gravel-worlds/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -387,7 +387,7 @@
     },
     "tagline": "350 miles of Kansas limestone hell with zero aid stations. The ultimate test of whether you actually like riding bikes or just think you do.",
     "has_profile": true,
-    "profile_url": "/unbound-xl-race-guide/",
+    "profile_url": "/race/unbound-xl/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -423,12 +423,48 @@
     },
     "tagline": "The most technical gravel race in America. 130 miles of everything—road, dirt, singletrack, sand, suffering.",
     "has_profile": true,
-    "profile_url": "/bwr-california-race-guide/",
+    "profile_url": "/race/bwr-california/",
     "has_rwgps": true,
     "research": {
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
+    }
+  },
+  {
+    "name": "Jeroboam",
+    "slug": "jeroboam",
+    "location": "Erbusco, Lombardy, Italy",
+    "region": "Europe",
+    "month": "July",
+    "distance_mi": 186,
+    "elevation_ft": 23000,
+    "tier": 1,
+    "overall_score": 81,
+    "scores": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 2
+    },
+    "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
+    "has_profile": true,
+    "profile_url": "/race/jeroboam/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 58.0,
+      "weakest": "specificity"
     }
   },
   {
@@ -459,12 +495,48 @@
     },
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
     "has_profile": true,
-    "profile_url": "/big-sugar-race-guide/",
+    "profile_url": "/race/big-sugar/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
       "score": 93.6,
       "weakest": "cross_reference"
+    }
+  },
+  {
+    "name": "Gravel Earth Series",
+    "slug": "gravel-earth",
+    "location": "Global (HQ: Girona, Spain)",
+    "region": "Europe",
+    "month": "February",
+    "distance_mi": 208,
+    "elevation_ft": 12139,
+    "tier": 1,
+    "overall_score": 80,
+    "scores": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2
+    },
+    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
+    "has_profile": true,
+    "profile_url": "/race/gravel-earth/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 89.5,
+      "weakest": "citation_density"
     }
   },
   {
@@ -495,7 +567,7 @@
     },
     "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
     "has_profile": true,
-    "profile_url": "/rebeccas-private-idaho-race-guide/",
+    "profile_url": "/race/rebeccas-private-idaho/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -531,7 +603,7 @@
     },
     "tagline": "Champagne gravel at altitude - where the pros come to play and the views will make you forget about the suffering",
     "has_profile": true,
-    "profile_url": "/steamboat-gravel-race-guide/",
+    "profile_url": "/race/steamboat-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -567,7 +639,7 @@
     },
     "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
     "has_profile": true,
-    "profile_url": "/unbound-200-race-guide/",
+    "profile_url": "/race/unbound-200/",
     "has_rwgps": true,
     "research": {
       "grade": "B",
@@ -603,7 +675,7 @@
     },
     "tagline": "The OG American Spring Classic. 130 miles of kasseien-crushing brutality where 1 in 3 riders DNF, and the survivors earn their waffles.",
     "has_profile": true,
-    "profile_url": "/bwr-san-diego-race-guide/",
+    "profile_url": "/race/bwr-san-diego/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -639,7 +711,7 @@
     },
     "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
     "has_profile": true,
-    "profile_url": "/gravel-worlds-race-guide/",
+    "profile_url": "/race/gravel-worlds/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -675,7 +747,7 @@
     },
     "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
     "has_profile": true,
-    "profile_url": "/dirty-reiver-race-guide/",
+    "profile_url": "/race/dirty-reiver/",
     "has_rwgps": true,
     "research": {
       "grade": "A",
@@ -711,7 +783,7 @@
     },
     "tagline": "New LTGP MTB race—30 miles of technical Bentonville singletrack, pairs with Big Sugar Gravel, pro field guaranteed.",
     "has_profile": true,
-    "profile_url": "/little-sugar-mtb-race-guide/",
+    "profile_url": "/race/little-sugar-mtb/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -747,7 +819,7 @@
     },
     "tagline": "Oklahoma's weather lottery with a $100K prize purse and a guaranteed Bobby hug.",
     "has_profile": true,
-    "profile_url": "/mid-south-race-guide/",
+    "profile_url": "/race/mid-south/",
     "has_rwgps": true,
     "research": {
       "grade": "B",
@@ -783,7 +855,7 @@
     },
     "tagline": "Australia's crown jewel gravel race. 125km through Western Australia's forests. Host of 2026 UCI Gravel World Championships.",
     "has_profile": true,
-    "profile_url": "/seven-race-guide/",
+    "profile_url": "/race/seven/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -819,408 +891,12 @@
     },
     "tagline": "Ride the white roads of Tuscany. 138km through the iconic sectors. Finish in Siena's Piazza del Campo.",
     "has_profile": true,
-    "profile_url": "/strade-bianche-gran-fondo-race-guide/",
+    "profile_url": "/race/strade-bianche-gran-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
       "score": 94.1,
       "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "Chequamegon MTB",
-    "slug": "chequamegon-mtb",
-    "location": "Cable, Wisconsin (Chequamegon National Forest)",
-    "region": "Midwest",
-    "month": "September",
-    "distance_mi": 40,
-    "elevation_ft": 4000,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 3,
-      "length": 2,
-      "technicality": 5,
-      "elevation": 3,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 5,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "The Cheq—40 years of mass start MTB chaos, 3,000+ riders, and Life Time Grand Prix glory in Wisconsin's Chequamegon National Forest.",
-    "has_profile": true,
-    "profile_url": "/chequamegon-mtb-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 82.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "UCI Gravel Suisse",
-    "slug": "gravel-fondo-switzerland",
-    "location": "Aigle / Villars-sur-Ollon, Switzerland",
-    "region": "Europe",
-    "month": "July",
-    "distance_mi": 68,
-    "elevation_ft": 11300,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 4,
-      "length": 3,
-      "technicality": 3,
-      "elevation": 5,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 3,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 1
-    },
-    "tagline": "UCI World Series racing in the Swiss Alps - where the world cycling headquarters meets 11,000 feet of alpine suffering",
-    "has_profile": true,
-    "profile_url": "/gravel-fondo-switzerland-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 63.0,
-      "weakest": "specificity"
-    }
-  },
-  {
-    "name": "Le Grand du Nord",
-    "slug": "le-grand-du-nord",
-    "location": "Grand Marais, Minnesota",
-    "region": "Midwest",
-    "month": "May",
-    "distance_mi": 110,
-    "elevation_ft": 5000,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 5,
-      "value": 4,
-      "expenses": 4
-    },
-    "tagline": "UCI Gravel World Series race through Minnesota's stunning North Shore at Lake Superior.",
-    "has_profile": true,
-    "profile_url": "/le-grand-du-nord-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 96.6,
-      "weakest": "temporal_depth"
-    }
-  },
-  {
-    "name": "Monaco Gravel Race",
-    "slug": "monaco-gravel-race",
-    "location": "Monaco",
-    "region": "Europe",
-    "month": "October",
-    "distance_mi": 68,
-    "elevation_ft": 8202,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 4,
-      "length": 3,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 5,
-      "prestige": 5,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
-      "value": 2,
-      "expenses": 2
-    },
-    "tagline": "Monaco/French Alps—110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
-    "has_profile": true,
-    "profile_url": "/monaco-gravel-race-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Sea Otter Classic Gravel",
-    "slug": "sea-otter-gravel",
-    "location": "Monterey, California",
-    "region": "West",
-    "month": "April",
-    "distance_mi": 89,
-    "elevation_ft": 8100,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 5,
-      "length": 2,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 5,
-      "value": 3,
-      "expenses": 4
-    },
-    "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
-    "has_profile": true,
-    "profile_url": "/sea-otter-gravel-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 91.8,
-      "weakest": "cross_reference"
-    }
-  },
-  {
-    "name": "Unbound Gravel 100",
-    "slug": "unbound-100",
-    "location": "Emporia, Kansas",
-    "region": "Midwest",
-    "month": "June",
-    "distance_mi": 104,
-    "elevation_ft": 4000,
-    "tier": 1,
-    "overall_score": 74,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 4,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 4,
-      "expenses": 3
-    },
-    "tagline": "The little sibling that still kicks your ass. 100 miles of Flint Hills gravel—all the suffering, half the existential crisis.",
-    "has_profile": true,
-    "profile_url": "/unbound-100-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 97.0,
-      "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "Collegiate Gravel Nationals",
-    "slug": "collegiate-gravel-nationals",
-    "location": "Turkey, Texas",
-    "region": "South",
-    "month": "April",
-    "distance_mi": 62,
-    "elevation_ft": 4921,
-    "tier": 1,
-    "overall_score": 69,
-    "scores": {
-      "logistics": 2,
-      "length": 3,
-      "technicality": 2,
-      "elevation": 3,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 5,
-      "experience": 3,
-      "community": 4,
-      "field_depth": 5,
-      "value": 5,
-      "expenses": 3
-    },
-    "tagline": "USA Cycling National Championship—100km of Texas Panhandle gravel, collegiate field, wind, red dirt.",
-    "has_profile": true,
-    "profile_url": "/collegiate-gravel-nationals-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "B",
-      "score": 76.1,
-      "weakest": "citation_density"
-    }
-  },
-  {
-    "name": "Sea Otter Fuego XL",
-    "slug": "fuego-mtb",
-    "location": "Monterey, California",
-    "region": "West",
-    "month": "April",
-    "distance_mi": 70,
-    "elevation_ft": 7800,
-    "tier": 1,
-    "overall_score": 67,
-    "scores": {
-      "logistics": 2,
-      "length": 3,
-      "technicality": 3,
-      "elevation": 4,
-      "climate": 3,
-      "altitude": 1,
-      "adventure": 4,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
-      "field_depth": 5,
-      "value": 3,
-      "expenses": 2
-    },
-    "tagline": "Where the major series begins and Leadville dreams are made in California sand",
-    "has_profile": true,
-    "profile_url": "/fuego-mtb-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 58.9,
-      "weakest": "specificity"
-    }
-  },
-  {
-    "name": "USA Cycling Gravel Nationals",
-    "slug": "usa-cycling-gravel-nationals",
-    "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
-    "region": "Midwest",
-    "month": "September",
-    "distance_mi": 131,
-    "elevation_ft": 7000,
-    "tier": 1,
-    "overall_score": 63,
-    "scores": {
-      "logistics": 3,
-      "length": 4,
-      "technicality": 3,
-      "elevation": 3,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 3,
-      "prestige": 5,
-      "race_quality": 4,
-      "experience": 3,
-      "community": 3,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 3
-    },
-    "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
-    "has_profile": true,
-    "profile_url": "/usa-cycling-gravel-nationals-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 94.8,
-      "weakest": "voice_authenticity"
-    }
-  },
-  {
-    "name": "Jeroboam",
-    "slug": "jeroboam",
-    "location": "Erbusco, Lombardy, Italy",
-    "region": "Europe",
-    "month": "July",
-    "distance_mi": 186,
-    "elevation_ft": 23000,
-    "tier": 2,
-    "overall_score": 81,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 5,
-      "elevation": 5,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
-      "value": 4,
-      "expenses": 2
-    },
-    "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
-    "has_profile": true,
-    "profile_url": "/jeroboam-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "C",
-      "score": 58.0,
-      "weakest": "specificity"
-    }
-  },
-  {
-    "name": "Gravel Earth Series",
-    "slug": "gravel-earth",
-    "location": "Global (HQ: Girona, Spain)",
-    "region": "Europe",
-    "month": "February",
-    "distance_mi": 208,
-    "elevation_ft": 12139,
-    "tier": 2,
-    "overall_score": 80,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 2
-    },
-    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
-    "has_profile": true,
-    "profile_url": "/gravel-earth-race-guide/",
-    "has_rwgps": false,
-    "research": {
-      "grade": "A",
-      "score": 89.5,
-      "weakest": "citation_density"
     }
   },
   {
@@ -1251,7 +927,7 @@
     },
     "tagline": "Utah red rock adventure—135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
     "has_profile": true,
-    "profile_url": "/bwr-utah-race-guide/",
+    "profile_url": "/race/bwr-utah/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1287,7 +963,7 @@
     },
     "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
     "has_profile": true,
-    "profile_url": "/gravel-locos-race-guide/",
+    "profile_url": "/race/gravel-locos/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1323,7 +999,7 @@
     },
     "tagline": "Blue Ridge brutality—129 miles, 10,000 feet, Belgian-style mixed terrain in Asheville humidity.",
     "has_profile": true,
-    "profile_url": "/bwr-asheville-race-guide/",
+    "profile_url": "/race/bwr-asheville/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -1359,7 +1035,7 @@
     },
     "tagline": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
     "has_profile": true,
-    "profile_url": "/bwr-cedar-city-race-guide/",
+    "profile_url": "/race/bwr-cedar-city/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -1395,7 +1071,7 @@
     },
     "tagline": "Montana Rockies adventure—140km of mountain gravel, 2,800m elevation, Missoula scenery, waffles.",
     "has_profile": true,
-    "profile_url": "/bwr-montana-race-guide/",
+    "profile_url": "/race/bwr-montana/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1431,7 +1107,7 @@
     },
     "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
     "has_profile": true,
-    "profile_url": "/grinduro-race-guide/",
+    "profile_url": "/race/grinduro/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -1467,7 +1143,7 @@
     },
     "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
     "has_profile": true,
-    "profile_url": "/giro-sardegna-gravel-race-guide/",
+    "profile_url": "/race/giro-sardegna-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1503,7 +1179,7 @@
     },
     "tagline": "Enduro-style gravel festival in France's Vosges with timed descents, French wine, and mountain views.",
     "has_profile": true,
-    "profile_url": "/grinduro-france-race-guide/",
+    "profile_url": "/race/grinduro-france/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1539,7 +1215,7 @@
     },
     "tagline": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
     "has_profile": true,
-    "profile_url": "/grinduro-germany-race-guide/",
+    "profile_url": "/race/grinduro-germany/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -1575,7 +1251,7 @@
     },
     "tagline": "UCI Gravel World Series qualifier at 8,000 feet—High Sierra alpine gravel where altitude humbles everyone.",
     "has_profile": true,
-    "profile_url": "/mammoth-tuff-race-guide/",
+    "profile_url": "/race/mammoth-tuff/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1611,7 +1287,7 @@
     },
     "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
     "has_profile": true,
-    "profile_url": "/nordic-chase-gravel-race-guide/",
+    "profile_url": "/race/nordic-chase-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1647,7 +1323,7 @@
     },
     "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
     "has_profile": true,
-    "profile_url": "/oregon-trail-gravel-race-guide/",
+    "profile_url": "/race/oregon-trail-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1683,12 +1359,84 @@
     },
     "tagline": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
     "has_profile": true,
-    "profile_url": "/whiskey-off-road-race-guide/",
+    "profile_url": "/race/whiskey-off-road/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
       "score": 95.0,
       "weakest": "voice_authenticity"
+    }
+  },
+  {
+    "name": "Chequamegon MTB",
+    "slug": "chequamegon-mtb",
+    "location": "Cable, Wisconsin (Chequamegon National Forest)",
+    "region": "Midwest",
+    "month": "September",
+    "distance_mi": 40,
+    "elevation_ft": 4000,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 5,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "The Cheq—40 years of mass start MTB chaos, 3,000+ riders, and Life Time Grand Prix glory in Wisconsin's Chequamegon National Forest.",
+    "has_profile": true,
+    "profile_url": "/race/chequamegon-mtb/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 82.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "UCI Gravel Suisse",
+    "slug": "gravel-fondo-switzerland",
+    "location": "Aigle / Villars-sur-Ollon, Switzerland",
+    "region": "Europe",
+    "month": "July",
+    "distance_mi": 68,
+    "elevation_ft": 11300,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 1
+    },
+    "tagline": "UCI World Series racing in the Swiss Alps - where the world cycling headquarters meets 11,000 feet of alpine suffering",
+    "has_profile": true,
+    "profile_url": "/race/gravel-fondo-switzerland/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 63.0,
+      "weakest": "specificity"
     }
   },
   {
@@ -1719,7 +1467,7 @@
     },
     "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
     "has_profile": true,
-    "profile_url": "/gunni-grinder-race-guide/",
+    "profile_url": "/race/gunni-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -1755,12 +1503,48 @@
     },
     "tagline": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams",
     "has_profile": true,
-    "profile_url": "/lauf-true-grit-race-guide/",
+    "profile_url": "/race/lauf-true-grit/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
       "score": 61.0,
       "weakest": "specificity"
+    }
+  },
+  {
+    "name": "Le Grand du Nord",
+    "slug": "le-grand-du-nord",
+    "location": "Grand Marais, Minnesota",
+    "region": "Midwest",
+    "month": "May",
+    "distance_mi": 110,
+    "elevation_ft": 5000,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4
+    },
+    "tagline": "UCI Gravel World Series race through Minnesota's stunning North Shore at Lake Superior.",
+    "has_profile": true,
+    "profile_url": "/race/le-grand-du-nord/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 96.6,
+      "weakest": "temporal_depth"
     }
   },
   {
@@ -1791,11 +1575,47 @@
     },
     "tagline": "Four days through Kenya's Maasai Mara. Zebras on course.",
     "has_profile": true,
-    "profile_url": "/migration-gravel-race-race-guide/",
+    "profile_url": "/race/migration-gravel-race/",
     "has_rwgps": true,
     "research": {
       "grade": "B",
       "score": 68.1,
+      "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Monaco Gravel Race",
+    "slug": "monaco-gravel-race",
+    "location": "Monaco",
+    "region": "Europe",
+    "month": "October",
+    "distance_mi": 68,
+    "elevation_ft": 8202,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 5,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 2,
+      "expenses": 2
+    },
+    "tagline": "Monaco/French Alps—110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
+    "has_profile": true,
+    "profile_url": "/race/monaco-gravel-race/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
       "weakest": "citation_density"
     }
   },
@@ -1827,7 +1647,7 @@
     },
     "tagline": "Tuscan strade bianche—135km of iconic white roads, 2,800m elevation, medieval town charm, Italian gravel paradise.",
     "has_profile": true,
-    "profile_url": "/nova-eroica-race-guide/",
+    "profile_url": "/race/nova-eroica/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -1863,7 +1683,7 @@
     },
     "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
     "has_profile": true,
-    "profile_url": "/ouray-gravel-grinder-race-guide/",
+    "profile_url": "/race/ouray-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -1899,12 +1719,48 @@
     },
     "tagline": "Trans-Pyrenean ultra-gravel through volcanic zones, medieval villages, and Costa Brava coast - Spain's answer to the 200-mile question",
     "has_profile": true,
-    "profile_url": "/pirinexus-360-race-guide/",
+    "profile_url": "/race/pirinexus-360/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
       "score": 62.8,
       "weakest": "specificity"
+    }
+  },
+  {
+    "name": "Sea Otter Classic Gravel",
+    "slug": "sea-otter-gravel",
+    "location": "Monterey, California",
+    "region": "West",
+    "month": "April",
+    "distance_mi": 89,
+    "elevation_ft": 8100,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 5,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 3,
+      "expenses": 4
+    },
+    "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
+    "has_profile": true,
+    "profile_url": "/race/sea-otter-gravel/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 91.8,
+      "weakest": "cross_reference"
     }
   },
   {
@@ -1935,12 +1791,48 @@
     },
     "tagline": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
     "has_profile": true,
-    "profile_url": "/the-rift-race-guide/",
+    "profile_url": "/race/the-rift/",
     "has_rwgps": true,
     "research": {
       "grade": "A",
       "score": 91.8,
       "weakest": "cross_reference"
+    }
+  },
+  {
+    "name": "Unbound Gravel 100",
+    "slug": "unbound-100",
+    "location": "Emporia, Kansas",
+    "region": "Midwest",
+    "month": "June",
+    "distance_mi": 104,
+    "elevation_ft": 4000,
+    "tier": 2,
+    "overall_score": 74,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3
+    },
+    "tagline": "The little sibling that still kicks your ass. 100 miles of Flint Hills gravel—all the suffering, half the existential crisis.",
+    "has_profile": true,
+    "profile_url": "/race/unbound-100/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 97.0,
+      "weakest": "voice_authenticity"
     }
   },
   {
@@ -1971,7 +1863,7 @@
     },
     "tagline": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
     "has_profile": true,
-    "profile_url": "/big-horn-gravel-race-guide/",
+    "profile_url": "/race/big-horn-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2007,7 +1899,7 @@
     },
     "tagline": "The OG of gravel racing - 25+ years of Northern California dirt, redwoods, and pure cycling soul.",
     "has_profile": true,
-    "profile_url": "/grasshopper-series-race-guide/",
+    "profile_url": "/race/grasshopper-series/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -2043,7 +1935,7 @@
     },
     "tagline": "Vermont's early season mud fest—46 miles of Class 4 roads, self-supported suffering, and guaranteed mud.",
     "has_profile": true,
-    "profile_url": "/rasputitsa-race-guide/",
+    "profile_url": "/race/rasputitsa/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2079,7 +1971,7 @@
     },
     "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
     "has_profile": true,
-    "profile_url": "/the-rad-race-guide/",
+    "profile_url": "/race/the-rad/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2115,7 +2007,7 @@
     },
     "tagline": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
     "has_profile": true,
-    "profile_url": "/bwr-north-carolina-race-guide/",
+    "profile_url": "/race/bwr-north-carolina/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -2151,7 +2043,7 @@
     },
     "tagline": "Brazilian coastal mountains—100km, 2,000m elevation, steep technical terrain in beach town paradise.",
     "has_profile": true,
-    "profile_url": "/gravel-brazil-race-guide/",
+    "profile_url": "/race/gravel-brazil/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2187,7 +2079,7 @@
     },
     "tagline": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
     "has_profile": true,
-    "profile_url": "/heck-of-the-north-race-guide/",
+    "profile_url": "/race/heck-of-the-north/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2223,7 +2115,7 @@
     },
     "tagline": "Colorado Rockies adventure—100km of high-altitude gravel, 2,500m elevation, Salida scenery.",
     "has_profile": true,
-    "profile_url": "/rad-dirt-fest-race-guide/",
+    "profile_url": "/race/rad-dirt-fest/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2259,7 +2151,7 @@
     },
     "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
     "has_profile": true,
-    "profile_url": "/southern-cross-gravel-race-guide/",
+    "profile_url": "/race/southern-cross-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2295,7 +2187,7 @@
     },
     "tagline": "OG gravel since 2009—54 miles of Vermont pavé, 7,000 feet of climbing, and Paris-Roubaix dirt roads.",
     "has_profile": true,
-    "profile_url": "/vermont-overland-race-guide/",
+    "profile_url": "/race/vermont-overland/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2331,7 +2223,7 @@
     },
     "tagline": "The Granddaddy of All Gravel Races - where the movement was born, and where your legs go to die on Oriole Road.",
     "has_profile": true,
-    "profile_url": "/almanzo-100-race-guide/",
+    "profile_url": "/race/almanzo-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -2367,7 +2259,7 @@
     },
     "tagline": "Southeast gravel staple—100 miles, 10,000 feet of North Georgia mountains, technical descents, Dahlonega charm.",
     "has_profile": true,
-    "profile_url": "/bootlegger-100-race-guide/",
+    "profile_url": "/race/bootlegger-100/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2403,7 +2295,7 @@
     },
     "tagline": "South African highveld classic—100km of red dirt roads, 2,500m elevation, stunning Mpumalanga scenery.",
     "has_profile": true,
-    "profile_url": "/gravel-burn-race-guide/",
+    "profile_url": "/race/gravel-burn/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2439,7 +2331,7 @@
     },
     "tagline": "OG gravel party—timed enduro descents, untimed climbs, legendary Quincy vibes since 2015.",
     "has_profile": true,
-    "profile_url": "/grinduro-california-race-guide/",
+    "profile_url": "/race/grinduro-california/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2475,12 +2367,48 @@
     },
     "tagline": "Canada's Spring Classic. 100km of mud chutes, rail trails, and chaos. The race that eats bikes.",
     "has_profile": true,
-    "profile_url": "/paris-to-ancaster-race-guide/",
+    "profile_url": "/race/paris-to-ancaster/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
+    }
+  },
+  {
+    "name": "Collegiate Gravel Nationals",
+    "slug": "collegiate-gravel-nationals",
+    "location": "Turkey, Texas",
+    "region": "South",
+    "month": "April",
+    "distance_mi": 62,
+    "elevation_ft": 4921,
+    "tier": 2,
+    "overall_score": 69,
+    "scores": {
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 5,
+      "value": 5,
+      "expenses": 3
+    },
+    "tagline": "USA Cycling National Championship—100km of Texas Panhandle gravel, collegiate field, wind, red dirt.",
+    "has_profile": true,
+    "profile_url": "/race/collegiate-gravel-nationals/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "B",
+      "score": 76.1,
+      "weakest": "citation_density"
     }
   },
   {
@@ -2511,7 +2439,7 @@
     },
     "tagline": "The only US qualifier for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
     "has_profile": true,
-    "profile_url": "/highlands-gravel-classic-race-guide/",
+    "profile_url": "/race/highlands-gravel-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2547,7 +2475,7 @@
     },
     "tagline": "Southeast gravel classic—50 miles, 8,000 feet of technical Appalachian terrain in Pisgah National Forest.",
     "has_profile": true,
-    "profile_url": "/pisgah-monster-cross-race-guide/",
+    "profile_url": "/race/pisgah-monster-cross/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2583,7 +2511,7 @@
     },
     "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
     "has_profile": true,
-    "profile_url": "/rock-cobbler-race-guide/",
+    "profile_url": "/race/rock-cobbler/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2619,7 +2547,7 @@
     },
     "tagline": "Scottish Highlands ultra—200km of remote terrain, 3,500m elevation, brutal weather, 25-35% DNF.",
     "has_profile": true,
-    "profile_url": "/the-gralloch-race-guide/",
+    "profile_url": "/race/the-gralloch/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2655,12 +2583,48 @@
     },
     "tagline": "Hell of the North Desert—100+ miles of sand, rock, and technical singletrack through Arizona's high desert.",
     "has_profile": true,
-    "profile_url": "/bwr-arizona-race-guide/",
+    "profile_url": "/race/bwr-arizona/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
       "score": 89.8,
       "weakest": "citation_density"
+    }
+  },
+  {
+    "name": "Sea Otter Fuego XL",
+    "slug": "fuego-mtb",
+    "location": "Monterey, California",
+    "region": "West",
+    "month": "April",
+    "distance_mi": 70,
+    "elevation_ft": 7800,
+    "tier": 2,
+    "overall_score": 67,
+    "scores": {
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 5,
+      "value": 3,
+      "expenses": 2
+    },
+    "tagline": "Where the major series begins and Leadville dreams are made in California sand",
+    "has_profile": true,
+    "profile_url": "/race/fuego-mtb/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "C",
+      "score": 58.9,
+      "weakest": "specificity"
     }
   },
   {
@@ -2691,7 +2655,7 @@
     },
     "tagline": "New Zealand countryside—160km of farmland gravel, 2,000m elevation, February warmth, 15-20% DNF.",
     "has_profile": true,
-    "profile_url": "/gravel-and-tar-classic-race-guide/",
+    "profile_url": "/race/gravel-and-tar-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2727,7 +2691,7 @@
     },
     "tagline": "The Hell of the East - 8,000 feet of Pocono punishment that'll make you question every life decision",
     "has_profile": true,
-    "profile_url": "/gravel-roubaix-race-guide/",
+    "profile_url": "/race/gravel-roubaix/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -2763,7 +2727,7 @@
     },
     "tagline": "Race inside a 450-million-year-old meteorite crater where the party is as legendary as the singletrack",
     "has_profile": true,
-    "profile_url": "/grinduro-canada-race-guide/",
+    "profile_url": "/race/grinduro-canada/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -2799,7 +2763,7 @@
     },
     "tagline": "Multi-discipline high desert festival in Bend—gravel, MTB, and trail run in one weekend.",
     "has_profile": true,
-    "profile_url": "/bend-dirt-fest-race-guide/",
+    "profile_url": "/race/bend-dirt-fest/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2835,7 +2799,7 @@
     },
     "tagline": "West Virginia's Appalachian gravel grinder: 8,500 feet of relentless climbing through humid forest roads where heat management matters more than fitness.",
     "has_profile": true,
-    "profile_url": "/lost-river-classic-race-guide/",
+    "profile_url": "/race/lost-river-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -2871,7 +2835,7 @@
     },
     "tagline": "Adelaide Hills adventure—130km of rolling Australian bush, 2,500m elevation, South Australia gravel.",
     "has_profile": true,
-    "profile_url": "/radl-grvl-race-guide/",
+    "profile_url": "/race/radl-grvl/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2907,7 +2871,7 @@
     },
     "tagline": "300 miles on Unbound roads—Kansas Flint Hills ultra distance, self-supported, 30-40% DNF, 15-25 hours of suffering.",
     "has_profile": true,
-    "profile_url": "/rule-of-three-race-guide/",
+    "profile_url": "/race/rule-of-three/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2943,7 +2907,7 @@
     },
     "tagline": "192-mile overnight bikepacking odyssey from Wisconsin to Michigan's Upper Peninsula where darkness, cold, and solitude break you down and build you back.",
     "has_profile": true,
-    "profile_url": "/crystal-bear-race-guide/",
+    "profile_url": "/race/crystal-bear/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -2979,7 +2943,7 @@
     },
     "tagline": "Ohio's Appalachian suffer fest - 9,000 feet of vertical brutality in the heartland",
     "has_profile": true,
-    "profile_url": "/dirty-french-race-guide/",
+    "profile_url": "/race/dirty-french/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3015,7 +2979,7 @@
     },
     "tagline": "Moroccan Atlas Mountains ultra-endurance gravel race.",
     "has_profile": true,
-    "profile_url": "/atlas-mountain-race-race-guide/",
+    "profile_url": "/race/atlas-mountain-race/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3051,7 +3015,7 @@
     },
     "tagline": "Early season Michigan gravel with cold starts, mud risk, and MGRS community.",
     "has_profile": true,
-    "profile_url": "/dirty-30-race-guide/",
+    "profile_url": "/race/dirty-30/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3087,7 +3051,7 @@
     },
     "tagline": "340 miles of relentless Iowa gravel where the wind never stops, the terrain never flattens, and 40 hours of continuous riding reveals who you really are.",
     "has_profile": true,
-    "profile_url": "/iowa-wind-and-rock-race-guide/",
+    "profile_url": "/race/iowa-wind-and-rock/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3123,12 +3087,48 @@
     },
     "tagline": "Colorado State Championship mountain gravel in the Front Range.",
     "has_profile": true,
-    "profile_url": "/ned-gravel-race-guide/",
+    "profile_url": "/race/ned-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
       "score": 68.2,
       "weakest": "source_diversity"
+    }
+  },
+  {
+    "name": "USA Cycling Gravel Nationals",
+    "slug": "usa-cycling-gravel-nationals",
+    "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+    "region": "Midwest",
+    "month": "September",
+    "distance_mi": 131,
+    "elevation_ft": 7000,
+    "tier": 2,
+    "overall_score": 63,
+    "scores": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3
+    },
+    "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
+    "has_profile": true,
+    "profile_url": "/race/usa-cycling-gravel-nationals/",
+    "has_rwgps": false,
+    "research": {
+      "grade": "A",
+      "score": 94.8,
+      "weakest": "voice_authenticity"
     }
   },
   {
@@ -3159,7 +3159,7 @@
     },
     "tagline": "125-mile high-altitude Colorado mountain gravel in Leadville.",
     "has_profile": true,
-    "profile_url": "/vapor-trail-125-race-guide/",
+    "profile_url": "/race/vapor-trail-125/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3195,7 +3195,7 @@
     },
     "tagline": "100-mile Georgia mountain gravel through Cohutta Wilderness.",
     "has_profile": true,
-    "profile_url": "/cohutta-gravel-grinder-race-guide/",
+    "profile_url": "/race/cohutta-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3231,7 +3231,7 @@
     },
     "tagline": "The happiest gravel in the world. F1 glamour meets midnight sun in a UNESCO Geopark. Fast, flat, and fckng Finnish.",
     "has_profile": true,
-    "profile_url": "/finnish-gravel-race-guide/",
+    "profile_url": "/race/finnish-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -3267,7 +3267,7 @@
     },
     "tagline": "Colombian Andes mountain gravel adventure.",
     "has_profile": true,
-    "profile_url": "/transcordilleras-race-guide/",
+    "profile_url": "/race/transcordilleras/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3303,7 +3303,7 @@
     },
     "tagline": "Central Wyoming ultra-distance gravel through mountain and high desert.",
     "has_profile": true,
-    "profile_url": "/wyo-131-race-guide/",
+    "profile_url": "/race/wyo-131/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3339,7 +3339,7 @@
     },
     "tagline": "Colorado mountain gravel in Gypsum near Vail with high altitude climbing.",
     "has_profile": true,
-    "profile_url": "/bighorn-gravel-race-guide/",
+    "profile_url": "/race/bighorn-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3375,7 +3375,7 @@
     },
     "tagline": "Vermont spring mud season mountain gravel in Burke.",
     "has_profile": true,
-    "profile_url": "/rasputitsa-spring-classic-race-guide/",
+    "profile_url": "/race/rasputitsa-spring-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3411,7 +3411,7 @@
     },
     "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
     "has_profile": true,
-    "profile_url": "/sagan-fondo-race-guide/",
+    "profile_url": "/race/sagan-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3447,7 +3447,7 @@
     },
     "tagline": "Missouri State Gravel Championship through wine country in brutal July heat.",
     "has_profile": true,
-    "profile_url": "/the-equalizer-race-guide/",
+    "profile_url": "/race/the-equalizer/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -3483,7 +3483,7 @@
     },
     "tagline": "Argentine Andes mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/vuelta-altas-cumbres-race-guide/",
+    "profile_url": "/race/vuelta-altas-cumbres/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3519,7 +3519,7 @@
     },
     "tagline": "Northern Utah mountain gravel in Wasatch Range near Park City.",
     "has_profile": true,
-    "profile_url": "/wasatch-all-road-race-guide/",
+    "profile_url": "/race/wasatch-all-road/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3555,7 +3555,7 @@
     },
     "tagline": "East Coast ultra—150 miles of flat coastal gravel through Croatan National Forest, sandy terrain, 10-15 hours.",
     "has_profile": true,
-    "profile_url": "/croatan-buck-fifty-race-guide/",
+    "profile_url": "/race/croatan-buck-fifty/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3591,7 +3591,7 @@
     },
     "tagline": "Colorado mountain gravel in Winter Park with high altitude climbing.",
     "has_profile": true,
-    "profile_url": "/crooked-gravel-race-guide/",
+    "profile_url": "/race/crooked-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3627,7 +3627,7 @@
     },
     "tagline": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
     "has_profile": true,
-    "profile_url": "/gran-fondo-hincapie-race-guide/",
+    "profile_url": "/race/gran-fondo-hincapie/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3663,7 +3663,7 @@
     },
     "tagline": "Colorado mountain cycling in Durango.",
     "has_profile": true,
-    "profile_url": "/iron-horse-bicycle-classic-race-guide/",
+    "profile_url": "/race/iron-horse-bicycle-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3699,7 +3699,7 @@
     },
     "tagline": "Victorian high country gravel in historic gold rush territory.",
     "has_profile": true,
-    "profile_url": "/maap-beechworth-granite-classic-race-guide/",
+    "profile_url": "/race/maap-beechworth-granite-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3735,7 +3735,7 @@
     },
     "tagline": "100-mile rugged Upper Peninsula mountain bike/gravel endurance.",
     "has_profile": true,
-    "profile_url": "/marji-gesick-race-guide/",
+    "profile_url": "/race/marji-gesick/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3771,7 +3771,7 @@
     },
     "tagline": "Southern Colorado State Championship gravel in high desert.",
     "has_profile": true,
-    "profile_url": "/pony-xpress-race-guide/",
+    "profile_url": "/race/pony-xpress/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3807,7 +3807,7 @@
     },
     "tagline": "Wisconsin fall gravel—150/100/50 miles of rolling farmland, fall colors, and ultra-distance option.",
     "has_profile": true,
-    "profile_url": "/red-granite-grinder-race-guide/",
+    "profile_url": "/race/red-granite-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3843,7 +3843,7 @@
     },
     "tagline": "30-mile Michigan mountain bike race with 4000+ riders in November.",
     "has_profile": true,
-    "profile_url": "/iceman-cometh-race-guide/",
+    "profile_url": "/race/iceman-cometh/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3879,7 +3879,7 @@
     },
     "tagline": "British Columbia multi-stage gravel adventure.",
     "has_profile": true,
-    "profile_url": "/transrockies-gravel-royale-race-guide/",
+    "profile_url": "/race/transrockies-gravel-royale/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -3915,7 +3915,7 @@
     },
     "tagline": "The Hell of the (Mid) West—BWR's fall Midwest edition through the Flint Hills with 89% unroad.",
     "has_profile": true,
-    "profile_url": "/belgian-waffle-ride-kansas-race-guide/",
+    "profile_url": "/race/belgian-waffle-ride-kansas/",
     "has_rwgps": false,
     "research": {
       "grade": "D",
@@ -3951,7 +3951,7 @@
     },
     "tagline": "180km Massachusetts rolling hills gravel in Deerfield.",
     "has_profile": true,
-    "profile_url": "/d2r2-race-guide/",
+    "profile_url": "/race/d2r2/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -3987,7 +3987,7 @@
     },
     "tagline": "150-mile Nebraska gravel challenge in Lincoln.",
     "has_profile": true,
-    "profile_url": "/gravel-worlds-amateur-race-guide/",
+    "profile_url": "/race/gravel-worlds-amateur/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4023,7 +4023,7 @@
     },
     "tagline": "European Alpine multi-stage gravel event.",
     "has_profile": true,
-    "profile_url": "/haute-route-gravel-race-guide/",
+    "profile_url": "/race/haute-route-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4059,7 +4059,7 @@
     },
     "tagline": "French Alpine gravel.",
     "has_profile": true,
-    "profile_url": "/la-resistance-race-guide/",
+    "profile_url": "/race/la-resistance/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4095,7 +4095,7 @@
     },
     "tagline": "Queensland hinterland enduro with technical terrain and tourist town base.",
     "has_profile": true,
-    "profile_url": "/noosa-gravel-enduro-race-guide/",
+    "profile_url": "/race/noosa-gravel-enduro/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4131,7 +4131,7 @@
     },
     "tagline": "Western Oregon Coast Range mountain gravel in wine country.",
     "has_profile": true,
-    "profile_url": "/sasquatch-duro-race-guide/",
+    "profile_url": "/race/sasquatch-duro/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4167,7 +4167,7 @@
     },
     "tagline": "Iowa prairie ultra-endurance gravel challenge.",
     "has_profile": true,
-    "profile_url": "/spotted-horse-ultra-race-guide/",
+    "profile_url": "/race/spotted-horse-ultra/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4203,7 +4203,7 @@
     },
     "tagline": "Five days of supported gravel cruising through Nebraska's rolling farmland - more family reunion than race, and that's exactly the point",
     "has_profile": true,
-    "profile_url": "/tour-de-nebraska-race-guide/",
+    "profile_url": "/race/tour-de-nebraska/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4239,7 +4239,7 @@
     },
     "tagline": "300+ mile self-supported Iowa gravel ultra-distance challenge.",
     "has_profile": true,
-    "profile_url": "/trans-iowa-race-guide/",
+    "profile_url": "/race/trans-iowa/",
     "has_rwgps": false,
     "research": {
       "grade": "A",
@@ -4275,7 +4275,7 @@
     },
     "tagline": "New York rolling hills gravel in Cambridge.",
     "has_profile": true,
-    "profile_url": "/battenkill-race-guide/",
+    "profile_url": "/race/battenkill/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4311,7 +4311,7 @@
     },
     "tagline": "Michigan ultra-distance crossing from Lake Huron to Lake Michigan.",
     "has_profile": true,
-    "profile_url": "/coast-to-coast-race-guide/",
+    "profile_url": "/race/coast-to-coast/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4347,7 +4347,7 @@
     },
     "tagline": "Vancouver Island forest roads around Lake Cowichan.",
     "has_profile": true,
-    "profile_url": "/cowichan-crusher-gravel-fondo-race-guide/",
+    "profile_url": "/race/cowichan-crusher-gravel-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4383,7 +4383,7 @@
     },
     "tagline": "Tasmanian mountain gravel adventure.",
     "has_profile": true,
-    "profile_url": "/devils-cardigan-race-guide/",
+    "profile_url": "/race/devils-cardigan/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4419,7 +4419,7 @@
     },
     "tagline": "New Zealand South Island gravel adventure.",
     "has_profile": true,
-    "profile_url": "/edition-zero-race-guide/",
+    "profile_url": "/race/edition-zero/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4455,7 +4455,7 @@
     },
     "tagline": "Minnesota fall gravel—50 miles of rolling terrain, 1,000 riders, and peak autumn colors.",
     "has_profile": true,
-    "profile_url": "/filthy-50-race-guide/",
+    "profile_url": "/race/filthy-50/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4491,7 +4491,7 @@
     },
     "tagline": "Colombian Bogotá mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-bogota-race-guide/",
+    "profile_url": "/race/gravel-bogota/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4527,7 +4527,7 @@
     },
     "tagline": "Chilean Tierra del Fuego gravel adventure.",
     "has_profile": true,
-    "profile_url": "/karukinka-race-guide/",
+    "profile_url": "/race/karukinka/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4563,7 +4563,7 @@
     },
     "tagline": "Central Oregon coast gravel with coastal and mountain terrain.",
     "has_profile": true,
-    "profile_url": "/oregon-coast-gravel-epic-race-guide/",
+    "profile_url": "/race/oregon-coast-gravel-epic/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4599,7 +4599,7 @@
     },
     "tagline": "South Carolina Paris Mountain gravel in Travelers Rest.",
     "has_profile": true,
-    "profile_url": "/paris-mountain-gravel-grinder-race-guide/",
+    "profile_url": "/race/paris-mountain-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4635,7 +4635,7 @@
     },
     "tagline": "Colorado ultra gravel challenge.",
     "has_profile": true,
-    "profile_url": "/pony-xpress-gravel-160-race-guide/",
+    "profile_url": "/race/pony-xpress-gravel-160/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4671,7 +4671,7 @@
     },
     "tagline": "Vancouver Island gravel through forest roads and coastal terrain.",
     "has_profile": true,
-    "profile_url": "/river-city-gravel-fondo-race-guide/",
+    "profile_url": "/race/river-city-gravel-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4707,7 +4707,7 @@
     },
     "tagline": "Northeast Nevada gravel in remote Ruby Mountains near Elko.",
     "has_profile": true,
-    "profile_url": "/ruby-roubaix-race-guide/",
+    "profile_url": "/race/ruby-roubaix/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4743,7 +4743,7 @@
     },
     "tagline": "Alberta mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/the-range-race-guide/",
+    "profile_url": "/race/the-range/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4779,7 +4779,7 @@
     },
     "tagline": "Three-state mountain gravel crossing Alabama, Georgia, and Tennessee.",
     "has_profile": true,
-    "profile_url": "/3-state-3-mountain-challenge-race-guide/",
+    "profile_url": "/race/3-state-3-mountain-challenge/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4815,7 +4815,7 @@
     },
     "tagline": "100+ mile Michigan gravel with 1000+ riders in Hastings.",
     "has_profile": true,
-    "profile_url": "/barry-roubaix-race-guide/",
+    "profile_url": "/race/barry-roubaix/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4851,7 +4851,7 @@
     },
     "tagline": "Romanian Carpathian mountainous gravel.",
     "has_profile": true,
-    "profile_url": "/carpathian-gravel-race-guide/",
+    "profile_url": "/race/carpathian-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4887,7 +4887,7 @@
     },
     "tagline": "New York State Championship gravel in Finger Lakes wine country.",
     "has_profile": true,
-    "profile_url": "/dirty-hector-race-guide/",
+    "profile_url": "/race/dirty-hector/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -4923,7 +4923,7 @@
     },
     "tagline": "North Georgia mountain gravel in Dahlonega.",
     "has_profile": true,
-    "profile_url": "/fools-gold-gravel-grinder-race-guide/",
+    "profile_url": "/race/fools-gold-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4959,7 +4959,7 @@
     },
     "tagline": "Arkansas Ozark Mountains gravel in Eureka Springs.",
     "has_profile": true,
-    "profile_url": "/gran-fondo-ozarks-race-guide/",
+    "profile_url": "/race/gran-fondo-ozarks/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -4995,7 +4995,7 @@
     },
     "tagline": "Chilean Patagonia gravel adventure.",
     "has_profile": true,
-    "profile_url": "/gravel-del-fuego-race-guide/",
+    "profile_url": "/race/gravel-del-fuego/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5031,7 +5031,7 @@
     },
     "tagline": "Colombian Medellín mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-medellin-race-guide/",
+    "profile_url": "/race/gravel-medellin/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5067,7 +5067,7 @@
     },
     "tagline": "Swiss Alpine gravel in Aigle.",
     "has_profile": true,
-    "profile_url": "/gravel-suisse-race-guide/",
+    "profile_url": "/race/gravel-suisse/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5103,7 +5103,7 @@
     },
     "tagline": "Italian coastal mountain gravel in Finale Ligure.",
     "has_profile": true,
-    "profile_url": "/grinduro-italy-race-guide/",
+    "profile_url": "/race/grinduro-italy/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5139,7 +5139,7 @@
     },
     "tagline": "British Columbia mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/kettle-mettle-race-guide/",
+    "profile_url": "/race/kettle-mettle/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5175,7 +5175,7 @@
     },
     "tagline": "South African mountain gravel stage race.",
     "has_profile": true,
-    "profile_url": "/king-price-race-to-sun-race-guide/",
+    "profile_url": "/race/king-price-race-to-sun/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5211,7 +5211,7 @@
     },
     "tagline": "Arkansas Ozark hills gravel in Rogers.",
     "has_profile": true,
-    "profile_url": "/ozark-gravel-race-guide/",
+    "profile_url": "/race/ozark-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5247,7 +5247,7 @@
     },
     "tagline": "Austrian Alps gravel challenge.",
     "has_profile": true,
-    "profile_url": "/worthersee-gravel-race-race-guide/",
+    "profile_url": "/race/worthersee-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5283,7 +5283,7 @@
     },
     "tagline": "German mountain gravel in Winterberg/Aachen.",
     "has_profile": true,
-    "profile_url": "/3rides-aachen-race-guide/",
+    "profile_url": "/race/3rides-aachen/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5319,7 +5319,7 @@
     },
     "tagline": "6-hour Arkansas endurance on Syllamo Trail in Mountain View.",
     "has_profile": true,
-    "profile_url": "/6-hours-of-syllamo-race-guide/",
+    "profile_url": "/race/6-hours-of-syllamo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5355,7 +5355,7 @@
     },
     "tagline": "French Pyrénées mountain gravel.",
     "has_profile": true,
-    "profile_url": "/66-south-pyrenees-race-guide/",
+    "profile_url": "/race/66-south-pyrenees/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5391,7 +5391,7 @@
     },
     "tagline": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
     "has_profile": true,
-    "profile_url": "/ardenne-gravel-stages-race-guide/",
+    "profile_url": "/race/ardenne-gravel-stages/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5427,7 +5427,7 @@
     },
     "tagline": "Missouri Berryman Trail mixed surfaces in Potosi.",
     "has_profile": true,
-    "profile_url": "/berryman-epic-race-guide/",
+    "profile_url": "/race/berryman-epic/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5463,7 +5463,7 @@
     },
     "tagline": "German Black Forest mountainous gravel in Freiburg.",
     "has_profile": true,
-    "profile_url": "/black-forest-gravel-race-guide/",
+    "profile_url": "/race/black-forest-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5499,7 +5499,7 @@
     },
     "tagline": "Alabama Cheaha Mountain gravel in Jacksonville.",
     "has_profile": true,
-    "profile_url": "/cheaha-challenge-race-guide/",
+    "profile_url": "/race/cheaha-challenge/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5535,7 +5535,7 @@
     },
     "tagline": "West Virginia mountain gravel in Circleville.",
     "has_profile": true,
-    "profile_url": "/grusk-race-guide/",
+    "profile_url": "/race/grusk/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5571,7 +5571,7 @@
     },
     "tagline": "Appalachian gravel in remote western North Carolina mountains.",
     "has_profile": true,
-    "profile_url": "/hot-springs-gravel-gauntlet-race-guide/",
+    "profile_url": "/race/hot-springs-gravel-gauntlet/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5607,7 +5607,7 @@
     },
     "tagline": "Pennsylvania gravel/cyclocross with technical elements.",
     "has_profile": true,
-    "profile_url": "/iron-cross-race-guide/",
+    "profile_url": "/race/iron-cross/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5643,7 +5643,7 @@
     },
     "tagline": "Illinois State Championship 100-mile gravel through farmland.",
     "has_profile": true,
-    "profile_url": "/little-apple-100-race-guide/",
+    "profile_url": "/race/little-apple-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5679,7 +5679,7 @@
     },
     "tagline": "California Sierra Nevada gravel in Portola.",
     "has_profile": true,
-    "profile_url": "/lost-and-found-gravel-race-guide/",
+    "profile_url": "/race/lost-and-found-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5715,7 +5715,7 @@
     },
     "tagline": "Japanese Hokkaido mountain gravel.",
     "has_profile": true,
-    "profile_url": "/niseko-gravel-race-guide/",
+    "profile_url": "/race/niseko-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5751,7 +5751,7 @@
     },
     "tagline": "Southern Oregon Cascade foothills gravel near Eugene.",
     "has_profile": true,
-    "profile_url": "/oregon-gran-fondo-race-guide/",
+    "profile_url": "/race/oregon-gran-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5787,7 +5787,7 @@
     },
     "tagline": "Arkansas Ouachita Mountains gravel in Mount Ida.",
     "has_profile": true,
-    "profile_url": "/ouachita-challenge-race-guide/",
+    "profile_url": "/race/ouachita-challenge/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5823,7 +5823,7 @@
     },
     "tagline": "California coastal mountains gravel in Ojai.",
     "has_profile": true,
-    "profile_url": "/pirate-cycling-league-gravel-race-guide/",
+    "profile_url": "/race/pirate-cycling-league-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5859,7 +5859,7 @@
     },
     "tagline": "South Carolina mountain gravel in Walhalla.",
     "has_profile": true,
-    "profile_url": "/race-to-valhalla-race-guide/",
+    "profile_url": "/race/race-to-valhalla/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5895,7 +5895,7 @@
     },
     "tagline": "New Mexico mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/santa-fe-century-gravelon-race-guide/",
+    "profile_url": "/race/santa-fe-century-gravelon/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -5931,7 +5931,7 @@
     },
     "tagline": "Spanish Girona gravel challenge.",
     "has_profile": true,
-    "profile_url": "/sea-otter-europe-gravel-race-guide/",
+    "profile_url": "/race/sea-otter-europe-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -5967,7 +5967,7 @@
     },
     "tagline": "Pennsylvania multi-stage mountain gravel.",
     "has_profile": true,
-    "profile_url": "/trans-sylvania-epic-race-guide/",
+    "profile_url": "/race/trans-sylvania-epic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6003,7 +6003,7 @@
     },
     "tagline": "Forest gravel in central North Carolina's Uwharrie National Forest.",
     "has_profile": true,
-    "profile_url": "/uwharrie-forest-gravel-grinder-race-guide/",
+    "profile_url": "/race/uwharrie-forest-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6039,7 +6039,7 @@
     },
     "tagline": "Appalachian gravel in remote southeast Tennessee mountains.",
     "has_profile": true,
-    "profile_url": "/waucheesi-bike-race-race-guide/",
+    "profile_url": "/race/waucheesi-bike-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6075,7 +6075,7 @@
     },
     "tagline": "Balkan mountainous gravel in Slovenia/Croatia.",
     "has_profile": true,
-    "profile_url": "/balkan-gravel-race-guide/",
+    "profile_url": "/race/balkan-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6111,7 +6111,7 @@
     },
     "tagline": "100-mile Texas grasslands gravel in Decatur.",
     "has_profile": true,
-    "profile_url": "/grasslands-100-race-guide/",
+    "profile_url": "/race/grasslands-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6147,7 +6147,7 @@
     },
     "tagline": "South Carolina Sumter National Forest gravel in Whitmire.",
     "has_profile": true,
-    "profile_url": "/gravel-battle-of-sumter-forest-race-guide/",
+    "profile_url": "/race/gravel-battle-of-sumter-forest/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -6183,7 +6183,7 @@
     },
     "tagline": "Greek mountainous gravel in Peloponnese.",
     "has_profile": true,
-    "profile_url": "/greek-gravel-race-guide/",
+    "profile_url": "/race/greek-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6219,7 +6219,7 @@
     },
     "tagline": "Multi-day South Carolina gravel in Jamestown.",
     "has_profile": true,
-    "profile_url": "/hellhole-gravel-grind-race-guide/",
+    "profile_url": "/race/hellhole-gravel-grind/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6255,7 +6255,7 @@
     },
     "tagline": "Northern Wisconsin century in the Chequamegon area.",
     "has_profile": true,
-    "profile_url": "/hungry-bear-100-race-guide/",
+    "profile_url": "/race/hungry-bear-100/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -6291,7 +6291,7 @@
     },
     "tagline": "New Zealand Lake Taupo gravel challenge.",
     "has_profile": true,
-    "profile_url": "/lake-taupo-cycle-challenge-race-guide/",
+    "profile_url": "/race/lake-taupo-cycle-challenge/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6327,7 +6327,7 @@
     },
     "tagline": "Tennessee Natchez Trace Parkway cycling in Nashville.",
     "has_profile": true,
-    "profile_url": "/natchez-trace-gran-fondo-race-guide/",
+    "profile_url": "/race/natchez-trace-gran-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6363,7 +6363,7 @@
     },
     "tagline": "Tennessee mountain gravel.",
     "has_profile": true,
-    "profile_url": "/reliance-deep-woods-race-guide/",
+    "profile_url": "/race/reliance-deep-woods/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6399,7 +6399,7 @@
     },
     "tagline": "Appalachian foothills gravel in remote southeast Tennessee.",
     "has_profile": true,
-    "profile_url": "/reliance-tennessee-gravel-race-guide/",
+    "profile_url": "/race/reliance-tennessee-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6435,7 +6435,7 @@
     },
     "tagline": "Vermont rolling to mountainous gravel in Morrisville.",
     "has_profile": true,
-    "profile_url": "/rooted-vermont-race-guide/",
+    "profile_url": "/race/rooted-vermont/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6471,7 +6471,7 @@
     },
     "tagline": "Kenyan safari gravel adventure.",
     "has_profile": true,
-    "profile_url": "/safari-gravel-race-race-guide/",
+    "profile_url": "/race/safari-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6507,7 +6507,7 @@
     },
     "tagline": "Colorado mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/salida-76-race-guide/",
+    "profile_url": "/race/salida-76/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6543,7 +6543,7 @@
     },
     "tagline": "Arizona desert gravel 100-miler.",
     "has_profile": true,
-    "profile_url": "/spirit-world-100-race-guide/",
+    "profile_url": "/race/spirit-world-100/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -6579,7 +6579,7 @@
     },
     "tagline": "UCI Gravel World Series stop at a Khmer Empire outpost—jungle gravel in Kanchanaburi, Thailand.",
     "has_profile": true,
-    "profile_url": "/uci-gravel-dustman-race-guide/",
+    "profile_url": "/race/uci-gravel-dustman/",
     "has_rwgps": false,
     "research": {
       "grade": "D",
@@ -6615,7 +6615,7 @@
     },
     "tagline": "Thirty miles of pure Texas Hill Country grit - where limestone legends are made",
     "has_profile": true,
-    "profile_url": "/walburg-dirty-30-race-guide/",
+    "profile_url": "/race/walburg-dirty-30/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6651,7 +6651,7 @@
     },
     "tagline": "Western Colorado high desert gravel in De Beque.",
     "has_profile": true,
-    "profile_url": "/wild-horse-gravel-race-guide/",
+    "profile_url": "/race/wild-horse-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6687,7 +6687,7 @@
     },
     "tagline": "French plateau gravel in Millau Grands Causses.",
     "has_profile": true,
-    "profile_url": "/wish-one-millau-race-guide/",
+    "profile_url": "/race/wish-one-millau/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6723,7 +6723,7 @@
     },
     "tagline": "Northern Wyoming high plains gravel in Sheridan ranch country.",
     "has_profile": true,
-    "profile_url": "/dead-swede-gravel-race-guide/",
+    "profile_url": "/race/dead-swede-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6759,7 +6759,7 @@
     },
     "tagline": "Luxembourg Ardennes gravel challenge.",
     "has_profile": true,
-    "profile_url": "/eislek-gravel-race-guide/",
+    "profile_url": "/race/eislek-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6795,7 +6795,7 @@
     },
     "tagline": "Belgian Flanders gravel challenge.",
     "has_profile": true,
-    "profile_url": "/flanders-legacy-gravel-race-guide/",
+    "profile_url": "/race/flanders-legacy-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6831,7 +6831,7 @@
     },
     "tagline": "Kansas Flint Hills gravel in Cottonwood Falls.",
     "has_profile": true,
-    "profile_url": "/flint-hills-death-ride-race-guide/",
+    "profile_url": "/race/flint-hills-death-ride/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6867,7 +6867,7 @@
     },
     "tagline": "UCI Gravel World Series stop on the Swedish coast—lakeside forests, farm roads, and Nordic grit.",
     "has_profile": true,
-    "profile_url": "/gravel-grit-n-grind-race-guide/",
+    "profile_url": "/race/gravel-grit-n-grind/",
     "has_rwgps": false,
     "research": {
       "grade": "F",
@@ -6903,7 +6903,7 @@
     },
     "tagline": "Rolling New Jersey hills gravel in Hunterdon County.",
     "has_profile": true,
-    "profile_url": "/hell-of-hunterdon-race-guide/",
+    "profile_url": "/race/hell-of-hunterdon/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -6939,7 +6939,7 @@
     },
     "tagline": "Belgian Ardennes gravel in Houffalize.",
     "has_profile": true,
-    "profile_url": "/houffa-gravel-race-guide/",
+    "profile_url": "/race/houffa-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -6975,7 +6975,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/kal-tour-dirty-100-race-guide/",
+    "profile_url": "/race/kal-tour-dirty-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7011,7 +7011,7 @@
     },
     "tagline": "German Lake Constance rolling gravel.",
     "has_profile": true,
-    "profile_url": "/king-of-the-lake-race-guide/",
+    "profile_url": "/race/king-of-the-lake/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7047,7 +7047,7 @@
     },
     "tagline": "French Alps gravel challenge.",
     "has_profile": true,
-    "profile_url": "/la-dromoise-gravel-race-guide/",
+    "profile_url": "/race/la-dromoise-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7083,7 +7083,7 @@
     },
     "tagline": "Welsh mountain gravel in Cambrian Mountains.",
     "has_profile": true,
-    "profile_url": "/lauf-gritfest-race-guide/",
+    "profile_url": "/race/lauf-gritfest/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7119,7 +7119,7 @@
     },
     "tagline": "120-mile Kansas farmland/prairie gravel in Marysville.",
     "has_profile": true,
-    "profile_url": "/pony-express-120-race-guide/",
+    "profile_url": "/race/pony-express-120/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7155,7 +7155,7 @@
     },
     "tagline": "100-mile Alabama dirt roads in Waverly.",
     "has_profile": true,
-    "profile_url": "/standard-deluxe-dirt-road-century-race-guide/",
+    "profile_url": "/race/standard-deluxe-dirt-road-century/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7191,7 +7191,7 @@
     },
     "tagline": "Multi-day Texas gravel summer challenge in Warda.",
     "has_profile": true,
-    "profile_url": "/texas-hell-week-race-guide/",
+    "profile_url": "/race/texas-hell-week/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7227,7 +7227,7 @@
     },
     "tagline": "Italian Veneto hilly gravel in Asolo.",
     "has_profile": true,
-    "profile_url": "/veneto-gravel-race-guide/",
+    "profile_url": "/race/veneto-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7263,7 +7263,7 @@
     },
     "tagline": "Portuguese rolling gravel challenge.",
     "has_profile": true,
-    "profile_url": "/114-gravel-race-race-guide/",
+    "profile_url": "/race/114-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7299,7 +7299,7 @@
     },
     "tagline": "Portuguese Alentejo gravel adventure.",
     "has_profile": true,
-    "profile_url": "/alentejo-gravel-race-guide/",
+    "profile_url": "/race/alentejo-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7335,7 +7335,7 @@
     },
     "tagline": "Rural Ontario gravel through farmland and forest roads.",
     "has_profile": true,
-    "profile_url": "/back-forty-highlander-race-guide/",
+    "profile_url": "/race/back-forty-highlander/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7371,7 +7371,7 @@
     },
     "tagline": "Arizona mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/bear-howard-gravel-race-guide/",
+    "profile_url": "/race/bear-howard-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7407,7 +7407,7 @@
     },
     "tagline": "GA/AL border rolling gravel.",
     "has_profile": true,
-    "profile_url": "/border-wars-race-guide/",
+    "profile_url": "/race/border-wars/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7443,7 +7443,7 @@
     },
     "tagline": "Wisconsin northwoods gravel challenge.",
     "has_profile": true,
-    "profile_url": "/burgr-95-race-guide/",
+    "profile_url": "/race/burgr-95/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7479,7 +7479,7 @@
     },
     "tagline": "Cowichan Valley wine country gravel on Vancouver Island.",
     "has_profile": true,
-    "profile_url": "/burnt-bridge-classic-race-guide/",
+    "profile_url": "/race/burnt-bridge-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7515,7 +7515,7 @@
     },
     "tagline": "Spanish Castellon gravel challenge.",
     "has_profile": true,
-    "profile_url": "/castellon-gravel-race-race-guide/",
+    "profile_url": "/race/castellon-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7551,7 +7551,7 @@
     },
     "tagline": "Central Arizona high desert gravel in Chino Valley.",
     "has_profile": true,
-    "profile_url": "/chino-grinder-race-guide/",
+    "profile_url": "/race/chino-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7587,7 +7587,7 @@
     },
     "tagline": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
     "has_profile": true,
-    "profile_url": "/dirty-sheets-gravel-grind-race-guide/",
+    "profile_url": "/race/dirty-sheets-gravel-grind/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7623,7 +7623,7 @@
     },
     "tagline": "New York rolling gravel.",
     "has_profile": true,
-    "profile_url": "/farmers-daughter-race-guide/",
+    "profile_url": "/race/farmers-daughter/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7659,7 +7659,7 @@
     },
     "tagline": "Nebraska rolling farmland gravel in Lincoln.",
     "has_profile": true,
-    "profile_url": "/garmin-gravel-worlds-race-guide/",
+    "profile_url": "/race/garmin-gravel-worlds/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7695,7 +7695,7 @@
     },
     "tagline": "Belgian Flanders rolling gravel.",
     "has_profile": true,
-    "profile_url": "/gravel-des-flandres-race-guide/",
+    "profile_url": "/race/gravel-des-flandres/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7731,7 +7731,7 @@
     },
     "tagline": "Louisiana rolling hills gravel in St. Francisville.",
     "has_profile": true,
-    "profile_url": "/gravel-fondo-louisiana-race-guide/",
+    "profile_url": "/race/gravel-fondo-louisiana/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7767,7 +7767,7 @@
     },
     "tagline": "Dutch flat gravel in Roden, Drenthe.",
     "has_profile": true,
-    "profile_url": "/gravel-one-fifty-race-guide/",
+    "profile_url": "/race/gravel-one-fifty/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -7803,7 +7803,7 @@
     },
     "tagline": "Victorian rolling gravel in Australia.",
     "has_profile": true,
-    "profile_url": "/gravelista-race-guide/",
+    "profile_url": "/race/gravelista/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7839,7 +7839,7 @@
     },
     "tagline": "German rolling gravel in Singen.",
     "has_profile": true,
-    "profile_url": "/hegau-gravel-race-race-guide/",
+    "profile_url": "/race/hegau-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7875,7 +7875,7 @@
     },
     "tagline": "Colorado mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/kowtown-gravel-race-guide/",
+    "profile_url": "/race/kowtown-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7911,7 +7911,7 @@
     },
     "tagline": "Upper Peninsula Michigan wilderness gravel in Iron Mountain.",
     "has_profile": true,
-    "profile_url": "/lone-wolf-gravel-race-guide/",
+    "profile_url": "/race/lone-wolf-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7947,7 +7947,7 @@
     },
     "tagline": "Montana mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/montana-gravel-challenge-race-guide/",
+    "profile_url": "/race/montana-gravel-challenge/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -7983,7 +7983,7 @@
     },
     "tagline": "Rolling Alabama gravel in east Alabama's Opelika.",
     "has_profile": true,
-    "profile_url": "/opelika-okey-dokey-race-guide/",
+    "profile_url": "/race/opelika-okey-dokey/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8019,7 +8019,7 @@
     },
     "tagline": "Texas Hill Country gravel in Fredericksburg.",
     "has_profile": true,
-    "profile_url": "/purgatory-road-race-race-guide/",
+    "profile_url": "/race/purgatory-road-race/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8055,7 +8055,7 @@
     },
     "tagline": "Italian flat to rolling gravel near Venice.",
     "has_profile": true,
-    "profile_url": "/serenissima-gravel-race-guide/",
+    "profile_url": "/race/serenissima-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8091,7 +8091,7 @@
     },
     "tagline": "Kansas Flint Hills gravel in Leonardville.",
     "has_profile": true,
-    "profile_url": "/switchgrass-race-guide/",
+    "profile_url": "/race/switchgrass/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8127,7 +8127,7 @@
     },
     "tagline": "Washington Cascades gravel adventure.",
     "has_profile": true,
-    "profile_url": "/the-grit-adventure-race-guide/",
+    "profile_url": "/race/the-grit-adventure/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8163,7 +8163,7 @@
     },
     "tagline": "Virginia state championship gravel race.",
     "has_profile": true,
-    "profile_url": "/unravel-gravel-va-race-guide/",
+    "profile_url": "/race/unravel-gravel-va/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8199,7 +8199,7 @@
     },
     "tagline": "NSW valley gravel festival in historic Wollombi.",
     "has_profile": true,
-    "profile_url": "/wollombi-gravel-fest-race-guide/",
+    "profile_url": "/race/wollombi-gravel-fest/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8235,7 +8235,7 @@
     },
     "tagline": "Montana mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/big-sky-gravel-race-guide/",
+    "profile_url": "/race/big-sky-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8271,7 +8271,7 @@
     },
     "tagline": "Czech rolling to hilly gravel.",
     "has_profile": true,
-    "profile_url": "/bohemian-border-bash-race-guide/",
+    "profile_url": "/race/bohemian-border-bash/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8307,7 +8307,7 @@
     },
     "tagline": "Canadian mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/canmore-crux-race-guide/",
+    "profile_url": "/race/canmore-crux/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8343,7 +8343,7 @@
     },
     "tagline": "Rolling Illinois farmland gravel in rural Roubaix.",
     "has_profile": true,
-    "profile_url": "/cirrem-race-guide/",
+    "profile_url": "/race/cirrem/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8379,7 +8379,7 @@
     },
     "tagline": "Florida flat gravel.",
     "has_profile": true,
-    "profile_url": "/dirty-pecan-race-guide/",
+    "profile_url": "/race/dirty-pecan/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8415,7 +8415,7 @@
     },
     "tagline": "Montana mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/dusty-bandita-race-guide/",
+    "profile_url": "/race/dusty-bandita/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8451,7 +8451,7 @@
     },
     "tagline": "Wisconsin local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/essential-gravel-race-guide/",
+    "profile_url": "/race/essential-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8487,7 +8487,7 @@
     },
     "tagline": "Alberta prairie gravel challenge.",
     "has_profile": true,
-    "profile_url": "/ghost-of-the-gravel-race-guide/",
+    "profile_url": "/race/ghost-of-the-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8523,7 +8523,7 @@
     },
     "tagline": "French rolling gravel in Châtellerault.",
     "has_profile": true,
-    "profile_url": "/gravel-fever-race-guide/",
+    "profile_url": "/race/gravel-fever/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8559,7 +8559,7 @@
     },
     "tagline": "Rolling Tennessee gravel in rural Hickman County.",
     "has_profile": true,
-    "profile_url": "/gravel-revival-race-guide/",
+    "profile_url": "/race/gravel-revival/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8595,7 +8595,7 @@
     },
     "tagline": "Rolling Georgia gravel in central Georgia's Hawkinsville.",
     "has_profile": true,
-    "profile_url": "/gravel-roll-pecan-shaker-race-guide/",
+    "profile_url": "/race/gravel-roll-pecan-shaker/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8631,7 +8631,7 @@
     },
     "tagline": "Grand Marais, Minnesota 44-mile rolling gravel.",
     "has_profile": true,
-    "profile_url": "/gun-flint-44-race-guide/",
+    "profile_url": "/race/gun-flint-44/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8667,7 +8667,7 @@
     },
     "tagline": "Belgian heathland gravel challenge.",
     "has_profile": true,
-    "profile_url": "/heathland-gravel-race-guide/",
+    "profile_url": "/race/heathland-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8703,7 +8703,7 @@
     },
     "tagline": "Coastal plain gravel in southeast North Carolina's Holly Shelter Game Land.",
     "has_profile": true,
-    "profile_url": "/holly-shelter-gravel-grinder-race-guide/",
+    "profile_url": "/race/holly-shelter-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8739,7 +8739,7 @@
     },
     "tagline": "Rolling Georgia gravel in rural west Georgia.",
     "has_profile": true,
-    "profile_url": "/homegrown-gravel-adventure-race-guide/",
+    "profile_url": "/race/homegrown-gravel-adventure/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8775,7 +8775,7 @@
     },
     "tagline": "Wisconsin local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/lake-country-gravel-race-guide/",
+    "profile_url": "/race/lake-country-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8811,7 +8811,7 @@
     },
     "tagline": "Dutch flat to rolling gravel.",
     "has_profile": true,
-    "profile_url": "/marly-grav-race-guide/",
+    "profile_url": "/race/marly-grav/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8847,7 +8847,7 @@
     },
     "tagline": "Wisconsin 40-mile rolling gravel.",
     "has_profile": true,
-    "profile_url": "/pickerel-buck40-race-guide/",
+    "profile_url": "/race/pickerel-buck40/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8883,7 +8883,7 @@
     },
     "tagline": "Polish rolling gravel in Kraków.",
     "has_profile": true,
-    "profile_url": "/polish-gravel-race-guide/",
+    "profile_url": "/race/polish-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8919,7 +8919,7 @@
     },
     "tagline": "Germany gravel challenge.",
     "has_profile": true,
-    "profile_url": "/rad-am-ring-gravel-race-guide/",
+    "profile_url": "/race/rad-am-ring-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -8955,7 +8955,7 @@
     },
     "tagline": "Remote Upper Peninsula Michigan wilderness gravel.",
     "has_profile": true,
-    "profile_url": "/the-crusher-race-guide/",
+    "profile_url": "/race/the-crusher/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -8991,7 +8991,7 @@
     },
     "tagline": "UK Peak District gravel challenge.",
     "has_profile": true,
-    "profile_url": "/tor-divide-race-guide/",
+    "profile_url": "/race/tor-divide/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9027,7 +9027,7 @@
     },
     "tagline": "Mississippi rolling hills gravel in Fulton.",
     "has_profile": true,
-    "profile_url": "/tour-de-gap-race-guide/",
+    "profile_url": "/race/tour-de-gap/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9063,7 +9063,7 @@
     },
     "tagline": "Belgian Turnhout gravel challenge.",
     "has_profile": true,
-    "profile_url": "/turnhout-gravel-race-guide/",
+    "profile_url": "/race/turnhout-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9099,7 +9099,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/albia-holy-cow-race-guide/",
+    "profile_url": "/race/albia-holy-cow/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9135,7 +9135,7 @@
     },
     "tagline": "Northern Wisconsin Northwoods gravel century.",
     "has_profile": true,
-    "profile_url": "/bear-100-race-guide/",
+    "profile_url": "/race/bear-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9171,7 +9171,7 @@
     },
     "tagline": "West Michigan gravel in Cedar Springs near Grand Rapids.",
     "has_profile": true,
-    "profile_url": "/cedar-blitz-race-guide/",
+    "profile_url": "/race/cedar-blitz/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9207,7 +9207,7 @@
     },
     "tagline": "Central Michigan farmland gravel in Ionia.",
     "has_profile": true,
-    "profile_url": "/cow-pie-classic-race-guide/",
+    "profile_url": "/race/cow-pie-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -9243,7 +9243,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/fairfield-harvest-rush-race-guide/",
+    "profile_url": "/race/fairfield-harvest-rush/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9279,7 +9279,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/glenwood-gravel-race-guide/",
+    "profile_url": "/race/glenwood-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9315,7 +9315,7 @@
     },
     "tagline": "Australian mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-and-granite-race-guide/",
+    "profile_url": "/race/gravel-and-granite/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9351,7 +9351,7 @@
     },
     "tagline": "Washington mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-unravel-bon-jon-pass-out-race-guide/",
+    "profile_url": "/race/gravel-unravel-bon-jon-pass-out/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9387,7 +9387,7 @@
     },
     "tagline": "Southeast Minnesota gravel in Cannon Falls near Twin Cities.",
     "has_profile": true,
-    "profile_url": "/gray-duck-grit-race-guide/",
+    "profile_url": "/race/gray-duck-grit/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9423,7 +9423,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/hart-hills-race-guide/",
+    "profile_url": "/race/hart-hills/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9459,7 +9459,7 @@
     },
     "tagline": "West Michigan gravel in Lowell near Grand Rapids.",
     "has_profile": true,
-    "profile_url": "/lowell-classic-race-guide/",
+    "profile_url": "/race/lowell-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9495,7 +9495,7 @@
     },
     "tagline": "Australian mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/marys-mayhem-race-guide/",
+    "profile_url": "/race/marys-mayhem/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9531,7 +9531,7 @@
     },
     "tagline": "Southwest Michigan spring thaw gravel in Vandalia.",
     "has_profile": true,
-    "profile_url": "/melting-mann-race-guide/",
+    "profile_url": "/race/melting-mann/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9567,7 +9567,7 @@
     },
     "tagline": "Eastern Oregon high desert gravel in Pendleton wheat country.",
     "has_profile": true,
-    "profile_url": "/real-west-gravel-race-guide/",
+    "profile_url": "/race/real-west-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9603,7 +9603,7 @@
     },
     "tagline": "Minnesota local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/ride-the-gravel-trails-race-guide/",
+    "profile_url": "/race/ride-the-gravel-trails/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9639,7 +9639,7 @@
     },
     "tagline": "Minnesota local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/spring-valley-100-race-guide/",
+    "profile_url": "/race/spring-valley-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9675,7 +9675,7 @@
     },
     "tagline": "Queensland hinterland gravel through dairy country.",
     "has_profile": true,
-    "profile_url": "/sunday-creek-classic-race-guide/",
+    "profile_url": "/race/sunday-creek-classic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9711,7 +9711,7 @@
     },
     "tagline": "South Carolina coastal forest gravel in Francis Marion NF.",
     "has_profile": true,
-    "profile_url": "/swamp-fox-gravel-fondo-race-guide/",
+    "profile_url": "/race/swamp-fox-gravel-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9747,7 +9747,7 @@
     },
     "tagline": "Wyoming mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/the-mane-event-gravel-race-guide/",
+    "profile_url": "/race/the-mane-event-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9783,7 +9783,7 @@
     },
     "tagline": "Southeast Michigan gravel in Dexter near Ann Arbor.",
     "has_profile": true,
-    "profile_url": "/the-watermoo-race-guide/",
+    "profile_url": "/race/the-watermoo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9819,7 +9819,7 @@
     },
     "tagline": "Northern Wisconsin Northwoods gravel in Tomahawk.",
     "has_profile": true,
-    "profile_url": "/total-tomahawk-terrain-race-guide/",
+    "profile_url": "/race/total-tomahawk-terrain/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9855,7 +9855,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/waukon-100-race-guide/",
+    "profile_url": "/race/waukon-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9891,7 +9891,7 @@
     },
     "tagline": "Australian coastal gravel challenge.",
     "has_profile": true,
-    "profile_url": "/clarkes-gambit-race-guide/",
+    "profile_url": "/race/clarkes-gambit/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9927,7 +9927,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/de-ronde-van-grampian-race-guide/",
+    "profile_url": "/race/de-ronde-van-grampian/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -9963,7 +9963,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/fast-fitty-race-guide/",
+    "profile_url": "/race/fast-fitty/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -9999,7 +9999,7 @@
     },
     "tagline": "New Mexico desert gravel challenge.",
     "has_profile": true,
-    "profile_url": "/galactic-grinder-race-guide/",
+    "profile_url": "/race/galactic-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10035,7 +10035,7 @@
     },
     "tagline": "Colorado gravel challenge.",
     "has_profile": true,
-    "profile_url": "/grassroots-gravel-race-guide/",
+    "profile_url": "/race/grassroots-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10071,7 +10071,7 @@
     },
     "tagline": "UK North York Moors gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-rocks-race-guide/",
+    "profile_url": "/race/gravel-rocks/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10107,7 +10107,7 @@
     },
     "tagline": "Australian coastal gravel challenge.",
     "has_profile": true,
-    "profile_url": "/great-otway-gravel-grind-race-guide/",
+    "profile_url": "/race/great-otway-gravel-grind/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10143,7 +10143,7 @@
     },
     "tagline": "Northern Wisconsin cooler-season Northwoods gravel.",
     "has_profile": true,
-    "profile_url": "/hibernator-race-guide/",
+    "profile_url": "/race/hibernator/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10179,7 +10179,7 @@
     },
     "tagline": "Iowa state championship gravel challenge.",
     "has_profile": true,
-    "profile_url": "/iowa-state-gravel-tt-championship-race-guide/",
+    "profile_url": "/race/iowa-state-gravel-tt-championship/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10215,7 +10215,7 @@
     },
     "tagline": "UK Wales gravel challenge.",
     "has_profile": true,
-    "profile_url": "/north-wales-gravel-x-race-guide/",
+    "profile_url": "/race/north-wales-gravel-x/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10251,7 +10251,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/prairie-burn-100-race-guide/",
+    "profile_url": "/race/prairie-burn-100/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10287,7 +10287,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/spring-thaw-race-guide/",
+    "profile_url": "/race/spring-thaw/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10323,7 +10323,7 @@
     },
     "tagline": "Oregon mountain gravel challenge.",
     "has_profile": true,
-    "profile_url": "/takelma-gravel-grinder-race-guide/",
+    "profile_url": "/race/takelma-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10359,7 +10359,7 @@
     },
     "tagline": "Oregon coast gravel challenge.",
     "has_profile": true,
-    "profile_url": "/west-coast-gravel-race-guide/",
+    "profile_url": "/race/west-coast-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10395,7 +10395,7 @@
     },
     "tagline": "Nevada desert gravel challenge.",
     "has_profile": true,
-    "profile_url": "/beaver-dam-gravel-grinder-race-guide/",
+    "profile_url": "/race/beaver-dam-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10431,7 +10431,7 @@
     },
     "tagline": "Pennsylvania local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/camp-michaux-gravel-grinder-race-guide/",
+    "profile_url": "/race/camp-michaux-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10467,7 +10467,7 @@
     },
     "tagline": "Wyoming gravel challenge.",
     "has_profile": true,
-    "profile_url": "/cowboy-crusher-race-guide/",
+    "profile_url": "/race/cowboy-crusher/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10503,7 +10503,7 @@
     },
     "tagline": "Utah desert gravel challenge.",
     "has_profile": true,
-    "profile_url": "/dirty-dino-race-guide/",
+    "profile_url": "/race/dirty-dino/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10539,7 +10539,7 @@
     },
     "tagline": "Canadian coastal gravel challenge.",
     "has_profile": true,
-    "profile_url": "/forbidden-gravel-race-guide/",
+    "profile_url": "/race/forbidden-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10575,7 +10575,7 @@
     },
     "tagline": "Remote Wisconsin hardwood forest gravel in tiny Nelma.",
     "has_profile": true,
-    "profile_url": "/hardwood-hustle-race-guide/",
+    "profile_url": "/race/hardwood-hustle/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10611,7 +10611,7 @@
     },
     "tagline": "Minnesota local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/heywood-ride-race-guide/",
+    "profile_url": "/race/heywood-ride/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10647,7 +10647,7 @@
     },
     "tagline": "UK Lake District gravel challenge.",
     "has_profile": true,
-    "profile_url": "/just-gravel-race-guide/",
+    "profile_url": "/race/just-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10683,7 +10683,7 @@
     },
     "tagline": "Colorado plains gravel challenge.",
     "has_profile": true,
-    "profile_url": "/mad-gravel-race-guide/",
+    "profile_url": "/race/mad-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10719,7 +10719,7 @@
     },
     "tagline": "New Hampshire local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/raid-rockingham-race-guide/",
+    "profile_url": "/race/raid-rockingham/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10755,7 +10755,7 @@
     },
     "tagline": "Utah desert gravel challenge.",
     "has_profile": true,
-    "profile_url": "/salty-lizard-race-guide/",
+    "profile_url": "/race/salty-lizard/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10791,7 +10791,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/silver-city-century-race-guide/",
+    "profile_url": "/race/silver-city-century/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10827,7 +10827,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/soldier-cutoff-hillduro-race-guide/",
+    "profile_url": "/race/soldier-cutoff-hillduro/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10863,7 +10863,7 @@
     },
     "tagline": "Pennsylvania local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/trough-creek-gravel-grinder-race-guide/",
+    "profile_url": "/race/trough-creek-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -10899,7 +10899,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/uncle-johns-gravel-race-race-guide/",
+    "profile_url": "/race/uncle-johns-gravel-race/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10935,7 +10935,7 @@
     },
     "tagline": "Pennsylvania local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/bald-eagle-gravel-grinder-race-guide/",
+    "profile_url": "/race/bald-eagle-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "B",
@@ -10971,7 +10971,7 @@
     },
     "tagline": "Ontario local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/glengarry-games-gravel-run-race-guide/",
+    "profile_url": "/race/glengarry-games-gravel-run/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11007,7 +11007,7 @@
     },
     "tagline": "Washington coastal gravel challenge.",
     "has_profile": true,
-    "profile_url": "/gravel-unravel-why-not-chee-race-guide/",
+    "profile_url": "/race/gravel-unravel-why-not-chee/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11043,7 +11043,7 @@
     },
     "tagline": "Iowa local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/kalona-horseshoe-race-guide/",
+    "profile_url": "/race/kalona-horseshoe/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11079,7 +11079,7 @@
     },
     "tagline": "Pennsylvania local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/mid-state-gravel-grinder-race-guide/",
+    "profile_url": "/race/mid-state-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11115,7 +11115,7 @@
     },
     "tagline": "UK Scotland gravel challenge.",
     "has_profile": true,
-    "profile_url": "/muck-n-mac-fest-race-guide/",
+    "profile_url": "/race/muck-n-mac-fest/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11151,7 +11151,7 @@
     },
     "tagline": "Wisconsin local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/nicolet-hot-days-race-guide/",
+    "profile_url": "/race/nicolet-hot-days/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11187,7 +11187,7 @@
     },
     "tagline": "Minnesota local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/old-fashioned-gravel-race-guide/",
+    "profile_url": "/race/old-fashioned-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11223,7 +11223,7 @@
     },
     "tagline": "Ontario local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/ottawa-valley-gravel-experience-race-guide/",
+    "profile_url": "/race/ottawa-valley-gravel-experience/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11259,7 +11259,7 @@
     },
     "tagline": "Pennsylvania local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/parker-dam-gravel-grinder-race-guide/",
+    "profile_url": "/race/parker-dam-gravel-grinder/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11295,7 +11295,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/the-divide-race-guide/",
+    "profile_url": "/race/the-divide/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11331,7 +11331,7 @@
     },
     "tagline": "Wisconsin local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/the-insayner-race-guide/",
+    "profile_url": "/race/the-insayner/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11367,7 +11367,7 @@
     },
     "tagline": "Michigan local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/thunder-bay-thriller-race-guide/",
+    "profile_url": "/race/thunder-bay-thriller/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11403,7 +11403,7 @@
     },
     "tagline": "Australian remote gravel challenge.",
     "has_profile": true,
-    "profile_url": "/wild-gravel-race-guide/",
+    "profile_url": "/race/wild-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11439,7 +11439,7 @@
     },
     "tagline": "UK North York Moors gravel challenge.",
     "has_profile": true,
-    "profile_url": "/dalby-grit-race-guide/",
+    "profile_url": "/race/dalby-grit/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11475,7 +11475,7 @@
     },
     "tagline": "UK Scotland gravel challenge.",
     "has_profile": true,
-    "profile_url": "/dunoon-dirt-dash-race-guide/",
+    "profile_url": "/race/dunoon-dirt-dash/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11511,7 +11511,7 @@
     },
     "tagline": "Belgian local gravel challenge.",
     "has_profile": true,
-    "profile_url": "/dusty-gravel-lacs-de-leau-dheure-race-guide/",
+    "profile_url": "/race/dusty-gravel-lacs-de-leau-dheure/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11547,7 +11547,7 @@
     },
     "tagline": "Belgium gravel series event.",
     "has_profile": true,
-    "profile_url": "/dusty-gravel-series-andenne-race-guide/",
+    "profile_url": "/race/dusty-gravel-series-andenne/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11583,7 +11583,7 @@
     },
     "tagline": "UK Devon gravel challenge.",
     "has_profile": true,
-    "profile_url": "/haldon-heroic-race-guide/",
+    "profile_url": "/race/haldon-heroic/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11619,7 +11619,7 @@
     },
     "tagline": "BC coastal gravel challenge.",
     "has_profile": true,
-    "profile_url": "/nanaimo-unpaved-race-guide/",
+    "profile_url": "/race/nanaimo-unpaved/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11655,7 +11655,7 @@
     },
     "tagline": "Mississippi gravel challenge.",
     "has_profile": true,
-    "profile_url": "/omg-oxford-ms-gravel-race-guide/",
+    "profile_url": "/race/omg-oxford-ms-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11691,7 +11691,7 @@
     },
     "tagline": "UK Yorkshire coast gravel challenge.",
     "has_profile": true,
-    "profile_url": "/yorkshire-coast-dirt-dash-race-guide/",
+    "profile_url": "/race/yorkshire-coast-dirt-dash/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11727,7 +11727,7 @@
     },
     "tagline": "Georgia gravel challenge.",
     "has_profile": true,
-    "profile_url": "/rose-city-rampage-race-guide/",
+    "profile_url": "/race/rose-city-rampage/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11763,7 +11763,7 @@
     },
     "tagline": "Tennessee gravel challenge.",
     "has_profile": true,
-    "profile_url": "/rust-buster-gravel-fondo-race-guide/",
+    "profile_url": "/race/rust-buster-gravel-fondo/",
     "has_rwgps": false,
     "research": {
       "grade": "C",
@@ -11799,7 +11799,7 @@
     },
     "tagline": "Florida gravel challenge.",
     "has_profile": true,
-    "profile_url": "/scratch-ankle-gravel-race-guide/",
+    "profile_url": "/race/scratch-ankle-gravel/",
     "has_rwgps": false,
     "research": {
       "grade": "C",

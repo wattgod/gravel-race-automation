@@ -246,6 +246,7 @@
     }
     #gg-race-search .gg-tier-section-header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 12px 16px;
@@ -280,6 +281,12 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+    #gg-race-search .gg-tier-section-desc {
+      font-size: 11px; color: #8c7568; margin: 4px 0 0 0;
+      line-height: 1.5; font-weight: 400;
+      width: 100%; flex-basis: 100%;
+    }
+    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-desc { color: #c4b5ab; }
     #gg-race-search .gg-tier-section-chevron {
       font-size: 16px;
       color: #000 !important;
@@ -649,6 +656,12 @@
       let tierCollapsed = { 1: false, 2: false, 3: true, 4: true };
 
       const TIER_NAMES = { 1: 'Elite', 2: 'Contender', 3: 'Solid', 4: 'Roster' };
+      const TIER_DESCS = {
+        1: 'The definitive gravel events. World-class fields, iconic courses, bucket-list status.',
+        2: 'Established races with strong reputations and competitive fields. The next tier of must-do events.',
+        3: 'Regional favorites and emerging races. Strong local scenes, genuine gravel character.',
+        4: 'Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes.'
+      };
       const TIER_COLORS = { 1: '#c4421a', 2: '#d4830a', 3: '#888', 4: '#ccc' };
 
       const SLIDERS = [
@@ -1038,6 +1051,7 @@
                 <h3>${TIER_NAMES[t]}</h3>
                 <span class="gg-tier-section-count">${races.length} race${races.length !== 1 ? 's' : ''}</span>
               </div>
+              <p class="gg-tier-section-desc">${TIER_DESCS[t]}</p>
               <span class="gg-tier-section-chevron${collapsed ? ' collapsed' : ''}">▾</span>
             </div>
             <div class="gg-tier-section-body${collapsed ? ' collapsed' : ''}">

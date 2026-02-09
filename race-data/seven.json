@@ -63,13 +63,14 @@
       "field_depth": 4,
       "value": 3,
       "expenses": 2,
-      "tier_override_reason": "1,500+ riders (largest in Southern Hemisphere), UCI Gravel World Series, hosting 2026 World Championships",
-      "editorial_tier": 2,
-      "editorial_tier_label": "TIER 2",
+      "tier_override_reason": "Prestige 5 + score >= 75 — promoted to Tier 1",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
       "display_tier": 1,
-      "display_tier_label": "TIER 1"
+      "display_tier_label": "TIER 1",
+      "discipline": "gravel"
     },
     "biased_opinion_ratings": {
       "prestige": {

@@ -195,7 +195,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "scores": scores,
         "tagline": race.get("tagline", ""),
         "has_profile": True,
-        "profile_url": f"/{slug}-race-guide/",
+        "profile_url": f"/race/{slug}/",
         "has_rwgps": bool(race.get("course_description", {}).get("ridewithgps_id")),
         "research": research,
     }

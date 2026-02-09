@@ -135,7 +135,7 @@ class TestKnownMajorRaces:
 
     # Races that MUST be Tier 1 or 2 (known prestigious events)
     KNOWN_TIER1_RACES = {
-        'unbound-200', 'mid-south', 'leadville-100', 'sea-otter-gravel',
+        'unbound-200', 'mid-south', 'leadville-100',
         'gravel-worlds', 'crusher-in-the-tushar', 'badlands', 'the-traka',
         'strade-bianche-gran-fondo', 'uci-gravel-worlds',
     }

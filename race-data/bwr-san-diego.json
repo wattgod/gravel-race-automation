@@ -79,9 +79,10 @@
       "field_depth": 5,
       "value": 4,
       "expenses": 3,
-      "tier_override_reason": "prestige=5 override: T2→T1 promotion",
+      "tier_override_reason": "Prestige 5 + score >= 75 — promoted to Tier 1",
       "tier": 1,
-      "tier_label": "TIER 1"
+      "tier_label": "TIER 1",
+      "discipline": "gravel"
     },
     "biased_opinion_ratings": {
       "prestige": {

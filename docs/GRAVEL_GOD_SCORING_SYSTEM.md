@@ -1,4 +1,4 @@
-# GravelGod Race Scoring System v2.1
+# GravelGod Race Scoring System v2.2
 
 > **CRITICAL DOCUMENT FOR ALL AGENTS**
 > This is the definitive scoring system for all GravelGod race profiles.
@@ -12,17 +12,35 @@ Each race is scored on **14 dimensions** across two categories:
 - **Course Profile** (7 dimensions) - Physical and logistical demands
 - **Editorial** (7 dimensions) - Race quality and value assessment
 
-Plus a **3-tier classification system** and **overall score** (0-100).
+Plus a **4-tier classification system** and **overall score** (0-100).
 
 ---
 
 ## Tier System
 
-| Tier | Label | Description | Examples |
-|------|-------|-------------|----------|
-| **1** | TIER 1 | Premier events - Life Time Grand Prix, UCI qualifiers, iconic status | Unbound, Badlands, SBT GRVL, Crusher |
-| **2** | TIER 2 | Established events - strong reputation, quality organization | Barry-Roubaix, Rebecca's Private Idaho, Dirty Reiver |
-| **3** | TIER 3 | Regional/emerging events - local favorites, growing scene | Most local gravel races |
+| Tier | Label | Score | Description | Examples |
+|------|-------|-------|-------------|----------|
+| **1** | Elite | >= 80 | The definitive gravel events. World-class fields, iconic courses, bucket-list status. | Unbound, Badlands, SBT GRVL, Crusher |
+| **2** | Contender | >= 60 | Established races with strong reputations and competitive fields. The next tier of must-do events. | Barry-Roubaix, Rebecca's Private Idaho, Dirty Reiver |
+| **3** | Solid | >= 45 | Regional favorites and emerging races. Strong local scenes, genuine gravel character. | Most local gravel races |
+| **4** | Roster | < 45 | Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes. | New/niche events |
+
+### Prestige Override
+
+Some races carry outsized cultural significance beyond their raw score:
+
+- **Prestige 5** (World-class) + score >= 75 → Promoted to Tier 1
+- **Prestige 5** (World-class) + score < 75 → Capped at Tier 2 (not T1)
+- **Prestige 4** (National) → Promoted 1 tier, but never into Tier 1
+- **Prestige 1-3** → No override, tier determined by score alone
+
+The >= 75 floor for prestige-5 T1 promotion prevents low-scoring races from reaching Elite status purely on name recognition.
+
+### Discipline Tagging
+
+Races are tagged with a `discipline` field in `gravel_god_rating`:
+- `"gravel"` — default for all gravel events
+- `"mtb"` — used for MTB-primary events included for cultural significance (e.g., Leadville 100, Chequamegon)
 
 ---
 
@@ -130,16 +148,16 @@ These measure the **race quality and value proposition**.
 
 ## Overall Score (0-100)
 
-The overall score is a **weighted combination** considering:
-- Course Profile total (max 35)
-- Editorial total (max 35)
-- Tier bonus
-- Special factors (UCI, LTGP, championship status)
+The overall score is calculated as:
 
-**Formula guidance:**
-- Tier 1 races typically score 70-100
-- Tier 2 races typically score 50-80
-- Tier 3 races typically score 30-60
+```
+overall_score = round((sum of 14 scores / 70) × 100)
+```
+
+- Maximum raw score: 70 (14 dimensions × 5)
+- Normalized to 0-100 scale
+- A race scoring 3/5 across all 14 dimensions = **60**
+- A race scoring 4/5 across all 14 dimensions = **80**
 
 ---
 
@@ -265,6 +283,7 @@ When creating or updating race profiles:
 
 ## Version History
 
+- **v2.2** (Feb 2026): 4-tier system, prestige >= 75 floor for T1, discipline tags, methodology page
 - **v2.1** (Jan 2026): Dual scoring system (Course + Editorial)
 - **v2.0** (Jan 2026): 3-tier system standardized
 - **v1.0** (Dec 2025): Initial scoring framework

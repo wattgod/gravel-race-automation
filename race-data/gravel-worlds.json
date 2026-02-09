@@ -65,13 +65,14 @@
       "value": 4,
       "expenses": 4,
       "score_note": "The OG grassroots race since 2010. 'World Championship' title, $100K purse, Pirate ethos. Overall +6 for cultural significance.",
-      "tier_override_reason": "$100K prize purse, 1,500+ riders, championship status",
-      "editorial_tier": 3,
-      "editorial_tier_label": "TIER 3",
+      "tier_override_reason": "Prestige 5 + score >= 75 — promoted to Tier 1",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
       "display_tier": 1,
-      "display_tier_label": "TIER 1"
+      "display_tier_label": "TIER 1",
+      "discipline": "gravel"
     },
     "biased_opinion_ratings": {
       "prestige": {

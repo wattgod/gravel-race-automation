@@ -48,8 +48,8 @@
     },
     "gravel_god_rating": {
       "overall_score": 74,
-      "tier": 1,
-      "tier_label": "TIER 1",
+      "tier": 2,
+      "tier_label": "TIER 2",
       "logistics": 5,
       "length": 2,
       "technicality": 3,
@@ -66,7 +66,8 @@
       "expenses": 4,
       "tier_note": "Life Time Grand Prix race (since 2024) - prestige override applied",
       "score_note": "LTGP status and festival prestige. Course -2 (adjusted for punchy not long), overall +11.",
-      "tier_override_reason": "prestige=5 override: T3→T1 promotion"
+      "tier_override_reason": "prestige=5 override: T3→T1 promotion",
+      "discipline": "gravel"
     },
     "biased_opinion": {
       "verdict": "Festival First, Race Second",

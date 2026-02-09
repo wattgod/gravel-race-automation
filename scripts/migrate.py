@@ -157,19 +157,28 @@ def merge_to_canonical(v1: Optional[dict], v2: Optional[dict], v3: Optional[dict
 
     # Determine tier
     overall = existing_overall or calculated or 0
-    if overall >= 85:
+    if overall >= 80:
         tier = 1
-    elif overall >= 75:
+    elif overall >= 60:
         tier = 2
-    else:
+    elif overall >= 45:
         tier = 3
+    else:
+        tier = 4
 
     # Check for prestige override
     prestige_score = scores.get("prestige", 0)
     tier_override = None
-    if prestige_score == 5 and tier > 1:
-        tier = 1
-        tier_override = "Prestige score 5 — forced to Tier 1"
+    if prestige_score == 5:
+        if overall >= 75 and tier > 1:
+            tier = 1
+            tier_override = "Prestige 5 + score >= 75 — promoted to Tier 1"
+        elif tier > 2:
+            tier = 2
+            tier_override = "Prestige 5 — promoted to Tier 2 (score < 75)"
+    elif prestige_score == 4 and tier > 2:
+        tier = tier - 1
+        tier_override = "Prestige 4 — promoted 1 tier (not into T1)"
 
     # Build gravel_god_rating
     rating = {

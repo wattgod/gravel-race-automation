@@ -87,7 +87,8 @@ QUESTIONNAIRE_SLUGS = {
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 COACHING_URL = "https://www.wattgod.com/apply"
 SITE_BASE_URL = "https://gravelgodcycling.com"
-EMAIL_FORM_ACTION = "https://gravelgodcycling.com/subscribe"  # Wire to Mailchimp/ConvertKit
+SUBSTACK_URL = "https://slowmid38s.substack.com"
+SUBSTACK_EMBED = "https://slowmid38s.substack.com/embed"
 
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
@@ -1353,16 +1354,13 @@ def linkify_alternatives(alt_text: str, all_slugs: set) -> str:
 
 
 def build_email_capture(rd: dict) -> str:
-    """Build email capture section — placed after verdict for peak-interest conversion."""
+    """Build email capture section — Substack iframe embed for native subscribe flow."""
     race_name = rd['name']
     return f'''<div class="gg-email-capture gg-fade-section">
     <div class="gg-email-capture-inner">
       <h3 class="gg-email-capture-title">RACE INTEL, DELIVERED</h3>
-      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races. Free. No spam.</p>
-      <form class="gg-email-capture-form" action="{esc(EMAIL_FORM_ACTION)}" method="POST">
-        <input type="email" name="email" placeholder="YOUR EMAIL" required class="gg-email-input" aria-label="Email address">
-        <button type="submit" class="gg-btn gg-btn--primary">SUBSCRIBE</button>
-      </form>
+      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races — from Slow, Mid, 38s.</p>
+      <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
 
@@ -1769,10 +1767,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-email-capture-inner { padding: 32px; text-align: center; }
 .gg-neo-brutalist-page .gg-email-capture-title { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; margin: 0 0 8px 0; }
 .gg-neo-brutalist-page .gg-email-capture-text { font-size: 12px; color: #d4c5b9; line-height: 1.6; margin: 0 0 20px 0; max-width: 500px; margin-left: auto; margin-right: auto; }
-.gg-neo-brutalist-page .gg-email-capture-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
-.gg-neo-brutalist-page .gg-email-input { flex: 1; padding: 10px 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; border: 2px solid #000; border-right: none; background: #fff; color: #000; letter-spacing: 1px; }
-.gg-neo-brutalist-page .gg-email-input::placeholder { color: #c4b5ab; letter-spacing: 2px; }
-.gg-neo-brutalist-page .gg-email-capture .gg-btn { border-left: none; }
+.gg-neo-brutalist-page .gg-email-capture iframe { max-width: 480px; margin: 0 auto; display: block; }
 
 /* Countdown */
 .gg-neo-brutalist-page .gg-countdown { border: 3px solid #1A8A82; background: #000; color: #fff; padding: 16px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; }
@@ -1820,9 +1815,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pullquote { padding: 24px 20px; }
   .gg-neo-brutalist-page .gg-pullquote-text { font-size: 15px; }
   .gg-neo-brutalist-page .gg-news-ticker-label { font-size: 9px; padding: 0 10px; letter-spacing: 1px; }
-  .gg-neo-brutalist-page .gg-email-capture-form { flex-direction: column; }
-  .gg-neo-brutalist-page .gg-email-input { border-right: 2px solid #000; border-bottom: none; }
-  .gg-neo-brutalist-page .gg-email-capture .gg-btn { border-left: 2px solid #000; }
+  .gg-neo-brutalist-page .gg-email-capture iframe { height: 120px; }
   .gg-neo-brutalist-page .gg-similar-grid { grid-template-columns: 1fr; }
   .gg-neo-brutalist-page .gg-countdown-num { font-size: 24px; }
 }
@@ -1885,13 +1878,18 @@ def generate_page(rd: dict, race_index: list = None) -> str:
     content = '\n\n  '.join(content_sections)
 
     # Open Graph meta tags
+    og_image_url = f"{SITE_BASE_URL}/og/{rd['slug']}.png"
     og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Profile">
   <meta property="og:description" content="{esc(rd['tagline'])}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{esc(canonical_url)}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{esc(og_image_url)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Profile">
-  <meta name="twitter:description" content="{esc(rd['tagline'])}">'''
+  <meta name="twitter:description" content="{esc(rd['tagline'])}">
+  <meta name="twitter:image" content="{esc(og_image_url)}">'''
 
     return f'''<!DOCTYPE html>
 <html lang="en">

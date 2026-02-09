@@ -3,11 +3,13 @@
 Generate Open Graph social preview images for gravel race landing pages.
 
 Produces 1200x630 neo-brutalist styled JPEG images optimized for social sharing:
-  - Race name as dominant visual element
-  - Tagline hook text (the scroll-stopping copy)
-  - Score badge with tier-colored accent
-  - Location + date + stats as supporting info
+  - Dark background for feed contrast (stops the scroll)
+  - Race name as dominant visual element (64px bold)
+  - Tagline hook text (the curiosity-gap copy)
+  - Score badge with arc progress (the numerical hook)
+  - Location + stats as supporting info (truncated for clarity)
   - Strong brand bar with GRAVEL GOD identity
+  - Subtle topo-line texture for visual depth
   - Optimized for thumbnail legibility (~200-400px wide in feeds)
 
 Usage:
@@ -19,6 +21,7 @@ Usage:
 import argparse
 import json
 import math
+import random
 import re
 import sys
 from pathlib import Path
@@ -46,25 +49,29 @@ MUTED_TAN = (196, 181, 171)   # #c4b5ab
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
+# Dark background palette — stands out in light social feeds
+BG_DARK = (38, 30, 25)        # Near-black warm brown
+BG_TEXTURE = (48, 38, 32)     # Slightly lighter for texture lines
+
 TIER_COLORS = {
     1: BROWN,
     2: BROWN_SEC,
     3: (153, 153, 153),
-    4: (204, 204, 204),
+    4: (100, 90, 82),           # Darker for dark bg visibility
 }
 
-TIER_TEXT_COLORS = {
+TIER_BADGE_TEXT = {
     1: WHITE,
     2: WHITE,
     3: BLACK,
-    4: BLACK,
+    4: CREAM,
 }
 
-# Score accent colors (for the score circle/badge)
+# Score accent colors
 TIER_ACCENT = {
-    1: DARK_TEAL,
+    1: TEAL,        # Brighter teal for dark bg
     2: DARK_TEAL,
-    3: DARK_GOLD,
+    3: GOLD,        # Brighter gold for dark bg
     4: BROWN_SEC,
 }
 
@@ -72,7 +79,7 @@ ALL_DIMS = ['logistics', 'length', 'technicality', 'elevation', 'climate',
             'altitude', 'adventure', 'prestige', 'race_quality', 'experience',
             'community', 'field_depth', 'value', 'expenses']
 
-# Font paths — tries system fonts, falls back to default
+# Font paths
 FONT_PATHS = [
     "/System/Library/Fonts/Helvetica.ttc",
     "/System/Library/Fonts/HelveticaNeue.ttc",
@@ -89,7 +96,6 @@ FONT_BOLD_PATHS = [
 
 
 def load_font(paths: list, size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-    """Load font from first available path, fall back to default."""
     for p in paths:
         try:
             idx = 1 if bold and p.endswith('.ttc') else 0
@@ -100,33 +106,31 @@ def load_font(paths: list, size: int, bold: bool = False) -> ImageFont.FreeTypeF
 
 
 def get_tier(score: int) -> int:
-    if score >= 80:
-        return 1
-    elif score >= 60:
-        return 2
-    elif score >= 45:
-        return 3
+    if score >= 80: return 1
+    elif score >= 60: return 2
+    elif score >= 45: return 3
     return 4
 
 
-def text_width(draw, text, font):
+def tw(draw, text, font):
+    """Text width helper."""
     bbox = draw.textbbox((0, 0), text, font=font)
     return bbox[2] - bbox[0]
 
 
-def text_height(draw, text, font):
+def th(draw, text, font):
+    """Text height helper."""
     bbox = draw.textbbox((0, 0), text, font=font)
     return bbox[3] - bbox[1]
 
 
 def wrap_text(draw, text, font, max_width):
-    """Word-wrap text to fit within max_width."""
     words = text.split()
     lines = []
     current = ""
     for word in words:
         test = f"{current} {word}".strip()
-        if text_width(draw, test, font) <= max_width:
+        if tw(draw, test, font) <= max_width:
             current = test
         else:
             if current:
@@ -137,41 +141,65 @@ def wrap_text(draw, text, font, max_width):
     return lines
 
 
+def truncate(text, max_chars=40):
+    """Truncate long strings with ellipsis."""
+    if len(text) <= max_chars:
+        return text
+    return text[:max_chars - 1].rstrip() + "\u2026"
+
+
+def draw_topo_texture(draw, seed=42):
+    """Draw subtle topographic-style lines for visual depth.
+    Thematically perfect for gravel cycling brand."""
+    rng = random.Random(seed)
+    for _ in range(8):
+        # Random horizontal wavy lines
+        y_base = rng.randint(60, H - 100)
+        points = []
+        for x in range(0, W + 40, 40):
+            y = y_base + rng.randint(-15, 15)
+            points.append((x, y))
+        if len(points) >= 2:
+            draw.line(points, fill=BG_TEXTURE, width=1)
+
+
 def draw_score_badge(draw, cx, cy, radius, score, tier, font_big, font_label):
-    """Draw a neo-brutalist score badge: thick-bordered circle with score."""
+    """Draw a neo-brutalist score badge: thick ring with arc progress."""
     accent = TIER_ACCENT[tier]
 
-    # Outer black ring
+    # Outer ring
+    ring_w = 5
     draw.ellipse(
         [cx - radius, cy - radius, cx + radius, cy + radius],
-        fill=BLACK
+        outline=accent, width=ring_w
     )
-    # Inner white fill
-    inner_r = radius - 4
+
+    # Dark inner fill
+    inner_r = radius - ring_w - 2
     draw.ellipse(
         [cx - inner_r, cy - inner_r, cx + inner_r, cy + inner_r],
-        fill=WHITE
+        fill=BG_DARK
     )
-    # Accent arc (bottom quarter — like a progress indicator)
-    arc_r = radius - 2
-    # Draw colored arc proportional to score
+
+    # Score arc — thicker, brighter
+    arc_r = radius - 1
     arc_extent = int(360 * score / 100)
     draw.arc(
         [cx - arc_r, cy - arc_r, cx + arc_r, cy + arc_r],
-        start=90, end=90 + arc_extent,
-        fill=accent, width=6
+        start=-90, end=-90 + arc_extent,  # Start from top
+        fill=accent, width=7
     )
 
-    # Score text centered
+    # Score number — large, colored
     score_text = str(score)
-    sw = text_width(draw, score_text, font_big)
-    sh = text_height(draw, score_text, font_big)
-    draw.text((cx - sw // 2, cy - sh // 2 - 10), score_text, fill=accent, font=font_big)
+    sw = tw(draw, score_text, font_big)
+    sh = th(draw, score_text, font_big)
+    draw.text((cx - sw // 2, cy - sh // 2 - 8), score_text, fill=accent, font=font_big)
 
-    # "/ 100" label below
+    # "/ 100" label
     label = "/ 100"
-    lw = text_width(draw, label, font_label)
-    draw.text((cx - lw // 2, cy + sh // 2 - 8), label, fill=MUTED_TAN, font=font_label)
+    lw = tw(draw, label, font_label)
+    draw.text((cx - lw // 2, cy + sh // 2 - 6), label, fill=MUTED_TAN, font=font_label)
 
 
 def generate_og_image(race_data: dict, output_path: Path) -> Path:
@@ -189,125 +217,123 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
     if not overall_score:
         total = sum(
             bor.get(d, {}).get('score', bor.get(d, 0))
-            if isinstance(bor.get(d), dict)
-            else bor.get(d, 0)
+            if isinstance(bor.get(d), dict) else bor.get(d, 0)
             for d in ALL_DIMS
         )
         overall_score = round(total / 70 * 100) if total > 0 else 0
     tier = get_tier(overall_score)
 
-    location = vitals.get('location', '')
+    location = truncate(vitals.get('location', ''), 30)
     date_specific = vitals.get('date_specific', '')
     dist_mi = vitals.get('distance_mi')
     elev_ft = vitals.get('elevation_ft')
     distance = f"{dist_mi} mi" if dist_mi else ''
     elevation = f"{elev_ft:,} ft" if isinstance(elev_ft, (int, float)) else ''
 
-    # Parse date
+    # Parse date — short format only
     short_date = ''
     if date_specific:
-        m = re.search(r'(\d{4}):\s*(.+)', date_specific)
+        m = re.search(r'(\d{4}):\s*(\w+\s+\d+)', date_specific)
         if m:
             short_date = f"{m.group(2).strip()}, {m.group(1)}"
         else:
-            short_date = date_specific
+            # Fallback: just grab first recognizable date-like chunk
+            m2 = re.search(r'(\w+\s+\d{1,2})', date_specific)
+            if m2:
+                short_date = m2.group(1)
 
-    # ── Create image ──────────────────────────────────────────
+    # ── Create image with dark background ─────────────────────
 
-    img = Image.new('RGB', (W, H), OFF_WHITE)
+    img = Image.new('RGB', (W, H), BG_DARK)
     draw = ImageDraw.Draw(img)
 
-    # Load fonts — larger sizes for thumbnail legibility
-    font_name = load_font(FONT_BOLD_PATHS, 56, bold=True)
+    # Subtle topo texture
+    # Use slug hash as seed so each race gets a unique but stable pattern
+    draw_topo_texture(draw, seed=hash(slug) % 10000)
+
+    # Load fonts — sized for mobile thumbnail legibility
+    font_name = load_font(FONT_BOLD_PATHS, 64, bold=True)
     font_tagline = load_font(FONT_PATHS, 22)
-    font_tier = load_font(FONT_BOLD_PATHS, 18, bold=True)
-    font_score_big = load_font(FONT_BOLD_PATHS, 56, bold=True)
+    font_tier = load_font(FONT_BOLD_PATHS, 20, bold=True)
+    font_score_big = load_font(FONT_BOLD_PATHS, 60, bold=True)
     font_score_label = load_font(FONT_PATHS, 18)
-    font_detail = load_font(FONT_PATHS, 20)
-    font_detail_bold = load_font(FONT_BOLD_PATHS, 20, bold=True)
+    font_detail = load_font(FONT_PATHS, 22)
+    font_detail_bold = load_font(FONT_BOLD_PATHS, 22, bold=True)
     font_brand = load_font(FONT_BOLD_PATHS, 28, bold=True)
     font_brand_sub = load_font(FONT_PATHS, 16)
 
-    # ── Layout constants ──────────────────────────────────────
+    # ── Layout ────────────────────────────────────────────────
 
     left_margin = 56
-    brand_bar_h = 70
-    top_bar_h = 6
-    score_badge_r = 72
-    score_cx = W - left_margin - score_badge_r - 10
-    score_cy = 260  # Vertically centered in content area
+    brand_bar_h = 66
+    top_bar_h = 5
+    score_badge_r = 76
+    score_cx = W - left_margin - score_badge_r - 6
+    score_cy = 260
 
-    # ── Neo-brutalist frame ───────────────────────────────────
+    # ── Top accent bar ────────────────────────────────────────
 
-    # Outer border (3px black)
-    draw.rectangle([0, 0, W - 1, H - 1], outline=BLACK, width=3)
-
-    # Top accent bar (tier-colored)
-    draw.rectangle([3, 3, W - 4, 3 + top_bar_h], fill=TIER_COLORS[tier])
+    draw.rectangle([0, 0, W, top_bar_h], fill=TIER_ACCENT[tier])
 
     # ── Brand bar (bottom) ────────────────────────────────────
 
     bottom_bar_y = H - brand_bar_h
-    draw.rectangle([3, bottom_bar_y, W - 4, H - 4], fill=BROWN)
+    draw.rectangle([0, bottom_bar_y, W, H], fill=BROWN)
 
-    # Brand name — much larger for recognition
-    draw.text((left_margin, bottom_bar_y + 18), "GRAVEL GOD", fill=WHITE, font=font_brand)
+    # Brand name
+    draw.text((left_margin, bottom_bar_y + 16), "GRAVEL GOD", fill=WHITE, font=font_brand)
 
-    # Brand URL right-aligned
-    url_text = "gravelgodcycling.com"
-    uw = text_width(draw, url_text, font_brand_sub)
-    draw.text((W - left_margin - uw, bottom_bar_y + 28), url_text, fill=MUTED_TAN, font=font_brand_sub)
-
-    # Gold accent line below brand name
-    brand_text_w = text_width(draw, "GRAVEL GOD", font_brand)
+    # Gold underline
+    brand_w = tw(draw, "GRAVEL GOD", font_brand)
     draw.rectangle(
-        [left_margin, bottom_bar_y + 52, left_margin + brand_text_w, bottom_bar_y + 56],
+        [left_margin, bottom_bar_y + 50, left_margin + brand_w, bottom_bar_y + 53],
         fill=DARK_GOLD
     )
 
+    # URL right-aligned
+    url_text = "gravelgodcycling.com"
+    uw = tw(draw, url_text, font_brand_sub)
+    draw.text((W - left_margin - uw, bottom_bar_y + 26), url_text, fill=MUTED_TAN, font=font_brand_sub)
+
     # ── Content area ──────────────────────────────────────────
 
-    content_top = 3 + top_bar_h + 30
-    content_bottom = bottom_bar_y - 20
-    content_right = score_cx - score_badge_r - 40  # Leave room for score badge
+    content_top = top_bar_h + 28
+    content_bottom = bottom_bar_y - 16
+    content_right = score_cx - score_badge_r - 36
 
     # Tier badge
     badge_text = f"TIER {tier}"
-    badge_bw = text_width(draw, badge_text, font_tier) + 20
-    badge_bh = text_height(draw, badge_text, font_tier) + 12
+    badge_bw = tw(draw, badge_text, font_tier) + 20
+    badge_bh = th(draw, badge_text, font_tier) + 12
     badge_color = TIER_COLORS[tier]
-    badge_text_color = TIER_TEXT_COLORS[tier]
+    badge_txt = TIER_BADGE_TEXT[tier]
 
     draw.rectangle(
         [left_margin, content_top, left_margin + badge_bw, content_top + badge_bh],
-        fill=badge_color, outline=BLACK, width=2
+        fill=badge_color, outline=TIER_ACCENT[tier], width=2
     )
-    draw.text((left_margin + 10, content_top + 4), badge_text, fill=badge_text_color, font=font_tier)
+    draw.text((left_margin + 10, content_top + 4), badge_text, fill=badge_txt, font=font_tier)
 
-    # Race name — bold, large, max 2 lines for thumbnail legibility
-    name_y = content_top + badge_bh + 16
+    # Race name — large bold, light text on dark bg. Max 2 lines.
+    name_y = content_top + badge_bh + 14
     name_max_w = content_right - left_margin
     name_lines = wrap_text(draw, name.upper(), font_name, name_max_w)
-    line_h = 64
-    for i, line in enumerate(name_lines[:2]):  # Max 2 lines
-        draw.text((left_margin, name_y + i * line_h), line, fill=BLACK, font=font_name)
+    line_h = 72
+    for i, line in enumerate(name_lines[:2]):
+        draw.text((left_margin, name_y + i * line_h), line, fill=OFF_WHITE, font=font_name)
     name_bottom = name_y + min(len(name_lines), 2) * line_h
 
-    # Tagline — the scroll-stopping hook (stays within left content area)
+    # Tagline — the scroll-stopping hook. Cream on dark = high contrast.
     if tagline:
-        tag_y = name_bottom + 8
-        tag_max_w = content_right - left_margin  # Don't overlap score badge
+        tag_y = name_bottom + 6
+        tag_max_w = content_right - left_margin
         tag_lines = wrap_text(draw, tagline, font_tagline, tag_max_w)
-        for i, line in enumerate(tag_lines[:2]):  # Max 2 lines
-            draw.text((left_margin, tag_y + i * 28), line, fill=BROWN_SEC, font=font_tagline)
-        tag_bottom = tag_y + min(len(tag_lines), 2) * 28
-    else:
-        tag_bottom = name_bottom
+        for i, line in enumerate(tag_lines[:2]):
+            draw.text((left_margin, tag_y + i * 28), line, fill=CREAM, font=font_tagline)
 
     # ── Stats strip ───────────────────────────────────────────
-    # Bottom of content area — location, date, distance, elevation in a clean row
 
-    strip_y = content_bottom - 28
+    strip_y = content_bottom - 24
     stats = []
     if location:
         stats.append(location)
@@ -319,36 +345,32 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
         stats.append(elevation)
 
     if stats:
-        # Draw separator line above stats
-        draw.rectangle([left_margin, strip_y - 12, W - left_margin, strip_y - 10], fill=CREAM)
+        # Thin separator line
+        draw.rectangle([left_margin, strip_y - 10, W - left_margin, strip_y - 9], fill=BROWN_SEC)
 
-        # Draw stats with dot separators
         stat_x = left_margin
         for j, stat in enumerate(stats):
             if j > 0:
-                # Dot separator
-                draw.text((stat_x, strip_y - 2), "  \u00b7  ", fill=MUTED_TAN, font=font_detail)
-                stat_x += text_width(draw, "  \u00b7  ", font_detail)
-            # First stat (location) in bold
+                sep = "  \u00b7  "
+                draw.text((stat_x, strip_y), sep, fill=BROWN_SEC, font=font_detail)
+                stat_x += tw(draw, sep, font_detail)
             f = font_detail_bold if j == 0 else font_detail
-            c = BROWN if j == 0 else BROWN_SEC
+            c = CREAM if j == 0 else MUTED_TAN
             draw.text((stat_x, strip_y), stat, fill=c, font=f)
-            stat_x += text_width(draw, stat, f)
+            stat_x += tw(draw, stat, f)
 
-    # ── Score badge (right side) ──────────────────────────────
+    # ── Score badge ───────────────────────────────────────────
 
     draw_score_badge(draw, score_cx, score_cy, score_badge_r, overall_score, tier,
                      font_score_big, font_score_label)
 
-    # ── Decorative elements ───────────────────────────────────
+    # ── Left accent stripe ────────────────────────────────────
 
-    # Vertical accent stripe on left edge
-    draw.rectangle([3, 3 + top_bar_h, 8, bottom_bar_y], fill=TIER_ACCENT[tier])
+    draw.rectangle([0, top_bar_h, 4, bottom_bar_y], fill=TIER_ACCENT[tier])
 
-    # ── Save as optimized JPEG ────────────────────────────────
+    # ── Save ──────────────────────────────────────────────────
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    # JPEG for smaller file size (~50-80KB vs ~200KB+ PNG)
     jpeg_path = output_path.with_suffix('.jpg')
     img.save(str(jpeg_path), 'JPEG', quality=88, optimize=True)
     return jpeg_path
@@ -365,24 +387,16 @@ def main():
     if not args.slug and not args.all:
         parser.error("Provide a race slug or --all")
 
-    # Find project root
     script_dir = Path(__file__).resolve().parent
     project_root = script_dir.parent
-
-    # Data directory
     data_dir = args.data_dir or project_root / 'race-data'
     if not data_dir.exists():
         print(f"ERROR: Data directory not found: {data_dir}")
         sys.exit(1)
 
-    # Output directory
     output_dir = args.output_dir or project_root / 'wordpress' / 'output' / 'og'
 
-    if args.all:
-        slugs = [f.stem for f in sorted(data_dir.glob('*.json'))]
-    else:
-        slugs = [args.slug]
-
+    slugs = [f.stem for f in sorted(data_dir.glob('*.json'))] if args.all else [args.slug]
     total = len(slugs)
     errors = 0
 
@@ -392,16 +406,12 @@ def main():
             print(f"  SKIP: {slug} (no data file)")
             errors += 1
             continue
-
         try:
             with open(data_file) as f:
                 raw = json.load(f)
             race = raw.get('race', raw)
             race.setdefault('slug', slug)
-
-            out_path = output_dir / f"{slug}.png"  # Will be saved as .jpg
-            generate_og_image(race, out_path)
-
+            generate_og_image(race, output_dir / f"{slug}.png")
             if args.all and i % 50 == 0:
                 print(f"  [{i}/{total}] Generated {slug}.jpg")
         except Exception as e:

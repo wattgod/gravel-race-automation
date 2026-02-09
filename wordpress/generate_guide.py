@@ -76,12 +76,18 @@ def _md_block(content: str) -> str:
     for line in lines:
         stripped = line.strip()
         if stripped.startswith('- '):
+            if in_list and list_type != 'ul':
+                result.append(f'</{list_type}>')
+                in_list = False
             if not in_list:
                 result.append('<ul class="gg-guide-list">')
                 in_list = True
                 list_type = 'ul'
             result.append(f'<li>{stripped[2:]}</li>')
         elif re.match(r'^\d+\.\s', stripped):
+            if in_list and list_type != 'ol':
+                result.append(f'</{list_type}>')
+                in_list = False
             if not in_list:
                 result.append('<ol class="gg-guide-list">')
                 in_list = True
@@ -265,7 +271,7 @@ def render_flashcard(block: dict) -> str:
         back = _md_inline(esc(card["back"]))
         card_id = f"fc-{hashlib.md5(front.encode()).hexdigest()[:8]}-{i}"
         cards_html.append(
-            f'<div class="gg-guide-flashcard" id="{card_id}">'
+            f'<div class="gg-guide-flashcard" id="{card_id}" role="button" tabindex="0" aria-label="Flashcard: {esc(card["front"])}">'
             f'<div class="gg-guide-flashcard-inner">'
             f'<div class="gg-guide-flashcard-front"><p>{front}</p></div>'
             f'<div class="gg-guide-flashcard-back"><p>{back}</p></div>'
@@ -315,6 +321,7 @@ def render_block(block: dict) -> str:
     """Route a block to its renderer."""
     renderer = BLOCK_RENDERERS.get(block["type"])
     if not renderer:
+        print(f"  WARNING: Unknown block type '{block['type']}' — skipped", file=sys.stderr)
         return f'<!-- unknown block type: {esc(block["type"])} -->'
     return renderer(block)
 
@@ -360,13 +367,13 @@ def build_chapter_nav(chapters: list) -> str:
         icon = '<span class="gg-guide-chapnav-lock" aria-hidden="true">&#128274;</span>' if ch["gated"] else ''
         items.append(
             f'<a href="#{esc(ch["id"])}" class="gg-guide-chapnav-item{lock}" '
-            f'data-chapter="{esc(ch["id"])}" role="button" tabindex="0" '
+            f'data-chapter="{esc(ch["id"])}" '
             f'aria-label="Chapter {ch["number"]}: {esc(ch["title"])}">'
             f'{num}{icon}</a>'
         )
-    return f'''<div class="gg-guide-chapnav" id="gg-guide-chapnav" aria-label="Chapter navigation">
+    return f'''<nav class="gg-guide-chapnav" id="gg-guide-chapnav" role="navigation" aria-label="Chapter navigation">
     {"".join(items)}
-  </div>'''
+  </nav>'''
 
 
 def build_chapter(chapter: dict) -> str:
@@ -489,7 +496,7 @@ def build_footer() -> str:
     year = datetime.now().year
     return f'''<div class="gg-footer">
     <p class="gg-footer-disclaimer">This guide represents our editorial views on gravel racing training. Consult a physician before starting any exercise program. We are not affiliated with any race organizer, governing body, or equipment manufacturer. Training plans and coaching are separate paid services.</p>
-    <p style="margin-top:12px;font-size:11px;color:#666">&copy; {year} Gravel God Cycling. All rights reserved.</p>
+    <p style="margin-top:12px;font-size:11px;color:#555">&copy; {year} Gravel God Cycling. All rights reserved.</p>
   </div>'''
 
 
@@ -571,9 +578,8 @@ def build_jsonld(content: dict) -> str:
         "hasCourseInstance": {
             "@type": "CourseInstance",
             "courseMode": "online",
-            "courseWorkload": "PT4H",
         },
-        "numberOfCredits": 0,
+        "courseWorkload": "PT4H",
         "isAccessibleForFree": True,
     }
 
@@ -611,11 +617,11 @@ def build_guide_css() -> str:
     """Return all guide-specific CSS."""
     return '''/* ── Guide Progress Bar ── */
 .gg-guide-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;background:transparent}
-.gg-guide-progress-bar{height:100%;width:0%;background:#1A8A82;transition:width 0.15s linear}
+.gg-guide-progress-bar{height:100%;width:0%;background:#1A8A82}
 
 /* ── Chapter Nav ── */
 .gg-guide-chapnav{position:sticky;top:3px;z-index:1000;background:#000;display:flex;justify-content:center;gap:0;border:3px solid #000;margin-bottom:32px}
-.gg-guide-chapnav-item{color:#d4c5b9;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;transition:all 0.2s;display:flex;align-items:center;gap:4px;border-right:1px solid #333}
+.gg-guide-chapnav-item{color:#d4c5b9;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;display:flex;align-items:center;gap:4px;border-right:1px solid #333}
 .gg-guide-chapnav-item:last-child{border-right:none}
 .gg-guide-chapnav-item:hover{color:#fff;background:#333}
 .gg-guide-chapnav-item--active{color:#fff;background:#1A8A82}
@@ -641,8 +647,8 @@ def build_guide_css() -> str:
 .gg-guide-gate-inner{max-width:600px;margin:0 auto}
 .gg-guide-gate-kicker{display:inline-block;background:#000;color:#fff;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:3px;margin-bottom:16px}
 .gg-guide-gate h2{font-size:28px;text-transform:uppercase;letter-spacing:2px;margin:12px 0}
-.gg-guide-gate p{font-size:13px;color:#d4c5b9;line-height:1.6;margin-bottom:16px}
-.gg-guide-gate-bypass{background:none;border:none;color:#8c7568;font-size:12px;cursor:pointer;text-decoration:underline;margin-top:16px;font-family:'Sometype Mono',monospace}
+.gg-guide-gate p{font-size:13px;color:#f5f0eb;line-height:1.6;margin-bottom:16px}
+.gg-guide-gate-bypass{background:none;border:none;color:#c4b5ab;font-size:12px;cursor:pointer;text-decoration:underline;margin-top:16px;font-family:'Sometype Mono',monospace}
 .gg-guide-gate-bypass:hover{color:#d4c5b9}
 
 /* ── Section ── */
@@ -667,7 +673,7 @@ def build_guide_css() -> str:
 .gg-guide-accordion-item{border:2px solid #000;margin-bottom:8px}
 .gg-guide-accordion-trigger{display:flex;justify-content:space-between;align-items:center;width:100%;padding:12px 16px;background:#f5f0eb;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;text-align:left;color:#000}
 .gg-guide-accordion-trigger:hover{background:#e8dfd7}
-.gg-guide-accordion-icon{font-size:18px;font-weight:700;transition:transform 0.2s}
+.gg-guide-accordion-icon{font-size:18px;font-weight:700}
 .gg-guide-accordion-trigger[aria-expanded="true"] .gg-guide-accordion-icon{transform:rotate(45deg)}
 .gg-guide-accordion-body{display:none;padding:16px;border-top:2px solid #000}
 .gg-guide-accordion-trigger[aria-expanded="true"]+.gg-guide-accordion-body{display:block}
@@ -675,7 +681,7 @@ def build_guide_css() -> str:
 /* ── Tabs ── */
 .gg-guide-tabs{border:2px solid #000;margin:0 0 20px}
 .gg-guide-tab-bar{display:flex;flex-wrap:wrap;background:#000;gap:0}
-.gg-guide-tab{padding:10px 16px;background:#333;color:#d4c5b9;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-right:1px solid #555;transition:all 0.2s}
+.gg-guide-tab{padding:10px 16px;background:#333;color:#d4c5b9;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-right:1px solid #555}
 .gg-guide-tab:last-child{border-right:none}
 .gg-guide-tab:hover{background:#555;color:#fff}
 .gg-guide-tab--active{background:#1A8A82;color:#fff}
@@ -714,7 +720,7 @@ def build_guide_css() -> str:
 .gg-guide-kc-label{background:#B7950B;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
 .gg-guide-kc-question{padding:16px 20px 8px;font-size:14px;font-weight:700;color:#000;margin:0}
 .gg-guide-kc-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
-.gg-guide-kc-option{padding:10px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left;transition:all 0.2s}
+.gg-guide-kc-option{padding:10px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
 .gg-guide-kc-option:hover{background:#e8dfd7}
 .gg-guide-kc-option--correct{background:#1A8A82 !important;color:#fff !important;border-color:#1A8A82 !important}
 .gg-guide-kc-option--incorrect{background:#c44 !important;color:#fff !important;border-color:#c44 !important}
@@ -727,20 +733,20 @@ def build_guide_css() -> str:
 .gg-guide-flashcard-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:12px}
 .gg-guide-flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .gg-guide-flashcard{perspective:600px;cursor:pointer;height:140px}
-.gg-guide-flashcard-inner{position:relative;width:100%;height:100%;transition:transform 0.4s;transform-style:preserve-3d}
+.gg-guide-flashcard-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d}
 .gg-guide-flashcard--flipped .gg-guide-flashcard-inner{transform:rotateY(180deg)}
 .gg-guide-flashcard-front,.gg-guide-flashcard-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:16px;border:2px solid #000;font-size:13px;text-align:center}
 .gg-guide-flashcard-front{background:#f5f0eb;font-weight:700;color:#000}
 .gg-guide-flashcard-back{background:#1A8A82;color:#fff;transform:rotateY(180deg)}
 .gg-guide-flashcard-back p,.gg-guide-flashcard-front p{margin:0;line-height:1.4}
-.gg-guide-flashcard-hint{font-size:11px;color:#999;text-align:center;margin:8px 0 0}
+.gg-guide-flashcard-hint{font-size:11px;color:#666;text-align:center;margin:8px 0 0}
 
 /* ── Scenario ── */
 .gg-guide-scenario{border:3px solid #000;margin:0 0 24px;background:#fff}
 .gg-guide-scenario-label{background:#59473c;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
 .gg-guide-scenario-prompt{padding:16px 20px 8px;font-size:14px;font-weight:700;color:#000;margin:0}
 .gg-guide-scenario-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
-.gg-guide-scenario-option{padding:12px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left;transition:all 0.2s}
+.gg-guide-scenario-option{padding:12px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
 .gg-guide-scenario-option:hover{background:#e8dfd7}
 .gg-guide-scenario-option-result{display:none;margin-top:8px;font-size:12px;color:#444;font-weight:400;line-height:1.5}
 .gg-guide-scenario-option--selected .gg-guide-scenario-option-result{display:block}
@@ -765,7 +771,7 @@ def build_guide_css() -> str:
 .gg-guide-cta--coaching .gg-guide-cta-kicker{color:rgba(255,255,255,0.7)}
 
 /* ── Buttons ── */
-.gg-guide-btn{display:inline-block;padding:12px 28px;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:3px solid #000;transition:all 0.15s}
+.gg-guide-btn{display:inline-block;padding:12px 28px;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:3px solid #000}
 .gg-guide-btn--primary{background:#59473c;color:#fff;border-color:#59473c}
 .gg-guide-btn--primary:hover{background:#8c7568;border-color:#8c7568}
 .gg-guide-btn--secondary{background:#fff;color:#000;border-color:#000}
@@ -796,6 +802,9 @@ def build_guide_css() -> str:
 /* ── Footer ── */
 .gg-guide-chapter-body .gg-footer{border:none;margin:0;padding:24px 0 0}
 
+/* ── Focus Styles ── */
+.gg-guide-chapnav-item:focus-visible,.gg-guide-accordion-trigger:focus-visible,.gg-guide-tab:focus-visible,.gg-guide-kc-option:focus-visible,.gg-guide-scenario-option:focus-visible,.gg-guide-flashcard:focus-visible,.gg-guide-btn:focus-visible,.gg-guide-gate-bypass:focus-visible{outline:3px solid #B7950B;outline-offset:2px}
+
 /* ── Reduced Motion ── */
 @media(prefers-reduced-motion: no-preference){
   .gg-guide-progress-bar{transition:width 0.15s linear}
@@ -803,9 +812,13 @@ def build_guide_css() -> str:
   .gg-guide-accordion-icon{transition:transform 0.2s}
   .gg-guide-tab{transition:all 0.2s}
   .gg-guide-kc-option{transition:all 0.2s}
+  .gg-guide-scenario-option{transition:all 0.2s}
   .gg-guide-btn{transition:all 0.15s}
   .gg-guide-fade-in{transition:opacity 0.5s ease,transform 0.5s ease}
   .gg-guide-flashcard-inner{transition:transform 0.4s}
+}
+@media(prefers-reduced-motion: reduce){
+  .gg-guide-fade-in{opacity:1;transform:none}
 }
 
 /* ── Responsive ── */
@@ -1031,9 +1044,13 @@ document.querySelectorAll(".gg-guide-knowledge-check").forEach(function(kc) {
 
 /* ── Flashcard Flip ── */
 document.querySelectorAll(".gg-guide-flashcard").forEach(function(card) {
-  card.addEventListener("click", function() {
+  function flipCard() {
     card.classList.toggle("gg-guide-flashcard--flipped");
     track("guide_flashcard_flip", { card_id: card.id });
+  }
+  card.addEventListener("click", flipCard);
+  card.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipCard(); }
   });
 });
 
@@ -1048,6 +1065,7 @@ document.querySelectorAll(".gg-guide-scenario").forEach(function(scenario) {
       opt.classList.add("gg-guide-scenario-option--selected");
       options.forEach(function(o) {
         if (o !== opt) o.classList.add("gg-guide-scenario-option--disabled");
+        o.setAttribute("aria-disabled", "true");
       });
       track("guide_scenario_choice", { best: opt.getAttribute("data-best") === "true" });
     });
@@ -1091,10 +1109,6 @@ if ("IntersectionObserver" in window) {
 var pageStartTime = Date.now();
 window.addEventListener("beforeunload", function() {
   var seconds = Math.round((Date.now() - pageStartTime) / 1000);
-  if (navigator.sendBeacon && typeof gtag === "function") {
-    var params = "?seconds=" + seconds + "&chapters=" + Object.keys(chaptersRead).length;
-    navigator.sendBeacon("/guide/ping" + params);
-  }
   track("guide_time_on_page", { seconds: seconds, chapters_read: Object.keys(chaptersRead).length });
 });
 
@@ -1147,6 +1161,16 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 
         css_file = f"gg-guide-styles.{css_hash}.css"
         js_file = f"gg-guide-scripts.{js_hash}.js"
+
+        # Clean stale asset files before writing new ones
+        for old_file in assets_dir.glob("gg-guide-styles.*.css"):
+            if old_file.name != css_file:
+                old_file.unlink()
+                print(f"  Removed stale {old_file.name}")
+        for old_file in assets_dir.glob("gg-guide-scripts.*.js"):
+            if old_file.name != js_file:
+                old_file.unlink()
+                print(f"  Removed stale {old_file.name}")
 
         (assets_dir / css_file).write_text(guide_css_content, encoding="utf-8")
         (assets_dir / js_file).write_text(guide_js_content, encoding="utf-8")

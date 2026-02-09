@@ -1,5 +1,6 @@
 """Tests for the Gravel God Training Guide generator."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -206,7 +207,7 @@ class TestBlockRenderers:
         assert "Test Deck" in html
         assert "Question 1" in html
         assert "Answer 1" in html
-        assert html.count("gg-guide-flashcard") >= 2
+        assert html.count('class="gg-guide-flashcard"') == 2
 
     def test_render_flashcard_deterministic(self):
         block = {
@@ -231,7 +232,7 @@ class TestBlockRenderers:
         assert "What do you do?" in html
         assert "Option A" in html
         assert 'data-best="true"' in html
-        assert html.count("gg-guide-scenario-option") >= 2
+        assert html.count('class="gg-guide-scenario-option"') == 2
 
 
 # ── Full Page Generation ─────────────────────────────────────
@@ -258,8 +259,14 @@ class TestPageGeneration:
         assert 'class="gg-guide-chapter gg-guide-gated"' in guide_html
 
     def test_free_chapters_no_gated_class(self, guide_html):
-        # Chapter 1 should NOT have gated class
-        assert 'id="what-is-gravel-racing" data-chapter="1"' in guide_html
+        # Free chapters (1-3) must NOT have gated class
+        for ch_num in ["1", "2", "3"]:
+            match = re.search(
+                rf'class="([^"]*)"[^>]*data-chapter="{ch_num}"', guide_html
+            )
+            assert match, f"Chapter {ch_num} not found in HTML"
+            assert "gg-guide-gated" not in match.group(1), \
+                f"Chapter {ch_num} should not have gated class"
 
     def test_gate_overlay_present(self, guide_html):
         assert 'id="gg-guide-gate"' in guide_html
@@ -271,7 +278,7 @@ class TestPageGeneration:
 
     def test_chapter_nav_present(self, guide_html):
         assert 'id="gg-guide-chapnav"' in guide_html
-        assert guide_html.count("gg-guide-chapnav-item") >= 8
+        assert guide_html.count('class="gg-guide-chapnav-item') == 8
 
     def test_no_quiz_in_output(self, guide_html):
         assert 'id="gg-guide-quiz"' not in guide_html
@@ -294,6 +301,21 @@ class TestPageGeneration:
         assert "ALL RACES" in guide_html
         assert "HOW WE RATE" in guide_html
         assert "GUIDE" in guide_html
+
+    def test_gate_position_between_ch3_and_ch4(self, guide_html):
+        """Gate overlay must appear between chapter 3 and chapter 4."""
+        gate_pos = guide_html.index('id="gg-guide-gate"')
+        ch3_pos = guide_html.index('data-chapter="3"')
+        ch4_pos = guide_html.index('data-chapter="4"')
+        assert ch3_pos < gate_pos < ch4_pos, \
+            "Gate must appear between chapter 3 and chapter 4"
+
+    def test_cross_link_anchors_exist(self, guide_html):
+        """Internal anchor links must point to existing element IDs."""
+        anchors = re.findall(r'href="#([^"]+)"', guide_html)
+        ids = set(re.findall(r'id="([^"]+)"', guide_html))
+        missing = [a for a in anchors if a not in ids]
+        assert not missing, f"Broken anchor links: {missing}"
 
     def test_footer_present(self, guide_html):
         assert "gg-footer" in guide_html
@@ -421,6 +443,11 @@ class TestAssets:
         css = build_guide_css()
         assert "gg-guide-scenario" in css
 
+    def test_no_dead_beacon_url(self):
+        """JS must not contain the dead /guide/ping sendBeacon URL."""
+        js = build_guide_js()
+        assert "/guide/ping" not in js
+
 
 # ── Analytics ────────────────────────────────────────────────
 
@@ -535,6 +562,25 @@ class TestAccessibility:
         css = build_guide_css()
         assert "prefers-reduced-motion" in css
 
+    def test_reduced_motion_reduce_fallback(self):
+        """Must have a reduce fallback for fade-in elements."""
+        css = build_guide_css()
+        assert "prefers-reduced-motion:reduce" in css or \
+               "prefers-reduced-motion: reduce" in css
+
+    def test_focus_visible_styles(self):
+        """Interactive elements must have :focus-visible styles."""
+        css = build_guide_css()
+        assert ":focus-visible" in css
+
+    def test_flashcard_keyboard_accessible(self):
+        block = {
+            "cards": [{"front": "Q", "back": "A"}],
+        }
+        html = render_flashcard(block)
+        assert 'role="button"' in html
+        assert 'tabindex="0"' in html
+
 
 # ── Determinism ──────────────────────────────────────────────
 
@@ -583,6 +629,32 @@ class TestInteractiveContent:
         html = generate_guide_page(content, inline=True)
         assert "gg-guide-scenario" in html
         assert "RACE SCENARIO" in html
+
+    def test_knowledge_checks_single_correct(self):
+        """Each knowledge check must have exactly one correct answer."""
+        content = load_content()
+        for ch in content["chapters"]:
+            for sec in ch["sections"]:
+                for block in sec["blocks"]:
+                    if block["type"] == "knowledge_check":
+                        correct_count = sum(
+                            1 for opt in block["options"] if opt.get("correct")
+                        )
+                        assert correct_count == 1, \
+                            f"Knowledge check in {sec['id']} has {correct_count} correct answers (expected 1)"
+
+    def test_scenarios_single_best(self):
+        """Each scenario must have exactly one best option."""
+        content = load_content()
+        for ch in content["chapters"]:
+            for sec in ch["sections"]:
+                for block in sec["blocks"]:
+                    if block["type"] == "scenario":
+                        best_count = sum(
+                            1 for opt in block["options"] if opt.get("best")
+                        )
+                        assert best_count == 1, \
+                            f"Scenario in {sec['id']} has {best_count} best options (expected 1)"
 
 
 # ── Determinism ──────────────────────────────────────────────

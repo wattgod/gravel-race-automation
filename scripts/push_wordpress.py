@@ -198,7 +198,7 @@ def sync_widget(widget_file: str):
 
 
 def sync_training(js_file: str):
-    """Upload training-plans.js to WP uploads via SCP."""
+    """Upload training-plans.js and training-plans-form.js to WP uploads via SCP."""
     ssh = get_ssh_credentials()
     if not ssh:
         return None
@@ -225,13 +225,122 @@ def sync_training(js_file: str):
         wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
         public_url = f"{wp_url}/wp-content/uploads/{js_path.name}"
         print(f"✓ Uploaded training plans JS: {public_url}")
-        return public_url
     except subprocess.CalledProcessError as e:
         print(f"✗ SCP failed: {e.stderr.strip()}")
         return None
     except Exception as e:
         print(f"✗ Error uploading: {e}")
         return None
+
+    # Upload companion form JS file (same directory as landing JS)
+    form_js_path = js_path.parent / "training-plans-form.js"
+    if form_js_path.exists():
+        remote_form = f"{WP_UPLOADS}/{form_js_path.name}"
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(form_js_path),
+                    f"{user}@{host}:{remote_form}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            form_url = f"{wp_url}/wp-content/uploads/{form_js_path.name}"
+            print(f"✓ Uploaded training form JS: {form_url}")
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for form JS: {e.stderr.strip()}")
+        except Exception as e:
+            print(f"✗ Error uploading form JS: {e}")
+    else:
+        print(f"⚠ Form JS not found: {form_js_path} (questionnaire page may not work without it)")
+
+    return public_url
+
+
+def sync_guide(guide_dir: str):
+    """Upload guide/index.html + guide-assets/ to /guide/ on SiteGround via tar+ssh."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    guide_path = Path(guide_dir)
+    html_file = guide_path / "guide.html"
+    assets_dir = guide_path / "guide-assets"
+
+    if not html_file.exists():
+        print(f"✗ Guide HTML not found: {html_file}")
+        print("  Run: python3 wordpress/generate_guide.py first")
+        return None
+
+    # Remote base: public_html/guide/
+    remote_base = "~/www/gravelgodcycling.com/public_html/guide"
+
+    # Create remote directory structure
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}/guide-assets",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload guide.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_file),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        print(f"✓ Uploaded guide HTML: {SITE_BASE_URL}/guide/")
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for guide HTML: {e.stderr.strip()}")
+        return None
+
+    # Upload guide-assets/
+    if assets_dir.exists():
+        asset_files = list(assets_dir.iterdir())
+        for asset_file in asset_files:
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset_file),
+                        f"{user}@{host}:{remote_base}/guide-assets/{asset_file.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+                print(f"✓ Uploaded asset: guide-assets/{asset_file.name}")
+            except subprocess.CalledProcessError as e:
+                print(f"✗ SCP failed for {asset_file.name}: {e.stderr.strip()}")
+    else:
+        print(f"⚠ No guide-assets/ directory found (inline mode?)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    return f"{wp_url}/guide/"
+
+
+SITE_BASE_URL = os.environ.get("WP_URL", "https://gravelgodcycling.com")
 
 
 if __name__ == "__main__":
@@ -263,10 +372,18 @@ if __name__ == "__main__":
         "--training-file", default="web/training-plans.js",
         help="Path to training plans JS (default: web/training-plans.js)"
     )
+    parser.add_argument(
+        "--sync-guide", action="store_true",
+        help="Upload training guide to /guide/ via SCP"
+    )
+    parser.add_argument(
+        "--guide-dir", default="wordpress/output",
+        help="Path to guide output directory (default: wordpress/output)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training:
-        parser.error("Provide --json, --sync-index, --sync-widget, and/or --sync-training")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, and/or --sync-guide")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -276,3 +393,5 @@ if __name__ == "__main__":
         sync_widget(args.widget_file)
     if args.sync_training:
         sync_training(args.training_file)
+    if args.sync_guide:
+        sync_guide(args.guide_dir)

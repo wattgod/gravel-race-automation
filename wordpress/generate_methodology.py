@@ -225,7 +225,7 @@ def build_prestige_override() -> str:
 def build_faq() -> str:
     faqs = [
         ("Who rates the races?",
-         "All ratings are produced by our editorial team. We research each race using official sources, rider reports, community forums, and our own race experience. There is no algorithmic or AI-generated scoring &mdash; every dimension is scored and explained by a human editor."),
+         "All ratings are produced by our editorial team. We research each race using official sources, rider reports, community forums, and our own race experience. Every dimension is scored and explained by a human editor."),
         ("Can race organizers influence their score?",
          "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Ratings are editorially independent. We may update scores when new information is available (e.g., a race significantly improves its organization)."),
         ("How often are scores updated?",

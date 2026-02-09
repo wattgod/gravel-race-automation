@@ -197,6 +197,43 @@ def sync_widget(widget_file: str):
     return public_url
 
 
+def sync_training(js_file: str):
+    """Upload training-plans.js to WP uploads via SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    js_path = Path(js_file)
+    if not js_path.exists():
+        print(f"✗ Training plans JS not found: {js_path}")
+        return None
+
+    remote_path = f"{WP_UPLOADS}/{js_path.name}"
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(js_path),
+                f"{user}@{host}:{remote_path}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        public_url = f"{wp_url}/wp-content/uploads/{js_path.name}"
+        print(f"✓ Uploaded training plans JS: {public_url}")
+        return public_url
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading: {e}")
+        return None
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -218,10 +255,18 @@ if __name__ == "__main__":
         "--widget-file", default="web/gravel-race-search.html",
         help="Path to widget file (default: web/gravel-race-search.html)"
     )
+    parser.add_argument(
+        "--sync-training", action="store_true",
+        help="Upload training-plans.js to WP uploads via SCP"
+    )
+    parser.add_argument(
+        "--training-file", default="web/training-plans.js",
+        help="Path to training plans JS (default: web/training-plans.js)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget:
-        parser.error("Provide --json, --sync-index, and/or --sync-widget")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training:
+        parser.error("Provide --json, --sync-index, --sync-widget, and/or --sync-training")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -229,3 +274,5 @@ if __name__ == "__main__":
         sync_index(args.index_file)
     if args.sync_widget:
         sync_widget(args.widget_file)
+    if args.sync_training:
+        sync_training(args.training_file)

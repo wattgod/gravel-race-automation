@@ -88,6 +88,7 @@ QUESTIONNAIRE_SLUGS = {
 
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 COACHING_URL = "https://www.wattgod.com/apply"
+TRAINING_PLANS_URL = "/training-plans/"
 SITE_BASE_URL = "https://gravelgodcycling.com"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
@@ -417,7 +418,7 @@ def build_sticky_cta(race_name: str, url: str) -> str:
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
-    <a href="{esc(url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY FREE PLAN</a>
+    <a href="{esc(TRAINING_PLANS_URL)}#get-started" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
   </div>
 </div>'''
 
@@ -749,6 +750,20 @@ if ('IntersectionObserver' in window) {
     feed.appendChild(buildTickerItems(all));
   });
 })();
+
+// FAQ accordion toggle
+document.querySelectorAll('.gg-faq-question').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    item.classList.toggle('open');
+  });
+  q.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+});
 </script>'''
 
 
@@ -1202,14 +1217,16 @@ def build_training(rd: dict, q_url: str) -> str:
     <div class="gg-section-body">
       {countdown_html}
       <div class="gg-training-primary">
-        <h3>Free Structured Plan</h3>
-        <p class="gg-training-subtitle">Self-guided. Built for {esc(race_name)}. Yours in 2 minutes.</p>
+        <h3>Custom Training Plan</h3>
+        <p class="gg-training-subtitle">Race-specific. Built for {esc(race_name)}. $15/week, capped at $199.</p>
         <ul class="gg-training-bullets">
-          <li>Answer a quick questionnaire about your fitness and schedule</li>
-          <li>Get a periodized plan calibrated to {esc(race_name)}</li>
-          <li>Follow it on your own, at your pace</li>
+          <li>Structured workouts pushed to your device</li>
+          <li>30+ page custom training guide</li>
+          <li>Heat &amp; altitude protocols</li>
+          <li>Nutrition plan</li>
+          <li>Strength training</li>
         </ul>
-        <a href="{esc(q_url)}" class="gg-btn" target="_blank" rel="noopener">BUILD MY FREE PLAN</a>
+        <a href="{esc(TRAINING_PLANS_URL)}#get-started" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
       </div>
       <div class="gg-training-divider">
         <span class="gg-training-divider-line"></span>
@@ -1384,11 +1401,10 @@ def linkify_alternatives(alt_text: str, all_slugs: set) -> str:
 
 def build_email_capture(rd: dict) -> str:
     """Build email capture section — Substack iframe embed for native subscribe flow."""
-    race_name = rd['name']
     return f'''<div class="gg-email-capture gg-fade-section">
     <div class="gg-email-capture-inner">
-      <h3 class="gg-email-capture-title">RACE INTEL, DELIVERED</h3>
-      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races. Free. No spam.</p>
+      <h3 class="gg-email-capture-title">SLOW, MID, 38s</h3>
+      <p class="gg-email-capture-text">For cyclists with more passion than talent. Commentary on cycling training, culture and life. Free. No spam.</p>
       <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
@@ -1424,8 +1440,11 @@ def build_visible_faq(rd: dict) -> str:
     items = []
     for q, a in questions:
         items.append(f'''<div class="gg-faq-item">
-        <h3 class="gg-faq-question">{esc(q)}</h3>
-        <p class="gg-faq-answer">{esc(a)}</p>
+        <div class="gg-faq-question" role="button" tabindex="0">
+          <h3>{esc(q)}</h3>
+          <span class="gg-faq-toggle">+</span>
+        </div>
+        <div class="gg-faq-answer"><p>{esc(a)}</p></div>
       </div>''')
 
     return f'''<section id="faq" class="gg-section gg-fade-section">
@@ -1837,11 +1856,16 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-countdown { border: 3px solid #1A8A82; background: #000; color: #fff; padding: 16px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; }
 .gg-neo-brutalist-page .gg-countdown-num { font-size: 32px; color: #1A8A82; display: block; line-height: 1.2; }
 
-/* FAQ */
-.gg-neo-brutalist-page .gg-faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0d6cc; }
-.gg-neo-brutalist-page .gg-faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.gg-neo-brutalist-page .gg-faq-question { font-size: 13px; font-weight: 700; color: #000; margin: 0 0 8px 0; text-transform: none; letter-spacing: 0; }
-.gg-neo-brutalist-page .gg-faq-answer { font-size: 12px; color: #555; line-height: 1.7; margin: 0; }
+/* FAQ accordion */
+.gg-neo-brutalist-page .gg-faq-item { border-bottom: 1px solid #e0d6cc; }
+.gg-neo-brutalist-page .gg-faq-item:last-child { border-bottom: none; }
+.gg-neo-brutalist-page .gg-faq-question { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 0; gap: 12px; }
+.gg-neo-brutalist-page .gg-faq-question h3 { font-size: 13px; font-weight: 700; color: #000; margin: 0; text-transform: none; letter-spacing: 0; }
+.gg-neo-brutalist-page .gg-faq-toggle { font-size: 20px; font-weight: 700; color: #59473c; transition: transform 0.3s; flex-shrink: 0; }
+.gg-neo-brutalist-page .gg-faq-item.open .gg-faq-toggle { transform: rotate(45deg); }
+.gg-neo-brutalist-page .gg-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.gg-neo-brutalist-page .gg-faq-answer p { font-size: 12px; color: #555; line-height: 1.7; margin: 0; }
+.gg-neo-brutalist-page .gg-faq-item.open .gg-faq-answer { max-height: 500px; padding-bottom: 16px; }
 
 /* Similar races */
 .gg-neo-brutalist-page .gg-similar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -2000,8 +2024,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # Section order
     content_sections = []
     for section in [course_overview, history, pullquote, course_route, instagram,
-                    ratings, verdict, email_capture, visible_faq, news,
-                    training, logistics_sec, similar]:
+                    ratings, verdict, email_capture, news,
+                    training, logistics_sec, similar, visible_faq]:
         if section:
             content_sections.append(section)
 

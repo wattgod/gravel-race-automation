@@ -1,0 +1,2637 @@
+<!-- Gravel God Training Plans Landing Page -->
+<!-- Paste this entire block into a WordPress Custom HTML block or Elementor HTML widget -->
+<!-- Page: gravelgodcycling.com/training-plans/ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;500;600;700&display=swap');
+
+/* ================================================================
+   LANDING PAGE — Neo-Brutalist
+   Monochrome bones: black, cream, brown, white.
+   Color used sparingly as a weapon, not a wallpaper.
+   ================================================================ */
+
+.tp-landing * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.tp-landing {
+  font-family: 'Sometype Mono', monospace;
+  color: #000;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.tp-landing h1,
+.tp-landing h2,
+.tp-landing h3 {
+  font-family: 'Sometype Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.tp-landing h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.tp-landing h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tp-landing p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.tp-landing a {
+  color: #59473C;
+  text-decoration: none;
+}
+
+/* ---- Section Divider ---- */
+
+.tp-section {
+  padding: 3.5rem 0;
+  border-bottom: 3px solid #000;
+}
+
+.tp-section:last-of-type {
+  border-bottom: none;
+}
+
+/* ---- Alternating Section Backgrounds ---- */
+.tp-section-cream {
+  background: #F5E5D3;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.tp-section-dark {
+  background: #000;
+  color: #F5E5D3;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.tp-section-dark h2,
+.tp-section-dark h3,
+.tp-section-dark p {
+  color: #F5E5D3;
+}
+
+.tp-section-dark .tp-section-label {
+  color: #BFA595;
+}
+
+.tp-section-dark .tp-audience-col h3 {
+  color: #F5E5D3;
+}
+
+.tp-section-dark .tp-not-for h3 {
+  color: #999;
+}
+
+.tp-section-dark .tp-audience-list li {
+  color: #F5E5D3;
+  border-bottom-color: rgba(255,255,255,0.15);
+}
+
+.tp-section-dark .tp-for-list li::before {
+  color: #BFA595;
+}
+
+.tp-section-dark .tp-not-list li::before {
+  color: #666;
+}
+
+.tp-section-dark {
+  border-bottom-color: #333;
+}
+
+.tp-section-cream {
+  border-bottom-color: #59473C;
+}
+
+/* Steps inside cream sections */
+.tp-section-cream .tp-step {
+  border-bottom-color: rgba(89, 71, 60, 0.2);
+}
+
+
+.tp-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #59473C;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid #59473C;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* ---- Buttons ---- */
+
+.tp-btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.9rem 2rem;
+  border: 3px solid #000;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.tp-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #59473C;
+  color: #fff;
+}
+
+.tp-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #000;
+}
+
+.tp-btn-secondary {
+  background: transparent;
+  color: #000;
+}
+
+.tp-btn-secondary:hover {
+  background: #F5E5D3;
+  color: #000;
+}
+
+/* ================================================================
+   HERO
+   ================================================================ */
+
+.tp-hero {
+  padding: 4rem 0 3rem;
+  border-bottom: 3px solid #000;
+}
+
+.tp-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.25rem;
+  max-width: 700px;
+}
+
+.tp-hero-sub {
+  font-size: 0.95rem;
+  color: #333;
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.tp-hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.tp-hero-bar {
+  display: flex;
+  gap: 0;
+  border: 3px solid #000;
+  max-width: 550px;
+}
+
+.tp-hero-bar-item {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  border-right: 3px solid #000;
+}
+
+.tp-hero-bar-item:last-child {
+  border-right: none;
+}
+
+.tp-hero-bar-item strong {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.tp-hero-bar-item span {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #59473C;
+  font-weight: 600;
+}
+
+/* ================================================================
+   WHAT YOU GET — The 5 deliverables
+   ================================================================ */
+
+.tp-deliverables {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 3px solid #000;
+}
+
+.tp-deliverable-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  border-bottom: 3px solid #000;
+}
+
+.tp-deliverable-row:last-child {
+  border-bottom: none;
+}
+
+.tp-deliverable-num {
+  background: #000;
+  color: #F5E5D3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-right: 3px solid #000;
+}
+
+.tp-deliverable-content {
+  padding: 1.25rem 1.5rem;
+}
+
+.tp-deliverable-content h3 {
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.tp-deliverable-content p {
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.tp-deliverable-row:nth-child(odd) .tp-deliverable-content {
+  background: #fff;
+}
+
+.tp-deliverable-row:nth-child(even) .tp-deliverable-content {
+  background: #F5E5D3;
+}
+
+/* ================================================================
+   SAMPLE WEEK — ASCII-art style training week mockup
+   ================================================================ */
+
+.tp-sample-week {
+  margin-top: 2rem;
+  border: 3px solid #000;
+  background: #F5E5D3;
+  padding: 1.25rem 1.5rem;
+}
+
+.tp-sample-week-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #59473C;
+  margin-bottom: 0.75rem;
+}
+
+.tp-sample-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.tp-sample-day {
+  text-align: center;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  padding: 0.4rem 0.25rem;
+  color: #59473C;
+}
+
+.tp-sample-block {
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  border: 2px solid #000;
+  min-height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.4;
+}
+
+.tp-sample-block.rest {
+  background: #fff;
+  color: #999;
+  border-color: #ccc;
+}
+
+.tp-sample-block.endurance {
+  background: #fff;
+}
+
+.tp-sample-block.intervals {
+  background: #000;
+  color: #F5E5D3;
+}
+
+.tp-sample-block.strength {
+  background: #59473C;
+  color: #F5E5D3;
+}
+
+.tp-sample-block.long-ride {
+  background: #000;
+  color: #4ECDC4;
+}
+
+.tp-sample-block[data-detail] {
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.tp-sample-block[data-detail]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #59473C;
+}
+
+.tp-sample-block[data-detail].active {
+  outline: 2px solid #59473C;
+  outline-offset: -2px;
+}
+
+.tp-sample-detail {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 2px solid #000;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #000;
+}
+
+/* ---- Workout Structure Visualization ---- */
+.tp-landing .tp-workout-viz {
+  display: flex;
+  align-items: flex-end;
+  height: 110px;
+  gap: 1px;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0 1rem;
+  border-bottom: 2px solid #000;
+  position: relative;
+  background: #fff;
+}
+
+.tp-landing .tp-workout-viz::before {
+  content: '% FTP';
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  font-family: 'Sometype Mono', monospace;
+}
+
+.tp-landing .tp-viz-block {
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-width: 6px;
+  border: 2px solid #000;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.tp-landing .tp-viz-block .tp-viz-label {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5rem;
+  white-space: nowrap;
+  color: #59473C;
+  font-weight: 700;
+  font-family: 'Sometype Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Zone colors — monochrome palette, scoped */
+.tp-landing .tp-viz-z1 { background: #e8e8e8 !important; }
+.tp-landing .tp-viz-z2 { background: #F5E5D3 !important; border-color: #59473C !important; }
+.tp-landing .tp-viz-z3 { background: #c9b8a3 !important; }
+.tp-landing .tp-viz-z4 { background: #59473C !important; }
+.tp-landing .tp-viz-z5 { background: #222 !important; }
+.tp-landing .tp-viz-z6 { background: #000 !important; }
+
+.tp-landing .tp-viz-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.65rem;
+  color: #59473C;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Sometype Mono', monospace;
+}
+
+.tp-landing .tp-viz-meta span::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #000;
+  background: #59473C;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* ================================================================
+   HOW IT WORKS
+   ================================================================ */
+
+.tp-steps {
+  margin-top: 1.5rem;
+  counter-reset: step;
+}
+
+.tp-step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  align-items: start;
+}
+
+.tp-step:last-child {
+  border-bottom: none;
+}
+
+.tp-step-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #59473C;
+  text-align: right;
+  padding-top: 0.1rem;
+}
+
+.tp-step h3 {
+  margin-bottom: 0.25rem;
+}
+
+.tp-step p {
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+/* ================================================================
+   PULL QUOTE / SOCIAL PROOF — Rotating
+   ================================================================ */
+
+.tp-pullquote {
+  padding: 2.5rem 2.5rem;
+  margin: 0 -1.5rem;
+  background: #000;
+  min-height: 5rem;
+  position: relative;
+  border-top: 3px solid #59473C;
+  border-bottom: 3px solid #59473C;
+}
+
+.tp-pullquote p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #F5E5D3;
+  margin-bottom: 0;
+  line-height: 1.7;
+  transition: opacity 0.4s ease;
+  max-width: 750px;
+}
+
+.tp-pullquote .tp-reality-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #59473C;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.tp-pullquote cite {
+  font-size: 0.7rem;
+  font-style: normal;
+  color: #59473C;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.75rem;
+  transition: opacity 0.4s ease;
+}
+
+/* ================================================================
+   FLIP CARDS — "Inside the Guide"
+   ================================================================ */
+
+.tp-flip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tp-flip-card {
+  perspective: 800px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.tp-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.tp-flip-card:hover .tp-flip-inner,
+.tp-flip-card.flipped .tp-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.tp-flip-front,
+.tp-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 3px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.tp-flip-front {
+  background: #000;
+  color: #F5E5D3;
+  text-align: center;
+}
+
+.tp-flip-front h3 {
+  font-size: 0.8rem;
+  color: #F5E5D3;
+  margin-bottom: 0.5rem;
+}
+
+.tp-flip-front .tp-flip-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tp-flip-front .tp-flip-icon svg {
+  color: #F5E5D3;
+}
+
+.tp-flip-hint {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.tp-flip-back {
+  background: #F5E5D3;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.tp-flip-back p {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: #000;
+}
+
+.tp-flip-card:nth-child(2) .tp-flip-front,
+.tp-flip-card:nth-child(5) .tp-flip-front {
+  background: #59473C;
+}
+
+/* ================================================================
+   TABBED COMPARISON — "Generic vs Custom"
+   ================================================================ */
+
+.tp-tabs {
+  margin-top: 1.5rem;
+  border: 3px solid #000;
+}
+
+.tp-tabs-nav {
+  display: flex;
+  border-bottom: 3px solid #000;
+}
+
+.tp-tab-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #fff;
+  border: none;
+  border-right: 3px solid #000;
+  cursor: pointer;
+  color: #999;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tp-tab-btn:last-child {
+  border-right: none;
+}
+
+.tp-tab-btn.active {
+  background: #000;
+  color: #F5E5D3;
+}
+
+.tp-tab-panel {
+  display: none;
+  padding: 1.5rem;
+}
+
+.tp-tab-panel.active {
+  display: block;
+}
+
+.tp-tab-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tp-tab-panel li {
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-bottom: 1px solid #eee;
+}
+
+.tp-tab-panel li:last-child {
+  border-bottom: none;
+}
+
+.tp-tab-panel li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.tp-tab-panel.tp-tab-generic li::before {
+  content: "x";
+  color: #ccc;
+}
+
+.tp-tab-panel.tp-tab-custom li::before {
+  content: ">";
+  color: #59473C;
+}
+
+.tp-tab-panel.tp-tab-generic {
+  background: #fafafa;
+  color: #999;
+}
+
+.tp-tab-panel.tp-tab-custom {
+  background: #F5E5D3;
+  color: #000;
+}
+
+/* ================================================================
+   PROCESS TIMELINE — How It Works visual
+   ================================================================ */
+
+.tp-process {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tp-process-step {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border: 3px solid #000;
+  background: #fff;
+  position: relative;
+  box-shadow: 4px 4px 0 #59473C;
+}
+
+.tp-process-step:nth-child(even) {
+  background: #000;
+  color: #F5E5D3;
+}
+
+.tp-process-step:nth-child(even) h4 {
+  color: #F5E5D3;
+}
+
+.tp-process-step:nth-child(even) p {
+  color: #BFA595;
+}
+
+.tp-process-step:nth-child(even) .tp-process-num {
+  color: #F5E5D3;
+}
+
+.tp-process-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #59473C;
+  margin-bottom: 0.5rem;
+}
+
+.tp-process-step h4 {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+  color: #000;
+}
+
+.tp-process-step p {
+  font-size: 0.6rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.tp-process-arrow {
+  display: none;
+}
+
+/* ================================================================
+   WHAT'S INSIDE THE GUIDE — Comparison / Detail table
+   ================================================================ */
+
+.tp-guide-contents {
+  margin-top: 1.5rem;
+  border: 3px solid #000;
+}
+
+.tp-guide-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid #000;
+}
+
+.tp-guide-row:last-child {
+  border-bottom: none;
+}
+
+.tp-guide-cell {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.tp-guide-cell:first-child {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  color: #59473C;
+  border-right: 2px solid #000;
+  display: flex;
+  align-items: center;
+}
+
+.tp-guide-row:nth-child(even) {
+  background: #F5E5D3;
+}
+
+/* ================================================================
+   WHO THIS IS FOR — Qualifying / Disqualifying
+   ================================================================ */
+
+.tp-audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tp-audience-col h3 {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: #59473C;
+}
+
+.tp-audience-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tp-audience-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.8rem;
+  color: #000;
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.5;
+}
+
+.tp-audience-list li:last-child {
+  border-bottom: none;
+}
+
+.tp-audience-list li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.tp-for-list li::before {
+  content: ">";
+  color: #59473C;
+}
+
+.tp-not-list li::before {
+  content: "x";
+  color: #999;
+}
+
+.tp-not-for h3 {
+  color: #999;
+}
+
+/* ================================================================
+   PRICING + FAQ — Combined Section
+   ================================================================ */
+
+.tp-pricing-faq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.tp-pricing-card {
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  overflow: hidden;
+  align-self: start;
+}
+
+.tp-pricing-header {
+  background: #000;
+  color: #F5E5D3;
+  padding: 1rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tp-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  padding: 1rem 1.5rem 0;
+}
+
+.tp-price span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #59473C;
+}
+
+.tp-pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.tp-pricing-list li {
+  padding: 0.4rem 1.5rem;
+  padding-left: 2.75rem;
+  position: relative;
+  font-size: 0.75rem;
+  color: #000;
+  border-top: 1px solid #ddd;
+  line-height: 1.5;
+}
+
+.tp-pricing-list li::before {
+  content: ">";
+  position: absolute;
+  left: 1.5rem;
+  font-weight: 700;
+  color: #59473C;
+}
+
+.tp-pricing-cta {
+  padding: 1rem 1.5rem 1.25rem;
+}
+
+.tp-pricing-cta .tp-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.tp-pricing-note {
+  font-size: 0.65rem;
+  color: #59473C;
+  text-align: center;
+  padding: 0 1.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---- FAQ ---- */
+
+.tp-faq-list {
+  margin-top: 0;
+}
+
+.tp-faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.tp-faq-item:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.tp-faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #000;
+  user-select: none;
+}
+
+.tp-faq-q:hover {
+  color: #59473C;
+}
+
+.tp-faq-toggle {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.2s;
+  color: #000;
+}
+
+.tp-faq-item.open .tp-faq-toggle {
+  transform: rotate(45deg);
+}
+
+.tp-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.tp-faq-item.open .tp-faq-a {
+  max-height: 500px;
+  padding-bottom: 0.75rem;
+}
+
+.tp-faq-a p {
+  font-size: 0.75rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ================================================================
+   MARQUEE STRIP
+   ================================================================ */
+
+.tp-marquee {
+  overflow: hidden;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  padding: 0.6rem 0;
+  background: #000;
+  color: #F5E5D3;
+  margin: 0;
+}
+
+.tp-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: tp-marquee-scroll 30s linear infinite;
+}
+
+.tp-marquee-track span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  padding: 0 2rem;
+}
+
+.tp-marquee-track .tp-mq-dot {
+  padding: 0 0.5rem;
+  color: #59473C;
+}
+
+@keyframes tp-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ================================================================
+   ROTATED BADGE / STICKER
+   ================================================================ */
+
+.tp-badge-sticker {
+  display: inline-block;
+  background: #F5E5D3;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  transform: rotate(-2deg);
+  position: relative;
+  color: #000;
+}
+
+/* ================================================================
+   COLORED SHADOWS on key elements
+   ================================================================ */
+
+.tp-pricing-card {
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #59473C;
+  overflow: hidden;
+  align-self: start;
+}
+
+.tp-deliverables {
+  box-shadow: 6px 6px 0 #59473C;
+}
+
+/* ================================================================
+   FORM SECTION INTRO
+   ================================================================ */
+
+.tp-form-section {
+  padding: 3.5rem 0 5rem;
+}
+
+.tp-form-section h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.tp-form-intro {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  color: #333;
+  font-size: 0.85rem;
+}
+
+/* ================================================================
+   MOBILE STICKY CTA
+   ================================================================ */
+
+.tp-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .tp-sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #000;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    border-top: 3px solid #59473C;
+  }
+
+  .tp-sticky-cta a {
+    display: block;
+    color: #F5E5D3;
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    padding: 0.25rem 0;
+  }
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .tp-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .tp-hero-bar {
+    flex-wrap: wrap;
+  }
+
+  .tp-hero-bar-item {
+    flex: 1 1 48%;
+    border-bottom: 3px solid #000;
+  }
+
+  .tp-hero-bar-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .tp-sample-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tp-landing .tp-workout-viz {
+    height: 80px;
+  }
+
+  .tp-landing .tp-viz-block .tp-viz-label {
+    font-size: 0.4rem;
+  }
+
+  .tp-pricing-faq {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-landing {
+    padding-bottom: 4rem; /* space for sticky cta */
+  }
+
+  .tp-landing h2 {
+    font-size: 1.6rem;
+  }
+
+  .tp-guide-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-guide-cell:first-child {
+    border-right: none;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.4rem;
+  }
+
+  .tp-flip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tp-flip-card {
+    height: 180px;
+  }
+
+  .tp-process {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+</style>
+
+<div class="tp-landing">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <div class="tp-hero">
+    <h1>Your Race. Your Hours. Your Plan.</h1>
+    <p class="tp-hero-sub">
+      Most training plans assume you're average. A parent with 5 hours a week
+      needs fundamentally different training than someone with 15. This isn't a
+      template with your name on it. It's a plan built from your schedule, your
+      fitness, your race, and the specific demands of the course you're lining up for.
+    </p>
+    <div class="tp-hero-cta">
+      <a href="#get-started" class="tp-btn">Build My Plan &mdash; $15/wk</a>
+      <a href="#how-it-works" class="tp-btn tp-btn-secondary">See How It Works</a>
+    </div>
+    <div class="tp-hero-bar">
+      <div class="tp-hero-bar-item">
+        <strong>Same Day</strong>
+        <span>Delivery</span>
+      </div>
+      <div class="tp-hero-bar-item">
+        <strong>Matched</strong>
+        <span>Methodology</span>
+      </div>
+      <div class="tp-hero-bar-item">
+        <strong>$15</strong>
+        <span>Per Week</span>
+      </div>
+      <div class="tp-hero-bar-item">
+        <strong>5 min</strong>
+        <span>To Start</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       WHAT YOU GET — 5 deliverables, stacked rows
+       ============================================================ -->
+  <div class="tp-section">
+    <div class="tp-section-label">What You Get</div>
+    <h2>Five Things. All Custom. Zero Filler.</h2>
+    <div class="tp-deliverables">
+      <div class="tp-deliverable-row">
+        <div class="tp-deliverable-num">01</div>
+        <div class="tp-deliverable-content">
+          <h3>Structured Workouts on Your Device</h3>
+          <p>Every workout drops directly into TrainingPeaks, Zwift, Wahoo,
+          or any platform that reads .zwo files. Power targets, cadence
+          prescriptions (high RPM for efficiency, low RPM for gravel grinding),
+          riding position cues (drops, hoods, standing), and durability efforts
+          that simulate late-race fatigue. These dimensions change the stimulus
+          even at identical power zones &mdash; because racing isn't just about
+          watts. Open your app. The workout is there. Start pedaling.</p>
+        </div>
+      </div>
+      <div class="tp-deliverable-row">
+        <div class="tp-deliverable-num">02</div>
+        <div class="tp-deliverable-content">
+          <h3>30+ Page Custom Training Guide</h3>
+          <p>Your power zones. Your fueling protocol. Your race-week countdown.
+          Phase-by-phase breakdown of what you're building and why. If your race
+          is in the database: suffering zones, terrain breakdown, altitude warnings,
+          and the harsh reality of what the course demands. Not marketing. Data.</p>
+        </div>
+      </div>
+      <div class="tp-deliverable-row">
+        <div class="tp-deliverable-num">03</div>
+        <div class="tp-deliverable-content">
+          <h3>Heat &amp; Altitude Training Protocols</h3>
+          <p>Racing at 6,700ft? In Kansas in June? The plan includes acclimatization
+          protocols calibrated to your race conditions. Heat adaptation timelines.
+          Altitude adjustment strategies. The stuff that separates finishing from
+          finishing well.</p>
+        </div>
+      </div>
+      <div class="tp-deliverable-row">
+        <div class="tp-deliverable-num">04</div>
+        <div class="tp-deliverable-content">
+          <h3>Race-Optimized Nutrition Plan</h3>
+          <p>Fueling protocol matched to your race distance and conditions. Calorie
+          targets per hour. Hydration schedule. Race-morning meal timing. What to
+          eat, when, and how much. Built from the course profile, not a generic
+          calculator.</p>
+        </div>
+      </div>
+      <div class="tp-deliverable-row">
+        <div class="tp-deliverable-num">05</div>
+        <div class="tp-deliverable-content">
+          <h3>Custom Strength Training</h3>
+          <p>Cycling-specific. Not CrossFit. Exercises that transfer to the bike,
+          scaled to your strength experience &mdash; whether you've never touched a
+          barbell or you've been lifting for years. Matched to whatever equipment
+          you have. Phases from general strength into race-specific power.
+          Stops when the taper starts.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sample Training Week Visual -->
+    <div class="tp-sample-week">
+      <div class="tp-sample-week-label">Sample Build Week (8 hrs/wk athlete) <span style="color: #999; font-weight: 400;">&mdash; click a session for details</span></div>
+      <div class="tp-sample-grid">
+        <div class="tp-sample-day">Mon</div>
+        <div class="tp-sample-day">Tue</div>
+        <div class="tp-sample-day">Wed</div>
+        <div class="tp-sample-day">Thu</div>
+        <div class="tp-sample-day">Fri</div>
+        <div class="tp-sample-day">Sat</div>
+        <div class="tp-sample-day">Sun</div>
+        <div class="tp-sample-block rest" data-detail="Active recovery or full rest. Strategic &mdash; not lazy. Your body adapts during rest, not during intervals.">Rest</div>
+        <div class="tp-sample-block intervals"
+          data-detail="4x4min @ 108-120% FTP / RPE 9. Cadence: 100-110rpm, seated on the hoods. Full recovery between efforts. Power targets, cadence, and position cues built into the .zwo file."
+          data-structure='[{"z":"z2","w":12,"h":45,"l":"WU 10m"},{"z":"z5","w":8,"h":85,"l":"4m"},{"z":"z1","w":6,"h":30,"l":"4m"},{"z":"z5","w":8,"h":88,"l":"4m"},{"z":"z1","w":6,"h":30,"l":"4m"},{"z":"z5","w":8,"h":90,"l":"4m"},{"z":"z1","w":6,"h":30,"l":"4m"},{"z":"z5","w":8,"h":92,"l":"4m"},{"z":"z2","w":10,"h":40,"l":"CD 8m"}]'
+          data-meta="108-120% FTP | 100-110rpm | Hoods, seated"
+          >VO2max<br>Intervals<br>1hr</div>
+        <div class="tp-sample-block endurance"
+          data-detail="Zone 2 spin. 55-75% FTP / RPE 3-4. Recovery between hard days. Nasal breathing pace. Don't chase Strava segments."
+          data-structure='[{"z":"z2","w":100,"h":48,"l":"Z2 45m"}]'
+          data-meta="55-75% FTP | 85-95rpm | Hoods"
+          >Easy<br>Spin<br>45min</div>
+        <div class="tp-sample-block intervals"
+          data-detail="2x20min @ 88-94% FTP / RPE 7. The workhorse session. Builds sustained power you'll need at mile 60+. Cadence: 85-95rpm seated on the hoods. Position and cadence cues baked into the .zwo file."
+          data-structure='[{"z":"z2","w":12,"h":45,"l":"WU 10m"},{"z":"z3","w":6,"h":58,"l":"5m"},{"z":"z4","w":22,"h":72,"l":"20m"},{"z":"z2","w":6,"h":40,"l":"5m"},{"z":"z4","w":22,"h":74,"l":"20m"},{"z":"z3","w":6,"h":55,"l":"5m"},{"z":"z2","w":10,"h":40,"l":"CD"}]'
+          data-meta="88-94% FTP | 85-95rpm | Hoods, seated"
+          >G-Spot<br>1.5hr</div>
+        <div class="tp-sample-block strength" data-detail="Cycling-specific. Bulgarian split squats, hip hinge work, single-leg stability. Scaled to your equipment and experience level. 40-50min.">Strength<br>45min</div>
+        <div class="tp-sample-block long-ride"
+          data-detail="Endurance ride with late-ride race-pace efforts &mdash; durability work. 2.5hrs zone 2, then 2x10min at threshold in the drops at 55rpm. Practices holding power on tired legs in an aero position at low cadence &mdash; exactly what gravel racing demands. Fueling targets included."
+          data-structure='[{"z":"z2","w":40,"h":48,"l":"Z2 2.5hrs"},{"z":"z3","w":5,"h":58,"l":""},{"z":"z4","w":10,"h":72,"l":"10m @FTP"},{"z":"z2","w":5,"h":40,"l":"5m"},{"z":"z4","w":10,"h":74,"l":"10m @FTP"},{"z":"z2","w":8,"h":40,"l":"CD"}]'
+          data-meta="88-100% FTP (late ride) | 55rpm | Drops"
+          >Long<br>Ride<br>3hr</div>
+        <div class="tp-sample-block rest" data-detail="Full rest before the next training week. Sleep well. Eat well. The plan respects that you have a life outside of cycling.">Rest</div>
+      </div>
+      <div class="tp-sample-detail" id="tp-sample-detail" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HOW IT WORKS — 4 steps, TrainingPeaks sequence
+       ============================================================ -->
+  <div class="tp-section tp-section-cream" id="how-it-works">
+    <div class="tp-section-label">How It Works</div>
+    <h2>Four Steps. You Start Training Today.</h2>
+    <div class="tp-process">
+      <div class="tp-process-step">
+        <div class="tp-process-num">01</div>
+        <h4>Questionnaire</h4>
+        <p>5 min form</p>
+        <span class="tp-process-arrow">&rarr;</span>
+      </div>
+      <div class="tp-process-step">
+        <div class="tp-process-num">02</div>
+        <h4>TrainingPeaks</h4>
+        <p>Connect account</p>
+        <span class="tp-process-arrow">&rarr;</span>
+      </div>
+      <div class="tp-process-step">
+        <div class="tp-process-num">03</div>
+        <h4>Plan Built</h4>
+        <p>Matched to you</p>
+        <span class="tp-process-arrow">&rarr;</span>
+      </div>
+      <div class="tp-process-step">
+        <div class="tp-process-num">04</div>
+        <h4>You Train</h4>
+        <p>Same day delivery</p>
+      </div>
+    </div>
+    <div class="tp-steps">
+      <div class="tp-step">
+        <div class="tp-step-num">01</div>
+        <div>
+          <h3>Fill Out the Questionnaire</h3>
+          <p>Your race. Your hours. Your fitness. Your constraints. Injuries.
+          Goals. The stuff most plans never ask about. Five minutes. Be honest &mdash;
+          the plan is only as good as the data.</p>
+        </div>
+      </div>
+      <div class="tp-step">
+        <div class="tp-step-num">02</div>
+        <div>
+          <h3>Connect on TrainingPeaks</h3>
+          <p>Attach to my TrainingPeaks Coach Account. This is how the plan
+          gets to your calendar. Free TrainingPeaks account works fine.</p>
+        </div>
+      </div>
+      <div class="tp-step">
+        <div class="tp-step-num">03</div>
+        <div>
+          <h3>I Build Your Plan</h3>
+          <p>Your intake hits the methodology engine. The training approach gets
+          selected based on your profile. Polarized for the time-crunched.
+          Pyramidal for the balanced. Block for the serious. Matched to your
+          availability and ability.</p>
+        </div>
+      </div>
+      <div class="tp-step">
+        <div class="tp-step-num">04</div>
+        <div>
+          <h3>Plan Drops Into Your Calendar</h3>
+          <p>I push the plan directly into your TrainingPeaks calendar. Every
+          workout. Every phase. Open your app &mdash; it's there. Syncs to Zwift,
+          Wahoo, Garmin. You start training. Delivered same day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ROTATING PULL QUOTE
+       ============================================================ -->
+  <div class="tp-pullquote" id="tp-rotating-quote">
+    <span class="tp-reality-label">Reality Check</span>
+    <p id="tp-quote-text"></p>
+  </div>
+
+  <!-- ============================================================
+       WHAT'S IN THE GUIDE — Flip Cards
+       ============================================================ -->
+  <div class="tp-section">
+    <div class="tp-section-label">Inside the Guide</div>
+    <h2>What's In Your Guide</h2>
+    <p style="font-size: 0.75rem; color: #59473C; margin-bottom: 0;">Hover or tap to flip.</p>
+    <div class="tp-flip-grid">
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+            <h3>Race Intel</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>If your race is in the database: course profile, suffering zones, terrain breakdown, altitude warnings, weather patterns. 30+ races researched.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 2a4 4 0 0 0-4 4c0 2 2 3 2 5h4c0-2 2-3 2-5a4 4 0 0 0-4-4z"/><path d="M10 17h4"/><path d="M10 20h4"/><circle cx="12" cy="6" r="1" fill="currentColor"/></svg></div>
+            <h3>Mental Training</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>Visualization cues. Suffering management strategies. Process goals for each phase of the race. The mental toolkit that separates finishing from racing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Women-Specific</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>Women are not small men. If you're female, the plan reflects that &mdash; menstrual cycle periodization, hormonal considerations for training load, recovery adjustments, and nutrition differences. Built in, not bolted on.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M6 2h6l1 4H5L6 2z"/><path d="M5 6v14a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6"/><path d="M9 6v4"/><path d="M17 2v4"/><path d="M15 6h4"/><path d="M17 6v10a2 2 0 0 0 4 0V6"/></svg></div>
+            <h3>Nutrition Protocol</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>Calories/hr. Hydration targets. Race-morning meals. Aid station strategy. Built from your race distance and conditions, not a generic table.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="3" y="4" width="18" height="18" rx="0"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg></div>
+            <h3>Race Week</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>Day-by-day countdown. Taper rides. Equipment check. What to eat and when. Race-morning protocol down to the hour.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tp-flip-card">
+        <div class="tp-flip-inner">
+          <div class="tp-flip-front">
+            <div class="tp-flip-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg></div>
+            <h3>Heat / Altitude</h3>
+            <div class="tp-flip-hint">Flip &rarr;</div>
+          </div>
+          <div class="tp-flip-back">
+            <p>Acclimatization protocols for races above 5,000ft or in hot conditions. Adaptation timelines and specific session modifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TABBED COMPARISON — Generic vs Custom
+       ============================================================ -->
+  <div class="tp-section tp-section-cream">
+    <div class="tp-section-label">The Difference</div>
+    <h2>Generic Plan vs. This</h2>
+    <div class="tp-tabs">
+      <div class="tp-tabs-nav">
+        <button class="tp-tab-btn active" data-tab="generic">A Generic Plan</button>
+        <button class="tp-tab-btn" data-tab="custom">This Plan</button>
+      </div>
+      <div class="tp-tab-panel tp-tab-generic active" id="tab-generic">
+        <ul>
+          <li>Same plan for every athlete regardless of hours</li>
+          <li>Assumes you have 15+ hours a week</li>
+          <li>No race-specific preparation</li>
+          <li>Generic nutrition advice ("eat carbs")</li>
+          <li>No strength integration</li>
+          <li>PDF you download and forget</li>
+          <li>No power zone calibration to your data</li>
+          <li>Workouts prescribe zone and duration &mdash; nothing else</li>
+          <li>Ignores your age, stress, sleep, injuries</li>
+        </ul>
+      </div>
+      <div class="tp-tab-panel tp-tab-custom" id="tab-custom">
+        <ul>
+          <li>Training methodology matched to your availability and ability</li>
+          <li>Built for your actual available hours (3-20)</li>
+          <li>Race-specific intel for 30+ gravel events</li>
+          <li>Fueling protocol matched to your race and conditions</li>
+          <li>Custom strength training phased to your blocks</li>
+          <li>Pushed directly to your TrainingPeaks calendar</li>
+          <li>Zones calculated from your power or HR data</li>
+          <li>Workouts prescribe zone, duration, cadence, position, and fatigue context</li>
+          <li>Accounts for age, stress, sleep, injuries, equipment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       WHO THIS IS FOR
+       ============================================================ -->
+  <div class="tp-section tp-section-cream">
+    <div class="tp-section-label">Honest Check</div>
+    <h2>This Isn't For Everyone. Good.</h2>
+    <div class="tp-audience-grid">
+      <div class="tp-audience-col">
+        <h3>Buy This If:</h3>
+        <ul class="tp-audience-list tp-for-list">
+          <li>You have a race on the calendar and you're done winging it</li>
+          <li>You have 3-15 hours a week and need every session to count</li>
+          <li>You want structure that respects your actual life</li>
+          <li>You can follow a plan without someone texting you every morning</li>
+          <li>You're tired of generic plans that assume you're 25 with 20 hours</li>
+        </ul>
+      </div>
+      <div class="tp-audience-col tp-not-for">
+        <h3>Don't Buy This If:</h3>
+        <ul class="tp-audience-list tp-not-list">
+          <li>You want ongoing coaching with weekly adjustments</li>
+          <li>You don't have a target event</li>
+          <li>Your race is in 4 weeks &mdash; not enough time to build anything real</li>
+          <li>You need daily accountability to do the work</li>
+          <li>You just want someone to tell you you're doing great</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MARQUEE STRIP
+       ============================================================ -->
+  <div class="tp-marquee">
+    <div class="tp-marquee-track">
+      <span>Compatible With All Major Devices</span><span class="tp-mq-dot">/</span>
+      <span>Same-Day Delivery</span><span class="tp-mq-dot">/</span>
+      <span>Methodology Matched to You</span><span class="tp-mq-dot">/</span>
+      <span>Custom Strength Training</span><span class="tp-mq-dot">/</span>
+      <span>Race-Specific Intel</span><span class="tp-mq-dot">/</span>
+      <span>Nutrition Protocol</span><span class="tp-mq-dot">/</span>
+      <span>Heat &amp; Altitude Protocols</span><span class="tp-mq-dot">/</span>
+      <span>Mental Training</span><span class="tp-mq-dot">/</span>
+      <span>Women-Specific Considerations</span><span class="tp-mq-dot">/</span>
+      <span>$15/Week Capped at $199</span><span class="tp-mq-dot">/</span>
+      <span>Compatible With All Major Devices</span><span class="tp-mq-dot">/</span>
+      <span>Same-Day Delivery</span><span class="tp-mq-dot">/</span>
+      <span>Methodology Matched to You</span><span class="tp-mq-dot">/</span>
+      <span>Custom Strength Training</span><span class="tp-mq-dot">/</span>
+      <span>Race-Specific Intel</span><span class="tp-mq-dot">/</span>
+      <span>Nutrition Protocol</span><span class="tp-mq-dot">/</span>
+      <span>Heat &amp; Altitude Protocols</span><span class="tp-mq-dot">/</span>
+      <span>Mental Training</span><span class="tp-mq-dot">/</span>
+      <span>Women-Specific Considerations</span><span class="tp-mq-dot">/</span>
+      <span>$15/Week Capped at $199</span><span class="tp-mq-dot">/</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PRICING + FAQ — Combined, side by side
+       ============================================================ -->
+  <div class="tp-section">
+    <div class="tp-section-label">Pricing &amp; Questions</div>
+    <h2>$15 Per Week of Training.</h2>
+    <div class="tp-pricing-faq">
+      <!-- Pricing Card -->
+      <div class="tp-pricing-card" style="position: relative;">
+        <div class="tp-badge-sticker" style="position: absolute; top: -8px; right: 12px; z-index: 2;">Max $199</div>
+        <div class="tp-pricing-header">Custom Training Plan</div>
+        <div class="tp-price">$15 <span>/week of training</span></div>
+        <p style="font-size: 0.7rem; color: #59473C; padding: 0 1.5rem; margin: 0;">Typical plans: $120&ndash;$180. Maximum $199 for any length.</p>
+        <ul class="tp-pricing-list">
+          <li>Structured workouts on your device (TrainingPeaks, Zwift, Wahoo)</li>
+          <li>Custom training guide with race-specific intel</li>
+          <li>Heat &amp; altitude acclimatization protocols</li>
+          <li>Race-optimized nutrition plan</li>
+          <li>Custom strength training</li>
+          <li>Power zones calculated from your data</li>
+          <li>Pushed directly to your TrainingPeaks calendar</li>
+          <li>Same-day delivery</li>
+        </ul>
+        <div class="tp-pricing-cta">
+          <a href="#get-started" class="tp-btn">Build My Plan</a>
+        </div>
+        <p class="tp-pricing-note">One-time purchase. No subscription. No upsells. Capped at $199.</p>
+      </div>
+
+      <!-- FAQ -->
+      <div>
+        <div class="tp-faq-list">
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              Do I need a power meter?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>Not required. Every workout includes RPE targets so you can train
+              by feel. But a power meter is strongly recommended &mdash; watt targets
+              remove guesswork entirely. Heart rate works as a middle ground.
+              The plan adapts to whatever you measure with, but power is better.</p>
+            </div>
+          </div>
+
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              What if I don't know my FTP?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>Most people don't. Mark it unknown. Week 1 includes an FTP test protocol.
+              Once you have the number, every zone recalibrates.</p>
+            </div>
+          </div>
+
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              How are workouts delivered?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>.zwo files. Load directly into Zwift, TrainingPeaks, or anything that reads
+              the format. Each file has power targets, cadence cues, and coaching text built in.
+              Your guide is a web page &mdash; bookmark it.</p>
+            </div>
+          </div>
+
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              Can I get a plan for multiple races?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>Yes. Add up to 10 races with A/B/C priority. The plan periodizes around
+              your A-race. B-races are secondary peaks. C-races are training races.</p>
+            </div>
+          </div>
+
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              What if my race isn't in the database?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>The training still works. You won't get race-specific intel (suffering zones,
+              terrain breakdown), but the workouts, phases, and structure are identical.</p>
+            </div>
+          </div>
+
+          <div class="tp-faq-item">
+            <div class="tp-faq-q">
+              Is this coaching?
+              <span class="tp-faq-toggle">+</span>
+            </div>
+            <div class="tp-faq-a">
+              <p>No. This is a plan, not a relationship. You get the full plan up front
+              and execute it yourself. No weekly check-ins. For ongoing coaching with
+              adjustments and communication &mdash; that's a separate service.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       OR YOU COULD... (Behavioral hook)
+       ============================================================ -->
+  <div class="tp-pullquote">
+    <span class="tp-reality-label">Or&hellip;</span>
+    <p>You could keep winging it. Show up to your race with a generic
+    plan you found on Reddit, guess your pacing, bonk at mile 80, and wonder
+    what went wrong. That works too.</p>
+    <a href="#get-started" style="color: #F5E5D3; text-decoration: underline; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-top: 0.75rem;">Build Your Plan &rarr;</a>
+  </div>
+
+  <!-- ============================================================
+       FORM SECTION
+       ============================================================ -->
+  <div class="tp-form-section" id="get-started">
+    <h2>Build Your Plan</h2>
+    <p class="tp-form-intro">
+      Five minutes. Be thorough. The plan is only as good as the data.
+      Same-day delivery to your TrainingPeaks calendar.
+    </p>
+
+    <!-- ============================================================
+         EMBEDDED QUESTIONNAIRE FORM
+         (from training-plan-form-full.html)
+         ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;500;600;700&display=swap');
+
+.gg-form-container {
+  font-family: 'Sometype Mono', monospace;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: #F5E5D3;
+  border: 4px solid #2C2C2C;
+  box-shadow: 8px 8px 0 #2C2C2C;
+  color: #2C2C2C;
+}
+
+.gg-form-container * {
+  box-sizing: border-box;
+}
+
+.gg-form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #59473C;
+}
+
+.gg-form-badge {
+  display: inline-block;
+  background: #F4D03F;
+  color: #2C2C2C;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #2C2C2C;
+  margin-bottom: 1rem;
+}
+
+.gg-form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #59473C;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gg-form-header p {
+  color: #59473C;
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.gg-form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(89, 71, 60, 0.2);
+}
+
+.gg-form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.gg-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.gg-section-number {
+  background: #59473C;
+  color: #F5E5D3;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.gg-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #59473C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.gg-section-desc {
+  font-size: 0.8rem;
+  color: #59473C;
+  opacity: 0.7;
+  margin: 0 0 1rem 0;
+  padding-left: 40px;
+}
+
+.gg-form-row {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.gg-form-row.triple { flex-wrap: wrap; }
+.gg-form-row.triple .gg-form-group { flex: 1 1 30%; min-width: 150px; }
+.gg-form-row.quad { flex-wrap: wrap; }
+.gg-form-row.quad .gg-form-group { flex: 1 1 22%; min-width: 120px; }
+
+.gg-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gg-form-group.full-width { flex: 1 1 100%; }
+
+.gg-form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #59473C;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gg-form-group label .required { color: #59473C; }
+
+.gg-form-group input,
+.gg-form-group select,
+.gg-form-group textarea {
+  padding: 0.75rem 1rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.9rem;
+  border: 3px solid #2C2C2C;
+  border-radius: 0;
+  background: #fff;
+  color: #2C2C2C;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.gg-form-group input:focus,
+.gg-form-group select:focus,
+.gg-form-group textarea:focus {
+  outline: none;
+  border-color: #4ECDC4;
+  box-shadow: 4px 4px 0 #4ECDC4;
+}
+
+.gg-form-group input::placeholder,
+.gg-form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.gg-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%232C2C2C' viewBox='0 0 16 16'%3E%3Cpath d='M8 12L2 6h12l-6 6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.gg-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.gg-height-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gg-height-row input { width: 70px; text-align: center; }
+.gg-height-row span { font-size: 0.9rem; color: #59473C; }
+
+.gg-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.gg-radio-option { position: relative; }
+.gg-radio-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.gg-radio-option label {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  background: #fff;
+  border: 3px solid #2C2C2C;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.gg-radio-option input:checked + label {
+  background: #4ECDC4;
+  box-shadow: 4px 4px 0 #2C2C2C;
+  transform: translate(-2px, -2px);
+}
+
+.gg-radio-option label:hover { background: #e8e8e8; }
+.gg-radio-option input:checked + label:hover { background: #4ECDC4; }
+
+.gg-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.gg-checkbox-option { position: relative; }
+.gg-checkbox-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.gg-checkbox-option label {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  background: #fff;
+  border: 2px solid #2C2C2C;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.gg-checkbox-option input:checked + label {
+  background: #4ECDC4;
+  box-shadow: 3px 3px 0 #2C2C2C;
+  transform: translate(-1px, -1px);
+}
+
+.gg-checkbox-option label:hover { background: #e8e8e8; }
+.gg-checkbox-option input:checked + label:hover { background: #4ECDC4; }
+
+.gg-race-entry {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #59473C;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.gg-race-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.gg-race-number {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #59473C;
+  text-transform: uppercase;
+}
+
+.gg-remove-race {
+  background: none;
+  border: 2px solid #59473C;
+  color: #59473C;
+  padding: 0.25rem 0.5rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.gg-remove-race:hover {
+  background: #59473C;
+  color: #F5E5D3;
+}
+
+.gg-race-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.gg-race-fields .gg-form-group { margin-bottom: 0; }
+
+.gg-race-fields input,
+.gg-race-fields select {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.gg-add-race-btn {
+  background: #fff;
+  border: 2px dashed #59473C;
+  color: #59473C;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.gg-add-race-btn:hover {
+  background: #59473C;
+  color: #F5E5D3;
+  border-style: solid;
+}
+
+.gg-add-race-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gg-calculated {
+  background: rgba(78, 205, 196, 0.15);
+  border: 2px solid #4ECDC4;
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.gg-calculated strong { color: #2C2C2C; }
+
+.gg-hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.gg-submit-btn {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2C2C2C;
+  background: #F4D03F;
+  border: 4px solid #2C2C2C;
+  box-shadow: 6px 6px 0 #2C2C2C;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  margin-top: 1rem;
+}
+
+.gg-submit-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #2C2C2C;
+}
+
+.gg-submit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 #2C2C2C;
+}
+
+.gg-submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 6px 6px 0 #2C2C2C;
+}
+
+.gg-form-message {
+  padding: 1rem;
+  margin-top: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  border: 3px solid;
+}
+
+.gg-form-message.success {
+  background: #D4EDDA;
+  color: #155724;
+  border-color: #155724;
+}
+
+.gg-form-message.error {
+  background: #F5E5D3;
+  color: #59473C;
+  border-color: #59473C;
+}
+
+.gg-form-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #59473C;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+  .gg-form-container {
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0 #2C2C2C;
+  }
+  .gg-form-row,
+  .gg-form-row.triple,
+  .gg-form-row.quad {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .gg-form-row.triple .gg-form-group,
+  .gg-form-row.quad .gg-form-group {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  .gg-form-header h2 { font-size: 1.35rem; }
+  .gg-radio-group { flex-direction: column; }
+  .gg-submit-btn { box-shadow: 4px 4px 0 #2C2C2C; }
+  .gg-race-fields { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="gg-form-container">
+  <div class="gg-form-header">
+    <span class="gg-form-badge">Custom Training Plan</span>
+    <h2>Build Your Plan</h2>
+    <p>Fill out this form and I'll build a custom training plan calibrated to your goals, schedule, and fitness level. Delivered to your TrainingPeaks calendar same day.</p>
+  </div>
+
+  <form id="gg-training-form">
+    <!-- Honeypot -->
+    <input type="text" name="_honeypot" class="gg-hp-field" tabindex="-1" autocomplete="off">
+
+    <!-- Section 1: Contact Info -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">1</span>
+        <h3 class="gg-section-title">Contact Info</h3>
+      </div>
+      <div class="gg-form-row">
+        <div class="gg-form-group">
+          <label>Name <span class="required">*</span></label>
+          <input type="text" name="name" required placeholder="Your name">
+        </div>
+        <div class="gg-form-group">
+          <label>Email <span class="required">*</span></label>
+          <input type="email" name="email" required placeholder="you@email.com">
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: About You -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">2</span>
+        <h3 class="gg-section-title">About You</h3>
+      </div>
+      <p class="gg-section-desc">Basic info to help calibrate your plan. Used for zone calculations and recovery planning.</p>
+
+      <div class="gg-form-row quad">
+        <div class="gg-form-group">
+          <label>Sex <span class="required">*</span></label>
+          <select name="sex" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Age <span class="required">*</span></label>
+          <input type="number" name="age" required min="16" max="90" placeholder="35">
+        </div>
+        <div class="gg-form-group">
+          <label>Weight (lbs) <span class="required">*</span></label>
+          <input type="number" name="weight" required min="80" max="350" placeholder="165">
+        </div>
+        <div class="gg-form-group">
+          <label>Height <span class="required">*</span></label>
+          <div class="gg-height-row">
+            <input type="number" name="heightFeet" required min="4" max="7" placeholder="5">
+            <span>ft</span>
+            <input type="number" name="heightInches" required min="0" max="11" placeholder="10">
+            <span>in</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menstrual cycle — shown only when sex = female -->
+      <div class="gg-form-row dual" id="cycle-row" style="display: none;">
+        <div class="gg-form-group">
+          <label>Menstrual Cycle Status</label>
+          <select name="cycleStatus">
+            <option value="">Select</option>
+            <option value="regular">Regular cycle</option>
+            <option value="irregular">Irregular cycle</option>
+            <option value="hormonal-bc">Hormonal birth control</option>
+            <option value="iud">IUD (hormonal)</option>
+            <option value="iud-copper">IUD (copper / non-hormonal)</option>
+            <option value="perimenopause">Perimenopause</option>
+            <option value="postmenopause">Postmenopause</option>
+            <option value="prefer-not">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Track Your Cycle?</label>
+          <select name="cycleTracking">
+            <option value="">Select</option>
+            <option value="yes-app">Yes (app)</option>
+            <option value="yes-manual">Yes (manual)</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gg-form-row triple">
+        <div class="gg-form-group">
+          <label>Years Cycling <span class="required">*</span></label>
+          <select name="yearsCycling" required>
+            <option value="">Select</option>
+            <option value="<1">&lt;1 year</option>
+            <option value="1-2">1-2 years</option>
+            <option value="3-5">3-5 years</option>
+            <option value="5-10">5-10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Typical Sleep <span class="required">*</span></label>
+          <select name="typicalSleep" required>
+            <option value="">Select</option>
+            <option value="excellent">Excellent (8+ hrs)</option>
+            <option value="good">Good (7-8 hrs)</option>
+            <option value="fair">Fair (6-7 hrs)</option>
+            <option value="poor">Poor (&lt;6 hrs)</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Life Stress Level <span class="required">*</span></label>
+          <select name="stressLevel" required>
+            <option value="">Select</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+            <option value="very-high">Very High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gg-form-row dual">
+        <div class="gg-form-group">
+          <label>Prior Structured Plan Experience</label>
+          <select name="priorPlanExperience">
+            <option value="">Select</option>
+            <option value="none">Never followed a plan</option>
+            <option value="generic">Used a generic/free plan</option>
+            <option value="app">Used an app (TrainerRoad, Zwift, etc.)</option>
+            <option value="coached">Worked with a coach</option>
+            <option value="custom">Had a custom plan built before</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Travel During Training Block?</label>
+          <select name="travelDuringPlan">
+            <option value="">Select</option>
+            <option value="none">No significant travel</option>
+            <option value="short">Short trip (2-4 days)</option>
+            <option value="week">Week-long trip</option>
+            <option value="multi">Multiple trips</option>
+            <option value="frequent">Frequent travel (work)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Race Calendar -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">3</span>
+        <h3 class="gg-section-title">Race Calendar</h3>
+      </div>
+      <p class="gg-section-desc">Add your target races for the season. Mark your priority: A = main goal, B = important, C = training race.</p>
+
+      <div id="races-container"></div>
+      <button type="button" id="add-race-btn" class="gg-add-race-btn">+ Add Race</button>
+    </div>
+
+    <!-- Section 4: Current Fitness -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">4</span>
+        <h3 class="gg-section-title">Current Fitness</h3>
+      </div>
+      <p class="gg-section-desc">Helps me understand your starting point. Don't worry if you don't have power data.</p>
+
+      <div class="gg-form-group">
+        <label>Longest ride in the past month? <span class="required">*</span></label>
+        <div class="gg-radio-group">
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-2" value="<2hrs" required>
+            <label for="ride-2">&lt;2 hrs</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-3" value="2-3hrs">
+            <label for="ride-3">2-3 hrs</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-4" value="3-4hrs">
+            <label for="ride-4">3-4 hrs</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-5" value="4-5hrs">
+            <label for="ride-5">4-5 hrs</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-6" value="5-6hrs">
+            <label for="ride-6">5-6 hrs</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="recentRideDuration" id="ride-6plus" value="6+hrs">
+            <label for="ride-6plus">6+ hrs</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="gg-form-group" style="margin-top: 1rem;">
+        <label>Do you train with power or heart rate?</label>
+        <div class="gg-radio-group">
+          <div class="gg-radio-option">
+            <input type="radio" name="powerOrHr" id="metric-power" value="power">
+            <label for="metric-power">Power</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="powerOrHr" id="metric-hr" value="hr">
+            <label for="metric-hr">Heart Rate</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="powerOrHr" id="metric-both" value="both">
+            <label for="metric-both">Both</label>
+          </div>
+          <div class="gg-radio-option">
+            <input type="radio" name="powerOrHr" id="metric-neither" value="rpe">
+            <label for="metric-neither">Neither</label>
+          </div>
+        </div>
+      </div>
+
+      <div id="powerFields" style="display: none; margin-top: 1rem;">
+        <div class="gg-form-row">
+          <div class="gg-form-group">
+            <label>FTP (watts)</label>
+            <input type="number" name="ftp" id="ftpInput" min="50" max="500" placeholder="e.g., 250">
+          </div>
+        </div>
+        <div id="pwCalc" class="gg-calculated" style="display: none;">
+          <strong>Estimated W/kg:</strong> <span id="wkgValue">--</span> &nbsp;|&nbsp;
+          <strong>Category:</strong> <span id="catValue">--</span>
+        </div>
+      </div>
+
+      <div id="hrFields" style="display: none; margin-top: 1rem;">
+        <div class="gg-form-row triple">
+          <div class="gg-form-group">
+            <label>Max HR (bpm)</label>
+            <input type="number" name="maxHr" min="100" max="220" placeholder="e.g., 185">
+          </div>
+          <div class="gg-form-group">
+            <label>Threshold HR (bpm)</label>
+            <input type="number" name="lthr" min="80" max="200" placeholder="e.g., 165">
+          </div>
+          <div class="gg-form-group">
+            <label>Resting HR (bpm)</label>
+            <input type="number" name="restingHr" min="30" max="100" placeholder="e.g., 52">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Your Schedule -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">5</span>
+        <h3 class="gg-section-title">Your Schedule</h3>
+      </div>
+      <p class="gg-section-desc">Tell me when and how much you can train.</p>
+
+      <div class="gg-form-row">
+        <div class="gg-form-group">
+          <label>Weekly Training Hours <span class="required">*</span></label>
+          <select name="weeklyHours" required>
+            <option value="">Select</option>
+            <option value="3-5">3-5 hours</option>
+            <option value="5-7">5-7 hours</option>
+            <option value="7-10">7-10 hours</option>
+            <option value="10-12">10-12 hours</option>
+            <option value="12-15">12-15 hours</option>
+            <option value="15+">15+ hours</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Indoor Trainer Access <span class="required">*</span></label>
+          <select name="trainerType" required>
+            <option value="">Select</option>
+            <option value="smart">Smart Trainer</option>
+            <option value="basic">Basic Trainer</option>
+            <option value="outdoor">Outdoor Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gg-form-group">
+        <label>Preferred Long Ride Day(s) <span class="required">*</span></label>
+        <div class="gg-checkbox-group" id="longRideDays">
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-mon" value="Monday"><label for="long-mon">Mon</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-tue" value="Tuesday"><label for="long-tue">Tue</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-wed" value="Wednesday"><label for="long-wed">Wed</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-thu" value="Thursday"><label for="long-thu">Thu</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-fri" value="Friday"><label for="long-fri">Fri</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-sat" value="Saturday"><label for="long-sat">Sat</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-sun" value="Sunday"><label for="long-sun">Sun</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-flex" value="Flexible"><label for="long-flex">Flexible</label></div>
+        </div>
+      </div>
+
+      <div class="gg-form-group" style="margin-top: 1rem;">
+        <label>Preferred Hard Interval Day(s) <span class="required">*</span></label>
+        <div class="gg-checkbox-group" id="intervalDays">
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-mon" value="Monday"><label for="int-mon">Mon</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-tue" value="Tuesday"><label for="int-tue">Tue</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-wed" value="Wednesday"><label for="int-wed">Wed</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-thu" value="Thursday"><label for="int-thu">Thu</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-fri" value="Friday"><label for="int-fri">Fri</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-sat" value="Saturday"><label for="int-sat">Sat</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-sun" value="Sunday"><label for="int-sun">Sun</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-flex" value="Flexible"><label for="int-flex">Flexible</label></div>
+        </div>
+      </div>
+
+      <div class="gg-form-group" style="margin-top: 1rem;">
+        <label>Required Off Days (if any)</label>
+        <div class="gg-checkbox-group" id="daysOff">
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-mon" value="Monday"><label for="off-mon">Mon</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-tue" value="Tuesday"><label for="off-tue">Tue</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-wed" value="Wednesday"><label for="off-wed">Wed</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-thu" value="Thursday"><label for="off-thu">Thu</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-fri" value="Friday"><label for="off-fri">Fri</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-sat" value="Saturday"><label for="off-sat">Sat</label></div>
+          <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-sun" value="Sunday"><label for="off-sun">Sun</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Strength Training -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">6</span>
+        <h3 class="gg-section-title">Strength Training</h3>
+      </div>
+
+      <div class="gg-form-group">
+        <label>Current Strength Training <span class="required">*</span></label>
+        <div class="gg-radio-group">
+          <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-none" value="none" required><label for="str-none">None</label></div>
+          <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-occasional" value="occasional"><label for="str-occasional">Occasional</label></div>
+          <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-1x" value="1x-week"><label for="str-1x">1x/week</label></div>
+          <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-2x" value="2x-week"><label for="str-2x">2x/week</label></div>
+          <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-dedicated" value="dedicated"><label for="str-dedicated">Dedicated Program</label></div>
+        </div>
+      </div>
+
+      <div class="gg-form-row" style="margin-top: 1rem;">
+        <div class="gg-form-group">
+          <label>Include Strength in Plan? <span class="required">*</span></label>
+          <select name="includeStrength" required>
+            <option value="">Select</option>
+            <option value="yes">Yes, include it</option>
+            <option value="no">No, I'll handle it separately</option>
+            <option value="your-call">Your call</option>
+          </select>
+        </div>
+        <div class="gg-form-group">
+          <label>Equipment Available</label>
+          <select name="strengthEquipment">
+            <option value="">Select</option>
+            <option value="full-gym">Full Gym</option>
+            <option value="home-basic">Home - Basic (dumbbells, bands)</option>
+            <option value="home-full">Home - Full Setup</option>
+            <option value="bodyweight">Bodyweight Only</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 7: Additional Notes -->
+    <div class="gg-form-section">
+      <div class="gg-section-header">
+        <span class="gg-section-number">7</span>
+        <h3 class="gg-section-title">Additional Notes</h3>
+      </div>
+
+      <div class="gg-form-group">
+        <label>Injuries or Limitations</label>
+        <textarea name="injuries" placeholder="Any current or past injuries, physical limitations, or health considerations I should know about?"></textarea>
+      </div>
+
+      <div class="gg-form-group" style="margin-top: 1rem;">
+        <label>Anything Else?</label>
+        <textarea name="additionalNotes" placeholder="Other context, goals, concerns, or questions..."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="gg-submit-btn">Submit & Build My Plan</button>
+  </form>
+
+  <div id="gg-form-message" class="gg-form-message" style="display: none;"></div>
+
+  <div class="gg-form-footer">
+    Same-day delivery &middot; Powered by Gravel God
+  </div>
+</div>
+
+  </div><!-- end .tp-form-section -->
+
+</div><!-- end .tp-landing -->
+
+<!-- Mobile sticky CTA -->
+<div class="tp-sticky-cta">
+  <a href="#get-started">Build My Plan &mdash; $15/wk</a>
+</div>
+

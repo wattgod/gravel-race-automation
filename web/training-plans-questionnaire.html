@@ -1,0 +1,884 @@
+<!-- Gravel God Training Plans Questionnaire -->
+<!-- Paste this entire block into a WordPress Custom HTML block -->
+<!-- Page: gravelgodcycling.com/training-plans/questionnaire/ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;500;600;700&display=swap');
+
+/* Page wrapper */
+.tp-questionnaire-page {
+  font-family: 'Sometype Mono', monospace;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.tp-questionnaire-page * {
+  box-sizing: border-box;
+}
+
+/* Hero recap */
+.tp-questionnaire-hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 3px solid #000;
+  margin-bottom: 2.5rem;
+}
+
+.tp-questionnaire-hero h1 {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: #000;
+  margin: 0 0 0.75rem 0;
+}
+
+.tp-questionnaire-hero p {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Form container */
+.gg-form-container {
+  font-family: 'Sometype Mono', monospace;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: #F5E5D3;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 #000;
+  color: #000;
+}
+
+.gg-form-container * {
+  box-sizing: border-box;
+}
+
+.gg-form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #59473C;
+}
+
+.gg-form-badge {
+  display: inline-block;
+  background: #59473C;
+  color: #F5E5D3;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #000;
+  margin-bottom: 1rem;
+}
+
+.gg-form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #59473C;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gg-form-header p {
+  color: #59473C;
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.gg-form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(89, 71, 60, 0.2);
+}
+
+.gg-form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.gg-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.gg-section-number {
+  background: #59473C;
+  color: #F5E5D3;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.gg-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #59473C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.gg-section-desc {
+  font-size: 0.8rem;
+  color: #59473C;
+  opacity: 0.7;
+  margin: 0 0 1rem 0;
+  padding-left: 40px;
+}
+
+.gg-form-row {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.gg-form-row.triple { flex-wrap: wrap; }
+.gg-form-row.triple .gg-form-group { flex: 1 1 30%; min-width: 150px; }
+.gg-form-row.quad { flex-wrap: wrap; }
+.gg-form-row.quad .gg-form-group { flex: 1 1 22%; min-width: 120px; }
+
+.gg-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gg-form-group.full-width { flex: 1 1 100%; }
+
+.gg-form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #59473C;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gg-form-group label .required { color: #59473C; }
+
+.gg-form-group input,
+.gg-form-group select,
+.gg-form-group textarea {
+  padding: 0.75rem 1rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.9rem;
+  border: 3px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.gg-form-group input:focus,
+.gg-form-group select:focus,
+.gg-form-group textarea:focus {
+  outline: none;
+  border-color: #1A8A82;
+  box-shadow: 4px 4px 0 #1A8A82;
+}
+
+.gg-form-group input::placeholder,
+.gg-form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.gg-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M8 12L2 6h12l-6 6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.gg-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.gg-height-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gg-height-row input { width: 70px; text-align: center; }
+.gg-height-row span { font-size: 0.9rem; color: #59473C; }
+
+.gg-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.gg-radio-option { position: relative; }
+.gg-radio-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.gg-radio-option label {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  background: #fff;
+  border: 3px solid #000;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.gg-radio-option input:checked + label {
+  background: #1A8A82;
+  color: #fff;
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-2px, -2px);
+}
+
+.gg-radio-option label:hover { background: #e8e8e8; }
+.gg-radio-option input:checked + label:hover { background: #1A8A82; }
+
+.gg-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.gg-checkbox-option { position: relative; }
+.gg-checkbox-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.gg-checkbox-option label {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  background: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.gg-checkbox-option input:checked + label {
+  background: #1A8A82;
+  color: #fff;
+  box-shadow: 3px 3px 0 #000;
+  transform: translate(-1px, -1px);
+}
+
+.gg-checkbox-option label:hover { background: #e8e8e8; }
+.gg-checkbox-option input:checked + label:hover { background: #1A8A82; }
+
+.gg-race-entry {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #59473C;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.gg-race-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.gg-race-number {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #59473C;
+  text-transform: uppercase;
+}
+
+.gg-remove-race {
+  background: none;
+  border: 2px solid #59473C;
+  color: #59473C;
+  padding: 0.25rem 0.5rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.gg-remove-race:hover {
+  background: #59473C;
+  color: #F5E5D3;
+}
+
+.gg-race-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.gg-race-fields .gg-form-group { margin-bottom: 0; }
+
+.gg-race-fields input,
+.gg-race-fields select {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.gg-add-race-btn {
+  background: #fff;
+  border: 2px dashed #59473C;
+  color: #59473C;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.gg-add-race-btn:hover {
+  background: #59473C;
+  color: #F5E5D3;
+  border-style: solid;
+}
+
+.gg-add-race-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gg-calculated {
+  background: rgba(26, 138, 130, 0.15);
+  border: 2px solid #1A8A82;
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.gg-calculated strong { color: #000; }
+
+.gg-hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.gg-submit-btn {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F5E5D3;
+  background: #59473C;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  margin-top: 1rem;
+}
+
+.gg-submit-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #000;
+}
+
+.gg-submit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.gg-submit-btn:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.gg-form-message {
+  padding: 1rem;
+  margin-top: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  border: 3px solid;
+}
+
+.gg-form-message.success {
+  background: #f5f0eb;
+  color: #59473C;
+  border-color: #59473C;
+}
+
+.gg-form-message.error {
+  background: #F5E5D3;
+  color: #59473C;
+  border-color: #59473C;
+}
+
+.gg-form-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #59473C;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+  .gg-form-container {
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0 #000;
+  }
+  .gg-form-row,
+  .gg-form-row.triple,
+  .gg-form-row.quad {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .gg-form-row.triple .gg-form-group,
+  .gg-form-row.quad .gg-form-group {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  .gg-form-header h2 { font-size: 1.35rem; }
+  .gg-radio-group { flex-direction: column; }
+  .gg-submit-btn { box-shadow: 4px 4px 0 #000; }
+  .gg-race-fields { grid-template-columns: 1fr; }
+  .tp-questionnaire-hero h1 { font-size: 1.5rem; }
+}
+</style>
+
+<div class="tp-questionnaire-page">
+
+  <div class="tp-questionnaire-hero">
+    <h1>Build Your Plan</h1>
+    <p>Five minutes. Be thorough. The plan is only as good as the data.
+    $15 per week of training, capped at $199. Same-day delivery to your TrainingPeaks calendar.</p>
+  </div>
+
+  <div class="gg-form-container">
+    <div class="gg-form-header">
+      <span class="gg-form-badge">Custom Training Plan</span>
+      <h2>Build Your Plan</h2>
+      <p>Fill out this form and I'll build a custom training plan calibrated to your goals, schedule, and fitness level. Delivered to your TrainingPeaks calendar same day.</p>
+    </div>
+
+    <form id="gg-training-form">
+      <!-- Honeypot -->
+      <input type="text" name="_honeypot" class="gg-hp-field" tabindex="-1" autocomplete="off">
+
+      <!-- Section 1: Contact Info -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">1</span>
+          <h3 class="gg-section-title">Contact Info</h3>
+        </div>
+        <div class="gg-form-row">
+          <div class="gg-form-group">
+            <label>Name <span class="required">*</span></label>
+            <input type="text" name="name" required placeholder="Your name">
+          </div>
+          <div class="gg-form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="email" required placeholder="you@email.com">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: About You -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">2</span>
+          <h3 class="gg-section-title">About You</h3>
+        </div>
+        <p class="gg-section-desc">Basic info to help calibrate your plan. Used for zone calculations and recovery planning.</p>
+
+        <div class="gg-form-row quad">
+          <div class="gg-form-group">
+            <label>Sex <span class="required">*</span></label>
+            <select name="sex" required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Age <span class="required">*</span></label>
+            <input type="number" name="age" required min="16" max="90" placeholder="35">
+          </div>
+          <div class="gg-form-group">
+            <label>Weight (lbs) <span class="required">*</span></label>
+            <input type="number" name="weight" required min="80" max="350" placeholder="165">
+          </div>
+          <div class="gg-form-group">
+            <label>Height <span class="required">*</span></label>
+            <div class="gg-height-row">
+              <input type="number" name="heightFeet" required min="4" max="7" placeholder="5">
+              <span>ft</span>
+              <input type="number" name="heightInches" required min="0" max="11" placeholder="10">
+              <span>in</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menstrual cycle — shown only when sex = female -->
+        <div class="gg-form-row dual" id="cycle-row" style="display: none;">
+          <div class="gg-form-group">
+            <label>Menstrual Cycle Status</label>
+            <select name="cycleStatus">
+              <option value="">Select</option>
+              <option value="regular">Regular cycle</option>
+              <option value="irregular">Irregular cycle</option>
+              <option value="hormonal-bc">Hormonal birth control</option>
+              <option value="iud">IUD (hormonal)</option>
+              <option value="iud-copper">IUD (copper / non-hormonal)</option>
+              <option value="perimenopause">Perimenopause</option>
+              <option value="postmenopause">Postmenopause</option>
+              <option value="prefer-not">Prefer not to say</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Track Your Cycle?</label>
+            <select name="cycleTracking">
+              <option value="">Select</option>
+              <option value="yes-app">Yes (app)</option>
+              <option value="yes-manual">Yes (manual)</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="gg-form-row triple">
+          <div class="gg-form-group">
+            <label>Years Cycling <span class="required">*</span></label>
+            <select name="yearsCycling" required>
+              <option value="">Select</option>
+              <option value="<1">&lt;1 year</option>
+              <option value="1-2">1-2 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5-10">5-10 years</option>
+              <option value="10+">10+ years</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Typical Sleep <span class="required">*</span></label>
+            <select name="typicalSleep" required>
+              <option value="">Select</option>
+              <option value="excellent">Excellent (8+ hrs)</option>
+              <option value="good">Good (7-8 hrs)</option>
+              <option value="fair">Fair (6-7 hrs)</option>
+              <option value="poor">Poor (&lt;6 hrs)</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Life Stress Level <span class="required">*</span></label>
+            <select name="stressLevel" required>
+              <option value="">Select</option>
+              <option value="low">Low</option>
+              <option value="moderate">Moderate</option>
+              <option value="high">High</option>
+              <option value="very-high">Very High</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="gg-form-row dual">
+          <div class="gg-form-group">
+            <label>Prior Structured Plan Experience</label>
+            <select name="priorPlanExperience">
+              <option value="">Select</option>
+              <option value="none">Never followed a plan</option>
+              <option value="generic">Used a generic/free plan</option>
+              <option value="app">Used an app (TrainerRoad, Zwift, etc.)</option>
+              <option value="coached">Worked with a coach</option>
+              <option value="custom">Had a custom plan built before</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Travel During Training Block?</label>
+            <select name="travelDuringPlan">
+              <option value="">Select</option>
+              <option value="none">No significant travel</option>
+              <option value="short">Short trip (2-4 days)</option>
+              <option value="week">Week-long trip</option>
+              <option value="multi">Multiple trips</option>
+              <option value="frequent">Frequent travel (work)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Race Calendar -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">3</span>
+          <h3 class="gg-section-title">Race Calendar</h3>
+        </div>
+        <p class="gg-section-desc">Add your target races for the season. Mark your priority: A = main goal, B = important, C = training race.</p>
+
+        <div id="races-container"></div>
+        <button type="button" id="add-race-btn" class="gg-add-race-btn">+ Add Race</button>
+      </div>
+
+      <!-- Section 4: Current Fitness -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">4</span>
+          <h3 class="gg-section-title">Current Fitness</h3>
+        </div>
+        <p class="gg-section-desc">Helps me understand your starting point. Don't worry if you don't have power data.</p>
+
+        <div class="gg-form-group">
+          <label>Longest ride in the past month? <span class="required">*</span></label>
+          <div class="gg-radio-group">
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-2" value="<2hrs" required>
+              <label for="ride-2">&lt;2 hrs</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-3" value="2-3hrs">
+              <label for="ride-3">2-3 hrs</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-4" value="3-4hrs">
+              <label for="ride-4">3-4 hrs</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-5" value="4-5hrs">
+              <label for="ride-5">4-5 hrs</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-6" value="5-6hrs">
+              <label for="ride-6">5-6 hrs</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="recentRideDuration" id="ride-6plus" value="6+hrs">
+              <label for="ride-6plus">6+ hrs</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="gg-form-group" style="margin-top: 1rem;">
+          <label>Do you train with power or heart rate?</label>
+          <div class="gg-radio-group">
+            <div class="gg-radio-option">
+              <input type="radio" name="powerOrHr" id="metric-power" value="power">
+              <label for="metric-power">Power</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="powerOrHr" id="metric-hr" value="hr">
+              <label for="metric-hr">Heart Rate</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="powerOrHr" id="metric-both" value="both">
+              <label for="metric-both">Both</label>
+            </div>
+            <div class="gg-radio-option">
+              <input type="radio" name="powerOrHr" id="metric-neither" value="rpe">
+              <label for="metric-neither">Neither</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="powerFields" style="display: none; margin-top: 1rem;">
+          <div class="gg-form-row">
+            <div class="gg-form-group">
+              <label>FTP (watts)</label>
+              <input type="number" name="ftp" id="ftpInput" min="50" max="500" placeholder="e.g., 250">
+            </div>
+          </div>
+          <div id="pwCalc" class="gg-calculated" style="display: none;">
+            <strong>Estimated W/kg:</strong> <span id="wkgValue">--</span> &nbsp;|&nbsp;
+            <strong>Category:</strong> <span id="catValue">--</span>
+          </div>
+        </div>
+
+        <div id="hrFields" style="display: none; margin-top: 1rem;">
+          <div class="gg-form-row triple">
+            <div class="gg-form-group">
+              <label>Max HR (bpm)</label>
+              <input type="number" name="maxHr" min="100" max="220" placeholder="e.g., 185">
+            </div>
+            <div class="gg-form-group">
+              <label>Threshold HR (bpm)</label>
+              <input type="number" name="lthr" min="80" max="200" placeholder="e.g., 165">
+            </div>
+            <div class="gg-form-group">
+              <label>Resting HR (bpm)</label>
+              <input type="number" name="restingHr" min="30" max="100" placeholder="e.g., 52">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Your Schedule -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">5</span>
+          <h3 class="gg-section-title">Your Schedule</h3>
+        </div>
+        <p class="gg-section-desc">Tell me when and how much you can train.</p>
+
+        <div class="gg-form-row">
+          <div class="gg-form-group">
+            <label>Weekly Training Hours <span class="required">*</span></label>
+            <select name="weeklyHours" required>
+              <option value="">Select</option>
+              <option value="3-5">3-5 hours</option>
+              <option value="5-7">5-7 hours</option>
+              <option value="7-10">7-10 hours</option>
+              <option value="10-12">10-12 hours</option>
+              <option value="12-15">12-15 hours</option>
+              <option value="15+">15+ hours</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Indoor Trainer Access <span class="required">*</span></label>
+            <select name="trainerType" required>
+              <option value="">Select</option>
+              <option value="smart">Smart Trainer</option>
+              <option value="basic">Basic Trainer</option>
+              <option value="outdoor">Outdoor Only</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="gg-form-group">
+          <label>Preferred Long Ride Day(s) <span class="required">*</span></label>
+          <div class="gg-checkbox-group" id="longRideDays">
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-mon" value="Monday"><label for="long-mon">Mon</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-tue" value="Tuesday"><label for="long-tue">Tue</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-wed" value="Wednesday"><label for="long-wed">Wed</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-thu" value="Thursday"><label for="long-thu">Thu</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-fri" value="Friday"><label for="long-fri">Fri</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-sat" value="Saturday"><label for="long-sat">Sat</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-sun" value="Sunday"><label for="long-sun">Sun</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="longRideDays" id="long-flex" value="Flexible"><label for="long-flex">Flexible</label></div>
+          </div>
+        </div>
+
+        <div class="gg-form-group" style="margin-top: 1rem;">
+          <label>Preferred Hard Interval Day(s) <span class="required">*</span></label>
+          <div class="gg-checkbox-group" id="intervalDays">
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-mon" value="Monday"><label for="int-mon">Mon</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-tue" value="Tuesday"><label for="int-tue">Tue</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-wed" value="Wednesday"><label for="int-wed">Wed</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-thu" value="Thursday"><label for="int-thu">Thu</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-fri" value="Friday"><label for="int-fri">Fri</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-sat" value="Saturday"><label for="int-sat">Sat</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-sun" value="Sunday"><label for="int-sun">Sun</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="intervalDays" id="int-flex" value="Flexible"><label for="int-flex">Flexible</label></div>
+          </div>
+        </div>
+
+        <div class="gg-form-group" style="margin-top: 1rem;">
+          <label>Required Off Days (if any)</label>
+          <div class="gg-checkbox-group" id="daysOff">
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-mon" value="Monday"><label for="off-mon">Mon</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-tue" value="Tuesday"><label for="off-tue">Tue</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-wed" value="Wednesday"><label for="off-wed">Wed</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-thu" value="Thursday"><label for="off-thu">Thu</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-fri" value="Friday"><label for="off-fri">Fri</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-sat" value="Saturday"><label for="off-sat">Sat</label></div>
+            <div class="gg-checkbox-option"><input type="checkbox" name="daysOff" id="off-sun" value="Sunday"><label for="off-sun">Sun</label></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Strength Training -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">6</span>
+          <h3 class="gg-section-title">Strength Training</h3>
+        </div>
+
+        <div class="gg-form-group">
+          <label>Current Strength Training <span class="required">*</span></label>
+          <div class="gg-radio-group">
+            <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-none" value="none" required><label for="str-none">None</label></div>
+            <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-occasional" value="occasional"><label for="str-occasional">Occasional</label></div>
+            <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-1x" value="1x-week"><label for="str-1x">1x/week</label></div>
+            <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-2x" value="2x-week"><label for="str-2x">2x/week</label></div>
+            <div class="gg-radio-option"><input type="radio" name="currentStrength" id="str-dedicated" value="dedicated"><label for="str-dedicated">Dedicated Program</label></div>
+          </div>
+        </div>
+
+        <div class="gg-form-row" style="margin-top: 1rem;">
+          <div class="gg-form-group">
+            <label>Include Strength in Plan? <span class="required">*</span></label>
+            <select name="includeStrength" required>
+              <option value="">Select</option>
+              <option value="yes">Yes, include it</option>
+              <option value="no">No, I'll handle it separately</option>
+              <option value="your-call">Your call</option>
+            </select>
+          </div>
+          <div class="gg-form-group">
+            <label>Equipment Available</label>
+            <select name="strengthEquipment">
+              <option value="">Select</option>
+              <option value="full-gym">Full Gym</option>
+              <option value="home-basic">Home - Basic (dumbbells, bands)</option>
+              <option value="home-full">Home - Full Setup</option>
+              <option value="bodyweight">Bodyweight Only</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: Additional Notes -->
+      <div class="gg-form-section">
+        <div class="gg-section-header">
+          <span class="gg-section-number">7</span>
+          <h3 class="gg-section-title">Additional Notes</h3>
+        </div>
+
+        <div class="gg-form-group">
+          <label>Injuries or Limitations</label>
+          <textarea name="injuries" placeholder="Any current or past injuries, physical limitations, or health considerations I should know about?"></textarea>
+        </div>
+
+        <div class="gg-form-group" style="margin-top: 1rem;">
+          <label>Anything Else?</label>
+          <textarea name="additionalNotes" placeholder="Other context, goals, concerns, or questions..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="gg-submit-btn">Submit & Build My Plan</button>
+    </form>
+
+    <div id="gg-form-message" class="gg-form-message" style="display: none;"></div>
+
+    <div class="gg-form-footer">
+      Same-day delivery &middot; Powered by Gravel God
+    </div>
+  </div>
+
+</div>

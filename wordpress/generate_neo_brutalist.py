@@ -418,7 +418,7 @@ def build_sticky_cta(race_name: str, url: str) -> str:
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
-    <a href="{esc(TRAINING_PLANS_URL)}#get-started" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+    <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
   </div>
 </div>'''
 
@@ -1226,7 +1226,7 @@ def build_training(rd: dict, q_url: str) -> str:
           <li>Nutrition plan</li>
           <li>Strength training</li>
         </ul>
-        <a href="{esc(TRAINING_PLANS_URL)}#get-started" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
       </div>
       <div class="gg-training-divider">
         <span class="gg-training-divider-line"></span>

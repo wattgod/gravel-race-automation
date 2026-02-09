@@ -87,8 +87,8 @@ QUESTIONNAIRE_SLUGS = {
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 COACHING_URL = "https://www.wattgod.com/apply"
 SITE_BASE_URL = "https://gravelgodcycling.com"
-SUBSTACK_URL = "https://slowmid38s.substack.com"
-SUBSTACK_EMBED = "https://slowmid38s.substack.com/embed"
+SUBSTACK_URL = "https://gravelgodcycling.substack.com"
+SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
 
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
@@ -1359,7 +1359,7 @@ def build_email_capture(rd: dict) -> str:
     return f'''<div class="gg-email-capture gg-fade-section">
     <div class="gg-email-capture-inner">
       <h3 class="gg-email-capture-title">RACE INTEL, DELIVERED</h3>
-      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races — from Slow, Mid, 38s.</p>
+      <p class="gg-email-capture-text">Training tips, race updates, and course strategy for {esc(race_name)} and 300+ gravel races. Free. No spam.</p>
       <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
@@ -1878,7 +1878,7 @@ def generate_page(rd: dict, race_index: list = None) -> str:
     content = '\n\n  '.join(content_sections)
 
     # Open Graph meta tags
-    og_image_url = f"{SITE_BASE_URL}/og/{rd['slug']}.png"
+    og_image_url = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
     og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Profile">
   <meta property="og:description" content="{esc(rd['tagline'])}">
   <meta property="og:type" content="article">

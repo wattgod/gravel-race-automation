@@ -134,7 +134,7 @@ def sync_index(index_file: str):
 
 
 def sync_widget(widget_file: str):
-    """Upload gravel-race-search.html to WP uploads via SCP."""
+    """Upload gravel-race-search.html and gravel-race-search.js to WP uploads via SCP."""
     ssh = get_ssh_credentials()
     if not ssh:
         return None
@@ -145,6 +145,7 @@ def sync_widget(widget_file: str):
         print(f"✗ Widget file not found: {widget_path}")
         return None
 
+    # Upload HTML widget
     remote_path = f"{WP_UPLOADS}/{widget_path.name}"
     try:
         subprocess.run(
@@ -161,13 +162,39 @@ def sync_widget(widget_file: str):
         wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
         public_url = f"{wp_url}/wp-content/uploads/{widget_path.name}"
         print(f"✓ Uploaded widget: {public_url}")
-        return public_url
     except subprocess.CalledProcessError as e:
-        print(f"✗ SCP failed: {e.stderr.strip()}")
+        print(f"✗ SCP failed for widget HTML: {e.stderr.strip()}")
         return None
     except Exception as e:
-        print(f"✗ Error uploading widget: {e}")
+        print(f"✗ Error uploading widget HTML: {e}")
         return None
+
+    # Upload companion JS file (same directory as HTML)
+    js_path = widget_path.parent / "gravel-race-search.js"
+    if js_path.exists():
+        remote_js = f"{WP_UPLOADS}/{js_path.name}"
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(js_path),
+                    f"{user}@{host}:{remote_js}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            js_url = f"{wp_url}/wp-content/uploads/{js_path.name}"
+            print(f"✓ Uploaded widget JS: {js_url}")
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for widget JS: {e.stderr.strip()}")
+        except Exception as e:
+            print(f"✗ Error uploading widget JS: {e}")
+    else:
+        print(f"⚠ Widget JS not found: {js_path} (widget may not work without it)")
+
+    return public_url
 
 
 if __name__ == "__main__":

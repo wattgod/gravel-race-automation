@@ -4,7 +4,7 @@ Generate the Gravel God Interactive Training Guide page.
 
 Reads structured content from guide/gravel-guide-content.json and produces
 a standalone HTML page with interactive blocks (accordions, tabs, timelines,
-process lists, data tables, callouts, knowledge checks, quiz), a content gate
+process lists, data tables, callouts, knowledge checks), a content gate
 after Chapter 3, and CTAs for Substack, training plans, and coaching.
 
 Follows the same pattern as generate_methodology.py — imports shared constants,
@@ -20,7 +20,9 @@ import argparse
 import hashlib
 import html
 import json
+import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # Import shared constants from the race page generator
@@ -53,42 +55,58 @@ def load_content() -> dict:
     return json.loads(CONTENT_JSON.read_text(encoding="utf-8"))
 
 
-# ── Block Renderers ──────────────────────────────────────────
+# ── Markdown helpers ─────────────────────────────────────────
 
 
-def render_prose(block: dict) -> str:
-    """Render a prose block — paragraphs with markdown-lite formatting."""
-    content = esc(block["content"])
-    # Convert markdown bold
-    import re
-    content = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', content)
-    # Convert markdown italic
-    content = re.sub(r'\*(.+?)\*', r'<em>\1</em>', content)
-    # Convert markdown links (none expected but handle gracefully)
-    content = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', content)
-    # Convert markdown bullet lists
+def _md_inline(text: str) -> str:
+    """Apply markdown-lite inline formatting (bold, italic, links)."""
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
+    return text
+
+
+def _md_block(content: str) -> str:
+    """Convert escaped content into HTML paragraphs and lists."""
+    content = _md_inline(content)
     lines = content.split('\n')
     result = []
     in_list = False
+    list_type = None  # 'ul' or 'ol'
     for line in lines:
         stripped = line.strip()
         if stripped.startswith('- '):
             if not in_list:
                 result.append('<ul class="gg-guide-list">')
                 in_list = True
+                list_type = 'ul'
             result.append(f'<li>{stripped[2:]}</li>')
+        elif re.match(r'^\d+\.\s', stripped):
+            if not in_list:
+                result.append('<ol class="gg-guide-list">')
+                in_list = True
+                list_type = 'ol'
+            # Strip the number prefix (e.g. "1. ", "12. ")
+            li_text = re.sub(r'^\d+\.\s', '', stripped)
+            result.append(f'<li>{li_text}</li>')
         else:
             if in_list:
-                result.append('</ul>')
+                result.append(f'</{list_type}>')
                 in_list = False
+                list_type = None
             if stripped:
                 result.append(f'<p>{stripped}</p>')
-            else:
-                # Empty line — just spacing
-                pass
     if in_list:
-        result.append('</ul>')
+        result.append(f'</{list_type}>')
     return '\n'.join(result)
+
+
+# ── Block Renderers ──────────────────────────────────────────
+
+
+def render_prose(block: dict) -> str:
+    """Render a prose block — paragraphs with markdown-lite formatting."""
+    return _md_block(esc(block["content"]))
 
 
 def render_data_table(block: dict) -> str:
@@ -116,45 +134,17 @@ def render_data_table(block: dict) -> str:
 def render_accordion(block: dict) -> str:
     """Render an accordion block with collapsible items."""
     items_html = []
-    for item in block["items"]:
+    for idx, item in enumerate(block["items"]):
         title = esc(item["title"])
-        # Render content with basic markdown
-        content = esc(item["content"])
-        import re
-        content = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', content)
-        content = re.sub(r'\*(.+?)\*', r'<em>\1</em>', content)
-        # Convert line breaks and lists
-        lines = content.split('\n')
-        rendered = []
-        in_list = False
-        for line in lines:
-            stripped = line.strip()
-            if stripped.startswith('- '):
-                if not in_list:
-                    rendered.append('<ul class="gg-guide-list">')
-                    in_list = True
-                rendered.append(f'<li>{stripped[2:]}</li>')
-            elif stripped.startswith(('1. ', '2. ', '3. ', '4. ', '5. ')):
-                if not in_list:
-                    rendered.append('<ol class="gg-guide-list">')
-                    in_list = True
-                rendered.append(f'<li>{stripped[3:]}</li>')
-            else:
-                if in_list:
-                    rendered.append('</ul>' if rendered[-2].startswith('<ul') or '<ul' in ''.join(rendered[-5:]) else '</ol>')
-                    in_list = False
-                if stripped:
-                    rendered.append(f'<p>{stripped}</p>')
-        if in_list:
-            rendered.append('</ul>')
-        content_html = '\n'.join(rendered)
+        content_html = _md_block(esc(item["content"]))
+        panel_id = f"accordion-panel-{hashlib.md5(title.encode()).hexdigest()[:8]}-{idx}"
 
         items_html.append(f'''<div class="gg-guide-accordion-item">
-        <button class="gg-guide-accordion-trigger" aria-expanded="false">
+        <button class="gg-guide-accordion-trigger" aria-expanded="false" aria-controls="{panel_id}">
           <span>{title}</span>
-          <span class="gg-guide-accordion-icon">+</span>
+          <span class="gg-guide-accordion-icon" aria-hidden="true">+</span>
         </button>
-        <div class="gg-guide-accordion-body">{content_html}</div>
+        <div class="gg-guide-accordion-body" id="{panel_id}">{content_html}</div>
       </div>''')
     return '\n'.join(items_html)
 
@@ -162,50 +152,34 @@ def render_accordion(block: dict) -> str:
 def render_tabs(block: dict) -> str:
     """Render a tabbed content block."""
     tabs = block["tabs"]
-    tab_id = f"tabs-{hash(tabs[0]['label']) % 10000}"
+    tab_id = f"tabs-{hashlib.md5(tabs[0]['label'].encode()).hexdigest()[:8]}"
 
     tab_buttons = []
     tab_panels = []
     for i, tab in enumerate(tabs):
         active = ' gg-guide-tab--active' if i == 0 else ''
         hidden = '' if i == 0 else ' style="display:none"'
+        selected = 'true' if i == 0 else 'false'
         label = esc(tab["label"])
         title = esc(tab.get("title", tab["label"]))
-        # Render content
-        content = esc(tab["content"])
-        import re
-        content = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', content)
-        content = re.sub(r'\*(.+?)\*', r'<em>\1</em>', content)
-        lines = content.split('\n')
-        rendered = []
-        in_list = False
-        for line in lines:
-            stripped = line.strip()
-            if stripped.startswith('- '):
-                if not in_list:
-                    rendered.append('<ul class="gg-guide-list">')
-                    in_list = True
-                rendered.append(f'<li>{stripped[2:]}</li>')
-            else:
-                if in_list:
-                    rendered.append('</ul>')
-                    in_list = False
-                if stripped:
-                    rendered.append(f'<p>{stripped}</p>')
-        if in_list:
-            rendered.append('</ul>')
+        content_html = _md_block(esc(tab["content"]))
+        panel_id = f"{tab_id}-{i}"
+        btn_id = f"{tab_id}-btn-{i}"
 
         tab_buttons.append(
-            f'<button class="gg-guide-tab{active}" data-tab="{tab_id}-{i}">{label}</button>'
+            f'<button class="gg-guide-tab{active}" role="tab" '
+            f'aria-selected="{selected}" aria-controls="{panel_id}" '
+            f'id="{btn_id}" data-tab="{panel_id}">{label}</button>'
         )
         tab_panels.append(
-            f'<div class="gg-guide-tab-panel" id="{tab_id}-{i}"{hidden}>'
+            f'<div class="gg-guide-tab-panel" role="tabpanel" '
+            f'aria-labelledby="{btn_id}" id="{panel_id}"{hidden}>'
             f'<h4 class="gg-guide-tab-title">{title}</h4>'
-            f'{"".join(rendered)}</div>'
+            f'{content_html}</div>'
         )
 
     return f'''<div class="gg-guide-tabs" data-tabgroup="{tab_id}">
-      <div class="gg-guide-tab-bar">{''.join(tab_buttons)}</div>
+      <div class="gg-guide-tab-bar" role="tablist">{''.join(tab_buttons)}</div>
       <div class="gg-guide-tab-content">{''.join(tab_panels)}</div>
     </div>'''
 
@@ -217,11 +191,7 @@ def render_timeline(block: dict) -> str:
     steps_html = []
     for i, step in enumerate(steps):
         label = esc(step["label"])
-        content = esc(step["content"])
-        import re
-        content = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', content)
-        content = re.sub(r'\*(.+?)\*', r'<em>\1</em>', content)
-        # Simple paragraph split
+        content = _md_inline(esc(step["content"]))
         paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
         steps_html.append(f'''<div class="gg-guide-timeline-step">
         <div class="gg-guide-timeline-marker">{i + 1}</div>
@@ -244,9 +214,7 @@ def render_process_list(block: dict) -> str:
     items_html = []
     for i, item in enumerate(items):
         label = esc(item["label"])
-        detail = esc(item["detail"])
-        import re
-        detail = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', detail)
+        detail = _md_inline(esc(item["detail"]))
         pct = item.get("percentage")
         pct_html = f'<span class="gg-guide-process-pct">{pct}%</span>' if pct is not None else ''
         items_html.append(f'''<div class="gg-guide-process-item">
@@ -262,11 +230,7 @@ def render_process_list(block: dict) -> str:
 def render_callout(block: dict) -> str:
     """Render a callout/quote block."""
     style = block.get("style", "highlight")
-    content = esc(block["content"])
-    import re
-    content = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', content)
-    content = re.sub(r'\*(.+?)\*', r'<em>\1</em>', content)
-    # Split into paragraphs
+    content = _md_inline(esc(block["content"]))
     paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
     return f'<div class="gg-guide-callout gg-guide-callout--{esc(style)}">{"".join(paras)}</div>'
 
@@ -292,63 +256,7 @@ def render_knowledge_check(block: dict) -> str:
     </div>'''
 
 
-def render_quiz(block: dict) -> str:
-    """Render the interactive training plan quiz."""
-    title = esc(block["title"])
-    desc = esc(block["description"])
-    questions = block["questions"]
-    matrix = block["plan_matrix"]
-
-    steps_html = []
-    for qi, q in enumerate(questions):
-        opts = []
-        for opt in q["options"]:
-            opts.append(
-                f'<button class="gg-guide-quiz-option" data-question="{esc(q["id"])}" '
-                f'data-value="{esc(opt["value"])}">{esc(opt["label"])}</button>'
-            )
-        hidden = ' style="display:none"' if qi > 0 else ''
-        steps_html.append(f'''<div class="gg-guide-quiz-step" data-step="{qi}"{hidden}>
-        <div class="gg-guide-quiz-step-num">Question {qi + 1} of {len(questions)}</div>
-        <p class="gg-guide-quiz-question">{esc(q["text"])}</p>
-        <div class="gg-guide-quiz-options">{"".join(opts)}</div>
-      </div>''')
-
-    # Embed matrix as data attribute
-    matrix_json = json.dumps(matrix)
-
-    return f'''<div class="gg-guide-quiz" id="gg-guide-quiz" data-matrix='{esc(matrix_json)}'>
-      <div class="gg-guide-quiz-header">
-        <div class="gg-guide-quiz-icon">&#9881;</div>
-        <h3 class="gg-guide-quiz-title">{title}</h3>
-        <p class="gg-guide-quiz-desc">{desc}</p>
-      </div>
-      <div class="gg-guide-quiz-progress">
-        <div class="gg-guide-quiz-progress-bar" style="width:0%"></div>
-      </div>
-      <div class="gg-guide-quiz-body">
-        {"".join(steps_html)}
-      </div>
-      <div class="gg-guide-quiz-result" style="display:none">
-        <div class="gg-guide-quiz-result-label">YOUR RECOMMENDED PLAN</div>
-        <h3 class="gg-guide-quiz-result-plan"></h3>
-        <p class="gg-guide-quiz-result-duration"></p>
-        <p class="gg-guide-quiz-result-note"></p>
-        <a href="{TRAINING_PLANS_URL}" class="gg-guide-btn gg-guide-btn--primary">GET YOUR PLAN &mdash; $15/WEEK</a>
-      </div>
-      <div class="gg-guide-quiz-teaser" style="display:none">
-        <div class="gg-guide-quiz-teaser-blur">
-          <div class="gg-guide-quiz-result-label">YOUR RECOMMENDED PLAN</div>
-          <h3>&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; Plan</h3>
-          <p>12 weeks</p>
-        </div>
-        <p class="gg-guide-quiz-teaser-msg">Subscribe to unlock your personalized result</p>
-        <button class="gg-guide-btn gg-guide-btn--primary" onclick="document.getElementById('gg-guide-gate').scrollIntoView({{behavior:'smooth'}})">UNLOCK FULL GUIDE</button>
-      </div>
-    </div>'''
-
-
-# Block type → renderer dispatch
+# Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
     "data_table": render_data_table,
@@ -358,7 +266,6 @@ BLOCK_RENDERERS = {
     "process_list": render_process_list,
     "callout": render_callout,
     "knowledge_check": render_knowledge_check,
-    "quiz": render_quiz,
 }
 
 
@@ -400,7 +307,7 @@ def build_hero(content: dict) -> str:
 
 
 def build_progress_bar() -> str:
-    return '<div class="gg-guide-progress" id="gg-guide-progress"><div class="gg-guide-progress-bar"></div></div>'
+    return '<div class="gg-guide-progress" id="gg-guide-progress"><div class="gg-guide-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div></div>'
 
 
 def build_chapter_nav(chapters: list) -> str:
@@ -408,12 +315,14 @@ def build_chapter_nav(chapters: list) -> str:
     for ch in chapters:
         num = f'{ch["number"]:02d}'
         lock = ' gg-guide-chapnav-item--locked' if ch["gated"] else ''
-        icon = '<span class="gg-guide-chapnav-lock">&#128274;</span>' if ch["gated"] else ''
+        icon = '<span class="gg-guide-chapnav-lock" aria-hidden="true">&#128274;</span>' if ch["gated"] else ''
         items.append(
-            f'<a href="#{esc(ch["id"])}" class="gg-guide-chapnav-item{lock}" data-chapter="{esc(ch["id"])}">'
+            f'<a href="#{esc(ch["id"])}" class="gg-guide-chapnav-item{lock}" '
+            f'data-chapter="{esc(ch["id"])}" role="button" tabindex="0" '
+            f'aria-label="Chapter {ch["number"]}: {esc(ch["title"])}">'
             f'{num}{icon}</a>'
         )
-    return f'''<div class="gg-guide-chapnav" id="gg-guide-chapnav">
+    return f'''<div class="gg-guide-chapnav" id="gg-guide-chapnav" aria-label="Chapter navigation">
     {"".join(items)}
   </div>'''
 
@@ -428,7 +337,6 @@ def build_chapter(chapter: dict) -> str:
 
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
 
-    # Alternate chapter hero colors
     colors = ['#59473c', '#000', '#1A8A82', '#59473c', '#000', '#1A8A82', '#59473c', '#000']
     bg = colors[(num - 1) % len(colors)]
 
@@ -460,7 +368,7 @@ def build_cta_newsletter() -> str:
       <span class="gg-guide-cta-kicker">STAY IN THE LOOP</span>
       <h3>Get Race Intel, Training Tips & New Guides</h3>
       <p>Join the Gravel God newsletter. No spam. Just useful gravel content.</p>
-      <iframe src="{SUBSTACK_EMBED}" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no"></iframe>
+      <iframe src="{SUBSTACK_EMBED}" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
 
@@ -469,14 +377,16 @@ def build_cta_training() -> str:
     return f'''<div class="gg-guide-cta gg-guide-cta--training">
     <div class="gg-guide-cta-inner">
       <span class="gg-guide-cta-kicker">READY TO TRAIN?</span>
-      <h3>Custom Gravel Training Plans</h3>
+      <h3>Custom Gravel Training Plan</h3>
+      <p>Race-specific. Built for you by a coach. $15/week, capped at $199.</p>
       <ul>
-        <li>12-week periodized plan matched to your race &amp; ability</li>
-        <li>Structured workouts with power, HR, and RPE targets</li>
-        <li>Nutrition timing and fueling protocols built in</li>
-        <li>Race week taper and execution strategy</li>
+        <li>Structured workouts pushed to your device</li>
+        <li>30+ page custom training guide</li>
+        <li>Heat &amp; altitude protocols</li>
+        <li>Nutrition plan</li>
+        <li>Strength training</li>
       </ul>
-      <a href="{TRAINING_PLANS_URL}" class="gg-guide-btn gg-guide-btn--primary">GET YOUR PLAN &mdash; $15/WEEK</a>
+      <a href="{TRAINING_PLANS_URL}" class="gg-guide-btn gg-guide-btn--primary">BUILD MY PLAN</a>
     </div>
   </div>'''
 
@@ -506,8 +416,8 @@ def build_cta_finale() -> str:
       <div class="gg-guide-finale-card gg-guide-finale-card--training">
         <span class="gg-guide-finale-kicker">READY TO TRAIN</span>
         <h3>Training Plan</h3>
-        <p>12-week plans matched to your race and ability.</p>
-        <a href="{TRAINING_PLANS_URL}" class="gg-guide-btn gg-guide-btn--primary">$15/WEEK</a>
+        <p>Custom plans built for your race and ability.</p>
+        <a href="{TRAINING_PLANS_URL}" class="gg-guide-btn gg-guide-btn--primary">BUILD MY PLAN</a>
       </div>
       <div class="gg-guide-finale-card gg-guide-finale-card--coaching">
         <span class="gg-guide-finale-kicker">GO FURTHER</span>
@@ -525,18 +435,19 @@ def build_gate() -> str:
     <div class="gg-guide-gate-inner">
       <span class="gg-guide-gate-kicker">CHAPTERS 4-8 ARE LOCKED</span>
       <h2>Unlock the Full Guide</h2>
-      <p>You've read the free chapters. The remaining 5 chapters cover training fundamentals, workout execution, nutrition, race week protocol, and post-race recovery.</p>
+      <p>You've read the free chapters. The remaining 5 chapters cover workout execution, nutrition, mental training &amp; race tactics, race week protocol, and post-race recovery.</p>
       <p>Subscribe to the Gravel God newsletter to unlock everything instantly.</p>
-      <iframe src="{SUBSTACK_EMBED}" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no"></iframe>
+      <iframe src="{SUBSTACK_EMBED}" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no" loading="lazy"></iframe>
       <button class="gg-guide-gate-bypass" id="gg-guide-gate-bypass">I already subscribed &mdash; unlock</button>
     </div>
   </div>'''
 
 
 def build_footer() -> str:
+    year = datetime.now().year
     return f'''<div class="gg-footer">
     <p class="gg-footer-disclaimer">This guide represents our editorial views on gravel racing training. Consult a physician before starting any exercise program. We are not affiliated with any race organizer, governing body, or equipment manufacturer. Training plans and coaching are separate paid services.</p>
-    <p style="margin-top:12px;font-size:11px;color:#666">&copy; {2026} Gravel God Cycling. All rights reserved.</p>
+    <p style="margin-top:12px;font-size:11px;color:#666">&copy; {year} Gravel God Cycling. All rights reserved.</p>
   </div>'''
 
 
@@ -551,12 +462,24 @@ CTA_BUILDERS = {
 def build_jsonld(content: dict) -> str:
     """Build Article + BreadcrumbList JSON-LD."""
     canonical = f"{SITE_BASE_URL}/guide/"
+    # Use file mtime for dateModified, current date for datePublished
+    try:
+        mtime = CONTENT_JSON.stat().st_mtime
+        date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
+    except OSError:
+        date_modified = datetime.now().strftime("%Y-%m-%d")
+    date_published = "2025-06-01"
+    og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
+
     article = {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": content["title"],
         "description": content["meta_description"],
         "url": canonical,
+        "datePublished": date_published,
+        "dateModified": date_modified,
+        "image": og_image,
         "author": {
             "@type": "Organization",
             "name": "Gravel God Cycling",
@@ -604,11 +527,11 @@ def build_jsonld(content: dict) -> str:
 def build_guide_css() -> str:
     """Return all guide-specific CSS."""
     return '''/* ── Guide Progress Bar ── */
-.gg-guide-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:9999;background:transparent}
+.gg-guide-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;background:transparent}
 .gg-guide-progress-bar{height:100%;width:0%;background:#1A8A82;transition:width 0.15s linear}
 
 /* ── Chapter Nav ── */
-.gg-guide-chapnav{position:sticky;top:3px;z-index:998;background:#000;display:flex;justify-content:center;gap:0;border:3px solid #000;margin-bottom:32px}
+.gg-guide-chapnav{position:sticky;top:3px;z-index:1000;background:#000;display:flex;justify-content:center;gap:0;border:3px solid #000;margin-bottom:32px}
 .gg-guide-chapnav-item{color:#d4c5b9;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;transition:all 0.2s;display:flex;align-items:center;gap:4px;border-right:1px solid #333}
 .gg-guide-chapnav-item:last-child{border-right:none}
 .gg-guide-chapnav-item:hover{color:#fff;background:#333}
@@ -619,7 +542,7 @@ def build_guide_css() -> str:
 /* ── Chapter ── */
 .gg-guide-chapter{margin-bottom:40px;border:3px solid #000;background:#fff}
 .gg-guide-chapter-hero{padding:48px 32px;color:#fff;position:relative}
-.gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:8px}
+.gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:8px}
 .gg-guide-chapter-title{font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.2;margin:0;color:#fff}
 .gg-guide-chapter-subtitle{font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px}
 .gg-guide-chapter-body{padding:32px 24px}
@@ -716,29 +639,6 @@ def build_guide_css() -> str:
 .gg-guide-kc-explanation{padding:12px 20px 16px;background:#f0faf9;border-top:2px solid #1A8A82}
 .gg-guide-kc-explanation p{font-size:13px;line-height:1.6;margin:0;color:#333}
 
-/* ── Quiz ── */
-.gg-guide-quiz{border:3px solid #000;margin:0 0 24px;background:#fff}
-.gg-guide-quiz-header{background:#59473c;color:#fff;padding:24px;text-align:center}
-.gg-guide-quiz-icon{font-size:28px;margin-bottom:8px;display:block}
-.gg-guide-quiz-title{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0}
-.gg-guide-quiz-desc{font-size:13px;color:#d4c5b9;margin:8px 0 0}
-.gg-guide-quiz-progress{height:4px;background:#f5f0eb}
-.gg-guide-quiz-progress-bar{height:100%;background:#1A8A82;transition:width 0.3s ease}
-.gg-guide-quiz-body{padding:24px}
-.gg-guide-quiz-step-num{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8c7568;margin-bottom:8px}
-.gg-guide-quiz-question{font-size:16px;font-weight:700;margin:0 0 16px;color:#000}
-.gg-guide-quiz-options{display:flex;flex-direction:column;gap:10px}
-.gg-guide-quiz-option{padding:14px 20px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:13px;text-align:left;transition:all 0.15s}
-.gg-guide-quiz-option:hover{background:#1A8A82;color:#fff;border-color:#1A8A82}
-.gg-guide-quiz-result{padding:32px 24px;text-align:center}
-.gg-guide-quiz-result-label{font-size:10px;font-weight:700;letter-spacing:3px;color:#8c7568;margin-bottom:8px}
-.gg-guide-quiz-result-plan{font-size:24px;font-weight:700;text-transform:uppercase;margin:8px 0;color:#1A8A82}
-.gg-guide-quiz-result-duration{font-size:14px;color:#666;margin-bottom:8px}
-.gg-guide-quiz-result-note{font-size:13px;color:#444;line-height:1.6;margin-bottom:20px}
-.gg-guide-quiz-teaser{padding:32px 24px;text-align:center}
-.gg-guide-quiz-teaser-blur{filter:blur(6px);pointer-events:none;margin-bottom:20px}
-.gg-guide-quiz-teaser-msg{font-size:14px;font-weight:700;color:#59473c;margin-bottom:16px}
-
 /* ── CTA Blocks ── */
 .gg-guide-cta{margin:0 0 40px;border:3px solid #000;padding:40px 32px;text-align:center}
 .gg-guide-cta-inner{max-width:600px;margin:0 auto}
@@ -781,11 +681,22 @@ def build_guide_css() -> str:
 .gg-guide-finale-card--coaching .gg-guide-finale-kicker{color:rgba(255,255,255,0.7)}
 
 /* ── Scroll Fade-In ── */
-.gg-guide-fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+.gg-guide-fade-in{opacity:0;transform:translateY(20px)}
 .gg-guide-fade-in--visible{opacity:1;transform:translateY(0)}
 
 /* ── Footer ── */
 .gg-guide-chapter-body .gg-footer{border:none;margin:0;padding:24px 0 0}
+
+/* ── Reduced Motion ── */
+@media(prefers-reduced-motion: no-preference){
+  .gg-guide-progress-bar{transition:width 0.15s linear}
+  .gg-guide-chapnav-item{transition:all 0.2s}
+  .gg-guide-accordion-icon{transition:transform 0.2s}
+  .gg-guide-tab{transition:all 0.2s}
+  .gg-guide-kc-option{transition:all 0.2s}
+  .gg-guide-btn{transition:all 0.15s}
+  .gg-guide-fade-in{transition:opacity 0.5s ease,transform 0.5s ease}
+}
 
 /* ── Responsive ── */
 @media(max-width:768px){
@@ -815,16 +726,15 @@ def build_guide_js() -> str:
     return '''(function(){
 "use strict";
 
-/* ── Analytics Helper ── */
+/* ── Analytics Helper (beacon transport) ── */
 function track(eventName, params) {
   if (typeof gtag === "function") {
-    gtag("event", eventName, params || {});
+    gtag("event", eventName, Object.assign({ transport_type: "beacon" }, params || {}));
   }
 }
 
 /* ── Gate Logic ── */
 var STORAGE_KEY = "gg_guide_unlocked";
-var QUIZ_KEY = "gg_guide_quiz_results";
 var page = document.querySelector(".gg-neo-brutalist-page");
 
 function isUnlocked() {
@@ -841,8 +751,6 @@ function unlock(method) {
 }
 
 if (isUnlocked()) {
-  // Returning visitor — restore state without re-tracking
-  try { localStorage.getItem(STORAGE_KEY); } catch(e) {}
   if (page) page.classList.add("gg-guide-unlocked");
   document.querySelectorAll(".gg-guide-chapnav-item--locked").forEach(function(el) {
     el.classList.add("gg-guide-chapnav-item--unlocked");
@@ -874,12 +782,15 @@ window.addEventListener("scroll", function() {
     requestAnimationFrame(function() {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-      if (progressBar) progressBar.style.width = Math.min(100, pct) + "%";
+      if (progressBar) {
+        progressBar.style.width = Math.min(100, pct) + "%";
+        progressBar.setAttribute("aria-valuenow", Math.round(Math.min(100, pct)));
+      }
       // Fire milestone events
       [25, 50, 75, 100].forEach(function(m) {
         if (!scrollMilestones[m] && pct >= m) {
           scrollMilestones[m] = true;
-          track("guide_scroll_depth", { percent: m });
+          track("guide_scroll_depth", { percent: m, unlocked: isUnlocked() });
         }
       });
       ticking = false;
@@ -920,13 +831,19 @@ if (chapters.length && "IntersectionObserver" in window) {
   chapters.forEach(function(ch) { chapterObserver.observe(ch); });
 }
 
-// Smooth scroll for chapter nav
+// Chapter nav click — scroll to gate if chapter is gated and locked
 navItems.forEach(function(item) {
   item.addEventListener("click", function(e) {
     e.preventDefault();
-    var target = document.getElementById(item.getAttribute("data-chapter"));
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-    track("guide_chapnav_click", { chapter: item.getAttribute("data-chapter") });
+    var chapterId = item.getAttribute("data-chapter");
+    var target = document.getElementById(chapterId);
+    if (target && target.classList.contains("gg-guide-gated") && !isUnlocked()) {
+      var gateEl = document.getElementById("gg-guide-gate");
+      if (gateEl) gateEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    track("guide_chapnav_click", { chapter: chapterId });
   });
 });
 
@@ -961,9 +878,13 @@ document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup) {
   tabs.forEach(function(tab) {
     tab.addEventListener("click", function() {
       var targetId = tab.getAttribute("data-tab");
-      tabs.forEach(function(t) { t.classList.remove("gg-guide-tab--active"); });
+      tabs.forEach(function(t) {
+        t.classList.remove("gg-guide-tab--active");
+        t.setAttribute("aria-selected", "false");
+      });
       panels.forEach(function(p) { p.style.display = "none"; });
       tab.classList.add("gg-guide-tab--active");
+      tab.setAttribute("aria-selected", "true");
       var panel = document.getElementById(targetId);
       if (panel) panel.style.display = "block";
     });
@@ -986,105 +907,25 @@ document.querySelectorAll(".gg-guide-knowledge-check").forEach(function(kc) {
           if (o.getAttribute("data-correct") === "true") o.classList.add("gg-guide-kc-option--correct");
         });
       }
-      options.forEach(function(o) { if (o !== opt && o.getAttribute("data-correct") !== "true") o.classList.add("gg-guide-kc-option--disabled"); });
+      options.forEach(function(o) {
+        if (o !== opt && o.getAttribute("data-correct") !== "true") o.classList.add("gg-guide-kc-option--disabled");
+        o.setAttribute("aria-disabled", "true");
+      });
       if (explanation) explanation.style.display = "block";
       track("guide_knowledge_check", { correct: isCorrect });
     });
   });
 });
 
-/* ── Quiz Engine ── */
-var quiz = document.getElementById("gg-guide-quiz");
-if (quiz) {
-  var matrixData = JSON.parse(quiz.getAttribute("data-matrix") || "{}");
-  var answers = {};
-  var steps = quiz.querySelectorAll(".gg-guide-quiz-step");
-  var progressBarQ = quiz.querySelector(".gg-guide-quiz-progress-bar");
-  var totalSteps = steps.length;
-  var quizStarted = false;
-
-  quiz.querySelectorAll(".gg-guide-quiz-option").forEach(function(opt) {
-    opt.addEventListener("click", function() {
-      var qId = opt.getAttribute("data-question");
-      var val = opt.getAttribute("data-value");
-      answers[qId] = val;
-
-      if (!quizStarted) {
-        quizStarted = true;
-        track("guide_quiz_start", {});
-      }
-
-      var currentStep = opt.closest(".gg-guide-quiz-step");
-      var currentIdx = parseInt(currentStep.getAttribute("data-step"), 10);
-
-      track("guide_quiz_answer", {
-        question: qId,
-        answer: val,
-        step: currentIdx + 1
-      });
-
-      if (progressBarQ) {
-        progressBarQ.style.width = ((currentIdx + 1) / totalSteps * 100) + "%";
-      }
-
-      if (currentIdx < totalSteps - 1) {
-        setTimeout(function() {
-          currentStep.style.display = "none";
-          steps[currentIdx + 1].style.display = "block";
-        }, 250);
-      } else {
-        setTimeout(function() { showQuizResult(); }, 250);
-      }
-    });
-  });
-
-  function showQuizResult() {
-    var key = (answers.experience || "beginner") + "_" + (answers.hours || "finisher");
-    var result = matrixData[key];
-
-    try { localStorage.setItem(QUIZ_KEY, JSON.stringify(answers)); } catch(e) {}
-
-    quiz.querySelector(".gg-guide-quiz-body").style.display = "none";
-    if (progressBarQ) progressBarQ.style.width = "100%";
-
-    if (isUnlocked() && result) {
-      var resultDiv = quiz.querySelector(".gg-guide-quiz-result");
-      resultDiv.querySelector(".gg-guide-quiz-result-plan").textContent = result.plan;
-      resultDiv.querySelector(".gg-guide-quiz-result-duration").textContent = result.duration;
-      resultDiv.querySelector(".gg-guide-quiz-result-note").textContent = result.note || "";
-      resultDiv.style.display = "block";
-      track("guide_quiz_complete", {
-        plan: result.plan,
-        experience: answers.experience,
-        hours: answers.hours,
-        goal: answers.goal,
-        distance: answers.distance,
-        result_shown: true
-      });
-    } else {
-      quiz.querySelector(".gg-guide-quiz-teaser").style.display = "block";
-      track("guide_quiz_complete", {
-        experience: answers.experience,
-        hours: answers.hours,
-        goal: answers.goal,
-        distance: answers.distance,
-        result_shown: false,
-        gated: true
-      });
-    }
-  }
-}
-
 /* ── CTA Click Tracking ── */
-document.querySelectorAll(".gg-guide-cta a, .gg-guide-finale-card a, .gg-guide-quiz-result a").forEach(function(link) {
+document.querySelectorAll(".gg-guide-cta a, .gg-guide-finale-card a").forEach(function(link) {
   link.addEventListener("click", function() {
-    var ctaBlock = link.closest(".gg-guide-cta, .gg-guide-finale-card, .gg-guide-quiz-result");
+    var ctaBlock = link.closest(".gg-guide-cta, .gg-guide-finale-card");
     var ctaType = "unknown";
     if (ctaBlock) {
       if (ctaBlock.classList.contains("gg-guide-cta--newsletter") || ctaBlock.classList.contains("gg-guide-finale-card--newsletter")) ctaType = "newsletter";
       else if (ctaBlock.classList.contains("gg-guide-cta--training") || ctaBlock.classList.contains("gg-guide-finale-card--training")) ctaType = "training_plan";
       else if (ctaBlock.classList.contains("gg-guide-cta--coaching") || ctaBlock.classList.contains("gg-guide-finale-card--coaching")) ctaType = "coaching";
-      else if (ctaBlock.classList.contains("gg-guide-quiz-result")) ctaType = "quiz_result_plan";
     }
     track("guide_cta_click", {
       cta_type: ctaType,
@@ -1109,10 +950,14 @@ if ("IntersectionObserver" in window) {
   }
 }
 
-/* ── Time on Page ── */
+/* ── Time on Page (beacon) ── */
 var pageStartTime = Date.now();
 window.addEventListener("beforeunload", function() {
   var seconds = Math.round((Date.now() - pageStartTime) / 1000);
+  if (navigator.sendBeacon && typeof gtag === "function") {
+    var params = "?seconds=" + seconds + "&chapters=" + Object.keys(chaptersRead).length;
+    navigator.sendBeacon("/guide/ping" + params);
+  }
   track("guide_time_on_page", { seconds: seconds, chapters_read: Object.keys(chaptersRead).length });
 });
 
@@ -1126,6 +971,7 @@ window.addEventListener("beforeunload", function() {
 def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = None) -> str:
     """Generate the complete guide HTML page."""
     canonical_url = f"{SITE_BASE_URL}/guide/"
+    og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
     nav = build_nav()
     hero = build_hero(content)
@@ -1144,8 +990,6 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
         elif cta_type == "finale":
             chapters_html.append(build_cta_finale())
         elif cta_type and cta_type in CTA_BUILDERS:
-            # Only show non-gate CTAs outside the gated section for free chapters
-            # Gated chapters CTAs need the unlocked class too but they're inside gated chapters
             chapters_html.append(CTA_BUILDERS[cta_type]())
 
     # CSS/JS
@@ -1180,10 +1024,12 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <meta property="og:description" content="{esc(content["meta_description"])}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{esc(og_image)}">
   <meta property="og:site_name" content="Gravel God Cycling">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(content["title"])}">
-  <meta name="twitter:description" content="{esc(content["meta_description"])}">'''
+  <meta name="twitter:description" content="{esc(content["meta_description"])}">
+  <meta name="twitter:image" content="{esc(og_image)}">'''
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -1224,7 +1070,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 .gg-neo-brutalist-page .gg-site-nav-link {{ color: #d4c5b9; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
 .gg-neo-brutalist-page .gg-site-nav-link:hover {{ color: #fff; }}
 .gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 20px; font-size: 11px; background: #111; }}
-.gg-neo-brutalist-page .gg-breadcrumb a {{ color: #8c7568; text-decoration: none; }}
+.gg-neo-brutalist-page .gg-breadcrumb a {{ color: #c4b5ab; text-decoration: none; }}
 .gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: #d4c5b9; }}
 .gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #555; margin: 0 6px; }}
 .gg-neo-brutalist-page .gg-breadcrumb-current {{ color: #d4c5b9; }}

@@ -19,7 +19,6 @@ from generate_guide import (
     render_process_list,
     render_callout,
     render_knowledge_check,
-    render_quiz,
     build_nav,
     build_hero,
     build_gate,
@@ -86,7 +85,7 @@ class TestBlockRenderers:
     def test_all_block_types_have_renderers(self):
         expected_types = {
             "prose", "data_table", "accordion", "tabs", "timeline",
-            "process_list", "callout", "knowledge_check", "quiz",
+            "process_list", "callout", "knowledge_check",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -191,30 +190,6 @@ class TestBlockRenderers:
         assert 'data-correct="false"' in html
         assert "Because reasons." in html
 
-    def test_render_quiz(self):
-        block = {
-            "title": "Find Your Plan",
-            "description": "Answer questions.",
-            "questions": [
-                {
-                    "id": "test_q",
-                    "text": "Test?",
-                    "options": [
-                        {"value": "a", "label": "Option A"},
-                        {"value": "b", "label": "Option B"},
-                    ],
-                }
-            ],
-            "plan_matrix": {
-                "a_a": {"plan": "Test Plan", "duration": "12 weeks", "note": ""},
-            },
-        }
-        html = render_quiz(block)
-        assert "gg-guide-quiz" in html
-        assert "Find Your Plan" in html
-        assert "Question 1 of 1" in html
-        assert 'data-question="test_q"' in html
-
 
 # ── Full Page Generation ─────────────────────────────────────
 
@@ -255,12 +230,9 @@ class TestPageGeneration:
         assert 'id="gg-guide-chapnav"' in guide_html
         assert guide_html.count("gg-guide-chapnav-item") >= 8
 
-    def test_quiz_present(self, guide_html):
-        assert 'id="gg-guide-quiz"' in guide_html
-        assert "data-matrix" in guide_html
-
-    def test_newsletter_cta(self, guide_html):
-        assert "gg-guide-cta--newsletter" in guide_html
+    def test_no_quiz_in_output(self, guide_html):
+        assert 'id="gg-guide-quiz"' not in guide_html
+        assert "data-matrix" not in guide_html
 
     def test_training_cta(self, guide_html):
         assert "gg-guide-cta--training" in guide_html
@@ -328,43 +300,16 @@ class TestJsonLd:
             parsed = json.loads(block)
             assert "@context" in parsed
 
-
-# ── Quiz Matrix ──────────────────────────────────────────────
-
-
-class TestQuizMatrix:
-    def test_matrix_completeness(self):
-        """All experience × volume combinations should have a plan."""
+    def test_jsonld_has_dates(self):
         content = load_content()
-        quiz_block = None
-        for ch in content["chapters"]:
-            for sec in ch["sections"]:
-                for block in sec["blocks"]:
-                    if block["type"] == "quiz":
-                        quiz_block = block
-                        break
+        jsonld = build_jsonld(content)
+        assert '"datePublished"' in jsonld
+        assert '"dateModified"' in jsonld
 
-        assert quiz_block is not None, "Quiz block not found"
-        matrix = quiz_block["plan_matrix"]
-
-        experiences = ["beginner", "intermediate", "advanced"]
-        volumes = ["ayahuasca", "finisher", "compete", "podium"]
-
-        for exp in experiences:
-            for vol in volumes:
-                key = f"{exp}_{vol}"
-                assert key in matrix, f"Missing matrix entry: {key}"
-                entry = matrix[key]
-                assert "plan" in entry, f"Missing plan in {key}"
-                assert "duration" in entry, f"Missing duration in {key}"
-
-    def test_matrix_has_12_entries(self):
+    def test_jsonld_has_image(self):
         content = load_content()
-        for ch in content["chapters"]:
-            for sec in ch["sections"]:
-                for block in sec["blocks"]:
-                    if block["type"] == "quiz":
-                        assert len(block["plan_matrix"]) == 12
+        jsonld = build_jsonld(content)
+        assert '"image"' in jsonld
 
 
 # ── CSS / JS ────────────────────────────────────────────────
@@ -387,11 +332,6 @@ class TestAssets:
         js = build_guide_js()
         assert "gg_guide_unlocked" in js
         assert "localStorage" in js
-
-    def test_js_has_quiz_engine(self):
-        js = build_guide_js()
-        assert "gg-guide-quiz" in js
-        assert "showQuizResult" in js
 
     def test_js_has_accordion_toggle(self):
         js = build_guide_js()
@@ -443,12 +383,6 @@ class TestAnalytics:
         js = build_guide_js()
         assert "guide_unlock" in js
 
-    def test_js_has_quiz_events(self):
-        js = build_guide_js()
-        assert "guide_quiz_start" in js
-        assert "guide_quiz_answer" in js
-        assert "guide_quiz_complete" in js
-
     def test_js_has_cta_click_event(self):
         js = build_guide_js()
         assert "guide_cta_click" in js
@@ -458,24 +392,89 @@ class TestAnalytics:
         assert "guide_time_on_page" in js
         assert "beforeunload" in js
 
+    def test_js_has_beacon_transport(self):
+        js = build_guide_js()
+        assert "sendBeacon" in js or "beacon" in js
+
 
 # ── CTA Placement ────────────────────────────────────────────
 
 
 class TestCtaPlacement:
     def test_cta_after_mapping(self):
-        """Verify CTA types match the plan spec."""
+        """Verify CTA types match the 8-chapter plan spec."""
         content = load_content()
         expected = {
-            1: "newsletter",
+            1: None,
             2: "training_plans",
             3: "gate",
             4: None,
-            5: "training_plans",
-            6: "coaching",
-            7: "training_plans",
+            5: None,
+            6: None,
+            7: None,
             8: "finale",
         }
         for ch in content["chapters"]:
             assert ch.get("cta_after") == expected[ch["number"]], \
                 f"Chapter {ch['number']} CTA mismatch"
+
+
+# ── Accessibility ────────────────────────────────────────────
+
+
+class TestAccessibility:
+    @pytest.fixture(scope="class")
+    def guide_html(self):
+        content = load_content()
+        return generate_guide_page(content, inline=True)
+
+    def test_progress_bar_aria(self, guide_html):
+        assert 'role="progressbar"' in guide_html
+        assert 'aria-valuenow=' in guide_html
+        assert 'aria-valuemin="0"' in guide_html
+        assert 'aria-valuemax="100"' in guide_html
+
+    def test_tabs_have_roles(self):
+        block = {
+            "tabs": [
+                {"label": "Tab A", "title": "Title A", "content": "Content A"},
+                {"label": "Tab B", "title": "Title B", "content": "Content B"},
+            ]
+        }
+        html = render_tabs(block)
+        assert 'role="tablist"' in html
+        assert 'role="tab"' in html
+        assert 'role="tabpanel"' in html
+        assert 'aria-selected="true"' in html
+
+    def test_accordion_has_aria_controls(self):
+        block = {
+            "items": [
+                {"title": "Q1", "content": "A1"},
+            ]
+        }
+        html = render_accordion(block)
+        assert "aria-controls=" in html
+
+    def test_chapter_nav_aria(self, guide_html):
+        assert 'aria-label="Chapter navigation"' in guide_html
+
+    def test_reduced_motion_media_query(self):
+        css = build_guide_css()
+        assert "prefers-reduced-motion" in css
+
+
+# ── Determinism ──────────────────────────────────────────────
+
+
+class TestDeterminism:
+    def test_tab_ids_deterministic(self):
+        block = {
+            "tabs": [
+                {"label": "Tab X", "title": "Title X", "content": "Content X"},
+                {"label": "Tab Y", "title": "Title Y", "content": "Content Y"},
+            ]
+        }
+        html1 = render_tabs(block)
+        html2 = render_tabs(block)
+        assert html1 == html2

@@ -1,7 +1,7 @@
 {
   "title": "The Complete Gravel Racing Training Guide",
-  "subtitle": "Everything you need to know about gravel racing — from gear to training to race day execution.",
-  "meta_description": "The complete gravel racing guide: training plans, nutrition, race week protocol, and post-race recovery. Free chapters + interactive quiz to find your perfect plan.",
+  "subtitle": "Everything you need to know about gravel racing \u2014 from gear to training to race day execution.",
+  "meta_description": "The complete gravel racing guide: training fundamentals, nutrition, race week protocol, and post-race recovery. Free chapters covering gear, race selection, and training basics.",
   "chapters": [
     {
       "number": 1,
@@ -9,7 +9,7 @@
       "title": "What Is Gravel Racing?",
       "subtitle": "And What You Actually Need",
       "gated": false,
-      "cta_after": "newsletter",
+      "cta_after": null,
       "sections": [
         {
           "id": "ch1-intro",
@@ -155,54 +155,50 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Not all gravel races are created equal. Some are iconic suffer-fests with 10,000 feet of climbing and national-level competition. Others are well-organized local events with pancake-flat routes and a beer garden at the finish.\n\nBoth are valid. But they require different preparation.\n\nThe problem: most race websites oversell their difficulty and prestige. Every event claims to be \"epic\" and \"world-class.\" You need an objective framework to evaluate what you're actually signing up for.\n\nThe Gravel God Race Ranking System scores races on two dimensions:\n\n1. **Course Factors (0-70 points)** — Physical difficulty and demands\n2. **Editorial Factors (0-30 points)** — Race quality, prestige, and experience\n\nTotal score determines tier classification."
+              "content": "Not all gravel races are created equal. Some are iconic suffer-fests with 10,000 feet of climbing and national-level competition. Others are well-organized local events with pancake-flat routes and a beer garden at the finish.\n\nBoth are valid. But they require different preparation.\n\nThe problem: most race websites oversell their difficulty and prestige. Every event claims to be \"epic\" and \"world-class.\" You need an objective framework to evaluate what you're actually signing up for.\n\nThe Gravel God Race Ranking System scores every race across 14 dimensions \u2014 7 measuring the course itself, 7 measuring the race experience. Each dimension is scored 1-5 by human editors, then the total is normalized to a 0-100 scale.\n\nNo algorithms. No sponsors. No pay-to-play. Just editorial judgment applied consistently across 328 races."
             }
           ]
         },
         {
-          "id": "ch2-course-factors",
-          "title": "Course Factors (0-70 points possible)",
+          "id": "ch2-scoring",
+          "title": "The 14-Dimension Scoring System",
           "blocks": [
             {
               "type": "prose",
-              "content": "Physical demands that affect training requirements and race difficulty."
+              "content": "Every race is evaluated across two categories of seven dimensions each. Course dimensions measure what the terrain demands of your body. Editorial dimensions measure the quality, prestige, and overall experience of the event."
             },
             {
               "type": "data_table",
-              "caption": "Course Scoring Factors",
-              "headers": ["Factor", "Max Points", "What It Measures"],
+              "caption": "Course Dimensions (7 factors, each scored 1-5)",
+              "headers": ["Dimension", "1 (Low)", "3 (Moderate)", "5 (High)"],
               "rows": [
-                ["Distance", "15", "Longer = harder. 200 miles \u2260 50 miles \u00d7 4. Fatigue accumulates exponentially."],
-                ["Elevation Gain", "15", "Climbing is the great equalizer. 15,000 ft of climbing matters regardless of distance."],
-                ["Terrain Difficulty", "10", "Smooth hardpack (easy) vs. chunky limestone (hard) vs. sand/mud (survival mode)."],
-                ["Weather Exposure", "10", "Kansas August heat, Iceland wind, Arizona desert sun \u2014 environmental stress compounds physical stress."],
-                ["Altitude", "10", "Racing above 7,000 ft adds significant physiological challenge. Leadville at 10,000+ ft is a different game."],
-                ["Technical Demand", "5", "Steep loose descents, sustained technical sections, mandatory bike handling skills."],
-                ["Logistical Difficulty", "5", "Remote locations, limited aid, self-supported sections, navigation requirements."]
+                ["Length", "Under 40 miles", "60-100 miles", "150+ miles or multi-day"],
+                ["Technicality", "Smooth hardpack throughout", "Mix of surfaces, some loose sections", "Sustained chunky, rocky, or sandy terrain requiring bike handling"],
+                ["Elevation", "Under 2,000 ft gain", "4,000-6,000 ft gain", "10,000+ ft gain or relentless climbing"],
+                ["Climate", "Mild, temperate conditions", "Moderate heat, cold, or wind exposure", "Extreme heat, high wind, or severe weather risk"],
+                ["Altitude", "Below 3,000 ft", "5,000-7,000 ft", "Sustained riding above 8,000 ft"],
+                ["Logistics", "Well-supported, close to town", "Moderate remoteness, some self-supported sections", "Fully self-supported, remote, navigation required"],
+                ["Adventure", "Standard race format on known roads", "Some exploration, unique course features", "True adventure \u2014 wilderness, unknown terrain, expedition feel"]
               ]
-            }
-          ]
-        },
-        {
-          "id": "ch2-editorial-factors",
-          "title": "Editorial Factors (0-30 points possible)",
-          "blocks": [
-            {
-              "type": "prose",
-              "content": "Race quality, prestige, and experience factors that don't directly affect physical training but matter for race selection."
             },
             {
               "type": "data_table",
-              "caption": "Editorial Scoring Factors",
-              "headers": ["Factor", "Max Points", "What It Measures"],
+              "caption": "Editorial Dimensions (7 factors, each scored 1-5)",
+              "headers": ["Dimension", "1 (Low)", "3 (Moderate)", "5 (High)"],
               "rows": [
-                ["Prestige", "10", "Does winning/finishing this race mean something? Unbound, DK, Belgian Waffle Ride = high prestige. Random county gravel grinder = low."],
-                ["Community", "5", "Is the gravel community present? Do people travel for this? Is there camaraderie or just registration numbers?"],
-                ["Production Quality", "5", "Is the event well-organized? Clear marking, adequate aid, good communication, professional execution."],
-                ["Vibe/Atmosphere", "5", "Is this a party with a bike race attached (Mid South) or a serious competition (Unbound)? Both are fine, know what you're getting."],
-                ["Inclusivity", "3", "Multiple distance options, beginner-friendly, welcoming culture vs. gatekeeping \"hardcore\" posturing."],
-                ["Value", "2", "Registration cost vs. what you get. $200 for a well-supported event = reasonable. $200 for marked routes and nothing else = questionable."]
+                ["Prestige", "Unknown local event", "Regional reputation, growing field", "Marquee event \u2014 waitlists, lottery, international draw"],
+                ["Race Quality", "Basic organization, minimal support", "Solid execution, adequate aid", "Professional-grade production, excellent support"],
+                ["Experience", "Functional but forgettable", "Good atmosphere, some memorable moments", "Iconic experience \u2014 the kind people plan their year around"],
+                ["Community", "Small turnout, limited engagement", "Active local scene, some traveling participants", "Vibrant community, strong culture, people travel for this"],
+                ["Field Depth", "Mostly recreational riders", "Some competitive riders, regional talent", "Deep competitive field, national/international talent"],
+                ["Value", "Overpriced for what you get", "Fair price for the experience", "Exceptional value \u2014 worth every dollar"],
+                ["Expenses", "Low total cost (local, cheap lodging)", "Moderate travel and lodging costs", "Expensive destination \u2014 flights, hotels, gear shipping"]
               ]
+            },
+            {
+              "type": "callout",
+              "style": "highlight",
+              "content": "No algorithms. No sponsors. No pay-to-play. Every race scored by human editors who have either raced it, researched it extensively, or both. Read the full [scoring methodology](/methodology/)."
             }
           ]
         },
@@ -212,30 +208,30 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Combined Course + Editorial score determines tier."
+              "content": "The 14 dimension scores (each 1-5) are summed, then normalized: (sum / 70) \u00d7 100 = overall score. That score determines tier placement."
             },
             {
               "type": "tabs",
               "tabs": [
                 {
-                  "label": "Tier 1 (80-100)",
-                  "title": "Iconic Races",
-                  "content": "The marquee events. High difficulty, high prestige, national/international competition. These races define the gravel calendar. The ones people plan their season around. The ones with waitlists and lottery systems.\n\n**Examples:** Unbound 200, Leadville 100, Belgian Waffle Ride, Mid South, SBT GRVL, Crusher in the Tushar"
+                  "label": "Tier 1 \u2014 Elite",
+                  "title": "Tier 1 \u2014 Elite (Score 80+)",
+                  "content": "The marquee events. High difficulty, high prestige, national or international competition. These races define the gravel calendar \u2014 the ones people plan their season around, the ones with waitlists and lottery systems. Finishing a Tier 1 event means something.\n\nIf you're targeting a Tier 1 race, you need specific, structured preparation. General fitness won't cut it.\n\n**Examples:** [Unbound Gravel 200](/race/unbound-gravel/), [SBT GRVL](/race/sbt-grvl/), [Badlands](/race/badlands/)"
                 },
                 {
-                  "label": "Tier 2 (65-79)",
-                  "title": "Regional Standouts",
-                  "content": "Serious races with strong regional followings. Well-organized, challenging courses, meaningful competition at the front. Not quite iconic but respected. You'll see some fast people, solid production value, and courses that demand proper preparation.\n\n**Examples:** Gravel Worlds, Rebecca's Private Idaho, Barry-Roubaix, Grinduro, Land Run 100"
+                  "label": "Tier 2 \u2014 Contender",
+                  "title": "Tier 2 \u2014 Contender (Score 60-79)",
+                  "content": "Serious races with strong regional or national followings. Well-organized, challenging courses, meaningful competition at the front. Not quite iconic but respected. You'll see fast riders, solid production value, and courses that demand proper preparation.\n\nTier 2 races reward training but don't require elite-level specificity. A good general endurance plan with race-specific intensity will get you there.\n\n**Examples:** [Barry-Roubaix](/race/barry-roubaix/), [Belgian Waffle Ride Utah](/race/bwr-utah/), [Gravel Locos](/race/gravel-locos/)"
                 },
                 {
-                  "label": "Tier 3 (50-64)",
-                  "title": "Solid Local Events",
-                  "content": "Good races that are well-executed and locally popular but don't draw national fields. Still challenging, still worth training for, just without the prestige or hype. These are the backbone of the gravel calendar \u2014 consistent, reliable, fun.\n\n**Examples:** Most state-level gravel races, smaller stage races, regional classics"
+                  "label": "Tier 3 \u2014 Solid",
+                  "title": "Tier 3 \u2014 Solid (Score 45-59)",
+                  "content": "Good races that are well-executed and locally popular but don't draw national fields. Still challenging, still worth training for, just without the prestige or hype. These are the backbone of the gravel calendar \u2014 consistent, reliable, fun.\n\nGreat for building race experience. You can show up with solid general fitness and have a good day.\n\n**Examples:** [Croatan Buck Fifty](/race/croatan-buck-fifty/), [Iron Horse Bicycle Classic](/race/iron-horse-bicycle-classic/)"
                 },
                 {
-                  "label": "Tier 4 (Under 50)",
-                  "title": "Participation Events",
-                  "content": "Beginner-friendly, less physically demanding, or primarily social events. Nothing wrong with these \u2014 they're entry points and fun adventures. Great for first-timers, social riders, or anyone who just wants to be outside on bikes without the pressure.\n\n**Examples:** Local gravel grinders, charity rides, gravel \"festivals\" with short distances"
+                  "label": "Tier 4 \u2014 Roster",
+                  "title": "Tier 4 \u2014 Roster (Score Under 45)",
+                  "content": "Beginner-friendly, less physically demanding, or primarily social events. Nothing wrong with these \u2014 they're entry points and fun adventures. Great for first-timers, social riders, or anyone who just wants to be outside on bikes without the pressure.\n\nNo specific training plan needed. Just ride your bike regularly and show up.\n\n**Examples:** [Albia Holy Cow](/race/albia-holy-cow/), [Cedar Blitz](/race/cedar-blitz/)"
                 }
               ]
             }
@@ -249,23 +245,23 @@
               "type": "process_list",
               "items": [
                 {
-                  "label": "Find your race's tier",
-                  "detail": "Check the Gravel God race database or score it yourself using the criteria above."
+                  "label": "Browse the race database",
+                  "detail": "Search all 328 scored races in the [Gravel God Race Database](/gravel-races/). Filter by region, tier, distance, or date."
                 },
                 {
-                  "label": "Match tier to your goals",
+                  "label": "Check the tier and score breakdown",
+                  "detail": "Every race profile shows the overall score plus all 14 individual dimension scores. See exactly where a race is strong and where it's weak."
+                },
+                {
+                  "label": "Match tier to your goals and preparation level",
                   "detail": "First-time gravel racer? Start with Tier 3-4 events. Experienced and want a challenge? Tier 1-2. Just want to ride bikes with people? Tier 4 is perfect."
-                },
-                {
-                  "label": "Select your training plan",
-                  "detail": "Once you know your race tier and have a goal in mind, the next chapter covers how to choose the right training plan based on your available time and current ability level."
                 }
               ]
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "The reality check: You can show up to any race with general fitness and finish. But if you're targeting a Tier 1 event and want to perform well (not just survive), you need specific preparation that matches the race demands.\n\nThat's what the training plans are for."
+              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/)."
             }
           ]
         }
@@ -273,9 +269,9 @@
     },
     {
       "number": 3,
-      "id": "choose-your-plan",
-      "title": "How to Choose Your Training Plan",
-      "subtitle": "",
+      "id": "training-fundamentals",
+      "title": "Training Fundamentals",
+      "subtitle": "Or: How Training Actually Works",
       "gated": false,
       "cta_after": "gate",
       "sections": [
@@ -284,230 +280,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Choosing the right training plan comes down to two variables:\n\n1. **What is your rider ability?** (training experience + current fitness)\n2. **How much time do you have per week?** (volume category)\n\nThat's it. These two variables create a matrix. Your plan lives at the intersection.\n\nMost people get this wrong because they conflate \"how much time I have\" with \"how fit I am\" or they pick based on ego instead of reality. A former Cat 2 road racer who's been off the bike for three years and can only train 5 hours per week is not the same athlete as a complete beginner who's never done endurance sports and has 5 hours per week.\n\nSame weekly hours. Completely different plans.\n\nThis chapter walks you through both variables, then shows you how to find your plan at the intersection."
-            }
-          ]
-        },
-        {
-          "id": "ch3-ability",
-          "title": "Variable 1: What Is Your Rider Ability?",
-          "blocks": [
-            {
-              "type": "prose",
-              "content": "Rider ability is a combination of training experience and current fitness.\n\nNot one or the other\u2014both.\n\nA former pro who's been off the bike for five years and gained 40 pounds is not an advanced rider. They're intermediate at best. Their experience helps, but their current fitness is the constraint.\n\nA recreational cyclist who's been riding consistently for three years, trains systematically, and shows up fit is not a beginner just because they've never raced. They're intermediate.\n\nHere's how to assess yourself honestly:"
-            },
-            {
-              "type": "tabs",
-              "tabs": [
-                {
-                  "label": "Beginner",
-                  "title": "Beginner",
-                  "content": "You're a beginner if:\n\n- You've never trained systematically for endurance sports (cycling, running, triathlon, etc.)\n- You're currently out of shape or returning after significant time off (2+ years)\n- You don't know your FTP, you've never done structured intervals, and \"Zone 2\" sounds like a parking designation\n- Long rides for you are 1-2 hours, and you're not sure you could ride 3 hours comfortably right now\n\nThis is not an insult. Everyone starts here. The mistake is pretending you're not here when you are.\n\nBeginner plans build base fitness first. They assume you need to develop aerobic capacity, muscular endurance, and durability before you can handle intensity. They're conservative by design because your body hasn't adapted to training stress yet."
-                },
-                {
-                  "label": "Intermediate",
-                  "title": "Intermediate",
-                  "content": "You're intermediate if:\n\n- You've got endurance sports background\u2014cycling, running, triathlon, or other aerobic training\n- You're currently fit enough to ride 3-4 hours without falling apart\n- You understand pacing, you've practiced fueling on long rides, and you know what \"sustainable discomfort\" feels like\n- You've done structured training before or you're a strong recreational cyclist with years of consistent riding\n\nIntermediate plans assume you can handle two quality sessions per week plus endurance volume. They use polarized training (80% easy, 20% hard) because your body can absorb that stress without breaking.\n\nYou're not a beginner anymore, but you're not ready for advanced periodization models that stack intensity aggressively."
-                },
-                {
-                  "label": "Advanced",
-                  "title": "Advanced",
-                  "content": "You're advanced if:\n\n- You're already fast. You've raced seriously (road, gravel, MTB, triathlon\u2014doesn't matter)\n- You know your FTP, you understand interval structure, and you've trained with power or heart rate zones for years\n- You can distinguish between productive suffering and destructive fatigue\n- Your current fitness supports 4-6 hour rides, and you've logged enough hours recently (last 6-12 months) to handle high training loads\n\nAdvanced plans use block periodization or the GOAT Method\u2014concentrated periods of specific intensity (threshold blocks, VO2 blocks) followed by recovery. They assume you know your body well enough to execute hard sessions without burying yourself.\n\nIf you're guessing whether you're advanced, you're not. Advanced riders know."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "ch3-volume",
-          "title": "Variable 2: How Much Time Do You Have Per Week?",
-          "blocks": [
-            {
-              "type": "prose",
-              "content": "This is simpler. Count the hours you'll actually spend riding each week.\n\nBe honest. Don't count the time you *wish* you had or the time you *might* have if everything goes perfectly. Count the time you'll realistically ride, week after week, for 12 weeks straight.\n\nLife will interfere. Work, family, weather, sickness, travel\u2014something will try to steal your training time. Plan for 80% completion and you'll hit closer to 100%.\n\nHere are the four volume categories:"
-            },
-            {
-              "type": "data_table",
-              "caption": "Volume Categories",
-              "headers": ["Category", "Weekly Hours", "12-Week Total", "What This Builds"],
-              "rows": [
-                ["Ayahuasca", "0-5 hours", "37-75 hours", "Minimal viable fitness. Survival mode."],
-                ["Finisher", "8-12 hours", "120-180 hours", "Solid aerobic base. Finish strong."],
-                ["Compete", "12-18 hours", "180-270 hours", "Race fitness. Top-third performance."],
-                ["Podium", "18-25+ hours", "270-375+ hours", "Professional volume. Elite preparation."]
-              ]
-            },
-            {
-              "type": "accordion",
-              "items": [
-                {
-                  "title": "Ayahuasca (0-5 hours/week)",
-                  "content": "You're time-crunched. Maybe you've got a demanding job, young kids, or life circumstances that limit your training time to a few hours per week.\n\nAyahuasca plans use high-intensity interval training (HIIT) to maximize fitness from minimal time. Two to three hard sessions per week, short endurance rides, and minimal long rides (capped at 2-3 hours).\n\n**Critical caveat:** These plans assume you already have fitness and experience. If you're a true beginner (no endurance background, currently out of shape), you should not be on an Ayahuasca plan regardless of hours available. HIIT doesn't build base fitness\u2014it sharpens existing fitness. If you don't have a base, HIIT will just break you.\n\nIf you're a beginner with only 5 hours per week, your honest options are:\n\n1. Find more training time (move to Finisher category)\n2. Pick an easier/shorter race that matches your preparation level\n3. Accept that you're showing up underprepared and adjust expectations accordingly\n\nAyahuasca is for experienced cyclists who are time-constrained, not beginners who lack hours."
-                },
-                {
-                  "title": "Finisher (8-12 hours/week)",
-                  "content": "This is the sweet spot for most gravel racers. You've got enough time to build a real aerobic base, practice race-specific intensity, and complete long rides that prepare you for race distance.\n\nFinisher plans include two quality sessions per week (threshold, tempo, climbing work), several endurance rides, and one long ride that builds to 4-5 hours by peak weeks.\n\nThis volume is enough to finish strong at most gravel races. You won't be competing for podiums at Tier 1 events, but you'll complete the distance at a moderate pace without heroics."
-                },
-                {
-                  "title": "Compete (12-18 hours/week)",
-                  "content": "You're training to race properly. Not just participate\u2014compete.\n\nCompete plans include three to four quality sessions per week, multiple endurance rides, and long rides that hit 5-6 hours with race-specific intensity. You're building threshold power, repeatability (surge and recover repeatedly), and the ability to hold race pace for hours.\n\nThis volume typically places riders in the top third of the field at most gravel races."
-                },
-                {
-                  "title": "Podium (18-25+ hours/week)",
-                  "content": "Professional-level commitment. At this volume, you need coaching, not a pre-made plan. You're managing recovery protocols, tracking performance metrics closely, and adjusting week-to-week based on how your body responds.\n\nIf you're training 20+ hours per week, get coaching. Don't self-coach unless you've already done it successfully."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "ch3-matrix",
-          "title": "The Matrix: Finding Your Plan",
-          "blocks": [
-            {
-              "type": "prose",
-              "content": "Once you've identified both variables, you find your plan at the intersection:"
-            },
-            {
-              "type": "data_table",
-              "caption": "The Training Plan Matrix",
-              "headers": ["Volume \\ Ability", "Beginner", "Intermediate", "Advanced / Master's"],
-              "rows": [
-                ["Ayahuasca (0-5 hrs/wk)", "Survival Plan (12 wks)", "Time Crunched Plan (12 wks)", "Master's 50+ Plan (12 wks) / Save My Race (6 wks)"],
-                ["Finisher (8-12 hrs/wk)", "First Timer Plan (12 wks)", "Solid Finisher Plan (12 wks)", "Strong Finish Plan (12 wks)"],
-                ["Compete (12-18 hrs/wk)", "\u2014", "Competitive Plan (12 wks)", "Podium Contender (12 wks) / Master's 50+ (12 wks) / Save My Race (6 wks)"],
-                ["Podium (18-25+ hrs/wk)", "\u2014", "\u2014", "Elite Preparation (12 wks) / The G.O.A.T. Plan (12 wks)"]
-              ]
-            },
-            {
-              "type": "prose",
-              "content": "How to read this matrix:\n\n- If you're a Beginner with 8-12 hours/week \u2192 Finisher Beginner (First-Timer Plan)\n- If you're Intermediate with 12-18 hours/week \u2192 Compete Intermediate (Competitive Plan)\n- If you're Advanced with 8-12 hours/week \u2192 Finisher Advanced (Strong Finish Plan)\n\nSome cells are empty because those combinations don't make sense:\n\n- Beginner + Compete volume = you don't have the experience to handle that training load\n- Advanced + Ayahuasca volume = if you're truly advanced, you'd find more training time or you're not actually advanced anymore"
-            }
-          ]
-        },
-        {
-          "id": "ch3-masters",
-          "title": "Special Category: Masters (50+)",
-          "blocks": [
-            {
-              "type": "callout",
-              "style": "highlight",
-              "content": "If you're 50+ (or 40+ with significant recovery needs), there's a Masters Intermediate plan that sits between Finisher and Compete. It uses moderate volume (8-12 hours), emphasizes recovery, includes strength training 2-3x/week, and integrates HRV monitoring for autoregulation.\n\nMasters plans assume intermediate experience but acknowledge that recovery takes longer as you age."
-            }
-          ]
-        },
-        {
-          "id": "ch3-bottom-line",
-          "title": "The Bottom Line",
-          "blocks": [
-            {
-              "type": "process_list",
-              "items": [
-                {
-                  "label": "Assess your ability",
-                  "detail": "Beginner / Intermediate / Advanced \u2014 based on training experience + current fitness"
-                },
-                {
-                  "label": "Count your weekly hours",
-                  "detail": "Ayahuasca / Finisher / Compete / Podium"
-                },
-                {
-                  "label": "Find the intersection",
-                  "detail": "Use the matrix above"
-                },
-                {
-                  "label": "Pick that plan",
-                  "detail": "Don't overthink it. The matrix already did the thinking."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "ch3-quiz",
-          "blocks": [
-            {
-              "type": "quiz",
-              "title": "Find Your Training Plan",
-              "description": "Answer 4 quick questions to get your personalized training plan recommendation.",
-              "questions": [
-                {
-                  "id": "experience",
-                  "text": "What best describes your riding experience?",
-                  "options": [
-                    {"value": "beginner", "label": "New to cycling or returning after 2+ years off"},
-                    {"value": "intermediate", "label": "Consistent rider with endurance sports background"},
-                    {"value": "advanced", "label": "Experienced racer who trains with power/HR zones"}
-                  ]
-                },
-                {
-                  "id": "hours",
-                  "text": "How many hours per week can you realistically train?",
-                  "options": [
-                    {"value": "ayahuasca", "label": "0-5 hours (time-crunched)"},
-                    {"value": "finisher", "label": "8-12 hours (the sweet spot)"},
-                    {"value": "compete", "label": "12-18 hours (serious training)"},
-                    {"value": "podium", "label": "18-25+ hours (professional volume)"}
-                  ]
-                },
-                {
-                  "id": "goal",
-                  "text": "What's your primary race goal?",
-                  "options": [
-                    {"value": "finish", "label": "Finish strong and enjoy the experience"},
-                    {"value": "compete", "label": "Race competitively, top third of field"},
-                    {"value": "podium", "label": "Age group podium or overall top finisher"}
-                  ]
-                },
-                {
-                  "id": "distance",
-                  "text": "What race distance are you targeting?",
-                  "options": [
-                    {"value": "short", "label": "Under 60 miles"},
-                    {"value": "medium", "label": "60-100 miles"},
-                    {"value": "long", "label": "100-150 miles"},
-                    {"value": "ultra", "label": "150+ miles"}
-                  ]
-                }
-              ],
-              "plan_matrix": {
-                "beginner_ayahuasca": {"plan": "Survival Plan", "duration": "12 weeks", "note": "Consider finding more training time if possible. HIIT-only is tough for beginners."},
-                "beginner_finisher": {"plan": "First Timer Plan", "duration": "12 weeks", "note": "The ideal starting point. Builds base fitness progressively."},
-                "beginner_compete": {"plan": "First Timer Plan", "duration": "12 weeks", "note": "You don't have the experience for Compete volume yet. Start with Finisher."},
-                "beginner_podium": {"plan": "First Timer Plan", "duration": "12 weeks", "note": "Start with Finisher volume. Build up over seasons."},
-                "intermediate_ayahuasca": {"plan": "Time Crunched Plan", "duration": "12 weeks", "note": "Maximizes fitness from minimal hours using targeted HIIT."},
-                "intermediate_finisher": {"plan": "Solid Finisher Plan", "duration": "12 weeks", "note": "Polarized training with two quality sessions per week."},
-                "intermediate_compete": {"plan": "Competitive Plan", "duration": "12 weeks", "note": "Race-focused preparation. Top-third finish potential."},
-                "intermediate_podium": {"plan": "Competitive Plan", "duration": "12 weeks", "note": "At this volume, consider 1:1 coaching for optimal results."},
-                "advanced_ayahuasca": {"plan": "Save My Race Plan", "duration": "6 weeks", "note": "Emergency preparation. If you're truly advanced, find more hours."},
-                "advanced_finisher": {"plan": "Strong Finish Plan", "duration": "12 weeks", "note": "Block periodization with gravel-specific intensity."},
-                "advanced_compete": {"plan": "Podium Contender Plan", "duration": "12 weeks", "note": "GOAT Method. Serious preparation for serious racing."},
-                "advanced_podium": {"plan": "Elite Preparation / G.O.A.T. Plan", "duration": "12 weeks", "note": "Get coaching. At this level, individualization matters."}
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 4,
-      "id": "training-fundamentals",
-      "title": "Training Fundamentals",
-      "subtitle": "Or: How Training Actually Works",
-      "gated": true,
-      "cta_after": null,
-      "sections": [
-        {
-          "id": "ch4-intro",
-          "blocks": [
-            {
-              "type": "prose",
               "content": "Before you start executing workouts, you need to understand how training works at a mechanical level.\n\nNot theory for theory's sake\u2014practical understanding that changes how you approach every session, how you structure your week, and how you respond when your body doesn't cooperate.\n\nThis chapter builds from first principles: the adaptation cycle that drives all fitness gains, the zones that define intensity, the variables you manipulate to create training stress, the phases that organize your 12 weeks, and the philosophical approaches that match different athlete types.\n\nStart here. Everything else makes more sense after this."
             }
           ]
         },
         {
-          "id": "ch4-adaptation",
+          "id": "ch3-adaptation",
           "title": "The Foundational Model: How Adaptation Works",
           "blocks": [
             {
@@ -557,7 +335,7 @@
           ]
         },
         {
-          "id": "ch4-zones",
+          "id": "ch3-zones",
           "title": "Training Zones: What They Mean and How to Use Them",
           "blocks": [
             {
@@ -602,7 +380,7 @@
           ]
         },
         {
-          "id": "ch4-load",
+          "id": "ch3-load",
           "title": "Training Load Variables & Metrics",
           "blocks": [
             {
@@ -623,7 +401,7 @@
           ]
         },
         {
-          "id": "ch4-phases",
+          "id": "ch3-phases",
           "title": "Training Phases: Base, Build, Taper",
           "blocks": [
             {
@@ -647,7 +425,7 @@
           ]
         },
         {
-          "id": "ch4-philosophies",
+          "id": "ch3-philosophies",
           "title": "Training Philosophies",
           "blocks": [
             {
@@ -690,15 +468,15 @@
       ]
     },
     {
-      "number": 5,
+      "number": 4,
       "id": "workout-execution",
       "title": "Workout Execution",
       "subtitle": "Or: How to Actually Do the Damn Workouts",
       "gated": true,
-      "cta_after": "training_plans",
+      "cta_after": null,
       "sections": [
         {
-          "id": "ch5-intro",
+          "id": "ch4-intro",
           "blocks": [
             {
               "type": "prose",
@@ -707,7 +485,7 @@
           ]
         },
         {
-          "id": "ch5-gap",
+          "id": "ch4-gap",
           "title": "The Execution Gap",
           "blocks": [
             {
@@ -717,7 +495,7 @@
           ]
         },
         {
-          "id": "ch5-rules",
+          "id": "ch4-rules",
           "title": "Universal Execution Rules",
           "blocks": [
             {
@@ -744,7 +522,7 @@
           ]
         },
         {
-          "id": "ch5-zones",
+          "id": "ch4-zones",
           "title": "Zone-Specific Execution",
           "blocks": [
             {
@@ -775,7 +553,7 @@
           ]
         },
         {
-          "id": "ch5-problems",
+          "id": "ch4-problems",
           "title": "When Workouts Go Wrong",
           "blocks": [
             {
@@ -798,7 +576,7 @@
           ]
         },
         {
-          "id": "ch5-autoregulation",
+          "id": "ch4-autoregulation",
           "title": "Autoregulation: Listening to Your Body",
           "blocks": [
             {
@@ -809,7 +587,7 @@
           ]
         },
         {
-          "id": "ch5-recovery",
+          "id": "ch4-recovery",
           "title": "Post-Workout Recovery Protocols",
           "blocks": [
             {
@@ -826,15 +604,15 @@
       ]
     },
     {
-      "number": 6,
+      "number": 5,
       "id": "nutrition-fueling",
       "title": "Nutrition & Fueling",
       "subtitle": "Or: How to Not Bonk",
       "gated": true,
-      "cta_after": "coaching",
+      "cta_after": null,
       "sections": [
         {
-          "id": "ch6-intro",
+          "id": "ch5-intro",
           "blocks": [
             {
               "type": "prose",
@@ -843,7 +621,7 @@
           ]
         },
         {
-          "id": "ch6-daily",
+          "id": "ch5-daily",
           "title": "Daily Nutrition for Training",
           "blocks": [
             {
@@ -863,7 +641,7 @@
           ]
         },
         {
-          "id": "ch6-fueling",
+          "id": "ch5-fueling",
           "title": "Fueling During Workouts",
           "blocks": [
             {
@@ -885,7 +663,7 @@
           ]
         },
         {
-          "id": "ch6-gut-training",
+          "id": "ch5-gut-training",
           "title": "Training Your Gut",
           "blocks": [
             {
@@ -917,7 +695,7 @@
           ]
         },
         {
-          "id": "ch6-race-day",
+          "id": "ch5-race-day",
           "title": "Race-Day Nutrition Strategy",
           "blocks": [
             {
@@ -954,7 +732,7 @@
           ]
         },
         {
-          "id": "ch6-bottom-line",
+          "id": "ch5-bottom-line",
           "title": "The Bottom Line",
           "blocks": [
             {
@@ -966,12 +744,334 @@
       ]
     },
     {
+      "number": 6,
+      "id": "mental-training-race-tactics",
+      "title": "Mental Training & Race Tactics",
+      "subtitle": "Or: How to Race Smart When Everything Hurts",
+      "gated": true,
+      "cta_after": null,
+      "sections": [
+        {
+          "id": "ch6-intro",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Physical training builds the engine. Mental training determines whether you use that engine when things get hard.\n\nAnd in any race measured in hours, things will get hard. Your body will hurt. Your motivation will waver. You'll wonder why you signed up for this. These moments are predictable.\n\nThe techniques in this chapter aren't abstract psychology\u2014they're practical tools that work during racing. But like any skill, they require practice. You wouldn't show up to a race without training your legs. Don't show up without training your head.\n\nThis chapter covers two connected topics: the mental tools you need, and the tactical framework for deploying them across a long gravel race."
+            }
+          ]
+        },
+        {
+          "id": "ch6-mental-framework",
+          "title": "The Mental Training Framework",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Mental training has five layers. Each builds on the previous one. Master them in order."
+            },
+            {
+              "type": "process_list",
+              "items": [
+                {
+                  "label": "Breathing & Presence",
+                  "detail": "The foundation. Controlled breathing calms your nervous system and brings focus to the present moment. Without this, nothing else works.",
+                  "percentage": 100
+                },
+                {
+                  "label": "Reframing",
+                  "detail": "Change your internal story. Instead of \"this hurts\" \u2192 \"this is my body adapting.\" Instead of \"I can't do this\" \u2192 \"I'm doing it right now. One pedal stroke at a time.\"",
+                  "percentage": 80
+                },
+                {
+                  "label": "Anchoring",
+                  "detail": "Physical cues that trigger your race mode. Hands in the drops, core engaged, smooth pedal stroke. Match cadence to breath. These create flow state on demand.",
+                  "percentage": 60
+                },
+                {
+                  "label": "Acceptance",
+                  "detail": "You signed up for this. Discomfort is part of the deal. Accept it. Don't fight it. Work with it. Pain is temporary. Quitting lasts forever.",
+                  "percentage": 40
+                },
+                {
+                  "label": "Purpose",
+                  "detail": "Remember your why. Connect to your deeper motivation. This race matters because you chose it. When everything else fails, purpose keeps you pedaling.",
+                  "percentage": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch6-breathing",
+          "title": "The 6-2-7 Breathing Technique",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "This is a simple technique for controlling your arousal state\u2014how activated or calm you feel. It works by stimulating the parasympathetic nervous system, which counteracts the fight-or-flight response that makes you panic or tense up.\n\n**The pattern:** Inhale for 6 seconds, hold for 2 seconds, exhale for 7 seconds.\n\nThe key is that the exhale is longer than the inhale. This is what triggers the calming response. The exact numbers matter less than the principle: long exhale, short inhale."
+            },
+            {
+              "type": "accordion",
+              "items": [
+                {
+                  "title": "When to use it",
+                  "content": "**Pre-race anxiety.** The night before or morning of the race, when your mind is racing and your heart rate is elevated despite sitting still. 3-5 cycles of 6-2-7 breathing will calm your nervous system.\n\n**Mid-race panic.** When things feel out of control\u2014you're dropped from your group, you just flatted, the pain is overwhelming. 6-2-7 breathing resets your state so you can think clearly.\n\n**After a bad section.** After a crash, a mechanical, or a period of suffering where you lost time or position. 6-2-7 breathing helps you process it and move on instead of dwelling."
+                },
+                {
+                  "title": "How to practice",
+                  "content": "Start with 5 minutes daily, sitting quietly. Just breathe. Count the rhythm. Feel the calming effect.\n\nThen practice during easy rides\u2014prove to yourself you can do the breathing pattern while pedaling.\n\nEventually, practice during hard efforts. You should be able to do 6-2-7 breathing even when working at threshold. It's harder, but possible, and that's when you need it most.\n\nBy race day, the technique should be automatic. You shouldn't have to think about the mechanics\u2014just trigger it when needed."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "quote",
+              "content": "Don't wait until mile 100 to try 6-2-7 breathing for the first time. Practice during training so it's automatic during racing."
+            }
+          ]
+        },
+        {
+          "id": "ch6-performance-statements",
+          "title": "Performance Statements",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Your internal monologue affects your performance. When you catch yourself thinking \"I can't do this\" or \"this is too hard,\" those thoughts become self-fulfilling prophecies. Your brain interprets them as permission to quit.\n\nPerformance statements are pre-planned phrases that replace negative self-talk with useful direction. They redirect your attention from suffering to action.\n\nWrite 3-5 statements now, while you're not suffering. Memorize them. Practice them during training rides. Test them during hard workouts. By race day, they should be immediately available when you need them."
+            },
+            {
+              "type": "tabs",
+              "tabs": [
+                {
+                  "label": "Technical Cues",
+                  "title": "Technical Cues",
+                  "content": "Focus on execution rather than pain. Give your brain something productive to do instead of focusing on suffering.\n\n**Examples:**\n- \"Smooth pedal stroke.\"\n- \"Relax your shoulders.\"\n- \"Light hands on the bars.\"\n- \"Eyes up, look ahead.\"\n\nThese work because they redirect attention from suffering to action. Your brain can focus on execution or pain, not both."
+                },
+                {
+                  "label": "Pain Responses",
+                  "title": "Pain Responses",
+                  "content": "Acknowledge difficulty without surrendering to it. Reframe suffering as expected rather than catastrophic.\n\n**Examples:**\n- \"This is supposed to be hard.\"\n- \"If you keep pedaling, you'll get there.\"\n- \"Pain is temporary, quitting is permanent.\"\n- \"This is what you trained for.\"\n\nSome people respond to aggressive language (\"Harden up\"), others to calm language (\"You're okay, just keep moving\"). Pick what works for you."
+                },
+                {
+                  "label": "Process Statements",
+                  "title": "Process Statements",
+                  "content": "Keep you focused on the next achievable goal rather than the overwhelming total. Break the race into manageable chunks.\n\n**Examples:**\n- \"Just get to the next aid station.\"\n- \"One more climb.\"\n- \"Next mile marker.\"\n- \"Pedal to that tree, then reassess.\"\n\nThese work because the human brain handles immediate challenges better than distant goals. \"Finish the race\" is overwhelming at mile 80. \"Get to the next turn\" is achievable."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch6-visualization",
+          "title": "Your Personal Highlight Reel",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Visualization is a well-documented performance tool. But it works best when it's personal and specific, not generic imagery of \"success.\"\n\nA highlight reel is a mental movie you can play to access confidence and motivation on demand. It's built from your actual experiences and your specific race goals.\n\nDo it in first person\u2014through your own eyes, not watching yourself like a movie. Include as much sensory detail as possible: what you see, hear, feel in your body, smell. The more sensory channels you activate, the more powerful the visualization."
+            },
+            {
+              "type": "timeline",
+              "title": "Build Your Highlight Reel",
+              "steps": [
+                {
+                  "label": "Scene 1: Past Moment of Strength",
+                  "content": "Recall a specific time when you overcame something difficult, proved yourself, or succeeded against odds. Not a vague memory\u2014a specific moment with details. Where were you? What did it feel like? Who was there? How did you feel afterward? Make this vivid."
+                },
+                {
+                  "label": "Scene 2: Future Crucial Moment",
+                  "content": "Visualize a specific section of your upcoming race where you see yourself executing perfectly. Maybe it's climbing a specific hill with your group. Maybe it's the final 20 miles when others are fading. See yourself strong, in control, handling it well."
+                },
+                {
+                  "label": "Scene 3: Crossing the Finish Line",
+                  "content": "In full detail. What you see, what you hear, what you feel in your body, the emotions. Make this so vivid you can almost taste it. Practice until you can trigger the confident, motivated feeling on demand."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "highlight",
+              "content": "Practice visualization race morning before getting out of bed. 5-10 minutes of your highlight reel sets the tone for the day. During the race, it takes 30 seconds to run through and access a mental boost when motivation sags."
+            }
+          ]
+        },
+        {
+          "id": "ch6-three-acts",
+          "title": "The Three-Act Structure of Long Gravel Races",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Every long gravel race follows a predictable three-act structure. Understanding this structure lets you make smart decisions when others are making emotional ones.\n\nThe specifics vary by race\u2014some front-load the climbing, some back-load it, some are flat. But the psychological and physiological patterns are consistent across all long events.\n\nHere's how it plays out, and what your job is in each phase."
+            },
+            {
+              "type": "data_table",
+              "caption": "The Three-Act Structure",
+              "headers": ["Phase", "When", "What's Happening", "Your Job"],
+              "rows": [
+                ["Act 1: The Start", "First 10-15% of race", "High energy, adrenaline, everyone goes too hard. Groups form. Positioning matters.", "Stay calm. Don't chase. Fuel early (first 30 min). Find your rhythm. Let the race come to you."],
+                ["Act 2: The Grind", "Middle 50-60% of race", "The real race. Fatigue sets in. Groups break up. Mental game begins. This is where races are won or lost.", "Stay consistent. Fuel every 20-30 min. Manage effort (don't redline). Use mental techniques. One section at a time."],
+                ["Act 3: The Finish", "Final 25-30% of race", "Everything hurts. Decision fatigue. Final push. This is where training pays off.", "Empty the tank. Use everything you've got. Remember your why. Push through the pain. Finish strong."]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch6-phases",
+          "title": "Racing Each Phase",
+          "blocks": [
+            {
+              "type": "accordion",
+              "items": [
+                {
+                  "title": "Phase 1: The Madness (Opening 10-15%)",
+                  "content": "The first 60-90 minutes of any gravel race is chaos. Fresh legs meet nervous energy meet a crowded course. People who trained alone all winter suddenly realize they're uncomfortable in groups. People who didn't do the work try to hang with people who did.\n\nAttacks fly. Groups form, then shatter, then reform. The pace is erratic. Someone surges on every climb. The whole field is making decisions based on adrenaline and ego rather than strategy and fitness.\n\n**Your job in this phase is simple: survive.**\n\nDon't try to win the race in the first hour. You can't. But you can definitely lose it. Chasing attacks you can't sustain. Riding too hard to stay with a group that's going to explode in another 20 minutes. Forgetting to eat and drink because you're focused on positioning.\n\nFind a group moving at a pace that feels sustainable to you\u2014not exciting, not easy, sustainable. Settle in. Eat. Drink. Let others burn matches.\n\nThe riders making huge efforts to get to the front in the first 30 minutes? Most of them will fade. Let them go. You'll see them again later, and they'll be hurting."
+                },
+                {
+                  "title": "Phase 2: False Dawn (Middle 50-60%)",
+                  "content": "After the initial chaos settles, order returns. Groups stabilize. Pace becomes more predictable. The race can start to feel manageable, even easy.\n\nDon't be fooled. This is the setup for phase three.\n\nThis is the phase where good execution means staying disciplined about nutrition and hydration. Your body doesn't hurt yet. You feel fine. It's tempting to skip a gel or wait longer between drinks. Don't.\n\nThis is also the phase where you contribute to your group's pace line, but you don't take hero pulls. Pull through, do your share, but don't try to impress anyone. Save that energy.\n\nWatch for riders who are overworking\u2014taking pulls that are too long, going to the front too often, breathing harder than they should be. They're making withdrawals they'll pay for in phase three.\n\nYou want to exit this phase feeling good but not great. Fresh but not antsy. If you're bored, that's perfect. Boredom in phase two means you're executing correctly."
+                },
+                {
+                  "title": "Phase 3: The Piper (Final 25-30%)",
+                  "content": "This is when the bill comes due. This is the race.\n\nUnder-fueled riders bonk. Their pace craters. They go from holding 18mph to struggling to hold 12mph. You'll pass them.\n\nUnder-prepared riders cramp. Their legs seize up. They're forced to slow down or stop.\n\nMentally weak riders quit. Not literally abandon\u2014though some do. But mentally they check out. They're just surviving, not racing anymore.\n\nIf you've done the work\u2014the training, the nutrition practice, the mental preparation\u2014this is where you move up. You're not attacking. You're not surging. You're just maintaining your pace while others lose theirs.\n\n**Watch for riders who are struggling:**\n- Pace dropping noticeably\n- Dropped off groups and riding alone\n- Weaving slightly (sign of bonking)\n- Labored breathing out of proportion to pace\n\nMove past them steadily. Don't attack past them\u2014just maintain your pace and roll by. Save your energy for the riders who are still strong.\n\nThis phase is a war of attrition. The question isn't who's fastest\u2014it's who did the best job of managing the first two phases."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "quote",
+              "content": "The race isn't won in the first hour, but it can be lost there. Survive phase one. Execute phase two. Capitalize in phase three."
+            }
+          ]
+        },
+        {
+          "id": "ch6-decision-tree",
+          "title": "In-Race Decision Tree",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "When things go sideways (and at some point they will), follow protocol instead of panic. Pre-planned responses beat real-time decision-making when your brain is running on fumes."
+            },
+            {
+              "type": "accordion",
+              "items": [
+                {
+                  "title": "Flat Tire",
+                  "content": "1. Stay calm\u2014flats happen, this is not a crisis\n2. Flip bike or lean against hip\n3. Check if sealant is working (spin wheel, look for bubbles)\n4. If hole visible, insert plug immediately\n5. If plug fails or sidewall cut, replace tube\n6. Reinflate to race pressure\n7. Spin wheel to verify no rub\n8. Resume at Z2 for 2-3 minutes to settle back in"
+                },
+                {
+                  "title": "Dropped from Group",
+                  "content": "1. Don't panic\u2014emotional response costs more energy than you have\n2. Assess honestly: were you overextended or did they surge?\n3. Find YOUR sustainable pace (probably Z2-low Z3)\n4. Look for riders at similar pace within 30-60 seconds\n5. Form new working group if possible\u2014communicate intentions\n6. If solo, accept it\u2014focus on YOUR race, not theirs\n7. Use solo time gaps to fuel and recover without group pressure"
+                },
+                {
+                  "title": "Bonking",
+                  "content": "1. STOP pushing hard immediately\u2014don't try to push through\n2. Sit down if possible (don't stand around)\n3. Consume 2-3 gels or 200-300 calories FAST\n4. Wait 15-20 minutes MINIMUM\n5. Let sugar hit bloodstream\u2014this takes time, be patient\n6. Drink 16oz water with gels\n7. Resume at Z1-Z2 pace ONLY\n8. Fuel aggressively for next hour to rebuild glycogen stores"
+                },
+                {
+                  "title": "Cramping",
+                  "content": "1. Consume sodium (salt tabs or pretzels/chips) + 16oz water immediately\n2. Stretch gently\u2014don't force it or you'll tear muscle fibers\n3. Drop to Z1-Z2 for 10-15 minutes minimum\n4. Back off intensity by 10-15% even after cramps resolve\n5. Continue aggressive sodium intake rest of race\n6. Don't resume hard efforts until cramping completely resolved"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch6-mental-landmarks",
+          "title": "Mental Landmarks",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Long races have predictable psychological phases. Knowing when they tend to show up makes them easier to handle. The specific mile markers vary by race distance, but the pattern is remarkably consistent."
+            },
+            {
+              "type": "timeline",
+              "title": "Predictable Psychological Phases",
+              "steps": [
+                {
+                  "label": "The Honeymoon (15-30% of race)",
+                  "content": "Everything feels easy. Legs are fresh. Groups rolling smooth. HUGE temptation to go hard and \"get ahead.\" DON'T. This is the setup for the dark patch later. Stay disciplined now, dominate later. Patience wins long gravel races."
+                },
+                {
+                  "label": "The Shattering (40-55% of race)",
+                  "content": "Terrain and fatigue blow apart groups. You'll see attacks fly. People will drop. Stay disciplined. DO NOT chase efforts you can't sustain. The real race hasn't started yet. Save your matches for when they matter\u2014the final third."
+                },
+                {
+                  "label": "The Dark Patch (60-75% of race)",
+                  "content": "Where motivation dies. You've been out here for hours. Everything hurts. The finish still feels impossibly far. This is EXPECTED\u2014not a crisis, not unique to you. Use your performance statements. 6-2-7 breathing. Keep. Moving. Forward. One pedal stroke at a time."
+                },
+                {
+                  "label": "Second Wind (75-85% of race)",
+                  "content": "Often happens after an aid station or a psychological milestone (\"only 30 miles left\"). Body and mind reset briefly. Energy returns. Capitalize on this window\u2014it doesn't last forever. This is your time to move up through the field."
+                },
+                {
+                  "label": "Late-Race Relief (85-95% of race)",
+                  "content": "Light at end of tunnel becomes real. The finish is close enough to taste. Bodies hurt but minds lift. Use this energy surge wisely. This is where you collect rewards from earlier discipline. Push through\u2014you've earned this."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "highlight",
+              "content": "Your job: Recognize these moments as part of the script, not proof that you're failing. Stay on task, solve the next problem, and let the course come back to you."
+            }
+          ]
+        },
+        {
+          "id": "ch6-checklist",
+          "title": "Race Day Mental Checklist",
+          "blocks": [
+            {
+              "type": "timeline",
+              "title": "Integrating Mental Tools on Race Day",
+              "steps": [
+                {
+                  "label": "Race Morning (before getting up)",
+                  "content": "Run through your highlight reel. 5-10 minutes of visualization. See yourself succeeding. Feel it."
+                },
+                {
+                  "label": "Race Morning (after waking up)",
+                  "content": "6-2-7 breathing if you're anxious. Three cycles minimum. Stay calm, not amped."
+                },
+                {
+                  "label": "Pre-Start (last 30 minutes)",
+                  "content": "Review your performance statements mentally. Have them ready. Check your process goals (first aid station, first hour, first big climb\u2014not the finish line yet)."
+                },
+                {
+                  "label": "During the Race",
+                  "content": "Stay in process focus. Next aid station. Next climb. Next hour. The race happens in segments, not all at once. Use performance statements when suffering increases."
+                },
+                {
+                  "label": "Crisis Moments",
+                  "content": "When things go wrong (and they will), follow this sequence: (1) Breathing\u20143-5 cycles of 6-2-7. (2) Statement\u2014your most powerful performance statement. (3) Action\u2014the smallest possible next step (just pedal 100 more meters, then reassess). This breaks the spiral of panic."
+                }
+              ]
+            },
+            {
+              "type": "knowledge_check",
+              "question": "You're at the 65% mark of a long gravel race. Your group just rode away from you. Your legs ache and the finish feels impossibly far. What's the correct sequence?",
+              "options": [
+                {"text": "Chase the group immediately before the gap grows", "correct": false},
+                {"text": "6-2-7 breathing \u2192 performance statement \u2192 find sustainable pace \u2192 look for new group", "correct": true},
+                {"text": "Stop at the next aid station and reassess whether to continue", "correct": false}
+              ],
+              "explanation": "This is the Dark Patch. It's predictable and expected. Chasing a group in a panic burns matches you don't have. Stopping breaks momentum. The breathing sequence calms your nervous system, the performance statement redirects your focus, and finding a sustainable pace keeps you moving forward. You'll pass some of those riders later when they fade."
+            }
+          ]
+        },
+        {
+          "id": "ch6-bottom-line",
+          "title": "The Bottom Line",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Mental training and race tactics aren't separate skills\u2014they're the same skill applied at different scales. The breathing technique that calms pre-race anxiety is the same one that resets you after a flat tire at mile 100. The performance statements you practice in training are the ones that keep you pedaling through the dark patch.\n\n**The mental tools:** 6-2-7 breathing, performance statements (technical, pain, process), visualization highlight reel. Practice them during training so they're automatic during racing.\n\n**The tactical framework:** Survive phase one, execute phase two, capitalize in phase three. Recognize the predictable psychological landmarks. Follow the decision tree when things go wrong.\n\n**The bottom line:** The race isn't won by the strongest rider. It's won by the rider who best manages their body and their brain across the entire distance. Train both."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "number": 7,
       "id": "race-week",
       "title": "Race Week Protocol",
       "subtitle": "Or: Don't Screw It Up Now",
       "gated": true,
-      "cta_after": "training_plans",
+      "cta_after": null,
       "sections": [
         {
           "id": "ch7-intro",
@@ -1178,7 +1278,7 @@
             },
             {
               "type": "prose",
-              "content": "You finished the race. You followed the plan. You learned something about yourself and about racing bikes on dirt.\n\nThat was one race. One training block. One season.\n\nThe athletes who get fast and stay fast are the ones who show up consistently, year after year, refining their approach and building on what works.\n\nYou now have the framework: how to choose a race, how to select a training plan, how to understand training fundamentals, how to execute workouts, how to fuel, how to prepare for race week, how to race, and how to recover.\n\nThe rest is execution.\n\nGo ride your bike. Train smart. Race hard. Recover well.\n\nAnd when you're ready, do it again.\n\nThat's how you become a gravel racer."
+              "content": "You finished the race. You followed the plan. You learned something about yourself and about racing bikes on dirt.\n\nThat was one race. One training block. One season.\n\nThe athletes who get fast and stay fast are the ones who show up consistently, year after year, refining their approach and building on what works.\n\nYou now have the framework: how to choose a race, how to understand training fundamentals, how to execute workouts, how to fuel, how to prepare for race week, how to race, and how to recover.\n\nThe rest is execution.\n\nGo ride your bike. Train smart. Race hard. Recover well.\n\nAnd when you're ready, do it again.\n\nThat's how you become a gravel racer."
             }
           ]
         }

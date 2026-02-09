@@ -225,9 +225,9 @@ def build_prestige_override() -> str:
 def build_faq() -> str:
     faqs = [
         ("Who rates the races?",
-         "All ratings are produced by the Gravel God editorial team. We research each race using official sources, rider reports, community forums, and our own race experience. There is no algorithmic or AI-generated scoring &mdash; every dimension is scored and explained by a human editor."),
+         "All ratings are produced by our editorial team. We research each race using official sources, rider reports, community forums, and our own race experience. There is no algorithmic or AI-generated scoring &mdash; every dimension is scored and explained by a human editor."),
         ("Can race organizers influence their score?",
-         "No. Gravel God does not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Ratings are editorially independent. We may update scores when new information is available (e.g., a race significantly improves its organization)."),
+         "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Ratings are editorially independent. We may update scores when new information is available (e.g., a race significantly improves its organization)."),
         ("How often are scores updated?",
          "We review scores annually before each race season and make ad-hoc updates when significant changes occur (new ownership, course redesign, series affiliation changes). All changes are logged in the race profile."),
         ("Why isn&#39;t my favorite race rated higher?",
@@ -261,7 +261,7 @@ def build_faq() -> str:
 
 def build_footer() -> str:
     return '''<div class="gg-footer">
-    <p class="gg-footer-disclaimer">This methodology page describes the scoring system used by Gravel God. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. This site is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body.</p>
+    <p class="gg-footer-disclaimer">This methodology page describes our scoring system. All ratings, opinions, and assessments represent our editorial views based on publicly available information and community research. We are not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body.</p>
   </div>'''
 
 

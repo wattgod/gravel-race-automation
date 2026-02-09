@@ -488,6 +488,50 @@
     }
     #gg-race-search button.gg-clear-all:hover { background: #59473c !important; color: #fff !important; border-color: #59473c !important; }
 
+    /* ── Widget footer ── */
+    #gg-race-search .gg-widget-footer {
+      margin-top: 32px;
+      padding: 16px 20px;
+      border: 2px solid #000;
+      background: #59473c !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #gg-race-search .gg-widget-footer-brand {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c4b5ab !important;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    #gg-race-search .gg-widget-footer a {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d4c5b9 !important;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    #gg-race-search .gg-widget-footer a:hover {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
+
+    /* ── Methodology link in results header ── */
+    #gg-race-search a.gg-methodology-link {
+      font-size: 11px;
+      color: #8c7568 !important;
+      text-decoration: none !important;
+      letter-spacing: 0.5px;
+    }
+    #gg-race-search a.gg-methodology-link:hover {
+      color: #59473c !important;
+      text-decoration: underline !important;
+    }
+
     /* ── No results ── */
     #gg-race-search .gg-no-results {
       text-align: center;
@@ -634,7 +678,8 @@
 
   <div class="gg-results-header">
     <span id="gg-count"></span>
-    <div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <a href="/race/methodology/" class="gg-methodology-link">How we rate &rsaquo;</a>
       <button class="gg-sort-btn active" data-sort="score">Score</button>
       <button class="gg-sort-btn" data-sort="name">Name</button>
       <button class="gg-sort-btn" data-sort="distance">Distance</button>
@@ -642,6 +687,11 @@
   </div>
 
   <div id="gg-tier-container"></div>
+
+  <div class="gg-widget-footer">
+    <span class="gg-widget-footer-brand">Gravel God</span>
+    <a href="/race/methodology/">How We Rate Races</a>
+  </div>
 
   <script>
     (function() {

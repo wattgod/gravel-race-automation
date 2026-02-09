@@ -35,6 +35,46 @@
           ]
         },
         {
+          "id": "ch1-rider-categories",
+          "title": "The Four Rider Categories",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Before choosing a race or a training plan, figure out what you actually want from this experience. These four categories aren't judgments\u2014they're honest descriptions of how much time and ambition you're bringing to the table."
+            },
+            {
+              "type": "tabs",
+              "tabs": [
+                {
+                  "label": "Ayahuasca",
+                  "title": "The Ayahuasca (0-5 hrs/week)",
+                  "content": "Instead of therapy, Ayahuascas use gravel cycling as a tool to cope by inducing a borderline psychedelic experience through physical exertion. They accomplish this by signing up for something so insane that a psychic break is all but guaranteed, don't train for an event at all, or both.\n\n**Training reality:** 0-5 hours per week. You're underprepared by conventional standards and you know it. Plans for this category are damage control\u2014getting you to the finish line when time isn't on your side."
+                },
+                {
+                  "label": "Finisher",
+                  "title": "The Finisher (5-12 hrs/week)",
+                  "content": "Finishers are usually inspired by the marketing campaigns of Big Gravel events like [Unbound 200](/race/unbound-gravel/) or [Leadville 100](/race/leadville-trail-100-mtb/). Their goal is simple: finish the damn thing. Some want to maximize fun without pushing too hard. Others want to finish strong and proud, not just survive.\n\n**Training reality:** 5-12 hours per week. You're building enough base to finish strong. You'll train with purpose but you're not giving up your weekends or social life entirely."
+                },
+                {
+                  "label": "Competitor",
+                  "title": "The Competitor (12-18 hrs/week)",
+                  "content": "Competitors are finishers who got bored after finishing, and instead of quitting like someone sane, they decided to do the events again\u2014faster. The category ranges from individuals who just want to beat their own past times to those who want to win but lack some combination of training time, talent, or skill.\n\n**Training reality:** 12-18 hours per week. You're training seriously. This volume typically places you in the top third of the field. You're not just participating\u2014you're competing."
+                },
+                {
+                  "label": "Podium",
+                  "title": "The Podium (18-25+ hrs/week)",
+                  "content": "These riders are fast enough to win or stand on the podium. Unless this is a low-key event with few sign-ups, performing at this level requires preparation that all the other categories can't even imagine. For all but the most physically gifted, being in the podium category is an all-consuming part-time job.\n\n**Training reality:** 18-25+ hours per week. At Tier 1 races with international fields, this is what it takes to compete at the front. This is not recreational cycling\u2014this is serious training."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "highlight",
+              "content": "Most readers are Finishers or Competitors. If you were a Podium, you wouldn't be reading an introductory guide. If you were an Ayahuasca, you wouldn't want to decrease the chances of having an out-of-body experience by preparing better."
+            }
+          ]
+        },
+        {
           "id": "ch1-gear",
           "title": "The Gear Reality Check",
           "blocks": [
@@ -55,6 +95,27 @@
                 ["Saddle", "Whatever you've been training on", "Don't change saddles before a race", "Trendy cutout designs you haven't tested"],
                 ["Pedals", "Clipless or flats you're comfortable with", "Use what you've been riding", "Switching from flats to clipless 2 weeks before race day"]
               ]
+            },
+            {
+              "type": "data_table",
+              "caption": "Realistic First-Season Setup Costs",
+              "headers": ["Item", "Normal Retail (USD)", "Deal-Hunter / Used (USD)", "Notes"],
+              "rows": [
+                ["Gravel bike (aluminum, 1x, disc)", "~$2,000", "~$1,300", "Buy fit + function first. Used alloy with decent wheels is fine."],
+                ["Helmet (modern, MIPS)", "~$90", "~$60", "Do NOT cheap out on head protection."],
+                ["Shoes + pedals", "~$250", "~$160", "SPD pedals + mid-tier XC shoes last for years."],
+                ["Bib shorts + jersey", "~$220", "~$140", "One good bib > three trash ones."],
+                ["Gloves, socks, cap, glasses", "~$140", "~$80", "Basic protection + comfort."],
+                ["Basic tools, spares, bags", "~$120", "~$80", "Saddle bag, tube, CO\u2082/pump, plugs, multitool, tire levers."],
+                ["Head unit (GPS)", "~$280", "~$180", "Used Wahoo / Garmin is fine. Needs mapping + power support."],
+                ["Power meter (pedal or crank)", "~$400", "~$250", "Single-sided pedal PM is a great entry point."],
+                ["TOTAL", "~$3,500", "~$2,250", "Deals + patience can cut this further."]
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "quote",
+              "content": "If money is tight, spend in this order: (1) Fit + function on the bike, (2) decent bibs and a modern helmet, (3) head unit + budget power meter. Hunt used on local classifieds, FB groups, Pro's Closet, or friends \"upgrading.\" Last year's head units and single-sided power meters are stupid-good value."
             },
             {
               "type": "accordion",
@@ -117,6 +178,16 @@
             {
               "type": "prose",
               "content": "Get fit first. Get good at suffering. Get comfortable riding on unpredictable surfaces for hours. Then worry about whether your crankset saves 40 grams."
+            },
+            {
+              "type": "knowledge_check",
+              "question": "A rider upgrades from an aluminum bike to a $12,000 carbon setup but doesn't change their training. What's the most likely outcome?",
+              "options": [
+                {"text": "Significant time savings from the lighter, more aerodynamic bike", "correct": false},
+                {"text": "Marginal improvement (~0.5%) because equipment determines very little of the result", "correct": true},
+                {"text": "Slower times because carbon bikes are harder to handle on gravel", "correct": false}
+              ],
+              "explanation": "Equipment determines roughly 0.5% of your result. Fitness (70%) and pacing (20%) dwarf equipment gains. A strong rider on a mediocre bike will humiliate a mediocre rider on a $12k spaceship."
             }
           ]
         },
@@ -136,7 +207,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Gravel racing is accessible. You don't need to be a pro cyclist. You don't need a perfect bike. You don't need special genetics.\n\nYou need:\n\n- A bike that fits and doesn't break\n- The fitness to ride it for hours\n- The discipline to train consistently\n- The sense to fuel properly and pace conservatively\n\nEverything else is optimization.\n\nIf you have those four things, you can finish a gravel race. Whether you finish in 6 hours or 12 hours is between you and your training plan.\n\nThat's what the rest of this guide is for."
+              "content": "Gravel racing is accessible. You don't need to be a pro cyclist. You don't need a perfect bike. You don't need special genetics.\n\nYou need:\n\n- A bike that fits and doesn't break\n- The fitness to ride it for hours\n- The discipline to train consistently\n- The sense to fuel properly and pace conservatively\n\nEverything else is optimization.\n\nIf you have those four things, you can finish a gravel race. Whether you finish in 6 hours or 12 hours is between you and your training plan.\n\nUp next: [Chapter 2](#race-selection) helps you choose the right race using the Gravel God scoring system. Then [Chapter 3](#training-fundamentals) breaks down how training actually works\u2014zones, phases, and the adaptation cycle that drives all fitness gains."
             }
           ]
         }
@@ -216,24 +287,39 @@
                 {
                   "label": "Tier 1 \u2014 Elite",
                   "title": "Tier 1 \u2014 Elite (Score 80+)",
-                  "content": "The marquee events. High difficulty, high prestige, national or international competition. These races define the gravel calendar \u2014 the ones people plan their season around, the ones with waitlists and lottery systems. Finishing a Tier 1 event means something.\n\nIf you're targeting a Tier 1 race, you need specific, structured preparation. General fitness won't cut it.\n\n**Examples:** [Unbound Gravel 200](/race/unbound-gravel/), [SBT GRVL](/race/sbt-grvl/), [Badlands](/race/badlands/)"
+                  "content": "The marquee events. High difficulty, high prestige, national or international competition. These races define the gravel calendar \u2014 the ones people plan their season around, the ones with waitlists and lottery systems. Finishing a Tier 1 event means something.\n\nIf you're targeting a Tier 1 race, you need specific, structured preparation. General fitness won't cut it.\n\n**When to race them:** As event two or three, not as a first gravel race. You want experience and fitness before throwing down thousands of dollars and months of training for one of these. Build up through smaller races first, then tackle the monuments when you know what you're doing.\n\n**Examples:** [Unbound Gravel 200](/race/unbound-gravel/), [SBT GRVL](/race/sbt-grvl/), [Badlands](/race/badlands/)"
                 },
                 {
                   "label": "Tier 2 \u2014 Contender",
                   "title": "Tier 2 \u2014 Contender (Score 60-79)",
-                  "content": "Serious races with strong regional or national followings. Well-organized, challenging courses, meaningful competition at the front. Not quite iconic but respected. You'll see fast riders, solid production value, and courses that demand proper preparation.\n\nTier 2 races reward training but don't require elite-level specificity. A good general endurance plan with race-specific intensity will get you there.\n\n**Examples:** [Barry-Roubaix](/race/barry-roubaix/), [Belgian Waffle Ride Utah](/race/bwr-utah/), [Gravel Locos](/race/gravel-locos/)"
+                  "content": "Serious races with strong regional or national followings. Well-organized, challenging courses, meaningful competition at the front. Not quite iconic but respected. You'll see fast riders, solid production value, and courses that demand proper preparation.\n\nTier 2 races reward training but don't require elite-level specificity. A good general endurance plan with race-specific intensity will get you there.\n\n**When to race them:** Sweet spot for ambitious first-timers with an endurance background and serious competitors who want quality without the full circus.\n\n**Examples:** [Barry-Roubaix](/race/barry-roubaix/), [Belgian Waffle Ride Utah](/race/bwr-utah/), [Gravel Locos](/race/gravel-locos/)"
                 },
                 {
                   "label": "Tier 3 \u2014 Solid",
                   "title": "Tier 3 \u2014 Solid (Score 45-59)",
-                  "content": "Good races that are well-executed and locally popular but don't draw national fields. Still challenging, still worth training for, just without the prestige or hype. These are the backbone of the gravel calendar \u2014 consistent, reliable, fun.\n\nGreat for building race experience. You can show up with solid general fitness and have a good day.\n\n**Examples:** [Croatan Buck Fifty](/race/croatan-buck-fifty/), [Iron Horse Bicycle Classic](/race/iron-horse-bicycle-classic/)"
+                  "content": "Good races that are well-executed and locally popular but don't draw national fields. Still challenging, still worth training for, just without the prestige or hype. These are the backbone of the gravel calendar \u2014 consistent, reliable, fun.\n\nGreat for building race experience. You can show up with solid general fitness and have a good day.\n\n**When to race them:** Ideal first gravel race for most people. Lower stakes, easier logistics, still a real challenge.\n\n**Examples:** [Croatan Buck Fifty](/race/croatan-buck-fifty/), [Iron Horse Bicycle Classic](/race/iron-horse-bicycle-classic/)"
                 },
                 {
                   "label": "Tier 4 \u2014 Roster",
                   "title": "Tier 4 \u2014 Roster (Score Under 45)",
-                  "content": "Beginner-friendly, less physically demanding, or primarily social events. Nothing wrong with these \u2014 they're entry points and fun adventures. Great for first-timers, social riders, or anyone who just wants to be outside on bikes without the pressure.\n\nNo specific training plan needed. Just ride your bike regularly and show up.\n\n**Examples:** [Albia Holy Cow](/race/albia-holy-cow/), [Cedar Blitz](/race/cedar-blitz/)"
+                  "content": "Beginner-friendly, less physically demanding, or primarily social events. Nothing wrong with these \u2014 they're entry points and fun adventures. Great for first-timers, social riders, or anyone who just wants to be outside on bikes without the pressure.\n\nNo specific training plan needed. Just ride your bike regularly and show up.\n\n**When to race them:** Great if you want to dip a toe in without the full commitment. Also great for recovery races or just enjoying bikes with friends in a semi-structured format.\n\n**Examples:** [Albia Holy Cow](/race/albia-holy-cow/), [Cedar Blitz](/race/cedar-blitz/)"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "id": "ch2-tier-check",
+          "blocks": [
+            {
+              "type": "knowledge_check",
+              "question": "A first-time gravel racer with a solid endurance background (runs marathons, rides centuries) wants to pick their first event. Which tier range is the best starting point?",
+              "options": [
+                {"text": "Tier 1 \u2014 go big or go home, the experience will be worth it", "correct": false},
+                {"text": "Tier 2-3 \u2014 serious enough to challenge you, without the full logistical and financial commitment of a monument", "correct": true},
+                {"text": "Tier 4 only \u2014 always start at the easiest level regardless of background", "correct": false}
+              ],
+              "explanation": "Tier 2-3 events offer meaningful challenge with more forgiving logistics. With an endurance background, you have the base fitness to handle a real gravel race. Save Tier 1 for when you've got a season of gravel-specific experience. Tier 4 might be too easy and not representative of what gravel racing actually demands."
             }
           ]
         },
@@ -261,7 +347,7 @@
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/)."
+              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works\u2014the adaptation cycle, zones, and periodization that will get you to the start line ready."
             }
           ]
         }
@@ -280,7 +366,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Before you start executing workouts, you need to understand how training works at a mechanical level.\n\nNot theory for theory's sake\u2014practical understanding that changes how you approach every session, how you structure your week, and how you respond when your body doesn't cooperate.\n\nThis chapter builds from first principles: the adaptation cycle that drives all fitness gains, the zones that define intensity, the variables you manipulate to create training stress, the phases that organize your 12 weeks, and the philosophical approaches that match different athlete types.\n\nStart here. Everything else makes more sense after this."
+              "content": "Before you start executing workouts, you need to understand how training works at a mechanical level.\n\nNot theory for theory's sake\u2014practical understanding that changes how you approach every session, how you structure your week, and how you respond when your body doesn't cooperate.\n\nThis chapter builds from first principles: the adaptation cycle that drives all fitness gains, the zones that define intensity, the variables you manipulate to create training stress, the phases that organize your 12 weeks, and the philosophical approaches that match different athlete types.\n\nStart here. [Chapter 4](#workout-execution) covers how to actually execute these workouts, and [Chapter 5](#nutrition-fueling) covers the fuel system that makes it all work."
             }
           ]
         },
@@ -355,6 +441,19 @@
                 ["Z5", "VO2max", "106-120%", "92-100%", "9", "Very hard, heavy breathing. Near maximum. 2-8 minute efforts."],
                 ["Z6", "Anaerobic Capacity", "121-150%", "N/A*", "10", "Sharp, explosive efforts\u201430 seconds to 3 minutes max. All-out."],
                 ["Z7", "Neuromuscular Power", ">150%", "N/A*", "10", "All-out sprints. Pure explosive power. Lasts only seconds."]
+              ]
+            },
+            {
+              "type": "flashcard",
+              "title": "Zone Definitions \u2014 Quick Reference",
+              "cards": [
+                {"front": "Zone 1", "back": "Active Recovery: <55% FTP. Very easy, gentle spinning. Feels like nothing."},
+                {"front": "Zone 2", "back": "Endurance: 56-75% FTP. All-day pace. Can chat freely. Where you spend MOST of training time."},
+                {"front": "Zone 3", "back": "Tempo: 76-87% FTP. Comfortably hard. Breathing deeper but rhythmic. Sustainable for 1-2 hours."},
+                {"front": "G Spot", "back": "Gravel Race Pace: 88-92% FTP. Uncomfortably sustainable. Where you'll spend most of a gravel race."},
+                {"front": "Zone 4", "back": "Lactate Threshold: 93-105% FTP. Hard, controlled effort. 10-30 minute blocks."},
+                {"front": "Zone 5", "back": "VO2max: 106-120% FTP. Very hard, heavy breathing. 2-8 minute efforts."},
+                {"front": "Zone 6-7", "back": "Anaerobic / Neuromuscular: 121%+ FTP. Explosive efforts lasting seconds to 3 minutes. All-out."}
               ]
             },
             {
@@ -480,7 +579,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "You've got a plan. You understand the fundamentals. You know what the zones mean.\n\nNone of that matters if you can't execute the workouts correctly.\n\nMost people fail training plans not because the programming is bad but because they don't know how to translate \"3\u00d715 min @ 95% FTP\" into an actual ride that builds fitness instead of just accumulating fatigue.\n\nThis chapter covers execution: how to do different workout types, what to do when things go wrong, how to adjust on the fly, and the recovery protocols that make tomorrow's workout possible."
+              "content": "You've got a plan. You understand the fundamentals from [Chapter 3](#training-fundamentals). You know what the zones mean.\n\nNone of that matters if you can't execute the workouts correctly.\n\nMost people fail training plans not because the programming is bad but because they don't know how to translate \"3\u00d715 min @ 95% FTP\" into an actual ride that builds fitness instead of just accumulating fatigue.\n\nThis chapter covers execution: how to do different workout types, what to do when things go wrong, how to adjust on the fly, and the recovery protocols that make tomorrow's workout possible."
             }
           ]
         },
@@ -583,6 +682,37 @@
               "type": "callout",
               "style": "traffic_light",
               "content": "**Green light (execute as written):** Good sleep, resting HR normal, feeling motivated, body feels fresh.\n\n**Yellow light (reduce intensity 5-10%):** Sleep was okay but not great, slight fatigue, moderate motivation.\n\n**Red light (swap intensity for easy ride or rest):** Multiple nights of poor sleep, elevated resting HR, body feels broken, high life stress.\n\n**The rule:** Recovery is not weakness. Training when you're buried just makes you more buried."
+            },
+            {
+              "type": "scenario",
+              "prompt": "It's Tuesday. Your plan calls for 3\u00d715 min threshold intervals. You slept 5 hours last night, work was brutal, and your legs feel like concrete. Your resting HR is 8 bpm above normal. What do you do?",
+              "options": [
+                {
+                  "label": "Execute the workout as written \u2014 consistency matters",
+                  "result": "Bad call. You're piling fatigue on top of fatigue. The workout quality will be terrible, recovery will be compromised, and Wednesday's session is now ruined too. Consistency matters, but not at the cost of digging a hole.",
+                  "best": false
+                },
+                {
+                  "label": "Swap to an easy Z2 ride for 60 minutes",
+                  "result": "Good call. Multiple red-light signals (poor sleep, elevated resting HR, high stress) mean your body needs recovery, not more stress. An easy spin keeps blood flowing without adding training load. Tomorrow you might feel better and can execute then.",
+                  "best": true
+                },
+                {
+                  "label": "Do the intervals but at G Spot intensity instead of threshold",
+                  "result": "Better than full threshold, but still questionable. With that many red-light signals, even moderate intensity might dig a deeper hole. The safer call is full rest or very easy riding. Save the intensity for a green-light day.",
+                  "best": false
+                }
+              ]
+            },
+            {
+              "type": "knowledge_check",
+              "question": "During a threshold interval set, your power on interval 3 drops to 88% of target despite maximum effort. What should you do?",
+              "options": [
+                {"text": "Push harder and finish the set \u2014 mental toughness matters", "correct": false},
+                {"text": "Stop the set \u2014 power dropped >10%, quality beats quantity", "correct": true},
+                {"text": "Add an extra interval at the end to make up for the weak one", "correct": false}
+              ],
+              "explanation": "When power drops more than 10% from target, you're accumulating junk volume, not building fitness. Four quality intervals at target power beats six degraded intervals. Stop, cool down, and recover for the next session. This is discipline, not quitting."
             }
           ]
         },
@@ -597,7 +727,7 @@
             {
               "type": "callout",
               "style": "quote",
-              "content": "Training gives you permission to recover well, not permission to trash recovery."
+              "content": "Training gives you permission to recover well, not permission to trash recovery.\n\nFor the fuel side of recovery and performance, see [Chapter 5: Nutrition & Fueling](#nutrition-fueling)."
             }
           ]
         }
@@ -616,7 +746,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "You can have perfect training, a dialed bike, and excellent pacing strategy. None of it matters if you run out of fuel halfway through your race.\n\nNutrition is the third most important variable after fitness and pacing. It determines 8% of your race result. That's enough to separate finishing strong from crawling to the line."
+              "content": "You can have perfect training, a dialed bike, and excellent pacing strategy. None of it matters if you run out of fuel halfway through your race.\n\nNutrition is the third most important variable after fitness and pacing (see the [hierarchy of speed](#what-is-gravel-racing)). It determines 8% of your race result. That's enough to separate finishing strong from crawling to the line.\n\nHere's the depressing truth: many athletes never reach their potential despite doing everything right in training except for one massive detail\u2014their nutrition sucks. Maybe they're underfueled (common) or afraid of carbs (common) or their timing is off (very common). Whatever the issue, most athletes seldom eat to support their training in a way that maximizes execution and adaptation."
             }
           ]
         },
@@ -732,12 +862,101 @@
           ]
         },
         {
+          "id": "ch5-common-mistakes",
+          "title": "The Four Race Nutrition Failures",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Most race nutrition failures fall into four predictable categories. Recognizing them before race day is the difference between finishing strong and crawling to the line."
+            },
+            {
+              "type": "accordion",
+              "items": [
+                {
+                  "title": "The Optimist",
+                  "content": "\"Aid stations will have what I need.\" They won't, or they'll run out. The first 500 riders cleaned out the bananas and Coke at aid station 3. You're rider 1,200. Assume aid stations have nothing you need. Carry enough fuel between stations even if they have everything."
+                },
+                {
+                  "title": "The Minimalist",
+                  "content": "\"I'll just eat when I'm hungry.\" By the time you're hungry, you're already glycogen-depleted. Hunger is a late-stage bonk signal. Fuel by the clock, not by feel. Set a timer for every 20 minutes. Eat something every time it goes off. No negotiation."
+                },
+                {
+                  "title": "The Experimenter",
+                  "content": "\"Let me try this new gel flavor on race day.\" Your gut under race stress is not the time to experiment. That mystery gel from the aid station? Your stomach will rebel at mile 60. Race with exactly what you've trained with. Nothing new on race day. Ever."
+                },
+                {
+                  "title": "The Denier",
+                  "content": "\"I don't want to carry that much food.\" Math check: a 100-mile race takes 6-8 hours. At 75g carbs/hour, that's 450-600g total\u2014roughly 18-24 gels or equivalent. Yes, that much. Most people bring half that and wonder why they bonk at mile 80."
+                }
+              ]
+            },
+            {
+              "type": "flashcard",
+              "title": "Fueling Targets \u2014 Quick Reference",
+              "cards": [
+                {"front": "Pre-workout (2-3 hrs before)", "back": "50-100g carbs. Low fat, low fiber. Familiar foods only."},
+                {"front": "Short intensity (<90 min)", "back": "One gel before interval set. Pre-workout meal sufficient."},
+                {"front": "Long easy ride (90+ min)", "back": "60g carbs/hour. Real food works great\u2014PB&J, bananas, bars."},
+                {"front": "Long hard ride (90+ min)", "back": "90g carbs/hour. Mix of gels, bars, and drink mix."},
+                {"front": "Race day", "back": "70-80g carbs/hour. Start at 30-45 min. Set a timer. No new foods."},
+                {"front": "Sodium target", "back": "500-1000mg/hour during long efforts. More in heat. Prevents cramping."},
+                {"front": "Post-workout window", "back": "20-30g protein + 60-120g carbs within 30 min. Real food within 2 hours."}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch5-veteran",
+          "title": "Veteran Nutrition Insights",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "These are the lessons you learn after bonking a few times. Learn them here instead."
+            },
+            {
+              "type": "process_list",
+              "items": [
+                {
+                  "label": "You can't out-train bad nutrition",
+                  "detail": "Fancy intervals, perfect periodization, optimal recovery\u2014all meaningless if you're systematically underfueling. If your training is inconsistent or you're constantly fatigued, audit your nutrition before blaming the plan."
+                },
+                {
+                  "label": "The timer rule prevents 90% of bonking",
+                  "detail": "Set a timer for every 20 minutes during long rides. When it goes off, eat something. No negotiation. This single habit prevents the vast majority of bonking incidents."
+                },
+                {
+                  "label": "Flavor fatigue is real",
+                  "detail": "Eating the same gel flavor for 6 hours will make you gag. Rotate through 3-4 different flavors and include real food (rice cakes, PB&J) as a palate cleanser."
+                },
+                {
+                  "label": "Sodium saves races",
+                  "detail": "More races are lost to electrolyte imbalance than to lack of fitness. Cramping, nausea, \"feeling off\"\u2014usually sodium deficit. When in doubt, take a salt tab. Worst case, you pee out the extra."
+                },
+                {
+                  "label": "Race pace fueling is different",
+                  "detail": "What works at Z2 endurance pace might not work at race pace. Your gut behaves differently under stress. Do at least 2-3 race simulation rides where you practice fueling at race intensity."
+                }
+              ]
+            },
+            {
+              "type": "knowledge_check",
+              "question": "You're 4 hours into a 7-hour gravel race. You realize you've only consumed about 40g carbs/hour instead of your planned 75g. You're starting to feel foggy. What's the best response?",
+              "options": [
+                {"text": "Double your intake immediately to make up the deficit", "correct": false},
+                {"text": "Drop to Z1-Z2, consume 2-3 gels with water over the next 20 minutes, then gradually increase pace while maintaining proper fueling rate", "correct": true},
+                {"text": "Push through \u2014 you've made it this far, the deficit isn't that bad", "correct": false}
+              ],
+              "explanation": "Mental fog at hour 4 is early-stage bonk. You can't make up a massive deficit instantly (your gut can only absorb so much), but you can catch it before it becomes catastrophic. Slow down to reduce glycogen burn, get calories in fast, then resume at proper fueling rate. Doubling intake risks GI distress. Pushing through guarantees a full bonk by hour 5."
+            }
+          ]
+        },
+        {
           "id": "ch5-bottom-line",
           "title": "The Bottom Line",
           "blocks": [
             {
               "type": "prose",
-              "content": "Nutrition determines 8% of your race result. That's significant but not worth obsessing over.\n\n**Daily nutrition:** Match carbs to training load. Get adequate protein. Don't fear fat. Eat real food.\n\n**Supplements:** Vitamin D if deficient, creatine for high-intensity work, caffeine before hard sessions. Everything else is optional or snake oil.\n\n**During training:** Practice eating 60-80g carbs per hour on long rides. Train your gut like you train your legs.\n\n**Race day:** Eat a familiar pre-race meal 3-4 hours before. Start fueling at 30-45 minutes. Hit 70g carbs per hour. Set a timer.\n\nWhen your stomach rebels, back off intensity for 10 minutes and switch to liquids. Don't stop eating entirely.\n\nWeight management happens in the off-season, not during training blocks. Chase performance, not scale numbers."
+              "content": "Nutrition determines 8% of your race result. That's significant but not worth obsessing over.\n\n**Daily nutrition:** Match carbs to training load. Get adequate protein. Don't fear fat. Eat real food. Research from sports nutrition scientist [Asker Jeukendrup](https://www.mysportscience.com/) consistently shows that training the gut to tolerate higher carb intake translates directly to race performance.\n\n**Supplements:** Vitamin D if deficient, creatine for high-intensity work, caffeine before hard sessions. Everything else is optional or snake oil.\n\n**During training:** Practice eating 60-80g carbs per hour on long rides. Train your gut like you train your legs.\n\n**Race day:** Eat a familiar pre-race meal 3-4 hours before. Start fueling at 30-45 minutes. Hit 70g carbs per hour. Set a timer.\n\nWhen your stomach rebels, back off intensity for 10 minutes and switch to liquids. Don't stop eating entirely.\n\nWeight management happens in the off-season, not during training blocks. Chase performance, not scale numbers.\n\nUp next: [Chapter 6](#mental-training-race-tactics) covers the mental tools and tactical framework you need when the race gets hard\u2014because it will."
             }
           ]
         }
@@ -756,7 +975,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Physical training builds the engine. Mental training determines whether you use that engine when things get hard.\n\nAnd in any race measured in hours, things will get hard. Your body will hurt. Your motivation will waver. You'll wonder why you signed up for this. These moments are predictable.\n\nThe techniques in this chapter aren't abstract psychology\u2014they're practical tools that work during racing. But like any skill, they require practice. You wouldn't show up to a race without training your legs. Don't show up without training your head.\n\nThis chapter covers two connected topics: the mental tools you need, and the tactical framework for deploying them across a long gravel race."
+              "content": "Physical training builds the engine (see [Chapter 3](#training-fundamentals) and [Chapter 4](#workout-execution)). Mental training determines whether you use that engine when things get hard.\n\nAnd in any race measured in hours, things will get hard. Your body will hurt. Your motivation will waver. You'll wonder why you signed up for this. These moments are predictable.\n\nThe techniques in this chapter aren't abstract psychology\u2014they're practical tools that work during racing. But like any skill, they require practice. You wouldn't show up to a race without training your legs. Don't show up without training your head.\n\nThis chapter covers two connected topics: the mental tools you need, and the tactical framework for deploying them across a long gravel race."
             }
           ]
         },
@@ -940,6 +1159,37 @@
           ]
         },
         {
+          "id": "ch6-group-scenario",
+          "title": "Group Dynamics",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Drafting in a group saves 20-30% energy on flats. But the wrong group can destroy your race. Here's how to think about it."
+            },
+            {
+              "type": "scenario",
+              "prompt": "You're 30 miles into a 100-mile race. Your group is surging constantly \u2014 the pace spikes to 110% FTP on every small rise, then drops to 70% in between. You feel good now, but this pattern is burning matches. What do you do?",
+              "options": [
+                {
+                  "label": "Stay with the group \u2014 the draft is worth the surges",
+                  "result": "Risky. Repeated surges above threshold drain glycogen stores far faster than steady-state riding. The 20-30% draft savings are negated if you're going anaerobic every 5 minutes. You'll pay for this at mile 70.",
+                  "best": false
+                },
+                {
+                  "label": "Let the group go and ride your own steady pace",
+                  "result": "Smart play. Riding at YOUR sustainable pace (G Spot range, 88-92% FTP) preserves glycogen and keeps fueling manageable. You'll see many of these riders again when they fade in the final third. Solo is fine \u2014 focus on YOUR race.",
+                  "best": true
+                },
+                {
+                  "label": "Attack to break up the surging and force a steadier pace",
+                  "result": "Worst option. Attacking costs the most energy of all and there's no guarantee the group follows your pace. Now you're solo AND you've burned a big match. Save your matches for the final 30%.",
+                  "best": false
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "ch6-decision-tree",
           "title": "In-Race Decision Tree",
           "blocks": [
@@ -1059,7 +1309,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Mental training and race tactics aren't separate skills\u2014they're the same skill applied at different scales. The breathing technique that calms pre-race anxiety is the same one that resets you after a flat tire at mile 100. The performance statements you practice in training are the ones that keep you pedaling through the dark patch.\n\n**The mental tools:** 6-2-7 breathing, performance statements (technical, pain, process), visualization highlight reel. Practice them during training so they're automatic during racing.\n\n**The tactical framework:** Survive phase one, execute phase two, capitalize in phase three. Recognize the predictable psychological landmarks. Follow the decision tree when things go wrong.\n\n**The bottom line:** The race isn't won by the strongest rider. It's won by the rider who best manages their body and their brain across the entire distance. Train both."
+              "content": "Mental training and race tactics aren't separate skills\u2014they're the same skill applied at different scales. The breathing technique that calms pre-race anxiety is the same one that resets you after a flat tire at mile 100. The performance statements you practice in training are the ones that keep you pedaling through the dark patch.\n\n**The mental tools:** 6-2-7 breathing, performance statements (technical, pain, process), visualization highlight reel. Practice them during training so they're automatic during racing.\n\n**The tactical framework:** Survive phase one, execute phase two, capitalize in phase three. Recognize the predictable psychological landmarks. Follow the decision tree when things go wrong.\n\n**The bottom line:** The race isn't won by the strongest rider. It's won by the rider who best manages their body and their brain across the entire distance. Train both.\n\nNext up: [Chapter 7](#race-week) covers the final week before your race\u2014how to taper, prep equipment, and arrive at the start line fresh."
             }
           ]
         }
@@ -1158,12 +1408,91 @@
           ]
         },
         {
+          "id": "ch7-morning",
+          "title": "Race Morning Protocol",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Wake up **3 hours before race start** if possible. This gives time for coffee to do its job and morning bathroom routine to complete. Everything from here is logistics, not training."
+            },
+            {
+              "type": "timeline",
+              "title": "Race Morning Timeline",
+              "steps": [
+                {
+                  "label": "3 Hours Before Start",
+                  "content": "Wake up. Coffee if you normally drink it (not the time to change habits). Breakfast: 100-150g carbs, minimal fat, minimal fiber. Oatmeal with banana and honey, bagel with jam, or white rice with a pinch of salt."
+                },
+                {
+                  "label": "90 Minutes Before",
+                  "content": "Start sipping sports drink. Begin hydrating and topping off fuel. Apply chamois cream and sunscreen."
+                },
+                {
+                  "label": "60 Minutes Before",
+                  "content": "Arrive at start area. Check in, use porta-potty. Get your head right."
+                },
+                {
+                  "label": "45 Minutes Before",
+                  "content": "Light warmup ride: 10-15 minutes easy spinning. Wake up the legs."
+                },
+                {
+                  "label": "30 Minutes Before",
+                  "content": "Final gear check: bottles filled and secured, nutrition in pockets, tire pressure verified, drivetrain sounds good. Run through your [performance statements](#mental-training-race-tactics) mentally."
+                },
+                {
+                  "label": "20 Minutes Before",
+                  "content": "Openers near the start: 2-3 x 30 seconds at race effort with easy spinning between. Gets HR up, legs awake, reminds body what fast feels like."
+                },
+                {
+                  "label": "10 Minutes Before",
+                  "content": "Roll to start line. Find your position. Deep breath."
+                },
+                {
+                  "label": "5 Minutes Before",
+                  "content": "6-2-7 breathing if anxious. You're ready. Trust your training."
+                }
+              ]
+            },
+            {
+              "type": "scenario",
+              "prompt": "It's race morning. You slept terribly \u2014 maybe 4-5 hours of broken sleep. Pre-race nerves kept you awake. You feel groggy and anxious. What do you do?",
+              "options": [
+                {
+                  "label": "Panic \u2014 consider DNS because you're not well-rested enough",
+                  "result": "Overreaction. One night of poor sleep doesn't significantly impair performance if you've been sleeping well all week. Research consistently shows this. The sleep you banked Monday-Friday matters more than Saturday night.",
+                  "best": false
+                },
+                {
+                  "label": "Execute your morning protocol exactly as planned, trust the sleep you banked earlier in the week",
+                  "result": "Correct approach. Pre-race insomnia is universal. Your body has plenty of stored recovery from the week. Stick to your routine: eat, hydrate, warm up, execute. Adrenaline will handle the rest once the gun goes off.",
+                  "best": true
+                },
+                {
+                  "label": "Double your caffeine intake to compensate for the poor sleep",
+                  "result": "Bad idea. More caffeine than your normal amount risks GI distress, jitteriness, and an elevated heart rate before you even start. Stick with your normal amount. Race day is not the time to change habits.",
+                  "best": false
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "ch7-dont",
           "title": "What Not to Do Race Week",
           "blocks": [
             {
               "type": "prose",
-              "content": "This is where most people sabotage themselves.\n\n**Don't:** Get a massage Friday or Saturday. Try new equipment. Test your fitness. Experiment with nutrition. Drink alcohol. Stay up late packing or stressing. Cut weight.\n\n**Do:** Sleep 8-9 hours every night. Follow your taper plan exactly. Eat familiar foods. Finalize logistics early. Trust your training. Stay off social media if it makes you anxious. Review your race plan. Arrive at the start line fresh, fueled, and ready."
+              "content": "This is where most people sabotage themselves.\n\n**Don't:** Get a massage Friday or Saturday. Try new equipment. Test your fitness. Experiment with nutrition (see [Chapter 5](#nutrition-fueling) for what works). Drink alcohol. Stay up late packing or stressing. Cut weight.\n\n**Do:** Sleep 8-9 hours every night. Follow your taper plan exactly. Eat familiar foods. Finalize logistics early. Trust your training. Stay off social media if it makes you anxious. Review your race plan. Arrive at the start line fresh, fueled, and ready."
+            },
+            {
+              "type": "knowledge_check",
+              "question": "It's Thursday before your Saturday race. You feel sluggish and your legs feel heavy during an easy spin. What does this mean?",
+              "options": [
+                {"text": "You've lost fitness during the taper \u2014 do a hard workout to test yourself", "correct": false},
+                {"text": "This is completely normal during taper week \u2014 trust the process and keep resting", "correct": true},
+                {"text": "You should increase carb intake dramatically to combat the fatigue", "correct": false}
+              ],
+              "explanation": "Taper-week sluggishness is universal. Your body is adapting to the reduced training load. Glycogen stores are filling up, muscle repair is happening. The heavy-leg feeling is not lost fitness\u2014it's stored fitness waiting to be expressed. Athletes who panic and do a hard workout Thursday destroy their race. Trust the taper."
             }
           ]
         }
@@ -1268,9 +1597,149 @@
           ]
         },
         {
-          "id": "ch8-long-term",
-          "title": "The Things That Matter Long-Term",
+          "id": "ch8-off-season",
+          "title": "The Off-Season (Not Optional)",
           "blocks": [
+            {
+              "type": "prose",
+              "content": "After your last goal race of the season, you need an off-season. Not optional. Required. **4-8 weeks** depending on how long your season was."
+            },
+            {
+              "type": "timeline",
+              "title": "Off-Season Structure",
+              "steps": [
+                {
+                  "label": "Weeks 1-2: True Rest",
+                  "content": "Barely ride. Sleep a lot. Eat normally (not race volume, but don't go crazy). Decompress mentally. Your body is repairing accumulated fatigue from an entire season."
+                },
+                {
+                  "label": "Weeks 3-4: Ride for Fun",
+                  "content": "Start riding again, but purely for fun. No power meter. No HR monitor. No structured workouts. Just ride because you want to. Mountain biking, cyclocross, trail running, hiking\u2014cross-training keeps you active without the grind."
+                },
+                {
+                  "label": "Weeks 5+: Rebuild Base",
+                  "content": "Gradually increase volume. Add some structure back. Maybe light intensity. Build base for next training block. Strength training (this is the time to build real strength\u2014you can't during race season)."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "style": "quote",
+              "content": "Off-season is when your body fully recovers from accumulated fatigue of an entire season. It's also when you rebuild motivation and remember why you actually like riding bikes. Skip it and you'll start your next training block already tired, less motivated, and more prone to injury."
+            }
+          ]
+        },
+        {
+          "id": "ch8-progression",
+          "title": "Long-Term Progression: Getting Faster Year After Year",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "You're not going to peak in your first season. Or your second. Real progress takes years. Here's what multi-year progression looks like."
+            },
+            {
+              "type": "tabs",
+              "tabs": [
+                {
+                  "label": "Year 1",
+                  "title": "Year 1: Learning",
+                  "content": "**Goals:** Finish your first gravel race. Learn what training consistency looks like. Figure out basic nutrition and pacing.\n\n**Expected improvement:** Massive. You're starting from a low baseline. Everything works.\n\n**Common mistakes:** Doing too much too soon, getting injured, burning out."
+                },
+                {
+                  "label": "Year 2",
+                  "title": "Year 2: Building",
+                  "content": "**Goals:** Increase training volume by 10-20%. Raise FTP by 5-10%. Improve technical skills. Race smarter.\n\n**Expected improvement:** Significant. You're building on your Year 1 foundation.\n\n**Common mistakes:** Comparing yourself to Year 1 rate of improvement, expecting linear gains."
+                },
+                {
+                  "label": "Year 3-5",
+                  "title": "Years 3-5: Optimizing",
+                  "content": "**Goals:** Fine-tune training approach. Peak for specific goal races. Podium at your level. Develop race-specific strengths.\n\n**Expected improvement:** Incremental but meaningful. 2-5% gains year over year.\n\n**Common mistakes:** Chasing marginal gains while ignoring fundamentals, overcomplicating training."
+                },
+                {
+                  "label": "Year 5+",
+                  "title": "Year 5+: Maintaining and Evolving",
+                  "content": "**Goals:** Maintain fitness while managing life changes. Continue improving weaknesses. Enjoy the process. Maybe age up into Masters categories and dominate.\n\n**Expected improvement:** Small, but you're also older so maintaining is winning. At some point, age-related decline starts. Your goal shifts from \"get faster\" to \"get slower more slowly.\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch8-goals",
+          "title": "Setting Your Next Goal",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "After you finish a race, there's often a void. You trained for months. It's over. Now what?\n\nYou need a new goal. Soon. Waiting too long leads to loss of motivation, inconsistent training, and fitness decay."
+            },
+            {
+              "type": "process_list",
+              "items": [
+                {
+                  "label": "Pick a goal race",
+                  "detail": "Date, distance, location, difficulty level. Use the [Gravel God Race Database](/gravel-races/) to find your next target."
+                },
+                {
+                  "label": "Define success",
+                  "detail": "Finish time, placement, or completion. Be realistic based on current fitness and what you learned from this race."
+                },
+                {
+                  "label": "Work backward",
+                  "detail": "Race date minus 12 weeks = training start. Training start minus 4-8 weeks = off-season / recovery period."
+                },
+                {
+                  "label": "Commit",
+                  "detail": "Register for the race. Tell people. Make it real. The goal isn't just aspirational\u2014it's a commitment."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch8-burnout",
+          "title": "Avoiding Burnout",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Burnout is real. It's insidious. And it will destroy your training more effectively than any injury."
+            },
+            {
+              "type": "accordion",
+              "items": [
+                {
+                  "title": "Signs of Burnout",
+                  "content": "Training feels like obligation, not enjoyment. You dread workouts. Performance declines despite training. You're irritable and tired all the time. You get sick frequently. You can't sleep despite being exhausted."
+                },
+                {
+                  "title": "Causes of Burnout",
+                  "content": "Training too hard for too long without breaks. Racing too frequently. No off-season. Life stress + training stress combining. Losing sight of why you're doing this."
+                },
+                {
+                  "title": "How to Avoid It",
+                  "content": "Take real off-seasons (not optional). Have other interests\u2014cycling can't be your entire identity. Race sparingly: pick 2-4 goal races per year max. Mix up your riding\u2014not everything needs to be structured. Check in with yourself: \"Am I enjoying this? If not, why?\"\n\nRemember: this is supposed to be fun. Yes, it's hard. Yes, it's work. But if you're not enjoying the process at least 80% of the time, something's wrong."
+                }
+              ]
+            },
+            {
+              "type": "knowledge_check",
+              "question": "After a successful race season (3 races in 4 months), a rider feels exhausted but wants to maintain fitness. They're considering jumping straight into another 12-week training block. What's the best advice?",
+              "options": [
+                {"text": "Start the new training block immediately while fitness is high", "correct": false},
+                {"text": "Take a 4-8 week off-season with unstructured riding and cross-training before starting a new block", "correct": true},
+                {"text": "Reduce volume by 50% but maintain intensity to keep fitness sharp", "correct": false}
+              ],
+              "explanation": "Skipping the off-season is how athletes burn out. After 3 races in 4 months, the body has accumulated systemic fatigue\u2014muscle damage, nervous system fatigue, immune suppression, and psychological drain. A proper off-season allows full recovery and rebuilds motivation. You'll lose some surface fitness, but it comes back quickly. What doesn't come back quickly: motivation destroyed by burnout."
+            }
+          ]
+        },
+        {
+          "id": "ch8-bigger-picture",
+          "title": "The Bigger Picture",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "Let's be honest: gravel racing is objectively insane. You pay money to suffer for 6-12 hours on terrible roads in extreme conditions while destroying your body and bike. There are easier hobbies.\n\nSo why do we do this?\n\n**Challenge.** Most things in modern life are easy. This isn't. And that's the point.\n\n**Mastery.** Getting better at something hard is deeply satisfying. Watching your power numbers climb, your times drop, your skills improve\u2014that's real progress you can measure.\n\n**Community.** The gravel scene attracts interesting people. The kind who think suffering on dirt roads is a reasonable way to spend a Saturday.\n\n**Simplicity.** For a few hours, nothing else matters. Not work, not stress, not life complications. Just pedal, eat, drink, repeat. There's a clarity to that.\n\n**The finish line moment.** When you cross that line after hours of suffering and realize you actually did it\u2014that feeling is worth everything that came before."
+            },
             {
               "type": "callout",
               "style": "highlight",
@@ -1278,7 +1747,7 @@
             },
             {
               "type": "prose",
-              "content": "You finished the race. You followed the plan. You learned something about yourself and about racing bikes on dirt.\n\nThat was one race. One training block. One season.\n\nThe athletes who get fast and stay fast are the ones who show up consistently, year after year, refining their approach and building on what works.\n\nYou now have the framework: how to choose a race, how to understand training fundamentals, how to execute workouts, how to fuel, how to prepare for race week, how to race, and how to recover.\n\nThe rest is execution.\n\nGo ride your bike. Train smart. Race hard. Recover well.\n\nAnd when you're ready, do it again.\n\nThat's how you become a gravel racer."
+              "content": "You finished the race. You followed the plan. You learned something about yourself and about racing bikes on dirt.\n\nThat was one race. One training block. One season. The athletes who get fast and stay fast are the ones who show up consistently, year after year, refining their approach and building on what works.\n\nYou now have the framework: how to [choose a race](#race-selection), how to [understand training fundamentals](#training-fundamentals), how to [execute workouts](#workout-execution), how to [fuel](#nutrition-fueling), how to [race smart](#mental-training-race-tactics), how to [prepare for race week](#race-week), and how to recover.\n\nThe rest is execution.\n\nGo ride your bike. Train smart. Race hard. Recover well.\n\nAnd when you're ready, do it again.\n\nThat's how you become a gravel racer."
             }
           ]
         }

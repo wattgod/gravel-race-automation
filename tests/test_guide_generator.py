@@ -19,6 +19,8 @@ from generate_guide import (
     render_process_list,
     render_callout,
     render_knowledge_check,
+    render_flashcard,
+    render_scenario,
     build_nav,
     build_hero,
     build_gate,
@@ -86,6 +88,7 @@ class TestBlockRenderers:
         expected_types = {
             "prose", "data_table", "accordion", "tabs", "timeline",
             "process_list", "callout", "knowledge_check",
+            "flashcard", "scenario",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -189,6 +192,46 @@ class TestBlockRenderers:
         assert 'data-correct="true"' in html
         assert 'data-correct="false"' in html
         assert "Because reasons." in html
+
+    def test_render_flashcard(self):
+        block = {
+            "title": "Test Deck",
+            "cards": [
+                {"front": "Question 1", "back": "Answer 1"},
+                {"front": "Question 2", "back": "Answer 2"},
+            ],
+        }
+        html = render_flashcard(block)
+        assert "gg-guide-flashcard-deck" in html
+        assert "Test Deck" in html
+        assert "Question 1" in html
+        assert "Answer 1" in html
+        assert html.count("gg-guide-flashcard") >= 2
+
+    def test_render_flashcard_deterministic(self):
+        block = {
+            "cards": [
+                {"front": "A", "back": "B"},
+            ],
+        }
+        html1 = render_flashcard(block)
+        html2 = render_flashcard(block)
+        assert html1 == html2
+
+    def test_render_scenario(self):
+        block = {
+            "prompt": "What do you do?",
+            "options": [
+                {"label": "Option A", "result": "Bad outcome", "best": False},
+                {"label": "Option B", "result": "Good outcome", "best": True},
+            ],
+        }
+        html = render_scenario(block)
+        assert "RACE SCENARIO" in html
+        assert "What do you do?" in html
+        assert "Option A" in html
+        assert 'data-best="true"' in html
+        assert html.count("gg-guide-scenario-option") >= 2
 
 
 # ── Full Page Generation ─────────────────────────────────────
@@ -295,10 +338,20 @@ class TestJsonLd:
         # Extract JSON blocks and validate
         import re
         blocks = re.findall(r'<script type="application/ld\+json">\n(.+?)\n</script>', jsonld, re.DOTALL)
-        assert len(blocks) == 2
+        assert len(blocks) == 4  # Article, BreadcrumbList, Course, HowTo
         for block in blocks:
             parsed = json.loads(block)
             assert "@context" in parsed
+
+    def test_course_schema(self):
+        content = load_content()
+        jsonld = build_jsonld(content)
+        assert '"@type": "Course"' in jsonld
+
+    def test_howto_schema(self):
+        content = load_content()
+        jsonld = build_jsonld(content)
+        assert '"@type": "HowTo"' in jsonld
 
     def test_jsonld_has_dates(self):
         content = load_content()
@@ -348,6 +401,25 @@ class TestAssets:
     def test_js_has_intersection_observer(self):
         js = build_guide_js()
         assert "IntersectionObserver" in js
+
+    def test_js_has_flashcard_flip(self):
+        js = build_guide_js()
+        assert "gg-guide-flashcard" in js
+        assert "guide_flashcard_flip" in js
+
+    def test_js_has_scenario_selection(self):
+        js = build_guide_js()
+        assert "gg-guide-scenario" in js
+        assert "guide_scenario_choice" in js
+
+    def test_css_has_flashcard_styles(self):
+        css = build_guide_css()
+        assert "gg-guide-flashcard-deck" in css
+        assert "perspective" in css
+
+    def test_css_has_scenario_styles(self):
+        css = build_guide_css()
+        assert "gg-guide-scenario" in css
 
 
 # ── Analytics ────────────────────────────────────────────────
@@ -462,6 +534,55 @@ class TestAccessibility:
     def test_reduced_motion_media_query(self):
         css = build_guide_css()
         assert "prefers-reduced-motion" in css
+
+
+# ── Determinism ──────────────────────────────────────────────
+
+
+# ── Interactive Content ──────────────────────────────────────
+
+
+class TestInteractiveContent:
+    def test_every_chapter_has_knowledge_check(self):
+        content = load_content()
+        for ch in content["chapters"]:
+            has_kc = any(
+                block["type"] == "knowledge_check"
+                for sec in ch["sections"]
+                for block in sec["blocks"]
+            )
+            assert has_kc, f"Chapter {ch['number']} missing knowledge check"
+
+    def test_flashcard_blocks_present(self):
+        content = load_content()
+        flashcard_count = sum(
+            1 for ch in content["chapters"]
+            for sec in ch["sections"]
+            for block in sec["blocks"]
+            if block["type"] == "flashcard"
+        )
+        assert flashcard_count >= 2
+
+    def test_scenario_blocks_present(self):
+        content = load_content()
+        scenario_count = sum(
+            1 for ch in content["chapters"]
+            for sec in ch["sections"]
+            for block in sec["blocks"]
+            if block["type"] == "scenario"
+        )
+        assert scenario_count >= 3
+
+    def test_flashcards_in_generated_html(self):
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-flashcard-deck" in html
+
+    def test_scenarios_in_generated_html(self):
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-scenario" in html
+        assert "RACE SCENARIO" in html
 
 
 # ── Determinism ──────────────────────────────────────────────

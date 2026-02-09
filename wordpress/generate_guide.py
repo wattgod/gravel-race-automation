@@ -256,6 +256,46 @@ def render_knowledge_check(block: dict) -> str:
     </div>'''
 
 
+def render_flashcard(block: dict) -> str:
+    """Render a set of flip-cards for memorization."""
+    title = esc(block.get("title", ""))
+    cards_html = []
+    for i, card in enumerate(block["cards"]):
+        front = _md_inline(esc(card["front"]))
+        back = _md_inline(esc(card["back"]))
+        card_id = f"fc-{hashlib.md5(front.encode()).hexdigest()[:8]}-{i}"
+        cards_html.append(
+            f'<div class="gg-guide-flashcard" id="{card_id}">'
+            f'<div class="gg-guide-flashcard-inner">'
+            f'<div class="gg-guide-flashcard-front"><p>{front}</p></div>'
+            f'<div class="gg-guide-flashcard-back"><p>{back}</p></div>'
+            f'</div></div>'
+        )
+    title_html = f'<div class="gg-guide-flashcard-label">{esc(title)}</div>' if title else ''
+    return f'<div class="gg-guide-flashcard-deck">{title_html}<div class="gg-guide-flashcard-grid">{"".join(cards_html)}</div><p class="gg-guide-flashcard-hint">Click a card to flip</p></div>'
+
+
+def render_scenario(block: dict) -> str:
+    """Render an interactive branching scenario."""
+    prompt_text = esc(block["prompt"])
+    options_html = []
+    for i, opt in enumerate(block["options"]):
+        label = esc(opt["label"])
+        result = _md_inline(esc(opt["result"]))
+        is_best = ' data-best="true"' if opt.get("best") else ''
+        options_html.append(
+            f'<button class="gg-guide-scenario-option"{is_best} data-index="{i}">'
+            f'<span class="gg-guide-scenario-option-label">{label}</span>'
+            f'<span class="gg-guide-scenario-option-result">{result}</span>'
+            f'</button>'
+        )
+    return f'''<div class="gg-guide-scenario">
+      <div class="gg-guide-scenario-label">RACE SCENARIO</div>
+      <p class="gg-guide-scenario-prompt">{prompt_text}</p>
+      <div class="gg-guide-scenario-options">{"".join(options_html)}</div>
+    </div>'''
+
+
 # Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
@@ -266,6 +306,8 @@ BLOCK_RENDERERS = {
     "process_list": render_process_list,
     "callout": render_callout,
     "knowledge_check": render_knowledge_check,
+    "flashcard": render_flashcard,
+    "scenario": render_scenario,
 }
 
 
@@ -514,9 +556,50 @@ def build_jsonld(content: dict) -> str:
             },
         ],
     }
+    # Course schema
+    course = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": content["title"],
+        "description": content["meta_description"],
+        "url": canonical,
+        "provider": {
+            "@type": "Organization",
+            "name": "Gravel God Cycling",
+            "url": SITE_BASE_URL,
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "PT4H",
+        },
+        "numberOfCredits": 0,
+        "isAccessibleForFree": True,
+    }
+
+    # HowTo schema for training methodology
+    howto_steps = []
+    for ch in content["chapters"]:
+        howto_steps.append({
+            "@type": "HowToStep",
+            "name": f"Chapter {ch['number']}: {ch['title']}",
+            "text": ch.get("subtitle", ch["title"]),
+            "url": f"{canonical}#{ch['id']}",
+        })
+    howto = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Train for a Gravel Race",
+        "description": "A complete guide to gravel race training: fundamentals, workout execution, nutrition, race tactics, and recovery.",
+        "totalTime": "PT84D",
+        "step": howto_steps,
+    }
+
     parts = [
         f'<script type="application/ld+json">\n{json.dumps(article, indent=2)}\n</script>',
         f'<script type="application/ld+json">\n{json.dumps(breadcrumb, indent=2)}\n</script>',
+        f'<script type="application/ld+json">\n{json.dumps(course, indent=2)}\n</script>',
+        f'<script type="application/ld+json">\n{json.dumps(howto, indent=2)}\n</script>',
     ]
     return '\n'.join(parts)
 
@@ -639,6 +722,32 @@ def build_guide_css() -> str:
 .gg-guide-kc-explanation{padding:12px 20px 16px;background:#f0faf9;border-top:2px solid #1A8A82}
 .gg-guide-kc-explanation p{font-size:13px;line-height:1.6;margin:0;color:#333}
 
+/* ── Flashcards ── */
+.gg-guide-flashcard-deck{margin:0 0 24px}
+.gg-guide-flashcard-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:12px}
+.gg-guide-flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.gg-guide-flashcard{perspective:600px;cursor:pointer;height:140px}
+.gg-guide-flashcard-inner{position:relative;width:100%;height:100%;transition:transform 0.4s;transform-style:preserve-3d}
+.gg-guide-flashcard--flipped .gg-guide-flashcard-inner{transform:rotateY(180deg)}
+.gg-guide-flashcard-front,.gg-guide-flashcard-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:16px;border:2px solid #000;font-size:13px;text-align:center}
+.gg-guide-flashcard-front{background:#f5f0eb;font-weight:700;color:#000}
+.gg-guide-flashcard-back{background:#1A8A82;color:#fff;transform:rotateY(180deg)}
+.gg-guide-flashcard-back p,.gg-guide-flashcard-front p{margin:0;line-height:1.4}
+.gg-guide-flashcard-hint{font-size:11px;color:#999;text-align:center;margin:8px 0 0}
+
+/* ── Scenario ── */
+.gg-guide-scenario{border:3px solid #000;margin:0 0 24px;background:#fff}
+.gg-guide-scenario-label{background:#59473c;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-scenario-prompt{padding:16px 20px 8px;font-size:14px;font-weight:700;color:#000;margin:0}
+.gg-guide-scenario-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
+.gg-guide-scenario-option{padding:12px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left;transition:all 0.2s}
+.gg-guide-scenario-option:hover{background:#e8dfd7}
+.gg-guide-scenario-option-result{display:none;margin-top:8px;font-size:12px;color:#444;font-weight:400;line-height:1.5}
+.gg-guide-scenario-option--selected .gg-guide-scenario-option-result{display:block}
+.gg-guide-scenario-option--selected{border-color:#59473c;background:#faf5f0}
+.gg-guide-scenario-option--selected[data-best="true"]{border-color:#1A8A82;background:#f0faf9}
+.gg-guide-scenario-option--disabled{pointer-events:none;opacity:0.6}
+
 /* ── CTA Blocks ── */
 .gg-guide-cta{margin:0 0 40px;border:3px solid #000;padding:40px 32px;text-align:center}
 .gg-guide-cta-inner{max-width:600px;margin:0 auto}
@@ -696,6 +805,7 @@ def build_guide_css() -> str:
   .gg-guide-kc-option{transition:all 0.2s}
   .gg-guide-btn{transition:all 0.15s}
   .gg-guide-fade-in{transition:opacity 0.5s ease,transform 0.5s ease}
+  .gg-guide-flashcard-inner{transition:transform 0.4s}
 }
 
 /* ── Responsive ── */
@@ -714,6 +824,8 @@ def build_guide_css() -> str:
   .gg-guide-timeline-step{gap:12px}
   .gg-guide-table{font-size:11px}
   .gg-guide-table th,.gg-guide-table td{padding:6px 8px}
+  .gg-guide-flashcard-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .gg-guide-flashcard{height:120px}
 }
 '''
 
@@ -913,6 +1025,31 @@ document.querySelectorAll(".gg-guide-knowledge-check").forEach(function(kc) {
       });
       if (explanation) explanation.style.display = "block";
       track("guide_knowledge_check", { correct: isCorrect });
+    });
+  });
+});
+
+/* ── Flashcard Flip ── */
+document.querySelectorAll(".gg-guide-flashcard").forEach(function(card) {
+  card.addEventListener("click", function() {
+    card.classList.toggle("gg-guide-flashcard--flipped");
+    track("guide_flashcard_flip", { card_id: card.id });
+  });
+});
+
+/* ── Scenario Selection ── */
+document.querySelectorAll(".gg-guide-scenario").forEach(function(scenario) {
+  var options = scenario.querySelectorAll(".gg-guide-scenario-option");
+  var answered = false;
+  options.forEach(function(opt) {
+    opt.addEventListener("click", function() {
+      if (answered) return;
+      answered = true;
+      opt.classList.add("gg-guide-scenario-option--selected");
+      options.forEach(function(o) {
+        if (o !== opt) o.classList.add("gg-guide-scenario-option--disabled");
+      });
+      track("guide_scenario_choice", { best: opt.getAttribute("data-best") === "true" });
     });
   });
 });

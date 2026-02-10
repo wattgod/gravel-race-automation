@@ -1645,27 +1645,27 @@ def get_page_css() -> str:
 /* Hero */
 .gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); padding: var(--gg-spacing-3xl) var(--gg-spacing-2xl); border-bottom: var(--gg-border-double); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-2xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; margin-bottom: var(--gg-spacing-md); }}
-.gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-3xl); font-weight: var(--gg-font-weight-bold); line-height: var(--gg-line-height-tight); letter-spacing: var(--gg-letter-spacing-tight); margin-bottom: 16px; color: var(--gg-color-white); position: relative; }}
+.gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: var(--gg-line-height-tight); letter-spacing: var(--gg-letter-spacing-tight); margin-bottom: 16px; color: var(--gg-color-white); position: relative; }}
 .gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: var(--gg-color-teal); opacity: 0.3; z-index: 0; pointer-events: none; }}
-.gg-neo-brutalist-page .gg-hero-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-normal); color: var(--gg-color-tan); max-width: 700px; }}
+.gg-neo-brutalist-page .gg-hero-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); max-width: 700px; }}
 .gg-neo-brutalist-page .gg-hero-score {{ position: absolute; top: 40px; right: 40px; text-align: center; }}
 .gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-5xl); font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); }}
 
 /* TOC */
 .gg-neo-brutalist-page .gg-toc {{ background: var(--gg-color-near-black); padding: 16px 20px; border: var(--gg-border-standard); border-top: none; display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 32px; }}
-.gg-neo-brutalist-page .gg-toc a {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
+.gg-neo-brutalist-page .gg-toc a {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; transition: color 0.2s; }}
 .gg-neo-brutalist-page .gg-toc a:hover {{ color: var(--gg-color-white); }}
 
 /* Section common */
 .gg-neo-brutalist-page .gg-section {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-section-header {{ background: var(--gg-color-primary-brown); color: var(--gg-color-white); padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: var(--gg-border-double); }}
-.gg-neo-brutalist-page .gg-section-kicker {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gg-color-gold); white-space: nowrap; }}
-.gg-neo-brutalist-page .gg-section-title {{ font-family: var(--gg-font-data); font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-white); margin: 0; }}
+.gg-neo-brutalist-page .gg-section-header {{ background: var(--gg-color-primary-brown); color: var(--gg-color-warm-paper); padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: var(--gg-border-double); }}
+.gg-neo-brutalist-page .gg-section-kicker {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-gold); white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-section-title {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: var(--gg-font-weight-semibold); letter-spacing: var(--gg-letter-spacing-normal); color: var(--gg-color-white); margin: 0; }}
 .gg-neo-brutalist-page .gg-section-body {{ padding: 24px 20px; }}
 
 /* Section header variant: dark */
-.gg-neo-brutalist-page .gg-section-header--dark {{ background: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-section-header--dark {{ background: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-section-header--dark .gg-section-kicker {{ color: var(--gg-color-gold); }}
 
 /* Section variant: accent (subtle warm bg) */
@@ -1706,13 +1706,13 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-stat-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-gold); margin-top: var(--gg-spacing-2xs); }}
 
 /* Difficulty gauge */
-.gg-neo-brutalist-page .gg-difficulty-gauge {{ margin-top: 20px; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-difficulty-gauge {{ margin-top: 20px; border: var(--gg-border-standard); padding: 16px; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-difficulty-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
-.gg-neo-brutalist-page .gg-difficulty-title {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-difficulty-label {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-difficulty-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-difficulty-label {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-difficulty-track {{ height: 12px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-dark-brown); position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-difficulty-fill {{ height: 100%; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }}
-.gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-tan); text-transform: uppercase; }}
+.gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
 
 /* Map embed */
 .gg-neo-brutalist-page .gg-map-embed {{ border: var(--gg-border-subtle); margin-bottom: 16px; overflow: hidden; }}
@@ -1735,14 +1735,14 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-suffering-zone.is-visible {{ opacity: 1; transform: translateX(0); }}
 .gg-neo-brutalist-page .gg-suffering-mile {{ background: var(--gg-color-teal); color: var(--gg-color-white); min-width: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; border-right: var(--gg-border-width-subtle) solid var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-suffering-mile-num {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xl); font-weight: 700; }}
-.gg-neo-brutalist-page .gg-suffering-mile-label {{ font-family: var(--gg-font-data); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }}
+.gg-neo-brutalist-page .gg-suffering-mile-label {{ font-family: var(--gg-font-data); font-size: 9px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: rgba(255,255,255,0.7); }}
 .gg-neo-brutalist-page .gg-suffering-content {{ padding: 12px 16px; flex: 1; }}
 .gg-neo-brutalist-page .gg-suffering-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }}
 .gg-neo-brutalist-page .gg-suffering-desc {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Accordion */
 .gg-neo-brutalist-page .gg-accordion {{ border-top: var(--gg-border-standard); }}
-.gg-neo-brutalist-page .gg-accordion-group-title {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-secondary-brown); padding: 16px 0 8px 0; }}
+.gg-neo-brutalist-page .gg-accordion-group-title {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); padding: var(--gg-spacing-md) 0 var(--gg-spacing-xs) 0; }}
 .gg-neo-brutalist-page .gg-accordion-item {{ border-bottom: 2px solid var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-accordion-trigger {{ display: flex; align-items: center; width: 100%; padding: 10px 0; cursor: pointer; background: none; border: none; font-family: var(--gg-font-data); font-size: 12px; text-align: left; gap: 8px; }}
 .gg-neo-brutalist-page .gg-accordion-trigger:hover {{ background: var(--gg-color-warm-paper); }}
@@ -1760,7 +1760,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-radar-pair {{ display: flex; gap: 16px; margin-bottom: 24px; }}
 .gg-neo-brutalist-page .gg-radar-chart {{ flex: 1; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); padding: 12px 8px 12px; text-align: center; }}
 .gg-neo-brutalist-page .gg-radar-svg {{ width: 100%; height: auto; display: block; margin: 0 auto; }}
-.gg-neo-brutalist-page .gg-radar-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
+.gg-neo-brutalist-page .gg-radar-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-polygon {{ stroke-dashoffset: 0 !important; fill-opacity: 0.2; transition: stroke-dashoffset 1.2s ease-out, fill-opacity 0.8s ease-out 0.6s; }}
 .gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-dot {{ opacity: 1; transition: opacity 0.3s ease-out; }}
 .gg-neo-brutalist-page .gg-radar-hit:hover ~ .gg-radar-ring {{ opacity: 0; }}
@@ -1781,7 +1781,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-ratings-summary-card:last-child {{ border-left: 4px solid var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-ratings-summary-score {{ font-family: var(--gg-font-data); font-size: 32px; font-weight: 700; color: var(--gg-color-primary-brown); line-height: 1; }}
 .gg-neo-brutalist-page .gg-ratings-summary-max {{ font-size: 14px; color: var(--gg-color-tier-3); }}
-.gg-neo-brutalist-page .gg-ratings-summary-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
+.gg-neo-brutalist-page .gg-ratings-summary-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
 
 /* Verdict */
 .gg-neo-brutalist-page .gg-verdict-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
@@ -1809,15 +1809,15 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-alt-link:hover {{ color: #14695F; }}
 
 /* Buttons */
-.gg-neo-brutalist-page .gg-btn {{ display: inline-block; padding: 10px 24px; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; cursor: pointer; border: var(--gg-border-subtle); transition: background 0.15s, color 0.15s; }}
-.gg-neo-brutalist-page .gg-btn--primary {{ background: var(--gg-color-primary-brown); color: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-btn--primary:hover {{ background: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-btn--secondary {{ background: var(--gg-color-white); color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-btn--secondary:hover {{ background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-btn {{ display: inline-block; padding: 10px 24px; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; border: var(--gg-border-standard); transition: background 0.15s, color 0.15s; }}
+.gg-neo-brutalist-page .gg-btn--primary {{ background: var(--gg-color-gold); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-btn--primary:hover {{ background: var(--gg-color-light-gold); }}
+.gg-neo-brutalist-page .gg-btn--secondary {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
+.gg-neo-brutalist-page .gg-btn--secondary:hover {{ background: var(--gg-color-light-teal); }}
 
 /* Training */
 .gg-neo-brutalist-page .gg-training-primary {{ border: var(--gg-border-standard); background: var(--gg-color-primary-brown); color: var(--gg-color-white); padding: 32px; margin-bottom: 16px; }}
-.gg-neo-brutalist-page .gg-training-primary h3 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; color: var(--gg-color-white); }}
+.gg-neo-brutalist-page .gg-training-primary h3 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-white); }}
 .gg-neo-brutalist-page .gg-training-primary .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-training-bullets {{ list-style: none; padding: 0; margin-bottom: 24px; }}
 .gg-neo-brutalist-page .gg-training-bullets li {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); padding: 6px 0; padding-left: 20px; position: relative; }}
@@ -1826,9 +1826,9 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-training-primary .gg-btn:hover {{ background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-training-divider {{ display: flex; align-items: center; gap: 16px; margin: 20px 0; }}
 .gg-neo-brutalist-page .gg-training-divider-line {{ flex: 1; height: 1px; background: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-training-divider-text {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; color: var(--gg-color-secondary-brown); letter-spacing: 3px; }}
+.gg-neo-brutalist-page .gg-training-divider-text {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-ultra-wide); }}
 .gg-neo-brutalist-page .gg-training-secondary {{ border: var(--gg-border-standard); background: var(--gg-color-near-black); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }}
-.gg-neo-brutalist-page .gg-training-secondary-text h4 {{ font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; color: var(--gg-color-white); }}
+.gg-neo-brutalist-page .gg-training-secondary-text h4 {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-white); }}
 .gg-neo-brutalist-page .gg-training-secondary-text .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin: 0 0 8px 0; }}
 .gg-neo-brutalist-page .gg-training-secondary-text p {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.5; margin: 0; }}
 .gg-neo-brutalist-page .gg-training-secondary .gg-btn {{ background: transparent; color: var(--gg-color-white); border-color: var(--gg-color-white); }}
@@ -1837,7 +1837,7 @@ def get_page_css() -> str:
 /* Logistics */
 .gg-neo-brutalist-page .gg-logistics-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: 4px; }}
+.gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
 
 /* Photo grid */
@@ -1845,20 +1845,20 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-photos-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; }}
 .gg-neo-brutalist-page .gg-photo-card {{ margin: 0; border: var(--gg-border-standard); overflow: hidden; }}
 .gg-neo-brutalist-page .gg-photo-card img {{ width: 100%; height: 220px; object-fit: cover; display: block; }}
-.gg-neo-brutalist-page .gg-photo-card figcaption {{ background: var(--gg-color-warm-paper); padding: 8px 12px; font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; border-top: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-photo-card figcaption {{ background: var(--gg-color-warm-paper); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; border-top: var(--gg-border-standard); }}
 .gg-neo-brutalist-page .gg-photo-card figcaption a {{ color: var(--gg-color-primary-brown); text-decoration: none; font-weight: 700; }}
 .gg-neo-brutalist-page .gg-photo-card figcaption a:hover {{ color: var(--gg-color-teal); }}
 
 /* News ticker */
 .gg-neo-brutalist-page .gg-news-ticker {{ background: var(--gg-color-near-black); border: var(--gg-border-standard); margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }}
-.gg-neo-brutalist-page .gg-news-ticker-label {{ background: var(--gg-color-gold); color: var(--gg-color-near-black); font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0 16px; display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-news-ticker-label {{ background: var(--gg-color-gold); color: var(--gg-color-near-black); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 0 var(--gg-spacing-md); display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: var(--gg-border-standard); }}
 .gg-neo-brutalist-page .gg-news-ticker-track {{ flex: 1; overflow: hidden; position: relative; display: flex; align-items: center; }}
 .gg-neo-brutalist-page .gg-news-ticker-content {{ display: flex; align-items: center; white-space: nowrap; animation: gg-ticker-scroll 80s linear infinite; padding-left: 100%; }}
 .gg-neo-brutalist-page .gg-news-ticker-content:hover {{ animation-play-state: paused; }}
 .gg-neo-brutalist-page .gg-news-ticker-item {{ display: inline-flex; align-items: center; gap: 6px; padding: 0 32px; }}
 .gg-neo-brutalist-page .gg-news-ticker-item a {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }}
 .gg-neo-brutalist-page .gg-news-ticker-item a:hover {{ color: var(--gg-color-light-teal); }}
-.gg-neo-brutalist-page .gg-news-ticker-source {{ color: var(--gg-color-secondary-brown); font-size: 10px; font-weight: 400; }}
+.gg-neo-brutalist-page .gg-news-ticker-source {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); font-weight: 400; }}
 .gg-neo-brutalist-page .gg-news-ticker-sep {{ color: var(--gg-color-teal); font-size: 8px; margin: 0 8px; }}
 .gg-neo-brutalist-page .gg-news-ticker-loading {{ color: var(--gg-color-secondary-brown); font-size: 11px; letter-spacing: 1px; padding-left: 16px; }}
 .gg-neo-brutalist-page .gg-news-ticker-empty {{ color: var(--gg-color-secondary-brown); font-size: 11px; letter-spacing: 1px; padding-left: 16px; }}
@@ -1869,7 +1869,7 @@ def get_page_css() -> str:
 .gg-sticky-cta.is-visible {{ transform: translateY(0); }}
 .gg-sticky-cta-inner {{ max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }}
 .gg-sticky-cta-name {{ font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; color: var(--gg-color-white); text-transform: uppercase; letter-spacing: 1px; }}
-.gg-sticky-cta .gg-btn {{ font-family: var(--gg-font-data); background: var(--gg-color-teal); color: var(--gg-color-white); border: 2px solid var(--gg-color-teal); padding: 8px 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; cursor: pointer; }}
+.gg-sticky-cta .gg-btn {{ font-family: var(--gg-font-data); background: var(--gg-color-teal); color: var(--gg-color-white); border: var(--gg-border-width-subtle) solid var(--gg-color-teal); padding: var(--gg-spacing-xs) 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; }}
 .gg-sticky-cta .gg-btn:hover {{ background: #14695F; border-color: #14695F; }}
 
 /* Scroll fade-in */
@@ -1879,12 +1879,12 @@ def get_page_css() -> str:
 /* Email capture */
 .gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-primary-brown); padding: 0; }}
 .gg-neo-brutalist-page .gg-email-capture-inner {{ padding: 32px; text-align: center; }}
-.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; letter-spacing: 3px; color: var(--gg-color-white); margin: 0 0 8px 0; }}
+.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-white); margin: 0 0 var(--gg-spacing-xs) 0; }}
 .gg-neo-brutalist-page .gg-email-capture-text {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); line-height: var(--gg-line-height-relaxed); margin: 0 0 20px 0; max-width: 500px; margin-left: auto; margin-right: auto; }}
 .gg-neo-brutalist-page .gg-email-capture iframe {{ max-width: 480px; margin: 0 auto; display: block; }}
 
 /* Countdown */
-.gg-neo-brutalist-page .gg-countdown {{ border: 3px solid var(--gg-color-teal); background: var(--gg-color-near-black); color: var(--gg-color-white); padding: 16px; text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-countdown {{ border: var(--gg-border-width-standard) solid var(--gg-color-teal); background: var(--gg-color-near-black); color: var(--gg-color-white); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 32px; color: var(--gg-color-teal); display: block; line-height: 1.2; }}
 
 /* FAQ accordion */
@@ -1900,30 +1900,29 @@ def get_page_css() -> str:
 
 /* Similar races */
 .gg-neo-brutalist-page .gg-similar-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
-.gg-neo-brutalist-page .gg-similar-card {{ display: block; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); text-decoration: none; color: var(--gg-color-dark-brown); transition: transform 0.15s, background 0.15s; position: relative; }}
-.gg-neo-brutalist-page .gg-similar-card:hover {{ transform: translate(-2px, -2px); background: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-similar-card::after {{ content: ''; position: absolute; top: 4px; left: 4px; width: 100%; height: 100%; background: var(--gg-color-dark-brown); z-index: -1; transition: top 0.15s, left 0.15s; }}
-.gg-neo-brutalist-page .gg-similar-card:hover::after {{ top: 6px; left: 6px; }}
-.gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-near-black); color: var(--gg-color-white); padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }}
-.gg-neo-brutalist-page .gg-similar-name {{ font-family: var(--gg-font-data); display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }}
-.gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: 10px; color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-similar-card {{ display: block; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); text-decoration: none; color: var(--gg-color-dark-brown); transition: border-color 0.15s, background 0.15s; }}
+.gg-neo-brutalist-page .gg-similar-card:hover {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; }}
+.gg-neo-brutalist-page .gg-similar-name {{ font-family: var(--gg-font-editorial); display: block; font-size: var(--gg-font-size-base); font-weight: var(--gg-font-weight-semibold); letter-spacing: 0; margin-bottom: 4px; }}
+.gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
 
 /* Site nav */
-.gg-site-nav {{ background: var(--gg-color-primary-brown); padding: 12px 20px; border: var(--gg-border-standard); border-bottom: none; }}
+.gg-site-nav {{ background: var(--gg-color-dark-brown); padding: 12px 20px; border-bottom: var(--gg-border-standard); }}
 .gg-site-nav-inner {{ display: flex; align-items: center; gap: 24px; margin-bottom: 6px; }}
-.gg-site-nav-brand {{ color: var(--gg-color-white); text-decoration: none; font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; letter-spacing: 3px; }}
-.gg-site-nav-link {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }}
-.gg-site-nav-link:hover {{ color: var(--gg-color-white); }}
+.gg-site-nav-brand {{ color: var(--gg-color-white); text-decoration: none; font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); }}
+.gg-site-nav-link {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; }}
+.gg-site-nav-link:hover {{ color: var(--gg-color-gold); }}
 .gg-breadcrumb {{ font-family: var(--gg-font-data); font-size: 11px; }}
 .gg-breadcrumb a {{ color: var(--gg-color-warm-brown); text-decoration: none; }}
-.gg-breadcrumb a:hover {{ color: var(--gg-color-white); }}
+.gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
 .gg-breadcrumb-sep {{ color: var(--gg-color-secondary-brown); margin: 0 4px; }}
-.gg-breadcrumb-current {{ color: var(--gg-color-tan); }}
+.gg-breadcrumb-current {{ color: var(--gg-color-warm-paper); }}
 
 /* Footer */
-.gg-neo-brutalist-page .gg-footer {{ background: var(--gg-color-near-black); color: var(--gg-color-tan); padding: 24px 20px; border: var(--gg-border-standard); margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-footer {{ background: var(--gg-color-dark-brown); color: var(--gg-color-tan); padding: 24px 20px; border-top: var(--gg-border-double); margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }}
 .gg-neo-brutalist-page .gg-footer a {{ color: var(--gg-color-white); text-decoration: none; }}
-.gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: 1.6; margin: 0; font-size: 10px; }}
+.gg-neo-brutalist-page .gg-footer a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
 
 /* Responsive */
 @media (max-width: 768px) {{

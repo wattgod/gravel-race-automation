@@ -22,9 +22,12 @@ from generate_guide import (
     render_knowledge_check,
     render_flashcard,
     render_scenario,
+    render_calculator,
+    render_zone_visualizer,
     build_nav,
     build_hero,
     build_gate,
+    build_rider_selector,
     build_cta_newsletter,
     build_cta_training,
     build_cta_coaching,
@@ -32,6 +35,7 @@ from generate_guide import (
     build_jsonld,
     build_guide_css,
     build_guide_js,
+    _md_inline,
     BLOCK_RENDERERS,
 )
 
@@ -89,7 +93,7 @@ class TestBlockRenderers:
         expected_types = {
             "prose", "data_table", "accordion", "tabs", "timeline",
             "process_list", "callout", "knowledge_check",
-            "flashcard", "scenario",
+            "flashcard", "scenario", "calculator", "zone_visualizer",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -170,7 +174,8 @@ class TestBlockRenderers:
         html = render_process_list(block)
         assert "gg-guide-process-list" in html
         assert "Fitness" in html
-        assert "70%" in html
+        assert 'data-pct="70"' in html
+        assert "gg-guide-process-bar-wrap" in html
 
     def test_render_callout(self):
         block = {"style": "quote", "content": "Important quote here."}
@@ -671,3 +676,541 @@ class TestDeterminism:
         html1 = render_tabs(block)
         html2 = render_tabs(block)
         assert html1 == html2
+
+
+# ── Calculator Renderer ─────────────────────────────────────
+
+
+class TestCalculatorRenderer:
+    def test_ftp_calculator_basic(self):
+        block = {
+            "calculator_id": "ftp-zones",
+            "title": "Zone Calculator",
+            "description": "Enter your FTP.",
+            "inputs": [
+                {"id": "ftp-power", "label": "FTP (watts)", "type": "number",
+                 "placeholder": "250", "min": 50, "max": 600},
+            ],
+            "zones": [
+                {"name": "Z1", "min_pct": 0, "max_pct": 55, "color": "#4ECDC4"},
+                {"name": "Z2", "min_pct": 56, "max_pct": 75, "color": "#1A8A82"},
+            ],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calculator" in html
+        assert 'data-calc-type="ftp-zones"' in html
+        assert "Zone Calculator" in html
+        assert 'id="gg-calc-ftp-power"' in html
+        assert 'inputmode="numeric"' in html
+
+    def test_ftp_calculator_zones(self):
+        block = {
+            "calculator_id": "ftp-zones",
+            "title": "Zones",
+            "inputs": [{"id": "ftp-power", "label": "FTP", "type": "number"}],
+            "zones": [
+                {"name": "Z1", "min_pct": 0, "max_pct": 55, "hr_min_pct": 55,
+                 "hr_max_pct": 72, "color": "#4ECDC4"},
+            ],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calc-zone" in html
+        assert 'data-min="0"' in html
+        assert 'data-max="55"' in html
+        assert 'data-hr-min="55"' in html
+
+    def test_calculator_aria_live(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{"id": "x", "label": "X", "type": "number"}],
+        }
+        html = render_calculator(block)
+        assert 'aria-live="polite"' in html
+
+    def test_calculator_select_input(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{
+                "id": "day", "label": "Day", "type": "select",
+                "options": [
+                    {"value": "easy", "label": "Easy"},
+                    {"value": "hard", "label": "Hard"},
+                ],
+            }],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calc-select" in html
+        assert '<option value="easy">Easy</option>' in html
+
+    def test_calculator_toggle_input(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{
+                "id": "unit", "label": "Unit", "type": "toggle",
+                "options": [
+                    {"value": "kg", "label": "KG"},
+                    {"value": "lbs", "label": "LBS"},
+                ],
+            }],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calc-toggle" in html
+        assert "gg-guide-calc-toggle-btn--active" in html
+        assert 'data-value="kg"' in html
+
+    def test_calculator_output_fields(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{"id": "w", "label": "W", "type": "number"}],
+            "output_fields": [
+                {"id": "protein", "label": "Protein"},
+                {"id": "carbs", "label": "Carbs"},
+            ],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calc-results" in html
+        assert 'id="gg-calc-out-protein"' in html
+        assert "Protein" in html
+
+    def test_calculator_optional_input(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [
+                {"id": "age", "label": "Age", "type": "number", "optional": True},
+            ],
+        }
+        html = render_calculator(block)
+        assert "(optional)" in html
+
+    def test_calculator_transform_attr(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [
+                {"id": "test", "label": "Test", "type": "number",
+                 "transform": "multiply_0.95"},
+            ],
+        }
+        html = render_calculator(block)
+        assert 'data-transform="multiply_0.95"' in html
+
+    def test_calculator_button(self):
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{"id": "x", "label": "X", "type": "number"}],
+        }
+        html = render_calculator(block)
+        assert "CALCULATE" in html
+        assert "gg-guide-calc-btn" in html
+
+
+# ── Zone Visualizer Renderer ────────────────────────────────
+
+
+class TestZoneVisualizerRenderer:
+    def test_zone_visualizer_basic(self):
+        block = {
+            "title": "Zone Spectrum",
+            "zones": [
+                {"name": "Z1", "max_pct": 55, "label": "55%", "color": "#4ECDC4"},
+                {"name": "Z2", "max_pct": 75, "label": "75%", "color": "#1A8A82"},
+            ],
+        }
+        html = render_zone_visualizer(block)
+        assert "gg-guide-zone-viz" in html
+        assert "<svg" in html
+        assert "Zone Spectrum" in html
+        assert "gg-guide-viz-bar" in html
+
+    def test_zone_visualizer_bars_count(self):
+        block = {
+            "title": "Test",
+            "zones": [
+                {"name": f"Z{i}", "max_pct": 50 + i * 20, "label": f"{50 + i * 20}%"}
+                for i in range(4)
+            ],
+        }
+        html = render_zone_visualizer(block)
+        assert html.count("gg-guide-viz-bar") == 4
+
+    def test_zone_visualizer_stagger_delays(self):
+        block = {
+            "title": "Test",
+            "zones": [
+                {"name": "Z1", "max_pct": 55, "label": "55%"},
+                {"name": "Z2", "max_pct": 75, "label": "75%"},
+                {"name": "Z3", "max_pct": 87, "label": "87%"},
+            ],
+        }
+        html = render_zone_visualizer(block)
+        assert 'data-delay="0"' in html
+        assert 'data-delay="100"' in html
+        assert 'data-delay="200"' in html
+
+    def test_zone_visualizer_aria_label(self):
+        block = {
+            "title": "Test",
+            "zones": [{"name": "Z1", "max_pct": 55, "label": "55%"}],
+        }
+        html = render_zone_visualizer(block)
+        assert 'role="img"' in html
+        assert 'aria-label=' in html
+
+
+# ── Stagger Scroll Reveal ───────────────────────────────────
+
+
+class TestStaggerReveal:
+    def test_blocks_wrapped_in_stagger(self):
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-stagger" in html
+        assert 'data-delay="0"' in html
+
+    def test_stagger_css_exists(self):
+        css = build_guide_css()
+        assert "gg-guide-stagger" in css
+        assert "gg-guide-stagger--visible" in css
+
+    def test_stagger_js_observer(self):
+        js = build_guide_js()
+        assert "gg-guide-stagger" in js
+        assert "gg-guide-stagger--visible" in js
+
+    def test_stagger_reduced_motion_fallback(self):
+        css = build_guide_css()
+        # Under prefers-reduced-motion: reduce, stagger should be instantly visible
+        assert "gg-guide-stagger{opacity:1;transform:none}" in css
+
+    def test_timeline_steps_have_stagger(self):
+        block = {
+            "title": "Steps",
+            "steps": [
+                {"label": "S1", "content": "C1"},
+                {"label": "S2", "content": "C2"},
+            ],
+        }
+        html = render_timeline(block)
+        assert "gg-guide-stagger" in html
+        assert 'data-delay="0"' in html
+        assert 'data-delay="150"' in html
+
+
+# ── Animated Process Bars ───────────────────────────────────
+
+
+class TestAnimatedProcessBars:
+    def test_process_bar_html(self):
+        block = {
+            "items": [
+                {"label": "Fitness", "detail": "Main factor", "percentage": 70},
+            ]
+        }
+        html = render_process_list(block)
+        assert "gg-guide-process-bar-wrap" in html
+        assert "gg-guide-process-bar" in html
+        assert 'data-pct="70"' in html
+        assert 'data-target="70"' in html
+        assert 'style="width:0%"' in html
+
+    def test_process_no_bar_without_percentage(self):
+        block = {
+            "items": [
+                {"label": "Item", "detail": "No pct"},
+            ]
+        }
+        html = render_process_list(block)
+        assert "gg-guide-process-bar-wrap" not in html
+
+    def test_process_bar_css(self):
+        css = build_guide_css()
+        assert "gg-guide-process-bar-wrap" in css
+        assert "gg-guide-process-bar" in css
+
+    def test_process_bar_js_observer(self):
+        js = build_guide_js()
+        assert "gg-guide-process-bar-wrap" in js
+
+
+# ── Parallax Heroes ─────────────────────────────────────────
+
+
+class TestParallaxHeroes:
+    def test_parallax_js(self):
+        js = build_guide_js()
+        assert "gg-guide-chapter-hero" in js
+        assert "backgroundPositionY" in js
+
+
+# ── Hover Micro-Interactions ────────────────────────────────
+
+
+class TestHoverInteractions:
+    def test_knowledge_check_hover(self):
+        css = build_guide_css()
+        assert "gg-guide-knowledge-check:hover" in css
+
+    def test_scenario_hover(self):
+        css = build_guide_css()
+        assert "gg-guide-scenario:hover" in css
+
+    def test_table_row_hover(self):
+        css = build_guide_css()
+        assert "gg-guide-table tbody tr:hover" in css
+
+
+# ── Calculator CSS/JS ───────────────────────────────────────
+
+
+class TestCalculatorCssJs:
+    def test_calculator_css_classes(self):
+        css = build_guide_css()
+        assert "gg-guide-calculator" in css
+        assert "gg-guide-calc-input" in css
+        assert "gg-guide-calc-btn" in css
+        assert "gg-guide-calc-zone" in css
+
+    def test_calculator_css_toggle(self):
+        css = build_guide_css()
+        assert "gg-guide-calc-toggle" in css
+        assert "gg-guide-calc-toggle-btn--active" in css
+
+    def test_calculator_css_results(self):
+        css = build_guide_css()
+        assert "gg-guide-calc-results" in css
+        assert "gg-guide-calc-result-value" in css
+
+    def test_calculator_js_ftp(self):
+        js = build_guide_js()
+        assert "computeFtpZones" in js
+        assert "ftp_zones" in js
+
+    def test_calculator_js_nutrition(self):
+        js = build_guide_js()
+        assert "computeDailyNutrition" in js
+        assert "daily_nutrition" in js
+
+    def test_calculator_js_fueling(self):
+        js = build_guide_js()
+        assert "computeWorkoutFueling" in js
+        assert "workout_fueling" in js
+
+    def test_calculator_js_analytics(self):
+        js = build_guide_js()
+        assert "guide_calculator_use" in js
+
+    def test_calculator_mobile_css(self):
+        css = build_guide_css()
+        assert "gg-guide-calc-zone{grid-template-columns:1fr" in css
+
+
+# ── Zone Visualizer CSS/JS ──────────────────────────────────
+
+
+class TestZoneVisualizerCssJs:
+    def test_zone_viz_css(self):
+        css = build_guide_css()
+        assert "gg-guide-zone-viz" in css
+
+    def test_zone_viz_js_observer(self):
+        js = build_guide_js()
+        assert "gg-guide-viz-bar" in js
+        assert "gg-guide-zone-viz" in js
+
+
+# ── Rider Personalization ───────────────────────────────────
+
+
+class TestRiderPersonalization:
+    def test_personalization_config_in_content(self):
+        content = load_content()
+        assert "personalization" in content
+        p = content["personalization"]
+        assert "rider_types" in p
+        assert len(p["rider_types"]) == 4
+
+    def test_rider_types_have_required_fields(self):
+        content = load_content()
+        for rt in content["personalization"]["rider_types"]:
+            assert "id" in rt
+            assert "label" in rt
+            assert "hours" in rt
+            assert "default_ftp" in rt
+
+    def test_rider_selector_html(self):
+        content = load_content()
+        html = build_rider_selector(content)
+        assert "gg-guide-rider-selector" in html
+        assert 'role="radiogroup"' in html
+        assert html.count('role="radio"') == 4
+        assert "Ayahuasca" in html
+        assert "Finisher" in html
+        assert "Competitor" in html
+        assert "Podium" in html
+
+    def test_rider_badge_html(self):
+        content = load_content()
+        html = build_rider_selector(content)
+        assert "gg-guide-rider-badge" in html
+        assert "CHANGE" in html
+
+    def test_rider_selector_empty_without_config(self):
+        content = {"title": "Test", "meta_description": "Test", "chapters": []}
+        html = build_rider_selector(content)
+        assert html == ''
+
+    def test_rider_selector_in_page(self):
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-rider-selector" in html
+
+    def test_rider_css(self):
+        css = build_guide_css()
+        assert "gg-guide-rider-selector" in css
+        assert "gg-guide-rider-badge" in css
+        assert "gg-guide-rider-btn--active" in css
+
+    def test_rider_js_storage(self):
+        js = build_guide_js()
+        assert "gg_guide_rider_type" in js
+        assert "setRider" in js
+
+    def test_rider_js_tab_auto_select(self):
+        js = build_guide_js()
+        assert "gg-guide-tabs" in js
+        # Should auto-select matching tabs
+        assert "toLowerCase" in js
+
+    def test_rider_js_ftp_prefill(self):
+        js = build_guide_js()
+        assert "gg-calc-ftp-power" in js
+        assert "placeholder" in js
+
+    def test_rider_js_analytics(self):
+        js = build_guide_js()
+        assert "guide_rider_select" in js
+
+
+# ── Counter Pattern ─────────────────────────────────────────
+
+
+class TestCounterPattern:
+    def test_counter_inline_conversion(self):
+        result = _md_inline("There are {{328}} races.")
+        assert 'class="gg-guide-counter"' in result
+        assert 'data-target="328"' in result
+
+    def test_counter_decimal(self):
+        result = _md_inline("Score is {{70.5}}.")
+        assert 'data-target="70.5"' in result
+
+    def test_counter_in_content(self):
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-counter" in html
+
+    def test_counter_css(self):
+        css = build_guide_css()
+        assert "gg-guide-counter" in css
+
+    def test_counter_js_observer(self):
+        js = build_guide_js()
+        assert "gg-guide-counter" in js
+        assert "data-target" in js
+
+    def test_counter_js_animation(self):
+        js = build_guide_js()
+        assert "requestAnimationFrame" in js
+
+
+# ── Chapter Nav Pulse ───────────────────────────────────────
+
+
+class TestChapterNavPulse:
+    def test_pulse_css_keyframes(self):
+        css = build_guide_css()
+        assert "gg-chapnav-pulse" in css
+        assert "@keyframes" in css
+
+    def test_pulse_js(self):
+        js = build_guide_js()
+        assert "gg-guide-chapnav-item--pulse" in js
+
+    def test_pulse_reduced_motion(self):
+        css = build_guide_css()
+        # pulse animation should be disabled under reduced motion
+        assert "gg-guide-chapnav-item--pulse{animation:none}" in css
+
+
+# ── Content JSON Integrity ──────────────────────────────────
+
+
+class TestContentJsonIntegrity:
+    def test_calculator_blocks_in_ch3(self):
+        content = load_content()
+        ch3 = [ch for ch in content["chapters"] if ch["number"] == 3][0]
+        calc_blocks = [
+            b for sec in ch3["sections"] for b in sec["blocks"]
+            if b["type"] == "calculator"
+        ]
+        assert len(calc_blocks) == 1
+        assert calc_blocks[0]["calculator_id"] == "ftp-zones"
+
+    def test_zone_visualizer_in_ch3(self):
+        content = load_content()
+        ch3 = [ch for ch in content["chapters"] if ch["number"] == 3][0]
+        viz_blocks = [
+            b for sec in ch3["sections"] for b in sec["blocks"]
+            if b["type"] == "zone_visualizer"
+        ]
+        assert len(viz_blocks) == 1
+
+    def test_calculator_blocks_in_ch5(self):
+        content = load_content()
+        ch5 = [ch for ch in content["chapters"] if ch["number"] == 5][0]
+        calc_blocks = [
+            b for sec in ch5["sections"] for b in sec["blocks"]
+            if b["type"] == "calculator"
+        ]
+        assert len(calc_blocks) == 2
+        calc_ids = {b["calculator_id"] for b in calc_blocks}
+        assert calc_ids == {"daily-nutrition", "workout-fueling"}
+
+    def test_all_calculators_have_inputs(self):
+        content = load_content()
+        for ch in content["chapters"]:
+            for sec in ch["sections"]:
+                for b in sec["blocks"]:
+                    if b["type"] == "calculator":
+                        assert len(b["inputs"]) > 0, \
+                            f"Calculator {b['calculator_id']} has no inputs"
+
+    def test_counter_markers_in_prose(self):
+        """At least one prose block uses the {{N}} counter pattern."""
+        content = load_content()
+        has_counter = False
+        for ch in content["chapters"]:
+            for sec in ch["sections"]:
+                for b in sec["blocks"]:
+                    if b["type"] == "prose" and "{{" in b.get("content", ""):
+                        has_counter = True
+        assert has_counter, "No {{N}} counter markers found in prose blocks"
+
+
+# ── Size Budget ─────────────────────────────────────────────
+
+
+class TestSizeBudget:
+    def test_css_under_budget(self):
+        css = build_guide_css()
+        assert len(css) < 25000, f"CSS is {len(css)} bytes, exceeds 25KB budget"
+
+    def test_js_under_budget(self):
+        js = build_guide_js()
+        assert len(js) < 20000, f"JS is {len(js)} bytes, exceeds 20KB budget"

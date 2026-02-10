@@ -2,6 +2,15 @@
   "title": "The Complete Gravel Racing Training Guide",
   "subtitle": "Everything you need to know about gravel racing \u2014 from gear to training to race day execution.",
   "meta_description": "The complete gravel racing guide: training fundamentals, nutrition, race week protocol, and post-race recovery. Free chapters covering gear, race selection, and training basics.",
+  "personalization": {
+    "rider_types": [
+      {"id": "ayahuasca", "label": "Ayahuasca", "hours": "0-5 hrs/week", "default_ftp": 150},
+      {"id": "finisher", "label": "Finisher", "hours": "5-12 hrs/week", "default_ftp": 200},
+      {"id": "competitor", "label": "Competitor", "hours": "12-18 hrs/week", "default_ftp": 260},
+      {"id": "podium", "label": "Podium", "hours": "18+ hrs/week", "default_ftp": 320}
+    ],
+    "storage_key": "gg_guide_rider_type"
+  },
   "chapters": [
     {
       "number": 1,
@@ -138,7 +147,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Here's what matters, in order:"
+              "content": "Here's what actually matters, in order. Fitness determines {{70}}% of your result. Everything else fights over the remaining {{30}}%:"
             },
             {
               "type": "process_list",
@@ -476,6 +485,41 @@
                   "content": "**1. Zones are descriptive, not prescriptive** \u2014 They describe what you did, not rigid targets.\n\n**2. Easy means easy** \u2014 Most people train too hard on easy days. Zone 2 should feel conversational.\n\n**3. RPE is the ultimate arbiter** \u2014 Power meters can lie. Heart rate can be misleading. Your body doesn't lie.\n\n**4. FTP changes slowly** \u2014 Don't retest every week. Test at Week 1, optionally Week 6-7, and before your race.\n\n**5. Heart rate lags power** \u2014 Use power for short, hard efforts. Use heart rate for pacing long endurance rides.\n\n**6. Anaerobically gifted athletes are different** \u2014 The percentages assume average physiology. If you're exceptional, your coach will adjust zones."
                 }
               ]
+            },
+            {
+              "type": "zone_visualizer",
+              "title": "Zone Intensity Spectrum",
+              "zones": [
+                {"name": "Z1 Recovery", "max_pct": 55, "label": "55%", "color": "#4ECDC4"},
+                {"name": "Z2 Endurance", "max_pct": 75, "label": "75%", "color": "#1A8A82"},
+                {"name": "Z3 Tempo", "max_pct": 87, "label": "87%", "color": "#B7950B"},
+                {"name": "G Spot", "max_pct": 92, "label": "92%", "color": "#F4D03F"},
+                {"name": "Z4 Threshold", "max_pct": 105, "label": "105%", "color": "#e67e22"},
+                {"name": "Z5 VO2max", "max_pct": 120, "label": "120%", "color": "#c0392b"},
+                {"name": "Z6 Anaerobic", "max_pct": 150, "label": "150%", "color": "#8e44ad"},
+                {"name": "Z7 Neuromusc.", "max_pct": 200, "label": "200%", "color": "#2c3e50"}
+              ]
+            },
+            {
+              "type": "calculator",
+              "calculator_id": "ftp-zones",
+              "title": "Your Personal Zone Calculator",
+              "description": "Enter your FTP or 20-minute test power to see your training zones.",
+              "inputs": [
+                {"id": "ftp-power", "label": "FTP (watts)", "type": "number", "placeholder": "e.g., 250", "min": 50, "max": 600},
+                {"id": "ftp-test", "label": "OR 20-min test power", "type": "number", "placeholder": "e.g., 263", "min": 50, "max": 650, "transform": "multiply_0.95"},
+                {"id": "ftp-age", "label": "Age (optional, for HR zones)", "type": "number", "placeholder": "e.g., 38", "min": 16, "max": 80, "optional": true}
+              ],
+              "zones": [
+                {"name": "Z1 - Active Recovery", "min_pct": 0, "max_pct": 55, "hr_min_pct": 55, "hr_max_pct": 72, "color": "#4ECDC4"},
+                {"name": "Z2 - Endurance", "min_pct": 56, "max_pct": 75, "hr_min_pct": 72, "hr_max_pct": 82, "color": "#1A8A82"},
+                {"name": "Z3 - Tempo", "min_pct": 76, "max_pct": 87, "hr_min_pct": 82, "hr_max_pct": 87, "color": "#B7950B"},
+                {"name": "G Spot - Race Pace", "min_pct": 88, "max_pct": 92, "hr_min_pct": 87, "hr_max_pct": 92, "color": "#F4D03F"},
+                {"name": "Z4 - Threshold", "min_pct": 93, "max_pct": 105, "hr_min_pct": 87, "hr_max_pct": 92, "color": "#e67e22"},
+                {"name": "Z5 - VO2max", "min_pct": 106, "max_pct": 120, "hr_min_pct": 92, "hr_max_pct": 100, "color": "#c0392b"},
+                {"name": "Z6 - Anaerobic", "min_pct": 121, "max_pct": 150, "color": "#8e44ad"},
+                {"name": "Z7 - Neuromuscular", "min_pct": 151, "max_pct": 200, "color": "#2c3e50"}
+              ]
             }
           ]
         },
@@ -768,6 +812,28 @@
             {
               "type": "prose",
               "content": "**Protein** rebuilds muscle tissue damaged during training. Spread it across the day: four meals with 25-40g each beats one massive post-workout shake.\n\n**Carbs** fuel high-intensity work and restock glycogen. Match carb intake to training load.\n\n**Fat** supports hormones, cell membranes, vitamin absorption. Keep it moderate and consistent."
+            },
+            {
+              "type": "calculator",
+              "calculator_id": "daily-nutrition",
+              "title": "Your Daily Nutrition Calculator",
+              "description": "Enter your weight and training day type to see personalized macro targets.",
+              "inputs": [
+                {"id": "dn-weight", "label": "Body Weight", "type": "number", "placeholder": "e.g., 70", "min": 30, "max": 200},
+                {"id": "dn-unit", "label": "Unit", "type": "toggle", "options": [{"value": "kg", "label": "KG"}, {"value": "lbs", "label": "LBS"}]},
+                {"id": "dn-day", "label": "Training Day", "type": "select", "options": [
+                  {"value": "easy", "label": "Easy Day"},
+                  {"value": "hard", "label": "Hard Day"},
+                  {"value": "race", "label": "Race Day"},
+                  {"value": "rest", "label": "Rest Day"}
+                ]}
+              ],
+              "output_fields": [
+                {"id": "protein", "label": "Protein"},
+                {"id": "carbs", "label": "Carbs"},
+                {"id": "fat", "label": "Fat"},
+                {"id": "calories", "label": "Est. Calories"}
+              ]
             }
           ]
         },
@@ -789,6 +855,27 @@
                 ["Tempo/G Spot", "2-3 hours", "60-80g carbs/hr", "Start fueling at 30-45 minutes, not 90 minutes. Mix liquids and solids."],
                 ["Threshold/VO2max", "60-90 min", "Pre-workout meal sufficient", "Maybe one gel mid-session. Don't overthink this."],
                 ["Race Simulation", "4-6 hours", "70-80g carbs/hr", "Test different products. Figure out what your stomach tolerates at race pace."]
+              ]
+            },
+            {
+              "type": "calculator",
+              "calculator_id": "workout-fueling",
+              "title": "Workout Fueling Calculator",
+              "description": "Plan your fueling based on workout duration and intensity.",
+              "inputs": [
+                {"id": "wf-duration", "label": "Duration (hours)", "type": "number", "placeholder": "e.g., 4", "min": 0.5, "max": 24},
+                {"id": "wf-intensity", "label": "Intensity", "type": "select", "options": [
+                  {"value": "z2", "label": "Z2 Easy"},
+                  {"value": "tempo", "label": "Tempo / G Spot"},
+                  {"value": "race", "label": "Race Pace"},
+                  {"value": "high", "label": "High Intensity"}
+                ]}
+              ],
+              "output_fields": [
+                {"id": "total-carbs", "label": "Total Carbs"},
+                {"id": "fuel-rate", "label": "Fueling Rate"},
+                {"id": "hydration", "label": "Hydration"},
+                {"id": "gels", "label": "Carry"}
               ]
             }
           ]

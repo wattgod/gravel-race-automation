@@ -59,7 +59,13 @@ def load_content() -> dict:
 
 
 def _md_inline(text: str) -> str:
-    """Apply markdown-lite inline formatting (bold, italic, links)."""
+    """Apply markdown-lite inline formatting (bold, italic, links, counters)."""
+    # Counter pattern: {{123}} → animated counter span
+    text = re.sub(
+        r'\{\{(\d+(?:\.\d+)?)\}\}',
+        r'<span class="gg-guide-counter" data-target="\1">0</span>',
+        text,
+    )
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
@@ -199,7 +205,7 @@ def render_timeline(block: dict) -> str:
         label = esc(step["label"])
         content = _md_inline(esc(step["content"]))
         paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
-        steps_html.append(f'''<div class="gg-guide-timeline-step">
+        steps_html.append(f'''<div class="gg-guide-timeline-step gg-guide-stagger" data-delay="{i * 150}">
         <div class="gg-guide-timeline-marker">{i + 1}</div>
         <div class="gg-guide-timeline-content">
           <h4 class="gg-guide-timeline-label">{label}</h4>
@@ -215,18 +221,27 @@ def render_timeline(block: dict) -> str:
 
 
 def render_process_list(block: dict) -> str:
-    """Render a numbered process list with labels and details."""
+    """Render a numbered process list with labels, details, and animated bars."""
     items = block["items"]
     items_html = []
     for i, item in enumerate(items):
         label = esc(item["label"])
         detail = _md_inline(esc(item["detail"]))
         pct = item.get("percentage")
-        pct_html = f'<span class="gg-guide-process-pct">{pct}%</span>' if pct is not None else ''
+        if pct is not None:
+            pct_html = (
+                f'<div class="gg-guide-process-bar-wrap">'
+                f'<div class="gg-guide-process-bar" data-pct="{pct}" style="width:0%"></div>'
+                f'<span class="gg-guide-process-pct" data-target="{pct}">0%</span>'
+                f'</div>'
+            )
+        else:
+            pct_html = ''
         items_html.append(f'''<div class="gg-guide-process-item">
         <div class="gg-guide-process-num">{i + 1}</div>
         <div class="gg-guide-process-body">
-          <span class="gg-guide-process-label">{label}</span>{pct_html}
+          <span class="gg-guide-process-label">{label}</span>
+          {pct_html}
           <p class="gg-guide-process-detail">{detail}</p>
         </div>
       </div>''')
@@ -302,6 +317,152 @@ def render_scenario(block: dict) -> str:
     </div>'''
 
 
+def render_calculator(block: dict) -> str:
+    """Render an interactive calculator block (FTP zones, nutrition, fueling)."""
+    calc_id = esc(block["calculator_id"])
+    title = esc(block.get("title", "Calculator"))
+    desc = _md_inline(esc(block.get("description", "")))
+
+    inputs_html = []
+    for inp in block["inputs"]:
+        inp_id = esc(inp["id"])
+        label = esc(inp["label"])
+        inp_type = inp.get("type", "number")
+        placeholder = esc(inp.get("placeholder", ""))
+        optional = ' (optional)' if inp.get("optional") else ''
+        transform = f' data-transform="{esc(inp["transform"])}"' if inp.get("transform") else ''
+        min_attr = f' min="{inp["min"]}"' if "min" in inp else ''
+        max_attr = f' max="{inp["max"]}"' if "max" in inp else ''
+
+        if inp_type == "select":
+            options_html = ''.join(
+                f'<option value="{esc(opt["value"])}">{esc(opt["label"])}</option>'
+                for opt in inp["options"]
+            )
+            inputs_html.append(
+                f'<div class="gg-guide-calc-field">'
+                f'<label for="gg-calc-{inp_id}">{label}{optional}</label>'
+                f'<select id="gg-calc-{inp_id}" class="gg-guide-calc-select">{options_html}</select>'
+                f'</div>'
+            )
+        elif inp_type == "toggle":
+            btns = ''.join(
+                f'<button class="gg-guide-calc-toggle-btn{" gg-guide-calc-toggle-btn--active" if i == 0 else ""}" '
+                f'data-value="{esc(opt["value"])}">{esc(opt["label"])}</button>'
+                for i, opt in enumerate(inp["options"])
+            )
+            inputs_html.append(
+                f'<div class="gg-guide-calc-field">'
+                f'<label>{label}</label>'
+                f'<div class="gg-guide-calc-toggle" data-field="{inp_id}">{btns}</div>'
+                f'</div>'
+            )
+        else:
+            inputs_html.append(
+                f'<div class="gg-guide-calc-field">'
+                f'<label for="gg-calc-{inp_id}">{label}{optional}</label>'
+                f'<input type="number" id="gg-calc-{inp_id}" inputmode="numeric" '
+                f'placeholder="{placeholder}"{min_attr}{max_attr}{transform} '
+                f'class="gg-guide-calc-input">'
+                f'</div>'
+            )
+
+    # Build zone bars for FTP calculator
+    zones_html = ''
+    if "zones" in block:
+        bars = []
+        for z in block["zones"]:
+            name = esc(z["name"])
+            color = esc(z.get("color", "#1A8A82"))
+            hr_attrs = ''
+            if "hr_min_pct" in z:
+                hr_attrs = f' data-hr-min="{z["hr_min_pct"]}" data-hr-max="{z["hr_max_pct"]}"'
+            bars.append(
+                f'<div class="gg-guide-calc-zone" data-min="{z["min_pct"]}" data-max="{z["max_pct"]}"{hr_attrs}>'
+                f'<span class="gg-guide-calc-zone-name">{name}</span>'
+                f'<div class="gg-guide-calc-zone-track">'
+                f'<div class="gg-guide-calc-zone-fill" style="background:{color};width:0%"></div>'
+                f'</div>'
+                f'<span class="gg-guide-calc-zone-range"></span>'
+                f'<span class="gg-guide-calc-zone-hr"></span>'
+                f'</div>'
+            )
+        zones_html = f'<div class="gg-guide-calc-zones">{"".join(bars)}</div>'
+
+    # Build output area for nutrition calculators
+    output_html = ''
+    if "output_fields" in block:
+        fields = []
+        for f_def in block["output_fields"]:
+            fid = esc(f_def["id"])
+            flabel = esc(f_def["label"])
+            fields.append(
+                f'<div class="gg-guide-calc-result-item">'
+                f'<span class="gg-guide-calc-result-label">{flabel}</span>'
+                f'<span class="gg-guide-calc-result-value" id="gg-calc-out-{fid}">—</span>'
+                f'</div>'
+            )
+        output_html = f'<div class="gg-guide-calc-results">{"".join(fields)}</div>'
+
+    return f'''<div class="gg-guide-calculator" data-calc-type="{calc_id}">
+      <div class="gg-guide-calc-label">{title}</div>
+      <p class="gg-guide-calc-desc">{desc}</p>
+      <div class="gg-guide-calc-inputs">{"".join(inputs_html)}</div>
+      <button class="gg-guide-calc-btn">CALCULATE</button>
+      <div class="gg-guide-calc-output" aria-live="polite" style="display:none">
+        <div class="gg-guide-calc-ftp-display"></div>
+        {zones_html}
+        {output_html}
+      </div>
+    </div>'''
+
+
+def render_zone_visualizer(block: dict) -> str:
+    """Render an SVG zone intensity visualizer with animated bars."""
+    zones = block["zones"]
+    title = esc(block.get("title", "Zone Intensity Spectrum"))
+    max_pct = max(z["max_pct"] for z in zones)
+
+    bar_height = 28
+    gap = 6
+    label_x = 0
+    bar_x = 130
+    bar_width = 320
+    svg_height = len(zones) * (bar_height + gap) + 10
+    svg_width = bar_x + bar_width + 60
+
+    bars_svg = []
+    for i, z in enumerate(zones):
+        y = i * (bar_height + gap) + 5
+        name = esc(z["name"])
+        color = esc(z.get("color", "#1A8A82"))
+        pct_label = esc(z.get("label", f'{z["max_pct"]}%'))
+        w = (z["max_pct"] / max_pct) * bar_width
+
+        bars_svg.append(
+            f'<text x="{label_x}" y="{y + bar_height - 8}" '
+            f'font-size="11" fill="#333" font-family="Sometype Mono,monospace" '
+            f'font-weight="700">{name}</text>'
+            f'<rect x="{bar_x}" y="{y}" width="{bar_width}" height="{bar_height}" '
+            f'fill="#f5f0eb" stroke="#ddd" stroke-width="1"/>'
+            f'<rect class="gg-guide-viz-bar" x="{bar_x}" y="{y}" width="0" '
+            f'height="{bar_height}" fill="{color}" data-width="{w}" '
+            f'data-delay="{i * 100}"/>'
+            f'<text class="gg-guide-viz-label" x="{bar_x + w + 8}" y="{y + bar_height - 8}" '
+            f'font-size="10" fill="#666" font-family="Sometype Mono,monospace" '
+            f'opacity="0">{pct_label}</text>'
+        )
+
+    return f'''<div class="gg-guide-zone-viz">
+      <h3 class="gg-guide-section-title">{title}</h3>
+      <svg viewBox="0 0 {svg_width} {svg_height}" xmlns="http://www.w3.org/2000/svg"
+           role="img" aria-label="Zone intensity spectrum visualization"
+           style="width:100%;height:auto;max-width:{svg_width}px">
+        {"".join(bars_svg)}
+      </svg>
+    </div>'''
+
+
 # Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
@@ -314,6 +475,8 @@ BLOCK_RENDERERS = {
     "knowledge_check": render_knowledge_check,
     "flashcard": render_flashcard,
     "scenario": render_scenario,
+    "calculator": render_calculator,
+    "zone_visualizer": render_zone_visualizer,
 }
 
 
@@ -377,7 +540,7 @@ def build_chapter_nav(chapters: list) -> str:
 
 
 def build_chapter(chapter: dict) -> str:
-    """Build a full chapter section."""
+    """Build a full chapter section with staggered scroll reveals."""
     num = chapter["number"]
     ch_id = chapter["id"]
     title = esc(chapter["title"])
@@ -393,7 +556,14 @@ def build_chapter(chapter: dict) -> str:
     for section in chapter["sections"]:
         sec_title = section.get("title", "")
         sec_title_html = f'<h3 class="gg-guide-section-title">{esc(sec_title)}</h3>' if sec_title else ''
-        blocks_html = '\n'.join(render_block(b) for b in section["blocks"])
+        # Wrap each block in stagger div for scroll reveal
+        block_parts = []
+        for idx, b in enumerate(section["blocks"]):
+            rendered = render_block(b)
+            block_parts.append(
+                f'<div class="gg-guide-stagger" data-delay="{idx * 100}">{rendered}</div>'
+            )
+        blocks_html = '\n'.join(block_parts)
         sections_html.append(f'''<div class="gg-guide-section" id="{esc(section["id"])}">
         {sec_title_html}
         {blocks_html}
@@ -408,6 +578,38 @@ def build_chapter(chapter: dict) -> str:
     <div class="gg-guide-chapter-body">
       {"".join(sections_html)}
     </div>
+  </div>'''
+
+
+def build_rider_selector(content: dict) -> str:
+    """Build the rider type selector bar and floating badge."""
+    personalization = content.get("personalization")
+    if not personalization:
+        return ''
+    rider_types = personalization.get("rider_types", [])
+    if not rider_types:
+        return ''
+
+    btns = []
+    for rt in rider_types:
+        rid = esc(rt["id"])
+        label = esc(rt["label"])
+        hours = esc(rt.get("hours", ""))
+        btns.append(
+            f'<button class="gg-guide-rider-btn" role="radio" aria-checked="false" '
+            f'data-rider="{rid}" data-ftp="{rt.get("default_ftp", 200)}">'
+            f'<span class="gg-guide-rider-btn-label">{label}</span>'
+            f'<span class="gg-guide-rider-btn-hours">{hours}</span>'
+            f'</button>'
+        )
+
+    return f'''<div class="gg-guide-rider-selector" id="gg-guide-rider-selector" role="radiogroup" aria-label="Select your rider type">
+    <span class="gg-guide-rider-prompt">I AM A:</span>
+    {"".join(btns)}
+  </div>
+  <div class="gg-guide-rider-badge" id="gg-guide-rider-badge" style="display:none">
+    <span class="gg-guide-rider-badge-type" id="gg-guide-rider-badge-type"></span>
+    <button class="gg-guide-rider-badge-change" id="gg-guide-rider-badge-change">CHANGE</button>
   </div>'''
 
 
@@ -799,6 +1001,66 @@ def build_guide_css() -> str:
 .gg-guide-fade-in{opacity:0;transform:translateY(20px)}
 .gg-guide-fade-in--visible{opacity:1;transform:translateY(0)}
 
+/* ── Stagger Scroll Reveal ── */
+.gg-guide-stagger{opacity:0;transform:translateY(16px)}
+.gg-guide-stagger--visible{opacity:1;transform:translateY(0)}
+
+/* ── Animated Process Bars ── */
+.gg-guide-process-bar-wrap{display:flex;align-items:center;gap:8px;margin-top:4px;margin-bottom:4px}
+.gg-guide-process-bar{height:8px;background:#1A8A82;border:1px solid #000}
+.gg-guide-process-pct{font-size:11px;font-weight:700;color:#1A8A82;min-width:36px}
+
+/* ── Calculator ── */
+.gg-guide-calculator{border:3px solid #000;margin:0 0 24px;background:#fff}
+.gg-guide-calc-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-calc-desc{padding:12px 20px 4px;font-size:13px;color:#444;margin:0}
+.gg-guide-calc-inputs{padding:8px 20px;display:flex;flex-wrap:wrap;gap:12px}
+.gg-guide-calc-field{display:flex;flex-direction:column;gap:4px;min-width:140px;flex:1}
+.gg-guide-calc-field label{font-size:11px;font-weight:700;color:#59473c;text-transform:uppercase;letter-spacing:1px}
+.gg-guide-calc-input,.gg-guide-calc-select{padding:8px 12px;border:2px solid #000;font-family:'Sometype Mono',monospace;font-size:13px;background:#f5f0eb}
+.gg-guide-calc-input:focus,.gg-guide-calc-select:focus{outline:3px solid #B7950B;outline-offset:2px}
+.gg-guide-calc-toggle{display:flex;gap:0}
+.gg-guide-calc-toggle-btn{padding:8px 16px;border:2px solid #000;background:#f5f0eb;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;cursor:pointer}
+.gg-guide-calc-toggle-btn+.gg-guide-calc-toggle-btn{border-left:none}
+.gg-guide-calc-toggle-btn--active{background:#1A8A82;color:#fff;border-color:#1A8A82}
+.gg-guide-calc-btn{display:block;margin:8px 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #000;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.gg-guide-calc-btn:hover{background:#8c7568}
+.gg-guide-calc-output{padding:16px 20px}
+.gg-guide-calc-ftp-display{font-size:14px;font-weight:700;margin-bottom:12px;color:#59473c}
+.gg-guide-calc-zones{display:flex;flex-direction:column;gap:8px}
+.gg-guide-calc-zone{display:grid;grid-template-columns:160px 1fr 80px 80px;align-items:center;gap:8px;font-size:12px}
+.gg-guide-calc-zone-name{font-weight:700;font-size:11px;color:#333}
+.gg-guide-calc-zone-track{height:20px;background:#f5f0eb;border:1px solid #ddd;position:relative}
+.gg-guide-calc-zone-fill{height:100%;width:0%}
+.gg-guide-calc-zone-range{font-size:11px;color:#444;font-weight:700}
+.gg-guide-calc-zone-hr{font-size:10px;color:#666}
+.gg-guide-calc-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px}
+.gg-guide-calc-result-item{padding:12px;border:2px solid #000;background:#f5f0eb;text-align:center}
+.gg-guide-calc-result-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59473c;margin-bottom:4px}
+.gg-guide-calc-result-value{display:block;font-size:18px;font-weight:700;color:#1A8A82}
+
+/* ── Zone Visualizer ── */
+.gg-guide-zone-viz{margin:0 0 24px}
+
+/* ── Rider Selector ── */
+.gg-guide-rider-selector{display:flex;align-items:center;gap:0;background:#000;border:3px solid #000;border-top:none;flex-wrap:wrap}
+.gg-guide-rider-prompt{color:#d4c5b9;font-size:10px;font-weight:700;letter-spacing:3px;padding:10px 16px}
+.gg-guide-rider-btn{padding:10px 16px;background:#333;color:#d4c5b9;border:none;border-right:1px solid #555;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
+.gg-guide-rider-btn:last-child{border-right:none}
+.gg-guide-rider-btn:hover{background:#555;color:#fff}
+.gg-guide-rider-btn--active{background:#1A8A82;color:#fff}
+.gg-guide-rider-btn-hours{font-size:9px;font-weight:400;opacity:0.7}
+.gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#000;border:3px solid #1A8A82;padding:8px 14px;display:flex;align-items:center;gap:10px}
+.gg-guide-rider-badge-type{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px}
+.gg-guide-rider-badge-change{background:none;border:none;color:#1A8A82;font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;text-decoration:underline;letter-spacing:1px}
+
+/* ── Counter ── */
+.gg-guide-counter{font-weight:700;color:#1A8A82}
+
+/* ── Chapter Nav Pulse ── */
+@keyframes gg-chapnav-pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+.gg-guide-chapnav-item--pulse{animation:gg-chapnav-pulse 0.3s ease}
+
 /* ── Footer ── */
 .gg-guide-chapter-body .gg-footer{border:none;margin:0;padding:24px 0 0}
 
@@ -816,9 +1078,16 @@ def build_guide_css() -> str:
   .gg-guide-btn{transition:all 0.15s}
   .gg-guide-fade-in{transition:opacity 0.5s ease,transform 0.5s ease}
   .gg-guide-flashcard-inner{transition:transform 0.4s}
+  .gg-guide-stagger{transition:opacity 0.5s ease,transform 0.5s ease}
+  .gg-guide-process-bar{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .gg-guide-calc-zone-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .gg-guide-knowledge-check:hover,.gg-guide-scenario:hover{transform:translateY(-2px)}
+  .gg-guide-table tbody tr:hover{background:#f0faf9}
 }
 @media(prefers-reduced-motion: reduce){
   .gg-guide-fade-in{opacity:1;transform:none}
+  .gg-guide-stagger{opacity:1;transform:none}
+  .gg-guide-chapnav-item--pulse{animation:none}
 }
 
 /* ── Responsive ── */
@@ -839,6 +1108,10 @@ def build_guide_css() -> str:
   .gg-guide-table th,.gg-guide-table td{padding:6px 8px}
   .gg-guide-flashcard-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   .gg-guide-flashcard{height:120px}
+  .gg-guide-calc-zone{grid-template-columns:1fr;gap:2px}
+  .gg-guide-calc-inputs{flex-direction:column}
+  .gg-guide-rider-selector{justify-content:center}
+  .gg-guide-rider-badge{bottom:10px;right:10px}
 }
 '''
 
@@ -846,9 +1119,27 @@ def build_guide_css() -> str:
 # ── JS ───────────────────────────────────────────────────────
 
 
+def _minify_js(js: str) -> str:
+    """Lightweight JS minifier: strip block comments and collapse whitespace."""
+    # Remove /* ... */ comments (non-greedy)
+    js = re.sub(r'/\*.*?\*/', '', js, flags=re.DOTALL)
+    # Remove // line comments (but not inside strings)
+    js = re.sub(r'(?<!["\':])//[^\n]*', '', js)
+    # Collapse multiple blank lines to single newline
+    js = re.sub(r'\n\s*\n', '\n', js)
+    # Remove leading whitespace from lines (preserving string contents)
+    lines = js.split('\n')
+    result = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped:
+            result.append(stripped)
+    return '\n'.join(result)
+
+
 def build_guide_js() -> str:
     """Return all guide-specific JavaScript as a single IIFE."""
-    return '''(function(){
+    raw = '''(function(){
 "use strict";
 
 /* ── Analytics Helper (beacon transport) ── */
@@ -1105,6 +1396,316 @@ if ("IntersectionObserver" in window) {
   }
 }
 
+/* ── Stagger Scroll Reveal ── */
+if ("IntersectionObserver" in window) {
+  var sections = document.querySelectorAll(".gg-guide-section");
+  if (sections.length) {
+    var staggerObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var children = entry.target.querySelectorAll(".gg-guide-stagger");
+          children.forEach(function(child) {
+            var delay = parseInt(child.getAttribute("data-delay") || "0", 10);
+            setTimeout(function() { child.classList.add("gg-guide-stagger--visible"); }, delay);
+          });
+          staggerObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(function(sec) { staggerObs.observe(sec); });
+  }
+}
+
+/* ── Animated Process Bars ── */
+if ("IntersectionObserver" in window) {
+  var barWraps = document.querySelectorAll(".gg-guide-process-bar-wrap");
+  if (barWraps.length) {
+    var barObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var bar = entry.target.querySelector(".gg-guide-process-bar");
+        var pctEl = entry.target.querySelector(".gg-guide-process-pct");
+        if (bar) {
+          var pct = parseFloat(bar.getAttribute("data-pct") || "0");
+          bar.style.width = Math.min(pct, 100) + "%";
+          if (pctEl) {
+            var target = parseFloat(pctEl.getAttribute("data-target") || "0");
+            var dur = 600;
+            var start = null;
+            function animPct(ts) {
+              if (!start) start = ts;
+              var p = Math.min((ts - start) / dur, 1);
+              var ease = 1 - Math.pow(1 - p, 3);
+              var v = Math.round(ease * target * 10) / 10;
+              pctEl.textContent = (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + "%";
+              if (p < 1) requestAnimationFrame(animPct);
+            }
+            requestAnimationFrame(animPct);
+          }
+        }
+        barObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+    barWraps.forEach(function(el) { barObs.observe(el); });
+  }
+}
+
+/* ── Parallax Chapter Heroes ── */
+var heroEls = document.querySelectorAll(".gg-guide-chapter-hero");
+if (heroEls.length) {
+  window.addEventListener("scroll", function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        heroEls.forEach(function(hero) {
+          var rect = hero.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            var ratio = (rect.top + rect.height) / (window.innerHeight + rect.height);
+            hero.style.backgroundPositionY = Math.round((ratio - 0.5) * 20) + "px";
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ── Calculator Logic ── */
+document.querySelectorAll(".gg-guide-calculator").forEach(function(calc) {
+  var calcType = calc.getAttribute("data-calc-type");
+  var btn = calc.querySelector(".gg-guide-calc-btn");
+  var output = calc.querySelector(".gg-guide-calc-output");
+
+  // Toggle buttons
+  calc.querySelectorAll(".gg-guide-calc-toggle").forEach(function(toggle) {
+    var btns = toggle.querySelectorAll(".gg-guide-calc-toggle-btn");
+    btns.forEach(function(b) {
+      b.addEventListener("click", function() {
+        btns.forEach(function(t) { t.classList.remove("gg-guide-calc-toggle-btn--active"); });
+        b.classList.add("gg-guide-calc-toggle-btn--active");
+      });
+    });
+  });
+
+  if (btn) btn.addEventListener("click", function() {
+    if (calcType === "ftp-zones") computeFtpZones(calc, output);
+    else if (calcType === "daily-nutrition") computeDailyNutrition(calc, output);
+    else if (calcType === "workout-fueling") computeWorkoutFueling(calc, output);
+  });
+});
+
+function computeFtpZones(calc, output) {
+  var ftpInput = calc.querySelector("#gg-calc-ftp-power");
+  var testInput = calc.querySelector("#gg-calc-ftp-test");
+  var ageInput = calc.querySelector("#gg-calc-ftp-age");
+  var ftp = 0;
+  if (ftpInput && ftpInput.value) ftp = parseInt(ftpInput.value, 10);
+  if ((!ftp || ftp < 50) && testInput && testInput.value) ftp = Math.round(parseInt(testInput.value, 10) * 0.95);
+  if (!ftp || ftp < 50 || ftp > 600) return;
+  var age = ageInput && ageInput.value ? parseInt(ageInput.value, 10) : 0;
+  var hrmax = age >= 16 ? Math.round(211 - 0.64 * age) : 0;
+
+  var ftpDisp = output.querySelector(".gg-guide-calc-ftp-display");
+  if (ftpDisp) ftpDisp.textContent = "Your FTP: " + ftp + " watts" + (hrmax ? " | HRmax: " + hrmax + " bpm" : "");
+
+  output.style.display = "block";
+  var zones = output.querySelectorAll(".gg-guide-calc-zone");
+  zones.forEach(function(zone, i) {
+    var minPct = parseInt(zone.getAttribute("data-min"), 10);
+    var maxPct = parseInt(zone.getAttribute("data-max"), 10);
+    var minW = Math.round(ftp * minPct / 100);
+    var maxW = Math.round(ftp * maxPct / 100);
+    var range = zone.querySelector(".gg-guide-calc-zone-range");
+    if (range) range.textContent = minW + "-" + maxW + "w";
+    var fill = zone.querySelector(".gg-guide-calc-zone-fill");
+    if (fill) setTimeout(function() { fill.style.width = Math.min(maxPct / 2, 100) + "%"; }, i * 80);
+    var hrEl = zone.querySelector(".gg-guide-calc-zone-hr");
+    if (hrEl && hrmax) {
+      var hrMinPct = zone.getAttribute("data-hr-min");
+      var hrMaxPct = zone.getAttribute("data-hr-max");
+      if (hrMinPct && hrMaxPct) {
+        hrEl.textContent = Math.round(hrmax * parseInt(hrMinPct, 10) / 100) + "-" + Math.round(hrmax * parseInt(hrMaxPct, 10) / 100) + " bpm";
+      }
+    }
+  });
+  track("guide_calculator_use", { type: "ftp_zones", ftp: ftp, has_hr: hrmax > 0 });
+}
+
+function setOut(id,t){var e=document.getElementById("gg-calc-out-"+id);if(e)e.textContent=t;}
+
+function computeDailyNutrition(calc, output) {
+  var wi = calc.querySelector("#gg-calc-dn-weight");
+  var w = wi ? parseFloat(wi.value) : 0;
+  if (!w || w < 30) return;
+  var tg = calc.querySelector(".gg-guide-calc-toggle[data-field='dn-unit']");
+  var u = "kg";
+  if (tg) { var a = tg.querySelector(".gg-guide-calc-toggle-btn--active"); if (a) u = a.getAttribute("data-value")||"kg"; }
+  var kg = u === "lbs" ? w * 0.4536 : w;
+  var ds = calc.querySelector("#gg-calc-dn-day");
+  var d = ds ? ds.value : "easy";
+  var cm = {rest:[2,3],hard:[5,7],race:[8,10]}[d] || [3,5];
+  output.style.display = "block";
+  setOut("protein", Math.round(kg*1.6)+"-"+Math.round(kg*2.2)+"g");
+  setOut("carbs", Math.round(kg*cm[0])+"-"+Math.round(kg*cm[1])+"g");
+  setOut("fat", Math.round(kg*0.8)+"-"+Math.round(kg*1.2)+"g");
+  setOut("calories", Math.round(kg*1.6*4+kg*cm[0]*4+kg*0.8*9)+"-"+Math.round(kg*2.2*4+kg*cm[1]*4+kg*1.2*9)+" kcal");
+  track("guide_calculator_use", {type:"daily_nutrition",weight_kg:Math.round(kg)});
+}
+
+function computeWorkoutFueling(calc, output) {
+  var di = calc.querySelector("#gg-calc-wf-duration");
+  var dur = di ? parseFloat(di.value) : 0;
+  if (!dur || dur < 0.5) return;
+  var is = calc.querySelector("#gg-calc-wf-intensity");
+  var rate = {z2:50,tempo:65,race:75}[is?is.value:"z2"] || 40;
+  var tc = Math.round(dur*rate), hy = Math.round(dur*500);
+  output.style.display = "block";
+  setOut("total-carbs", tc+"g");
+  setOut("fuel-rate", rate+"g/hr");
+  setOut("hydration", (hy/1000).toFixed(1)+"L ("+Math.round(hy/500)+" bottles)");
+  setOut("gels", Math.ceil(tc/25)+" gels (or equivalent)");
+  track("guide_calculator_use", {type:"workout_fueling",duration:dur});
+}
+
+/* ── Zone Visualizer Animation ── */
+if ("IntersectionObserver" in window) {
+  var vizEls = document.querySelectorAll(".gg-guide-zone-viz");
+  if (vizEls.length) {
+    var vizObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var bars = entry.target.querySelectorAll(".gg-guide-viz-bar");
+        var labels = entry.target.querySelectorAll(".gg-guide-viz-label");
+        bars.forEach(function(bar, i) {
+          var w = bar.getAttribute("data-width");
+          var d = parseInt(bar.getAttribute("data-delay") || "0", 10);
+          setTimeout(function() {
+            bar.setAttribute("width", w);
+            if (labels[i]) labels[i].setAttribute("opacity", "1");
+          }, d);
+        });
+        vizObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    vizEls.forEach(function(el) { vizObs.observe(el); });
+  }
+}
+
+/* ── Rider Personalization ── */
+var RIDER_STORAGE = "gg_guide_rider_type";
+var riderSelector = document.getElementById("gg-guide-rider-selector");
+var riderBadge = document.getElementById("gg-guide-rider-badge");
+var riderBadgeType = document.getElementById("gg-guide-rider-badge-type");
+var riderBadgeChange = document.getElementById("gg-guide-rider-badge-change");
+
+function setRider(type) {
+  try { localStorage.setItem(RIDER_STORAGE, type); } catch(e) {}
+  if (!riderSelector) return;
+  var btns = riderSelector.querySelectorAll(".gg-guide-rider-btn");
+  var label = "";
+  var ftp = 200;
+  btns.forEach(function(b) {
+    var isMatch = b.getAttribute("data-rider") === type;
+    b.classList.toggle("gg-guide-rider-btn--active", isMatch);
+    b.setAttribute("aria-checked", isMatch ? "true" : "false");
+    if (isMatch) {
+      label = b.querySelector(".gg-guide-rider-btn-label").textContent;
+      ftp = parseInt(b.getAttribute("data-ftp") || "200", 10);
+    }
+  });
+  // Show badge
+  if (riderBadge && label) {
+    riderBadge.style.display = "flex";
+    if (riderBadgeType) riderBadgeType.textContent = label;
+  }
+  // Auto-select matching tabs
+  document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup) {
+    var tabs = tabGroup.querySelectorAll(".gg-guide-tab");
+    var panels = tabGroup.querySelectorAll(".gg-guide-tab-panel");
+    tabs.forEach(function(tab, i) {
+      if (tab.textContent.trim().toLowerCase() === type.toLowerCase() ||
+          tab.textContent.trim().toLowerCase() === label.toLowerCase()) {
+        tabs.forEach(function(t) { t.classList.remove("gg-guide-tab--active"); t.setAttribute("aria-selected", "false"); });
+        panels.forEach(function(p) { p.style.display = "none"; });
+        tab.classList.add("gg-guide-tab--active");
+        tab.setAttribute("aria-selected", "true");
+        if (panels[i]) panels[i].style.display = "block";
+      }
+    });
+  });
+  // Pre-fill FTP placeholder
+  var ftpInput = document.getElementById("gg-calc-ftp-power");
+  if (ftpInput) ftpInput.placeholder = "e.g., " + ftp;
+  track("guide_rider_select", { rider_type: type });
+}
+
+if (riderSelector) {
+  riderSelector.querySelectorAll(".gg-guide-rider-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() { setRider(btn.getAttribute("data-rider")); });
+  });
+}
+if (riderBadgeChange) {
+  riderBadgeChange.addEventListener("click", function() {
+    if (riderSelector) riderSelector.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+// Restore from localStorage
+try {
+  var saved = localStorage.getItem(RIDER_STORAGE);
+  if (saved) setRider(saved);
+} catch(e) {}
+
+/* ── Animated Counters ── */
+if ("IntersectionObserver" in window) {
+  var counterEls = document.querySelectorAll(".gg-guide-counter");
+  if (counterEls.length) {
+    var counterObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseFloat(el.getAttribute("data-target") || "0");
+        if (!target) { counterObs.unobserve(el); return; }
+        var isDecimal = target % 1 !== 0;
+        var duration = 1200;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          var val = ease * target;
+          el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toString();
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counterEls.forEach(function(el) { counterObs.observe(el); });
+  }
+}
+
+/* ── Chapter Nav Pulse ── */
+if (chapters.length && navItems.length) {
+  var lastActiveChapter = null;
+  var pulseObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var chId = entry.target.id;
+        if (chId !== lastActiveChapter) {
+          lastActiveChapter = chId;
+          navItems.forEach(function(nav) {
+            if (nav.getAttribute("data-chapter") === chId) {
+              nav.classList.add("gg-guide-chapnav-item--pulse");
+              setTimeout(function() { nav.classList.remove("gg-guide-chapnav-item--pulse"); }, 300);
+            }
+          });
+        }
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
+  chapters.forEach(function(ch) { pulseObs.observe(ch); });
+}
+
 /* ── Time on Page (beacon) ── */
 var pageStartTime = Date.now();
 window.addEventListener("beforeunload", function() {
@@ -1114,6 +1715,7 @@ window.addEventListener("beforeunload", function() {
 
 })();
 '''
+    return _minify_js(raw)
 
 
 # ── Page Assembly ────────────────────────────────────────────
@@ -1126,6 +1728,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 
     nav = build_nav()
     hero = build_hero(content)
+    rider_selector = build_rider_selector(content)
     progress = build_progress_bar()
     chapnav = build_chapter_nav(content["chapters"])
     jsonld = build_jsonld(content)
@@ -1260,6 +1863,8 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   {nav}
 
   {hero}
+
+  {rider_selector}
 
   {chapnav}
 

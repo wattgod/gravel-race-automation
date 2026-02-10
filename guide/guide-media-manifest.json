@@ -290,7 +290,7 @@
         "template": "zone_spectrum"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T05:19:45.213989+00:00",
+      "generated_at": "2026-02-10T15:07:02.131322+00:00",
       "output_files": [
         "ch3-zone-spectrum-1x.webp",
         "ch3-zone-spectrum-2x.webp"
@@ -321,7 +321,7 @@
         "template": "training_phases"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T05:19:50.461280+00:00",
+      "generated_at": "2026-02-10T15:07:03.303487+00:00",
       "output_files": [
         "ch3-training-phases-1x.webp",
         "ch3-training-phases-2x.webp"
@@ -392,6 +392,254 @@
         ]
       },
       "status": "pending"
+    },
+    {
+      "id": "ch1-rider-grid",
+      "chapter": 1,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Four rider categories comparison grid",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "rider_categories"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:54.380306+00:00",
+      "output_files": [
+        "ch1-rider-grid-1x.webp",
+        "ch1-rider-grid-2x.webp"
+      ]
+    },
+    {
+      "id": "ch2-tier-distribution",
+      "chapter": 2,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Tier distribution of 328 gravel races",
+      "dimensions": {
+        "width": 1200,
+        "height": 400
+      },
+      "resize": {
+        "1x": [
+          600,
+          200
+        ],
+        "2x": [
+          1200,
+          400
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "tier_distribution"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:54.622502+00:00",
+      "output_files": [
+        "ch2-tier-distribution-1x.webp",
+        "ch2-tier-distribution-2x.webp"
+      ]
+    },
+    {
+      "id": "ch3-supercompensation",
+      "chapter": 3,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Supercompensation adaptation cycle curve",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "supercompensation"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:54.932970+00:00",
+      "output_files": [
+        "ch3-supercompensation-1x.webp",
+        "ch3-supercompensation-2x.webp"
+      ]
+    },
+    {
+      "id": "ch3-pmc-chart",
+      "chapter": 3,
+      "type": "infographic",
+      "placement": "full-width",
+      "prompt": "Performance Management Chart (CTL/ATL/TSB) over 12 weeks",
+      "dimensions": {
+        "width": 1600,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          800,
+          300
+        ],
+        "2x": [
+          1600,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "pmc_chart"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:55.348694+00:00",
+      "output_files": [
+        "ch3-pmc-chart-1x.webp",
+        "ch3-pmc-chart-2x.webp"
+      ]
+    },
+    {
+      "id": "ch4-execution-gap",
+      "chapter": 4,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Plan vs reality interval execution comparison",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "execution_gap"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:55.734888+00:00",
+      "output_files": [
+        "ch4-execution-gap-1x.webp",
+        "ch4-execution-gap-2x.webp"
+      ]
+    },
+    {
+      "id": "ch4-traffic-light",
+      "chapter": 4,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Green/Yellow/Red autoregulation system",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "resize": {
+        "1x": [
+          600,
+          400
+        ],
+        "2x": [
+          1200,
+          800
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "traffic_light"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:56.144482+00:00",
+      "output_files": [
+        "ch4-traffic-light-1x.webp",
+        "ch4-traffic-light-2x.webp"
+      ]
+    },
+    {
+      "id": "ch5-bonk-math",
+      "chapter": 5,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "The bonk math equation and gel grid",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "bonk_math"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:56.438221+00:00",
+      "output_files": [
+        "ch5-bonk-math-1x.webp",
+        "ch5-bonk-math-2x.webp"
+      ]
+    },
+    {
+      "id": "ch6-psych-phases",
+      "chapter": 6,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Psychological phases mood curve of a long race",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "psych_phases"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T18:29:56.747578+00:00",
+      "output_files": [
+        "ch6-psych-phases-1x.webp",
+        "ch6-psych-phases-2x.webp"
+      ]
     }
   ]
 }

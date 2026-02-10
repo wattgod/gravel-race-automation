@@ -85,20 +85,33 @@ def post_process(asset: dict, raw_path: Path, defaults: dict) -> list[Path]:
     return output_paths
 
 
+# Map template names to their modules — used by both apply_data_overlay and generate_batch
+TEMPLATE_MODULES = {
+    "zone_spectrum": "media_templates.zone_spectrum",
+    "training_phases": "media_templates.training_phases",
+    "supercompensation": "media_templates.supercompensation",
+    "pmc_chart": "media_templates.pmc_chart",
+    "psych_phases": "media_templates.psych_phases",
+    "bonk_math": "media_templates.bonk_math",
+    "execution_gap": "media_templates.execution_gap",
+    "traffic_light": "media_templates.traffic_light",
+    "tier_distribution": "media_templates.tier_distribution",
+    "rider_categories": "media_templates.rider_categories",
+}
+
+
 def apply_data_overlay(img, template_name: str, asset: dict):
     """Route to the appropriate template module for infographic overlays."""
     from PIL import Image
 
     sys.path.insert(0, str(Path(__file__).parent))
 
-    if template_name == "zone_spectrum":
-        from media_templates.zone_spectrum import render
+    module_path = TEMPLATE_MODULES.get(template_name)
+    if module_path:
+        import importlib
+        mod = importlib.import_module(module_path)
         dims = asset.get("dimensions", {})
-        return render(width=dims.get("width", 1200), height=dims.get("height", 600))
-    elif template_name == "training_phases":
-        from media_templates.training_phases import render
-        dims = asset.get("dimensions", {})
-        return render(width=dims.get("width", 1600), height=dims.get("height", 500))
+        return mod.render(width=dims.get("width", 1200), height=dims.get("height", 600))
     else:
         print(f"  WARNING: Unknown template '{template_name}', skipping overlay")
         return img
@@ -213,7 +226,7 @@ async def generate_batch(
 
                 # Check for data overlay templates that don't need API
                 pp = asset.get("post_process", {})
-                if pp.get("type") == "data_overlay" and pp.get("template") in ("zone_spectrum", "training_phases"):
+                if pp.get("type") == "data_overlay" and pp.get("template") in TEMPLATE_MODULES:
                     # Pure Pillow-generated infographic — no API call needed
                     raw_path = RAW_DIR / f"{asset_id}.png"
                     rendered = apply_data_overlay(None, pp["template"], asset)

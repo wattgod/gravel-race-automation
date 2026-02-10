@@ -57,9 +57,23 @@ def load_content() -> dict:
 
 # ── Markdown helpers ─────────────────────────────────────────
 
+# Module-level glossary dict, set during generation so all render functions
+# that call _md_inline() automatically resolve tooltip markers.
+_GLOSSARY = None  # dict or None — set during generation for tooltip resolution
+
 
 def _md_inline(text: str) -> str:
-    """Apply markdown-lite inline formatting (bold, italic, links, counters)."""
+    """Apply markdown-lite inline formatting (bold, italic, links, tooltips, counters)."""
+    # Tooltip pattern: {{TERM}} → tooltip span (alpha/underscore/slash, starts with letter)
+    if _GLOSSARY:
+        def _tooltip_repl(m):
+            term = m.group(1)
+            defn = _GLOSSARY.get(term, "")
+            if defn:
+                return (f'<span class="gg-tooltip-trigger" tabindex="0">{esc(term)}'
+                        f'<span class="gg-tooltip">{esc(defn)}</span></span>')
+            return term  # no definition found, render plain
+        text = re.sub(r'\{\{([A-Za-z][A-Za-z0-9_/]*)\}\}', _tooltip_repl, text)
     # Counter pattern: {{123}} → animated counter span (max 7 digits + 2 decimals)
     text = re.sub(
         r'\{\{(\d{1,7}(?:\.\d{1,2})?)\}\}',
@@ -1075,7 +1089,7 @@ def build_guide_css() -> str:
 .gg-guide-rider-btn{padding:10px 16px;background:#333;color:#d4c5b9;border:none;border-right:1px solid #555;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
 .gg-guide-rider-btn:last-child{border-right:none}
 .gg-guide-rider-btn:hover{background:#555;color:#fff}
-.gg-guide-rider-btn--active{background:#1A8A82;color:#fff}
+.gg-guide-rider-btn--active{background:#1A8A82;color:#fff;box-shadow:inset 0 -3px 0 #fff}
 .gg-guide-rider-btn-hours{font-size:9px;font-weight:400;opacity:0.7}
 .gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#000;border:3px solid #1A8A82;padding:8px 14px;display:flex;align-items:center;gap:10px}
 .gg-guide-rider-badge-type{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px}
@@ -1151,6 +1165,13 @@ def build_guide_css() -> str:
 .gg-guide-img-caption{font-size:11px;color:#8c7568;margin-top:8px;line-height:1.5;font-style:italic}
 .gg-guide-img--full-width{margin-left:-24px;margin-right:-24px}
 .gg-guide-img--half-width{float:right;width:50%;margin:0 0 16px 20px}
+
+/* ── Tooltips ── */
+.gg-tooltip-trigger{position:relative;cursor:help;border-bottom:2px dotted #B7950B;text-decoration:none}
+.gg-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:1000;background:#3a2e25;color:#f5efe6;border:3px solid #B7950B;padding:8px 12px;font-family:'Sometype Mono',monospace;font-size:10px;line-height:1.5;letter-spacing:1px;max-width:280px;opacity:0;visibility:hidden;transition:opacity 150ms cubic-bezier(0.4,0,0.2,1),visibility 150ms cubic-bezier(0.4,0,0.2,1);pointer-events:none;white-space:normal}
+.gg-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#B7950B}
+.gg-tooltip-trigger:hover .gg-tooltip,.gg-tooltip-trigger:focus .gg-tooltip{opacity:1;visibility:visible}
+@media(max-width:768px){.gg-tooltip{position:fixed;bottom:auto;top:auto;left:16px;right:16px;transform:none;max-width:none}}
 '''
 
 
@@ -1567,6 +1588,10 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
     """Generate the complete guide HTML page."""
     canonical_url = f"{SITE_BASE_URL}/guide/"
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
+
+    # Activate glossary for tooltip resolution in _md_inline()
+    global _GLOSSARY
+    _GLOSSARY = content.get("glossary")
 
     nav = build_nav()
     hero = build_hero(content)

@@ -9,6 +9,7 @@ import pytest
 # Add wordpress/ to path so we can import the generator
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
+import generate_guide
 from generate_guide import (
     load_content,
     generate_guide_page,
@@ -1521,3 +1522,107 @@ class TestImageCss:
         # Mobile overrides for image layouts in @media block
         assert "gg-guide-img--full-width{margin-left:-16px" in css
         assert "gg-guide-img--half-width{float:none" in css
+
+
+# ── Tooltip System ─────────────────────────────────────────
+
+
+class TestTooltipSystem:
+    _saved_glossary = None
+
+    @classmethod
+    def setup_class(cls):
+        cls._saved_glossary = generate_guide._GLOSSARY
+
+    @classmethod
+    def teardown_class(cls):
+        generate_guide._GLOSSARY = cls._saved_glossary
+
+    def setup_method(self):
+        generate_guide._GLOSSARY = {
+            "FTP": "Functional Threshold Power — the max watts you can sustain for ~1 hour",
+            "Z2": "Zone 2 — easy aerobic pace, 55-75% of FTP",
+        }
+
+    def teardown_method(self):
+        generate_guide._GLOSSARY = self._saved_glossary
+
+    def test_md_inline_tooltip_basic(self):
+        """{{FTP}} produces a span with class gg-tooltip-trigger."""
+        result = _md_inline("Your {{FTP}} matters.")
+        assert 'class="gg-tooltip-trigger"' in result
+        assert ">FTP<" in result
+
+    def test_md_inline_tooltip_definition(self):
+        """Tooltip span contains the glossary definition text."""
+        result = _md_inline("Test {{FTP}} here.")
+        assert 'class="gg-tooltip"' in result
+        assert "Functional Threshold Power" in result
+
+    def test_md_inline_tooltip_unknown_term(self):
+        """Unknown term renders as plain text without tooltip."""
+        result = _md_inline("Test {{UNKNOWN}} here.")
+        assert "gg-tooltip-trigger" not in result
+        assert "UNKNOWN" in result
+
+    def test_md_inline_tooltip_no_glossary(self):
+        """Without glossary, {{FTP}} passes through unchanged."""
+        generate_guide._GLOSSARY = None
+        result = _md_inline("Test {{FTP}} here.")
+        assert "{{FTP}}" in result
+        assert "gg-tooltip-trigger" not in result
+
+    def test_md_inline_counter_still_works(self):
+        """{{1200}} still produces counter span with glossary active."""
+        result = _md_inline("There are {{1200}} races.")
+        assert 'class="gg-guide-counter"' in result
+        assert 'data-target="1200"' in result
+
+    def test_md_inline_mixed(self):
+        """{{FTP}} and {{1200}} both resolve correctly in same string."""
+        result = _md_inline("Your {{FTP}} across {{328}} races.")
+        assert "gg-tooltip-trigger" in result
+        assert "gg-guide-counter" in result
+        assert 'data-target="328"' in result
+        assert "Functional Threshold Power" in result
+
+    def test_tooltip_css_present(self):
+        """CSS output contains tooltip classes."""
+        css = build_guide_css()
+        assert ".gg-tooltip-trigger" in css
+        assert ".gg-tooltip{" in css or ".gg-tooltip " in css
+        assert "#B7950B" in css
+        assert "#3a2e25" in css
+
+    def test_tooltip_tabindex(self):
+        """Tooltip trigger includes tabindex=0 for accessibility."""
+        result = _md_inline("Test {{FTP}} here.")
+        assert 'tabindex="0"' in result
+
+
+class TestTooltipContentIntegrity:
+    def test_glossary_in_content(self):
+        """Content JSON has a glossary dict with terms."""
+        content = load_content()
+        assert "glossary" in content
+        assert len(content["glossary"]) >= 10
+
+    def test_tooltip_markers_in_prose(self):
+        """At least one prose block uses the {{TERM}} tooltip pattern."""
+        content = load_content()
+        has_tooltip = False
+        for ch in content["chapters"]:
+            for sec in ch["sections"]:
+                for b in sec["blocks"]:
+                    if b["type"] == "prose" and re.search(
+                        r'\{\{[A-Za-z]', b.get("content", "")
+                    ):
+                        has_tooltip = True
+        assert has_tooltip, "No {{TERM}} tooltip markers found in prose blocks"
+
+    def test_tooltips_in_generated_html(self):
+        """Generated guide HTML contains resolved tooltip spans."""
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-tooltip-trigger" in html
+        assert "gg-tooltip" in html

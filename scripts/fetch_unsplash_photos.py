@@ -146,6 +146,12 @@ def extract_photo_data(result: dict) -> dict:
     }
 
 
+def _clean_location_part(s: str) -> str:
+    """Strip parenthetical notes and extra whitespace from a location part."""
+    import re
+    return re.sub(r'\(.*?\)', '', s).strip()
+
+
 def build_search_queries(rd: dict) -> list[str]:
     """Build tiered search queries from race data.
     Returns list of queries to try in order, broadening progressively."""
@@ -154,23 +160,28 @@ def build_search_queries(rd: dict) -> list[str]:
 
     queries = []
 
-    # Parse location into parts
-    loc_parts = [p.strip() for p in location.split(",")] if location else []
-    # state/region is usually the 2nd part, country the 3rd
-    state = loc_parts[1].strip() if len(loc_parts) >= 2 else ""
-    country = loc_parts[2].strip() if len(loc_parts) >= 3 else ""
+    # Parse location into parts, stripping parenthetical notes
+    loc_parts = [_clean_location_part(p) for p in location.split(",")] if location else []
+    city = loc_parts[0] if len(loc_parts) >= 1 else ""
+    state = loc_parts[1] if len(loc_parts) >= 2 else ""
+    country = loc_parts[2] if len(loc_parts) >= 3 else ""
 
     # Tier 1: race name (rarely works but worth a shot — costs 1 request)
     if name:
         queries.append(f"{name} cycling")
 
-    # Tier 2: state/region + gravel cycling (broadest useful query)
+    # Tier 2: state/region + gravel cycling
     if state:
         queries.append(f"{state} gravel cycling")
-        queries.append(f"{state} rural road landscape")
-    elif country:
+
+    # Tier 3: country-level fallback (for non-US/non-obvious regions)
+    if country:
         queries.append(f"{country} gravel cycling")
-        queries.append(f"{country} rural road landscape")
+
+    # Tier 4: generic gravel + landscape for the broadest location available
+    broadest = country or state or city
+    if broadest:
+        queries.append(f"{broadest} dirt road landscape")
 
     return queries
 

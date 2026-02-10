@@ -33,10 +33,9 @@ from generate_homepage import (
     build_homepage_css,
     build_homepage_js,
     build_jsonld,
+    _tier_badge_class,
     FEATURED_SLUGS,
     FEATURED_ARTICLES,
-    TESTIMONIALS,
-    FAQ_ITEMS,
     GA4_MEASUREMENT_ID,
 )
 
@@ -316,11 +315,11 @@ class TestSectionBuilders:
         assert "/training-plans/" in html
         assert "wattgod.com/apply" in html
 
-    def test_email_capture_has_form(self):
+    def test_email_capture_has_content(self):
         html = build_email_capture()
-        assert "substack.com/embed" in html
         assert "Slow, Mid, 38s" in html
-        assert "gg-hp-email-form" in html
+        assert "substack.com/embed" in html
+        assert "gg-hp-email" in html
 
     def test_email_capture_with_articles(self):
         posts = [
@@ -335,7 +334,6 @@ class TestSectionBuilders:
     def test_email_capture_no_articles(self):
         html = build_email_capture([])
         assert "gg-hp-article-carousel" not in html
-        assert "gg-hp-email-form" in html
 
     def test_footer_has_links(self):
         html = build_footer()
@@ -534,21 +532,97 @@ class TestConstants:
     def test_featured_slugs_count(self):
         assert len(FEATURED_SLUGS) == 6
 
-    def test_testimonials_count(self):
-        assert len(TESTIMONIALS) >= 2
 
-    def test_testimonials_have_required_fields(self):
-        for t in TESTIMONIALS:
-            assert "quote" in t
-            assert "author" in t
-            assert "context" in t
+# ── Regression Tests ────────────────────────────────────────
 
-    def test_faq_items_count(self):
-        assert len(FAQ_ITEMS) == 5
 
-    def test_faq_items_are_tuples(self):
-        for item in FAQ_ITEMS:
-            assert len(item) == 2
+class TestRegressions:
+    """Regression tests for issues found in the critical audit."""
+
+    def test_ticker_classes_match_css(self):
+        """Ticker HTML classes must match CSS selectors (was gg-ticker-item, should be gg-hp-ticker-item)."""
+        one_liners = [
+            {"name": "Test Race", "slug": "test", "score": 90, "tier": 1, "text": "A great race."},
+        ]
+        ticker = build_ticker(one_liners, [], [])
+        assert "gg-hp-ticker-item" in ticker
+        assert "gg-hp-ticker-sep" in ticker
+        # Must NOT have unprefixed classes
+        assert 'class="gg-ticker-item"' not in ticker
+        assert 'class="gg-ticker-sep"' not in ticker
+
+    def test_og_image_present(self, homepage_html):
+        """Homepage must have og:image meta tag."""
+        assert 'property="og:image"' in homepage_html
+
+    def test_twitter_image_present(self, homepage_html):
+        """Homepage must have twitter:image meta tag."""
+        assert 'name="twitter:image"' in homepage_html
+
+    def test_favicon_present(self, homepage_html):
+        """Homepage must have a favicon."""
+        assert 'rel="icon"' in homepage_html
+
+    def test_no_inline_style_on_badges(self, homepage_html):
+        """Tier badges must use CSS classes, not inline styles."""
+        import re
+        badge_matches = re.findall(r'class="gg-hp-tier-badge[^"]*"[^>]*>', homepage_html)
+        for match in badge_matches:
+            assert "style=" not in match, f"Inline style found on badge: {match}"
+        cal_badge_matches = re.findall(r'class="gg-hp-cal-badge[^"]*"[^>]*>', homepage_html)
+        for match in cal_badge_matches:
+            assert "style=" not in match, f"Inline style found on cal badge: {match}"
+
+    def test_badge_classes_exist_in_css(self):
+        """CSS must define classes for all 4 tier badge levels."""
+        css = build_homepage_css()
+        for t in range(1, 5):
+            assert f".gg-hp-badge-t{t}" in css
+
+    def test_tier_badge_class_function(self):
+        """_tier_badge_class returns correct class for each tier."""
+        assert _tier_badge_class(1) == "gg-hp-badge-t1"
+        assert _tier_badge_class(2) == "gg-hp-badge-t2"
+        assert _tier_badge_class(3) == "gg-hp-badge-t3"
+        assert _tier_badge_class(4) == "gg-hp-badge-t4"
+        assert _tier_badge_class(99) == "gg-hp-badge-t4"
+
+    def test_skip_link_present(self, homepage_html):
+        """Homepage must have a skip-to-content link for accessibility."""
+        assert 'class="gg-hp-skip"' in homepage_html
+        assert 'href="#main"' in homepage_html
+
+    def test_main_id_exists(self, homepage_html):
+        """Hero section must have id="main" for skip link target."""
+        assert 'id="main"' in homepage_html
+
+    def test_section_ids_present(self, homepage_html):
+        """Key sections must have IDs for anchor navigation."""
+        for section_id in ["main", "featured", "training", "newsletter"]:
+            assert f'id="{section_id}"' in homepage_html, f"Missing section id: {section_id}"
+
+    def test_tablet_breakpoint(self):
+        """CSS must have a tablet breakpoint at 1024px."""
+        css = build_homepage_css()
+        assert "@media (max-width: 1024px)" in css
+
+    def test_no_grayscale_filter(self):
+        """Brand guide prohibits filter/opacity transitions."""
+        css = build_homepage_css()
+        assert "grayscale" not in css
+        assert "filter:" not in css
+
+    def test_no_opacity_transition(self):
+        """Hover transitions must be border-color/background-color/color only."""
+        css = build_homepage_css()
+        assert "transition: opacity" not in css
+
+    def test_substack_not_duplicated_in_ticker(self, homepage_html):
+        """Substack articles should appear in the article grid, not duplicated in the ticker."""
+        import re
+        ticker_match = re.search(r'class="gg-hp-ticker".*?</div>\s*</div>', homepage_html, re.DOTALL)
+        if ticker_match:
+            assert "NEWSLETTER" not in ticker_match.group(0), "Substack posts should not appear in ticker"
 
 
 def html_escape(text):

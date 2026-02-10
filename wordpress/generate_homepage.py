@@ -49,59 +49,9 @@ FEATURED_SLUGS = [
     "belgian-waffle-ride",
 ]
 
-# ── Testimonials (placeholder — replace with real quotes) ────
-
-TESTIMONIALS = [
-    {
-        "quote": "I've been looking for something exactly like this. Finally a database that actually rates gravel races instead of just listing them.",
-        "author": "Reddit user",
-        "context": "r/gravelcycling",
-    },
-    {
-        "quote": "The 14-dimension scoring is what sets this apart. You can see exactly why a race scores the way it does.",
-        "author": "Newsletter subscriber",
-        "context": "Substack comment",
-    },
-    {
-        "quote": "Used Gravel God to pick my first gravel race. The tier system made it easy to find something that matched my level.",
-        "author": "First-time racer",
-        "context": "Direct message",
-    },
-    {
-        "quote": "No sponsors, no pay-to-play. This is the only gravel race resource I trust for honest ratings.",
-        "author": "Cat 2 road cyclist",
-        "context": "Instagram DM",
-    },
-]
-
 # ── Featured articles (curated — leave empty to use latest from RSS) ──
 
 FEATURED_ARTICLES = []
-
-# ── FAQ items ────────────────────────────────────────────────
-
-FAQ_ITEMS = [
-    (
-        "What is Gravel God?",
-        "Gravel God is the definitive gravel race database. We rate and rank every major gravel race across 14 scoring dimensions — from course profile and logistics to prestige and field depth. No algorithms. No sponsors. No pay-to-play. Just honest, editorial ratings."
-    ),
-    (
-        "How many races are in the database?",
-        "We currently rate {race_count} gravel and ultra-endurance races worldwide. The database covers everything from bucket-list events like Unbound and the Tour Divide to emerging regional races. We add new races throughout the year."
-    ),
-    (
-        "Who rates the races?",
-        "All ratings are produced by our editorial team using official sources, rider reports, community forums, and our own race experience. Every dimension is scored and explained by a human editor — not an algorithm."
-    ),
-    (
-        "Can race organizers pay for a higher rating?",
-        "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Our ratings are editorially independent. Every race earns its tier on merit."
-    ),
-    (
-        "What are training plans?",
-        "We offer race-specific training plans built for individual gravel events. Each plan includes structured workouts, a 30+ page custom guide, heat and altitude protocols, nutrition strategy, and strength training — all tailored to your target race."
-    ),
-]
 
 
 def esc(text) -> str:
@@ -312,8 +262,8 @@ def build_ticker(one_liners: list, substack_posts: list, upcoming: list) -> str:
         return ""
 
     # Duplicate items for seamless loop
-    separator = '<span class="gg-ticker-sep">&bull;</span>'
-    content = separator.join(f'<span class="gg-ticker-item">{item}</span>' for item in items)
+    separator = '<span class="gg-hp-ticker-sep">&bull;</span>'
+    content = separator.join(f'<span class="gg-hp-ticker-item">{item}</span>' for item in items)
 
     return f'''<div class="gg-hp-ticker" aria-label="Race news ticker">
     <div class="gg-hp-ticker-track">
@@ -336,11 +286,11 @@ def build_coming_up(upcoming: list) -> str:
     if recent:
         for race in recent[-3:]:  # Last 3
             days_ago = abs(race["days"])
-            badge_style = _tier_badge_style(race["tier"])
+            badge_cls = _tier_badge_class(race["tier"])
             items += f'''
         <a href="{SITE_BASE_URL}/race/{esc(race['slug'])}/" class="gg-hp-cal-item gg-hp-cal-item--past">
           <span class="gg-hp-cal-date">{race["date"].strftime("%b %d")}</span>
-          <span class="gg-hp-cal-badge" style="{badge_style}">T{race["tier"]}</span>
+          <span class="gg-hp-cal-badge {badge_cls}">T{race["tier"]}</span>
           <span class="gg-hp-cal-info">
             <span class="gg-hp-cal-name">{esc(race["name"])}</span>
             <span class="gg-hp-cal-meta">{esc(race["location"])} &middot; {days_ago}d ago</span>
@@ -360,11 +310,11 @@ def build_coming_up(upcoming: list) -> str:
         else:
             urgency = ""
             label = f"{d}d"
-        badge_style = _tier_badge_style(race["tier"])
+        badge_cls = _tier_badge_class(race["tier"])
         items += f'''
         <a href="{SITE_BASE_URL}/race/{esc(race['slug'])}/" class="gg-hp-cal-item {urgency}">
           <span class="gg-hp-cal-date">{race["date"].strftime("%b %d")}</span>
-          <span class="gg-hp-cal-badge" style="{badge_style}">T{race["tier"]}</span>
+          <span class="gg-hp-cal-badge {badge_cls}">T{race["tier"]}</span>
           <span class="gg-hp-cal-info">
             <span class="gg-hp-cal-name">{esc(race["name"])}</span>
             <span class="gg-hp-cal-meta">{esc(race["location"])} &middot; {label}</span>
@@ -372,7 +322,7 @@ def build_coming_up(upcoming: list) -> str:
           <span class="gg-hp-cal-score">{race["score"]}</span>
         </a>'''
 
-    return f'''<section class="gg-hp-coming-up">
+    return f'''<section class="gg-hp-coming-up" id="coming-up">
     <div class="gg-hp-section-header">
       <h2>COMING UP</h2>
     </div>
@@ -404,7 +354,7 @@ def build_guide_preview(chapters: list) -> str:
         <span class="gg-hp-guide-sub">{esc(ch["subtitle"])} {tag}</span>
       </a>'''
 
-    return f'''<section class="gg-hp-guide">
+    return f'''<section class="gg-hp-guide" id="guide">
     <div class="gg-hp-section-header gg-hp-section-header--teal">
       <h2>THE GRAVEL TRAINING GUIDE</h2>
     </div>
@@ -422,7 +372,7 @@ def build_guide_preview(chapters: list) -> str:
 
 def build_hero(stats: dict) -> str:
     race_count = stats["race_count"]
-    return f'''<section class="gg-hp-hero">
+    return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
     <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
     <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. 4 tiers. No sponsors. No pay-to-play. Just honest ratings.</p>
@@ -451,16 +401,9 @@ def build_stats_bar(stats: dict) -> str:
   </section>'''
 
 
-def _tier_badge_style(tier: int) -> str:
-    """Return inline style for a tier badge."""
-    if tier == 1:
-        return "background:#59473c;color:#fff"
-    elif tier == 2:
-        return "background:#8c7568;color:#fff"
-    elif tier == 3:
-        return "background:transparent;color:#999;border:2px solid #999"
-    else:
-        return "background:transparent;color:#ccc;border:2px solid #ccc"
+def _tier_badge_class(tier: int) -> str:
+    """Return CSS class for a tier badge."""
+    return f"gg-hp-badge-t{tier}" if 1 <= tier <= 4 else "gg-hp-badge-t4"
 
 
 def _format_month(month: str) -> str:
@@ -494,12 +437,12 @@ def build_featured_races(race_index: list) -> str:
             meta_parts.append(_format_month(month))
         meta_str = " &middot; ".join(meta_parts)
 
-        badge_style = _tier_badge_style(tier)
+        badge_cls = _tier_badge_class(tier)
 
         cards += f'''
       <a href="{SITE_BASE_URL}{esc(profile_url)}" class="gg-hp-race-card" data-ga="featured_race_click" data-ga-label="{esc(name)}">
         <div class="gg-hp-race-card-top">
-          <span class="gg-hp-tier-badge" style="{badge_style}">TIER {tier}</span>
+          <span class="gg-hp-tier-badge {badge_cls}">TIER {tier}</span>
           <span class="gg-hp-score">{score}</span>
         </div>
         <h3 class="gg-hp-race-name">{esc(name)}</h3>
@@ -507,7 +450,7 @@ def build_featured_races(race_index: list) -> str:
         <p class="gg-hp-race-tagline">{esc(tagline[:120]) + ("..." if len(tagline) > 120 else "")}</p>
       </a>'''
 
-    return f'''<section class="gg-hp-featured">
+    return f'''<section class="gg-hp-featured" id="featured">
     <div class="gg-hp-section-header">
       <h2>FEATURED RACES</h2>
     </div>
@@ -576,7 +519,7 @@ def build_featured_in() -> str:
 
 
 def build_training_cta() -> str:
-    return f'''<section class="gg-hp-training">
+    return f'''<section class="gg-hp-training" id="training">
     <div class="gg-hp-section-header gg-hp-section-header--teal">
       <h2>RACE-SPECIFIC TRAINING</h2>
     </div>
@@ -622,7 +565,7 @@ def build_email_capture(posts: list = None) -> str:
     <div class="gg-hp-article-carousel">{cards}
     </div>'''
 
-    return f'''<section class="gg-hp-email">
+    return f'''<section class="gg-hp-email" id="newsletter">
     <div class="gg-hp-email-inner">
       <span class="gg-hp-email-label">NEWSLETTER</span>
       <h2 class="gg-hp-email-title">Slow, Mid, 38s</h2>
@@ -630,30 +573,6 @@ def build_email_capture(posts: list = None) -> str:
     </div>{carousel}
     <div class="gg-hp-email-form">
       <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
-    </div>
-  </section>'''
-
-
-def build_faq(stats: dict) -> str:
-    items = ""
-    for q, a in FAQ_ITEMS:
-        answer = a.format(race_count=stats["race_count"])
-        items += f'''
-      <div class="gg-accordion-item">
-        <button class="gg-accordion-trigger" aria-expanded="false">
-          <span>{esc(q)}</span>
-          <span class="gg-accordion-icon">+</span>
-        </button>
-        <div class="gg-accordion-body">
-          <p>{esc(answer)}</p>
-        </div>
-      </div>'''
-
-    return f'''<section class="gg-hp-faq" id="faq">
-    <div class="gg-hp-section-header">
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
-    </div>
-    <div class="gg-hp-faq-body">{items}
     </div>
   </section>'''
 
@@ -768,6 +687,10 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-race-card:hover { border-color: #B7950B; }
 .gg-hp-race-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .gg-hp-tier-badge { display: inline-block; font-family: 'Sometype Mono', monospace; padding: 3px 10px; font-size: 9px; font-weight: 700; letter-spacing: 2px; }
+.gg-hp-badge-t1 { background: #59473c; color: #fff; }
+.gg-hp-badge-t2 { background: #8c7568; color: #fff; }
+.gg-hp-badge-t3 { background: transparent; color: #999; border: 2px solid #999; }
+.gg-hp-badge-t4 { background: transparent; color: #ccc; border: 2px solid #ccc; }
 .gg-hp-score { font-family: 'Sometype Mono', monospace; font-size: 28px; font-weight: 700; color: #1A8A82; }
 .gg-hp-race-name { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.1; margin-bottom: 6px; }
 .gg-hp-race-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; letter-spacing: 0.5px; margin-bottom: 10px; }
@@ -826,8 +749,7 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-feat-logos { display: flex; align-items: center; gap: 32px; flex: 1; justify-content: center; flex-wrap: wrap; }
 .gg-hp-feat-logo { display: block; transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; padding: 8px; }
 .gg-hp-feat-logo:hover { border-color: #B7950B; }
-.gg-hp-feat-logo img { display: block; height: 56px; width: auto; filter: grayscale(100%); opacity: 0.7; transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-.gg-hp-feat-logo:hover img { opacity: 1; filter: grayscale(0%); }
+.gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
 /* ── Training CTA ────────────────────────────────────────── */
 .gg-hp-training { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
@@ -889,7 +811,20 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-footer-subscribe:hover { background: transparent; border-color: #1A8A82; }
 .gg-hp-footer-legal { padding: 16px 32px; border-top: 2px solid #3a2e25; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; letter-spacing: 1px; max-width: 1200px; margin: 0 auto; }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/* ── Skip link ───────────────────────────────────────────── */
+.gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #B7950B; color: #3a2e25; z-index: 100; }
+.gg-hp-skip:focus { position: fixed; top: 0; left: 0; width: auto; height: auto; }
+
+/* ── Responsive: tablet ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .gg-hp-race-grid { grid-template-columns: repeat(2, 1fr); }
+  .gg-hp-guide-grid { grid-template-columns: 1fr; }
+  .gg-hp-footer-grid { grid-template-columns: 1fr 1fr; }
+  .gg-hp-feat-inner { flex-direction: column; text-align: center; }
+  .gg-hp-feat-text { max-width: 100%; }
+}
+
+/* ── Responsive: mobile ─────────────────────────────────── */
 @media (max-width: 768px) {
   .gg-hp-hero { padding: 48px 20px; }
   .gg-hp-hero h1 { font-size: 30px; }
@@ -997,7 +932,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     chapters = load_guide_chapters(guide_path)
 
     nav = build_nav()
-    ticker = build_ticker(one_liners, substack_posts, upcoming)
+    ticker = build_ticker(one_liners, [], upcoming)
     hero = build_hero(stats)
     stats_bar = build_stats_bar(stats)
     featured = build_featured_races(race_index)
@@ -1012,20 +947,24 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     js = build_homepage_js()
     jsonld = build_jsonld(stats)
 
+    og_image = f"{SITE_BASE_URL}/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png"
     og_tags = f'''<meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{esc(og_image)}">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{esc(title)}">
-  <meta name="twitter:description" content="{esc(meta_desc)}">'''
+  <meta name="twitter:description" content="{esc(meta_desc)}">
+  <meta name="twitter:image" content="{esc(og_image)}">'''
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%23B7950B'>G</text></svg>">
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(meta_desc)}">
   <link rel="canonical" href="{esc(canonical_url)}">
@@ -1040,6 +979,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 </head>
 <body>
 
+<a href="#main" class="gg-hp-skip">Skip to content</a>
 <div class="gg-hp-page">
   {nav}
 

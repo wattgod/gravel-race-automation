@@ -337,7 +337,7 @@ def sync_guide(guide_dir: str):
         print(f"⚠ No guide-assets/ directory found (inline mode?)")
 
     # Upload guide/media/ (generated images)
-    media_dir = Path(guide_dir).parent / "guide" / "media"
+    media_dir = guide_path / "guide" / "media"
     if not media_dir.exists():
         media_dir = guide_path / "media"
     if media_dir.exists():

@@ -1348,11 +1348,13 @@ class TestImageRenderer:
         assert "gg-guide-img--half-width" in html
 
     def test_render_image_inline_no_extra_class(self):
-        """Inline layout (default) has no extra layout class."""
+        """Inline layout (default) has no extra layout class on figure tag."""
         block = {"asset_id": "ch5-info", "alt": "Test"}
         html = render_image(block)
         assert 'class="gg-guide-img">' in html
-        assert "gg-guide-img--" not in html
+        # gg-guide-img--missing appears in onerror handler, but not as a figure class
+        assert "gg-guide-img--full-width" not in html
+        assert "gg-guide-img--half-width" not in html
 
 
 class TestVideoRenderer:
@@ -1612,3 +1614,79 @@ class TestBrandCompliance:
         assert "#B7950B" in active_rule
         # Should NOT have teal background for active tab
         assert "background:#1A8A82" not in active_rule
+
+
+# ── Sprint 19: Visual Enrichment ──────────────────────────
+
+
+class TestSprint19VisualEnrichment:
+    def test_image_has_onerror_fallback(self):
+        """render_image() output contains onerror and placeholder div."""
+        block = {"asset_id": "ch1-hero", "alt": "Gravel road at golden hour"}
+        html = render_image(block)
+        assert "onerror=" in html
+        assert "gg-guide-img-placeholder" in html
+        assert "Gravel road at golden hour" in html
+
+    def test_image_placeholder_uses_asset_id_when_no_alt(self):
+        """Placeholder shows asset_id when alt text is empty."""
+        block = {"asset_id": "ch3-zone-spectrum"}
+        html = render_image(block)
+        assert "gg-guide-img-placeholder" in html
+        assert "ch3-zone-spectrum" in html
+
+    def test_footer_dark_brown_bg(self):
+        """Footer CSS uses dark-brown background (#3a2e25)."""
+        css = build_guide_css()
+        # Chapter footer
+        footer_idx = css.index(".gg-guide-chapter-body .gg-footer")
+        footer_rule = css[footer_idx:footer_idx + 200]
+        assert "background:#3a2e25" in footer_rule
+
+    def test_image_caption_dark_bar(self):
+        """.gg-guide-img-caption CSS has dark background."""
+        css = build_guide_css()
+        cap_idx = css.index(".gg-guide-img-caption{")
+        cap_rule = css[cap_idx:cap_idx + 300]
+        assert "background:#3a2e25" in cap_rule
+
+    def test_layout_width_1200(self):
+        """Page CSS contains max-width: 1200px."""
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "max-width: 1200px" in html
+
+    def test_double_rule_borders(self):
+        """CSS contains 4px double border rules."""
+        css = build_guide_css()
+        assert "4px double" in css
+
+    def test_table_hover_gold_tint(self):
+        """Table hover uses gold-tinted rgba background."""
+        css = build_guide_css()
+        assert "rgba(183,149,11" in css
+
+    def test_placeholder_css_present(self):
+        """CSS has missing-image placeholder styles."""
+        css = build_guide_css()
+        assert "gg-guide-img-placeholder" in css
+        assert "gg-guide-img--missing" in css
+
+    def test_callout_quote_bg_tint(self):
+        """Quote callout has gold-tinted background."""
+        css = build_guide_css()
+        quote_idx = css.index(".gg-guide-callout--quote{")
+        quote_rule = css[quote_idx:quote_idx + 200]
+        assert "rgba(183,149,11,0.04)" in quote_rule
+
+    def test_knowledge_check_label_dark_text(self):
+        """Knowledge check label uses dark text color on gold bg."""
+        css = build_guide_css()
+        kc_idx = css.index(".gg-guide-kc-label{")
+        kc_rule = css[kc_idx:kc_idx + 200]
+        assert "color:#3a2e25" in kc_rule
+
+    def test_no_gray_ddd_in_css(self):
+        """CSS should not contain #ddd (replaced with warm tan)."""
+        css = build_guide_css()
+        assert "#ddd" not in css

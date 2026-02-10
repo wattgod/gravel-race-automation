@@ -442,8 +442,10 @@ def render_image(block: dict) -> str:
     cls = f" gg-guide-img--{layout}" if layout != "inline" else ""
     src = f"/guide/media/{asset_id}-1x.webp"
     src2 = f"/guide/media/{asset_id}-2x.webp"
+    onerror = 'this.onerror=null;this.style.display=&quot;none&quot;;this.parentElement.classList.add(&quot;gg-guide-img--missing&quot;)'
+    placeholder = f'<div class="gg-guide-img-placeholder">{alt or asset_id}</div>'
     cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
-    return f'<figure class="gg-guide-img{cls}"><img src="{src}" srcset="{src} 1x, {src2} 2x" alt="{alt}" loading="lazy" decoding="async" class="gg-guide-img-el">{cap}</figure>'
+    return f'<figure class="gg-guide-img{cls}"><img src="{src}" srcset="{src} 1x, {src2} 2x" alt="{alt}" loading="lazy" decoding="async" class="gg-guide-img-el" onerror="{onerror}">{placeholder}{cap}</figure>'
 
 
 def render_video(block: dict) -> str:
@@ -866,7 +868,7 @@ def build_guide_css() -> str:
 .gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:8px}
 .gg-guide-chapter-title{font-family:'Source Serif 4',Georgia,serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;margin:0;color:#fff}
 .gg-guide-chapter-subtitle{font-family:'Source Serif 4',Georgia,serif;font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px}
-.gg-guide-chapter-body{padding:32px 24px}
+.gg-guide-chapter-body{padding:40px 48px}
 
 /* ── Gating ── */
 .gg-guide-gated{display:none}
@@ -885,7 +887,7 @@ def build_guide_css() -> str:
 
 /* ── Section ── */
 .gg-guide-section{margin-bottom:32px}
-.gg-guide-section-title{font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 16px;padding-bottom:8px;border-bottom:3px solid #3a2e25;color:#59473c}
+.gg-guide-section-title{font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 16px;padding-bottom:8px;border-bottom:4px double #3a2e25;color:#59473c}
 
 /* ── Prose ── */
 .gg-guide-chapter-body p{font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.75;margin:0 0 14px;color:#3a2e25}
@@ -898,7 +900,8 @@ def build_guide_css() -> str:
 .gg-guide-table{width:100%;border-collapse:collapse;font-size:12px;border:2px solid #3a2e25}
 .gg-guide-table caption{text-align:left;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;background:#f5efe6;border:2px solid #3a2e25;border-bottom:none;color:#59473c}
 .gg-guide-table th{background:#59473c;color:#fff;padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border:1px solid #3a2e25}
-.gg-guide-table td{padding:8px 12px;border:1px solid #ddd;vertical-align:top}
+.gg-guide-table thead{border-bottom:4px double #3a2e25}
+.gg-guide-table td{padding:8px 12px;border:1px solid #d4c5b9;vertical-align:top}
 .gg-guide-table tbody tr:nth-child(even){background:#f5efe6}
 
 /* ── Accordion ── */
@@ -916,14 +919,14 @@ def build_guide_css() -> str:
 .gg-guide-tab{padding:10px 16px;background:transparent;color:#A68E80;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .gg-guide-tab:hover{background:transparent;color:#d4c5b9}
 .gg-guide-tab--active{color:#fff;border-bottom-color:#B7950B;background:transparent}
-.gg-guide-tab-panel{padding:20px}
+.gg-guide-tab-panel{padding:24px 32px}
 .gg-guide-tab-title{font-size:15px;font-weight:700;margin:0 0 12px;color:#59473c;text-transform:uppercase;letter-spacing:1px}
 
 /* ── Timeline ── */
 .gg-guide-timeline{margin:0 0 24px;padding-left:20px}
 .gg-guide-timeline-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 16px;color:#59473c}
 .gg-guide-timeline-step{display:flex;gap:16px;margin-bottom:20px;position:relative}
-.gg-guide-timeline-step:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:-20px;width:2px;background:#ddd}
+.gg-guide-timeline-step:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:-20px;width:2px;background:#d4c5b9}
 .gg-guide-timeline-marker{width:32px;height:32px;min-width:32px;background:#1A8A82;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
 .gg-guide-timeline-content{flex:1}
 .gg-guide-timeline-label{font-size:14px;font-weight:700;margin:0 0 6px;text-transform:uppercase;letter-spacing:1px;color:#3a2e25}
@@ -940,7 +943,7 @@ def build_guide_css() -> str:
 
 /* ── Callout ── */
 .gg-guide-callout{padding:20px 24px;margin:0 0 20px;border-left:6px solid #1A8A82;background:#f5efe6}
-.gg-guide-callout--quote{border-left-color:#B7950B;font-style:italic}
+.gg-guide-callout--quote{border-left-color:#B7950B;font-style:italic;background:rgba(183,149,11,0.04)}
 .gg-guide-callout--highlight{border-left-color:#B7950B}
 .gg-guide-callout--traffic_light{border-left-color:#B7950B}
 .gg-guide-callout p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.7;margin:0 0 8px;color:#3a2e25}
@@ -948,7 +951,7 @@ def build_guide_css() -> str:
 
 /* ── Knowledge Check ── */
 .gg-guide-knowledge-check{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
-.gg-guide-kc-label{background:#B7950B;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-kc-label{background:#B7950B;color:#3a2e25;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
 .gg-guide-kc-question{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
 .gg-guide-kc-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
 .gg-guide-kc-option{padding:10px 16px;background:#f5efe6;border:2px solid #3a2e25;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
@@ -1052,7 +1055,7 @@ def build_guide_css() -> str:
 .gg-guide-calc-zones{display:flex;flex-direction:column;gap:8px}
 .gg-guide-calc-zone{display:grid;grid-template-columns:160px 1fr 80px 80px;align-items:center;gap:8px;font-size:12px}
 .gg-guide-calc-zone-name{font-weight:700;font-size:11px;color:#3a2e25}
-.gg-guide-calc-zone-track{height:20px;background:#f5efe6;border:1px solid #ddd;position:relative}
+.gg-guide-calc-zone-track{height:20px;background:#f5efe6;border:1px solid #d4c5b9;position:relative}
 .gg-guide-calc-zone-fill{height:100%;width:0%}
 .gg-guide-calc-zone-range{font-size:11px;color:#59473c;font-weight:700}
 .gg-guide-calc-zone-hr{font-size:10px;color:#8c7568}
@@ -1068,7 +1071,7 @@ def build_guide_css() -> str:
 .gg-guide-viz-bars{display:flex;flex-direction:column;gap:8px}
 .gg-guide-viz-row{display:grid;grid-template-columns:140px 1fr 50px;align-items:center;gap:8px;font-size:12px}
 .gg-guide-viz-name{font-weight:700;font-size:11px;color:#3a2e25}
-.gg-guide-viz-track{height:24px;background:#f5efe6;border:1px solid #ddd;position:relative}
+.gg-guide-viz-track{height:24px;background:#f5efe6;border:1px solid #d4c5b9;position:relative}
 .gg-guide-viz-fill{height:100%;width:0%}
 .gg-guide-viz-pct{font-size:11px;color:#8c7568;font-weight:700}
 
@@ -1088,7 +1091,7 @@ def build_guide_css() -> str:
 .gg-guide-counter{font-weight:700;color:#1A8A82}
 
 /* ── Footer ── */
-.gg-guide-chapter-body .gg-footer{border:3px solid #3a2e25;border-top:4px double #3a2e25;background:#f5efe6;margin:0;padding:24px 0 0}
+.gg-guide-chapter-body .gg-footer{border:3px solid #3a2e25;border-top:4px double #3a2e25;background:#3a2e25;color:#d4c5b9;margin:0;padding:24px 0 0}
 
 /* ── Focus Styles ── */
 .gg-guide-chapnav-item:focus-visible,.gg-guide-accordion-trigger:focus-visible,.gg-guide-tab:focus-visible,.gg-guide-kc-option:focus-visible,.gg-guide-scenario-option:focus-visible,.gg-guide-flashcard:focus-visible,.gg-guide-btn:focus-visible,.gg-guide-gate-bypass:focus-visible{outline:3px solid #B7950B;outline-offset:2px}
@@ -1103,7 +1106,7 @@ def build_guide_css() -> str:
   .gg-guide-scenario-option{transition:background-color 150ms cubic-bezier(0.4,0,0.2,1),border-color 150ms cubic-bezier(0.4,0,0.2,1)}
   .gg-guide-btn{transition:background 150ms,color 150ms,border-color 150ms}
   .gg-guide-calc-zone-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
-  .gg-guide-table tbody tr:hover{background:#f5efe6}
+  .gg-guide-table tbody tr:hover{background:rgba(183,149,11,0.06)}
 }
 
 /* ── Responsive ── */
@@ -1136,9 +1139,11 @@ def build_guide_css() -> str:
 /* ── Image / Video Blocks ── */
 .gg-guide-img{margin:0 0 20px;line-height:0}
 .gg-guide-img-el{width:100%;height:auto;display:block;border:3px solid #3a2e25}
-.gg-guide-img-caption{font-size:11px;color:#8c7568;margin-top:8px;line-height:1.5;font-style:italic}
+.gg-guide-img-caption{font-size:11px;color:#d4c5b9;padding:8px 12px;line-height:1.5;font-family:'Sometype Mono',monospace;font-style:normal;letter-spacing:0.5px;background:#3a2e25;border:3px solid #3a2e25;border-top:4px double #3a2e25;margin-top:0}
 .gg-guide-img--full-width{margin-left:-24px;margin-right:-24px}
 .gg-guide-img--half-width{float:right;width:50%;margin:0 0 16px 20px}
+.gg-guide-img-placeholder{display:none;padding:32px 24px;background:#3a2e25;color:#d4c5b9;font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:1px;text-align:center;border:3px solid #3a2e25;min-height:120px;align-items:center;justify-content:center}
+.gg-guide-img--missing .gg-guide-img-placeholder{display:flex}
 
 /* ── Tooltips ── */
 .gg-tooltip-trigger{position:relative;cursor:help;border-bottom:2px dotted #B7950B;text-decoration:none}
@@ -1567,7 +1572,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <style>
 /* Base reset (from neo-brutalist) */
 .gg-neo-brutalist-page {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   font-family: 'Sometype Mono', monospace;
@@ -1593,13 +1598,15 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 .gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #8c7568; margin: 0 6px; }}
 .gg-neo-brutalist-page .gg-breadcrumb-current {{ color: #d4c5b9; }}
 /* Hero */
-.gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; margin-bottom: 0; position: relative; overflow: hidden; }}
+.gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; border-bottom: 4px double rgba(255,255,255,0.15); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #3a2e25; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #fff; position: relative; }}
 .gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: #1A8A82; opacity: 0.3; z-index: 0; pointer-events: none; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-size: 14px; line-height: 1.6; color: #d4c5b9; max-width: 700px; }}
 /* Footer */
-.gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #3a2e25; border-top: 4px double #3a2e25; background: #f5efe6; margin-top: 0; }}
+.gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #3a2e25; border-top: 4px double #3a2e25; background: #3a2e25; color: #d4c5b9; margin-top: 0; }}
+.gg-neo-brutalist-page .gg-footer a {{ color: #f5efe6; }}
+.gg-neo-brutalist-page .gg-footer a:hover {{ color: #B7950B; }}
 .gg-neo-brutalist-page .gg-footer-disclaimer {{ font-size: 11px; color: #8c7568; line-height: 1.6; }}
 @media(max-width:768px){{
   .gg-neo-brutalist-page .gg-hero {{ padding: 40px 20px; }}

@@ -212,6 +212,7 @@ def normalize_race_data(data: dict) -> dict:
             'signature_challenge': course.get('signature_challenge', ''),
             'ridewithgps_id': course.get('ridewithgps_id'),
             'ridewithgps_name': course.get('ridewithgps_name', ''),
+            'map_url': course.get('map_url', ''),
         },
         'history': {
             'founded': history.get('founded'),
@@ -946,9 +947,14 @@ def build_course_overview(rd: dict) -> str:
     """Build [01] Course Overview section — merged map + stat cards."""
     v = rd['vitals']
 
-    # Map embed
+    # Map embed — prefer explicit ridewithgps_id, fall back to extracting from map_url
     map_html = ''
     rwgps_id = rd['course'].get('ridewithgps_id')
+    if not rwgps_id:
+        map_url = rd['course'].get('map_url', '') or ''
+        m = re.search(r'ridewithgps\.com/routes/(\d+)', map_url)
+        if m:
+            rwgps_id = m.group(1)
     rwgps_name = rd['course'].get('ridewithgps_name', '')
     if rwgps_id:
         map_html = f'''<div class="gg-map-embed">
@@ -1430,7 +1436,7 @@ def build_email_capture(rd: dict) -> str:
     <div class="gg-email-capture-inner">
       <h3 class="gg-email-capture-title">SLOW, MID, 38s</h3>
       <p class="gg-email-capture-text">For cyclists with more passion than talent. Commentary on cycling training, culture and life. Free. No spam.</p>
-      <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
+      <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="100" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
 
@@ -1877,11 +1883,11 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-fade-section.is-visible {{ opacity: 1; transform: translateY(0); }}
 
 /* Email capture */
-.gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-primary-brown); padding: 0; }}
-.gg-neo-brutalist-page .gg-email-capture-inner {{ padding: 32px; text-align: center; }}
-.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-white); margin: 0 0 var(--gg-spacing-xs) 0; }}
-.gg-neo-brutalist-page .gg-email-capture-text {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); line-height: var(--gg-line-height-relaxed); margin: 0 0 20px 0; max-width: 500px; margin-left: auto; margin-right: auto; }}
-.gg-neo-brutalist-page .gg-email-capture iframe {{ max-width: 480px; margin: 0 auto; display: block; }}
+.gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: var(--gg-spacing-xl); border: var(--gg-border-standard); background: var(--gg-color-primary-brown); padding: 0; }}
+.gg-neo-brutalist-page .gg-email-capture-inner {{ padding: var(--gg-spacing-lg) var(--gg-spacing-xl); text-align: center; }}
+.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-white); margin: 0 0 var(--gg-spacing-2xs) 0; }}
+.gg-neo-brutalist-page .gg-email-capture-text {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); line-height: var(--gg-line-height-relaxed); margin: 0 0 var(--gg-spacing-sm) 0; max-width: 500px; margin-left: auto; margin-right: auto; }}
+.gg-neo-brutalist-page .gg-email-capture iframe {{ max-width: 480px; height: 100px; margin: 0 auto; display: block; overflow: hidden; }}
 
 /* Countdown */
 .gg-neo-brutalist-page .gg-countdown {{ border: var(--gg-border-width-standard) solid var(--gg-color-teal); background: var(--gg-color-near-black); color: var(--gg-color-white); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
@@ -1947,7 +1953,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pullquote-text::before {{ position: static; display: block; margin-bottom: -10px; }}
   .gg-neo-brutalist-page .gg-pullquote-text::after {{ display: none; }}
   .gg-neo-brutalist-page .gg-news-ticker-label {{ font-size: 9px; padding: 0 10px; letter-spacing: 1px; }}
-  .gg-neo-brutalist-page .gg-email-capture iframe {{ height: 120px; }}
+  .gg-neo-brutalist-page .gg-email-capture iframe {{ height: 100px; }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
 }}

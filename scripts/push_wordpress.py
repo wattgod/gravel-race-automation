@@ -397,6 +397,62 @@ def sync_guide(guide_dir: str):
 SITE_BASE_URL = os.environ.get("WP_URL", "https://gravelgodcycling.com")
 
 
+def sync_homepage(homepage_file: str):
+    """Upload homepage.html to /homepage/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(homepage_file)
+    if not html_path.exists():
+        print(f"✗ Homepage HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_homepage.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/homepage"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload homepage.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        print(f"✓ Uploaded homepage: {wp_url}/homepage/")
+        return f"{wp_url}/homepage/"
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for homepage: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading homepage: {e}")
+        return None
+
+
 def sync_og(og_dir: str):
     """Upload OG images to /og/ on SiteGround via tar+ssh pipe.
 
@@ -518,10 +574,18 @@ if __name__ == "__main__":
         "--og-dir", default="wordpress/output/og",
         help="Path to OG image directory (default: wordpress/output/og)"
     )
+    parser.add_argument(
+        "--sync-homepage", action="store_true",
+        help="Upload homepage to /homepage/ via SCP"
+    )
+    parser.add_argument(
+        "--homepage-file", default="wordpress/output/homepage.html",
+        help="Path to homepage HTML (default: wordpress/output/homepage.html)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, and/or --sync-og")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, and/or --sync-homepage")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -535,3 +599,5 @@ if __name__ == "__main__":
         sync_guide(args.guide_dir)
     if args.sync_og:
         sync_og(args.og_dir)
+    if args.sync_homepage:
+        sync_homepage(args.homepage_file)

@@ -824,9 +824,9 @@ class TestZoneVisualizerRenderer:
         }
         html = render_zone_visualizer(block)
         assert "gg-guide-zone-viz" in html
-        assert "<svg" in html
+        assert "gg-guide-viz-row" in html
         assert "Zone Spectrum" in html
-        assert "gg-guide-viz-bar" in html
+        assert "gg-guide-viz-fill" in html
 
     def test_zone_visualizer_bars_count(self):
         block = {
@@ -837,7 +837,7 @@ class TestZoneVisualizerRenderer:
             ],
         }
         html = render_zone_visualizer(block)
-        assert html.count("gg-guide-viz-bar") == 4
+        assert html.count("gg-guide-viz-row") == 4
 
     def test_zone_visualizer_stagger_delays(self):
         block = {
@@ -1020,7 +1020,7 @@ class TestZoneVisualizerCssJs:
 
     def test_zone_viz_js_observer(self):
         js = build_guide_js()
-        assert "gg-guide-viz-bar" in js
+        assert "gg-guide-viz-fill" in js
         assert "gg-guide-zone-viz" in js
 
 
@@ -1084,8 +1084,8 @@ class TestRiderPersonalization:
     def test_rider_js_tab_auto_select(self):
         js = build_guide_js()
         assert "gg-guide-tabs" in js
-        # Should auto-select matching tabs
-        assert "toLowerCase" in js
+        # Should auto-select matching tabs by data-rider-type attribute
+        assert "data-rider-type" in js
 
     def test_rider_js_ftp_prefill(self):
         js = build_guide_js()
@@ -1214,3 +1214,160 @@ class TestSizeBudget:
     def test_js_under_budget(self):
         js = build_guide_js()
         assert len(js) < 20000, f"JS is {len(js)} bytes, exceeds 20KB budget"
+
+
+# ── Sprint 17: Behavior-Level Tests ────────────────────────
+
+
+class TestCalculatorValidation:
+    def test_js_has_ftp_range_check(self):
+        """JS must validate FTP input range (50-600)."""
+        js = build_guide_js()
+        assert "ftp<50" in js or "ftp < 50" in js
+        assert "ftp>600" in js or "ftp > 600" in js
+
+    def test_js_has_weight_range_check(self):
+        """JS must validate weight input."""
+        js = build_guide_js()
+        assert "w<30" in js or "w < 30" in js
+
+    def test_js_has_duration_range_check(self):
+        """JS must validate duration input."""
+        js = build_guide_js()
+        assert "dur<0.5" in js or "dur < 0.5" in js
+
+    def test_error_css_class_exists(self):
+        """CSS must have the calc-input--error class."""
+        css = build_guide_css()
+        assert "gg-guide-calc-input--error" in css
+
+    def test_error_message_div_in_html(self):
+        """Calculator HTML must include an error message div."""
+        block = {
+            "calculator_id": "test",
+            "title": "Test",
+            "inputs": [{"id": "x", "label": "X", "type": "number"}],
+        }
+        html = render_calculator(block)
+        assert "gg-guide-calc-error" in html
+
+
+class TestObserverConsolidation:
+    def test_max_four_observers(self):
+        """JS must have at most 4 IntersectionObserver instances."""
+        js = build_guide_js()
+        count = js.count("new IntersectionObserver")
+        assert count <= 4, f"Found {count} IntersectionObserver instances, expected <= 4"
+
+    def test_no_bare_ticking_var(self):
+        """JS must not have a bare 'var ticking' (should be split)."""
+        js = build_guide_js()
+        assert "var ticking" not in js
+
+
+class TestTickingFix:
+    def test_progress_ticking_exists(self):
+        """JS must use progressTicking for progress bar."""
+        js = build_guide_js()
+        assert "progressTicking" in js
+
+    def test_parallax_ticking_exists(self):
+        """JS must use parallaxTicking for parallax."""
+        js = build_guide_js()
+        assert "parallaxTicking" in js
+
+
+class TestReservedWordFix:
+    def test_no_var_is(self):
+        """JS must not use 'var is' (reserved word)."""
+        js = build_guide_js()
+        assert "var is " not in js
+        assert "var is=" not in js
+
+
+class TestZoneVizHtmlBars:
+    def test_viz_uses_html_not_svg(self):
+        """Zone visualizer must use HTML divs, not SVG."""
+        block = {
+            "title": "Test",
+            "zones": [{"name": "Z1", "max_pct": 55, "label": "55%"}],
+        }
+        html = render_zone_visualizer(block)
+        assert "gg-guide-viz-row" in html
+        assert "<svg" not in html
+
+    def test_viz_has_role_img(self):
+        """Zone viz bars container must have role=img."""
+        block = {
+            "title": "Test",
+            "zones": [{"name": "Z1", "max_pct": 55, "label": "55%"}],
+        }
+        html = render_zone_visualizer(block)
+        assert 'role="img"' in html
+
+    def test_viz_has_data_pct(self):
+        """Zone viz fill elements must have data-pct for JS animation."""
+        block = {
+            "title": "Test",
+            "zones": [
+                {"name": "Z1", "max_pct": 55, "label": "55%"},
+                {"name": "Z2", "max_pct": 100, "label": "100%"},
+            ],
+        }
+        html = render_zone_visualizer(block)
+        assert "data-pct=" in html
+
+
+class TestRiderDataAttr:
+    def test_tabs_emit_data_rider_type(self):
+        """render_tabs() must emit data-rider-type when tab has rider_type."""
+        block = {
+            "tabs": [
+                {"label": "Ayahuasca", "rider_type": "ayahuasca", "content": "C1"},
+                {"label": "Finisher", "rider_type": "finisher", "content": "C2"},
+            ]
+        }
+        html = render_tabs(block)
+        assert 'data-rider-type="ayahuasca"' in html
+        assert 'data-rider-type="finisher"' in html
+
+    def test_tabs_without_rider_type_no_attr(self):
+        """render_tabs() must not emit data-rider-type when tab lacks it."""
+        block = {
+            "tabs": [
+                {"label": "Tab 1", "content": "C1"},
+                {"label": "Tab 2", "content": "C2"},
+            ]
+        }
+        html = render_tabs(block)
+        assert "data-rider-type" not in html
+
+    def test_js_uses_data_rider_type_selector(self):
+        """JS must use data-rider-type attribute selector for tab matching."""
+        js = build_guide_js()
+        assert "data-rider-type" in js
+
+
+class TestCounterBounds:
+    def test_8_digit_counter_not_converted(self):
+        """Counter regex must reject 8+ digit numbers."""
+        result = _md_inline("{{99999999}}")
+        assert "gg-guide-counter" not in result
+        assert "{{99999999}}" in result
+
+    def test_7_digit_counter_converted(self):
+        """Counter regex must accept 7-digit numbers."""
+        result = _md_inline("{{9999999}}")
+        assert "gg-guide-counter" in result
+        assert 'data-target="9999999"' in result
+
+    def test_3_decimal_counter_not_converted(self):
+        """Counter regex must reject 3+ decimal places."""
+        result = _md_inline("{{70.123}}")
+        assert "gg-guide-counter" not in result
+
+    def test_2_decimal_counter_converted(self):
+        """Counter regex must accept 2 decimal places."""
+        result = _md_inline("{{70.12}}")
+        assert "gg-guide-counter" in result
+        assert 'data-target="70.12"' in result

@@ -56,21 +56,25 @@
               "tabs": [
                 {
                   "label": "Ayahuasca",
+                  "rider_type": "ayahuasca",
                   "title": "The Ayahuasca (0-5 hrs/week)",
                   "content": "Instead of therapy, Ayahuascas use gravel cycling as a tool to cope by inducing a borderline psychedelic experience through physical exertion. They accomplish this by signing up for something so insane that a psychic break is all but guaranteed, don't train for an event at all, or both.\n\n**Training reality:** 0-5 hours per week. You're underprepared by conventional standards and you know it. Plans for this category are damage control\u2014getting you to the finish line when time isn't on your side."
                 },
                 {
                   "label": "Finisher",
+                  "rider_type": "finisher",
                   "title": "The Finisher (5-12 hrs/week)",
                   "content": "Finishers are usually inspired by the marketing campaigns of Big Gravel events like [Unbound 200](/race/unbound-200/) or [Leadville 100](/race/leadville-100/). Their goal is simple: finish the damn thing. Some want to maximize fun without pushing too hard. Others want to finish strong and proud, not just survive.\n\n**Training reality:** 5-12 hours per week. You're building enough base to finish strong. You'll train with purpose but you're not giving up your weekends or social life entirely."
                 },
                 {
                   "label": "Competitor",
+                  "rider_type": "competitor",
                   "title": "The Competitor (12-18 hrs/week)",
                   "content": "Competitors are finishers who got bored after finishing, and instead of quitting like someone sane, they decided to do the events again\u2014faster. The category ranges from individuals who just want to beat their own past times to those who want to win but lack some combination of training time, talent, or skill.\n\n**Training reality:** 12-18 hours per week. You're training seriously. This volume typically places you in the top third of the field. You're not just participating\u2014you're competing."
                 },
                 {
                   "label": "Podium",
+                  "rider_type": "podium",
                   "title": "The Podium (18-25+ hrs/week)",
                   "content": "These riders are fast enough to win or stand on the podium. Unless this is a low-key event with few sign-ups, performing at this level requires preparation that all the other categories can't even imagine. For all but the most physically gifted, being in the podium category is an all-consuming part-time job.\n\n**Training reality:** 18-25+ hours per week. At Tier 1 races with international fields, this is what it takes to compete at the front. This is not recreational cycling\u2014this is serious training."
                 }

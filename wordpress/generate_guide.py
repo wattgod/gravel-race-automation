@@ -60,9 +60,9 @@ def load_content() -> dict:
 
 def _md_inline(text: str) -> str:
     """Apply markdown-lite inline formatting (bold, italic, links, counters)."""
-    # Counter pattern: {{123}} → animated counter span
+    # Counter pattern: {{123}} → animated counter span (max 7 digits + 2 decimals)
     text = re.sub(
-        r'\{\{(\d+(?:\.\d+)?)\}\}',
+        r'\{\{(\d{1,7}(?:\.\d{1,2})?)\}\}',
         r'<span class="gg-guide-counter" data-target="\1">0</span>',
         text,
     )
@@ -178,10 +178,11 @@ def render_tabs(block: dict) -> str:
         panel_id = f"{tab_id}-{i}"
         btn_id = f"{tab_id}-btn-{i}"
 
+        rider_attr = f' data-rider-type="{esc(tab["rider_type"])}"' if "rider_type" in tab else ''
         tab_buttons.append(
             f'<button class="gg-guide-tab{active}" role="tab" '
             f'aria-selected="{selected}" aria-controls="{panel_id}" '
-            f'id="{btn_id}" data-tab="{panel_id}">{label}</button>'
+            f'id="{btn_id}" data-tab="{panel_id}"{rider_attr}>{label}</button>'
         )
         tab_panels.append(
             f'<div class="gg-guide-tab-panel" role="tabpanel" '
@@ -408,6 +409,7 @@ def render_calculator(block: dict) -> str:
       <div class="gg-guide-calc-label">{title}</div>
       <p class="gg-guide-calc-desc">{desc}</p>
       <div class="gg-guide-calc-inputs">{"".join(inputs_html)}</div>
+      <div class="gg-guide-calc-error" style="display:none"></div>
       <button class="gg-guide-calc-btn">CALCULATE</button>
       <div class="gg-guide-calc-output" aria-live="polite" style="display:none">
         <div class="gg-guide-calc-ftp-display"></div>
@@ -418,48 +420,33 @@ def render_calculator(block: dict) -> str:
 
 
 def render_zone_visualizer(block: dict) -> str:
-    """Render an SVG zone intensity visualizer with animated bars."""
+    """Render an HTML/CSS zone intensity visualizer with animated bars."""
     zones = block["zones"]
     title = esc(block.get("title", "Zone Intensity Spectrum"))
     max_pct = max(z["max_pct"] for z in zones)
 
-    bar_height = 28
-    gap = 6
-    label_x = 0
-    bar_x = 130
-    bar_width = 320
-    svg_height = len(zones) * (bar_height + gap) + 10
-    svg_width = bar_x + bar_width + 60
-
-    bars_svg = []
+    rows_html = []
     for i, z in enumerate(zones):
-        y = i * (bar_height + gap) + 5
         name = esc(z["name"])
         color = esc(z.get("color", "#1A8A82"))
         pct_label = esc(z.get("label", f'{z["max_pct"]}%'))
-        w = (z["max_pct"] / max_pct) * bar_width
+        data_pct = round((z["max_pct"] / max_pct) * 100, 1)
 
-        bars_svg.append(
-            f'<text x="{label_x}" y="{y + bar_height - 8}" '
-            f'font-size="11" fill="#333" font-family="Sometype Mono,monospace" '
-            f'font-weight="700">{name}</text>'
-            f'<rect x="{bar_x}" y="{y}" width="{bar_width}" height="{bar_height}" '
-            f'fill="#f5f0eb" stroke="#ddd" stroke-width="1"/>'
-            f'<rect class="gg-guide-viz-bar" x="{bar_x}" y="{y}" width="0" '
-            f'height="{bar_height}" fill="{color}" data-width="{w}" '
-            f'data-delay="{i * 100}"/>'
-            f'<text class="gg-guide-viz-label" x="{bar_x + w + 8}" y="{y + bar_height - 8}" '
-            f'font-size="10" fill="#666" font-family="Sometype Mono,monospace" '
-            f'opacity="0">{pct_label}</text>'
+        rows_html.append(
+            f'<div class="gg-guide-viz-row" data-delay="{i * 100}">'
+            f'<span class="gg-guide-viz-name">{name}</span>'
+            f'<div class="gg-guide-viz-track">'
+            f'<div class="gg-guide-viz-fill" style="background:{color}" data-pct="{data_pct}"></div>'
+            f'</div>'
+            f'<span class="gg-guide-viz-pct">{pct_label}</span>'
+            f'</div>'
         )
 
     return f'''<div class="gg-guide-zone-viz">
       <h3 class="gg-guide-section-title">{title}</h3>
-      <svg viewBox="0 0 {svg_width} {svg_height}" xmlns="http://www.w3.org/2000/svg"
-           role="img" aria-label="Zone intensity spectrum visualization"
-           style="width:100%;height:auto;max-width:{svg_width}px">
-        {"".join(bars_svg)}
-      </svg>
+      <div class="gg-guide-viz-bars" role="img" aria-label="Zone intensity spectrum">
+        {"".join(rows_html)}
+      </div>
     </div>'''
 
 
@@ -1038,9 +1025,17 @@ def build_guide_css() -> str:
 .gg-guide-calc-result-item{padding:12px;border:2px solid #000;background:#f5f0eb;text-align:center}
 .gg-guide-calc-result-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59473c;margin-bottom:4px}
 .gg-guide-calc-result-value{display:block;font-size:18px;font-weight:700;color:#1A8A82}
+.gg-guide-calc-input--error{border-color:#c44}
+.gg-guide-calc-error{color:#c44;font-size:11px;padding:0 20px 8px;display:none}
 
 /* ── Zone Visualizer ── */
 .gg-guide-zone-viz{margin:0 0 24px}
+.gg-guide-viz-bars{display:flex;flex-direction:column;gap:8px}
+.gg-guide-viz-row{display:grid;grid-template-columns:140px 1fr 50px;align-items:center;gap:8px;font-size:12px}
+.gg-guide-viz-name{font-weight:700;font-size:11px;color:#333}
+.gg-guide-viz-track{height:24px;background:#f5f0eb;border:1px solid #ddd;position:relative}
+.gg-guide-viz-fill{height:100%;width:0%}
+.gg-guide-viz-pct{font-size:11px;color:#666;font-weight:700}
 
 /* ── Rider Selector ── */
 .gg-guide-rider-selector{display:flex;align-items:center;gap:0;background:#000;border:3px solid #000;border-top:none;flex-wrap:wrap}
@@ -1081,6 +1076,7 @@ def build_guide_css() -> str:
   .gg-guide-stagger{transition:opacity 0.5s ease,transform 0.5s ease}
   .gg-guide-process-bar{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
   .gg-guide-calc-zone-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .gg-guide-viz-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
   .gg-guide-knowledge-check:hover,.gg-guide-scenario:hover{transform:translateY(-2px)}
   .gg-guide-table tbody tr:hover{background:#f0faf9}
 }
@@ -1109,6 +1105,7 @@ def build_guide_css() -> str:
   .gg-guide-flashcard-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   .gg-guide-flashcard{height:120px}
   .gg-guide-calc-zone{grid-template-columns:1fr;gap:2px}
+  .gg-guide-viz-row{grid-template-columns:1fr;gap:2px}
   .gg-guide-calc-inputs{flex-direction:column}
   .gg-guide-rider-selector{justify-content:center}
   .gg-guide-rider-badge{bottom:10px;right:10px}
@@ -1119,603 +1116,407 @@ def build_guide_css() -> str:
 # ── JS ───────────────────────────────────────────────────────
 
 
-def _minify_js(js: str) -> str:
-    """Lightweight JS minifier: strip block comments and collapse whitespace."""
-    # Remove /* ... */ comments (non-greedy)
-    js = re.sub(r'/\*.*?\*/', '', js, flags=re.DOTALL)
-    # Remove // line comments (but not inside strings)
-    js = re.sub(r'(?<!["\':])//[^\n]*', '', js)
-    # Collapse multiple blank lines to single newline
-    js = re.sub(r'\n\s*\n', '\n', js)
-    # Remove leading whitespace from lines (preserving string contents)
-    lines = js.split('\n')
-    result = []
-    for line in lines:
-        stripped = line.strip()
-        if stripped:
-            result.append(stripped)
-    return '\n'.join(result)
-
 
 def build_guide_js() -> str:
     """Return all guide-specific JavaScript as a single IIFE."""
-    raw = '''(function(){
+    return '''(function(){
 "use strict";
-
-/* ── Analytics Helper (beacon transport) ── */
-function track(eventName, params) {
-  if (typeof gtag === "function") {
-    gtag("event", eventName, Object.assign({ transport_type: "beacon" }, params || {}));
-  }
+function track(n,p){if(typeof gtag==="function")gtag("event",n,Object.assign({transport_type:"beacon"},p||{}));}
+var STORAGE_KEY="gg_guide_unlocked";
+var page=document.querySelector(".gg-neo-brutalist-page");
+function isUnlocked(){try{return localStorage.getItem(STORAGE_KEY)==="1";}catch(e){return false;}}
+function unlock(method){
+try{localStorage.setItem(STORAGE_KEY,"1");}catch(e){}
+if(page)page.classList.add("gg-guide-unlocked");
+document.querySelectorAll(".gg-guide-chapnav-item--locked").forEach(function(el){el.classList.add("gg-guide-chapnav-item--unlocked");});
+track("guide_unlock",{method:method||"unknown"});
 }
-
-/* ── Gate Logic ── */
-var STORAGE_KEY = "gg_guide_unlocked";
-var page = document.querySelector(".gg-neo-brutalist-page");
-
-function isUnlocked() {
-  try { return localStorage.getItem(STORAGE_KEY) === "1"; } catch(e) { return false; }
+if(isUnlocked()){
+if(page)page.classList.add("gg-guide-unlocked");
+document.querySelectorAll(".gg-guide-chapnav-item--locked").forEach(function(el){el.classList.add("gg-guide-chapnav-item--unlocked");});
+track("guide_return_visit",{unlocked:true});
 }
-
-function unlock(method) {
-  try { localStorage.setItem(STORAGE_KEY, "1"); } catch(e) {}
-  if (page) page.classList.add("gg-guide-unlocked");
-  document.querySelectorAll(".gg-guide-chapnav-item--locked").forEach(function(el) {
-    el.classList.add("gg-guide-chapnav-item--unlocked");
-  });
-  track("guide_unlock", { method: method || "unknown" });
+window.addEventListener("message",function(e){
+if(e.origin&&e.origin.indexOf("substack.com")!==-1){
+if(e.data&&(e.data.type==="subscription-created"||e.data==="subscription-created"))unlock("substack_subscribe");
 }
-
-if (isUnlocked()) {
-  if (page) page.classList.add("gg-guide-unlocked");
-  document.querySelectorAll(".gg-guide-chapnav-item--locked").forEach(function(el) {
-    el.classList.add("gg-guide-chapnav-item--unlocked");
-  });
-  track("guide_return_visit", { unlocked: true });
-}
-
-// Listen for Substack postMessage
-window.addEventListener("message", function(e) {
-  if (e.origin && e.origin.indexOf("substack.com") !== -1) {
-    if (e.data && (e.data.type === "subscription-created" || e.data === "subscription-created")) {
-      unlock("substack_subscribe");
-    }
-  }
 });
-
-// Manual bypass
-var bypassBtn = document.getElementById("gg-guide-gate-bypass");
-if (bypassBtn) {
-  bypassBtn.addEventListener("click", function() { unlock("manual_bypass"); });
-}
-
-/* ── Scroll Depth Tracking ── */
-var scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
-var progressBar = document.querySelector(".gg-guide-progress-bar");
-var ticking = false;
-window.addEventListener("scroll", function() {
-  if (!ticking) {
-    requestAnimationFrame(function() {
-      var h = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-      if (progressBar) {
-        progressBar.style.width = Math.min(100, pct) + "%";
-        progressBar.setAttribute("aria-valuenow", Math.round(Math.min(100, pct)));
-      }
-      // Fire milestone events
-      [25, 50, 75, 100].forEach(function(m) {
-        if (!scrollMilestones[m] && pct >= m) {
-          scrollMilestones[m] = true;
-          track("guide_scroll_depth", { percent: m, unlocked: isUnlocked() });
-        }
-      });
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
-
-/* ── Chapter Read Tracking ── */
-var chapters = document.querySelectorAll(".gg-guide-chapter");
-var navItems = document.querySelectorAll(".gg-guide-chapnav-item");
-var chaptersRead = {};
-
-if (chapters.length && "IntersectionObserver" in window) {
-  var activeId = null;
-
-  // Chapter nav active state
-  var chapterObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        activeId = entry.target.id;
-        var chNum = entry.target.getAttribute("data-chapter");
-        navItems.forEach(function(nav) {
-          nav.classList.toggle("gg-guide-chapnav-item--active",
-            nav.getAttribute("data-chapter") === activeId);
-        });
-        // Track chapter view (once per session)
-        if (chNum && !chaptersRead[chNum]) {
-          chaptersRead[chNum] = true;
-          track("guide_chapter_view", {
-            chapter_number: parseInt(chNum, 10),
-            chapter_id: activeId
-          });
-        }
-      }
-    });
-  }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
-  chapters.forEach(function(ch) { chapterObserver.observe(ch); });
-}
-
-// Chapter nav click — scroll to gate if chapter is gated and locked
-navItems.forEach(function(item) {
-  item.addEventListener("click", function(e) {
-    e.preventDefault();
-    var chapterId = item.getAttribute("data-chapter");
-    var target = document.getElementById(chapterId);
-    if (target && target.classList.contains("gg-guide-gated") && !isUnlocked()) {
-      var gateEl = document.getElementById("gg-guide-gate");
-      if (gateEl) gateEl.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    track("guide_chapnav_click", { chapter: chapterId });
-  });
+var bypassBtn=document.getElementById("gg-guide-gate-bypass");
+if(bypassBtn)bypassBtn.addEventListener("click",function(){unlock("manual_bypass");});
+var scrollMilestones={25:false,50:false,75:false,100:false};
+var progressBar=document.querySelector(".gg-guide-progress-bar");
+var progressTicking=false;
+window.addEventListener("scroll",function(){
+if(!progressTicking){
+requestAnimationFrame(function(){
+var h=document.documentElement.scrollHeight-window.innerHeight;
+var pct=h>0?(window.scrollY/h)*100:0;
+if(progressBar){progressBar.style.width=Math.min(100,pct)+"%";progressBar.setAttribute("aria-valuenow",Math.round(Math.min(100,pct)));}
+[25,50,75,100].forEach(function(m){if(!scrollMilestones[m]&&pct>=m){scrollMilestones[m]=true;track("guide_scroll_depth",{percent:m,unlocked:isUnlocked()});}});
+progressTicking=false;
 });
-
-/* ── Gate Impression Tracking ── */
-var gateEl = document.getElementById("gg-guide-gate");
-if (gateEl && "IntersectionObserver" in window) {
-  var gateTracked = false;
-  var gateObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && !gateTracked) {
-        gateTracked = true;
-        track("guide_gate_impression", {});
-        gateObserver.unobserve(gateEl);
-      }
-    });
-  }, { threshold: 0.3 });
-  gateObserver.observe(gateEl);
+progressTicking=true;
 }
-
-/* ── Accordion Toggle ── */
-document.querySelectorAll(".gg-guide-accordion-trigger").forEach(function(trigger) {
-  trigger.addEventListener("click", function() {
-    var expanded = trigger.getAttribute("aria-expanded") === "true";
-    trigger.setAttribute("aria-expanded", expanded ? "false" : "true");
-  });
+},{passive:true});
+var chapters=document.querySelectorAll(".gg-guide-chapter");
+var navItems=document.querySelectorAll(".gg-guide-chapnav-item");
+var chaptersRead={};
+if(chapters.length&&"IntersectionObserver" in window){
+var activeId=null;
+var lastActiveChapter=null;
+var chapterObs=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+activeId=entry.target.id;
+var chNum=entry.target.getAttribute("data-chapter");
+navItems.forEach(function(nav){
+nav.classList.toggle("gg-guide-chapnav-item--active",nav.getAttribute("data-chapter")===activeId);
 });
-
-/* ── Tab Switching ── */
-document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup) {
-  var tabs = tabGroup.querySelectorAll(".gg-guide-tab");
-  var panels = tabGroup.querySelectorAll(".gg-guide-tab-panel");
-  tabs.forEach(function(tab) {
-    tab.addEventListener("click", function() {
-      var targetId = tab.getAttribute("data-tab");
-      tabs.forEach(function(t) {
-        t.classList.remove("gg-guide-tab--active");
-        t.setAttribute("aria-selected", "false");
-      });
-      panels.forEach(function(p) { p.style.display = "none"; });
-      tab.classList.add("gg-guide-tab--active");
-      tab.setAttribute("aria-selected", "true");
-      var panel = document.getElementById(targetId);
-      if (panel) panel.style.display = "block";
-    });
-  });
-});
-
-/* ── Knowledge Check ── */
-document.querySelectorAll(".gg-guide-knowledge-check").forEach(function(kc) {
-  var options = kc.querySelectorAll(".gg-guide-kc-option");
-  var explanation = kc.querySelector(".gg-guide-kc-explanation");
-  var answered = false;
-  options.forEach(function(opt) {
-    opt.addEventListener("click", function() {
-      if (answered) return;
-      answered = true;
-      var isCorrect = opt.getAttribute("data-correct") === "true";
-      opt.classList.add(isCorrect ? "gg-guide-kc-option--correct" : "gg-guide-kc-option--incorrect");
-      if (!isCorrect) {
-        options.forEach(function(o) {
-          if (o.getAttribute("data-correct") === "true") o.classList.add("gg-guide-kc-option--correct");
-        });
-      }
-      options.forEach(function(o) {
-        if (o !== opt && o.getAttribute("data-correct") !== "true") o.classList.add("gg-guide-kc-option--disabled");
-        o.setAttribute("aria-disabled", "true");
-      });
-      if (explanation) explanation.style.display = "block";
-      track("guide_knowledge_check", { correct: isCorrect });
-    });
-  });
-});
-
-/* ── Flashcard Flip ── */
-document.querySelectorAll(".gg-guide-flashcard").forEach(function(card) {
-  function flipCard() {
-    card.classList.toggle("gg-guide-flashcard--flipped");
-    track("guide_flashcard_flip", { card_id: card.id });
-  }
-  card.addEventListener("click", flipCard);
-  card.addEventListener("keydown", function(e) {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipCard(); }
-  });
-});
-
-/* ── Scenario Selection ── */
-document.querySelectorAll(".gg-guide-scenario").forEach(function(scenario) {
-  var options = scenario.querySelectorAll(".gg-guide-scenario-option");
-  var answered = false;
-  options.forEach(function(opt) {
-    opt.addEventListener("click", function() {
-      if (answered) return;
-      answered = true;
-      opt.classList.add("gg-guide-scenario-option--selected");
-      options.forEach(function(o) {
-        if (o !== opt) o.classList.add("gg-guide-scenario-option--disabled");
-        o.setAttribute("aria-disabled", "true");
-      });
-      track("guide_scenario_choice", { best: opt.getAttribute("data-best") === "true" });
-    });
-  });
-});
-
-/* ── CTA Click Tracking ── */
-document.querySelectorAll(".gg-guide-cta a, .gg-guide-finale-card a").forEach(function(link) {
-  link.addEventListener("click", function() {
-    var ctaBlock = link.closest(".gg-guide-cta, .gg-guide-finale-card");
-    var ctaType = "unknown";
-    if (ctaBlock) {
-      if (ctaBlock.classList.contains("gg-guide-cta--newsletter") || ctaBlock.classList.contains("gg-guide-finale-card--newsletter")) ctaType = "newsletter";
-      else if (ctaBlock.classList.contains("gg-guide-cta--training") || ctaBlock.classList.contains("gg-guide-finale-card--training")) ctaType = "training_plan";
-      else if (ctaBlock.classList.contains("gg-guide-cta--coaching") || ctaBlock.classList.contains("gg-guide-finale-card--coaching")) ctaType = "coaching";
-    }
-    track("guide_cta_click", {
-      cta_type: ctaType,
-      link_url: link.href
-    });
-  });
-});
-
-/* ── Scroll Fade-In ── */
-if ("IntersectionObserver" in window) {
-  var fadeEls = document.querySelectorAll(".gg-guide-fade-in");
-  if (fadeEls.length) {
-    var fadeObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("gg-guide-fade-in--visible");
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(function(el) { fadeObserver.observe(el); });
-  }
+if(chNum&&!chaptersRead[chNum]){chaptersRead[chNum]=true;track("guide_chapter_view",{chapter_number:parseInt(chNum,10),chapter_id:activeId});}
+if(activeId!==lastActiveChapter){
+lastActiveChapter=activeId;
+navItems.forEach(function(nav){
+if(nav.getAttribute("data-chapter")===activeId){
+nav.classList.add("gg-guide-chapnav-item--pulse");
+setTimeout(function(){nav.classList.remove("gg-guide-chapnav-item--pulse");},300);
 }
-
-/* ── Stagger Scroll Reveal ── */
-if ("IntersectionObserver" in window) {
-  var sections = document.querySelectorAll(".gg-guide-section");
-  if (sections.length) {
-    var staggerObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var children = entry.target.querySelectorAll(".gg-guide-stagger");
-          children.forEach(function(child) {
-            var delay = parseInt(child.getAttribute("data-delay") || "0", 10);
-            setTimeout(function() { child.classList.add("gg-guide-stagger--visible"); }, delay);
-          });
-          staggerObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    sections.forEach(function(sec) { staggerObs.observe(sec); });
-  }
-}
-
-/* ── Animated Process Bars ── */
-if ("IntersectionObserver" in window) {
-  var barWraps = document.querySelectorAll(".gg-guide-process-bar-wrap");
-  if (barWraps.length) {
-    var barObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var bar = entry.target.querySelector(".gg-guide-process-bar");
-        var pctEl = entry.target.querySelector(".gg-guide-process-pct");
-        if (bar) {
-          var pct = parseFloat(bar.getAttribute("data-pct") || "0");
-          bar.style.width = Math.min(pct, 100) + "%";
-          if (pctEl) {
-            var target = parseFloat(pctEl.getAttribute("data-target") || "0");
-            var dur = 600;
-            var start = null;
-            function animPct(ts) {
-              if (!start) start = ts;
-              var p = Math.min((ts - start) / dur, 1);
-              var ease = 1 - Math.pow(1 - p, 3);
-              var v = Math.round(ease * target * 10) / 10;
-              pctEl.textContent = (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + "%";
-              if (p < 1) requestAnimationFrame(animPct);
-            }
-            requestAnimationFrame(animPct);
-          }
-        }
-        barObs.unobserve(entry.target);
-      });
-    }, { threshold: 0.3 });
-    barWraps.forEach(function(el) { barObs.observe(el); });
-  }
-}
-
-/* ── Parallax Chapter Heroes ── */
-var heroEls = document.querySelectorAll(".gg-guide-chapter-hero");
-if (heroEls.length) {
-  window.addEventListener("scroll", function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        heroEls.forEach(function(hero) {
-          var rect = hero.getBoundingClientRect();
-          if (rect.bottom > 0 && rect.top < window.innerHeight) {
-            var ratio = (rect.top + rect.height) / (window.innerHeight + rect.height);
-            hero.style.backgroundPositionY = Math.round((ratio - 0.5) * 20) + "px";
-          }
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-}
-
-/* ── Calculator Logic ── */
-document.querySelectorAll(".gg-guide-calculator").forEach(function(calc) {
-  var calcType = calc.getAttribute("data-calc-type");
-  var btn = calc.querySelector(".gg-guide-calc-btn");
-  var output = calc.querySelector(".gg-guide-calc-output");
-
-  // Toggle buttons
-  calc.querySelectorAll(".gg-guide-calc-toggle").forEach(function(toggle) {
-    var btns = toggle.querySelectorAll(".gg-guide-calc-toggle-btn");
-    btns.forEach(function(b) {
-      b.addEventListener("click", function() {
-        btns.forEach(function(t) { t.classList.remove("gg-guide-calc-toggle-btn--active"); });
-        b.classList.add("gg-guide-calc-toggle-btn--active");
-      });
-    });
-  });
-
-  if (btn) btn.addEventListener("click", function() {
-    if (calcType === "ftp-zones") computeFtpZones(calc, output);
-    else if (calcType === "daily-nutrition") computeDailyNutrition(calc, output);
-    else if (calcType === "workout-fueling") computeWorkoutFueling(calc, output);
-  });
 });
-
-function computeFtpZones(calc, output) {
-  var ftpInput = calc.querySelector("#gg-calc-ftp-power");
-  var testInput = calc.querySelector("#gg-calc-ftp-test");
-  var ageInput = calc.querySelector("#gg-calc-ftp-age");
-  var ftp = 0;
-  if (ftpInput && ftpInput.value) ftp = parseInt(ftpInput.value, 10);
-  if ((!ftp || ftp < 50) && testInput && testInput.value) ftp = Math.round(parseInt(testInput.value, 10) * 0.95);
-  if (!ftp || ftp < 50 || ftp > 600) return;
-  var age = ageInput && ageInput.value ? parseInt(ageInput.value, 10) : 0;
-  var hrmax = age >= 16 ? Math.round(211 - 0.64 * age) : 0;
-
-  var ftpDisp = output.querySelector(".gg-guide-calc-ftp-display");
-  if (ftpDisp) ftpDisp.textContent = "Your FTP: " + ftp + " watts" + (hrmax ? " | HRmax: " + hrmax + " bpm" : "");
-
-  output.style.display = "block";
-  var zones = output.querySelectorAll(".gg-guide-calc-zone");
-  zones.forEach(function(zone, i) {
-    var minPct = parseInt(zone.getAttribute("data-min"), 10);
-    var maxPct = parseInt(zone.getAttribute("data-max"), 10);
-    var minW = Math.round(ftp * minPct / 100);
-    var maxW = Math.round(ftp * maxPct / 100);
-    var range = zone.querySelector(".gg-guide-calc-zone-range");
-    if (range) range.textContent = minW + "-" + maxW + "w";
-    var fill = zone.querySelector(".gg-guide-calc-zone-fill");
-    if (fill) setTimeout(function() { fill.style.width = Math.min(maxPct / 2, 100) + "%"; }, i * 80);
-    var hrEl = zone.querySelector(".gg-guide-calc-zone-hr");
-    if (hrEl && hrmax) {
-      var hrMinPct = zone.getAttribute("data-hr-min");
-      var hrMaxPct = zone.getAttribute("data-hr-max");
-      if (hrMinPct && hrMaxPct) {
-        hrEl.textContent = Math.round(hrmax * parseInt(hrMinPct, 10) / 100) + "-" + Math.round(hrmax * parseInt(hrMaxPct, 10) / 100) + " bpm";
-      }
-    }
-  });
-  track("guide_calculator_use", { type: "ftp_zones", ftp: ftp, has_hr: hrmax > 0 });
 }
-
+}
+});
+},{rootMargin:"-20% 0px -70% 0px",threshold:0});
+chapters.forEach(function(ch){chapterObs.observe(ch);});
+}
+navItems.forEach(function(item){
+item.addEventListener("click",function(e){
+e.preventDefault();
+var chapterId=item.getAttribute("data-chapter");
+var target=document.getElementById(chapterId);
+if(target&&target.classList.contains("gg-guide-gated")&&!isUnlocked()){
+var gateEl=document.getElementById("gg-guide-gate");
+if(gateEl)gateEl.scrollIntoView({behavior:"smooth",block:"start"});
+}else if(target){target.scrollIntoView({behavior:"smooth",block:"start"});}
+track("guide_chapnav_click",{chapter:chapterId});
+});
+});
+var gateEl=document.getElementById("gg-guide-gate");
+if(gateEl&&"IntersectionObserver" in window){
+var gateTracked=false;
+var gateObs=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting&&!gateTracked){gateTracked=true;track("guide_gate_impression",{});gateObs.unobserve(gateEl);}
+});
+},{threshold:0.3});
+gateObs.observe(gateEl);
+}
+document.querySelectorAll(".gg-guide-accordion-trigger").forEach(function(trigger){
+trigger.addEventListener("click",function(){
+var expanded=trigger.getAttribute("aria-expanded")==="true";
+trigger.setAttribute("aria-expanded",expanded?"false":"true");
+});
+});
+document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup){
+var tabs=tabGroup.querySelectorAll(".gg-guide-tab");
+var panels=tabGroup.querySelectorAll(".gg-guide-tab-panel");
+tabs.forEach(function(tab){
+tab.addEventListener("click",function(){
+var targetId=tab.getAttribute("data-tab");
+tabs.forEach(function(t){t.classList.remove("gg-guide-tab--active");t.setAttribute("aria-selected","false");});
+panels.forEach(function(p){p.style.display="none";});
+tab.classList.add("gg-guide-tab--active");
+tab.setAttribute("aria-selected","true");
+var panel=document.getElementById(targetId);
+if(panel)panel.style.display="block";
+});
+});
+});
+document.querySelectorAll(".gg-guide-knowledge-check").forEach(function(kc){
+var options=kc.querySelectorAll(".gg-guide-kc-option");
+var explanation=kc.querySelector(".gg-guide-kc-explanation");
+var answered=false;
+options.forEach(function(opt){
+opt.addEventListener("click",function(){
+if(answered)return;
+answered=true;
+var isCorrect=opt.getAttribute("data-correct")==="true";
+opt.classList.add(isCorrect?"gg-guide-kc-option--correct":"gg-guide-kc-option--incorrect");
+if(!isCorrect){options.forEach(function(o){if(o.getAttribute("data-correct")==="true")o.classList.add("gg-guide-kc-option--correct");});}
+options.forEach(function(o){if(o!==opt&&o.getAttribute("data-correct")!=="true")o.classList.add("gg-guide-kc-option--disabled");o.setAttribute("aria-disabled","true");});
+if(explanation)explanation.style.display="block";
+track("guide_knowledge_check",{correct:isCorrect});
+});
+});
+});
+document.querySelectorAll(".gg-guide-flashcard").forEach(function(card){
+function flipCard(){card.classList.toggle("gg-guide-flashcard--flipped");track("guide_flashcard_flip",{card_id:card.id});}
+card.addEventListener("click",flipCard);
+card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();flipCard();}});
+});
+document.querySelectorAll(".gg-guide-scenario").forEach(function(scenario){
+var options=scenario.querySelectorAll(".gg-guide-scenario-option");
+var answered=false;
+options.forEach(function(opt){
+opt.addEventListener("click",function(){
+if(answered)return;
+answered=true;
+opt.classList.add("gg-guide-scenario-option--selected");
+options.forEach(function(o){if(o!==opt)o.classList.add("gg-guide-scenario-option--disabled");o.setAttribute("aria-disabled","true");});
+track("guide_scenario_choice",{best:opt.getAttribute("data-best")==="true"});
+});
+});
+});
+document.querySelectorAll(".gg-guide-cta a, .gg-guide-finale-card a").forEach(function(link){
+link.addEventListener("click",function(){
+var ctaBlock=link.closest(".gg-guide-cta, .gg-guide-finale-card");
+var ctaType="unknown";
+if(ctaBlock){
+if(ctaBlock.classList.contains("gg-guide-cta--newsletter")||ctaBlock.classList.contains("gg-guide-finale-card--newsletter"))ctaType="newsletter";
+else if(ctaBlock.classList.contains("gg-guide-cta--training")||ctaBlock.classList.contains("gg-guide-finale-card--training"))ctaType="training_plan";
+else if(ctaBlock.classList.contains("gg-guide-cta--coaching")||ctaBlock.classList.contains("gg-guide-finale-card--coaching"))ctaType="coaching";
+}
+track("guide_cta_click",{cta_type:ctaType,link_url:link.href});
+});
+});
+if("IntersectionObserver" in window){
+var revealObs=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(!entry.isIntersecting)return;
+var el=entry.target;
+if(el.classList.contains("gg-guide-fade-in")){el.classList.add("gg-guide-fade-in--visible");revealObs.unobserve(el);}
+else if(el.classList.contains("gg-guide-section")){
+el.querySelectorAll(".gg-guide-stagger").forEach(function(child){
+var delay=parseInt(child.getAttribute("data-delay")||"0",10);
+setTimeout(function(){child.classList.add("gg-guide-stagger--visible");},delay);
+});
+revealObs.unobserve(el);
+}else if(el.classList.contains("gg-guide-process-bar-wrap")){
+var bar=el.querySelector(".gg-guide-process-bar");
+var pctEl=el.querySelector(".gg-guide-process-pct");
+if(bar){
+var pct=parseFloat(bar.getAttribute("data-pct")||"0");
+bar.style.width=Math.min(pct,100)+"%";
+if(pctEl){
+var target=parseFloat(pctEl.getAttribute("data-target")||"0");
+var dur=600,start=null;
+function animPct(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var ease=1-Math.pow(1-p,3);var v=Math.round(ease*target*10)/10;pctEl.textContent=(v%1===0?v.toFixed(0):v.toFixed(1))+"%";if(p<1)requestAnimationFrame(animPct);}
+requestAnimationFrame(animPct);
+}
+}
+revealObs.unobserve(el);
+}
+});
+},{threshold:0.1});
+document.querySelectorAll(".gg-guide-fade-in").forEach(function(el){revealObs.observe(el);});
+document.querySelectorAll(".gg-guide-section").forEach(function(el){revealObs.observe(el);});
+document.querySelectorAll(".gg-guide-process-bar-wrap").forEach(function(el){revealObs.observe(el);});
+}
+var parallaxTicking=false;
+var heroEls=document.querySelectorAll(".gg-guide-chapter-hero");
+if(heroEls.length){
+window.addEventListener("scroll",function(){
+if(!parallaxTicking){
+requestAnimationFrame(function(){
+heroEls.forEach(function(hero){
+var rect=hero.getBoundingClientRect();
+if(rect.bottom>0&&rect.top<window.innerHeight){
+var ratio=(rect.top+rect.height)/(window.innerHeight+rect.height);
+hero.style.backgroundPositionY=Math.round((ratio-0.5)*20)+"px";
+}
+});
+parallaxTicking=false;
+});
+parallaxTicking=true;
+}
+},{passive:true});
+}
+function clearCalcErrors(calc){
+calc.querySelectorAll(".gg-guide-calc-input--error").forEach(function(el){el.classList.remove("gg-guide-calc-input--error");});
+var errEl=calc.querySelector(".gg-guide-calc-error");
+if(errEl){errEl.style.display="none";errEl.textContent="";}
+}
+function showCalcError(calc,msg){
+var errEl=calc.querySelector(".gg-guide-calc-error");
+if(errEl){errEl.textContent=msg;errEl.style.display="block";}
+}
+document.querySelectorAll(".gg-guide-calculator").forEach(function(calc){
+var calcType=calc.getAttribute("data-calc-type");
+var btn=calc.querySelector(".gg-guide-calc-btn");
+var output=calc.querySelector(".gg-guide-calc-output");
+calc.querySelectorAll(".gg-guide-calc-toggle").forEach(function(toggle){
+var btns=toggle.querySelectorAll(".gg-guide-calc-toggle-btn");
+btns.forEach(function(b){
+b.addEventListener("click",function(){
+btns.forEach(function(t){t.classList.remove("gg-guide-calc-toggle-btn--active");});
+b.classList.add("gg-guide-calc-toggle-btn--active");
+});
+});
+});
+if(btn)btn.addEventListener("click",function(){
+if(calcType==="ftp-zones")computeFtpZones(calc,output);
+else if(calcType==="daily-nutrition")computeDailyNutrition(calc,output);
+else if(calcType==="workout-fueling")computeWorkoutFueling(calc,output);
+});
+});
+function computeFtpZones(calc,output){
+clearCalcErrors(calc);
+var ftpInput=calc.querySelector("#gg-calc-ftp-power");
+var testInput=calc.querySelector("#gg-calc-ftp-test");
+var ageInput=calc.querySelector("#gg-calc-ftp-age");
+var ftp=0;
+if(ftpInput&&ftpInput.value)ftp=parseInt(ftpInput.value,10);
+if((!ftp||ftp<50)&&testInput&&testInput.value)ftp=Math.round(parseInt(testInput.value,10)*0.95);
+if(!ftp||ftp<50||ftp>600){
+if(ftpInput)ftpInput.classList.add("gg-guide-calc-input--error");
+if(testInput)testInput.classList.add("gg-guide-calc-input--error");
+showCalcError(calc,"Enter FTP (50-600w) or a 20-min test power.");
+return;
+}
+var age=ageInput&&ageInput.value?parseInt(ageInput.value,10):0;
+var hrmax=age>=16?Math.round(211-0.64*age):0;
+var ftpDisp=output.querySelector(".gg-guide-calc-ftp-display");
+if(ftpDisp)ftpDisp.textContent="Your FTP: "+ftp+" watts"+(hrmax?" | HRmax: "+hrmax+" bpm":"");
+output.style.display="block";
+var zones=output.querySelectorAll(".gg-guide-calc-zone");
+zones.forEach(function(zone,i){
+var minPct=parseInt(zone.getAttribute("data-min"),10);
+var maxPct=parseInt(zone.getAttribute("data-max"),10);
+var minW=Math.round(ftp*minPct/100);
+var maxW=Math.round(ftp*maxPct/100);
+var range=zone.querySelector(".gg-guide-calc-zone-range");
+if(range)range.textContent=minW+"-"+maxW+"w";
+var fill=zone.querySelector(".gg-guide-calc-zone-fill");
+if(fill)setTimeout(function(){fill.style.width=Math.min(maxPct/2,100)+"%";},i*80);
+var hrEl=zone.querySelector(".gg-guide-calc-zone-hr");
+if(hrEl&&hrmax){
+var hrMinPct=zone.getAttribute("data-hr-min");
+var hrMaxPct=zone.getAttribute("data-hr-max");
+if(hrMinPct&&hrMaxPct)hrEl.textContent=Math.round(hrmax*parseInt(hrMinPct,10)/100)+"-"+Math.round(hrmax*parseInt(hrMaxPct,10)/100)+" bpm";
+}
+});
+track("guide_calculator_use",{type:"ftp_zones",ftp:ftp,has_hr:hrmax>0});
+}
 function setOut(id,t){var e=document.getElementById("gg-calc-out-"+id);if(e)e.textContent=t;}
-
-function computeDailyNutrition(calc, output) {
-  var wi = calc.querySelector("#gg-calc-dn-weight");
-  var w = wi ? parseFloat(wi.value) : 0;
-  if (!w || w < 30) return;
-  var tg = calc.querySelector(".gg-guide-calc-toggle[data-field='dn-unit']");
-  var u = "kg";
-  if (tg) { var a = tg.querySelector(".gg-guide-calc-toggle-btn--active"); if (a) u = a.getAttribute("data-value")||"kg"; }
-  var kg = u === "lbs" ? w * 0.4536 : w;
-  var ds = calc.querySelector("#gg-calc-dn-day");
-  var d = ds ? ds.value : "easy";
-  var cm = {rest:[2,3],hard:[5,7],race:[8,10]}[d] || [3,5];
-  output.style.display = "block";
-  setOut("protein", Math.round(kg*1.6)+"-"+Math.round(kg*2.2)+"g");
-  setOut("carbs", Math.round(kg*cm[0])+"-"+Math.round(kg*cm[1])+"g");
-  setOut("fat", Math.round(kg*0.8)+"-"+Math.round(kg*1.2)+"g");
-  setOut("calories", Math.round(kg*1.6*4+kg*cm[0]*4+kg*0.8*9)+"-"+Math.round(kg*2.2*4+kg*cm[1]*4+kg*1.2*9)+" kcal");
-  track("guide_calculator_use", {type:"daily_nutrition",weight_kg:Math.round(kg)});
+function computeDailyNutrition(calc,output){
+clearCalcErrors(calc);
+var wi=calc.querySelector("#gg-calc-dn-weight");
+var w=wi?parseFloat(wi.value):0;
+if(!w||w<30||w>500){
+if(wi)wi.classList.add("gg-guide-calc-input--error");
+showCalcError(calc,"Enter a valid weight (30-500).");
+return;
 }
-
-function computeWorkoutFueling(calc, output) {
-  var di = calc.querySelector("#gg-calc-wf-duration");
-  var dur = di ? parseFloat(di.value) : 0;
-  if (!dur || dur < 0.5) return;
-  var is = calc.querySelector("#gg-calc-wf-intensity");
-  var rate = {z2:50,tempo:65,race:75}[is?is.value:"z2"] || 40;
-  var tc = Math.round(dur*rate), hy = Math.round(dur*500);
-  output.style.display = "block";
-  setOut("total-carbs", tc+"g");
-  setOut("fuel-rate", rate+"g/hr");
-  setOut("hydration", (hy/1000).toFixed(1)+"L ("+Math.round(hy/500)+" bottles)");
-  setOut("gels", Math.ceil(tc/25)+" gels (or equivalent)");
-  track("guide_calculator_use", {type:"workout_fueling",duration:dur});
+var tg=calc.querySelector(".gg-guide-calc-toggle[data-field='dn-unit']");
+var u="kg";
+if(tg){var a=tg.querySelector(".gg-guide-calc-toggle-btn--active");if(a)u=a.getAttribute("data-value")||"kg";}
+var kg=u==="lbs"?w*0.4536:w;
+var ds=calc.querySelector("#gg-calc-dn-day");
+var d=ds?ds.value:"easy";
+var cm={rest:[2,3],hard:[5,7],race:[8,10]}[d]||[3,5];
+output.style.display="block";
+setOut("protein",Math.round(kg*1.6)+"-"+Math.round(kg*2.2)+"g");
+setOut("carbs",Math.round(kg*cm[0])+"-"+Math.round(kg*cm[1])+"g");
+setOut("fat",Math.round(kg*0.8)+"-"+Math.round(kg*1.2)+"g");
+setOut("calories",Math.round(kg*1.6*4+kg*cm[0]*4+kg*0.8*9)+"-"+Math.round(kg*2.2*4+kg*cm[1]*4+kg*1.2*9)+" kcal");
+track("guide_calculator_use",{type:"daily_nutrition",weight_kg:Math.round(kg)});
 }
-
-/* ── Zone Visualizer Animation ── */
-if ("IntersectionObserver" in window) {
-  var vizEls = document.querySelectorAll(".gg-guide-zone-viz");
-  if (vizEls.length) {
-    var vizObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var bars = entry.target.querySelectorAll(".gg-guide-viz-bar");
-        var labels = entry.target.querySelectorAll(".gg-guide-viz-label");
-        bars.forEach(function(bar, i) {
-          var w = bar.getAttribute("data-width");
-          var d = parseInt(bar.getAttribute("data-delay") || "0", 10);
-          setTimeout(function() {
-            bar.setAttribute("width", w);
-            if (labels[i]) labels[i].setAttribute("opacity", "1");
-          }, d);
-        });
-        vizObs.unobserve(entry.target);
-      });
-    }, { threshold: 0.2 });
-    vizEls.forEach(function(el) { vizObs.observe(el); });
-  }
+function computeWorkoutFueling(calc,output){
+clearCalcErrors(calc);
+var di=calc.querySelector("#gg-calc-wf-duration");
+var dur=di?parseFloat(di.value):0;
+if(!dur||dur<0.5||dur>24){
+if(di)di.classList.add("gg-guide-calc-input--error");
+showCalcError(calc,"Enter a valid duration (0.5-24 hours).");
+return;
 }
-
-/* ── Rider Personalization ── */
-var RIDER_STORAGE = "gg_guide_rider_type";
-var riderSelector = document.getElementById("gg-guide-rider-selector");
-var riderBadge = document.getElementById("gg-guide-rider-badge");
-var riderBadgeType = document.getElementById("gg-guide-rider-badge-type");
-var riderBadgeChange = document.getElementById("gg-guide-rider-badge-change");
-
-function setRider(type) {
-  try { localStorage.setItem(RIDER_STORAGE, type); } catch(e) {}
-  if (!riderSelector) return;
-  var btns = riderSelector.querySelectorAll(".gg-guide-rider-btn");
-  var label = "";
-  var ftp = 200;
-  btns.forEach(function(b) {
-    var isMatch = b.getAttribute("data-rider") === type;
-    b.classList.toggle("gg-guide-rider-btn--active", isMatch);
-    b.setAttribute("aria-checked", isMatch ? "true" : "false");
-    if (isMatch) {
-      label = b.querySelector(".gg-guide-rider-btn-label").textContent;
-      ftp = parseInt(b.getAttribute("data-ftp") || "200", 10);
-    }
-  });
-  // Show badge
-  if (riderBadge && label) {
-    riderBadge.style.display = "flex";
-    if (riderBadgeType) riderBadgeType.textContent = label;
-  }
-  // Auto-select matching tabs
-  document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup) {
-    var tabs = tabGroup.querySelectorAll(".gg-guide-tab");
-    var panels = tabGroup.querySelectorAll(".gg-guide-tab-panel");
-    tabs.forEach(function(tab, i) {
-      if (tab.textContent.trim().toLowerCase() === type.toLowerCase() ||
-          tab.textContent.trim().toLowerCase() === label.toLowerCase()) {
-        tabs.forEach(function(t) { t.classList.remove("gg-guide-tab--active"); t.setAttribute("aria-selected", "false"); });
-        panels.forEach(function(p) { p.style.display = "none"; });
-        tab.classList.add("gg-guide-tab--active");
-        tab.setAttribute("aria-selected", "true");
-        if (panels[i]) panels[i].style.display = "block";
-      }
-    });
-  });
-  // Pre-fill FTP placeholder
-  var ftpInput = document.getElementById("gg-calc-ftp-power");
-  if (ftpInput) ftpInput.placeholder = "e.g., " + ftp;
-  track("guide_rider_select", { rider_type: type });
+var ints=calc.querySelector("#gg-calc-wf-intensity");
+var rate={z2:50,tempo:65,race:75}[ints?ints.value:"z2"]||40;
+var tc=Math.round(dur*rate),hy=Math.round(dur*500);
+output.style.display="block";
+setOut("total-carbs",tc+"g");
+setOut("fuel-rate",rate+"g/hr");
+setOut("hydration",(hy/1000).toFixed(1)+"L ("+Math.round(hy/500)+" bottles)");
+setOut("gels",Math.ceil(tc/25)+" gels (or equivalent)");
+track("guide_calculator_use",{type:"workout_fueling",duration:dur});
 }
-
-if (riderSelector) {
-  riderSelector.querySelectorAll(".gg-guide-rider-btn").forEach(function(btn) {
-    btn.addEventListener("click", function() { setRider(btn.getAttribute("data-rider")); });
-  });
-}
-if (riderBadgeChange) {
-  riderBadgeChange.addEventListener("click", function() {
-    if (riderSelector) riderSelector.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-}
-// Restore from localStorage
-try {
-  var saved = localStorage.getItem(RIDER_STORAGE);
-  if (saved) setRider(saved);
-} catch(e) {}
-
-/* ── Animated Counters ── */
-if ("IntersectionObserver" in window) {
-  var counterEls = document.querySelectorAll(".gg-guide-counter");
-  if (counterEls.length) {
-    var counterObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var target = parseFloat(el.getAttribute("data-target") || "0");
-        if (!target) { counterObs.unobserve(el); return; }
-        var isDecimal = target % 1 !== 0;
-        var duration = 1200;
-        var start = null;
-        function step(ts) {
-          if (!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var ease = 1 - Math.pow(1 - progress, 3);
-          var val = ease * target;
-          el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toString();
-          if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-        counterObs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    counterEls.forEach(function(el) { counterObs.observe(el); });
-  }
-}
-
-/* ── Chapter Nav Pulse ── */
-if (chapters.length && navItems.length) {
-  var lastActiveChapter = null;
-  var pulseObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var chId = entry.target.id;
-        if (chId !== lastActiveChapter) {
-          lastActiveChapter = chId;
-          navItems.forEach(function(nav) {
-            if (nav.getAttribute("data-chapter") === chId) {
-              nav.classList.add("gg-guide-chapnav-item--pulse");
-              setTimeout(function() { nav.classList.remove("gg-guide-chapnav-item--pulse"); }, 300);
-            }
-          });
-        }
-      }
-    });
-  }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
-  chapters.forEach(function(ch) { pulseObs.observe(ch); });
-}
-
-/* ── Time on Page (beacon) ── */
-var pageStartTime = Date.now();
-window.addEventListener("beforeunload", function() {
-  var seconds = Math.round((Date.now() - pageStartTime) / 1000);
-  track("guide_time_on_page", { seconds: seconds, chapters_read: Object.keys(chaptersRead).length });
+if("IntersectionObserver" in window){
+var fireOnceObs=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(!entry.isIntersecting)return;
+var el=entry.target;
+if(el.classList.contains("gg-guide-zone-viz")){
+el.querySelectorAll(".gg-guide-viz-fill").forEach(function(fill,i){
+var pct=fill.getAttribute("data-pct");
+var row=fill.closest(".gg-guide-viz-row");
+var d=row?parseInt(row.getAttribute("data-delay")||"0",10):i*100;
+setTimeout(function(){fill.style.width=pct+"%";},d);
 });
-
-})();
-'''
-    return _minify_js(raw)
+}else if(el.classList.contains("gg-guide-counter")){
+var target=parseFloat(el.getAttribute("data-target")||"0");
+if(!target){fireOnceObs.unobserve(el);return;}
+var isDecimal=target%1!==0;
+var duration=1200,start=null;
+function step(ts){if(!start)start=ts;var progress=Math.min((ts-start)/duration,1);var ease=1-Math.pow(1-progress,3);var val=ease*target;el.textContent=isDecimal?val.toFixed(1):Math.round(val).toString();if(progress<1)requestAnimationFrame(step);}
+requestAnimationFrame(step);
+}
+fireOnceObs.unobserve(el);
+});
+},{threshold:0.3});
+document.querySelectorAll(".gg-guide-zone-viz").forEach(function(el){fireOnceObs.observe(el);});
+document.querySelectorAll(".gg-guide-counter").forEach(function(el){fireOnceObs.observe(el);});
+}
+var RIDER_STORAGE="gg_guide_rider_type";
+var riderSelector=document.getElementById("gg-guide-rider-selector");
+var riderBadge=document.getElementById("gg-guide-rider-badge");
+var riderBadgeType=document.getElementById("gg-guide-rider-badge-type");
+var riderBadgeChange=document.getElementById("gg-guide-rider-badge-change");
+function setRider(type){
+try{localStorage.setItem(RIDER_STORAGE,type);}catch(e){}
+if(!riderSelector)return;
+var btns=riderSelector.querySelectorAll(".gg-guide-rider-btn");
+var label="";
+var ftp=200;
+btns.forEach(function(b){
+var isMatch=b.getAttribute("data-rider")===type;
+b.classList.toggle("gg-guide-rider-btn--active",isMatch);
+b.setAttribute("aria-checked",isMatch?"true":"false");
+if(isMatch){label=b.querySelector(".gg-guide-rider-btn-label").textContent;ftp=parseInt(b.getAttribute("data-ftp")||"200",10);}
+});
+if(riderBadge&&label){riderBadge.style.display="flex";if(riderBadgeType)riderBadgeType.textContent=label;}
+document.querySelectorAll(".gg-guide-tabs").forEach(function(tabGroup){
+var matchTab=tabGroup.querySelector('.gg-guide-tab[data-rider-type="'+type+'"]');
+if(matchTab){
+var tabs=tabGroup.querySelectorAll(".gg-guide-tab");
+var panels=tabGroup.querySelectorAll(".gg-guide-tab-panel");
+tabs.forEach(function(t){t.classList.remove("gg-guide-tab--active");t.setAttribute("aria-selected","false");});
+panels.forEach(function(p){p.style.display="none";});
+matchTab.classList.add("gg-guide-tab--active");
+matchTab.setAttribute("aria-selected","true");
+var targetId=matchTab.getAttribute("data-tab");
+var panel=document.getElementById(targetId);
+if(panel)panel.style.display="block";
+}
+});
+var ftpInput=document.getElementById("gg-calc-ftp-power");
+if(ftpInput)ftpInput.placeholder="e.g., "+ftp;
+track("guide_rider_select",{rider_type:type});
+}
+if(riderSelector){
+riderSelector.querySelectorAll(".gg-guide-rider-btn").forEach(function(btn){
+btn.addEventListener("click",function(){setRider(btn.getAttribute("data-rider"));});
+});
+}
+if(riderBadgeChange){
+riderBadgeChange.addEventListener("click",function(){
+if(riderSelector)riderSelector.scrollIntoView({behavior:"smooth",block:"start"});
+});
+}
+try{var saved=localStorage.getItem(RIDER_STORAGE);if(saved)setRider(saved);}catch(e){}
+var pageStartTime=Date.now();
+window.addEventListener("beforeunload",function(){
+var seconds=Math.round((Date.now()-pageStartTime)/1000);
+track("guide_time_on_page",{seconds:seconds,chapters_read:Object.keys(chaptersRead).length});
+});
+})();'''
 
 
 # ── Page Assembly ────────────────────────────────────────────

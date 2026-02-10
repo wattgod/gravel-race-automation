@@ -23,6 +23,7 @@ from generate_neo_brutalist import (
     build_inline_js,
     write_shared_assets,
 )
+from brand_tokens import get_preload_hints
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -40,7 +41,7 @@ def build_nav() -> str:
     <div class="gg-site-nav-inner">
       <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
-      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link" style="color:#1A8A82">HOW WE RATE</a>
+      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link" style="color:var(--gg-color-teal)">HOW WE RATE</a>
     </div>
     <div class="gg-breadcrumb">
       <a href="{SITE_BASE_URL}/">Home</a>
@@ -54,7 +55,7 @@ def build_nav() -> str:
 
 def build_hero() -> str:
     return '''<div class="gg-hero">
-    <div class="gg-hero-tier" style="background:#1A8A82">METHODOLOGY</div>
+    <div class="gg-hero-tier" style="background:var(--gg-color-teal)">METHODOLOGY</div>
     <h1 data-text="How We Rate Gravel Races">How We Rate Gravel Races</h1>
     <p class="gg-hero-tagline">Every race in our database is scored across 14 dimensions by human editors. No algorithms. No sponsors. No pay-to-play. Here&#39;s exactly how it works.</p>
   </div>'''
@@ -79,28 +80,28 @@ def build_tier_system() -> str:
             <td style="font-weight:700">Elite</td>
             <td>&ge; 80</td>
             <td>The definitive gravel events. World-class fields, iconic courses, bucket-list status.</td>
-            <td><a href="{SITE_BASE_URL}/race/unbound-200/" style="color:#1A8A82;font-weight:700">Unbound 200</a></td>
+            <td><a href="{SITE_BASE_URL}/race/unbound-200/" style="color:var(--gg-color-teal);font-weight:700">Unbound 200</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#000;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #000">TIER 2</span></td>
             <td style="font-weight:700">Contender</td>
             <td>&ge; 60</td>
             <td>Established races with strong reputations and competitive fields. The next tier of must-do events.</td>
-            <td><a href="{SITE_BASE_URL}/race/barry-roubaix/" style="color:#1A8A82;font-weight:700">Barry-Roubaix</a></td>
+            <td><a href="{SITE_BASE_URL}/race/barry-roubaix/" style="color:var(--gg-color-teal);font-weight:700">Barry-Roubaix</a></td>
           </tr>
           <tr>
-            <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#666;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #666">TIER 3</span></td>
+            <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:var(--gg-color-secondary-brown);font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #666">TIER 3</span></td>
             <td style="font-weight:700">Solid</td>
             <td>&ge; 45</td>
             <td>Regional favorites and emerging races. Strong local scenes, genuine gravel character.</td>
-            <td><a href="{SITE_BASE_URL}/race/rooted-vermont/" style="color:#1A8A82;font-weight:700">Rooted Vermont</a></td>
+            <td><a href="{SITE_BASE_URL}/race/rooted-vermont/" style="color:var(--gg-color-teal);font-weight:700">Rooted Vermont</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#999;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #999">TIER 4</span></td>
             <td style="font-weight:700">Roster</td>
             <td>&lt; 45</td>
             <td>Up-and-coming races and local grinders. Grassroots gravel &mdash; small fields, raw vibes.</td>
-            <td><a href="{SITE_BASE_URL}/race/114-gravel-race/" style="color:#1A8A82;font-weight:700">114 Gravel Race</a></td>
+            <td><a href="{SITE_BASE_URL}/race/114-gravel-race/" style="color:var(--gg-color-teal);font-weight:700">114 Gravel Race</a></td>
           </tr>
         </tbody>
       </table>
@@ -135,8 +136,8 @@ def build_dimensions() -> str:
     <div class="gg-section-body">
       <p style="margin-bottom:16px">Each race is evaluated across 14 dimensions split into two categories. Every dimension is scored 1&ndash;5 by our editors with a written explanation.</p>
 
-      <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:24px 0 12px;color:#59473c">Course Profile (7 dimensions)</h3>
-      <p style="margin-bottom:12px;font-size:12px;color:#666">Physical and logistical demands of the race.</p>
+      <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:24px 0 12px;color:var(--gg-color-primary-brown)">Course Profile (7 dimensions)</h3>
+      <p style="margin-bottom:12px;font-size:12px;color:var(--gg-color-secondary-brown)">Physical and logistical demands of the race.</p>
       <div style="overflow-x:auto">
       <table class="gg-method-table gg-method-table--compact">
         <thead>
@@ -147,8 +148,8 @@ def build_dimensions() -> str:
       </table>
       </div>
 
-      <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:32px 0 12px;color:#59473c">Editorial (7 dimensions)</h3>
-      <p style="margin-bottom:12px;font-size:12px;color:#666">Race quality and value proposition.</p>
+      <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:32px 0 12px;color:var(--gg-color-primary-brown)">Editorial (7 dimensions)</h3>
+      <p style="margin-bottom:12px;font-size:12px;color:var(--gg-color-secondary-brown)">Race quality and value proposition.</p>
       <div style="overflow-x:auto">
       <table class="gg-method-table gg-method-table--compact">
         <thead>
@@ -171,8 +172,8 @@ def build_formula() -> str:
     <div class="gg-section-body">
       <p style="margin-bottom:16px">The overall score is a simple, transparent calculation:</p>
 
-      <div style="background:#000;color:#fff;padding:24px 32px;border:3px solid #000;margin-bottom:20px;text-align:center">
-        <code style="font-size:16px;letter-spacing:1px;font-family:'Sometype Mono',monospace;color:#4ECDC4">overall_score = round( (sum of 14 scores &divide; 70) &times; 100 )</code>
+      <div style="background:var(--gg-color-near-black);color:var(--gg-color-white);padding:24px 32px;border:var(--gg-border-standard);margin-bottom:20px;text-align:center">
+        <code style="font-size:16px;letter-spacing:1px;font-family:var(--gg-font-data);color:var(--gg-color-light-teal)">overall_score = round( (sum of 14 scores &divide; 70) &times; 100 )</code>
       </div>
 
       <p style="margin-bottom:12px;font-size:13px">The maximum possible raw score is 70 (14 dimensions &times; 5 max each). We normalize to a 0&ndash;100 scale so scores are intuitive.</p>
@@ -223,7 +224,7 @@ def build_prestige_override() -> str:
         </tbody>
       </table>
 
-      <p style="margin-top:16px;font-size:12px;color:#666">The &ge;75 floor for prestige-5 Tier 1 promotion prevents scores as low as 60 from reaching Elite status purely on name recognition. Every T1 race must earn its spot.</p>
+      <p style="margin-top:16px;font-size:12px;color:var(--gg-color-secondary-brown)">The &ge;75 floor for prestige-5 Tier 1 promotion prevents scores as low as 60 from reaching Elite status purely on name recognition. Every T1 race must earn its spot.</p>
     </div>
   </div>'''
 
@@ -278,27 +279,30 @@ def build_methodology_css() -> str:
 .gg-neo-brutalist-page .gg-method-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: var(--gg-font-data);
   font-size: 12px;
-  border: 2px solid #000;
+  border: var(--gg-border-subtle);
 }
 .gg-neo-brutalist-page .gg-method-table th {
-  background: #59473c;
-  color: #fff;
+  background: var(--gg-color-primary-brown);
+  color: var(--gg-color-white);
   padding: 8px 12px;
   text-align: left;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  border: 1px solid #000;
+  border: 1px solid var(--gg-color-dark-brown);
 }
 .gg-neo-brutalist-page .gg-method-table td {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gg-color-sand);
   vertical-align: top;
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
 }
 .gg-neo-brutalist-page .gg-method-table tbody tr:nth-child(even) {
-  background: #faf5f0;
+  background: var(--gg-color-sand);
 }
 .gg-neo-brutalist-page .gg-method-table--compact td {
   padding: 6px 8px;
@@ -364,6 +368,8 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <meta name="twitter:title" content="How We Rate Gravel Races — Gravel God Methodology">
   <meta name="twitter:description" content="14 dimensions, 4 tiers, transparent formula. Here&#39;s how Gravel God scores every race.">'''
 
+    preload = get_preload_hints()
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -372,9 +378,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <title>How We Rate Gravel Races — Gravel God Methodology</title>
   <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 14 dimensions, 4 tiers, transparent formula.">
   <link rel="canonical" href="{esc(canonical_url)}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap">
+  {preload}
   {og_tags}
   {jsonld}
   {page_css}

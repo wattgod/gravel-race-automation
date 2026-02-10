@@ -16,8 +16,6 @@
     3: 'Regional favorites and emerging races. Strong local scenes, genuine gravel character.',
     4: 'Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes.'
   };
-  const TIER_COLORS = { 1: '#c4421a', 2: '#d4830a', 3: '#888', 4: '#ccc' };
-
   const SLIDERS = [
     { key: 'distance',      label: 'Distance',      low: 'Quick Spin',       high: 'Ultra Endurance', mapping: [{ field: 'length', weight: 1.0 }] },
     { key: 'technicality',  label: 'Technicality',   low: 'Smooth Gravel',    high: 'Single Track',    mapping: [{ field: 'technicality', weight: 1.0 }] },
@@ -285,10 +283,10 @@
 
   // ── Score / rendering helpers ──
   function scoreColor(score) {
-    if (score >= 85) return '#000';
-    if (score >= 75) return '#333';
-    if (score >= 65) return '#888';
-    return '#bbb';
+    if (score >= 85) return '#3a2e25';
+    if (score >= 75) return '#59473c';
+    if (score >= 65) return '#8c7568';
+    return '#cccccc';
   }
 
   const SCORE_LABELS = {
@@ -327,11 +325,11 @@
         const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
         return [cx + r * s * Math.cos(angle), cy + r * s * Math.sin(angle)];
       });
-      return `<polygon points="${gp.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#ddd" stroke-width="0.5"/>`;
+      return `<polygon points="${gp.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#d4c5b9" stroke-width="0.5"/>`;
     }).join('');
     return `<svg class="gg-radar" width="80" height="80" viewBox="0 0 80 80">
       ${grid}
-      <polygon points="${poly}" fill="rgba(0,0,0,0.1)" stroke="#000" stroke-width="1.5"/>
+      <polygon points="${poly}" fill="rgba(26,138,130,0.12)" stroke="#3a2e25" stroke-width="1.5"/>
     </svg>`;
   }
 

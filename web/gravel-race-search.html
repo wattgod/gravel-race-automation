@@ -12,29 +12,65 @@
 -->
 <div id="gg-race-search">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap');
+    /* Self-hosted fonts — loaded from race page assets */
+    @font-face {
+      font-family: 'Sometype Mono';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SometypeMono-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Source Serif 4';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SourceSerif4-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* Brand tokens */
+    #gg-race-search {
+      --gg-color-dark-brown: #3a2e25;
+      --gg-color-primary-brown: #59473c;
+      --gg-color-secondary-brown: #8c7568;
+      --gg-color-tan: #d4c5b9;
+      --gg-color-sand: #ede4d8;
+      --gg-color-warm-paper: #f5efe6;
+      --gg-color-gold: #B7950B;
+      --gg-color-teal: #1A8A82;
+      --gg-color-near-black: #1a1613;
+      --gg-color-white: #ffffff;
+      --gg-color-tier-1: #59473c;
+      --gg-color-tier-2: #8c7568;
+      --gg-color-tier-3: #999999;
+      --gg-color-tier-4: #cccccc;
+      --gg-font-data: 'Sometype Mono', monospace;
+      --gg-font-editorial: 'Source Serif 4', Georgia, serif;
+    }
 
     /* All selectors prefixed with #gg-race-search to beat WP theme specificity */
     #gg-race-search {
-      font-family: 'Sometype Mono', monospace !important;
+      font-family: var(--gg-font-data) !important;
       max-width: 1200px;
       margin: 0 auto;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search *, #gg-race-search *::before, #gg-race-search *::after {
       border-radius: 0 !important;
       box-shadow: none !important;
-      font-family: 'Sometype Mono', monospace !important;
+      font-family: var(--gg-font-data) !important;
     }
 
     /* ── Questionnaire ── */
     #gg-race-search .gg-questionnaire {
       margin-bottom: 24px;
-      border: 3px solid #000;
+      border: 3px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-questionnaire-header {
-      background: #59473c !important;
-      color: #fff !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
       padding: 14px 20px;
       display: flex;
       justify-content: space-between;
@@ -48,18 +84,18 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #fff !important;
+      color: var(--gg-color-white) !important;
     }
     #gg-race-search .gg-questionnaire-toggle {
       font-size: 18px;
-      color: #fff !important;
+      color: var(--gg-color-white) !important;
       transition: transform 0.2s;
     }
     #gg-race-search .gg-questionnaire-toggle.collapsed { transform: rotate(-90deg); }
     #gg-race-search .gg-questionnaire-body {
       padding: 20px;
-      background: #fff !important;
-      border-top: 2px solid #000;
+      background: var(--gg-color-warm-paper) !important;
+      border-top: 2px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-questionnaire-body.collapsed { display: none; }
     #gg-race-search .gg-slider-grid {
@@ -75,7 +111,7 @@
     #gg-race-search .gg-slider-label {
       font-size: 12px;
       font-weight: 700;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -83,7 +119,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 10px;
-      color: #666 !important;
+      color: var(--gg-color-secondary-brown) !important;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -92,7 +128,7 @@
       appearance: none;
       width: 100%;
       height: 6px;
-      background: #ccc;
+      background: var(--gg-color-sand);
       outline: none;
       cursor: pointer;
       margin: 8px 0;
@@ -102,25 +138,25 @@
       appearance: none;
       width: 22px;
       height: 22px;
-      background: #59473c;
-      border: 2px solid #000;
+      background: var(--gg-color-primary-brown);
+      border: 2px solid var(--gg-color-dark-brown);
       cursor: pointer;
     }
     #gg-race-search .gg-slider-row input[type="range"]::-moz-range-thumb {
       width: 22px;
       height: 22px;
-      background: #59473c;
-      border: 2px solid #000;
+      background: var(--gg-color-primary-brown);
+      border: 2px solid var(--gg-color-dark-brown);
       border-radius: 0;
       cursor: pointer;
     }
     #gg-race-search .gg-slider-row input[type="range"]::-webkit-slider-runnable-track {
       height: 6px;
-      background: #ccc;
+      background: var(--gg-color-sand);
     }
     #gg-race-search .gg-slider-row input[type="range"]::-moz-range-track {
       height: 6px;
-      background: #ccc;
+      background: var(--gg-color-sand);
     }
     #gg-race-search .gg-questionnaire-actions {
       display: flex;
@@ -130,36 +166,36 @@
     }
     #gg-race-search .gg-btn-match {
       padding: 10px 24px;
-      background: #59473c !important;
-      color: #fff !important;
-      border: 3px solid #59473c !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+      border: 3px solid var(--gg-color-primary-brown) !important;
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       cursor: pointer;
     }
-    #gg-race-search .gg-btn-match:hover { background: #8c7568 !important; border-color: #8c7568 !important; }
+    #gg-race-search .gg-btn-match:hover { background: var(--gg-color-secondary-brown) !important; border-color: var(--gg-color-secondary-brown) !important; }
     #gg-race-search .gg-btn-reset {
       padding: 10px 24px;
-      background: #fff !important;
-      color: #59473c !important;
-      border: 2px solid #59473c !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-primary-brown) !important;
+      border: 2px solid var(--gg-color-primary-brown) !important;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
     }
-    #gg-race-search .gg-btn-reset:hover { background: #59473c !important; color: #fff !important; }
+    #gg-race-search .gg-btn-reset:hover { background: var(--gg-color-primary-brown) !important; color: var(--gg-color-white) !important; }
     #gg-race-search .gg-match-badge {
       display: inline-block;
       padding: 2px 6px;
       font-size: 11px;
       font-weight: 700;
-      background: #000 !important;
-      color: #fff !important;
-      border: 2px solid #000 !important;
+      background: var(--gg-color-near-black) !important;
+      color: var(--gg-color-white) !important;
+      border: 2px solid var(--gg-color-near-black) !important;
       white-space: nowrap;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -172,8 +208,8 @@
       gap: 12px;
       margin-bottom: 24px;
       padding: 16px;
-      background: #fff !important;
-      border: 2px solid #000;
+      background: var(--gg-color-warm-paper) !important;
+      border: 2px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-filter-group {
       display: flex;
@@ -186,15 +222,15 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search .gg-filter-group select,
     #gg-race-search .gg-filter-group input {
       padding: 6px 8px;
-      border: 2px solid #000 !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
       font-size: 13px;
-      background: #fff !important;
-      color: #000 !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search .gg-search-input {
       flex: 1;
@@ -213,14 +249,14 @@
       align-items: center;
       margin-bottom: 12px;
       font-size: 12px;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     #gg-race-search button.gg-sort-btn {
-      background: #fff !important;
-      color: #000 !important;
-      border: 2px solid #000 !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-dark-brown) !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
       padding: 4px 10px;
       cursor: pointer;
       font-size: 11px;
@@ -229,20 +265,20 @@
       letter-spacing: 1px;
     }
     #gg-race-search button.gg-sort-btn.active {
-      background: #59473c !important;
-      color: #fff !important;
-      border-color: #59473c !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+      border-color: var(--gg-color-primary-brown) !important;
     }
     #gg-race-search button.gg-sort-btn:hover {
-      background: #59473c !important;
-      color: #fff !important;
-      border-color: #59473c !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+      border-color: var(--gg-color-primary-brown) !important;
     }
 
     /* ── Tier sections ── */
     #gg-race-search .gg-tier-section {
       margin-bottom: 24px;
-      border: 3px solid #000;
+      border: 3px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-tier-section-header {
       display: flex;
@@ -252,16 +288,16 @@
       padding: 12px 16px;
       cursor: pointer;
       user-select: none;
-      background: #fff !important;
-      border-left: 6px solid #000;
+      background: var(--gg-color-warm-paper) !important;
+      border-left: 6px solid var(--gg-color-dark-brown);
     }
-    #gg-race-search .gg-tier-section-header.tier-1 { border-left-color: #59473c !important; background: #59473c !important; color: #fff !important; }
-    #gg-race-search .gg-tier-section-header.tier-1 h3 { color: #fff !important; }
-    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-count { color: #c4b5ab !important; }
-    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-chevron { color: #fff !important; }
-    #gg-race-search .gg-tier-section-header.tier-2 { border-left-color: #8c7568 !important; }
-    #gg-race-search .gg-tier-section-header.tier-3 { border-left-color: #999 !important; }
-    #gg-race-search .gg-tier-section-header.tier-4 { border-left-color: #ccc !important; }
+    #gg-race-search .gg-tier-section-header.tier-1 { border-left-color: var(--gg-color-tier-1) !important; background: var(--gg-color-tier-1) !important; color: var(--gg-color-white) !important; }
+    #gg-race-search .gg-tier-section-header.tier-1 h3 { color: var(--gg-color-white) !important; }
+    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-count { color: var(--gg-color-tan) !important; }
+    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-chevron { color: var(--gg-color-white) !important; }
+    #gg-race-search .gg-tier-section-header.tier-2 { border-left-color: var(--gg-color-tier-2) !important; }
+    #gg-race-search .gg-tier-section-header.tier-3 { border-left-color: var(--gg-color-tier-3) !important; }
+    #gg-race-search .gg-tier-section-header.tier-4 { border-left-color: var(--gg-color-tier-4) !important; }
     #gg-race-search .gg-tier-section-title {
       display: flex;
       align-items: center;
@@ -273,30 +309,31 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search .gg-tier-section-count {
       font-size: 11px;
-      color: #666 !important;
+      color: var(--gg-color-secondary-brown) !important;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     #gg-race-search .gg-tier-section-desc {
-      font-size: 11px; color: #8c7568; margin: 4px 0 0 0;
+      font-family: var(--gg-font-editorial) !important;
+      font-size: 11px; color: var(--gg-color-secondary-brown); margin: 4px 0 0 0;
       line-height: 1.5; font-weight: 400;
       width: 100%; flex-basis: 100%;
     }
-    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-desc { color: #c4b5ab; }
+    #gg-race-search .gg-tier-section-header.tier-1 .gg-tier-section-desc { color: var(--gg-color-tan); }
     #gg-race-search .gg-tier-section-chevron {
       font-size: 16px;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
       transition: transform 0.2s;
     }
     #gg-race-search .gg-tier-section-chevron.collapsed { transform: rotate(-90deg); }
     #gg-race-search .gg-tier-section-body {
       padding: 16px;
-      background: #fff !important;
-      border-top: 2px solid #000;
+      background: var(--gg-color-warm-paper) !important;
+      border-top: 2px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-tier-section-body.collapsed { display: none; }
 
@@ -307,12 +344,12 @@
       gap: 16px;
     }
     #gg-race-search .gg-card {
-      border: 2px solid #000 !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
       padding: 16px;
-      background: #fff !important;
+      background: var(--gg-color-warm-paper) !important;
     }
     #gg-race-search .gg-card:hover {
-      background: #f5f5f5 !important;
+      background: var(--gg-color-sand) !important;
     }
     #gg-race-search .gg-card-header {
       display: flex;
@@ -322,15 +359,15 @@
     }
     #gg-race-search a.gg-card-name,
     #gg-race-search span.gg-card-name {
+      font-family: var(--gg-font-editorial) !important;
       font-size: 15px;
       font-weight: 700;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
       text-decoration: none !important;
       line-height: 1.2;
-      text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    #gg-race-search a.gg-card-name:hover { text-decoration: underline !important; color: #000 !important; }
+    #gg-race-search a.gg-card-name:hover { text-decoration: underline !important; color: var(--gg-color-dark-brown) !important; }
     #gg-race-search span.gg-card-name.no-link { cursor: default; }
     #gg-race-search span.gg-card-name.no-link:hover { text-decoration: none !important; }
     #gg-race-search .gg-tier-badge {
@@ -341,15 +378,15 @@
       letter-spacing: 1.5px;
       white-space: nowrap;
       text-transform: uppercase;
-      border: 2px solid #000 !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
     }
-    #gg-race-search .gg-tier-1 { background: #000 !important; color: #fff !important; }
-    #gg-race-search .gg-tier-2 { background: #fff !important; color: #000 !important; border-color: #000 !important; }
-    #gg-race-search .gg-tier-3 { background: #fff !important; color: #666 !important; border-color: #666 !important; }
-    #gg-race-search .gg-tier-4 { background: #fff !important; color: #999 !important; border-color: #999 !important; }
+    #gg-race-search .gg-tier-1 { background: var(--gg-color-near-black) !important; color: var(--gg-color-white) !important; }
+    #gg-race-search .gg-tier-2 { background: var(--gg-color-warm-paper) !important; color: var(--gg-color-dark-brown) !important; border-color: var(--gg-color-dark-brown) !important; }
+    #gg-race-search .gg-tier-3 { background: var(--gg-color-warm-paper) !important; color: var(--gg-color-tier-3) !important; border-color: var(--gg-color-tier-3) !important; }
+    #gg-race-search .gg-tier-4 { background: var(--gg-color-warm-paper) !important; color: var(--gg-color-tier-4) !important; border-color: var(--gg-color-tier-4) !important; }
     #gg-race-search .gg-card-meta {
       font-size: 12px;
-      color: #666 !important;
+      color: var(--gg-color-secondary-brown) !important;
       margin-bottom: 8px;
     }
     #gg-race-search .gg-card-stats {
@@ -359,11 +396,12 @@
       margin-bottom: 8px;
     }
     #gg-race-search .gg-stat { display: flex; flex-direction: column; }
-    #gg-race-search .gg-stat-val { font-weight: 700; font-size: 15px; color: #000 !important; }
-    #gg-race-search .gg-stat-label { font-size: 10px; color: #666 !important; text-transform: uppercase; letter-spacing: 1px; }
+    #gg-race-search .gg-stat-val { font-weight: 700; font-size: 15px; color: var(--gg-color-dark-brown) !important; }
+    #gg-race-search .gg-stat-label { font-size: 10px; color: var(--gg-color-secondary-brown) !important; text-transform: uppercase; letter-spacing: 1px; }
     #gg-race-search .gg-card-tagline {
+      font-family: var(--gg-font-editorial) !important;
       font-size: 12px;
-      color: #444 !important;
+      color: var(--gg-color-secondary-brown) !important;
       font-style: italic;
       margin-top: 8px;
       line-height: 1.4;
@@ -381,8 +419,8 @@
     #gg-race-search .gg-score-track {
       flex: 1;
       height: 6px;
-      background: #ddd !important;
-      border: 1px solid #000;
+      background: var(--gg-color-sand) !important;
+      border: 1px solid var(--gg-color-dark-brown);
       overflow: hidden;
     }
     #gg-race-search .gg-score-fill {
@@ -394,14 +432,14 @@
       font-weight: 700;
       min-width: 28px;
       text-align: right;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search .gg-score-breakdown {
       display: none;
       margin-top: 8px;
       padding: 10px;
-      background: #fff !important;
-      border: 2px solid #000;
+      background: var(--gg-color-warm-paper) !important;
+      border: 2px solid var(--gg-color-dark-brown);
     }
     #gg-race-search .gg-score-breakdown.open { display: block; }
     #gg-race-search .gg-score-grid {
@@ -416,15 +454,15 @@
       font-size: 11px;
       padding: 2px 0;
     }
-    #gg-race-search .gg-score-row-label { color: #000 !important; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
+    #gg-race-search .gg-score-row-label { color: var(--gg-color-dark-brown) !important; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
     #gg-race-search .gg-score-row-dots { display: flex; gap: 3px; }
     #gg-race-search .gg-score-dot {
       width: 8px;
       height: 8px;
-      background: #ddd !important;
-      border: 1px solid #000;
+      background: var(--gg-color-sand) !important;
+      border: 1px solid var(--gg-color-dark-brown);
     }
-    #gg-race-search .gg-score-dot.filled { background: #000 !important; }
+    #gg-race-search .gg-score-dot.filled { background: var(--gg-color-dark-brown) !important; }
     #gg-race-search .gg-radar { margin-top: 8px; }
 
     /* ── Load more (per-tier) ── */
@@ -433,16 +471,16 @@
       width: 100%;
       padding: 10px;
       margin-top: 12px;
-      background: #fff !important;
-      color: #000 !important;
-      border: 2px solid #000 !important;
+      background: var(--gg-color-warm-paper) !important;
+      color: var(--gg-color-dark-brown) !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
     }
-    #gg-race-search button.gg-load-more:hover { background: #59473c !important; color: #fff !important; border-color: #59473c !important; }
+    #gg-race-search button.gg-load-more:hover { background: var(--gg-color-primary-brown) !important; color: var(--gg-color-white) !important; border-color: var(--gg-color-primary-brown) !important; }
 
     /* ── Active filter pills ── */
     #gg-race-search .gg-active-filters {
@@ -456,18 +494,18 @@
       align-items: center;
       gap: 6px;
       padding: 3px 10px;
-      background: #59473c !important;
-      color: #fff !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border: 2px solid #59473c !important;
+      border: 2px solid var(--gg-color-primary-brown) !important;
     }
     #gg-race-search .gg-filter-pill button {
       background: none !important;
       border: none !important;
-      color: #fff !important;
+      color: var(--gg-color-white) !important;
       cursor: pointer;
       padding: 0;
       font-size: 14px;
@@ -476,9 +514,9 @@
     }
     #gg-race-search .gg-filter-pill button:hover { opacity: 1; }
     #gg-race-search button.gg-clear-all {
-      background: #fff !important;
-      border: 2px solid #000 !important;
-      color: #000 !important;
+      background: var(--gg-color-warm-paper) !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
+      color: var(--gg-color-dark-brown) !important;
       padding: 3px 10px;
       font-size: 11px;
       font-weight: 700;
@@ -486,14 +524,14 @@
       letter-spacing: 0.5px;
       cursor: pointer;
     }
-    #gg-race-search button.gg-clear-all:hover { background: #59473c !important; color: #fff !important; border-color: #59473c !important; }
+    #gg-race-search button.gg-clear-all:hover { background: var(--gg-color-primary-brown) !important; color: var(--gg-color-white) !important; border-color: var(--gg-color-primary-brown) !important; }
 
     /* ── Widget footer ── */
     #gg-race-search .gg-widget-footer {
       margin-top: 32px;
       padding: 16px 20px;
-      border: 2px solid #000;
-      background: #59473c !important;
+      border: 2px solid var(--gg-color-dark-brown);
+      background: var(--gg-color-primary-brown) !important;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -503,32 +541,32 @@
     #gg-race-search .gg-widget-footer-brand {
       font-size: 11px;
       font-weight: 700;
-      color: #c4b5ab !important;
+      color: var(--gg-color-tan) !important;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
     #gg-race-search .gg-widget-footer a {
       font-size: 11px;
       font-weight: 700;
-      color: #d4c5b9 !important;
+      color: var(--gg-color-tan) !important;
       text-decoration: none !important;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
     #gg-race-search .gg-widget-footer a:hover {
-      color: #fff !important;
+      color: var(--gg-color-white) !important;
       text-decoration: underline !important;
     }
 
     /* ── Methodology link in results header ── */
     #gg-race-search a.gg-methodology-link {
       font-size: 11px;
-      color: #8c7568 !important;
+      color: var(--gg-color-secondary-brown) !important;
       text-decoration: none !important;
       letter-spacing: 0.5px;
     }
     #gg-race-search a.gg-methodology-link:hover {
-      color: #59473c !important;
+      color: var(--gg-color-primary-brown) !important;
       text-decoration: underline !important;
     }
 
@@ -536,7 +574,7 @@
     #gg-race-search .gg-no-results {
       text-align: center;
       padding: 40px;
-      color: #666 !important;
+      color: var(--gg-color-secondary-brown) !important;
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -547,8 +585,8 @@
       display: none;
       width: 100%;
       padding: 10px;
-      background: #fff !important;
-      border: 2px solid #000 !important;
+      background: var(--gg-color-warm-paper) !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -556,7 +594,7 @@
       cursor: pointer;
       margin-bottom: 12px;
       text-align: left;
-      color: #000 !important;
+      color: var(--gg-color-dark-brown) !important;
     }
     #gg-race-search button.gg-filter-toggle::after { content: ' ▾'; float: right; }
     #gg-race-search button.gg-filter-toggle.open::after { content: ' ▴'; }
@@ -568,9 +606,9 @@
       align-items: center;
       padding: 10px 16px;
       margin-bottom: 16px;
-      background: #59473c !important;
-      color: #fff !important;
-      border: 3px solid #59473c !important;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+      border: 3px solid var(--gg-color-primary-brown) !important;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -578,16 +616,16 @@
     }
     #gg-race-search .gg-match-banner button {
       padding: 6px 14px;
-      background: #fff !important;
-      color: #59473c !important;
-      border: 2px solid #fff !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-primary-brown) !important;
+      border: 2px solid var(--gg-color-white) !important;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
     }
-    #gg-race-search .gg-match-banner button:hover { background: #8c7568 !important; color: #fff !important; border-color: #8c7568 !important; }
+    #gg-race-search .gg-match-banner button:hover { background: var(--gg-color-secondary-brown) !important; color: var(--gg-color-white) !important; border-color: var(--gg-color-secondary-brown) !important; }
 
     @media (max-width: 768px) {
       #gg-race-search .gg-grid { grid-template-columns: 1fr; }

@@ -13,6 +13,7 @@ Usage:
     python scripts/fetch_rwgps_routes.py --auto             # Auto-accept high-confidence
     python scripts/fetch_rwgps_routes.py --dry-run          # Preview without writing
     python scripts/fetch_rwgps_routes.py --race unbound-200 # Single race
+    python scripts/fetch_rwgps_routes.py --verify           # Verify all existing RWGPS IDs
 """
 
 import argparse
@@ -20,6 +21,7 @@ import json
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from difflib import SequenceMatcher
@@ -345,6 +347,124 @@ def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
         print("  Invalid choice")
 
 
+def verify_rwgps_id(route_id: str) -> dict:
+    """Verify a RWGPS route ID is valid by fetching its metadata.
+
+    Returns dict with 'valid', 'name', 'distance_mi', 'error' keys.
+    """
+    url = f"https://ridewithgps.com/routes/{route_id}.json"
+    req = urllib.request.Request(url, headers={
+        'User-Agent': 'GravelGod-Verify/1.0',
+        'Accept': 'application/json',
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode())
+        return {
+            'valid': True,
+            'name': data.get('name', ''),
+            'distance_mi': round(data.get('distance', 0) / METERS_PER_MILE, 1),
+            'locality': data.get('locality', ''),
+            'administrative_area': data.get('administrative_area', ''),
+            'error': None,
+        }
+    except urllib.error.HTTPError as e:
+        return {'valid': False, 'error': f"HTTP {e.code}"}
+    except Exception as e:
+        return {'valid': False, 'error': str(e)}
+
+
+def run_verify(data_dir: Path, tier_filter: int = None, all_tiers: bool = False):
+    """Verify all existing RWGPS IDs are valid routes."""
+    files = sorted(data_dir.glob("*.json"))
+
+    races_with_ids = []
+    for fp in files:
+        try:
+            data = load_race_profile(fp)
+        except (json.JSONDecodeError, KeyError):
+            continue
+        race = data.get('race', {})
+        rating = race.get('gravel_god_rating', {})
+        tier = rating.get('display_tier', rating.get('tier', 4))
+        if tier_filter and tier != tier_filter:
+            continue
+        if not all_tiers and not tier_filter and tier > 2:
+            continue
+
+        course = race.get('course_description', race.get('course', {}))
+        rwgps_id = course.get('ridewithgps_id')
+        if not rwgps_id or str(rwgps_id) in ('TBD', ''):
+            continue
+
+        # Also check map_url for extractable RWGPS IDs
+        map_url = course.get('map_url', '') or ''
+        map_id = None
+        m = re.search(r'ridewithgps\.com/routes/(\d+)', map_url)
+        if m:
+            map_id = m.group(1)
+
+        name = race.get('name', fp.stem)
+        dist = float(race.get('vitals', {}).get('distance_mi', 0) or 0)
+        races_with_ids.append((fp.stem, name, str(rwgps_id), map_id, dist, tier))
+
+    print(f"Verifying {len(races_with_ids)} RWGPS route IDs...\n")
+
+    valid = 0
+    invalid = 0
+    distance_warnings = 0
+
+    for i, (slug, name, rwgps_id, map_id, race_dist, tier) in enumerate(races_with_ids):
+        result = verify_rwgps_id(rwgps_id)
+        if result['valid']:
+            # Check distance sanity — flag if RWGPS distance differs by >30%
+            rwgps_dist = result['distance_mi']
+            dist_ok = True
+            if race_dist > 0 and rwgps_dist > 0:
+                ratio = min(race_dist, rwgps_dist) / max(race_dist, rwgps_dist)
+                if ratio < 0.70:
+                    dist_ok = False
+                    distance_warnings += 1
+
+            status = "OK" if dist_ok else "DIST MISMATCH"
+            icon = "+" if dist_ok else "~"
+            detail = f"{result['name']} ({rwgps_dist}mi"
+            if result['locality']:
+                detail += f", {result['locality']}"
+            if result['administrative_area']:
+                detail += f", {result['administrative_area']}"
+            detail += ")"
+            if not dist_ok:
+                detail += f" — race is {race_dist}mi"
+            print(f"  [{icon}] T{tier} {slug}: {detail}")
+            valid += 1
+        else:
+            print(f"  [!] T{tier} {slug}: INVALID — {result['error']}")
+            invalid += 1
+
+        # Also verify map_url ID if different from ridewithgps_id
+        if map_id and map_id != rwgps_id:
+            map_result = verify_rwgps_id(map_id)
+            if not map_result['valid']:
+                print(f"      map_url ID {map_id}: INVALID — {map_result['error']}")
+            time.sleep(0.5)
+
+        if i < len(races_with_ids) - 1:
+            time.sleep(0.5)
+
+    print(f"\n{'='*60}")
+    print("VERIFICATION SUMMARY")
+    print(f"{'='*60}")
+    print(f"  Valid:              {valid}")
+    print(f"  Invalid:            {invalid}")
+    print(f"  Distance warnings:  {distance_warnings}")
+    print(f"  Total checked:      {len(races_with_ids)}")
+
+    if invalid > 0:
+        print(f"\n  ⚠ {invalid} invalid route IDs need attention!")
+        sys.exit(1)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Search RWGPS for race routes and populate ridewithgps_id"
@@ -357,6 +477,8 @@ def main():
                         help=f'Auto-accept matches with confidence >= {AUTO_ACCEPT_THRESHOLD}')
     parser.add_argument('--dry-run', action='store_true',
                         help='Show matches without writing to files')
+    parser.add_argument('--verify', action='store_true',
+                        help='Verify all existing RWGPS IDs are valid routes')
     parser.add_argument('--race', type=str,
                         help='Process a single race by slug')
     parser.add_argument('--data-dir', type=Path, default=RACE_DATA,
@@ -367,6 +489,11 @@ def main():
     if not data_dir.exists():
         print(f"Error: data directory not found: {data_dir}")
         sys.exit(1)
+
+    # Verify mode — check existing IDs, don't search
+    if args.verify:
+        run_verify(data_dir, tier_filter=args.tier, all_tiers=args.all)
+        return
 
     # Collect race files to process
     if args.race:

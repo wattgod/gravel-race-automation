@@ -36,26 +36,28 @@ except ImportError:
 
 W, H = 1200, 630
 
-# Brand colors
-BROWN = (89, 71, 60)          # #59473c
-BROWN_SEC = (140, 117, 104)   # #8c7568
-DARK_TEAL = (26, 138, 130)    # #1A8A82
-TEAL = (78, 205, 196)         # #4ECDC4
-DARK_GOLD = (183, 149, 11)    # #B7950B
-GOLD = (244, 208, 63)         # #F4D03F
-OFF_WHITE = (245, 240, 235)   # #f5f0eb
-CREAM = (212, 197, 185)       # #d4c5b9
-MUTED_TAN = (196, 181, 171)   # #c4b5ab
-BLACK = (0, 0, 0)
+# Brand colors — from gravel-god-brand/tokens/tokens.json
+DARK_BROWN = (58, 46, 37)     # #3a2e25
+PRIMARY_BROWN = (89, 71, 60)  # #59473c
+SEC_BROWN = (140, 117, 104)   # #8c7568
+WARM_BROWN = (166, 142, 128)  # #A68E80
+TAN = (212, 197, 185)         # #d4c5b9
+SAND = (237, 228, 216)        # #ede4d8
+WARM_PAPER = (245, 239, 230)  # #f5efe6
+GOLD = (183, 149, 11)         # #B7950B
+LIGHT_GOLD = (201, 169, 44)   # #c9a92c
+TEAL = (26, 138, 130)         # #1A8A82
+LIGHT_TEAL = (78, 205, 196)   # #4ECDC4
+NEAR_BLACK = (26, 22, 19)     # #1a1613
 WHITE = (255, 255, 255)
 
-# Dark background palette — stands out in light social feeds
-BG_DARK = (38, 30, 25)        # Near-black warm brown
-BG_TEXTURE = (48, 38, 32)     # Slightly lighter for texture lines
+# Dark background palette — near-black from tokens
+BG_DARK = NEAR_BLACK
+BG_TEXTURE = (36, 30, 26)     # Slightly lighter for texture lines
 
 TIER_COLORS = {
-    1: BROWN,
-    2: BROWN_SEC,
+    1: PRIMARY_BROWN,
+    2: SEC_BROWN,
     3: (153, 153, 153),
     4: (100, 90, 82),           # Darker for dark bg visibility
 }
@@ -63,36 +65,34 @@ TIER_COLORS = {
 TIER_BADGE_TEXT = {
     1: WHITE,
     2: WHITE,
-    3: BLACK,
-    4: CREAM,
+    3: NEAR_BLACK,
+    4: TAN,
 }
 
 # Score accent colors
 TIER_ACCENT = {
-    1: TEAL,        # Brighter teal for dark bg
-    2: DARK_TEAL,
-    3: GOLD,        # Brighter gold for dark bg
-    4: BROWN_SEC,
+    1: GOLD,         # Gold for T1 (hero score is gold in brand guide)
+    2: TEAL,
+    3: LIGHT_GOLD,
+    4: SEC_BROWN,
 }
 
 ALL_DIMS = ['logistics', 'length', 'technicality', 'elevation', 'climate',
             'altitude', 'adventure', 'prestige', 'race_quality', 'experience',
             'community', 'field_depth', 'value', 'expenses']
 
-# Font paths
-FONT_PATHS = [
-    "/System/Library/Fonts/Helvetica.ttc",
-    "/System/Library/Fonts/HelveticaNeue.ttc",
-    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
-]
+# Brand font paths — Sometype Mono (data) + Source Serif 4 (editorial)
+FONT_DIR = Path(__file__).resolve().parent.parent / "guide" / "fonts"
 
-FONT_BOLD_PATHS = [
-    "/System/Library/Fonts/Helvetica.ttc",
-    "/System/Library/Fonts/HelveticaNeue.ttc",
-    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-]
+FONT_EDITORIAL = str(FONT_DIR / "SourceSerif4-Variable.ttf")
+FONT_EDITORIAL_ITALIC = str(FONT_DIR / "SourceSerif4-Italic-Variable.ttf")
+FONT_DATA = str(FONT_DIR / "SometypeMono-Regular.ttf")
+FONT_DATA_BOLD = str(FONT_DIR / "SometypeMono-Bold.ttf")
+
+# Fallback system fonts (if brand fonts missing)
+FONT_PATHS = [FONT_DATA, "/System/Library/Fonts/Helvetica.ttc"]
+FONT_BOLD_PATHS = [FONT_DATA_BOLD, "/System/Library/Fonts/Helvetica.ttc"]
+FONT_SERIF_PATHS = [FONT_EDITORIAL, "/System/Library/Fonts/Georgia.ttf"]
 
 
 def load_font(paths: list, size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
@@ -199,7 +199,7 @@ def draw_score_badge(draw, cx, cy, radius, score, tier, font_big, font_label):
     # "/ 100" label
     label = "/ 100"
     lw = tw(draw, label, font_label)
-    draw.text((cx - lw // 2, cy + sh // 2 - 6), label, fill=MUTED_TAN, font=font_label)
+    draw.text((cx - lw // 2, cy + sh // 2 - 6), label, fill=WARM_BROWN, font=font_label)
 
 
 def generate_og_image(race_data: dict, output_path: Path) -> Path:
@@ -251,16 +251,16 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
     # Use slug hash as seed so each race gets a unique but stable pattern
     draw_topo_texture(draw, seed=hash(slug) % 10000)
 
-    # Load fonts — sized for mobile thumbnail legibility
-    font_name = load_font(FONT_BOLD_PATHS, 64, bold=True)
-    font_tagline = load_font(FONT_PATHS, 22)
-    font_tier = load_font(FONT_BOLD_PATHS, 20, bold=True)
-    font_score_big = load_font(FONT_BOLD_PATHS, 60, bold=True)
-    font_score_label = load_font(FONT_PATHS, 18)
-    font_detail = load_font(FONT_PATHS, 22)
-    font_detail_bold = load_font(FONT_BOLD_PATHS, 22, bold=True)
-    font_brand = load_font(FONT_BOLD_PATHS, 28, bold=True)
-    font_brand_sub = load_font(FONT_PATHS, 16)
+    # Load fonts — editorial (Source Serif 4) for name/tagline, data (Sometype Mono) for labels
+    font_name = load_font(FONT_SERIF_PATHS, 64)          # Race name — editorial serif
+    font_tagline = load_font(FONT_SERIF_PATHS, 22)       # Tagline — editorial serif italic
+    font_tier = load_font(FONT_BOLD_PATHS, 20, bold=True) # Tier badge — data mono bold
+    font_score_big = load_font(FONT_SERIF_PATHS, 60)     # Score number — editorial serif
+    font_score_label = load_font(FONT_PATHS, 18)         # Score label — data mono
+    font_detail = load_font(FONT_PATHS, 22)              # Stats — data mono
+    font_detail_bold = load_font(FONT_BOLD_PATHS, 22, bold=True)  # Location — data mono bold
+    font_brand = load_font(FONT_BOLD_PATHS, 28, bold=True)  # Brand name — data mono bold
+    font_brand_sub = load_font(FONT_PATHS, 16)           # URL — data mono
 
     # ── Layout ────────────────────────────────────────────────
 
@@ -278,7 +278,7 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
     # ── Brand bar (bottom) ────────────────────────────────────
 
     bottom_bar_y = H - brand_bar_h
-    draw.rectangle([0, bottom_bar_y, W, H], fill=BROWN)
+    draw.rectangle([0, bottom_bar_y, W, H], fill=DARK_BROWN)
 
     # Brand name
     draw.text((left_margin, bottom_bar_y + 16), "GRAVEL GOD", fill=WHITE, font=font_brand)
@@ -287,13 +287,13 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
     brand_w = tw(draw, "GRAVEL GOD", font_brand)
     draw.rectangle(
         [left_margin, bottom_bar_y + 50, left_margin + brand_w, bottom_bar_y + 53],
-        fill=DARK_GOLD
+        fill=GOLD
     )
 
     # URL right-aligned
     url_text = "gravelgodcycling.com"
     uw = tw(draw, url_text, font_brand_sub)
-    draw.text((W - left_margin - uw, bottom_bar_y + 26), url_text, fill=MUTED_TAN, font=font_brand_sub)
+    draw.text((W - left_margin - uw, bottom_bar_y + 26), url_text, fill=WARM_BROWN, font=font_brand_sub)
 
     # ── Content area ──────────────────────────────────────────
 
@@ -320,7 +320,7 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
     name_lines = wrap_text(draw, name.upper(), font_name, name_max_w)
     line_h = 72
     for i, line in enumerate(name_lines[:2]):
-        draw.text((left_margin, name_y + i * line_h), line, fill=OFF_WHITE, font=font_name)
+        draw.text((left_margin, name_y + i * line_h), line, fill=WARM_PAPER, font=font_name)
     name_bottom = name_y + min(len(name_lines), 2) * line_h
 
     # Tagline — the scroll-stopping hook. Cream on dark = high contrast.
@@ -329,7 +329,7 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
         tag_max_w = content_right - left_margin
         tag_lines = wrap_text(draw, tagline, font_tagline, tag_max_w)
         for i, line in enumerate(tag_lines[:2]):
-            draw.text((left_margin, tag_y + i * 28), line, fill=CREAM, font=font_tagline)
+            draw.text((left_margin, tag_y + i * 28), line, fill=TAN, font=font_tagline)
 
     # ── Stats strip ───────────────────────────────────────────
 
@@ -346,16 +346,16 @@ def generate_og_image(race_data: dict, output_path: Path) -> Path:
 
     if stats:
         # Thin separator line
-        draw.rectangle([left_margin, strip_y - 10, W - left_margin, strip_y - 9], fill=BROWN_SEC)
+        draw.rectangle([left_margin, strip_y - 10, W - left_margin, strip_y - 9], fill=SEC_BROWN)
 
         stat_x = left_margin
         for j, stat in enumerate(stats):
             if j > 0:
                 sep = "  \u00b7  "
-                draw.text((stat_x, strip_y), sep, fill=BROWN_SEC, font=font_detail)
+                draw.text((stat_x, strip_y), sep, fill=SEC_BROWN, font=font_detail)
                 stat_x += tw(draw, sep, font_detail)
             f = font_detail_bold if j == 0 else font_detail
-            c = CREAM if j == 0 else MUTED_TAN
+            c = TAN if j == 0 else WARM_BROWN
             draw.text((stat_x, strip_y), stat, fill=c, font=f)
             stat_x += tw(draw, stat, f)
 

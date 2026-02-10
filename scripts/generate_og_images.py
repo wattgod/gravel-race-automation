@@ -411,7 +411,7 @@ def main():
                 raw = json.load(f)
             race = raw.get('race', raw)
             race.setdefault('slug', slug)
-            generate_og_image(race, output_dir / f"{slug}.png")
+            generate_og_image(race, output_dir / f"{slug}.jpg")
             if args.all and i % 50 == 0:
                 print(f"  [{i}/{total}] Generated {slug}.jpg")
         except Exception as e:

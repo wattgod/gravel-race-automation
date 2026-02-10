@@ -136,6 +136,33 @@
       }
     },
     "lastUpdated": "2026-01-13",
-    "dataQuality": "Good"
+    "dataQuality": "Good",
+    "final_verdict": {
+      "score": "50 / 100",
+      "one_liner": "A perfectly adequate 30-miler that exists without apology or ambition.",
+      "should_you_race": "If you need a low-stakes shakedown ride or you're testing new gear, the Walburg Dirty 30 delivers exactly what it promises—nothing more, nothing less. The 2000 feet of climbing won't break you, but it won't make you either. Show up if you want to ride bikes with people who also want to ride bikes, just don't expect stories worth telling afterward.",
+      "alternatives": "The Dirty Kanza 100 in Kansas offers real suffering if you want to test yourself, while the Mid South in Oklahoma gives you legitimate bragging rights with better competition and nastier conditions."
+    },
+    "course_description": {
+      "character": "Walburg Dirty 30 rolls through classic Texas hill country where limestone climbs bite harder than they look and exposed ridgelines offer zero mercy from the elements. The first half lulls you into thinking this is just another rolling gravel cruise before the back half delivers a masterclass in why elevation numbers lie.",
+      "suffering_zones": [
+        {
+          "mile": 8,
+          "label": "The False Promise",
+          "desc": "Rolling farm roads make you feel clever about your pacing strategy. Save the victory lap—you're burning matches you'll need later."
+        },
+        {
+          "mile": 18,
+          "label": "Reality Check Ridge",
+          "desc": "The climbs start stacking and the limestone kicks up through worn gravel. Your legs remember this isn't a recovery ride anymore."
+        },
+        {
+          "mile": 25,
+          "label": "The Reckoning",
+          "desc": "Exposed ridgeline climbing where the wind picks a direction just to mess with you. Whatever fitness you thought you had gets audited here."
+        }
+      ],
+      "signature_challenge": "The final 5-mile stretch compounds every mistake you made earlier—loose limestone surfaces, punchy climbs, and zero shelter from whatever weather Texas decides to throw at you. Your legs are cooked, the rocks are loose, and the hills don't negotiate."
+    }
   }
 }

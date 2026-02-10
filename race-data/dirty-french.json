@@ -142,6 +142,38 @@
     "seriesAffiliation": "Independent",
     "popularity": "High - toughest Midwest gravel race",
     "lastUpdated": "2026-01-13",
-    "dataQuality": "Good"
+    "dataQuality": "Good",
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Ohio delivers 9,000 feet of legitimate gravel suffering without the pretension of mountain racing.",
+      "should_you_race": "You need solid fitness for 100 miles and 9,000 feet—this isn't a beginner's ride. The rolling Midwest terrain means constant power output with no real recovery sections. Come prepared for variable weather and mechanical self-sufficiency. If you can handle a 6-8 hour suffer-fest without mountain views as motivation, this will test you properly.",
+      "alternatives": "Unbound 200 gives you similar distance with more prestige and Kansas wind instead of Ohio hills. Mid South in Oklahoma delivers comparable elevation with better post-race atmosphere and more challenging gravel surfaces."
+    },
+    "course_description": {
+      "character": "Dirty French borrows everything cruel from Ohio's rolling farm country and amplifies it through 9,000 feet of grinding climbs. This isn't manicured gravel—it's crushed limestone that turns to peanut butter when wet, farm roads that pitch up without warning, and long stretches where your GPS becomes your only friend. The Chillicothe region doesn't negotiate; it just keeps rolling upward until your legs forget what flat feels like.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "The Farm Road Maze",
+          "desc": "Unmarked intersections and deteriorating gravel through working farmland. Miss a turn here and you'll add miles you can't afford to lose."
+        },
+        {
+          "mile": 35,
+          "label": "The Limestone Grinder",
+          "desc": "Sustained climbing on loose crushed stone that punishes every pedal stroke. Your tires will hunt for traction while the gradient slowly increases."
+        },
+        {
+          "mile": 65,
+          "label": "The False Summit Sequence",
+          "desc": "Three consecutive climbs that each promise to be the last big effort. They're all lying to you, and the third one is the steepest."
+        },
+        {
+          "mile": 85,
+          "label": "The Final Reckoning",
+          "desc": "When you think you're done climbing, Ohio serves up one more sustained grind. This is where undertrained riders discover their actual limits."
+        }
+      ],
+      "signature_challenge": "Nine thousand feet of elevation over Ohio farm roads means you're climbing constantly, but never dramatically enough to justify walking. The gradient hovers in that cruel 6-8% range where you can't rest but can't power through either. By mile 70, every slight rise feels personal."
+    }
   }
 }

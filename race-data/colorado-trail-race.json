@@ -185,6 +185,38 @@
         "website": "jwookieone.com/colorado-trail-race",
         "tracking": "trackleaders.com/ctr"
       }
+    },
+    "final_verdict": {
+      "score": "90 / 100",
+      "one_liner": "The Colorado Trail doesn't care about your FTP when you're pushing your bike through talus fields at 13,000 feet.",
+      "should_you_race": "This is for riders who've already proven they can suffer for days, not weekends. You need legitimate bikepacking experience, gear dialed for everything from desert heat to alpine storms, and the fitness to hike-a-bike for miles without breaking. If you haven't done multi-day self-supported racing or think 530 miles sounds doable because you can ride centuries, stay home.",
+      "alternatives": "The Arizona Trail Race gives you similar distance and self-support without the altitude punishment, while the Silk Road Mountain Race delivers the same high-alpine suffering with different scenery. Both will humble you plenty without requiring you to navigate six wilderness detours."
+    },
+    "course_description": {
+      "character": "The CTR is 530 miles of high-altitude punishment disguised as a trail race. You'll spend most of your time above 10,000 feet, where 70% singletrack means constant technical riding interrupted by mandatory hike-a-bikes. This isn't gravel racing—it's Alpine survival with a bike occasionally underneath you.",
+      "suffering_zones": [
+        {
+          "mile": 75,
+          "label": "Ten Mile Range Reality Check",
+          "desc": "Twelve miles of brutal, bumpy, rocky terrain that's the second rockiest section of the entire trail. Your hands will be numb and your bike will sound like it's falling apart."
+        },
+        {
+          "mile": 180,
+          "label": "The Collegiate Split Decision",
+          "desc": "Choose your poison: East route through Buena Vista for 78 miles and 17,800 feet of climbing, or West through Hope Pass for 83 miles, 19,800 feet, and 15 miles above 12,000 feet. Both will hurt."
+        },
+        {
+          "mile": 350,
+          "label": "San Juan Alpine Traverse",
+          "desc": "Thirty consecutive miles above timberline where weather changes in minutes and hike-a-bikes multiply. The high point at 13,271 feet is followed by 20+ miles of tundra-talus-shale that destroys wheels and souls."
+        },
+        {
+          "mile": 450,
+          "label": "San Juan Hike-a-Bike Hell",
+          "desc": "The most walking of the entire route through beautiful, bike-destroying terrain. Even the fast guys are pushing their bikes up staircase climbs and carrying them down talus descents."
+        }
+      ],
+      "signature_challenge": "The altitude never lets up—you'll average over 10,000 feet for 530 miles while navigating technical singletrack that forces constant hike-a-bikes. Most riders don't realize that CTR's difficulty isn't the climbing, it's maintaining any rhythm when you're pushing your bike every few miles at oxygen levels that make sea-level riders dizzy just standing still."
     }
   }
 }

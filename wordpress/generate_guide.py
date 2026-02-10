@@ -419,6 +419,30 @@ def render_calculator(block: dict) -> str:
     </div>'''
 
 
+def render_image(block: dict) -> str:
+    """Render an image block with optional caption and layout variants."""
+    asset_id = esc(block["asset_id"])
+    alt = esc(block.get("alt", ""))
+    caption = block.get("caption", "")
+    layout = block.get("layout", "inline")
+    cls = f" gg-guide-img--{layout}" if layout != "inline" else ""
+    src = f"/guide/media/{asset_id}-1x.webp"
+    src2 = f"/guide/media/{asset_id}-2x.webp"
+    cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
+    return f'<figure class="gg-guide-img{cls}"><img src="{src}" srcset="{src} 1x, {src2} 2x" alt="{alt}" loading="lazy" decoding="async" class="gg-guide-img-el">{cap}</figure>'
+
+
+def render_video(block: dict) -> str:
+    """Render a video block with optional poster and caption."""
+    asset_id = esc(block["asset_id"])
+    poster_id = block.get("poster", "")
+    alt = esc(block.get("alt", ""))
+    caption = block.get("caption", "")
+    poster = f' poster="/guide/media/{esc(poster_id)}-1x.webp"' if poster_id else ''
+    cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
+    return f'<figure class="gg-guide-img gg-guide-video"><video src="/guide/media/{asset_id}.mp4"{poster} controls preload="none" class="gg-guide-img-el">{alt}</video>{cap}</figure>'
+
+
 def render_zone_visualizer(block: dict) -> str:
     """Render an HTML/CSS zone intensity visualizer with animated bars."""
     zones = block["zones"]
@@ -464,6 +488,8 @@ BLOCK_RENDERERS = {
     "scenario": render_scenario,
     "calculator": render_calculator,
     "zone_visualizer": render_zone_visualizer,
+    "image": render_image,
+    "video": render_video,
 }
 
 
@@ -539,6 +565,12 @@ def build_chapter(chapter: dict) -> str:
     colors = ['#59473c', '#000', '#1A8A82', '#59473c', '#000', '#1A8A82', '#59473c', '#000']
     bg = colors[(num - 1) % len(colors)]
 
+    hero_image_id = chapter.get("hero_image")
+    if hero_image_id:
+        hero_style = f"background:url(/guide/media/{esc(hero_image_id)}-1x.webp) center/cover no-repeat;background-color:{bg}"
+    else:
+        hero_style = f"background:{bg}"
+
     sections_html = []
     for section in chapter["sections"]:
         sec_title = section.get("title", "")
@@ -557,7 +589,7 @@ def build_chapter(chapter: dict) -> str:
       </div>''')
 
     return f'''<div class="gg-guide-chapter{gated_class}" id="{esc(ch_id)}" data-chapter="{num}">
-    <div class="gg-guide-chapter-hero" style="background:{bg}">
+    <div class="gg-guide-chapter-hero" style="{hero_style}">
       <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
       <h2 class="gg-guide-chapter-title">{title}</h2>
       {subtitle_html}
@@ -1109,7 +1141,16 @@ def build_guide_css() -> str:
   .gg-guide-calc-inputs{flex-direction:column}
   .gg-guide-rider-selector{justify-content:center}
   .gg-guide-rider-badge{bottom:10px;right:10px}
+  .gg-guide-img--full-width{margin-left:-16px;margin-right:-16px}
+  .gg-guide-img--half-width{float:none;width:100%;margin:0 0 16px 0}
 }
+
+/* ── Image / Video Blocks ── */
+.gg-guide-img{margin:0 0 20px;line-height:0}
+.gg-guide-img-el{width:100%;height:auto;display:block;border:3px solid #000}
+.gg-guide-img-caption{font-size:11px;color:#8c7568;margin-top:8px;line-height:1.5;font-style:italic}
+.gg-guide-img--full-width{margin-left:-24px;margin-right:-24px}
+.gg-guide-img--half-width{float:right;width:50%;margin:0 0 16px 20px}
 '''
 
 

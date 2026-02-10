@@ -213,6 +213,38 @@
     "popularity": "Cult following - beloved by those who experienced it",
     "status": "UNCERTAIN - Event appears on hiatus since 2022",
     "last_updated": "2026-01-13",
-    "data_quality": "Good - comprehensive research from active years"
+    "data_quality": "Good - comprehensive research from active years",
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "A mountain bike race disguised as gravel, where meteorite-shaped terrain separates the prepared from the delusional.",
+      "should_you_race": "If you panic on technical singletrack or think 25mm tires are acceptable, stay home. This demands MTB skills, fat rubber, and comfort with getting your ego adjusted by Quebec sand pits. The festival vibes and excellent food soften the blow, but won't save you from walking the steep, loose climbs that eat narrow tires alive.",
+      "alternatives": "Mid South offers similar technical challenge with better race organization and guaranteed scheduling. Grinduro California delivers the same format with more predictable conditions and without the language barrier that might complicate logistics in rural Quebec."
+    },
+    "course_description": {
+      "character": "Grinduro Canada drops you inside a 450-million-year-old meteorite crater where Mother Nature has been plotting your demise since the Ordovician period. Four timed segments demand everything from singletrack handling to sand survival, connected by 'neutral' sections that aren't neutral at all. This isn't gravel racing—it's enduro with a gravel entry fee.",
+      "suffering_zones": [
+        {
+          "mile": 8,
+          "label": "First Stage Reality Check",
+          "desc": "The opening timed segment hits immediately and reminds you this isn't your typical gravel sufferfest. Technical singletrack with roots and rocks separates the mountain bikers from the road converts real fast."
+        },
+        {
+          "mile": 25,
+          "label": "The Crater Climb",
+          "desc": "Steep, loose pitches where smaller tires spin helplessly and riders dismount in waves. The meteorite impact created these gradients specifically to humble your gear choices."
+        },
+        {
+          "mile": 40,
+          "label": "Soul-Sucking Sand",
+          "desc": "Deep sand sections that swallow momentum and spit out confidence. Your legs burn, your bike wallows, and you question every life decision that led here."
+        },
+        {
+          "mile": 55,
+          "label": "Eastern Ruggedness",
+          "desc": "The wild side of the crater reveals its true character through technical descents and relentless elevation changes. Canyon views are gorgeous until you realize you have to climb back out."
+        }
+      ],
+      "signature_challenge": "The course pretends to be gravel but demands full mountain bike skills across four timed segments that expose every weakness in your technical repertoire. Ancient meteorite impacts created terrain that laughs at road bike geometry and narrow tires—show up on the wrong equipment and the crater will humble you publicly."
+    }
   }
 }

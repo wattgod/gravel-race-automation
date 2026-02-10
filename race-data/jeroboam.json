@@ -298,6 +298,38 @@
       "BikeRadar race reports",
       "Off.road.cc feature",
       "Gravel Cyclist ride reports"
-    ]
+    ],
+    "final_verdict": {
+      "score": "81 / 100",
+      "one_liner": "Italy's gravel masquerading as a wine tour until 7,000 meters of climbing and mandatory night riding separate the romantics from the masochists.",
+      "should_you_race": "Show up undertrained and the Lombard Prealps will humble you by kilometer 30. The 4pm start means you're grinding technical singletrack in the dark with dead legs, so your bike handling better be dialed. This isn't a gravel race—it's a 24-hour suffer fest through vineyards that thinks it's the Giro.",
+      "alternatives": "If you want the European gravel experience without the night riding punishment, try Gravel One Fifty in the Dolomites or L'Eroica for vintage charm. SBT GRVL gives you similar distance and elevation but trades Italian romance for Colorado's reliable weather and better logistics."
+    },
+    "course_description": {
+      "character": "Jeroboam masquerades as gravel but delivers two-thirds asphalt—don't be fooled, this isn't easy road riding. The Lombard Prealps serve up Roman cobbles, vineyard doubletrack, and 30% mountain bike trails that'll have you hiking sections. Wine country never tasted this bitter.",
+      "suffering_zones": [
+        {
+          "mile": 18,
+          "label": "The Vineyard Beating",
+          "desc": "First 1,200m of climbing packed into 30km through Franciacorta's famous vineyards. Those postcard views come with gradients that'll snap your chain if you're not careful."
+        },
+        {
+          "mile": 62,
+          "label": "Lago d'Iseo Reckoning",
+          "desc": "Circumnavigating Italy's fourth largest lake sounds romantic until you hit the technical singletrack and loose rock descents. Tubeless isn't optional—it's survival."
+        },
+        {
+          "mile": 100,
+          "label": "The 95% Rule",
+          "desc": "By checkpoint 3 at 161km, you've done 95% of the climbing but only 53% of the distance. The math doesn't lie—everything after this is about not falling apart in the dark."
+        },
+        {
+          "mile": 140,
+          "label": "Lights On Reality",
+          "desc": "Mandatory lighting kicks in as you grind toward Lake Garda in complete darkness. Twenty hours is fast here—plan for longer and pack batteries accordingly."
+        }
+      ],
+      "signature_challenge": "The 4pm start guarantees you'll ride most of this beast in complete darkness, navigating technical terrain with a headlamp while your body shuts down. It's not the 7,000m of climbing that breaks people—it's doing it blind for 14 hours straight."
+    }
   }
 }

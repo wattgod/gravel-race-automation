@@ -281,6 +281,38 @@
       "GravelGod Research Database January 2026"
     ],
     "last_updated": "2026-01-12",
-    "research_source": "/tmp/gravel-race-automation/research-dumps/bwr-san-diego-raw.md"
+    "research_source": "/tmp/gravel-race-automation/research-dumps/bwr-san-diego-raw.md",
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "Belgian suffering translated to sunny San Diego, where Double Peak turns roadies into believers and flatlanders into casualties.",
+      "should_you_race": "You need legitimate climbing legs and the patience to navigate technical single-track when you're already cooked. This isn't a pure gravel race—it's a Spring Classic with dirt sectors that'll shred tires and egos equally. Show up undertrained for Double Peak's 20% final pitches and you'll be walking in front of 2,800 witnesses.",
+      "alternatives": "SBT GRVL offers similar distance with more consistent gravel and less traffic, while Unbound 200 delivers pure suffering without the roadie pretensions. If you want Spring Classic vibes without the California price tag, try Almanzo or Barry-Roubaix."
+    },
+    "course_description": {
+      "character": "BWR San Diego masquerades as an American Belgian classic, trading cobblestones for bone-rattling dirt sectors and sandy washes across 23 off-road segments. You'll roll through 80 miles of pavement and 52 miles of 'unroad' — everything from rocky single-track at Lake Hodges to the infamous sandy traps of Bandy Canyon. The course saves its cruelest joke for last: Double Peak, a 4.5-mile climb that turns savage in the final mile when your legs are already cooked.",
+      "suffering_zones": [
+        {
+          "mile": 35,
+          "label": "Lake Hodges Technical",
+          "desc": "Rocky single-track and sandy sections that eat tires and punish the unfocused. Most technical terrain of the day when you're still feeling strong."
+        },
+        {
+          "mile": 65,
+          "label": "Sandy Bandy Canyon",
+          "desc": "Sharp rocks and loose sand patches that grab wheels and destroy dreams. Also known as Raptor Ridge — the name tells you everything."
+        },
+        {
+          "mile": 85,
+          "label": "Black Canyon Grind",
+          "desc": "Eleven miles of climbing toward Palomar's base on pure gravel. Beautiful scenery you won't appreciate while suffering."
+        },
+        {
+          "mile": 120,
+          "label": "Elfin Forest Minefield",
+          "desc": "Final dirt section when fatigue makes every rock a potential race-ender. Ten miles from glory, infinite ways to blow up."
+        }
+      ],
+      "signature_challenge": "The Muur van Dubbelberg — Double Peak's final mile averages 11% with 20-23% pitches when you've already climbed 10,500 feet. The last 800 feet of elevation come in that brutal final kilometer, forcing riders to 'paperboy' diagonally across the road just to keep moving. Your FTP means nothing here."
+    }
   }
 }

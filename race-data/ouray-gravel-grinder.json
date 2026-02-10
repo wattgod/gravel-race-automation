@@ -168,6 +168,38 @@
     "popularity": 40,
     "lastUpdated": "2026-01-13",
     "dataQuality": "Medium",
-    "notes": "No clearly documented recurring 'Ouray Gravel Grinder' event with fixed organization. Scoring reflects the self-supported gravel riding experience in the Ouray/San Juan region based on Alpine Loop, Black Bear Pass, and Imogene Pass routes. Course profile scores reflect the exceptional difficulty of the terrain; editorial scores reflect the lack of organized event infrastructure. For organized racing, consider nearby Telluride Gravel Race."
+    "notes": "No clearly documented recurring 'Ouray Gravel Grinder' event with fixed organization. Scoring reflects the self-supported gravel riding experience in the Ouray/San Juan region based on Alpine Loop, Black Bear Pass, and Imogene Pass routes. Course profile scores reflect the exceptional difficulty of the terrain; editorial scores reflect the lack of organized event infrastructure. For organized racing, consider nearby Telluride Gravel Race.",
+    "final_verdict": {
+      "score": "74 / 100",
+      "one_liner": "The Ouray Gravel Grinder doesn't exist as an organized race, but the San Juan Mountains will humble your FTP and test your ability to push a bike up 13,000-foot passes.",
+      "should_you_race": "You can't race what isn't there, but if you're drawn to self-supported suffering in Colorado's most brutal terrain, bring a mountain bike and your hiking legs. The Alpine Loop and Imogene Pass will have you walking more than riding above 12,000 feet, and afternoon thunderstorms don't negotiate with your Strava segment dreams. This is bikepacking country masquerading as a gravel destination.",
+      "alternatives": "Hit the actual Telluride Gravel Race 25 miles away for organized pain with 10,000 feet of climbing, or SBT GRVL in Steamboat for high-altitude suffering with better logistics and real competition instead of just you versus gravity."
+    },
+    "course_description": {
+      "character": "Ouray serves up 80 miles of high-altitude punishment across mining roads that were never meant for bicycles. You'll grind through San Juan valleys on County Road 23 before the real show begins—12,000-foot alpine passes where your 34x42 becomes a prayer. This isn't gravel racing, it's controlled mountaineering on two wheels.",
+      "suffering_zones": [
+        {
+          "mile": 8,
+          "label": "County Road Reality Check",
+          "desc": "Rolling ranch roads through Ridgway Valley give you false confidence before the climbing starts. Use this time to dial in nutrition because things get serious fast."
+        },
+        {
+          "mile": 25,
+          "label": "Alpine Loop Entry",
+          "desc": "The road tilts skyward toward Engineer Pass and your easy spinning ends forever. Welcome to 4WD mining roads where 10% grades are considered gentle."
+        },
+        {
+          "mile": 45,
+          "label": "Engineer Pass Summit",
+          "desc": "At 12,800 feet, your lungs find out what thin air actually means. The descent is loose rock and exposure that'll make you religious about tire pressure."
+        },
+        {
+          "mile": 65,
+          "label": "Cinnamon Pass Finale",
+          "desc": "Just when your legs are cooked, another 12,600-foot pass appears. The babyhead rocks and moon dust surface will test whatever's left in your soul."
+        }
+      ],
+      "signature_challenge": "Engineer and Cinnamon passes back-to-back above 12,000 feet, where even Tour de France climbers end up walking sections. The altitude turns your FTP into a cruel joke, and the loose rock surfaces make every pedal stroke a negotiation with gravity."
+    }
   }
 }

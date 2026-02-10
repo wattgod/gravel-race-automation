@@ -126,22 +126,36 @@
       ]
     },
     "final_verdict": {
-      "summary": "Lauf True Grit Gravel Epic is the real deal - a brutally technical gravel race set against stunning desert scenery that separates gravel racers from gravel tourists. At 84 miles and 9,000 feet of climbing across rocky, technical terrain where the Mojave, Great Basin, and Colorado Plateau converge, this race rewards preparation, technical skill, and genuine grit.",
-      "who_should_race": [
-        "Experienced gravel riders seeking their next technical challenge",
-        "Riders who want genuine off-road gravel, not smooth fire roads",
-        "Those who value course beauty and authentic suffering over event spectacle",
-        "Early-season fitness testers looking for a March wake-up call",
-        "Anyone who thinks most gravel races are too easy"
+      "score": "74 / 100",
+      "one_liner": "Utah's technical playground where your handling skills matter more than your FTP and the Rollers of Doom separate pretenders from the genuinely prepared.",
+      "should_you_race": "Show up if you're comfortable dismounting on steep rock faces and practicing technical lines a dozen times before race day. The 9,000 feet of climbing rides like a century because of the constant technical demands—your bike handling needs to be sharp when you're deep into hour six. Skip this if you prefer smooth gravel roads or think a dropper post is overkill for gravel racing.",
+      "alternatives": "Dirty Kanza offers similar distance with less technical punishment, while McDowell Mountain Frenzy gives you desert beauty without the constant dismount-and-carry sections. Both let you actually use your fitness instead of spending half the day walking your bike over sandstone."
+    },
+    "course_description": {
+      "character": "True Grit drops you into the geological chaos where three deserts collide—Mojave, Great Basin, and Colorado Plateau. Eighty percent off-road through sandstone mazes, volcanic remnants, and sandy washes that chew up bikes and spit out undertrained riders. This isn't gravel racing, it's technical mountain biking disguised as a gravel event.",
+      "suffering_zones": [
+        {
+          "mile": 7,
+          "label": "Bear Claw Poppy",
+          "desc": "Early singletrack with fun rollers that tricks you into thinking this will be manageable. The course is still being polite—enjoy it while it lasts."
+        },
+        {
+          "mile": 30,
+          "label": "Rollers of Doom",
+          "desc": "The signature gravel feature that earned its name honestly. Technical rock gardens where your line choice determines whether you ride or walk the next five minutes."
+        },
+        {
+          "mile": 45,
+          "label": "The Chunky Miles",
+          "desc": "Course turns genuinely hostile with uphill rock faces requiring power surges your legs don't have left. Every pedal stroke is a negotiation with Utah sandstone."
+        },
+        {
+          "mile": 65,
+          "label": "Ridge Climb #4",
+          "desc": "The final ridge ascent where the accumulated technical damage meets legitimate climbing. Your bike handling mistakes from mile 30 compound into full-body rebellion."
+        }
       ],
-      "who_should_skip": [
-        "Gravel beginners or those uncomfortable with mandatory dismounts",
-        "Pure gravel grinders preferring smooth, fast roads",
-        "Rigid fork purists unwilling to add compliance",
-        "Those seeking massive festival atmosphere and large fields",
-        "Budget travelers (Utah adds meaningful travel costs)"
-      ],
-      "bottom_line": "True Grit earns its name. This is a Tier 2 event punching above its weight on course quality and technical demands. Not for everyone, but for those who crave technical gravel racing in otherworldly scenery, True Grit delivers an unforgettable experience that most 'gravel' races cannot match. Just pre-ride those technical sections. Seriously."
+      "signature_challenge": "Lines through the rocks that riders practice a dozen times pre-race and still freeze up on race day. The technical sections aren't just difficult—they're bike-destroying, confidence-crushing puzzles that punish hesitation and reward local knowledge you don't have."
     }
   }
 }

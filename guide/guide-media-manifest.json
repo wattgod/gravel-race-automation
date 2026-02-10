@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "defaults": {
+    "model": "nano-banana-pro",
+    "format": "webp",
+    "quality": 85,
+    "border": {
+      "width": 3,
+      "color": "#000000"
+    },
+    "brand_colors": [
+      "#59473c",
+      "#8c7568",
+      "#1A8A82",
+      "#4ECDC4",
+      "#B7950B",
+      "#F4D03F",
+      "#f5f0eb"
+    ]
+  },
+  "assets": [
+    {
+      "id": "ch1-hero",
+      "chapter": 1,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Wide-angle gravel road disappearing into rolling hills at golden hour, muted earth tones with warm amber light, dust particles in air, no people, cinematic landscape photography style",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch2-hero",
+      "chapter": 2,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Aerial view of a winding gravel road through open prairie with distant mountains, race start banner barely visible, morning light with long shadows, topographic map aesthetic",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch3-hero",
+      "chapter": 3,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Close-up of a cyclist's legs pedaling on a gravel surface, power meter visible on crank arm, teal and brown earth tones, shallow depth of field, training intensity feel",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch4-hero",
+      "chapter": 4,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Gravel cyclist descending a fast dirt road in a tucked position, dust trail behind, dramatic side lighting, motion blur on wheels, power and precision aesthetic",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch5-hero",
+      "chapter": 5,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Flat lay of gravel cycling nutrition essentials on a dark wood surface: energy gels, electrolyte bottles, rice cakes, dates, bananas, arranged in organized grid, moody top-down photography",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch6-hero",
+      "chapter": 6,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Silhouette of a lone gravel cyclist on a ridge at dawn, vast empty landscape, contemplative mood, muted teal sky fading to warm earth tones at horizon",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch7-hero",
+      "chapter": 7,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Organized bike workshop scene: gravel bike on stand with tools laid out methodically, checklist clipboard, dim garage lighting with warm accent light, pre-race preparation aesthetic",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch8-hero",
+      "chapter": 8,
+      "type": "photo",
+      "placement": "hero",
+      "prompt": "Gravel bike leaning against a fence post at sunset after a ride, water bottle half-empty, dusty frame, golden light, peaceful exhaustion, recovery mood",
+      "dimensions": {
+        "width": 1920,
+        "height": 640
+      },
+      "resize": {
+        "1x": [
+          960,
+          320
+        ],
+        "2x": [
+          1920,
+          640
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch1-gear-essentials",
+      "chapter": 1,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Clean infographic showing gravel cycling gear essentials in a grid layout: bike frame, tires (40-50mm), helmet, repair kit, hydration pack. Minimal style with black borders, monospace labels, brown and teal accent colors on off-white background",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "resize": {
+        "1x": [
+          600,
+          400
+        ],
+        "2x": [
+          1200,
+          800
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "gear_grid"
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch1-hierarchy-of-speed",
+      "chapter": 1,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Pyramid infographic showing hierarchy of speed factors in gravel racing. From bottom (largest): Engine/Fitness, then Nutrition/Fueling, then Pacing, then Equipment, then Tactics at top (smallest). Neo-brutalist style with black borders, monospace font, teal and brown fills",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "resize": {
+        "1x": [
+          600,
+          400
+        ],
+        "2x": [
+          1200,
+          800
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch2-scoring-dimensions",
+      "chapter": 2,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Radar chart or grid showing 14 scoring dimensions for gravel race rating: distance, elevation, technical difficulty, navigation, prestige, field size, prize money, scenic value, logistics, community, safety, course marking, aid stations, overall production. Clean data visualization, monospace labels, teal accent bars on off-white",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "resize": {
+        "1x": [
+          600,
+          400
+        ],
+        "2x": [
+          1200,
+          800
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch3-zone-spectrum",
+      "chapter": 3,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Horizontal bar chart showing 7 training zones from Z1 Active Recovery to Z7 Neuromuscular, with power percentage ranges and heart rate ranges. Color gradient from teal (easy) through gold (threshold) to deep brown (max). Neo-brutalist style, monospace labels, black borders",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "zone_spectrum"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T05:19:45.213989+00:00",
+      "output_files": [
+        "ch3-zone-spectrum-1x.webp",
+        "ch3-zone-spectrum-2x.webp"
+      ]
+    },
+    {
+      "id": "ch3-training-phases",
+      "chapter": 3,
+      "type": "infographic",
+      "placement": "full-width",
+      "prompt": "Timeline infographic showing 12-week gravel training periodization: Base Phase (weeks 1-4), Build Phase (weeks 5-8), Peak/Taper Phase (weeks 9-12). Each phase shows volume and intensity curves. Neo-brutalist style with black borders, teal for volume, gold for intensity, monospace labels",
+      "dimensions": {
+        "width": 1600,
+        "height": 500
+      },
+      "resize": {
+        "1x": [
+          800,
+          250
+        ],
+        "2x": [
+          1600,
+          500
+        ]
+      },
+      "post_process": {
+        "type": "data_overlay",
+        "template": "training_phases"
+      },
+      "status": "complete",
+      "generated_at": "2026-02-10T05:19:50.461280+00:00",
+      "output_files": [
+        "ch3-training-phases-1x.webp",
+        "ch3-training-phases-2x.webp"
+      ]
+    },
+    {
+      "id": "ch5-fueling-timeline",
+      "chapter": 5,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Timeline infographic showing race-day fueling strategy: pre-race meal (3hrs before), pre-start gel (15min before), hourly fueling targets (60-90g carbs/hr), hydration targets (500-750ml/hr). Clean horizontal timeline, monospace labels, teal and gold accents, neo-brutalist black borders",
+      "dimensions": {
+        "width": 1200,
+        "height": 500
+      },
+      "resize": {
+        "1x": [
+          600,
+          250
+        ],
+        "2x": [
+          1200,
+          500
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch6-three-acts",
+      "chapter": 6,
+      "type": "infographic",
+      "placement": "inline",
+      "prompt": "Three-panel infographic showing the three acts of a long gravel race: Act 1 Restraint (0-33%, cool teal), Act 2 Resilience (33-66%, warm gold), Act 3 Resolve (66-100%, deep brown). Each panel has key mental strategies listed. Neo-brutalist style, monospace font, thick black borders",
+      "dimensions": {
+        "width": 1200,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          600,
+          300
+        ],
+        "2x": [
+          1200,
+          600
+        ]
+      },
+      "status": "pending"
+    },
+    {
+      "id": "ch7-race-week-countdown",
+      "chapter": 7,
+      "type": "infographic",
+      "placement": "full-width",
+      "prompt": "Countdown calendar infographic showing race week protocol days 7 to 1: each day shows key tasks (training taper, nutrition loading, equipment check, sleep targets). Vertical timeline with daily cards, neo-brutalist style, monospace font, alternating teal and brown accents",
+      "dimensions": {
+        "width": 1600,
+        "height": 600
+      },
+      "resize": {
+        "1x": [
+          800,
+          300
+        ],
+        "2x": [
+          1600,
+          600
+        ]
+      },
+      "status": "pending"
+    }
+  ]
+}

@@ -285,7 +285,7 @@ def sync_guide(guide_dir: str):
             [
                 "ssh", "-i", str(SSH_KEY), "-p", port,
                 f"{user}@{host}",
-                f"mkdir -p {remote_base}/guide-assets",
+                f"mkdir -p {remote_base}/guide-assets {remote_base}/media",
             ],
             check=True,
             capture_output=True,
@@ -336,11 +336,141 @@ def sync_guide(guide_dir: str):
     else:
         print(f"⚠ No guide-assets/ directory found (inline mode?)")
 
+    # Upload guide/media/ (generated images)
+    media_dir = Path(guide_dir).parent / "guide" / "media"
+    if not media_dir.exists():
+        media_dir = guide_path / "media"
+    if media_dir.exists():
+        media_files = [f for f in media_dir.iterdir() if f.suffix in (".webp", ".mp4")]
+        if media_files:
+            # Create remote media directory
+            try:
+                subprocess.run(
+                    [
+                        "ssh", "-i", str(SSH_KEY), "-p", port,
+                        f"{user}@{host}",
+                        f"mkdir -p {remote_base}/media",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=15,
+                )
+            except subprocess.CalledProcessError as e:
+                print(f"✗ Failed to create remote media directory: {e.stderr.strip()}")
+                return None
+
+            # Upload via tar+ssh pipe for efficiency
+            file_list = [f.name for f in media_files]
+            try:
+                tar_cmd = subprocess.Popen(
+                    ["tar", "-cf", "-", "-C", str(media_dir)] + file_list,
+                    stdout=subprocess.PIPE,
+                )
+                ssh_cmd = subprocess.run(
+                    [
+                        "ssh", "-i", str(SSH_KEY), "-p", port,
+                        f"{user}@{host}",
+                        f"tar -xf - -C {remote_base}/media",
+                    ],
+                    stdin=tar_cmd.stdout,
+                    capture_output=True,
+                    text=True,
+                    timeout=120,
+                )
+                tar_cmd.wait()
+                if ssh_cmd.returncode == 0:
+                    print(f"✓ Uploaded {len(media_files)} media files to /guide/media/")
+                else:
+                    print(f"✗ Media upload failed: {ssh_cmd.stderr.strip()}")
+            except Exception as e:
+                print(f"✗ Media upload error: {e}")
+        else:
+            print(f"⚠ No .webp/.mp4 files in {media_dir}")
+    else:
+        print(f"⚠ No guide/media/ directory found (run generate_guide_media.py first)")
+
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
     return f"{wp_url}/guide/"
 
 
 SITE_BASE_URL = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+
+
+def sync_og(og_dir: str):
+    """Upload OG images to /og/ on SiteGround via tar+ssh pipe.
+
+    Only syncs *.jpg files (ignores stale .png artifacts).
+    Uses tar pipe for efficiency — 328 files in one connection.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    og_path = Path(og_dir)
+    if not og_path.exists():
+        print(f"✗ OG image directory not found: {og_path}")
+        return None
+
+    jpg_files = list(og_path.glob("*.jpg"))
+    if not jpg_files:
+        print(f"✗ No .jpg files found in {og_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/og"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # tar+ssh pipe: local tar → ssh → remote tar extract
+    # Only include *.jpg files
+    filenames = [f.name for f in jpg_files]
+    print(f"  Uploading {len(filenames)} OG images via tar+ssh...")
+
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(og_path)] + filenames
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=120)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        print(f"✓ Uploaded {len(filenames)} OG images to {wp_url}/og/")
+        return f"{wp_url}/og/"
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (120s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading OG images: {e}")
+        return None
 
 
 if __name__ == "__main__":
@@ -380,10 +510,18 @@ if __name__ == "__main__":
         "--guide-dir", default="wordpress/output",
         help="Path to guide output directory (default: wordpress/output)"
     )
+    parser.add_argument(
+        "--sync-og", action="store_true",
+        help="Upload OG images to /og/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--og-dir", default="wordpress/output/og",
+        help="Path to OG image directory (default: wordpress/output/og)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, and/or --sync-guide")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, and/or --sync-og")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -395,3 +533,5 @@ if __name__ == "__main__":
         sync_training(args.training_file)
     if args.sync_guide:
         sync_guide(args.guide_dir)
+    if args.sync_og:
+        sync_og(args.og_dir)

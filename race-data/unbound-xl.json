@@ -111,16 +111,42 @@
       ]
     },
     "final_verdict": {
-      "who_should_race": "Ultra-endurance veterans who have completed multiple 200+ mile events and understand what self-supported suffering actually means. If you've done bikepacking races, ultra-distance road events, or the Unbound 200 and thought 'that wasn't hard enough,' the XL is calling your name.",
-      "who_should_skip": "Anyone whose longest ride is under 150 miles. Anyone who needs predictable aid stations. Anyone who hasn't trained for night riding. Anyone who thinks they can 'figure it out' on race day. The XL punishes the unprepared without mercy.",
-      "bottom_line": "The Unbound XL is the pinnacle of ultra-gravel racing - a 350-mile self-supported journey through the Flint Hills that tests everything you have. It's not the hardest race in the world (there are longer, more remote events), but it's the most prestigious ultra-gravel event and the one that defines the category. Finish here, and you've proven something. DNF here, and you've learned something. Either way, you'll never be the same.",
-      "gravel_god_says": "If the 200 is the Super Bowl of gravel, the XL is the moon landing. Fewer people have finished this race than have summited Everest (probably not true, but it feels that way at mile 280). This is the race that separates cyclists who love suffering from cyclists who think they love suffering. Tier 1 doesn't do it justice - this is the event that created the modern ultra-gravel movement and remains its undisputed king."
+      "score": "83 / 100",
+      "one_liner": "The longest gravel race that matters, where the Flint Hills strip away everything but what's left of your soul.",
+      "should_you_race": "You need to finish a 200-miler first, preferably two. The 36-hour cutoff sounds generous until you're grinding limestone in your 16th hour with 150 miles still ahead. Self-supported means what it says—no crew, no checkpoints, just you and whatever gas stations stay open past midnight in rural Kansas.",
+      "alternatives": "Gravel Locos 400k gives you similar distance with more technical terrain and aid stations if you want slightly less suffering. Mid South's 100-miler lets you test yourself against the same sharp gravel and weather without the full commitment to psychosis."
     },
     "meta": {
       "created": "2026-01-13",
       "last_updated": "2026-01-13",
       "research_source": "unbound-xl-raw.md",
       "scoring_version": "2.1"
+    },
+    "course_description": {
+      "character": "Unbound XL is a 350-mile commitment to Kansas limestone gravel that slices tires and punishes poor line choices across the rolling Flint Hills. The course feels like prairie purgatory — constant undulations that never let you settle into a rhythm, with long stretches between gas station salvation points. Sharp, chunky gravel demands constant vigilance while the relentless rollers chip away at your soul one hill at a time.",
+      "suffering_zones": [
+        {
+          "mile": 40,
+          "label": "First Reality Check",
+          "desc": "Eskridge arrives right when the course diverges from the 200-mile route, marking your entry into true isolation. The limestone has already announced its intentions on your tires and legs."
+        },
+        {
+          "mile": 110,
+          "label": "The Northern Wasteland",
+          "desc": "Alma to Alta Vista represents the most remote section — 75 miles of Kansas nothingness with no resupply options. Your planning mistakes become apparent here, usually around 2 AM."
+        },
+        {
+          "mile": 210,
+          "label": "The Gravel Gauntlet",
+          "desc": "Past Council Grove, fatigue meets the course's most technical terrain. Every rock wants to end your race while your body starts the serious negotiations about quitting."
+        },
+        {
+          "mile": 320,
+          "label": "The Final Crucible",
+          "desc": "The last 30 miles back to Emporia feel longer than the previous 100. Your bike is destroyed, your body is broken, but the finish line finally becomes real."
+        }
+      ],
+      "signature_challenge": "The 75-mile gap between meaningful resupply points turns nutrition into a high-stakes chess match. Most riders crack not from the hills or the gravel, but from running out of food or water in the Kansas void where gas stations close at 10 PM and your mistakes compound in the darkness."
     }
   }
 }

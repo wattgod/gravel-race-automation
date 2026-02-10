@@ -153,6 +153,38 @@
     "tier": "TIER 1",
     "popularity": "High - premier Swiss gravel event and UCI World Series qualifier",
     "lastUpdated": "2026-01-13",
-    "dataQuality": "Excellent"
+    "dataQuality": "Excellent",
+    "final_verdict": {
+      "score": "74 / 100",
+      "one_liner": "The UCI's backyard playground where 3,300 meters of climbing separates tourists from gravel racers.",
+      "should_you_race": "You need legitimate climbing legs and a gravel bike that can handle 20% grades on loose surfaces. The second half destroys weekend warriors—if you can't sustain power on steep off-road climbs above 1,500 meters, the Route des Chaux will expose you. Come for the prestige and alpine scenery, but expect to earn every meter of that Col de la Croix finish.",
+      "alternatives": "Unbound 200 offers similar suffering with less elevation but more distance and heat. Traka 360 in Spain delivers comparable climbing with better weather windows and fewer altitude issues for sea-level dwellers."
+    },
+    "course_description": {
+      "character": "Starting at cycling's global headquarters in Aigle, this course lulls you through 30 miles of Rhone Valley false confidence before unleashing 3,300 meters of vertical punishment. The second half abandons civilization for alpine forest tracks and 20% wooden ladders disguised as bike paths. It's less gravel race, more high-altitude survival exam with a fancy UCI stamp.",
+      "suffering_zones": [
+        {
+          "mile": 6,
+          "label": "Ollon Wake-Up Call",
+          "desc": "First off-road climb hits 10% average gradient for 3 miles. Your legs haven't warmed up, but the Alps don't care about your preparation routine."
+        },
+        {
+          "mile": 31,
+          "label": "Valley Floor Intermission",
+          "desc": "Flat roads through the Rhone Valley where you'll foolishly think this race is manageable. Use this time to eat everything in your pockets—you won't get another chance."
+        },
+        {
+          "mile": 49,
+          "label": "The Real Race Begins",
+          "desc": "Everything changes at kilometer 80 when pavement ends and the woods swallow you whole. From here it's 2,300 meters of climbing to the finish with no mercy."
+        },
+        {
+          "mile": 58,
+          "label": "Route des Chaux Punishment",
+          "desc": "Twenty percent gradients on loose gravel through dense forest. Your bike becomes a hiking accessory and your quads become strangers."
+        }
+      ],
+      "signature_challenge": "The Route des Chaux section after mile 49 strips away any illusion that this is a normal gravel race. Twenty percent pitches on technical forest tracks at 5,000+ feet elevation turn bikes into anchors and legs into concrete. The thing nobody tells you: it's not just steep, it's steep when you're already cooked from the altitude and previous 2,000 meters of climbing."
+    }
   }
 }

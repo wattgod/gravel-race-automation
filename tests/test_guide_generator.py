@@ -24,8 +24,11 @@ from generate_guide import (
     render_scenario,
     render_calculator,
     render_zone_visualizer,
+    render_image,
+    render_video,
     build_nav,
     build_hero,
+    build_chapter,
     build_gate,
     build_rider_selector,
     build_cta_newsletter,
@@ -94,6 +97,7 @@ class TestBlockRenderers:
             "prose", "data_table", "accordion", "tabs", "timeline",
             "process_list", "callout", "knowledge_check",
             "flashcard", "scenario", "calculator", "zone_visualizer",
+            "image", "video",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -1371,3 +1375,149 @@ class TestCounterBounds:
         result = _md_inline("{{70.12}}")
         assert "gg-guide-counter" in result
         assert 'data-target="70.12"' in result
+
+
+# ── Image / Video Renderers ────────────────────────────────
+
+
+class TestImageRenderer:
+    def test_render_image_basic(self):
+        """Image block must produce figure, srcset, loading=lazy."""
+        block = {"asset_id": "ch1-hero", "alt": "Gravel road at golden hour"}
+        html = render_image(block)
+        assert '<figure class="gg-guide-img">' in html
+        assert 'src="/guide/media/ch1-hero-1x.webp"' in html
+        assert 'srcset="/guide/media/ch1-hero-1x.webp 1x, /guide/media/ch1-hero-2x.webp 2x"' in html
+        assert 'loading="lazy"' in html
+        assert 'decoding="async"' in html
+        assert 'alt="Gravel road at golden hour"' in html
+
+    def test_render_image_caption(self):
+        """Figcaption rendered when caption provided."""
+        block = {"asset_id": "ch2-zones", "alt": "Zones", "caption": "Training zones overview"}
+        html = render_image(block)
+        assert "gg-guide-img-caption" in html
+        assert "Training zones overview" in html
+
+    def test_render_image_no_caption(self):
+        """No figcaption when caption absent."""
+        block = {"asset_id": "ch1-hero", "alt": "Test"}
+        html = render_image(block)
+        assert "figcaption" not in html
+
+    def test_render_image_layout_full_width(self):
+        """Full-width layout class applied."""
+        block = {"asset_id": "ch3-info", "alt": "Test", "layout": "full-width"}
+        html = render_image(block)
+        assert "gg-guide-img--full-width" in html
+
+    def test_render_image_layout_half_width(self):
+        """Half-width layout class applied."""
+        block = {"asset_id": "ch4-info", "alt": "Test", "layout": "half-width"}
+        html = render_image(block)
+        assert "gg-guide-img--half-width" in html
+
+    def test_render_image_inline_no_extra_class(self):
+        """Inline layout (default) has no extra layout class."""
+        block = {"asset_id": "ch5-info", "alt": "Test"}
+        html = render_image(block)
+        assert 'class="gg-guide-img">' in html
+        assert "gg-guide-img--" not in html
+
+
+class TestVideoRenderer:
+    def test_render_video_basic(self):
+        """Video block must produce figure, video tag, controls, preload=none."""
+        block = {"asset_id": "ch6-demo", "alt": "Demo video"}
+        html = render_video(block)
+        assert '<figure class="gg-guide-img gg-guide-video">' in html
+        assert 'src="/guide/media/ch6-demo.mp4"' in html
+        assert "controls" in html
+        assert 'preload="none"' in html
+        assert "Demo video" in html
+
+    def test_render_video_poster(self):
+        """Poster attribute when poster_id provided."""
+        block = {"asset_id": "ch6-demo", "alt": "Demo", "poster": "ch6-demo-poster"}
+        html = render_video(block)
+        assert 'poster="/guide/media/ch6-demo-poster-1x.webp"' in html
+
+    def test_render_video_no_poster(self):
+        """No poster attribute when poster absent."""
+        block = {"asset_id": "ch6-demo", "alt": "Demo"}
+        html = render_video(block)
+        assert "poster=" not in html
+
+    def test_render_video_caption(self):
+        """Video caption rendered when provided."""
+        block = {"asset_id": "ch6-demo", "alt": "Demo", "caption": "Watch the demo"}
+        html = render_video(block)
+        assert "gg-guide-img-caption" in html
+        assert "Watch the demo" in html
+
+
+class TestBlockRenderersDispatch:
+    def test_block_renderers_has_image_video(self):
+        """BLOCK_RENDERERS dispatch dict includes image and video."""
+        assert "image" in BLOCK_RENDERERS
+        assert "video" in BLOCK_RENDERERS
+        assert BLOCK_RENDERERS["image"] is render_image
+        assert BLOCK_RENDERERS["video"] is render_video
+
+
+class TestChapterHeroImage:
+    def test_chapter_hero_image(self):
+        """Hero div gets background-image URL when hero_image set."""
+        chapter = {
+            "number": 1,
+            "id": "test-chapter",
+            "title": "Test",
+            "subtitle": "",
+            "gated": False,
+            "sections": [],
+            "hero_image": "ch1-hero",
+        }
+        html = build_chapter(chapter)
+        assert "url(/guide/media/ch1-hero-1x.webp)" in html
+        assert "center/cover no-repeat" in html
+
+    def test_chapter_no_hero_image(self):
+        """Hero div uses plain background color when no hero_image."""
+        chapter = {
+            "number": 1,
+            "id": "test-chapter",
+            "title": "Test",
+            "subtitle": "",
+            "gated": False,
+            "sections": [],
+        }
+        html = build_chapter(chapter)
+        assert "url(/guide/media/" not in html
+        assert "background:#59473c" in html
+
+
+class TestImageCss:
+    def test_css_has_image_styles(self):
+        """CSS must include image block styles."""
+        css = build_guide_css()
+        assert "gg-guide-img{" in css or "gg-guide-img {" in css
+        assert "gg-guide-img-el" in css
+        assert "gg-guide-img-caption" in css
+
+    def test_css_has_image_layout_variants(self):
+        """CSS must include full-width and half-width layout classes."""
+        css = build_guide_css()
+        assert "gg-guide-img--full-width" in css
+        assert "gg-guide-img--half-width" in css
+
+    def test_css_budget_with_images(self):
+        """CSS still under 25KB budget after image additions."""
+        css = build_guide_css()
+        assert len(css) < 25000, f"CSS is {len(css)} bytes, exceeds 25KB budget"
+
+    def test_css_image_responsive(self):
+        """Image layout classes have responsive overrides."""
+        css = build_guide_css()
+        # Mobile overrides for image layouts in @media block
+        assert "gg-guide-img--full-width{margin-left:-16px" in css
+        assert "gg-guide-img--half-width{float:none" in css

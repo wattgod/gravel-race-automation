@@ -165,6 +165,38 @@
     "tier": "TIER 1",
     "popularity": "Very High - one of the most prestigious gravel events in the world",
     "lastUpdated": "2026-01-13",
-    "dataQuality": "High"
+    "dataQuality": "High",
+    "final_verdict": {
+      "score": "80 / 100",
+      "one_liner": "Champagne gravel at altitude with a three-day festival vibe that somehow doesn't ruin the racing.",
+      "should_you_race": "If you can hold 20+ mph for five hours at 7,000 feet, the Black course rewards fitness with buttery gravel and legitimate competition. The 8 mph cutoff sounds generous until you're grinding into headwinds at altitude. Come undertrained and you'll get pulled to a shorter course, which isn't the worst fate given the scenery.",
+      "alternatives": "Unbound 200 offers more prestige and suffering if you want the hardest test. Big Sugar delivers similar smooth gravel without the altitude penalty, while Dirty Kanza's spiritual successor BWR California gives you desert beauty with less lottery drama."
+    },
+    "course_description": {
+      "character": "SBT GRVL serves up 108 miles of Colorado's famous 'champagne gravel' - smooth, fast surfaces that seduce you into thinking this will be easy. The 8,189 feet of climbing happens gradually across working ranch land, aspen groves, and sage-covered hills, with 70% gravel that ranges from hero dirt to loose chunky sections that'll humble your bike handling.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "The First Cutoff",
+          "desc": "Miss the 8:30 AM cutoff here and you're redirected to the Blue Course. The champagne gravel has already started sorting the field on rolling ranch roads."
+        },
+        {
+          "mile": 37,
+          "label": "The Second Sort",
+          "desc": "Another cutoff point where dreams get redirected. You're deep enough into the sage hills that the smooth gravel has given way to chunkier, more technical surfaces."
+        },
+        {
+          "mile": 65,
+          "label": "The Aspen Grind",
+          "desc": "Deep into ranch country where the cumulative elevation starts compounding your suffering. The gravel stays fast but your legs don't."
+        },
+        {
+          "mile": 85,
+          "label": "The Reality Check",
+          "desc": "Twenty-three miles from home with most of the climbing behind you, but the champagne gravel has turned your legs to concrete. The math gets brutal here."
+        }
+      ],
+      "signature_challenge": "The thing nobody tells you about SBT GRVL: champagne gravel is fast until it isn't. The deceptively smooth surfaces let you burn matches early while the altitude and relentless rolling terrain compound every tactical mistake. By mile 80, that silky gravel feels like riding through wet cement, and you've got 28 miles to contemplate your pacing choices."
+    }
   }
 }

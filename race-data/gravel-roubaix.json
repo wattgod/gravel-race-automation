@@ -144,6 +144,38 @@
         "score": 4,
         "explanation": "Beautiful Pocono Mountain scenery through remote forest roads, brewery finish, and a 'suffer fest' reputation give this genuine character. Not bucket-list epic, but memorable East Coast adventure."
       }
+    },
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "A proper gravel beatdown disguised as a backyard Pennsylvania sufferfest.",
+      "should_you_race": "Show up ready for 8,000 feet of climbing and terrain that switches moods faster than spring weather. The Three Sisters will expose weak legs early, and Sager Road's sandy chaos separates pretenders from contenders. You need solid bike handling skills and the fitness to climb repeatedly—this isn't a gentle introduction to gravel racing.",
+      "alternatives": "Barry-Roubaix offers similar Roubaix vibes with better organization and flatter Michigan terrain. SBT GRVL delivers comparable suffering with Colorado scenery and fewer logistics headaches than Pennsylvania's unpredictable conditions."
+    },
+    "course_description": {
+      "character": "Barry-Roubaix throws everything at you except actual cobblestones. Eighty percent gravel roads with pavement breaks, sand traps, mud wallows, and one brutal mile of rocky two-track that separates pretenders from finishers. The terrain rolls constantly through Michigan farmland, never letting you settle into a rhythm.",
+      "suffering_zones": [
+        {
+          "mile": 2,
+          "label": "The Three Sisters",
+          "desc": "Three punchy gravel climbs right after the pavement start, averaging 3.5% but spiking to 15%. If you didn't warm up properly, your lungs explode here and the race is over."
+        },
+        {
+          "mile": 25,
+          "label": "The Wall",
+          "desc": "Quarter-mile of 12% grade that fake-crests twice. When you think you're done climbing, a sharp left turn reveals more wall waiting to crush your soul."
+        },
+        {
+          "mile": 40,
+          "label": "Sager Road",
+          "desc": "A mile of unmaintained two-track that's either sandy hell, rocky chaos, or muddy bike-destroyer depending on weather. This is where the front group fractures."
+        },
+        {
+          "mile": 75,
+          "label": "The Reckoning",
+          "desc": "Your legs are cooked and there's still 25 miles left. The gravel stops feeling firm and starts feeling like quicksand under your wheels."
+        }
+      ],
+      "signature_challenge": "Sager Road is the course's true character test—a narrow, unmaintained seasonal road that can be sandy, rocky, or muddy depending on conditions. It's where separation occurs in the front of the race because fitness alone won't save you when your bike handling skills get exposed on technical terrain at race pace."
     }
   }
 }

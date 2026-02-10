@@ -152,6 +152,43 @@
     "tier": "TIER 3",
     "popularity": "Regional favorite - loyal repeat rider community",
     "lastUpdated": "2026-01-13",
-    "dataQuality": "Comprehensive - scored with GravelGod 14-Dimension system"
+    "dataQuality": "Comprehensive - scored with GravelGod 14-Dimension system",
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "Nebraska's genteel summer camp for cyclists who want gravel adventure without the gravel commitment.",
+      "should_you_race": "Perfect for riders wanting to dip their toes into multi-day touring without the suffer-fest. The main tour welcomes any bike and fitness level, while the 30-rider gravel component offers real Nebraska dirt roads for those ready to upgrade. Skip if you need competition or epic single climbs—this is about rolling hills, beer at camp, and discovering that Nebraska isn't actually flat.",
+      "alternatives": "Gravel Worlds in Lincoln delivers the full Nebraska gravel experience with actual racing, while RAGBRAI offers similar supported touring with bigger crowds and more chaos. If you want the multi-day format but harder terrain, look at Dirty Kanza's multi-day events."
+    },
+    "course_description": {
+      "character": "Tour de Nebraska is gravel touring disguised as vacation—250 miles of rolling Nebraska farmland where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
+      "suffering_zones": [
+        {
+          "mile": 41,
+          "label": "Curtis to Elwood Reality Check",
+          "desc": "Day one's 41 miles introduce you to Nebraska's signature lie—there are no flat roads here, just constant rolling resistance. The wind finds every exposed section and reminds you this isn't Kansas."
+        },
+        {
+          "mile": 76,
+          "label": "Cambridge Approach Grind",
+          "desc": "Day two's gravel adventure component kicks in with single-lane maintenance roads that look manageable until you hit the sandy sections. Your 35mm tires start feeling optimistic."
+        },
+        {
+          "mile": 135,
+          "label": "McCook Marathon",
+          "desc": "Day three's 59-mile push to McCook includes the challenging climbs along Middle Creek Road and West Lake Drive. Hill after hill with no recovery, just Nebraska's version of death by a thousand cuts."
+        },
+        {
+          "mile": 191,
+          "label": "Optional Loop Punishment",
+          "desc": "The 56-mile optional loop on day four separates tourists from masochists. Fresh gravel sections combined with accumulated fatigue make this the course's hidden knife."
+        },
+        {
+          "mile": 231,
+          "label": "Curtis Homecoming Crawl",
+          "desc": "The final 40 miles back to Curtis feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans."
+        }
+      ],
+      "signature_challenge": "The relentless undulation combined with Nebraska's ever-present wind creates a grinding war of attrition that looks deceptively easy on elevation profiles. It's not the climbs that break you—it's the fact that the road never actually flattens, the wind never stops, and over 250 miles those constant rollers compound into serious suffering."
+    }
   }
 }

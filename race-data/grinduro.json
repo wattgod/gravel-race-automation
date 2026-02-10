@@ -327,6 +327,38 @@
       "Road Bike Review Forum"
     ],
     "last_updated": "2026-01-12",
-    "data_quality": "Comprehensive"
+    "data_quality": "Comprehensive",
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "Four timed segments scattered across 60 miles of Sierra Nevada dirt — race hard when it counts, cruise with friends when it doesn't.",
+      "should_you_race": "You need legitimate climbing legs for 7,800 feet and technical handling skills for those singletrack descents. The format saves you from pacing disasters but won't save you from being undertrained. Show up fit enough to go anaerobic for 10 minutes at a time across varied terrain, or you'll get shelled on every timed segment.",
+      "alternatives": "Dirty Kanza gives you the full suffer-fest without recovery breaks, while Lost and Found delivers similar Sierra Nevada punishment in a traditional format. Pick Belgian Waffle Ride if you want the same climbing brutality with more consistent intensity."
+    },
+    "course_description": {
+      "character": "Grinduro flips gravel racing on its head - four brutal timed segments scattered across 60 miles of Sierra Nevada terrain, with social cruise sections between the suffering. You'll ride conversationally through spectacular mountain scenery, then absolutely torch yourself for 5-15 minutes when the clock starts ticking.",
+      "suffering_zones": [
+        {
+          "mile": 8,
+          "label": "First Timed Climb",
+          "desc": "The opening salvo hits hard - a sustained gravel climb that separates the properly prepared from the optimists. Your legs are fresh but your pacing discipline gets tested immediately."
+        },
+        {
+          "mile": 22,
+          "label": "Technical Singletrack Stage",
+          "desc": "Timed descent through Sierra singletrack where road skills mean nothing. Loose rocks and tight trees punish hesitation while rewarding controlled aggression."
+        },
+        {
+          "mile": 35,
+          "label": "Valley Grinder",
+          "desc": "The midpoint timed segment - rolling terrain that looks deceptively easy until you're sprinting over false flats at 7,800 feet of total climbing. Altitude makes everything harder."
+        },
+        {
+          "mile": 47,
+          "label": "The Final Reckoning",
+          "desc": "Last timed segment when your legs are already cooked from the previous stages. A mix of climb and technical terrain that decides final placings among the walking wounded."
+        }
+      ],
+      "signature_challenge": "The format itself is the killer - you can't pace conservatively because only four segments count, but you can't go full gas because there are three more stages coming. It rewards complete riders who can climb, descend, and suffer repeatedly while managing effort across 60 miles of Sierra Nevada punishment."
+    }
   }
 }

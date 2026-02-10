@@ -183,6 +183,43 @@
       "research_date": "January 2026",
       "scoring_system": "GravelGod 14-Dimension v2.1",
       "notes": "Scored as Tier 2 based on iconic status and historical significance, but lacking major series affiliation and professional field depth. The cultural importance and community score would arguably merit Tier 1, but organizational instability and grassroots nature keep it in the established-but-not-premier category."
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "The granddaddy of gravel racing where loose stone and 17% grades separate tourists from riders.",
+      "should_you_race": "If you've got 6+ hours in your legs and can push through loose gravel that feels like riding in sand, this is gravel racing church. The Oriole Road climb at mile 90 will humble anyone undertrained, and the second-half stone layer turns strong groups into survival shuffles. Skip it if you need aid stations or can't handle Minnesota spring weather ranging from hypothermia-inducing rain to scorching sun.",
+      "alternatives": "Dirty Kanza/Unbound offers similar distance with more prestige but flatter terrain and corporate polish. Ragnarok gives you comparable Midwest suffering with better organization, while Trans Iowa delivers the same self-supported ethos but with fewer riders and more isolation."
+    },
+    "course_description": {
+      "character": "The granddaddy of gravel racing rolls through Minnesota's Driftless region where glaciers never flattened the terrain. Six thousand feet of climbing over endless farm roads that transition from hard-pack early to soul-crushing loose stone as you fall apart. The hills never stop coming, and neither does the sensation you're riding through pioneer country on roads that were never meant for bikes.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Honeymoon Phase",
+          "desc": "Rolling farmland on well-maintained gravel roads. You'll think this isn't so bad while burning matches on every roller."
+        },
+        {
+          "mile": 40,
+          "label": "Reality Check Hills",
+          "desc": "The Driftless terrain shows its teeth with steeper climbs through river valleys. Your legs start asking questions you can't answer."
+        },
+        {
+          "mile": 65,
+          "label": "The Stone Transition",
+          "desc": "Hard-pack gravel becomes freshly laid loose stone that saps watts like quicksand. Groups abandon the road for grass verges, searching for anything rideable."
+        },
+        {
+          "mile": 80,
+          "label": "Creek Crossing Prelude",
+          "desc": "A memorable water crossing that's actually a brief respite before the nightmare that awaits ten miles ahead."
+        },
+        {
+          "mile": 90,
+          "label": "Oriole Road Hell",
+          "desc": "Seventeen percent grades that turn this into a hike-a-bike for everyone. Even front-runners walk this wall."
+        }
+      ],
+      "signature_challenge": "Oriole Road at mile 90 is the soul-crusher that defines this race. GPS readings hit 17% grades on loose gravel when your legs have nothing left after 6,000 feet of climbing. It doesn't matter how strong you are—this hill breaks everyone."
     }
   }
 }

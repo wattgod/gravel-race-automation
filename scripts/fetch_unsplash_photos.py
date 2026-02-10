@@ -148,16 +148,30 @@ def extract_photo_data(result: dict) -> dict:
 
 def build_search_queries(rd: dict) -> list[str]:
     """Build tiered search queries from race data.
-    Returns list of queries to try in order."""
+    Returns list of queries to try in order, broadening progressively."""
     name = rd.get("name", "")
     location = rd.get("vitals", {}).get("location", "")
 
     queries = []
+
+    # Parse location into parts
+    loc_parts = [p.strip() for p in location.split(",")] if location else []
+    # state/region is usually the 2nd part, country the 3rd
+    state = loc_parts[1].strip() if len(loc_parts) >= 2 else ""
+    country = loc_parts[2].strip() if len(loc_parts) >= 3 else ""
+
+    # Tier 1: race name (rarely works but worth a shot — costs 1 request)
     if name:
-        queries.append(f"{name} gravel")
-    if location:
-        queries.append(f"{location} cycling")
-        queries.append(f"{location} landscape")
+        queries.append(f"{name} cycling")
+
+    # Tier 2: state/region + gravel cycling (broadest useful query)
+    if state:
+        queries.append(f"{state} gravel cycling")
+        queries.append(f"{state} rural road landscape")
+    elif country:
+        queries.append(f"{country} gravel cycling")
+        queries.append(f"{country} rural road landscape")
+
     return queries
 
 

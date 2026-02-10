@@ -179,7 +179,7 @@ class TestBlockRenderers:
         html = render_process_list(block)
         assert "gg-guide-process-list" in html
         assert "Fitness" in html
-        assert 'data-pct="70"' in html
+        assert 'style="width:70%"' in html
         assert "gg-guide-process-bar-wrap" in html
 
     def test_render_callout(self):
@@ -447,7 +447,7 @@ class TestAssets:
     def test_css_has_flashcard_styles(self):
         css = build_guide_css()
         assert "gg-guide-flashcard-deck" in css
-        assert "perspective" in css
+        assert "gg-guide-flashcard-front" in css
 
     def test_css_has_scenario_styles(self):
         css = build_guide_css()
@@ -572,11 +572,10 @@ class TestAccessibility:
         css = build_guide_css()
         assert "prefers-reduced-motion" in css
 
-    def test_reduced_motion_reduce_fallback(self):
-        """Must have a reduce fallback for fade-in elements."""
+    def test_reduced_motion_media_query_exists(self):
+        """Must have prefers-reduced-motion media query for transitions."""
         css = build_guide_css()
-        assert "prefers-reduced-motion:reduce" in css or \
-               "prefers-reduced-motion: reduce" in css
+        assert "prefers-reduced-motion" in css
 
     def test_focus_visible_styles(self):
         """Interactive elements must have :focus-visible styles."""
@@ -844,7 +843,7 @@ class TestZoneVisualizerRenderer:
         html = render_zone_visualizer(block)
         assert html.count("gg-guide-viz-row") == 4
 
-    def test_zone_visualizer_stagger_delays(self):
+    def test_zone_visualizer_no_stagger(self):
         block = {
             "title": "Test",
             "zones": [
@@ -854,9 +853,9 @@ class TestZoneVisualizerRenderer:
             ],
         }
         html = render_zone_visualizer(block)
-        assert 'data-delay="0"' in html
-        assert 'data-delay="100"' in html
-        assert 'data-delay="200"' in html
+        assert "data-delay" not in html
+        # Bars render at full width immediately
+        assert "width:" in html
 
     def test_zone_visualizer_aria_label(self):
         block = {
@@ -866,45 +865,6 @@ class TestZoneVisualizerRenderer:
         html = render_zone_visualizer(block)
         assert 'role="img"' in html
         assert 'aria-label=' in html
-
-
-# ── Stagger Scroll Reveal ───────────────────────────────────
-
-
-class TestStaggerReveal:
-    def test_blocks_wrapped_in_stagger(self):
-        content = load_content()
-        html = generate_guide_page(content, inline=True)
-        assert "gg-guide-stagger" in html
-        assert 'data-delay="0"' in html
-
-    def test_stagger_css_exists(self):
-        css = build_guide_css()
-        assert "gg-guide-stagger" in css
-        assert "gg-guide-stagger--visible" in css
-
-    def test_stagger_js_observer(self):
-        js = build_guide_js()
-        assert "gg-guide-stagger" in js
-        assert "gg-guide-stagger--visible" in js
-
-    def test_stagger_reduced_motion_fallback(self):
-        css = build_guide_css()
-        # Under prefers-reduced-motion: reduce, stagger should be instantly visible
-        assert "gg-guide-stagger{opacity:1;transform:none}" in css
-
-    def test_timeline_steps_have_stagger(self):
-        block = {
-            "title": "Steps",
-            "steps": [
-                {"label": "S1", "content": "C1"},
-                {"label": "S2", "content": "C2"},
-            ],
-        }
-        html = render_timeline(block)
-        assert "gg-guide-stagger" in html
-        assert 'data-delay="0"' in html
-        assert 'data-delay="150"' in html
 
 
 # ── Animated Process Bars ───────────────────────────────────
@@ -920,9 +880,11 @@ class TestAnimatedProcessBars:
         html = render_process_list(block)
         assert "gg-guide-process-bar-wrap" in html
         assert "gg-guide-process-bar" in html
-        assert 'data-pct="70"' in html
-        assert 'data-target="70"' in html
-        assert 'style="width:0%"' in html
+        assert 'style="width:70%"' in html
+        assert ">70%<" in html
+        # No scroll-triggered animation attributes
+        assert "data-pct" not in html
+        assert "data-target" not in html
 
     def test_process_no_bar_without_percentage(self):
         block = {
@@ -938,33 +900,21 @@ class TestAnimatedProcessBars:
         assert "gg-guide-process-bar-wrap" in css
         assert "gg-guide-process-bar" in css
 
-    def test_process_bar_js_observer(self):
-        js = build_guide_js()
-        assert "gg-guide-process-bar-wrap" in js
-
-
-# ── Parallax Heroes ─────────────────────────────────────────
-
-
-class TestParallaxHeroes:
-    def test_parallax_js(self):
-        js = build_guide_js()
-        assert "gg-guide-chapter-hero" in js
-        assert "backgroundPositionY" in js
+    def test_process_bar_renders_immediately(self):
+        """Process bars render at full width with no JS observer needed."""
+        block = {
+            "items": [
+                {"label": "Fitness", "detail": "Main factor", "percentage": 70},
+            ]
+        }
+        html = render_process_list(block)
+        assert 'style="width:70%"' in html
 
 
 # ── Hover Micro-Interactions ────────────────────────────────
 
 
 class TestHoverInteractions:
-    def test_knowledge_check_hover(self):
-        css = build_guide_css()
-        assert "gg-guide-knowledge-check:hover" in css
-
-    def test_scenario_hover(self):
-        css = build_guide_css()
-        assert "gg-guide-scenario:hover" in css
-
     def test_table_row_hover(self):
         css = build_guide_css()
         assert "gg-guide-table tbody tr:hover" in css
@@ -1023,10 +973,14 @@ class TestZoneVisualizerCssJs:
         css = build_guide_css()
         assert "gg-guide-zone-viz" in css
 
-    def test_zone_viz_js_observer(self):
-        js = build_guide_js()
-        assert "gg-guide-viz-fill" in js
-        assert "gg-guide-zone-viz" in js
+    def test_zone_viz_no_scroll_animation(self):
+        """Zone viz renders at full width without JS scroll observer."""
+        block = {
+            "title": "Test",
+            "zones": [{"name": "Z1", "max_pct": 100, "label": "100%"}],
+        }
+        html = render_zone_visualizer(block)
+        assert "width:100.0%" in html
 
 
 # ── Rider Personalization ───────────────────────────────────
@@ -1109,11 +1063,11 @@ class TestCounterPattern:
     def test_counter_inline_conversion(self):
         result = _md_inline("There are {{328}} races.")
         assert 'class="gg-guide-counter"' in result
-        assert 'data-target="328"' in result
+        assert ">328<" in result
 
     def test_counter_decimal(self):
         result = _md_inline("Score is {{70.5}}.")
-        assert 'data-target="70.5"' in result
+        assert ">70.5<" in result
 
     def test_counter_in_content(self):
         content = load_content()
@@ -1124,33 +1078,11 @@ class TestCounterPattern:
         css = build_guide_css()
         assert "gg-guide-counter" in css
 
-    def test_counter_js_observer(self):
-        js = build_guide_js()
-        assert "gg-guide-counter" in js
-        assert "data-target" in js
-
-    def test_counter_js_animation(self):
-        js = build_guide_js()
-        assert "requestAnimationFrame" in js
-
-
-# ── Chapter Nav Pulse ───────────────────────────────────────
-
-
-class TestChapterNavPulse:
-    def test_pulse_css_keyframes(self):
-        css = build_guide_css()
-        assert "gg-chapnav-pulse" in css
-        assert "@keyframes" in css
-
-    def test_pulse_js(self):
-        js = build_guide_js()
-        assert "gg-guide-chapnav-item--pulse" in js
-
-    def test_pulse_reduced_motion(self):
-        css = build_guide_css()
-        # pulse animation should be disabled under reduced motion
-        assert "gg-guide-chapnav-item--pulse{animation:none}" in css
+    def test_counter_renders_final_value(self):
+        """Counter renders final value immediately, no scroll animation."""
+        result = _md_inline("Score is {{328}}.")
+        assert ">328<" in result
+        assert "data-target" not in result
 
 
 # ── Content JSON Integrity ──────────────────────────────────
@@ -1258,11 +1190,11 @@ class TestCalculatorValidation:
 
 
 class TestObserverConsolidation:
-    def test_max_four_observers(self):
-        """JS must have at most 4 IntersectionObserver instances."""
+    def test_max_two_observers(self):
+        """JS must have at most 2 IntersectionObserver instances (chapter tracking + gate)."""
         js = build_guide_js()
         count = js.count("new IntersectionObserver")
-        assert count <= 4, f"Found {count} IntersectionObserver instances, expected <= 4"
+        assert count <= 2, f"Found {count} IntersectionObserver instances, expected <= 2"
 
     def test_no_bare_ticking_var(self):
         """JS must not have a bare 'var ticking' (should be split)."""
@@ -1275,11 +1207,6 @@ class TestTickingFix:
         """JS must use progressTicking for progress bar."""
         js = build_guide_js()
         assert "progressTicking" in js
-
-    def test_parallax_ticking_exists(self):
-        """JS must use parallaxTicking for parallax."""
-        js = build_guide_js()
-        assert "parallaxTicking" in js
 
 
 class TestReservedWordFix:
@@ -1310,8 +1237,8 @@ class TestZoneVizHtmlBars:
         html = render_zone_visualizer(block)
         assert 'role="img"' in html
 
-    def test_viz_has_data_pct(self):
-        """Zone viz fill elements must have data-pct for JS animation."""
+    def test_viz_renders_full_width(self):
+        """Zone viz fill elements must render at full width immediately."""
         block = {
             "title": "Test",
             "zones": [
@@ -1320,7 +1247,9 @@ class TestZoneVizHtmlBars:
             ],
         }
         html = render_zone_visualizer(block)
-        assert "data-pct=" in html
+        assert "width:55.0%" in html
+        assert "width:100.0%" in html
+        assert "data-pct" not in html
 
 
 class TestRiderDataAttr:
@@ -1364,7 +1293,7 @@ class TestCounterBounds:
         """Counter regex must accept 7-digit numbers."""
         result = _md_inline("{{9999999}}")
         assert "gg-guide-counter" in result
-        assert 'data-target="9999999"' in result
+        assert ">9999999<" in result
 
     def test_3_decimal_counter_not_converted(self):
         """Counter regex must reject 3+ decimal places."""
@@ -1375,7 +1304,7 @@ class TestCounterBounds:
         """Counter regex must accept 2 decimal places."""
         result = _md_inline("{{70.12}}")
         assert "gg-guide-counter" in result
-        assert 'data-target="70.12"' in result
+        assert ">70.12<" in result
 
 
 # ── Image / Video Renderers ────────────────────────────────
@@ -1576,14 +1505,14 @@ class TestTooltipSystem:
         """{{1200}} still produces counter span with glossary active."""
         result = _md_inline("There are {{1200}} races.")
         assert 'class="gg-guide-counter"' in result
-        assert 'data-target="1200"' in result
+        assert ">1200<" in result
 
     def test_md_inline_mixed(self):
         """{{FTP}} and {{1200}} both resolve correctly in same string."""
         result = _md_inline("Your {{FTP}} across {{328}} races.")
         assert "gg-tooltip-trigger" in result
         assert "gg-guide-counter" in result
-        assert 'data-target="328"' in result
+        assert ">328<" in result
         assert "Functional Threshold Power" in result
 
     def test_tooltip_css_present(self):
@@ -1626,3 +1555,60 @@ class TestTooltipContentIntegrity:
         html = generate_guide_page(content, inline=True)
         assert "gg-tooltip-trigger" in html
         assert "gg-tooltip" in html
+
+
+# ── Brand Compliance ────────────────────────────────────────
+
+
+class TestBrandCompliance:
+    def test_source_serif_in_css(self):
+        """CSS must include Source Serif 4 font-family."""
+        css = build_guide_css()
+        assert "Source Serif 4" in css
+
+    def test_border_color_dark_brown(self):
+        """No 'solid #000' in CSS — all borders must use #3a2e25."""
+        css = build_guide_css()
+        assert "solid #000" not in css
+
+    def test_no_scroll_animations(self):
+        """No gg-guide-fade-in or gg-guide-stagger classes in CSS."""
+        css = build_guide_css()
+        assert "gg-guide-fade-in" not in css
+        assert "gg-guide-stagger" not in css
+
+    def test_no_parallax_in_js(self):
+        """No parallax scroll handler in JS."""
+        js = build_guide_js()
+        assert "parallax" not in js.lower()
+        assert "backgroundPositionY" not in js
+
+    def test_no_stagger_in_html(self):
+        """Generated HTML has no gg-guide-stagger class."""
+        content = load_content()
+        html = generate_guide_page(content, inline=True)
+        assert "gg-guide-stagger" not in html
+
+    def test_flashcard_no_3d(self):
+        """No 3D transform properties in flashcard CSS."""
+        css = build_guide_css()
+        assert "perspective" not in css
+        assert "rotateY" not in css
+        assert "preserve-3d" not in css
+
+    def test_error_color(self):
+        """CSS uses #c0392b for errors, not #c44."""
+        css = build_guide_css()
+        assert "#c0392b" in css
+        assert "#c44" not in css
+
+    def test_tab_active_gold_border(self):
+        """Active tab uses gold bottom border, not teal background."""
+        css = build_guide_css()
+        assert "gg-guide-tab--active" in css
+        # Active tab should have gold border-bottom
+        active_idx = css.index("gg-guide-tab--active")
+        active_rule = css[active_idx:active_idx + 200]
+        assert "#B7950B" in active_rule
+        # Should NOT have teal background for active tab
+        assert "background:#1A8A82" not in active_rule

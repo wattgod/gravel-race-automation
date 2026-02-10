@@ -74,10 +74,10 @@ def _md_inline(text: str) -> str:
                         f'<span class="gg-tooltip">{esc(defn)}</span></span>')
             return term  # no definition found, render plain
         text = re.sub(r'\{\{([A-Za-z][A-Za-z0-9_/]*)\}\}', _tooltip_repl, text)
-    # Counter pattern: {{123}} → animated counter span (max 7 digits + 2 decimals)
+    # Counter pattern: {{123}} → counter span (max 7 digits + 2 decimals)
     text = re.sub(
         r'\{\{(\d{1,7}(?:\.\d{1,2})?)\}\}',
-        r'<span class="gg-guide-counter" data-target="\1">0</span>',
+        r'<span class="gg-guide-counter">\1</span>',
         text,
     )
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
@@ -220,7 +220,7 @@ def render_timeline(block: dict) -> str:
         label = esc(step["label"])
         content = _md_inline(esc(step["content"]))
         paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
-        steps_html.append(f'''<div class="gg-guide-timeline-step gg-guide-stagger" data-delay="{i * 150}">
+        steps_html.append(f'''<div class="gg-guide-timeline-step">
         <div class="gg-guide-timeline-marker">{i + 1}</div>
         <div class="gg-guide-timeline-content">
           <h4 class="gg-guide-timeline-label">{label}</h4>
@@ -246,8 +246,8 @@ def render_process_list(block: dict) -> str:
         if pct is not None:
             pct_html = (
                 f'<div class="gg-guide-process-bar-wrap">'
-                f'<div class="gg-guide-process-bar" data-pct="{pct}" style="width:0%"></div>'
-                f'<span class="gg-guide-process-pct" data-target="{pct}">0%</span>'
+                f'<div class="gg-guide-process-bar" style="width:{pct}%"></div>'
+                f'<span class="gg-guide-process-pct">{pct}%</span>'
                 f'</div>'
             )
         else:
@@ -471,10 +471,10 @@ def render_zone_visualizer(block: dict) -> str:
         data_pct = round((z["max_pct"] / max_pct) * 100, 1)
 
         rows_html.append(
-            f'<div class="gg-guide-viz-row" data-delay="{i * 100}">'
+            f'<div class="gg-guide-viz-row">'
             f'<span class="gg-guide-viz-name">{name}</span>'
             f'<div class="gg-guide-viz-track">'
-            f'<div class="gg-guide-viz-fill" style="background:{color}" data-pct="{data_pct}"></div>'
+            f'<div class="gg-guide-viz-fill" style="background:{color};width:{data_pct}%"></div>'
             f'</div>'
             f'<span class="gg-guide-viz-pct">{pct_label}</span>'
             f'</div>'
@@ -567,7 +567,7 @@ def build_chapter_nav(chapters: list) -> str:
 
 
 def build_chapter(chapter: dict) -> str:
-    """Build a full chapter section with staggered scroll reveals."""
+    """Build a full chapter section."""
     num = chapter["number"]
     ch_id = chapter["id"]
     title = esc(chapter["title"])
@@ -589,13 +589,10 @@ def build_chapter(chapter: dict) -> str:
     for section in chapter["sections"]:
         sec_title = section.get("title", "")
         sec_title_html = f'<h3 class="gg-guide-section-title">{esc(sec_title)}</h3>' if sec_title else ''
-        # Wrap each block in stagger div for scroll reveal
         block_parts = []
         for idx, b in enumerate(section["blocks"]):
             rendered = render_block(b)
-            block_parts.append(
-                f'<div class="gg-guide-stagger" data-delay="{idx * 100}">{rendered}</div>'
-            )
+            block_parts.append(rendered)
         blocks_html = '\n'.join(block_parts)
         sections_html.append(f'''<div class="gg-guide-section" id="{esc(section["id"])}">
         {sec_title_html}
@@ -731,7 +728,7 @@ def build_footer() -> str:
     year = datetime.now().year
     return f'''<div class="gg-footer">
     <p class="gg-footer-disclaimer">This guide represents our editorial views on gravel racing training. Consult a physician before starting any exercise program. We are not affiliated with any race organizer, governing body, or equipment manufacturer. Training plans and coaching are separate paid services.</p>
-    <p style="margin-top:12px;font-size:11px;color:#555">&copy; {year} Gravel God Cycling. All rights reserved.</p>
+    <p style="margin-top:12px;font-size:11px;color:#8c7568">&copy; {year} Gravel God Cycling. All rights reserved.</p>
   </div>'''
 
 
@@ -855,20 +852,20 @@ def build_guide_css() -> str:
 .gg-guide-progress-bar{height:100%;width:0%;background:#1A8A82}
 
 /* ── Chapter Nav ── */
-.gg-guide-chapnav{position:sticky;top:3px;z-index:1000;background:#000;display:flex;justify-content:center;gap:0;border:3px solid #000;margin-bottom:32px}
-.gg-guide-chapnav-item{color:#d4c5b9;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;display:flex;align-items:center;gap:4px;border-right:1px solid #333}
+.gg-guide-chapnav{position:sticky;top:3px;z-index:1000;background:#3a2e25;display:flex;justify-content:center;gap:0;border:3px solid #3a2e25;margin-bottom:32px}
+.gg-guide-chapnav-item{color:#A68E80;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;display:flex;align-items:center;gap:4px;border-right:1px solid #59473c;border-bottom:3px solid transparent}
 .gg-guide-chapnav-item:last-child{border-right:none}
-.gg-guide-chapnav-item:hover{color:#fff;background:#333}
-.gg-guide-chapnav-item--active{color:#fff;background:#1A8A82}
+.gg-guide-chapnav-item:hover{color:#d4c5b9;background:transparent}
+.gg-guide-chapnav-item--active{color:#fff;border-bottom-color:#B7950B;background:transparent}
 .gg-guide-chapnav-item--locked .gg-guide-chapnav-lock{font-size:9px;opacity:0.5}
 .gg-guide-chapnav-item--unlocked .gg-guide-chapnav-lock{display:none}
 
 /* ── Chapter ── */
-.gg-guide-chapter{margin-bottom:40px;border:3px solid #000;background:#fff}
+.gg-guide-chapter{margin-bottom:40px;border:3px solid #3a2e25;background:#f5efe6}
 .gg-guide-chapter-hero{padding:48px 32px;color:#fff;position:relative}
 .gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:8px}
-.gg-guide-chapter-title{font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.2;margin:0;color:#fff}
-.gg-guide-chapter-subtitle{font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px}
+.gg-guide-chapter-title{font-family:'Source Serif 4',Georgia,serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;margin:0;color:#fff}
+.gg-guide-chapter-subtitle{font-family:'Source Serif 4',Georgia,serif;font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px}
 .gg-guide-chapter-body{padding:32px 24px}
 
 /* ── Gating ── */
@@ -878,48 +875,47 @@ def build_guide_css() -> str:
 .gg-guide-unlocked .gg-guide-chapnav-item--locked .gg-guide-chapnav-lock{display:none}
 
 /* ── Gate Overlay ── */
-.gg-guide-gate{background:#59473c;color:#fff;padding:48px 32px;border:3px solid #000;margin-bottom:40px;text-align:center}
+.gg-guide-gate{background:#59473c;color:#fff;padding:48px 32px;border:3px solid #3a2e25;margin-bottom:40px;text-align:center}
 .gg-guide-gate-inner{max-width:600px;margin:0 auto}
-.gg-guide-gate-kicker{display:inline-block;background:#000;color:#fff;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:3px;margin-bottom:16px}
+.gg-guide-gate-kicker{display:inline-block;background:#3a2e25;color:#fff;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:3px;margin-bottom:16px}
 .gg-guide-gate h2{font-size:28px;text-transform:uppercase;letter-spacing:2px;margin:12px 0}
-.gg-guide-gate p{font-size:13px;color:#f5f0eb;line-height:1.6;margin-bottom:16px}
+.gg-guide-gate p{font-size:13px;color:#f5efe6;line-height:1.6;margin-bottom:16px}
 .gg-guide-gate-bypass{background:none;border:none;color:#c4b5ab;font-size:12px;cursor:pointer;text-decoration:underline;margin-top:16px;font-family:'Sometype Mono',monospace}
 .gg-guide-gate-bypass:hover{color:#d4c5b9}
 
 /* ── Section ── */
 .gg-guide-section{margin-bottom:32px}
-.gg-guide-section-title{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 16px;padding-bottom:8px;border-bottom:2px solid #000;color:#59473c}
+.gg-guide-section-title{font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 16px;padding-bottom:8px;border-bottom:3px solid #3a2e25;color:#59473c}
 
 /* ── Prose ── */
-.gg-guide-chapter-body p{font-size:14px;line-height:1.7;margin:0 0 14px;color:#222}
+.gg-guide-chapter-body p{font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.75;margin:0 0 14px;color:#3a2e25}
 .gg-guide-chapter-body strong{font-weight:700}
-.gg-guide-list{padding-left:20px;margin:0 0 16px;font-size:14px;line-height:1.7}
+.gg-guide-list{font-family:'Source Serif 4',Georgia,serif;padding-left:20px;margin:0 0 16px;font-size:14px;line-height:1.75}
 .gg-guide-list li{margin-bottom:6px}
 
 /* ── Data Table ── */
 .gg-guide-table-wrap{overflow-x:auto;margin:0 0 20px}
-.gg-guide-table{width:100%;border-collapse:collapse;font-size:12px;border:2px solid #000}
-.gg-guide-table caption{text-align:left;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;background:#f5f0eb;border:2px solid #000;border-bottom:none;color:#59473c}
-.gg-guide-table th{background:#59473c;color:#fff;padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border:1px solid #000}
+.gg-guide-table{width:100%;border-collapse:collapse;font-size:12px;border:2px solid #3a2e25}
+.gg-guide-table caption{text-align:left;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;background:#f5efe6;border:2px solid #3a2e25;border-bottom:none;color:#59473c}
+.gg-guide-table th{background:#59473c;color:#fff;padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border:1px solid #3a2e25}
 .gg-guide-table td{padding:8px 12px;border:1px solid #ddd;vertical-align:top}
-.gg-guide-table tbody tr:nth-child(even){background:#faf5f0}
+.gg-guide-table tbody tr:nth-child(even){background:#f5efe6}
 
 /* ── Accordion ── */
-.gg-guide-accordion-item{border:2px solid #000;margin-bottom:8px}
-.gg-guide-accordion-trigger{display:flex;justify-content:space-between;align-items:center;width:100%;padding:12px 16px;background:#f5f0eb;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;text-align:left;color:#000}
-.gg-guide-accordion-trigger:hover{background:#e8dfd7}
+.gg-guide-accordion-item{border:2px solid #3a2e25;margin-bottom:8px}
+.gg-guide-accordion-trigger{display:flex;justify-content:space-between;align-items:center;width:100%;padding:12px 16px;background:#f5efe6;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;text-align:left;color:#3a2e25}
+.gg-guide-accordion-trigger:hover{background:#ede4d8}
 .gg-guide-accordion-icon{font-size:18px;font-weight:700}
 .gg-guide-accordion-trigger[aria-expanded="true"] .gg-guide-accordion-icon{transform:rotate(45deg)}
-.gg-guide-accordion-body{display:none;padding:16px;border-top:2px solid #000}
+.gg-guide-accordion-body{display:none;padding:16px;border-top:2px solid #3a2e25}
 .gg-guide-accordion-trigger[aria-expanded="true"]+.gg-guide-accordion-body{display:block}
 
 /* ── Tabs ── */
-.gg-guide-tabs{border:2px solid #000;margin:0 0 20px}
-.gg-guide-tab-bar{display:flex;flex-wrap:wrap;background:#000;gap:0}
-.gg-guide-tab{padding:10px 16px;background:#333;color:#d4c5b9;border:none;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-right:1px solid #555}
-.gg-guide-tab:last-child{border-right:none}
-.gg-guide-tab:hover{background:#555;color:#fff}
-.gg-guide-tab--active{background:#1A8A82;color:#fff}
+.gg-guide-tabs{border:2px solid #3a2e25;margin:0 0 20px}
+.gg-guide-tab-bar{display:flex;flex-wrap:wrap;background:#3a2e25;gap:0;border-bottom:4px double #3a2e25}
+.gg-guide-tab{padding:10px 16px;background:transparent;color:#A68E80;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.gg-guide-tab:hover{background:transparent;color:#d4c5b9}
+.gg-guide-tab--active{color:#fff;border-bottom-color:#B7950B;background:transparent}
 .gg-guide-tab-panel{padding:20px}
 .gg-guide-tab-title{font-size:15px;font-weight:700;margin:0 0 12px;color:#59473c;text-transform:uppercase;letter-spacing:1px}
 
@@ -930,180 +926,169 @@ def build_guide_css() -> str:
 .gg-guide-timeline-step:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:-20px;width:2px;background:#ddd}
 .gg-guide-timeline-marker{width:32px;height:32px;min-width:32px;background:#1A8A82;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
 .gg-guide-timeline-content{flex:1}
-.gg-guide-timeline-label{font-size:14px;font-weight:700;margin:0 0 6px;text-transform:uppercase;letter-spacing:1px;color:#000}
-.gg-guide-timeline-content p{font-size:13px;line-height:1.6;margin:0;color:#444}
+.gg-guide-timeline-label{font-size:14px;font-weight:700;margin:0 0 6px;text-transform:uppercase;letter-spacing:1px;color:#3a2e25}
+.gg-guide-timeline-content p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;margin:0;color:#59473c}
 
 /* ── Process List ── */
 .gg-guide-process-list{margin:0 0 20px}
-.gg-guide-process-item{display:flex;gap:14px;margin-bottom:16px;padding:12px;border:2px solid #000;background:#fff}
-.gg-guide-process-num{width:32px;height:32px;min-width:32px;background:#000;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.gg-guide-process-item{display:flex;gap:14px;margin-bottom:16px;padding:12px;border:2px solid #3a2e25;background:#f5efe6}
+.gg-guide-process-num{width:32px;height:32px;min-width:32px;background:#3a2e25;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .gg-guide-process-body{flex:1}
-.gg-guide-process-label{font-weight:700;font-size:14px;color:#000}
+.gg-guide-process-label{font-weight:700;font-size:14px;color:#3a2e25}
 .gg-guide-process-pct{display:inline-block;background:#B7950B;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;margin-left:8px;letter-spacing:1px}
-.gg-guide-process-detail{font-size:13px;color:#444;margin:4px 0 0;line-height:1.5}
+.gg-guide-process-detail{font-size:13px;color:#59473c;margin:4px 0 0;line-height:1.5}
 
 /* ── Callout ── */
-.gg-guide-callout{padding:20px 24px;margin:0 0 20px;border-left:4px solid #1A8A82;background:#f5f0eb}
-.gg-guide-callout--quote{border-left-color:#B7950B;background:#faf5f0;font-style:italic}
-.gg-guide-callout--highlight{border-left-color:#1A8A82;background:#f0faf9}
-.gg-guide-callout--traffic_light{border-left-color:#B7950B;background:#faf5f0}
-.gg-guide-callout p{font-size:13px;line-height:1.7;margin:0 0 8px;color:#333}
+.gg-guide-callout{padding:20px 24px;margin:0 0 20px;border-left:6px solid #1A8A82;background:#f5efe6}
+.gg-guide-callout--quote{border-left-color:#B7950B;font-style:italic}
+.gg-guide-callout--highlight{border-left-color:#B7950B}
+.gg-guide-callout--traffic_light{border-left-color:#B7950B}
+.gg-guide-callout p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.7;margin:0 0 8px;color:#3a2e25}
 .gg-guide-callout p:last-child{margin-bottom:0}
 
 /* ── Knowledge Check ── */
-.gg-guide-knowledge-check{border:3px solid #000;margin:0 0 24px;background:#fff}
+.gg-guide-knowledge-check{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
 .gg-guide-kc-label{background:#B7950B;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-.gg-guide-kc-question{padding:16px 20px 8px;font-size:14px;font-weight:700;color:#000;margin:0}
+.gg-guide-kc-question{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
 .gg-guide-kc-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
-.gg-guide-kc-option{padding:10px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
-.gg-guide-kc-option:hover{background:#e8dfd7}
+.gg-guide-kc-option{padding:10px 16px;background:#f5efe6;border:2px solid #3a2e25;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
+.gg-guide-kc-option:hover{background:#ede4d8}
 .gg-guide-kc-option--correct{background:#1A8A82 !important;color:#fff !important;border-color:#1A8A82 !important}
-.gg-guide-kc-option--incorrect{background:#c44 !important;color:#fff !important;border-color:#c44 !important}
+.gg-guide-kc-option--incorrect{background:#c0392b !important;color:#fff !important;border-color:#c0392b !important}
 .gg-guide-kc-option--disabled{pointer-events:none;opacity:0.6}
-.gg-guide-kc-explanation{padding:12px 20px 16px;background:#f0faf9;border-top:2px solid #1A8A82}
-.gg-guide-kc-explanation p{font-size:13px;line-height:1.6;margin:0;color:#333}
+.gg-guide-kc-explanation{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #1A8A82}
+.gg-guide-kc-explanation p{font-size:13px;line-height:1.6;margin:0;color:#3a2e25}
 
 /* ── Flashcards ── */
 .gg-guide-flashcard-deck{margin:0 0 24px}
 .gg-guide-flashcard-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:12px}
 .gg-guide-flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.gg-guide-flashcard{perspective:600px;cursor:pointer;height:140px}
-.gg-guide-flashcard-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d}
-.gg-guide-flashcard--flipped .gg-guide-flashcard-inner{transform:rotateY(180deg)}
-.gg-guide-flashcard-front,.gg-guide-flashcard-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:16px;border:2px solid #000;font-size:13px;text-align:center}
-.gg-guide-flashcard-front{background:#f5f0eb;font-weight:700;color:#000}
-.gg-guide-flashcard-back{background:#1A8A82;color:#fff;transform:rotateY(180deg)}
-.gg-guide-flashcard-back p,.gg-guide-flashcard-front p{margin:0;line-height:1.4}
-.gg-guide-flashcard-hint{font-size:11px;color:#666;text-align:center;margin:8px 0 0}
+.gg-guide-flashcard{cursor:pointer;height:140px;position:relative}
+.gg-guide-flashcard-inner{position:relative;width:100%;height:100%}
+.gg-guide-flashcard-front,.gg-guide-flashcard-back{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;border:2px solid #3a2e25;font-size:13px;text-align:center;transition:border-color 300ms cubic-bezier(0.4,0,0.2,1)}
+.gg-guide-flashcard-front{background:#f5efe6;font-weight:700;color:#3a2e25}
+.gg-guide-flashcard-back{background:#1A8A82;color:#fff;display:none}
+.gg-guide-flashcard--flipped .gg-guide-flashcard-front{display:none}
+.gg-guide-flashcard--flipped .gg-guide-flashcard-back{display:block}
+.gg-guide-flashcard-back p,.gg-guide-flashcard-front p{font-family:'Source Serif 4',Georgia,serif;margin:0;line-height:1.4}
+.gg-guide-flashcard-hint{font-size:11px;color:#8c7568;text-align:center;margin:8px 0 0}
 
 /* ── Scenario ── */
-.gg-guide-scenario{border:3px solid #000;margin:0 0 24px;background:#fff}
+.gg-guide-scenario{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
 .gg-guide-scenario-label{background:#59473c;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-.gg-guide-scenario-prompt{padding:16px 20px 8px;font-size:14px;font-weight:700;color:#000;margin:0}
+.gg-guide-scenario-prompt{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
 .gg-guide-scenario-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
-.gg-guide-scenario-option{padding:12px 16px;background:#f5f0eb;border:2px solid #000;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
-.gg-guide-scenario-option:hover{background:#e8dfd7}
-.gg-guide-scenario-option-result{display:none;margin-top:8px;font-size:12px;color:#444;font-weight:400;line-height:1.5}
+.gg-guide-scenario-option{padding:12px 16px;background:#f5efe6;border:2px solid #3a2e25;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
+.gg-guide-scenario-option:hover{background:#ede4d8}
+.gg-guide-scenario-option-result{display:none;margin-top:8px;font-size:12px;color:#59473c;font-weight:400;line-height:1.5}
 .gg-guide-scenario-option--selected .gg-guide-scenario-option-result{display:block}
-.gg-guide-scenario-option--selected{border-color:#59473c;background:#faf5f0}
-.gg-guide-scenario-option--selected[data-best="true"]{border-color:#1A8A82;background:#f0faf9}
+.gg-guide-scenario-option--selected{border-color:#59473c;background:#f5efe6}
+.gg-guide-scenario-option--selected[data-best="true"]{border-color:#1A8A82;background:#f5efe6}
 .gg-guide-scenario-option--disabled{pointer-events:none;opacity:0.6}
 
 /* ── CTA Blocks ── */
-.gg-guide-cta{margin:0 0 40px;border:3px solid #000;padding:40px 32px;text-align:center}
+.gg-guide-cta{margin:0 0 40px;border:3px solid #3a2e25;padding:40px 32px;text-align:center}
 .gg-guide-cta-inner{max-width:600px;margin:0 auto}
 .gg-guide-cta-kicker{display:inline-block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
-.gg-guide-cta h3{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px}
-.gg-guide-cta p{font-size:13px;line-height:1.6;margin:0 0 16px}
+.gg-guide-cta h3{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px}
+.gg-guide-cta p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;margin:0 0 16px}
 .gg-guide-cta ul{text-align:left;font-size:13px;line-height:1.8;padding-left:20px;margin:0 0 20px}
 .gg-guide-cta--newsletter{background:#59473c;color:#fff}
 .gg-guide-cta--newsletter .gg-guide-cta-kicker{color:#d4c5b9}
 .gg-guide-cta--newsletter p{color:#d4c5b9}
-.gg-guide-cta--training{background:#000;color:#fff}
+.gg-guide-cta--training{background:#3a2e25;color:#fff}
 .gg-guide-cta--training .gg-guide-cta-kicker{color:#8c7568}
 .gg-guide-cta--training p,.gg-guide-cta--training ul{color:#d4c5b9}
 .gg-guide-cta--coaching{background:#1A8A82;color:#fff}
 .gg-guide-cta--coaching .gg-guide-cta-kicker{color:rgba(255,255,255,0.7)}
 
 /* ── Buttons ── */
-.gg-guide-btn{display:inline-block;padding:12px 28px;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:3px solid #000}
-.gg-guide-btn--primary{background:#59473c;color:#fff;border-color:#59473c}
-.gg-guide-btn--primary:hover{background:#8c7568;border-color:#8c7568}
-.gg-guide-btn--secondary{background:#fff;color:#000;border-color:#000}
-.gg-guide-btn--secondary:hover{background:#000;color:#fff}
+.gg-guide-btn{display:inline-block;padding:12px 24px;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:3px solid #3a2e25}
+.gg-guide-btn--primary{background:#B7950B;color:#3a2e25;border-color:#B7950B}
+.gg-guide-btn--primary:hover{background:#c9a92c;border-color:#c9a92c}
+.gg-guide-btn--secondary{background:#1A8A82;color:#fff;border-color:#1A8A82}
+.gg-guide-btn--secondary:hover{background:#4ECDC4;border-color:#4ECDC4}
 
 /* ── Finale Grid ── */
 .gg-guide-finale{margin:0 0 40px;text-align:center}
 .gg-guide-finale-title{font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 24px;color:#59473c}
 .gg-guide-finale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.gg-guide-finale-card{padding:32px 20px;border:3px solid #000;text-align:center}
+.gg-guide-finale-card{padding:32px 20px;border:3px solid #3a2e25;text-align:center}
 .gg-guide-finale-card+.gg-guide-finale-card{border-left:none}
 .gg-guide-finale-kicker{display:block;font-size:10px;font-weight:700;letter-spacing:3px;margin-bottom:8px}
-.gg-guide-finale-card h3{font-size:18px;font-weight:700;text-transform:uppercase;margin:0 0 8px}
-.gg-guide-finale-card p{font-size:12px;line-height:1.5;margin:0 0 16px}
+.gg-guide-finale-card h3{font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:700;text-transform:uppercase;margin:0 0 8px}
+.gg-guide-finale-card p{font-family:'Source Serif 4',Georgia,serif;font-size:12px;line-height:1.5;margin:0 0 16px}
 .gg-guide-finale-card--newsletter{background:#59473c;color:#fff}
 .gg-guide-finale-card--newsletter .gg-guide-finale-kicker{color:#d4c5b9}
 .gg-guide-finale-card--newsletter p{color:#d4c5b9}
-.gg-guide-finale-card--training{background:#000;color:#fff}
+.gg-guide-finale-card--training{background:#3a2e25;color:#fff}
 .gg-guide-finale-card--training .gg-guide-finale-kicker{color:#8c7568}
 .gg-guide-finale-card--training p{color:#d4c5b9}
 .gg-guide-finale-card--coaching{background:#1A8A82;color:#fff}
 .gg-guide-finale-card--coaching .gg-guide-finale-kicker{color:rgba(255,255,255,0.7)}
 
-/* ── Scroll Fade-In ── */
-.gg-guide-fade-in{opacity:0;transform:translateY(20px)}
-.gg-guide-fade-in--visible{opacity:1;transform:translateY(0)}
-
-/* ── Stagger Scroll Reveal ── */
-.gg-guide-stagger{opacity:0;transform:translateY(16px)}
-.gg-guide-stagger--visible{opacity:1;transform:translateY(0)}
-
 /* ── Animated Process Bars ── */
 .gg-guide-process-bar-wrap{display:flex;align-items:center;gap:8px;margin-top:4px;margin-bottom:4px}
-.gg-guide-process-bar{height:8px;background:#1A8A82;border:1px solid #000}
+.gg-guide-process-bar{height:8px;background:#1A8A82;border:1px solid #3a2e25}
 .gg-guide-process-pct{font-size:11px;font-weight:700;color:#1A8A82;min-width:36px}
 
 /* ── Calculator ── */
-.gg-guide-calculator{border:3px solid #000;margin:0 0 24px;background:#fff}
+.gg-guide-calculator{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
 .gg-guide-calc-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-.gg-guide-calc-desc{padding:12px 20px 4px;font-size:13px;color:#444;margin:0}
+.gg-guide-calc-desc{padding:12px 20px 4px;font-size:13px;color:#59473c;margin:0}
 .gg-guide-calc-inputs{padding:8px 20px;display:flex;flex-wrap:wrap;gap:12px}
 .gg-guide-calc-field{display:flex;flex-direction:column;gap:4px;min-width:140px;flex:1}
 .gg-guide-calc-field label{font-size:11px;font-weight:700;color:#59473c;text-transform:uppercase;letter-spacing:1px}
-.gg-guide-calc-input,.gg-guide-calc-select{padding:8px 12px;border:2px solid #000;font-family:'Sometype Mono',monospace;font-size:13px;background:#f5f0eb}
+.gg-guide-calc-input,.gg-guide-calc-select{padding:8px 12px;border:2px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:13px;background:#f5efe6}
 .gg-guide-calc-input:focus,.gg-guide-calc-select:focus{outline:3px solid #B7950B;outline-offset:2px}
 .gg-guide-calc-toggle{display:flex;gap:0}
-.gg-guide-calc-toggle-btn{padding:8px 16px;border:2px solid #000;background:#f5f0eb;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;cursor:pointer}
+.gg-guide-calc-toggle-btn{padding:8px 16px;border:2px solid #3a2e25;background:#f5efe6;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;cursor:pointer}
 .gg-guide-calc-toggle-btn+.gg-guide-calc-toggle-btn{border-left:none}
 .gg-guide-calc-toggle-btn--active{background:#1A8A82;color:#fff;border-color:#1A8A82}
-.gg-guide-calc-btn{display:block;margin:8px 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #000;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.gg-guide-calc-btn{display:block;margin:8px 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
 .gg-guide-calc-btn:hover{background:#8c7568}
 .gg-guide-calc-output{padding:16px 20px}
 .gg-guide-calc-ftp-display{font-size:14px;font-weight:700;margin-bottom:12px;color:#59473c}
 .gg-guide-calc-zones{display:flex;flex-direction:column;gap:8px}
 .gg-guide-calc-zone{display:grid;grid-template-columns:160px 1fr 80px 80px;align-items:center;gap:8px;font-size:12px}
-.gg-guide-calc-zone-name{font-weight:700;font-size:11px;color:#333}
-.gg-guide-calc-zone-track{height:20px;background:#f5f0eb;border:1px solid #ddd;position:relative}
+.gg-guide-calc-zone-name{font-weight:700;font-size:11px;color:#3a2e25}
+.gg-guide-calc-zone-track{height:20px;background:#f5efe6;border:1px solid #ddd;position:relative}
 .gg-guide-calc-zone-fill{height:100%;width:0%}
-.gg-guide-calc-zone-range{font-size:11px;color:#444;font-weight:700}
-.gg-guide-calc-zone-hr{font-size:10px;color:#666}
+.gg-guide-calc-zone-range{font-size:11px;color:#59473c;font-weight:700}
+.gg-guide-calc-zone-hr{font-size:10px;color:#8c7568}
 .gg-guide-calc-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px}
-.gg-guide-calc-result-item{padding:12px;border:2px solid #000;background:#f5f0eb;text-align:center}
+.gg-guide-calc-result-item{padding:12px;border:2px solid #3a2e25;background:#f5efe6;text-align:center}
 .gg-guide-calc-result-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59473c;margin-bottom:4px}
 .gg-guide-calc-result-value{display:block;font-size:18px;font-weight:700;color:#1A8A82}
-.gg-guide-calc-input--error{border-color:#c44}
-.gg-guide-calc-error{color:#c44;font-size:11px;padding:0 20px 8px;display:none}
+.gg-guide-calc-input--error{border-color:#c0392b}
+.gg-guide-calc-error{color:#c0392b;font-size:11px;padding:0 20px 8px;display:none}
 
 /* ── Zone Visualizer ── */
 .gg-guide-zone-viz{margin:0 0 24px}
 .gg-guide-viz-bars{display:flex;flex-direction:column;gap:8px}
 .gg-guide-viz-row{display:grid;grid-template-columns:140px 1fr 50px;align-items:center;gap:8px;font-size:12px}
-.gg-guide-viz-name{font-weight:700;font-size:11px;color:#333}
-.gg-guide-viz-track{height:24px;background:#f5f0eb;border:1px solid #ddd;position:relative}
+.gg-guide-viz-name{font-weight:700;font-size:11px;color:#3a2e25}
+.gg-guide-viz-track{height:24px;background:#f5efe6;border:1px solid #ddd;position:relative}
 .gg-guide-viz-fill{height:100%;width:0%}
-.gg-guide-viz-pct{font-size:11px;color:#666;font-weight:700}
+.gg-guide-viz-pct{font-size:11px;color:#8c7568;font-weight:700}
 
 /* ── Rider Selector ── */
-.gg-guide-rider-selector{display:flex;align-items:center;gap:0;background:#000;border:3px solid #000;border-top:none;flex-wrap:wrap}
+.gg-guide-rider-selector{display:flex;align-items:center;gap:0;background:#3a2e25;border:3px solid #3a2e25;border-top:none;flex-wrap:wrap}
 .gg-guide-rider-prompt{color:#d4c5b9;font-size:10px;font-weight:700;letter-spacing:3px;padding:10px 16px}
-.gg-guide-rider-btn{padding:10px 16px;background:#333;color:#d4c5b9;border:none;border-right:1px solid #555;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
+.gg-guide-rider-btn{padding:10px 16px;background:transparent;color:#A68E80;border:none;border-right:1px solid #59473c;border-bottom:3px solid transparent;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
 .gg-guide-rider-btn:last-child{border-right:none}
-.gg-guide-rider-btn:hover{background:#555;color:#fff}
-.gg-guide-rider-btn--active{background:#1A8A82;color:#fff;box-shadow:inset 0 -3px 0 #fff}
+.gg-guide-rider-btn:hover{color:#d4c5b9;background:transparent}
+.gg-guide-rider-btn--active{background:#59473c;color:#fff;border-bottom:3px solid #B7950B}
 .gg-guide-rider-btn-hours{font-size:9px;font-weight:400;opacity:0.7}
-.gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#000;border:3px solid #1A8A82;padding:8px 14px;display:flex;align-items:center;gap:10px}
+.gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#3a2e25;border:3px solid #1A8A82;padding:8px 14px;display:flex;align-items:center;gap:10px}
 .gg-guide-rider-badge-type{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px}
 .gg-guide-rider-badge-change{background:none;border:none;color:#1A8A82;font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;text-decoration:underline;letter-spacing:1px}
 
 /* ── Counter ── */
 .gg-guide-counter{font-weight:700;color:#1A8A82}
 
-/* ── Chapter Nav Pulse ── */
-@keyframes gg-chapnav-pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
-.gg-guide-chapnav-item--pulse{animation:gg-chapnav-pulse 0.3s ease}
-
 /* ── Footer ── */
-.gg-guide-chapter-body .gg-footer{border:none;margin:0;padding:24px 0 0}
+.gg-guide-chapter-body .gg-footer{border:3px solid #3a2e25;border-top:4px double #3a2e25;background:#f5efe6;margin:0;padding:24px 0 0}
 
 /* ── Focus Styles ── */
 .gg-guide-chapnav-item:focus-visible,.gg-guide-accordion-trigger:focus-visible,.gg-guide-tab:focus-visible,.gg-guide-kc-option:focus-visible,.gg-guide-scenario-option:focus-visible,.gg-guide-flashcard:focus-visible,.gg-guide-btn:focus-visible,.gg-guide-gate-bypass:focus-visible{outline:3px solid #B7950B;outline-offset:2px}
@@ -1111,25 +1096,14 @@ def build_guide_css() -> str:
 /* ── Reduced Motion ── */
 @media(prefers-reduced-motion: no-preference){
   .gg-guide-progress-bar{transition:width 0.15s linear}
-  .gg-guide-chapnav-item{transition:all 0.2s}
+  .gg-guide-chapnav-item{transition:color 300ms cubic-bezier(0.4,0,0.2,1),border-color 300ms cubic-bezier(0.4,0,0.2,1)}
   .gg-guide-accordion-icon{transition:transform 0.2s}
-  .gg-guide-tab{transition:all 0.2s}
-  .gg-guide-kc-option{transition:all 0.2s}
-  .gg-guide-scenario-option{transition:all 0.2s}
-  .gg-guide-btn{transition:all 0.15s}
-  .gg-guide-fade-in{transition:opacity 0.5s ease,transform 0.5s ease}
-  .gg-guide-flashcard-inner{transition:transform 0.4s}
-  .gg-guide-stagger{transition:opacity 0.5s ease,transform 0.5s ease}
-  .gg-guide-process-bar{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .gg-guide-tab{transition:color 300ms cubic-bezier(0.4,0,0.2,1),border-color 300ms cubic-bezier(0.4,0,0.2,1)}
+  .gg-guide-kc-option{transition:background-color 150ms cubic-bezier(0.4,0,0.2,1),border-color 150ms cubic-bezier(0.4,0,0.2,1)}
+  .gg-guide-scenario-option{transition:background-color 150ms cubic-bezier(0.4,0,0.2,1),border-color 150ms cubic-bezier(0.4,0,0.2,1)}
+  .gg-guide-btn{transition:background 150ms,color 150ms,border-color 150ms}
   .gg-guide-calc-zone-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
-  .gg-guide-viz-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
-  .gg-guide-knowledge-check:hover,.gg-guide-scenario:hover{transform:translateY(-2px)}
-  .gg-guide-table tbody tr:hover{background:#f0faf9}
-}
-@media(prefers-reduced-motion: reduce){
-  .gg-guide-fade-in{opacity:1;transform:none}
-  .gg-guide-stagger{opacity:1;transform:none}
-  .gg-guide-chapnav-item--pulse{animation:none}
+  .gg-guide-table tbody tr:hover{background:#f5efe6}
 }
 
 /* ── Responsive ── */
@@ -1140,10 +1114,10 @@ def build_guide_css() -> str:
   .gg-guide-chapter-title{font-size:24px}
   .gg-guide-chapter-body{padding:24px 16px}
   .gg-guide-finale-grid{grid-template-columns:1fr}
-  .gg-guide-finale-card+.gg-guide-finale-card{border-left:3px solid #000;border-top:none}
+  .gg-guide-finale-card+.gg-guide-finale-card{border-left:3px solid #3a2e25;border-top:none}
   .gg-guide-cta{padding:32px 20px}
   .gg-guide-tab-bar{flex-direction:column}
-  .gg-guide-tab{border-right:none;border-bottom:1px solid #555}
+  .gg-guide-tab{border-bottom:1px solid #59473c}
   .gg-guide-process-item{flex-direction:column;gap:8px}
   .gg-guide-timeline-step{gap:12px}
   .gg-guide-table{font-size:11px}
@@ -1161,7 +1135,7 @@ def build_guide_css() -> str:
 
 /* ── Image / Video Blocks ── */
 .gg-guide-img{margin:0 0 20px;line-height:0}
-.gg-guide-img-el{width:100%;height:auto;display:block;border:3px solid #000}
+.gg-guide-img-el{width:100%;height:auto;display:block;border:3px solid #3a2e25}
 .gg-guide-img-caption{font-size:11px;color:#8c7568;margin-top:8px;line-height:1.5;font-style:italic}
 .gg-guide-img--full-width{margin-left:-24px;margin-right:-24px}
 .gg-guide-img--half-width{float:right;width:50%;margin:0 0 16px 20px}
@@ -1225,7 +1199,6 @@ var navItems=document.querySelectorAll(".gg-guide-chapnav-item");
 var chaptersRead={};
 if(chapters.length&&"IntersectionObserver" in window){
 var activeId=null;
-var lastActiveChapter=null;
 var chapterObs=new IntersectionObserver(function(entries){
 entries.forEach(function(entry){
 if(entry.isIntersecting){
@@ -1235,15 +1208,6 @@ navItems.forEach(function(nav){
 nav.classList.toggle("gg-guide-chapnav-item--active",nav.getAttribute("data-chapter")===activeId);
 });
 if(chNum&&!chaptersRead[chNum]){chaptersRead[chNum]=true;track("guide_chapter_view",{chapter_number:parseInt(chNum,10),chapter_id:activeId});}
-if(activeId!==lastActiveChapter){
-lastActiveChapter=activeId;
-navItems.forEach(function(nav){
-if(nav.getAttribute("data-chapter")===activeId){
-nav.classList.add("gg-guide-chapnav-item--pulse");
-setTimeout(function(){nav.classList.remove("gg-guide-chapnav-item--pulse");},300);
-}
-});
-}
 }
 });
 },{rootMargin:"-20% 0px -70% 0px",threshold:0});
@@ -1339,58 +1303,6 @@ else if(ctaBlock.classList.contains("gg-guide-cta--coaching")||ctaBlock.classLis
 track("guide_cta_click",{cta_type:ctaType,link_url:link.href});
 });
 });
-if("IntersectionObserver" in window){
-var revealObs=new IntersectionObserver(function(entries){
-entries.forEach(function(entry){
-if(!entry.isIntersecting)return;
-var el=entry.target;
-if(el.classList.contains("gg-guide-fade-in")){el.classList.add("gg-guide-fade-in--visible");revealObs.unobserve(el);}
-else if(el.classList.contains("gg-guide-section")){
-el.querySelectorAll(".gg-guide-stagger").forEach(function(child){
-var delay=parseInt(child.getAttribute("data-delay")||"0",10);
-setTimeout(function(){child.classList.add("gg-guide-stagger--visible");},delay);
-});
-revealObs.unobserve(el);
-}else if(el.classList.contains("gg-guide-process-bar-wrap")){
-var bar=el.querySelector(".gg-guide-process-bar");
-var pctEl=el.querySelector(".gg-guide-process-pct");
-if(bar){
-var pct=parseFloat(bar.getAttribute("data-pct")||"0");
-bar.style.width=Math.min(pct,100)+"%";
-if(pctEl){
-var target=parseFloat(pctEl.getAttribute("data-target")||"0");
-var dur=600,start=null;
-function animPct(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var ease=1-Math.pow(1-p,3);var v=Math.round(ease*target*10)/10;pctEl.textContent=(v%1===0?v.toFixed(0):v.toFixed(1))+"%";if(p<1)requestAnimationFrame(animPct);}
-requestAnimationFrame(animPct);
-}
-}
-revealObs.unobserve(el);
-}
-});
-},{threshold:0.1});
-document.querySelectorAll(".gg-guide-fade-in").forEach(function(el){revealObs.observe(el);});
-document.querySelectorAll(".gg-guide-section").forEach(function(el){revealObs.observe(el);});
-document.querySelectorAll(".gg-guide-process-bar-wrap").forEach(function(el){revealObs.observe(el);});
-}
-var parallaxTicking=false;
-var heroEls=document.querySelectorAll(".gg-guide-chapter-hero");
-if(heroEls.length){
-window.addEventListener("scroll",function(){
-if(!parallaxTicking){
-requestAnimationFrame(function(){
-heroEls.forEach(function(hero){
-var rect=hero.getBoundingClientRect();
-if(rect.bottom>0&&rect.top<window.innerHeight){
-var ratio=(rect.top+rect.height)/(window.innerHeight+rect.height);
-hero.style.backgroundPositionY=Math.round((ratio-0.5)*20)+"px";
-}
-});
-parallaxTicking=false;
-});
-parallaxTicking=true;
-}
-},{passive:true});
-}
 function clearCalcErrors(calc){
 calc.querySelectorAll(".gg-guide-calc-input--error").forEach(function(el){el.classList.remove("gg-guide-calc-input--error");});
 var errEl=calc.querySelector(".gg-guide-calc-error");
@@ -1499,32 +1411,6 @@ setOut("fuel-rate",rate+"g/hr");
 setOut("hydration",(hy/1000).toFixed(1)+"L ("+Math.round(hy/500)+" bottles)");
 setOut("gels",Math.ceil(tc/25)+" gels (or equivalent)");
 track("guide_calculator_use",{type:"workout_fueling",duration:dur});
-}
-if("IntersectionObserver" in window){
-var fireOnceObs=new IntersectionObserver(function(entries){
-entries.forEach(function(entry){
-if(!entry.isIntersecting)return;
-var el=entry.target;
-if(el.classList.contains("gg-guide-zone-viz")){
-el.querySelectorAll(".gg-guide-viz-fill").forEach(function(fill,i){
-var pct=fill.getAttribute("data-pct");
-var row=fill.closest(".gg-guide-viz-row");
-var d=row?parseInt(row.getAttribute("data-delay")||"0",10):i*100;
-setTimeout(function(){fill.style.width=pct+"%";},d);
-});
-}else if(el.classList.contains("gg-guide-counter")){
-var target=parseFloat(el.getAttribute("data-target")||"0");
-if(!target){fireOnceObs.unobserve(el);return;}
-var isDecimal=target%1!==0;
-var duration=1200,start=null;
-function step(ts){if(!start)start=ts;var progress=Math.min((ts-start)/duration,1);var ease=1-Math.pow(1-progress,3);var val=ease*target;el.textContent=isDecimal?val.toFixed(1):Math.round(val).toString();if(progress<1)requestAnimationFrame(step);}
-requestAnimationFrame(step);
-}
-fireOnceObs.unobserve(el);
-});
-},{threshold:0.3});
-document.querySelectorAll(".gg-guide-zone-viz").forEach(function(el){fireOnceObs.observe(el);});
-document.querySelectorAll(".gg-guide-counter").forEach(function(el){fireOnceObs.observe(el);});
 }
 var RIDER_STORAGE="gg_guide_rider_type";
 var riderSelector=document.getElementById("gg-guide-rider-selector");
@@ -1672,7 +1558,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap">
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
@@ -1685,8 +1571,9 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   margin: 0 auto;
   padding: 0 20px;
   font-family: 'Sometype Mono', monospace;
-  color: #000;
-  line-height: 1.6;
+  background: #ede4d8;
+  color: #3a2e25;
+  line-height: 1.7;
 }}
 .gg-neo-brutalist-page *, .gg-neo-brutalist-page *::before, .gg-neo-brutalist-page *::after {{
   border-radius: 0 !important;
@@ -1695,25 +1582,25 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   box-sizing: border-box;
 }}
 /* Nav */
-.gg-neo-brutalist-page .gg-site-nav {{ background: #000; border: 3px solid #000; margin-bottom: 0; }}
+.gg-neo-brutalist-page .gg-site-nav {{ background: #3a2e25; border: 3px solid #3a2e25; margin-bottom: 0; }}
 .gg-neo-brutalist-page .gg-site-nav-inner {{ display: flex; align-items: center; padding: 12px 20px; gap: 20px; }}
 .gg-neo-brutalist-page .gg-site-nav-brand {{ color: #fff; text-decoration: none; font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }}
 .gg-neo-brutalist-page .gg-site-nav-link {{ color: #d4c5b9; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
 .gg-neo-brutalist-page .gg-site-nav-link:hover {{ color: #fff; }}
-.gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 20px; font-size: 11px; background: #111; }}
+.gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 20px; font-size: 11px; background: #2e241d; }}
 .gg-neo-brutalist-page .gg-breadcrumb a {{ color: #c4b5ab; text-decoration: none; }}
 .gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: #d4c5b9; }}
-.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #555; margin: 0 6px; }}
+.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #8c7568; margin: 0 6px; }}
 .gg-neo-brutalist-page .gg-breadcrumb-current {{ color: #d4c5b9; }}
 /* Hero */
-.gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #000; border-top: none; margin-bottom: 0; position: relative; overflow: hidden; }}
-.gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #000; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
-.gg-neo-brutalist-page .gg-hero h1 {{ font-size: 36px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #fff; position: relative; }}
+.gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; margin-bottom: 0; position: relative; overflow: hidden; }}
+.gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #3a2e25; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-hero h1 {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #fff; position: relative; }}
 .gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: #1A8A82; opacity: 0.3; z-index: 0; pointer-events: none; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-size: 14px; line-height: 1.6; color: #d4c5b9; max-width: 700px; }}
 /* Footer */
-.gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #000; background: #f5f0eb; margin-top: 0; }}
-.gg-neo-brutalist-page .gg-footer-disclaimer {{ font-size: 11px; color: #666; line-height: 1.6; }}
+.gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #3a2e25; border-top: 4px double #3a2e25; background: #f5efe6; margin-top: 0; }}
+.gg-neo-brutalist-page .gg-footer-disclaimer {{ font-size: 11px; color: #8c7568; line-height: 1.6; }}
 @media(max-width:768px){{
   .gg-neo-brutalist-page .gg-hero {{ padding: 40px 20px; }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 26px; }}

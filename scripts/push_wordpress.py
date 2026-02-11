@@ -640,6 +640,40 @@ def sync_pages(pages_dir: str):
     return f"{wp_url}/race/"
 
 
+def purge_cache():
+    """Purge all SiteGround caches via wp-cli (static, dynamic, memcached, opcache)."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    wp_path = "$HOME/www/gravelgodcycling.com/public_html"
+    try:
+        result = subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"wp --path={wp_path} sg purge 2>&1",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        output = result.stdout.strip()
+        if result.returncode == 0:
+            print(f"✓ SiteGround cache purged (static, dynamic, memcached, opcache)")
+            return True
+        else:
+            print(f"✗ Cache purge failed: {output}")
+            return False
+    except subprocess.TimeoutExpired:
+        print("✗ Cache purge timed out (30s)")
+        return False
+    except Exception as e:
+        print(f"✗ Cache purge error: {e}")
+        return False
+
+
 def sync_photos(photos_dir: str):
     """Upload race photos to /photos/ on SiteGround via tar+ssh pipe.
 
@@ -783,10 +817,14 @@ if __name__ == "__main__":
         "--photos-dir", default="wordpress/output/photos",
         help="Path to race photos directory (default: wordpress/output/photos)"
     )
+    parser.add_argument(
+        "--purge-cache", action="store_true",
+        help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, and/or --sync-photos")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.purge_cache:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, and/or --purge-cache")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -806,3 +844,5 @@ if __name__ == "__main__":
         sync_pages(args.pages_dir)
     if args.sync_photos:
         sync_photos(args.photos_dir)
+    if args.purge_cache:
+        purge_cache()

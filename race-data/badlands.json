@@ -224,6 +224,23 @@
         },
         "scored_at": "2026-02-04"
       }
-    }
+    },
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "badlands-hero.jpg",
+        "alt": "Desert gravel road stretching through the landscape near Granada, Andalusia, Spain"
+      },
+      {
+        "type": "terrain",
+        "file": "badlands-terrain.jpg",
+        "alt": "Close-up of ~60-70% gravel roads, ~15-20% paved, ~10-15% technical MTB trails. Sand, loose rock, and dry riverbeds (ramblas) throughout. near Granada"
+      },
+      {
+        "type": "action",
+        "file": "badlands-action.jpg",
+        "alt": "Gravel cyclists riding through Spain"
+      }
+    ]
   }
 }

@@ -255,7 +255,24 @@
       "series": "UCI Gravel World Series (connected through Nordic Gravel Series)",
       "championship_host": "UEC European Gravel Championships 2027 confirmed for Lahti",
       "qualifier_events": "Nordic Gravel Series will host 2 UCI World Championships Qualifier races during 2026 season"
-    }
+    },
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "finnish-gravel-hero.jpg",
+        "alt": "Well-maintained gravel roads road stretching through the landscape near Lahti, Paijanne Tavastia, Finland"
+      },
+      {
+        "type": "terrain",
+        "file": "finnish-gravel-terrain.jpg",
+        "alt": "Close-up of Mix of gravel, tarmac, and Nordic ski paths. Well-maintained public gravel roads, some loose stony gravel on hills near Lahti"
+      },
+      {
+        "type": "action",
+        "file": "finnish-gravel-action.jpg",
+        "alt": "Gravel cyclists riding through Finland"
+      }
+    ]
   },
   "dataQuality": "High"
 }

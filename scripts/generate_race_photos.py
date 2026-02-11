@@ -109,9 +109,16 @@ def _join_natural(items: list[str]) -> str:
 def build_prompts(race: dict) -> dict[str, str]:
     """Build photo prompts from race JSON data."""
     vitals = race.get("vitals", {})
-    terrain = race.get("terrain", {})
-    climate = race.get("climate", {})
-    course = race.get("course_description", {})
+    terrain_raw = race.get("terrain", {})
+    # Handle terrain as string (some legacy profiles) or dict
+    if isinstance(terrain_raw, str):
+        terrain = {"primary": terrain_raw, "surface": terrain_raw, "features": []}
+    else:
+        terrain = terrain_raw or {}
+    climate_raw = race.get("climate", {})
+    climate = climate_raw if isinstance(climate_raw, dict) else {"primary": str(climate_raw)}
+    course_raw = race.get("course_description", {})
+    course = course_raw if isinstance(course_raw, dict) else {}
     rating = race.get("gravel_god_rating", {})
 
     location = vitals.get("location", "a remote gravel road")
@@ -225,7 +232,11 @@ def build_prompts(race: dict) -> dict[str, str]:
 def build_alt_texts(race: dict) -> dict[str, str]:
     """Generate descriptive alt texts from race data."""
     vitals = race.get("vitals", {})
-    terrain = race.get("terrain", {})
+    terrain_raw = race.get("terrain", {})
+    if isinstance(terrain_raw, str):
+        terrain = {"primary": terrain_raw, "surface": terrain_raw}
+    else:
+        terrain = terrain_raw or {}
     rating = race.get("gravel_god_rating", {})
 
     location = vitals.get("location", "remote location")

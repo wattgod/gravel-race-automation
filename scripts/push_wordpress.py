@@ -529,6 +529,80 @@ def sync_og(og_dir: str):
         return None
 
 
+def sync_photos(photos_dir: str):
+    """Upload race photos to /photos/ on SiteGround via tar+ssh pipe.
+
+    Syncs *.jpg files. Uses tar pipe for efficiency — up to 984 files.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    photos_path = Path(photos_dir)
+    if not photos_path.exists():
+        print(f"✗ Photos directory not found: {photos_path}")
+        return None
+
+    jpg_files = list(photos_path.glob("*.jpg"))
+    if not jpg_files:
+        print(f"✗ No .jpg files found in {photos_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/photos"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # tar+ssh pipe
+    filenames = [f.name for f in jpg_files]
+    print(f"  Uploading {len(filenames)} race photos via tar+ssh...")
+
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(photos_path)] + filenames
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        print(f"✓ Uploaded {len(filenames)} race photos to {wp_url}/photos/")
+        return f"{wp_url}/photos/"
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading race photos: {e}")
+        return None
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -582,10 +656,18 @@ if __name__ == "__main__":
         "--homepage-file", default="wordpress/output/homepage.html",
         help="Path to homepage HTML (default: wordpress/output/homepage.html)"
     )
+    parser.add_argument(
+        "--sync-photos", action="store_true",
+        help="Upload race photos to /photos/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--photos-dir", default="wordpress/output/photos",
+        help="Path to race photos directory (default: wordpress/output/photos)"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, and/or --sync-homepage")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_photos:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, and/or --sync-photos")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -601,3 +683,5 @@ if __name__ == "__main__":
         sync_og(args.og_dir)
     if args.sync_homepage:
         sync_homepage(args.homepage_file)
+    if args.sync_photos:
+        sync_photos(args.photos_dir)

@@ -265,8 +265,14 @@ class TestSectionBuilders:
 
     def test_hero_has_ctas(self, stats):
         hero = build_hero(stats)
-        assert "FIND YOUR NEXT RACE" in hero
+        assert "BROWSE ALL RACES" in hero
         assert "HOW WE RATE" in hero
+
+    def test_hero_has_search_form(self, stats):
+        hero = build_hero(stats)
+        assert 'class="gg-hp-hero-search"' in hero
+        assert 'name="q"' in hero
+        assert "SEARCH" in hero
 
     def test_stats_bar_four_stats(self, stats):
         bar = build_stats_bar(stats)
@@ -467,7 +473,7 @@ class TestFullPage:
 
     def test_has_canonical(self, homepage_html):
         assert 'rel="canonical"' in homepage_html
-        assert "/homepage/" in homepage_html
+        assert 'gravelgodcycling.com/"' in homepage_html
 
     def test_has_og_tags(self, homepage_html):
         assert 'property="og:title"' in homepage_html

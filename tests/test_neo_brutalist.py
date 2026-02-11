@@ -633,7 +633,8 @@ class TestFullPage:
 
     def test_title_format(self, normalized_data):
         html = generate_page(normalized_data)
-        assert "Gravel God Race Rating" in html
+        assert "Gravel God" in html
+        assert "<title>" in html
         assert "Race Profile" not in html
 
     def test_has_og_image(self, normalized_data):

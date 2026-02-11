@@ -161,6 +161,63 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
+CURRENT_YEAR = "2025"
+
+
+def build_seo_title(rd: dict) -> str:
+    """Build an SEO-optimized <title> tag.
+
+    Target format: "{Race Name} Review {Year} | {Location} | Gravel God"
+    Falls back to shorter forms if title exceeds ~60 chars.
+    """
+    name = rd['name']
+    location = rd['vitals'].get('location', '') or ''
+    # Extract just state/country from full location like "Emporia, Kansas"
+    loc_short = location.split(',')[-1].strip() if ',' in location else location
+
+    # Try full format first
+    full = f"{name} Review {CURRENT_YEAR} | {loc_short} | Gravel God"
+    if len(full) <= 62:
+        return full
+
+    # Drop location if too long
+    medium = f"{name} Review {CURRENT_YEAR} | Gravel God"
+    if len(medium) <= 62:
+        return medium
+
+    # Minimal
+    return f"{name} | Gravel God"
+
+
+def build_seo_description(rd: dict) -> str:
+    """Build an SEO-optimized meta description (120-155 chars target).
+
+    Combines tagline + score/tier + call-to-action suffix.
+    """
+    tagline = rd['tagline'].rstrip('.')
+    score = rd['overall_score']
+    tier = rd['tier']
+    tier_word = {1: 'Tier 1', 2: 'Tier 2', 3: 'Tier 3', 4: 'Tier 4'}.get(tier, f'Tier {tier}')
+    suffix = f" Rated {score}/100 ({tier_word}). Course maps, ratings & full race breakdown."
+
+    desc = f"{tagline}.{suffix}"
+    if len(desc) <= 160:
+        return desc
+
+    # Truncate tagline — prefer breaking at sentence boundary
+    max_tagline = 160 - len(suffix) - 1  # 1 for "."
+    if max_tagline > 30:
+        # Try to break at last complete sentence (period followed by space)
+        candidate = tagline[:max_tagline]
+        last_period = candidate.rfind('. ')
+        if last_period > 30:
+            truncated = candidate[:last_period]
+        else:
+            truncated = candidate.rsplit(' ', 1)[0].rstrip('.,;:—-')
+        return f"{truncated}.{suffix}"
+
+    # Fallback: just tagline + score
+    return f"{tagline}. Rated {score}/100 ({tier_word}) by Gravel God."
 
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
@@ -1662,7 +1719,7 @@ def build_webpage_jsonld(rd: dict) -> dict:
     return {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": f"{rd['name']} — Gravel God Race Rating",
+        "name": build_seo_title(rd),
         "url": canonical_url,
         "dateModified": rd.get('_file_mtime', date.today().isoformat()),
         "isPartOf": {
@@ -2188,10 +2245,14 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     content = '\n\n  '.join(content_sections)
 
+    # SEO-optimized title and description
+    seo_title = build_seo_title(rd)
+    seo_description = build_seo_description(rd)
+
     # Open Graph meta tags
     og_image_url = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
-    og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Rating">
-  <meta property="og:description" content="{esc(rd['tagline'])}">
+    og_tags = f'''<meta property="og:title" content="{esc(seo_title)}">
+  <meta property="og:description" content="{esc(seo_description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:image" content="{esc(og_image_url)}">
@@ -2199,8 +2260,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Rating">
-  <meta name="twitter:description" content="{esc(rd['tagline'])}">
+  <meta name="twitter:title" content="{esc(seo_title)}">
+  <meta name="twitter:description" content="{esc(seo_description)}">
   <meta name="twitter:image" content="{esc(og_image_url)}">'''
 
     preload = get_preload_hints()
@@ -2210,8 +2271,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{esc(rd["name"])} — Gravel God Race Rating</title>
-  <meta name="description" content="{esc(rd["tagline"])}">
+  <title>{esc(seo_title)}</title>
+  <meta name="description" content="{esc(seo_description)}">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%23B7950B'>G</text></svg>">
   {preload}

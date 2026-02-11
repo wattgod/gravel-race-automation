@@ -466,6 +466,11 @@ class TestSections:
         assert "gg-countdown" in html
         assert "2026-06-15" in html
 
+    def test_countdown_shows_date_not_dashes(self, normalized_data):
+        html = build_training(normalized_data, "https://example.com")
+        assert "--" not in html
+        assert "June 15, 2026" in html
+
     def test_visible_faq_renders(self, normalized_data):
         html = build_visible_faq(normalized_data)
         assert "gg-faq-item" in html
@@ -530,6 +535,14 @@ class TestLinkify:
     def test_aliases_work(self):
         result = linkify_alternatives("Try Unbound for a bigger field.", [])
         assert 'href="/race/unbound-200/"' in result
+
+    def test_bwr_alias(self):
+        result = linkify_alternatives("Try BWR for California gravel.", [])
+        assert 'href="/race/bwr-california/"' in result
+
+    def test_big_sugar_alias(self):
+        result = linkify_alternatives("Try Big Sugar in the fall.", [])
+        assert 'href="/race/big-sugar/"' in result
 
     def test_empty_text(self):
         assert linkify_alternatives("", []) == ""

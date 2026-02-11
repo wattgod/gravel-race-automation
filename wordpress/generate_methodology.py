@@ -316,8 +316,8 @@ def build_methodology_css() -> str:
 
 
 def build_jsonld() -> str:
-    """Build WebPage JSON-LD for the methodology page."""
-    jsonld = {
+    """Build WebPage + FAQPage JSON-LD for the methodology page."""
+    webpage = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "How We Rate Gravel Races — Gravel God Methodology",
@@ -333,7 +333,55 @@ def build_jsonld() -> str:
             "cssSelector": [".gg-hero-tagline", "#formula .gg-section-body"],
         },
     }
-    return f'<script type="application/ld+json">\n{json.dumps(jsonld, indent=2)}\n</script>'
+    faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Who rates the races?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All ratings are produced by our editorial team. We research each race using official sources, rider reports, community forums, and our own race experience. Every dimension is scored and explained by a human editor.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "Can race organizers influence their score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Ratings are editorially independent.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "How often are scores updated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We review scores annually before each race season and make ad-hoc updates when significant changes occur (new ownership, course redesign, series affiliation changes).",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "Why isn't my favorite race rated higher?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 14-dimension breakdown shows exactly where a race excels and where it loses points.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "What about mountain bike races?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with an MTB discipline label. The same 14-dimension rubric applies.",
+                },
+            },
+        ],
+    }
+    wp_tag = f'<script type="application/ld+json">\n{json.dumps(webpage, indent=2)}\n</script>'
+    faq_tag = f'<script type="application/ld+json">\n{json.dumps(faq, indent=2)}\n</script>'
+    return f'{wp_tag}\n  {faq_tag}'
 
 
 # ── Assemble page ──────────────────────────────────────────────

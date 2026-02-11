@@ -147,7 +147,7 @@ QUESTIONNAIRE_SLUGS = {
     'unbound-gravel-200': 'unbound-200',
     'mid-south': 'mid-south',
     'sbt-grvl': 'sbt-grvl',
-    'belgian-waffle-ride': 'bwr',
+    'bwr-california': 'bwr',
     'leadville-trail-100-mtb': 'leadville-100',
     'the-rift-iceland': 'rift-iceland',
     'gravel-worlds': 'gravel-worlds',
@@ -514,7 +514,7 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   });
 });
 
-// Race day countdown
+// Race day countdown (HTML shows date for crawlers; JS replaces with day count)
 (function() {
   var cd = document.querySelector('.gg-countdown');
   if (!cd) return;
@@ -526,6 +526,14 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   var el = document.getElementById('gg-days-left');
   if (el && diff > 0) {
     el.textContent = diff;
+    // Replace "RACE NAME" with "DAYS UNTIL RACE NAME"
+    var textNodes = cd.childNodes;
+    for (var i = 0; i < textNodes.length; i++) {
+      if (textNodes[i].nodeType === 3 && textNodes[i].textContent.trim()) {
+        textNodes[i].textContent = ' DAYS UNTIL' + textNodes[i].textContent;
+        break;
+      }
+    }
   } else if (el && diff <= 0) {
     cd.style.display = 'none';
   }
@@ -1298,7 +1306,9 @@ def build_training(rd: dict, q_url: str) -> str:
         year, month_name, day = date_match.groups()
         month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
         iso_date = f"{year}-{month_num}-{int(day):02d}"
-        countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">--</span> DAYS UNTIL {esc(race_name.upper())}</div>'
+        # Show formatted date for no-JS/crawlers; JS replaces with day count
+        display_date = f"{month_name} {int(day)}, {year}"
+        countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
 
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
@@ -1484,7 +1494,9 @@ def linkify_alternatives(alt_text: str, race_index: list) -> str:
     aliases = {
         'Unbound': 'unbound-200',
         'Unbound Gravel': 'unbound-200',
-        'BWR': 'belgian-waffle-ride',
+        'BWR': 'bwr-california',
+        'Belgian Waffle Ride': 'bwr-california',
+        'Big Sugar': 'big-sugar',
         'Land Run': 'mid-south',
         'Leadville': 'leadville-trail-100-mtb',
     }

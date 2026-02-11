@@ -259,6 +259,12 @@
               ]
             },
             {
+              "type": "image",
+              "asset_id": "ch1-gear-essentials",
+              "alt": "Grid of 5 essential gravel gear items: bike frame, tires, helmet, repair kit, hydration",
+              "caption": "The five things you actually need. Everything else is optimization."
+            },
+            {
               "type": "callout",
               "style": "quote",
               "content": "If money is tight, spend in this order: (1) Fit + function on the bike, (2) decent bibs and a modern helmet, (3) head unit + budget power meter. Hunt used on local classifieds, FB groups, Pro's Closet, or friends \"upgrading.\" Last year's head units and single-sided power meters are stupid-good value."
@@ -317,6 +323,12 @@
               ]
             },
             {
+              "type": "image",
+              "asset_id": "ch1-hierarchy-of-speed",
+              "alt": "Pyramid showing hierarchy of speed: fitness 70%, pacing 20%, nutrition 8%, bike handling 1.5%, equipment 0.5%",
+              "caption": "Fitness dominates. Equipment is a rounding error."
+            },
+            {
               "type": "callout",
               "style": "quote",
               "content": "You can buy your way from 95% to 95.5%. You can't buy your way from 70% to 95%.\n\nThe corollary: if you're not already fast on a mediocre bike, a better bike won't make you fast. It'll make you a slower rider on a nicer bike."
@@ -366,7 +378,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch1-hero"
     },
     {
       "number": 2,
@@ -392,6 +405,12 @@
             {
               "type": "prose",
               "content": "Every race is evaluated across two categories of seven dimensions each. Course dimensions measure what the terrain demands of your body. Editorial dimensions measure the quality, prestige, and overall experience of the event."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch2-scoring-dimensions",
+              "alt": "Two-column chart showing 14 scoring dimensions with Unbound Gravel as example",
+              "caption": "14 dimensions scored 1-5 by human editors. No algorithms."
             },
             {
               "type": "data_table",
@@ -601,7 +620,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch2-hero"
     },
     {
       "number": 3,
@@ -1108,7 +1128,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch3-hero"
     },
     {
       "number": 4,
@@ -1296,7 +1317,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch4-hero"
     },
     {
       "number": 5,
@@ -1598,6 +1620,12 @@
               ]
             },
             {
+              "type": "image",
+              "asset_id": "ch5-fueling-timeline",
+              "alt": "Horizontal timeline showing race-day fueling milestones from T-3hrs to ongoing hydration",
+              "caption": "Fuel by the clock, not by feel. Set a timer."
+            },
+            {
               "type": "callout",
               "style": "quote",
               "content": "Set a timer. Seriously. Your brain will be stupid. It will forget to eat. It will lie to you and say \"I'm fine, I'll eat at the next aid station.\" The timer removes decision-making."
@@ -1739,7 +1767,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch5-hero"
     },
     {
       "number": 6,
@@ -1896,6 +1925,12 @@
             {
               "type": "prose",
               "content": "Every long gravel race follows a predictable three-act structure. Understanding this structure lets you make smart decisions when others are making emotional ones.\n\nThe specifics vary by race—some front-load the climbing, some back-load it, some are flat. But the psychological and physiological patterns are consistent across all long events.\n\nHere's how it plays out, and what your job is in each phase."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch6-three-acts",
+              "alt": "Three vertical panels: Act 1 Restraint, Act 2 Resilience, Act 3 Resolve",
+              "caption": "Every long gravel race follows this structure."
             },
             {
               "type": "data_table",
@@ -2127,7 +2162,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch6-hero"
     },
     {
       "number": 7,
@@ -2188,6 +2224,12 @@
                   "content": "20-30 minutes very easy spin or complete rest. Do what's worked for you previously."
                 }
               ]
+            },
+            {
+              "type": "image",
+              "asset_id": "ch7-race-week-countdown",
+              "alt": "Seven daily cards showing race week countdown from Monday to Race Day Sunday",
+              "caption": "Your fitness is locked in. This week is logistics."
             }
           ]
         },
@@ -2319,7 +2361,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch7-hero"
     },
     {
       "number": 8,
@@ -2583,7 +2626,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hero_image": "ch8-hero"
     }
   ]
 }

@@ -97,6 +97,12 @@ TEMPLATE_MODULES = {
     "traffic_light": "media_templates.traffic_light",
     "tier_distribution": "media_templates.tier_distribution",
     "rider_categories": "media_templates.rider_categories",
+    "gear_grid": "media_templates.gear_grid",
+    "hierarchy_pyramid": "media_templates.hierarchy_pyramid",
+    "scoring_dimensions": "media_templates.scoring_dimensions",
+    "fueling_timeline": "media_templates.fueling_timeline",
+    "three_acts": "media_templates.three_acts",
+    "race_week_countdown": "media_templates.race_week_countdown",
 }
 
 
@@ -157,8 +163,8 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
     prompt = asset["prompt"]
     dims = asset.get("dimensions", {"width": 1920, "height": 640})
 
-    # Google AI Studio Imagen API endpoint
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key={api_key}"
+    # Google AI Studio Imagen API endpoint (Imagen 4)
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={api_key}"
 
     payload = {
         "instances": [{"prompt": prompt}],
@@ -189,11 +195,9 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
 
 
 def _aspect_ratio(w: int, h: int) -> str:
-    """Convert dimensions to closest supported aspect ratio string."""
+    """Convert dimensions to closest supported Imagen 4 aspect ratio string."""
     ratio = w / h
-    if ratio >= 2.5:
-        return "3:1"
-    elif ratio >= 1.7:
+    if ratio >= 1.7:
         return "16:9"
     elif ratio >= 1.3:
         return "4:3"

@@ -84,6 +84,64 @@ FAQ_TEMPLATES = {
 FAQ_PRIORITY = ['climate', 'logistics', 'adventure', 'prestige', 'technicality',
                 'experience', 'race_quality', 'elevation', 'community', 'value']
 
+# Month name → number mapping (shared by JSON-LD and training countdown)
+MONTH_NUMBERS = {
+    "january": "01", "february": "02", "march": "03", "april": "04",
+    "may": "05", "june": "06", "july": "07", "august": "08",
+    "september": "09", "october": "10", "november": "11", "december": "12",
+}
+
+# US state names and abbreviations for country detection in JSON-LD
+US_STATES = {
+    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
+    'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
+    'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
+    'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+    'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
+    'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
+    'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+    'West Virginia', 'Wisconsin', 'Wyoming',
+    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+    'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+    'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
+}
+
+# Country name → ISO 3166-1 alpha-2 code
+COUNTRY_CODES = {
+    'Canada': 'CA', 'UK': 'GB', 'England': 'GB', 'Scotland': 'GB', 'Wales': 'GB',
+    'Australia': 'AU', 'Queensland': 'AU', 'Victoria': 'AU',
+    'South Australia': 'AU', 'New South Wales': 'AU', 'Western Australia': 'AU',
+    'Italy': 'IT', 'Germany': 'DE', 'France': 'FR', 'Belgium': 'BE',
+    'Belgian Ardennes': 'BE', 'Spain': 'ES', 'Switzerland': 'CH',
+    'New Zealand': 'NZ', 'Colombia': 'CO', 'Chile': 'CL', 'Brazil': 'BR',
+    'Argentina': 'AR', 'Sweden': 'SE', 'Austria': 'AT', 'Greece': 'GR',
+    'Poland': 'PL', 'Finland': 'FI', 'Netherlands': 'NL', 'Norway': 'NO',
+    'Portugal': 'PT', 'Romania': 'RO', 'South Africa': 'ZA', 'Kenya': 'KE',
+    'Thailand': 'TH', 'Japan': 'JP', 'British Columbia': 'CA', 'Ontario': 'CA',
+    'Southern Iceland': 'IS', 'Iceland': 'IS',
+}
+
+
+def detect_country(location: str) -> str:
+    """Detect ISO country code from location string. Returns 'US' as default."""
+    if not location or location == '--':
+        return 'US'
+    parts = [p.strip() for p in location.split(',')]
+    # Check last part first (most specific), then second-to-last
+    for part in reversed(parts):
+        # Strip parentheticals: "Georgia (North Georgia mountains)" → "Georgia"
+        clean = re.sub(r'\s*\(.*\)', '', part).strip()
+        if clean in COUNTRY_CODES:
+            return COUNTRY_CODES[clean]
+        if clean in US_STATES:
+            return 'US'
+    return 'US'
+
+
 QUESTIONNAIRE_SLUGS = {
     'unbound-200': 'unbound-200',
     'unbound-gravel-200': 'unbound-200',
@@ -100,6 +158,7 @@ QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/trainin
 COACHING_URL = "https://www.wattgod.com/apply"
 TRAINING_PLANS_URL = "/training-plans/"
 SITE_BASE_URL = "https://gravelgodcycling.com"
+GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
 
@@ -231,7 +290,7 @@ def normalize_race_data(data: dict) -> dict:
         },
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
-        'unsplash_photos': race.get('unsplash_photos', []),
+        'race_photos': race.get('race_photos', []),
     }
 
 
@@ -472,12 +531,13 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   }
 })();
 
-// Hero score counter animation
+// Hero score counter animation (starts from 0, real score is in HTML for crawlers)
 (function() {
   var el = document.querySelector('.gg-hero-score-number');
   if (!el) return;
   var target = parseInt(el.getAttribute('data-target'), 10);
   if (!target) return;
+  el.textContent = '0';
   var duration = 1500;
   var start = null;
   function step(ts) {
@@ -705,9 +765,18 @@ if ('IntersectionObserver' in window) {
   // Build keywords from race name for relevance filtering
   var nameWords = query.replace(/\+/g, ' ').toLowerCase().split(' ').filter(function(w) { return w.length > 2; });
 
+  // Timeout helper — abort fetch after 6 seconds
+  function fetchWithTimeout(url, ms) {
+    var controller = new AbortController();
+    var timer = setTimeout(function() { controller.abort(); }, ms);
+    return fetch(url, { signal: controller.signal })
+      .then(function(r) { clearTimeout(timer); return r.json(); })
+      .catch(function() { clearTimeout(timer); return { items: [] }; });
+  }
+
   Promise.allSettled([
-    fetch(newsUrl).then(function(r) { return r.json(); }),
-    fetch(redditUrl).then(function(r) { return r.json(); })
+    fetchWithTimeout(newsUrl, 6000),
+    fetchWithTimeout(redditUrl, 6000)
   ]).then(function(results) {
     var all = [];
     results.forEach(function(result) {
@@ -727,9 +796,7 @@ if ('IntersectionObserver' in window) {
     all = all.slice(0, 8);
 
     if (all.length === 0) {
-      feed.innerHTML = '<span class="gg-news-ticker-empty">No recent headlines.</span>';
-      feed.style.animation = 'none';
-      feed.style.paddingLeft = '16px';
+      ticker.style.display = 'none';
       return;
     }
 
@@ -805,32 +872,30 @@ def build_sports_event_jsonld(rd: dict) -> dict:
     date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
     if date_match:
         year, month_name, day = date_match.groups()
-        months = {"january": "01", "february": "02", "march": "03", "april": "04",
-                  "may": "05", "june": "06", "july": "07", "august": "08",
-                  "september": "09", "october": "10", "november": "11", "december": "12"}
-        month_num = months.get(month_name.lower(), "01")
+        month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
         jsonld["startDate"] = f"{year}-{month_num}-{int(day):02d}"
 
-    # Location with PostalAddress
+    # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')
     if location and location != '--':
         parts = [p.strip() for p in location.split(',')]
+        country = detect_country(location)
         place = {"@type": "Place", "name": location}
         if len(parts) >= 2:
             place["address"] = {
                 "@type": "PostalAddress",
                 "addressLocality": parts[0],
-                "addressRegion": parts[1],
-                "addressCountry": "US",
+                "addressRegion": parts[1] if len(parts) > 2 else parts[-1],
+                "addressCountry": country,
             }
         jsonld["location"] = place
 
     # OG image
     jsonld["image"] = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
 
-    # Organizer from history.founder
+    # Organizer from history.founder — skip generic stub text
     founder = rd.get('history', {}).get('founder', '')
-    if founder:
+    if founder and not founder.endswith('organizers') and founder != 'Unknown':
         jsonld["organizer"] = {"@type": "Person", "name": founder}
 
     # Parse price
@@ -917,12 +982,13 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 def build_hero(rd: dict) -> str:
     """Build hero section."""
+    score = rd['overall_score']
     return f'''<section class="gg-hero">
   <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>
   <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
   <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>
   <div class="gg-hero-score">
-    <div class="gg-hero-score-number" data-target="{rd['overall_score']}">0</div>
+    <div class="gg-hero-score-number" data-target="{score}">{score}</div>
     <div class="gg-hero-score-label">/ 100</div>
   </div>
 </section>'''
@@ -1034,11 +1100,15 @@ def build_history(rd: dict) -> str:
 
     body_parts = []
 
-    # Origin story
-    if h.get('origin_story'):
+    # Origin story — suppress generic stub text (< 60 chars ending in "event." etc.)
+    origin = h.get('origin_story', '').strip()
+    is_stub_origin = len(origin) < 60 and origin.endswith(('event.', 'race.', 'community.'))
+    if origin and not is_stub_origin:
         founded = f" Founded in {h['founded']}." if h.get('founded') else ''
-        founder = f" By {h['founder']}." if h.get('founder') and h['founder'] != 'Unknown' else ''
-        body_parts.append(f'<div class="gg-prose"><p>{esc(h["origin_story"])}{esc(founded)}{esc(founder)}</p></div>')
+        # Suppress generic "X organizers" founder text
+        founder_text = h.get('founder', '')
+        founder = f" By {founder_text}." if founder_text and founder_text != 'Unknown' and not founder_text.endswith('organizers') else ''
+        body_parts.append(f'<div class="gg-prose"><p>{esc(origin)}{esc(founded)}{esc(founder)}</p></div>')
 
     # Reputation
     if h.get('reputation'):
@@ -1143,13 +1213,13 @@ def build_ratings(rd: dict) -> str:
       {radar}
       <h3 class="gg-accordion-group-title">Course Profile</h3>
       {course_accordion}
-      <h3 class="gg-accordion-group-title" style="margin-top:20px">Editorial Assessment</h3>
+      <h3 class="gg-accordion-group-title gg-mt-md">Editorial Assessment</h3>
       {opinion_accordion}
     </div>
   </section>'''
 
 
-def build_verdict(rd: dict) -> str:
+def build_verdict(rd: dict, race_index: list = None) -> str:
     """Build [05] Final Verdict section — Race This If / Skip This If."""
     bo = rd['biased_opinion']
     fv = rd['final_verdict']
@@ -1200,8 +1270,8 @@ def build_verdict(rd: dict) -> str:
     # Alternatives with race links
     alt_html = ''
     if fv.get('alternatives'):
-        linked = linkify_alternatives(fv['alternatives'], set())
-        alt_html = f'''<div class="gg-prose" style="margin-top:16px"><p><strong>Alternatives:</strong> {linked}</p></div>'''
+        linked = linkify_alternatives(fv['alternatives'], race_index or [])
+        alt_html = f'''<div class="gg-prose gg-mt-md"><p><strong>Alternatives:</strong> {linked}</p></div>'''
 
     return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
     <div class="gg-section-header gg-section-header--gold">
@@ -1226,10 +1296,7 @@ def build_training(rd: dict, q_url: str) -> str:
     date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
     if date_match:
         year, month_name, day = date_match.groups()
-        months = {"january": "01", "february": "02", "march": "03", "april": "04",
-                  "may": "05", "june": "06", "july": "07", "august": "08",
-                  "september": "09", "october": "10", "november": "11", "december": "12"}
-        month_num = months.get(month_name.lower(), "01")
+        month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
         iso_date = f"{year}-{month_num}-{int(day):02d}"
         countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">--</span> DAYS UNTIL {esc(race_name.upper())}</div>'
 
@@ -1281,8 +1348,9 @@ def build_logistics_section(rd: dict) -> str:
         ('Parking', lg.get('parking', '')),
     ]
 
-    # Filter out empty items
-    items_data = [(label, val) for label, val in items_data if val]
+    # Filter out empty items and placeholder text ("Check X website/calendars")
+    items_data = [(label, val) for label, val in items_data
+                  if val and not re.match(r'^Check\s', val, re.IGNORECASE)]
 
     if not items_data:
         return ''
@@ -1299,7 +1367,7 @@ def build_logistics_section(rd: dict) -> str:
     official = lg.get('official_site', '')
     site_html = ''
     if official and official.startswith('http'):
-        site_html = f'''<div style="margin-top:16px">
+        site_html = f'''<div class="gg-mt-md">
         <a href="{esc(official)}" class="gg-btn gg-btn--secondary" target="_blank" rel="noopener">OFFICIAL SITE</a>
       </div>'''
 
@@ -1318,24 +1386,23 @@ def build_logistics_section(rd: dict) -> str:
 
 
 def build_photos_section(rd: dict) -> str:
-    """Build photo grid section using Unsplash photos stored in race data.
+    """Build photo grid section using self-hosted AI-generated race photos.
     Returns empty string if no photos — no empty placeholder."""
-    photos = rd.get('unsplash_photos', [])
+    photos = rd.get('race_photos', [])
     if not photos:
         return ''
 
-    utm = 'utm_source=gravel_god_cycling&utm_medium=referral'
+    photo_base = 'https://gravelgodcycling.com/photos'
     cards = []
     for p in photos:
-        desc = esc(p.get('description', '') or 'Gravel cycling photo')
-        photographer = esc(p.get('photographer', 'Unknown'))
-        photographer_url = p.get('photographer_url', '')
-        url_regular = p.get('url_regular', '')
-        if not url_regular:
-            continue
+        url = f"{photo_base}/{p['file']}"
+        alt = esc(p.get('alt', 'Race course photo'))
+        ptype = p.get('type', 'hero')
+        h = 675 if ptype != 'terrain' else 900
         cards.append(f'''<figure class="gg-photo-card">
-          <img src="{esc(url_regular)}" alt="{desc}" loading="lazy">
-          <figcaption>Photo by <a href="{esc(photographer_url)}?{utm}" target="_blank" rel="noopener">{photographer}</a> on <a href="https://unsplash.com?{utm}" target="_blank" rel="noopener">Unsplash</a></figcaption>
+          <img src="{esc(url)}" alt="{alt}" loading="lazy"
+               width="1200" height="{h}">
+          <figcaption>AI-generated scene based on course data</figcaption>
         </figure>''')
 
     if not cards:
@@ -1394,34 +1461,40 @@ def build_pullquote(rd: dict) -> str:
   </div>'''
 
 
-def linkify_alternatives(alt_text: str, all_slugs: set) -> str:
+def _build_race_name_map(race_index: list) -> dict:
+    """Build name → slug mapping from the full race index for linkification."""
+    name_map = {}
+    for r in race_index:
+        slug = r.get('slug', '')
+        name = r.get('name', '')
+        if name and slug:
+            name_map[name] = slug
+    return name_map
+
+
+def linkify_alternatives(alt_text: str, race_index: list) -> str:
     """Parse race names from alternatives text and link to profile pages.
-    Matches known race names/slugs and wraps them in anchor tags."""
+    Builds name→slug mapping from the full race index (328 races)."""
     if not alt_text:
         return ''
 
-    # Known race name → slug mapping for common mentions
-    RACE_ALIASES = {
+    # Build mapping from index; include common aliases as fallback
+    name_map = _build_race_name_map(race_index) if race_index else {}
+    # Add well-known aliases that differ from display names
+    aliases = {
         'Unbound': 'unbound-200',
         'Unbound Gravel': 'unbound-200',
-        'Mid South': 'mid-south',
-        'Belgian Waffle Ride': 'belgian-waffle-ride',
-        'SBT GRVL': 'sbt-grvl',
-        'Gravel Worlds': 'gravel-worlds',
-        'Leadville': 'leadville-trail-100-mtb',
-        'Steamboat Gravel': 'steamboat-gravel',
         'BWR': 'belgian-waffle-ride',
-        'Gravel Locos': 'gravel-locos',
-        'The Rift': 'the-rift-iceland',
-        'Migration Gravel Race': 'migration-gravel-race',
-        'Crusher in the Tushar': 'crusher-in-the-tushar',
-        'Big Sugar': 'big-sugar-gravel',
         'Land Run': 'mid-south',
+        'Leadville': 'leadville-trail-100-mtb',
     }
+    for alias, slug in aliases.items():
+        if alias not in name_map:
+            name_map[alias] = slug
 
     result = esc(alt_text)
     # Sort by length descending to match longer names first
-    for name, slug in sorted(RACE_ALIASES.items(), key=lambda x: len(x[0]), reverse=True):
+    for name, slug in sorted(name_map.items(), key=lambda x: len(x[0]), reverse=True):
         escaped_name = esc(name)
         if escaped_name in result:
             link = f'<a href="/race/{slug}/" class="gg-alt-link">{escaped_name}</a>'
@@ -1615,8 +1688,13 @@ def build_nav_header(rd: dict, race_index: list) -> str:
 
 
 def build_footer() -> str:
-    """Build page footer with disclaimer."""
-    return '''<div class="gg-footer">
+    """Build page footer with nav links and disclaimer."""
+    return f'''<div class="gg-footer">
+    <nav class="gg-footer-nav">
+      <a href="{SITE_BASE_URL}/gravel-races/">All Races</a>
+      <a href="{SITE_BASE_URL}/race/methodology/">How We Rate</a>
+      <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Newsletter</a>
+    </nav>
     <p class="gg-footer-disclaimer">This content is produced independently by Gravel God and is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body mentioned on this page. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. Race details are subject to change &mdash; always verify with official race sources.</p>
   </div>'''
 
@@ -1631,6 +1709,13 @@ def get_page_css() -> str:
 {fonts}
 
 {tokens}
+
+/* Skip link */
+.gg-skip-link {{ position: absolute; top: -100px; left: 16px; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 8px 16px; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-decoration: none; z-index: 999; border: var(--gg-border-standard); }}
+.gg-skip-link:focus {{ top: 8px; }}
+
+/* Utility */
+.gg-mt-md {{ margin-top: var(--gg-spacing-md); }}
 
 /* Page wrapper */
 .gg-neo-brutalist-page {{
@@ -1928,9 +2013,19 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-footer {{ background: var(--gg-color-dark-brown); color: var(--gg-color-tan); padding: 24px 20px; border-top: var(--gg-border-double); margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }}
 .gg-neo-brutalist-page .gg-footer a {{ color: var(--gg-color-white); text-decoration: none; }}
 .gg-neo-brutalist-page .gg-footer a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-footer-nav {{ display: flex; justify-content: center; gap: 24px; margin-bottom: var(--gg-spacing-md); }}
+.gg-neo-brutalist-page .gg-footer-nav a {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; }}
 .gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
 
-/* Responsive */
+/* Responsive — tablet */
+@media (max-width: 1024px) {{
+  .gg-neo-brutalist-page .gg-radar-pair {{ gap: 8px; }}
+  .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr 1fr; }}
+  .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(3, 1fr); gap: 10px; }}
+  .gg-neo-brutalist-page .gg-news-ticker {{ display: none; }}
+}}
+
+/* Responsive — mobile */
 @media (max-width: 768px) {{
   .gg-neo-brutalist-page .gg-hero {{ padding: var(--gg-spacing-2xl) var(--gg-spacing-lg); }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: var(--gg-font-size-2xl); }}
@@ -2053,7 +2148,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     course_route = build_course_route(rd)
     photos = build_photos_section(rd)
     ratings = build_ratings(rd)
-    verdict = build_verdict(rd)
+    verdict = build_verdict(rd, race_index)
     email_capture = build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
@@ -2103,16 +2198,20 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{esc(rd["name"])} — Gravel God Race Profile</title>
+  <title>{esc(rd["name"])} — Gravel God Race Rating</title>
   <meta name="description" content="{esc(rd["tagline"])}">
   <link rel="canonical" href="{esc(canonical_url)}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%23B7950B'>G</text></svg>">
   {preload}
   {og_tags}
   {jsonld_html}
   {css}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
 </head>
 <body>
 
+<a href="#course" class="gg-skip-link">Skip to content</a>
 <div class="gg-neo-brutalist-page">
   {nav_header}
 

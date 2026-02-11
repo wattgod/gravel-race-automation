@@ -17,6 +17,7 @@ from pathlib import Path
 
 # Import shared constants from the race page generator
 from generate_neo_brutalist import (
+    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     SUBSTACK_URL,
     get_page_css,
@@ -383,6 +384,8 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   {jsonld}
   {page_css}
   {method_css}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
 </head>
 <body>
 

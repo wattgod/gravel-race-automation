@@ -35,7 +35,6 @@ from generate_homepage import (
     build_jsonld,
     _tier_badge_class,
     FEATURED_SLUGS,
-    FEATURED_ARTICLES,
     GA4_MEASUREMENT_ID,
 )
 
@@ -98,8 +97,10 @@ class TestDataLoading:
         expected = sum(1 for r in race_index if r.get("tier") == 1)
         assert stats["t1_count"] == expected
 
-    def test_stats_tier_levels(self, stats):
-        assert stats["tier_levels"] == 4
+    def test_stats_keys(self, stats):
+        assert "race_count" in stats
+        assert "dimensions" in stats
+        assert "t1_count" in stats
 
 
 # ── Featured Races ───────────────────────────────────────────
@@ -276,7 +277,7 @@ class TestSectionBuilders:
         assert str(stats["race_count"]) in bar
         assert str(stats["dimensions"]) in bar
         assert str(stats["t1_count"]) in bar
-        assert str(stats["tier_levels"]) in bar
+        assert "Sponsors" in bar
 
     def test_featured_races_section(self, race_index):
         html = build_featured_races(race_index)
@@ -293,9 +294,9 @@ class TestSectionBuilders:
         assert "01" in html
         assert "02" in html
         assert "03" in html
-        assert "BROWSE RACES" in html
-        assert "READ THE RATINGS" in html
-        assert "TRAIN" in html
+        assert "PICK YOUR RACE" in html
+        assert "READ THE REAL TAKE" in html
+        assert "SHOW UP READY" in html
 
     def test_featured_in_section(self):
         html = build_featured_in()

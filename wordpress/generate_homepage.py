@@ -49,10 +49,6 @@ FEATURED_SLUGS = [
     "belgian-waffle-ride",
 ]
 
-# ── Featured articles (curated — leave empty to use latest from RSS) ──
-
-FEATURED_ARTICLES = []
-
 # ── Featured on-site articles (curated for homepage voice) ──────
 # These are the "saucy takes" that show personality and editorial voice.
 # Each entry: (title, url_path, category_tag, teaser)
@@ -102,7 +98,6 @@ def compute_stats(race_index: list) -> dict:
         "race_count": race_count,
         "dimensions": 14,
         "t1_count": t1_count,
-        "tier_levels": 4,
     }
 
 
@@ -270,10 +265,10 @@ def build_ticker(one_liners: list, substack_posts: list, upcoming: list) -> str:
         items.append(f'<span class="gg-ticker-tag gg-ticker-tag--brown">NEWSLETTER</span> '
                      f'<a href="{esc(post["url"])}">{esc(post["title"])}</a>')
 
-    # Editorial one-liners (random sample)
+    # Editorial one-liners (random sample, rotates daily)
     sample_size = min(8, len(one_liners))
     if one_liners:
-        random.seed(42)  # Deterministic for consistent builds
+        random.seed(date.today().toordinal())  # Rotates daily, deterministic within a day
         sampled = random.sample(one_liners, sample_size)
         for ol in sampled:
             text = ol["text"][:100] + ("..." if len(ol["text"]) > 100 else "")
@@ -303,7 +298,14 @@ def build_coming_up(upcoming: list) -> str:
     recent = [r for r in upcoming if r["days"] < 0]
 
     if not future and not recent:
-        return ""
+        return f'''<section class="gg-hp-coming-up" id="coming-up">
+    <div class="gg-hp-section-header">
+      <h2>COMING UP</h2>
+    </div>
+    <div class="gg-hp-cal-offseason">
+      Off-season. The next wave of races is loading. <a href="{SITE_BASE_URL}/gravel-races/">Browse all races &rarr;</a>
+    </div>
+  </section>'''
 
     items = ""
 
@@ -400,7 +402,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
     <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-    <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. 4 tiers. No sponsors. No pay-to-play. Just honest ratings.</p>
+    <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. No sponsors. No pay-to-play. Just honest ratings &mdash; plus coaching and training for people with real lives who still want to go fast.</p>
     <div class="gg-hp-hero-ctas">
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="hero_cta_click">FIND YOUR NEXT RACE</a>
       <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn gg-hp-btn--secondary" data-ga="hero_secondary_click">HOW WE RATE</a>
@@ -413,7 +415,7 @@ def build_stats_bar(stats: dict) -> str:
         (stats["race_count"], "Races Rated"),
         (stats["dimensions"], "Scoring Dimensions"),
         (stats["t1_count"], "Tier 1 Elite Races"),
-        (stats["tier_levels"], "Tier Levels"),
+        (0, "Sponsors"),
     ]
     cells = ""
     for value, label in items:
@@ -517,9 +519,9 @@ def build_latest_takes() -> str:
 def build_how_it_works(stats: dict = None) -> str:
     race_count = stats["race_count"] if stats else 328
     steps = [
-        ("01", "BROWSE RACES", f"Search {race_count} races by tier, region, distance, and more."),
-        ("02", "READ THE RATINGS", "14 dimensions scored and explained by human editors."),
-        ("03", "TRAIN &amp; RACE", "Get a custom training plan built for your target race."),
+        ("01", "PICK YOUR RACE", f"{race_count} races. Scored honestly. Filter by what actually matters to you &mdash; not what a sponsor paid us to promote."),
+        ("02", "READ THE REAL TAKE", "Every rating comes with an editorial opinion. We tell you if it&rsquo;s worth the flight, the entry fee, and the suffering."),
+        ("03", "SHOW UP READY", "Race-specific training plans and a 30-page guide so you don&rsquo;t blow up at mile 60 like we did."),
     ]
     cells = ""
     for num, title, desc in steps:
@@ -599,7 +601,7 @@ def build_training_cta() -> str:
 
 
 def build_email_capture(posts: list = None) -> str:
-    articles = FEATURED_ARTICLES if FEATURED_ARTICLES else (posts or [])
+    articles = posts or []
 
     cards = ""
     for post in articles[:6]:
@@ -789,6 +791,8 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-cal-meta { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; margin-top: 2px; }
 .gg-hp-cal-score { font-family: 'Sometype Mono', monospace; font-size: 20px; font-weight: 700; color: #1A8A82; min-width: 36px; text-align: right; }
 .gg-hp-cal-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
+.gg-hp-cal-offseason { padding: 24px 20px; font-family: 'Sometype Mono', monospace; font-size: 12px; color: #8c7568; letter-spacing: 0.5px; }
+.gg-hp-cal-offseason a { color: #1A8A82; font-weight: 700; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
 .gg-hp-guide { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
@@ -1141,14 +1145,15 @@ def main():
 
     output_file = output_dir / "homepage.html"
     output_file.write_text(html_content, encoding="utf-8")
-    print(f"Generated {output_file} ({len(html_content):,} bytes)")
+
+    # Summary stats (reuse cheap computations, avoid re-fetching Substack RSS)
     stats = compute_stats(race_index)
     upcoming = load_upcoming_races()
     one_liners = load_editorial_one_liners()
     chapters = load_guide_chapters()
-    substack = fetch_substack_posts()
+    print(f"Generated {output_file} ({len(html_content):,} bytes)")
     print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['dimensions']} dimensions")
-    print(f"  Ticker: {len(one_liners)} one-liners, {len(substack)} Substack posts")
+    print(f"  Ticker: {len(one_liners)} one-liners")
     print(f"  Coming up: {len([r for r in upcoming if r['days'] >= 0])} upcoming, {len([r for r in upcoming if r['days'] < 0])} recent")
     print(f"  Guide: {len(chapters)} chapters")
 

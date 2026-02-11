@@ -6,7 +6,9 @@ Push landing page JSON or race index to WordPress.
 import argparse
 import json
 import os
+import shutil
 import subprocess
+import tempfile
 import requests
 from dotenv import load_dotenv
 from pathlib import Path
@@ -529,6 +531,115 @@ def sync_og(og_dir: str):
         return None
 
 
+def sync_pages(pages_dir: str):
+    """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
+
+    Converts flat {slug}.html files to {slug}/index.html directory structure.
+    Also uploads shared assets/ directory. Ensures /race/ directory has 755
+    permissions so Apache/Googlebot can access the pages.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    pages_path = Path(pages_dir)
+    if not pages_path.exists():
+        print(f"✗ Pages directory not found: {pages_path}")
+        return None
+
+    html_files = sorted(pages_path.glob("*.html"))
+    if not html_files:
+        print(f"✗ No .html files found in {pages_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+
+    # Create remote directory with correct permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base} && chmod 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Build tar archive with {slug}/index.html directory structure
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for html_file in html_files:
+            slug = html_file.stem
+            slug_dir = tmpdir / slug
+            slug_dir.mkdir()
+            shutil.copy2(html_file, slug_dir / "index.html")
+            page_count += 1
+
+        # Also include assets/ if present
+        assets_src = pages_path / "assets"
+        if assets_src.exists():
+            shutil.copytree(assets_src, tmpdir / "assets", dirs_exist_ok=True)
+            print(f"  Including shared assets/")
+
+        print(f"  Uploading {page_count} race pages via tar+ssh...")
+
+        try:
+            # List all items in tmpdir for tar
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"tar -xf - -C {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"✗ Error uploading race pages: {e}")
+            return None
+
+    # Fix permissions on /race/ directory (prevents 403 for Googlebot)
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        print("⚠️  Warning: could not fix /race/ permissions — verify manually")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} race pages to {wp_url}/race/")
+    return f"{wp_url}/race/"
+
+
 def sync_photos(photos_dir: str):
     """Upload race photos to /photos/ on SiteGround via tar+ssh pipe.
 
@@ -657,6 +768,14 @@ if __name__ == "__main__":
         help="Path to homepage HTML (default: wordpress/output/homepage.html)"
     )
     parser.add_argument(
+        "--sync-pages", action="store_true",
+        help="Upload race pages to /race/ via tar+ssh (with correct permissions)"
+    )
+    parser.add_argument(
+        "--pages-dir", default="wordpress/output",
+        help="Path to race pages directory (default: wordpress/output)"
+    )
+    parser.add_argument(
         "--sync-photos", action="store_true",
         help="Upload race photos to /photos/ via tar+ssh"
     )
@@ -666,8 +785,8 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_photos:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, and/or --sync-photos")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, and/or --sync-photos")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -683,5 +802,7 @@ if __name__ == "__main__":
         sync_og(args.og_dir)
     if args.sync_homepage:
         sync_homepage(args.homepage_file)
+    if args.sync_pages:
+        sync_pages(args.pages_dir)
     if args.sync_photos:
         sync_photos(args.photos_dir)

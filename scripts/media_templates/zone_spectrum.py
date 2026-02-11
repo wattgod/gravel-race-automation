@@ -2,7 +2,7 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb, apply_brand_border,
+    load_font, hex_to_rgb,
     PRIMARY_BROWN, DARK_TEAL, TEAL, DARK_GOLD, GOLD, OFF_WHITE, BLACK, WHITE,
 )
 
@@ -58,4 +58,4 @@ def render(width: int = 1200, height: int = 600) -> Image.Image:
         pct_text = f"{min_pct}-{max_pct_val}%"
         draw.text((bar_right + 10, y + 16), pct_text, fill=hex_to_rgb(BLACK), font=font_pct)
 
-    return apply_brand_border(img)
+    return img

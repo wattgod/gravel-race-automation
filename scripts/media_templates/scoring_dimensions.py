@@ -1,4 +1,11 @@
-"""Scoring dimensions — 14 criteria in two columns with horizontal bars."""
+"""Scoring dimensions — 14 criteria in two columns with horizontal bars.
+
+Loads Unbound Gravel 200 scores from race-data/ so the infographic stays
+in sync with the database.
+"""
+import json
+from pathlib import Path
+
 from PIL import Image, ImageDraw
 
 from .base import (
@@ -9,30 +16,60 @@ from .base import (
 
 MUTED_TAN = "#c4b5ab"
 
-# Unbound Gravel example scores (high across the board)
-COURSE = [
-    ("Length", 5),
-    ("Technicality", 3),
-    ("Elevation", 4),
-    ("Climate", 4),
-    ("Altitude", 2),
-    ("Logistics", 3),
-    ("Adventure", 4),
+RACE_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "race-data"
+
+# Keys in biased_opinion_ratings → display labels, grouped by column
+COURSE_KEYS = [
+    ("length", "Length"),
+    ("technicality", "Technicality"),
+    ("elevation", "Elevation"),
+    ("climate", "Climate"),
+    ("altitude", "Altitude"),
+    ("logistics", "Logistics"),
+    ("adventure", "Adventure"),
+]
+EDITORIAL_KEYS = [
+    ("prestige", "Prestige"),
+    ("race_quality", "Race Quality"),
+    ("experience", "Experience"),
+    ("community", "Community"),
+    ("field_depth", "Field Depth"),
+    ("value", "Value"),
+    ("expenses", "Expenses"),
 ]
 
-EDITORIAL = [
-    ("Prestige", 5),
-    ("Race Quality", 5),
-    ("Experience", 5),
-    ("Community", 5),
-    ("Field Depth", 5),
-    ("Value", 4),
-    ("Expenses", 3),
-]
+
+def _load_unbound_scores() -> tuple[list, list, int]:
+    """Load Unbound 200 scores from race data. Returns (course, editorial, overall)."""
+    profile = RACE_DATA_DIR / "unbound-200.json"
+    if not profile.exists():
+        # Fallback to hardcoded if file missing (e.g. in test environments)
+        return (
+            [("Length", 5), ("Technicality", 3), ("Elevation", 3), ("Climate", 5),
+             ("Altitude", 1), ("Logistics", 4), ("Adventure", 5)],
+            [("Prestige", 5), ("Race Quality", 5), ("Experience", 5), ("Community", 5),
+             ("Field Depth", 5), ("Value", 3), ("Expenses", 2)],
+            80,
+        )
+
+    data = json.loads(profile.read_text(encoding="utf-8"))
+    race = data.get("race", data)
+    ratings = race.get("biased_opinion_ratings", {})
+    overall = race.get("gravel_god_rating", {}).get("overall_score", 0)
+    tier = race.get("gravel_god_rating", {}).get("display_tier", "?")
+
+    course = [(label, ratings.get(key, {}).get("score", 0)) for key, label in COURSE_KEYS]
+    editorial = [(label, ratings.get(key, {}).get("score", 0)) for key, label in EDITORIAL_KEYS]
+
+    return course, editorial, overall, tier
 
 
 def render(width: int = 1200, height: int = 800) -> Image.Image:
     """Render a two-column scoring dimensions chart."""
+    result = _load_unbound_scores()
+    course, editorial, overall = result[0], result[1], result[2]
+    tier = result[3] if len(result) > 3 else "?"
+
     img = Image.new("RGB", (width, height), hex_to_rgb(OFF_WHITE))
     draw = ImageDraw.Draw(img)
 
@@ -49,7 +86,7 @@ def render(width: int = 1200, height: int = 800) -> Image.Image:
     # Title
     draw.text((pad, 16), "14-DIMENSION SCORING SYSTEM",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
-    draw.text((pad + 420, 20), "Example: Unbound Gravel (Score: 93)",
+    draw.text((pad + 420, 20), f"Example: Unbound Gravel (Score: {overall})",
               fill=hex_to_rgb(SECONDARY_BROWN), font=font_subtitle)
     draw.line([(pad, 48), (width - pad, 48)], fill=hex_to_rgb(BLACK), width=2)
 
@@ -93,16 +130,16 @@ def render(width: int = 1200, height: int = 800) -> Image.Image:
     col_w = mid - pad - 10
     col_top = 64
 
-    draw_column(COURSE, pad, col_w, col_top,
+    draw_column(course, pad, col_w, col_top,
                 "COURSE DIMENSIONS", DARK_TEAL)
-    draw_column(EDITORIAL, mid + 10, col_w, col_top,
+    draw_column(editorial, mid + 10, col_w, col_top,
                 "EDITORIAL DIMENSIONS", DARK_GOLD)
 
     # Total score bar at bottom
     total_y = height - 55
     draw.line([(pad, total_y - 10), (width - pad, total_y - 10)],
               fill=hex_to_rgb(BLACK), width=2)
-    draw.text((pad, total_y), "OVERALL: 93/100 — TIER 1",
+    draw.text((pad, total_y), f"OVERALL: {overall}/100 — TIER {tier}",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_col_head)
     draw.text((width - pad - 200, total_y), "gravelgodcycling.com",
               fill=hex_to_rgb(MUTED_TAN), font=font_xs)

@@ -41,7 +41,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:07.889792+00:00",
+      "generated_at": "2026-02-11T00:51:08.030599+00:00",
       "output_files": [
         "ch1-hero-1x.webp",
         "ch1-hero-2x.webp"
@@ -69,7 +69,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:07.671872+00:00",
+      "generated_at": "2026-02-11T00:51:08.293443+00:00",
       "output_files": [
         "ch2-hero-1x.webp",
         "ch2-hero-2x.webp"
@@ -97,7 +97,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:08.340114+00:00",
+      "generated_at": "2026-02-11T00:51:08.486045+00:00",
       "output_files": [
         "ch3-hero-1x.webp",
         "ch3-hero-2x.webp"
@@ -125,7 +125,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:15.096845+00:00",
+      "generated_at": "2026-02-11T00:51:08.675756+00:00",
       "output_files": [
         "ch4-hero-1x.webp",
         "ch4-hero-2x.webp"
@@ -153,7 +153,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:14.677796+00:00",
+      "generated_at": "2026-02-11T00:51:08.843234+00:00",
       "output_files": [
         "ch5-hero-1x.webp",
         "ch5-hero-2x.webp"
@@ -181,7 +181,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:16.121414+00:00",
+      "generated_at": "2026-02-11T00:51:08.972373+00:00",
       "output_files": [
         "ch6-hero-1x.webp",
         "ch6-hero-2x.webp"
@@ -209,7 +209,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:22.225050+00:00",
+      "generated_at": "2026-02-11T00:51:09.128172+00:00",
       "output_files": [
         "ch7-hero-1x.webp",
         "ch7-hero-2x.webp"
@@ -237,7 +237,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:11:22.396582+00:00",
+      "generated_at": "2026-02-11T00:51:09.262011+00:00",
       "output_files": [
         "ch8-hero-1x.webp",
         "ch8-hero-2x.webp"
@@ -330,7 +330,7 @@
         "template": "scoring_dimensions"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:44:59.871181+00:00",
+      "generated_at": "2026-02-11T00:50:59.868651+00:00",
       "output_files": [
         "ch2-scoring-dimensions-1x.webp",
         "ch2-scoring-dimensions-2x.webp"
@@ -361,7 +361,7 @@
         "template": "zone_spectrum"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T15:07:02.131322+00:00",
+      "generated_at": "2026-02-11T00:50:58.390414+00:00",
       "output_files": [
         "ch3-zone-spectrum-1x.webp",
         "ch3-zone-spectrum-2x.webp"
@@ -392,7 +392,7 @@
         "template": "training_phases"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T15:07:03.303487+00:00",
+      "generated_at": "2026-02-11T00:50:58.961691+00:00",
       "output_files": [
         "ch3-training-phases-1x.webp",
         "ch3-training-phases-2x.webp"

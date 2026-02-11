@@ -2,7 +2,7 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb, apply_brand_border,
+    load_font, hex_to_rgb,
     PRIMARY_BROWN, DARK_TEAL, TEAL, DARK_GOLD, GOLD, OFF_WHITE, BLACK, WHITE,
 )
 
@@ -85,4 +85,4 @@ def render(width: int = 1600, height: int = 500) -> Image.Image:
     ]
     draw.line(int_points, fill=hex_to_rgb(DARK_GOLD), width=3)
 
-    return apply_brand_border(img)
+    return img

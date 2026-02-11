@@ -124,7 +124,11 @@ def apply_data_overlay(img, template_name: str, asset: dict):
 
 
 def resize_for_web(img, sizes: dict, asset_id: str, quality: int = 85) -> list[Path]:
-    """Save 1x + 2x WebP versions of the image. Returns output paths."""
+    """Save 1x + 2x WebP versions of the image.
+
+    Center-crops to target aspect ratio before resizing to avoid distortion
+    (e.g. 16:9 API output → 3:1 hero banner).
+    """
     from PIL import Image
 
     output_paths = []
@@ -133,7 +137,25 @@ def resize_for_web(img, sizes: dict, asset_id: str, quality: int = 85) -> list[P
         if len(dims) != 2:
             continue
         w, h = dims
-        resized = img.resize((w, h), Image.LANCZOS)
+        target_ar = w / h
+        source_ar = img.width / img.height
+
+        if abs(source_ar - target_ar) > 0.01:
+            # Aspect ratios differ — center-crop to target AR first
+            if source_ar > target_ar:
+                # Source is wider: crop sides
+                new_w = int(img.height * target_ar)
+                left = (img.width - new_w) // 2
+                cropped = img.crop((left, 0, left + new_w, img.height))
+            else:
+                # Source is taller: crop top/bottom
+                new_h = int(img.width / target_ar)
+                top = (img.height - new_h) // 2
+                cropped = img.crop((0, top, img.width, top + new_h))
+            resized = cropped.resize((w, h), Image.LANCZOS)
+        else:
+            resized = img.resize((w, h), Image.LANCZOS)
+
         out_path = OUTPUT_DIR / f"{asset_id}-{label}.webp"
         resized.save(str(out_path), "WEBP", quality=quality)
         output_paths.append(out_path)

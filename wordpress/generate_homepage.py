@@ -4,8 +4,7 @@ Generate the Gravel God homepage in Desert Editorial style.
 
 Leads with the race database as the primary value prop, includes stats bar,
 featured T1 races, race calendar, training guide preview, how-it-works funnel,
-featured-in logos, training CTA, newsletter with article carousel, FAQ with
-FAQPage JSON-LD, and footer.
+featured-in logos, training CTA, newsletter with article carousel, and footer.
 
 Usage:
     python generate_homepage.py
@@ -50,34 +49,34 @@ FEATURED_SLUGS = [
     "belgian-waffle-ride",
 ]
 
-# ── FAQ items (SEO-targeted for featured snippets) ───────
-
-FAQ_ITEMS = [
-    (
-        "What is Gravel God?",
-        "Gravel God is the definitive gravel race database. We rate and rank every major gravel race across 14 scoring dimensions — from course profile and logistics to prestige and field depth. No algorithms. No sponsors. No pay-to-play. Just honest, editorial ratings."
-    ),
-    (
-        "How many races are in the database?",
-        "We currently rate {race_count} gravel and ultra-endurance races worldwide. The database covers everything from bucket-list events like Unbound and the Tour Divide to emerging regional races. We add new races throughout the year."
-    ),
-    (
-        "Who rates the races?",
-        "All ratings are produced by our editorial team using official sources, rider reports, community forums, and our own race experience. Every dimension is scored and explained by a human editor — not an algorithm."
-    ),
-    (
-        "Can race organizers pay for a higher rating?",
-        "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Our ratings are editorially independent. Every race earns its tier on merit."
-    ),
-    (
-        "What are training plans?",
-        "We offer race-specific training plans built for individual gravel events. Each plan includes structured workouts, a 30+ page custom guide, heat and altitude protocols, nutrition strategy, and strength training — all tailored to your target race."
-    ),
-]
-
 # ── Featured articles (curated — leave empty to use latest from RSS) ──
 
 FEATURED_ARTICLES = []
+
+# ── Featured on-site articles (curated for homepage voice) ──────
+# These are the "saucy takes" that show personality and editorial voice.
+# Each entry: (title, url_path, category_tag, teaser)
+
+FEATURED_ONSITE_ARTICLES = [
+    (
+        "I Opened a FasCat AI Coaching Email So You Don't Have To",
+        "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "CONTROVERSIAL OPINION",
+        "What happens when AI tries to coach cyclists? We opened the email so you can skip the sales pitch.",
+    ),
+    (
+        "Maybe a Hater Poster is What You've Been Missing",
+        "/maybe-a-hate-poster-is-what-youve-been-missing/",
+        "MINDSET",
+        "Sometimes the best motivation isn't a quote from Marcus Aurelius. Sometimes it's spite.",
+    ),
+    (
+        "I Messed Up Big Horn Gravel So You Don't Have To",
+        "/i-messed-up-big-horn-gravel-so-you-dont-have-to/",
+        "RACE REPORT",
+        "Every mistake you can make in a gravel race, catalogued for your benefit. You're welcome.",
+    ),
+]
 
 
 def esc(text) -> str:
@@ -488,6 +487,33 @@ def build_featured_races(race_index: list) -> str:
   </section>'''
 
 
+def build_latest_takes() -> str:
+    """Build the 'Latest Takes' section with curated on-site article cards."""
+    if not FEATURED_ONSITE_ARTICLES:
+        return ""
+
+    cards = ""
+    for title, url_path, tag, teaser in FEATURED_ONSITE_ARTICLES:
+        cards += f'''
+      <a href="{SITE_BASE_URL}{esc(url_path)}" class="gg-hp-take-card" data-ga="article_click" data-ga-label="{esc(title)}">
+        <span class="gg-hp-take-tag">{esc(tag)}</span>
+        <h3 class="gg-hp-take-title">{esc(title)}</h3>
+        <p class="gg-hp-take-teaser">{esc(teaser)}</p>
+        <span class="gg-hp-take-read">READ &rarr;</span>
+      </a>'''
+
+    return f'''<section class="gg-hp-latest-takes" id="takes">
+    <div class="gg-hp-section-header gg-hp-section-header--gold">
+      <h2>LATEST TAKES</h2>
+    </div>
+    <div class="gg-hp-take-grid">{cards}
+    </div>
+    <div class="gg-hp-take-cta">
+      <a href="{SITE_BASE_URL}/articles/" class="gg-hp-btn gg-hp-btn--primary" data-ga="view_all_articles">ALL ARTICLES &rarr;</a>
+    </div>
+  </section>'''
+
+
 def build_how_it_works(stats: dict = None) -> str:
     race_count = stats["race_count"] if stats else 328
     steps = [
@@ -600,30 +626,6 @@ def build_email_capture(posts: list = None) -> str:
     </div>{carousel}
     <div class="gg-hp-email-form">
       <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
-    </div>
-  </section>'''
-
-
-def build_faq(stats: dict) -> str:
-    items = ""
-    for q, a in FAQ_ITEMS:
-        answer = a.format(race_count=stats["race_count"])
-        items += f'''
-      <div class="gg-accordion-item">
-        <button class="gg-accordion-trigger" aria-expanded="false">
-          <span>{esc(q)}</span>
-          <span class="gg-accordion-icon">+</span>
-        </button>
-        <div class="gg-accordion-body">
-          <p>{esc(answer)}</p>
-        </div>
-      </div>'''
-
-    return f'''<section class="gg-hp-faq" id="faq">
-    <div class="gg-hp-section-header">
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
-    </div>
-    <div class="gg-hp-faq-body">{items}
     </div>
   </section>'''
 
@@ -748,6 +750,20 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-race-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; color: #8c7568; line-height: 1.7; margin: 0; }
 .gg-hp-featured-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 
+/* ── Latest Takes ───────────────────────────────────────── */
+.gg-hp-latest-takes { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-section-header--gold { background: #B7950B; }
+.gg-hp-take-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.gg-hp-take-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+.gg-hp-take-card:hover { border-color: #B7950B; }
+.gg-hp-take-tag { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B7950B; margin-bottom: 10px; }
+.gg-hp-take-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+.gg-hp-take-teaser { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #8c7568; line-height: 1.7; margin: 0 0 16px; flex: 1; }
+.gg-hp-take-read { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #1A8A82; }
+.gg-hp-take-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
+.gg-hp-take-cta .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
+.gg-hp-take-cta .gg-hp-btn--primary:hover { border-color: #B7950B; color: #fff; }
+
 /* ── How it works ────────────────────────────────────────── */
 .gg-hp-how-it-works { background: #1a1613; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 3px solid #3a2e25; }
 .gg-hp-step { padding: 36px 24px; border-right: 2px solid #3a2e25; }
@@ -835,19 +851,6 @@ a { text-decoration: none; color: #1A8A82; }
 /* ── Email form ─────────────────────────────────────────── */
 .gg-hp-email-form { background: #f5efe6; padding: 20px 32px; max-width: 480px; margin: 24px auto 0; min-height: 150px; }
 
-/* ── FAQ (retained for reuse) ────────────────────────────── */
-.gg-hp-faq { max-width: 1200px; margin: 32px auto 0; background: #f5efe6; border: 3px solid #3a2e25; }
-.gg-hp-faq-body { padding: 0; }
-.gg-accordion-item { border-bottom: 2px solid #d4c5b9; }
-.gg-accordion-item:last-child { border-bottom: none; }
-.gg-accordion-trigger { width: 100%; background: none; border: none; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; font-weight: 700; text-align: left; color: #3a2e25; transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-.gg-accordion-trigger:hover { color: #B7950B; }
-.gg-accordion-icon { font-family: 'Sometype Mono', monospace; font-size: 20px; font-weight: 700; color: #B7950B; transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-.gg-accordion-item.is-open .gg-accordion-icon { transform: rotate(45deg); }
-.gg-accordion-body { max-height: 0; overflow: hidden; transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-.gg-accordion-item.is-open .gg-accordion-body { max-height: 400px; }
-.gg-accordion-body p { padding: 0 20px 20px; font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; }
-
 /* ── Footer ──────────────────────────────────────────────── */
 .gg-hp-footer { background: #59473c; margin-top: 32px; border-top: 4px double #3a2e25; }
 .gg-hp-footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 32px; padding: 48px 32px; max-width: 1200px; margin: 0 auto; }
@@ -869,6 +872,7 @@ a { text-decoration: none; color: #1A8A82; }
 /* ── Responsive: tablet ─────────────────────────────────── */
 @media (max-width: 1024px) {
   .gg-hp-race-grid { grid-template-columns: repeat(2, 1fr); }
+  .gg-hp-take-grid { grid-template-columns: 1fr; }
   .gg-hp-guide-grid { grid-template-columns: 1fr; }
   .gg-hp-footer-grid { grid-template-columns: 1fr 1fr; }
   .gg-hp-feat-inner { flex-direction: column; text-align: center; }
@@ -914,6 +918,12 @@ a { text-decoration: none; color: #1A8A82; }
   .gg-hp-race-grid { grid-template-columns: 1fr; }
   .gg-hp-race-card { padding: 16px; }
   .gg-hp-featured-cta { padding: 16px; }
+
+  /* Latest takes */
+  .gg-hp-latest-takes { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-take-grid { grid-template-columns: 1fr; }
+  .gg-hp-take-card { padding: 16px; }
+  .gg-hp-take-cta { padding: 16px; }
 
   /* How it works */
   .gg-hp-how-it-works { grid-template-columns: 1fr; margin-top: 16px; border-left: none; border-right: none; }
@@ -974,15 +984,6 @@ a { text-decoration: none; color: #1A8A82; }
 
 def build_homepage_js() -> str:
     return '''<script>
-// FAQ accordion (expand/collapse — allowed state-change motion)
-document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
-  trigger.addEventListener('click', function() {
-    var item = trigger.closest('.gg-accordion-item');
-    var expanded = item.classList.toggle('is-open');
-    trigger.setAttribute('aria-expanded', expanded);
-  });
-});
-
 // GA4 event tracking on CTA clicks
 document.querySelectorAll('[data-ga]').forEach(function(el) {
   el.addEventListener('click', function() {
@@ -1018,25 +1019,9 @@ def build_jsonld(stats: dict) -> str:
             "query-input": "required name=search_term_string",
         },
     }
-    faq_schema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": q,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": a.format(race_count=stats["race_count"]),
-                },
-            }
-            for q, a in FAQ_ITEMS
-        ],
-    }
     parts = [
         f'<script type="application/ld+json">\n{json.dumps(org, indent=2)}\n</script>',
         f'<script type="application/ld+json">\n{json.dumps(website, indent=2)}\n</script>',
-        f'<script type="application/ld+json">\n{json.dumps(faq_schema, indent=2)}\n</script>',
     ]
     return "\n  ".join(parts)
 
@@ -1058,17 +1043,17 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     chapters = load_guide_chapters(guide_path)
 
     nav = build_nav()
-    ticker = build_ticker(one_liners, [], upcoming)
+    ticker = build_ticker(one_liners, substack_posts, upcoming)
     hero = build_hero(stats)
     stats_bar = build_stats_bar(stats)
     featured = build_featured_races(race_index)
+    latest_takes = build_latest_takes()
     coming_up = build_coming_up(upcoming)
     how_it_works = build_how_it_works(stats)
     guide_preview = build_guide_preview(chapters)
     featured_in = build_featured_in()
     training = build_training_cta()
     email = build_email_capture(substack_posts)
-    faq = build_faq(stats)
     footer = build_footer()
     css = build_homepage_css()
     js = build_homepage_js()
@@ -1118,19 +1103,19 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 
   {featured}
 
+  {latest_takes}
+
   {coming_up}
 
   {how_it_works}
+
+  {training}
 
   {guide_preview}
 
   {featured_in}
 
-  {training}
-
   {email}
-
-  {faq}
 
   {footer}
 </div>

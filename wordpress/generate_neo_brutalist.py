@@ -1469,7 +1469,6 @@ def build_photos_section(rd: dict) -> str:
         cards.append(f'''<figure class="gg-photo-card">
           <img src="{esc(url)}" alt="{alt}" loading="lazy"
                width="1200" height="{h}">
-          <figcaption>AI-generated scene based on course data</figcaption>
         </figure>''')
 
     if not cards:

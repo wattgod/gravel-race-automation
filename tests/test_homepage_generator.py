@@ -29,7 +29,6 @@ from generate_homepage import (
     build_featured_in,
     build_training_cta,
     build_email_capture,
-    build_faq,
     build_footer,
     build_homepage_css,
     build_homepage_js,
@@ -37,7 +36,6 @@ from generate_homepage import (
     _tier_badge_class,
     FEATURED_SLUGS,
     FEATURED_ARTICLES,
-    FAQ_ITEMS,
     GA4_MEASUREMENT_ID,
 )
 
@@ -407,11 +405,6 @@ class TestJS:
         assert js.startswith("<script>")
         assert js.endswith("</script>")
 
-    def test_js_has_accordion(self):
-        js = build_homepage_js()
-        assert "gg-accordion-trigger" in js
-        assert "is-open" in js
-
     def test_js_has_ga4_tracking(self):
         js = build_homepage_js()
         assert "data-ga" in js
@@ -448,7 +441,7 @@ class TestJSONLD:
             r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
             jsonld, re.DOTALL
         )
-        assert len(blocks) == 3
+        assert len(blocks) == 2  # Organization + WebSite
         for block in blocks:
             parsed = json.loads(block)
             assert "@context" in parsed
@@ -501,12 +494,11 @@ class TestFullPage:
         assert "gg-hp-featured-in" in homepage_html
         assert "gg-hp-training" in homepage_html
         assert "gg-hp-email" in homepage_html
-        assert "gg-hp-faq" in homepage_html
         assert "gg-hp-footer" in homepage_html
 
     def test_has_jsonld_blocks(self, homepage_html):
         blocks = re.findall(r'application/ld\+json', homepage_html)
-        assert len(blocks) == 3  # Organization + WebSite + FAQPage
+        assert len(blocks) == 2  # Organization + WebSite
 
     def test_has_h1(self, homepage_html):
         h1_match = re.search(r'<h1[^>]*>(.*?)</h1>', homepage_html, re.DOTALL)
@@ -535,12 +527,6 @@ class TestConstants:
     def test_featured_slugs_count(self):
         assert len(FEATURED_SLUGS) == 6
 
-    def test_faq_items_count(self):
-        assert len(FAQ_ITEMS) == 5
-
-    def test_faq_items_are_tuples(self):
-        for item in FAQ_ITEMS:
-            assert len(item) == 2
 
 
 # ── Regression Tests ────────────────────────────────────────
@@ -627,12 +613,33 @@ class TestRegressions:
         css = build_homepage_css()
         assert "transition: opacity" not in css
 
-    def test_substack_not_duplicated_in_ticker(self, homepage_html):
-        """Substack articles should appear in the article grid, not duplicated in the ticker."""
+    def test_substack_included_in_ticker(self, homepage_html):
+        """Substack articles should appear in the ticker to surface editorial voice."""
         import re
         ticker_match = re.search(r'class="gg-hp-ticker".*?</div>\s*</div>', homepage_html, re.DOTALL)
         if ticker_match:
-            assert "NEWSLETTER" not in ticker_match.group(0), "Substack posts should not appear in ticker"
+            assert "NEWSLETTER" in ticker_match.group(0), "Substack posts should appear in ticker"
+
+    def test_latest_takes_section(self, homepage_html):
+        """Latest Takes section should appear with article cards."""
+        assert "LATEST TAKES" in homepage_html
+        assert "gg-hp-latest-takes" in homepage_html
+        assert "gg-hp-take-card" in homepage_html
+        assert "ALL ARTICLES" in homepage_html
+
+    def test_latest_takes_before_coming_up(self, homepage_html):
+        """Latest Takes should appear before Coming Up in page order."""
+        takes_pos = homepage_html.find("gg-hp-latest-takes")
+        coming_pos = homepage_html.find("gg-hp-coming-up")
+        if takes_pos >= 0 and coming_pos >= 0:
+            assert takes_pos < coming_pos, "Latest Takes should appear before Coming Up"
+
+    def test_training_before_guide(self, homepage_html):
+        """Training/coaching section should appear before guide preview in body."""
+        training_pos = homepage_html.find('id="training"')
+        guide_pos = homepage_html.find('id="guide"')
+        if training_pos >= 0 and guide_pos >= 0:
+            assert training_pos < guide_pos, "Training should appear before Guide"
 
     def test_featured_in_no_self_deprecation(self):
         """Featured-in copy should not undermine authority."""
@@ -655,21 +662,6 @@ class TestRegressions:
         html = build_how_it_works(stats)
         assert str(stats["race_count"]) in html
         assert "{race_count}" not in html
-
-    def test_faq_section_present(self, homepage_html):
-        """FAQ should be on the page with accordion items."""
-        assert "gg-hp-faq" in homepage_html
-        assert "FREQUENTLY ASKED QUESTIONS" in homepage_html
-        assert "gg-accordion-item" in homepage_html
-
-    def test_faq_has_five_questions(self, stats):
-        """FAQ should render all 5 questions."""
-        html = build_faq(stats)
-        assert html.count("gg-accordion-item") == 5
-
-    def test_faq_jsonld_present(self, homepage_html):
-        """FAQPage JSON-LD should be present."""
-        assert '"FAQPage"' in homepage_html
 
     def test_ticker_hidden_on_mobile(self):
         """Ticker should be hidden on mobile via CSS."""

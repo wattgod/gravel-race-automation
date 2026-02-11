@@ -29,6 +29,7 @@ from generate_homepage import (
     build_featured_in,
     build_training_cta,
     build_email_capture,
+    build_faq,
     build_footer,
     build_homepage_css,
     build_homepage_js,
@@ -36,6 +37,7 @@ from generate_homepage import (
     _tier_badge_class,
     FEATURED_SLUGS,
     FEATURED_ARTICLES,
+    FAQ_ITEMS,
     GA4_MEASUREMENT_ID,
 )
 
@@ -446,7 +448,7 @@ class TestJSONLD:
             r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
             jsonld, re.DOTALL
         )
-        assert len(blocks) == 2
+        assert len(blocks) == 3
         for block in blocks:
             parsed = json.loads(block)
             assert "@context" in parsed
@@ -499,11 +501,12 @@ class TestFullPage:
         assert "gg-hp-featured-in" in homepage_html
         assert "gg-hp-training" in homepage_html
         assert "gg-hp-email" in homepage_html
+        assert "gg-hp-faq" in homepage_html
         assert "gg-hp-footer" in homepage_html
 
     def test_has_jsonld_blocks(self, homepage_html):
         blocks = re.findall(r'application/ld\+json', homepage_html)
-        assert len(blocks) == 2
+        assert len(blocks) == 3  # Organization + WebSite + FAQPage
 
     def test_has_h1(self, homepage_html):
         h1_match = re.search(r'<h1[^>]*>(.*?)</h1>', homepage_html, re.DOTALL)
@@ -531,6 +534,13 @@ class TestFullPage:
 class TestConstants:
     def test_featured_slugs_count(self):
         assert len(FEATURED_SLUGS) == 6
+
+    def test_faq_items_count(self):
+        assert len(FAQ_ITEMS) == 5
+
+    def test_faq_items_are_tuples(self):
+        for item in FAQ_ITEMS:
+            assert len(item) == 2
 
 
 # ── Regression Tests ────────────────────────────────────────
@@ -623,6 +633,54 @@ class TestRegressions:
         ticker_match = re.search(r'class="gg-hp-ticker".*?</div>\s*</div>', homepage_html, re.DOTALL)
         if ticker_match:
             assert "NEWSLETTER" not in ticker_match.group(0), "Substack posts should not appear in ticker"
+
+    def test_featured_in_no_self_deprecation(self):
+        """Featured-in copy should not undermine authority."""
+        html = build_featured_in()
+        assert "probably know better" not in html
+        assert "let me talk" not in html
+
+    def test_coming_up_capped(self, upcoming):
+        """Coming-up should show max 2 recent + 5 upcoming."""
+        html = build_coming_up(upcoming)
+        if upcoming:
+            past_count = html.count("gg-hp-cal-item--past")
+            assert past_count <= 2
+            # Count actual calendar links (each has gg-hp-cal-score)
+            total = html.count("gg-hp-cal-score")
+            assert total <= 7  # 2 recent + 5 upcoming
+
+    def test_how_it_works_accepts_stats(self, stats):
+        """build_how_it_works should accept stats and render race count."""
+        html = build_how_it_works(stats)
+        assert str(stats["race_count"]) in html
+        assert "{race_count}" not in html
+
+    def test_faq_section_present(self, homepage_html):
+        """FAQ should be on the page with accordion items."""
+        assert "gg-hp-faq" in homepage_html
+        assert "FREQUENTLY ASKED QUESTIONS" in homepage_html
+        assert "gg-accordion-item" in homepage_html
+
+    def test_faq_has_five_questions(self, stats):
+        """FAQ should render all 5 questions."""
+        html = build_faq(stats)
+        assert html.count("gg-accordion-item") == 5
+
+    def test_faq_jsonld_present(self, homepage_html):
+        """FAQPage JSON-LD should be present."""
+        assert '"FAQPage"' in homepage_html
+
+    def test_ticker_hidden_on_mobile(self):
+        """Ticker should be hidden on mobile via CSS."""
+        css = build_homepage_css()
+        assert ".gg-hp-ticker { display: none; }" in css
+
+    def test_articles_stack_on_mobile(self):
+        """Article cards should stack vertically on mobile."""
+        css = build_homepage_css()
+        assert "flex-direction: column" in css
+        assert ".gg-hp-article-card:nth-child(n+4) { display: none; }" in css
 
 
 def html_escape(text):

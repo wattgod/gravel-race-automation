@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Generate the Gravel God homepage in neo-brutalist style.
+Generate the Gravel God homepage in Desert Editorial style.
 
-Leads with the 328-race database as the primary value prop, includes
-stats bar, featured T1 races, how-it-works funnel, training CTA,
-email capture, and FAQ with JSON-LD.
+Leads with the race database as the primary value prop, includes stats bar,
+featured T1 races, race calendar, training guide preview, how-it-works funnel,
+featured-in logos, training CTA, newsletter with article carousel, FAQ with
+FAQPage JSON-LD, and footer.
 
 Usage:
     python generate_homepage.py
@@ -47,6 +48,31 @@ FEATURED_SLUGS = [
     "steamboat-gravel",
     "the-traka",
     "belgian-waffle-ride",
+]
+
+# ── FAQ items (SEO-targeted for featured snippets) ───────
+
+FAQ_ITEMS = [
+    (
+        "What is Gravel God?",
+        "Gravel God is the definitive gravel race database. We rate and rank every major gravel race across 14 scoring dimensions — from course profile and logistics to prestige and field depth. No algorithms. No sponsors. No pay-to-play. Just honest, editorial ratings."
+    ),
+    (
+        "How many races are in the database?",
+        "We currently rate {race_count} gravel and ultra-endurance races worldwide. The database covers everything from bucket-list events like Unbound and the Tour Divide to emerging regional races. We add new races throughout the year."
+    ),
+    (
+        "Who rates the races?",
+        "All ratings are produced by our editorial team using official sources, rider reports, community forums, and our own race experience. Every dimension is scored and explained by a human editor — not an algorithm."
+    ),
+    (
+        "Can race organizers pay for a higher rating?",
+        "No. We do not accept payment, sponsorship, or partnership in exchange for tier placement or score adjustments. Our ratings are editorially independent. Every race earns its tier on merit."
+    ),
+    (
+        "What are training plans?",
+        "We offer race-specific training plans built for individual gravel events. Each plan includes structured workouts, a 30+ page custom guide, heat and altitude protocols, nutrition strategy, and strength training — all tailored to your target race."
+    ),
 ]
 
 # ── Featured articles (curated — leave empty to use latest from RSS) ──
@@ -284,7 +310,7 @@ def build_coming_up(upcoming: list) -> str:
 
     # Show recently finished (last 14 days)
     if recent:
-        for race in recent[-3:]:  # Last 3
+        for race in recent[-2:]:  # Last 2
             days_ago = abs(race["days"])
             badge_cls = _tier_badge_class(race["tier"])
             items += f'''
@@ -299,7 +325,7 @@ def build_coming_up(upcoming: list) -> str:
         </a>'''
 
     # Show upcoming (next 60 days)
-    for race in future[:8]:
+    for race in future[:5]:
         d = race["days"]
         if d == 0:
             urgency = "gg-hp-cal-item--today"
@@ -462,9 +488,10 @@ def build_featured_races(race_index: list) -> str:
   </section>'''
 
 
-def build_how_it_works() -> str:
+def build_how_it_works(stats: dict = None) -> str:
+    race_count = stats["race_count"] if stats else 328
     steps = [
-        ("01", "BROWSE RACES", f"Search {'{'}race_count{'}'} races by tier, region, distance, and more."),
+        ("01", "BROWSE RACES", f"Search {race_count} races by tier, region, distance, and more."),
         ("02", "READ THE RATINGS", "14 dimensions scored and explained by human editors."),
         ("03", "TRAIN &amp; RACE", "Get a custom training plan built for your target race."),
     ]
@@ -510,7 +537,7 @@ def build_featured_in() -> str:
     <div class="gg-hp-feat-inner">
       <div class="gg-hp-feat-text">
         <span class="gg-hp-feat-label">AS FEATURED IN</span>
-        <p class="gg-hp-feat-copy">Places where people who probably know better still let me talk about bikes.</p>
+        <p class="gg-hp-feat-copy">Trusted by coaches, podcasters, and the gravel community.</p>
       </div>
       <div class="gg-hp-feat-logos">{logos}
       </div>
@@ -573,6 +600,30 @@ def build_email_capture(posts: list = None) -> str:
     </div>{carousel}
     <div class="gg-hp-email-form">
       <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
+    </div>
+  </section>'''
+
+
+def build_faq(stats: dict) -> str:
+    items = ""
+    for q, a in FAQ_ITEMS:
+        answer = a.format(race_count=stats["race_count"])
+        items += f'''
+      <div class="gg-accordion-item">
+        <button class="gg-accordion-trigger" aria-expanded="false">
+          <span>{esc(q)}</span>
+          <span class="gg-accordion-icon">+</span>
+        </button>
+        <div class="gg-accordion-body">
+          <p>{esc(answer)}</p>
+        </div>
+      </div>'''
+
+    return f'''<section class="gg-hp-faq" id="faq">
+    <div class="gg-hp-section-header">
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    </div>
+    <div class="gg-hp-faq-body">{items}
     </div>
   </section>'''
 
@@ -782,7 +833,7 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-article-snippet { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; color: #8c7568; line-height: 1.6; margin: 0; }
 
 /* ── Email form ─────────────────────────────────────────── */
-.gg-hp-email-form { background: #f5efe6; padding: 20px 32px; max-width: 480px; margin: 24px auto 0; }
+.gg-hp-email-form { background: #f5efe6; padding: 20px 32px; max-width: 480px; margin: 24px auto 0; min-height: 150px; }
 
 /* ── FAQ (retained for reuse) ────────────────────────────── */
 .gg-hp-faq { max-width: 1200px; margin: 32px auto 0; background: #f5efe6; border: 3px solid #3a2e25; }
@@ -826,35 +877,94 @@ a { text-decoration: none; color: #1A8A82; }
 
 /* ── Responsive: mobile ─────────────────────────────────── */
 @media (max-width: 768px) {
-  .gg-hp-hero { padding: 48px 20px; }
-  .gg-hp-hero h1 { font-size: 30px; }
+  html, body { overflow-x: hidden; }
+  .gg-hp-page { overflow-x: hidden; }
+
+  /* Header */
+  .gg-hp-header { padding: 12px 16px; }
+  .gg-hp-header-inner { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .gg-hp-header-logo img { height: 40px; }
+  .gg-hp-header-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .gg-hp-header-nav a { font-size: 10px; letter-spacing: 1.5px; }
+
+  /* Ticker — useless on touch, hide it */
+  .gg-hp-ticker { display: none; }
+
+  /* Hero */
+  .gg-hp-hero { padding: 36px 16px; }
+  .gg-hp-hero-badge { font-size: 10px; letter-spacing: 2px; padding: 5px 12px; }
+  .gg-hp-hero h1 { font-size: 26px; }
+  .gg-hp-hero-tagline { font-size: 15px; }
   .gg-hp-hero-ctas { flex-direction: column; }
   .gg-hp-hero-ctas .gg-hp-btn { width: 100%; text-align: center; }
+
+  /* Buttons */
+  .gg-hp-btn { padding: 12px 20px; font-size: 11px; letter-spacing: 1.5px; }
+
+  /* Stats bar */
   .gg-hp-stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .gg-hp-stat { padding: 24px 12px; }
+  .gg-hp-stat { padding: 20px 10px; }
   .gg-hp-stat:nth-child(2) { border-right: none; }
   .gg-hp-stat:nth-child(1), .gg-hp-stat:nth-child(2) { border-bottom: 2px solid #3a2e25; }
-  .gg-hp-stat-number { font-size: 34px; }
+  .gg-hp-stat-number { font-size: 28px; }
+  .gg-hp-stat-label { font-size: 9px; letter-spacing: 2px; }
+
+  /* Featured races */
+  .gg-hp-featured { margin: 16px 0 0; border-left: none; border-right: none; }
   .gg-hp-race-grid { grid-template-columns: 1fr; }
-  .gg-hp-how-it-works { grid-template-columns: 1fr; }
-  .gg-hp-step { border-right: none; border-bottom: 2px solid #3a2e25; }
+  .gg-hp-race-card { padding: 16px; }
+  .gg-hp-featured-cta { padding: 16px; }
+
+  /* How it works */
+  .gg-hp-how-it-works { grid-template-columns: 1fr; margin-top: 16px; border-left: none; border-right: none; }
+  .gg-hp-step { padding: 24px 16px; border-right: none; border-bottom: 2px solid #3a2e25; }
   .gg-hp-step:last-child { border-bottom: none; }
-  .gg-hp-feat-inner { flex-direction: column; text-align: center; }
-  .gg-hp-feat-text { max-width: 100%; }
-  .gg-hp-training-grid { grid-template-columns: 1fr; }
-  .gg-hp-training-card--primary { border-right: none; border-bottom: 3px solid #3a2e25; }
-  .gg-hp-email { padding: 36px 0; }
-  .gg-hp-email-inner { padding: 0 20px; }
-  .gg-hp-article-carousel { padding: 24px 20px; }
-  .gg-hp-article-card { flex: 0 0 240px; }
-  .gg-hp-email-form { margin: 24px 20px 0; }
-  .gg-hp-header-inner { flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .gg-hp-header-nav { gap: 16px; flex-wrap: wrap; justify-content: center; }
-  .gg-hp-footer-grid { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; }
-  .gg-hp-guide-grid { grid-template-columns: 1fr; }
-  .gg-hp-cal-item { gap: 10px; padding: 12px 16px; }
+  .gg-hp-step-num { font-size: 28px; }
+
+  /* Coming up */
+  .gg-hp-coming-up { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-cal-item { gap: 8px; padding: 12px 12px; flex-wrap: wrap; }
+  .gg-hp-cal-date { font-size: 10px; min-width: 44px; }
   .gg-hp-cal-name { font-size: 13px; }
-  .gg-hp-ticker-content { animation-duration: 40s; }
+  .gg-hp-cal-score { font-size: 16px; }
+
+  /* Guide */
+  .gg-hp-guide { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-guide-grid { grid-template-columns: 1fr; }
+  .gg-hp-guide-ch { padding: 12px 16px; }
+  .gg-hp-guide-intro { padding: 16px; }
+  .gg-hp-guide-deal { padding: 10px 12px; }
+
+  /* Featured in */
+  .gg-hp-featured-in { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-feat-inner { flex-direction: column; text-align: center; padding: 24px 16px; gap: 20px; }
+  .gg-hp-feat-text { max-width: 100%; }
+  .gg-hp-feat-logos { gap: 20px; }
+  .gg-hp-feat-logo img { height: 44px; }
+
+  /* Training */
+  .gg-hp-training { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-training-grid { grid-template-columns: 1fr; }
+  .gg-hp-training-card { padding: 24px 16px; }
+  .gg-hp-training-card--primary { border-right: none; border-bottom: 3px solid #3a2e25; }
+
+  /* Email / articles — stack vertically on mobile, show max 3 */
+  .gg-hp-email { padding: 32px 0; margin-top: 16px; border-left: none; border-right: none; }
+  .gg-hp-email-inner { padding: 0 16px; }
+  .gg-hp-email-title { font-size: 22px; }
+  .gg-hp-article-carousel { flex-direction: column; overflow-x: visible; scroll-snap-type: none; padding: 16px; gap: 12px; }
+  .gg-hp-article-card { flex: none; width: 100%; padding: 16px; }
+  .gg-hp-article-card:nth-child(n+4) { display: none; }
+  .gg-hp-email-form { margin: 20px 16px 0; padding: 16px; }
+
+  /* Footer */
+  .gg-hp-footer { margin-top: 16px; }
+  .gg-hp-footer-grid { grid-template-columns: 1fr; gap: 24px; padding: 32px 16px; }
+  .gg-hp-footer-legal { padding: 12px 16px; }
+
+  /* Section headers */
+  .gg-hp-section-header { padding: 12px 16px; }
+  .gg-hp-section-header h2 { font-size: 11px; letter-spacing: 2px; }
 }
 </style>'''
 
@@ -908,9 +1018,25 @@ def build_jsonld(stats: dict) -> str:
             "query-input": "required name=search_term_string",
         },
     }
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": a.format(race_count=stats["race_count"]),
+                },
+            }
+            for q, a in FAQ_ITEMS
+        ],
+    }
     parts = [
         f'<script type="application/ld+json">\n{json.dumps(org, indent=2)}\n</script>',
         f'<script type="application/ld+json">\n{json.dumps(website, indent=2)}\n</script>',
+        f'<script type="application/ld+json">\n{json.dumps(faq_schema, indent=2)}\n</script>',
     ]
     return "\n  ".join(parts)
 
@@ -937,11 +1063,12 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     stats_bar = build_stats_bar(stats)
     featured = build_featured_races(race_index)
     coming_up = build_coming_up(upcoming)
-    how_it_works = build_how_it_works().replace("{race_count}", str(stats["race_count"]))
+    how_it_works = build_how_it_works(stats)
     guide_preview = build_guide_preview(chapters)
     featured_in = build_featured_in()
     training = build_training_cta()
     email = build_email_capture(substack_posts)
+    faq = build_faq(stats)
     footer = build_footer()
     css = build_homepage_css()
     js = build_homepage_js()
@@ -1002,6 +1129,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {training}
 
   {email}
+
+  {faq}
 
   {footer}
 </div>

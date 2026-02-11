@@ -646,6 +646,65 @@
       #gg-race-search .gg-card-header { flex-direction: column; gap: 6px; }
       #gg-race-search .gg-match-banner { flex-direction: column; gap: 8px; text-align: center; }
     }
+
+    /* ── Static Race Directory (SEO) ── */
+    #gg-race-search .gg-race-directory {
+      margin-top: 40px;
+      border: 2px solid var(--gg-color-dark-brown);
+    }
+    #gg-race-search .gg-directory-heading {
+      margin: 0;
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+    }
+    #gg-race-search .gg-directory-desc {
+      font-family: var(--gg-font-editorial) !important;
+      font-size: 13px;
+      color: var(--gg-color-secondary-brown) !important;
+      padding: 12px 20px 0;
+      margin: 0;
+      line-height: 1.5;
+    }
+    #gg-race-search .gg-directory-tier {
+      padding: 0 20px;
+    }
+    #gg-race-search .gg-directory-tier:last-child {
+      padding-bottom: 20px;
+    }
+    #gg-race-search .gg-directory-tier-heading {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 16px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--gg-color-dark-brown);
+      color: var(--gg-color-dark-brown) !important;
+    }
+    #gg-race-search .gg-directory-tier-heading.tier-1 { border-bottom-color: var(--gg-color-tier-1); }
+    #gg-race-search .gg-directory-tier-heading.tier-2 { border-bottom-color: var(--gg-color-tier-2); }
+    #gg-race-search .gg-directory-tier-heading.tier-3 { border-bottom-color: var(--gg-color-tier-3); }
+    #gg-race-search .gg-directory-tier-heading.tier-4 { border-bottom-color: var(--gg-color-tier-4); }
+    #gg-race-search .gg-directory-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      line-height: 1.8;
+    }
+    #gg-race-search a.gg-directory-link {
+      font-size: 12px;
+      color: var(--gg-color-dark-brown) !important;
+      text-decoration: none !important;
+    }
+    #gg-race-search a.gg-directory-link:hover {
+      text-decoration: underline !important;
+      color: var(--gg-color-primary-brown) !important;
+    }
   </style>
 
   <!-- Questionnaire -->
@@ -724,6 +783,361 @@
   </div>
 
   <div id="gg-tier-container"></div>
+
+  <!-- Static Race Directory — crawlable by search engines, independent of JS -->
+  <div class="gg-race-directory">
+    <h2 class="gg-directory-heading">Race Directory</h2>
+    <p class="gg-directory-desc">Browse all 328 gravel races rated by Gravel God. Click any race for the full review with course maps, ratings, and logistics.</p>
+    <div class="gg-directory-tier">
+      <h3 class="gg-directory-tier-heading tier-1">Tier 1 — The Icons (25)</h3>
+      <div class="gg-directory-links">
+        <a href="/race/badlands/" class="gg-directory-link">Badlands</a>
+        <a href="/race/bwr-california/" class="gg-directory-link">Belgian Waffle Ride</a>
+        <a href="/race/bwr-san-diego/" class="gg-directory-link">Belgian Waffle Ride San Diego</a>
+        <a href="/race/big-sugar/" class="gg-directory-link">Big Sugar Gravel</a>
+        <a href="/race/colorado-trail-race/" class="gg-directory-link">Colorado Trail Race</a>
+        <a href="/race/crusher-in-the-tushar/" class="gg-directory-link">Crusher in the Tushar</a>
+        <a href="/race/dirty-reiver/" class="gg-directory-link">Dirty Reiver</a>
+        <a href="/race/strade-bianche-gran-fondo/" class="gg-directory-link">Gran Fondo Strade Bianche</a>
+        <a href="/race/gravel-earth/" class="gg-directory-link">Gravel Earth Series</a>
+        <a href="/race/gravel-worlds/" class="gg-directory-link">Gravel Worlds</a>
+        <a href="/race/jeroboam/" class="gg-directory-link">Jeroboam</a>
+        <a href="/race/leadville-100/" class="gg-directory-link">Leadville Trail 100 MTB</a>
+        <a href="/race/little-sugar-mtb/" class="gg-directory-link">Little Sugar MTB</a>
+        <a href="/race/rebeccas-private-idaho/" class="gg-directory-link">Rebecca's Private Idaho</a>
+        <a href="/race/steamboat-gravel/" class="gg-directory-link">SBT GRVL</a>
+        <a href="/race/seven/" class="gg-directory-link">Seven</a>
+        <a href="/race/mid-south/" class="gg-directory-link">The Mid South</a>
+        <a href="/race/torino-nice-rally/" class="gg-directory-link">Torino Nice Rally</a>
+        <a href="/race/tour-divide/" class="gg-directory-link">Tour Divide</a>
+        <a href="/race/the-traka/" class="gg-directory-link">Traka 360</a>
+        <a href="/race/trans-am-bike-race/" class="gg-directory-link">Trans Am Bike Race</a>
+        <a href="/race/transcontinental-race/" class="gg-directory-link">Transcontinental Race</a>
+        <a href="/race/uci-gravel-worlds/" class="gg-directory-link">UCI Gravel World Championships</a>
+        <a href="/race/unbound-200/" class="gg-directory-link">Unbound Gravel 200</a>
+        <a href="/race/unbound-xl/" class="gg-directory-link">Unbound XL</a>
+      </div>
+    </div>
+    <div class="gg-directory-tier">
+      <h3 class="gg-directory-tier-heading tier-2">Tier 2 — Elite (73)</h3>
+      <div class="gg-directory-links">
+        <a href="/race/almanzo-100/" class="gg-directory-link">Almanzo 100</a>
+        <a href="/race/atlas-mountain-race/" class="gg-directory-link">Atlas Mountain Race</a>
+        <a href="/race/bwr-arizona/" class="gg-directory-link">BWR Arizona</a>
+        <a href="/race/bwr-montana/" class="gg-directory-link">BWR Montana (Belgian Waffle Ride Montana)</a>
+        <a href="/race/bwr-utah/" class="gg-directory-link">BWR Utah (Belgian Waffle Ride Utah)</a>
+        <a href="/race/bwr-asheville/" class="gg-directory-link">Belgian Waffle Ride Asheville</a>
+        <a href="/race/bwr-cedar-city/" class="gg-directory-link">Belgian Waffle Ride Cedar City</a>
+        <a href="/race/bwr-north-carolina/" class="gg-directory-link">Belgian Waffle Ride North Carolina</a>
+        <a href="/race/bend-dirt-fest/" class="gg-directory-link">Bend Dirt Fest</a>
+        <a href="/race/big-horn-gravel/" class="gg-directory-link">Big Horn Gravel</a>
+        <a href="/race/bighorn-gravel/" class="gg-directory-link">Bighorn Gravel</a>
+        <a href="/race/bootlegger-100/" class="gg-directory-link">Bootlegger 100</a>
+        <a href="/race/chequamegon-mtb/" class="gg-directory-link">Chequamegon MTB</a>
+        <a href="/race/cohutta-gravel-grinder/" class="gg-directory-link">Cohutta Gravel Grinder</a>
+        <a href="/race/collegiate-gravel-nationals/" class="gg-directory-link">Collegiate Gravel Nationals</a>
+        <a href="/race/crystal-bear/" class="gg-directory-link">Crystal Bear</a>
+        <a href="/race/dirty-30/" class="gg-directory-link">Dirty 30</a>
+        <a href="/race/dirty-french/" class="gg-directory-link">Dirty French</a>
+        <a href="/race/finnish-gravel/" class="gg-directory-link">Finnish Gravel</a>
+        <a href="/race/giro-sardegna-gravel/" class="gg-directory-link">Giro Sardegna Gravel</a>
+        <a href="/race/grasshopper-series/" class="gg-directory-link">Grasshopper Adventure Series</a>
+        <a href="/race/gravel-brazil/" class="gg-directory-link">Gravel Brazil</a>
+        <a href="/race/gravel-burn/" class="gg-directory-link">Gravel Burn</a>
+        <a href="/race/gravel-locos/" class="gg-directory-link">Gravel Locos</a>
+        <a href="/race/gravel-roubaix/" class="gg-directory-link">Gravel Roubaix</a>
+        <a href="/race/gravel-and-tar-classic/" class="gg-directory-link">Gravel and Tar Classic</a>
+        <a href="/race/grinduro/" class="gg-directory-link">Grinduro</a>
+        <a href="/race/grinduro-california/" class="gg-directory-link">Grinduro California</a>
+        <a href="/race/grinduro-canada/" class="gg-directory-link">Grinduro Canada</a>
+        <a href="/race/grinduro-france/" class="gg-directory-link">Grinduro France</a>
+        <a href="/race/grinduro-germany/" class="gg-directory-link">Grinduro Germany</a>
+        <a href="/race/gunni-grinder/" class="gg-directory-link">Gunni Grinder</a>
+        <a href="/race/heck-of-the-north/" class="gg-directory-link">Heck of the North</a>
+        <a href="/race/highlands-gravel-classic/" class="gg-directory-link">Highlands Gravel Classic</a>
+        <a href="/race/iowa-wind-and-rock/" class="gg-directory-link">Iowa Wind and Rock</a>
+        <a href="/race/lauf-true-grit/" class="gg-directory-link">Lauf True Grit Gravel Epic</a>
+        <a href="/race/le-grand-du-nord/" class="gg-directory-link">Le Grand du Nord</a>
+        <a href="/race/lost-river-classic/" class="gg-directory-link">Lost River Classic</a>
+        <a href="/race/mammoth-tuff/" class="gg-directory-link">Mammoth Tuff</a>
+        <a href="/race/migration-gravel-race/" class="gg-directory-link">Migration Gravel Race</a>
+        <a href="/race/monaco-gravel-race/" class="gg-directory-link">Monaco Gravel Race</a>
+        <a href="/race/ned-gravel/" class="gg-directory-link">Ned Gravel - Colorado State Championship</a>
+        <a href="/race/nordic-chase-gravel/" class="gg-directory-link">Nordic Chase Gravel Edition</a>
+        <a href="/race/nova-eroica/" class="gg-directory-link">Nova Eroica</a>
+        <a href="/race/oregon-trail-gravel/" class="gg-directory-link">Oregon Trail Gravel Grinder</a>
+        <a href="/race/ouray-gravel-grinder/" class="gg-directory-link">Ouray Gravel Grinder</a>
+        <a href="/race/paris-to-ancaster/" class="gg-directory-link">Paris to Ancaster</a>
+        <a href="/race/pirinexus-360/" class="gg-directory-link">Pirinexus 360</a>
+        <a href="/race/pisgah-monster-cross/" class="gg-directory-link">Pisgah Monster Cross</a>
+        <a href="/race/radl-grvl/" class="gg-directory-link">RADL GRVL</a>
+        <a href="/race/rad-dirt-fest/" class="gg-directory-link">Rad Dirt Fest</a>
+        <a href="/race/rasputitsa/" class="gg-directory-link">Rasputitsa</a>
+        <a href="/race/rasputitsa-spring-classic/" class="gg-directory-link">Rasputitsa Spring Classic</a>
+        <a href="/race/rock-cobbler/" class="gg-directory-link">Rock Cobbler</a>
+        <a href="/race/rule-of-three/" class="gg-directory-link">Rule of Three</a>
+        <a href="/race/sagan-fondo/" class="gg-directory-link">Sagan Fondo</a>
+        <a href="/race/sea-otter-gravel/" class="gg-directory-link">Sea Otter Classic Gravel</a>
+        <a href="/race/fuego-mtb/" class="gg-directory-link">Sea Otter Fuego XL</a>
+        <a href="/race/southern-cross-gravel/" class="gg-directory-link">Southern Cross Gravel</a>
+        <a href="/race/the-equalizer/" class="gg-directory-link">THE EQUALIZER - Missouri State Championship</a>
+        <a href="/race/the-gralloch/" class="gg-directory-link">The Gralloch</a>
+        <a href="/race/the-rad/" class="gg-directory-link">The Rad Dirt Fest</a>
+        <a href="/race/the-rift/" class="gg-directory-link">The Rift</a>
+        <a href="/race/transcordilleras/" class="gg-directory-link">Transcordilleras</a>
+        <a href="/race/gravel-fondo-switzerland/" class="gg-directory-link">UCI Gravel Suisse</a>
+        <a href="/race/usa-cycling-gravel-nationals/" class="gg-directory-link">USA Cycling Gravel Nationals</a>
+        <a href="/race/unbound-100/" class="gg-directory-link">Unbound Gravel 100</a>
+        <a href="/race/vapor-trail-125/" class="gg-directory-link">Vapor Trail 125</a>
+        <a href="/race/vermont-overland/" class="gg-directory-link">Vermont Overland</a>
+        <a href="/race/vuelta-altas-cumbres/" class="gg-directory-link">Vuelta Altas Cumbres</a>
+        <a href="/race/wyo-131/" class="gg-directory-link">WYO 131</a>
+        <a href="/race/wasatch-all-road/" class="gg-directory-link">Wasatch All-Road</a>
+        <a href="/race/whiskey-off-road/" class="gg-directory-link">Whiskey Off-Road</a>
+      </div>
+    </div>
+    <div class="gg-directory-tier">
+      <h3 class="gg-directory-tier-heading tier-3">Tier 3 — Solid (154)</h3>
+      <div class="gg-directory-links">
+        <a href="/race/114-gravel-race/" class="gg-directory-link">114 Gravel Race</a>
+        <a href="/race/3-state-3-mountain-challenge/" class="gg-directory-link">3 State 3 Mountain Challenge</a>
+        <a href="/race/3rides-aachen/" class="gg-directory-link">3Rides Aachen</a>
+        <a href="/race/6-hours-of-syllamo/" class="gg-directory-link">6 Hours of Syllamo</a>
+        <a href="/race/66-south-pyrenees/" class="gg-directory-link">66° South Pyrénées</a>
+        <a href="/race/alentejo-gravel/" class="gg-directory-link">Alentejo Gravel</a>
+        <a href="/race/ardenne-gravel-stages/" class="gg-directory-link">Ardenne Gravel Stages</a>
+        <a href="/race/burgr-95/" class="gg-directory-link">BURGR 95</a>
+        <a href="/race/back-forty-highlander/" class="gg-directory-link">Back Forty Highlander</a>
+        <a href="/race/balkan-gravel/" class="gg-directory-link">Balkan Gravel</a>
+        <a href="/race/barry-roubaix/" class="gg-directory-link">Barry-Roubaix Killer Gravel Road Race</a>
+        <a href="/race/battenkill/" class="gg-directory-link">Battenkill</a>
+        <a href="/race/bear-howard-gravel/" class="gg-directory-link">Bear Howard Gravel</a>
+        <a href="/race/belgian-waffle-ride-kansas/" class="gg-directory-link">Belgian Waffle Ride Kansas</a>
+        <a href="/race/berryman-epic/" class="gg-directory-link">Berryman Epic</a>
+        <a href="/race/big-sky-gravel/" class="gg-directory-link">Big Sky Gravel</a>
+        <a href="/race/black-forest-gravel/" class="gg-directory-link">Black Forest Gravel</a>
+        <a href="/race/bohemian-border-bash/" class="gg-directory-link">Bohemian Border Bash</a>
+        <a href="/race/border-wars/" class="gg-directory-link">Border Wars</a>
+        <a href="/race/burnt-bridge-classic/" class="gg-directory-link">Burnt Bridge Classic</a>
+        <a href="/race/cirrem/" class="gg-directory-link">CIRREM</a>
+        <a href="/race/canmore-crux/" class="gg-directory-link">Canmore Crux</a>
+        <a href="/race/carpathian-gravel/" class="gg-directory-link">Carpathian Gravel</a>
+        <a href="/race/castellon-gravel-race/" class="gg-directory-link">Castellon Gravel Race</a>
+        <a href="/race/cheaha-challenge/" class="gg-directory-link">Cheaha Challenge</a>
+        <a href="/race/chino-grinder/" class="gg-directory-link">Chino Grinder</a>
+        <a href="/race/coast-to-coast/" class="gg-directory-link">Coast to Coast</a>
+        <a href="/race/cowichan-crusher-gravel-fondo/" class="gg-directory-link">Cowichan Crusher Gravel Fondo</a>
+        <a href="/race/croatan-buck-fifty/" class="gg-directory-link">Croatan Buck Fifty</a>
+        <a href="/race/crooked-gravel/" class="gg-directory-link">Crooked Gravel</a>
+        <a href="/race/d2r2/" class="gg-directory-link">D2R2</a>
+        <a href="/race/dead-swede-gravel/" class="gg-directory-link">Dead Swede Gravel</a>
+        <a href="/race/devils-cardigan/" class="gg-directory-link">Devils Cardigan</a>
+        <a href="/race/dirty-hector/" class="gg-directory-link">Dirty Hector - New York State Championship</a>
+        <a href="/race/dirty-pecan/" class="gg-directory-link">Dirty Pecan</a>
+        <a href="/race/dirty-sheets-gravel-grind/" class="gg-directory-link">Dirty Sheets Gravel Grind</a>
+        <a href="/race/dusty-bandita/" class="gg-directory-link">Dusty Bandita</a>
+        <a href="/race/edition-zero/" class="gg-directory-link">Edition Zero</a>
+        <a href="/race/eislek-gravel/" class="gg-directory-link">Eislek Gravel</a>
+        <a href="/race/essential-gravel/" class="gg-directory-link">Essential Gravel</a>
+        <a href="/race/farmers-daughter/" class="gg-directory-link">Farmer's Daughter</a>
+        <a href="/race/filthy-50/" class="gg-directory-link">Filthy 50</a>
+        <a href="/race/flanders-legacy-gravel/" class="gg-directory-link">Flanders Legacy Gravel</a>
+        <a href="/race/flint-hills-death-ride/" class="gg-directory-link">Flint Hills Death Ride</a>
+        <a href="/race/fools-gold-gravel-grinder/" class="gg-directory-link">Fools Gold Gravel Grinder</a>
+        <a href="/race/grusk/" class="gg-directory-link">GRUSK</a>
+        <a href="/race/garmin-gravel-worlds/" class="gg-directory-link">Garmin Gravel Worlds</a>
+        <a href="/race/ghost-of-the-gravel/" class="gg-directory-link">Ghost of the Gravel</a>
+        <a href="/race/gran-fondo-hincapie/" class="gg-directory-link">Gran Fondo Hincapie</a>
+        <a href="/race/gran-fondo-ozarks/" class="gg-directory-link">Gran Fondo Ozarks</a>
+        <a href="/race/grasslands-100/" class="gg-directory-link">Grasslands 100</a>
+        <a href="/race/gravel-battle-of-sumter-forest/" class="gg-directory-link">Gravel Battle of Sumter Forest</a>
+        <a href="/race/gravel-bogota/" class="gg-directory-link">Gravel Bogotá</a>
+        <a href="/race/gravel-fever/" class="gg-directory-link">Gravel Fever</a>
+        <a href="/race/gravel-fondo-louisiana/" class="gg-directory-link">Gravel Fondo Louisiana</a>
+        <a href="/race/gravel-grit-n-grind/" class="gg-directory-link">Gravel Grit 'n Grind</a>
+        <a href="/race/gravel-medellin/" class="gg-directory-link">Gravel Medellín</a>
+        <a href="/race/gravel-one-fifty/" class="gg-directory-link">Gravel One Fifty</a>
+        <a href="/race/gravel-revival/" class="gg-directory-link">Gravel Revival</a>
+        <a href="/race/gravel-roll-pecan-shaker/" class="gg-directory-link">Gravel Roll - Pecan Shaker</a>
+        <a href="/race/gravel-suisse/" class="gg-directory-link">Gravel Suisse</a>
+        <a href="/race/gravel-worlds-amateur/" class="gg-directory-link">Gravel Worlds Amateur</a>
+        <a href="/race/gravel-del-fuego/" class="gg-directory-link">Gravel del Fuego</a>
+        <a href="/race/gravel-des-flandres/" class="gg-directory-link">Gravel des Flandres</a>
+        <a href="/race/gravelista/" class="gg-directory-link">Gravelista</a>
+        <a href="/race/greek-gravel/" class="gg-directory-link">Greek Gravel</a>
+        <a href="/race/grinduro-italy/" class="gg-directory-link">Grinduro Italy</a>
+        <a href="/race/gun-flint-44/" class="gg-directory-link">Gun Flint 44</a>
+        <a href="/race/haute-route-gravel/" class="gg-directory-link">Haute Route Gravel</a>
+        <a href="/race/heathland-gravel/" class="gg-directory-link">Heathland Gravel</a>
+        <a href="/race/hegau-gravel-race/" class="gg-directory-link">Hegau Gravel Race</a>
+        <a href="/race/hell-of-hunterdon/" class="gg-directory-link">Hell of Hunterdon</a>
+        <a href="/race/hellhole-gravel-grind/" class="gg-directory-link">Hellhole Gravel Grind Stage Race</a>
+        <a href="/race/holly-shelter-gravel-grinder/" class="gg-directory-link">Holly Shelter Gravel Grinder</a>
+        <a href="/race/homegrown-gravel-adventure/" class="gg-directory-link">Homegrown Gravel Adventure</a>
+        <a href="/race/hot-springs-gravel-gauntlet/" class="gg-directory-link">Hot Springs Gravel Gauntlet</a>
+        <a href="/race/houffa-gravel/" class="gg-directory-link">Houffa Gravel</a>
+        <a href="/race/hungry-bear-100/" class="gg-directory-link">Hungry Bear 100</a>
+        <a href="/race/iceman-cometh/" class="gg-directory-link">Iceman Cometh</a>
+        <a href="/race/iron-cross/" class="gg-directory-link">Iron Cross</a>
+        <a href="/race/iron-horse-bicycle-classic/" class="gg-directory-link">Iron Horse Bicycle Classic</a>
+        <a href="/race/kal-tour-dirty-100/" class="gg-directory-link">Kal-Tour Dirty 100</a>
+        <a href="/race/karukinka/" class="gg-directory-link">Karukinka</a>
+        <a href="/race/kettle-mettle/" class="gg-directory-link">Kettle Mettle</a>
+        <a href="/race/king-price-race-to-sun/" class="gg-directory-link">King Price Race to Sun</a>
+        <a href="/race/king-of-the-lake/" class="gg-directory-link">King of the Lake</a>
+        <a href="/race/kowtown-gravel/" class="gg-directory-link">KowTown Gravel</a>
+        <a href="/race/la-dromoise-gravel/" class="gg-directory-link">La Drômoise Gravel</a>
+        <a href="/race/la-resistance/" class="gg-directory-link">La Resistance</a>
+        <a href="/race/lake-country-gravel/" class="gg-directory-link">Lake Country Gravel</a>
+        <a href="/race/lake-taupo-cycle-challenge/" class="gg-directory-link">Lake Taupo Cycle Challenge</a>
+        <a href="/race/lauf-gritfest/" class="gg-directory-link">Lauf Gritfest</a>
+        <a href="/race/little-apple-100/" class="gg-directory-link">Little Apple 100 - Illinois State Championship</a>
+        <a href="/race/lone-wolf-gravel/" class="gg-directory-link">Lone Wolf Gravel</a>
+        <a href="/race/lost-and-found-gravel/" class="gg-directory-link">Lost and Found Gravel</a>
+        <a href="/race/maap-beechworth-granite-classic/" class="gg-directory-link">MAAP Beechworth Granite Classic</a>
+        <a href="/race/marji-gesick/" class="gg-directory-link">Marji Gesick</a>
+        <a href="/race/marly-grav/" class="gg-directory-link">Marly Grav</a>
+        <a href="/race/montana-gravel-challenge/" class="gg-directory-link">Montana Gravel Challenge</a>
+        <a href="/race/natchez-trace-gran-fondo/" class="gg-directory-link">Natchez Trace Gran Fondo</a>
+        <a href="/race/niseko-gravel/" class="gg-directory-link">Niseko Gravel</a>
+        <a href="/race/noosa-gravel-enduro/" class="gg-directory-link">Noosa Gravel Enduro</a>
+        <a href="/race/opelika-okey-dokey/" class="gg-directory-link">Opelika Okey Dokey</a>
+        <a href="/race/oregon-coast-gravel-epic/" class="gg-directory-link">Oregon Coast Gravel Epic</a>
+        <a href="/race/oregon-gran-fondo/" class="gg-directory-link">Oregon Gran Fondo</a>
+        <a href="/race/ouachita-challenge/" class="gg-directory-link">Ouachita Challenge</a>
+        <a href="/race/ozark-gravel/" class="gg-directory-link">Ozark Gravel</a>
+        <a href="/race/paris-mountain-gravel-grinder/" class="gg-directory-link">Paris Mountain Gravel Grinder</a>
+        <a href="/race/pickerel-buck40/" class="gg-directory-link">Pickerel Buck40</a>
+        <a href="/race/pirate-cycling-league-gravel/" class="gg-directory-link">Pirate Cycling League Gravel</a>
+        <a href="/race/polish-gravel/" class="gg-directory-link">Polish Gravel</a>
+        <a href="/race/pony-express-120/" class="gg-directory-link">Pony Express 120</a>
+        <a href="/race/pony-xpress/" class="gg-directory-link">Pony Xpress - Colorado State Championship</a>
+        <a href="/race/pony-xpress-gravel-160/" class="gg-directory-link">Pony Xpress Gravel 160</a>
+        <a href="/race/purgatory-road-race/" class="gg-directory-link">Purgatory Road Race</a>
+        <a href="/race/race-to-valhalla/" class="gg-directory-link">Race to Valhalla</a>
+        <a href="/race/rad-am-ring-gravel/" class="gg-directory-link">Rad am Ring Gravel</a>
+        <a href="/race/red-granite-grinder/" class="gg-directory-link">Red Granite Grinder</a>
+        <a href="/race/reliance-deep-woods/" class="gg-directory-link">Reliance Deep Woods</a>
+        <a href="/race/reliance-tennessee-gravel/" class="gg-directory-link">Reliance Tennessee Gravel</a>
+        <a href="/race/river-city-gravel-fondo/" class="gg-directory-link">River City Gravel Fondo</a>
+        <a href="/race/rooted-vermont/" class="gg-directory-link">Rooted Vermont</a>
+        <a href="/race/ruby-roubaix/" class="gg-directory-link">Ruby Roubaix</a>
+        <a href="/race/safari-gravel-race/" class="gg-directory-link">Safari Gravel Race</a>
+        <a href="/race/salida-76/" class="gg-directory-link">Salida 76</a>
+        <a href="/race/santa-fe-century-gravelon/" class="gg-directory-link">Santa Fe Century Gravelón</a>
+        <a href="/race/sasquatch-duro/" class="gg-directory-link">Sasquatch Duro</a>
+        <a href="/race/sea-otter-europe-gravel/" class="gg-directory-link">Sea Otter Europe Gravel</a>
+        <a href="/race/serenissima-gravel/" class="gg-directory-link">Serenissima Gravel</a>
+        <a href="/race/spirit-world-100/" class="gg-directory-link">Spirit World 100</a>
+        <a href="/race/spotted-horse-ultra/" class="gg-directory-link">Spotted Horse Ultra</a>
+        <a href="/race/standard-deluxe-dirt-road-century/" class="gg-directory-link">Standard Deluxe Dirt Road Century</a>
+        <a href="/race/switchgrass/" class="gg-directory-link">Switchgrass</a>
+        <a href="/race/texas-hell-week/" class="gg-directory-link">Texas Hell Week</a>
+        <a href="/race/the-crusher/" class="gg-directory-link">The Crusher</a>
+        <a href="/race/the-grit-adventure/" class="gg-directory-link">The GRiT Adventure</a>
+        <a href="/race/the-range/" class="gg-directory-link">The Range</a>
+        <a href="/race/tor-divide/" class="gg-directory-link">Tor Divide</a>
+        <a href="/race/tour-de-gap/" class="gg-directory-link">Tour de Gap</a>
+        <a href="/race/tour-de-nebraska/" class="gg-directory-link">Tour de Nebraska</a>
+        <a href="/race/trans-iowa/" class="gg-directory-link">Trans Iowa</a>
+        <a href="/race/trans-sylvania-epic/" class="gg-directory-link">Trans-Sylvania Epic</a>
+        <a href="/race/transrockies-gravel-royale/" class="gg-directory-link">TransRockies Gravel Royale</a>
+        <a href="/race/turnhout-gravel/" class="gg-directory-link">Turnhout Gravel</a>
+        <a href="/race/uci-gravel-dustman/" class="gg-directory-link">UCI Gravel Dustman</a>
+        <a href="/race/unravel-gravel-va/" class="gg-directory-link">Unravel Gravel (VA State Championship)</a>
+        <a href="/race/uwharrie-forest-gravel-grinder/" class="gg-directory-link">Uwharrie Forest Gravel Grinder</a>
+        <a href="/race/veneto-gravel/" class="gg-directory-link">Veneto Gravel</a>
+        <a href="/race/walburg-dirty-30/" class="gg-directory-link">Walburg Dirty 30</a>
+        <a href="/race/waucheesi-bike-race/" class="gg-directory-link">Waucheesi Bike Race</a>
+        <a href="/race/wild-horse-gravel/" class="gg-directory-link">Wild Horse Gravel</a>
+        <a href="/race/wish-one-millau/" class="gg-directory-link">Wish One Millau</a>
+        <a href="/race/wollombi-gravel-fest/" class="gg-directory-link">Wollombi Gravel Fest</a>
+        <a href="/race/worthersee-gravel-race/" class="gg-directory-link">Wörthersee Gravel Race</a>
+      </div>
+    </div>
+    <div class="gg-directory-tier">
+      <h3 class="gg-directory-tier-heading tier-4">Tier 4 — Local (76)</h3>
+      <div class="gg-directory-links">
+        <a href="/race/albia-holy-cow/" class="gg-directory-link">Albia Holy Cow</a>
+        <a href="/race/bald-eagle-gravel-grinder/" class="gg-directory-link">Bald Eagle Gravel Grinder</a>
+        <a href="/race/bear-100/" class="gg-directory-link">Bear 100</a>
+        <a href="/race/beaver-dam-gravel-grinder/" class="gg-directory-link">Beaver Dam Gravel Grinder</a>
+        <a href="/race/camp-michaux-gravel-grinder/" class="gg-directory-link">Camp Michaux Gravel Grinder</a>
+        <a href="/race/cedar-blitz/" class="gg-directory-link">Cedar Blitz</a>
+        <a href="/race/clarkes-gambit/" class="gg-directory-link">Clarkes Gambit</a>
+        <a href="/race/cow-pie-classic/" class="gg-directory-link">Cow Pie Classic</a>
+        <a href="/race/cowboy-crusher/" class="gg-directory-link">Cowboy Crusher</a>
+        <a href="/race/dalby-grit/" class="gg-directory-link">Dalby Grit</a>
+        <a href="/race/de-ronde-van-grampian/" class="gg-directory-link">De Ronde Van Grampian</a>
+        <a href="/race/dirty-dino/" class="gg-directory-link">Dirty Dino</a>
+        <a href="/race/dunoon-dirt-dash/" class="gg-directory-link">Dunoon Dirt Dash</a>
+        <a href="/race/dusty-gravel-lacs-de-leau-dheure/" class="gg-directory-link">Dusty Gravel - Lacs de l'Eau d'Heure</a>
+        <a href="/race/dusty-gravel-series-andenne/" class="gg-directory-link">Dusty Gravel Series - Andenne</a>
+        <a href="/race/fairfield-harvest-rush/" class="gg-directory-link">Fairfield Harvest Rush</a>
+        <a href="/race/fast-fitty/" class="gg-directory-link">Fast Fitty</a>
+        <a href="/race/forbidden-gravel/" class="gg-directory-link">Forbidden Gravel</a>
+        <a href="/race/galactic-grinder/" class="gg-directory-link">Galactic Grinder</a>
+        <a href="/race/glengarry-games-gravel-run/" class="gg-directory-link">Glengarry Games Gravel Run</a>
+        <a href="/race/glenwood-gravel/" class="gg-directory-link">Glenwood Gravel</a>
+        <a href="/race/grassroots-gravel/" class="gg-directory-link">Grassroots Gravel</a>
+        <a href="/race/gravel-rocks/" class="gg-directory-link">Gravel Rocks</a>
+        <a href="/race/gravel-unravel-bon-jon-pass-out/" class="gg-directory-link">Gravel Unravel - Bon Jon Pass Out</a>
+        <a href="/race/gravel-unravel-why-not-chee/" class="gg-directory-link">Gravel Unravel - Why-Not-Chee</a>
+        <a href="/race/gravel-and-granite/" class="gg-directory-link">Gravel and Granite</a>
+        <a href="/race/gray-duck-grit/" class="gg-directory-link">Gray Duck Grit</a>
+        <a href="/race/great-otway-gravel-grind/" class="gg-directory-link">Great Otway Gravel Grind</a>
+        <a href="/race/haldon-heroic/" class="gg-directory-link">Haldon Heroic</a>
+        <a href="/race/hardwood-hustle/" class="gg-directory-link">Hardwood Hustle</a>
+        <a href="/race/hart-hills/" class="gg-directory-link">Hart Hills</a>
+        <a href="/race/heywood-ride/" class="gg-directory-link">Heywood Ride</a>
+        <a href="/race/hibernator/" class="gg-directory-link">Hibernator</a>
+        <a href="/race/iowa-state-gravel-tt-championship/" class="gg-directory-link">Iowa State Gravel TT Championship</a>
+        <a href="/race/just-gravel/" class="gg-directory-link">JUST.GRAVEL</a>
+        <a href="/race/kalona-horseshoe/" class="gg-directory-link">Kalona Horseshoe</a>
+        <a href="/race/lowell-classic/" class="gg-directory-link">Lowell Classic</a>
+        <a href="/race/mad-gravel/" class="gg-directory-link">Mad Gravel</a>
+        <a href="/race/marys-mayhem/" class="gg-directory-link">Marys Mayhem</a>
+        <a href="/race/melting-mann/" class="gg-directory-link">Melting Mann</a>
+        <a href="/race/mid-state-gravel-grinder/" class="gg-directory-link">Mid-State Gravel Grinder</a>
+        <a href="/race/muck-n-mac-fest/" class="gg-directory-link">Muck n Mac Fest</a>
+        <a href="/race/nanaimo-unpaved/" class="gg-directory-link">Nanaimo Unpaved</a>
+        <a href="/race/nicolet-hot-days/" class="gg-directory-link">Nicolet Hot Days</a>
+        <a href="/race/north-wales-gravel-x/" class="gg-directory-link">North Wales Gravel X</a>
+        <a href="/race/omg-oxford-ms-gravel/" class="gg-directory-link">OMG (Oxford MS Gravel)</a>
+        <a href="/race/old-fashioned-gravel/" class="gg-directory-link">Old Fashioned Gravel</a>
+        <a href="/race/ottawa-valley-gravel-experience/" class="gg-directory-link">Ottawa Valley Gravel Experience</a>
+        <a href="/race/parker-dam-gravel-grinder/" class="gg-directory-link">Parker Dam Gravel Grinder</a>
+        <a href="/race/prairie-burn-100/" class="gg-directory-link">Prairie Burn 100</a>
+        <a href="/race/raid-rockingham/" class="gg-directory-link">Raid Rockingham</a>
+        <a href="/race/real-west-gravel/" class="gg-directory-link">Real West Gravel</a>
+        <a href="/race/ride-the-gravel-trails/" class="gg-directory-link">Ride the Gravel Trails</a>
+        <a href="/race/rose-city-rampage/" class="gg-directory-link">Rose City Rampage Gravel Race</a>
+        <a href="/race/rust-buster-gravel-fondo/" class="gg-directory-link">Rust Buster Gravel Fondo</a>
+        <a href="/race/salty-lizard/" class="gg-directory-link">Salty Lizard</a>
+        <a href="/race/scratch-ankle-gravel/" class="gg-directory-link">Scratch Ankle Gravel</a>
+        <a href="/race/silver-city-century/" class="gg-directory-link">Silver City Century</a>
+        <a href="/race/soldier-cutoff-hillduro/" class="gg-directory-link">Soldier Cutoff Hillduro</a>
+        <a href="/race/spring-thaw/" class="gg-directory-link">Spring Thaw</a>
+        <a href="/race/spring-valley-100/" class="gg-directory-link">Spring Valley 100</a>
+        <a href="/race/sunday-creek-classic/" class="gg-directory-link">Sunday Creek Classic</a>
+        <a href="/race/swamp-fox-gravel-fondo/" class="gg-directory-link">Swamp Fox Gravel Fondo</a>
+        <a href="/race/takelma-gravel-grinder/" class="gg-directory-link">Takelma Gravel Grinder</a>
+        <a href="/race/the-divide/" class="gg-directory-link">The Divide</a>
+        <a href="/race/the-insayner/" class="gg-directory-link">The Insayner</a>
+        <a href="/race/the-mane-event-gravel/" class="gg-directory-link">The Mane Event Gravel</a>
+        <a href="/race/the-watermoo/" class="gg-directory-link">The Watermoo</a>
+        <a href="/race/thunder-bay-thriller/" class="gg-directory-link">Thunder Bay Thriller</a>
+        <a href="/race/total-tomahawk-terrain/" class="gg-directory-link">Total Tomahawk Terrain</a>
+        <a href="/race/trough-creek-gravel-grinder/" class="gg-directory-link">Trough Creek Gravel Grinder</a>
+        <a href="/race/uncle-johns-gravel-race/" class="gg-directory-link">Uncle John's Gravel Race</a>
+        <a href="/race/waukon-100/" class="gg-directory-link">Waukon 100</a>
+        <a href="/race/west-coast-gravel/" class="gg-directory-link">West Coast Gravel</a>
+        <a href="/race/wild-gravel/" class="gg-directory-link">Wild Gravel</a>
+        <a href="/race/yorkshire-coast-dirt-dash/" class="gg-directory-link">Yorkshire Coast Dirt Dash</a>
+      </div>
+    </div>
+  </div>
+  <!-- End Race Directory -->
 
   <div class="gg-widget-footer">
     <span class="gg-widget-footer-brand">Gravel God</span>

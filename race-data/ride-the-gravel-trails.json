@@ -325,6 +325,23 @@
         "description": "a person riding a motorcycle down a dirt road",
         "download_location": "https://api.unsplash.com/photos/wwmkk-dZ8e4/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxSaWRlJTIwdGhlJTIwR3JhdmVsJTIwVHJhaWxzJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA3OTA4MzR8MA"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "ride-the-gravel-trails-hero.jpg",
+        "alt": "Lone gravel cyclists on Minnesota rolling near Dakota County, Minnesota"
+      },
+      {
+        "type": "grit",
+        "file": "ride-the-gravel-trails-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on Gravel roads through Minnesota countryside. Moderate elevation with rolling scenery. near Dakota County"
+      },
+      {
+        "type": "pack",
+        "file": "ride-the-gravel-trails-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Minnesota at golden hour"
+      }
     ]
   }
 }

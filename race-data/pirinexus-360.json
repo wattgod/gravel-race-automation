@@ -256,6 +256,23 @@
         "description": "a river running through a city next to tall buildings",
         "download_location": "https://api.unsplash.com/photos/xajUUz0NCkQ/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxHaXJvbmElMkMlMjBDYXRhbG9uaWElMkMlMjBTcGFpbiUyMGN5Y2xpbmd8ZW58MHwwfHx8MTc3MDc4NzE5Nnww"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "pirinexus-360-hero.jpg",
+        "alt": "Lone gravel cyclists on gravel road near Girona, Catalonia, Spain"
+      },
+      {
+        "type": "grit",
+        "file": "pirinexus-360-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on gravel near Girona"
+      },
+      {
+        "type": "pack",
+        "file": "pirinexus-360-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Spain at golden hour"
+      }
     ]
   }
 }

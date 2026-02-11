@@ -229,6 +229,23 @@
         "description": "A pile of small, smooth, multi-colored pebbles.",
         "download_location": "https://api.unsplash.com/photos/NzsbnIe5pGI/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxPdXJheSUyMEdyYXZlbCUyMEdyaW5kZXIlMjBncmF2ZWx8ZW58MHwwfHx8MTc3MDc4NzE4MHww"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "ouray-gravel-grinder-hero.jpg",
+        "alt": "Lone gravel cyclists on gravel road near Ouray, Colorado"
+      },
+      {
+        "type": "grit",
+        "file": "ouray-gravel-grinder-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on {'gravel': 50, 'jeepRoad': 40, 'paved': 10} near Ouray"
+      },
+      {
+        "type": "pack",
+        "file": "ouray-gravel-grinder-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Colorado at golden hour"
+      }
     ]
   }
 }

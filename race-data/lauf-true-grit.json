@@ -156,6 +156,23 @@
         }
       ],
       "signature_challenge": "Lines through the rocks that riders practice a dozen times pre-race and still freeze up on race day. The technical sections aren't just difficult—they're bike-destroying, confidence-crushing puzzles that punish hesitation and reward local knowledge you don't have."
-    }
+    },
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "lauf-true-grit-hero.jpg",
+        "alt": "Lone gravel cyclists on gravel road near Santa Clara, Utah"
+      },
+      {
+        "type": "grit",
+        "file": "lauf-true-grit-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on gravel near Santa Clara"
+      },
+      {
+        "type": "pack",
+        "file": "lauf-true-grit-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Utah at golden hour"
+      }
+    ]
   }
 }

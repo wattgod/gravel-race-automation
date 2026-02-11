@@ -233,6 +233,23 @@
         "description": "man in red jacket riding motorcycle on road during daytime",
         "download_location": "https://api.unsplash.com/photos/FbzbXZWUrt8/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxCYWtlcnNmaWVsZCUyQyUyMENhbGlmb3JuaWElMjBjeWNsaW5nfGVufDB8MHx8fDE3NzA3OTA4Mzd8MA"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "rock-cobbler-hero.jpg",
+        "alt": "Lone gravel cyclists on Central Valley gravel near Bakersfield, California"
+      },
+      {
+        "type": "grit",
+        "file": "rock-cobbler-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on 60% gravel, 30% dirt roads, 10% pavement. Chunky sections, rocky descents. 5,000 ft elevation over 100 miles. Technical rating: 3/5. near Bakersfield"
+      },
+      {
+        "type": "pack",
+        "file": "rock-cobbler-pack.jpg",
+        "alt": "Group of gravel cyclists riding through California at golden hour"
+      }
     ]
   }
 }

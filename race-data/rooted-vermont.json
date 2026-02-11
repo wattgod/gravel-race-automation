@@ -334,6 +334,23 @@
         "description": "a view of a mountain range with trees in the foreground",
         "download_location": "https://api.unsplash.com/photos/s2D4JoiR538/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxSb290ZWQlMjBWZXJtb250JTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA3OTA4Mzh8MA"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "rooted-vermont-hero.jpg",
+        "alt": "Lone gravel cyclists on Vermont mountains near Morrisville, Vermont"
+      },
+      {
+        "type": "grit",
+        "file": "rooted-vermont-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on Gravel roads through rolling to mountainous northern Vermont. Moderate to significant elevation with mountain and rural scenery. near Morrisville"
+      },
+      {
+        "type": "pack",
+        "file": "rooted-vermont-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Vermont at golden hour"
+      }
     ]
   }
 }

@@ -246,6 +246,23 @@
         "description": "grey road during daytime",
         "download_location": "https://api.unsplash.com/photos/-PM0QY8iLsw/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxTYWxpZGElMkMlMjBDb2xvcmFkbyUyMGxhbmRzY2FwZXxlbnwwfDB8fHwxNzcwNzkwODE4fDA"
       }
+    ],
+    "race_photos": [
+      {
+        "type": "hero",
+        "file": "rad-dirt-fest-hero.jpg",
+        "alt": "Lone gravel cyclists on Colorado Rockies gravel (80%) near Salida, Colorado"
+      },
+      {
+        "type": "grit",
+        "file": "rad-dirt-fest-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on 80% gravel, 20% dirt roads. Colorado Rockies—high altitude (2,200-3,000 m), technical climbs. 2,500 m over 100 km. Monarch Pass area, Arkansas River Valley. Technical rating: 4/5. near Salida"
+      },
+      {
+        "type": "pack",
+        "file": "rad-dirt-fest-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Colorado at golden hour"
+      }
     ]
   }
 }

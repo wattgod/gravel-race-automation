@@ -499,17 +499,46 @@
       {
         "type": "hero",
         "file": "unbound-200-hero.jpg",
-        "alt": "Flint hills gravel road stretching through the landscape near Emporia, Kansas"
+        "alt": "Lone gravel cyclists on Flint Hills gravel near Emporia, Kansas"
       },
       {
-        "type": "terrain",
-        "file": "unbound-200-terrain.jpg",
-        "alt": "Close-up of Chunky limestone that shreds tires and hands near Emporia"
+        "type": "grit",
+        "file": "unbound-200-grit.jpg",
+        "alt": "Gravel cyclists kicking up dust on Chunky limestone that shreds tires and hands near Emporia"
       },
       {
-        "type": "action",
-        "file": "unbound-200-action.jpg",
-        "alt": "Gravel cyclists riding through Kansas"
+        "type": "pack",
+        "file": "unbound-200-pack.jpg",
+        "alt": "Group of gravel cyclists riding through Kansas at golden hour"
+      }
+    ],
+    "unsplash_photos": [
+      {
+        "id": "aUNaGmOIE64",
+        "url_regular": "https://images.unsplash.com/photo-1716143493321-27589d64308b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "url_small": "https://images.unsplash.com/photo-1716143493321-27589d64308b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=400",
+        "photographer": "Milad Fakurian",
+        "photographer_url": "https://unsplash.com/@fakurian",
+        "description": "a blurry photo of a black and white background",
+        "download_location": "https://api.unsplash.com/photos/aUNaGmOIE64/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA"
+      },
+      {
+        "id": "YQzQ5vjEuR0",
+        "url_regular": "https://images.unsplash.com/photo-1675784045745-ee5585c3470c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "url_small": "https://images.unsplash.com/photo-1675784045745-ee5585c3470c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=400",
+        "photographer": "Marina Velasco",
+        "photographer_url": "https://unsplash.com/@froggyalchemist",
+        "description": "a close up of a pile of rocks",
+        "download_location": "https://api.unsplash.com/photos/YQzQ5vjEuR0/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA"
+      },
+      {
+        "id": "oX2XaCWm8ok",
+        "url_regular": "https://images.unsplash.com/photo-1696062022860-dd371f52d5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "url_small": "https://images.unsplash.com/photo-1696062022860-dd371f52d5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA&ixlib=rb-4.1.0&q=80&w=400",
+        "photographer": "Aim | @photobypitcha",
+        "photographer_url": "https://unsplash.com/@aimpitcha",
+        "description": "a bunch of rocks that are next to each other",
+        "download_location": "https://api.unsplash.com/photos/oX2XaCWm8ok/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxVbmJvdW5kJTIwMjAwJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA4MDE3Mzh8MA"
       }
     ]
   }

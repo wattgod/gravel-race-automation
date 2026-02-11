@@ -51,8 +51,8 @@ OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "photos"
 
 PHOTO_TYPES = {
     "hero": {"aspect_ratio": "16:9", "width": 1200, "height": 675},
-    "terrain": {"aspect_ratio": "4:3", "width": 1200, "height": 900},
-    "action": {"aspect_ratio": "16:9", "width": 1200, "height": 675},
+    "grit": {"aspect_ratio": "4:3", "width": 1200, "height": 900},
+    "pack": {"aspect_ratio": "16:9", "width": 1200, "height": 675},
 }
 
 # Cost per image at Gemini 2.5 Flash pricing
@@ -157,56 +157,68 @@ def build_prompts(race: dict) -> dict[str, str]:
         first_sentence = climate_desc.split(".")[0] + "."
         climate_snippet = first_sentence if len(first_sentence) < 120 else climate_desc[:100] + "."
 
-    # Hero prompt
+    # HERO — lone rider dwarfed by epic landscape (the iconic gravel shot)
     hero_prompt = (
-        f"A photorealistic wide-angle landscape photograph of {terrain_primary} "
-        f"near {location}. The landscape features {terrain_joined}. "
+        f"A photorealistic wide-angle photograph of a single {cyclist_desc} "
+        f"riding alone on a {terrain_primary} road near {location}. "
+        f"The rider is small in the frame, dwarfed by the vast landscape "
+        f"of {terrain_joined}. "
     )
     if climate_snippet:
         hero_prompt += f"{climate_snippet} "
     hero_prompt += (
-        f"{light.capitalize()}. No people visible. The road stretches into "
-        f"the distance. Shot on a 24mm lens at f/8, deep depth of field. "
-        f"Rich natural colors, editorial landscape photography. "
+        f"The gravel road stretches into the distance with the tiny rider "
+        f"emphasizing the epic scale. {light.capitalize()}. "
+        f"Shot on a 24mm lens at f/8, deep depth of field. "
+        f"Rider seen from behind or side, no visible face. "
+        f"Wearing {kit_desc}. Dust trail behind the wheels. "
+        f"Editorial adventure cycling photography. "
         f"No text, no watermarks, no logos."
     )
 
-    # Terrain prompt
-    terrain_prompt = (
-        f"A photorealistic close-up photograph of {surface} road surface "
-        f"in {region}. "
+    # GRIT — close-in action, dust/mud, raw effort (the suffering shot)
+    grit_prompt = (
+        f"A photorealistic low-angle action photograph of a {cyclist_desc} "
+        f"riding hard on {surface} near {location}. "
+        f"Shot from ground level looking up at the rider. "
+        f"Gravel and dust spraying from the tires, visible dust cloud "
+        f"behind the bike. "
     )
     if features_joined:
-        terrain_prompt += f"The surrounding landscape shows {features_joined}. "
-    terrain_prompt += (
-        f"Shallow depth of field, road surface sharp in foreground, "
-        f"landscape soft in background. Shot on 85mm lens at f/2.8. "
-        f"Natural {season} light. Documentary style. "
+        grit_prompt += f"{features_joined} in the background. "
+    grit_prompt += (
+        f"The rider is leaning into the effort, {kit_desc}. "
+        f"Dramatic {season} light, slight motion blur in the wheels "
+        f"and dust particles. Shallow depth of field, rider sharp, "
+        f"background soft. Rider seen from the side, no visible face. "
+        f"Gritty, raw, editorial cycling photography. "
         f"No text, no watermarks."
     )
 
-    # Action prompt
-    action_prompt = (
-        f"A photorealistic photograph of 2 {cyclist_plural} riding on "
-        f"{surface} road near {location}. "
+    # PACK — group of riders strung out, golden hour atmosphere (the community shot)
+    pack_prompt = (
+        f"A photorealistic photograph of a group of 4-6 {cyclist_plural} "
+        f"strung out in a line on a {surface} road near {location}. "
     )
     if climate_primary:
-        action_prompt += f"{climate_primary} conditions. "
-    action_prompt += (
-        f"Wearing {kit_desc}. "
+        pack_prompt += f"{climate_primary} conditions. "
+    pack_prompt += (
+        f"The riders are silhouetted against dramatic {light}. "
+        f"Dust hanging in the golden backlight behind the group. "
     )
     if features_joined:
-        action_prompt += f"{features_joined} visible in the landscape. "
-    action_prompt += (
-        f"Shot on 50mm lens at f/4, natural {light}. Slight motion blur "
-        f"in wheels. Cyclists seen from behind, no visible faces. "
+        pack_prompt += f"The landscape of {features_joined} frames the scene. "
+    pack_prompt += (
+        f"Wearing {kit_desc}. Riders seen from behind or side, "
+        f"no visible faces. Shot on 70mm lens at f/4. "
+        f"Warm golden backlighting creates atmosphere and drama. "
         f"Editorial cycling photography. No text, no watermarks."
     )
 
     return {
         "hero": hero_prompt,
-        "terrain": terrain_prompt,
-        "action": action_prompt,
+        "grit": grit_prompt,
+        "pack": pack_prompt,
     }
 
 
@@ -232,9 +244,9 @@ def build_alt_texts(race: dict) -> dict[str, str]:
     cyclist_word = "Mountain bikers" if discipline == "mtb" else "Gravel cyclists"
 
     return {
-        "hero": f"{terrain_desc.capitalize()} road stretching through the landscape near {location}",
-        "terrain": f"Close-up of {surface} near {loc_short}",
-        "action": f"{cyclist_word} riding through {region}",
+        "hero": f"Lone {cyclist_word.lower()} on {terrain_desc} near {location}",
+        "grit": f"{cyclist_word} kicking up dust on {surface} near {loc_short}",
+        "pack": f"Group of {cyclist_word.lower()} riding through {region} at golden hour",
     }
 
 
@@ -467,7 +479,7 @@ def main():
     parser.add_argument("--all", action="store_true", help="Generate for all races")
     parser.add_argument(
         "--type",
-        choices=["hero", "terrain", "action"],
+        choices=["hero", "grit", "pack"],
         help="Generate only one photo type",
     )
     parser.add_argument(

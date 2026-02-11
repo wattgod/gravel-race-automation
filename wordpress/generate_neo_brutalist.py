@@ -1465,7 +1465,7 @@ def build_photos_section(rd: dict) -> str:
         url = f"{photo_base}/{p['file']}"
         alt = esc(p.get('alt', 'Race course photo'))
         ptype = p.get('type', 'hero')
-        h = 675 if ptype != 'terrain' else 900
+        h = 675 if ptype != 'grit' else 900
         cards.append(f'''<figure class="gg-photo-card">
           <img src="{esc(url)}" alt="{alt}" loading="lazy"
                width="1200" height="{h}">

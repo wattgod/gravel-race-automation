@@ -1650,7 +1650,7 @@ def build_webpage_jsonld(rd: dict) -> dict:
     return {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": f"{rd['name']} — Gravel God Race Profile",
+        "name": f"{rd['name']} — Gravel God Race Rating",
         "url": canonical_url,
         "dateModified": rd.get('_file_mtime', date.today().isoformat()),
         "isPartOf": {
@@ -2178,7 +2178,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Open Graph meta tags
     og_image_url = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
-    og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Profile">
+    og_tags = f'''<meta property="og:title" content="{esc(rd['name'])} — Gravel God Race Rating">
   <meta property="og:description" content="{esc(rd['tagline'])}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{esc(canonical_url)}">
@@ -2187,7 +2187,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Profile">
+  <meta name="twitter:title" content="{esc(rd['name'])} — Gravel God Race Rating">
   <meta name="twitter:description" content="{esc(rd['tagline'])}">
   <meta name="twitter:image" content="{esc(og_image_url)}">'''
 

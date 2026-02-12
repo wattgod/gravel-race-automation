@@ -853,8 +853,15 @@
 
   // ── Event binding ──
   function bindEvents() {
-    ['gg-search','gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(function(id) {
-      document.getElementById(id).addEventListener('input', render);
+    var searchTimer = null;
+    function debouncedRender() {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(render, 200);
+    }
+    // Text search: debounce to avoid DOM thrashing on every keystroke
+    document.getElementById('gg-search').addEventListener('input', debouncedRender);
+    // Dropdowns: render immediately on change (single event per selection)
+    ['gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(function(id) {
       document.getElementById(id).addEventListener('change', render);
     });
 

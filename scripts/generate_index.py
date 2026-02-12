@@ -182,7 +182,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "weakest": rs["weakest_dimension"],
     }
 
-    return {
+    entry = {
         "name": race.get("display_name") or race.get("name", slug),
         "slug": slug,
         "location": location,
@@ -199,6 +199,13 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "has_rwgps": bool(race.get("course_description", {}).get("ridewithgps_id")),
         "research": research,
     }
+
+    # Include coordinates if available
+    if vitals.get("lat") is not None and vitals.get("lng") is not None:
+        entry["lat"] = vitals["lat"]
+        entry["lng"] = vitals["lng"]
+
+    return entry
 
 
 def build_index_entry_from_flat(race: dict) -> dict:

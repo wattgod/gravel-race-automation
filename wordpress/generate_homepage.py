@@ -507,6 +507,7 @@ def build_featured_races(race_index: list) -> str:
         <a href="{SITE_BASE_URL}/gravel-races/?region=South" class="gg-hp-quick-chip" data-ga="quick_south">SOUTH</a>
         <a href="{SITE_BASE_URL}/gravel-races/?region=Northeast" class="gg-hp-quick-chip" data-ga="quick_ne">NORTHEAST</a>
         <a href="{SITE_BASE_URL}/gravel-races/?region=International" class="gg-hp-quick-chip" data-ga="quick_intl">INTERNATIONAL</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?nearme=1" class="gg-hp-quick-chip gg-hp-quick-chip--accent" data-ga="quick_nearme">NEAR ME</a>
       </div>
     </div>
   </section>'''
@@ -799,6 +800,8 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-quick-label { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #8c7568; }
 .gg-hp-quick-chip { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 2px solid #59473c; color: #59473c; text-decoration: none; transition: all var(--gg-ease); }
 .gg-hp-quick-chip:hover { background: #59473c; color: #f5efe6; }
+.gg-hp-quick-chip--accent { border-color: #1A8A82; color: #1A8A82; }
+.gg-hp-quick-chip--accent:hover { background: #1A8A82; color: #f5efe6; border-color: #1A8A82; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
 .gg-hp-latest-takes { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }

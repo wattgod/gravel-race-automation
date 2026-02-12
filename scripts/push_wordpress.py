@@ -653,6 +653,9 @@ RewriteRule ^homepage/?$ / [R=301,L]
 
 # /homepage/index.html → / (direct file access)
 RewriteRule ^homepage/index\\.html$ / [R=301,L]
+
+# /race/ directory index → search page (prevents 403)
+RewriteRule ^race/?$ /gravel-races/ [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """

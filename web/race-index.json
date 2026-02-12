@@ -33,7 +33,9 @@
       "grade": "A",
       "score": 92.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.5802,
+    "lng": -105.996
   },
   {
     "name": "Colorado Trail Race",
@@ -69,7 +71,9 @@
       "grade": "A",
       "score": 81.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 38.7252,
+    "lng": -105.6077
   },
   {
     "name": "Trans Am Bike Race",
@@ -105,7 +109,9 @@
       "grade": "A",
       "score": 92.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.1232,
+    "lng": -78.4928
   },
   {
     "name": "Transcontinental Race",
@@ -141,7 +147,9 @@
       "grade": "A",
       "score": 95.0,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 48.2082,
+    "lng": 16.3738
   },
   {
     "name": "Badlands",
@@ -177,7 +185,9 @@
       "grade": "A",
       "score": 92.8,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 37.1735,
+    "lng": -3.5995
   },
   {
     "name": "Leadville Trail 100 MTB",
@@ -208,12 +218,14 @@
     "tagline": "The Race Across the Sky. 100 miles at 10,000+ feet. The belt buckle that defines mountain biking.",
     "has_profile": true,
     "profile_url": "/race/leadville-100/",
-    "has_rwgps": false,
+    "has_rwgps": true,
     "research": {
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 39.2508,
+    "lng": -106.2925
   },
   {
     "name": "Torino Nice Rally",
@@ -249,7 +261,9 @@
       "grade": "A",
       "score": 95.0,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 46.6034,
+    "lng": 1.8883
   },
   {
     "name": "Crusher in the Tushar",
@@ -280,12 +294,14 @@
     "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
     "has_profile": true,
     "profile_url": "/race/crusher-in-the-tushar/",
-    "has_rwgps": false,
+    "has_rwgps": true,
     "research": {
       "grade": "B",
       "score": 79.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 38.3336,
+    "lng": -113.2755
   },
   {
     "name": "Traka 360",
@@ -321,7 +337,9 @@
       "grade": "B",
       "score": 79.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.9793,
+    "lng": 2.8199
   },
   {
     "name": "UCI Gravel World Championships",
@@ -357,7 +375,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 45.2083,
+    "lng": 5.7148
   },
   {
     "name": "Unbound XL",
@@ -393,7 +413,9 @@
       "grade": "A",
       "score": 82.8,
       "weakest": "completeness"
-    }
+    },
+    "lat": 38.404,
+    "lng": -96.1816
   },
   {
     "name": "Belgian Waffle Ride",
@@ -429,7 +451,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 32.9595,
+    "lng": -117.2653
   },
   {
     "name": "Jeroboam",
@@ -465,7 +489,9 @@
       "grade": "A",
       "score": 81.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 45.5985,
+    "lng": 9.9722
   },
   {
     "name": "Big Sugar Gravel",
@@ -496,12 +522,14 @@
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
     "has_profile": true,
     "profile_url": "/race/big-sugar/",
-    "has_rwgps": false,
+    "has_rwgps": true,
     "research": {
       "grade": "A",
       "score": 93.6,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 36.3729,
+    "lng": -94.2088
   },
   {
     "name": "Gravel Earth Series",
@@ -537,7 +565,9 @@
       "grade": "A",
       "score": 89.5,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.9794,
+    "lng": 2.8214
   },
   {
     "name": "Rebecca's Private Idaho",
@@ -573,7 +603,9 @@
       "grade": "A",
       "score": 94.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 43.6807,
+    "lng": -114.3637
   },
   {
     "name": "SBT GRVL",
@@ -609,7 +641,9 @@
       "grade": "B",
       "score": 69.3,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 40.4848,
+    "lng": -106.8317
   },
   {
     "name": "Unbound Gravel 200",
@@ -645,7 +679,9 @@
       "grade": "A",
       "score": 80.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 38.404,
+    "lng": -96.1816
   },
   {
     "name": "Belgian Waffle Ride San Diego",
@@ -681,7 +717,9 @@
       "grade": "A",
       "score": 84.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 32.9595,
+    "lng": -117.2653
   },
   {
     "name": "Gravel Worlds",
@@ -712,12 +750,14 @@
     "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
     "has_profile": true,
     "profile_url": "/race/gravel-worlds/",
-    "has_rwgps": false,
+    "has_rwgps": true,
     "research": {
       "grade": "B",
       "score": 77.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.8089,
+    "lng": -96.7078
   },
   {
     "name": "Dirty Reiver",
@@ -753,7 +793,9 @@
       "grade": "A",
       "score": 91.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 55.2265,
+    "lng": -2.5725
   },
   {
     "name": "Little Sugar MTB",
@@ -789,7 +831,9 @@
       "grade": "A",
       "score": 90.7,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 36.3729,
+    "lng": -94.2088
   },
   {
     "name": "The Mid South",
@@ -825,7 +869,9 @@
       "grade": "B",
       "score": 73.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 36.1156,
+    "lng": -97.0586
   },
   {
     "name": "Seven",
@@ -861,7 +907,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": -33.9784,
+    "lng": 115.7638
   },
   {
     "name": "Gran Fondo Strade Bianche",
@@ -897,7 +945,9 @@
       "grade": "A",
       "score": 94.1,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 43.1672,
+    "lng": 11.4676
   },
   {
     "name": "BWR Utah (Belgian Waffle Ride Utah)",
@@ -933,7 +983,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.6774,
+    "lng": -113.0618
   },
   {
     "name": "Gravel Locos",
@@ -969,7 +1021,9 @@
       "grade": "B",
       "score": 77.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 31.9814,
+    "lng": -98.0309
   },
   {
     "name": "Belgian Waffle Ride Asheville",
@@ -1005,7 +1059,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 35.5954,
+    "lng": -82.5508
   },
   {
     "name": "Belgian Waffle Ride Cedar City",
@@ -1041,7 +1097,9 @@
       "grade": "A",
       "score": 94.1,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 37.6774,
+    "lng": -113.0618
   },
   {
     "name": "BWR Montana (Belgian Waffle Ride Montana)",
@@ -1077,7 +1135,9 @@
       "grade": "B",
       "score": 79.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 46.8701,
+    "lng": -113.9953
   },
   {
     "name": "Grinduro",
@@ -1113,7 +1173,9 @@
       "grade": "B",
       "score": 79.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 38.4324,
+    "lng": -120.0356
   },
   {
     "name": "Giro Sardegna Gravel",
@@ -1149,7 +1211,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.5732,
+    "lng": 9.694
   },
   {
     "name": "Grinduro France",
@@ -1185,7 +1249,9 @@
       "grade": "B",
       "score": 71.5,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 48.0813,
+    "lng": 6.9267
   },
   {
     "name": "Grinduro Germany",
@@ -1221,7 +1287,9 @@
       "grade": "A",
       "score": 93.6,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 51.1638,
+    "lng": 10.4478
   },
   {
     "name": "Mammoth Tuff",
@@ -1257,7 +1325,9 @@
       "grade": "B",
       "score": 75.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.6433,
+    "lng": -118.9669
   },
   {
     "name": "Nordic Chase Gravel Edition",
@@ -1293,7 +1363,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 61.1529,
+    "lng": 8.7877
   },
   {
     "name": "Oregon Trail Gravel Grinder",
@@ -1329,7 +1401,9 @@
       "grade": "B",
       "score": 69.3,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 15.0705,
+    "lng": 120.6905
   },
   {
     "name": "Whiskey Off-Road",
@@ -1365,7 +1439,9 @@
       "grade": "A",
       "score": 95.0,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 34.54,
+    "lng": -112.4688
   },
   {
     "name": "Chequamegon MTB",
@@ -1401,7 +1477,9 @@
       "grade": "A",
       "score": 82.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 46.208,
+    "lng": -91.2921
   },
   {
     "name": "UCI Gravel Suisse",
@@ -1437,7 +1515,9 @@
       "grade": "A",
       "score": 86.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 46.7986,
+    "lng": 8.232
   },
   {
     "name": "Gunni Grinder",
@@ -1473,7 +1553,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 38.6477,
+    "lng": -107.0603
   },
   {
     "name": "Lauf True Grit Gravel Epic",
@@ -1509,7 +1591,9 @@
       "grade": "A",
       "score": 82.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 37.133,
+    "lng": -113.6541
   },
   {
     "name": "Le Grand du Nord",
@@ -1545,7 +1629,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 47.7505,
+    "lng": -90.3347
   },
   {
     "name": "Migration Gravel Race",
@@ -1581,7 +1667,9 @@
       "grade": "B",
       "score": 68.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": -1.0959,
+    "lng": 35.8566
   },
   {
     "name": "Monaco Gravel Race",
@@ -1617,7 +1705,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 43.7323,
+    "lng": 7.4277
   },
   {
     "name": "Nova Eroica",
@@ -1653,7 +1743,9 @@
       "grade": "A",
       "score": 88.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.1382,
+    "lng": 11.4821
   },
   {
     "name": "Ouray Gravel Grinder",
@@ -1689,7 +1781,9 @@
       "grade": "A",
       "score": 85.8,
       "weakest": "completeness"
-    }
+    },
+    "lat": 38.146,
+    "lng": -107.7415
   },
   {
     "name": "Pirinexus 360",
@@ -1725,7 +1819,9 @@
       "grade": "A",
       "score": 84.5,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 41.9793,
+    "lng": 2.8199
   },
   {
     "name": "Sea Otter Classic Gravel",
@@ -1756,12 +1852,14 @@
     "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
     "has_profile": true,
     "profile_url": "/race/sea-otter-gravel/",
-    "has_rwgps": false,
+    "has_rwgps": true,
     "research": {
       "grade": "A",
       "score": 91.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 36.2231,
+    "lng": -121.3877
   },
   {
     "name": "The Rift",
@@ -1797,7 +1895,9 @@
       "grade": "A",
       "score": 91.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 63.7508,
+    "lng": -20.2238
   },
   {
     "name": "Unbound Gravel 100",
@@ -1833,7 +1933,9 @@
       "grade": "A",
       "score": 97.0,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 38.404,
+    "lng": -96.1816
   },
   {
     "name": "Big Horn Gravel",
@@ -1869,7 +1971,9 @@
       "grade": "A",
       "score": 88.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 39.6469,
+    "lng": -106.9517
   },
   {
     "name": "Grasshopper Adventure Series",
@@ -1905,7 +2009,9 @@
       "grade": "B",
       "score": 77.3,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 35.1345,
+    "lng": 33.9226
   },
   {
     "name": "Rasputitsa",
@@ -1941,7 +2047,9 @@
       "grade": "A",
       "score": 85.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 44.6179,
+    "lng": -71.9235
   },
   {
     "name": "The Rad Dirt Fest",
@@ -1977,7 +2085,9 @@
       "grade": "B",
       "score": 73.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.1694,
+    "lng": -104.5005
   },
   {
     "name": "Belgian Waffle Ride North Carolina",
@@ -2013,7 +2123,9 @@
       "grade": "A",
       "score": 86.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 35.3187,
+    "lng": -82.461
   },
   {
     "name": "Gravel Brazil",
@@ -2049,7 +2161,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": -26.9924,
+    "lng": -48.634
   },
   {
     "name": "Heck of the North",
@@ -2085,7 +2199,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 47.0257,
+    "lng": -91.6731
   },
   {
     "name": "Rad Dirt Fest",
@@ -2121,7 +2237,9 @@
       "grade": "A",
       "score": 94.1,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 38.5371,
+    "lng": -105.991
   },
   {
     "name": "Southern Cross Gravel",
@@ -2157,7 +2275,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 34.5328,
+    "lng": -83.9846
   },
   {
     "name": "Vermont Overland",
@@ -2193,7 +2313,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 43.6248,
+    "lng": -72.519
   },
   {
     "name": "Almanzo 100",
@@ -2229,7 +2351,9 @@
       "grade": "A",
       "score": 81.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 43.687,
+    "lng": -92.3893
   },
   {
     "name": "Bootlegger 100",
@@ -2265,7 +2389,9 @@
       "grade": "B",
       "score": 77.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.5328,
+    "lng": -83.9846
   },
   {
     "name": "Gravel Burn",
@@ -2301,7 +2427,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": -26.2768,
+    "lng": 30.15
   },
   {
     "name": "Grinduro California",
@@ -2337,7 +2465,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 39.931,
+    "lng": -120.9536
   },
   {
     "name": "Paris to Ancaster",
@@ -2373,7 +2503,9 @@
       "grade": "A",
       "score": 99.1,
       "weakest": "completeness"
-    }
+    },
+    "lat": 61.0667,
+    "lng": -107.9917
   },
   {
     "name": "Collegiate Gravel Nationals",
@@ -2409,7 +2541,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.3939,
+    "lng": -100.8941
   },
   {
     "name": "Highlands Gravel Classic",
@@ -2445,7 +2579,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 36.1012,
+    "lng": -93.9913
   },
   {
     "name": "Pisgah Monster Cross",
@@ -2481,7 +2617,9 @@
       "grade": "A",
       "score": 85.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.2334,
+    "lng": -82.7343
   },
   {
     "name": "Rock Cobbler",
@@ -2517,7 +2655,9 @@
       "grade": "A",
       "score": 82.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.3739,
+    "lng": -119.0195
   },
   {
     "name": "The Gralloch",
@@ -2553,7 +2693,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 56.8,
+    "lng": -5.0
   },
   {
     "name": "BWR Arizona",
@@ -2589,7 +2731,9 @@
       "grade": "A",
       "score": 89.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.3953,
+    "lng": -111.7633
   },
   {
     "name": "Sea Otter Fuego XL",
@@ -2625,7 +2769,9 @@
       "grade": "A",
       "score": 80.5,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 36.2231,
+    "lng": -121.3877
   },
   {
     "name": "Gravel and Tar Classic",
@@ -2661,7 +2807,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": -39.6408,
+    "lng": 175.5714
   },
   {
     "name": "Gravel Roubaix",
@@ -2697,7 +2845,9 @@
       "grade": "A",
       "score": 82.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 40.8015,
+    "lng": -75.6102
   },
   {
     "name": "Grinduro Canada",
@@ -2733,7 +2883,9 @@
       "grade": "A",
       "score": 86.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 47.5577,
+    "lng": -70.5398
   },
   {
     "name": "Bend Dirt Fest",
@@ -2769,7 +2921,9 @@
       "grade": "B",
       "score": 67.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 44.0582,
+    "lng": -121.3153
   },
   {
     "name": "Lost River Classic",
@@ -2805,7 +2959,9 @@
       "grade": "A",
       "score": 86.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 38.8763,
+    "lng": -78.8658
   },
   {
     "name": "RADL GRVL",
@@ -2841,7 +2997,9 @@
       "grade": "A",
       "score": 85.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": -34.9014,
+    "lng": 138.8293
   },
   {
     "name": "Rule of Three",
@@ -2877,7 +3035,9 @@
       "grade": "A",
       "score": 85.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 38.404,
+    "lng": -96.1816
   },
   {
     "name": "Crystal Bear",
@@ -2913,7 +3073,9 @@
       "grade": "B",
       "score": 77.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 43.6212,
+    "lng": -84.6824
   },
   {
     "name": "Dirty French",
@@ -2949,7 +3111,9 @@
       "grade": "A",
       "score": 84.5,
       "weakest": "completeness"
-    }
+    },
+    "lat": 39.3331,
+    "lng": -82.9824
   },
   {
     "name": "Atlas Mountain Race",
@@ -2985,7 +3149,9 @@
       "grade": "B",
       "score": 67.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 28.3348,
+    "lng": -10.3713
   },
   {
     "name": "Dirty 30",
@@ -3021,7 +3187,9 @@
       "grade": "B",
       "score": 72.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 42.9292,
+    "lng": -85.2129
   },
   {
     "name": "Iowa Wind and Rock",
@@ -3057,7 +3225,9 @@
       "grade": "B",
       "score": 77.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.3348,
+    "lng": -94.0136
   },
   {
     "name": "Ned Gravel - Colorado State Championship",
@@ -3093,7 +3263,9 @@
       "grade": "B",
       "score": 68.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.9614,
+    "lng": -105.5108
   },
   {
     "name": "USA Cycling Gravel Nationals",
@@ -3129,7 +3301,9 @@
       "grade": "A",
       "score": 94.8,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 41.737,
+    "lng": -99.5874
   },
   {
     "name": "Vapor Trail 125",
@@ -3165,7 +3339,9 @@
       "grade": "B",
       "score": 66.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.2508,
+    "lng": -106.2925
   },
   {
     "name": "Cohutta Gravel Grinder",
@@ -3201,7 +3377,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.7666,
+    "lng": -84.7699
   },
   {
     "name": "Finnish Gravel",
@@ -3237,7 +3415,9 @@
       "grade": "A",
       "score": 92.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 63.2468,
+    "lng": 25.9209
   },
   {
     "name": "Transcordilleras",
@@ -3273,7 +3453,9 @@
       "grade": "C",
       "score": 60.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 4.0999,
+    "lng": -72.9088
   },
   {
     "name": "WYO 131",
@@ -3309,7 +3491,9 @@
       "grade": "C",
       "score": 63.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.8331,
+    "lng": -108.7307
   },
   {
     "name": "Bighorn Gravel",
@@ -3345,7 +3529,9 @@
       "grade": "B",
       "score": 67.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.6469,
+    "lng": -106.9517
   },
   {
     "name": "Rasputitsa Spring Classic",
@@ -3381,7 +3567,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.6179,
+    "lng": -71.9235
   },
   {
     "name": "Sagan Fondo",
@@ -3417,7 +3605,9 @@
       "grade": "B",
       "score": 65.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.3279,
+    "lng": -120.1836
   },
   {
     "name": "THE EQUALIZER - Missouri State Championship",
@@ -3453,7 +3643,9 @@
       "grade": "A",
       "score": 96.6,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 38.6284,
+    "lng": -91.0573
   },
   {
     "name": "Vuelta Altas Cumbres",
@@ -3489,7 +3681,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -31.4167,
+    "lng": -64.1834
   },
   {
     "name": "Wasatch All-Road",
@@ -3525,7 +3719,9 @@
       "grade": "B",
       "score": 67.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.6103,
+    "lng": -111.2805
   },
   {
     "name": "Croatan Buck Fifty",
@@ -3561,7 +3757,9 @@
       "grade": "B",
       "score": 76.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.1068,
+    "lng": -77.0399
   },
   {
     "name": "Crooked Gravel",
@@ -3597,7 +3795,9 @@
       "grade": "C",
       "score": 64.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.918,
+    "lng": -105.7856
   },
   {
     "name": "Gran Fondo Hincapie",
@@ -3633,7 +3833,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.8514,
+    "lng": -82.3985
   },
   {
     "name": "Iron Horse Bicycle Classic",
@@ -3669,7 +3871,9 @@
       "grade": "B",
       "score": 65.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 37.2769,
+    "lng": -107.8766
   },
   {
     "name": "MAAP Beechworth Granite Classic",
@@ -3705,7 +3909,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -36.3595,
+    "lng": 146.687
   },
   {
     "name": "Marji Gesick",
@@ -3741,7 +3947,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.4482,
+    "lng": -87.6306
   },
   {
     "name": "Pony Xpress - Colorado State Championship",
@@ -3777,7 +3985,9 @@
       "grade": "B",
       "score": 66.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 37.1453,
+    "lng": -104.6211
   },
   {
     "name": "Red Granite Grinder",
@@ -3813,7 +4023,9 @@
       "grade": "A",
       "score": 91.1,
       "weakest": "voice_authenticity"
-    }
+    },
+    "lat": 45.035,
+    "lng": -90.0739
   },
   {
     "name": "Iceman Cometh",
@@ -3849,7 +4061,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.6781,
+    "lng": -85.1003
   },
   {
     "name": "TransRockies Gravel Royale",
@@ -3885,7 +4099,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.0013,
+    "lng": -125.0024
   },
   {
     "name": "Belgian Waffle Ride Kansas",
@@ -3921,7 +4137,9 @@
       "grade": "C",
       "score": 59.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.9719,
+    "lng": -95.2359
   },
   {
     "name": "D2R2",
@@ -3957,7 +4175,9 @@
       "grade": "B",
       "score": 69.3,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 42.5437,
+    "lng": -72.6047
   },
   {
     "name": "Gravel Worlds Amateur",
@@ -3993,7 +4213,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.8089,
+    "lng": -96.7078
   },
   {
     "name": "Haute Route Gravel",
@@ -4029,7 +4251,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.1885,
+    "lng": 5.7245
   },
   {
     "name": "La Resistance",
@@ -4065,7 +4289,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.0757,
+    "lng": 5.7736
   },
   {
     "name": "Noosa Gravel Enduro",
@@ -4101,7 +4327,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -26.3665,
+    "lng": 152.8562
   },
   {
     "name": "Sasquatch Duro",
@@ -4137,7 +4365,9 @@
       "grade": "C",
       "score": 63.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.2943,
+    "lng": -123.1765
   },
   {
     "name": "Spotted Horse Ultra",
@@ -4173,7 +4403,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.9217,
+    "lng": -93.3123
   },
   {
     "name": "Tour de Nebraska",
@@ -4209,7 +4441,9 @@
       "grade": "B",
       "score": 79.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 46.4525,
+    "lng": -63.9159
   },
   {
     "name": "Trans Iowa",
@@ -4245,7 +4479,9 @@
       "grade": "A",
       "score": 87.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.6546,
+    "lng": -93.4998
   },
   {
     "name": "Battenkill",
@@ -4281,7 +4517,9 @@
       "grade": "B",
       "score": 69.3,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 43.008,
+    "lng": -73.4393
   },
   {
     "name": "Coast to Coast",
@@ -4317,7 +4555,9 @@
       "grade": "C",
       "score": 63.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.6212,
+    "lng": -84.6824
   },
   {
     "name": "Cowichan Crusher Gravel Fondo",
@@ -4353,7 +4593,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 48.8259,
+    "lng": -124.0563
   },
   {
     "name": "Devils Cardigan",
@@ -4389,7 +4631,9 @@
       "grade": "C",
       "score": 63.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -42.0351,
+    "lng": 146.6367
   },
   {
     "name": "Edition Zero",
@@ -4425,7 +4669,9 @@
       "grade": "B",
       "score": 66.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -43.5866,
+    "lng": 171.2123
   },
   {
     "name": "Filthy 50",
@@ -4461,7 +4707,9 @@
       "grade": "B",
       "score": 77.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 14.7033,
+    "lng": 121.0068
   },
   {
     "name": "Gravel Bogotá",
@@ -4497,7 +4745,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 4.6534,
+    "lng": -74.0836
   },
   {
     "name": "Karukinka",
@@ -4533,7 +4783,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -53.7553,
+    "lng": -68.9335
   },
   {
     "name": "Oregon Coast Gravel Epic",
@@ -4569,7 +4821,9 @@
       "grade": "B",
       "score": 65.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.427,
+    "lng": -124.0672
   },
   {
     "name": "Paris Mountain Gravel Grinder",
@@ -4605,7 +4859,9 @@
       "grade": "B",
       "score": 78.8,
       "weakest": "temporal_depth"
-    }
+    },
+    "lat": 34.9676,
+    "lng": -82.4435
   },
   {
     "name": "Pony Xpress Gravel 160",
@@ -4641,7 +4897,9 @@
       "grade": "B",
       "score": 74.4,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.1694,
+    "lng": -104.5005
   },
   {
     "name": "River City Gravel Fondo",
@@ -4677,7 +4935,9 @@
       "grade": "B",
       "score": 72.0,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 50.0231,
+    "lng": -125.2442
   },
   {
     "name": "Ruby Roubaix",
@@ -4713,7 +4973,9 @@
       "grade": "B",
       "score": 79.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.728,
+    "lng": -115.4784
   },
   {
     "name": "The Range",
@@ -4749,7 +5011,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.0013,
+    "lng": -115.0021
   },
   {
     "name": "3 State 3 Mountain Challenge",
@@ -4785,7 +5049,9 @@
       "grade": "B",
       "score": 70.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.5795,
+    "lng": -85.5905
   },
   {
     "name": "Barry-Roubaix Killer Gravel Road Race",
@@ -4821,7 +5087,9 @@
       "grade": "B",
       "score": 70.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.6485,
+    "lng": -85.2895
   },
   {
     "name": "Carpathian Gravel",
@@ -4857,7 +5125,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.7336,
+    "lng": 24.5274
   },
   {
     "name": "Dirty Hector - New York State Championship",
@@ -4893,7 +5163,9 @@
       "grade": "B",
       "score": 65.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.5423,
+    "lng": -76.6661
   },
   {
     "name": "Fools Gold Gravel Grinder",
@@ -4929,7 +5201,9 @@
       "grade": "C",
       "score": 63.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.5328,
+    "lng": -83.9846
   },
   {
     "name": "Gran Fondo Ozarks",
@@ -4965,7 +5239,9 @@
       "grade": "C",
       "score": 60.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 36.4001,
+    "lng": -93.7392
   },
   {
     "name": "Gravel del Fuego",
@@ -5001,7 +5277,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -33.0162,
+    "lng": -71.5219
   },
   {
     "name": "Gravel Medellín",
@@ -5037,7 +5315,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 6.2697,
+    "lng": -75.6026
   },
   {
     "name": "Gravel Suisse",
@@ -5073,7 +5353,9 @@
       "grade": "C",
       "score": 63.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.3179,
+    "lng": 6.9689
   },
   {
     "name": "Grinduro Italy",
@@ -5109,7 +5391,9 @@
       "grade": "C",
       "score": 57.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.1689,
+    "lng": 8.3437
   },
   {
     "name": "Kettle Mettle",
@@ -5145,7 +5429,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.0013,
+    "lng": -125.0024
   },
   {
     "name": "King Price Race to Sun",
@@ -5181,7 +5467,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -28.8166,
+    "lng": 24.9916
   },
   {
     "name": "Ozark Gravel",
@@ -5217,7 +5505,9 @@
       "grade": "C",
       "score": 61.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 36.3349,
+    "lng": -94.1194
   },
   {
     "name": "Wörthersee Gravel Race",
@@ -5253,7 +5543,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.6215,
+    "lng": 14.0884
   },
   {
     "name": "3Rides Aachen",
@@ -5289,7 +5581,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.1638,
+    "lng": 10.4478
   },
   {
     "name": "6 Hours of Syllamo",
@@ -5325,7 +5619,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 35.8684,
+    "lng": -92.1177
   },
   {
     "name": "66° South Pyrénées",
@@ -5361,7 +5657,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 48.8739,
+    "lng": 2.3853
   },
   {
     "name": "Ardenne Gravel Stages",
@@ -5397,7 +5695,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.1619,
+    "lng": 5.5817
   },
   {
     "name": "Berryman Epic",
@@ -5433,7 +5733,9 @@
       "grade": "B",
       "score": 71.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.9364,
+    "lng": -90.7879
   },
   {
     "name": "Black Forest Gravel",
@@ -5469,7 +5771,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.1638,
+    "lng": 10.4478
   },
   {
     "name": "Cheaha Challenge",
@@ -5505,7 +5809,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 33.8138,
+    "lng": -85.7613
   },
   {
     "name": "GRUSK",
@@ -5541,7 +5847,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.6709,
+    "lng": -79.4912
   },
   {
     "name": "Hot Springs Gravel Gauntlet",
@@ -5577,7 +5885,9 @@
       "grade": "B",
       "score": 69.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.8923,
+    "lng": -82.829
   },
   {
     "name": "Iron Cross",
@@ -5613,7 +5923,9 @@
       "grade": "B",
       "score": 67.5,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.97,
+    "lng": -77.7279
   },
   {
     "name": "Little Apple 100 - Illinois State Championship",
@@ -5649,7 +5961,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.4225,
+    "lng": -87.9859
   },
   {
     "name": "Lost and Found Gravel",
@@ -5685,7 +5999,9 @@
       "grade": "B",
       "score": 65.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.8105,
+    "lng": -120.4695
   },
   {
     "name": "Niseko Gravel",
@@ -5721,7 +6037,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.8047,
+    "lng": 140.6873
   },
   {
     "name": "Oregon Gran Fondo",
@@ -5757,7 +6075,9 @@
       "grade": "A",
       "score": 81.3,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 43.7975,
+    "lng": -123.0589
   },
   {
     "name": "Ouachita Challenge",
@@ -5793,7 +6113,9 @@
       "grade": "A",
       "score": 80.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.5576,
+    "lng": -93.6326
   },
   {
     "name": "Pirate Cycling League Gravel",
@@ -5829,7 +6151,9 @@
       "grade": "B",
       "score": 73.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.448,
+    "lng": -119.2429
   },
   {
     "name": "Race to Valhalla",
@@ -5865,7 +6189,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.7648,
+    "lng": -83.064
   },
   {
     "name": "Santa Fe Century Gravelón",
@@ -5901,7 +6227,9 @@
       "grade": "B",
       "score": 68.3,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.6876,
+    "lng": -105.9385
   },
   {
     "name": "Sea Otter Europe Gravel",
@@ -5937,7 +6265,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.9793,
+    "lng": 2.8199
   },
   {
     "name": "Trans-Sylvania Epic",
@@ -5973,7 +6303,9 @@
       "grade": "C",
       "score": 61.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.97,
+    "lng": -77.7279
   },
   {
     "name": "Uwharrie Forest Gravel Grinder",
@@ -6009,7 +6341,9 @@
       "grade": "C",
       "score": 58.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 35.9371,
+    "lng": -80.9665
   },
   {
     "name": "Waucheesi Bike Race",
@@ -6045,7 +6379,9 @@
       "grade": "C",
       "score": 63.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 35.3626,
+    "lng": -84.294
   },
   {
     "name": "Balkan Gravel",
@@ -6081,7 +6417,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.0422,
+    "lng": 14.5137
   },
   {
     "name": "Grasslands 100",
@@ -6117,7 +6455,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 33.2343,
+    "lng": -97.5861
   },
   {
     "name": "Gravel Battle of Sumter Forest",
@@ -6153,7 +6493,9 @@
       "grade": "B",
       "score": 68.3,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.5029,
+    "lng": -81.6115
   },
   {
     "name": "Greek Gravel",
@@ -6189,7 +6531,9 @@
       "grade": "C",
       "score": 63.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 37.3634,
+    "lng": 22.2395
   },
   {
     "name": "Hellhole Gravel Grind Stage Race",
@@ -6225,7 +6569,9 @@
       "grade": "C",
       "score": 62.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 33.286,
+    "lng": -79.6926
   },
   {
     "name": "Hungry Bear 100",
@@ -6261,7 +6607,9 @@
       "grade": "B",
       "score": 70.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 46.208,
+    "lng": -91.2921
   },
   {
     "name": "Lake Taupo Cycle Challenge",
@@ -6297,7 +6645,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -38.8065,
+    "lng": 175.9312
   },
   {
     "name": "Natchez Trace Gran Fondo",
@@ -6333,7 +6683,9 @@
       "grade": "C",
       "score": 59.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 36.1623,
+    "lng": -86.7743
   },
   {
     "name": "Reliance Deep Woods",
@@ -6369,7 +6721,9 @@
       "grade": "B",
       "score": 76.2,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 35.773,
+    "lng": -86.282
   },
   {
     "name": "Reliance Tennessee Gravel",
@@ -6405,7 +6759,9 @@
       "grade": "B",
       "score": 75.0,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 35.187,
+    "lng": -84.4991
   },
   {
     "name": "Rooted Vermont",
@@ -6441,7 +6797,9 @@
       "grade": "B",
       "score": 79.5,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 44.5615,
+    "lng": -72.5983
   },
   {
     "name": "Safari Gravel Race",
@@ -6477,7 +6835,9 @@
       "grade": "C",
       "score": 60.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 1.442,
+    "lng": 38.4314
   },
   {
     "name": "Salida 76",
@@ -6513,7 +6873,9 @@
       "grade": "C",
       "score": 62.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.5371,
+    "lng": -105.991
   },
   {
     "name": "Spirit World 100",
@@ -6549,7 +6911,9 @@
       "grade": "B",
       "score": 69.8,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.3953,
+    "lng": -111.7633
   },
   {
     "name": "UCI Gravel Dustman",
@@ -6585,7 +6949,9 @@
       "grade": "C",
       "score": 52.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.6292,
+    "lng": 3.0573
   },
   {
     "name": "Walburg Dirty 30",
@@ -6621,7 +6987,9 @@
       "grade": "A",
       "score": 82.8,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 30.7349,
+    "lng": -97.5884
   },
   {
     "name": "Wild Horse Gravel",
@@ -6657,7 +7025,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.3348,
+    "lng": -108.2153
   },
   {
     "name": "Wish One Millau",
@@ -6693,7 +7063,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.146,
+    "lng": 3.1722
   },
   {
     "name": "Dead Swede Gravel",
@@ -6729,7 +7101,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.7948,
+    "lng": -106.8223
   },
   {
     "name": "Eislek Gravel",
@@ -6765,7 +7139,9 @@
       "grade": "C",
       "score": 53.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 49.8159,
+    "lng": 6.1297
   },
   {
     "name": "Flanders Legacy Gravel",
@@ -6801,7 +7177,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.0378,
+    "lng": 4.2406
   },
   {
     "name": "Flint Hills Death Ride",
@@ -6837,7 +7215,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 38.3722,
+    "lng": -96.5428
   },
   {
     "name": "Gravel Grit 'n Grind",
@@ -6873,7 +7253,9 @@
       "grade": "F",
       "score": 23.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 56.674,
+    "lng": 12.8575
   },
   {
     "name": "Hell of Hunterdon",
@@ -6909,7 +7291,9 @@
       "grade": "B",
       "score": 71.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.5771,
+    "lng": -74.9262
   },
   {
     "name": "Houffa Gravel",
@@ -6945,7 +7329,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.1619,
+    "lng": 5.5817
   },
   {
     "name": "Kal-Tour Dirty 100",
@@ -6981,7 +7367,9 @@
       "grade": "C",
       "score": 58.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.2917,
+    "lng": -85.5872
   },
   {
     "name": "King of the Lake",
@@ -7017,7 +7405,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.6478,
+    "lng": 9.3472
   },
   {
     "name": "La Drômoise Gravel",
@@ -7053,7 +7443,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.7295,
+    "lng": 5.2046
   },
   {
     "name": "Lauf Gritfest",
@@ -7089,7 +7481,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 52.4149,
+    "lng": -3.5047
   },
   {
     "name": "Pony Express 120",
@@ -7125,7 +7519,9 @@
       "grade": "B",
       "score": 67.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.8417,
+    "lng": -96.6481
   },
   {
     "name": "Standard Deluxe Dirt Road Century",
@@ -7161,7 +7557,9 @@
       "grade": "B",
       "score": 67.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 32.7354,
+    "lng": -85.5791
   },
   {
     "name": "Texas Hell Week",
@@ -7197,7 +7595,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 30.0552,
+    "lng": -96.9139
   },
   {
     "name": "Veneto Gravel",
@@ -7233,7 +7633,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.8007,
+    "lng": 11.9142
   },
   {
     "name": "114 Gravel Race",
@@ -7269,7 +7671,9 @@
       "grade": "C",
       "score": 61.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.6622,
+    "lng": -8.1354
   },
   {
     "name": "Alentejo Gravel",
@@ -7305,7 +7709,9 @@
       "grade": "B",
       "score": 65.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.0551,
+    "lng": -7.8606
   },
   {
     "name": "Back Forty Highlander",
@@ -7341,7 +7747,9 @@
       "grade": "C",
       "score": 62.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.22,
+    "lng": -76.2067
   },
   {
     "name": "Bear Howard Gravel",
@@ -7377,7 +7785,9 @@
       "grade": "B",
       "score": 65.9,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 35.1988,
+    "lng": -111.6518
   },
   {
     "name": "Border Wars",
@@ -7413,7 +7823,9 @@
       "grade": "B",
       "score": 69.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 49.1708,
+    "lng": 87.7988
   },
   {
     "name": "BURGR 95",
@@ -7449,7 +7861,9 @@
       "grade": "C",
       "score": 61.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.3089,
+    "lng": -89.4965
   },
   {
     "name": "Burnt Bridge Classic",
@@ -7485,7 +7899,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 48.836,
+    "lng": -124.1503
   },
   {
     "name": "Castellon Gravel Race",
@@ -7521,7 +7937,9 @@
       "grade": "B",
       "score": 65.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.2519,
+    "lng": -0.0615
   },
   {
     "name": "Chino Grinder",
@@ -7557,7 +7975,9 @@
       "grade": "B",
       "score": 65.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.7575,
+    "lng": -112.4538
   },
   {
     "name": "Dirty Sheets Gravel Grind",
@@ -7593,7 +8013,9 @@
       "grade": "C",
       "score": 60.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 33.5791,
+    "lng": -84.7687
   },
   {
     "name": "Farmer's Daughter",
@@ -7629,7 +8051,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.7127,
+    "lng": -74.006
   },
   {
     "name": "Garmin Gravel Worlds",
@@ -7665,7 +8089,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.8089,
+    "lng": -96.7078
   },
   {
     "name": "Gravel des Flandres",
@@ -7701,7 +8127,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.0378,
+    "lng": 4.2406
   },
   {
     "name": "Gravel Fondo Louisiana",
@@ -7737,7 +8165,9 @@
       "grade": "C",
       "score": 58.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 30.7807,
+    "lng": -91.3763
   },
   {
     "name": "Gravel One Fifty",
@@ -7773,7 +8203,9 @@
       "grade": "B",
       "score": 65.3,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 53.1405,
+    "lng": 6.4275
   },
   {
     "name": "Gravelista",
@@ -7809,7 +8241,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -36.5986,
+    "lng": 144.678
   },
   {
     "name": "Hegau Gravel Race",
@@ -7845,7 +8279,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.7618,
+    "lng": 8.8349
   },
   {
     "name": "KowTown Gravel",
@@ -7881,7 +8317,9 @@
       "grade": "C",
       "score": 60.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.0587,
+    "lng": -106.3886
   },
   {
     "name": "Lone Wolf Gravel",
@@ -7917,7 +8355,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.8202,
+    "lng": -88.066
   },
   {
     "name": "Montana Gravel Challenge",
@@ -7953,7 +8393,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.0313,
+    "lng": -114.3273
   },
   {
     "name": "Opelika Okey Dokey",
@@ -7989,7 +8431,9 @@
       "grade": "B",
       "score": 77.0,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 32.6454,
+    "lng": -85.3783
   },
   {
     "name": "Purgatory Road Race",
@@ -8025,7 +8469,9 @@
       "grade": "A",
       "score": 80.5,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 30.2752,
+    "lng": -98.872
   },
   {
     "name": "Serenissima Gravel",
@@ -8061,7 +8507,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.4372,
+    "lng": 12.3346
   },
   {
     "name": "Switchgrass",
@@ -8097,7 +8545,9 @@
       "grade": "C",
       "score": 61.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.3644,
+    "lng": -96.8589
   },
   {
     "name": "The GRiT Adventure",
@@ -8133,7 +8583,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.3984,
+    "lng": -121.4144
   },
   {
     "name": "Unravel Gravel (VA State Championship)",
@@ -8169,7 +8621,9 @@
       "grade": "B",
       "score": 67.9,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 37.5004,
+    "lng": -78.2469
   },
   {
     "name": "Wollombi Gravel Fest",
@@ -8205,7 +8659,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -31.876,
+    "lng": 147.2869
   },
   {
     "name": "Big Sky Gravel",
@@ -8241,7 +8697,9 @@
       "grade": "C",
       "score": 62.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.1859,
+    "lng": -109.2471
   },
   {
     "name": "Bohemian Border Bash",
@@ -8277,7 +8735,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 49.7439,
+    "lng": 15.3381
   },
   {
     "name": "Canmore Crux",
@@ -8313,7 +8773,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.0867,
+    "lng": -115.3481
   },
   {
     "name": "CIRREM",
@@ -8349,7 +8811,9 @@
       "grade": "C",
       "score": 59.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.0797,
+    "lng": -89.4337
   },
   {
     "name": "Dirty Pecan",
@@ -8385,7 +8849,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 27.7568,
+    "lng": -81.464
   },
   {
     "name": "Dusty Bandita",
@@ -8421,7 +8887,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.0227,
+    "lng": -113.1733
   },
   {
     "name": "Essential Gravel",
@@ -8457,7 +8925,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.9117,
+    "lng": -89.4568
   },
   {
     "name": "Ghost of the Gravel",
@@ -8493,7 +8963,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.0013,
+    "lng": -115.0021
   },
   {
     "name": "Gravel Fever",
@@ -8529,7 +9001,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.818,
+    "lng": 0.5458
   },
   {
     "name": "Gravel Revival",
@@ -8565,7 +9039,9 @@
       "grade": "B",
       "score": 66.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 35.7949,
+    "lng": -87.4646
   },
   {
     "name": "Gravel Roll - Pecan Shaker",
@@ -8601,7 +9077,9 @@
       "grade": "B",
       "score": 67.5,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 32.2835,
+    "lng": -83.4668
   },
   {
     "name": "Gun Flint 44",
@@ -8637,7 +9115,9 @@
       "grade": "C",
       "score": 60.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 47.7505,
+    "lng": -90.3347
   },
   {
     "name": "Heathland Gravel",
@@ -8673,7 +9153,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.6403,
+    "lng": 4.6667
   },
   {
     "name": "Holly Shelter Gravel Grinder",
@@ -8709,7 +9191,9 @@
       "grade": "C",
       "score": 60.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.8869,
+    "lng": -76.9973
   },
   {
     "name": "Homegrown Gravel Adventure",
@@ -8745,7 +9229,9 @@
       "grade": "B",
       "score": 65.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 34.3679,
+    "lng": -83.2157
   },
   {
     "name": "Lake Country Gravel",
@@ -8781,7 +9267,9 @@
       "grade": "C",
       "score": 51.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.1117,
+    "lng": -88.4993
   },
   {
     "name": "Marly Grav",
@@ -8817,7 +9305,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 52.2435,
+    "lng": 5.6343
   },
   {
     "name": "Pickerel Buck40",
@@ -8853,7 +9343,9 @@
       "grade": "B",
       "score": 77.4,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 44.4309,
+    "lng": -89.6885
   },
   {
     "name": "Polish Gravel",
@@ -8889,7 +9381,9 @@
       "grade": "B",
       "score": 73.2,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 50.0469,
+    "lng": 19.9972
   },
   {
     "name": "Rad am Ring Gravel",
@@ -8925,7 +9419,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.3413,
+    "lng": 6.9519
   },
   {
     "name": "The Crusher",
@@ -8961,7 +9457,9 @@
       "grade": "B",
       "score": 66.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.5436,
+    "lng": -87.3963
   },
   {
     "name": "Tor Divide",
@@ -8997,7 +9495,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 53.3158,
+    "lng": -1.727
   },
   {
     "name": "Tour de Gap",
@@ -9033,7 +9533,9 @@
       "grade": "C",
       "score": 58.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.274,
+    "lng": -88.4092
   },
   {
     "name": "Turnhout Gravel",
@@ -9069,7 +9571,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 51.3289,
+    "lng": 4.93
   },
   {
     "name": "Albia Holy Cow",
@@ -9105,7 +9609,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.0265,
+    "lng": -92.8075
   },
   {
     "name": "Bear 100",
@@ -9141,7 +9647,9 @@
       "grade": "C",
       "score": 63.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.5609,
+    "lng": -88.6725
   },
   {
     "name": "Cedar Blitz",
@@ -9177,7 +9685,9 @@
       "grade": "C",
       "score": 63.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.2234,
+    "lng": -85.5514
   },
   {
     "name": "Cow Pie Classic",
@@ -9213,7 +9723,9 @@
       "grade": "B",
       "score": 70.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 42.947,
+    "lng": -85.0714
   },
   {
     "name": "Fairfield Harvest Rush",
@@ -9249,7 +9761,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.0072,
+    "lng": -91.963
   },
   {
     "name": "Glenwood Gravel",
@@ -9285,7 +9799,9 @@
       "grade": "C",
       "score": 62.9,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.0469,
+    "lng": -95.7425
   },
   {
     "name": "Gravel and Granite",
@@ -9321,7 +9837,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -28.8384,
+    "lng": 152.2813
   },
   {
     "name": "Gravel Unravel - Bon Jon Pass Out",
@@ -9357,7 +9875,9 @@
       "grade": "C",
       "score": 64.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 47.8223,
+    "lng": -122.8752
   },
   {
     "name": "Gray Duck Grit",
@@ -9393,7 +9913,9 @@
       "grade": "C",
       "score": 64.5,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 44.5068,
+    "lng": -92.9062
   },
   {
     "name": "Hart Hills",
@@ -9429,7 +9951,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.6983,
+    "lng": -86.364
   },
   {
     "name": "Lowell Classic",
@@ -9465,7 +9989,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.9336,
+    "lng": -85.3419
   },
   {
     "name": "Marys Mayhem",
@@ -9501,7 +10027,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -32.5981,
+    "lng": 149.5886
   },
   {
     "name": "Melting Mann",
@@ -9537,7 +10065,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.917,
+    "lng": -85.9147
   },
   {
     "name": "Real West Gravel",
@@ -9573,7 +10103,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.6721,
+    "lng": -118.7886
   },
   {
     "name": "Ride the Gravel Trails",
@@ -9609,7 +10141,9 @@
       "grade": "B",
       "score": 70.2,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 44.6667,
+    "lng": -93.0449
   },
   {
     "name": "Spring Valley 100",
@@ -9645,7 +10179,9 @@
       "grade": "C",
       "score": 63.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.687,
+    "lng": -92.3893
   },
   {
     "name": "Sunday Creek Classic",
@@ -9681,7 +10217,9 @@
       "grade": "C",
       "score": 63.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -26.6352,
+    "lng": 152.6166
   },
   {
     "name": "Swamp Fox Gravel Fondo",
@@ -9717,7 +10255,9 @@
       "grade": "C",
       "score": 64.8,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 33.1113,
+    "lng": -79.5813
   },
   {
     "name": "The Mane Event Gravel",
@@ -9753,7 +10293,9 @@
       "grade": "B",
       "score": 66.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 44.7948,
+    "lng": -106.8223
   },
   {
     "name": "The Watermoo",
@@ -9789,7 +10331,9 @@
       "grade": "C",
       "score": 64.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.3373,
+    "lng": -83.8842
   },
   {
     "name": "Total Tomahawk Terrain",
@@ -9825,7 +10369,9 @@
       "grade": "C",
       "score": 61.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.471,
+    "lng": -89.7314
   },
   {
     "name": "Waukon 100",
@@ -9861,7 +10407,9 @@
       "grade": "C",
       "score": 61.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.2694,
+    "lng": -91.4758
   },
   {
     "name": "Clarkes Gambit",
@@ -9897,7 +10445,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -35.6484,
+    "lng": 150.1409
   },
   {
     "name": "De Ronde Van Grampian",
@@ -9933,7 +10483,9 @@
       "grade": "B",
       "score": 69.2,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 42.8248,
+    "lng": -83.2647
   },
   {
     "name": "Fast Fitty",
@@ -9969,7 +10521,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.5637,
+    "lng": -84.8356
   },
   {
     "name": "Galactic Grinder",
@@ -10005,7 +10559,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 36.9366,
+    "lng": -107.8896
   },
   {
     "name": "Grassroots Gravel",
@@ -10041,7 +10597,9 @@
       "grade": "C",
       "score": 63.4,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 38.264,
+    "lng": -104.6142
   },
   {
     "name": "Gravel Rocks",
@@ -10077,7 +10635,9 @@
       "grade": "C",
       "score": 57.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 54.3318,
+    "lng": -0.6902
   },
   {
     "name": "Great Otway Gravel Grind",
@@ -10113,7 +10673,9 @@
       "grade": "C",
       "score": 64.7,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -38.5186,
+    "lng": 143.7165
   },
   {
     "name": "Hibernator",
@@ -10149,7 +10711,9 @@
       "grade": "C",
       "score": 60.0,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.5609,
+    "lng": -88.6725
   },
   {
     "name": "Iowa State Gravel TT Championship",
@@ -10185,7 +10749,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.8,
+    "lng": -91.8707
   },
   {
     "name": "North Wales Gravel X",
@@ -10221,7 +10787,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 53.1116,
+    "lng": -3.3052
   },
   {
     "name": "Prairie Burn 100",
@@ -10257,7 +10825,9 @@
       "grade": "B",
       "score": 77.4,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.743,
+    "lng": -92.724
   },
   {
     "name": "Spring Thaw",
@@ -10293,7 +10863,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.2342,
+    "lng": -86.2484
   },
   {
     "name": "Takelma Gravel Grinder",
@@ -10329,7 +10901,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.9276,
+    "lng": -123.2812
   },
   {
     "name": "West Coast Gravel",
@@ -10365,7 +10939,9 @@
       "grade": "C",
       "score": 62.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.3128,
+    "lng": -124.105
   },
   {
     "name": "Beaver Dam Gravel Grinder",
@@ -10401,7 +10977,9 @@
       "grade": "C",
       "score": 56.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 37.5224,
+    "lng": -114.089
   },
   {
     "name": "Camp Michaux Gravel Grinder",
@@ -10437,7 +11015,9 @@
       "grade": "C",
       "score": 56.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.0056,
+    "lng": -77.2069
   },
   {
     "name": "Cowboy Crusher",
@@ -10473,7 +11053,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 42.8615,
+    "lng": -105.872
   },
   {
     "name": "Dirty Dino",
@@ -10509,7 +11091,9 @@
       "grade": "B",
       "score": 66.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.4557,
+    "lng": -109.5285
   },
   {
     "name": "Forbidden Gravel",
@@ -10545,7 +11129,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 49.6185,
+    "lng": -125.032
   },
   {
     "name": "Hardwood Hustle",
@@ -10581,7 +11167,9 @@
       "grade": "B",
       "score": 67.0,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 46.0197,
+    "lng": -88.8179
   },
   {
     "name": "Heywood Ride",
@@ -10617,7 +11205,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.4582,
+    "lng": -93.1612
   },
   {
     "name": "JUST.GRAVEL",
@@ -10653,7 +11243,9 @@
       "grade": "C",
       "score": 57.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 54.7024,
+    "lng": -3.2766
   },
   {
     "name": "Mad Gravel",
@@ -10689,7 +11281,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 39.3139,
+    "lng": -104.0869
   },
   {
     "name": "Raid Rockingham",
@@ -10725,7 +11319,9 @@
       "grade": "B",
       "score": 75.7,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 42.9624,
+    "lng": -71.3977
   },
   {
     "name": "Salty Lizard",
@@ -10761,7 +11357,9 @@
       "grade": "B",
       "score": 66.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.7376,
+    "lng": -114.0314
   },
   {
     "name": "Silver City Century",
@@ -10797,7 +11395,9 @@
       "grade": "C",
       "score": 63.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.1133,
+    "lng": -95.6372
   },
   {
     "name": "Soldier Cutoff Hillduro",
@@ -10833,7 +11433,9 @@
       "grade": "B",
       "score": 66.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 41.8316,
+    "lng": -95.9262
   },
   {
     "name": "Trough Creek Gravel Grinder",
@@ -10869,7 +11471,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.3266,
+    "lng": -78.1281
   },
   {
     "name": "Uncle John's Gravel Race",
@@ -10905,7 +11509,9 @@
       "grade": "B",
       "score": 66.7,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 43.0009,
+    "lng": -84.5585
   },
   {
     "name": "Bald Eagle Gravel Grinder",
@@ -10941,7 +11547,9 @@
       "grade": "B",
       "score": 65.2,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.1369,
+    "lng": -77.4472
   },
   {
     "name": "Glengarry Games Gravel Run",
@@ -10977,7 +11585,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.2886,
+    "lng": -74.8555
   },
   {
     "name": "Gravel Unravel - Why-Not-Chee",
@@ -11013,7 +11623,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 46.9809,
+    "lng": -123.8893
   },
   {
     "name": "Kalona Horseshoe",
@@ -11049,7 +11661,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 41.4831,
+    "lng": -91.7062
   },
   {
     "name": "Mid-State Gravel Grinder",
@@ -11085,7 +11699,9 @@
       "grade": "C",
       "score": 61.1,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 40.5398,
+    "lng": -79.7809
   },
   {
     "name": "Muck n Mac Fest",
@@ -11121,7 +11737,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.6083,
+    "lng": -3.0638
   },
   {
     "name": "Nicolet Hot Days",
@@ -11157,7 +11775,9 @@
       "grade": "C",
       "score": 62.4,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 45.4386,
+    "lng": -88.6604
   },
   {
     "name": "Old Fashioned Gravel",
@@ -11193,7 +11813,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 43.7594,
+    "lng": -91.3465
   },
   {
     "name": "Ottawa Valley Gravel Experience",
@@ -11229,7 +11851,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.3022,
+    "lng": -76.7258
   },
   {
     "name": "Parker Dam Gravel Grinder",
@@ -11265,7 +11889,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 40.9909,
+    "lng": -78.4457
   },
   {
     "name": "The Divide",
@@ -11301,7 +11927,9 @@
       "grade": "C",
       "score": 53.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 44.4108,
+    "lng": -85.3989
   },
   {
     "name": "The Insayner",
@@ -11337,7 +11965,9 @@
       "grade": "C",
       "score": 62.6,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 45.9861,
+    "lng": -89.5326
   },
   {
     "name": "Thunder Bay Thriller",
@@ -11373,7 +12003,9 @@
       "grade": "C",
       "score": 57.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 45.0176,
+    "lng": -83.667
   },
   {
     "name": "Wild Gravel",
@@ -11409,7 +12041,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": -34.0848,
+    "lng": 118.3207
   },
   {
     "name": "Dalby Grit",
@@ -11445,7 +12079,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 54.7024,
+    "lng": -3.2766
   },
   {
     "name": "Dunoon Dirt Dash",
@@ -11481,7 +12117,9 @@
       "grade": "C",
       "score": 62.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 55.9477,
+    "lng": -4.9235
   },
   {
     "name": "Dusty Gravel - Lacs de l'Eau d'Heure",
@@ -11517,7 +12155,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.169,
+    "lng": 4.4126
   },
   {
     "name": "Dusty Gravel Series - Andenne",
@@ -11553,7 +12193,9 @@
       "grade": "C",
       "score": 59.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.4896,
+    "lng": 5.0587
   },
   {
     "name": "Haldon Heroic",
@@ -11589,7 +12231,9 @@
       "grade": "C",
       "score": 59.1,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 50.6207,
+    "lng": -3.5295
   },
   {
     "name": "Nanaimo Unpaved",
@@ -11625,7 +12269,9 @@
       "grade": "C",
       "score": 63.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 49.1639,
+    "lng": -123.9381
   },
   {
     "name": "OMG (Oxford MS Gravel)",
@@ -11661,7 +12307,9 @@
       "grade": "C",
       "score": 56.6,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 34.3664,
+    "lng": -89.5188
   },
   {
     "name": "Yorkshire Coast Dirt Dash",
@@ -11697,7 +12345,9 @@
       "grade": "C",
       "score": 54.5,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 54.4874,
+    "lng": -0.6155
   },
   {
     "name": "Rose City Rampage Gravel Race",
@@ -11733,7 +12383,9 @@
       "grade": "C",
       "score": 60.9,
       "weakest": "source_diversity"
-    }
+    },
+    "lat": 30.8366,
+    "lng": -83.9788
   },
   {
     "name": "Rust Buster Gravel Fondo",
@@ -11769,7 +12421,9 @@
       "grade": "B",
       "score": 72.7,
       "weakest": "cross_reference"
-    }
+    },
+    "lat": 35.146,
+    "lng": -90.0518
   },
   {
     "name": "Scratch Ankle Gravel",
@@ -11805,6 +12459,8 @@
       "grade": "C",
       "score": 63.6,
       "weakest": "citation_density"
-    }
+    },
+    "lat": 30.6324,
+    "lng": -87.0397
   }
 ]

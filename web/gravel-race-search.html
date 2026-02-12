@@ -200,6 +200,56 @@
       letter-spacing: 0.5px;
     }
 
+    /* ── Distance badge (Near Me) ── */
+    #gg-race-search .gg-distance-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--gg-color-teal) !important;
+      color: var(--gg-color-white) !important;
+      border: 2px solid var(--gg-color-teal) !important;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Near Me bar ── */
+    #gg-race-search .gg-nearme-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    #gg-race-search .gg-nearme-btn {
+      font-family: 'Sometype Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1px !important;
+      padding: 6px 16px !important;
+      border: 2px solid var(--gg-color-primary-brown) !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-primary-brown) !important;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    #gg-race-search .gg-nearme-btn:hover {
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+    }
+    #gg-race-search .gg-nearme-btn.active {
+      background: var(--gg-color-teal) !important;
+      color: var(--gg-color-white) !important;
+      border-color: var(--gg-color-teal) !important;
+    }
+    #gg-race-search .gg-nearme-radius {
+      font-family: 'Sometype Mono', monospace !important;
+      font-size: 11px !important;
+      padding: 6px 8px !important;
+      border: 2px solid var(--gg-color-primary-brown) !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-primary-brown) !important;
+    }
+
     /* ── Filters ── */
     #gg-race-search .gg-filters {
       display: flex;
@@ -569,6 +619,73 @@
       text-decoration: underline !important;
     }
 
+    /* ── Map/List view toggle ── */
+    #gg-race-search .gg-view-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 12px;
+    }
+    #gg-race-search .gg-view-btn {
+      font-family: 'Sometype Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      padding: 8px 20px !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-dark-brown) !important;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    #gg-race-search .gg-view-btn + .gg-view-btn { border-left: none !important; }
+    #gg-race-search .gg-view-btn.active {
+      background: var(--gg-color-dark-brown) !important;
+      color: var(--gg-color-white) !important;
+    }
+
+    /* ── Map container ── */
+    #gg-race-search #gg-map-container {
+      display: none;
+      width: 100%;
+      height: 500px;
+      border: 3px solid var(--gg-color-dark-brown);
+      margin-bottom: 24px;
+      z-index: 1;
+    }
+    #gg-race-search #gg-map-container.visible { display: block; }
+    /* Leaflet popup overrides */
+    #gg-race-search .gg-map-popup { font-family: 'Sometype Mono', monospace; }
+    #gg-race-search .gg-map-popup .gg-popup-name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 14px; font-weight: 700; margin: 0 0 4px;
+    }
+    #gg-race-search .gg-map-popup .gg-popup-name a {
+      color: var(--gg-color-dark-brown); text-decoration: none;
+    }
+    #gg-race-search .gg-map-popup .gg-popup-name a:hover { text-decoration: underline; }
+    #gg-race-search .gg-map-popup .gg-popup-meta {
+      font-size: 10px; color: #8c7568; margin: 0 0 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    #gg-race-search .gg-map-popup .gg-popup-stats {
+      font-size: 11px; color: #3a2e25; margin: 0;
+    }
+    #gg-race-search .gg-map-popup .gg-popup-score {
+      display: inline-block; padding: 1px 6px; font-size: 11px;
+      font-weight: 700; background: #3a2e25; color: #fff;
+      margin-right: 4px;
+    }
+    /* Leaflet overrides — neo-brutalist popups */
+    #gg-race-search .leaflet-popup-content-wrapper {
+      border: 2px solid var(--gg-color-dark-brown) !important;
+      padding: 0 !important;
+    }
+    #gg-race-search .leaflet-popup-content {
+      margin: 10px 12px !important;
+      font-family: var(--gg-font-data) !important;
+    }
+    #gg-race-search .leaflet-container a { color: var(--gg-color-teal) !important; }
+
     /* ── No results ── */
     #gg-race-search .gg-no-results {
       text-align: center;
@@ -645,6 +762,9 @@
       #gg-race-search .gg-card-name { font-size: 13px; }
       #gg-race-search .gg-card-header { flex-direction: column; gap: 6px; }
       #gg-race-search .gg-match-banner { flex-direction: column; gap: 8px; text-align: center; }
+      #gg-race-search #gg-map-container { height: 350px; }
+      #gg-race-search .gg-view-toggle { width: 100%; }
+      #gg-race-search .gg-view-btn { flex: 1; text-align: center; }
     }
 
     /* ── Static Race Directory (SEO) ── */
@@ -770,7 +890,25 @@
     </div>
   </div>
 
+  <div class="gg-nearme-bar">
+    <button class="gg-nearme-btn" id="gg-nearme-btn" onclick="activateNearMe()">NEAR ME</button>
+    <select class="gg-nearme-radius" id="gg-nearme-radius" onchange="onRadiusChange()" style="display:none">
+      <option value="50">Within 50 mi</option>
+      <option value="100">Within 100 mi</option>
+      <option value="250">Within 250 mi</option>
+      <option value="500" selected>Within 500 mi</option>
+      <option value="0">Any Distance</option>
+    </select>
+  </div>
+
   <div class="gg-active-filters" id="gg-active-filters"></div>
+
+  <div class="gg-view-toggle" id="gg-view-toggle">
+    <button class="gg-view-btn active" data-view="list" onclick="toggleView('list')">LIST</button>
+    <button class="gg-view-btn" data-view="map" onclick="toggleView('map')">MAP</button>
+  </div>
+
+  <div id="gg-map-container"></div>
 
   <div class="gg-results-header">
     <span id="gg-count"></span>
@@ -779,6 +917,7 @@
       <button class="gg-sort-btn active" data-sort="score">Score</button>
       <button class="gg-sort-btn" data-sort="name">Name</button>
       <button class="gg-sort-btn" data-sort="distance">Distance</button>
+      <button class="gg-sort-btn" data-sort="nearby">Nearby</button>
     </div>
   </div>
 

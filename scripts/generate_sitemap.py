@@ -47,6 +47,14 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None)
     SubElement(url, 'changefreq').text = 'monthly'
     SubElement(url, 'priority').text = '0.8'
 
+    # Tier hub pages
+    for t in [1, 2, 3, 4]:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/tier-{t}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'weekly'
+        SubElement(url, 'priority').text = '0.8'
+
     # Race pages
     for race in race_index:
         slug = race.get('slug', '')

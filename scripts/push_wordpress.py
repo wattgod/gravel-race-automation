@@ -585,6 +585,13 @@ def sync_pages(pages_dir: str):
             shutil.copy2(html_file, slug_dir / "index.html")
             page_count += 1
 
+        # Also include pre-built subdirectories (e.g., tier-1/, tier-2/)
+        for subdir in sorted(pages_path.iterdir()):
+            if subdir.is_dir() and (subdir / "index.html").exists() and subdir.name != "assets":
+                dst = tmpdir / subdir.name
+                shutil.copytree(subdir, dst, dirs_exist_ok=True)
+                page_count += 1
+
         # Also include assets/ if present
         assets_src = pages_path / "assets"
         if assets_src.exists():

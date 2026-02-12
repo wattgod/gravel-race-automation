@@ -22,7 +22,6 @@ from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from research_strength import score_race
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
 FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
@@ -174,13 +173,6 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         if isinstance(val, (int, float)):
             scores[var] = int(val)
 
-    # Research strength
-    rs = score_race(slug)
-    research = {
-        "grade": rs["grade"],
-        "score": rs["overall"],
-        "weakest": rs["weakest_dimension"],
-    }
 
     entry = {
         "name": race.get("display_name") or race.get("name", slug),
@@ -196,8 +188,6 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "tagline": race.get("tagline", ""),
         "has_profile": True,
         "profile_url": f"/race/{slug}/",
-        "has_rwgps": bool(race.get("course_description", {}).get("ridewithgps_id")),
-        "research": research,
     }
 
     # Include coordinates if available

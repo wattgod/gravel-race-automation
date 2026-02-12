@@ -131,6 +131,18 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 
     cards = "\n    ".join(cards_html)
 
+    # Build ItemList JSON-LD
+    item_list_entries = []
+    for i, r in enumerate(races, 1):
+        slug = r.get("slug", "")
+        item_list_entries.append(json.dumps({
+            "@type": "ListItem",
+            "position": i,
+            "name": r.get("name", ""),
+            "url": "https://gravelgodcycling.com/race/" + slug + "/"
+        }, ensure_ascii=False))
+    item_list_json = ",\n      ".join(item_list_entries)
+
     # Tier navigation
     tier_nav_items = []
     for t in [1, 2, 3, 4]:
@@ -173,6 +185,44 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
       "name": "Gravel God",
       "url": "https://gravelgodcycling.com"
     }}
+  }}
+  </script>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gravelgodcycling.com/"
+      }},
+      {{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Gravel Races",
+        "item": "https://gravelgodcycling.com/gravel-races/"
+      }},
+      {{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Tier {tier} — {esc(meta["name"])}",
+        "item": "{esc(canonical)}"
+      }}
+    ]
+  }}
+  </script>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "{esc(meta["h1"])}",
+    "numberOfItems": {len(races)},
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "itemListElement": [
+      {item_list_json}
+    ]
   }}
   </script>
   <style>

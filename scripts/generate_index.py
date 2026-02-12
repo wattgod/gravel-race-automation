@@ -101,6 +101,8 @@ def extract_region(location: str) -> str:
         "sardinia": "Europe", "tuscany": "Europe", "veneto": "Europe",
         "catalonia": "Europe", "andalusia": "Europe", "vosges": "Europe",
         "pyrénées": "Europe", "pyrenees": "Europe", "nürburgring": "Europe",
+        "europe": "Europe", "french": "Europe", "alps": "Europe",
+        "global": "North America",  # Multi-location series default to NA
         # Oceania
         "australia": "Oceania", "new zealand": "Oceania",
         "queensland": "Oceania", "victoria": "Oceania", "tasmania": "Oceania",
@@ -123,7 +125,7 @@ def extract_region(location: str) -> str:
         if country in location_lower:
             return region
 
-    # US regions
+    # US regions — full state names
     us_regions = {
         "West": ["california", "oregon", "washington", "colorado", "utah",
                  "montana", "wyoming", "idaho", "nevada", "arizona", "new mexico",
@@ -140,6 +142,22 @@ def extract_region(location: str) -> str:
     for region, states in us_regions.items():
         if any(s in location_lower for s in states):
             return region
+
+    # US state abbreviations — match ", XX" or "XX/" patterns to avoid false positives
+    import re
+    us_abbrev = {
+        "West": ["CA", "OR", "WA", "CO", "UT", "MT", "WY", "ID", "NV", "AZ", "NM",
+                 "AK", "HI"],
+        "Midwest": ["KS", "NE", "IA", "IL", "IN", "OH", "MI", "WI", "MN", "MO", "OK"],
+        "South": ["TX", "AR", "LA", "MS", "AL", "GA", "FL", "TN", "KY", "NC", "SC",
+                  "VA", "WV"],
+        "Northeast": ["NY", "PA", "CT", "MA", "VT", "NH", "ME", "MD", "NJ", "DE",
+                      "RI", "DC"],
+    }
+    for region, abbrevs in us_abbrev.items():
+        for abbr in abbrevs:
+            if re.search(r'(?:,\s*|/\s*)' + abbr + r'(?:\s|$|/)', location):
+                return region
 
     return "Other"
 

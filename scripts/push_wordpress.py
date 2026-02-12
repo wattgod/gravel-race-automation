@@ -689,6 +689,10 @@ RewriteRule ^belgian-waffle-ride/?$ /race/bwr-california/ [R=301,L]
 RewriteRule ^sbt-grvl/?$ /race/steamboat-gravel/ [R=301,L]
 RewriteRule ^mid-south/?$ /race/mid-south/ [R=301,L]
 RewriteRule ^unbound-200-2/?$ /race/unbound-200/ [R=301,L]
+RewriteRule ^unbound-200/?$ /race/unbound-200/ [R=301,L]
+RewriteRule ^crusher-in-the-tushar/?$ /race/crusher-in-the-tushar/ [R=301,L]
+RewriteRule ^gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^big-sugar/?$ /race/big-sugar/ [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """

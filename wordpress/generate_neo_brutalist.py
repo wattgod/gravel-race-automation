@@ -899,6 +899,7 @@ if ('IntersectionObserver' in window) {
     }
     feed.innerHTML = '';
     feed.appendChild(buildTickerItems(all));
+    ticker.style.display = '';
     // Spacer + duplicate for seamless loop
     var spacer = document.createElement('span');
     spacer.style.padding = '0 80px';
@@ -1066,9 +1067,11 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 # ── Phase 3: Section Builders ─────────────────────────────────
 
 def build_hero(rd: dict) -> str:
-    """Build hero section."""
+    """Build hero section with OG image background."""
     score = rd['overall_score']
-    return f'''<section class="gg-hero">
+    slug = rd['slug']
+    og_style = f' style="background-image:linear-gradient(rgba(58,46,37,0.82),rgba(58,46,37,0.92)),url(/og/{esc(slug)}.jpg);background-size:cover;background-position:center"'
+    return f'''<section class="gg-hero"{og_style}>
   <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>
   <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
   <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>
@@ -1551,17 +1554,18 @@ def build_photos_section(rd: dict) -> str:
 
 def build_news_section(rd: dict) -> str:
     """Build Latest News section — fetches Google News RSS via rss2json.com at runtime.
-    Shows up to 5 recent headlines. Graceful fallback if feed fails or returns empty."""
+    Only renders for T1/T2 races (T3/T4 rarely have news, wastes API calls).
+    Starts hidden to prevent layout shift — JS reveals it if headlines load."""
+    tier = rd.get('tier', 4)
+    if tier > 2:
+        return ''
     name = rd['name']
-    # Build search query: race name works well for Google News
     search_query = name.replace(' ', '+')
 
-    return f'''<div class="gg-news-ticker gg-fade-section" id="gg-news-ticker" role="region" aria-label="Latest news" data-query="{esc(search_query)}">
+    return f'''<div class="gg-news-ticker gg-fade-section" id="gg-news-ticker" role="region" aria-label="Latest news" data-query="{esc(search_query)}" style="display:none">
     <div class="gg-news-ticker-label" aria-hidden="true">LATEST NEWS</div>
     <div class="gg-news-ticker-track">
-      <div class="gg-news-ticker-content" id="gg-news-feed" aria-live="polite" aria-atomic="true">
-        <span class="gg-news-ticker-loading">Loading headlines&hellip;</span>
-      </div>
+      <div class="gg-news-ticker-content" id="gg-news-feed" aria-live="polite" aria-atomic="true"></div>
     </div>
   </div>'''
 

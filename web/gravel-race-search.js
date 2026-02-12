@@ -41,6 +41,14 @@
     { key: 'budget',        label: 'Budget',         low: 'All-In',           high: 'Budget Friendly', mapping: [{ field: 'value', weight: 0.6 }, { field: 'expenses', weight: 0.4, invert: true }] }
   ];
 
+  function noResultsHtml() {
+    return '<div class="gg-no-results">No races match your filters.' +
+      '<div class="gg-no-results-suggestions">Try removing a filter, selecting a different region, or choosing &ldquo;Any&rdquo; for month.<br>' +
+      '<button class="gg-no-results-reset" onclick="document.querySelectorAll(\'#gg-race-search select\').forEach(function(s){s.selectedIndex=0});' +
+      'document.querySelectorAll(\'#gg-race-search .gg-slider-input\').forEach(function(s){s.value=3});' +
+      'window.dispatchEvent(new Event(\'gg-reset-filters\'));">Reset All Filters</button></div></div>';
+  }
+
   // ── Haversine distance (miles) ──
   function haversineMi(lat1, lng1, lat2, lng2) {
     var R = 3959; // Earth radius in miles
@@ -353,7 +361,7 @@
       });
       html += '</div>';
     }
-    if (!html) html = '<div class="gg-no-results">No races match your filters.</div>';
+    if (!html) html = noResultsHtml();
     calContainer.innerHTML = html;
     // Scroll to current month
     var curEl = document.getElementById('gg-cal-' + currentMonth.toLowerCase());
@@ -729,7 +737,7 @@
     });
 
     if (!html) {
-      html = '<div class="gg-no-results">No races match your filters.</div>';
+      html = noResultsHtml();
     }
     container.innerHTML = html;
   }
@@ -746,7 +754,7 @@
     if (sorted.length > 0) {
       html += '<div class="gg-grid">' + sorted.map(renderCard).join('') + '</div>';
     } else {
-      html += '<div class="gg-no-results">No races match your filters.</div>';
+      html += noResultsHtml();
     }
     container.innerHTML = html;
   }
@@ -848,6 +856,14 @@
     ['gg-search','gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(function(id) {
       document.getElementById(id).addEventListener('input', render);
       document.getElementById(id).addEventListener('change', render);
+    });
+
+    window.addEventListener('gg-reset-filters', function() {
+      displayMode = 'tiers';
+      matchScores = {};
+      nearMeRadius = 0;
+      tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
+      render();
     });
 
     document.querySelectorAll('.gg-sort-btn').forEach(function(btn) {

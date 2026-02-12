@@ -753,6 +753,40 @@
       background: var(--gg-color-teal) !important;
     }
 
+    /* ── Skeleton loader ── */
+    @keyframes gg-shimmer {
+      0% { background-position: -200px 0; }
+      100% { background-position: 200px 0; }
+    }
+    #gg-race-search .gg-skeleton-loader { padding: 0; }
+    #gg-race-search .gg-skeleton-tier-bar {
+      height: 44px;
+      background: var(--gg-color-sand);
+      border: 2px solid var(--gg-color-dark-brown);
+      margin-bottom: 12px;
+    }
+    #gg-race-search .gg-skeleton-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    #gg-race-search .gg-skeleton-card {
+      border: 2px solid var(--gg-color-sand);
+      padding: 20px;
+      min-height: 80px;
+    }
+    #gg-race-search .gg-skeleton-line {
+      height: 12px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--gg-color-sand) 25%, var(--gg-color-warm-paper) 50%, var(--gg-color-sand) 75%);
+      background-size: 400px 100%;
+      animation: gg-shimmer 1.5s infinite linear;
+    }
+    #gg-race-search .gg-skeleton-line.w40 { width: 40%; }
+    #gg-race-search .gg-skeleton-line.w60 { width: 60%; }
+    #gg-race-search .gg-skeleton-line.w80 { width: 80%; }
+
     /* ── No results ── */
     #gg-race-search .gg-no-results {
       text-align: center;
@@ -761,6 +795,32 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+    #gg-race-search .gg-no-results-suggestions {
+      margin-top: 16px;
+      font-size: 12px;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 1.8;
+      color: var(--gg-color-secondary-brown) !important;
+    }
+    #gg-race-search .gg-no-results-reset {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 16px;
+      background: var(--gg-color-teal);
+      color: var(--gg-color-white) !important;
+      border: 2px solid var(--gg-color-dark-brown);
+      font-family: var(--gg-font-data);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #gg-race-search .gg-no-results-reset:hover {
+      background: var(--gg-color-dark-brown);
     }
 
     /* ── Mobile filter toggle ── */
@@ -992,7 +1052,21 @@
     </div>
   </div>
 
-  <div id="gg-tier-container"></div>
+  <div id="gg-tier-container">
+    <div class="gg-skeleton-loader" id="gg-skeleton-loader">
+      <div class="gg-skeleton-tier-bar"></div>
+      <div class="gg-skeleton-cards">
+        <div class="gg-skeleton-card"><div class="gg-skeleton-line w60"></div><div class="gg-skeleton-line w80"></div><div class="gg-skeleton-line w40"></div></div>
+        <div class="gg-skeleton-card"><div class="gg-skeleton-line w80"></div><div class="gg-skeleton-line w60"></div><div class="gg-skeleton-line w40"></div></div>
+        <div class="gg-skeleton-card"><div class="gg-skeleton-line w60"></div><div class="gg-skeleton-line w80"></div><div class="gg-skeleton-line w40"></div></div>
+      </div>
+      <div class="gg-skeleton-tier-bar"></div>
+      <div class="gg-skeleton-cards">
+        <div class="gg-skeleton-card"><div class="gg-skeleton-line w80"></div><div class="gg-skeleton-line w60"></div><div class="gg-skeleton-line w40"></div></div>
+        <div class="gg-skeleton-card"><div class="gg-skeleton-line w60"></div><div class="gg-skeleton-line w80"></div><div class="gg-skeleton-line w40"></div></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Static Race Directory — crawlable by search engines, independent of JS -->
   <div class="gg-race-directory">

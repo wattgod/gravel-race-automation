@@ -35,6 +35,18 @@ def curl_status(url, timeout=15):
         return "ERR"
 
 
+def curl_headers(url, timeout=15):
+    """Return response headers for a URL."""
+    try:
+        result = subprocess.run(
+            ["curl", "-sI", url],
+            capture_output=True, text=True, timeout=timeout
+        )
+        return result.stdout
+    except Exception:
+        return ""
+
+
 def curl_body(url, timeout=15):
     """Return response body for a URL."""
     try:
@@ -158,6 +170,7 @@ def check_redirects(v):
         ("/race/", "/gravel-races/"),
         ("/barry-roubaix-race-guide/", "/race/barry-roubaix/"),
         ("/belgian-waffle-ride/", "/race/bwr-california/"),
+        ("/training-plans-faq/gravelgodcoaching@gmail.com", "/training-plans-faq/"),
     ]
     for source, expected in test_pairs:
         try:
@@ -238,6 +251,34 @@ def check_citations(v):
                 "Citations section rendered on page with no citation data")
 
 
+def check_noindex(v):
+    """Verify junk pages have noindex meta tag (from gg-noindex.php mu-plugin)."""
+    print("\n[Noindex Meta Tags]")
+    noindex_paths = [
+        ("/2021/11/", "Date archive"),
+        ("/page/2/", "Pagination"),
+        ("/category/uncategorized/", "Category page"),
+        ("/cart/", "WooCommerce cart"),
+    ]
+    for path, name in noindex_paths:
+        body = curl_body(f"{BASE_URL}{path}")
+        # Check for noindex in either meta robots tag or X-Robots-Tag header
+        has_noindex = 'content="noindex' in body.lower()
+        v.check(has_noindex, f"noindex on {name} ({path})",
+                "Missing noindex meta tag")
+
+    # Verify important pages do NOT have noindex
+    clean_paths = [
+        ("/", "Homepage"),
+        ("/gravel-races/", "Race search"),
+    ]
+    for path, name in clean_paths:
+        body = curl_body(f"{BASE_URL}{path}")
+        has_noindex = 'content="noindex' in body.lower()
+        v.check(not has_noindex, f"No noindex on {name} ({path})",
+                "noindex meta tag found on important page!")
+
+
 def check_permissions(v):
     """Verify /race/ directory is accessible (not 403)."""
     print("\n[Permissions]")
@@ -253,6 +294,7 @@ def main():
     check_key_pages(v)
     check_permissions(v)
     check_redirects(v)
+    check_noindex(v)
     check_sitemaps(v)
     check_robots_txt(v)
     check_og_images(v)

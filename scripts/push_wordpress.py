@@ -693,6 +693,9 @@ RewriteRule ^unbound-200/?$ /race/unbound-200/ [R=301,L]
 RewriteRule ^crusher-in-the-tushar/?$ /race/crusher-in-the-tushar/ [R=301,L]
 RewriteRule ^gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
 RewriteRule ^big-sugar/?$ /race/big-sugar/ [R=301,L]
+
+# Broken URL from GSC → parent page (404 fix)
+RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """
@@ -761,7 +764,7 @@ def sync_redirects():
             print(f"✗ Failed to write .htaccess: {proc.stderr.strip()}")
             return False
         print("✓ Redirect rules deployed to .htaccess")
-        print("  4 utility redirects + 27 duplicate content redirects (301)")
+        print("  5 utility redirects + 27 duplicate content redirects (301)")
         return True
     except Exception as e:
         print(f"✗ Failed to upload .htaccess: {e}")
@@ -855,6 +858,58 @@ def sync_sitemap():
         return True
     except Exception as e:
         print(f"✗ Failed to upload sitemap.xml: {e}")
+        return False
+
+
+def sync_noindex():
+    """Deploy the noindex mu-plugin to WordPress.
+
+    Uploads gg-noindex.php to wp-content/mu-plugins/ via SCP.
+    This adds <meta name="robots" content="noindex, follow"> to junk pages
+    (date archives, pagination, categories, WooCommerce, LearnDash, feeds).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-noindex.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+
+    # Ensure mu-plugins directory exists
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_path}",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+    except Exception:
+        pass  # Directory likely already exists
+
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-noindex.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-noindex.php mu-plugin")
+        print("  Noindex: date archives, pagination, categories, feeds, search")
+        print("  Noindex: WooCommerce (cart, my-account), LearnDash (lessons, courses)")
+        print("  Noindex: dashboard, xAPI content, WC-AJAX endpoints")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy mu-plugin: {e}")
         return False
 
 
@@ -1041,7 +1096,11 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--sync-redirects", action="store_true",
-        help="Deploy redirect rules to .htaccess (guide.html→guide/, homepage/→/)"
+        help="Deploy redirect rules to .htaccess"
+    )
+    parser.add_argument(
+        "--sync-noindex", action="store_true",
+        help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
         "--purge-cache", action="store_true",
@@ -1049,8 +1108,8 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_sitemap and not args.sync_redirects and not args.purge_cache:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, --sync-redirects, and/or --purge-cache")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_sitemap and not args.sync_redirects and not args.sync_noindex and not args.purge_cache:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, --sync-redirects, --sync-noindex, and/or --purge-cache")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -1074,5 +1133,7 @@ if __name__ == "__main__":
         sync_sitemap()
     if args.sync_redirects:
         sync_redirects()
+    if args.sync_noindex:
+        sync_noindex()
     if args.purge_cache:
         purge_cache()

@@ -805,6 +805,21 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('.gg-fade-section').forEach(function(el) {
     fadeObserver.observe(el);
   });
+
+  // Back to top button
+  var btt = document.getElementById('gg-back-to-top');
+  if (btt && hero) {
+    new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        btt.classList.remove('is-visible');
+      } else {
+        btt.classList.add('is-visible');
+      }
+    }).observe(hero);
+    btt.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }
 
 // News ticker — multi-source (Google News + Reddit)
@@ -1071,10 +1086,14 @@ def build_hero(rd: dict) -> str:
     score = rd['overall_score']
     slug = rd['slug']
     og_style = f' style="background-image:linear-gradient(rgba(58,46,37,0.82),rgba(58,46,37,0.92)),url(/og/{esc(slug)}.jpg);background-size:cover;background-position:center"'
+    official = rd['logistics'].get('official_site', '')
+    site_btn = ''
+    if official and official.startswith('http'):
+        site_btn = f'\n  <a href="{esc(official)}" class="gg-btn gg-btn--hero-site" target="_blank" rel="noopener">OFFICIAL SITE &rarr;</a>'
     return f'''<section class="gg-hero"{og_style}>
   <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>
   <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
-  <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>
+  <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>{site_btn}
   <div class="gg-hero-score">
     <div class="gg-hero-score-number" data-target="{score}">{score}</div>
     <div class="gg-hero-score-label">/ 100</div>
@@ -1954,6 +1973,8 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: var(--gg-line-height-tight); letter-spacing: var(--gg-letter-spacing-tight); margin-bottom: 16px; color: var(--gg-color-white); position: relative; }}
 .gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: var(--gg-color-teal); opacity: 0.3; z-index: 0; pointer-events: none; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); max-width: 700px; }}
+.gg-neo-brutalist-page .gg-btn--hero-site {{ display: inline-block; margin-top: 16px; background: transparent; color: var(--gg-color-warm-paper); border: 2px solid var(--gg-color-warm-paper); padding: 8px 20px; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; }}
+.gg-neo-brutalist-page .gg-btn--hero-site:hover {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-score {{ position: absolute; top: 40px; right: 40px; text-align: center; }}
 .gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-5xl); font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); }}
@@ -2186,6 +2207,11 @@ def get_page_css() -> str:
 .gg-sticky-dismiss {{ background: none; border: none; color: var(--gg-color-white); font-size: 22px; cursor: pointer; opacity: 0.6; padding: 0 4px; line-height: 1; }}
 .gg-sticky-dismiss:hover {{ opacity: 1; }}
 
+/* Back to top */
+.gg-back-to-top {{ position: fixed; bottom: 72px; right: 20px; z-index: 199; width: 40px; height: 40px; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); border: 2px solid var(--gg-color-warm-paper); font-size: 18px; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; display: flex; align-items: center; justify-content: center; }}
+.gg-back-to-top.is-visible {{ opacity: 1; visibility: visible; }}
+.gg-back-to-top:hover {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
+
 /* Scroll fade-in */
 .gg-neo-brutalist-page .gg-fade-section {{ opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }}
 .gg-neo-brutalist-page .gg-fade-section.is-visible {{ opacity: 1; transform: translateY(0); }}
@@ -2304,6 +2330,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-site-nav {{ padding: 10px 12px; }}
   .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
   .gg-sticky-cta {{ padding: 10px 12px; }}
+  .gg-back-to-top {{ bottom: 60px; right: 12px; width: 36px; height: 36px; }}
 }}
 </style>'''
 
@@ -2504,6 +2531,7 @@ body{margin:0;background:#ede4d8}
 </div>
 
 {sticky_cta}
+<button class="gg-back-to-top" id="gg-back-to-top" aria-label="Back to top">&uarr;</button>
 {inline_js}
 
 </body>

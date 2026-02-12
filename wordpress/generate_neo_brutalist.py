@@ -1649,6 +1649,13 @@ def build_similar_races(rd: dict, race_index: list) -> str:
             my_region = r.get('region', '')
             break
 
+    my_distance = rd['vitals'].get('distance_mi') or 0
+    if isinstance(my_distance, str):
+        try:
+            my_distance = float(re.sub(r'[^\d.]', '', str(my_distance)))
+        except (ValueError, TypeError):
+            my_distance = 0
+
     candidates = []
     for r in race_index:
         if r.get('slug') == slug:
@@ -1656,7 +1663,8 @@ def build_similar_races(rd: dict, race_index: list) -> str:
         r_region = r.get('region', '')
         r_tier = r.get('tier', 4)
         r_score = r.get('overall_score', 0)
-        # Score: same region = 10 points, same tier = 5, adjacent tier = 2, score proximity
+        r_dist = r.get('distance_mi', 0) or 0
+        # Score: same region = 10, same tier = 5, adjacent tier = 2, score + distance proximity
         relevance = 0
         if my_region and r_region == my_region:
             relevance += 10
@@ -1665,11 +1673,15 @@ def build_similar_races(rd: dict, race_index: list) -> str:
         elif abs(r_tier - tier) == 1:
             relevance += 2
         relevance += max(0, 10 - abs(r_score - score) / 5)
+        # Distance similarity bonus (up to 5 points)
+        if my_distance > 0 and r_dist > 0:
+            dist_ratio = min(my_distance, r_dist) / max(my_distance, r_dist)
+            relevance += dist_ratio * 5
         candidates.append((relevance, r))
 
-    # Sort by relevance descending, take top 4
+    # Sort by relevance descending, take top 6
     candidates.sort(key=lambda x: x[0], reverse=True)
-    top = [c[1] for c in candidates[:4]]
+    top = [c[1] for c in candidates[:6]]
 
     if not top:
         return ''
@@ -1677,10 +1689,12 @@ def build_similar_races(rd: dict, race_index: list) -> str:
     cards = []
     for r in top:
         tier_num = r.get('tier', 4)
+        dist = r.get('distance_mi', '')
+        dist_str = f" &middot; {dist} mi" if dist else ''
         cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card">
         <span class="gg-similar-tier">T{tier_num}</span>
         <span class="gg-similar-name">{esc(r['name'])}</span>
-        <span class="gg-similar-meta">{esc(r.get('location', ''))} &middot; {r.get('overall_score', 0)}/100</span>
+        <span class="gg-similar-meta">{esc(r.get('location', ''))}{dist_str} &middot; {r.get('overall_score', 0)}/100</span>
       </a>''')
 
     return f'''<section class="gg-section gg-fade-section">
@@ -2058,7 +2072,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-faq-item.open .gg-faq-answer {{ max-height: 500px; padding-bottom: 16px; }}
 
 /* Similar races */
-.gg-neo-brutalist-page .gg-similar-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
+.gg-neo-brutalist-page .gg-similar-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }}
 .gg-neo-brutalist-page .gg-similar-card {{ display: block; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); text-decoration: none; color: var(--gg-color-dark-brown); transition: border-color 0.15s, background 0.15s; }}
 .gg-neo-brutalist-page .gg-similar-card:hover {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
 .gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; }}
@@ -2088,7 +2102,7 @@ def get_page_css() -> str:
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
   .gg-neo-brutalist-page .gg-radar-pair {{ gap: 8px; }}
-  .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr 1fr; }}
+  .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr 1fr; }}  /* 2-col on tablet */
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(3, 1fr); gap: 10px; }}
   .gg-neo-brutalist-page .gg-news-ticker {{ display: none; }}
 }}

@@ -105,8 +105,9 @@ def recalculate_race(data: dict, slug: str) -> dict:
     rating["tier_label"] = f"TIER {new_tier}"
     rating["discipline"] = discipline
 
-    # Sync display_tier and editorial_tier if present
-    for key in ("display_tier", "editorial_tier", "business_tier"):
+    # Always sync display_tier; sync editorial/business only if present
+    rating["display_tier"] = new_tier
+    for key in ("editorial_tier", "business_tier"):
         if key in rating:
             rating[key] = new_tier
     for key in ("display_tier_label", "editorial_tier_label", "business_tier_label"):

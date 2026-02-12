@@ -498,6 +498,15 @@ def build_featured_races(race_index: list) -> str:
     </div>
     <div class="gg-hp-featured-cta">
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="view_all_races">VIEW ALL {stats["race_count"]} RACES &rarr;</a>
+      <div class="gg-hp-quick-filters">
+        <span class="gg-hp-quick-label">QUICK FILTER:</span>
+        <a href="{SITE_BASE_URL}/gravel-races/?tier=1" class="gg-hp-quick-chip" data-ga="quick_tier1">TIER 1</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?tier=2" class="gg-hp-quick-chip" data-ga="quick_tier2">TIER 2</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?region=West" class="gg-hp-quick-chip" data-ga="quick_west">WEST</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?region=Midwest" class="gg-hp-quick-chip" data-ga="quick_midwest">MIDWEST</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?region=South" class="gg-hp-quick-chip" data-ga="quick_south">SOUTH</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?region=International" class="gg-hp-quick-chip" data-ga="quick_intl">INTERNATIONAL</a>
+      </div>
     </div>
   </section>'''
 
@@ -785,6 +794,10 @@ a { text-decoration: none; color: #1A8A82; }
 .gg-hp-race-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; letter-spacing: 0.5px; margin-bottom: 10px; }
 .gg-hp-race-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; color: #8c7568; line-height: 1.7; margin: 0; }
 .gg-hp-featured-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
+.gg-hp-quick-filters { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+.gg-hp-quick-label { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #8c7568; }
+.gg-hp-quick-chip { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 2px solid #59473c; color: #59473c; text-decoration: none; transition: all var(--gg-ease); }
+.gg-hp-quick-chip:hover { background: #59473c; color: #f5efe6; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
 .gg-hp-latest-takes { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }

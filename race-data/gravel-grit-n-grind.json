@@ -46,7 +46,8 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "discipline": "gravel"
+      "discipline": "gravel",
+      "display_tier": 3
     },
     "biased_opinion_ratings": {
       "prestige": {
@@ -105,6 +106,10 @@
         "score": 3,
         "explanation": "The course promises genuine variety through \"deep shadowy forests\" transitioning to coastal farmland via winding gravel roads around Halmstad. The landscape changes and rolling terrain create natural adventure without manufactured difficulty. It's Sweden, not the Sahara, so adventure comes from scenery and surface variety rather than survival challenges, which suits most riders just fine."
       }
+    },
+    "course": {
+      "ridewithgps_id": "45904274",
+      "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
     }
   }
 }

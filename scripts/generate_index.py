@@ -163,7 +163,11 @@ def extract_region(location: str) -> str:
 
 
 def extract_month(date_str: str) -> Optional[str]:
-    """Extract month from date string."""
+    """Extract month from date string.
+
+    Handles exact months, season names, and numeric dates.
+    Seasons map to their midpoint month.
+    """
     if not date_str:
         return None
     months = ["january", "february", "march", "april", "may", "june",
@@ -172,6 +176,12 @@ def extract_month(date_str: str) -> Optional[str]:
     for month in months:
         if month[:3] in date_lower:
             return month.capitalize()
+    # Season approximations (midpoint month)
+    seasons = {"spring": "April", "summer": "July", "fall": "October",
+               "autumn": "October", "winter": "January"}
+    for season, month in seasons.items():
+        if season in date_lower:
+            return month
     return None
 
 

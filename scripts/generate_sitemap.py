@@ -110,7 +110,9 @@ def main():
         data_dir = data_dir.resolve()
 
     generate_sitemap(race_index, output_path, data_dir)
-    print(f"Generated sitemap: {output_path} ({len(race_index) + 1} URLs)")
+    # Count: homepage + gravel-races + methodology + 4 tier hubs + all races
+    total_urls = 7 + len(race_index)
+    print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
 

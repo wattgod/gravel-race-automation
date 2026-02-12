@@ -1868,7 +1868,9 @@ def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
              "item": SITE_BASE_URL},
             {"@type": "ListItem", "position": 2, "name": "Gravel Races",
              "item": f"{SITE_BASE_URL}/gravel-races/"},
-            {"@type": "ListItem", "position": 3, "name": rd['name'],
+            {"@type": "ListItem", "position": 3, "name": rd['tier_label'],
+             "item": f"{SITE_BASE_URL}/race/tier-{rd['tier']}/"},
+            {"@type": "ListItem", "position": 4, "name": rd['name'],
              "item": f"{SITE_BASE_URL}/race/{rd['slug']}/"},
         ]
     }
@@ -1912,19 +1914,28 @@ def build_nav_header(rd: dict, race_index: list) -> str:
       <span class="gg-breadcrumb-sep">&rsaquo;</span>
       <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
       <span class="gg-breadcrumb-sep">&rsaquo;</span>
+      <a href="{SITE_BASE_URL}/race/tier-{rd['tier']}/">{esc(rd['tier_label'])}</a>
+      <span class="gg-breadcrumb-sep">&rsaquo;</span>
       <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
     </div>
   </nav>'''
 
 
-def build_footer() -> str:
+def build_footer(rd: dict = None) -> str:
     """Build page footer with nav links and disclaimer."""
+    updated = ''
+    if rd and rd.get('_file_mtime'):
+        try:
+            dt = datetime.strptime(rd['_file_mtime'], '%Y-%m-%d')
+            updated = f'\n    <p class="gg-footer-updated">Last updated {dt.strftime("%B %Y")}</p>'
+        except ValueError:
+            pass
     return f'''<div class="gg-footer">
     <nav class="gg-footer-nav">
       <a href="{SITE_BASE_URL}/gravel-races/">All Races</a>
       <a href="{SITE_BASE_URL}/race/methodology/">How We Rate</a>
       <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Newsletter</a>
-    </nav>
+    </nav>{updated}
     <p class="gg-footer-disclaimer">This content is produced independently by Gravel God and is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body mentioned on this page. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. Race details are subject to change &mdash; always verify with official race sources.</p>
   </div>'''
 
@@ -2274,6 +2285,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-footer a:hover {{ color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-footer-nav {{ display: flex; justify-content: center; gap: 24px; margin-bottom: var(--gg-spacing-md); }}
 .gg-neo-brutalist-page .gg-footer-nav a {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; }}
+.gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; }}
 .gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
 
 /* Responsive — tablet */
@@ -2444,7 +2456,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     logistics_sec = build_logistics_section(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
-    footer = build_footer()
+    footer = build_footer(rd)
     sticky_cta = build_sticky_cta(rd['name'], q_url)
 
     # Use external assets if provided, otherwise inline

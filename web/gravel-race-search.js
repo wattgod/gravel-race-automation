@@ -723,7 +723,7 @@
         '<div class="gg-tier-section-header tier-' + t + '" onclick="toggleTier(' + t + ')">' +
           '<div class="gg-tier-section-title">' +
             '<span class="gg-tier-badge gg-tier-' + t + '">TIER ' + t + '</span>' +
-            '<h3>' + TIER_NAMES[t] + '</h3>' +
+            '<h3><a href="/race/tier-' + t + '/" onclick="event.stopPropagation()" class="gg-tier-name-link">' + TIER_NAMES[t] + '</a></h3>' +
             '<span class="gg-tier-section-count">' + races.length + ' race' + (races.length !== 1 ? 's' : '') + '</span>' +
           '</div>' +
           '<p class="gg-tier-section-desc">' + TIER_DESCS[t] + '</p>' +

@@ -279,27 +279,37 @@ def write_rwgps_id(filepath: Path, route_id: int, route_name: str, dry_run: bool
     return True
 
 
-def build_search_query(race_name: str, location: str) -> str:
-    """Build a RWGPS search query from race name + state/country extracted from location.
+def build_search_queries(race_name: str, location: str) -> list:
+    """Build RWGPS search queries from race name + location.
 
-    Extracts state/country from location by splitting on commas and taking the
-    last 1-2 parts. Appends to the race name for geographic context.
+    Returns a list of queries to try in order (most specific first, fallback last).
+    Strips parenthetical content from locations, extracts just state/country.
     """
-    if not location:
-        return race_name
+    queries = []
+    # Clean the race name — remove "THE" prefix, keep it short
+    clean_name = re.sub(r'^THE\s+', '', race_name, flags=re.IGNORECASE).strip()
 
-    parts = [p.strip() for p in location.split(',')]
-    # Take last 1-2 parts as state/country context
-    if len(parts) >= 2:
-        geo_context = ', '.join(parts[-2:]).strip()
-    elif len(parts) == 1:
-        geo_context = parts[0].strip()
-    else:
-        geo_context = ''
+    if location:
+        # Strip parenthetical content: "Rotating (2024: Heerlen, Netherlands)" → "Rotating"
+        loc_clean = re.sub(r'\([^)]*\)', '', location).strip().rstrip(',').strip()
+        parts = [p.strip() for p in loc_clean.split(',') if p.strip()]
 
-    if geo_context:
-        return f"{race_name} {geo_context}"
-    return race_name
+        # Extract the most useful geographic part (state/country, not city)
+        if len(parts) >= 2:
+            # "Emporia, Kansas" → "Kansas"
+            geo = parts[-1].strip()
+        elif len(parts) == 1 and parts[0].lower() not in ('rotating', 'global', 'various', 'across europe'):
+            geo = parts[0].strip()
+        else:
+            geo = ''
+
+        if geo:
+            queries.append(f"{clean_name} {geo}")
+
+    # Fallback: just the race name
+    queries.append(clean_name)
+
+    return queries
 
 
 def process_race(filepath: Path, dry_run: bool) -> str:
@@ -336,11 +346,16 @@ def process_race(filepath: Path, dry_run: bool) -> str:
     print(f"  {location} | {distance_mi} mi")
     print(f"{'='*60}")
 
-    # Build search query from race name + state/country from location
-    query = build_search_query(name, location)
-    print(f"  Searching: \"{query}\"")
+    # Build search queries — most specific first, fallback to name-only
+    queries = build_search_queries(name, location)
+    routes = []
+    for query in queries:
+        print(f"  Searching: \"{query}\"")
+        routes = search_rwgps(query, limit=10)
+        if routes:
+            break
+        time.sleep(RATE_LIMIT_SECONDS)
 
-    routes = search_rwgps(query, limit=10)
     if not routes:
         print("  No routes found")
         return 'no_results'

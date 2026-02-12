@@ -991,14 +991,28 @@ def build_sports_event_jsonld(rd: dict) -> dict:
             org["url"] = official_site
         jsonld["organizer"] = org
 
-    # Parse price
+    # Parse price — supports $, €, £ and "NNN EUR/GBP" formats
     reg = rd['vitals'].get('registration', '')
     price_match = re.search(r'\$(\d+)', reg)
-    if price_match:
+    euro_match = re.search(r'€\s*(\d+)', reg)
+    gbp_match = re.search(r'£\s*(\d+)', reg)
+    eur_text_match = re.search(r'(\d+)\s*EUR', reg)
+    gbp_text_match = re.search(r'(\d+)\s*GBP', reg)
+    if price_match or euro_match or gbp_match or eur_text_match or gbp_text_match:
+        if price_match:
+            price, currency = price_match.group(1), "USD"
+        elif euro_match:
+            price, currency = euro_match.group(1), "EUR"
+        elif eur_text_match:
+            price, currency = eur_text_match.group(1), "EUR"
+        elif gbp_match:
+            price, currency = gbp_match.group(1), "GBP"
+        else:
+            price, currency = gbp_text_match.group(1), "GBP"
         offer = {
             "@type": "Offer",
-            "price": price_match.group(1),
-            "priceCurrency": "USD",
+            "price": price,
+            "priceCurrency": currency,
             "availability": "https://schema.org/LimitedAvailability",
         }
         if official_site and official_site.startswith('http'):

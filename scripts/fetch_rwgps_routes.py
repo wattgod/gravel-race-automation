@@ -237,14 +237,16 @@ def write_rwgps_id(filepath: Path, route_id: int, route_name: str, dry_run: bool
     return True
 
 
-def build_search_query(race_name: str, location: str) -> str:
-    """Build a RWGPS search query from race name and location."""
-    # Clean location: strip parenthetical notes and "to" destinations
+def build_search_queries(race_name: str, location: str) -> list:
+    """Build RWGPS search queries from race name and location.
+
+    Returns a list of queries to try in order (most specific first).
+    """
+    # Clean location: strip parenthetical notes
     clean_loc = re.sub(r'\(.*?\)', '', location).strip()
     # For "A to B, State" locations, take the first city
     if ' to ' in clean_loc.lower():
         clean_loc = clean_loc.split(' to ')[0].strip().rstrip(',')
-        # Re-append state if location had one after the last comma
         parts = [p.strip() for p in location.split(',')]
         if len(parts) >= 2:
             last_part = re.sub(r'\(.*?\)', '', parts[-1]).strip()
@@ -252,14 +254,38 @@ def build_search_query(race_name: str, location: str) -> str:
                 clean_loc = f"{clean_loc}, {last_part}"
 
     loc = parse_location(clean_loc)
-    state = loc.get('state_abbrev', loc.get('state', ''))
-    city = loc.get('city', '')
-    query_parts = [race_name]
-    if state:
-        query_parts.append(state)
-    elif city:
-        query_parts.append(city)
-    return ' '.join(query_parts)
+    state_abbrev = loc.get('state_abbrev', '')
+    state_full = loc.get('state', '')
+
+    # Strip location info already embedded in race name (e.g. "BWR NORTH CAROLINA")
+    name_without_loc = race_name
+    if state_full:
+        name_without_loc = re.sub(re.escape(state_full), '', race_name, flags=re.IGNORECASE).strip()
+        name_without_loc = re.sub(r'\s{2,}', ' ', name_without_loc).strip(' -,')
+
+    queries = []
+    # Primary: race name + state abbreviation (concise, best for RWGPS)
+    if state_abbrev:
+        queries.append(f"{name_without_loc} {state_abbrev}")
+    # Fallback 1: just race name as-is
+    queries.append(race_name)
+    # Fallback 2: name without location + state full name
+    if state_full and name_without_loc != race_name:
+        queries.append(f"{name_without_loc} {state_full}")
+    # Fallback 3: shorter name (drop "The", trailing numbers)
+    short = re.sub(r'^the\s+', '', name_without_loc, flags=re.IGNORECASE).strip()
+    short = re.sub(r'\s+\d{2,4}$', '', short).strip()
+    if short != race_name and short:
+        queries.append(short)
+
+    # Deduplicate while preserving order
+    seen = set()
+    unique = []
+    for q in queries:
+        if q.lower() not in seen:
+            seen.add(q.lower())
+            unique.append(q)
+    return unique
 
 
 def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
@@ -290,10 +316,15 @@ def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
     print(f"  {location} | {distance_mi} mi")
     print(f"{'='*60}")
 
-    # Search RWGPS
-    query = build_search_query(name, location)
-    print(f"  Searching: \"{query}\"")
-    routes = search_rwgps(query, limit=10)
+    # Search RWGPS — try multiple queries
+    queries = build_search_queries(name, location)
+    routes = []
+    for query in queries:
+        print(f"  Searching: \"{query}\"")
+        routes = search_rwgps(query, limit=10)
+        if routes:
+            break
+        time.sleep(RATE_LIMIT_SECONDS)
 
     if not routes:
         print("  No routes found")
@@ -321,6 +352,10 @@ def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
 
     if auto and best['composite'] < AUTO_ACCEPT_THRESHOLD:
         print(f"\n  LOW CONFIDENCE ({best['composite']:.2f}), skipping in --auto mode")
+        return 'low_confidence'
+
+    if dry_run:
+        print(f"\n  [DRY RUN] Best candidate: {best['route_name']} (score {best['composite']:.2f})")
         return 'low_confidence'
 
     # Interactive mode

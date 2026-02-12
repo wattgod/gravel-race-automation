@@ -166,6 +166,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{esc(meta["title"])}</title>
   <meta name="description" content="{esc(meta["description"])}">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%23B7950B'>G</text></svg>">
   <meta property="og:title" content="{esc(meta["title"])}">

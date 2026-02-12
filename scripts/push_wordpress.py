@@ -640,6 +640,95 @@ def sync_pages(pages_dir: str):
     return f"{wp_url}/race/"
 
 
+REDIRECT_BLOCK = """\
+# BEGIN Gravel God Redirects
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# /guide.html → /guide/ (old URL from search engines / bookmarks)
+RewriteRule ^guide\\.html$ /guide/ [R=301,L]
+
+# /homepage/ → / (duplicate of WP homepage, splits SEO)
+RewriteRule ^homepage/?$ / [R=301,L]
+
+# /homepage/index.html → / (direct file access)
+RewriteRule ^homepage/index\\.html$ / [R=301,L]
+</IfModule>
+# END Gravel God Redirects
+"""
+
+REDIRECT_MARKER = "# BEGIN Gravel God Redirects"
+
+
+def sync_redirects():
+    """Add redirect rules to the root .htaccess on SiteGround.
+
+    Reads the current .htaccess, prepends our redirect block if not already
+    present, and uploads the updated file. Safe: never touches the WordPress
+    section or SGO directives.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    remote_htaccess = "~/www/gravelgodcycling.com/public_html/.htaccess"
+
+    # Read current .htaccess
+    try:
+        result = subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"cat {remote_htaccess}",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        current = result.stdout
+    except Exception as e:
+        print(f"✗ Failed to read remote .htaccess: {e}")
+        return False
+
+    # Check if our block already exists
+    if REDIRECT_MARKER in current:
+        # Replace existing block
+        import re
+        pattern = r"# BEGIN Gravel God Redirects.*?# END Gravel God Redirects\n?"
+        updated = re.sub(pattern, "", current, flags=re.DOTALL)
+        updated = REDIRECT_BLOCK + "\n" + updated
+        print("  Updating existing redirect block...")
+    else:
+        # Prepend our block before WordPress rules
+        updated = REDIRECT_BLOCK + "\n" + current
+        print("  Adding new redirect block...")
+
+    # Upload via stdin to avoid temp file issues
+    try:
+        proc = subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"cat > {remote_htaccess}",
+            ],
+            input=updated,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        if proc.returncode != 0:
+            print(f"✗ Failed to write .htaccess: {proc.stderr.strip()}")
+            return False
+        print("✓ Redirect rules deployed to .htaccess")
+        print("  /guide.html → /guide/ (301)")
+        print("  /homepage/ → / (301)")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to upload .htaccess: {e}")
+        return False
+
+
 def purge_cache():
     """Purge all SiteGround caches via wp-cli (static, dynamic, memcached, opcache)."""
     ssh = get_ssh_credentials()
@@ -818,13 +907,17 @@ if __name__ == "__main__":
         help="Path to race photos directory (default: wordpress/output/photos)"
     )
     parser.add_argument(
+        "--sync-redirects", action="store_true",
+        help="Deploy redirect rules to .htaccess (guide.html→guide/, homepage/→/)"
+    )
+    parser.add_argument(
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.purge_cache:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, and/or --purge-cache")
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_redirects and not args.purge_cache:
+        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, --sync-redirects, and/or --purge-cache")
 
     if args.json:
         push_to_wordpress(args.json)
@@ -844,5 +937,7 @@ if __name__ == "__main__":
         sync_pages(args.pages_dir)
     if args.sync_photos:
         sync_photos(args.photos_dir)
+    if args.sync_redirects:
+        sync_redirects()
     if args.purge_cache:
         purge_cache()

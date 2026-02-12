@@ -907,6 +907,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   q.addEventListener('click', function() {
     var item = this.parentElement;
     item.classList.toggle('open');
+    this.setAttribute('aria-expanded', item.classList.contains('open'));
   });
   q.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -1085,10 +1086,47 @@ def build_toc() -> str:
         ('logistics', '07 Race Logistics'),
     ]
     items = '\n  '.join(f'<a href="#{href}">{label}</a>' for href, label in links)
-    return f'<nav class="gg-toc">\n  {items}\n</nav>'
+    return f'<nav class="gg-toc" aria-label="Table of contents">\n  {items}\n</nav>'
 
 
-def build_course_overview(rd: dict) -> str:
+def _extract_state(location: str) -> str:
+    """Extract state/country from location string like 'Emporia, Kansas'."""
+    if not location:
+        return ''
+    m = re.match(r'.+,\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)', location)
+    return m.group(1) if m else ''
+
+
+def _build_nearby_races(rd: dict, race_index: list) -> str:
+    """Build 'More in [State]' contextual links for in-content SEO."""
+    if not race_index:
+        return ''
+    location = rd['vitals'].get('location', '')
+    state = _extract_state(location)
+    if not state:
+        return ''
+    slug = rd['slug']
+    # Find other races in same state, prefer higher-tier races
+    nearby = []
+    for r in race_index:
+        if r.get('slug') == slug:
+            continue
+        r_loc = r.get('location', '')
+        if _extract_state(r_loc) == state:
+            nearby.append(r)
+    if not nearby:
+        return ''
+    # Sort by score descending, take top 3
+    nearby.sort(key=lambda r: r.get('overall_score', 0), reverse=True)
+    links = []
+    for r in nearby[:3]:
+        links.append(f'<a href="/race/{esc(r["slug"])}/">{esc(r["name"])}</a>')
+    return f'''<div class="gg-nearby-races">
+        <span class="gg-nearby-label">MORE IN {esc(state.upper())}:</span> {" &middot; ".join(links)}
+      </div>'''
+
+
+def build_course_overview(rd: dict, race_index: list = None) -> str:
     """Build [01] Course Overview section — merged map + stat cards."""
     v = rd['vitals']
 
@@ -1103,7 +1141,7 @@ def build_course_overview(rd: dict) -> str:
     rwgps_name = rd['course'].get('ridewithgps_name', '')
     if rwgps_id:
         map_html = f'''<div class="gg-map-embed">
-        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;title={esc(rwgps_name)}" scrolling="no" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;title={esc(rwgps_name)}" title="Course map for {esc(rd['name'])}" scrolling="no" allowfullscreen loading="lazy"></iframe>
       </div>'''
 
     # Stat cards — (value, label, countable) where countable means "animate the number"
@@ -1154,6 +1192,8 @@ def build_course_overview(rd: dict) -> str:
         </div>
       </div>'''
 
+    nearby_html = _build_nearby_races(rd, race_index or [])
+
     return f'''<section id="course" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[01]</span>
@@ -1165,6 +1205,7 @@ def build_course_overview(rd: dict) -> str:
       {cards}
       </div>
       {gauge_html}
+      {nearby_html}
     </div>
   </section>'''
 
@@ -1509,10 +1550,10 @@ def build_news_section(rd: dict) -> str:
     # Build search query: race name works well for Google News
     search_query = name.replace(' ', '+')
 
-    return f'''<div class="gg-news-ticker gg-fade-section" id="gg-news-ticker" data-query="{esc(search_query)}">
-    <div class="gg-news-ticker-label">LATEST NEWS</div>
+    return f'''<div class="gg-news-ticker gg-fade-section" id="gg-news-ticker" role="region" aria-label="Latest news" data-query="{esc(search_query)}">
+    <div class="gg-news-ticker-label" aria-hidden="true">LATEST NEWS</div>
     <div class="gg-news-ticker-track">
-      <div class="gg-news-ticker-content" id="gg-news-feed">
+      <div class="gg-news-ticker-content" id="gg-news-feed" aria-live="polite" aria-atomic="true">
         <span class="gg-news-ticker-loading">Loading headlines&hellip;</span>
       </div>
     </div>
@@ -1591,7 +1632,7 @@ def build_email_capture(rd: dict) -> str:
     <div class="gg-email-capture-inner">
       <h3 class="gg-email-capture-title">SLOW, MID, 38s</h3>
       <p class="gg-email-capture-text">For cyclists with more passion than talent. Commentary on cycling training, culture and life. Free. No spam.</p>
-      <iframe src="{esc(SUBSTACK_EMBED)}" width="100%" height="100" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
+      <iframe src="{esc(SUBSTACK_EMBED)}" title="Newsletter signup" width="100%" height="100" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
     </div>
   </div>'''
 
@@ -1626,9 +1667,9 @@ def build_visible_faq(rd: dict) -> str:
     items = []
     for q, a in questions:
         items.append(f'''<div class="gg-faq-item">
-        <div class="gg-faq-question" role="button" tabindex="0">
+        <div class="gg-faq-question" role="button" tabindex="0" aria-expanded="false">
           <h3>{esc(q)}</h3>
-          <span class="gg-faq-toggle">+</span>
+          <span class="gg-faq-toggle" aria-hidden="true">+</span>
         </div>
         <div class="gg-faq-answer"><p>{esc(a)}</p></div>
       </div>''')
@@ -1808,7 +1849,11 @@ def get_page_css() -> str:
 
 /* Skip link */
 .gg-skip-link {{ position: absolute; top: -100px; left: 16px; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 8px 16px; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-decoration: none; z-index: 999; border: var(--gg-border-standard); }}
-.gg-skip-link:focus {{ top: 8px; }}
+.gg-skip-link:focus {{ top: 8px; outline: 3px solid var(--gg-color-near-black); outline-offset: 2px; }}
+
+/* Focus indicators */
+.gg-neo-brutalist-page a:focus-visible, .gg-neo-brutalist-page button:focus-visible, .gg-neo-brutalist-page [role="button"]:focus-visible, .gg-neo-brutalist-page .gg-btn:focus-visible {{ outline: 3px solid var(--gg-color-gold); outline-offset: 2px; }}
+.gg-neo-brutalist-page .gg-faq-question:focus-visible {{ outline: 3px solid var(--gg-color-gold); outline-offset: -3px; }}
 
 /* Utility */
 .gg-mt-md {{ margin-top: var(--gg-spacing-md); }}
@@ -1900,6 +1945,12 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-difficulty-track {{ height: 12px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-dark-brown); position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-difficulty-fill {{ height: 100%; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }}
 .gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
+
+/* Nearby races — in-content cross-links */
+.gg-neo-brutalist-page .gg-nearby-races {{ margin-top: 16px; padding: 10px 16px; background: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: 11px; }}
+.gg-neo-brutalist-page .gg-nearby-label {{ font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-nearby-races a {{ color: var(--gg-color-tan); text-decoration: none; }}
+.gg-neo-brutalist-page .gg-nearby-races a:hover {{ color: var(--gg-color-white); text-decoration: underline; }}
 
 /* Map embed */
 .gg-neo-brutalist-page .gg-map-embed {{ border: var(--gg-border-subtle); margin-bottom: 16px; overflow: hidden; }}
@@ -2266,7 +2317,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     nav_header = build_nav_header(rd, race_index)
     hero = build_hero(rd)
     toc = build_toc()
-    course_overview = build_course_overview(rd)
+    course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
     pullquote = build_pullquote(rd)
     course_route = build_course_route(rd)

@@ -505,6 +505,7 @@ def build_featured_races(race_index: list) -> str:
         <a href="{SITE_BASE_URL}/gravel-races/?region=West" class="gg-hp-quick-chip" data-ga="quick_west">WEST</a>
         <a href="{SITE_BASE_URL}/gravel-races/?region=Midwest" class="gg-hp-quick-chip" data-ga="quick_midwest">MIDWEST</a>
         <a href="{SITE_BASE_URL}/gravel-races/?region=South" class="gg-hp-quick-chip" data-ga="quick_south">SOUTH</a>
+        <a href="{SITE_BASE_URL}/gravel-races/?region=Northeast" class="gg-hp-quick-chip" data-ga="quick_ne">NORTHEAST</a>
         <a href="{SITE_BASE_URL}/gravel-races/?region=International" class="gg-hp-quick-chip" data-ga="quick_intl">INTERNATIONAL</a>
       </div>
     </div>

@@ -231,6 +231,93 @@
         "description": "a view of a city from the top of a hill",
         "download_location": "https://api.unsplash.com/photos/qhE2ya9vv2M/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxBZGVsYWlkZSUyMEhpbGxzJTJDJTIwU291dGglMjBBdXN0cmFsaWElMjBjeWNsaW5nfGVufDB8MHx8fDE3NzA3OTA4MjB8MA"
       }
+    ],
+    "citations": [
+      {
+        "url": "https://www.radlgrvl.com.au",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/53794771",
+        "category": "route",
+        "label": "RideWithGPS: 2026 RADL GRVL p/b Quad Lock Blue Adelaide Hills Course"
+      },
+      {
+        "url": "https://booking.com",
+        "category": "other",
+        "label": "Booking"
+      },
+      {
+        "url": "https://maps.google.com",
+        "category": "other",
+        "label": "Maps"
+      },
+      {
+        "url": "https://reddit.com/r/gravelcycling",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://reddit.com/r/gravelcycling/comments/radl-grvl",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://ridewithgps.com",
+        "category": "route",
+        "label": "RideWithGPS"
+      },
+      {
+        "url": "https://weather.com",
+        "category": "other",
+        "label": "Weather"
+      },
+      {
+        "url": "https://www.athlinks.com",
+        "category": "other",
+        "label": "Athlinks"
+      },
+      {
+        "url": "https://www.bikereg.com",
+        "category": "registration",
+        "label": "BikeReg"
+      },
+      {
+        "url": "https://www.cyclingtips.com",
+        "category": "media",
+        "label": "CyclingTips"
+      },
+      {
+        "url": "https://www.dirtyfreehub.com",
+        "category": "other",
+        "label": "Dirtyfreehub"
+      },
+      {
+        "url": "https://www.packfodder.com",
+        "category": "other",
+        "label": "Packfodder"
+      },
+      {
+        "url": "https://www.ridingravel.com",
+        "category": "other",
+        "label": "Ridingravel"
+      },
+      {
+        "url": "https://www.strava.com",
+        "category": "activity",
+        "label": "Strava"
+      },
+      {
+        "url": "https://www.trainerroad.com",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
+        "url": "https://www.velonews.com",
+        "category": "media",
+        "label": "VeloNews"
+      }
     ]
   }
 }

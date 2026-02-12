@@ -299,19 +299,19 @@ function formatEmailBody(req) {
     body { font-family: 'Courier New', monospace; background: #f5f5dc; padding: 20px; margin: 0; }
     .card { background: white; border: 3px solid #2c2c2c; padding: 24px; max-width: 680px; margin: 0 auto; }
     h1 { font-size: 18px; border-bottom: 3px solid #2c2c2c; padding-bottom: 8px; margin-top: 0; }
-    h2 { font-size: 12px; color: #8c7568; margin-top: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+    h2 { font-size: 12px; color: #7d695d; margin-top: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
     .row { display: flex; margin: 4px 0; font-size: 13px; }
-    .label { width: 130px; color: #8c7568; flex-shrink: 0; }
+    .label { width: 130px; color: #7d695d; flex-shrink: 0; }
     .value { font-weight: 600; color: #2c2c2c; }
     .highlight { background: #4ecdc4; padding: 2px 8px; color: #2c2c2c; }
     .goal-tag { display: inline-block; background: #F4D03F; padding: 3px 10px; font-weight: 700; text-transform: uppercase; font-size: 11px; }
     .notes-box { background: #f5f5dc; padding: 10px; margin-top: 6px; font-size: 12px; border-left: 3px solid #4ecdc4; }
-    .footer { margin-top: 20px; padding-top: 12px; border-top: 2px solid #2c2c2c; font-size: 11px; color: #8c7568; }
+    .footer { margin-top: 20px; padding-top: 12px; border-top: 2px solid #2c2c2c; font-size: 11px; color: #7d695d; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
     .metrics { background: #f9f9f9; padding: 10px; margin-top: 6px; display: flex; gap: 16px; flex-wrap: wrap; }
     .metric { display: inline-block; }
     .metric-value { font-weight: 700; color: #2c2c2c; font-size: 14px; }
-    .metric-label { font-size: 10px; color: #8c7568; }
+    .metric-label { font-size: 10px; color: #7d695d; }
     .power-box { background: #2c2c2c; color: white; padding: 12px 16px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; }
     .power-value { font-size: 20px; font-weight: 700; color: #4ecdc4; }
     .power-cat { font-size: 12px; color: #a89074; }

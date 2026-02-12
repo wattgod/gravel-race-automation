@@ -39,14 +39,14 @@ W, H = 1200, 630
 # Brand colors — from gravel-god-brand/tokens/tokens.json
 DARK_BROWN = (58, 46, 37)     # #3a2e25
 PRIMARY_BROWN = (89, 71, 60)  # #59473c
-SEC_BROWN = (140, 117, 104)   # #8c7568
+SEC_BROWN = (125, 105, 93)    # #7d695d
 WARM_BROWN = (166, 142, 128)  # #A68E80
 TAN = (212, 197, 185)         # #d4c5b9
 SAND = (237, 228, 216)        # #ede4d8
 WARM_PAPER = (245, 239, 230)  # #f5efe6
-GOLD = (183, 149, 11)         # #B7950B
+GOLD = (154, 126, 10)         # #9a7e0a
 LIGHT_GOLD = (201, 169, 44)   # #c9a92c
-TEAL = (26, 138, 130)         # #1A8A82
+TEAL = (23, 128, 121)         # #178079
 LIGHT_TEAL = (78, 205, 196)   # #4ECDC4
 NEAR_BLACK = (26, 22, 19)     # #1a1613
 WHITE = (255, 255, 255)
@@ -58,8 +58,8 @@ BG_TEXTURE = (36, 30, 26)     # Slightly lighter for texture lines
 TIER_COLORS = {
     1: PRIMARY_BROWN,
     2: SEC_BROWN,
-    3: (153, 153, 153),
-    4: (100, 90, 82),           # Darker for dark bg visibility
+    3: (118, 106, 94),          # #766a5e
+    4: (94, 104, 104),          # #5e6868
 }
 
 TIER_BADGE_TEXT = {

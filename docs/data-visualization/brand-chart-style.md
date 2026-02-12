@@ -13,10 +13,10 @@ Use these for main data elements (bars, lines, fills, polygons):
 | Color | Hex | Usage |
 |---|---|---|
 | Primary Brown | `#59473c` | Default bar fill, T1 elements, primary data series |
-| Secondary Brown | `#8c7568` | Secondary data series, T2 elements, hover/active states |
-| Dark Teal | `#1A8A82` | Accent/highlight, positive indicators, high scores |
+| Secondary Brown | `#7d695d` | Secondary data series, T2 elements, hover/active states |
+| Dark Teal | `#178079` | Accent/highlight, positive indicators, high scores |
 | Teal | `#4ECDC4` | Lighter accent, secondary highlight |
-| Dark Gold | `#B7950B` | Warning/threshold indicators, mid-range scores |
+| Dark Gold | `#9a7e0a` | Warning/threshold indicators, mid-range scores |
 | Gold | `#F4D03F` | Lighter warning, secondary mid-range |
 
 ### Background and Structure Colors
@@ -34,9 +34,9 @@ Use these for main data elements (bars, lines, fills, polygons):
 | Tier | Hex | Label |
 |---|---|---|
 | T1 | `#59473c` | Elite |
-| T2 | `#8c7568` | Strong |
-| T3 | `#999999` | Solid |
-| T4 | `#cccccc` | Entry |
+| T2 | `#7d695d` | Strong |
+| T3 | `#766a5e` | Solid |
+| T4 | `#5e6868` | Entry |
 
 ### Training Zone Colors (for fitness charts)
 
@@ -45,11 +45,11 @@ Adapted from standard endurance sport conventions to stay on-brand:
 | Zone | Hex | Name |
 |---|---|---|
 | Z1 Active Recovery | `#4ECDC4` | Teal (easy) |
-| Z2 Endurance | `#1A8A82` | Dark Teal (aerobic) |
-| Z3 Tempo | `#B7950B` | Dark Gold (moderate) |
+| Z2 Endurance | `#178079` | Dark Teal (aerobic) |
+| Z3 Tempo | `#9a7e0a` | Dark Gold (moderate) |
 | G Spot (Race Pace) | `#F4D03F` | Gold (threshold approach) |
 | Z4 Lactate Threshold | `#c4713a` | Burnt Orange (hard) |
-| Z5 VO2max | `#8c7568` | Secondary Brown (very hard) |
+| Z5 VO2max | `#7d695d` | Secondary Brown (very hard) |
 | Z6 Anaerobic | `#59473c` | Primary Brown (max) |
 | Z7 Neuromuscular | `#2d2420` | Near-Black (sprint) |
 
@@ -57,10 +57,10 @@ Adapted from standard endurance sport conventions to stay on-brand:
 
 | State | Hex | Usage |
 |---|---|---|
-| Good/Go | `#1A8A82` | Green light, positive, correct |
+| Good/Go | `#178079` | Green light, positive, correct |
 | Caution | `#F4D03F` | Yellow light, warning, modify |
 | Stop/Bad | `#c0392b` | Red light, danger, incorrect |
-| Neutral | `#999999` | Disabled, inactive, N/A |
+| Neutral | `#766a5e` | Disabled, inactive, N/A |
 
 ---
 
@@ -95,7 +95,7 @@ These are at 2x canvas size. Final 1x output will be half these values.
 |---|---|
 | On white/off-white background | `#000000` (black) |
 | On dark background (brown, teal) | `#f5f0eb` (off-white) or `#FFFFFF` |
-| Secondary/de-emphasized | `#8c7568` (secondary brown) |
+| Secondary/de-emphasized | `#7d695d` (secondary brown) |
 | Caption / source attribution | `#c4b5ab` (muted tan) |
 
 ---
@@ -128,7 +128,7 @@ All Gravel God visualizations follow the neo-brutalist aesthetic:
 ```
 ┌─────────────────────────────────────────────┐
 │  TITLE (48px bold, black, top-left)         │ ← 60px top padding
-│  Subtitle (24px regular, #8c7568)           │ ← 20px gap
+│  Subtitle (24px regular, #7d695d)           │ ← 20px gap
 ├─────────────────────────────────────────────┤ ← 40px gap
 │                                             │
 │              [CHART AREA]                   │ ← Main content zone
@@ -203,7 +203,7 @@ Used for flowcharts, checklists, multi-section layouts.
 - Polygon fill: 30% opacity of brand color
 - Polygon stroke: 3px solid brand color
 - Axis labels: 24px regular, positioned outside the outermost ring
-- Reference polygon (e.g., tier average): 2px dashed `#999999`, 10% fill
+- Reference polygon (e.g., tier average): 2px dashed `#766a5e`, 10% fill
 
 ---
 

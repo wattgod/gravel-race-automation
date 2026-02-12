@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 """
-Search Ride with GPS for race routes and populate ridewithgps_id in race profiles.
+Search Ride with GPS public API for race routes and populate ridewithgps_id
+in race JSON profiles.
 
-Uses the public RWGPS search API (no auth required) to find route matches
-for each race, scoring candidates by name similarity, distance proximity,
-and location overlap.
+No auth required. Uses the RWGPS search endpoint to find route matches,
+scoring candidates by name similarity, distance proximity, and location overlap.
 
 Usage:
-    python scripts/fetch_rwgps_routes.py                    # T1+T2, interactive
+    python scripts/fetch_rwgps_routes.py                    # T1+T2 only, auto mode
     python scripts/fetch_rwgps_routes.py --all              # All tiers
     python scripts/fetch_rwgps_routes.py --tier 1           # T1 only
-    python scripts/fetch_rwgps_routes.py --auto             # Auto-accept high-confidence
-    python scripts/fetch_rwgps_routes.py --dry-run          # Preview without writing
+    python scripts/fetch_rwgps_routes.py --dry-run          # Show matches without writing
     python scripts/fetch_rwgps_routes.py --race unbound-200 # Single race
-    python scripts/fetch_rwgps_routes.py --verify           # Verify all existing RWGPS IDs
+    python scripts/fetch_rwgps_routes.py --stats            # Show RWGPS coverage stats
 """
 
 import argparse
@@ -29,10 +28,17 @@ from pathlib import Path
 
 RACE_DATA = Path(__file__).resolve().parent.parent / "race-data"
 RWGPS_SEARCH_URL = "https://ridewithgps.com/find/search.json"
-RATE_LIMIT_SECONDS = 1.0
-AUTO_ACCEPT_THRESHOLD = 0.70
+RATE_LIMIT_SECONDS = 1.1
+AUTO_ACCEPT_THRESHOLD = 0.65
 DISTANCE_TOLERANCE = 0.20  # 20% distance match window
 METERS_PER_MILE = 1609.34
+REQUEST_TIMEOUT = 10  # seconds
+USER_AGENT = "GravelGodRaceDB/1.0 (gravel race RWGPS lookup)"
+
+# Scoring weights
+WEIGHT_NAME = 0.5
+WEIGHT_DISTANCE = 0.3
+WEIGHT_LOCATION = 0.2
 
 # US state abbreviations for location matching
 US_STATES = {
@@ -55,7 +61,12 @@ STATE_ABBREV_TO_FULL = {v: k for k, v in US_STATES.items()}
 
 
 def parse_location(location_str: str) -> dict:
-    """Extract city, state/region, country from location string."""
+    """Extract city, state/region, country from location string.
+
+    Splits on commas and takes the last 1-2 parts as state/country.
+    Returns dict with 'city', 'state', 'state_abbrev', 'country' keys
+    where available.
+    """
     if not location_str:
         return {}
     parts = [p.strip() for p in location_str.split(',')]
@@ -63,7 +74,7 @@ def parse_location(location_str: str) -> dict:
     if len(parts) >= 1:
         result['city'] = parts[0].lower()
     if len(parts) >= 2:
-        state = parts[1].strip().lower()
+        state = parts[-1].strip().lower() if len(parts) == 2 else parts[1].strip().lower()
         result['state'] = state
         # Normalize to abbreviation
         if state in US_STATES:
@@ -71,12 +82,17 @@ def parse_location(location_str: str) -> dict:
         elif state.upper() in STATE_ABBREV_TO_FULL:
             result['state_abbrev'] = state.upper()
     if len(parts) >= 3:
-        result['country'] = parts[2].strip().lower()
+        result['country'] = parts[-1].strip().lower()
     return result
 
 
 def search_rwgps(keywords: str, limit: int = 10) -> list:
-    """Search RWGPS for routes matching keywords. Returns list of route dicts."""
+    """Search RWGPS for routes matching keywords.
+
+    Hits the public search API with search[keywords] and search[limit].
+    Filters results client-side to type: "route" only (excludes trips).
+    Returns list of route dicts.
+    """
     params = urllib.parse.urlencode({
         'search[keywords]': keywords,
         'search[offset]': 0,
@@ -84,12 +100,21 @@ def search_rwgps(keywords: str, limit: int = 10) -> list:
     })
     url = f"{RWGPS_SEARCH_URL}?{params}"
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'GravelGod-RouteSearch/1.0',
+        'User-Agent': USER_AGENT,
         'Accept': 'application/json',
     })
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
             data = json.loads(resp.read().decode())
+    except urllib.error.HTTPError as e:
+        print(f"  API HTTP error: {e.code} {e.reason}")
+        return []
+    except urllib.error.URLError as e:
+        print(f"  API connection error: {e.reason}")
+        return []
+    except json.JSONDecodeError as e:
+        print(f"  API returned invalid JSON: {e}")
+        return []
     except Exception as e:
         print(f"  API error: {e}")
         return []
@@ -97,13 +122,24 @@ def search_rwgps(keywords: str, limit: int = 10) -> list:
     results = data.get('results', [])
     # Filter to routes only (not trips/activities)
     # API nests data: {"type": "route", "route": {...actual fields...}}
-    routes = [r['route'] for r in results if r.get('type') == 'route' and 'route' in r]
+    routes = []
+    for r in results:
+        if r.get('type') == 'route' and 'route' in r:
+            routes.append(r['route'])
     return routes
 
 
 def score_candidate(route: dict, race_name: str, race_distance_mi: float,
                     race_location: dict) -> dict:
-    """Score a RWGPS route candidate against a race. Returns dict with scores."""
+    """Score a RWGPS route candidate against a race.
+
+    Scoring breakdown:
+    - Name similarity (difflib.SequenceMatcher ratio, weight 0.5)
+    - Distance proximity (within 20% is ideal, weight 0.3)
+    - Location match (state/region string overlap, weight 0.2)
+
+    Returns dict with individual scores and weighted composite.
+    """
     route_name = route.get('name', '')
 
     # 1. Name similarity (0-1)
@@ -113,10 +149,9 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
         route_name.lower()
     ).ratio()
 
-    # Boost if race name words appear in route name
+    # Boost if race name keywords appear in route name
     race_words = set(re.findall(r'\w+', race_name.lower()))
     route_words = set(re.findall(r'\w+', route_name.lower()))
-    # Remove common filler words
     filler = {'the', 'a', 'an', 'of', 'in', 'at', 'and', 'or', 'gravel', 'race', 'ride'}
     race_keywords = race_words - filler
     if race_keywords:
@@ -124,6 +159,7 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
         name_score = max(name_score, word_overlap * 0.9)
 
     # 2. Distance proximity (0-1)
+    # If distance_mi is missing or 0, skip distance scoring
     distance_score = 0.0
     route_distance_mi = route.get('distance', 0) / METERS_PER_MILE
     if race_distance_mi and race_distance_mi > 0 and route_distance_mi > 0:
@@ -134,7 +170,7 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
             # Partial credit for somewhat close distances
             distance_score = max(0, ratio * 0.5)
 
-    # 3. Location match (0-1)
+    # 3. Location match (0-1) — state/region string overlap
     location_score = 0.0
     route_state = (route.get('administrative_area') or '').lower()
     route_locality = (route.get('locality') or '').lower()
@@ -153,7 +189,11 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
             location_score = 1.0
 
     # Weighted composite
-    composite = (name_score * 0.50) + (distance_score * 0.25) + (location_score * 0.25)
+    composite = (
+        (name_score * WEIGHT_NAME)
+        + (distance_score * WEIGHT_DISTANCE)
+        + (location_score * WEIGHT_LOCATION)
+    )
 
     return {
         'route_id': route['id'],
@@ -161,7 +201,7 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
         'distance_mi': round(route_distance_mi, 1),
         'elevation_ft': round(route.get('elevation_gain', 0) * 3.28084),
         'location': route.get('short_location', f"{route_locality}, {route_state}".strip(', ')),
-        'unpaved_pct': route.get('unpaved_pct'),
+        'terrain': route.get('terrain', ''),
         'name_score': round(name_score, 3),
         'distance_score': round(distance_score, 3),
         'location_score': round(location_score, 3),
@@ -170,7 +210,7 @@ def score_candidate(route: dict, race_name: str, race_distance_mi: float,
 
 
 def load_race_profile(filepath: Path) -> dict:
-    """Load a race profile JSON."""
+    """Load a race profile JSON file."""
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
 
@@ -183,7 +223,11 @@ def save_race_profile(filepath: Path, data: dict):
 
 
 def get_race_distance_mi(race: dict) -> float:
-    """Extract primary distance in miles from race profile."""
+    """Extract primary distance in miles from race profile.
+
+    Checks vitals.distance_mi first, then tries to parse from distance string.
+    Returns 0.0 if not found.
+    """
     vitals = race.get('race', {}).get('vitals', {})
     dist = vitals.get('distance_mi')
     if dist and isinstance(dist, (int, float)):
@@ -201,11 +245,11 @@ def get_race_distance_mi(race: dict) -> float:
 
 
 def format_candidate(c: dict, idx: int) -> str:
-    """Format a candidate for display."""
-    unpaved = f", {c['unpaved_pct']}% unpaved" if c.get('unpaved_pct') else ""
+    """Format a candidate route for display."""
+    terrain = f", terrain={c['terrain']}" if c.get('terrain') else ""
     return (
         f"  [{idx}] {c['route_name']}\n"
-        f"      {c['distance_mi']} mi, {c['elevation_ft']}' gain, {c['location']}{unpaved}\n"
+        f"      {c['distance_mi']} mi, {c['elevation_ft']}' gain, {c['location']}{terrain}\n"
         f"      Score: {c['composite']:.2f} "
         f"(name={c['name_score']:.2f} dist={c['distance_score']:.2f} loc={c['location_score']:.2f})\n"
         f"      https://ridewithgps.com/routes/{c['route_id']}"
@@ -213,12 +257,10 @@ def format_candidate(c: dict, idx: int) -> str:
 
 
 def write_rwgps_id(filepath: Path, route_id: int, route_name: str, dry_run: bool) -> bool:
-    """Write ridewithgps_id to a race profile's course_description section."""
+    """Write ridewithgps_id and ridewithgps_name to the race JSON course_description section."""
     data = load_race_profile(filepath)
     race = data.get('race', {})
-    # Prefer course_description (standard key), fall back to course
-    course_key = 'course_description' if 'course_description' in race else 'course'
-    course = race.get(course_key, {})
+    course = race.get('course_description', {})
 
     existing = course.get('ridewithgps_id')
     if existing and str(existing) not in ('TBD', ''):
@@ -226,87 +268,65 @@ def write_rwgps_id(filepath: Path, route_id: int, route_name: str, dry_run: bool
         return False
 
     if dry_run:
-        print(f"  [DRY RUN] Would write ridewithgps_id={route_id}")
+        print(f"  [DRY RUN] Would write ridewithgps_id={route_id}, ridewithgps_name=\"{route_name}\"")
         return True
 
     course['ridewithgps_id'] = str(route_id)
     course['ridewithgps_name'] = route_name
-    data['race'][course_key] = course
+    data['race']['course_description'] = course
     save_race_profile(filepath, data)
-    print(f"  Wrote ridewithgps_id={route_id}")
+    print(f"  Wrote ridewithgps_id={route_id}, ridewithgps_name=\"{route_name}\"")
     return True
 
 
-def build_search_queries(race_name: str, location: str) -> list:
-    """Build RWGPS search queries from race name and location.
+def build_search_query(race_name: str, location: str) -> str:
+    """Build a RWGPS search query from race name + state/country extracted from location.
 
-    Returns a list of queries to try in order (most specific first).
+    Extracts state/country from location by splitting on commas and taking the
+    last 1-2 parts. Appends to the race name for geographic context.
     """
-    # Clean location: strip parenthetical notes
-    clean_loc = re.sub(r'\(.*?\)', '', location).strip()
-    # For "A to B, State" locations, take the first city
-    if ' to ' in clean_loc.lower():
-        clean_loc = clean_loc.split(' to ')[0].strip().rstrip(',')
-        parts = [p.strip() for p in location.split(',')]
-        if len(parts) >= 2:
-            last_part = re.sub(r'\(.*?\)', '', parts[-1]).strip()
-            if last_part:
-                clean_loc = f"{clean_loc}, {last_part}"
+    if not location:
+        return race_name
 
-    loc = parse_location(clean_loc)
-    state_abbrev = loc.get('state_abbrev', '')
-    state_full = loc.get('state', '')
+    parts = [p.strip() for p in location.split(',')]
+    # Take last 1-2 parts as state/country context
+    if len(parts) >= 2:
+        geo_context = ', '.join(parts[-2:]).strip()
+    elif len(parts) == 1:
+        geo_context = parts[0].strip()
+    else:
+        geo_context = ''
 
-    # Strip location info already embedded in race name (e.g. "BWR NORTH CAROLINA")
-    name_without_loc = race_name
-    if state_full:
-        name_without_loc = re.sub(re.escape(state_full), '', race_name, flags=re.IGNORECASE).strip()
-        name_without_loc = re.sub(r'\s{2,}', ' ', name_without_loc).strip(' -,')
-
-    queries = []
-    # Primary: race name + state abbreviation (concise, best for RWGPS)
-    if state_abbrev:
-        queries.append(f"{name_without_loc} {state_abbrev}")
-    # Fallback 1: just race name as-is
-    queries.append(race_name)
-    # Fallback 2: name without location + state full name
-    if state_full and name_without_loc != race_name:
-        queries.append(f"{name_without_loc} {state_full}")
-    # Fallback 3: shorter name (drop "The", trailing numbers)
-    short = re.sub(r'^the\s+', '', name_without_loc, flags=re.IGNORECASE).strip()
-    short = re.sub(r'\s+\d{2,4}$', '', short).strip()
-    if short != race_name and short:
-        queries.append(short)
-
-    # Deduplicate while preserving order
-    seen = set()
-    unique = []
-    for q in queries:
-        if q.lower() not in seen:
-            seen.add(q.lower())
-            unique.append(q)
-    return unique
+    if geo_context:
+        return f"{race_name} {geo_context}"
+    return race_name
 
 
-def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
-    """Process a single race file. Returns status string."""
-    data = load_race_profile(filepath)
+def process_race(filepath: Path, dry_run: bool) -> str:
+    """Process a single race file: search RWGPS and auto-match.
+
+    Returns status string: 'matched', 'already_has_id', 'no_results',
+    'low_confidence', or 'error'.
+    """
+    try:
+        data = load_race_profile(filepath)
+    except json.JSONDecodeError as e:
+        print(f"  JSON decode error in {filepath.name}: {e}")
+        return 'error'
+    except Exception as e:
+        print(f"  Error loading {filepath.name}: {e}")
+        return 'error'
+
     race = data.get('race', {})
-    # Race profiles use 'course_description' as the course key
-    course = race.get('course_description', race.get('course', {}))
+    course = race.get('course_description', {})
     slug = race.get('slug', filepath.stem)
     name = race.get('name', slug)
     location = race.get('vitals', {}).get('location', '')
 
-    # Skip if already has a valid RWGPS ID
+    # Skip races that already have a numeric ridewithgps_id (not "TBD")
     existing_id = course.get('ridewithgps_id')
     if existing_id and str(existing_id) not in ('TBD', ''):
         return 'already_has_id'
-
-    # Skip if map_url already has a RWGPS route (generator will extract it)
-    map_url = course.get('map_url', '') or ''
-    if re.search(r'ridewithgps\.com/routes/\d+', map_url):
-        return 'has_map_url'
 
     distance_mi = get_race_distance_mi(data)
     race_location = parse_location(location)
@@ -316,16 +336,11 @@ def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
     print(f"  {location} | {distance_mi} mi")
     print(f"{'='*60}")
 
-    # Search RWGPS — try multiple queries
-    queries = build_search_queries(name, location)
-    routes = []
-    for query in queries:
-        print(f"  Searching: \"{query}\"")
-        routes = search_rwgps(query, limit=10)
-        if routes:
-            break
-        time.sleep(RATE_LIMIT_SECONDS)
+    # Build search query from race name + state/country from location
+    query = build_search_query(name, location)
+    print(f"  Searching: \"{query}\"")
 
+    routes = search_rwgps(query, limit=10)
     if not routes:
         print("  No routes found")
         return 'no_results'
@@ -338,186 +353,104 @@ def process_race(filepath: Path, auto: bool, dry_run: bool) -> str:
     candidates.sort(key=lambda c: c['composite'], reverse=True)
     top = candidates[:3]
 
-    # Display top candidates
+    # Display top candidates with matched route name and distance for verification
     for i, c in enumerate(top, 1):
         print(format_candidate(c, i))
 
     best = top[0]
 
-    # Auto-accept mode
-    if auto and best['composite'] >= AUTO_ACCEPT_THRESHOLD:
+    # Auto-accept the best match if confidence >= threshold
+    if best['composite'] >= AUTO_ACCEPT_THRESHOLD:
         print(f"\n  AUTO-ACCEPT (confidence {best['composite']:.2f} >= {AUTO_ACCEPT_THRESHOLD})")
         write_rwgps_id(filepath, best['route_id'], best['route_name'], dry_run)
         return 'matched'
-
-    if auto and best['composite'] < AUTO_ACCEPT_THRESHOLD:
-        print(f"\n  LOW CONFIDENCE ({best['composite']:.2f}), skipping in --auto mode")
+    else:
+        print(f"\n  NO MATCH (best confidence {best['composite']:.2f} < {AUTO_ACCEPT_THRESHOLD})")
         return 'low_confidence'
 
-    if dry_run:
-        print(f"\n  [DRY RUN] Best candidate: {best['route_name']} (score {best['composite']:.2f})")
-        return 'low_confidence'
 
-    # Interactive mode
-    while True:
-        choice = input("\n  Pick [1/2/3], (s)kip, (m)anual ID, (q)uit: ").strip().lower()
-        if choice == 'q':
-            return 'quit'
-        if choice == 's':
-            return 'skipped'
-        if choice == 'm':
-            manual = input("  Enter RWGPS route ID: ").strip()
-            if manual.isdigit():
-                route_name = input("  Route name (optional): ").strip() or name
-                write_rwgps_id(filepath, int(manual), route_name, dry_run)
-                return 'matched'
-            print("  Invalid ID")
-            continue
-        if choice in ('1', '2', '3'):
-            idx = int(choice) - 1
-            if idx < len(top):
-                c = top[idx]
-                write_rwgps_id(filepath, c['route_id'], c['route_name'], dry_run)
-                return 'matched'
-        print("  Invalid choice")
+def get_tier(data: dict) -> int:
+    """Extract tier from a race profile dict."""
+    rating = data.get('race', {}).get('gravel_god_rating', {})
+    return rating.get('display_tier', rating.get('tier', 4))
 
 
-def verify_rwgps_id(route_id: str) -> dict:
-    """Verify a RWGPS route ID is valid by fetching its metadata.
-
-    Returns dict with 'valid', 'name', 'distance_mi', 'error' keys.
-    """
-    url = f"https://ridewithgps.com/routes/{route_id}.json"
-    req = urllib.request.Request(url, headers={
-        'User-Agent': 'GravelGod-Verify/1.0',
-        'Accept': 'application/json',
-    })
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode())
-        return {
-            'valid': True,
-            'name': data.get('name', ''),
-            'distance_mi': round(data.get('distance', 0) / METERS_PER_MILE, 1),
-            'locality': data.get('locality', ''),
-            'administrative_area': data.get('administrative_area', ''),
-            'error': None,
-        }
-    except urllib.error.HTTPError as e:
-        return {'valid': False, 'error': f"HTTP {e.code}"}
-    except Exception as e:
-        return {'valid': False, 'error': str(e)}
-
-
-def run_verify(data_dir: Path, tier_filter: int = None, all_tiers: bool = False):
-    """Verify all existing RWGPS IDs are valid routes."""
+def run_stats(data_dir: Path):
+    """Show RWGPS coverage stats: how many races have RWGPS IDs by tier."""
     files = sorted(data_dir.glob("*.json"))
 
-    races_with_ids = []
+    # Collect per-tier counts
+    tier_total = {1: 0, 2: 0, 3: 0, 4: 0}
+    tier_has_id = {1: 0, 2: 0, 3: 0, 4: 0}
+    missing_by_tier = {1: [], 2: [], 3: [], 4: []}
+
     for fp in files:
         try:
             data = load_race_profile(fp)
         except (json.JSONDecodeError, KeyError):
             continue
+
         race = data.get('race', {})
-        rating = race.get('gravel_god_rating', {})
-        tier = rating.get('display_tier', rating.get('tier', 4))
-        if tier_filter and tier != tier_filter:
-            continue
-        if not all_tiers and not tier_filter and tier > 2:
-            continue
+        tier = get_tier(data)
+        if tier not in tier_total:
+            tier = 4
 
-        course = race.get('course_description', race.get('course', {}))
+        tier_total[tier] += 1
+
+        course = race.get('course_description', {})
         rwgps_id = course.get('ridewithgps_id')
-        if not rwgps_id or str(rwgps_id) in ('TBD', ''):
-            continue
-
-        # Also check map_url for extractable RWGPS IDs
-        map_url = course.get('map_url', '') or ''
-        map_id = None
-        m = re.search(r'ridewithgps\.com/routes/(\d+)', map_url)
-        if m:
-            map_id = m.group(1)
-
-        name = race.get('name', fp.stem)
-        dist = float(race.get('vitals', {}).get('distance_mi', 0) or 0)
-        races_with_ids.append((fp.stem, name, str(rwgps_id), map_id, dist, tier))
-
-    print(f"Verifying {len(races_with_ids)} RWGPS route IDs...\n")
-
-    valid = 0
-    invalid = 0
-    distance_warnings = 0
-
-    for i, (slug, name, rwgps_id, map_id, race_dist, tier) in enumerate(races_with_ids):
-        result = verify_rwgps_id(rwgps_id)
-        if result['valid']:
-            # Check distance sanity — flag if RWGPS distance differs by >30%
-            rwgps_dist = result['distance_mi']
-            dist_ok = True
-            if race_dist > 0 and rwgps_dist > 0:
-                ratio = min(race_dist, rwgps_dist) / max(race_dist, rwgps_dist)
-                if ratio < 0.70:
-                    dist_ok = False
-                    distance_warnings += 1
-
-            status = "OK" if dist_ok else "DIST MISMATCH"
-            icon = "+" if dist_ok else "~"
-            detail = f"{result['name']} ({rwgps_dist}mi"
-            if result['locality']:
-                detail += f", {result['locality']}"
-            if result['administrative_area']:
-                detail += f", {result['administrative_area']}"
-            detail += ")"
-            if not dist_ok:
-                detail += f" — race is {race_dist}mi"
-            print(f"  [{icon}] T{tier} {slug}: {detail}")
-            valid += 1
+        if rwgps_id and str(rwgps_id) not in ('TBD', ''):
+            tier_has_id[tier] += 1
         else:
-            print(f"  [!] T{tier} {slug}: INVALID — {result['error']}")
-            invalid += 1
+            missing_by_tier[tier].append(race.get('name', fp.stem))
 
-        # Also verify map_url ID if different from ridewithgps_id
-        if map_id and map_id != rwgps_id:
-            map_result = verify_rwgps_id(map_id)
-            if not map_result['valid']:
-                print(f"      map_url ID {map_id}: INVALID — {map_result['error']}")
-            time.sleep(0.5)
-
-        if i < len(races_with_ids) - 1:
-            time.sleep(0.5)
+    total_all = sum(tier_total.values())
+    total_with_id = sum(tier_has_id.values())
 
     print(f"\n{'='*60}")
-    print("VERIFICATION SUMMARY")
+    print("RWGPS COVERAGE STATS")
     print(f"{'='*60}")
-    print(f"  Valid:              {valid}")
-    print(f"  Invalid:            {invalid}")
-    print(f"  Distance warnings:  {distance_warnings}")
-    print(f"  Total checked:      {len(races_with_ids)}")
+    print()
 
-    if invalid > 0:
-        print(f"\n  ⚠ {invalid} invalid route IDs need attention!")
-        sys.exit(1)
+    for t in (1, 2, 3, 4):
+        total = tier_total[t]
+        has_id = tier_has_id[t]
+        pct = (has_id / total * 100) if total > 0 else 0
+        bar_filled = int(pct / 5)  # 20-char bar
+        bar = '#' * bar_filled + '-' * (20 - bar_filled)
+        print(f"  Tier {t}: {has_id:3d} / {total:3d} ({pct:5.1f}%)  [{bar}]")
+
+    print()
+    overall_pct = (total_with_id / total_all * 100) if total_all > 0 else 0
+    print(f"  Total: {total_with_id} / {total_all} ({overall_pct:.1f}%)")
+
+    # Show missing T1/T2 races
+    for t in (1, 2):
+        missing = missing_by_tier[t]
+        if missing:
+            print(f"\n  Missing T{t} ({len(missing)}):")
+            for name in sorted(missing):
+                print(f"    - {name}")
+
+    print()
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Search RWGPS for race routes and populate ridewithgps_id"
+        description="Search RWGPS for race routes and populate ridewithgps_id in race profiles."
     )
     parser.add_argument('--all', action='store_true',
                         help='Process all tiers (default: T1+T2 only)')
     parser.add_argument('--tier', type=int, choices=[1, 2, 3, 4],
                         help='Process only this tier')
-    parser.add_argument('--auto', action='store_true',
-                        help=f'Auto-accept matches with confidence >= {AUTO_ACCEPT_THRESHOLD}')
     parser.add_argument('--dry-run', action='store_true',
                         help='Show matches without writing to files')
-    parser.add_argument('--verify', action='store_true',
-                        help='Verify all existing RWGPS IDs are valid routes')
     parser.add_argument('--race', type=str,
                         help='Process a single race by slug')
+    parser.add_argument('--stats', action='store_true',
+                        help='Show RWGPS coverage stats by tier')
     parser.add_argument('--data-dir', type=Path, default=RACE_DATA,
-                        help='Race data directory')
+                        help='Race data directory (default: race-data/)')
     args = parser.parse_args()
 
     data_dir = args.data_dir
@@ -525,9 +458,9 @@ def main():
         print(f"Error: data directory not found: {data_dir}")
         sys.exit(1)
 
-    # Verify mode — check existing IDs, don't search
-    if args.verify:
-        run_verify(data_dir, tier_filter=args.tier, all_tiers=args.all)
+    # Stats mode — show coverage and exit
+    if args.stats:
+        run_stats(data_dir)
         return
 
     # Collect race files to process
@@ -547,50 +480,54 @@ def main():
             data = load_race_profile(fp)
         except (json.JSONDecodeError, KeyError):
             continue
-        rating = data.get('race', {}).get('gravel_god_rating', {})
-        tier = rating.get('display_tier', rating.get('tier', 4))
+        tier = get_tier(data)
         if args.tier and tier != args.tier:
             continue
+        # Default: T1+T2 only (unless --all or --tier or --race specified)
         if not args.all and not args.tier and not args.race and tier > 2:
             continue
         race_files.append((fp, tier))
 
-    # Sort by tier (T1 first), then name
+    # Sort by tier (T1 first), then alphabetically by slug
     race_files.sort(key=lambda x: (x[1], x[0].stem))
 
     total = len(race_files)
-    print(f"Processing {total} races", end="")
-    if args.dry_run:
-        print(" [DRY RUN]", end="")
-    if args.auto:
-        print(" [AUTO MODE]", end="")
-    print()
+    mode_label = " [DRY RUN]" if args.dry_run else ""
+    tier_label = f" T{args.tier}" if args.tier else (" all tiers" if args.all else " T1+T2")
+    print(f"Processing {total} races ({tier_label}){mode_label}")
 
     stats = {
-        'matched': 0, 'skipped': 0, 'no_results': 0,
-        'already_has_id': 0, 'has_map_url': 0, 'low_confidence': 0,
+        'matched': 0,
+        'already_has_id': 0,
+        'no_results': 0,
+        'low_confidence': 0,
+        'error': 0,
     }
 
     for i, (fp, tier) in enumerate(race_files):
-        result = process_race(fp, auto=args.auto, dry_run=args.dry_run)
-        if result == 'quit':
-            print("\nQuitting early.")
-            break
+        result = process_race(fp, dry_run=args.dry_run)
         stats[result] = stats.get(result, 0) + 1
-        # Rate limit between API calls
-        if i < total - 1 and result not in ('already_has_id', 'has_map_url'):
+
+        # Rate limit between API calls — skip delay for races that didn't hit the API
+        if i < total - 1 and result not in ('already_has_id', 'error'):
             time.sleep(RATE_LIMIT_SECONDS)
 
-    # Summary
+    # Print summary
     print(f"\n{'='*60}")
     print("SUMMARY")
     print(f"{'='*60}")
     print(f"  Matched:          {stats['matched']}")
     print(f"  Already had ID:   {stats['already_has_id']}")
-    print(f"  Has map_url:      {stats['has_map_url']}")
-    print(f"  Skipped:          {stats['skipped']}")
     print(f"  No results:       {stats['no_results']}")
     print(f"  Low confidence:   {stats['low_confidence']}")
+    if stats['error']:
+        print(f"  Errors:           {stats['error']}")
+    skipped = stats['already_has_id']
+    failed = stats['no_results'] + stats['low_confidence']
+    print(f"  ---")
+    print(f"  Total processed:  {sum(stats.values())}")
+    print(f"  Skipped (had ID): {skipped}")
+    print(f"  Failed (no match):{failed}")
 
 
 if __name__ == '__main__':

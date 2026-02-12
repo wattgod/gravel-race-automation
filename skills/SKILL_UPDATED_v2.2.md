@@ -40,10 +40,10 @@ When user requests a landing page, offer two approaches:
 
 **Color Palette:**
 - Primary: #59473C (earth brown)
-- Secondary: #8C7568, #A68E80, #BFA595
-- Accent: #40E0D0 (turquoise)
-- Background: #F5F5DC (cream/off-white)
-- Grid: #8C7568 (lighter brown)
+- Secondary: #7D695D, #A68E80, #BFA595
+- Accent: #178079 (teal)
+- Background: #f5efe6 (warm paper)
+- Grid: #7D695D (lighter brown)
 
 **Typography:**
 - Font: Sometype Mono (bold, minimal, sketchbook energy)

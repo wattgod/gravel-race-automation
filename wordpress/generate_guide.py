@@ -388,7 +388,7 @@ def render_calculator(block: dict) -> str:
         bars = []
         for z in block["zones"]:
             name = esc(z["name"])
-            color = esc(z.get("color", "#1A8A82"))
+            color = esc(z.get("color", "#178079"))
             hr_attrs = ''
             if "hr_min_pct" in z:
                 hr_attrs = f' data-hr-min="{z["hr_min_pct"]}" data-hr-max="{z["hr_max_pct"]}"'
@@ -468,7 +468,7 @@ def render_zone_visualizer(block: dict) -> str:
     rows_html = []
     for i, z in enumerate(zones):
         name = esc(z["name"])
-        color = esc(z.get("color", "#1A8A82"))
+        color = esc(z.get("color", "#178079"))
         pct_label = esc(z.get("label", f'{z["max_pct"]}%'))
         data_pct = round((z["max_pct"] / max_pct) * 100, 1)
 
@@ -527,7 +527,7 @@ def build_nav() -> str:
       <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
       <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
       <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link">HOW WE RATE</a>
-      <a href="{SITE_BASE_URL}/guide/" class="gg-site-nav-link" style="color:#1A8A82">GUIDE</a>
+      <a href="{SITE_BASE_URL}/guide/" class="gg-site-nav-link" style="color:#178079">GUIDE</a>
     </div>
     <div class="gg-breadcrumb">
       <a href="{SITE_BASE_URL}/">Home</a>
@@ -541,7 +541,7 @@ def build_hero(content: dict) -> str:
     title = esc(content["title"])
     subtitle = esc(content["subtitle"])
     return f'''<div class="gg-hero">
-    <div class="gg-hero-tier" style="background:#1A8A82">FREE GUIDE</div>
+    <div class="gg-hero-tier" style="background:#178079">FREE GUIDE</div>
     <h1 data-text="{title}">{title}</h1>
     <p class="gg-hero-tagline">{subtitle}</p>
   </div>'''
@@ -578,7 +578,7 @@ def build_chapter(chapter: dict) -> str:
 
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
 
-    colors = ['#59473c', '#000', '#1A8A82', '#59473c', '#000', '#1A8A82', '#59473c', '#000']
+    colors = ['#59473c', '#000', '#178079', '#59473c', '#000', '#178079', '#59473c', '#000']
     bg = colors[(num - 1) % len(colors)]
 
     hero_image_id = chapter.get("hero_image")
@@ -730,7 +730,7 @@ def build_footer() -> str:
     year = datetime.now().year
     return f'''<div class="gg-footer">
     <p class="gg-footer-disclaimer">This guide represents our editorial views on gravel racing training. Consult a physician before starting any exercise program. We are not affiliated with any race organizer, governing body, or equipment manufacturer. Training plans and coaching are separate paid services.</p>
-    <p style="margin-top:12px;font-size:11px;color:#8c7568">&copy; {year} Gravel God Cycling. All rights reserved.</p>
+    <p style="margin-top:12px;font-size:11px;color:#7d695d">&copy; {year} Gravel God Cycling. All rights reserved.</p>
   </div>'''
 
 
@@ -851,14 +851,14 @@ def build_guide_css() -> str:
     """Return all guide-specific CSS."""
     return '''/* ── Guide Progress Bar ── */
 .gg-guide-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;background:transparent}
-.gg-guide-progress-bar{height:100%;width:0%;background:#1A8A82}
+.gg-guide-progress-bar{height:100%;width:0%;background:#178079}
 
 /* ── Chapter Nav ── */
 .gg-guide-chapnav{position:sticky;top:3px;z-index:1000;background:#3a2e25;display:flex;justify-content:center;gap:0;border:3px solid #3a2e25;margin-bottom:32px}
 .gg-guide-chapnav-item{color:#A68E80;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;padding:10px 16px;display:flex;align-items:center;gap:4px;border-right:1px solid #59473c;border-bottom:3px solid transparent}
 .gg-guide-chapnav-item:last-child{border-right:none}
 .gg-guide-chapnav-item:hover{color:#d4c5b9;background:transparent}
-.gg-guide-chapnav-item--active{color:#fff;border-bottom-color:#B7950B;background:transparent}
+.gg-guide-chapnav-item--active{color:#fff;border-bottom-color:#9a7e0a;background:transparent}
 .gg-guide-chapnav-item--locked .gg-guide-chapnav-lock{font-size:9px;opacity:0.5}
 .gg-guide-chapnav-item--unlocked .gg-guide-chapnav-lock{display:none}
 
@@ -918,7 +918,7 @@ def build_guide_css() -> str:
 .gg-guide-tab-bar{display:flex;flex-wrap:wrap;background:#3a2e25;gap:0;border-bottom:4px double #3a2e25}
 .gg-guide-tab{padding:10px 16px;background:transparent;color:#A68E80;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .gg-guide-tab:hover{background:transparent;color:#d4c5b9}
-.gg-guide-tab--active{color:#fff;border-bottom-color:#B7950B;background:transparent}
+.gg-guide-tab--active{color:#fff;border-bottom-color:#9a7e0a;background:transparent}
 .gg-guide-tab-panel{padding:24px 32px}
 .gg-guide-tab-title{font-size:15px;font-weight:700;margin:0 0 12px;color:#59473c;text-transform:uppercase;letter-spacing:1px}
 
@@ -927,7 +927,7 @@ def build_guide_css() -> str:
 .gg-guide-timeline-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 16px;color:#59473c}
 .gg-guide-timeline-step{display:flex;gap:16px;margin-bottom:20px;position:relative}
 .gg-guide-timeline-step:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:-20px;width:2px;background:#d4c5b9}
-.gg-guide-timeline-marker{width:32px;height:32px;min-width:32px;background:#1A8A82;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.gg-guide-timeline-marker{width:32px;height:32px;min-width:32px;background:#178079;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
 .gg-guide-timeline-content{flex:1}
 .gg-guide-timeline-label{font-size:14px;font-weight:700;margin:0 0 6px;text-transform:uppercase;letter-spacing:1px;color:#3a2e25}
 .gg-guide-timeline-content p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;margin:0;color:#59473c}
@@ -938,43 +938,43 @@ def build_guide_css() -> str:
 .gg-guide-process-num{width:32px;height:32px;min-width:32px;background:#3a2e25;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .gg-guide-process-body{flex:1}
 .gg-guide-process-label{font-weight:700;font-size:14px;color:#3a2e25}
-.gg-guide-process-pct{display:inline-block;background:#B7950B;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;margin-left:8px;letter-spacing:1px}
+.gg-guide-process-pct{display:inline-block;background:#9a7e0a;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;margin-left:8px;letter-spacing:1px}
 .gg-guide-process-detail{font-size:13px;color:#59473c;margin:4px 0 0;line-height:1.5}
 
 /* ── Callout ── */
-.gg-guide-callout{padding:20px 24px;margin:0 0 20px;border-left:6px solid #1A8A82;background:#f5efe6}
-.gg-guide-callout--quote{border-left-color:#B7950B;font-style:italic;background:rgba(183,149,11,0.04)}
-.gg-guide-callout--highlight{border-left-color:#B7950B}
-.gg-guide-callout--traffic_light{border-left-color:#B7950B}
+.gg-guide-callout{padding:20px 24px;margin:0 0 20px;border-left:6px solid #178079;background:#f5efe6}
+.gg-guide-callout--quote{border-left-color:#9a7e0a;font-style:italic;background:rgba(183,149,11,0.04)}
+.gg-guide-callout--highlight{border-left-color:#9a7e0a}
+.gg-guide-callout--traffic_light{border-left-color:#9a7e0a}
 .gg-guide-callout p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.7;margin:0 0 8px;color:#3a2e25}
 .gg-guide-callout p:last-child{margin-bottom:0}
 
 /* ── Knowledge Check ── */
 .gg-guide-knowledge-check{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
-.gg-guide-kc-label{background:#B7950B;color:#3a2e25;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-kc-label{background:#9a7e0a;color:#3a2e25;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
 .gg-guide-kc-question{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
 .gg-guide-kc-options{padding:8px 20px 16px;display:flex;flex-direction:column;gap:8px}
 .gg-guide-kc-option{padding:10px 16px;background:#f5efe6;border:2px solid #3a2e25;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
 .gg-guide-kc-option:hover{background:#ede4d8}
-.gg-guide-kc-option--correct{background:#1A8A82 !important;color:#fff !important;border-color:#1A8A82 !important}
+.gg-guide-kc-option--correct{background:#178079 !important;color:#fff !important;border-color:#178079 !important}
 .gg-guide-kc-option--incorrect{background:#c0392b !important;color:#fff !important;border-color:#c0392b !important}
 .gg-guide-kc-option--disabled{pointer-events:none;opacity:0.6}
-.gg-guide-kc-explanation{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #1A8A82}
+.gg-guide-kc-explanation{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #178079}
 .gg-guide-kc-explanation p{font-size:13px;line-height:1.6;margin:0;color:#3a2e25}
 
 /* ── Flashcards ── */
 .gg-guide-flashcard-deck{margin:0 0 24px}
-.gg-guide-flashcard-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:12px}
+.gg-guide-flashcard-label{background:#178079;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:12px}
 .gg-guide-flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .gg-guide-flashcard{cursor:pointer;height:140px;position:relative}
 .gg-guide-flashcard-inner{position:relative;width:100%;height:100%}
 .gg-guide-flashcard-front,.gg-guide-flashcard-back{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;border:2px solid #3a2e25;font-size:13px;text-align:center;transition:border-color 300ms cubic-bezier(0.4,0,0.2,1)}
 .gg-guide-flashcard-front{background:#f5efe6;font-weight:700;color:#3a2e25}
-.gg-guide-flashcard-back{background:#1A8A82;color:#fff;display:none}
+.gg-guide-flashcard-back{background:#178079;color:#fff;display:none}
 .gg-guide-flashcard--flipped .gg-guide-flashcard-front{display:none}
 .gg-guide-flashcard--flipped .gg-guide-flashcard-back{display:block}
 .gg-guide-flashcard-back p,.gg-guide-flashcard-front p{font-family:'Source Serif 4',Georgia,serif;margin:0;line-height:1.4}
-.gg-guide-flashcard-hint{font-size:11px;color:#8c7568;text-align:center;margin:8px 0 0}
+.gg-guide-flashcard-hint{font-size:11px;color:#7d695d;text-align:center;margin:8px 0 0}
 
 /* ── Scenario ── */
 .gg-guide-scenario{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
@@ -986,7 +986,7 @@ def build_guide_css() -> str:
 .gg-guide-scenario-option-result{display:none;margin-top:8px;font-size:12px;color:#59473c;font-weight:400;line-height:1.5}
 .gg-guide-scenario-option--selected .gg-guide-scenario-option-result{display:block}
 .gg-guide-scenario-option--selected{border-color:#59473c;background:#f5efe6}
-.gg-guide-scenario-option--selected[data-best="true"]{border-color:#1A8A82;background:#f5efe6}
+.gg-guide-scenario-option--selected[data-best="true"]{border-color:#178079;background:#f5efe6}
 .gg-guide-scenario-option--disabled{pointer-events:none;opacity:0.6}
 
 /* ── CTA Blocks ── */
@@ -1000,16 +1000,16 @@ def build_guide_css() -> str:
 .gg-guide-cta--newsletter .gg-guide-cta-kicker{color:#d4c5b9}
 .gg-guide-cta--newsletter p{color:#d4c5b9}
 .gg-guide-cta--training{background:#3a2e25;color:#fff}
-.gg-guide-cta--training .gg-guide-cta-kicker{color:#8c7568}
+.gg-guide-cta--training .gg-guide-cta-kicker{color:#7d695d}
 .gg-guide-cta--training p,.gg-guide-cta--training ul{color:#d4c5b9}
-.gg-guide-cta--coaching{background:#1A8A82;color:#fff}
+.gg-guide-cta--coaching{background:#178079;color:#fff}
 .gg-guide-cta--coaching .gg-guide-cta-kicker{color:rgba(255,255,255,0.7)}
 
 /* ── Buttons ── */
 .gg-guide-btn{display:inline-block;padding:12px 24px;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:3px solid #3a2e25}
-.gg-guide-btn--primary{background:#B7950B;color:#3a2e25;border-color:#B7950B}
+.gg-guide-btn--primary{background:#9a7e0a;color:#3a2e25;border-color:#9a7e0a}
 .gg-guide-btn--primary:hover{background:#c9a92c;border-color:#c9a92c}
-.gg-guide-btn--secondary{background:#1A8A82;color:#fff;border-color:#1A8A82}
+.gg-guide-btn--secondary{background:#178079;color:#fff;border-color:#178079}
 .gg-guide-btn--secondary:hover{background:#4ECDC4;border-color:#4ECDC4}
 
 /* ── Finale Grid ── */
@@ -1025,31 +1025,31 @@ def build_guide_css() -> str:
 .gg-guide-finale-card--newsletter .gg-guide-finale-kicker{color:#d4c5b9}
 .gg-guide-finale-card--newsletter p{color:#d4c5b9}
 .gg-guide-finale-card--training{background:#3a2e25;color:#fff}
-.gg-guide-finale-card--training .gg-guide-finale-kicker{color:#8c7568}
+.gg-guide-finale-card--training .gg-guide-finale-kicker{color:#7d695d}
 .gg-guide-finale-card--training p{color:#d4c5b9}
-.gg-guide-finale-card--coaching{background:#1A8A82;color:#fff}
+.gg-guide-finale-card--coaching{background:#178079;color:#fff}
 .gg-guide-finale-card--coaching .gg-guide-finale-kicker{color:rgba(255,255,255,0.7)}
 
 /* ── Animated Process Bars ── */
 .gg-guide-process-bar-wrap{display:flex;align-items:center;gap:8px;margin-top:4px;margin-bottom:4px}
-.gg-guide-process-bar{height:8px;background:#1A8A82;border:1px solid #3a2e25}
-.gg-guide-process-pct{font-size:11px;font-weight:700;color:#1A8A82;min-width:36px}
+.gg-guide-process-bar{height:8px;background:#178079;border:1px solid #3a2e25}
+.gg-guide-process-pct{font-size:11px;font-weight:700;color:#178079;min-width:36px}
 
 /* ── Calculator ── */
 .gg-guide-calculator{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
-.gg-guide-calc-label{background:#1A8A82;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-calc-label{background:#178079;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
 .gg-guide-calc-desc{padding:12px 20px 4px;font-size:13px;color:#59473c;margin:0}
 .gg-guide-calc-inputs{padding:8px 20px;display:flex;flex-wrap:wrap;gap:12px}
 .gg-guide-calc-field{display:flex;flex-direction:column;gap:4px;min-width:140px;flex:1}
 .gg-guide-calc-field label{font-size:11px;font-weight:700;color:#59473c;text-transform:uppercase;letter-spacing:1px}
 .gg-guide-calc-input,.gg-guide-calc-select{padding:8px 12px;border:2px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:13px;background:#f5efe6}
-.gg-guide-calc-input:focus,.gg-guide-calc-select:focus{outline:3px solid #B7950B;outline-offset:2px}
+.gg-guide-calc-input:focus,.gg-guide-calc-select:focus{outline:3px solid #9a7e0a;outline-offset:2px}
 .gg-guide-calc-toggle{display:flex;gap:0}
 .gg-guide-calc-toggle-btn{padding:8px 16px;border:2px solid #3a2e25;background:#f5efe6;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;cursor:pointer}
 .gg-guide-calc-toggle-btn+.gg-guide-calc-toggle-btn{border-left:none}
-.gg-guide-calc-toggle-btn--active{background:#1A8A82;color:#fff;border-color:#1A8A82}
+.gg-guide-calc-toggle-btn--active{background:#178079;color:#fff;border-color:#178079}
 .gg-guide-calc-btn{display:block;margin:8px 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
-.gg-guide-calc-btn:hover{background:#8c7568}
+.gg-guide-calc-btn:hover{background:#7d695d}
 .gg-guide-calc-output{padding:16px 20px}
 .gg-guide-calc-ftp-display{font-size:14px;font-weight:700;margin-bottom:12px;color:#59473c}
 .gg-guide-calc-zones{display:flex;flex-direction:column;gap:8px}
@@ -1058,11 +1058,11 @@ def build_guide_css() -> str:
 .gg-guide-calc-zone-track{height:20px;background:#f5efe6;border:1px solid #d4c5b9;position:relative}
 .gg-guide-calc-zone-fill{height:100%;width:0%}
 .gg-guide-calc-zone-range{font-size:11px;color:#59473c;font-weight:700}
-.gg-guide-calc-zone-hr{font-size:10px;color:#8c7568}
+.gg-guide-calc-zone-hr{font-size:10px;color:#7d695d}
 .gg-guide-calc-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px}
 .gg-guide-calc-result-item{padding:12px;border:2px solid #3a2e25;background:#f5efe6;text-align:center}
 .gg-guide-calc-result-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59473c;margin-bottom:4px}
-.gg-guide-calc-result-value{display:block;font-size:18px;font-weight:700;color:#1A8A82}
+.gg-guide-calc-result-value{display:block;font-size:18px;font-weight:700;color:#178079}
 .gg-guide-calc-input--error{border-color:#c0392b}
 .gg-guide-calc-error{color:#c0392b;font-size:11px;padding:0 20px 8px;display:none}
 
@@ -1073,7 +1073,7 @@ def build_guide_css() -> str:
 .gg-guide-viz-name{font-weight:700;font-size:11px;color:#3a2e25}
 .gg-guide-viz-track{height:24px;background:#f5efe6;border:1px solid #d4c5b9;position:relative}
 .gg-guide-viz-fill{height:100%;width:0%}
-.gg-guide-viz-pct{font-size:11px;color:#8c7568;font-weight:700}
+.gg-guide-viz-pct{font-size:11px;color:#7d695d;font-weight:700}
 
 /* ── Rider Selector ── */
 .gg-guide-rider-selector{display:flex;align-items:center;gap:0;background:#3a2e25;border:3px solid #3a2e25;border-top:none;flex-wrap:wrap}
@@ -1081,20 +1081,20 @@ def build_guide_css() -> str:
 .gg-guide-rider-btn{padding:10px 16px;background:transparent;color:#A68E80;border:none;border-right:1px solid #59473c;border-bottom:3px solid transparent;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
 .gg-guide-rider-btn:last-child{border-right:none}
 .gg-guide-rider-btn:hover{color:#d4c5b9;background:transparent}
-.gg-guide-rider-btn--active{background:#59473c;color:#fff;border-bottom:3px solid #B7950B}
+.gg-guide-rider-btn--active{background:#59473c;color:#fff;border-bottom:3px solid #9a7e0a}
 .gg-guide-rider-btn-hours{font-size:9px;font-weight:400;opacity:0.7}
-.gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#3a2e25;border:3px solid #1A8A82;padding:8px 14px;display:flex;align-items:center;gap:10px}
+.gg-guide-rider-badge{position:fixed;bottom:20px;right:20px;z-index:999;background:#3a2e25;border:3px solid #178079;padding:8px 14px;display:flex;align-items:center;gap:10px}
 .gg-guide-rider-badge-type{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px}
-.gg-guide-rider-badge-change{background:none;border:none;color:#1A8A82;font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;text-decoration:underline;letter-spacing:1px}
+.gg-guide-rider-badge-change{background:none;border:none;color:#178079;font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;text-decoration:underline;letter-spacing:1px}
 
 /* ── Counter ── */
-.gg-guide-counter{font-weight:700;color:#1A8A82}
+.gg-guide-counter{font-weight:700;color:#178079}
 
 /* ── Footer ── */
 .gg-guide-chapter-body .gg-footer{border:3px solid #3a2e25;border-top:4px double #3a2e25;background:#3a2e25;color:#d4c5b9;margin:0;padding:24px 0 0}
 
 /* ── Focus Styles ── */
-.gg-guide-chapnav-item:focus-visible,.gg-guide-accordion-trigger:focus-visible,.gg-guide-tab:focus-visible,.gg-guide-kc-option:focus-visible,.gg-guide-scenario-option:focus-visible,.gg-guide-flashcard:focus-visible,.gg-guide-btn:focus-visible,.gg-guide-gate-bypass:focus-visible{outline:3px solid #B7950B;outline-offset:2px}
+.gg-guide-chapnav-item:focus-visible,.gg-guide-accordion-trigger:focus-visible,.gg-guide-tab:focus-visible,.gg-guide-kc-option:focus-visible,.gg-guide-scenario-option:focus-visible,.gg-guide-flashcard:focus-visible,.gg-guide-btn:focus-visible,.gg-guide-gate-bypass:focus-visible{outline:3px solid #9a7e0a;outline-offset:2px}
 
 /* ── Reduced Motion ── */
 @media(prefers-reduced-motion: no-preference){
@@ -1146,9 +1146,9 @@ def build_guide_css() -> str:
 .gg-guide-img--missing .gg-guide-img-placeholder{display:flex}
 
 /* ── Tooltips ── */
-.gg-tooltip-trigger{position:relative;cursor:help;border-bottom:2px dotted #B7950B;text-decoration:none}
-.gg-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:1000;background:#3a2e25;color:#f5efe6;border:3px solid #B7950B;padding:8px 12px;font-family:'Sometype Mono',monospace;font-size:10px;line-height:1.5;letter-spacing:1px;max-width:280px;opacity:0;visibility:hidden;transition:opacity 150ms cubic-bezier(0.4,0,0.2,1),visibility 150ms cubic-bezier(0.4,0,0.2,1);pointer-events:none;white-space:normal}
-.gg-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#B7950B}
+.gg-tooltip-trigger{position:relative;cursor:help;border-bottom:2px dotted #9a7e0a;text-decoration:none}
+.gg-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:1000;background:#3a2e25;color:#f5efe6;border:3px solid #9a7e0a;padding:8px 12px;font-family:'Sometype Mono',monospace;font-size:10px;line-height:1.5;letter-spacing:1px;max-width:280px;opacity:0;visibility:hidden;transition:opacity 150ms cubic-bezier(0.4,0,0.2,1),visibility 150ms cubic-bezier(0.4,0,0.2,1);pointer-events:none;white-space:normal}
+.gg-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#9a7e0a}
 .gg-tooltip-trigger:hover .gg-tooltip,.gg-tooltip-trigger:focus .gg-tooltip{opacity:1;visibility:visible}
 @media(max-width:768px){.gg-tooltip{position:fixed;bottom:auto;top:auto;left:16px;right:16px;transform:none;max-width:none}}
 '''
@@ -1595,19 +1595,19 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 .gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 20px; font-size: 11px; background: #2e241d; }}
 .gg-neo-brutalist-page .gg-breadcrumb a {{ color: #c4b5ab; text-decoration: none; }}
 .gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: #d4c5b9; }}
-.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #8c7568; margin: 0 6px; }}
+.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #7d695d; margin: 0 6px; }}
 .gg-neo-brutalist-page .gg-breadcrumb-current {{ color: #d4c5b9; }}
 /* Hero */
 .gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; border-bottom: 4px double rgba(255,255,255,0.15); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #3a2e25; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #fff; position: relative; }}
-.gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: #1A8A82; opacity: 0.3; z-index: 0; pointer-events: none; }}
+.gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: #178079; opacity: 0.3; z-index: 0; pointer-events: none; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-size: 14px; line-height: 1.6; color: #d4c5b9; max-width: 700px; }}
 /* Footer */
 .gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #3a2e25; border-top: 4px double #3a2e25; background: #3a2e25; color: #d4c5b9; margin-top: 0; }}
 .gg-neo-brutalist-page .gg-footer a {{ color: #f5efe6; }}
-.gg-neo-brutalist-page .gg-footer a:hover {{ color: #B7950B; }}
-.gg-neo-brutalist-page .gg-footer-disclaimer {{ font-size: 11px; color: #8c7568; line-height: 1.6; }}
+.gg-neo-brutalist-page .gg-footer a:hover {{ color: #9a7e0a; }}
+.gg-neo-brutalist-page .gg-footer-disclaimer {{ font-size: 11px; color: #7d695d; line-height: 1.6; }}
 @media(max-width:768px){{
   .gg-neo-brutalist-page .gg-hero {{ padding: 40px 20px; }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 26px; }}

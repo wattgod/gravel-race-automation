@@ -697,7 +697,7 @@ class TestCalculatorRenderer:
             ],
             "zones": [
                 {"name": "Z1", "min_pct": 0, "max_pct": 55, "color": "#4ECDC4"},
-                {"name": "Z2", "min_pct": 56, "max_pct": 75, "color": "#1A8A82"},
+                {"name": "Z2", "min_pct": 56, "max_pct": 75, "color": "#178079"},
             ],
         }
         html = render_calculator(block)
@@ -823,7 +823,7 @@ class TestZoneVisualizerRenderer:
             "title": "Zone Spectrum",
             "zones": [
                 {"name": "Z1", "max_pct": 55, "label": "55%", "color": "#4ECDC4"},
-                {"name": "Z2", "max_pct": 75, "label": "75%", "color": "#1A8A82"},
+                {"name": "Z2", "max_pct": 75, "label": "75%", "color": "#178079"},
             ],
         }
         html = render_zone_visualizer(block)
@@ -1522,7 +1522,7 @@ class TestTooltipSystem:
         css = build_guide_css()
         assert ".gg-tooltip-trigger" in css
         assert ".gg-tooltip{" in css or ".gg-tooltip " in css
-        assert "#B7950B" in css
+        assert "#9a7e0a" in css
         assert "#3a2e25" in css
 
     def test_tooltip_tabindex(self):
@@ -1611,9 +1611,9 @@ class TestBrandCompliance:
         # Active tab should have gold border-bottom
         active_idx = css.index("gg-guide-tab--active")
         active_rule = css[active_idx:active_idx + 200]
-        assert "#B7950B" in active_rule
+        assert "#9a7e0a" in active_rule
         # Should NOT have teal background for active tab
-        assert "background:#1A8A82" not in active_rule
+        assert "background:#178079" not in active_rule
 
 
 # ── Sprint 19: Visual Enrichment ──────────────────────────

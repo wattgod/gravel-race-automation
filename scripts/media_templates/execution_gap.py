@@ -9,7 +9,7 @@ from .base import (
 
 MUTED_TAN = "#c4b5ab"
 RED = "#c0392b"
-GREEN = "#1A8A82"
+GREEN = "#178079"
 
 
 def _draw_interval_chart(draw, x, y, w, h, intervals, title, title_color, font_title, font_label, font_sm):

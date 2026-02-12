@@ -382,8 +382,8 @@ class TestCSS:
     def test_css_uses_brand_colors(self):
         css = build_homepage_css()
         assert "#59473c" in css  # primary brown
-        assert "#1A8A82" in css  # teal
-        assert "#B7950B" in css  # gold
+        assert "#178079" in css  # teal
+        assert "#9a7e0a" in css  # gold
 
     def test_css_sometype_mono(self):
         css = build_homepage_css()

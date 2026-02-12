@@ -29,7 +29,7 @@
     4: 'Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes.'
   };
   const US_REGIONS = new Set(['West', 'Midwest', 'South', 'Northeast']);
-  const TIER_COLORS_MAP = { 1: '#59473c', 2: '#8c7568', 3: '#999999', 4: '#cccccc' };
+  const TIER_COLORS_MAP = { 1: '#59473c', 2: '#7d695d', 3: '#766a5e', 4: '#5e6868' };
 
   const SLIDERS = [
     { key: 'distance',      label: 'Distance',      low: 'Quick Spin',       high: 'Ultra Endurance', mapping: [{ field: 'length', weight: 1.0 }] },
@@ -263,7 +263,7 @@
     var filtered = sortRaces(filterRaces());
     filtered.forEach(function(race) {
       if (race.lat == null || race.lng == null) return;
-      var tierColor = TIER_COLORS_MAP[race.tier] || '#cccccc';
+      var tierColor = TIER_COLORS_MAP[race.tier] || '#5e6868';
       var marker = L.circleMarker([race.lat, race.lng], {
         radius: race.tier === 1 ? 8 : race.tier === 2 ? 7 : 6,
         fillColor: tierColor,
@@ -296,6 +296,70 @@
     });
   }
 
+  // ── Calendar ──
+  var MONTH_NAMES = ['January','February','March','April','May','June',
+                     'July','August','September','October','November','December'];
+
+  function renderCalendar() {
+    var calContainer = document.getElementById('gg-calendar-container');
+    if (!calContainer) return;
+    var filtered = sortRaces(filterRaces());
+    var byMonth = {};
+    MONTH_NAMES.forEach(function(m) { byMonth[m] = []; });
+    filtered.forEach(function(r) {
+      if (r.month && byMonth[r.month]) byMonth[r.month].push(r);
+    });
+    var noMonth = filtered.filter(function(r) { return !r.month; });
+    var currentMonth = MONTH_NAMES[new Date().getMonth()];
+    var html = '';
+    MONTH_NAMES.forEach(function(m) {
+      var races = byMonth[m];
+      if (races.length === 0) return;
+      var isCurrent = (m === currentMonth);
+      html += '<div class="gg-cal-month' + (isCurrent ? ' gg-cal-now' : '') + '" id="gg-cal-' + m.toLowerCase() + '">' +
+        '<div class="gg-cal-month-header">' +
+          '<span>' + m.toUpperCase() + '</span>' +
+          '<span class="gg-cal-month-count">' + races.length + ' race' + (races.length !== 1 ? 's' : '') + '</span>' +
+        '</div>';
+      races.forEach(function(r) {
+        var nameTag = r.has_profile
+          ? '<a class="gg-cal-name" href="' + r.profile_url + '">' + r.name + '</a>'
+          : '<span class="gg-cal-name">' + r.name + '</span>';
+        var distBadge = '';
+        if (userLat !== null && raceDistances[r.slug] !== undefined) {
+          distBadge = ' <span class="gg-distance-badge">' + raceDistances[r.slug].toLocaleString() + ' mi</span>';
+        }
+        html += '<div class="gg-cal-race">' +
+          '<span class="gg-tier-badge gg-tier-' + r.tier + '">T' + r.tier + '</span>' +
+          '<div class="gg-cal-info">' + nameTag + '<div class="gg-cal-loc">' + (r.location || '') +
+            (r.distance_mi ? ' &middot; ' + r.distance_mi + ' mi' : '') + distBadge + '</div></div>' +
+          (r.overall_score ? '<span class="gg-cal-score">' + r.overall_score + '</span>' : '') +
+        '</div>';
+      });
+      html += '</div>';
+    });
+    if (noMonth.length > 0) {
+      html += '<div class="gg-cal-month"><div class="gg-cal-month-header"><span>DATE TBD</span>' +
+        '<span class="gg-cal-month-count">' + noMonth.length + ' race' + (noMonth.length !== 1 ? 's' : '') + '</span></div>';
+      noMonth.forEach(function(r) {
+        var nameTag = r.has_profile
+          ? '<a class="gg-cal-name" href="' + r.profile_url + '">' + r.name + '</a>'
+          : '<span class="gg-cal-name">' + r.name + '</span>';
+        html += '<div class="gg-cal-race">' +
+          '<span class="gg-tier-badge gg-tier-' + r.tier + '">T' + r.tier + '</span>' +
+          '<div class="gg-cal-info">' + nameTag + '<div class="gg-cal-loc">' + (r.location || '') + '</div></div>' +
+          (r.overall_score ? '<span class="gg-cal-score">' + r.overall_score + '</span>' : '') +
+        '</div>';
+      });
+      html += '</div>';
+    }
+    if (!html) html = '<div class="gg-no-results">No races match your filters.</div>';
+    calContainer.innerHTML = html;
+    // Scroll to current month
+    var curEl = document.getElementById('gg-cal-' + currentMonth.toLowerCase());
+    if (curEl) curEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   function toggleView(mode) {
     viewMode = mode;
     document.querySelectorAll('.gg-view-btn').forEach(function(b) {
@@ -303,16 +367,20 @@
     });
     var mapContainer = document.getElementById('gg-map-container');
     var tierContainer = document.getElementById('gg-tier-container');
+    var calContainer = document.getElementById('gg-calendar-container');
+    mapContainer.classList.remove('visible');
+    tierContainer.style.display = 'none';
+    if (calContainer) calContainer.style.display = 'none';
     if (mode === 'map') {
       mapContainer.classList.add('visible');
-      tierContainer.style.display = 'none';
       loadLeaflet(function() {
         initMap();
         updateMapMarkers();
         setTimeout(function() { mapInstance.invalidateSize(); }, 100);
       });
+    } else if (mode === 'calendar') {
+      if (calContainer) { calContainer.style.display = ''; renderCalendar(); }
     } else {
-      mapContainer.classList.remove('visible');
       tierContainer.style.display = '';
     }
   }
@@ -346,6 +414,12 @@
       // Auto-trigger geolocation
       setTimeout(function() { activateNearMe(); }, 100);
     }
+
+    // Restore view mode from URL
+    var urlView = params.get('view');
+    if (urlView === 'map' || urlView === 'calendar') {
+      setTimeout(function() { toggleView(urlView); }, 150);
+    }
   }
 
   function saveToURL() {
@@ -371,6 +445,8 @@
       params.set('nearme', '1');
       if (nearMeRadius && nearMeRadius !== 500) params.set('radius', nearMeRadius);
     }
+
+    if (viewMode && viewMode !== 'list') params.set('view', viewMode);
 
     var newURL = params.toString()
       ? window.location.pathname + '?' + params.toString()
@@ -517,8 +593,8 @@
   function scoreColor(score) {
     if (score >= 85) return '#3a2e25';
     if (score >= 75) return '#59473c';
-    if (score >= 65) return '#8c7568';
-    return '#cccccc';
+    if (score >= 65) return '#7d695d';
+    return '#5e6868';
   }
 
   var SCORE_LABELS = {
@@ -763,6 +839,7 @@
 
     renderActivePills();
     if (viewMode === 'map' && mapInstance) { updateMapMarkers(); }
+    if (viewMode === 'calendar') { renderCalendar(); }
     saveToURL();
   }
 

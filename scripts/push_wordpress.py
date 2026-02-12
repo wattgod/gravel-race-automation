@@ -9,6 +9,8 @@ import os
 import shutil
 import subprocess
 import tempfile
+from datetime import date
+
 import requests
 from dotenv import load_dotenv
 from pathlib import Path
@@ -656,6 +658,37 @@ RewriteRule ^homepage/index\\.html$ / [R=301,L]
 
 # /race/ directory index → search page (prevents 403)
 RewriteRule ^race/?$ /gravel-races/ [R=301,L]
+
+# WP race guide pages → static race pages (duplicate content fix)
+RewriteRule ^barry-roubaix-race-guide/?$ /race/barry-roubaix/ [R=301,L]
+RewriteRule ^belgian-waffle-ride-race-guide/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^traka-360-race-guide/?$ /race/the-traka/ [R=301,L]
+RewriteRule ^unbound-gravel-200-race-guide/?$ /race/unbound-200/ [R=301,L]
+RewriteRule ^the-rad-race-guide/?$ /race/the-rad/ [R=301,L]
+RewriteRule ^sbt-grvl-race-guide/?$ /race/steamboat-gravel/ [R=301,L]
+RewriteRule ^rooted-vermont-race-guide/?$ /race/rooted-vermont/ [R=301,L]
+RewriteRule ^ned-gravel-race-guide/?$ /race/ned-gravel/ [R=301,L]
+RewriteRule ^mid-south-race-guide/?$ /race/mid-south/ [R=301,L]
+RewriteRule ^leadville-trail-100-mtb-race-guide/?$ /race/leadville-100/ [R=301,L]
+RewriteRule ^gravel-worlds-race-guide/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^gravel-locos-race-guide/?$ /race/gravel-locos/ [R=301,L]
+RewriteRule ^dirty-reiver-race-guide/?$ /race/dirty-reiver/ [R=301,L]
+RewriteRule ^crusher-tushar-race-guide/?$ /race/crusher-in-the-tushar/ [R=301,L]
+RewriteRule ^big-sugar-race-guide/?$ /race/big-sugar/ [R=301,L]
+RewriteRule ^big-horn-gravel-race-guide/?$ /race/big-horn-gravel/ [R=301,L]
+RewriteRule ^bwr-cedar-city-race-guide/?$ /race/bwr-cedar-city/ [R=301,L]
+RewriteRule ^oregon-trail-gravel-race-guide/?$ /race/oregon-trail-gravel/ [R=301,L]
+RewriteRule ^rebeccas-private-idaho-race-guide/?$ /race/rebeccas-private-idaho/ [R=301,L]
+RewriteRule ^migration-gravel-race-guide/?$ /race/migration-gravel-race/ [R=301,L]
+RewriteRule ^the-rift-race-guide/?$ /race/the-rift/ [R=301,L]
+RewriteRule ^sea-otter-gravel-race-guide/?$ /race/sea-otter-gravel/ [R=301,L]
+
+# Short WP pages → static race pages (duplicate content fix)
+RewriteRule ^barry-roubaix/?$ /race/barry-roubaix/ [R=301,L]
+RewriteRule ^belgian-waffle-ride/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^sbt-grvl/?$ /race/steamboat-gravel/ [R=301,L]
+RewriteRule ^mid-south/?$ /race/mid-south/ [R=301,L]
+RewriteRule ^unbound-200-2/?$ /race/unbound-200/ [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """
@@ -724,11 +757,100 @@ def sync_redirects():
             print(f"✗ Failed to write .htaccess: {proc.stderr.strip()}")
             return False
         print("✓ Redirect rules deployed to .htaccess")
-        print("  /guide.html → /guide/ (301)")
-        print("  /homepage/ → / (301)")
+        print("  4 utility redirects + 27 duplicate content redirects (301)")
         return True
     except Exception as e:
         print(f"✗ Failed to upload .htaccess: {e}")
+        return False
+
+
+def sync_sitemap():
+    """Deploy race-sitemap.xml and a sitemap index to the server.
+
+    Uploads the generated race sitemap as race-sitemap.xml, then creates a
+    sitemap index at sitemap.xml that references race-sitemap.xml plus
+    AIOSEO-generated sitemaps (post-sitemap.xml, page-sitemap.xml,
+    category-sitemap.xml).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    race_sitemap = project_root / "web" / "sitemap.xml"
+    if not race_sitemap.exists():
+        print(f"✗ Race sitemap not found: {race_sitemap}")
+        print("  Run: python scripts/generate_sitemap.py")
+        return False
+
+    remote_root = "~/www/gravelgodcycling.com/public_html"
+    today = date.today().isoformat()
+
+    # 1. Upload race sitemap as race-sitemap.xml
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(race_sitemap),
+                f"{user}@{host}:{remote_root}/race-sitemap.xml",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=True,
+        )
+        print("✓ Uploaded race-sitemap.xml")
+    except Exception as e:
+        print(f"✗ Failed to upload race-sitemap.xml: {e}")
+        return False
+
+    # 2. Create sitemap index referencing all sub-sitemaps
+    sitemap_index = f"""<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://gravelgodcycling.com/race-sitemap.xml</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://gravelgodcycling.com/post-sitemap.xml</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://gravelgodcycling.com/page-sitemap.xml</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://gravelgodcycling.com/category-sitemap.xml</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+</sitemapindex>
+"""
+
+    # 3. Upload sitemap index as sitemap.xml
+    try:
+        proc = subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"cat > {remote_root}/sitemap.xml",
+            ],
+            input=sitemap_index,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        if proc.returncode != 0:
+            print(f"✗ Failed to write sitemap.xml: {proc.stderr.strip()}")
+            return False
+        print("✓ Deployed sitemap index (sitemap.xml)")
+        print("  → race-sitemap.xml (328 race pages)")
+        print("  → post-sitemap.xml (AIOSEO blog posts)")
+        print("  → page-sitemap.xml (AIOSEO WP pages)")
+        print("  → category-sitemap.xml (AIOSEO categories)")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to upload sitemap.xml: {e}")
         return False
 
 
@@ -910,6 +1032,10 @@ if __name__ == "__main__":
         help="Path to race photos directory (default: wordpress/output/photos)"
     )
     parser.add_argument(
+        "--sync-sitemap", action="store_true",
+        help="Deploy race-sitemap.xml + sitemap index to server"
+    )
+    parser.add_argument(
         "--sync-redirects", action="store_true",
         help="Deploy redirect rules to .htaccess (guide.html→guide/, homepage/→/)"
     )
@@ -919,7 +1045,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_redirects and not args.purge_cache:
+    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_sitemap and not args.sync_redirects and not args.purge_cache:
         parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, --sync-redirects, and/or --purge-cache")
 
     if args.json:
@@ -940,6 +1066,8 @@ if __name__ == "__main__":
         sync_pages(args.pages_dir)
     if args.sync_photos:
         sync_photos(args.photos_dir)
+    if args.sync_sitemap:
+        sync_sitemap()
     if args.sync_redirects:
         sync_redirects()
     if args.purge_cache:

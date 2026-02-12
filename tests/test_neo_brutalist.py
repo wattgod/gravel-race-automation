@@ -393,9 +393,9 @@ class TestJsonLD:
 # ── Sections ──────────────────────────────────────────────────
 
 class TestSections:
-    def test_toc_has_7_links(self):
+    def test_toc_has_8_links(self):
         html = build_toc()
-        assert html.count("<a ") == 7
+        assert html.count("<a ") == 8
 
     def test_course_overview_has_map(self, normalized_data):
         html = build_course_overview(normalized_data)

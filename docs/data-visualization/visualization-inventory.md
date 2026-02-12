@@ -71,7 +71,7 @@ These are the most educational, most scannable, and most shareable visualization
 ### 7. `ch2-tier-distribution` — Race Tier Distribution
 - **Chapter:** 2 (Race Selection) | **Section:** `ch2-tiers`
 - **Content:** T1=25 races (8%), T2=73 (22%), T3=154 (47%), T4=76 (23%) out of 328 total
-- **Chart type:** Horizontal stacked bar or proportional bar with tier colors (T1=#59473c, T2=#8c7568, T3=#999, T4=#ccc)
+- **Chart type:** Horizontal stacked bar or proportional bar with tier colors (T1=#59473c, T2=#7d695d, T3=#766a5e, T4=#5e6868)
 - **Why high impact:** Makes the tier system tangible. Shows the pyramid shape — most races are T3, elite T1 is rare.
 - **Dimensions:** 1200x400 | **Generation:** Pillow-only (stacked rectangles)
 

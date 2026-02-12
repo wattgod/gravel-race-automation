@@ -13,8 +13,8 @@ MUTED_TAN = "#c4b5ab"
 TIERS = [
     ("TIER 1", 25, 8, PRIMARY_BROWN, "80+", "Elite — the bucket list races"),
     ("TIER 2", 73, 22, SECONDARY_BROWN, "60-79", "Strong — worth traveling for"),
-    ("TIER 3", 154, 47, "#999999", "45-59", "Solid — good regional events"),
-    ("TIER 4", 76, 23, "#cccccc", "< 45", "Entry — local or niche"),
+    ("TIER 3", 154, 47, "#766a5e", "45-59", "Solid — good regional events"),
+    ("TIER 4", 76, 23, "#5e6868", "< 45", "Entry — local or niche"),
 ]
 
 

@@ -348,6 +348,7 @@ def normalize_race_data(data: dict) -> dict:
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
         'race_photos': race.get('race_photos', []),
+        'citations': race.get('citations', []),
     }
 
 
@@ -553,7 +554,10 @@ def build_sticky_cta(race_name: str, url: str) -> str:
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
-    <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+      <button class="gg-sticky-dismiss" onclick="document.getElementById(\'gg-sticky-cta\').style.display=\'none\';try{{sessionStorage.setItem(\'gg-cta-dismissed\',\'1\')}}catch(e){{}}" aria-label="Dismiss">&times;</button>
+    </div>
   </div>
 </div>'''
 
@@ -759,6 +763,7 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
 // Sticky CTA + scroll fade-in
 if ('IntersectionObserver' in window) {
   var stickyCta = document.getElementById('gg-sticky-cta');
+  try { if (sessionStorage.getItem('gg-cta-dismissed')) { if (stickyCta) stickyCta.style.display = 'none'; stickyCta = null; } } catch(e) {}
   var hero = document.querySelector('.gg-hero');
   var training = document.getElementById('training');
 
@@ -1084,6 +1089,7 @@ def build_toc() -> str:
         ('verdict', '05 Final Verdict'),
         ('training', '06 Training'),
         ('logistics', '07 Race Logistics'),
+        ('citations', '08 Sources'),
     ]
     items = '\n  '.join(f'<a href="#{href}">{label}</a>' for href, label in links)
     return f'<nav class="gg-toc" aria-label="Table of contents">\n  {items}\n</nav>'
@@ -1765,6 +1771,70 @@ def build_similar_races(rd: dict, race_index: list) -> str:
   </section>'''
 
 
+def build_citations_section(rd: dict) -> str:
+    """Build Sources & Citations section from race.citations data."""
+    citations = rd.get('citations', [])
+    if not citations:
+        return ''
+
+    # Group by category
+    categories = {}
+    for c in citations:
+        cat = c.get('category', 'other')
+        categories.setdefault(cat, []).append(c)
+
+    # Category display order and labels
+    cat_order = [
+        ('official', 'Official'),
+        ('route', 'Route Maps'),
+        ('media', 'Media & Press'),
+        ('community', 'Community'),
+        ('video', 'Video'),
+        ('registration', 'Registration'),
+        ('social', 'Social'),
+        ('tracking', 'Live Tracking'),
+        ('reference', 'Reference'),
+        ('activity', 'Activity'),
+        ('other', 'Other Sources'),
+    ]
+
+    items = []
+    for cat_key, cat_label in cat_order:
+        if cat_key not in categories:
+            continue
+        for c in categories[cat_key]:
+            url = c.get('url', '')
+            label = c.get('label', 'Source')
+            # Truncate long URLs for display
+            display_url = url.replace('https://', '').replace('http://', '')
+            if len(display_url) > 60:
+                display_url = display_url[:57] + '...'
+            items.append(
+                f'<li class="gg-citation-item">'
+                f'<span class="gg-citation-cat">{esc(cat_label)}</span> '
+                f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer" '
+                f'class="gg-citation-link">{esc(label)}</a>'
+                f'<span class="gg-citation-url">{esc(display_url)}</span>'
+                f'</li>'
+            )
+
+    if not items:
+        return ''
+
+    return f'''<section class="gg-section gg-fade-section" id="citations">
+    <div class="gg-section-header gg-section-header--dark">
+      <span class="gg-section-kicker">[&mdash;]</span>
+      <h2 class="gg-section-title">Sources &amp; Citations</h2>
+    </div>
+    <div class="gg-section-body">
+      <p class="gg-citations-intro">Research sources used to build this race profile. Always verify details with official race sources before making travel or registration decisions.</p>
+      <ol class="gg-citations-list">
+        {''.join(items)}
+      </ol>
+    </div>
+  </section>'''
+
+
 def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
     """Build BreadcrumbList JSON-LD schema."""
     return {
@@ -2109,6 +2179,8 @@ def get_page_css() -> str:
 .gg-sticky-cta-name {{ font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; color: var(--gg-color-white); text-transform: uppercase; letter-spacing: 1px; }}
 .gg-sticky-cta .gg-btn {{ font-family: var(--gg-font-data); background: var(--gg-color-teal); color: var(--gg-color-white); border: var(--gg-border-width-subtle) solid var(--gg-color-teal); padding: var(--gg-spacing-xs) 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; }}
 .gg-sticky-cta .gg-btn:hover {{ background: #14695F; border-color: #14695F; }}
+.gg-sticky-dismiss {{ background: none; border: none; color: var(--gg-color-white); font-size: 22px; cursor: pointer; opacity: 0.6; padding: 0 4px; line-height: 1; }}
+.gg-sticky-dismiss:hover {{ opacity: 1; }}
 
 /* Scroll fade-in */
 .gg-neo-brutalist-page .gg-fade-section {{ opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }}
@@ -2155,6 +2227,16 @@ def get_page_css() -> str:
 .gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
 .gg-breadcrumb-sep {{ color: var(--gg-color-secondary-brown); margin: 0 4px; }}
 .gg-breadcrumb-current {{ color: var(--gg-color-warm-paper); }}
+
+/* Citations */
+.gg-neo-brutalist-page .gg-citations-intro {{ font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-md); line-height: var(--gg-line-height-relaxed); }}
+.gg-neo-brutalist-page .gg-citations-list {{ list-style: decimal; padding-left: 24px; margin: 0; }}
+.gg-neo-brutalist-page .gg-citation-item {{ font-size: var(--gg-font-size-2xs); line-height: 1.8; border-bottom: 1px solid var(--gg-color-cream); padding: 4px 0; }}
+.gg-neo-brutalist-page .gg-citation-item:last-child {{ border-bottom: none; }}
+.gg-neo-brutalist-page .gg-citation-cat {{ display: inline-block; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 1px 6px; margin-right: 6px; }}
+.gg-neo-brutalist-page .gg-citation-link {{ color: var(--gg-color-dark-teal); text-decoration: none; font-weight: 600; }}
+.gg-neo-brutalist-page .gg-citation-link:hover {{ color: var(--gg-color-teal); text-decoration: underline; }}
+.gg-neo-brutalist-page .gg-citation-url {{ display: block; color: var(--gg-color-secondary-brown); font-size: 9px; word-break: break-all; }}
 
 /* Footer */
 .gg-neo-brutalist-page .gg-footer {{ background: var(--gg-color-dark-brown); color: var(--gg-color-tan); padding: 24px 20px; border-top: var(--gg-border-double); margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }}
@@ -2330,6 +2412,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     training = build_training(rd, q_url)
     logistics_sec = build_logistics_section(rd)
     similar = build_similar_races(rd, race_index)
+    citations_sec = build_citations_section(rd)
     footer = build_footer()
     sticky_cta = build_sticky_cta(rd['name'], q_url)
 
@@ -2354,7 +2437,8 @@ body{margin:0;background:#ede4d8}
     content_sections = []
     for section in [course_overview, history, pullquote, course_route, photos,
                     ratings, verdict, email_capture, news,
-                    training, logistics_sec, similar, visible_faq]:
+                    training, logistics_sec, similar, visible_faq,
+                    citations_sec]:
         if section:
             content_sections.append(section)
 

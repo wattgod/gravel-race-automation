@@ -30,22 +30,22 @@ def get_tokens_css() -> str:
   /* color */
   --gg-color-dark-brown: #3a2e25;
   --gg-color-primary-brown: #59473c;
-  --gg-color-secondary-brown: #8c7568;
+  --gg-color-secondary-brown: #7d695d;
   --gg-color-warm-brown: #A68E80;
   --gg-color-tan: #d4c5b9;
   --gg-color-sand: #ede4d8;
   --gg-color-warm-paper: #f5efe6;
-  --gg-color-gold: #B7950B;
+  --gg-color-gold: #9a7e0a;
   --gg-color-light-gold: #c9a92c;
-  --gg-color-teal: #1A8A82;
+  --gg-color-teal: #178079;
   --gg-color-light-teal: #4ECDC4;
   --gg-color-near-black: #1a1613;
   --gg-color-white: #ffffff;
   --gg-color-error: #c0392b;
   --gg-color-tier-1: #59473c;
-  --gg-color-tier-2: #8c7568;
-  --gg-color-tier-3: #999999;
-  --gg-color-tier-4: #cccccc;
+  --gg-color-tier-2: #7d695d;
+  --gg-color-tier-3: #766a5e;
+  --gg-color-tier-4: #5e6868;
 
   /* font */
   --gg-font-data: 'Sometype Mono', monospace;
@@ -96,8 +96,8 @@ def get_tokens_css() -> str:
   --gg-border-width-heavy: 4px;
   --gg-border-color-default: #3a2e25;
   --gg-border-color-brand: #59473c;
-  --gg-border-color-secondary: #8c7568;
-  --gg-border-color-gold: #B7950B;
+  --gg-border-color-secondary: #7d695d;
+  --gg-border-color-gold: #9a7e0a;
   --gg-border-radius: 0;
 
   /* animation */
@@ -216,19 +216,19 @@ def get_preload_hints(font_path_prefix: str = "/race/assets/fonts") -> str:
 COLORS = {
     "dark_brown": "#3a2e25",
     "primary_brown": "#59473c",
-    "secondary_brown": "#8c7568",
+    "secondary_brown": "#7d695d",
     "warm_brown": "#A68E80",
     "tan": "#d4c5b9",
     "sand": "#ede4d8",
     "warm_paper": "#f5efe6",
-    "gold": "#B7950B",
+    "gold": "#9a7e0a",
     "light_gold": "#c9a92c",
-    "teal": "#1A8A82",
+    "teal": "#178079",
     "light_teal": "#4ECDC4",
     "near_black": "#1a1613",
     "white": "#ffffff",
     "tier_1": "#59473c",
-    "tier_2": "#8c7568",
-    "tier_3": "#999999",
-    "tier_4": "#cccccc",
+    "tier_2": "#7d695d",
+    "tier_3": "#766a5e",
+    "tier_4": "#5e6868",
 }

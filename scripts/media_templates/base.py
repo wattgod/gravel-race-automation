@@ -5,10 +5,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 # ── Brand Colors ──────────────────────────────────────────
 PRIMARY_BROWN = "#59473c"
-SECONDARY_BROWN = "#8c7568"
-DARK_TEAL = "#1A8A82"
+SECONDARY_BROWN = "#7d695d"
+DARK_TEAL = "#178079"
 TEAL = "#4ECDC4"
-DARK_GOLD = "#B7950B"
+DARK_GOLD = "#9a7e0a"
 GOLD = "#F4D03F"
 OFF_WHITE = "#f5f0eb"
 BLACK = "#000000"

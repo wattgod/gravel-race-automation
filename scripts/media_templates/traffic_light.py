@@ -9,7 +9,7 @@ from .base import (
 
 MUTED_TAN = "#c4b5ab"
 RED = "#c0392b"
-GREEN = "#1A8A82"
+GREEN = "#178079"
 YELLOW = "#F4D03F"
 
 LIGHTS = [

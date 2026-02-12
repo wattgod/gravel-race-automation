@@ -956,13 +956,13 @@ def build_sports_event_jsonld(rd: dict) -> dict:
 
     # Parse ISO date
     date_specific = rd['vitals'].get('date_specific', '')
-    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
+    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_specific)
     if date_match:
-        year, month_name, day = date_match.groups()
+        year, month_name, day = date_match.group(1), date_match.group(2), date_match.group(3)
+        end_day = date_match.group(4)
         month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
-        iso_date = f"{year}-{month_num}-{int(day):02d}"
-        jsonld["startDate"] = iso_date
-        jsonld["endDate"] = iso_date
+        jsonld["startDate"] = f"{year}-{month_num}-{int(day):02d}"
+        jsonld["endDate"] = f"{year}-{month_num}-{int(end_day):02d}" if end_day else jsonld["startDate"]
 
     # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')

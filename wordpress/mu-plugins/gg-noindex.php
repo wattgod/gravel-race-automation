@@ -48,3 +48,39 @@ function gg_noindex_junk_pages() {
     }
 }
 add_action('wp_head', 'gg_noindex_junk_pages', 1);
+
+/**
+ * Inject JSON-LD schema on /gravel-races/ page.
+ * BreadcrumbList + CollectionPage for rich snippets in Google SERPs.
+ */
+function gg_search_page_schema() {
+    $uri = $_SERVER['REQUEST_URI'] ?? '';
+    if (strpos($uri, '/gravel-races') === false) return;
+
+    $breadcrumb = [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => 'https://gravelgodcycling.com/'],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Gravel Races', 'item' => 'https://gravelgodcycling.com/gravel-races/'],
+        ],
+    ];
+
+    $collection = [
+        '@context' => 'https://schema.org',
+        '@type' => 'CollectionPage',
+        'name' => 'Find Your Gravel Race',
+        'description' => 'Search and filter 328 gravel races worldwide by tier, distance, region, terrain, and date. Find your next gravel adventure with the Gravel God race database.',
+        'url' => 'https://gravelgodcycling.com/gravel-races/',
+        'numberOfItems' => 328,
+        'publisher' => [
+            '@type' => 'Organization',
+            'name' => 'Gravel God',
+            'url' => 'https://gravelgodcycling.com/',
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . json_encode($breadcrumb, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+    echo '<script type="application/ld+json">' . json_encode($collection, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+}
+add_action('wp_head', 'gg_search_page_schema', 5);

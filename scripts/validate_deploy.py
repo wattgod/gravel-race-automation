@@ -279,6 +279,16 @@ def check_noindex(v):
                 "noindex meta tag found on important page!")
 
 
+def check_search_schema(v):
+    """Verify /gravel-races/ has CollectionPage and BreadcrumbList JSON-LD."""
+    print("\n[Search Page Schema]")
+    body = curl_body(f"{BASE_URL}/gravel-races/")
+    v.check('"CollectionPage"' in body, "CollectionPage JSON-LD on /gravel-races/",
+            "Missing CollectionPage schema")
+    v.check('"BreadcrumbList"' in body, "BreadcrumbList JSON-LD on /gravel-races/",
+            "Missing BreadcrumbList schema")
+
+
 def check_permissions(v):
     """Verify /race/ directory is accessible (not 403)."""
     print("\n[Permissions]")
@@ -301,9 +311,11 @@ def main():
     check_race_page_seo(v)
     check_citations(v)
 
+    check_search_schema(v)
+
     if not QUICK:
         check_sample_race_pages(v)
-    
+
     sys.exit(v.summary())
 
 

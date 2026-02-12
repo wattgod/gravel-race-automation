@@ -95,7 +95,7 @@
     grid.innerHTML = SLIDERS.map(function(s) { return '\
       <div class="gg-slider-row">\
         <span class="gg-slider-label">' + s.label + '</span>\
-        <input type="range" min="1" max="5" value="3" id="gg-q-' + s.key + '">\
+        <input type="range" min="1" max="5" value="3" id="gg-q-' + s.key + '" aria-label="' + s.label + ': ' + s.low + ' to ' + s.high + '">\
         <div class="gg-slider-endpoints">\
           <span>' + s.low + '</span>\
           <span>' + s.high + '</span>\
@@ -362,6 +362,8 @@
       html += '</div>';
     }
     if (!html) html = noResultsHtml();
+    calContainer.setAttribute('role', 'region');
+    calContainer.setAttribute('aria-label', 'Race calendar by month');
     calContainer.innerHTML = html;
     // Scroll to current month
     var curEl = document.getElementById('gg-cal-' + currentMonth.toLowerCase());
@@ -720,7 +722,7 @@
       var remaining = races.length - visible.length;
 
       html += '<div class="gg-tier-section">' +
-        '<div class="gg-tier-section-header tier-' + t + '" onclick="toggleTier(' + t + ')">' +
+        '<button class="gg-tier-section-header tier-' + t + '" onclick="toggleTier(' + t + ')" aria-expanded="' + (!collapsed) + '" aria-controls="gg-tier-body-' + t + '">' +
           '<div class="gg-tier-section-title">' +
             '<span class="gg-tier-badge gg-tier-' + t + '">TIER ' + t + '</span>' +
             '<h3><a href="/race/tier-' + t + '/" onclick="event.stopPropagation()" class="gg-tier-name-link">' + TIER_NAMES[t] + '</a></h3>' +
@@ -728,8 +730,8 @@
           '</div>' +
           '<p class="gg-tier-section-desc">' + TIER_DESCS[t] + '</p>' +
           '<span class="gg-tier-section-chevron' + (collapsed ? ' collapsed' : '') + '">▾</span>' +
-        '</div>' +
-        '<div class="gg-tier-section-body' + (collapsed ? ' collapsed' : '') + '">' +
+        '</button>' +
+        '<div class="gg-tier-section-body' + (collapsed ? ' collapsed' : '') + '" id="gg-tier-body-' + t + '">' +
           '<div class="gg-grid">' + visible.map(renderCard).join('') + '</div>' +
           (remaining > 0 ? '<button class="gg-load-more" onclick="loadMoreTier(' + t + ')">Show ' + Math.min(remaining, TIER_PAGE_SIZE) + ' more of ' + remaining + ' remaining</button>' : '') +
         '</div>' +

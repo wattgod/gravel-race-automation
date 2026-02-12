@@ -339,6 +339,11 @@
       user-select: none;
       background: var(--gg-color-warm-paper) !important;
       border-left: 6px solid var(--gg-color-dark-brown);
+      border-top: none; border-right: none; border-bottom: none;
+      width: 100%;
+      font: inherit;
+      text-align: left;
+      outline-offset: -2px;
     }
     #gg-race-search .gg-tier-section-header.tier-1 { border-left-color: var(--gg-color-tier-1) !important; background: var(--gg-color-tier-1) !important; color: var(--gg-color-white) !important; }
     #gg-race-search .gg-tier-section-header.tier-1 h3 { color: var(--gg-color-white) !important; }
@@ -982,11 +987,11 @@
   <button class="gg-filter-toggle" id="gg-filter-toggle" onclick="document.querySelector('.gg-filters').classList.toggle('open');this.classList.toggle('open')">Filters</button>
   <div class="gg-filters">
     <div class="gg-search-input">
-      <label>Search</label>
+      <label for="gg-search">Search</label>
       <input type="text" id="gg-search" placeholder="Race name or location...">
     </div>
     <div class="gg-filter-group">
-      <label>Tier</label>
+      <label for="gg-tier">Tier</label>
       <select id="gg-tier">
         <option value="">All Tiers</option>
         <option value="1">Tier 1</option>
@@ -995,13 +1000,13 @@
       </select>
     </div>
     <div class="gg-filter-group">
-      <label>Region</label>
+      <label for="gg-region">Region</label>
       <select id="gg-region">
         <option value="">All Regions</option>
       </select>
     </div>
     <div class="gg-filter-group">
-      <label>Distance</label>
+      <label for="gg-distance">Distance</label>
       <select id="gg-distance">
         <option value="">Any Distance</option>
         <option value="0-50">Under 50 mi</option>
@@ -1011,13 +1016,13 @@
       </select>
     </div>
     <div class="gg-filter-group">
-      <label>Month</label>
+      <label for="gg-month">Month</label>
       <select id="gg-month">
         <option value="">Any Month</option>
       </select>
     </div>
     <div class="gg-filter-group">
-      <label>Profile</label>
+      <label for="gg-profile">Profile</label>
       <select id="gg-profile">
         <option value="">All</option>
         <option value="yes">Has Profile</option>

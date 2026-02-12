@@ -69,7 +69,10 @@ def chapters():
 
 @pytest.fixture(scope="module")
 def homepage_html(race_index):
-    return generate_homepage(race_index)
+    from unittest.mock import patch
+    fake_posts = [{"title": "Test Post", "url": "https://example.com", "snippet": "Test snippet"}]
+    with patch("generate_homepage.fetch_substack_posts", return_value=fake_posts):
+        return generate_homepage(race_index)
 
 
 # ── Data Loading ─────────────────────────────────────────────

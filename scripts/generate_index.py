@@ -223,6 +223,12 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         entry["lat"] = vitals["lat"]
         entry["lng"] = vitals["lng"]
 
+    # Include RWGPS route ID if available
+    course = race.get("course_description", {})
+    rwgps_id = course.get("ridewithgps_id")
+    if rwgps_id and str(rwgps_id).strip() and str(rwgps_id).strip().lower() != "tbd":
+        entry["rwgps_id"] = str(rwgps_id).strip()
+
     return entry
 
 

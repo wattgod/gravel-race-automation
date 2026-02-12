@@ -2148,6 +2148,26 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
 }}
+
+/* Responsive — small phones */
+@media (max-width: 480px) {{
+  .gg-neo-brutalist-page {{ padding: 0 12px; }}
+  .gg-neo-brutalist-page .gg-hero {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
+  .gg-neo-brutalist-page .gg-hero h1 {{ font-size: var(--gg-font-size-xl); }}
+  .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: var(--gg-font-size-3xl); }}
+  .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-section-header {{ flex-wrap: wrap; gap: 4px 12px; padding: 12px 16px; }}
+  .gg-neo-brutalist-page .gg-section-kicker {{ white-space: normal; }}
+  .gg-neo-brutalist-page .gg-section-body {{ padding: 16px 12px; }}
+  .gg-neo-brutalist-page .gg-suffering-mile {{ min-width: 60px; padding: 8px; }}
+  .gg-neo-brutalist-page .gg-suffering-mile-num {{ font-size: var(--gg-font-size-md); }}
+  .gg-neo-brutalist-page .gg-suffering-content {{ padding: 8px 12px; }}
+  .gg-neo-brutalist-page .gg-accordion-label {{ width: 65px; min-width: 65px; font-size: 9px; letter-spacing: 0.5px; }}
+  .gg-neo-brutalist-page .gg-accordion-score {{ width: 32px; min-width: 32px; font-size: 12px; }}
+  .gg-neo-brutalist-page .gg-site-nav {{ padding: 10px 12px; }}
+  .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
+  .gg-sticky-cta {{ padding: 10px 12px; }}
+}}
 </style>'''
 
 

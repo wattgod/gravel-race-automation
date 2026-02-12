@@ -16,6 +16,8 @@
     3: 'Regional favorites and emerging races. Strong local scenes, genuine gravel character.',
     4: 'Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes.'
   };
+  const US_REGIONS = new Set(['West', 'Midwest', 'South', 'Northeast']);
+
   const SLIDERS = [
     { key: 'distance',      label: 'Distance',      low: 'Quick Spin',       high: 'Ultra Endurance', mapping: [{ field: 'length', weight: 1.0 }] },
     { key: 'technicality',  label: 'Technicality',   low: 'Smooth Gravel',    high: 'Single Track',    mapping: [{ field: 'technicality', weight: 1.0 }] },
@@ -199,6 +201,13 @@
     const regions = [...new Set(allRaces.map(r => r.region).filter(Boolean))].sort();
     const regionSel = document.getElementById('gg-region');
     regionSel.innerHTML = '<option value="">All Regions</option>';
+    // Add "International" meta-region (all non-US regions)
+    const intlCount = allRaces.filter(r => r.region && !US_REGIONS.has(r.region)).length;
+    if (intlCount > 0) {
+      const intlOpt = document.createElement('option');
+      intlOpt.value = 'International'; intlOpt.textContent = `International (${intlCount})`;
+      regionSel.appendChild(intlOpt);
+    }
     regions.forEach(r => {
       const count = countByFilter('region', r);
       const opt = document.createElement('option');
@@ -252,7 +261,8 @@
       if (f.search && !r.name.toLowerCase().includes(f.search) &&
           !(r.location || '').toLowerCase().includes(f.search)) return false;
       if (f.tier && r.tier != f.tier) return false;
-      if (f.region && r.region !== f.region) return false;
+      if (f.region === 'International' && (!r.region || US_REGIONS.has(r.region))) return false;
+      if (f.region && f.region !== 'International' && r.region !== f.region) return false;
       if (f.month && r.month !== f.month) return false;
       if (f.profile === 'yes' && !r.has_profile) return false;
       if (f.profile === 'no' && r.has_profile) return false;

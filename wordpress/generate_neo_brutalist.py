@@ -938,7 +938,9 @@ def build_sports_event_jsonld(rd: dict) -> dict:
     if date_match:
         year, month_name, day = date_match.groups()
         month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
-        jsonld["startDate"] = f"{year}-{month_num}-{int(day):02d}"
+        iso_date = f"{year}-{month_num}-{int(day):02d}"
+        jsonld["startDate"] = iso_date
+        jsonld["endDate"] = iso_date
 
     # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')
@@ -960,19 +962,28 @@ def build_sports_event_jsonld(rd: dict) -> dict:
 
     # Organizer from history.founder — skip generic stub text
     founder = rd.get('history', {}).get('founder', '')
+    official_site = rd['logistics'].get('official_site', '')
     if founder and not founder.endswith('organizers') and founder != 'Unknown':
-        jsonld["organizer"] = {"@type": "Person", "name": founder}
+        org = {"@type": "Person", "name": founder}
+        if official_site and official_site.startswith('http'):
+            org["url"] = official_site
+        jsonld["organizer"] = org
 
     # Parse price
     reg = rd['vitals'].get('registration', '')
     price_match = re.search(r'\$(\d+)', reg)
     if price_match:
-        jsonld["offers"] = {
+        offer = {
             "@type": "Offer",
             "price": price_match.group(1),
             "priceCurrency": "USD",
             "availability": "https://schema.org/LimitedAvailability",
         }
+        if official_site and official_site.startswith('http'):
+            offer["url"] = official_site
+        if jsonld.get("startDate"):
+            offer["validFrom"] = jsonld["startDate"]
+        jsonld["offers"] = offer
 
     if rd['overall_score']:
         jsonld["review"] = {
@@ -990,9 +1001,12 @@ def build_sports_event_jsonld(rd: dict) -> dict:
             },
         }
 
-    official_site = rd['logistics'].get('official_site', '')
     if official_site and official_site.startswith('http'):
         jsonld["url"] = official_site
+
+    # Performer — use organizer as the event performer
+    if jsonld.get("organizer"):
+        jsonld["performer"] = jsonld["organizer"]
 
     return jsonld
 

@@ -1113,10 +1113,39 @@ if __name__ == "__main__":
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
+    parser.add_argument(
+        "--deploy-content", action="store_true",
+        help="Shortcut: --sync-pages --sync-index --sync-widget --purge-cache"
+    )
+    parser.add_argument(
+        "--deploy-all", action="store_true",
+        help="Shortcut: all --sync-* flags + --purge-cache"
+    )
     args = parser.parse_args()
 
-    if not args.json and not args.sync_index and not args.sync_widget and not args.sync_training and not args.sync_guide and not args.sync_og and not args.sync_homepage and not args.sync_pages and not args.sync_photos and not args.sync_sitemap and not args.sync_redirects and not args.sync_noindex and not args.purge_cache:
-        parser.error("Provide --json, --sync-index, --sync-widget, --sync-training, --sync-guide, --sync-og, --sync-homepage, --sync-pages, --sync-photos, --sync-redirects, --sync-noindex, and/or --purge-cache")
+    # Expand composite flags
+    if args.deploy_content:
+        args.sync_pages = True
+        args.sync_index = True
+        args.sync_widget = True
+        args.purge_cache = True
+    if args.deploy_all:
+        args.sync_pages = True
+        args.sync_index = True
+        args.sync_widget = True
+        args.sync_og = True
+        args.sync_homepage = True
+        args.sync_sitemap = True
+        args.sync_redirects = True
+        args.sync_noindex = True
+        args.purge_cache = True
+
+    has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
+                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
+                      args.sync_photos, args.sync_sitemap, args.sync_redirects,
+                      args.sync_noindex, args.purge_cache])
+    if not has_action:
+        parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
     if args.json:
         push_to_wordpress(args.json)

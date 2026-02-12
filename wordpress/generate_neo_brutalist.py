@@ -2192,6 +2192,14 @@ def write_shared_assets(output_dir: Path) -> dict:
     css_file = f"gg-styles.{css_hash}.css"
     js_file = f"gg-scripts.{js_hash}.js"
 
+    # Clean up stale hashed assets before writing new ones
+    for old in assets_dir.glob("gg-styles.*.css"):
+        if old.name != css_file:
+            old.unlink()
+    for old in assets_dir.glob("gg-scripts.*.js"):
+        if old.name != js_file:
+            old.unlink()
+
     (assets_dir / css_file).write_text(css_content, encoding='utf-8')
     (assets_dir / js_file).write_text(js_content, encoding='utf-8')
 
@@ -2256,7 +2264,16 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Use external assets if provided, otherwise inline
     if external_assets:
-        css = external_assets['css_tag']
+        # Inline minimal critical CSS to prevent flash of white while stylesheet loads
+        critical_css = '''<style>
+body{margin:0;background:#ede4d8}
+.gg-neo-brutalist-page{max-width:960px;margin:0 auto;padding:0 20px;font-family:'Sometype Mono',monospace;color:#3a2e25;background:#ede4d8}
+.gg-neo-brutalist-page *,.gg-neo-brutalist-page *::before,.gg-neo-brutalist-page *::after{border-radius:0!important;box-shadow:none!important;box-sizing:border-box}
+.gg-site-nav{background:#3a2e25;padding:12px 20px;border-bottom:3px solid #3a2e25}
+.gg-hero{background:#3a2e25;color:#f5efe6;padding:64px 48px;border-bottom:4px double #3a2e25;position:relative;overflow:hidden}
+</style>
+  '''
+        css = critical_css + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
         css = get_page_css()
@@ -2302,6 +2319,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta name="description" content="{esc(seo_description)}">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%23B7950B'>G</text></svg>">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://ridewithgps.com">
+  <link rel="dns-prefetch" href="https://api.rss2json.com">
   {preload}
   {og_tags}
   {jsonld_html}

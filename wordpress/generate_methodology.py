@@ -427,6 +427,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <title>How We Rate Gravel Races — Gravel God Methodology</title>
   <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 14 dimensions, 4 tiers, transparent formula.">
   <link rel="canonical" href="{esc(canonical_url)}">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   {preload}
   {og_tags}
   {jsonld}

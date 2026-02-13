@@ -24,6 +24,13 @@ FONT_FILES = [
 ]
 
 
+# ── Analytics ─────────────────────────────────────────────────
+GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
+
+# ── Site ──────────────────────────────────────────────────────
+SITE_BASE_URL = "https://gravelgodcycling.com"
+
+
 def get_tokens_css() -> str:
     """Return the :root CSS custom properties block."""
     return """:root {

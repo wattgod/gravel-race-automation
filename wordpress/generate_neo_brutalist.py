@@ -161,7 +161,7 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
-CURRENT_YEAR = "2025"
+CURRENT_YEAR = str(datetime.now().year)
 
 
 def build_seo_title(rd: dict) -> str:

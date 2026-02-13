@@ -399,6 +399,9 @@ def main():
     else:
         print("No issues found!")
 
+    if total_issues > 0:
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

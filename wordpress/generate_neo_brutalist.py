@@ -194,9 +194,9 @@ def build_seo_description(rd: dict) -> str:
 
     Combines tagline + score/tier + call-to-action suffix.
     """
-    tagline = rd['tagline'].rstrip('.')
-    score = rd['overall_score']
-    tier = rd['tier']
+    tagline = rd.get('tagline', '').rstrip('.')
+    score = rd.get('overall_score', 0)
+    tier = rd.get('tier', 4)
     tier_label = {1: 'Elite', 2: 'Contender', 3: 'Solid', 4: 'Roster'}.get(tier, f'Tier {tier}')
     location = rd.get('vitals', {}).get('location', '')
     if location == '--':
@@ -207,6 +207,8 @@ def build_seo_description(rd: dict) -> str:
     else:
         suffix = f" Rated {score}/100 ({tier_label}). Course maps, ratings & full breakdown."
 
+    if not tagline:
+        return suffix.lstrip()
     desc = f"{tagline}.{suffix}"
     if len(desc) <= 160:
         return desc
@@ -301,7 +303,8 @@ def normalize_race_data(data: dict) -> dict:
         'explanations': explanations,
         'vitals': {
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
-            'elevation': f"{vitals.get('elevation_ft', '--'):,} ft".replace(',', ',') if isinstance(vitals.get('elevation_ft'), (int, float)) else str(vitals.get('elevation_ft', '--')),
+            'distance_mi': vitals.get('distance_mi', 0),
+            'elevation': f"{vitals.get('elevation_ft', '--'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else str(vitals.get('elevation_ft', '--')),
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),
@@ -1121,9 +1124,13 @@ def build_hero(rd: dict) -> str:
 </section>'''
 
 
-def build_toc() -> str:
-    """Build table of contents nav."""
-    links = [
+def build_toc(active_sections=None) -> str:
+    """Build table of contents nav.
+
+    If *active_sections* is provided, only show links whose anchor id is
+    in the set.  Pass ``None`` to show all links (backward-compatible).
+    """
+    all_links = [
         ('course', '01 Course Overview'),
         ('history', '02 Facts &amp; History'),
         ('route', '03 The Course'),
@@ -1133,6 +1140,8 @@ def build_toc() -> str:
         ('logistics', '07 Race Logistics'),
         ('citations', '08 Sources'),
     ]
+    links = [(href, label) for href, label in all_links
+             if active_sections is None or href in active_sections]
     items = '\n  '.join(f'<a href="#{href}">{label}</a>' for href, label in links)
     return f'<nav class="gg-toc" aria-label="Table of contents">\n  {items}\n</nav>'
 
@@ -1141,7 +1150,7 @@ def _extract_state(location: str) -> str:
     """Extract state/country from location string like 'Emporia, Kansas'."""
     if not location:
         return ''
-    m = re.match(r'.+,\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)', location)
+    m = re.match(r'.+,\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|[A-Z]{2})', location)
     return m.group(1) if m else ''
 
 
@@ -1330,7 +1339,7 @@ def build_course_route(rd: dict) -> str:
         for z in zones:
             zone_html.append(f'''<div class="gg-suffering-zone">
           <div class="gg-suffering-mile">
-            <div class="gg-suffering-mile-num">{z.get("mile", "?")}</div>
+            <div class="gg-suffering-mile-num">{esc(z.get("mile", "?"))}</div>
             <div class="gg-suffering-mile-label">MILE</div>
           </div>
           <div class="gg-suffering-content">
@@ -2416,7 +2425,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # Build sections
     nav_header = build_nav_header(rd, race_index)
     hero = build_hero(rd)
-    toc = build_toc()
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
     pullquote = build_pullquote(rd)
@@ -2432,6 +2440,20 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
     sticky_cta = build_sticky_cta(rd['name'], q_url)
+
+    # Dynamic TOC — only link to sections that have content
+    active = {'course', 'ratings', 'training'}  # always present
+    if history:
+        active.add('history')
+    if course_route:
+        active.add('route')
+    if verdict:
+        active.add('verdict')
+    if logistics_sec:
+        active.add('logistics')
+    if citations_sec:
+        active.add('citations')
+    toc = build_toc(active)
 
     # Use external assets if provided, otherwise inline
     if external_assets:

@@ -355,13 +355,13 @@ class TestJsonLd:
     def test_article_schema(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"@type": "Article"' in jsonld
+        assert '"@type":"Article"' in jsonld
         assert content["title"] in jsonld
 
     def test_breadcrumb_schema(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"@type": "BreadcrumbList"' in jsonld
+        assert '"@type":"BreadcrumbList"' in jsonld
         assert "Training Guide" in jsonld
 
     def test_valid_json(self):
@@ -369,7 +369,7 @@ class TestJsonLd:
         jsonld = build_jsonld(content)
         # Extract JSON blocks and validate
         import re
-        blocks = re.findall(r'<script type="application/ld\+json">\n(.+?)\n</script>', jsonld, re.DOTALL)
+        blocks = re.findall(r'<script type="application/ld\+json">(.+?)</script>', jsonld, re.DOTALL)
         assert len(blocks) == 4  # Article, BreadcrumbList, Course, HowTo
         for block in blocks:
             parsed = json.loads(block)
@@ -378,23 +378,23 @@ class TestJsonLd:
     def test_course_schema(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"@type": "Course"' in jsonld
+        assert '"@type":"Course"' in jsonld
 
     def test_howto_schema(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"@type": "HowTo"' in jsonld
+        assert '"@type":"HowTo"' in jsonld
 
     def test_jsonld_has_dates(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"datePublished"' in jsonld
-        assert '"dateModified"' in jsonld
+        assert '"datePublished"' in jsonld or '"datePublished":' in jsonld
+        assert '"dateModified"' in jsonld or '"dateModified":' in jsonld
 
     def test_jsonld_has_image(self):
         content = load_content()
         jsonld = build_jsonld(content)
-        assert '"image"' in jsonld
+        assert '"image"' in jsonld or '"image":' in jsonld
 
 
 # ── CSS / JS ────────────────────────────────────────────────

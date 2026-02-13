@@ -233,6 +233,15 @@
         "category": "registration",
         "label": "BikeReg"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "conditions": "- 2024: Hot (85-95°F), humid, 15% DNF from heat [Reddit] (https://reddit",
+          "dnf_rate_pct": 15
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

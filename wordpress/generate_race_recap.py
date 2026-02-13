@@ -123,7 +123,42 @@ def generate_recap_html(slug, year):
     og_image_url = f"{SITE_URL}/og/{slug}.jpg"
     recap_slug = f"{slug}-recap"
     og_url = f"{SITE_URL}/blog/{recap_slug}/"
-    today_str = date.today().strftime("%B %d, %Y")
+
+    # Publish date: use date_completed from results, or race date, or derive from year
+    pub_date = None
+    date_completed = year_data.get("date_completed", "")
+    if date_completed:
+        try:
+            from datetime import datetime
+            pub_date = datetime.strptime(date_completed, "%Y-%m-%d").date()
+        except ValueError:
+            pass
+    if not pub_date:
+        # Try race's date_specific
+        date_str = vitals.get("date_specific", "")
+        if date_str:
+            import re
+            m = re.match(r"(\d{4}).*?(\w+)\s+(\d+)", str(date_str))
+            if m:
+                month_nums = {
+                    "january": 1, "february": 2, "march": 3, "april": 4,
+                    "may": 5, "june": 6, "july": 7, "august": 8,
+                    "september": 9, "october": 10, "november": 11, "december": 12,
+                }
+                mn = month_nums.get(m.group(2).lower())
+                if mn:
+                    try:
+                        pub_date = date(int(m.group(1)), mn, int(m.group(3)))
+                    except ValueError:
+                        pass
+    if not pub_date:
+        # Fall back to July 1 of the recap year (mid-season)
+        pub_date = date(year, 7, 1)
+    # Cap at today
+    if pub_date > date.today():
+        pub_date = date.today()
+    today_str = pub_date.strftime("%B %d, %Y")
+    article_date_iso = pub_date.isoformat()
 
     # Headline based on available data
     headline_parts = []
@@ -173,7 +208,11 @@ def generate_recap_html(slug, year):
     if distance:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(distance))}</span><span class="gg-blog-stat-label">Miles</span></div>')
     if elevation:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{int(elevation):,}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
+        if isinstance(elevation, (int, float)):
+            elev_display = f"{int(elevation):,}"
+        else:
+            elev_display = str(elevation)
+        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(elev_display)}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
     if field_size:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{field_size:,}</span><span class="gg-blog-stat-label">Starters</span></div>')
     if finisher_count:
@@ -209,7 +248,7 @@ def generate_recap_html(slug, year):
             "name": "Gravel God",
             "url": SITE_URL,
         },
-        "datePublished": date.today().isoformat(),
+        "datePublished": article_date_iso,
         "image": og_image_url,
         "about": {
             "@type": "SportsEvent",

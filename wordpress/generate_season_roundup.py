@@ -171,7 +171,8 @@ def build_stats_bar_html(stats):
     return '<div class="gg-roundup-stats-bar">' + "".join(parts) + "</div>"
 
 
-def generate_roundup_html(title, subtitle, intro, races, slug, category_tag):
+def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
+                          publish_date=None):
     """Generate a complete roundup article HTML.
 
     Args:
@@ -181,6 +182,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag):
         races: List of race dicts from race-index.json
         slug: Output slug (e.g. "roundup-march-2026")
         category_tag: Display tag (e.g. "Monthly Calendar")
+        publish_date: date object for datePublished (defaults to today)
     """
     stats = build_roundup_stats(races)
     stats_bar = build_stats_bar_html(stats)
@@ -189,7 +191,8 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag):
     sorted_races = sorted(races, key=lambda r: (r.get("tier", 4), -r.get("overall_score", 0)))
     cards = "".join(build_race_card_html(r) for r in sorted_races)
 
-    today_str = date.today().strftime("%B %d, %Y")
+    pub_date = publish_date or date.today()
+    today_str = pub_date.strftime("%B %d, %Y")
     og_url = f"{SITE_URL}/blog/{slug}/"
 
     jsonld = json.dumps({
@@ -202,7 +205,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag):
             "name": "Gravel God",
             "url": SITE_URL,
         },
-        "datePublished": date.today().isoformat(),
+        "datePublished": pub_date.isoformat(),
         "about": {
             "@type": "ItemList",
             "numberOfItems": len(races),
@@ -457,8 +460,14 @@ def generate_monthly_roundup(races, year, month, output_dir):
         f"hidden gems, this is your complete calendar for the month."
     )
 
+    # Publish date: first of the month, capped at today
+    pub_date = date(year, month, 1)
+    if pub_date > date.today():
+        pub_date = date.today()
+
     html_content = generate_roundup_html(
-        title, subtitle, intro, filtered, slug, "Monthly Calendar"
+        title, subtitle, intro, filtered, slug, "Monthly Calendar",
+        publish_date=pub_date,
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -496,8 +505,14 @@ def generate_regional_roundup(races, region_key, season, year, output_dir):
         f"all rated by the Gravel God scoring system."
     )
 
+    # Publish date: first day of the season's first month, capped at today
+    pub_date = date(year, season_months[0], 1)
+    if pub_date > date.today():
+        pub_date = date.today()
+
     html_content = generate_roundup_html(
-        title, subtitle, intro, filtered, slug, "Regional Roundup"
+        title, subtitle, intro, filtered, slug, "Regional Roundup",
+        publish_date=pub_date,
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -527,8 +542,14 @@ def generate_tier_roundup(races, tier, year, output_dir):
         f"14-criteria scoring system covering logistics, terrain, prestige, and more."
     )
 
+    # Publish date: Jan 1 of the year, capped at today
+    pub_date = date(year, 1, 1)
+    if pub_date > date.today():
+        pub_date = date.today()
+
     html_content = generate_roundup_html(
-        title, subtitle, intro, filtered, slug, f"T{tier} {tier_name}"
+        title, subtitle, intro, filtered, slug, f"T{tier} {tier_name}",
+        publish_date=pub_date,
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)

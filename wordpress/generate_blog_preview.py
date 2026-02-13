@@ -144,8 +144,18 @@ def generate_preview_html(slug):
     prep_kit_url = f"{SITE_URL}/race/{slug}/prep-kit/"
     og_image_url = f"{SITE_URL}/og/{slug}.jpg"
 
-    # Article date
-    today_str = date.today().strftime("%B %d, %Y")
+    # Article date — use race date, not today's date
+    race_date_obj = parse_race_date(date_str)
+    if race_date_obj:
+        # Publish preview ~60 days before the race
+        preview_date = race_date_obj - timedelta(days=60)
+        # But never future-date (cap at today)
+        if preview_date > date.today():
+            preview_date = date.today()
+    else:
+        preview_date = date.today()
+    article_date_str = preview_date.strftime("%B %d, %Y")
+    article_date_iso = preview_date.isoformat()
 
     # Build sections
     why_section = ""
@@ -174,7 +184,11 @@ def generate_preview_html(slug):
     if distance:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(distance))}</span><span class="gg-blog-stat-label">Miles</span></div>')
     if elevation:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{int(elevation):,}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
+        if isinstance(elevation, (int, float)):
+            elev_display = f"{int(elevation):,}"
+        else:
+            elev_display = str(elevation)
+        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(elev_display)}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
     if field_size:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(field_size))}</span><span class="gg-blog-stat-label">Field Size</span></div>')
     if terrain_types:
@@ -222,14 +236,14 @@ def generate_preview_html(slug):
     jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": f"{name} Race Preview — What to Expect in {date.today().year}",
+        "headline": f"{name} Race Preview — What to Expect in {preview_date.year}",
         "author": {"@type": "Organization", "name": "Gravel God"},
         "publisher": {
             "@type": "Organization",
             "name": "Gravel God",
             "url": SITE_URL,
         },
-        "datePublished": date.today().isoformat(),
+        "datePublished": article_date_iso,
         "image": og_image_url,
         "about": {
             "@type": "SportsEvent",
@@ -388,7 +402,7 @@ def generate_preview_html(slug):
     <div class="gg-blog-hero">
       <div class="gg-blog-hero-meta">Tier {tier} {esc(tier_name)} &middot; {esc(location)} &middot; {esc(date_str)}</div>
       <h1>{esc(name)} Race Preview</h1>
-      <div class="gg-blog-hero-sub">Rated {score} / 100 &middot; Published {today_str}</div>
+      <div class="gg-blog-hero-sub">Rated {score} / 100 &middot; Published {article_date_str}</div>
     </div>
     {why_section}
     {course_section}
@@ -403,7 +417,7 @@ def generate_preview_html(slug):
     </div>
 
     <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {today_str}
+      <a href="{SITE_URL}">Gravel God</a> &middot; {article_date_str}
     </div>
   </div>
 </body>

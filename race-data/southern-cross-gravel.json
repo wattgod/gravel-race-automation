@@ -293,6 +293,16 @@
         "category": "registration",
         "label": "BikeReg"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "conditions": "- 2024: Dry conditions, temps 45-68°F [Official] (https://www",
+          "field_size_actual": 35,
+          "dnf_rate_pct": 12
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

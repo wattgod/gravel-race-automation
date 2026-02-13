@@ -104,12 +104,18 @@ def check_blog_index_schema(v):
             f"{label}: category '{cat}' is valid",
         )
 
-        # Tier is 1-4
+        # Tier is 1-4 for previews/recaps, 0 allowed for roundups
         tier = entry.get("tier", 0)
-        v.check(
-            isinstance(tier, int) and 1 <= tier <= 4,
-            f"{label}: tier {tier} in range 1-4",
-        )
+        if cat == "roundup":
+            v.check(
+                isinstance(tier, int) and 0 <= tier <= 4,
+                f"{label}: tier {tier} valid for roundup (0-4)",
+            )
+        else:
+            v.check(
+                isinstance(tier, int) and 1 <= tier <= 4,
+                f"{label}: tier {tier} in range 1-4",
+            )
 
         # Date format YYYY-MM-DD
         date_str = entry.get("date", "")
@@ -357,6 +363,160 @@ def check_test_file_coverage(v):
         )
 
 
+def check_date_diversity(v):
+    """Detect when all articles have identical datePublished (shortcut signal).
+
+    If every article shares the same date, it means the generator used
+    date.today() instead of contextual dates. This check catches that.
+    """
+    v.section("Date Diversity")
+
+    if not INDEX_PATH.exists():
+        v.check(True, "blog-index.json not yet generated (skipping)")
+        return
+
+    try:
+        data = json.loads(INDEX_PATH.read_text())
+    except (json.JSONDecodeError, KeyError):
+        return
+
+    if len(data) < 3:
+        v.check(True, f"Only {len(data)} entries — too few to check diversity")
+        return
+
+    dates = [e.get("date", "") for e in data]
+    unique_dates = set(dates)
+
+    # Previews must have diverse dates (race-specific dates)
+    preview_dates = [e.get("date", "") for e in data if e.get("category") == "preview"]
+    if len(preview_dates) >= 3:
+        unique_preview = set(preview_dates)
+        v.check(
+            len(unique_preview) >= 2,
+            f"Preview dates have diversity: {len(unique_preview)} unique dates "
+            f"across {len(preview_dates)} previews"
+            + (f" (ALL identical: {preview_dates[0]})" if len(unique_preview) == 1 else ""),
+        )
+
+    # Roundups must have diverse dates (month/season-specific dates)
+    roundup_dates = [e.get("date", "") for e in data if e.get("category") == "roundup"]
+    if len(roundup_dates) >= 3:
+        unique_roundup = set(roundup_dates)
+        v.check(
+            len(unique_roundup) >= 2,
+            f"Roundup dates have diversity: {len(unique_roundup)} unique dates "
+            f"across {len(roundup_dates)} roundups"
+            + (f" (ALL identical: {roundup_dates[0]})" if len(unique_roundup) == 1 else ""),
+        )
+
+    # Overall: should never have 100% identical dates when > 10 entries
+    if len(data) >= 10:
+        v.check(
+            len(unique_dates) >= 3,
+            f"Overall date diversity: {len(unique_dates)} unique dates "
+            f"across {len(data)} entries (min 3)",
+        )
+
+
+def check_blog_index_ssr(v):
+    """Verify blog index page has server-side rendered content.
+
+    Crawlers cannot execute JavaScript. The blog index page must include
+    pre-rendered card HTML so that search engines see actual content,
+    not just an empty container with "Loading..." text.
+    """
+    v.section("Blog Index SSR")
+
+    index_page = Path(__file__).resolve().parent.parent / "wordpress" / "output" / "blog-index.html"
+    if not index_page.exists():
+        v.check(False, "blog-index.html exists", warn_only=True)
+        return
+
+    content = index_page.read_text()
+
+    # Grid must contain actual card HTML, not be empty
+    # Look for gg-bi-card inside gg-bi-grid
+    grid_match = re.search(r'id="gg-bi-grid"[^>]*>(.*?)</div>\s*<div class="gg-bi-empty"',
+                           content, re.DOTALL)
+    if grid_match:
+        grid_content = grid_match.group(1).strip()
+        card_count = grid_content.count("gg-bi-card")
+        v.check(
+            card_count >= 1,
+            f"Blog index has {card_count} SSR cards in grid (min 1)",
+        )
+        v.check(
+            card_count >= 10,
+            f"Blog index has {card_count} SSR cards (expect 10+)",
+            warn_only=True,
+        )
+    else:
+        v.check(False, "Blog index grid element found")
+
+    # Count text should show a number, not "Loading..."
+    v.check(
+        "Loading..." not in content,
+        "Blog index count does not show 'Loading...'",
+    )
+
+
+def check_recap_pipeline(v):
+    """Verify recap pipeline produces output when results data exists.
+
+    If races have results data but no recap HTML files exist, the pipeline
+    was never run — the recap feature is vaporware.
+    """
+    v.section("Recap Pipeline")
+
+    race_data_dir = PROJECT_ROOT / "race-data"
+    if not race_data_dir.exists():
+        return
+
+    # Count races with results data
+    races_with_results = 0
+    for f in race_data_dir.glob("*.json"):
+        try:
+            data = json.loads(f.read_text())
+            race = data.get("race", data)
+            results = race.get("results", {})
+            years = results.get("years", {})
+            for yr_data in years.values():
+                if yr_data.get("winner_male") or yr_data.get("winner_female"):
+                    races_with_results += 1
+                    break
+        except (json.JSONDecodeError, KeyError):
+            continue
+
+    # Count recap HTML files
+    recap_count = 0
+    if BLOG_DIR.exists():
+        recap_count = len(list(BLOG_DIR.glob("*-recap.html")))
+
+    v.check(
+        races_with_results > 0 or True,  # Don't fail if no results yet
+        f"Races with results data: {races_with_results}",
+    )
+
+    if races_with_results > 0:
+        v.check(
+            recap_count > 0,
+            f"Recap HTML files exist ({recap_count} found) — "
+            f"{races_with_results} races have results data",
+        )
+        if recap_count > 0:
+            # At least 50% of races with results should have recaps
+            ratio = recap_count / races_with_results
+            v.check(
+                ratio >= 0.5,
+                f"Recap coverage: {recap_count}/{races_with_results} "
+                f"({ratio:.0%}, expect >= 50%)",
+                warn_only=True,
+            )
+    else:
+        v.check(True, "No results data yet — recap pipeline not applicable",
+                warn_only=False)
+
+
 def check_blog_url_consistency(v):
     """Verify all blog URLs use /blog/{slug}/ format consistently."""
     v.section("Blog URL Consistency")
@@ -412,6 +572,9 @@ def main():
 
     check_blog_index_schema(v)
     check_html_quality(v)
+    check_date_diversity(v)
+    check_blog_index_ssr(v)
+    check_recap_pipeline(v)
     check_css_duplication(v, fix_css=args.fix_css)
     check_extractor_test_coverage(v)
     check_roundup_completeness(v)

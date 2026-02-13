@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse
+import html as html_mod
 import json
 import sys
 from datetime import date
@@ -18,7 +19,46 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output"
+INDEX_JSON = PROJECT_ROOT / "web" / "blog-index.json"
 SITE_URL = "https://gravelgodcycling.com"
+
+TIER_COLORS = {1: "#59473c", 2: "#7d695d", 3: "#766a5e", 4: "#5e6868"}
+CAT_LABELS = {"preview": "Race Preview", "roundup": "Season Roundup", "recap": "Race Recap"}
+
+
+def _esc(text):
+    """HTML-escape text."""
+    return html_mod.escape(str(text)) if text else ""
+
+
+def _render_card_ssr(entry):
+    """Server-side render a single blog index card."""
+    cat = entry.get("category", "preview")
+    cat_class = f"gg-bi-cat-{cat}" if cat in ("roundup", "recap") else ""
+    cat_label = CAT_LABELS.get(cat, cat)
+    tier = entry.get("tier", 0)
+    tier_html = ""
+    if tier and 1 <= tier <= 4:
+        color = TIER_COLORS.get(tier, "#5e6868")
+        tier_html = f'<span class="gg-bi-tier" style="background:{color}">T{tier}</span>'
+    date_str = entry.get("date", "")
+    excerpt = entry.get("excerpt", "")
+    if len(excerpt) > 160:
+        excerpt = excerpt[:157] + "..."
+    url = entry.get("url", "")
+    title = _esc(entry.get("title", ""))
+
+    return (
+        f'<div class="gg-bi-card">'
+        f'<div class="gg-bi-card-top">'
+        f'<span class="gg-bi-cat {cat_class}">{_esc(cat_label)}</span>'
+        f'{tier_html}'
+        f'</div>'
+        f'<h3><a href="{_esc(url)}">{title}</a></h3>'
+        f'<div class="gg-bi-date">{_esc(date_str)}</div>'
+        f'<div class="gg-bi-excerpt">{_esc(excerpt)}</div>'
+        f'</div>'
+    )
 
 
 def generate_blog_index_page(output_dir=None):
@@ -26,6 +66,17 @@ def generate_blog_index_page(output_dir=None):
     out_dir = output_dir or OUTPUT_DIR
     today = date.today()
     today_str = today.strftime("%B %d, %Y")
+
+    # Load blog-index.json for SSR (server-side rendered cards)
+    ssr_cards_html = ""
+    ssr_count = 0
+    if INDEX_JSON.exists():
+        try:
+            entries = json.loads(INDEX_JSON.read_text())
+            ssr_count = len(entries)
+            ssr_cards_html = "\n".join(_render_card_ssr(e) for e in entries)
+        except (json.JSONDecodeError, KeyError):
+            pass
 
     jsonld = json.dumps({
         "@context": "https://schema.org",
@@ -283,8 +334,10 @@ def generate_blog_index_page(output_dir=None):
       </select>
     </div>
 
-    <div class="gg-bi-count" id="gg-bi-count">Loading...</div>
-    <div class="gg-bi-grid" id="gg-bi-grid"></div>
+    <div class="gg-bi-count" id="gg-bi-count">{ssr_count} article{'s' if ssr_count != 1 else ''}</div>
+    <div class="gg-bi-grid" id="gg-bi-grid">
+      {ssr_cards_html}
+    </div>
     <div class="gg-bi-empty" id="gg-bi-empty" style="display:none">No articles match your filters.</div>
 
     <div class="gg-bi-footer">

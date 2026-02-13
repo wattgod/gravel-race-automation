@@ -139,8 +139,10 @@ def main():
     ok = pf.run_step(
         "validate_blog_content.py",
         [sys.executable, str(SCRIPTS_DIR / "validate_blog_content.py")],
-        optional=True,  # warn but don't block — blog content may not exist yet
     )
+    if not ok:
+        pf.summary()
+        return 1
 
     if not do_generate:
         pf.summary()

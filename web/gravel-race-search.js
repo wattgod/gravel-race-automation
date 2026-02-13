@@ -15,6 +15,17 @@
   let nearMeRadius = 0; // 0 = off, otherwise miles
   let raceDistances = {}; // slug → distance in miles
 
+  // Compare state
+  let compareSlugs = [];    // Array of slug strings, max 4
+  let compareMode = false;  // true when showing compare panel
+
+  var COMPARE_COLORS = [
+    { stroke: '#59473c', fill: 'rgba(89,71,60,0.15)' },
+    { stroke: '#178079', fill: 'rgba(23,128,121,0.15)' },
+    { stroke: '#9a7e0a', fill: 'rgba(154,126,10,0.15)' },
+    { stroke: '#766a5e', fill: 'rgba(118,106,94,0.15)' }
+  ];
+
   // Map state
   let mapInstance = null;
   let mapMarkers = [];
@@ -90,6 +101,11 @@
         allRaces = data;
         populateFilterOptions();
         loadFromURL();
+        // Validate compare slugs against loaded data
+        var validSlugs = {};
+        allRaces.forEach(function(r) { validSlugs[r.slug] = true; });
+        compareSlugs = compareSlugs.filter(function(s) { return validSlugs[s]; });
+        if (compareSlugs.length < 2) compareMode = false;
         render();
         bindEvents();
       })
@@ -439,6 +455,11 @@
       setTimeout(function() { activateNearMe(); }, 100);
     }
 
+    // Restore compare state from URL
+    var cmpParam = params.get('compare');
+    if (cmpParam) compareSlugs = cmpParam.split(',').filter(Boolean);
+    if (params.get('cmp') === '1' && compareSlugs.length >= 2) compareMode = true;
+
     // Restore view mode from URL
     var urlView = params.get('view');
     if (urlView === 'map' || urlView === 'calendar') {
@@ -471,6 +492,9 @@
     }
 
     if (viewMode && viewMode !== 'list') params.set('view', viewMode);
+
+    if (compareSlugs.length > 0) params.set('compare', compareSlugs.join(','));
+    if (compareMode) params.set('cmp', '1');
 
     var newURL = params.toString()
       ? window.location.pathname + '?' + params.toString()
@@ -642,16 +666,21 @@
     return '<div class="gg-score-breakdown"><div class="gg-score-grid">' + rows + '</div></div>';
   }
 
+  function radarPoints(scores, vars, cx, cy, r) {
+    var n = vars.length;
+    return vars.map(function(v, i) {
+      var val = (scores[v] || 1) / 5;
+      var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      return [cx + r * val * Math.cos(angle), cy + r * val * Math.sin(angle)];
+    });
+  }
+
   function renderMiniRadar(scores) {
     if (!scores || Object.keys(scores).length < 7) return '';
     var vars = ['length','technicality','elevation','climate','altitude','logistics','adventure'];
     var cx = 40, cy = 40, r = 30;
     var n = vars.length;
-    var points = vars.map(function(v, i) {
-      var val = (scores[v] || 1) / 5;
-      var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
-      return [cx + r * val * Math.cos(angle), cy + r * val * Math.sin(angle)];
-    });
+    var points = radarPoints(scores, vars, cx, cy, r);
     var poly = points.map(function(p) { return p.join(','); }).join(' ');
     var grid = [0.2, 0.4, 0.6, 0.8, 1.0].map(function(s) {
       var gp = Array.from({length: n}, function(_, i) {
@@ -692,8 +721,15 @@
       distBadge = '<span class="gg-distance-badge">' + raceDistances[race.slug].toLocaleString() + ' mi away</span>';
     }
 
+    var compareCheck = '<label class="gg-compare-check" title="Add to compare">' +
+      '<input type="checkbox" data-slug="' + race.slug + '" onchange="toggleCompare(this.dataset.slug,this.checked)"' +
+        (compareSlugs.indexOf(race.slug) !== -1 ? ' checked' : '') + '>' +
+      '<span class="gg-compare-check-box"></span>' +
+    '</label>';
+
     return '<div class="gg-card">' +
       '<div class="gg-card-header">' +
+        compareCheck +
         nameTag +
         '<div style="display:flex;gap:6px;align-items:center">' +
           matchBadge +
@@ -823,6 +859,236 @@
     container.innerHTML = pills.join('');
   }
 
+  // ── Compare functions ──
+  function toggleCompare(slug, checked) {
+    if (checked && compareSlugs.indexOf(slug) === -1) {
+      if (compareSlugs.length >= 4) {
+        updateCompareCheckboxes();
+        return;
+      }
+      compareSlugs.push(slug);
+    } else if (!checked) {
+      compareSlugs = compareSlugs.filter(function(s) { return s !== slug; });
+    }
+    if (compareMode && compareSlugs.length < 2) {
+      compareMode = false;
+      render();
+      return;
+    }
+    updateCompareBar();
+    updateCompareCheckboxes();
+    saveToURL();
+  }
+  window.toggleCompare = toggleCompare;
+
+  function clearCompare() {
+    compareSlugs = [];
+    compareMode = false;
+    updateCompareBar();
+    render();
+  }
+  window.clearCompare = clearCompare;
+
+  function showCompare() {
+    if (compareSlugs.length < 2) return;
+    compareMode = true;
+    render();
+  }
+  window.showCompare = showCompare;
+
+  function exitCompare() {
+    compareMode = false;
+    render();
+  }
+  window.exitCompare = exitCompare;
+
+  function updateCompareBar() {
+    var bar = document.getElementById('gg-compare-bar');
+    var pills = document.getElementById('gg-compare-pills');
+    var btn = document.getElementById('gg-btn-compare');
+    if (!bar) return;
+    if (compareSlugs.length === 0) {
+      bar.style.display = 'none';
+      return;
+    }
+    bar.style.display = '';
+    var slugSet = {};
+    allRaces.forEach(function(r) { slugSet[r.slug] = r.name; });
+    pills.innerHTML = compareSlugs.map(function(slug) {
+      var name = slugSet[slug] || slug;
+      return '<span class="gg-filter-pill">' + name + '<button onclick="toggleCompare(\'' + slug + '\',false)">\u00d7</button></span>';
+    }).join('');
+    btn.disabled = compareSlugs.length < 2;
+    btn.textContent = 'COMPARE (' + compareSlugs.length + ')';
+  }
+
+  function updateCompareCheckboxes() {
+    document.querySelectorAll('#gg-race-search input[data-slug]').forEach(function(cb) {
+      cb.checked = compareSlugs.indexOf(cb.dataset.slug) !== -1;
+    });
+  }
+
+  // ── Compare panel ──
+  function renderComparePanel() {
+    var slugMap = {};
+    allRaces.forEach(function(r) { slugMap[r.slug] = r; });
+    var races = compareSlugs.map(function(s) { return slugMap[s]; }).filter(Boolean);
+    if (races.length < 2) { compareMode = false; return; }
+
+    var container = document.getElementById('gg-tier-container');
+    var radarVars = ['length','technicality','elevation','climate','altitude','logistics','adventure'];
+
+    // Banner
+    var html = '<div class="gg-compare-banner">' +
+      '<span>COMPARING ' + races.length + ' RACES</span>' +
+      '<button onclick="exitCompare()">Back to Results</button>' +
+    '</div>';
+
+    // Table
+    html += '<div class="gg-compare-table-wrap"><table class="gg-compare-table">';
+
+    // Header row: race names
+    html += '<thead><tr><th class="gg-compare-label-col"></th>';
+    races.forEach(function(r, i) {
+      html += '<th style="border-left:3px solid ' + COMPARE_COLORS[i].stroke + '">' +
+        (r.has_profile ? '<a href="' + r.profile_url + '">' + r.name + '</a>' : r.name) +
+      '</th>';
+    });
+    html += '</tr></thead><tbody>';
+
+    // Tier row
+    html += '<tr><td class="gg-compare-label-col">TIER</td>';
+    races.forEach(function(r) {
+      html += '<td><span class="gg-tier-badge gg-tier-' + r.tier + '">TIER ' + r.tier + '</span> ' + TIER_NAMES[r.tier] + '</td>';
+    });
+    html += '</tr>';
+
+    // Score row with best highlight
+    var scores = races.map(function(r) { return r.overall_score || 0; });
+    var maxScore = Math.max.apply(null, scores);
+    html += '<tr><td class="gg-compare-label-col">SCORE</td>';
+    races.forEach(function(r) {
+      var s = r.overall_score || 0;
+      var best = s === maxScore && maxScore > 0 ? ' gg-compare-best' : '';
+      html += '<td class="' + best + '"><span class="gg-compare-score-num">' + s + '</span>' +
+        '<div class="gg-score-track"><div class="gg-score-fill" style="width:' + s + '%;background:' + scoreColor(s) + '"></div></div></td>';
+    });
+    html += '</tr>';
+
+    // Vitals section header
+    html += '<tr class="gg-compare-section-row"><td colspan="' + (races.length + 1) + '">VITALS</td></tr>';
+
+    // Location
+    html += '<tr><td class="gg-compare-label-col">LOCATION</td>';
+    races.forEach(function(r) { html += '<td>' + (r.location || 'TBD') + '</td>'; });
+    html += '</tr>';
+
+    // Month
+    html += '<tr><td class="gg-compare-label-col">MONTH</td>';
+    races.forEach(function(r) { html += '<td>' + (r.month || 'TBD') + '</td>'; });
+    html += '</tr>';
+
+    // Distance (best = longest)
+    var dists = races.map(function(r) { return r.distance_mi || 0; });
+    var maxDist = Math.max.apply(null, dists);
+    html += '<tr><td class="gg-compare-label-col">DISTANCE</td>';
+    races.forEach(function(r) {
+      var d = r.distance_mi || 0;
+      var best = d === maxDist && maxDist > 0 ? ' gg-compare-best' : '';
+      html += '<td class="' + best + '">' + (d ? d + ' mi' : '\u2014') + '</td>';
+    });
+    html += '</tr>';
+
+    // Elevation (best = highest)
+    var elevs = races.map(function(r) { return r.elevation_ft || 0; });
+    var maxElev = Math.max.apply(null, elevs);
+    html += '<tr><td class="gg-compare-label-col">ELEVATION</td>';
+    races.forEach(function(r) {
+      var e = r.elevation_ft || 0;
+      var best = e === maxElev && maxElev > 0 ? ' gg-compare-best' : '';
+      html += '<td class="' + best + '">' + (e ? Number(e).toLocaleString() + ' ft' : '\u2014') + '</td>';
+    });
+    html += '</tr>';
+
+    // Radar chart section
+    html += '<tr class="gg-compare-section-row"><td colspan="' + (races.length + 1) + '">RADAR</td></tr>';
+    html += '<tr><td colspan="' + (races.length + 1) + '" class="gg-compare-radar-cell">';
+
+    // Overlaid radar SVG
+    var rCx = 100, rCy = 100, rR = 80;
+    var n = radarVars.length;
+    var svgContent = '';
+    // Grid rings
+    [0.2, 0.4, 0.6, 0.8, 1.0].forEach(function(s) {
+      var gp = Array.from({length: n}, function(_, i) {
+        var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+        return [rCx + rR * s * Math.cos(angle), rCy + rR * s * Math.sin(angle)];
+      });
+      svgContent += '<polygon points="' + gp.map(function(p){return p.join(',');}).join(' ') + '" fill="none" stroke="#d4c5b9" stroke-width="0.5"/>';
+    });
+    // Axis lines
+    Array.from({length: n}, function(_, i) {
+      var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      svgContent += '<line x1="' + rCx + '" y1="' + rCy + '" x2="' + (rCx + rR * Math.cos(angle)) + '" y2="' + (rCy + rR * Math.sin(angle)) + '" stroke="#d4c5b9" stroke-width="0.5"/>';
+    });
+    // Axis labels
+    var radarLabels = ['LEN','TECH','ELEV','CLIM','ALT','LOG','ADV'];
+    Array.from({length: n}, function(_, i) {
+      var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      var lx = rCx + (rR + 14) * Math.cos(angle);
+      var ly = rCy + (rR + 14) * Math.sin(angle);
+      svgContent += '<text x="' + lx + '" y="' + ly + '" text-anchor="middle" dominant-baseline="central" font-size="8" font-family="Sometype Mono,monospace" fill="#7d695d">' + radarLabels[i] + '</text>';
+    });
+    // One polygon per race
+    races.forEach(function(r, idx) {
+      if (!r.scores) return;
+      var pts = radarPoints(r.scores, radarVars, rCx, rCy, rR);
+      var poly = pts.map(function(p) { return p.join(','); }).join(' ');
+      var c = COMPARE_COLORS[idx];
+      svgContent += '<polygon points="' + poly + '" fill="' + c.fill + '" stroke="' + c.stroke + '" stroke-width="2"/>';
+    });
+    html += '<svg class="gg-compare-radar" width="200" height="200" viewBox="0 0 200 200">' + svgContent + '</svg>';
+
+    // Legend
+    html += '<div class="gg-compare-legend">';
+    races.forEach(function(r, idx) {
+      html += '<span class="gg-compare-legend-item"><span class="gg-compare-legend-swatch" style="background:' + COMPARE_COLORS[idx].stroke + '"></span>' + r.name + '</span>';
+    });
+    html += '</div>';
+    html += '</td></tr>';
+
+    // Scores section header
+    html += '<tr class="gg-compare-section-row"><td colspan="' + (races.length + 1) + '">SCORES</td></tr>';
+
+    // 14 score dimension rows
+    Object.entries(SCORE_LABELS).forEach(function(pair) {
+      var key = pair[0], label = pair[1];
+      var vals = races.map(function(r) { return (r.scores && r.scores[key]) || 0; });
+      var maxVal = Math.max.apply(null, vals);
+      html += '<tr><td class="gg-compare-label-col">' + label.toUpperCase() + '</td>';
+      races.forEach(function(r, idx) {
+        var v = (r.scores && r.scores[key]) || 0;
+        var best = v === maxVal && maxVal > 0 ? ' gg-compare-best' : '';
+        var dots = Array.from({length: 5}, function(_, i) {
+          var cls = i < v ? (best ? 'gg-compare-dot-best' : 'gg-compare-dot-filled') : 'gg-compare-dot-empty';
+          return '<span class="' + cls + '"></span>';
+        }).join('');
+        html += '<td class="' + best + '"><span class="gg-compare-dots">' + dots + '</span></td>';
+      });
+      html += '</tr>';
+    });
+
+    // View links row
+    html += '<tr><td class="gg-compare-label-col"></td>';
+    races.forEach(function(r) {
+      html += '<td>' + (r.has_profile ? '<a href="' + r.profile_url + '" class="gg-compare-view-link">View Profile \u2197</a>' : '') + '</td>';
+    });
+    html += '</tr>';
+
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
+  }
+
   function clearAllFilters() {
     document.getElementById('gg-search').value = '';
     document.getElementById('gg-tier').value = '';
@@ -855,6 +1121,14 @@
     document.getElementById('gg-count').textContent =
       filtered.length + ' race' + (filtered.length !== 1 ? 's' : '') + ' found';
 
+    if (compareMode && compareSlugs.length >= 2) {
+      renderComparePanel();
+      renderActivePills();
+      updateCompareBar();
+      saveToURL();
+      return;
+    }
+
     if (displayMode === 'match') {
       renderMatchResults(filtered);
     } else {
@@ -862,6 +1136,8 @@
     }
 
     renderActivePills();
+    updateCompareCheckboxes();
+    updateCompareBar();
     if (viewMode === 'map' && mapInstance) { updateMapMarkers(); }
     if (viewMode === 'calendar') { renderCalendar(); }
     saveToURL();
@@ -885,6 +1161,8 @@
       displayMode = 'tiers';
       matchScores = {};
       nearMeRadius = 0;
+      compareSlugs = [];
+      compareMode = false;
       tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
       render();
     });

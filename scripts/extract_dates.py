@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-extract_dates.py — Extract specific dates from research dumps and update TBD profiles.
+extract_dates.py — Extract specific dates from research dumps and update TBD/stale profiles.
 
 Reads research-dumps/<slug>-raw.md files and attempts to extract 2026 (or 2025)
 race dates using regex patterns. Updates race-data/<slug>.json:
@@ -11,6 +11,7 @@ Usage:
   python scripts/extract_dates.py --dry-run     # Preview changes without writing
   python scripts/extract_dates.py               # Apply changes
   python scripts/extract_dates.py --verbose      # Show extraction details
+  python scripts/extract_dates.py --stale        # Also update pre-2026 dates
 """
 
 import argparse
@@ -109,6 +110,12 @@ def _match_priority(text, match_start, match_end):
         score -= 5
     if "packet pickup" in local:
         score -= 3
+
+    # Negative: research metadata lines (not race dates)
+    if "research date" in line or "research compiled" in line or "last updated" in line:
+        score -= 20
+    if "data current as of" in line:
+        score -= 20
 
     return score
 
@@ -221,12 +228,17 @@ def extract_date_from_dump(dump_text, slug, verbose=False):
     if not candidates:
         return None, None
 
+    # Filter out candidates with very negative priority (research metadata, etc.)
+    viable = [c for c in candidates if c[4] > -15]
+    if not viable:
+        return None, None
+
     # Sort: prefer 2026 > 2025 > 2027, then by priority (higher = better)
     year_pref = {2026: 0, 2025: 1, 2027: 2}
-    candidates.sort(key=lambda c: (year_pref.get(c[0], 9), -c[4]))
+    viable.sort(key=lambda c: (year_pref.get(c[0], 9), -c[4]))
 
     # Use the best candidate
-    _, month, day, date_spec, _ = candidates[0]
+    _, month, day, date_spec, _ = viable[0]
     date_general = timing_label(month, day)
 
     return date_spec, date_general
@@ -239,30 +251,50 @@ def is_tbd(date_specific):
     return "TBD" in str(date_specific)
 
 
+def is_stale(date_specific):
+    """Check if a date_specific field has a year before 2026."""
+    if not date_specific:
+        return False
+    ds = str(date_specific).strip()
+    m = re.match(r'(\d{4})', ds)
+    if m:
+        return int(m.group(1)) < 2026
+    return False
+
+
 def main():
     parser = argparse.ArgumentParser(description="Extract dates from research dumps")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
     parser.add_argument("--verbose", action="store_true", help="Show extraction details")
+    parser.add_argument("--stale", action="store_true", help="Also update profiles with pre-2026 dates")
     args = parser.parse_args()
 
     # Find all TBD profiles
     tbd_profiles = []
+    stale_profiles = []
     for f in sorted(RACE_DATA_DIR.glob("*.json")):
         data = json.loads(f.read_text())
         race = data.get("race", data)
         ds = race.get("vitals", {}).get("date_specific", "")
+        slug = f.stem
         if is_tbd(ds):
-            slug = f.stem
             tbd_profiles.append((slug, f))
+        elif args.stale and is_stale(ds):
+            stale_profiles.append((slug, f))
 
+    all_profiles = tbd_profiles + stale_profiles
     print(f"Found {len(tbd_profiles)} profiles with TBD dates")
+    if args.stale:
+        print(f"Found {len(stale_profiles)} profiles with stale (pre-2026) dates")
 
     updated = 0
+    updated_stale = 0
     skipped = 0
     no_dump = 0
     no_date = 0
+    stale_slugs = {s for s, _ in stale_profiles}
 
-    for slug, profile_path in tbd_profiles:
+    for slug, profile_path in all_profiles:
         dump_path = RESEARCH_DIR / f"{slug}-raw.md"
         if not dump_path.exists():
             if args.verbose:
@@ -279,6 +311,19 @@ def main():
             no_date += 1
             continue
 
+        # For stale profiles, only update if extracted year > current year
+        if slug in stale_slugs:
+            extracted_year = re.match(r'(\d{4})', date_spec)
+            current_data = json.loads(profile_path.read_text())
+            current_ds = current_data.get("race", current_data).get("vitals", {}).get("date_specific", "")
+            current_year = re.match(r'(\d{4})', str(current_ds))
+            if extracted_year and current_year:
+                if int(extracted_year.group(1)) <= int(current_year.group(1)):
+                    if args.verbose:
+                        print(f"  SKIP {slug}: extracted {date_spec} not newer than {current_ds}")
+                    no_date += 1
+                    continue
+
         # Load profile and update
         data = json.loads(profile_path.read_text())
         race = data.get("race", data)
@@ -291,19 +336,23 @@ def main():
             vitals["date"] = date_general
 
         if args.dry_run:
-            print(f"  WOULD UPDATE {slug}: {old_ds!r} -> {date_spec!r} | {old_date!r} -> {date_general!r}")
+            label = "STALE" if slug in stale_slugs else "TBD"
+            print(f"  WOULD UPDATE [{label}] {slug}: {old_ds!r} -> {date_spec!r} | {old_date!r} -> {date_general!r}")
         else:
             profile_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
             if args.verbose:
-                print(f"  UPDATED {slug}: {date_spec}")
+                label = "STALE" if slug in stale_slugs else "TBD"
+                print(f"  UPDATED [{label}] {slug}: {date_spec}")
 
         updated += 1
+        if slug in stale_slugs:
+            updated_stale += 1
 
     print(f"\nResults:")
-    print(f"  Updated:    {updated}")
+    print(f"  Updated:    {updated} ({updated - updated_stale} TBD, {updated_stale} stale)")
     print(f"  No dump:    {no_dump}")
     print(f"  No date:    {no_date}")
-    print(f"  Total TBD:  {len(tbd_profiles)}")
+    print(f"  Total:      {len(all_profiles)} ({len(tbd_profiles)} TBD, {len(stale_profiles)} stale)")
 
     if args.dry_run:
         print("\n(Dry run — no files were modified)")

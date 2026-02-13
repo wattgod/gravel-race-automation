@@ -29,6 +29,11 @@ from generate_neo_brutalist import (
     COACHING_URL,
     TRAINING_PLANS_URL,
 )
+from brand_tokens import (
+    GA_MEASUREMENT_ID,
+    get_font_face_css,
+    get_preload_hints,
+)
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -36,7 +41,7 @@ RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 GUIDE_CONTENT_PATH = Path(__file__).parent.parent / "guide" / "gravel-guide-content.json"
 SUBSTACK_RSS_URL = "https://gravelgodcycling.substack.com/feed"
 
-GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
+GA4_MEASUREMENT_ID = GA_MEASUREMENT_ID
 
 # ── Featured race slugs (curated for homepage diversity) ─────
 
@@ -699,8 +704,8 @@ def build_footer() -> str:
 
 
 def build_homepage_css() -> str:
-    return '''<style>
-/* ── Ticker (functional animation) ───────────────────────── */
+    font_face = get_font_face_css()
+    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + '''/* ── Ticker (functional animation) ───────────────────────── */
 @keyframes gg-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── Custom properties ───────────────────────────────────── */
@@ -1140,9 +1145,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap">
+  {get_preload_hints()}
   {og_tags}
   {jsonld}
   {css}

@@ -483,10 +483,11 @@ class TestFullPage:
         assert 'property="og:description"' in homepage_html
         assert 'property="og:type"' in homepage_html
 
-    def test_has_google_fonts(self, homepage_html):
-        assert "fonts.googleapis.com" in homepage_html
-        assert "Sometype+Mono" in homepage_html
-        assert "Source+Serif+4" in homepage_html
+    def test_has_self_hosted_fonts(self, homepage_html):
+        assert "@font-face" in homepage_html
+        assert "Sometype Mono" in homepage_html
+        assert "Source Serif 4" in homepage_html
+        assert "fonts.googleapis.com" not in homepage_html
 
     def test_has_ga4(self, homepage_html):
         assert GA4_MEASUREMENT_ID in homepage_html

@@ -102,7 +102,7 @@ def main():
         sys.exit(1)
     
     # Known exceptions: physical files that bypass mod_rewrite (nginx serves directly)
-    KNOWN_EXCEPTIONS = {"/homepage/index.html"}
+    KNOWN_EXCEPTIONS = set()
 
     print(f"Validating {len(redirects)} redirects...\n")
 

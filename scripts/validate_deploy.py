@@ -166,7 +166,6 @@ def check_redirects(v):
     # Just test a few key ones — use validate_redirects.py for full check
     test_pairs = [
         ("/guide.html", "/guide/"),
-        ("/homepage/", "/"),
         ("/race/", "/gravel-races/"),
         ("/barry-roubaix-race-guide/", "/race/barry-roubaix/"),
         ("/belgian-waffle-ride/", "/race/bwr-california/"),

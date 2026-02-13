@@ -165,6 +165,7 @@ def check_redirects(v):
     print("\n[Redirects]")
     # Just test a few key ones — use validate_redirects.py for full check
     test_pairs = [
+        ("/page/2/", "/"),
         ("/guide.html", "/guide/"),
         ("/race/", "/gravel-races/"),
         ("/barry-roubaix-race-guide/", "/race/barry-roubaix/"),
@@ -255,7 +256,6 @@ def check_noindex(v):
     print("\n[Noindex Meta Tags]")
     noindex_paths = [
         ("/2021/11/", "Date archive"),
-        ("/page/2/", "Pagination"),
         ("/category/uncategorized/", "Category page"),
         ("/cart/", "WooCommerce cart"),
     ]

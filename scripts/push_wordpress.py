@@ -654,6 +654,9 @@ REDIRECT_BLOCK = """\
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
+RewriteRule ^page/\\d+/?$ / [R=301,L]
+
 # /guide.html → /guide/ (old URL from search engines / bookmarks)
 RewriteRule ^guide\\.html$ /guide/ [R=301,L]
 

@@ -38,7 +38,6 @@ from generate_neo_brutalist import (
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 
 FORMATS = ["tier-reveal", "should-you-race", "roast", "suffering-map"]
-ALL_FORMATS = FORMATS + ["head-to-head", "data-drops"]
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -116,7 +115,30 @@ def to_spoken(text):
 
 
 def _convert_numbers(text):
-    """Convert numeric values to spoken approximations."""
+    """Convert numeric values to spoken approximations.
+
+    Skips years (1900-2099), preserves number ranges (1,200-1,400),
+    and converts large quantities to spoken form.
+    """
+    # First, protect number ranges like "1,200-1,400" by converting to spoken range
+    def _range_to_spoken(match):
+        low_str = match.group(1).replace(",", "")
+        high_str = match.group(2).replace(",", "")
+        try:
+            low, high = int(low_str), int(high_str)
+        except ValueError:
+            return match.group(0)
+        # Skip year ranges (e.g., "2006-2024")
+        if 1900 <= low <= 2099 and 1900 <= high <= 2099:
+            return match.group(0)
+        low_spoken = _single_num_to_spoken(low)
+        high_spoken = _single_num_to_spoken(high)
+        if low_spoken and high_spoken:
+            return f"{low_spoken} to {high_spoken}"
+        return match.group(0)
+
+    text = re.sub(r"([\d,]{4,})[-–]([\d,]{4,})", _range_to_spoken, text)
+
     def _num_to_spoken(match):
         prefix = match.group(1) or ""
         raw = match.group(2).replace(",", "")
@@ -125,18 +147,13 @@ def _convert_numbers(text):
         except ValueError:
             return match.group(0)
 
-        is_dollar = prefix == "$"
+        # Skip years (1900-2099) — they should be read as years, not quantities
+        if 1900 <= n <= 2099 and prefix != "$":
+            return match.group(0)
 
-        if n >= 1_000_000:
-            val = n / 1_000_000
-            spoken = f"{val:.1f}".rstrip("0").rstrip(".") + " million"
-        elif n >= 10_000:
-            val = n / 1000
-            spoken = f"{val:.0f} thousand"
-        elif n >= 1000:
-            val = n / 1000
-            spoken = f"{val:.1f}".rstrip("0").rstrip(".") + " thousand"
-        else:
+        is_dollar = prefix == "$"
+        spoken = _single_num_to_spoken(n)
+        if spoken is None:
             return match.group(0)
 
         if is_dollar:
@@ -145,6 +162,24 @@ def _convert_numbers(text):
 
     # Match optional $ + numbers with commas (at least 4 digits)
     return re.sub(r"(\$)?([\d,]{4,})", _num_to_spoken, text)
+
+
+def _single_num_to_spoken(n):
+    """Convert a single number to spoken form. Returns None if no conversion needed.
+
+    Note: Year detection (1900-2099) is handled by the caller, not here.
+    This function only converts magnitude.
+    """
+    if n >= 1_000_000:
+        val = n / 1_000_000
+        return f"{val:.1f}".rstrip("0").rstrip(".") + " million"
+    elif n >= 10_000:
+        val = n / 1000
+        return f"{val:.0f} thousand"
+    elif n >= 1000:
+        val = n / 1000
+        return f"{val:.1f}".rstrip("0").rstrip(".") + " thousand"
+    return None
 
 
 def _break_long_sentence(sent):
@@ -306,9 +341,7 @@ def fmt_tier_reveal(rd):
         s = rd["explanations"][dim]["score"]
         expl = rd["explanations"][dim]["explanation"]
         spoken = to_spoken(expl)
-        # Truncate to ~200 chars
-        if len(spoken) > 200:
-            spoken = spoken[:197].rsplit(" ", 1)[0] + "..."
+        spoken = _truncate_to_sentence(spoken, 200)
         label = DIM_LABELS.get(dim, dim)
         evidence_lines.append(f"**{label}: {s}/5** — {spoken}")
 
@@ -324,7 +357,7 @@ def fmt_tier_reveal(rd):
 
 ## HOOK (0-3s)
 [TEXT ON SCREEN: "{hook['tension_text'].split('.')[0]}."]
-"{to_spoken(hook['tension_text'])}"
+"{hook['tension_text']}"
 
 ## SETUP (3-8s)
 [VISUAL: Race card — {name}, {location}, {distance}]
@@ -366,14 +399,21 @@ def fmt_head_to_head(rd1, rd2):
     tn1 = TIER_NAMES.get(tier1, "Roster")
     tn2 = TIER_NAMES.get(tier2, "Roster")
 
-    # Find dimensions where they differ by >= 2 points
-    diffs = []
+    # Rank all dimensions by difference (descending), always show top 5-6
+    all_diffs = []
     for dim in ALL_DIMS:
         s1 = rd1["explanations"][dim]["score"]
         s2 = rd2["explanations"][dim]["score"]
-        if abs(s1 - s2) >= 2:
-            diffs.append((dim, s1, s2, abs(s1 - s2)))
-    diffs.sort(key=lambda x: x[3], reverse=True)
+        all_diffs.append((dim, s1, s2, abs(s1 - s2)))
+    all_diffs.sort(key=lambda x: x[3], reverse=True)
+
+    # Take top 5-6 dimensions by difference (even if delta is only 1)
+    diffs = [d for d in all_diffs if d[3] >= 1][:6]
+    # If fewer than 3 dimensions differ at all, show top 5 by combined score
+    if len(diffs) < 3:
+        diffs = all_diffs[:5]
+
+    big_diffs = sum(1 for d in diffs if d[3] >= 2)
 
     # Determine winner
     if tier1 < tier2:
@@ -387,7 +427,7 @@ def fmt_head_to_head(rd1, rd2):
     else:
         winner, loser = None, None
 
-    close_match = len(diffs) < 3
+    close_match = big_diffs < 3
 
     # Build comparison sections (up to 6 dims)
     comparison_blocks = []
@@ -395,10 +435,8 @@ def fmt_head_to_head(rd1, rd2):
         label = DIM_LABELS.get(dim, dim)
         e1 = to_spoken(rd1["explanations"][dim]["explanation"])
         e2 = to_spoken(rd2["explanations"][dim]["explanation"])
-        if len(e1) > 150:
-            e1 = e1[:147].rsplit(" ", 1)[0] + "..."
-        if len(e2) > 150:
-            e2 = e2[:147].rsplit(" ", 1)[0] + "..."
+        e1 = _truncate_to_sentence(e1, 150)
+        e2 = _truncate_to_sentence(e2, 150)
         adv = name1 if s1 > s2 else name2
         comparison_blocks.append(
             f"### {label}\n"
@@ -629,8 +667,7 @@ def fmt_roast(rd):
         s = rd["explanations"][dim]["score"]
         label = DIM_LABELS.get(dim, dim)
         expl = to_spoken(rd["explanations"][dim]["explanation"])
-        if len(expl) > 150:
-            expl = expl[:147].rsplit(" ", 1)[0] + "..."
+        expl = _truncate_to_sentence(expl, 150)
         roast_lines.append(f"**{label}: {s}/5** — {expl}")
     roast_text = "\n".join(roast_lines)
 
@@ -898,7 +935,7 @@ Use each drop as a standalone short-form clip. Mix and match.
 
 ---
 **VISUAL NOTES:** Bold typography overlays, counter animations, tier badge graphics.
-**CTA FOR ALL:** "328 races. 14 dimensions. gravelgodcycling.com. Link in bio."
+**CTA FOR ALL:** "{total} races. 14 dimensions. gravelgodcycling.com. Link in bio."
 """
 
 
@@ -909,14 +946,25 @@ def _drop_script(title, narration, visual):
 {narration}"""
 
 
+MAX_REASONABLE_ENTRY_FEE = 10_000  # No gravel race costs more than $10k to enter
+
+
 def _parse_cost(cost_str):
-    """Parse a dollar amount from a cost string. Returns int or None."""
+    """Parse a dollar amount from a cost string. Returns int or None.
+
+    Caps at MAX_REASONABLE_ENTRY_FEE to filter out prize purses,
+    travel costs, and other non-entry-fee numbers that leak through
+    the fallback regex in normalize_race_data.
+    """
     if not cost_str:
         return None
     match = re.search(r"\$?([\d,]+)", str(cost_str))
     if match:
         try:
-            return int(match.group(1).replace(",", ""))
+            val = int(match.group(1).replace(",", ""))
+            if val > MAX_REASONABLE_ENTRY_FEE:
+                return None  # Almost certainly not an entry fee
+            return val
         except ValueError:
             return None
     return None
@@ -925,6 +973,91 @@ def _parse_cost(cost_str):
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+
+def _truncate_to_sentence(text, max_chars):
+    """Truncate text at the last complete sentence within max_chars.
+
+    Falls back to word boundary if no sentence boundary fits.
+    """
+    if len(text) <= max_chars:
+        return text
+
+    # Find the last sentence-ending punctuation within the limit
+    truncated = text[:max_chars]
+    for end in [". ", "! ", "? "]:
+        idx = truncated.rfind(end)
+        if idx > max_chars // 3:  # Don't truncate to less than 1/3 of allowed length
+            return truncated[:idx + 1]
+
+    # Check for sentence end at exactly the limit boundary
+    if truncated.endswith((".", "!", "?")):
+        return truncated
+
+    # Fall back to word boundary
+    word_break = truncated.rsplit(" ", 1)[0]
+    if len(word_break) > max_chars // 3:
+        return word_break + "..."
+
+    return truncated + "..."
+
+
+# Words per second for spoken narration (average presenter pace)
+WORDS_PER_SECOND = 2.5
+
+# Duration ranges in seconds for each format
+FORMAT_DURATION_RANGES = {
+    "tier-reveal": (30, 90),
+    "head-to-head": (120, 210),
+    "should-you-race": (300, 660),
+    "roast": (120, 270),
+    "suffering-map": (15, 75),
+}
+
+
+def estimate_spoken_seconds(script_text):
+    """Estimate spoken duration from script text.
+
+    Counts only words inside quoted narration lines (lines starting with ")
+    and [RIFF HERE] markers (estimated at 10 seconds each).
+    """
+    word_count = 0
+    riff_count = 0
+    for line in script_text.split("\n"):
+        stripped = line.strip()
+        if stripped.startswith('"') and stripped.endswith('"'):
+            # Count words in narration lines
+            word_count += len(stripped.split())
+        if "[RIFF HERE" in stripped:
+            riff_count += 1
+
+    return round(word_count / WORDS_PER_SECOND) + (riff_count * 10)
+
+
+def has_sufficient_data(rd, format_name):
+    """Check if a race has enough data for a given format.
+
+    Returns (bool, str) — (is_sufficient, reason if not).
+    """
+    bo = rd["biased_opinion"]
+
+    if format_name == "roast":
+        if not bo["strengths"] and not bo["weaknesses"]:
+            return False, "missing strengths and weaknesses"
+        if not bo["verdict"]:
+            return False, "missing verdict label"
+
+    if format_name == "should-you-race":
+        if not bo["strengths"] and not bo["weaknesses"]:
+            return False, "missing strengths and weaknesses"
+        if not rd["final_verdict"]["should_you_race"]:
+            return False, "missing should_you_race verdict"
+
+    if format_name == "suffering-map":
+        if not rd["course"].get("suffering_zones"):
+            return False, "no suffering zones"
+
+    return True, ""
 
 
 def _rwgps_note(rd):
@@ -985,7 +1118,7 @@ def main():
 
     args = parser.parse_args()
 
-    # Validate args
+    # Validate args — exactly one mode required
     modes = sum([
         bool(args.slug),
         args.all,
@@ -995,11 +1128,8 @@ def main():
     ])
     if modes == 0:
         parser.error("Provide a slug, --all, --top N, --head-to-head, or --data-drops")
-    if modes > 1 and not (args.slug and not args.all and not args.top
-                          and not args.head_to_head and not args.data_drops):
-        # Allow slug + --format, but not multiple batch modes
-        if modes > 1:
-            parser.error("Use only one of: slug, --all, --top, --head-to-head, --data-drops")
+    if modes > 1:
+        parser.error("Use only one of: slug, --all, --top, --head-to-head, --data-drops")
 
     # Head-to-head mode
     if args.head_to_head:
@@ -1048,6 +1178,7 @@ def main():
 
     # Generate
     total = 0
+    skipped = 0
     for slug in slugs:
         rd = load_race(slug, args.data_dir)
         if not rd:
@@ -1058,6 +1189,14 @@ def main():
             if fmt == "head-to-head" or fmt == "data-drops":
                 continue  # These are handled separately
 
+            # Check data completeness before generating
+            sufficient, reason = has_sufficient_data(rd, fmt)
+            if not sufficient:
+                skipped += 1
+                if not (args.all or args.top):
+                    print(f"  skipped {slug}/{fmt} ({reason})")
+                continue
+
             if fmt == "tier-reveal":
                 script = fmt_tier_reveal(rd)
             elif fmt == "should-you-race":
@@ -1067,8 +1206,7 @@ def main():
             elif fmt == "suffering-map":
                 script = fmt_suffering_map(rd)
                 if script is None:
-                    if not (args.all or args.top):
-                        print(f"  skipped {slug} (no suffering zones)")
+                    skipped += 1
                     continue
             else:
                 continue
@@ -1080,10 +1218,11 @@ def main():
                 print(f"  wrote {path}")
             total += 1
 
+    skip_msg = f", {skipped} skipped (insufficient data)" if skipped else ""
     if args.dry_run:
-        print(f"\n{total} scripts would be generated.")
+        print(f"\n{total} scripts would be generated{skip_msg}.")
     else:
-        print(f"\n{total} scripts generated.")
+        print(f"\n{total} scripts generated{skip_msg}.")
 
 
 if __name__ == "__main__":

@@ -1098,6 +1098,73 @@ def sync_prep_kits(prep_kit_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_blog(blog_dir: str):
+    """Upload blog preview pages to /blog/{slug}/ on SiteGround via tar+ssh.
+
+    Converts flat {slug}.html files to {slug}/index.html directory
+    structure under /blog/. Same tar+ssh pattern as sync_prep_kits().
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    blog_path = Path(blog_dir)
+    if not blog_path.exists():
+        print(f"✗ Blog directory not found: {blog_path}")
+        return None
+
+    html_files = sorted(blog_path.glob("*.html"))
+    if not html_files:
+        print(f"✗ No .html files found in {blog_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/blog"
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for html_file in html_files:
+            slug = html_file.stem
+            slug_dir = tmpdir / slug
+            slug_dir.mkdir(parents=True)
+            shutil.copy2(html_file, slug_dir / "index.html")
+            page_count += 1
+
+        print(f"  Uploading {page_count} blog pages via tar+ssh...")
+
+        try:
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base} && tar -xf - -C {remote_base} && chmod 755 {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"✗ Error uploading blog pages: {e}")
+            return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} blog pages to {wp_url}/blog/")
+    return f"{wp_url}/blog/"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -1188,6 +1255,14 @@ if __name__ == "__main__":
         help="Path to prep kit directory (default: wordpress/output/prep-kit)"
     )
     parser.add_argument(
+        "--sync-blog", action="store_true",
+        help="Upload blog preview pages to /blog/{slug}/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--blog-dir", default="wordpress/output/blog",
+        help="Path to blog directory (default: wordpress/output/blog)"
+    )
+    parser.add_argument(
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
@@ -1217,14 +1292,15 @@ if __name__ == "__main__":
         args.sync_redirects = True
         args.sync_noindex = True
         args.sync_prep_kits = True
+        args.sync_blog = True
         args.sync_photos = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_prep_kits, args.sync_photos,
-                      args.purge_cache])
+                      args.sync_noindex, args.sync_prep_kits, args.sync_blog,
+                      args.sync_photos, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -1254,5 +1330,7 @@ if __name__ == "__main__":
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:
         sync_prep_kits(args.prep_kit_dir)
+    if args.sync_blog:
+        sync_blog(args.blog_dir)
     if args.purge_cache:
         purge_cache()

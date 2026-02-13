@@ -359,6 +359,36 @@ def check_photo_infrastructure(v):
                "Add photos to race JSON files as they become available")
 
 
+def check_blog_pages(v):
+    """Verify deployed blog preview pages are accessible."""
+    print("\n[Blog Pages]")
+    project_root = Path(__file__).resolve().parent.parent
+    blog_dir = project_root / "wordpress" / "output" / "blog"
+
+    if not blog_dir.exists():
+        v.warn("Blog output directory not found",
+               "Run generate_blog_preview.py --all to generate blog pages")
+        return
+
+    html_files = sorted(blog_dir.glob("*.html"))
+    if not html_files:
+        v.warn("No blog preview pages generated",
+               "Run generate_blog_preview.py --all to generate blog pages")
+        return
+
+    v.check(True, f"{len(html_files)} blog preview pages found locally", "")
+
+    if not QUICK:
+        # Sample up to 3 pages
+        sample = html_files[:3]
+        for f in sample:
+            slug = f.stem
+            url = f"{BASE_URL}/blog/{slug}/"
+            code = curl_status(url)
+            v.check(code == "200", f"Blog page accessible: /blog/{slug}/",
+                    f"HTTP {code}")
+
+
 def check_permissions(v):
     """Verify /race/ directory is accessible (not 403)."""
     print("\n[Permissions]")
@@ -380,6 +410,7 @@ def main():
     check_og_images(v)
     check_race_page_seo(v)
     check_citations(v)
+    check_blog_pages(v)
     check_photo_infrastructure(v)
 
     check_search_schema(v)

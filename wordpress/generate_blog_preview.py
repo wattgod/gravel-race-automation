@@ -248,8 +248,8 @@ def generate_preview_html(slug):
   <meta property="og:title" content="{esc(name)} Race Preview — Gravel God">
   <meta property="og:description" content="Tier {tier} {tier_name} gravel race. {esc(location)}. Rated {score}/100.">
   <meta property="og:image" content="{og_image_url}">
-  <meta property="og:url" content="{SITE_URL}/blog/{slug}-preview/">
-  <link rel="canonical" href="{SITE_URL}/blog/{slug}-preview/">
+  <meta property="og:url" content="{SITE_URL}/blog/{slug}/">
+  <link rel="canonical" href="{SITE_URL}/blog/{slug}/">
   <script type="application/ld+json">{jsonld}</script>
   <style>
     :root {{
@@ -442,7 +442,7 @@ def main():
         html_content = generate_preview_html(args.slug)
         if html_content:
             out_dir.mkdir(parents=True, exist_ok=True)
-            out_file = out_dir / f"{args.slug}-preview.html"
+            out_file = out_dir / f"{args.slug}.html"
             out_file.write_text(html_content)
             print(f"  OK    {out_file}")
         return
@@ -458,7 +458,7 @@ def main():
         for c in candidates:
             html_content = generate_preview_html(c["slug"])
             if html_content:
-                out_file = out_dir / f"{c['slug']}-preview.html"
+                out_file = out_dir / f"{c['slug']}.html"
                 out_file.write_text(html_content)
                 print(f"  OK    T{c['tier']} {c['slug']}")
                 count += 1

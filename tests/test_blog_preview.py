@@ -107,6 +107,14 @@ def test_generate_preview_has_seo():
     assert 'canonical' in html
 
 
+def test_generate_preview_clean_urls():
+    """Verify blog URLs use /blog/{slug}/ format (no -preview suffix)."""
+    html = generate_preview_html("mid-south")
+    assert html is not None
+    assert '/blog/mid-south/"' in html or "/blog/mid-south/" in html
+    assert "-preview/" not in html
+
+
 def test_generate_preview_has_sections():
     html = generate_preview_html("unbound-200")
     assert html is not None

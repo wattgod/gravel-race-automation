@@ -9,6 +9,12 @@
     "@type": "Place",
     "name": "Beaver, Utah"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "200",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "86",
@@ -16,5 +22,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://tusharcrusher.com"
+  "url": "https://tusharcrusher.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Burke Swindlehurst",
+    "url": "https://tusharcrusher.com"
+  }
 }

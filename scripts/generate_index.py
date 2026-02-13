@@ -344,8 +344,16 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
         }
 
     official_site = race.get("logistics", {}).get("official_site", "")
-    if official_site:
+    if official_site and official_site.startswith("http"):
         jsonld["url"] = official_site
+
+    # Organizer from history.founder — skip generic placeholders
+    founder = race.get("history", {}).get("founder", "")
+    if founder and not founder.endswith("organizers") and founder != "Unknown":
+        org = {"@type": "Person", "name": founder}
+        if official_site and official_site.startswith("http"):
+            org["url"] = official_site
+        jsonld["organizer"] = org
 
     return jsonld
 

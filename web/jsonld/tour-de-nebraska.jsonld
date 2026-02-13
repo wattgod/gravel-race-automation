@@ -9,11 +9,23 @@
     "@type": "Place",
     "name": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "100",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "56",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://www.tourdenebraska.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Charlie & Kim Schilling (Directors)",
+    "url": "https://www.tourdenebraska.com/"
   }
 }

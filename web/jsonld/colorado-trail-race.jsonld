@@ -9,11 +9,21 @@
     "@type": "Place",
     "name": "Durango to Denver, Colorado"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "50",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "90",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Stefan Griebel (Boulder, CO)"
   }
 }

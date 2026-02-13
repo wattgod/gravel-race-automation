@@ -8,11 +8,23 @@
     "@type": "Place",
     "name": "Saint-Urbain-de-Charlevoix, Quebec, Canada"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "200",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "67",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://grinduro.com/canada/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Northern Consultancy Co",
+    "url": "https://grinduro.com/canada/"
   }
 }

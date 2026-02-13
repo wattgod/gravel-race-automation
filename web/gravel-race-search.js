@@ -71,10 +71,21 @@
   }
 
   // ── Init ──
+  function fetchWithRetry(url, attempts, delay) {
+    return fetch(url).then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function(err) {
+      if (attempts <= 1) throw err;
+      return new Promise(function(resolve) {
+        setTimeout(function() { resolve(fetchWithRetry(url, attempts - 1, delay * 2)); }, delay);
+      });
+    });
+  }
+
   function init() {
     buildSliders();
-    fetch(DATA_URL)
-      .then(function(r) { return r.json(); })
+    fetchWithRetry(DATA_URL, 3, 1000)
       .then(function(data) {
         allRaces = data;
         populateFilterOptions();
@@ -84,8 +95,8 @@
       })
       .catch(function(err) {
         document.getElementById('gg-tier-container').innerHTML =
-          '<div class="gg-no-results">Failed to load race data. Check console.</div>';
-        console.error('Race index load error:', err);
+          '<div class="gg-no-results">Unable to load race data. Please refresh the page or try again later.</div>';
+        console.error('Race index load failed after retries:', err);
       });
   }
 

@@ -16,5 +16,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://usacycling.org/gravel"
+  "url": "https://usacycling.org/gravel",
+  "organizer": {
+    "@type": "Person",
+    "name": "USA Cycling",
+    "url": "https://usacycling.org/gravel"
+  }
 }

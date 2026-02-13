@@ -9,11 +9,23 @@
     "@type": "Place",
     "name": "Walburg, Texas"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "20",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "50",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://dirtythirtygravelgrinder.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Bat City Cycling Team",
+    "url": "https://dirtythirtygravelgrinder.com/"
   }
 }

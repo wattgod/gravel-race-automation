@@ -9,6 +9,12 @@
     "@type": "Place",
     "name": "Emporia, Kansas"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "345",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "80",
@@ -16,5 +22,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://unboundgravel.com"
+  "url": "https://unboundgravel.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Jim Cummins",
+    "url": "https://unboundgravel.com"
+  }
 }

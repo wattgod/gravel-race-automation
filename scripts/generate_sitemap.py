@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Generate XML sitemap for gravel race landing pages.
+Generate XML sitemaps for gravel race landing pages and blog content.
 
 Usage:
     python scripts/generate_sitemap.py
+    python scripts/generate_sitemap.py --blog
     python scripts/generate_sitemap.py --output-dir web/
     python scripts/generate_sitemap.py --data-dir race-data/
 """
@@ -85,10 +86,54 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None)
     return output_path
 
 
+def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
+    """Generate XML sitemap for blog content.
+
+    Args:
+        blog_index: List of blog entry dicts from blog-index.json.
+        output_path: Path to write blog-sitemap.xml.
+    """
+    today = date.today().isoformat()
+
+    urlset = Element('urlset')
+    urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
+
+    # Blog index page
+    url = SubElement(urlset, 'url')
+    SubElement(url, 'loc').text = f"{SITE_BASE_URL}/blog/"
+    SubElement(url, 'lastmod').text = today
+    SubElement(url, 'changefreq').text = 'weekly'
+    SubElement(url, 'priority').text = '0.8'
+
+    # Blog entries
+    priority_map = {"roundup": "0.7", "preview": "0.6", "recap": "0.6"}
+    for entry in blog_index:
+        slug = entry.get("slug", "")
+        if not slug:
+            continue
+        category = entry.get("category", "preview")
+        priority = priority_map.get(category, "0.6")
+        lastmod = entry.get("date", today)
+
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/blog/{slug}/"
+        SubElement(url, 'lastmod').text = lastmod
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = priority
+
+    raw_xml = tostring(urlset, encoding='unicode')
+    pretty = parseString(raw_xml).toprettyxml(indent='  ', encoding='UTF-8')
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_bytes(pretty)
+    return output_path
+
+
 def main():
-    parser = argparse.ArgumentParser(description='Generate XML sitemap')
+    parser = argparse.ArgumentParser(description='Generate XML sitemaps')
     parser.add_argument('--output-dir', type=Path, help='Output directory')
     parser.add_argument('--data-dir', type=Path, help='Race data directory for file-based lastmod dates')
+    parser.add_argument('--blog', action='store_true', help='Also generate blog-sitemap.xml')
     args = parser.parse_args()
 
     script_dir = Path(__file__).resolve().parent
@@ -115,6 +160,20 @@ def main():
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
+
+    if args.blog:
+        blog_index_path = project_root / 'web' / 'blog-index.json'
+        if blog_index_path.exists():
+            with open(blog_index_path) as f:
+                blog_index = json.load(f)
+            blog_output = output_dir / 'blog-sitemap.xml'
+            generate_blog_sitemap(blog_index, blog_output)
+            # Count: blog index page + all entries
+            blog_urls = 1 + len(blog_index)
+            print(f"Generated blog sitemap: {blog_output} ({blog_urls} URLs)")
+        else:
+            print(f"  SKIP blog sitemap: {blog_index_path} not found")
+            print(f"  Run: python scripts/generate_blog_index.py first")
 
 
 if __name__ == '__main__':

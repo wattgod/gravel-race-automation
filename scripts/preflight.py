@@ -136,6 +136,12 @@ def main():
         optional=True,  # warn but don't block — known low-confidence profiles have issues
     )
 
+    ok = pf.run_step(
+        "validate_blog_content.py",
+        [sys.executable, str(SCRIPTS_DIR / "validate_blog_content.py")],
+        optional=True,  # warn but don't block — blog content may not exist yet
+    )
+
     if not do_generate:
         pf.summary()
         return 1 if pf.failed else 0
@@ -151,8 +157,32 @@ def main():
         return 1
 
     ok = pf.run_step(
-        "generate_sitemap.py",
-        [sys.executable, str(SCRIPTS_DIR / "generate_sitemap.py")],
+        "generate_season_roundup.py --all",
+        [sys.executable, str(WORDPRESS_DIR / "generate_season_roundup.py"), "--all"],
+    )
+    if not ok:
+        pf.summary()
+        return 1
+
+    ok = pf.run_step(
+        "generate_blog_index.py",
+        [sys.executable, str(SCRIPTS_DIR / "generate_blog_index.py")],
+    )
+    if not ok:
+        pf.summary()
+        return 1
+
+    ok = pf.run_step(
+        "generate_blog_index_page.py",
+        [sys.executable, str(WORDPRESS_DIR / "generate_blog_index_page.py")],
+    )
+    if not ok:
+        pf.summary()
+        return 1
+
+    ok = pf.run_step(
+        "generate_sitemap.py --blog",
+        [sys.executable, str(SCRIPTS_DIR / "generate_sitemap.py"), "--blog"],
     )
     if not ok:
         pf.summary()

@@ -360,7 +360,7 @@ def check_photo_infrastructure(v):
 
 
 def check_blog_pages(v):
-    """Verify deployed blog preview pages are accessible."""
+    """Verify deployed blog pages are accessible, categorized by type."""
     print("\n[Blog Pages]")
     project_root = Path(__file__).resolve().parent.parent
     blog_dir = project_root / "wordpress" / "output" / "blog"
@@ -372,21 +372,74 @@ def check_blog_pages(v):
 
     html_files = sorted(blog_dir.glob("*.html"))
     if not html_files:
-        v.warn("No blog preview pages generated",
+        v.warn("No blog pages generated",
                "Run generate_blog_preview.py --all to generate blog pages")
         return
 
-    v.check(True, f"{len(html_files)} blog preview pages found locally", "")
+    # Categorize by type
+    previews = [f for f in html_files if not f.stem.startswith("roundup-") and not f.stem.endswith("-recap")]
+    roundups = [f for f in html_files if f.stem.startswith("roundup-")]
+    recaps = [f for f in html_files if f.stem.endswith("-recap")]
+
+    v.check(True, f"{len(html_files)} blog pages found locally "
+            f"({len(previews)} previews, {len(roundups)} roundups, {len(recaps)} recaps)", "")
 
     if not QUICK:
-        # Sample up to 3 pages
-        sample = html_files[:3]
-        for f in sample:
+        # Sample 1 from each category for HTTP check
+        samples = []
+        if previews:
+            samples.append(previews[0])
+        if roundups:
+            samples.append(roundups[0])
+        if recaps:
+            samples.append(recaps[0])
+        for f in samples:
             slug = f.stem
             url = f"{BASE_URL}/blog/{slug}/"
             code = curl_status(url)
             v.check(code == "200", f"Blog page accessible: /blog/{slug}/",
                     f"HTTP {code}")
+
+
+def check_blog_index(v):
+    """Verify blog index page is accessible."""
+    print("\n[Blog Index]")
+    if QUICK:
+        return
+
+    code = curl_status(f"{BASE_URL}/blog/")
+    v.check(code == "200", "/blog/ returns 200", f"HTTP {code}")
+
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/blog/")
+        v.check("blog-index.json" in body, "/blog/ references blog-index.json",
+                "Missing blog-index.json fetch")
+        v.check("gg-blog-index" in body or "gg-bi-grid" in body,
+                "/blog/ contains expected CSS class",
+                "Missing expected CSS class")
+
+
+def check_blog_sitemap(v):
+    """Verify blog sitemap is accessible and referenced in sitemap index."""
+    print("\n[Blog Sitemap]")
+    project_root = Path(__file__).resolve().parent.parent
+    blog_sitemap = project_root / "web" / "blog-sitemap.xml"
+
+    if not blog_sitemap.exists():
+        v.warn("Blog sitemap not generated locally",
+               "Run: python scripts/generate_sitemap.py --blog")
+        return
+
+    v.check(True, "blog-sitemap.xml exists locally", "")
+
+    if not QUICK:
+        code = curl_status(f"{BASE_URL}/blog-sitemap.xml")
+        v.check(code == "200", "/blog-sitemap.xml accessible", f"HTTP {code}")
+
+        body = curl_body(f"{BASE_URL}/sitemap.xml")
+        v.check("blog-sitemap.xml" in body,
+                "sitemap.xml references blog-sitemap.xml",
+                "Missing blog-sitemap.xml entry in sitemap index")
 
 
 def check_permissions(v):
@@ -411,6 +464,8 @@ def main():
     check_race_page_seo(v)
     check_citations(v)
     check_blog_pages(v)
+    check_blog_index(v)
+    check_blog_sitemap(v)
     check_photo_infrastructure(v)
 
     check_search_schema(v)

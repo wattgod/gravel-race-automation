@@ -816,14 +816,42 @@ def sync_sitemap():
         print(f"✗ Failed to upload race-sitemap.xml: {e}")
         return False
 
+    # 1b. Upload blog sitemap if it exists
+    blog_sitemap = project_root / "web" / "blog-sitemap.xml"
+    has_blog_sitemap = blog_sitemap.exists()
+    if has_blog_sitemap:
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(blog_sitemap),
+                    f"{user}@{host}:{remote_root}/blog-sitemap.xml",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                check=True,
+            )
+            print("✓ Uploaded blog-sitemap.xml")
+        except Exception as e:
+            print(f"  WARN: Failed to upload blog-sitemap.xml: {e}")
+            has_blog_sitemap = False
+
     # 2. Create sitemap index referencing all sub-sitemaps
+    blog_sitemap_entry = ""
+    if has_blog_sitemap:
+        blog_sitemap_entry = f"""  <sitemap>
+    <loc>https://gravelgodcycling.com/blog-sitemap.xml</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+"""
     sitemap_index = f"""<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://gravelgodcycling.com/race-sitemap.xml</loc>
     <lastmod>{today}</lastmod>
   </sitemap>
-  <sitemap>
+{blog_sitemap_entry}  <sitemap>
     <loc>https://gravelgodcycling.com/post-sitemap.xml</loc>
     <lastmod>{today}</lastmod>
   </sitemap>
@@ -856,6 +884,8 @@ def sync_sitemap():
             return False
         print("✓ Deployed sitemap index (sitemap.xml)")
         print("  → race-sitemap.xml (328 race pages)")
+        if has_blog_sitemap:
+            print("  → blog-sitemap.xml (blog content)")
         print("  → post-sitemap.xml (AIOSEO blog posts)")
         print("  → page-sitemap.xml (AIOSEO WP pages)")
         print("  → category-sitemap.xml (AIOSEO categories)")
@@ -1098,6 +1128,101 @@ def sync_prep_kits(prep_kit_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_blog_index(index_page: str, index_json: str):
+    """Upload blog index page and JSON to /blog/ on SiteGround via SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    page_path = Path(index_page)
+    json_path = Path(index_json)
+
+    if not page_path.exists():
+        print(f"✗ Blog index page not found: {page_path}")
+        print("  Run: python wordpress/generate_blog_index_page.py first")
+        return None
+    if not json_path.exists():
+        print(f"✗ Blog index JSON not found: {json_path}")
+        print("  Run: python scripts/generate_blog_index.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/blog"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create /blog/ directory: {e.stderr.strip()}")
+        return None
+
+    # Upload index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(page_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        print("✓ Uploaded blog index.html")
+    except Exception as e:
+        print(f"✗ SCP failed for blog index.html: {e}")
+        return None
+
+    # Upload blog-index.json
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(json_path),
+                f"{user}@{host}:{remote_base}/blog-index.json",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        print("✓ Uploaded blog-index.json")
+    except Exception as e:
+        print(f"✗ SCP failed for blog-index.json: {e}")
+        return None
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except Exception:
+        pass  # Non-critical
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Blog index live at {wp_url}/blog/")
+    return f"{wp_url}/blog/"
+
+
 def sync_blog(blog_dir: str):
     """Upload blog preview pages to /blog/{slug}/ on SiteGround via tar+ssh.
 
@@ -1263,6 +1388,18 @@ if __name__ == "__main__":
         help="Path to blog directory (default: wordpress/output/blog)"
     )
     parser.add_argument(
+        "--sync-blog-index", action="store_true",
+        help="Upload blog index page + JSON to /blog/ via SCP"
+    )
+    parser.add_argument(
+        "--blog-index-page", default="wordpress/output/blog-index.html",
+        help="Path to blog index HTML (default: wordpress/output/blog-index.html)"
+    )
+    parser.add_argument(
+        "--blog-index-json", default="web/blog-index.json",
+        help="Path to blog index JSON (default: web/blog-index.json)"
+    )
+    parser.add_argument(
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
@@ -1293,6 +1430,7 @@ if __name__ == "__main__":
         args.sync_noindex = True
         args.sync_prep_kits = True
         args.sync_blog = True
+        args.sync_blog_index = True
         args.sync_photos = True
         args.purge_cache = True
 
@@ -1300,7 +1438,7 @@ if __name__ == "__main__":
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_prep_kits, args.sync_blog,
-                      args.sync_photos, args.purge_cache])
+                      args.sync_blog_index, args.sync_photos, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -1332,5 +1470,7 @@ if __name__ == "__main__":
         sync_prep_kits(args.prep_kit_dir)
     if args.sync_blog:
         sync_blog(args.blog_dir)
+    if args.sync_blog_index:
+        sync_blog_index(args.blog_index_page, args.blog_index_json)
     if args.purge_cache:
         purge_cache()

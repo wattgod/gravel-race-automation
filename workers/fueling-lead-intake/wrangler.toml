@@ -1,0 +1,14 @@
+name = "fueling-lead-intake"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://gravelgodcycling.com"
+
+[env.production]
+vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com" }
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# SENDGRID_API_KEY = "your-sendgrid-api-key"
+# NOTIFICATION_EMAIL = "gravelgodcoaching@gmail.com"
+# COACHING_WEBHOOK_URL = "your-coaching-webhook-url"

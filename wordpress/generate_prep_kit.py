@@ -19,6 +19,7 @@ import argparse
 import hashlib
 import html
 import json
+import math
 import re
 import sys
 from datetime import datetime
@@ -30,6 +31,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from generate_neo_brutalist import (
     SITE_BASE_URL,
     SUBSTACK_URL,
+    SUBSTACK_EMBED,
     COACHING_URL,
     TRAINING_PLANS_URL,
     normalize_race_data,
@@ -293,9 +295,12 @@ def compute_wake_time(start_time_str: str) -> Optional[str]:
 
 
 def compute_fueling_estimate(distance_mi) -> Optional[dict]:
-    """Estimate fueling needs based on race distance.
+    """Estimate fueling needs based on race distance with duration-scaled carb rates.
 
-    Returns dict with hours, carbs range, gel equivalents, or None.
+    Carb absorption and utilization scale with intensity and duration per
+    Jeukendrup (2014), van Loon et al. (2001), and Precision Fuel & Hydration
+    field data. At lower intensities (longer races), fat oxidation dominates
+    and GI distress limits practical carb intake. Returns dict or None.
     """
     if not distance_mi:
         return None
@@ -305,7 +310,7 @@ def compute_fueling_estimate(distance_mi) -> Optional[dict]:
         return None
     if distance_mi < 20:
         return None
-    # Conservative average speeds for gravel (including stops)
+    # Conservative average gravel speeds (including mechanicals + stops)
     if distance_mi <= 50:
         avg_mph = 14
     elif distance_mi <= 100:
@@ -315,18 +320,485 @@ def compute_fueling_estimate(distance_mi) -> Optional[dict]:
     else:
         avg_mph = 10
     hours = distance_mi / avg_mph
-    carbs_low = int(hours * 60)
-    carbs_high = int(hours * 90)
+
+    # Duration-scaled carb rates (g/hr) — based on exercise physiology:
+    # Shorter/harder races: high carb oxidation, standard Jeukendrup range
+    # Longer races: lower intensity shifts fuel mix toward fat oxidation,
+    # GI distress prevalence climbs from ~4% (4hr) to >80% (16hr+),
+    # and splanchnic blood flow drops up to 80% during prolonged exercise.
+    if hours <= 4:
+        # High intensity race pace — standard dual-transport recommendation
+        carb_lo, carb_hi = 80, 100
+        note = "High-intensity race pace"
+    elif hours <= 8:
+        # Endurance pace — classic Jeukendrup range holds
+        carb_lo, carb_hi = 60, 80
+        note = "Endurance pace"
+    elif hours <= 12:
+        # Sub-threshold — fat oxidation increasing, GI risk climbing
+        carb_lo, carb_hi = 50, 70
+        note = "Lower intensity — fat oxidation increasing"
+    elif hours <= 16:
+        # Ultra pace — reverse crossover point, fat is primary fuel
+        carb_lo, carb_hi = 40, 60
+        note = "Ultra pace — fat is your primary fuel source"
+    else:
+        # Survival pace — GI distress prevalence >80%, appetite suppression
+        carb_lo, carb_hi = 30, 50
+        note = "Survival pace — palatability and GI tolerance are the limiters"
+
+    carbs_low = int(hours * carb_lo)
+    carbs_high = int(hours * carb_hi)
     gels_low = carbs_low // 25
     gels_high = carbs_high // 25
     return {
         "hours": round(hours, 1),
         "avg_mph": avg_mph,
+        "carb_rate_lo": carb_lo,
+        "carb_rate_hi": carb_hi,
         "carbs_low": carbs_low,
         "carbs_high": carbs_high,
         "gels_low": gels_low,
         "gels_high": gels_high,
+        "note": note,
     }
+
+
+def compute_personalized_fueling(weight_kg: float, ftp: Optional[float],
+                                  hours: float) -> Optional[dict]:
+    """Compute personalized carb targets using power-based formula.
+
+    Uses the IronmanHacks/Couzens model:
+        base_rate = weight_kg * 0.7 * (ftp / 100) * 0.7
+    Falls back to duration-scaled generic rate when FTP is not provided.
+    Clamps output to duration bracket ceiling/floor.
+
+    Returns dict with personalized_rate, total_carbs, gels, bracket, note.
+    """
+    if not weight_kg or weight_kg <= 0 or not hours or hours <= 0:
+        return None
+
+    # Duration bracket bounds (same brackets as compute_fueling_estimate)
+    if hours <= 4:
+        bracket_lo, bracket_hi = 80, 100
+        bracket = "High-intensity race pace"
+    elif hours <= 8:
+        bracket_lo, bracket_hi = 60, 80
+        bracket = "Endurance pace"
+    elif hours <= 12:
+        bracket_lo, bracket_hi = 50, 70
+        bracket = "Lower intensity — fat oxidation increasing"
+    elif hours <= 16:
+        bracket_lo, bracket_hi = 40, 60
+        bracket = "Ultra pace — fat is your primary fuel source"
+    else:
+        bracket_lo, bracket_hi = 30, 50
+        bracket = "Survival pace — palatability and GI tolerance are the limiters"
+
+    if ftp and ftp > 0:
+        # Power-based formula
+        raw_rate = weight_kg * 0.7 * (ftp / 100) * 0.7
+        note = "Personalized from your weight and FTP"
+    else:
+        # No FTP — use midpoint of bracket range
+        raw_rate = (bracket_lo + bracket_hi) / 2
+        note = "Enter your FTP for a more precise estimate"
+
+    # Clamp to bracket bounds
+    rate = max(bracket_lo, min(bracket_hi, round(raw_rate)))
+    total_carbs = int(rate * hours)
+    gels = total_carbs // 25
+
+    return {
+        "personalized_rate": rate,
+        "total_carbs": total_carbs,
+        "gels": gels,
+        "bracket": bracket,
+        "bracket_lo": bracket_lo,
+        "bracket_hi": bracket_hi,
+        "note": note,
+    }
+
+
+# ── Hydration / Sodium / Hour-by-Hour Plan ───────────────────
+
+HEAT_MULTIPLIERS = {"cool": 0.7, "mild": 1.0, "warm": 1.3, "hot": 1.6, "extreme": 1.9}
+SWEAT_MULTIPLIERS = {"light": 0.7, "moderate": 1.0, "heavy": 1.3}
+FORMAT_SPLITS = {
+    "liquid": {"drink": 0.80, "gel": 0.15, "food": 0.05},
+    "gels":   {"drink": 0.20, "gel": 0.70, "food": 0.10},
+    "mixed":  {"drink": 0.30, "gel": 0.40, "food": 0.30},
+    "solid":  {"drink": 0.20, "gel": 0.20, "food": 0.60},
+}
+SODIUM_BASE_MG_PER_L = 1000
+SODIUM_HEAT_BOOST = {"hot": 200, "extreme": 300}
+SODIUM_CRAMP_BOOST = {"sometimes": 150, "frequent": 300}
+
+# Item carb constants for hourly plan
+GEL_CARBS = 25      # 1 gel = 25g carbs
+DRINK_CARBS_500ML = 40  # 500ml mix = 40g carbs
+BAR_CARBS = 35      # 1 bar/rice cake = 35g carbs
+
+
+def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int]) -> str:
+    """Classify race climate into cool|mild|warm|hot|extreme at build time.
+
+    Uses keyword analysis of climate.primary + climate.description + climate.challenges,
+    with gravel_god_rating.climate score as tiebreaker.
+    """
+    if not climate or not isinstance(climate, dict):
+        # Fall back to score-only classification
+        if climate_score and climate_score >= 5:
+            return "hot"
+        if climate_score and climate_score >= 4:
+            return "warm"
+        return "mild"
+
+    primary = (climate.get("primary") or "").lower()
+    desc = (climate.get("description") or "").lower()
+    challenges = climate.get("challenges", [])
+    challenge_text = " ".join(c.lower() for c in challenges if isinstance(c, str))
+    combined = f"{primary} {desc} {challenge_text}"
+
+    score = climate_score or 0
+
+    # Extreme: score=5 AND desert/extreme-specific keywords
+    if score >= 5 and any(kw in combined for kw in ["desert", "extreme heat", "100+", "100°", "110°"]):
+        return "extreme"
+
+    # Hot: strong heat keywords AND score >= 4, OR very strong keywords alone
+    strong_heat_kw = ["heat", "hot", "humid", "85-95", "90°", "95°"]
+    if score >= 4 and any(kw in combined for kw in strong_heat_kw):
+        return "hot"
+    if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):
+        return "hot"
+
+    # Cool: cold/freeze keywords
+    if any(kw in combined for kw in ["cold", "freez", "winter", "snow", "30°", "40°", "5-12"]):
+        return "cool"
+
+    # Warm: heat-adjacent keywords with moderate score, or explicit warmth
+    if any(kw in combined for kw in strong_heat_kw) and score >= 3:
+        return "warm"
+    if any(kw in combined for kw in ["warm", "summer", "sun", "75-85", "75°", "80°"]):
+        return "warm"
+    if score >= 4:
+        return "warm"
+    if score == 3:
+        return "warm"
+
+    return "mild"
+
+
+def compute_sweat_rate(weight_kg: float, climate_heat: str,
+                       sweat_tendency: str, hours: float) -> Optional[dict]:
+    """Estimate sweat rate and fluid targets.
+
+    Simplified model for lead-gen calculator (not a lab test).
+    Returns dict with sweat_rate_l_hr, fluid targets in ml and oz, and note.
+    """
+    if not weight_kg or weight_kg <= 0 or not hours or hours <= 0:
+        return None
+
+    base_sweat = weight_kg * 0.013  # ~1 L/hr for 75kg
+    heat_mult = HEAT_MULTIPLIERS.get(climate_heat, 1.0)
+    sweat_mult = SWEAT_MULTIPLIERS.get(sweat_tendency, 1.0)
+
+    # Intensity factor scales with duration
+    if hours <= 4:
+        intensity = 1.15
+    elif hours <= 8:
+        intensity = 1.0
+    elif hours <= 12:
+        intensity = 0.9
+    elif hours <= 16:
+        intensity = 0.8
+    else:
+        intensity = 0.7
+
+    sweat_rate = base_sweat * heat_mult * sweat_mult * intensity
+    # Fluid replacement target: 60-80% of sweat rate
+    fluid_lo = sweat_rate * 0.6 * 1000  # ml
+    fluid_hi = sweat_rate * 0.8 * 1000  # ml
+
+    note = ""
+    if climate_heat in ("hot", "extreme"):
+        note = "High heat — pre-hydrate with 500ml 2 hours before start."
+    elif climate_heat == "cool":
+        note = "Cool conditions — you still sweat. Don't skip hydration."
+
+    return {
+        "sweat_rate_l_hr": round(sweat_rate, 2),
+        "fluid_lo_ml_hr": round(fluid_lo),
+        "fluid_hi_ml_hr": round(fluid_hi),
+        "fluid_lo_oz_hr": round(fluid_lo / 29.5735),
+        "fluid_hi_oz_hr": round(fluid_hi / 29.5735),
+        "note": note,
+    }
+
+
+def compute_sodium(sweat_rate_l_hr: float, climate_heat: str,
+                   cramp_history: str) -> Optional[dict]:
+    """Compute sodium targets from sweat rate and conditions.
+
+    Returns dict with sodium_mg_hr, total context, salt cap count, and note.
+    """
+    if not sweat_rate_l_hr or sweat_rate_l_hr <= 0:
+        return None
+
+    concentration = SODIUM_BASE_MG_PER_L
+    concentration += SODIUM_HEAT_BOOST.get(climate_heat, 0)
+    concentration += SODIUM_CRAMP_BOOST.get(cramp_history, 0)
+
+    sodium_mg_hr = round(sweat_rate_l_hr * concentration)
+
+    note = ""
+    if cramp_history == "frequent":
+        note = "History of cramping — consider pre-loading sodium the night before."
+    elif climate_heat in ("hot", "extreme"):
+        note = "Hot conditions increase sodium losses significantly."
+
+    return {
+        "sodium_mg_hr": sodium_mg_hr,
+        "concentration_mg_l": concentration,
+        "note": note,
+    }
+
+
+def compute_aid_station_hours(aid_text: str, distance_mi: float,
+                              est_hours: float) -> list:
+    """Best-effort parser for aid station timing from free-text vitals.
+
+    Extracts mile markers or counts, converts to approximate hour marks.
+    Returns list of floats (hour marks) or empty list.
+    """
+    if not aid_text or not isinstance(aid_text, str):
+        return []
+
+    text = aid_text.lower()
+
+    # Self-supported or none
+    if any(kw in text for kw in ["self-supported", "self supported", "none", "unsupported"]):
+        return []
+    if text.strip() in ("--", "—", ""):
+        return []
+
+    if not distance_mi or distance_mi <= 0 or not est_hours or est_hours <= 0:
+        return []
+
+    pace = est_hours / distance_mi  # hours per mile
+
+    # Try mile markers: "mile ~30", "mile 50", etc.
+    mile_markers = re.findall(r'mile\s*~?(\d+)', text)
+    if mile_markers:
+        hours = [round(int(m) * pace, 1) for m in mile_markers]
+        return sorted(set(h for h in hours if 0 < h < est_hours))
+
+    # Count-based: "2 full checkpoints + 2 water oases" → count all numbers before aid/check/feed/water/oases
+    count_matches = re.findall(r'(\d+)\s*(?:full\s+)?(?:aid|checkpoint|feed|water|oases?|rest|refuel|zone)', text)
+    if count_matches:
+        total = sum(int(c) for c in count_matches)
+        if total > 0:
+            interval = est_hours / (total + 1)
+            return [round(interval * (i + 1), 1) for i in range(total)]
+
+    # Simple count: "9 fully-stocked feed zones"
+    simple = re.search(r'(\d+)\s+(?:fully[- ]stocked\s+)?(?:feed|aid|rest|refuel)', text)
+    if simple:
+        total = int(simple.group(1))
+        if total > 0:
+            interval = est_hours / (total + 1)
+            return [round(interval * (i + 1), 1) for i in range(total)]
+
+    return []
+
+
+def compute_hourly_plan(hours: float, carb_rate: int, fluid_ml_hr: int,
+                        sodium_mg_hr: int, fuel_format: str,
+                        aid_hours: list) -> list:
+    """Build hour-by-hour race plan.
+
+    Returns list of dicts, one per hour, with carbs, fluid, sodium, items, is_aid.
+    """
+    if not hours or hours <= 0 or not carb_rate or carb_rate <= 0:
+        return []
+
+    total_hours = math.ceil(hours)
+    splits = FORMAT_SPLITS.get(fuel_format, FORMAT_SPLITS["mixed"])
+    plan = []
+
+    # Round aid hours to nearest int for matching
+    aid_set = set(round(h) for h in (aid_hours or []))
+
+    for h in range(1, total_hours + 1):
+        # Hour 1 ramp-up: 80% rate. Last hour taper: 80% rate.
+        # Fractional last hour: proportional rate.
+        if h == 1:
+            rate_mult = 0.8
+        elif h == total_hours and hours % 1 > 0:
+            rate_mult = hours % 1  # Fractional hour
+        elif h == total_hours:
+            rate_mult = 0.8
+        else:
+            rate_mult = 1.0
+
+        hour_carbs = round(carb_rate * rate_mult)
+        hour_fluid = round(fluid_ml_hr * rate_mult)
+        hour_sodium = round(sodium_mg_hr * rate_mult)
+
+        # Split carbs across formats
+        drink_carbs = round(hour_carbs * splits["drink"])
+        gel_carbs = round(hour_carbs * splits["gel"])
+        food_carbs = hour_carbs - drink_carbs - gel_carbs  # remainder to food
+
+        items = []
+        if gel_carbs > 0:
+            gel_count = max(1, round(gel_carbs / GEL_CARBS))
+            items.append({"type": "gel", "label": f"{gel_count} gel{'s' if gel_count > 1 else ''} ({gel_count * GEL_CARBS}g)"})
+        if drink_carbs > 0:
+            drink_ml = round(drink_carbs / DRINK_CARBS_500ML * 500)
+            items.append({"type": "drink", "label": f"{drink_ml}ml mix ({drink_carbs}g)"})
+        if food_carbs > 0:
+            bar_count = max(1, round(food_carbs / BAR_CARBS))
+            items.append({"type": "food", "label": f"{bar_count} bar{'s' if bar_count > 1 else ''} ({bar_count * BAR_CARBS}g)"})
+
+        is_aid = h in aid_set
+
+        plan.append({
+            "hour": h,
+            "carbs_g": hour_carbs,
+            "fluid_ml": hour_fluid,
+            "sodium_mg": hour_sodium,
+            "items": items,
+            "is_aid": is_aid,
+        })
+
+    return plan
+
+
+# Worker URL for fueling lead intake
+FUELING_WORKER_URL = "https://fueling-lead-intake.gravelgodcoaching.workers.dev"
+
+
+def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
+    """Build the interactive fueling calculator form HTML for Section 6.
+
+    Generates email-gated form with hydration/sodium fields, hidden results
+    panel (3 panels: numbers, hourly plan, shopping list), and Substack iframe.
+    All computation is client-side JS — the form posts to a Cloudflare Worker
+    in the background for lead capture only.
+    """
+    slug = esc(rd["slug"])
+    name = esc(rd["name"])
+    raw = raw or {}
+
+    # Pre-fill estimated hours from distance
+    distance_mi = rd["vitals"].get("distance_mi", 0)
+    est = compute_fueling_estimate(distance_mi)
+    prefill_hours = est["hours"] if est else ""
+
+    # Pre-classify climate at build time
+    climate_data = raw.get("climate", {})
+    rating = rd.get("rating", {})
+    climate_score = rating.get("climate")
+    climate_heat = classify_climate_heat(climate_data, climate_score)
+
+    # Climate display text
+    if isinstance(climate_data, dict) and climate_data.get("primary"):
+        climate_display = climate_data["primary"]
+    elif climate_heat == "mild":
+        climate_display = "Mild (no climate data)"
+    else:
+        climate_display = climate_heat.capitalize()
+
+    # Pre-compute aid station hours
+    aid_text = rd["vitals"].get("aid_stations", "")
+    aid_hours = compute_aid_station_hours(aid_text, distance_mi, prefill_hours if prefill_hours else 0)
+    aid_json = esc(json.dumps(aid_hours))
+
+    return f'''<div class="gg-pk-calc-wrapper">
+    <h3 class="gg-pk-subsection-title">Personalized Fueling Calculator</h3>
+    <p class="gg-pk-calc-intro">Enter your details for a complete race fueling plan — carbs, hydration, sodium, and an hour-by-hour strategy.</p>
+    <form class="gg-pk-calc-form" id="gg-pk-calc-form" autocomplete="off">
+      <input type="hidden" name="race_slug" value="{slug}">
+      <input type="hidden" name="race_name" value="{name}">
+      <input type="hidden" name="est_hours" value="{prefill_hours}">
+      <input type="hidden" name="climate_heat" value="{esc(climate_heat)}">
+      <input type="hidden" name="aid_station_hours" value="{aid_json}">
+      <input type="hidden" name="website" value="">
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-email">Email <span class="gg-pk-calc-req">*</span></label>
+        <input type="email" id="gg-pk-email" name="email" required placeholder="you@example.com" class="gg-pk-calc-input">
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-weight">Weight (lbs) <span class="gg-pk-calc-req">*</span></label>
+        <input type="number" id="gg-pk-weight" name="weight_lbs" required min="80" max="400" placeholder="165" class="gg-pk-calc-input">
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-height-ft">Height</label>
+        <div class="gg-pk-calc-height-row">
+          <select id="gg-pk-height-ft" name="height_ft" class="gg-pk-calc-select">
+            <option value="">ft</option>
+            <option value="4">4&#x2032;</option>
+            <option value="5">5&#x2032;</option>
+            <option value="6">6&#x2032;</option>
+            <option value="7">7&#x2032;</option>
+          </select>
+          <select id="gg-pk-height-in" name="height_in" class="gg-pk-calc-select">
+            <option value="">in</option>
+            {"".join(f'<option value="{i}">{i}&#x2033;</option>' for i in range(12))}
+          </select>
+        </div>
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-age">Age</label>
+        <input type="number" id="gg-pk-age" name="age" min="13" max="99" placeholder="35" class="gg-pk-calc-input">
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-ftp">FTP (watts) <span class="gg-pk-calc-tooltip" title="Functional Threshold Power. Leave blank if unknown.">&#9432;</span></label>
+        <input type="number" id="gg-pk-ftp" name="ftp" min="50" max="500" placeholder="220" class="gg-pk-calc-input">
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-hours">Target finish time (hours)</label>
+        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="48" step="0.5" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
+      </div>
+      <div class="gg-pk-calc-field gg-pk-calc-field--climate">
+        <label>Race Climate</label>
+        <div class="gg-pk-calc-climate-badge gg-pk-calc-climate--{esc(climate_heat)}">{esc(climate_display)}</div>
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-sweat">Sweat tendency <span class="gg-pk-calc-tooltip" title="How much do you sweat compared to other riders?">&#9432;</span></label>
+        <select id="gg-pk-sweat" name="sweat_tendency" class="gg-pk-calc-select">
+          <option value="moderate">Moderate (average)</option>
+          <option value="light">Light sweater</option>
+          <option value="heavy">Heavy sweater</option>
+        </select>
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-format">Fuel preference</label>
+        <select id="gg-pk-format" name="fuel_format" class="gg-pk-calc-select">
+          <option value="mixed">Mixed (gels + food + drink)</option>
+          <option value="liquid">Mostly liquid (drink mix)</option>
+          <option value="gels">Mostly gels</option>
+          <option value="solid">Mostly solid food</option>
+        </select>
+      </div>
+      <div class="gg-pk-calc-field">
+        <label for="gg-pk-cramp">Cramping history <span class="gg-pk-calc-tooltip" title="Do you experience muscle cramps during or after long rides?">&#9432;</span></label>
+        <select id="gg-pk-cramp" name="cramp_history" class="gg-pk-calc-select">
+          <option value="rarely">Rarely / never</option>
+          <option value="sometimes">Sometimes</option>
+          <option value="frequent">Frequently</option>
+        </select>
+      </div>
+      <button type="submit" class="gg-pk-calc-btn">GET MY FUELING PLAN</button>
+    </form>
+    <div class="gg-pk-calc-result" id="gg-pk-calc-result" style="display:none" aria-live="polite"></div>
+    <div class="gg-pk-calc-substack" id="gg-pk-calc-substack" style="display:none">
+      <p class="gg-pk-calc-substack-label">Get race-day tips in your inbox</p>
+      <iframe src="{esc(SUBSTACK_EMBED)}" title="Newsletter signup" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no" loading="lazy"></iframe>
+    </div>
+  </div>'''
 
 
 def build_climate_gear_callout(climate_data: dict) -> str:
@@ -658,7 +1130,7 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
     """Build Section 6: Race-Day Fueling (race-day nutrition + gut training)."""
     parts = []
 
-    # Distance-adjusted fueling estimate
+    # Distance-adjusted fueling estimate (duration-scaled carb rates)
     distance_mi = rd["vitals"].get("distance_mi", 0)
     estimate = compute_fueling_estimate(distance_mi)
     if estimate:
@@ -666,12 +1138,21 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
             f'<div class="gg-guide-callout gg-guide-callout--highlight">'
             f'<p><strong>Your Fueling Math ({distance_mi} miles):</strong> '
             f'At ~{estimate["avg_mph"]}mph, expect ~{estimate["hours"]} hours'
-            f' on course. At 60-90g carbs/hour, you need '
-            f'<strong>{estimate["carbs_low"]}-{estimate["carbs_high"]}g total'
-            f' carbs</strong> ({estimate["gels_low"]}-{estimate["gels_high"]}'
-            f' gels equivalent).</p>'
+            f' on course. {estimate["note"]} \u2014 target '
+            f'<strong>{estimate["carb_rate_lo"]}-{estimate["carb_rate_hi"]}g'
+            f' carbs/hour</strong> ({estimate["carbs_low"]}-'
+            f'{estimate["carbs_high"]}g total, or '
+            f'{estimate["gels_low"]}-{estimate["gels_high"]} gels).</p>'
+            f'<p style="font-size:12px;color:var(--gg-color-secondary-brown)">'
+            f'Carb targets scale with duration: shorter races burn more carbs'
+            f' per hour at race intensity, while ultra-distance events shift'
+            f' toward fat oxidation and GI tolerance becomes the limiter'
+            f' (Jeukendrup 2014, van Loon et al.).</p>'
             f'</div>'
         )
+
+    # Personalized fueling calculator (email-gated)
+    parts.append(build_fueling_calculator_html(rd, raw))
 
     # Aid station info
     aid_info = rd["vitals"].get("aid_stations", "")
@@ -909,6 +1390,66 @@ def build_prep_kit_css() -> str:
 .gg-guide-callout ul{margin:8px 0;padding-left:20px}
 .gg-guide-callout li{font-family:var(--gg-font-editorial);font-size:13px;line-height:1.6;color:var(--gg-color-near-black)}
 
+/* ── Fueling Calculator ── */
+.gg-pk-calc-wrapper{margin:24px 0 0}
+.gg-pk-calc-intro{font-size:13px;line-height:1.6;color:var(--gg-color-primary-brown);margin:0 0 16px}
+.gg-pk-calc-form{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-bottom:20px}
+.gg-pk-calc-field{display:flex;flex-direction:column;gap:4px}
+.gg-pk-calc-field label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-near-black)}
+.gg-pk-calc-req{color:var(--gg-color-teal)}
+.gg-pk-calc-input{font-family:var(--gg-font-data);font-size:13px;padding:8px 10px;border:2px solid var(--gg-color-near-black);background:var(--gg-color-white);color:var(--gg-color-near-black);width:100%;box-sizing:border-box}
+.gg-pk-calc-input:focus{outline:none;border-color:var(--gg-color-teal)}
+.gg-pk-calc-select{font-family:var(--gg-font-data);font-size:13px;padding:8px 10px;border:2px solid var(--gg-color-near-black);background:var(--gg-color-white);color:var(--gg-color-near-black)}
+.gg-pk-calc-height-row{display:flex;gap:8px}
+.gg-pk-calc-height-row select{flex:1}
+.gg-pk-calc-tooltip{cursor:help;color:var(--gg-color-secondary-brown);font-size:14px}
+.gg-pk-calc-btn{grid-column:1/-1;font-family:var(--gg-font-data);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:12px 24px;background:var(--gg-color-primary-brown);color:var(--gg-color-warm-paper);border:3px solid var(--gg-color-near-black);cursor:pointer;transition:background 0.2s}
+.gg-pk-calc-btn:hover{background:var(--gg-color-near-black)}
+.gg-pk-calc-result{border-left:6px solid var(--gg-color-teal);background:var(--gg-color-warm-paper);padding:20px 24px;margin:0 0 20px}
+.gg-pk-calc-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--gg-color-tan);font-family:var(--gg-font-data);font-size:13px}
+.gg-pk-calc-result-row:last-child{border-bottom:none}
+.gg-pk-calc-result-label{color:var(--gg-color-primary-brown);text-transform:uppercase;letter-spacing:1px;font-size:11px}
+.gg-pk-calc-result-value{font-weight:700;color:var(--gg-color-near-black)}
+.gg-pk-calc-result-highlight{font-size:28px;font-weight:700;color:var(--gg-color-teal);font-family:var(--gg-font-data)}
+.gg-pk-calc-result-note{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin:12px 0 0;line-height:1.5}
+.gg-pk-calc-substack{margin:20px 0 0;padding:16px;border:2px solid var(--gg-color-tan);background:var(--gg-color-white)}
+.gg-pk-calc-substack-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gg-color-primary-brown);margin:0 0 8px}
+
+/* ── Climate Badge ── */
+.gg-pk-calc-field--climate{grid-column:1/-1}
+.gg-pk-calc-climate-badge{font-family:var(--gg-font-data);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:10px 16px;text-align:center;border:2px solid var(--gg-color-near-black)}
+.gg-pk-calc-climate--cool{background:#e8f5e9;color:#2e7d32}
+.gg-pk-calc-climate--mild{background:var(--gg-color-warm-paper);color:var(--gg-color-primary-brown)}
+.gg-pk-calc-climate--warm{background:#fff8e1;color:#f57f17}
+.gg-pk-calc-climate--hot{background:#ffebee;color:#c62828}
+.gg-pk-calc-climate--extreme{background:#2c2c2c;color:#fff}
+
+/* ── Panel Titles ── */
+.gg-pk-calc-panel-title{font-family:var(--gg-font-data);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gg-color-teal);border-bottom:2px solid var(--gg-color-teal);padding-bottom:6px;margin:24px 0 12px}
+
+/* ── Hourly Table ── */
+.gg-pk-calc-hourly-scroll{overflow-x:auto;margin:0 0 20px;-webkit-overflow-scrolling:touch}
+.gg-pk-calc-hourly-table{width:100%;border-collapse:collapse;font-family:var(--gg-font-data);font-size:12px;min-width:500px}
+.gg-pk-calc-hourly-table th{background:var(--gg-color-near-black);color:var(--gg-color-warm-paper);padding:8px 10px;text-align:left;text-transform:uppercase;letter-spacing:1px;font-size:10px;font-weight:700}
+.gg-pk-calc-hourly-table td{padding:8px 10px;border-bottom:1px solid var(--gg-color-tan);vertical-align:top}
+.gg-pk-calc-hourly-table tr:last-child td{border-bottom:2px solid var(--gg-color-near-black);font-weight:700}
+.gg-pk-calc-hour-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--gg-color-near-black);color:#fff;font-size:11px;font-weight:700}
+.gg-pk-calc-aid-row{background:rgba(23,128,121,0.08)}
+.gg-pk-calc-aid-badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:var(--gg-color-teal);color:#fff;padding:2px 6px;margin-left:6px;vertical-align:middle}
+
+/* ── Fuel Chips ── */
+.gg-pk-calc-item{display:inline-block;font-family:var(--gg-font-data);font-size:11px;font-weight:600;padding:3px 8px;margin:2px 4px 2px 0;border:1px solid}
+.gg-pk-calc-item--gel{background:rgba(23,128,121,0.1);color:var(--gg-color-teal);border-color:var(--gg-color-teal)}
+.gg-pk-calc-item--drink{background:rgba(154,126,10,0.1);color:var(--gg-color-gold);border-color:var(--gg-color-gold)}
+.gg-pk-calc-item--food{background:rgba(89,71,60,0.1);color:var(--gg-color-primary-brown);border-color:var(--gg-color-primary-brown)}
+
+/* ── Shopping List ── */
+.gg-pk-calc-shopping-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.gg-pk-calc-shopping-item{border:2px solid var(--gg-color-near-black);padding:12px 16px;background:var(--gg-color-white)}
+.gg-pk-calc-shopping-qty{font-family:var(--gg-font-data);font-size:24px;font-weight:700;color:var(--gg-color-teal);display:block;margin-bottom:4px}
+.gg-pk-calc-shopping-label{font-family:var(--gg-font-data);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-primary-brown)}
+.gg-pk-calc-shopping-note{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin:8px 0 0;line-height:1.5}
+
 /* ── Print Styles ── */
 @media print{
   body{background:#fff !important}
@@ -922,6 +1463,14 @@ def build_prep_kit_css() -> str:
   .gg-guide-accordion-icon{display:none}
   .gg-guide-timeline-marker,.gg-guide-process-num,.gg-pk-nn-badge,.gg-pk-milestone-badge,.gg-pk-workout-mod{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a[href]:after{content:none !important}
+  .gg-pk-calc-form{display:none}
+  .gg-pk-calc-substack{display:none}
+  .gg-pk-calc-intro{display:none}
+  .gg-pk-calc-result[style*="block"]{display:block !important}
+  .gg-pk-calc-hourly-scroll{overflow:visible}
+  .gg-pk-calc-hourly-table{min-width:0}
+  .gg-pk-calc-shopping-grid{grid-template-columns:repeat(4,1fr)}
+  .gg-pk-calc-hour-num,.gg-pk-calc-aid-badge,.gg-pk-calc-item{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 /* ── Responsive ── */
@@ -930,6 +1479,9 @@ def build_prep_kit_css() -> str:
   .gg-pk-vitals-ribbon{flex-direction:column;align-items:center;gap:6px}
   .gg-pk-footer-buttons{flex-direction:column;align-items:center}
   .gg-pk-btn{width:100%;max-width:300px}
+  .gg-pk-calc-form{grid-template-columns:1fr}
+  .gg-pk-calc-shopping-grid{grid-template-columns:1fr}
+  .gg-pk-calc-hourly-table{min-width:500px}
 }"""
 
 
@@ -937,13 +1489,250 @@ def build_prep_kit_css() -> str:
 
 
 def build_prep_kit_js() -> str:
-    """Minimal JS for accordion toggle on prep kit pages."""
+    """JS for accordion toggle and fueling calculator on prep kit pages."""
     return """document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
   btn.addEventListener('click',function(){
     var expanded=this.getAttribute('aria-expanded')==='true';
     this.setAttribute('aria-expanded',String(!expanded));
   });
-});"""
+});
+/* ── Fueling Calculator ── */
+(function(){
+  var WORKER_URL='""" + FUELING_WORKER_URL + """';
+  var LS_KEY='gg-pk-fueling';
+  var EXPIRY_DAYS=90;
+  var form=document.getElementById('gg-pk-calc-form');
+  if(!form) return;
+
+  /* Restore cached email */
+  try{
+    var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
+    if(cached&&cached.email&&cached.exp>Date.now()){
+      var ef=document.getElementById('gg-pk-email');
+      if(ef) ef.value=cached.email;
+    }
+  }catch(e){}
+
+  /* Multiplier constants — must match Python parity */
+  var HEAT_MULT={cool:0.7,mild:1.0,warm:1.3,hot:1.6,extreme:1.9};
+  var SWEAT_MULT={light:0.7,moderate:1.0,heavy:1.3};
+  var FORMAT_SPLITS={
+    liquid:{drink:0.80,gel:0.15,food:0.05},
+    gels:{drink:0.20,gel:0.70,food:0.10},
+    mixed:{drink:0.30,gel:0.40,food:0.30},
+    solid:{drink:0.20,gel:0.20,food:0.60}
+  };
+  var SODIUM_BASE=1000;
+  var SODIUM_HEAT_BOOST={hot:200,extreme:300};
+  var SODIUM_CRAMP_BOOST={sometimes:150,frequent:300};
+
+  function computePersonalized(weightLbs,ftp,hours){
+    if(!weightLbs||weightLbs<=0||!hours||hours<=0) return null;
+    var weightKg=weightLbs*0.453592;
+    var bLo,bHi,bracket;
+    if(hours<=4){bLo=80;bHi=100;bracket='High-intensity race pace';}
+    else if(hours<=8){bLo=60;bHi=80;bracket='Endurance pace';}
+    else if(hours<=12){bLo=50;bHi=70;bracket='Lower intensity';}
+    else if(hours<=16){bLo=40;bHi=60;bracket='Ultra pace';}
+    else{bLo=30;bHi=50;bracket='Survival pace';}
+    var rawRate,note;
+    if(ftp&&ftp>0){
+      rawRate=weightKg*0.7*(ftp/100)*0.7;
+      note='Personalized from your weight and FTP';
+    }else{
+      rawRate=(bLo+bHi)/2;
+      note='Enter your FTP for a more precise estimate';
+    }
+    var rate=Math.max(bLo,Math.min(bHi,Math.round(rawRate)));
+    var totalCarbs=Math.round(rate*hours);
+    var gels=Math.floor(totalCarbs/25);
+    return{rate:rate,totalCarbs:totalCarbs,gels:gels,bracket:bracket,bracketLo:bLo,bracketHi:bHi,note:note};
+  }
+
+  function computeSweatRate(weightLbs,climateHeat,sweatTendency,hours){
+    if(!weightLbs||weightLbs<=0||!hours||hours<=0) return null;
+    var weightKg=weightLbs*0.453592;
+    var base=weightKg*0.013;
+    var hm=HEAT_MULT[climateHeat]||1.0;
+    var sm=SWEAT_MULT[sweatTendency]||1.0;
+    var intensity;
+    if(hours<=4) intensity=1.15;
+    else if(hours<=8) intensity=1.0;
+    else if(hours<=12) intensity=0.9;
+    else if(hours<=16) intensity=0.8;
+    else intensity=0.7;
+    var sr=base*hm*sm*intensity;
+    var fLo=Math.round(sr*0.6*1000);
+    var fHi=Math.round(sr*0.8*1000);
+    return{sweatRate:Math.round(sr*100)/100,fluidLoMl:fLo,fluidHiMl:fHi,fluidLoOz:Math.round(fLo/29.5735),fluidHiOz:Math.round(fHi/29.5735)};
+  }
+
+  function computeSodium(sweatRate,climateHeat,crampHistory){
+    if(!sweatRate||sweatRate<=0) return null;
+    var conc=SODIUM_BASE+(SODIUM_HEAT_BOOST[climateHeat]||0)+(SODIUM_CRAMP_BOOST[crampHistory]||0);
+    return{sodiumMgHr:Math.round(sweatRate*conc),concentration:conc};
+  }
+
+  function computeHourlyPlan(hours,carbRate,fluidMlHr,sodiumMgHr,fuelFormat,aidHours){
+    if(!hours||hours<=0||!carbRate||carbRate<=0) return[];
+    var total=Math.ceil(hours);
+    var splits=FORMAT_SPLITS[fuelFormat]||FORMAT_SPLITS.mixed;
+    var aidSet={};
+    (aidHours||[]).forEach(function(h){aidSet[Math.round(h)]=true;});
+    var plan=[];
+    for(var h=1;h<=total;h++){
+      var mult;
+      if(h===1) mult=0.8;
+      else if(h===total&&hours%1>0) mult=hours%1;
+      else if(h===total) mult=0.8;
+      else mult=1.0;
+      var hCarbs=Math.round(carbRate*mult);
+      var hFluid=Math.round(fluidMlHr*mult);
+      var hSodium=Math.round(sodiumMgHr*mult);
+      var dCarbs=Math.round(hCarbs*splits.drink);
+      var gCarbs=Math.round(hCarbs*splits.gel);
+      var fCarbs=hCarbs-dCarbs-gCarbs;
+      var items=[];
+      if(gCarbs>0){var gc=Math.max(1,Math.round(gCarbs/25));items.push({type:'gel',label:gc+' gel'+(gc>1?'s':'')+' ('+(gc*25)+'g)'});}
+      if(dCarbs>0){var dm=Math.round(dCarbs/40*500);items.push({type:'drink',label:dm+'ml mix ('+dCarbs+'g)'});}
+      if(fCarbs>0){var bc=Math.max(1,Math.round(fCarbs/35));items.push({type:'food',label:bc+' bar'+(bc>1?'s':'')+' ('+(bc*35)+'g)'});}
+      plan.push({hour:h,carbs:hCarbs,fluid:hFluid,sodium:hSodium,items:items,isAid:!!aidSet[h]});
+    }
+    return plan;
+  }
+
+  function renderResults(r,hydration,sodium,plan,hours){
+    var panel=document.getElementById('gg-pk-calc-result');
+    if(!panel) return;
+    var html='';
+
+    /* Panel 1: YOUR RACE NUMBERS */
+    html+='<div class="gg-pk-calc-panel-title">Your Race Numbers</div>';
+    html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Carb Target</span>'+
+      '<span class="gg-pk-calc-result-highlight">'+r.rate+'g/hr</span></div>';
+    html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Total Carbs</span>'+
+      '<span class="gg-pk-calc-result-value">'+r.totalCarbs.toLocaleString()+'g</span></div>';
+    if(hydration){
+      html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Fluid Target</span>'+
+        '<span class="gg-pk-calc-result-highlight">'+hydration.fluidLoOz+'-'+hydration.fluidHiOz+' oz/hr</span></div>';
+      var totalFluidL=Math.round(hydration.fluidHiMl*hours/1000*10)/10;
+      html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Total Fluid</span>'+
+        '<span class="gg-pk-calc-result-value">~'+totalFluidL+'L</span></div>';
+    }
+    if(sodium){
+      html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Sodium Target</span>'+
+        '<span class="gg-pk-calc-result-value">'+sodium.sodiumMgHr+' mg/hr</span></div>';
+      var totalSodium=Math.round(sodium.sodiumMgHr*hours);
+      var saltCaps=Math.ceil(totalSodium/250);
+      html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Salt Capsules</span>'+
+        '<span class="gg-pk-calc-result-value">~'+saltCaps+' (250mg each)</span></div>';
+    }
+    html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Duration Bracket</span>'+
+      '<span class="gg-pk-calc-result-value">'+r.bracket+' ('+r.bracketLo+'-'+r.bracketHi+'g/hr)</span></div>';
+    html+='<p class="gg-pk-calc-result-note">'+r.note+'. Carb targets clamped to exercise physiology brackets (Jeukendrup 2014). Start low in training and build toward race-day targets.</p>';
+
+    /* Panel 2: HOUR-BY-HOUR RACE PLAN */
+    if(plan&&plan.length>0){
+      html+='<div class="gg-pk-calc-panel-title">Hour-by-Hour Race Plan</div>';
+      html+='<div class="gg-pk-calc-hourly-scroll"><table class="gg-pk-calc-hourly-table">';
+      html+='<thead><tr><th>Hour</th><th>Carbs</th><th>Fluid</th><th>Sodium</th><th>What to Consume</th></tr></thead><tbody>';
+      var tC=0,tF=0,tS=0;
+      plan.forEach(function(p){
+        tC+=p.carbs;tF+=p.fluid;tS+=p.sodium;
+        var cls=p.isAid?' class="gg-pk-calc-aid-row"':'';
+        var itemsHtml=p.items.map(function(it){return'<span class="gg-pk-calc-item gg-pk-calc-item--'+it.type+'">'+it.label+'</span>';}).join(' ');
+        var aidBadge=p.isAid?'<span class="gg-pk-calc-aid-badge">Aid Station</span>':'';
+        html+='<tr'+cls+'><td><span class="gg-pk-calc-hour-num">'+p.hour+'</span></td>';
+        html+='<td>'+p.carbs+'g</td><td>'+p.fluid+'ml</td><td>'+p.sodium+'mg</td>';
+        html+='<td>'+itemsHtml+aidBadge+'</td></tr>';
+      });
+      html+='<tr><td><strong>Total</strong></td><td><strong>'+tC+'g</strong></td>';
+      html+='<td><strong>'+Math.round(tF/1000*10)/10+'L</strong></td>';
+      html+='<td><strong>'+Math.round(tS/1000*10)/10+'g</strong></td><td></td></tr>';
+      html+='</tbody></table></div>';
+    }
+
+    /* Panel 3: WHAT TO PACK */
+    if(plan&&plan.length>0){
+      html+='<div class="gg-pk-calc-panel-title">What to Pack</div>';
+      var totGels=0,totDrinkMl=0,totBars=0,totSaltCaps=0;
+      plan.forEach(function(p){
+        p.items.forEach(function(it){
+          var m=it.label.match(/^(\\d+)/);
+          var n=m?parseInt(m[1]):1;
+          if(it.type==='gel') totGels+=n;
+          else if(it.type==='drink'){var mm=it.label.match(/(\\d+)ml/);if(mm) totDrinkMl+=parseInt(mm[1]);}
+          else if(it.type==='food') totBars+=n;
+        });
+      });
+      if(sodium){totSaltCaps=Math.ceil(sodium.sodiumMgHr*hours/250);}
+      html+='<div class="gg-pk-calc-shopping-grid">';
+      if(totGels>0) html+='<div class="gg-pk-calc-shopping-item"><span class="gg-pk-calc-shopping-qty">'+totGels+'</span><span class="gg-pk-calc-shopping-label">Gels (25g each)</span></div>';
+      if(totDrinkMl>0) html+='<div class="gg-pk-calc-shopping-item"><span class="gg-pk-calc-shopping-qty">'+Math.round(totDrinkMl/1000*10)/10+'L</span><span class="gg-pk-calc-shopping-label">Drink mix</span></div>';
+      if(totSaltCaps>0) html+='<div class="gg-pk-calc-shopping-item"><span class="gg-pk-calc-shopping-qty">'+totSaltCaps+'</span><span class="gg-pk-calc-shopping-label">Salt caps (250mg)</span></div>';
+      if(totBars>0) html+='<div class="gg-pk-calc-shopping-item"><span class="gg-pk-calc-shopping-qty">'+totBars+'</span><span class="gg-pk-calc-shopping-label">Bars / rice cakes</span></div>';
+      html+='</div>';
+      html+='<p class="gg-pk-calc-shopping-note">Pack 10-15% extra for spills and bonking insurance.</p>';
+    }
+
+    panel.innerHTML=html;
+    panel.style.display='block';
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.email.value.trim();
+    var weightLbs=parseFloat(form.weight_lbs.value);
+    var ftp=form.ftp.value?parseFloat(form.ftp.value):null;
+    var hours=parseFloat(form.target_hours.value)||parseFloat(form.est_hours.value)||0;
+    var climateHeat=form.climate_heat.value||'mild';
+    var sweatTendency=form.sweat_tendency.value||'moderate';
+    var fuelFormat=form.fuel_format.value||'mixed';
+    var crampHistory=form.cramp_history.value||'rarely';
+    var aidHours=[];
+    try{aidHours=JSON.parse(form.aid_station_hours.value||'[]');}catch(ex){}
+    if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){
+      alert('Please enter a valid email address.');return;
+    }
+    if(!weightLbs||weightLbs<80){
+      alert('Please enter your weight in lbs.');return;
+    }
+    if(!hours||hours<=0) hours=6;
+    var result=computePersonalized(weightLbs,ftp,hours);
+    if(!result){alert('Could not compute — check your inputs.');return;}
+    var hydration=computeSweatRate(weightLbs,climateHeat,sweatTendency,hours);
+    var sodium=hydration?computeSodium(hydration.sweatRate,climateHeat,crampHistory):null;
+    var fluidMlHr=hydration?Math.round((hydration.fluidLoMl+hydration.fluidHiMl)/2):750;
+    var sodiumMgHr=sodium?sodium.sodiumMgHr:1000;
+    var plan=computeHourlyPlan(hours,result.rate,fluidMlHr,sodiumMgHr,fuelFormat,aidHours);
+    renderResults(result,hydration,sodium,plan,hours);
+    /* Show Substack iframe */
+    var ss=document.getElementById('gg-pk-calc-substack');
+    if(ss) ss.style.display='block';
+    /* Cache email in localStorage */
+    try{
+      localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+    }catch(e){}
+    /* Fire-and-forget POST to Worker */
+    var payload={
+      email:email,weight_lbs:weightLbs,race_slug:form.race_slug.value,
+      race_name:form.race_name.value,
+      height_ft:form.height_ft?form.height_ft.value:'',
+      height_in:form.height_in?form.height_in.value:'',
+      age:form.age?form.age.value:'',ftp:ftp,target_hours:hours,
+      personalized_rate:result.rate,total_carbs:result.totalCarbs,
+      fluid_target_ml_hr:fluidMlHr,sodium_mg_hr:sodiumMgHr,
+      sweat_tendency:sweatTendency,fuel_format:fuelFormat,
+      cramp_history:crampHistory,climate_heat:climateHeat,
+      website:form.website.value
+    };
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    /* GA4 event */
+    if(typeof gtag==='function'){
+      gtag('event','pk_fueling_submit',{race_slug:form.race_slug.value,has_ftp:ftp?'yes':'no',climate:climateHeat});
+    }
+  });
+})();"""
 
 
 def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:

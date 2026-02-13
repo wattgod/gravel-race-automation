@@ -25,6 +25,11 @@
   var showFavoritesOnly = false;
   function saveFavorites() { localStorage.setItem('gg-favorites', JSON.stringify(favorites)); }
 
+  // Saved filter configs state
+  var savedConfigs = [];
+  try { savedConfigs = JSON.parse(localStorage.getItem('gg-saved-filters') || '[]'); } catch(e) { savedConfigs = []; }
+  var activeSavedIndex = -1;
+
   var COMPARE_COLORS = [
     { stroke: '#59473c', fill: 'rgba(89,71,60,0.15)' },
     { stroke: '#178079', fill: 'rgba(23,128,121,0.15)' },
@@ -113,6 +118,7 @@
         compareSlugs = compareSlugs.filter(function(s) { return validSlugs[s]; });
         if (compareSlugs.length < 2) compareMode = false;
         updateFavoritesToggle();
+        renderSavedBar();
         render();
         bindEvents();
       })
@@ -1186,6 +1192,91 @@
     if (!btn) return;
     btn.classList.toggle('active', showFavoritesOnly);
     btn.textContent = 'FAVORITES (' + favorites.length + ')';
+  }
+
+  // ── Saved filter configs ──
+  function saveCurrentConfig() {
+    if (savedConfigs.length >= 10) return;
+    var name = prompt('Name this filter config:');
+    if (!name || !name.trim()) return;
+    name = name.trim().substring(0, 30);
+    var f = getFilters();
+    var config = {
+      name: name,
+      created: Date.now(),
+      filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, profile: f.profile },
+      sliders: getSliderValues(),
+      matchMode: displayMode === 'match',
+      sort: currentSort
+    };
+    savedConfigs.push(config);
+    try { localStorage.setItem('gg-saved-filters', JSON.stringify(savedConfigs)); } catch(e) {}
+    renderSavedBar();
+  }
+  window.saveCurrentConfig = saveCurrentConfig;
+
+  function loadSavedConfig(index) {
+    var config = savedConfigs[index];
+    if (!config) return;
+    // Set filter dropdowns
+    var f = config.filters || {};
+    document.getElementById('gg-search').value = f.search || '';
+    document.getElementById('gg-tier').value = f.tier || '';
+    document.getElementById('gg-region').value = f.region || '';
+    document.getElementById('gg-distance').value = f.distance || '';
+    document.getElementById('gg-month').value = f.month || '';
+    document.getElementById('gg-profile').value = f.profile || '';
+    // Restore sort
+    if (config.sort) {
+      currentSort = config.sort;
+      updateSortButtons();
+    }
+    // Handle match mode
+    if (config.matchMode && config.sliders) {
+      SLIDERS.forEach(function(s) {
+        var el = document.getElementById('gg-q-' + s.key);
+        if (el && config.sliders[s.key] !== undefined) el.value = config.sliders[s.key];
+      });
+      runMatch();
+    } else if (displayMode === 'match') {
+      resetMatch();
+    } else {
+      render();
+      saveToURL();
+    }
+    // Highlight active pill
+    activeSavedIndex = index;
+    renderSavedBar();
+  }
+  window.loadSavedConfig = loadSavedConfig;
+
+  function deleteSavedConfig(index) {
+    savedConfigs.splice(index, 1);
+    try { localStorage.setItem('gg-saved-filters', JSON.stringify(savedConfigs)); } catch(e) {}
+    if (activeSavedIndex === index) activeSavedIndex = -1;
+    else if (activeSavedIndex > index) activeSavedIndex--;
+    renderSavedBar();
+  }
+  window.deleteSavedConfig = deleteSavedConfig;
+
+  function renderSavedBar() {
+    var bar = document.getElementById('gg-saved-bar');
+    if (!bar) return;
+    var atLimit = savedConfigs.length >= 10;
+    var html = '<button class="gg-saved-btn"' +
+      (atLimit ? ' disabled title="Maximum 10 saved configs"' : '') +
+      ' onclick="saveCurrentConfig()">SAVE</button>';
+    savedConfigs.forEach(function(config, i) {
+      var activeClass = i === activeSavedIndex ? ' gg-saved-active' : '';
+      var nameSpan = document.createElement('span');
+      nameSpan.textContent = config.name;
+      var escapedName = nameSpan.textContent.replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;');
+      html += '<span class="gg-saved-pill' + activeClass + '" onclick="loadSavedConfig(' + i + ')">' +
+        escapedName +
+        '<button onclick="event.stopPropagation();deleteSavedConfig(' + i + ')">\u00d7</button>' +
+      '</span>';
+    });
+    bar.innerHTML = html;
   }
 
   // ── Main render ──

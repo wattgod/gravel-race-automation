@@ -721,7 +721,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Header ──────────────────────────────────────────────── */
 .gg-hp-header { padding: 16px 24px; border-bottom: 4px solid #3a2e25; }
-.gg-hp-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.gg-hp-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
 .gg-hp-header-logo img { display: block; height: 50px; width: auto; }
 .gg-hp-header-nav { display: flex; gap: 28px; }
 .gg-hp-header-nav a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); }
@@ -787,7 +787,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-section-header--teal { background: #178079; }
 
 /* ── Featured races ──────────────────────────────────────── */
-.gg-hp-featured { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-featured { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
 .gg-hp-race-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .gg-hp-race-card { display: block; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
 .gg-hp-race-card:hover { border-color: #9a7e0a; }
@@ -810,7 +810,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-quick-chip--accent:hover { background: #178079; color: #f5efe6; border-color: #178079; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
-.gg-hp-latest-takes { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-latest-takes { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
 .gg-hp-section-header--gold { background: #9a7e0a; }
 .gg-hp-take-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .gg-hp-take-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
@@ -832,7 +832,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-step-desc { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; line-height: 1.7; }
 
 /* ── Coming Up ───────────────────────────────────────────── */
-.gg-hp-coming-up { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-coming-up { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
 .gg-hp-cal-list { padding: 0; }
 .gg-hp-cal-item { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: #3a2e25; transition: border-color var(--gg-ease), background-color var(--gg-ease); }
 .gg-hp-cal-item:last-child { border-bottom: none; }
@@ -852,7 +852,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cal-offseason a { color: #178079; font-weight: 700; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
-.gg-hp-guide { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-guide { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
 .gg-hp-guide-intro { padding: 20px; font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #3a2e25; line-height: 1.75; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-guide-intro p { margin: 0; }
 .gg-hp-guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
@@ -869,7 +869,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-guide-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 
 /* ── As Featured In ─────────────────────────────────────── */
-.gg-hp-featured-in { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; background: #f5efe6; }
+.gg-hp-featured-in { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; background: #f5efe6; }
 .gg-hp-feat-inner { display: flex; align-items: center; gap: 32px; padding: 32px 24px; }
 .gg-hp-feat-text { flex: 0 0 auto; max-width: 260px; }
 .gg-hp-feat-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 8px; }
@@ -880,7 +880,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
 /* ── Training CTA ────────────────────────────────────────── */
-.gg-hp-training { max-width: 1200px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-training { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
 .gg-hp-training-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; }
 .gg-hp-training-card { padding: 36px 24px; }
 .gg-hp-training-card--primary { border-right: 3px solid #3a2e25; border-top: 3px solid #9a7e0a; }
@@ -914,7 +914,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Footer ──────────────────────────────────────────────── */
 .gg-hp-footer { background: #59473c; margin-top: 32px; border-top: 4px double #3a2e25; }
-.gg-hp-footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 32px; padding: 48px 32px; max-width: 1200px; margin: 0 auto; }
+.gg-hp-footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 32px; padding: 48px 32px; max-width: 960px; margin: 0 auto; }
 .gg-hp-footer-title { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; margin-bottom: 12px; }
 .gg-hp-footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #d4c5b9; margin: 0; }
 .gg-hp-footer-heading { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 16px; }
@@ -924,7 +924,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-footer-newsletter p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #d4c5b9; line-height: 1.75; margin: 0 0 16px; }
 .gg-hp-footer-subscribe { display: inline-block; padding: 10px 24px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; background: #178079; color: #fff; text-decoration: none; border: 3px solid #178079; transition: background-color var(--gg-ease), border-color var(--gg-ease); }
 .gg-hp-footer-subscribe:hover { background: transparent; border-color: #178079; }
-.gg-hp-footer-legal { padding: 16px 32px; border-top: 2px solid #3a2e25; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 1px; max-width: 1200px; margin: 0 auto; }
+.gg-hp-footer-legal { padding: 16px 32px; border-top: 2px solid #3a2e25; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 1px; max-width: 960px; margin: 0 auto; }
 
 /* ── Skip link ───────────────────────────────────────────── */
 .gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #9a7e0a; color: #3a2e25; z-index: 100; }

@@ -354,7 +354,6 @@ def normalize_race_data(data: dict) -> dict:
         },
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
-        'race_photos': race.get('race_photos', []),
         'citations': race.get('citations', []),
     }
 
@@ -1556,42 +1555,6 @@ def build_logistics_section(rd: dict) -> str:
   </section>'''
 
 
-def build_photos_section(rd: dict) -> str:
-    """Build photo grid section using self-hosted AI-generated race photos.
-    Returns empty string if no photos — no empty placeholder."""
-    photos = rd.get('race_photos', [])
-    if not photos:
-        return ''
-
-    photo_base = 'https://gravelgodcycling.com/photos'
-    cards = []
-    for p in photos:
-        url = f"{photo_base}/{p['file']}"
-        alt = esc(p.get('alt', 'Race course photo'))
-        ptype = p.get('type', 'hero')
-        h = 675 if ptype != 'grit' else 900
-        cards.append(f'''<figure class="gg-photo-card">
-          <img src="{esc(url)}" alt="{alt}" loading="lazy"
-               width="1200" height="{h}">
-        </figure>''')
-
-    if not cards:
-        return ''
-
-    grid = '\n        '.join(cards)
-    return f'''<section id="photos" class="gg-section gg-fade-section gg-section--accent">
-    <div class="gg-section-header gg-section-header--dark">
-      <span class="gg-section-kicker">[&mdash;]</span>
-      <h2 class="gg-section-title">From the Field</h2>
-    </div>
-    <div class="gg-section-body gg-photos-body">
-      <div class="gg-photos-grid">
-        {grid}
-      </div>
-    </div>
-  </section>'''
-
-
 def build_news_section(rd: dict) -> str:
     """Build Latest News section — fetches Google News RSS via rss2json.com at runtime.
     Only renders for T1/T2 races (T3/T4 rarely have news, wastes API calls).
@@ -2205,15 +2168,6 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
 
-/* Photo grid */
-.gg-neo-brutalist-page .gg-photos-body {{ padding: 0; }}
-.gg-neo-brutalist-page .gg-photos-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; }}
-.gg-neo-brutalist-page .gg-photo-card {{ margin: 0; border: var(--gg-border-standard); overflow: hidden; }}
-.gg-neo-brutalist-page .gg-photo-card img {{ width: 100%; height: 220px; object-fit: cover; display: block; }}
-.gg-neo-brutalist-page .gg-photo-card figcaption {{ background: var(--gg-color-warm-paper); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; border-top: var(--gg-border-standard); }}
-.gg-neo-brutalist-page .gg-photo-card figcaption a {{ color: var(--gg-color-primary-brown); text-decoration: none; font-weight: 700; }}
-.gg-neo-brutalist-page .gg-photo-card figcaption a:hover {{ color: var(--gg-color-teal); }}
-
 /* News ticker */
 .gg-neo-brutalist-page .gg-news-ticker {{ background: var(--gg-color-near-black); border: var(--gg-border-standard); margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }}
 .gg-neo-brutalist-page .gg-news-ticker-label {{ background: var(--gg-color-gold); color: var(--gg-color-near-black); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 0 var(--gg-spacing-md); display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: var(--gg-border-standard); }}
@@ -2467,7 +2421,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     history = build_history(rd)
     pullquote = build_pullquote(rd)
     course_route = build_course_route(rd)
-    photos = build_photos_section(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd, race_index)
     email_capture = build_email_capture(rd)
@@ -2499,7 +2452,7 @@ body{margin:0;background:#ede4d8}
 
     # Section order
     content_sections = []
-    for section in [course_overview, history, pullquote, course_route, photos,
+    for section in [course_overview, history, pullquote, course_route,
                     ratings, verdict, email_capture, news,
                     training, logistics_sec, similar, visible_faq,
                     citations_sec]:

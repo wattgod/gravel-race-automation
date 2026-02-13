@@ -289,6 +289,40 @@ def check_search_schema(v):
             "Missing BreadcrumbList schema")
 
 
+def check_featured_slugs(v):
+    """Verify all FEATURED_SLUGS in generate_homepage.py exist in race-index.json."""
+    print("\n[Featured Slugs]")
+    project_root = Path(__file__).resolve().parent.parent
+    index_path = project_root / "web" / "race-index.json"
+    if not index_path.exists():
+        v.warn("race-index.json not found", str(index_path))
+        return
+
+    # Import FEATURED_SLUGS from the homepage generator
+    sys.path.insert(0, str(project_root / "wordpress"))
+    try:
+        from generate_homepage import FEATURED_SLUGS
+    except ImportError:
+        v.warn("Could not import FEATURED_SLUGS", "generate_homepage.py not found")
+        return
+    finally:
+        sys.path.pop(0)
+
+    races = json.loads(index_path.read_text())
+    index_slugs = {r["slug"] for r in races}
+
+    for slug in FEATURED_SLUGS:
+        v.check(slug in index_slugs, f"Featured slug '{slug}' exists in index",
+                f"'{slug}' not found — homepage will use fallback")
+
+    # Also verify the featured race pages are live
+    if not QUICK:
+        for slug in FEATURED_SLUGS:
+            if slug in index_slugs:
+                code = curl_status(f"{BASE_URL}/race/{slug}/")
+                v.check(code == "200", f"Featured race page /race/{slug}/", f"HTTP {code}")
+
+
 def check_permissions(v):
     """Verify /race/ directory is accessible (not 403)."""
     print("\n[Permissions]")
@@ -312,6 +346,7 @@ def main():
     check_citations(v)
 
     check_search_schema(v)
+    check_featured_slugs(v)
 
     if not QUICK:
         check_sample_race_pages(v)

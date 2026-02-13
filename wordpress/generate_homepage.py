@@ -41,12 +41,12 @@ GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
 # ── Featured race slugs (curated for homepage diversity) ─────
 
 FEATURED_SLUGS = [
-    "unbound-gravel",
+    "unbound-200",
     "mid-south",
     "badlands",
     "steamboat-gravel",
     "the-traka",
-    "belgian-waffle-ride",
+    "bwr-california",
 ]
 
 # ── Featured on-site articles (curated for homepage voice) ──────

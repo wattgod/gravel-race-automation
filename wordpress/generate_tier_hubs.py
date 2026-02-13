@@ -500,7 +500,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
   </div>
 
   <footer class="gg-hub-footer">
-    <a href="/">Gravel God</a> &middot; 328 races rated &middot;
+    <a href="/">Gravel God</a> &middot; {len(all_races)} races rated &middot;
     <a href="/gravel-races/">Search All</a> &middot;
     <a href="/race/methodology/">Methodology</a>
   </footer>

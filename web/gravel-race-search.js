@@ -1081,7 +1081,7 @@
     // View links row
     html += '<tr><td class="gg-compare-label-col"></td>';
     races.forEach(function(r) {
-      html += '<td>' + (r.has_profile ? '<a href="' + r.profile_url + '" class="gg-compare-view-link">View Profile \u2197</a>' : '') + '</td>';
+      html += '<td>' + (r.has_profile ? '<a href="' + r.profile_url + '" class="gg-compare-view-link">View Profile &rarr;</a>' : '') + '</td>';
     });
     html += '</tr>';
 

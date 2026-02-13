@@ -1078,8 +1078,8 @@ def build_jsonld(stats: dict) -> str:
         },
     }
     parts = [
-        f'<script type="application/ld+json">\n{json.dumps(org, indent=2)}\n</script>',
-        f'<script type="application/ld+json">\n{json.dumps(website, indent=2)}\n</script>',
+        f'<script type="application/ld+json">{json.dumps(org, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{json.dumps(website, separators=(",",":"))}</script>',
     ]
     return "\n  ".join(parts)
 

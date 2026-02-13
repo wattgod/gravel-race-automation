@@ -197,8 +197,15 @@ def build_seo_description(rd: dict) -> str:
     tagline = rd['tagline'].rstrip('.')
     score = rd['overall_score']
     tier = rd['tier']
-    tier_word = {1: 'Tier 1', 2: 'Tier 2', 3: 'Tier 3', 4: 'Tier 4'}.get(tier, f'Tier {tier}')
-    suffix = f" Rated {score}/100 ({tier_word}). Course maps, ratings & full race breakdown."
+    tier_label = {1: 'Elite', 2: 'Contender', 3: 'Solid', 4: 'Roster'}.get(tier, f'Tier {tier}')
+    location = rd.get('vitals', {}).get('location', '')
+    if location == '--':
+        location = ''
+    # Build suffix with optional location for local SEO
+    if location and len(location) <= 30:
+        suffix = f" Rated {score}/100 ({tier_label}) in {location}. Course maps, ratings & full breakdown."
+    else:
+        suffix = f" Rated {score}/100 ({tier_label}). Course maps, ratings & full breakdown."
 
     desc = f"{tagline}.{suffix}"
     if len(desc) <= 160:
@@ -217,7 +224,7 @@ def build_seo_description(rd: dict) -> str:
         return f"{truncated}.{suffix}"
 
     # Fallback: just tagline + score
-    return f"{tagline}. Rated {score}/100 ({tier_word}) by Gravel God."
+    return f"{tagline}. Rated {score}/100 ({tier_label}) by Gravel God."
 
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
@@ -2436,19 +2443,19 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # JSON-LD
     jsonld_parts = []
     sports_event = build_sports_event_jsonld(rd)
-    jsonld_parts.append(json.dumps(sports_event, indent=2, ensure_ascii=False))
+    jsonld_parts.append(json.dumps(sports_event, ensure_ascii=False, separators=(',', ':')))
     faq = build_faq_jsonld(rd)
     if faq:
-        jsonld_parts.append(json.dumps(faq, indent=2, ensure_ascii=False))
+        jsonld_parts.append(json.dumps(faq, ensure_ascii=False, separators=(',', ':')))
     if race_index:
         breadcrumb = build_breadcrumb_jsonld(rd, race_index)
-        jsonld_parts.append(json.dumps(breadcrumb, indent=2, ensure_ascii=False))
+        jsonld_parts.append(json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':')))
 
     webpage = build_webpage_jsonld(rd)
-    jsonld_parts.append(json.dumps(webpage, indent=2, ensure_ascii=False))
+    jsonld_parts.append(json.dumps(webpage, ensure_ascii=False, separators=(',', ':')))
 
     jsonld_html = '\n'.join(
-        f'<script type="application/ld+json">\n{j}\n</script>'
+        f'<script type="application/ld+json">{j}</script>'
         for j in jsonld_parts
     )
 

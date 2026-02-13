@@ -836,10 +836,10 @@ def build_jsonld(content: dict) -> str:
     }
 
     parts = [
-        f'<script type="application/ld+json">\n{json.dumps(article, indent=2)}\n</script>',
-        f'<script type="application/ld+json">\n{json.dumps(breadcrumb, indent=2)}\n</script>',
-        f'<script type="application/ld+json">\n{json.dumps(course, indent=2)}\n</script>',
-        f'<script type="application/ld+json">\n{json.dumps(howto, indent=2)}\n</script>',
+        f'<script type="application/ld+json">{json.dumps(article, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{json.dumps(breadcrumb, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{json.dumps(course, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{json.dumps(howto, separators=(",",":"))}</script>',
     ]
     return '\n'.join(parts)
 

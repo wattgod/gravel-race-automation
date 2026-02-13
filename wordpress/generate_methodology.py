@@ -379,8 +379,8 @@ def build_jsonld() -> str:
             },
         ],
     }
-    wp_tag = f'<script type="application/ld+json">\n{json.dumps(webpage, indent=2)}\n</script>'
-    faq_tag = f'<script type="application/ld+json">\n{json.dumps(faq, indent=2)}\n</script>'
+    wp_tag = f'<script type="application/ld+json">{json.dumps(webpage, separators=(",",":"))} </script>'
+    faq_tag = f'<script type="application/ld+json">{json.dumps(faq, separators=(",",":"))} </script>'
     return f'{wp_tag}\n  {faq_tag}'
 
 

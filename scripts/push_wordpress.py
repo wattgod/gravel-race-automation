@@ -657,12 +657,6 @@ RewriteEngine On
 # /guide.html → /guide/ (old URL from search engines / bookmarks)
 RewriteRule ^guide\\.html$ /guide/ [R=301,L]
 
-# /homepage/ → / (duplicate of WP homepage, splits SEO)
-RewriteRule ^homepage/?$ / [R=301,L]
-
-# /homepage/index.html → / (direct file access)
-RewriteRule ^homepage/index\\.html$ / [R=301,L]
-
 # /race/ directory index → search page (prevents 403)
 RewriteRule ^race/?$ /gravel-races/ [R=301,L]
 
@@ -956,6 +950,73 @@ def purge_cache():
 
 
 
+def sync_prep_kits(prep_kit_dir: str):
+    """Upload prep kit pages to /race/{slug}/prep-kit/ on SiteGround via tar+ssh.
+
+    Converts flat {slug}.html files to {slug}/prep-kit/index.html directory
+    structure under /race/. Same tar+ssh pattern as sync_pages().
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    pk_path = Path(prep_kit_dir)
+    if not pk_path.exists():
+        print(f"✗ Prep kit directory not found: {pk_path}")
+        return None
+
+    html_files = sorted(pk_path.glob("*.html"))
+    if not html_files:
+        print(f"✗ No .html files found in {pk_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for html_file in html_files:
+            slug = html_file.stem
+            pk_dir = tmpdir / slug / "prep-kit"
+            pk_dir.mkdir(parents=True)
+            shutil.copy2(html_file, pk_dir / "index.html")
+            page_count += 1
+
+        print(f"  Uploading {page_count} prep kit pages via tar+ssh...")
+
+        try:
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"tar -xf - -C {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"✗ Error uploading prep kit pages: {e}")
+            return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} prep kit pages to {wp_url}/race/*/prep-kit/")
+    return f"{wp_url}/race/"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -1030,6 +1091,14 @@ if __name__ == "__main__":
         help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-prep-kits", action="store_true",
+        help="Upload prep kit pages to /race/{slug}/prep-kit/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--prep-kit-dir", default="wordpress/output/prep-kit",
+        help="Path to prep kit directory (default: wordpress/output/prep-kit)"
+    )
+    parser.add_argument(
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
@@ -1058,12 +1127,13 @@ if __name__ == "__main__":
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
+        args.sync_prep_kits = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.purge_cache])
+                      args.sync_noindex, args.sync_prep_kits, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -1089,5 +1159,7 @@ if __name__ == "__main__":
         sync_redirects()
     if args.sync_noindex:
         sync_noindex()
+    if args.sync_prep_kits:
+        sync_prep_kits(args.prep_kit_dir)
     if args.purge_cache:
         purge_cache()

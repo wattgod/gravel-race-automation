@@ -82,6 +82,34 @@ FEATURED_ONSITE_ARTICLES = [
     ),
 ]
 
+# ── Athlete testimonials (from live site coaching section) ──────
+TESTIMONIALS = [
+    {
+        "quote": "I finished Unbound in 13:47 this year. Last year I DNF\u2019d at mile 140 because I had no idea how to pace myself and ran out of food twice. Matti\u2019s plan was boring as hell but it worked.",
+        "name": "Sarah K.",
+        "title": "Unbound 200 finisher",
+        "tags": "Gravel \u00b7 9 hrs/week \u00b7 Elementary school teacher",
+    },
+    {
+        "quote": "First time I cracked top 20 at a regional race. Not because I got fitter\u2014I\u2019ve been \u2018fit enough\u2019 for years. I just finally learned to not go hard when it felt easy and actually recover on easy days.",
+        "name": "Marcus T.",
+        "title": "consistent podium threat",
+        "tags": "Gravel \u00b7 12 hrs/week \u00b7 Night shift RN",
+    },
+    {
+        "quote": "Matti told me to stop doing VO2 intervals in February and I thought he was an idiot. Then I PR\u2019d every race distance from June through September. Turns out base actually matters.",
+        "name": "Jordan P.",
+        "title": "multiple Cat 1/2 wins",
+        "tags": "Road & gravel \u00b7 14 hrs/week \u00b7 Software engineer",
+    },
+    {
+        "quote": "I went from blowing up on every climb longer than 10 minutes to finishing SBT GRVL Black in the top third. The difference was pacing and fueling strategy, not some magic workout.",
+        "name": "Chris M.",
+        "title": "SBT GRVL Black finisher",
+        "tags": "Gravel \u00b7 10 hrs/week \u00b7 Two kids under 5",
+    },
+]
+
 
 def esc(text) -> str:
     """HTML-escape a string."""
@@ -416,7 +444,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
     <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-    <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. No sponsors. No pay-to-play. Just honest ratings &mdash; plus coaching and training for people with real lives who still want to go fast.</p>
+    <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. No sponsors. No pay-to-play. Just honest ratings.</p>
     <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
       <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
       <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
@@ -619,6 +647,16 @@ def build_training_cta() -> str:
     <div class="gg-hp-section-header gg-hp-section-header--teal">
       <h2>RACE-SPECIFIC TRAINING</h2>
     </div>
+    <div class="gg-hp-training-stats">
+      <div class="gg-hp-training-stat">
+        <span class="gg-hp-training-stat-num">100+</span>
+        <span class="gg-hp-training-stat-label">Athletes Coached</span>
+      </div>
+      <div class="gg-hp-training-stat">
+        <span class="gg-hp-training-stat-num">1,000+</span>
+        <span class="gg-hp-training-stat-label">Training Plans Sold</span>
+      </div>
+    </div>
     <div class="gg-hp-training-grid">
       <div class="gg-hp-training-card gg-hp-training-card--primary">
         <h3>Training Plans</h3>
@@ -634,9 +672,42 @@ def build_training_cta() -> str:
       <div class="gg-hp-training-card gg-hp-training-card--secondary">
         <h3>1:1 Coaching</h3>
         <p class="gg-hp-training-subtitle">A human in your corner. Adapts week to week.</p>
-        <p>Your coach reviews every session, adjusts when life happens, and builds race-day strategy with you. Not a plan &mdash; a partnership.</p>
+        <div class="gg-hp-coaching-features">
+          <div class="gg-hp-coaching-feat"><strong>Built around your reality.</strong> Work, kids, travel, and the random Tuesday emergency.</div>
+          <div class="gg-hp-coaching-feat"><strong>No guilt. Just edits.</strong> When life happens, we adjust the plan instead of pretending you&rsquo;re a robot.</div>
+          <div class="gg-hp-coaching-feat"><strong>Race-day guardrails.</strong> Pacing, fueling, and &ldquo;if this happens, do that&rdquo; so you don&rsquo;t improvise at mile 140.</div>
+        </div>
         <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--secondary" target="_blank" rel="noopener" data-ga="coaching_click">APPLY</a>
       </div>
+    </div>
+  </section>'''
+
+
+def build_testimonials() -> str:
+    """Build the athlete testimonials section with quotes from coached athletes."""
+    if not TESTIMONIALS:
+        return ""
+
+    cards = ""
+    for t in TESTIMONIALS:
+        cards += f'''
+      <div class="gg-hp-test-card">
+        <blockquote class="gg-hp-test-quote">&ldquo;{esc(t["quote"])}&rdquo;</blockquote>
+        <div class="gg-hp-test-attr">
+          <span class="gg-hp-test-name">{esc(t["name"])}</span>
+          <span class="gg-hp-test-title">{esc(t["title"])}</span>
+        </div>
+        <div class="gg-hp-test-tags">{esc(t["tags"])}</div>
+      </div>'''
+
+    return f'''<section class="gg-hp-testimonials" id="testimonials">
+    <div class="gg-hp-section-header">
+      <h2>ATHLETE RESULTS</h2>
+    </div>
+    <div class="gg-hp-test-grid">{cards}
+    </div>
+    <div class="gg-hp-test-cta">
+      <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--primary" target="_blank" rel="noopener" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
     </div>
   </section>'''
 
@@ -892,6 +963,32 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-training-card--secondary { background: #ede4d8; }
 .gg-hp-training-card--secondary p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; margin-bottom: 16px; }
 
+/* ── Training stats ──────────────────────────────────────── */
+.gg-hp-training-stats { display: grid; grid-template-columns: repeat(2, 1fr); background: #1a1613; border-bottom: 3px solid #3a2e25; }
+.gg-hp-training-stat { text-align: center; padding: 24px 16px; border-right: 2px solid #3a2e25; }
+.gg-hp-training-stat:last-child { border-right: none; }
+.gg-hp-training-stat-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; line-height: 1.1; margin-bottom: 6px; }
+.gg-hp-training-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7d695d; }
+
+/* ── Coaching features ───────────────────────────────────── */
+.gg-hp-coaching-features { margin-bottom: 20px; }
+.gg-hp-coaching-feat { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; padding: 8px 0; border-bottom: 1px solid #d4c5b9; }
+.gg-hp-coaching-feat:last-child { border-bottom: none; }
+.gg-hp-coaching-feat strong { color: #3a2e25; }
+
+/* ── Testimonials ────────────────────────────────────────── */
+.gg-hp-testimonials { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+.gg-hp-test-card { padding: 24px; border: 1px solid #d4c5b9; background: #f5efe6; }
+.gg-hp-test-quote { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a2e25; font-style: italic; margin: 0 0 16px; border-left: 3px solid #9a7e0a; padding-left: 16px; }
+.gg-hp-test-attr { margin-bottom: 8px; }
+.gg-hp-test-name { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #3a2e25; letter-spacing: 1px; }
+.gg-hp-test-title { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #9a7e0a; letter-spacing: 0.5px; margin-left: 8px; }
+.gg-hp-test-tags { font-family: 'Sometype Mono', monospace; font-size: 9px; color: #7d695d; letter-spacing: 1.5px; text-transform: uppercase; }
+.gg-hp-test-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
+.gg-hp-test-cta .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
+.gg-hp-test-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
+
 /* ── Email capture ───────────────────────────────────────── */
 .gg-hp-email { background: #59473c; margin-top: 32px; padding: 48px; border: 3px solid #3a2e25; }
 .gg-hp-email-inner { max-width: 560px; margin: 0 auto; text-align: center; }
@@ -938,6 +1035,7 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-footer-grid { grid-template-columns: 1fr 1fr; }
   .gg-hp-feat-inner { flex-direction: column; text-align: center; }
   .gg-hp-feat-text { max-width: 100%; }
+  .gg-hp-test-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Responsive: mobile ─────────────────────────────────── */
@@ -947,7 +1045,7 @@ a { text-decoration: none; color: #178079; }
 
   /* Full-bleed sections on mobile — remove side borders */
   .gg-hp-featured, .gg-hp-latest-takes, .gg-hp-how-it-works, .gg-hp-coming-up,
-  .gg-hp-guide, .gg-hp-featured-in, .gg-hp-training, .gg-hp-email { margin: 16px 0 0; border-left: none; border-right: none; }
+  .gg-hp-guide, .gg-hp-featured-in, .gg-hp-training, .gg-hp-email, .gg-hp-testimonials { margin: 16px 0 0; border-left: none; border-right: none; }
 
   /* Header */
   .gg-hp-header { padding: 12px 16px; }
@@ -1020,6 +1118,15 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-training-grid { grid-template-columns: 1fr; }
   .gg-hp-training-card { padding: 24px 16px; }
   .gg-hp-training-card--primary { border-right: none; border-bottom: 3px solid #3a2e25; }
+
+  /* Testimonials */
+  .gg-hp-test-grid { grid-template-columns: 1fr; }
+  .gg-hp-test-card { padding: 16px; }
+  .gg-hp-test-quote { font-size: 13px; }
+
+  /* Training stats */
+  .gg-hp-training-stat { padding: 16px 10px; }
+  .gg-hp-training-stat-num { font-size: 28px; }
 
   /* Email / articles — stack vertically on mobile, show max 3 */
   .gg-hp-email { padding: 32px 0; }
@@ -1116,6 +1223,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     guide_preview = build_guide_preview(chapters)
     featured_in = build_featured_in()
     training = build_training_cta()
+    testimonials = build_testimonials()
     email = build_email_capture(substack_posts)
     footer = build_footer()
     css = build_homepage_css()
@@ -1173,6 +1281,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {how_it_works}
 
   {training}
+
+  {testimonials}
 
   {guide_preview}
 

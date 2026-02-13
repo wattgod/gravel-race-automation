@@ -122,6 +122,7 @@ def build_race_card_html(race):
     elevation = race.get("elevation_ft", "")
     tagline = esc(race.get("tagline", ""))
     profile_url = f"{SITE_URL}/race/{slug}/"
+    prep_kit_url = f"{SITE_URL}/race/{slug}/prep-kit/"
 
     distance_str = f"{distance} mi" if distance else ""
     if isinstance(elevation, (int, float)):
@@ -143,7 +144,10 @@ def build_race_card_html(race):
       <div class="gg-roundup-location">{location}</div>
       <div class="gg-roundup-vitals">{vitals_line}</div>
       {f'<p class="gg-roundup-tagline">{tagline}</p>' if tagline else ''}
-      <a href="{profile_url}" class="gg-roundup-link">Full Race Profile &rarr;</a>
+      <div class="gg-roundup-links">
+        <a href="{profile_url}" class="gg-roundup-link">Race Profile &rarr;</a>
+        <a href="{prep_kit_url}" class="gg-roundup-link gg-roundup-link--kit">Free Prep Kit &rarr;</a>
+      </div>
     </div>"""
 
 
@@ -371,7 +375,15 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
       text-transform: uppercase;
       letter-spacing: 1px;
     }}
+    .gg-roundup-links {{
+      display: flex;
+      gap: 16px;
+      margin-top: 4px;
+    }}
     .gg-roundup-link:hover {{ text-decoration: underline; }}
+    .gg-roundup-link--kit {{
+      color: var(--gg-gold);
+    }}
     .gg-blog-cta {{
       text-align: center;
       padding: 32px;

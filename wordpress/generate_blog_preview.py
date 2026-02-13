@@ -172,12 +172,27 @@ def generate_preview_html(slug):
     course_section = ""
     character = course_desc.get("character", "")
     suffering = course_desc.get("suffering_zones", "")
-    if character or suffering:
+    suffering_html = ""
+    if isinstance(suffering, list) and suffering:
+        items = []
+        for z in suffering:
+            if isinstance(z, dict):
+                label = esc(z.get("label", ""))
+                mile = z.get("mile", "")
+                desc = esc(z.get("desc", ""))
+                prefix = f"Mile {esc(str(mile))}: " if mile is not None and mile != "" else ""
+                items.append(f"<li><strong>{prefix}{label}</strong> — {desc}</li>")
+            else:
+                items.append(f"<li>{esc(str(z))}</li>")
+        suffering_html = f'<p><strong>Key challenges:</strong></p><ul>{"".join(items)}</ul>'
+    elif suffering:
+        suffering_html = f"<p><strong>Key challenges:</strong> {esc(str(suffering))}</p>"
+    if character or suffering_html:
         course_section = f"""
     <section class="gg-blog-section">
       <h2>Course Preview</h2>
       {f'<p>{esc(character)}</p>' if character else ''}
-      {f'<p><strong>Key challenges:</strong> {esc(suffering)}</p>' if suffering else ''}
+      {suffering_html}
     </section>"""
 
     stats_items = []
@@ -192,7 +207,8 @@ def generate_preview_html(slug):
     if field_size:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(field_size))}</span><span class="gg-blog-stat-label">Field Size</span></div>')
     if terrain_types:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(terrain_types))}</span><span class="gg-blog-stat-label">Terrain</span></div>')
+        terrain_display = " · ".join(str(t) for t in terrain_types) if isinstance(terrain_types, list) else str(terrain_types)
+        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(terrain_display)}</span><span class="gg-blog-stat-label">Terrain</span></div>')
     stats_section = ""
     if stats_items:
         stats_section = f"""
@@ -204,23 +220,36 @@ def generate_preview_html(slug):
     training_section = ""
     if non_negotiables:
         top3 = non_negotiables[:3]
-        items = "".join(f"<li>{esc(n)}</li>" for n in top3)
+        items = []
+        for n in top3:
+            if isinstance(n, dict):
+                req = esc(n.get("requirement", ""))
+                why = esc(n.get("why", ""))
+                items.append(f"<li><strong>{req}</strong> — {why}</li>" if why else f"<li><strong>{req}</strong></li>")
+            else:
+                items.append(f"<li>{esc(str(n))}</li>")
         training_section = f"""
     <section class="gg-blog-section">
       <h2>Training Focus</h2>
       <p>To be competitive at {esc(name)}, prioritize these non-negotiables:</p>
-      <ol>{items}</ol>
+      <ol>{"".join(items)}</ol>
     </section>"""
 
     history_section = ""
     origin = history.get("origin_story", "")
     notable = history.get("notable_moments", "")
-    if origin or notable:
+    notable_html = ""
+    if isinstance(notable, list) and notable:
+        items = "".join(f"<li>{esc(str(m))}</li>" for m in notable)
+        notable_html = f"<p><strong>Notable moments:</strong></p><ul>{items}</ul>"
+    elif notable:
+        notable_html = f"<p><strong>Notable moments:</strong> {esc(str(notable))}</p>"
+    if origin or notable_html:
         history_section = f"""
     <section class="gg-blog-section">
       <h2>History</h2>
       {f'<p>{esc(origin)}</p>' if origin else ''}
-      {f'<p><strong>Notable moments:</strong> {esc(notable)}</p>' if notable else ''}
+      {notable_html}
     </section>"""
 
     reg_section = ""

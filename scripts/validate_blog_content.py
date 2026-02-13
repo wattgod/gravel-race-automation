@@ -39,6 +39,24 @@ TEST_FILES = [
 
 VERBOSE = False
 
+# Patterns that indicate raw Python repr leaked into HTML.
+# Module-level so tests can import and verify them directly.
+# Each pattern requires structural signals (key:value, item,item) to avoid
+# false positives on normal English text.
+PYTHON_REPR_PATTERNS = [
+    # HTML-escaped single quotes (esc() converts ' to &#x27;)
+    (re.compile(r"\{&#x27;\w+&#x27;:"), "HTML-escaped dict ({&#x27;key&#x27;:)"),
+    (re.compile(r"\[&#x27;[^]]+&#x27;[,\]]"), "HTML-escaped list ([&#x27;item&#x27;,])"),
+    # Unescaped single quotes
+    (re.compile(r"\{'\w+':\s"), "single-quoted dict ({'key': )"),
+    (re.compile(r"\['[^]]+?'[,\]]"), "single-quoted list (['item',])"),
+    # Double-quoted (json.dumps output or f-string repr)
+    (re.compile(r'\{"\w+":\s'), 'double-quoted dict ({"key": )'),
+    (re.compile(r'\["[^]]+?"[,\]]'), 'double-quoted list (["item",])'),
+    # List-of-dicts (most common bug pattern)
+    (re.compile(r"\[\{['\"]"), "list-of-dicts ([{'...} or [{\"...}])"),
+]
+
 
 class Validator:
     def __init__(self):
@@ -227,6 +245,60 @@ def check_html_quality(v):
             )
 
 
+def check_no_python_repr(v):
+    """Detect raw Python repr (dict/list literals) leaked into blog HTML.
+
+    Catches bugs where list-of-dicts or list-of-strings are rendered via
+    str() instead of being formatted as readable HTML.
+    """
+    v.section("No Python Repr in HTML")
+
+    if not BLOG_DIR.exists():
+        v.check(False, "Blog directory exists")
+        return
+
+    html_files = sorted(BLOG_DIR.glob("*.html"))
+    if not html_files:
+        v.check(True, "No HTML files to check")
+        return
+
+    # Patterns that indicate raw Python repr leaked into HTML.
+    # Covers: single-quoted, double-quoted, HTML-escaped, and list-of-dicts.
+    # Each pattern is tested in test_validate_blog_content.py to prove it
+    # catches the corresponding repr variant.
+    repr_patterns = PYTHON_REPR_PATTERNS
+
+    failures = []
+    for f in html_files:
+        content = f.read_text()
+
+        # Extract body content, excluding <script> and <style> blocks
+        body_match = re.search(r"<body[^>]*>(.*)</body>", content, re.DOTALL)
+        if not body_match:
+            continue
+        body = body_match.group(1)
+
+        # Remove <script> and <style> blocks from body
+        body_clean = re.sub(r"<script[^>]*>.*?</script>", "", body, flags=re.DOTALL)
+        body_clean = re.sub(r"<style[^>]*>.*?</style>", "", body_clean, flags=re.DOTALL)
+
+        for pattern, desc in repr_patterns:
+            match = pattern.search(body_clean)
+            if match:
+                # Get context around match
+                start = max(0, match.start() - 20)
+                end = min(len(body_clean), match.end() + 40)
+                snippet = body_clean[start:end].replace("\n", " ").strip()
+                failures.append((f.name, desc, snippet))
+                break  # One failure per file is enough
+
+    for fname, desc, snippet in failures:
+        v.check(False, f"{fname}: raw {desc} found: ...{snippet}...")
+
+    if not failures:
+        v.check(True, f"All {len(html_files)} HTML files clean of Python repr")
+
+
 def check_css_duplication(v, fix_css=False):
     """Detect CSS duplication across blog generators."""
     v.section("CSS Duplication")
@@ -346,6 +418,7 @@ def check_test_file_coverage(v):
         "generate_blog_preview.py": "test_blog_preview.py",
         "generate_race_recap.py": "test_race_recap.py",
         "generate_season_roundup.py": "test_season_roundup.py",
+        "validate_blog_content.py": "test_validate_blog_content.py",
     }
 
     for gen_name, test_name in gen_to_test.items():
@@ -355,7 +428,7 @@ def check_test_file_coverage(v):
             continue
 
         content = test_path.read_text()
-        test_count = len(re.findall(r"^def test_", content, re.MULTILINE))
+        test_count = len(re.findall(r"^\s*def test_", content, re.MULTILINE))
         # Each generator should have at least 10 tests
         v.check(
             test_count >= 10,
@@ -572,6 +645,7 @@ def main():
 
     check_blog_index_schema(v)
     check_html_quality(v)
+    check_no_python_repr(v)
     check_date_diversity(v)
     check_blog_index_ssr(v)
     check_recap_pipeline(v)

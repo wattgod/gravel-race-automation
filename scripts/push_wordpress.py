@@ -947,6 +947,43 @@ def sync_noindex():
         return False
 
 
+def sync_ctas():
+    """Deploy the race CTA mu-plugin to WordPress.
+
+    Uploads gg-race-ctas.php to wp-content/mu-plugins/ via SCP.
+    This appends race profile + prep kit CTAs to blog posts that reference
+    specific races in the database.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-race-ctas.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-race-ctas.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-race-ctas.php mu-plugin")
+        print("  Race CTAs: 14 race posts + 1 hydration post → race profiles + prep kits")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy CTA mu-plugin: {e}")
+        return False
+
+
 def purge_cache():
     """Purge all SiteGround caches via wp-cli (static, dynamic, memcached, opcache)."""
     ssh = get_ssh_credentials()
@@ -1364,6 +1401,10 @@ if __name__ == "__main__":
         help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-ctas", action="store_true",
+        help="Deploy race CTA mu-plugin to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
         "--sync-photos", action="store_true",
         help="Upload race photos to /race-photos/ via tar+ssh"
     )
@@ -1428,6 +1469,7 @@ if __name__ == "__main__":
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
+        args.sync_ctas = True
         args.sync_prep_kits = True
         args.sync_blog = True
         args.sync_blog_index = True
@@ -1437,7 +1479,7 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_prep_kits, args.sync_blog,
+                      args.sync_noindex, args.sync_ctas, args.sync_prep_kits, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -1464,6 +1506,8 @@ if __name__ == "__main__":
         sync_redirects()
     if args.sync_noindex:
         sync_noindex()
+    if args.sync_ctas:
+        sync_ctas()
     if args.sync_photos:
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:

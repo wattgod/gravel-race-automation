@@ -526,6 +526,17 @@
     #gg-race-search .gg-score-dot.filled { background: var(--gg-color-dark-brown) !important; }
     #gg-race-search .gg-radar { margin-top: 8px; }
 
+    /* ── Results count ── */
+    #gg-race-search .gg-results-count {
+      font-family: var(--gg-font-data);
+      font-size: 13px;
+      color: var(--gg-color-secondary-brown) !important;
+      text-align: right;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
     /* ── Load more (per-tier) ── */
     #gg-race-search button.gg-load-more {
       display: block;
@@ -860,6 +871,41 @@
     }
     #gg-race-search button.gg-filter-toggle::after { content: ' ▾'; float: right; }
     #gg-race-search button.gg-filter-toggle.open::after { content: ' ▴'; }
+
+    /* ── Favorites ── */
+    #gg-race-search .gg-fav-btn {
+      background: none !important;
+      border: none !important;
+      cursor: pointer;
+      padding: 0 4px;
+      font-size: 18px;
+      line-height: 1;
+      color: var(--gg-color-tan) !important;
+      flex-shrink: 0;
+    }
+    #gg-race-search .gg-fav-btn:hover { color: var(--gg-color-teal) !important; }
+    #gg-race-search .gg-fav-btn.gg-fav-active { color: var(--gg-color-teal) !important; }
+    #gg-race-search .gg-fav-toggle-btn {
+      font-family: 'Sometype Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1px !important;
+      padding: 6px 16px !important;
+      border: 2px solid var(--gg-color-primary-brown) !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-primary-brown) !important;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    #gg-race-search .gg-fav-toggle-btn:hover {
+      background: var(--gg-color-primary-brown) !important;
+      color: var(--gg-color-white) !important;
+    }
+    #gg-race-search .gg-fav-toggle-btn.active {
+      background: var(--gg-color-teal) !important;
+      color: var(--gg-color-white) !important;
+      border-color: var(--gg-color-teal) !important;
+    }
 
     /* ── Compare checkbox ── */
     #gg-race-search .gg-compare-check {
@@ -1308,6 +1354,7 @@
       <option value="500" selected>Within 500 mi</option>
       <option value="0">Any Distance</option>
     </select>
+    <button class="gg-fav-toggle-btn" id="gg-fav-toggle" onclick="toggleFavoritesFilter()">FAVORITES (0)</button>
   </div>
 
   <div class="gg-active-filters" id="gg-active-filters"></div>

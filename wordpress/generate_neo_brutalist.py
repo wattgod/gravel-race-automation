@@ -1105,10 +1105,17 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 # ── Phase 3: Section Builders ─────────────────────────────────
 
 def build_hero(rd: dict) -> str:
-    """Build hero section with OG image background."""
+    """Build hero section with OG image background or primary race photo."""
     score = rd['overall_score']
     slug = rd['slug']
-    og_style = f' style="background-image:linear-gradient(rgba(58,46,37,0.82),rgba(58,46,37,0.92)),url(/og/{esc(slug)}.jpg);background-size:cover;background-position:center"'
+    # Use primary race photo if available, otherwise fall back to OG image
+    photos = rd.get('photos', [])
+    primary_photo = next((p for p in photos if p.get('primary')), None)
+    if primary_photo:
+        bg_url = primary_photo['url']
+    else:
+        bg_url = f'/og/{esc(slug)}.jpg'
+    og_style = f' style="background-image:linear-gradient(rgba(58,46,37,0.82),rgba(58,46,37,0.92)),url({bg_url});background-size:cover;background-position:center"'
     official = rd['logistics'].get('official_site', '')
     site_btn = ''
     if official and official.startswith('http'):
@@ -1121,6 +1128,32 @@ def build_hero(rd: dict) -> str:
     <div class="gg-hero-score-number" data-target="{score}">{score}</div>
     <div class="gg-hero-score-label">/ 100</div>
   </div>
+</section>'''
+
+
+def build_photos_section(rd: dict) -> str:
+    """Build photo gallery section if race has photos."""
+    photos = rd.get('photos', [])
+    if not photos:
+        return ''
+    # Exclude primary (already used in hero), show up to 4 gallery photos
+    gallery = [p for p in photos if not p.get('primary')][:4]
+    if not gallery:
+        return ''
+    items = []
+    for p in gallery:
+        alt = esc(p.get('alt', rd['name']))
+        credit = p.get('credit', '')
+        credit_html = f'<span class="gg-photo-credit">Photo: {esc(credit)}</span>' if credit else ''
+        items.append(
+            f'<figure class="gg-photo-item">'
+            f'<img src="{esc(p["url"])}" alt="{alt}" loading="lazy" width="600" height="400">'
+            f'{credit_html}'
+            f'</figure>'
+        )
+    return f'''<section class="gg-photos" id="photos">
+  <h2 class="gg-section-title">Photos</h2>
+  <div class="gg-photo-grid">{"".join(items)}</div>
 </section>'''
 
 
@@ -1486,6 +1519,10 @@ def build_training(rd: dict, q_url: str) -> str:
     </div>
     <div class="gg-section-body">
       {countdown_html}
+      <div class="gg-training-free">
+        <a href="/race/{esc(rd['slug'])}/prep-kit/" class="gg-btn gg-btn--outline">GET FREE RACE PREP KIT</a>
+        <p class="gg-training-free-desc">12-week timeline + race-day checklist + packing list. Free.</p>
+      </div>
       <div class="gg-training-primary">
         <h3>Custom Training Plan</h3>
         <p class="gg-training-subtitle">Race-specific. Built for {esc(race_name)}. $15/week, capped at $199.</p>
@@ -2171,6 +2208,12 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-training-secondary .gg-btn {{ background: transparent; color: var(--gg-color-white); border-color: var(--gg-color-white); }}
 .gg-neo-brutalist-page .gg-training-secondary .gg-btn:hover {{ background: var(--gg-color-white); color: var(--gg-color-near-black); }}
 
+/* Free Prep Kit CTA */
+.gg-neo-brutalist-page .gg-training-free {{ text-align: center; margin-bottom: 20px; padding: 20px; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-training-free-desc {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin: 8px 0 0; }}
+.gg-neo-brutalist-page .gg-btn--outline {{ background: transparent; color: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-btn--outline:hover {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
+
 /* Logistics */
 .gg-neo-brutalist-page .gg-logistics-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
@@ -2425,6 +2468,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # Build sections
     nav_header = build_nav_header(rd, race_index)
     hero = build_hero(rd)
+    photos_section = build_photos_section(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
     pullquote = build_pullquote(rd)
@@ -2443,6 +2487,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present
+    if photos_section:
+        active.add('photos')
     if history:
         active.add('history')
     if course_route:
@@ -2474,8 +2520,8 @@ body{margin:0;background:#ede4d8}
 
     # Section order
     content_sections = []
-    for section in [course_overview, history, pullquote, course_route,
-                    ratings, verdict, email_capture, news,
+    for section in [photos_section, course_overview, history, pullquote,
+                    course_route, ratings, verdict, email_capture, news,
                     training, logistics_sec, similar, visible_faq,
                     citations_sec]:
         if section:

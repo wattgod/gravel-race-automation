@@ -950,6 +950,84 @@ def purge_cache():
 
 
 
+def sync_photos(photos_dir: str):
+    """Upload race photos to /race-photos/ on SiteGround via tar+ssh.
+
+    Uploads {slug}/ directories containing optimized JPG photos.
+    Photos are served from /race-photos/{slug}/{filename}.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    photos_path = Path(photos_dir)
+    if not photos_path.exists():
+        print(f"✗ Photos directory not found: {photos_path}")
+        return None
+
+    # Find slug directories that contain photos
+    slug_dirs = [d for d in sorted(photos_path.iterdir())
+                 if d.is_dir() and any(d.glob("*.jpg"))]
+    if not slug_dirs:
+        print(f"✗ No photo directories found in {photos_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race-photos"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # tar+ssh pipe: upload all slug directories
+    items = [d.name for d in slug_dirs]
+    total_photos = sum(len(list(d.glob("*.jpg"))) for d in slug_dirs)
+    print(f"  Uploading {total_photos} photos from {len(slug_dirs)} races via tar+ssh...")
+
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(photos_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading photos: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {total_photos} photos ({len(slug_dirs)} races) to {wp_url}/race-photos/")
+    return f"{wp_url}/race-photos/"
+
+
 def sync_prep_kits(prep_kit_dir: str):
     """Upload prep kit pages to /race/{slug}/prep-kit/ on SiteGround via tar+ssh.
 
@@ -1091,6 +1169,14 @@ if __name__ == "__main__":
         help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-photos", action="store_true",
+        help="Upload race photos to /race-photos/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--photos-dir", default="race-photos",
+        help="Path to race photos directory (default: race-photos)"
+    )
+    parser.add_argument(
         "--sync-prep-kits", action="store_true",
         help="Upload prep kit pages to /race/{slug}/prep-kit/ via tar+ssh"
     )
@@ -1128,12 +1214,14 @@ if __name__ == "__main__":
         args.sync_redirects = True
         args.sync_noindex = True
         args.sync_prep_kits = True
+        args.sync_photos = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_prep_kits, args.purge_cache])
+                      args.sync_noindex, args.sync_prep_kits, args.sync_photos,
+                      args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -1159,6 +1247,8 @@ if __name__ == "__main__":
         sync_redirects()
     if args.sync_noindex:
         sync_noindex()
+    if args.sync_photos:
+        sync_photos(args.photos_dir)
     if args.sync_prep_kits:
         sync_prep_kits(args.prep_kit_dir)
     if args.purge_cache:

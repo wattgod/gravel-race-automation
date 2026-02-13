@@ -7,6 +7,7 @@
   let displayMode = 'tiers'; // 'tiers' or 'match'
   let matchScores = {};      // slug → match pct
   let tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
+  let matchVisibleCount = TIER_PAGE_SIZE;
   let tierCollapsed = { 1: false, 2: false, 3: true, 4: true };
 
   // Near Me state
@@ -18,6 +19,11 @@
   // Compare state
   let compareSlugs = [];    // Array of slug strings, max 4
   let compareMode = false;  // true when showing compare panel
+
+  // Favorites state
+  var favorites = JSON.parse(localStorage.getItem('gg-favorites') || '[]');
+  var showFavoritesOnly = false;
+  function saveFavorites() { localStorage.setItem('gg-favorites', JSON.stringify(favorites)); }
 
   var COMPARE_COLORS = [
     { stroke: '#59473c', fill: 'rgba(89,71,60,0.15)' },
@@ -106,6 +112,7 @@
         allRaces.forEach(function(r) { validSlugs[r.slug] = true; });
         compareSlugs = compareSlugs.filter(function(s) { return validSlugs[s]; });
         if (compareSlugs.length < 2) compareMode = false;
+        updateFavoritesToggle();
         render();
         bindEvents();
       })
@@ -174,6 +181,7 @@
   function resetMatch() {
     displayMode = 'tiers';
     matchScores = {};
+    matchVisibleCount = TIER_PAGE_SIZE;
     document.getElementById('gg-btn-reset').style.display = 'none';
     tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
     render();
@@ -445,6 +453,8 @@
       });
       displayMode = 'match';
       document.getElementById('gg-btn-reset').style.display = '';
+      var p = parseInt(params.get('page'));
+      if (p > 1) matchVisibleCount = p * TIER_PAGE_SIZE;
     }
 
     // Restore near me from URL (triggers geolocation)
@@ -454,6 +464,9 @@
       // Auto-trigger geolocation
       setTimeout(function() { activateNearMe(); }, 100);
     }
+
+    // Restore favorites filter from URL
+    if (params.get('favs') === '1') showFavoritesOnly = true;
 
     // Restore compare state from URL
     var cmpParam = params.get('compare');
@@ -484,6 +497,9 @@
         var val = document.getElementById('gg-q-' + s.key).value;
         if (val !== '3') params.set('q_' + s.key, val);
       });
+      if (matchVisibleCount > TIER_PAGE_SIZE) {
+        params.set('page', Math.ceil(matchVisibleCount / TIER_PAGE_SIZE));
+      }
     }
 
     if (userLat !== null) {
@@ -491,6 +507,7 @@
       if (nearMeRadius && nearMeRadius !== 500) params.set('radius', nearMeRadius);
     }
 
+    if (showFavoritesOnly) params.set('favs', '1');
     if (viewMode && viewMode !== 'list') params.set('view', viewMode);
 
     if (compareSlugs.length > 0) params.set('compare', compareSlugs.join(','));
@@ -614,6 +631,8 @@
         var dist = raceDistances[r.slug];
         if (dist === undefined || dist > nearMeRadius) return false;
       }
+      // Favorites filter
+      if (showFavoritesOnly && favorites.indexOf(r.slug) === -1) return false;
       return true;
     });
   }
@@ -727,9 +746,15 @@
       '<span class="gg-compare-check-box"></span>' +
     '</label>';
 
+    var isFav = favorites.indexOf(race.slug) !== -1;
+    var favBtn = '<button class="gg-fav-btn' + (isFav ? ' gg-fav-active' : '') + '" data-slug="' + race.slug + '" onclick="toggleFavorite(\'' + race.slug + '\')" title="Favorite">' +
+      '<span class="gg-fav-icon">' + (isFav ? '&#9829;' : '&#9825;') + '</span>' +
+    '</button>';
+
     return '<div class="gg-card">' +
       '<div class="gg-card-header">' +
         compareCheck +
+        favBtn +
         nameTag +
         '<div style="display:flex;gap:6px;align-items:center">' +
           matchBadge +
@@ -761,7 +786,11 @@
   function renderTierSections(filtered) {
     var groups = groupByTier(filtered);
     var container = document.getElementById('gg-tier-container');
-    var html = '';
+    var totalVisible = 0;
+    [1, 2, 3, 4].forEach(function(t) {
+      totalVisible += Math.min(groups[t].length, tierVisibleCounts[t]);
+    });
+    var html = '<div class="gg-results-count">Showing ' + totalVisible + ' of ' + filtered.length + ' races</div>';
 
     [1, 2, 3, 4].forEach(function(t) {
       var races = groups[t];
@@ -797,14 +826,20 @@
   function renderMatchResults(filtered) {
     var sorted = filtered.slice().sort(function(a, b) { return (matchScores[b.slug] || 0) - (matchScores[a.slug] || 0); });
     var container = document.getElementById('gg-tier-container');
+    var visible = sorted.slice(0, matchVisibleCount);
+    var remaining = sorted.length - visible.length;
 
     var html = '<div class="gg-match-banner">' +
       '<span>Showing results ranked by match score</span>' +
       '<button onclick="resetMatch()">Back to Tiers</button>' +
     '</div>';
 
-    if (sorted.length > 0) {
-      html += '<div class="gg-grid">' + sorted.map(renderCard).join('') + '</div>';
+    if (visible.length > 0) {
+      html += '<div class="gg-results-count">Showing ' + visible.length + ' of ' + sorted.length + ' races</div>';
+      html += '<div class="gg-grid">' + visible.map(renderCard).join('') + '</div>';
+      if (remaining > 0) {
+        html += '<button class="gg-load-more" onclick="loadMoreMatches()">Show ' + Math.min(remaining, TIER_PAGE_SIZE) + ' more of ' + remaining + ' remaining</button>';
+      }
     } else {
       html += noResultsHtml();
     }
@@ -823,6 +858,15 @@
   }
   window.loadMoreTier = loadMoreTier;
 
+  function loadMoreMatches() {
+    var prevCount = matchVisibleCount;
+    matchVisibleCount += TIER_PAGE_SIZE;
+    render(false);
+    var cards = document.querySelectorAll('#gg-tier-container .gg-card');
+    if (cards[prevCount]) cards[prevCount].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  window.loadMoreMatches = loadMoreMatches;
+
   // ── Active filter pills ──
   function renderActivePills() {
     var f = getFilters();
@@ -838,6 +882,11 @@
       month: f.month || null,
       profile: f.profile ? (f.profile === 'yes' ? 'Has Profile' : 'No Profile') : null
     };
+
+    // Add favorites pill
+    if (showFavoritesOnly) {
+      pills.push('<span class="gg-filter-pill">Favorites (' + favorites.length + ')<button onclick="toggleFavoritesFilter()">×</button></span>');
+    }
 
     // Add near me pill
     if (userLat !== null) {
@@ -1098,14 +1147,52 @@
     document.getElementById('gg-profile').value = '';
     // Also clear near me
     if (userLat !== null) activateNearMe();
+    showFavoritesOnly = false;
+    updateFavoritesToggle();
     render();
   }
   window.clearAllFilters = clearAllFilters;
+
+  function toggleFavorite(slug) {
+    var idx = favorites.indexOf(slug);
+    if (idx === -1) { favorites.push(slug); } else { favorites.splice(idx, 1); }
+    saveFavorites();
+    // Update heart icons in place
+    document.querySelectorAll('.gg-fav-btn[data-slug="' + slug + '"]').forEach(function(btn) {
+      var icon = btn.querySelector('.gg-fav-icon');
+      if (favorites.indexOf(slug) !== -1) {
+        icon.innerHTML = '&#9829;';
+        btn.classList.add('gg-fav-active');
+      } else {
+        icon.innerHTML = '&#9825;';
+        btn.classList.remove('gg-fav-active');
+      }
+    });
+    updateFavoritesToggle();
+    if (showFavoritesOnly) render();
+  }
+  window.toggleFavorite = toggleFavorite;
+
+  function toggleFavoritesFilter() {
+    showFavoritesOnly = !showFavoritesOnly;
+    updateFavoritesToggle();
+    render();
+    saveToURL();
+  }
+  window.toggleFavoritesFilter = toggleFavoritesFilter;
+
+  function updateFavoritesToggle() {
+    var btn = document.getElementById('gg-fav-toggle');
+    if (!btn) return;
+    btn.classList.toggle('active', showFavoritesOnly);
+    btn.textContent = 'FAVORITES (' + favorites.length + ')';
+  }
 
   // ── Main render ──
   function render(resetPages) {
     if (resetPages !== false) {
       tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
+      matchVisibleCount = TIER_PAGE_SIZE;
     }
 
     var filtered = sortRaces(filterRaces());
@@ -1160,10 +1247,13 @@
     window.addEventListener('gg-reset-filters', function() {
       displayMode = 'tiers';
       matchScores = {};
+      matchVisibleCount = TIER_PAGE_SIZE;
       nearMeRadius = 0;
       compareSlugs = [];
       compareMode = false;
+      showFavoritesOnly = false;
       tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
+      updateFavoritesToggle();
       render();
     });
 

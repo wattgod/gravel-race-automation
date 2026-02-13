@@ -167,6 +167,14 @@ def main():
         return 1
 
     ok = pf.run_step(
+        "generate_prep_kit.py --all",
+        [sys.executable, str(WORDPRESS_DIR / "generate_prep_kit.py"), "--all"],
+    )
+    if not ok:
+        pf.summary()
+        return 1
+
+    ok = pf.run_step(
         "generate_homepage.py",
         [sys.executable, str(WORDPRESS_DIR / "generate_homepage.py")],
     )

@@ -322,6 +322,43 @@ def check_featured_slugs(v):
                 v.check(code == "200", f"Featured race page /race/{slug}/", f"HTTP {code}")
 
 
+def check_photo_infrastructure(v):
+    """Verify photo infrastructure is in place."""
+    print("\n[Photo Infrastructure]")
+    project_root = Path(__file__).resolve().parent.parent
+    data_dir = project_root / "race-data"
+    photos_dir = project_root / "race-photos"
+
+    # Check if any races have photos configured
+    races_with_photos = 0
+    for f in sorted(data_dir.glob("*.json")):
+        try:
+            d = json.loads(f.read_text())
+            photos = d["race"].get("photos", [])
+            if photos:
+                races_with_photos += 1
+                # Verify photo files exist locally
+                for p in photos:
+                    url = p.get("url", "")
+                    if url.startswith("/race-photos/"):
+                        local_path = project_root / url.lstrip("/")
+                        v.check(local_path.exists(),
+                                f"Photo exists: {url}",
+                                f"File not found: {local_path}")
+        except (json.JSONDecodeError, KeyError):
+            continue
+
+    if races_with_photos > 0:
+        v.check(True, f"{races_with_photos} races have photos configured", "")
+        # Check that /race-photos/ is accessible on server
+        if not QUICK:
+            code = curl_status(f"{BASE_URL}/race-photos/")
+            v.check(code != "403", "/race-photos/ not 403", f"HTTP {code}")
+    else:
+        v.warn("No races have photos configured yet",
+               "Add photos to race JSON files as they become available")
+
+
 def check_permissions(v):
     """Verify /race/ directory is accessible (not 403)."""
     print("\n[Permissions]")
@@ -333,7 +370,7 @@ def check_permissions(v):
 def main():
     print(f"Validating {BASE_URL}...")
     v = Validator()
-    
+
     check_key_pages(v)
     check_permissions(v)
     check_redirects(v)
@@ -343,6 +380,7 @@ def main():
     check_og_images(v)
     check_race_page_seo(v)
     check_citations(v)
+    check_photo_infrastructure(v)
 
     check_search_schema(v)
     check_featured_slugs(v)

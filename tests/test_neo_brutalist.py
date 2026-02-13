@@ -468,8 +468,9 @@ class TestSections:
 
     def test_countdown_shows_date_not_dashes(self, normalized_data):
         html = build_training(normalized_data, "https://example.com")
-        assert "--" not in html
+        # The countdown span should show a real date, not dashes
         assert "June 15, 2026" in html
+        assert 'id="gg-days-left">--' not in html
 
     def test_visible_faq_renders(self, normalized_data):
         html = build_visible_faq(normalized_data)

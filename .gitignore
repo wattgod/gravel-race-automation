@@ -35,6 +35,9 @@ dry_run_results.json
 # Generated landing pages (regenerate with: python3 wordpress/generate_neo_brutalist.py --all)
 wordpress/output/
 
+# Video scripts (generated via: python3 scripts/generate_video_scripts.py)
+video-scripts/
+
 # Guide media (generated via: python3 scripts/generate_guide_media.py)
 guide/media-raw/
 guide/media/

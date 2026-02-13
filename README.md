@@ -16,6 +16,7 @@
 - **Methodology** (`wordpress/generate_methodology.py`) — scoring methodology explainer
 - **OG images** (`scripts/generate_og_images.py`) — 1200x630 social sharing images
 - **Guide media** (`scripts/generate_guide_media.py`) — training guide infographics and hero photos
+- **Video scripts** (`scripts/generate_video_scripts.py`) — spoken-cadence scripts for TikTok, Reels, Shorts, YouTube
 
 ### Data & Scripts
 
@@ -75,7 +76,7 @@ python3 scripts/push_wordpress.py --sync-pages --sync-widget --sync-index --purg
 
 | Check | Command | Count |
 |-------|---------|-------|
-| Unit tests | `python3 -m pytest tests/` | 731 passing, 1 skipped |
+| Unit tests | `python3 -m pytest tests/` | 822 passing, 1 skipped |
 | Deploy validation | `python scripts/validate_deploy.py` | 58 checks |
 | Color audit | `python scripts/audit_colors.py` | WCAG AA verified |
 | Citation validation | `python scripts/validate_citations.py` | 328 races |

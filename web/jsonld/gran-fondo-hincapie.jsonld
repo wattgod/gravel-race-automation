@@ -4,7 +4,7 @@
   "name": "Gran Fondo Hincapie",
   "description": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
   "sport": "Gravel Cycling",
-  "startDate": "2025-10-17",
+  "startDate": "2026-10-17",
   "location": {
     "@type": "Place",
     "name": "Greenville, South Carolina"
@@ -22,8 +22,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://hincapie.com/pages/gran-fondo-greenville",
   "organizer": {
     "@type": "Person",
-    "name": "George Hincapie"
+    "name": "George Hincapie",
+    "url": "https://hincapie.com/pages/gran-fondo-greenville"
   }
 }

@@ -1571,15 +1571,15 @@
               "steps": [
                 {
                   "label": "Weeks 1-4 (Base Phase)",
-                  "content": "Practice eating real food on easy rides. 40-50g carbs per hour, mostly solid. Build tolerance gradually."
+                  "content": "Practice eating real food on easy rides. Start with 40-50g carbs per hour, mostly solid. Build tolerance gradually. SGLT1 transporters can double in 2 weeks of consistent gut training (GSSI)."
                 },
                 {
                   "label": "Weeks 5-8 (Build Phase)",
-                  "content": "Increase to 60-70g carbs per hour. Mix of liquids and solids. Practice eating at tempo pace."
+                  "content": "Increase toward your race-day target rate. Mix of liquids and solids. Practice eating at tempo pace. Your gut adapts to what you train it for."
                 },
                 {
                   "label": "Weeks 9-10 (Peak Training)",
-                  "content": "Hit 70-80g carbs per hour. Race nutrition only (gels, drink, bars you'll use on race day). Practice at race pace."
+                  "content": "Hit your race-day target rate (see duration-scaled targets in your prep kit). Race nutrition only (gels, drink, bars you'll use on race day). Practice at race pace. For ultra events (12+ hours), include savory and mixed-macro foods alongside gels."
                 },
                 {
                   "label": "Race Week",
@@ -1615,7 +1615,7 @@
                 },
                 {
                   "label": "Every 45-60 Minutes After",
-                  "content": "Consume 60-80g carbs per hour consistently. Set a timer. Your brain will be stupid. It will forget to eat."
+                  "content": "Consume carbs consistently by the clock. Target rate depends on race duration: 80-100g/hr for races under 4 hours, 60-80g/hr for 4-8 hour events, 50-70g/hr for 8-12 hours, and 40-60g/hr for ultra events (12+ hours). At lower intensities fat becomes your primary fuel and GI tolerance is the limiter. Set a timer. Your brain will be stupid. It will forget to eat."
                 }
               ]
             },
@@ -1763,7 +1763,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Nutrition determines 8% of your race result. That's significant but not worth obsessing over.\n\n**Daily nutrition:** Match carbs to training load. Get adequate protein. Don't fear fat. Eat real food. Research from sports nutrition scientist [Asker Jeukendrup](https://www.mysportscience.com/) consistently shows that training the gut to tolerate higher carb intake translates directly to race performance.\n\n**Supplements:** Vitamin D if deficient, creatine for high-intensity work, caffeine before hard sessions. Everything else is optional or snake oil.\n\n**During training:** Practice eating 60-80g carbs per hour on long rides. Train your gut like you train your legs.\n\n**Race day:** Eat a familiar pre-race meal 3-4 hours before. Start fueling at 30-45 minutes. Hit 70g carbs per hour. Set a timer.\n\nWhen your stomach rebels, back off intensity for 10 minutes and switch to liquids. Don't stop eating entirely.\n\nWeight management happens in the off-season, not during training blocks. Chase performance, not scale numbers.\n\nUp next: [Chapter 6](#mental-training-race-tactics) covers the mental tools and tactical framework you need when the race gets hard—because it will."
+              "content": "Nutrition determines 8% of your race result. That's significant but not worth obsessing over.\n\n**Daily nutrition:** Match carbs to training load. Get adequate protein. Don't fear fat. Eat real food. Research from sports nutrition scientist [Asker Jeukendrup](https://www.mysportscience.com/) consistently shows that training the gut to tolerate higher carb intake translates directly to race performance.\n\n**Supplements:** Vitamin D if deficient, creatine for high-intensity work, caffeine before hard sessions. Everything else is optional or snake oil.\n\n**During training:** Practice eating at your race-day target carb rate on long rides. Target rate scales with race duration: 80-100g/hr for sub-4hr races, 60-80g/hr for 4-8hr events, 50-70g/hr for 8-12hr, 40-60g/hr for ultra (12+hr). At lower intensities, fat oxidation carries more of the load and GI tolerance becomes the limiter. Train your gut like you train your legs.\n\n**Race day:** Eat a familiar pre-race meal 3-4 hours before. Start fueling at 30-45 minutes. Hit your duration-scaled target rate. Set a timer.\n\nWhen your stomach rebels, back off intensity for 10 minutes and switch to liquids. Don't stop eating entirely.\n\nWeight management happens in the off-season, not during training blocks. Chase performance, not scale numbers.\n\nUp next: [Chapter 6](#mental-training-race-tactics) covers the mental tools and tactical framework you need when the race gets hard—because it will."
             }
           ]
         }
@@ -2446,7 +2446,7 @@
                 {
                   "label": "Data Review",
                   "title": "The Data Review",
-                  "content": "Pull up your race file. Look at:\n\n**Pacing:** Did you go out too hard? Did you fade in the second half? Did you finish strong?\n\n**Power distribution:** What was your normalized power as % of {{FTP}}? Did it match your race plan?\n\n**Heart rate:** Average HR as % of max? Did you redline early?\n\n**Fueling execution:** Did you hit 60-80g carbs per hour? Any bonking or GI issues?\n\n**Mechanicals:** Any flats, chain drops, failures? Could they have been prevented?"
+                  "content": "Pull up your race file. Look at:\n\n**Pacing:** Did you go out too hard? Did you fade in the second half? Did you finish strong?\n\n**Power distribution:** What was your normalized power as % of {{FTP}}? Did it match your race plan?\n\n**Heart rate:** Average HR as % of max? Did you redline early?\n\n**Fueling execution:** Did you hit your target carb rate for the race duration? Any bonking or GI issues?\n\n**Mechanicals:** Any flats, chain drops, failures? Could they have been prevented?"
                 },
                 {
                   "label": "Honest Assessment",

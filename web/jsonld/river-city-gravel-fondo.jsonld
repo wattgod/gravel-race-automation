@@ -4,7 +4,7 @@
   "name": "River City Gravel Fondo",
   "description": "Vancouver Island gravel through forest roads and coastal terrain.",
   "sport": "Gravel Cycling",
-  "startDate": "2025-04-12",
+  "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
     "name": "Campbell River, British Columbia"
@@ -22,8 +22,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://www.bcgravelseries.com/rivercitygravelfondo",
   "organizer": {
     "@type": "Person",
-    "name": "Jon Watkin"
+    "name": "Jon Watkin",
+    "url": "https://www.bcgravelseries.com/rivercitygravelfondo"
   }
 }

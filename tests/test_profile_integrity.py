@@ -209,3 +209,23 @@ class TestDuplicateDetection:
         if unexpected_dupes:
             pytest.fail(f"{len(unexpected_dupes)} unexpected duplicate names:\n" +
                         "\n".join(unexpected_dupes))
+
+    def test_no_duplicate_taglines(self):
+        """Taglines must be unique to produce unique meta descriptions."""
+        tagline_to_slugs = {}
+        for fname, _, data in get_all_profiles():
+            race = data.get("race", data)
+            tagline = race.get("tagline", "").strip()
+            if tagline:
+                tagline_to_slugs.setdefault(tagline, []).append(fname)
+
+        dupes = [
+            f"  '{tl}': {files}"
+            for tl, files in tagline_to_slugs.items()
+            if len(files) > 1
+        ]
+        if dupes:
+            pytest.fail(
+                f"{len(dupes)} duplicate taglines (causes duplicate meta descriptions):\n"
+                + "\n".join(dupes)
+            )

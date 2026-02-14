@@ -605,8 +605,8 @@ def _section_training_plan_brief(
   </div>
 
   <h4>Workout File Naming</h4>
-  <p>Your workout files follow this naming convention: <code>W{{week}}_{{day}}_{{name}}.zwo</code></p>
-  <p>Example: <code>W01_Mon_Endurance.zwo</code> = Week 1, Monday, Endurance ride</p>"""
+  <p>Your workout files follow this naming convention: <code>W{{week}}_{{day}}_{{date}}_{{name}}.zwo</code></p>
+  <p>Example: <code>W01_Mon_Feb14_Endurance.zwo</code> = Week 1, Monday, February 14, Endurance ride</p>"""
         except (ValueError, TypeError):
             calendar_html = ""
 

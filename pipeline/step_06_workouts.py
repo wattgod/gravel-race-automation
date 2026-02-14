@@ -5,8 +5,9 @@ Generates TrainingPeaks-compatible ZWO XML files from the plan template.
 Every day of every week gets a ZWO file — including rest days, strength days,
 and recovery days. This ensures drag-and-drop into TrainingPeaks is complete.
 
-File naming convention: W{week:02d}_{Day}_{Type}.zwo
-  - Standardized for cross-plan reuse
+File naming convention: W{week:02d}_{Day}_{MmmDD}_{Type}.zwo
+  e.g. W01_Mon_Feb14_Strength_Base.zwo
+  - Date in filename so athletes know when to do each workout
   - Day abbreviation matches TrainingPeaks calendar
 
 Adapted from gravel-plans-experimental/races/generation_modules/zwo_generator.py
@@ -323,7 +324,8 @@ def _write_zwo(workouts_dir: Path, filename: str, name: str, description: str,
 
 def _write_rest_day(workouts_dir: Path, week_num: int, day_abbrev: str, date_str: str):
     """Write a rest day ZWO file — yes, rest days get files for TrainingPeaks."""
-    filename = f"W{week_num:02d}_{day_abbrev}_Rest_Day.zwo"
+    date_label = _date_label(date_str)
+    filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_Rest_Day.zwo"
     blocks = '        <SteadyState Duration="1" Power="0.40"/>\n'
     _write_zwo(workouts_dir, filename,
                f"W{week_num:02d} {day_abbrev} - Rest Day ({date_str})",
@@ -334,7 +336,8 @@ def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                             date_str: str, phase: str):
     """Write a strength training ZWO file."""
     template = STRENGTH_WORKOUTS.get(phase, STRENGTH_WORKOUTS["base"])
-    filename = f"W{week_num:02d}_{day_abbrev}_Strength_{phase.title()}.zwo"
+    date_label = _date_label(date_str)
+    filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_Strength_{phase.title()}.zwo"
     _write_zwo(workouts_dir, filename,
                f"W{week_num:02d} {day_abbrev} - {template['name']} ({date_str})",
                template["description"], template["blocks"])
@@ -342,7 +345,8 @@ def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
 
 def _write_ftp_test(workouts_dir: Path, week_num: int, day_abbrev: str, date_str: str):
     """Write an FTP test workout ZWO file."""
-    filename = f"W{week_num:02d}_{day_abbrev}_FTP_Test.zwo"
+    date_label = _date_label(date_str)
+    filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_FTP_Test.zwo"
     _write_zwo(workouts_dir, filename,
                f"W{week_num:02d} {day_abbrev} - FTP Test ({date_str})",
                FTP_TEST_DESCRIPTION, FTP_TEST_BLOCKS)
@@ -362,7 +366,8 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
 
     # Build standardized filename
     workout_type = _detect_workout_type(name)
-    filename = f"W{week_num:02d}_{day_abbrev}_{_sanitize_filename(workout_type)}.zwo"
+    date_label = _date_label(date_str)
+    filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_{_sanitize_filename(workout_type)}.zwo"
 
     _write_zwo(workouts_dir, filename,
                f"W{week_num:02d} {day_abbrev} - {workout_type} ({date_str})",
@@ -389,7 +394,8 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
             '        <SteadyState Duration="7200" Power="0.65"/>\n'
             '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
         )
-        filename = f"W{week_num:02d}_{day_abbrev}_Long_Endurance.zwo"
+        date_label = _date_label(date_str)
+        filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_Long_Endurance.zwo"
 
     elif session_type == "intervals":
         name = f"W{week_num:02d} {day_abbrev} - Interval Session ({date_str})"
@@ -406,13 +412,15 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
             'OffDuration="240" OffPower="0.50"/>\n'
             '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
         )
-        filename = f"W{week_num:02d}_{day_abbrev}_Intervals.zwo"
+        date_label = _date_label(date_str)
+        filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_Intervals.zwo"
 
     else:  # easy_ride or other
         name = f"W{week_num:02d} {day_abbrev} - Easy Recovery Ride ({date_str})"
         description = RECOVERY_RIDE_DESCRIPTION
         blocks = RECOVERY_RIDE_BLOCKS
-        filename = f"W{week_num:02d}_{day_abbrev}_Easy_Recovery.zwo"
+        date_label = _date_label(date_str)
+        filename = f"W{week_num:02d}_{day_abbrev}_{date_label}_Easy_Recovery.zwo"
 
     if race_data:
         description = _apply_race_mods(description, race_data, current_week, total_weeks)
@@ -424,8 +432,8 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
                             race_data: Optional[Dict], race_name: str,
                             race_distance, race_date_str: Optional[str] = None):
     """Write the race day execution workout as final ZWO."""
-    date_label = race_date_str if race_date_str else "Race Day"
-    name = f"W{plan_duration:02d} Race Day - {race_name or 'Race'} {race_distance}mi ({date_label})"
+    date_label_internal = race_date_str if race_date_str else "Race Day"
+    name = f"W{plan_duration:02d} Race Day - {race_name or 'Race'} {race_distance}mi ({date_label_internal})"
     description = (
         f"RACE DAY: {race_name} {race_distance}mi\n\n"
         "PRE-RACE:\n"
@@ -451,7 +459,8 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
         '        <SteadyState Duration="300" Power="0.50"/>\n'
         '        <FreeRide Duration="3600" FlatRoad="0"/>\n'
     )
-    filename = f"W{plan_duration:02d}_Race_Day.zwo"
+    race_date_label = _date_label(race_date_str) if race_date_str else "Race_Day"
+    filename = f"W{plan_duration:02d}_{race_date_label}_Race_Day.zwo"
     _write_zwo(workouts_dir, filename, name, description, blocks)
 
 
@@ -519,6 +528,15 @@ def _detect_workout_type(name: str) -> str:
         return "Race_Simulation"
     # Fallback: clean up the original name
     return _sanitize_filename(name.split("-")[-1].strip() if "-" in name else name)
+
+
+def _date_label(date_str: str) -> str:
+    """Convert '2026-02-14' to 'Feb14' for filenames."""
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.strftime("%b%d")
+    except (ValueError, TypeError):
+        return ""
 
 
 def _sanitize_filename(name: str) -> str:

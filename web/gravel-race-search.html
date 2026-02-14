@@ -785,8 +785,16 @@
     /* Leaflet overrides — neo-brutalist popups */
     #gg-race-search .leaflet-popup-content-wrapper {
       border: 2px solid var(--gg-color-dark-brown) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
       padding: 0 !important;
     }
+    #gg-race-search .leaflet-popup-tip-container { display: none !important; }
+    #gg-race-search .leaflet-popup-close-button {
+      color: var(--gg-color-secondary-brown) !important;
+      font-size: 18px !important;
+    }
+    #gg-race-search .leaflet-popup-close-button:hover { color: var(--gg-color-dark-brown) !important; }
     #gg-race-search .leaflet-popup-content {
       margin: 10px 12px !important;
       font-family: var(--gg-font-data) !important;

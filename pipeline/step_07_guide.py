@@ -292,7 +292,7 @@ def _build_full_guide(
     sections.append(_section_nutrition(race_data, tier, race_distance, profile))
     sections.append(_section_mental_preparation(race_data, race_distance, tier))
     sections.append(_section_race_week(race_data, tier, race_name, derived))
-    sections.append(_section_race_day(race_data, tier, race_distance, race_name))
+    sections.append(_section_race_day(race_data, tier, race_distance, race_name, weekly_hours))
     sections.append(_section_gravel_skills(race_data))
 
     # Conditional sections — uses shared trigger logic (no duplication)
@@ -2012,12 +2012,27 @@ def _section_race_week(race_data: Dict, tier: str, race_name: str, derived: Dict
 </section>"""
 
 
-def _section_race_day(race_data: Dict, tier: str, race_distance, race_name: str):
+def _section_race_day(race_data: Dict, tier: str, race_distance, race_name: str, weekly_hours: str = ""):
     dr_hours = race_data.get("dress_rehearsal_hours", {})
     tier_dr = dr_hours.get(tier)
+
+    # Cap dress rehearsal to what the athlete can actually do
+    _, max_hrs = _parse_hours_range(weekly_hours)
+    lr_ceiling = max_hrs * 0.6 if max_hrs > 0 else 0  # generous ceiling for a one-off big effort
+
     dr_html = ""
     if tier_dr:
-        dr_html = f"""<div class="gg-module gg-alert"><div class="gg-label">DRESS REHEARSAL</div>
+        if lr_ceiling > 0 and tier_dr > lr_ceiling:
+            # Dress rehearsal exceeds what's realistic — reframe
+            realistic_hrs = f"{lr_ceiling:.0f}-{min(lr_ceiling + 1, tier_dr):.0f}"
+            dr_html = f"""<div class="gg-module gg-alert"><div class="gg-label">DRESS REHEARSAL</div>
+<p>Before taper, complete your <strong>longest training ride ({realistic_hrs} hours)</strong>
+simulating race conditions. Your weekly budget limits ride length, so make this ride count:
+same nutrition plan, same pacing strategy, same equipment you'll use on race day.
+Practice your exact fueling protocol at race-day intensity. If something fails in the
+dress rehearsal, fix it before race day.</p></div>"""
+        else:
+            dr_html = f"""<div class="gg-module gg-alert"><div class="gg-label">DRESS REHEARSAL</div>
 <p>Before taper, complete a {tier_dr}-hour ride
 simulating race conditions. Same nutrition, same pacing, same equipment.
 If something fails in the dress rehearsal, fix it before race day.</p></div>"""

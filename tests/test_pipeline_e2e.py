@@ -209,3 +209,26 @@ class TestRaceDataLoading:
         race_data = load_race_data("SBT GRVL", 95, BASE_DIR)
         assert race_data is not None
         assert race_data["distance_miles"] == 100
+
+
+class TestTemplateExtension:
+    """Template extension must not leak internal labels."""
+
+    def test_extended_template_no_artifact_labels(self, sarah_intake):
+        """When a 12-week template is extended to 20 weeks, focus text must not
+        have 'Extended Base' prefix — that's an internal label."""
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        plan_config = select_template(derived, BASE_DIR)
+
+        if plan_config["plan_duration"] <= 12:
+            pytest.skip("Plan not extended — artifact test not applicable")
+
+        weeks = plan_config["template"]["weeks"]
+        for week in weeks:
+            focus = week.get("focus", "")
+            assert not focus.startswith("Extended Base"), (
+                f"Week {week['week_number']} has internal label: '{focus}'. "
+                f"Template extension should preserve original focus text."
+            )

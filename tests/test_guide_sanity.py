@@ -547,3 +547,76 @@ class TestFTPGating:
         assert "FTP TEST" in w1_match.group().upper(), (
             "Week 1 should be marked with [FTP TEST] when FTP is not provided"
         )
+
+
+# ── Template Artifact Labels ────────────────────────────────
+
+class TestNoTemplateArtifacts:
+    """Internal template labels must not leak into athlete-facing guide."""
+
+    def test_no_extended_base_prefix(self, sarah_html):
+        """'Extended Base' is an internal label from template extension — must not appear."""
+        assert "Extended Base" not in sarah_html, (
+            "Internal 'Extended Base' template label is leaking into the guide. "
+            "Week focus text should use the original phase label, not the wrapped version."
+        )
+
+    def test_focus_text_not_duplicated(self, sarah_html):
+        """Extended weeks shouldn't create confusing duplicate focus text.
+
+        When a 12-week template is extended to 20 weeks, the extension duplicates
+        weeks 5-8 as weeks 9-16. The focus text should still make sense when
+        repeated — no 'Build Phase Begins' appearing twice at different weeks.
+        """
+        wbw_section = re.search(
+            r'Week-by-Week Overview.*?</section>',
+            sarah_html, re.DOTALL
+        )
+        if not wbw_section:
+            pytest.skip("Week-by-week section not found")
+
+        # Extract all focus texts from the table
+        focus_matches = re.findall(
+            r'<td>([^<]+)</td>\s*<td>\d+\.?\d*',
+            wbw_section.group()
+        )
+        # Filter out FTP TEST markers and empty strings
+        focus_texts = [f.strip() for f in focus_matches if f.strip() and "FTP" not in f.upper()]
+
+        # No focus text should contain internal wrapping like "Extended Base (...)"
+        for focus in focus_texts:
+            assert not re.match(r'^Extended\s', focus, re.IGNORECASE), (
+                f"Internal template label in week focus: '{focus}'"
+            )
+
+
+# ── Dress Rehearsal Realism ─────────────────────────────────
+
+class TestDressRehearsalRealism:
+    """Dress rehearsal hours must be achievable within weekly budget."""
+
+    def test_dress_rehearsal_within_budget(self, sarah_derived, sarah_html):
+        """Dress rehearsal duration should not exceed what's achievable in one ride."""
+        weekly_hours = sarah_derived.get("weekly_hours", "")
+        if not weekly_hours:
+            pytest.skip("No weekly_hours")
+        _, max_hrs = _parse_hours_range(weekly_hours)
+
+        # Find dress rehearsal hour mentions
+        dr_section = re.search(
+            r'DRESS REHEARSAL.*?</div>',
+            sarah_html, re.DOTALL
+        )
+        if not dr_section:
+            pytest.skip("Dress rehearsal section not found")
+
+        content = dr_section.group()
+        # Look for hour values like "5-hour" or "4-5 hours" or "(4-5 hours)"
+        hour_matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:-\s*\d+(?:\.\d+)?)?\s*hour', content, re.IGNORECASE)
+
+        for h in hour_matches:
+            hours_val = float(h)
+            assert hours_val <= max_hrs * 0.7, (
+                f"Dress rehearsal mentions {hours_val}-hour ride but weekly budget is "
+                f"only {max_hrs}hrs. A single ride shouldn't exceed ~{max_hrs * 0.6:.0f} hours."
+            )

@@ -138,8 +138,9 @@ def extend_plan_template(base_template: Dict, target_weeks: int) -> Dict:
 
         # Renumber
         new_week["week_number"] = new_week_number
-        original_focus = new_week.get("focus", "")
-        new_week["focus"] = f"Extended Base ({original_focus})"
+        # Keep original focus text — "Extended Base" prefix is an internal
+        # label that should never leak into the athlete-facing guide.
+        # The focus text from the pattern week is descriptive enough.
 
         # Slight volume progression for extended base
         if i < additional // 2:

@@ -770,6 +770,146 @@ class TestNoWorkoutsBeforePlanStart:
         )
 
 
+class TestRaceDayDuration:
+    """Race day workout must reflect actual race duration, not a placeholder."""
+
+    def test_estimate_from_race_data(self):
+        """_estimate_race_seconds uses duration_estimate from race JSON."""
+        from pipeline.step_06_workouts import _estimate_race_seconds
+        race_data = {"duration_estimate": "6-10 hours"}
+        result = _estimate_race_seconds(race_data, "100")
+        # Midpoint of 6-10 = 8 hours = 28800s
+        assert result == 28800
+
+    def test_estimate_from_distance_fallback(self):
+        """Without duration_estimate, falls back to distance-based estimate."""
+        from pipeline.step_06_workouts import _estimate_race_seconds
+        result = _estimate_race_seconds(None, "100")
+        # 100 miles / 14 mph ≈ 7.14h ≈ 25714s
+        assert 25000 <= result <= 26000
+
+    def test_estimate_default_fallback(self):
+        """With no data at all, returns 4-hour default."""
+        from pipeline.step_06_workouts import _estimate_race_seconds
+        result = _estimate_race_seconds(None, None)
+        assert result == 14400  # 4 hours
+
+    def test_race_day_freeride_matches_estimate(self, sarah_intake, tmp_path):
+        """Race day ZWO FreeRide duration must match race duration estimate."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        race_files = list(workouts_dir.glob("*Race_Day*"))
+        assert race_files, "No race day workout"
+        content = race_files[0].read_text()
+
+        # Find FreeRide duration
+        m = re.search(r'FreeRide Duration="(\d+)"', content)
+        assert m, "No FreeRide block in race day workout"
+        freeride_sec = int(m.group(1))
+
+        # SBT GRVL 100mi: 6-10 hours → 8h midpoint → 28800s
+        assert freeride_sec >= 3600 * 4, (
+            f"Race day FreeRide is only {freeride_sec/3600:.1f}h — too short for a 100mi race"
+        )
+        assert freeride_sec <= 3600 * 12, (
+            f"Race day FreeRide is {freeride_sec/3600:.1f}h — unreasonably long"
+        )
+
+    def test_race_day_never_one_hour(self, sarah_intake, tmp_path):
+        """CRITICAL: Race day must NEVER be the old 1-hour placeholder for long races."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        race_files = list(workouts_dir.glob("*Race_Day*"))
+        content = race_files[0].read_text()
+        m = re.search(r'FreeRide Duration="(\d+)"', content)
+        freeride_sec = int(m.group(1))
+        assert freeride_sec != 3600, (
+            "CRITICAL: Race day FreeRide is exactly 1 hour — the old hardcoded placeholder. "
+            "This is a 100-mile gravel race, not a criterium."
+        )
+
+
+class TestLongRideFloor:
+    """Long rides must never be embarrassingly short after scaling."""
+
+    def test_scale_blocks_enforces_floor(self):
+        """_scale_blocks with total_floor scales UP short rides."""
+        from pipeline.step_06_workouts import _scale_blocks
+        import re
+        # 1h ride scaled down to 0.55x = ~33 min, but floor = 2h
+        blocks = (
+            '        <Warmup Duration="300" PowerLow="0.50" PowerHigh="0.65"/>\n'
+            '        <SteadyState Duration="3600" Power="0.70"/>\n'
+            '        <Cooldown Duration="300" PowerLow="0.70" PowerHigh="0.55"/>\n'
+        )
+        result = _scale_blocks(blocks, 0.55, total_floor=7200)
+        durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', result)]
+        total = sum(durations)
+        assert total >= 7200, (
+            f"Total {total}s ({total/60:.0f}min) is below 2h floor"
+        )
+
+    def test_floor_does_not_affect_short_sessions(self):
+        """Floor=0 (non-long-ride sessions) should not inflate durations."""
+        from pipeline.step_06_workouts import _scale_blocks
+        import re
+        blocks = (
+            '        <Warmup Duration="300" PowerLow="0.50" PowerHigh="0.65"/>\n'
+            '        <SteadyState Duration="1800" Power="0.70"/>\n'
+            '        <Cooldown Duration="300" PowerLow="0.70" PowerHigh="0.55"/>\n'
+        )
+        result = _scale_blocks(blocks, 0.55, total_floor=0)
+        durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', result)]
+        total = sum(durations)
+        # Should be scaled down (~1320s), not inflated
+        assert total < 2400, f"Total {total}s should be scaled down, not inflated"
+
+    def test_long_rides_above_floor_for_sarah(self, sarah_intake, tmp_path):
+        """Every long ride for Sarah must be >= her floor (2h)."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        longest_ride = sarah_intake.get("longest_ride", "2-4")
+        lo, _ = _parse_hours_range_for_test(longest_ride)
+        floor_seconds = max(3600, lo * 3600)
+
+        # Check Sunday long rides (day 7 = Sunday)
+        for f in workouts_dir.glob("*7Sun*Long_Endurance*"):
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            total = sum(durations)
+            assert total >= floor_seconds, (
+                f"{f.name}: {total/3600:.1f}h is below the {lo}h floor — "
+                f"a '{total/60:.0f}-minute long ride' is coaching malpractice"
+            )
+
+
 def _parse_hours_range_for_test(val: str):
     """Test helper — mirrors _parse_hours_range without importing."""
     if not val:

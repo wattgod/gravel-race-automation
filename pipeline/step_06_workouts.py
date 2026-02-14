@@ -389,6 +389,17 @@ def _scale_blocks(blocks: str, scale: float, long_ride_cap: int = 99999,
                 return f'{attr}="{floored}"'
             result = re.sub(r'((?<!On)(?<!Off)Duration)="(\d+)"', floor_duration, result)
 
+        # Post-rounding ratchet: rounding can drop total below floor.
+        # Bump the largest block up by one 900s increment until floor is met.
+        durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', result)]
+        total = sum(durations)
+        if total < total_floor and durations:
+            deficit = total_floor - total
+            # Find the largest block (usually the main set) and bump it
+            max_dur = max(durations)
+            bumped = max_dur + max(900, math.ceil(deficit / 900) * 900)
+            result = result.replace(f'Duration="{max_dur}"', f'Duration="{bumped}"', 1)
+
     return result
 
 

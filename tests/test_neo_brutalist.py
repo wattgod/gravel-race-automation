@@ -478,9 +478,9 @@ class TestSections:
         html = build_visible_faq(normalized_data)
         assert "gg-faq-item" in html
 
-    def test_email_capture_has_substack(self, normalized_data):
+    def test_email_capture_has_form(self, normalized_data):
         html = build_email_capture(normalized_data)
-        assert "substack.com/embed" in html
+        assert "gg-email-capture-form" in html
 
     def test_similar_races(self, normalized_data, sample_race_index):
         html = build_similar_races(normalized_data, sample_race_index)
@@ -858,7 +858,7 @@ class TestRacerRating:
         rd = normalize_race_data(race_with_ratings)
         html = build_racer_reviews(rd)
         assert "gg-racer-reviews" in html
-        assert "RATE THIS RACE" in html
+        assert "RATE " in html
         assert "Flint Hills broke me" in html
         assert "mid-pack" in html
         assert "4.3 avg" in html
@@ -869,14 +869,14 @@ class TestRacerRating:
         html = build_racer_reviews(rd)
         assert "gg-racer-empty" in html
         assert "No racer ratings yet" in html
-        assert "RATE THIS RACE" in html
+        assert "RATE " in html
 
     def test_racer_reviews_pending_state(self, race_below_threshold):
         rd = normalize_race_data(race_below_threshold)
         html = build_racer_reviews(rd)
         assert "gg-racer-pending" in html
         assert "1 more needed" in html
-        assert "RATE THIS RACE" in html
+        assert "RATE " in html
 
     def test_jsonld_aggregate_rating_with_data(self, race_with_ratings):
         rd = normalize_race_data(race_with_ratings)

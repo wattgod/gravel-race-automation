@@ -30,18 +30,9 @@ def generate_pdf(html_path: Path, pdf_path: Path):
             path=str(pdf_path),
             format="A4",
             print_background=True,
-            display_header_footer=True,
-            header_template='<span></span>',
-            footer_template=(
-                '<div style="width: 100%; font-size: 8px; font-family: \'Courier New\', monospace;'
-                ' color: #999; padding: 0 15mm; display: flex; justify-content: space-between;">'
-                '<span>ENDURE Training Plan</span>'
-                '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>'
-                '</div>'
-            ),
             margin={
                 "top": "15mm",
-                "bottom": "20mm",
+                "bottom": "15mm",
                 "left": "15mm",
                 "right": "15mm",
             },

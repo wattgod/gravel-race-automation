@@ -44,7 +44,7 @@ TIER_METHODOLOGY = {
         "intensity": [("Z1-Z2 (Easy Aerobic)", "30%", "Aerobic base, fat adaptation, durability"),
                       ("Z3 (Tempo)", "20%", "Muscular endurance, sustained power"),
                       ("Z4-Z5 (Threshold+)", "50%", "FTP development, VO2max, race sharpness")],
-        "key_workouts": ["VO2max intervals (3-5 min hard efforts)", "Tabata-style intervals", "Sweet spot over-unders", "Sprint repeats"],
+        "key_workouts": ["VO2max intervals (3-5 min hard efforts)", "Tabata-style intervals", "G Spot over-unders", "Sprint repeats"],
         "progression": "Increase intensity, not volume. You don't have the hours for volume — make every session count.",
     },
     "finisher": {
@@ -53,7 +53,7 @@ TIER_METHODOLOGY = {
         "intensity": [("Z1-Z2 (Easy Aerobic)", "70%", "Aerobic base, fat adaptation, durability"),
                       ("Z3 (Tempo)", "15%", "Muscular endurance, sustained power"),
                       ("Z4-Z5 (Threshold+)", "15%", "FTP development, VO2max, race sharpness")],
-        "key_workouts": ["Progressive long rides (building to 70-80% of race duration)", "Sweet spot intervals (2x20, 3x15)", "Tempo efforts on climbs", "Race-simulation rides"],
+        "key_workouts": ["Progressive long rides (building to 70-80% of race duration)", "G Spot intervals (2x20, 3x15)", "Tempo efforts on climbs", "Race-simulation rides"],
         "progression": "Build volume through base, then layer in intensity. Long rides are your most important session.",
     },
     "compete": {
@@ -683,7 +683,7 @@ def _section_training_zones(ftp: Optional[int], tier: str):
         ("1", "Active Recovery", "< 55%", "< 68%", "1-2", "Very easy, conversational. You should feel like you're barely working."),
         ("2", "Endurance", "56-75%", "69-83%", "3-4", "Easy effort. You can speak in full sentences. This is where 80% of your riding should be."),
         ("3", "Tempo", "76-87%", "84-94%", "5-6", "Moderate. You can speak in short phrases. Comfortably hard."),
-        ("SS", "Sweet Spot", "88-93%", "92-96%", "6-7", "The sweet spot between tempo and threshold. Maximum training stimulus with manageable fatigue."),
+        ("GS", "G Spot", "88-93%", "92-96%", "6-7", "The G Spot between tempo and threshold. Maximum training stimulus with manageable fatigue."),
         ("4", "Threshold", "94-105%", "95-105%", "7-8", "Hard. Few words only. This is your FTP &mdash; sustainable for about 1 hour all-out."),
         ("5", "VO2max", "106-120%", "> 106%", "9", "Very hard, can barely speak. 3-8 minute efforts."),
         ("6", "Anaerobic", "> 120%", "N/A", "10", "Maximum effort. 30 seconds to 2 minutes."),
@@ -698,7 +698,7 @@ def _section_training_zones(ftp: Optional[int], tier: str):
                 watts = f"{int(ftp * int(low)/100)}-{int(ftp * int(high)/100)}W"
             else:
                 watts = f"> {int(ftp * 1.2)}W"
-            ss_class = ' class="race-day-row"' if zone == "SS" else ""
+            ss_class = ' class="race-day-row"' if zone == "GS" else ""
             power_rows.append(
                 f'<tr{ss_class}><td><strong>{zone}</strong></td><td>{name}</td>'
                 f'<td>{watts}</td><td>{pct} FTP</td><td>{hr} HRmax</td><td>{rpe}</td>'
@@ -708,7 +708,7 @@ def _section_training_zones(ftp: Optional[int], tier: str):
     else:
         power_rows = []
         for zone, name, pct, hr, rpe, feel in zone_data:
-            ss_class = ' class="race-day-row"' if zone == "SS" else ""
+            ss_class = ' class="race-day-row"' if zone == "GS" else ""
             power_rows.append(
                 f'<tr{ss_class}><td><strong>{zone}</strong></td><td>{name}</td>'
                 f'<td>&mdash;</td><td>{pct} FTP</td><td>{hr} HRmax</td><td>{rpe}</td>'
@@ -952,7 +952,7 @@ def _section_phase_progression(plan_duration: int, tier: str):
     if plan_duration == 20:
         phases = [
             ("Base 1", "1-5", "base", "Build aerobic foundation. All riding is Zone 1-2 with progressive volume increases. Strength is 2x/week. This phase feels easy &mdash; that's the point."),
-            ("Base 2", "6-10", "base", "Introduce low-intensity intervals (tempo, sweet spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
+            ("Base 2", "6-10", "base", "Introduce low-intensity intervals (tempo, G Spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
             ("Build", "11-16", "build", "Race-specific intensity. VO2max and threshold intervals. Long rides include race-pace efforts. This is where it gets hard. Fatigue is expected and managed through recovery weeks."),
             ("Peak + Taper", "17-20", "peak", "Sharpen fitness. Reduce volume by 30-40%, maintain intensity. Race simulation rides. Final dress rehearsal in Week 17-18. Taper begins 10-14 days before race."),
         ]
@@ -1285,42 +1285,54 @@ def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict 
         aggressive_note = f"""<div class="gg-module gg-alert"><div class="gg-label">AGGRESSIVE FUELING REQUIRED</div>
 <p>{fuel.get('note', 'Practice race-day nutrition weekly during long rides.')}</p></div>"""
 
-    # Personalized fueling targets from body weight + race distance
+    # Duration-scaled fueling targets — deterministic from questionnaire data.
+    # Source: gravel-god-nutrition framework (Jeukendrup 2014, van Loon 2001, GSSI).
+    # No AI mediation. Pure math.
+    from pipeline.nutrition import compute_fueling_for_guide
+
     personalized_html = ""
+    daily_macros_html = ""
     weight_lbs = profile.get("demographics", {}).get("weight_lbs")
+    weight_kg = 0
     if weight_lbs:
         try:
-            weight_kg = float(weight_lbs) / 2.205
+            fueling = compute_fueling_for_guide(race_distance, race_data, profile)
+            weight_kg = fueling.get("weight_kg", float(weight_lbs) / 2.205)
+            carb_lo = fueling["carb_rate_lo"]
+            carb_hi = fueling["carb_rate_hi"]
+            est_hours = fueling["hours"]
+            total_lo = fueling["carbs_total_lo"]
+            total_hi = fueling["carbs_total_hi"]
+            bracket_label = fueling["label"]
+            gut_weeks = fueling["gut_training_weeks"]
             dist = int(race_distance) if race_distance else 0
-            if dist >= 100:
-                carb_target = 90
-            elif dist >= 60:
-                carb_target = 80
-            else:
-                carb_target = 60
-            duration_est = race_data.get("duration_estimate", "")
-            est_hours = 0
-            if duration_est and "-" in str(duration_est):
-                parts = str(duration_est).replace("hours", "").replace("hour", "").strip().split("-")
-                try:
-                    est_hours = (float(parts[0].strip()) + float(parts[1].strip())) / 2
-                except (ValueError, IndexError):
-                    est_hours = 0
-            total_carbs = round(carb_target * est_hours) if est_hours else ""
             fluid_target = 600 if dist >= 100 else 500
             sodium_target = 500
+
+            # Gut training builds from conservative to race rate
+            gut_base_hi = min(50, carb_lo)
+            gut_build_lo = gut_base_hi
+            gut_build_hi = min(carb_lo + 10, carb_hi)
+
+            total_html = ""
+            if est_hours > 0:
+                total_html = f"""
+        <div class="stat-card">
+          <div class="stat-card__value">{total_lo}-{total_hi}g</div>
+          <div class="stat-card__label">Total Race Carbs</div>
+        </div>"""
 
             personalized_html = f"""
   <div class="data-card">
     <div class="data-card__header">YOUR PERSONALIZED FUELING TARGETS</div>
     <div class="data-card__content">
-      <p>Based on your body weight ({weight_lbs} lbs / {weight_kg:.0f} kg), race distance ({race_distance}mi), and goal type.</p>
+      <p>Based on your body weight ({weight_lbs} lbs / {weight_kg:.0f} kg), race distance ({race_distance}mi),
+      and estimated duration (~{est_hours} hours &mdash; {bracket_label}).</p>
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-card__value">{carb_target}g/hr</div>
+          <div class="stat-card__value">{carb_lo}-{carb_hi}g/hr</div>
           <div class="stat-card__label">Hourly Carbs</div>
-        </div>
-        {f'<div class="stat-card"><div class="stat-card__value">{total_carbs}g</div><div class="stat-card__label">Total Race Carbs</div></div>' if total_carbs else ''}
+        </div>{total_html}
         <div class="stat-card">
           <div class="stat-card__value">{fluid_target}ml/hr</div>
           <div class="stat-card__label">Hourly Fluid</div>
@@ -1331,102 +1343,293 @@ def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict 
         </div>
       </div>
       <h4>Gut Training Progression</h4>
+      <p>Start gut training <strong>{gut_weeks} weeks</strong> before race day. SGLT1 transporters double
+      in ~2 weeks (GSSI), but full adaptation to your race rate takes longer.</p>
       <table>
       <thead><tr><th>Phase</th><th>Weeks</th><th>Target</th><th>Focus</th></tr></thead>
       <tbody>
-      <tr><td><strong>Base</strong></td><td>1-6</td><td>40-50g/hr</td><td>Build tolerance &mdash; start conservative</td></tr>
-      <tr><td><strong>Build</strong></td><td>7-14</td><td>50-70g/hr</td><td>Increase absorption capacity</td></tr>
-      <tr><td><strong>Peak</strong></td><td>15+</td><td>60-{carb_target}g/hr</td><td>Race-rate practice</td></tr>
-      <tr class="race-day-row"><td><strong>Race</strong></td><td>Race day</td><td>{carb_target}g/hr</td><td>Execute your fueling plan</td></tr>
+      <tr><td><strong>Base</strong></td><td>1-{gut_weeks // 3}</td><td>40-{gut_base_hi}g/hr</td><td>Build tolerance &mdash; start conservative</td></tr>
+      <tr><td><strong>Build</strong></td><td>{gut_weeks // 3 + 1}-{2 * gut_weeks // 3}</td><td>{gut_build_lo}-{gut_build_hi}g/hr</td><td>Increase absorption capacity</td></tr>
+      <tr><td><strong>Peak</strong></td><td>{2 * gut_weeks // 3 + 1}+</td><td>{carb_lo}-{carb_hi}g/hr</td><td>Race-rate practice</td></tr>
+      <tr class="race-day-row"><td><strong>Race</strong></td><td>Race day</td><td>{carb_lo}-{carb_hi}g/hr</td><td>Execute your fueling plan</td></tr>
       </tbody>
       </table>
-      <p><strong>Based on your {carb_target}g/hr target:</strong> ~{round(carb_target / 25, 1)} gels per hour (or equivalent liquid/solid carbs).
-      Practice this exact strategy during long training rides.</p>
+      <p><strong>Based on your {carb_lo}-{carb_hi}g/hr target:</strong> ~{round(carb_lo / 25, 1)}-{round(carb_hi / 25, 1)} gels per hour
+      (or equivalent liquid/solid carbs). Practice this exact strategy during long training rides.</p>
     </div>
   </div>"""
         except (ValueError, TypeError):
             pass
 
+    # Personalized daily macro targets (all from body weight — no AI)
+    if weight_kg:
+        wkg = weight_kg
+        daily_macros_html = f"""
+  <div class="data-card">
+    <div class="data-card__header">YOUR DAILY MACRO TARGETS ({weight_lbs} lbs / {wkg:.0f} kg)</div>
+    <div class="data-card__content">
+      <table>
+      <thead><tr><th>Macro</th><th>Daily Target</th><th>Why</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Protein</strong></td><td>{round(wkg * 1.6)}-{round(wkg * 2.2)}g/day</td>
+        <td>Rebuilds muscle tissue damaged during training. Spread across 4 meals (25-40g each).</td></tr>
+      <tr><td><strong>Carbs (easy day)</strong></td><td>{round(wkg * 3)}-{round(wkg * 4)}g</td>
+        <td>Z2 endurance, rest days. Just restock glycogen.</td></tr>
+      <tr><td><strong>Carbs (hard day)</strong></td><td>{round(wkg * 5)}-{round(wkg * 7)}g</td>
+        <td>Interval days, long rides. Fuel the work, recover for the next session.</td></tr>
+      <tr><td><strong>Fat</strong></td><td>{round(wkg * 0.8)}-{round(wkg * 1.2)}g/day</td>
+        <td>Hormones, cell membranes, vitamin absorption. Moderate and consistent.</td></tr>
+      </tbody>
+      </table>
+      <p><strong>Sources:</strong> Protein from meat, fish, eggs, dairy, legumes. Carbs from rice, potatoes,
+      oats, bread, pasta, fruit &mdash; real food first. Fat from olive oil, nuts, avocados, fatty fish, eggs.</p>
+      <p><strong>The rule:</strong> Match carb intake to training load. Don't carb-load on rest days.
+      Don't under-fuel hard training blocks.</p>
+    </div>
+  </div>"""
+
+    # Pre-workout carb target based on body weight
+    pre_workout_carbs = f"{round(weight_kg * 1)}-{round(weight_kg * 2)}g carbs" if weight_kg else "1-2g carbs per kg bodyweight"
+    pre_race_carbs = f"{round(weight_kg * 2)}-{round(weight_kg * 3)}g carbs" if weight_kg else "2-3g carbs per kg bodyweight"
+    post_carbs = f"{round(weight_kg * 1)}-{round(weight_kg * 1.5)}g carbs" if weight_kg else "1-1.5g carbs per kg bodyweight"
+
     return f"""<section id="section-12" class="gg-section">
   <h2>12 &middot; Nutrition Strategy</h2>
+
+  <p>You can have perfect training, a dialed bike, and excellent pacing strategy. None of it matters if
+  you run out of fuel halfway through your race.</p>
+  <p>Nutrition determines ~8% of your race result. That's enough to separate finishing strong from
+  crawling to the line.</p>
 
   {aggressive_note}
   {personalized_html}
 
-  <h3>Daily Nutrition</h3>
-  <p>You cannot out-train a bad diet, and you cannot fuel a training plan on restriction.
-  Eat enough to support your training. Period.</p>
+  <h3>The Reality Check</h3>
+  <p>The cycling nutrition industry wants you to believe you need seventeen different products, each
+  with proprietary blend ratios and specific timing windows measured in seconds. You don't.</p>
+  <p>You need carbohydrates during exercise. You need protein and carbs after exercise. You need
+  reasonable daily nutrition that supports training. That's 95% of it. Everything else is optimization
+  you can worry about after you've nailed the basics.</p>
+
+  <h3>Daily Nutrition for Training</h3>
+  <p>Your body is either recovering from the last workout or preparing for the next one.
+  Daily nutrition supports both.</p>
+
+  {daily_macros_html}
+
+  <h3>Timing That Actually Matters</h3>
 
   <div class="data-card">
-    <div class="data-card__header">PRE-RIDE (2-3 HOURS BEFORE)</div>
+    <div class="data-card__header">PRE-WORKOUT (2-3 HOURS BEFORE)</div>
+    <div class="data-card__content">
+      <p><strong>If training hard (threshold, VO2max):</strong></p>
+      <ul>
+        <li>{pre_workout_carbs}</li>
+        <li>Low fiber, low fat, moderate protein</li>
+        <li>Examples: oatmeal with banana and honey, or toast with peanut butter</li>
+      </ul>
+      <p><strong>If training easy (Z2 endurance):</strong></p>
+      <ul>
+        <li>Eat normally, don't stress timing</li>
+        <li>Can even train fasted if under 90 minutes</li>
+      </ul>
+      <p><strong>The rule:</strong> Hard sessions need fuel. Easy sessions are flexible.</p>
+    </div>
+  </div>
+
+  <div class="data-card">
+    <div class="data-card__header">POST-WORKOUT (0-90 MINUTES AFTER)</div>
+    <div class="data-card__content">
+      <p><strong>If workout was long (2.5+ hours) AND hard, AND you have another hard session within 24-36 hours:</strong></p>
+      <ul>
+        <li>20-30g protein</li>
+        <li>{post_carbs}</li>
+        <li>Liquid is fine (protein shake, chocolate milk)</li>
+      </ul>
+      <p><strong>If workout was easy, short, or your next hard session is 48+ hours away:</strong></p>
+      <ul>
+        <li>Just eat your next meal normally</li>
+        <li>Recovery nutrition is optional</li>
+      </ul>
+      <p><strong>The rule:</strong> The more frequently you train hard, the more critical recovery nutrition becomes.</p>
+    </div>
+  </div>
+
+  <h3>Supplements</h3>
+  <p>Most supplements are placebo at best, actively harmful at worst.</p>
+
+  <div class="data-card">
+    <div class="data-card__header">WORTH TAKING</div>
     <div class="data-card__content">
       <ul>
-        <li>400-600 calories</li>
-        <li>Focus on easily digestible carbs</li>
-        <li>Low fiber, low fat</li>
-        <li>Examples: oatmeal + banana, toast + jam, rice + egg</li>
+        <li><strong>Vitamin D</strong> (2000-4000 IU daily): Supports bone health, immune function, recovery. Most people are deficient. Get levels tested.</li>
+        <li><strong>Creatine monohydrate</strong> (5g daily): Improves high-intensity repeatability. Useful for VO2max and sprint work. Cheap, well-researched, safe.</li>
+        <li><strong>Caffeine</strong> (3-6mg/kg before hard sessions): Proven performance enhancer. Coffee works, pills work, gels work. Tolerance builds &mdash; cycle off occasionally.</li>
       </ul>
     </div>
   </div>
 
   <div class="data-card">
-    <div class="data-card__header">DURING RIDE (&gt; 90 MIN)</div>
+    <div class="data-card__header">NOT WORTH TAKING</div>
     <div class="data-card__content">
       <ul>
-        <li>60-90g carbs/hour (100g+ for races > 4 hours)</li>
-        <li>Start fueling at 30 minutes, not when you're hungry</li>
-        <li>Mix of liquid and solid carbs</li>
-        <li>Examples: gels, chews, bars, rice cakes, maple syrup</li>
+        <li><strong>BCAAs:</strong> Complete waste if you eat adequate protein</li>
+        <li><strong>Testosterone boosters:</strong> Scams</li>
+        <li><strong>Fat burners:</strong> Scams with side effects</li>
+        <li><strong>Recovery drinks with proprietary blends:</strong> Overpriced protein + carbs</li>
       </ul>
+      <p><strong>The rule:</strong> If you're deficient in something (Vitamin D, iron), fix it. If you're considering
+      a supplement to &ldquo;optimize,&rdquo; ask yourself if you've already nailed sleep, nutrition basics,
+      and training consistency. If not, fix those first.</p>
     </div>
   </div>
+
+  <h3>Fueling During Workouts</h3>
+  <p>This is where races are won or lost.</p>
+  <p>For any ride over 90 minutes at moderate-to-high intensity (Z3+), you need 60-80g of
+  carbohydrates per hour. Your gut can absorb approximately 60g of glucose per hour through
+  SGLT1 transporters. Add fructose (which uses different transporters) and you can push to 90g total.
+  The sweet spot for most athletes is 70-75g per hour &mdash; enough to fuel hard efforts without GI distress.</p>
 
   <div class="data-card">
-    <div class="data-card__header">POST-RIDE (WITHIN 30 MIN)</div>
+    <div class="data-card__header">WORKOUT-SPECIFIC FUELING</div>
     <div class="data-card__content">
-      <ul>
-        <li>30g protein + 60-90g carbs</li>
-        <li>Real food preferred over shakes</li>
-        <li>Rehydrate: 150% of weight lost</li>
-        <li>Examples: chocolate milk, burrito, sandwich + fruit</li>
-      </ul>
+      <table>
+      <thead><tr><th>Workout Type</th><th>Duration</th><th>Carbs/Hour</th><th>Notes</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Z2 Endurance</strong></td><td>2-4 hours</td><td>40-60g</td>
+        <td>Low intensity burns fat. Real food works great &mdash; PB&amp;J, bananas, bars.</td></tr>
+      <tr><td><strong>Tempo / G Spot</strong></td><td>2-3 hours</td><td>60-80g</td>
+        <td>Start fueling at 30-45 min, not 90. Mix liquids and solids.</td></tr>
+      <tr><td><strong>Threshold / VO2max</strong></td><td>60-90 min</td><td>Pre-meal sufficient</td>
+        <td>Not depleting glycogen in 60 min. Maybe one gel mid-session.</td></tr>
+      <tr><td><strong>Race Simulation</strong></td><td>4-6 hours</td><td>70-80g</td>
+        <td>Practice your exact race-day fueling. Test products, timing, combinations.</td></tr>
+      </tbody>
+      </table>
+      <p><strong>The rule:</strong> The longer and harder the ride, the more critical fueling becomes.
+      Easy rides are forgiving. Race-pace efforts are not.</p>
     </div>
   </div>
 
-  <div class="data-card">
-    <div class="data-card__header">HYDRATION</div>
-    <div class="data-card__content">
-      <ul>
-        <li>500-750ml/hour on the bike (more in heat)</li>
-        <li>Include electrolytes (sodium) for rides > 90 min</li>
-        <li>300-500mg sodium/hour minimum</li>
-        <li>Pre-load: 500ml water + electrolytes 2 hours before</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>Quick Reference: Fueling by Ride Duration</h3>
+  <h3>Duration-Scaled Race Fueling</h3>
+  <p>This is the key insight most nutrition advice gets wrong: <strong>carb intake should scale DOWN
+  with race duration, not up.</strong> At lower intensities (longer races), your body shifts toward fat oxidation.
+  Forcing 90g/hr of carbs into a system running at 44% VO2max exceeds physiological absorption
+  capacity and causes GI distress.</p>
   <div style="overflow-x: auto;">
   <table>
-  <thead><tr><th>Ride Duration</th><th>Carbs/Hour</th><th>Fluid/Hour</th><th>Notes</th></tr></thead>
+  <thead><tr><th>Race Duration</th><th>Carbs/Hour</th><th>Fluid/Hour</th><th>Physiology</th></tr></thead>
   <tbody>
-  <tr><td>&lt; 60 min</td><td>0-30g</td><td>500ml</td><td>Water is fine</td></tr>
-  <tr><td>60-90 min</td><td>30-60g</td><td>500-700ml</td><td>Add electrolytes</td></tr>
-  <tr class="race-day-row"><td>90 min - 3 hours</td><td>60-90g</td><td>600-800ml</td><td>Start fueling at 30 min</td></tr>
-  <tr class="race-day-row"><td>3-6 hours</td><td>80-100g</td><td>700-900ml</td><td>Include solid food</td></tr>
-  <tr class="race-day-row"><td>6+ hours (RACE DAY)</td><td>90-120g</td><td>750-1000ml</td><td>Practiced plan only</td></tr>
+  <tr><td>2-4 hours</td><td>80-100g</td><td>600-800ml</td><td>High intensity, carbs are dominant fuel</td></tr>
+  <tr><td>4-8 hours</td><td>60-80g</td><td>700-900ml</td><td>Classic endurance range (Jeukendrup 2014)</td></tr>
+  <tr><td>8-12 hours</td><td>50-70g</td><td>700-900ml</td><td>Fat oxidation increasing, GI risk climbing</td></tr>
+  <tr><td>12-16 hours</td><td>40-60g</td><td>750-1000ml</td><td>Reverse crossover point &mdash; fat is primary fuel</td></tr>
+  <tr><td>16+ hours</td><td>30-50g</td><td>750-1000ml</td><td>GI tolerance is the limiter, not energy</td></tr>
   </tbody>
   </table>
   </div>
 
-  <h3>Training Your Gut</h3>
-  <p>Your gut is trainable. Start with 40g carbs/hour and increase by 10g/hour every 2 weeks
-  during long rides. By race day, you should be comfortable at 80-100g/hour.</p>
+  <h3>Hydration</h3>
+  <p>You lose 0.5-2 liters of fluid per hour depending on temperature, humidity, and effort.
+  Dehydration of 2-3% bodyweight impairs performance{f" &mdash; for you at {weight_lbs} lbs, that is {round(float(weight_lbs) * 0.02 * 0.45, 1)}-{round(float(weight_lbs) * 0.03 * 0.45, 1)} liters" if weight_lbs else ""}.</p>
   <ul>
-  <li><strong>Weeks 1-4:</strong> 40-50g carbs/hour on long rides</li>
-  <li><strong>Weeks 5-8:</strong> 60-70g carbs/hour on long rides</li>
-  <li><strong>Weeks 9+:</strong> 80-100g carbs/hour &mdash; this is your race-day target</li>
+    <li><strong>Aim for:</strong> 500-750ml per hour (16-25 oz). More in heat, less in cold.</li>
+    <li><strong>Short rides (&lt;90 min):</strong> Water is fine</li>
+    <li><strong>Long rides (2+ hours):</strong> Electrolyte drink with sodium (500-1000mg sodium/hour through sweat)</li>
+    <li><strong>Don't overthink</strong> potassium, magnesium, or trace minerals. Sodium is 90% of what matters for performance.</li>
   </ul>
+
+  <div class="gg-module gg-tactical">
+    <div class="gg-label">CRAMPING</div>
+    <p>Cramps are NOT caused by electrolyte deficiency (despite what the supplement industry tells you).
+    Cramps are caused by neuromuscular fatigue &mdash; your muscles are tired and misfiring. Salt tabs
+    might help by changing neuromuscular excitability, but the real fix is better pacing and better training.</p>
+  </div>
+
+  <h3>Training Your Gut</h3>
+  <p>Your gut is trainable just like your muscles. If you never eat during training rides,
+  your gut won't tolerate eating during races. SGLT1 transporters double in ~2 weeks of
+  training (GSSI), but full adaptation takes 6-12 weeks.</p>
+  <ul>
+    <li><strong>Base Phase (Weeks 1-4):</strong> Practice eating real food on easy rides. 40-50g carbs/hour, mostly solid. Build tolerance gradually.</li>
+    <li><strong>Build Phase (Weeks 5-8):</strong> Increase to 60-70g carbs/hour. Mix liquids and solids. Practice eating at tempo pace.</li>
+    <li><strong>Peak Training (Weeks 9-10):</strong> Hit your race-day target. Race nutrition only (gels, drink, bars you'll use on race day). Practice at race pace.</li>
+    <li><strong>Race Week:</strong> Stick with what worked in training. No new products. Trust your gut (literally).</li>
+  </ul>
+
+  <h3>Race-Day Nutrition Execution</h3>
+  <p>Everything you practiced in training gets executed under stress.</p>
+
+  <div class="data-card">
+    <div class="data-card__header">PRE-RACE MEAL (3-4 HOURS BEFORE START)</div>
+    <div class="data-card__content">
+      <p><strong>Goal:</strong> Top off glycogen. Don't experiment.</p>
+      <ul>
+        <li>{pre_race_carbs}</li>
+        <li>Moderate protein, low fat, low fiber</li>
+        <li>Familiar foods only</li>
+        <li>Examples: oatmeal with banana and honey, toast with jam and peanut butter, rice with eggs</li>
+        <li>Drink 500ml water with your meal</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="data-card">
+    <div class="data-card__header">STARTING LINE (30-60 MIN BEFORE START)</div>
+    <div class="data-card__content">
+      <p>Take one gel (24g carbs) with 200ml water. You're not adding meaningful glycogen &mdash;
+      you're making sure blood glucose is stable as the race starts.</p>
+    </div>
+  </div>
+
+  <div class="data-card">
+    <div class="data-card__header">THE FUELING TIMELINE</div>
+    <div class="data-card__content">
+      <p><strong>The most common mistake:</strong> waiting until you're hungry to start eating. By the time you
+      feel hungry, your glycogen is already depleted and your brain is glucose-starved. You're in a hole
+      you can't climb out of.</p>
+      <table>
+      <thead><tr><th>Window</th><th>Action</th></tr></thead>
+      <tbody>
+      <tr><td><strong>0-30 min</strong></td><td>Focus on pacing and positioning. Sip on drink, don't force nutrition yet.</td></tr>
+      <tr><td><strong>30-60 min</strong></td><td>First gel or equivalent (24g carbs). Start your fueling clock.</td></tr>
+      <tr><td><strong>Every 30 min after</strong></td><td>Consume carbs consistently. Gel every 30 min (48g/hr) + drink mix (20-30g/hr) = 70-80g total.</td></tr>
+      <tr><td><strong>Aid stations</strong></td><td>Top off bottles. Grab food if needed. Keep moving &mdash; you're not on a picnic.</td></tr>
+      </tbody>
+      </table>
+      <p><strong>Set a timer.</strong> Seriously. Your brain will be stupid. It will forget to eat. It will lie
+      to you and say &ldquo;I'm fine, I'll eat at the next aid station.&rdquo; The timer removes decision-making.</p>
+    </div>
+  </div>
+
+  <div class="data-card">
+    <div class="data-card__header">WHEN YOUR STOMACH REBELS</div>
+    <div class="data-card__content">
+      <p>It will. At some point in a long race, your gut will protest. High-intensity exercise diverts blood
+      from your GI system to working muscles. Food sits there, undigested.</p>
+      <ol>
+        <li><strong>Back off intensity for 5-10 minutes.</strong> Drop to Z2 pace. Let gut blood flow recover.</li>
+        <li><strong>Switch to liquid calories temporarily.</strong> Easier to digest than solids. Sports drink or cola at aid stations.</li>
+        <li><strong>Small sips, not big gulps.</strong> Easier on the stomach, less sloshing.</li>
+        <li><strong>Don't panic and stop eating entirely.</strong> You'll bonk 30 minutes later. Maintain some carb intake even if reduced.</li>
+      </ol>
+      <p><strong>What NOT to do:</strong> Hammer harder while nauseous. You'll either vomit or shut down completely.</p>
+    </div>
+  </div>
+
+  <h3>Weight Management vs Performance</h3>
+  <p>You want to be lean for racing. But chasing leanness during a training block is self-sabotage.</p>
+  <div class="gg-module gg-tactical">
+    <div class="gg-label">THE TRAINING BLOCK RULE</div>
+    <p>During your training build, your job is to train hard and recover well. Not cut weight.
+    Energy deficit impairs recovery. Under-fueled training produces inferior workouts.</p>
+    <p><strong>When to cut weight:</strong> After your race. During the off-season. When training volume is
+    low and intensity is moderate. A 500-calorie daily deficit over 8-12 weeks can drop 4-6kg
+    without destroying your fitness.</p>
+    <p><strong>The rule:</strong> Chase performance metrics, not scale numbers. If your FTP and climbing
+    times improve, your weight is fine. If they're declining, eat more.</p>
+  </div>
 
   <div class="gg-module gg-tactical">
     <div class="gg-label">THE RACE DAY FUELING RULE</div>
@@ -2216,7 +2419,8 @@ def _section_women_specific(profile: Dict, race_data: Dict, race_name: str, sect
       </ul>
       <p><strong>Your training day target:</strong> {carb_training} carbs ({f'{weight_kg}kg x 6-7g/kg' if weight_kg else '5-7g per kg body weight'}).
       More on long ride days: {carb_long} ({f'{weight_kg}kg x 8-10g/kg' if weight_kg else '8-10g per kg body weight'}).</p>
-      <p><strong>Racing target:</strong> 60-90g carbs per hour minimum. Don't under-fuel trying to "stay lean" &mdash;
+      <p><strong>Racing target:</strong> 60-80g carbs per hour for rides over 90 minutes at moderate-to-high intensity
+      (scaled down for longer durations &mdash; see Nutrition Strategy section). Don't under-fuel trying to "stay lean" &mdash;
       that strategy kills performance AND health.</p>
     </div>
   </div>

@@ -438,7 +438,7 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
         "- Final 25%: Empty the tank if legs allow\n\n"
         "FUELING:\n"
         "- Set 20-minute timer for nutrition\n"
-        "- 60-90g carbs/hour minimum\n"
+        "- 60-80g carbs/hour (adjust for duration — see Nutrition Strategy)\n"
         "- Hydrate 500-750ml/hour\n\n"
         "REMEMBER:\n"
         "Start slower than you think. The race doesn't start until the last third."

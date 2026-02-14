@@ -174,6 +174,9 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     with open(athlete_dir / "receipt.json", "w") as f:
         json.dump(receipt, f, indent=2)
 
+    # ── Copy deliverables to Downloads ────────────────────────
+    _copy_to_downloads(intake, athlete_dir, pdf_path, workouts_dir, skip_pdf)
+
     print("\n" + "=" * 60)
     print("PIPELINE COMPLETE")
     print(f"  Athlete: {intake['name']}")
@@ -183,6 +186,40 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
 
 
 # ── Helpers ──────────────────────────────────────────────────
+
+def _copy_to_downloads(intake: dict, athlete_dir: Path, pdf_path: Path, workouts_dir: Path, skip_pdf: bool):
+    """Copy PDF + workouts to ~/Downloads/{Name} - {Race}/."""
+    import shutil
+
+    downloads = Path.home() / "Downloads"
+    if not downloads.exists():
+        return
+
+    name = intake["name"]
+    race_name = intake["races"][0]["name"] if intake.get("races") else "Plan"
+    folder_name = f"{name} - {race_name}"
+    dest = downloads / folder_name
+
+    # Clean previous delivery for same athlete/race
+    if dest.exists():
+        shutil.rmtree(dest)
+    dest.mkdir(parents=True)
+
+    # Copy PDF
+    if not skip_pdf and pdf_path.exists():
+        safe_name = name.replace(" ", "_")
+        safe_race = race_name.replace(" ", "_")
+        shutil.copy(pdf_path, dest / f"{safe_name}_{safe_race}_Training_Guide.pdf")
+
+    # Copy workouts
+    if workouts_dir.exists():
+        shutil.copytree(workouts_dir, dest / "workouts")
+
+    zwo_count = len(list((dest / "workouts").glob("*.zwo"))) if (dest / "workouts").exists() else 0
+    print(f"\n  Copied to ~/Downloads/{folder_name}/")
+    print(f"    PDF:      {'yes' if not skip_pdf and pdf_path.exists() else 'skipped'}")
+    print(f"    Workouts: {zwo_count} ZWO files")
+
 
 def _make_athlete_id(name: str) -> str:
     import re

@@ -409,9 +409,12 @@ def generate_workouts(
 
             elif template_workout:
                 # Use the template workout with race modifications
-                # Apply long ride cap/floor only to long_ride session types
-                effective_cap = long_ride_cap if session_type == "long_ride" else 99999
-                effective_floor = long_ride_floor if session_type == "long_ride" else 0
+                # Apply long ride cap/floor only to actual endurance rides —
+                # a VO2max/threshold session on a long_ride day should NOT be inflated
+                workout_type = _detect_workout_type(template_workout.get("name", ""))
+                is_endurance = workout_type in ("Long_Endurance", "Easy_Recovery")
+                effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
+                effective_floor = long_ride_floor if session_type == "long_ride" and is_endurance else 0
                 _write_template_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
                     template_workout, race_data, week_num, plan_duration,

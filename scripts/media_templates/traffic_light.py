@@ -2,20 +2,15 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb,
-    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, TEAL, DARK_GOLD,
-    GOLD, OFF_WHITE, BLACK, WHITE,
+    load_font, load_editorial_font, hex_to_rgb, draw_gold_rule,
+    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, TEAL, GOLD,
+    LIGHT_GOLD, WARM_BROWN, ERROR_RED, WARM_PAPER, DARK_BROWN, NEAR_BLACK, WHITE,
 )
-
-MUTED_TAN = "#c4b5ab"
-RED = "#c0392b"
-GREEN = "#178079"
-YELLOW = "#F4D03F"
 
 LIGHTS = [
     {
         "name": "GREEN",
-        "color": GREEN,
+        "color": DARK_TEAL,
         "subtitle": "PROCEED AS PLANNED",
         "criteria": [
             "Slept 7+ hours",
@@ -27,8 +22,8 @@ LIGHTS = [
     },
     {
         "name": "YELLOW",
-        "color": YELLOW,
-        "text_color": BLACK,
+        "color": LIGHT_GOLD,
+        "text_color": NEAR_BLACK,
         "subtitle": "MODIFY",
         "criteria": [
             "Slept <6 hours",
@@ -40,7 +35,7 @@ LIGHTS = [
     },
     {
         "name": "RED",
-        "color": RED,
+        "color": ERROR_RED,
         "subtitle": "SKIP OR REPLACE",
         "criteria": [
             "Slept <5 hours",
@@ -52,84 +47,86 @@ LIGHTS = [
     },
 ]
 
+BASE_WIDTH = 1200
+
 
 def render(width: int = 1200, height: int = 800) -> Image.Image:
     """Render the traffic light autoregulation system."""
-    img = Image.new("RGB", (width, height), hex_to_rgb(OFF_WHITE))
+    s = width / BASE_WIDTH
+
+    img = Image.new("RGB", (width, height), hex_to_rgb(WARM_PAPER))
     draw = ImageDraw.Draw(img)
 
-    font_title = load_font(bold=True, size=22)
-    font_light = load_font(bold=True, size=20)
-    font_sub = load_font(bold=True, size=14)
-    font_label = load_font(bold=False, size=14)
-    font_action = load_font(bold=True, size=13)
-    font_xs = load_font(bold=False, size=11)
+    font_title = load_editorial_font(size=int(26 * s))
+    font_light = load_font(bold=True, size=int(20 * s))
+    font_sub = load_font(bold=True, size=int(14 * s))
+    font_label = load_font(bold=False, size=int(14 * s))
+    font_action = load_font(bold=True, size=int(13 * s))
 
-    pad = 40
+    pad = int(40 * s)
 
-    # Title
-    draw.text((pad, 18), "DAILY AUTOREGULATION: CHECK BEFORE EVERY SESSION",
+    # Title — Source Serif 4 + gold rule
+    draw.text((pad, int(14 * s)), "DAILY AUTOREGULATION: CHECK BEFORE EVERY SESSION",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
-    draw.line([(pad, 50), (width - pad, 50)], fill=hex_to_rgb(BLACK), width=2)
+    rule_y = int(50 * s)
+    draw_gold_rule(draw, pad, rule_y, width - pad, width=max(2, int(2 * s)))
 
     # Three light sections
-    section_h = 210
-    section_gap = 18
-    section_top = 70
+    section_h = int(210 * s)
+    section_gap = int(18 * s)
+    section_top = int(70 * s)
 
     for i, light in enumerate(LIGHTS):
         y = section_top + i * (section_h + section_gap)
         color = light["color"]
-        text_color = light.get("text_color", WHITE)
 
-        # Traffic light circle
-        circle_x = pad + 50
-        circle_y = y + section_h // 2
-        circle_r = 40
-        draw.ellipse([(circle_x - circle_r, circle_y - circle_r),
-                       (circle_x + circle_r, circle_y + circle_r)],
-                      fill=hex_to_rgb(color), outline=hex_to_rgb(BLACK), width=3)
+        # Traffic light SQUARE (no circles — brand rule)
+        sq_cx = pad + int(50 * s)
+        sq_cy = y + section_h // 2
+        sq_half = int(40 * s)
+        draw.rectangle([(sq_cx - sq_half, sq_cy - sq_half),
+                        (sq_cx + sq_half, sq_cy + sq_half)],
+                       fill=hex_to_rgb(color), outline=hex_to_rgb(DARK_BROWN),
+                       width=max(3, int(3 * s)))
 
-        # Light name inside circle
+        # Light name inside square
         name = light["name"]
         bbox = draw.textbbox((0, 0), name, font=font_sub)
         tw = bbox[2] - bbox[0]
         th = bbox[3] - bbox[1]
-        name_color = BLACK if color == YELLOW else WHITE
-        draw.text((circle_x - tw // 2, circle_y - th // 2 - 1),
+        name_color = NEAR_BLACK if color in (LIGHT_GOLD, GOLD) else WHITE
+        draw.text((sq_cx - tw // 2, sq_cy - th // 2 - int(1 * s)),
                   name, fill=hex_to_rgb(name_color), font=font_sub)
 
         # Content area
-        content_x = pad + 120
-        content_w = width - content_x - pad
+        content_x = pad + int(120 * s)
 
         # Card background
         draw.rectangle([(content_x, y), (width - pad, y + section_h)],
-                       fill=hex_to_rgb(WHITE), outline=hex_to_rgb(BLACK), width=2)
+                       fill=hex_to_rgb(WHITE), outline=hex_to_rgb(DARK_BROWN),
+                       width=max(2, int(2 * s)))
 
         # Colored top strip
-        strip_h = 36
+        strip_h = int(36 * s)
         draw.rectangle([(content_x, y), (width - pad, y + strip_h)],
                        fill=hex_to_rgb(color))
-        draw.text((content_x + 14, y + 8), light["subtitle"],
-                  fill=hex_to_rgb(BLACK if color == YELLOW else WHITE), font=font_light)
+        draw.text((content_x + int(14 * s), y + int(8 * s)), light["subtitle"],
+                  fill=hex_to_rgb(NEAR_BLACK if color in (LIGHT_GOLD, GOLD) else WHITE), font=font_light)
 
         # Criteria list
-        criteria_y = y + strip_h + 14
+        criteria_y = y + strip_h + int(14 * s)
         for j, criterion in enumerate(light["criteria"]):
-            cy = criteria_y + j * 26
-            # Bullet
-            draw.rectangle([(content_x + 16, cy + 4), (content_x + 24, cy + 12)],
+            cy = criteria_y + j * int(26 * s)
+            # Square bullet
+            draw.rectangle([(content_x + int(16 * s), cy + int(4 * s)),
+                            (content_x + int(24 * s), cy + int(12 * s))],
                            fill=hex_to_rgb(color))
-            draw.text((content_x + 34, cy), criterion,
-                      fill=hex_to_rgb(BLACK), font=font_label)
+            draw.text((content_x + int(34 * s), cy), criterion,
+                      fill=hex_to_rgb(NEAR_BLACK), font=font_label)
 
         # Action line
-        action_y = y + section_h - 34
-        draw.text((content_x + 16, action_y), light["action"],
+        action_y = y + section_h - int(34 * s)
+        draw.text((content_x + int(16 * s), action_y), light["action"],
                   fill=hex_to_rgb(color), font=font_action)
-
-    # Source
-    draw.text((pad, height - 18), "gravelgodcycling.com", fill=hex_to_rgb(MUTED_TAN), font=font_xs)
 
     return img

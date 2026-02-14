@@ -41,7 +41,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.030599+00:00",
+      "generated_at": "2026-02-14T15:48:05.823980+00:00",
       "output_files": [
         "ch1-hero-1x.webp",
         "ch1-hero-2x.webp"
@@ -69,7 +69,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.293443+00:00",
+      "generated_at": "2026-02-14T15:48:06.052351+00:00",
       "output_files": [
         "ch2-hero-1x.webp",
         "ch2-hero-2x.webp"
@@ -97,7 +97,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.486045+00:00",
+      "generated_at": "2026-02-14T15:48:06.222790+00:00",
       "output_files": [
         "ch3-hero-1x.webp",
         "ch3-hero-2x.webp"
@@ -125,7 +125,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.675756+00:00",
+      "generated_at": "2026-02-14T15:48:06.432931+00:00",
       "output_files": [
         "ch4-hero-1x.webp",
         "ch4-hero-2x.webp"
@@ -153,7 +153,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.843234+00:00",
+      "generated_at": "2026-02-14T15:48:06.662110+00:00",
       "output_files": [
         "ch5-hero-1x.webp",
         "ch5-hero-2x.webp"
@@ -181,7 +181,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:08.972373+00:00",
+      "generated_at": "2026-02-14T15:48:06.819123+00:00",
       "output_files": [
         "ch6-hero-1x.webp",
         "ch6-hero-2x.webp"
@@ -209,7 +209,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:09.128172+00:00",
+      "generated_at": "2026-02-14T15:48:07.038111+00:00",
       "output_files": [
         "ch7-hero-1x.webp",
         "ch7-hero-2x.webp"
@@ -237,7 +237,7 @@
       },
       "status": "complete",
       "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=AIzaSyAV220GoLuzXD3GdJHV47s0Zi1Woydu_N4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
-      "generated_at": "2026-02-11T00:51:09.262011+00:00",
+      "generated_at": "2026-02-14T15:48:07.211319+00:00",
       "output_files": [
         "ch8-hero-1x.webp",
         "ch8-hero-2x.webp"
@@ -250,17 +250,17 @@
       "placement": "inline",
       "prompt": "Clean infographic showing gravel cycling gear essentials in a grid layout: bike frame, tires (40-50mm), helmet, repair kit, hydration pack. Minimal style with black borders, monospace labels, brown and teal accent colors on off-white background",
       "dimensions": {
-        "width": 1200,
-        "height": 800
+        "width": 1800,
+        "height": 1200
       },
       "resize": {
         "1x": [
-          600,
-          400
+          900,
+          600
         ],
         "2x": [
-          1200,
-          800
+          1800,
+          1200
         ]
       },
       "post_process": {
@@ -268,7 +268,7 @@
         "template": "gear_grid"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:44:54.469607+00:00",
+      "generated_at": "2026-02-14T15:48:07.623718+00:00",
       "output_files": [
         "ch1-gear-essentials-1x.webp",
         "ch1-gear-essentials-2x.webp"
@@ -281,17 +281,17 @@
       "placement": "inline",
       "prompt": "Pyramid infographic showing hierarchy of speed factors in gravel racing. From bottom (largest): Engine/Fitness, then Nutrition/Fueling, then Pacing, then Equipment, then Tactics at top (smallest). Neo-brutalist style with black borders, monospace font, teal and brown fills",
       "dimensions": {
-        "width": 1200,
-        "height": 800
+        "width": 1800,
+        "height": 1200
       },
       "resize": {
         "1x": [
-          600,
-          400
+          900,
+          600
         ],
         "2x": [
-          1200,
-          800
+          1800,
+          1200
         ]
       },
       "post_process": {
@@ -299,7 +299,7 @@
         "template": "hierarchy_pyramid"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:44:59.125556+00:00",
+      "generated_at": "2026-02-14T15:48:07.887163+00:00",
       "output_files": [
         "ch1-hierarchy-of-speed-1x.webp",
         "ch1-hierarchy-of-speed-2x.webp"
@@ -312,17 +312,17 @@
       "placement": "inline",
       "prompt": "Radar chart or grid showing 14 scoring dimensions for gravel race rating: distance, elevation, technical difficulty, navigation, prestige, field size, prize money, scenic value, logistics, community, safety, course marking, aid stations, overall production. Clean data visualization, monospace labels, teal accent bars on off-white",
       "dimensions": {
-        "width": 1200,
-        "height": 800
+        "width": 1800,
+        "height": 1200
       },
       "resize": {
         "1x": [
-          600,
-          400
+          900,
+          600
         ],
         "2x": [
-          1200,
-          800
+          1800,
+          1200
         ]
       },
       "post_process": {
@@ -330,7 +330,7 @@
         "template": "scoring_dimensions"
       },
       "status": "complete",
-      "generated_at": "2026-02-11T00:50:59.868651+00:00",
+      "generated_at": "2026-02-14T15:48:08.143361+00:00",
       "output_files": [
         "ch2-scoring-dimensions-1x.webp",
         "ch2-scoring-dimensions-2x.webp"
@@ -343,17 +343,17 @@
       "placement": "inline",
       "prompt": "Horizontal bar chart showing 7 training zones from Z1 Active Recovery to Z7 Neuromuscular, with power percentage ranges and heart rate ranges. Color gradient from teal (easy) through gold (threshold) to deep brown (max). Neo-brutalist style, monospace labels, black borders",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -361,7 +361,7 @@
         "template": "zone_spectrum"
       },
       "status": "complete",
-      "generated_at": "2026-02-11T00:50:58.390414+00:00",
+      "generated_at": "2026-02-14T15:48:08.303269+00:00",
       "output_files": [
         "ch3-zone-spectrum-1x.webp",
         "ch3-zone-spectrum-2x.webp"
@@ -374,17 +374,17 @@
       "placement": "full-width",
       "prompt": "Timeline infographic showing 12-week gravel training periodization: Base Phase (weeks 1-4), Build Phase (weeks 5-8), Peak/Taper Phase (weeks 9-12). Each phase shows volume and intensity curves. Neo-brutalist style with black borders, teal for volume, gold for intensity, monospace labels",
       "dimensions": {
-        "width": 1600,
-        "height": 500
+        "width": 2400,
+        "height": 750
       },
       "resize": {
         "1x": [
-          800,
-          250
+          1200,
+          375
         ],
         "2x": [
-          1600,
-          500
+          2400,
+          750
         ]
       },
       "post_process": {
@@ -392,7 +392,7 @@
         "template": "training_phases"
       },
       "status": "complete",
-      "generated_at": "2026-02-11T00:50:58.961691+00:00",
+      "generated_at": "2026-02-14T15:48:08.497001+00:00",
       "output_files": [
         "ch3-training-phases-1x.webp",
         "ch3-training-phases-2x.webp"
@@ -405,17 +405,17 @@
       "placement": "inline",
       "prompt": "Timeline infographic showing race-day fueling strategy: pre-race meal (3hrs before), pre-start gel (15min before), hourly fueling targets (60-90g carbs/hr), hydration targets (500-750ml/hr). Clean horizontal timeline, monospace labels, teal and gold accents, neo-brutalist black borders",
       "dimensions": {
-        "width": 1200,
-        "height": 500
+        "width": 1800,
+        "height": 750
       },
       "resize": {
         "1x": [
-          600,
-          250
+          900,
+          375
         ],
         "2x": [
-          1200,
-          500
+          1800,
+          750
         ]
       },
       "post_process": {
@@ -423,7 +423,7 @@
         "template": "fueling_timeline"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:45:00.725852+00:00",
+      "generated_at": "2026-02-14T15:48:08.699726+00:00",
       "output_files": [
         "ch5-fueling-timeline-1x.webp",
         "ch5-fueling-timeline-2x.webp"
@@ -436,17 +436,17 @@
       "placement": "inline",
       "prompt": "Three-panel infographic showing the three acts of a long gravel race: Act 1 Restraint (0-33%, cool teal), Act 2 Resilience (33-66%, warm gold), Act 3 Resolve (66-100%, deep brown). Each panel has key mental strategies listed. Neo-brutalist style, monospace font, thick black borders",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -454,7 +454,7 @@
         "template": "three_acts"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:45:01.664640+00:00",
+      "generated_at": "2026-02-14T15:48:08.894229+00:00",
       "output_files": [
         "ch6-three-acts-1x.webp",
         "ch6-three-acts-2x.webp"
@@ -467,17 +467,17 @@
       "placement": "full-width",
       "prompt": "Countdown calendar infographic showing race week protocol days 7 to 1: each day shows key tasks (training taper, nutrition loading, equipment check, sleep targets). Vertical timeline with daily cards, neo-brutalist style, monospace font, alternating teal and brown accents",
       "dimensions": {
-        "width": 1600,
-        "height": 600
+        "width": 2400,
+        "height": 900
       },
       "resize": {
         "1x": [
-          800,
-          300
+          1200,
+          450
         ],
         "2x": [
-          1600,
-          600
+          2400,
+          900
         ]
       },
       "post_process": {
@@ -485,7 +485,7 @@
         "template": "race_week_countdown"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T22:45:02.430416+00:00",
+      "generated_at": "2026-02-14T15:48:09.164400+00:00",
       "output_files": [
         "ch7-race-week-countdown-1x.webp",
         "ch7-race-week-countdown-2x.webp"
@@ -498,17 +498,17 @@
       "placement": "inline",
       "prompt": "Four rider categories comparison grid",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -516,11 +516,12 @@
         "template": "rider_categories"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:54.380306+00:00",
+      "generated_at": "2026-02-14T15:48:09.382413+00:00",
       "output_files": [
         "ch1-rider-grid-1x.webp",
         "ch1-rider-grid-2x.webp"
-      ]
+      ],
+      "error": "name 'font_xs' is not defined"
     },
     {
       "id": "ch2-tier-distribution",
@@ -529,17 +530,17 @@
       "placement": "inline",
       "prompt": "Tier distribution of 328 gravel races",
       "dimensions": {
-        "width": 1200,
-        "height": 400
+        "width": 1800,
+        "height": 600
       },
       "resize": {
         "1x": [
-          600,
-          200
+          900,
+          300
         ],
         "2x": [
-          1200,
-          400
+          1800,
+          600
         ]
       },
       "post_process": {
@@ -547,7 +548,7 @@
         "template": "tier_distribution"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:54.622502+00:00",
+      "generated_at": "2026-02-14T15:48:09.535236+00:00",
       "output_files": [
         "ch2-tier-distribution-1x.webp",
         "ch2-tier-distribution-2x.webp"
@@ -560,17 +561,17 @@
       "placement": "inline",
       "prompt": "Supercompensation adaptation cycle curve",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -578,7 +579,7 @@
         "template": "supercompensation"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:54.932970+00:00",
+      "generated_at": "2026-02-14T15:48:09.774459+00:00",
       "output_files": [
         "ch3-supercompensation-1x.webp",
         "ch3-supercompensation-2x.webp"
@@ -591,17 +592,17 @@
       "placement": "full-width",
       "prompt": "Performance Management Chart (CTL/ATL/TSB) over 12 weeks",
       "dimensions": {
-        "width": 1600,
-        "height": 600
+        "width": 2400,
+        "height": 900
       },
       "resize": {
         "1x": [
-          800,
-          300
+          1200,
+          450
         ],
         "2x": [
-          1600,
-          600
+          2400,
+          900
         ]
       },
       "post_process": {
@@ -609,7 +610,7 @@
         "template": "pmc_chart"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:55.348694+00:00",
+      "generated_at": "2026-02-14T15:48:10.088401+00:00",
       "output_files": [
         "ch3-pmc-chart-1x.webp",
         "ch3-pmc-chart-2x.webp"
@@ -622,17 +623,17 @@
       "placement": "inline",
       "prompt": "Plan vs reality interval execution comparison",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -640,11 +641,12 @@
         "template": "execution_gap"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:55.734888+00:00",
+      "generated_at": "2026-02-14T15:48:10.295120+00:00",
       "output_files": [
         "ch4-execution-gap-1x.webp",
         "ch4-execution-gap-2x.webp"
-      ]
+      ],
+      "error": "name 'font_xs' is not defined"
     },
     {
       "id": "ch4-traffic-light",
@@ -653,17 +655,17 @@
       "placement": "inline",
       "prompt": "Green/Yellow/Red autoregulation system",
       "dimensions": {
-        "width": 1200,
-        "height": 800
+        "width": 1800,
+        "height": 1200
       },
       "resize": {
         "1x": [
-          600,
-          400
+          900,
+          600
         ],
         "2x": [
-          1200,
-          800
+          1800,
+          1200
         ]
       },
       "post_process": {
@@ -671,7 +673,7 @@
         "template": "traffic_light"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:56.144482+00:00",
+      "generated_at": "2026-02-14T15:48:10.588769+00:00",
       "output_files": [
         "ch4-traffic-light-1x.webp",
         "ch4-traffic-light-2x.webp"
@@ -684,17 +686,17 @@
       "placement": "inline",
       "prompt": "The bonk math equation and gel grid",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -702,7 +704,7 @@
         "template": "bonk_math"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:56.438221+00:00",
+      "generated_at": "2026-02-14T15:48:10.805436+00:00",
       "output_files": [
         "ch5-bonk-math-1x.webp",
         "ch5-bonk-math-2x.webp"
@@ -715,17 +717,17 @@
       "placement": "inline",
       "prompt": "Psychological phases mood curve of a long race",
       "dimensions": {
-        "width": 1200,
-        "height": 600
+        "width": 1800,
+        "height": 900
       },
       "resize": {
         "1x": [
-          600,
-          300
+          900,
+          450
         ],
         "2x": [
-          1200,
-          600
+          1800,
+          900
         ]
       },
       "post_process": {
@@ -733,7 +735,7 @@
         "template": "psych_phases"
       },
       "status": "complete",
-      "generated_at": "2026-02-10T18:29:56.747578+00:00",
+      "generated_at": "2026-02-14T15:48:11.102776+00:00",
       "output_files": [
         "ch6-psych-phases-1x.webp",
         "ch6-psych-phases-2x.webp"

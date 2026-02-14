@@ -2,12 +2,10 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb,
-    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, DARK_GOLD,
-    OFF_WHITE, BLACK, WHITE,
+    load_font, load_editorial_font, hex_to_rgb, draw_gold_rule,
+    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, GOLD,
+    WARM_PAPER, DARK_BROWN, NEAR_BLACK, WHITE, WARM_BROWN,
 )
-
-MUTED_TAN = "#c4b5ab"
 
 ACTS = [
     {
@@ -24,8 +22,8 @@ ACTS = [
     {
         "name": "ACT 2: RESILIENCE",
         "range": "33-66%",
-        "color": DARK_GOLD,
-        "text_color": BLACK,
+        "color": GOLD,
+        "text_color": NEAR_BLACK,
         "strategies": [
             "Stay disciplined on nutrition",
             "Do your share, no hero pulls",
@@ -48,30 +46,32 @@ ACTS = [
 
 def render(width: int = 1200, height: int = 600) -> Image.Image:
     """Render three vertical panels for race acts."""
-    img = Image.new("RGB", (width, height), hex_to_rgb(OFF_WHITE))
+    s = width / 1200
+
+    img = Image.new("RGB", (width, height), hex_to_rgb(WARM_PAPER))
     draw = ImageDraw.Draw(img)
 
-    font_title = load_font(bold=True, size=22)
-    font_subtitle = load_font(bold=False, size=13)
-    font_act = load_font(bold=True, size=18)
-    font_range = load_font(bold=True, size=28)
-    font_bullet = load_font(bold=False, size=14)
-    font_xs = load_font(bold=False, size=11)
+    font_title = load_editorial_font(size=int(26 * s))
+    font_subtitle = load_font(bold=False, size=int(13 * s))
+    font_act = load_font(bold=True, size=int(18 * s))
+    font_range = load_font(bold=True, size=int(28 * s))
+    font_bullet = load_font(bold=False, size=int(14 * s))
 
-    pad = 40
+    pad = int(40 * s)
 
-    # Title
-    draw.text((pad, 16), "THE THREE ACTS OF GRAVEL RACING",
+    # Title — Source Serif 4 + gold rule
+    draw.text((pad, int(14 * s)), "THE THREE ACTS OF GRAVEL RACING",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
-    draw.text((pad + 480, 20), "Survive. Execute. Capitalize.",
+    draw.text((pad + int(500 * s), int(22 * s)), "Survive. Execute. Capitalize.",
               fill=hex_to_rgb(SECONDARY_BROWN), font=font_subtitle)
-    draw.line([(pad, 48), (width - pad, 48)], fill=hex_to_rgb(BLACK), width=2)
+    rule_y = int(50 * s)
+    draw_gold_rule(draw, pad, rule_y, width - pad, width=max(2, int(2 * s)))
 
     # Three panels
     n = len(ACTS)
     panel_gap = 0  # Thick borders serve as separators
-    panel_top = 64
-    panel_bottom = height - 40
+    panel_top = int(64 * s)
+    panel_bottom = height - int(40 * s)
     panel_h = panel_bottom - panel_top
     total_w = width - pad * 2
     panel_w = total_w // n
@@ -83,32 +83,29 @@ def render(width: int = 1200, height: int = 600) -> Image.Image:
 
         # Panel background
         draw.rectangle([(x, panel_top), (x + panel_w, panel_bottom)],
-                       fill=hex_to_rgb(color), outline=hex_to_rgb(BLACK), width=3)
+                       fill=hex_to_rgb(color), outline=hex_to_rgb(DARK_BROWN),
+                       width=max(3, int(3 * s)))
 
         # Act name
-        draw.text((x + 20, panel_top + 20), act["name"],
+        draw.text((x + int(20 * s), panel_top + int(20 * s)), act["name"],
                   fill=hex_to_rgb(tc), font=font_act)
 
         # Percentage range — big
-        draw.text((x + 20, panel_top + 56), act["range"],
+        draw.text((x + int(20 * s), panel_top + int(56 * s)), act["range"],
                   fill=hex_to_rgb(tc), font=font_range)
 
         # Divider
-        div_y = panel_top + 100
-        draw.line([(x + 20, div_y), (x + panel_w - 20, div_y)],
-                  fill=hex_to_rgb(tc), width=1)
+        div_y = panel_top + int(100 * s)
+        draw.line([(x + int(20 * s), div_y), (x + panel_w - int(20 * s), div_y)],
+                  fill=hex_to_rgb(tc), width=max(1, int(1 * s)))
 
         # Strategies as bullet points
         for j, strat in enumerate(act["strategies"]):
-            sy = div_y + 20 + j * 36
+            sy = div_y + int(20 * s) + j * int(36 * s)
             # Bullet marker
-            draw.text((x + 20, sy), ">",
+            draw.text((x + int(20 * s), sy), ">",
                       fill=hex_to_rgb(tc), font=font_bullet)
-            draw.text((x + 40, sy), strat,
+            draw.text((x + int(40 * s), sy), strat,
                       fill=hex_to_rgb(tc), font=font_bullet)
-
-    # Source
-    draw.text((pad, height - 20), "gravelgodcycling.com",
-              fill=hex_to_rgb(MUTED_TAN), font=font_xs)
 
     return img

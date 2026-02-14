@@ -2,12 +2,10 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb,
+    load_font, load_editorial_font, hex_to_rgb, draw_gold_rule,
     PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL,
-    DARK_GOLD, OFF_WHITE, BLACK, WHITE,
+    GOLD, WARM_BROWN, SAND, WARM_PAPER, DARK_BROWN, NEAR_BLACK, WHITE,
 )
-
-MUTED_TAN = "#c4b5ab"
 
 DAYS = [
     {
@@ -54,90 +52,93 @@ DAYS = [
     },
 ]
 
+BASE_WIDTH = 1600
+
 
 def render(width: int = 1600, height: int = 600) -> Image.Image:
     """Render a 7-day race week countdown strip."""
-    img = Image.new("RGB", (width, height), hex_to_rgb(OFF_WHITE))
+    s = width / BASE_WIDTH
+
+    img = Image.new("RGB", (width, height), hex_to_rgb(WARM_PAPER))
     draw = ImageDraw.Draw(img)
 
-    font_title = load_font(bold=True, size=22)
-    font_subtitle = load_font(bold=False, size=13)
-    font_day = load_font(bold=True, size=20)
-    font_label = load_font(bold=True, size=12)
-    font_task = load_font(bold=False, size=12)
-    font_note = load_font(bold=False, size=11)
-    font_xs = load_font(bold=False, size=11)
+    font_title = load_editorial_font(size=int(26 * s))
+    font_subtitle = load_font(bold=False, size=int(13 * s))
+    font_day = load_font(bold=True, size=int(20 * s))
+    font_label = load_font(bold=True, size=int(12 * s))
+    font_task = load_font(bold=False, size=int(12 * s))
+    font_note = load_font(bold=False, size=int(11 * s))
 
-    pad = 30
+    pad = int(30 * s)
 
-    # Title
-    draw.text((pad, 14), "RACE WEEK COUNTDOWN",
+    # Title — Source Serif 4 + gold rule
+    draw.text((pad, int(10 * s)), "RACE WEEK COUNTDOWN",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
-    draw.text((pad + 340, 18), "Your fitness is locked in. This week is logistics.",
+    draw.text((pad + int(360 * s), int(18 * s)),
+              "Your fitness is locked in. This week is logistics.",
               fill=hex_to_rgb(SECONDARY_BROWN), font=font_subtitle)
-    draw.line([(pad, 46), (width - pad, 46)], fill=hex_to_rgb(BLACK), width=2)
+    rule_y = int(46 * s)
+    draw_gold_rule(draw, pad, rule_y, width - pad, width=max(2, int(2 * s)))
 
     # 7 columns
     n = len(DAYS)
-    col_gap = 8
+    col_gap = int(8 * s)
     total_gap = col_gap * (n - 1)
     col_w = (width - pad * 2 - total_gap) // n
-    card_top = 62
-    card_bottom = height - 36
+    card_top = int(62 * s)
+    card_bottom = height - int(36 * s)
 
     for i, day in enumerate(DAYS):
         x = pad + i * (col_w + col_gap)
         is_race_day = i == n - 1
 
-        bg_color = DARK_TEAL if is_race_day else (WHITE if i % 2 == 0 else "#ede6dd")
+        bg_color = DARK_TEAL if is_race_day else (WHITE if i % 2 == 0 else SAND)
         header_color = DARK_TEAL if is_race_day else (PRIMARY_BROWN if i % 2 == 0 else SECONDARY_BROWN)
 
         # Card background
         draw.rectangle([(x, card_top), (x + col_w, card_bottom)],
                        fill=hex_to_rgb(bg_color),
-                       outline=hex_to_rgb(BLACK),
-                       width=3 if is_race_day else 2)
+                       outline=hex_to_rgb(DARK_BROWN),
+                       width=max(3, int(3 * s)) if is_race_day else max(2, int(2 * s)))
 
         # Day header strip
-        strip_h = 48
+        strip_h = int(48 * s)
         draw.rectangle([(x, card_top), (x + col_w, card_top + strip_h)],
                        fill=hex_to_rgb(header_color))
 
         # Day name
         bbox = draw.textbbox((0, 0), day["day"], font=font_day)
         tw = bbox[2] - bbox[0]
-        draw.text((x + (col_w - tw) // 2, card_top + 4),
+        draw.text((x + (col_w - tw) // 2, card_top + int(4 * s)),
                   day["day"], fill=hex_to_rgb(WHITE), font=font_day)
 
         # Sub-label
         bbox = draw.textbbox((0, 0), day["label"], font=font_label)
         tw = bbox[2] - bbox[0]
-        draw.text((x + (col_w - tw) // 2, card_top + 28),
+        draw.text((x + (col_w - tw) // 2, card_top + int(28 * s)),
                   day["label"], fill=hex_to_rgb(WHITE), font=font_label)
 
         # Tasks
-        task_y = card_top + strip_h + 16
-        task_text_color = WHITE if is_race_day else BLACK
+        task_y = card_top + strip_h + int(16 * s)
+        task_text_color = WHITE if is_race_day else NEAR_BLACK
 
-        draw.text((x + 10, task_y), "TASKS",
+        draw.text((x + int(10 * s), task_y), "TASKS",
                   fill=hex_to_rgb(WHITE if is_race_day else header_color),
                   font=font_label)
         for j, task in enumerate(day["tasks"]):
-            ty = task_y + 20 + j * 22
+            ty = task_y + int(20 * s) + j * int(22 * s)
             # Truncate if needed for narrow columns
-            draw.text((x + 10, ty), f"> {task}",
+            draw.text((x + int(10 * s), ty), f"> {task}",
                       fill=hex_to_rgb(task_text_color), font=font_task)
 
         # Note at bottom
-        note_y = card_bottom - 36
-        draw.line([(x + 10, note_y - 6), (x + col_w - 10, note_y - 6)],
-                  fill=hex_to_rgb(MUTED_TAN if not is_race_day else WHITE), width=1)
-        draw.text((x + 10, note_y + 2), day["note"],
+        note_y = card_bottom - int(36 * s)
+        draw.line([(x + int(10 * s), note_y - int(6 * s)),
+                   (x + col_w - int(10 * s), note_y - int(6 * s))],
+                  fill=hex_to_rgb(WARM_BROWN if not is_race_day else WHITE),
+                  width=max(1, int(1 * s)))
+        draw.text((x + int(10 * s), note_y + int(2 * s)), day["note"],
                   fill=hex_to_rgb(WHITE if is_race_day else SECONDARY_BROWN),
                   font=font_note)
-
-    # Source
-    draw.text((pad, height - 18), "gravelgodcycling.com",
-              fill=hex_to_rgb(MUTED_TAN), font=font_xs)
 
     return img

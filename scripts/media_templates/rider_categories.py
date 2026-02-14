@@ -2,12 +2,10 @@
 from PIL import Image, ImageDraw
 
 from .base import (
-    load_font, hex_to_rgb,
-    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, TEAL, DARK_GOLD,
-    GOLD, OFF_WHITE, BLACK, WHITE,
+    load_font, load_editorial_font, hex_to_rgb, draw_gold_rule,
+    PRIMARY_BROWN, SECONDARY_BROWN, DARK_TEAL, TEAL, GOLD,
+    LIGHT_GOLD, WARM_PAPER, DARK_BROWN, NEAR_BLACK, WHITE, WARM_BROWN, SAND,
 )
-
-MUTED_TAN = "#c4b5ab"
 
 # Rider categories from guide content
 RIDERS = [
@@ -33,7 +31,7 @@ RIDERS = [
         "name": "COMPETITOR",
         "hours": "12-18 hrs/wk",
         "ftp": "~260W",
-        "color": DARK_GOLD,
+        "color": GOLD,
         "goal": "Top 25% finish",
         "reality": "Periodization is essential",
         "tier_fit": "Tier 1-2 races",
@@ -52,41 +50,43 @@ RIDERS = [
 
 def render(width: int = 1200, height: int = 600) -> Image.Image:
     """Render the four rider categories comparison grid."""
-    img = Image.new("RGB", (width, height), hex_to_rgb(OFF_WHITE))
+    s = width / 1200  # scale factor for resolution independence
+    img = Image.new("RGB", (width, height), hex_to_rgb(WARM_PAPER))
     draw = ImageDraw.Draw(img)
 
-    font_title = load_font(bold=True, size=22)
-    font_name = load_font(bold=True, size=18)
-    font_big = load_font(bold=True, size=28)
-    font_label = load_font(bold=True, size=13)
-    font_sm = load_font(bold=False, size=13)
-    font_xs = load_font(bold=False, size=11)
+    font_title = load_editorial_font(size=int(26 * s))
+    font_name = load_font(bold=True, size=int(18 * s))
+    font_big = load_font(bold=True, size=int(28 * s))
+    font_label = load_font(bold=True, size=int(13 * s))
+    font_sm = load_font(bold=False, size=int(13 * s))
+    font_xs = load_font(bold=False, size=int(11 * s))
 
-    pad = 40
+    pad = int(40 * s)
 
-    # Title
-    draw.text((pad, 16), "WHICH RIDER ARE YOU?",
+    # Title — Source Serif 4 + gold rule
+    draw.text((pad, int(14 * s)), "WHICH RIDER ARE YOU?",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
-    draw.text((pad + 370, 20), "Four training profiles for gravel racing",
+    draw.text((pad + int(370 * s), int(22 * s)), "Four training profiles for gravel racing",
               fill=hex_to_rgb(SECONDARY_BROWN), font=font_sm)
-    draw.line([(pad, 48), (width - pad, 48)], fill=hex_to_rgb(BLACK), width=2)
+    rule_y = int(50 * s)
+    draw_gold_rule(draw, pad, rule_y, width - pad, width=max(2, int(2 * s)))
 
     # Four columns
-    col_gap = 16
+    col_gap = int(16 * s)
     total_gap = col_gap * 3
     col_w = (width - pad * 2 - total_gap) // 4
-    card_top = 66
+    card_top = int(66 * s)
 
     for i, rider in enumerate(RIDERS):
         cx = pad + i * (col_w + col_gap)
         color = rider["color"]
 
         # Card background
-        draw.rectangle([(cx, card_top), (cx + col_w, height - 38)],
-                       fill=hex_to_rgb(WHITE), outline=hex_to_rgb(BLACK), width=2)
+        draw.rectangle([(cx, card_top), (cx + col_w, height - int(38 * s))],
+                       fill=hex_to_rgb(WHITE), outline=hex_to_rgb(DARK_BROWN), width=max(2, int(2 * s)))
 
         # Colored header strip
-        strip_h = 44
+        strip_h = int(44 * s)
         draw.rectangle([(cx, card_top), (cx + col_w, card_top + strip_h)],
                        fill=hex_to_rgb(color))
 
@@ -94,33 +94,33 @@ def render(width: int = 1200, height: int = 600) -> Image.Image:
         name = rider["name"]
         bbox = draw.textbbox((0, 0), name, font=font_name)
         tw = bbox[2] - bbox[0]
-        text_color = BLACK if color in (TEAL, GOLD) else WHITE
-        draw.text((cx + (col_w - tw) // 2, card_top + 10),
+        text_color = NEAR_BLACK if color in (TEAL, LIGHT_GOLD, GOLD) else WHITE
+        draw.text((cx + (col_w - tw) // 2, card_top + int(10 * s)),
                   name, fill=hex_to_rgb(text_color), font=font_name)
 
         # Hours and FTP — big numbers
-        info_y = card_top + strip_h + 16
+        info_y = card_top + strip_h + int(16 * s)
 
-        draw.text((cx + 14, info_y), rider["hours"],
+        draw.text((cx + int(14 * s), info_y), rider["hours"],
                   fill=hex_to_rgb(color), font=font_big)
-        draw.text((cx + 14, info_y + 36), rider["ftp"],
-                  fill=hex_to_rgb(BLACK), font=font_label)
+        draw.text((cx + int(14 * s), info_y + int(36 * s)), rider["ftp"],
+                  fill=hex_to_rgb(NEAR_BLACK), font=font_label)
 
         # FTP bar visualization
-        bar_y = info_y + 60
-        bar_h = 12
+        bar_y = info_y + int(60 * s)
+        bar_h = int(12 * s)
         ftp_val = int(rider["ftp"].replace("~", "").replace("W", ""))
         ftp_pct = ftp_val / 350  # max ~350W for scale
-        bar_full_w = col_w - 28
+        bar_full_w = col_w - int(28 * s)
         bar_fill_w = int(ftp_pct * bar_full_w)
 
-        draw.rectangle([(cx + 14, bar_y), (cx + 14 + bar_full_w, bar_y + bar_h)],
-                       fill=hex_to_rgb("#e8e0d8"), outline=hex_to_rgb(BLACK), width=1)
-        draw.rectangle([(cx + 14, bar_y), (cx + 14 + bar_fill_w, bar_y + bar_h)],
+        draw.rectangle([(cx + int(14 * s), bar_y), (cx + int(14 * s) + bar_full_w, bar_y + bar_h)],
+                       fill=hex_to_rgb(SAND), outline=hex_to_rgb(DARK_BROWN), width=1)
+        draw.rectangle([(cx + int(14 * s), bar_y), (cx + int(14 * s) + bar_fill_w, bar_y + bar_h)],
                        fill=hex_to_rgb(color))
 
         # Details
-        details_y = bar_y + bar_h + 18
+        details_y = bar_y + bar_h + int(18 * s)
         detail_items = [
             ("GOAL", rider["goal"]),
             ("REALITY", rider["reality"]),
@@ -128,13 +128,10 @@ def render(width: int = 1200, height: int = 600) -> Image.Image:
         ]
 
         for j, (key, val) in enumerate(detail_items):
-            dy = details_y + j * 42
-            draw.text((cx + 14, dy), key,
+            dy = details_y + j * int(42 * s)
+            draw.text((cx + int(14 * s), dy), key,
                       fill=hex_to_rgb(color), font=font_label)
-            draw.text((cx + 14, dy + 17), val,
-                      fill=hex_to_rgb(BLACK), font=font_xs)
-
-    # Source
-    draw.text((pad, height - 16), "gravelgodcycling.com", fill=hex_to_rgb(MUTED_TAN), font=font_xs)
+            draw.text((cx + int(14 * s), dy + int(17 * s)), val,
+                      fill=hex_to_rgb(NEAR_BLACK), font=font_xs)
 
     return img

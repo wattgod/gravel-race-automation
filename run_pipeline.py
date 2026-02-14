@@ -117,7 +117,10 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     # ── Step 6: Generate Workouts ────────────────────────────
     _step("6", "GENERATE WORKOUTS")
     workouts_dir = athlete_dir / "workouts"
-    workouts_dir.mkdir(exist_ok=True)
+    if workouts_dir.exists():
+        import shutil
+        shutil.rmtree(workouts_dir)
+    workouts_dir.mkdir(parents=True)
     generate_workouts(plan_config, profile, derived, schedule, workouts_dir, base_dir)
     gate_6_workouts(workouts_dir, derived)
     _ok()

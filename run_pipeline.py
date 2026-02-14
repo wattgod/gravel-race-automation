@@ -58,9 +58,10 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     with open(intake_file) as f:
         intake = json.load(f)
 
-    # Generate athlete ID
+    # Generate athlete ID and clean up previous runs
     athlete_id = _make_athlete_id(intake["name"])
     athlete_dir = base_dir / "athletes" / athlete_id
+    _cleanup_old_runs(intake["name"], athlete_dir, base_dir)
     athlete_dir.mkdir(parents=True, exist_ok=True)
 
     # Save raw intake
@@ -219,6 +220,26 @@ def _copy_to_downloads(intake: dict, athlete_dir: Path, pdf_path: Path, workouts
     print(f"\n  Copied to ~/Downloads/{folder_name}/")
     print(f"    PDF:      {'yes' if not skip_pdf and pdf_path.exists() else 'skipped'}")
     print(f"    Workouts: {zwo_count} ZWO files")
+
+
+def _cleanup_old_runs(name: str, current_dir: Path, base_dir: Path):
+    """Remove previous pipeline runs for the same athlete.
+
+    Matches on the slug prefix (e.g. sarah-printz-*) so re-runs
+    don't accumulate stale folders.
+    """
+    import re
+    import shutil
+
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    athletes_dir = base_dir / "athletes"
+    if not athletes_dir.exists():
+        return
+
+    for old_dir in athletes_dir.glob(f"{slug}-*"):
+        if old_dir != current_dir and old_dir.is_dir():
+            shutil.rmtree(old_dir)
+            print(f"  Cleaned up previous run: {old_dir.name}")
 
 
 def _make_athlete_id(name: str) -> str:

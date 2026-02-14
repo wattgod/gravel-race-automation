@@ -240,6 +240,12 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         entry["racer_pct"] = None
         entry["racer_count"] = total
 
+    # Include series fields if race belongs to a series
+    series = race.get("series", {})
+    if series.get("id"):
+        entry["series_id"] = series["id"]
+        entry["series_name"] = series.get("name", "")
+
     return entry
 
 

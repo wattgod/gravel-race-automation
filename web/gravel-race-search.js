@@ -781,6 +781,11 @@
       discBadge = '<span class="gg-discipline-badge">' + discLabel + '</span>';
     }
 
+    var seriesBadge = '';
+    if (race.series_name) {
+      seriesBadge = '<a href="/race/series/' + race.series_id + '/" class="gg-series-badge">' + race.series_name + '</a>';
+    }
+
     return '<div class="gg-card">' +
       '<div class="gg-card-header">' +
         compareCheck +
@@ -789,6 +794,7 @@
         '<div style="display:flex;gap:6px;align-items:center">' +
           matchBadge +
           distBadge +
+          seriesBadge +
           discBadge +
           '<span class="gg-tier-badge gg-tier-' + race.tier + '">TIER ' + race.tier + '</span>' +
         '</div>' +

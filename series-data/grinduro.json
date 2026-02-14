@@ -1,0 +1,85 @@
+{
+  "series": {
+    "name": "Grinduro",
+    "slug": "grinduro",
+    "display_name": "GRINDURO",
+    "tagline": "Part gravel ride, part enduro race, part music festival — the most fun you can have on a bike in one day.",
+    "organizer": "Grinduro / Grit Media",
+    "founded": 2015,
+    "headquarters": "Quincy, California",
+    "website": "https://grinduro.com",
+    "description": "Grinduro is the genre-defying event that fused gravel riding with enduro racing and wrapped it in a music festival. The format is simple and brilliant: ride a long, scenic gravel route with four timed segments mixed in. Only the timed segments count for your race result — everything else is a social ride through stunning terrain. This hybrid format attracts everyone from World Tour pros to weekend warriors, all riding the same course and timing their efforts on the same segments. Add in live music, craft food, and a party atmosphere, and you get an event that's equal parts athletic competition and outdoor festival.",
+    "history": "Grinduro was born in 2015 in Quincy, California, created by the editors of Grit magazine (formerly Bike) who wanted to combine the best elements of enduro mountain biking with the growing gravel scene. The first event sent riders through the Lost Sierra on a 56-mile route with four timed segments ranging from screaming descents to punchy climbs. The format was an immediate hit — it solved gravel racing's biggest problem (the boring middle miles) by making most of the ride social while concentrating competition into exciting, spectator-friendly segments. The series expanded internationally, with events launching in Scotland (2017), Italy (2018), and eventually reaching seven locations worldwide. Each Grinduro adapts the format to local terrain while maintaining the core timed-segment philosophy and festival atmosphere.",
+    "format_overview": "Every Grinduro features a 40-60+ mile gravel route with four timed segments of 5-15 minutes each. Only the timed segments count toward race results — the liaison sections between them are untimed social rides. This enduro-inspired format rewards both climbing and descending ability while keeping the overall experience accessible and fun. Most events also offer a shorter Grindurito option. The post-ride festival includes live music, local food and drink, and an awards ceremony that celebrates participation as much as podium finishes.",
+    "events": [
+      {
+        "name": "Grinduro California",
+        "slug": "grinduro-california",
+        "location": "Quincy, California",
+        "month": "September",
+        "has_profile": true
+      },
+      {
+        "name": "Grinduro Italy",
+        "slug": "grinduro-italy",
+        "location": "Massa Marittima, Tuscany",
+        "month": "June",
+        "has_profile": true
+      },
+      {
+        "name": "Grinduro Canada",
+        "slug": "grinduro-canada",
+        "location": "Saint-Urbain-de-Charlevoix, Quebec",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Grinduro Germany",
+        "slug": "grinduro-germany",
+        "location": "Germany",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Grinduro France",
+        "slug": "grinduro-france",
+        "location": "France",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Grinduro Scotland",
+        "slug": null,
+        "location": "Kingussie / Drumlanrig, Scotland",
+        "month": "June",
+        "has_profile": false
+      },
+      {
+        "name": "Grinduro Japan",
+        "slug": null,
+        "location": "Shinshiro, Japan",
+        "month": "October",
+        "has_profile": false
+      },
+      {
+        "name": "Grinduro South Africa",
+        "slug": null,
+        "location": "Greyton, Western Cape",
+        "month": "October",
+        "has_profile": false
+      },
+      {
+        "name": "Grinduro Pennsylvania",
+        "slug": null,
+        "location": "Lock Haven, Pennsylvania",
+        "month": "TBD",
+        "has_profile": false
+      }
+    ],
+    "key_stats": {
+      "total_events": 9,
+      "countries": 7,
+      "oldest_event_year": 2015
+    }
+  }
+}

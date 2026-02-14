@@ -649,6 +649,91 @@ def sync_pages(pages_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_series(series_dir: str):
+    """Upload series hub pages to /race/series/ on SiteGround via tar+ssh pipe.
+
+    Expects pre-built directory structure: series_dir/{slug}/index.html
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    series_path = Path(series_dir)
+    if not series_path.exists():
+        print(f"✗ Series directory not found: {series_path}")
+        return None
+
+    # Count series subdirectories
+    series_dirs = [d for d in sorted(series_path.iterdir())
+                   if d.is_dir() and (d / "index.html").exists()]
+    if not series_dirs:
+        print(f"✗ No series pages found in {series_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race/series"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base} && chmod 755 {remote_base}",
+            ],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    print(f"  Uploading {len(series_dirs)} series pages via tar+ssh...")
+
+    try:
+        items = [p.name for p in series_dirs]
+        tar_cmd = ["tar", "-cf", "-", "-C", str(series_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=120)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (120s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading series pages: {e}")
+        return None
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base}",
+            ],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        print("  Warning: could not fix /race/series/ permissions")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {len(series_dirs)} series pages to {wp_url}/race/series/")
+    return f"{wp_url}/race/series/"
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -1389,6 +1474,14 @@ if __name__ == "__main__":
         help="Path to race pages directory (default: wordpress/output)"
     )
     parser.add_argument(
+        "--sync-series", action="store_true",
+        help="Upload series hub pages to /race/series/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--series-dir", default="wordpress/output/race/series",
+        help="Path to series pages directory (default: wordpress/output/race/series)"
+    )
+    parser.add_argument(
         "--sync-sitemap", action="store_true",
         help="Deploy race-sitemap.xml + sitemap index to server"
     )
@@ -1462,6 +1555,7 @@ if __name__ == "__main__":
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True
+        args.sync_series = True
         args.sync_index = True
         args.sync_widget = True
         args.sync_og = True
@@ -1478,7 +1572,7 @@ if __name__ == "__main__":
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
-                      args.sync_sitemap, args.sync_redirects,
+                      args.sync_series, args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_prep_kits, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.purge_cache])
     if not has_action:
@@ -1500,6 +1594,8 @@ if __name__ == "__main__":
         sync_homepage(args.homepage_file)
     if args.sync_pages:
         sync_pages(args.pages_dir)
+    if args.sync_series:
+        sync_series(args.series_dir)
     if args.sync_sitemap:
         sync_sitemap()
     if args.sync_redirects:

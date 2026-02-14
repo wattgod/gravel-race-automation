@@ -357,6 +357,7 @@ def normalize_race_data(data: dict) -> dict:
             'parking': logistics.get('parking', ''),
             'official_site': logistics.get('official_site', ''),
         },
+        'series': race.get('series', {}),
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
         'citations': race.get('citations', []),
@@ -1174,8 +1175,13 @@ def build_hero(rd: dict) -> str:
 
     racer_panel = _build_racer_panel(rd)
 
+    series = rd.get('series', {})
+    series_badge = ''
+    if series.get('id') and series.get('name'):
+        series_badge = f'\n  <a href="/race/series/{esc(series["id"])}/" class="gg-series-badge">{esc(series["name"]).upper()} SERIES</a>'
+
     return f'''<section class="gg-hero"{og_style}>
-  <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>
+  <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
   <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
   <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>{site_btn}
   <div class="gg-dual-score">
@@ -2075,6 +2081,22 @@ def build_webpage_jsonld(rd: dict) -> dict:
     }
 
 
+def _build_breadcrumb_series_segment(rd: dict) -> str:
+    """Build the series breadcrumb segment if the race belongs to a series."""
+    series = rd.get('series', {})
+    if series.get('id') and series.get('name'):
+        return (
+            f'<a href="{SITE_BASE_URL}/race/series/{esc(series["id"])}/">'
+            f'{esc(series["name"])} Series</a>\n'
+            f'    <span class="gg-breadcrumb-sep">&rsaquo;</span>\n    '
+        )
+    # Fallback: tier link
+    return (
+        f'<a href="{SITE_BASE_URL}/race/tier-{rd["tier"]}/">{esc(rd["tier_label"])}</a>\n'
+        f'    <span class="gg-breadcrumb-sep">&rsaquo;</span>\n    '
+    )
+
+
 def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
     return f'''<header class="gg-site-header">
@@ -2095,8 +2117,7 @@ def build_nav_header(rd: dict, race_index: list) -> str:
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="{SITE_BASE_URL}/race/tier-{rd['tier']}/">{esc(rd['tier_label'])}</a>
-    <span class="gg-breadcrumb-sep">&rsaquo;</span>
+    {_build_breadcrumb_series_segment(rd)}
     <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
   </div>'''
 
@@ -2161,6 +2182,8 @@ def get_page_css() -> str:
 /* Hero */
 .gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); padding: var(--gg-spacing-3xl) var(--gg-spacing-2xl); border-bottom: var(--gg-border-double); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-2xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; margin-bottom: var(--gg-spacing-md); }}
+.gg-neo-brutalist-page .gg-series-badge {{ display: inline-block; margin-left: 8px; background: transparent; color: var(--gg-color-teal); padding: var(--gg-spacing-2xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; text-decoration: none; border: 2px solid var(--gg-color-teal); margin-bottom: var(--gg-spacing-md); vertical-align: middle; }}
+.gg-neo-brutalist-page .gg-series-badge:hover {{ background: var(--gg-color-teal); color: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: var(--gg-line-height-tight); letter-spacing: var(--gg-letter-spacing-tight); margin-bottom: 16px; color: var(--gg-color-white); position: relative; }}
 .gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: var(--gg-color-teal); opacity: 0.3; z-index: 0; pointer-events: none; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); max-width: 700px; }}

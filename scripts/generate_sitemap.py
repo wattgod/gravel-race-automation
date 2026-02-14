@@ -21,7 +21,26 @@ from xml.dom.minidom import parseString
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 
-def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None) -> Path:
+def load_series_slugs(project_root: Path) -> list:
+    """Load series slugs from series-data/ directory."""
+    series_dir = project_root / "series-data"
+    slugs = []
+    if not series_dir.exists():
+        return slugs
+    for path in sorted(series_dir.glob("*.json")):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            slug = data.get("series", {}).get("slug", "")
+            if slug:
+                slugs.append(slug)
+        except (json.JSONDecodeError, KeyError):
+            continue
+    return slugs
+
+
+def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
+                     series_slugs: list = None) -> Path:
     today = date.today().isoformat()
 
     urlset = Element('urlset')
@@ -54,6 +73,14 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None)
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/tier-{t}/"
         SubElement(url, 'lastmod').text = today
         SubElement(url, 'changefreq').text = 'weekly'
+        SubElement(url, 'priority').text = '0.8'
+
+    # Series hub pages
+    for slug in (series_slugs or []):
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = '0.8'
 
     # Race pages
@@ -154,10 +181,13 @@ def main():
     if data_dir:
         data_dir = data_dir.resolve()
 
-    generate_sitemap(race_index, output_path, data_dir)
-    # Count: homepage + gravel-races + methodology + 4 tier hubs + all races
-    total_urls = 7 + len(race_index)
+    series_slugs = load_series_slugs(project_root)
+    generate_sitemap(race_index, output_path, data_dir, series_slugs=series_slugs)
+    # Count: homepage + gravel-races + methodology + 4 tier hubs + series + all races
+    total_urls = 7 + len(series_slugs) + len(race_index)
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
+    if series_slugs:
+        print(f"  Including {len(series_slugs)} series hub pages")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
 

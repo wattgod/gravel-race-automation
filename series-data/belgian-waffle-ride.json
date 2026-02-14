@@ -1,0 +1,85 @@
+{
+  "series": {
+    "name": "Belgian Waffle Ride",
+    "slug": "belgian-waffle-ride",
+    "display_name": "Belgian Waffle Ride",
+    "tagline": "America's hardest single-day cycling event, expanded into a national series of suffering.",
+    "organizer": "Michael Marckx / Waffle Cycling",
+    "founded": 2012,
+    "headquarters": "San Diego, California",
+    "website": "https://belgianwaffleride.bike",
+    "description": "The Belgian Waffle Ride is the most punishing mass-start cycling event in America. What began as a single race in San Diego's North County — inspired by the spring classics of Belgium — has grown into a national series that brings its signature blend of road, gravel, dirt, sand, and singletrack to courses across the country. Every BWR event follows the same philosophy: take the hardest terrain within 100 miles of the start line and string it together into a single day of beautiful suffering. The series is known for its brutally technical courses, 30-40% DNF rates, and the post-race waffle tradition that gives survivors something to look forward to.",
+    "history": "Michael Marckx created the original Belgian Waffle Ride in 2012 after spending time racing in Belgium and falling in love with the spring classics. He wanted to recreate that experience in Southern California — not by copying the terrain, but by capturing the spirit of races like Ronde van Vlaanderen and Paris-Roubaix. The first BWR sent 80 riders through the hills and canyons north of Del Mar on a course that mixed everything: pavement, gravel fire roads, sandy washes, and even some hike-a-bike. The race quickly earned a reputation as the hardest single-day event in America. By 2019, it had grown to over 1,000 participants and attracted a pro field. The series expanded to multiple locations starting in 2021, bringing the BWR format to new terrain across the US while maintaining the original's uncompromising standards.",
+    "format_overview": "Every BWR event features the series' signature mixed-terrain format: roughly 100-140 miles of combined road, gravel, dirt, sand, and technical singletrack. Courses are designed to exploit the most challenging terrain in each region, with distance options (Waffle, Wafer, Wanna) for different ability levels. The flagship Waffle distance typically includes 6,000-10,000+ feet of climbing and a 30-40% DNF rate. Post-race Belgian waffles are mandatory.",
+    "events": [
+      {
+        "name": "Belgian Waffle Ride",
+        "slug": "bwr-california",
+        "location": "Del Mar, California",
+        "month": "April",
+        "has_profile": true
+      },
+      {
+        "name": "Belgian Waffle Ride San Diego",
+        "slug": "bwr-san-diego",
+        "location": "Del Mar, California",
+        "month": "May",
+        "has_profile": true
+      },
+      {
+        "name": "BWR Arizona",
+        "slug": "bwr-arizona",
+        "location": "Cave Creek / McDowell Region, Arizona",
+        "month": "February",
+        "has_profile": true
+      },
+      {
+        "name": "Belgian Waffle Ride Asheville",
+        "slug": "bwr-asheville",
+        "location": "Asheville, North Carolina",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Belgian Waffle Ride Cedar City",
+        "slug": "bwr-cedar-city",
+        "location": "Cedar City, Utah",
+        "month": "June",
+        "has_profile": true
+      },
+      {
+        "name": "BWR Montana",
+        "slug": "bwr-montana",
+        "location": "Missoula, Montana",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Belgian Waffle Ride North Carolina",
+        "slug": "bwr-north-carolina",
+        "location": "Hendersonville, North Carolina",
+        "month": "October",
+        "has_profile": true
+      },
+      {
+        "name": "BWR Utah",
+        "slug": "bwr-utah",
+        "location": "Cedar City, Utah",
+        "month": "TBD",
+        "has_profile": true
+      },
+      {
+        "name": "Belgian Waffle Ride Kansas",
+        "slug": "belgian-waffle-ride-kansas",
+        "location": "Lawrence, Kansas",
+        "month": "October",
+        "has_profile": true
+      }
+    ],
+    "key_stats": {
+      "total_events": 9,
+      "countries": 1,
+      "oldest_event_year": 2012
+    }
+  }
+}

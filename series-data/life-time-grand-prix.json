@@ -1,0 +1,57 @@
+{
+  "series": {
+    "name": "Life Time Grand Prix",
+    "slug": "life-time-grand-prix",
+    "display_name": "Life Time Grand Prix",
+    "tagline": "Pro cycling's off-road championship series — six iconic races, one overall title, and the biggest purse in gravel.",
+    "organizer": "Life Time Inc.",
+    "founded": 2022,
+    "headquarters": "Chanhassen, Minnesota",
+    "website": "https://www.lifetimegrandprix.com",
+    "description": "The Life Time Grand Prix is professional off-road cycling's premier championship series. Launched in 2022, it links six of America's most iconic endurance races into a single season-long competition with a $250,000 prize purse. The series selects 30 men and 30 women through a combination of invitation and qualification, then scores them across all six events. The result is the closest thing gravel and mountain biking have to a Grand Tour — a season-long narrative that forces the best riders in the world to be versatile across gravel, mountain bike, and ultra-endurance disciplines.",
+    "history": "Life Time launched the Grand Prix in 2022 as the first true championship series for off-road cycling. The concept was simple but transformative: take the marquee events that Life Time already owned or partnered with — Unbound, Leadville, Sea Otter, Big Sugar, and Chequamegon — and create a points-based series that would crown an overall champion. The inaugural season immediately elevated the profile of every constituent race, drawing mainstream sports media attention and creating season-long storylines. Keegan Swenson won the first men's title; Lauren De Crescenzo took the women's. By 2024, the series had expanded its field size and prize purse, establishing itself as the definitive competitive framework for American off-road cycling.",
+    "format_overview": "Thirty men and thirty women compete across six races spanning gravel, mountain bike, and ultra-endurance disciplines. Points are awarded based on finish position at each event, with the overall champion determined by cumulative points across all six races. Athletes must start all events to be eligible for the overall title. The series intentionally mixes disciplines — from the 200-mile gravel of Unbound to the technical mountain biking of Leadville — to reward the most complete off-road cyclists.",
+    "events": [
+      {
+        "name": "Sea Otter Classic Gravel",
+        "slug": "sea-otter-gravel",
+        "location": "Monterey, California",
+        "month": "April",
+        "has_profile": true
+      },
+      {
+        "name": "Unbound 200",
+        "slug": "unbound-200",
+        "location": "Emporia, Kansas",
+        "month": "June",
+        "has_profile": true
+      },
+      {
+        "name": "Leadville Trail 100 MTB",
+        "slug": "leadville-100",
+        "location": "Leadville, Colorado",
+        "month": "August",
+        "has_profile": true
+      },
+      {
+        "name": "Chequamegon MTB",
+        "slug": "chequamegon-mtb",
+        "location": "Cable to Hayward, Wisconsin",
+        "month": "September",
+        "has_profile": true
+      },
+      {
+        "name": "Big Sugar Gravel",
+        "slug": "big-sugar",
+        "location": "Bentonville, Arkansas",
+        "month": "October",
+        "has_profile": true
+      }
+    ],
+    "key_stats": {
+      "total_events": 5,
+      "countries": 1,
+      "oldest_event_year": 1983
+    }
+  }
+}

@@ -1,5 +1,5 @@
 (function() {
-  const DATA_URL = '/wp-content/uploads/race-index.json';
+  const DATA_URL = '/wp-content/uploads/race-index.json?v=20260214';
   const TIER_PAGE_SIZE = 20;
 
   let allRaces = [];
@@ -448,7 +448,6 @@
     if (params.get('region')) document.getElementById('gg-region').value = params.get('region');
     if (params.get('distance')) document.getElementById('gg-distance').value = params.get('distance');
     if (params.get('month')) document.getElementById('gg-month').value = params.get('month');
-    if (params.get('profile')) document.getElementById('gg-profile').value = params.get('profile');
     if (params.has('discipline')) document.getElementById('gg-discipline').value = params.get('discipline');
     if (params.get('sort')) currentSort = params.get('sort');
 
@@ -495,7 +494,6 @@
     if (f.region) params.set('region', f.region);
     if (f.distance) params.set('distance', f.distance);
     if (f.month) params.set('month', f.month);
-    if (f.profile) params.set('profile', f.profile);
     if (f.discipline !== 'gravel') params.set('discipline', f.discipline);
     if (currentSort !== 'score') params.set('sort', currentSort);
 
@@ -533,10 +531,6 @@
       if (filterKey === 'tier') return r.tier == filterValue;
       if (filterKey === 'region') return r.region === filterValue;
       if (filterKey === 'month') return r.month === filterValue;
-      if (filterKey === 'profile') {
-        if (filterValue === 'yes') return r.has_profile;
-        if (filterValue === 'no') return !r.has_profile;
-      }
       if (filterKey === 'distance') {
         var parts = filterValue.split('-').map(Number);
         var d = r.distance_mi || 0;
@@ -601,13 +595,6 @@
       }
     });
 
-    var profSel = document.getElementById('gg-profile');
-    profSel.innerHTML = '<option value="">All</option>';
-    var withProfile = countByFilter('profile', 'yes');
-    var noProfile = countByFilter('profile', 'no');
-    profSel.innerHTML += '<option value="yes">Has Profile (' + withProfile + ')</option>';
-    profSel.innerHTML += '<option value="no">No Profile (' + noProfile + ')</option>';
-
     var discSel = document.getElementById('gg-discipline');
     var currentDisc = discSel.value;
     discSel.innerHTML = '<option value="">All Types</option>';
@@ -628,9 +615,8 @@
     var region = document.getElementById('gg-region').value;
     var distance = document.getElementById('gg-distance').value;
     var month = document.getElementById('gg-month').value;
-    var profile = document.getElementById('gg-profile').value;
     var discipline = document.getElementById('gg-discipline').value;
-    return { search: search, tier: tier, region: region, distance: distance, month: month, profile: profile, discipline: discipline };
+    return { search: search, tier: tier, region: region, distance: distance, month: month, discipline: discipline };
   }
 
   function filterRaces() {
@@ -642,8 +628,6 @@
       if (f.region === 'International' && (!r.region || US_REGIONS.has(r.region))) return false;
       if (f.region && f.region !== 'International' && r.region !== f.region) return false;
       if (f.month && r.month !== f.month) return false;
-      if (f.profile === 'yes' && !r.has_profile) return false;
-      if (f.profile === 'no' && r.has_profile) return false;
       if (f.discipline && (r.discipline || 'gravel') !== f.discipline) return false;
       if (f.distance) {
         var parts = f.distance.split('-').map(Number);
@@ -928,7 +912,6 @@
       region: f.region || null,
       distance: f.distance ? distLabels[f.distance] : null,
       month: f.month || null,
-      profile: f.profile ? (f.profile === 'yes' ? 'Has Profile' : 'No Profile') : null,
       discipline: f.discipline !== 'gravel' ? (f.discipline ? discLabels[f.discipline] : 'All Disciplines') : null
     };
 
@@ -1194,7 +1177,6 @@
     document.getElementById('gg-region').value = '';
     document.getElementById('gg-distance').value = '';
     document.getElementById('gg-month').value = '';
-    document.getElementById('gg-profile').value = '';
     document.getElementById('gg-discipline').value = 'gravel';
     // Also clear near me
     if (userLat !== null) activateNearMe();
@@ -1249,7 +1231,7 @@
     var config = {
       name: name,
       created: Date.now(),
-      filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, profile: f.profile, discipline: f.discipline },
+      filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, discipline: f.discipline },
       sliders: getSliderValues(),
       matchMode: displayMode === 'match',
       sort: currentSort
@@ -1270,7 +1252,6 @@
     document.getElementById('gg-region').value = f.region || '';
     document.getElementById('gg-distance').value = f.distance || '';
     document.getElementById('gg-month').value = f.month || '';
-    document.getElementById('gg-profile').value = f.profile || '';
     document.getElementById('gg-discipline').value = f.discipline || 'gravel';
     // Restore sort
     if (config.sort) {
@@ -1377,7 +1358,7 @@
     // Text search: debounce to avoid DOM thrashing on every keystroke
     document.getElementById('gg-search').addEventListener('input', debouncedRender);
     // Dropdowns: render immediately on change (single event per selection)
-    ['gg-tier','gg-region','gg-distance','gg-month','gg-profile','gg-discipline'].forEach(function(id) {
+    ['gg-tier','gg-region','gg-distance','gg-month','gg-discipline'].forEach(function(id) {
       document.getElementById(id).addEventListener('change', render);
     });
 

@@ -910,6 +910,79 @@ class TestLongRideFloor:
             )
 
 
+class TestQualitySessionsNotInflated:
+    """Quality sessions (VO2max, threshold) must NOT be inflated by long ride floor."""
+
+    def test_vo2max_warmup_not_inflated(self, sarah_intake, tmp_path):
+        """VO2max warmup should be ~15 min, not inflated to hours by long ride floor."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        for f in workouts_dir.glob("*VO2max*"):
+            content = f.read_text()
+            warmups = re.findall(r'Warmup Duration="(\d+)"', content)
+            for w in warmups:
+                assert int(w) <= 1800, (
+                    f"CRITICAL: {f.name} has a {int(w)/60:.0f}-min warmup. "
+                    f"VO2max warmup should be ~15 min, not inflated by long ride floor."
+                )
+
+    def test_threshold_not_inflated(self, sarah_intake, tmp_path):
+        """Threshold sessions should not exceed 2 hours total."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        for f in workouts_dir.glob("*Threshold*"):
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            total = sum(durations)
+            assert total <= 7200, (
+                f"{f.name}: {total/3600:.1f}h total. Threshold sessions should be ≤2h, "
+                f"not inflated by long ride floor."
+            )
+
+    def test_interval_sessions_reasonable_total(self, sarah_intake, tmp_path):
+        """No interval/quality session should exceed 2.5 hours total."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        quality_types = ["VO2max", "Threshold", "Intervals", "Sprints", "Tempo"]
+        for f in workouts_dir.glob("*.zwo"):
+            if not any(qt in f.name for qt in quality_types):
+                continue
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            total = sum(durations)
+            assert total <= 9000, (
+                f"CRITICAL: {f.name}: {total/3600:.1f}h total. Quality sessions should "
+                f"never be this long — likely inflated by long ride floor."
+            )
+
+
 def _parse_hours_range_for_test(val: str):
     """Test helper — mirrors _parse_hours_range without importing."""
     if not val:

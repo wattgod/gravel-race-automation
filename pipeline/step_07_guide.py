@@ -905,8 +905,9 @@ def _section_weekly_structure(schedule: Dict, tier_display: str, weekly_hours: s
         long_ride_note = """<div class="gg-module gg-tactical">
     <div class="gg-label">YOUR BIGGEST OPPORTUNITY</div>
     <p>Your weekly structure fits your stated availability, but your long rides are shorter than ideal
-    for a race of this distance. If you can rearrange your schedule to fit <strong>1-3 longer rides per month</strong>
-    during Build and Peak phases &mdash; even if it means skipping a weekday session that week &mdash;
+    for a race of this distance. If you can make more time during Build and Peak phases to fit
+    <strong>1-3 longer rides per month</strong> &mdash; whether that means clearing a Saturday morning,
+    swapping a weekday session, or simply going beyond your normal hours that week &mdash;
     it will make a significant difference to your race-day durability. A single 3-4 hour ride
     is worth more than two 1.5 hour rides for building the endurance you'll need on race day.</p>
   </div>"""

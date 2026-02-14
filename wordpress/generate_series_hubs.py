@@ -15,6 +15,7 @@ import argparse
 import html as html_mod
 import json
 import math
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -177,6 +178,22 @@ def _json_str(text) -> str:
     return json.dumps(str(text))[1:-1]
 
 
+def _svg_text_esc(text) -> str:
+    """Escape text for SVG <text> elements.
+
+    Only escapes XML-required characters (<, >, &). Does NOT escape quotes
+    or apostrophes, which are safe inside SVG text content and would render
+    as literal &#x27; entities otherwise.
+    """
+    if not text:
+        return ""
+    s = str(text)
+    s = s.replace("&", "&amp;")
+    s = s.replace("<", "&lt;")
+    s = s.replace(">", "&gt;")
+    return s
+
+
 # ── Data loading ──────────────────────────────────────────────
 
 
@@ -330,22 +347,27 @@ def build_series_radar_svg(series: dict, race_data: dict) -> str:
             perimeter += math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
         delay = idx * 0.15
+        # Build tooltip: event name + dimension scores
+        scores_str = ", ".join(f"{RADAR_LABELS[i]}: {rating.get(dim, 0)}" for i, dim in enumerate(RADAR_DIMS))
+        event_name = event.get("name", "")
         polygons.append(
             f'    <polygon points="{pts_str}" fill="{color}" fill-opacity="0.12" '
-            f'stroke="{color}" stroke-width="2" '
+            f'stroke="{color}" stroke-width="2" data-radar-idx="{idx}" '
             f'style="stroke-dasharray:{perimeter:.0f};stroke-dashoffset:{perimeter:.0f};'
-            f'animation:gg-radar-draw 1s ease {delay:.2f}s forwards"/>'
+            f'animation:gg-radar-draw 1s ease {delay:.2f}s forwards">'
+            f'<title>{_svg_text_esc(event_name)}: {_svg_text_esc(scores_str)}</title>'
+            f'</polygon>'
         )
-        legend_items.append((color, event.get("name", "")))
+        legend_items.append((color, event_name, idx))
 
     grid_svg = "\n".join(grid_lines)
     poly_svg = "\n".join(polygons)
 
     # Legend as HTML (wraps naturally unlike SVG text)
     legend_html = []
-    for color, name in legend_items:
+    for color, name, idx in legend_items:
         legend_html.append(
-            f'<span class="gg-series-radar-legend-item">'
+            f'<span class="gg-series-radar-legend-item" data-radar-idx="{idx}">'
             f'<span class="gg-series-radar-legend-swatch" style="background:{color}"></span>'
             f'{esc(name)}</span>'
         )
@@ -539,29 +561,63 @@ def build_geographic_map_svg(series: dict, race_data: dict, race_lookup: dict) -
         )
     lines_svg = "\n".join(lines)
 
-    # Event dots and labels
+    # Build smart labels: strip common series prefix to show distinguishing location
+    series_name = series.get("display_name") or series.get("name", "")
+    # Common prefixes to strip (e.g., "Belgian Waffle Ride", "GRINDURO", "Life Time")
+    prefix_candidates = [series_name, series_name.upper(), series_name.split()[0]]
+
+    def _smart_label(event_name: str, event_location: str) -> str:
+        """Extract the distinguishing part of an event name within a series.
+
+        Falls back to location if the name is identical to the series name
+        (e.g., "Belgian Waffle Ride" → use "California" from location).
+        """
+        for prefix in prefix_candidates:
+            if event_name.upper().startswith(prefix.upper()) and len(event_name) > len(prefix) + 1:
+                suffix = event_name[len(prefix):].strip(" -–—:")
+                if suffix and suffix.lower() not in series_name.lower():
+                    return suffix
+        # If event name IS the series name, use location (city or state)
+        if event_location:
+            # Use the most specific part: "San Diego, California" → "San Diego"
+            loc_parts = [p.strip() for p in event_location.split(",")]
+            return loc_parts[0] if loc_parts else event_location
+        # Final fallback: truncated name
+        return event_name if len(event_name) <= MAP_LABEL_NAME_MAX_LEN else event_name[:MAP_LABEL_NAME_MAX_LEN - 2] + "..."
+
+    # Event dots and labels with collision avoidance
+    placed_labels = []  # list of (x, y) for placed labels
+
     dots = []
     for e, lat, lng in sorted_located:
         x, y = _project_coords(lat, lng, bounds, vw, vh)
-        month = e.get("month", "")
         name = e.get("name", "")
-        short_name = name if len(name) <= MAP_LABEL_NAME_MAX_LEN else name[:MAP_LABEL_NAME_MAX_LEN - 2] + "..."
-        label = f"{short_name}" + (f" ({month})" if month and month != "TBD" else "")
+        location = e.get("location", "")
+        label = _smart_label(name, location)
 
         dots.append(
             f'  <circle cx="{x}" cy="{y}" r="6" fill="{COLORS["teal"]}" '
-            f'stroke="{COLORS["warm_paper"]}" stroke-width="2"/>'
+            f'stroke="{COLORS["warm_paper"]}" stroke-width="2">'
+            f'<title>{_svg_text_esc(name)}</title></circle>'
         )
-        # Position label to avoid overlap with dot
+        # Position label to avoid overlap with dot and other labels
         label_x = x + 10
         anchor = "start"
         if x > vw - 150:
             label_x = x - 10
             anchor = "end"
+
+        # Offset y if another label is too close
+        label_y = y + 4
+        for px, py in placed_labels:
+            if abs(label_x - px) < 100 and abs(label_y - py) < 14:
+                label_y = py + 14  # push down
+        placed_labels.append((label_x, label_y))
+
         dots.append(
-            f'  <text x="{label_x}" y="{y + 4}" font-size="9" '
+            f'  <text x="{label_x}" y="{label_y}" font-size="9" '
             f'fill="{COLORS["dark_brown"]}" text-anchor="{anchor}" '
-            f"font-family=\"'Sometype Mono', monospace\">{esc(label)}</text>"
+            f"font-family=\"'Sometype Mono', monospace\">{_svg_text_esc(label)}</text>"
         )
     dots_svg = "\n".join(dots)
 
@@ -575,18 +631,91 @@ def build_geographic_map_svg(series: dict, race_data: dict, race_lookup: dict) -
   </div>'''
 
 
+TIMELINE_MAX_ENTRIES = 12
+
+# Patterns that indicate weather/climate data, not real milestones.
+# ALL lowercase — compared against desc.lower().
+_WEATHER_PATTERNS = [
+    "°f", "°c",                          # temperature units
+    "hot,", "warm,", "cold,", "cool,",   # temp descriptors with comma
+    "variable,", "dry,", "humid",        # climate descriptors
+    "sunny,", "sunny ", "rain on ",      # precipitation
+    "snowing", "freezing", "muddy",      # severe weather
+    "perfect conditions",                 # euphemism for weather report
+]
+
+# Regex for bare temperature ranges like "(55-65°F)" or "(18-28°C)"
+_TEMP_RANGE_RE = re.compile(r"\d+-\d+°[fc]", re.IGNORECASE)
+
+# Entries under this length that match weather patterns are pure weather reports.
+# Longer entries that mention weather in context of a real event (course shortened,
+# DNF rate, etc.) are kept.
+_WEATHER_MAX_LEN = 50
+
+
+def _is_weather_entry(desc: str) -> bool:
+    """Detect weather/climate strings masquerading as notable moments.
+
+    Short entries (<50 chars) matching weather patterns are filtered.
+    Longer entries keep weather as context for substantive milestones
+    (e.g., 'course shortened due to freezing temps').
+    """
+    lower = desc.lower()
+    has_weather = any(pat in lower for pat in _WEATHER_PATTERNS)
+    has_temp_range = bool(_TEMP_RANGE_RE.search(lower))
+    if not has_weather and not has_temp_range:
+        return False
+    # Short entries with weather = pure weather report
+    if len(desc) < _WEATHER_MAX_LEN:
+        return True
+    # Long entries: only filter if it's JUST a temperature range with no substance
+    # e.g., "Variable, some heat (15-30°C)" is short but padded
+    stripped = _TEMP_RANGE_RE.sub("", lower).strip(" ,()")
+    if len(stripped) < 20:
+        return True
+    return False
+
+
+def _is_redundant_founded(desc: str, year_int: int, existing_entries: set) -> bool:
+    """Detect redundant 'Founded—' entries when we already have a founding/established entry for the same year."""
+    lower = desc.lower()
+    if "founded" not in lower:
+        return False
+    # If any existing entry for the same year describes founding/establishment, this is redundant
+    for existing_year, existing_desc in existing_entries:
+        if existing_year == year_int and ("established" in existing_desc.lower() or "founded" in existing_desc.lower()):
+            return True
+    return False
+
+
+def _parse_year(val) -> int:
+    """Parse a year value, stripping ~ prefix for approximate dates."""
+    s = str(val).strip().lstrip("~").lstrip("c.")
+    try:
+        return int(s)
+    except ValueError:
+        return 0
+
+
 def build_series_timeline_svg(series: dict, race_data: dict) -> str:
-    """Build vertical timeline SVG showing founding, event additions, and milestones."""
+    """Build vertical timeline SVG showing founding, event additions, and milestones.
+
+    Filters out weather data, redundant entries, and caps at TIMELINE_MAX_ENTRIES
+    to keep the visual focused on actual milestones.
+    """
     events_list = series.get("events", [])
     series_founded = series.get("founded")
 
-    # Collect timeline entries: (year, description, type)
+    # Collect timeline entries: (year_int, display_year, description, type, priority)
+    # priority: 0=founding, 1=event established, 2=milestone
     entries = []
 
     # Series founding
     if series_founded:
-        series_name = series.get("display_name") or series.get("name", "")
-        entries.append((series_founded, f"{series_name} series founded", "founding"))
+        year_int = _parse_year(series_founded)
+        if year_int:
+            series_name = series.get("display_name") or series.get("name", "")
+            entries.append((year_int, str(series_founded), f"{series_name} series founded", "founding", 0))
 
     # Individual event founding dates and notable moments
     for e in events_list:
@@ -597,8 +726,12 @@ def build_series_timeline_svg(series: dict, race_data: dict) -> str:
 
             # Event founding
             event_founded = hist.get("founded")
-            if event_founded and event_founded != series_founded:
-                entries.append((event_founded, f"{e.get('name', '')} established", "event"))
+            if event_founded:
+                year_int = _parse_year(event_founded)
+                series_year = _parse_year(series_founded) if series_founded else 0
+                if year_int and year_int != series_year:
+                    display_year = str(event_founded) if "~" not in str(event_founded) else f"~{year_int}"
+                    entries.append((year_int, display_year, f"{e.get('name', '')} established", "event", 1))
 
             # Notable moments
             moments = hist.get("notable_moments", [])
@@ -606,31 +739,55 @@ def build_series_timeline_svg(series: dict, race_data: dict) -> str:
                 if ": " in str(moment):
                     parts = str(moment).split(": ", 1)
                     try:
-                        year = int(parts[0])
-                        entries.append((year, parts[1], "milestone"))
+                        year_int = int(parts[0])
+                        desc = parts[1]
+                        # Skip weather data
+                        if _is_weather_entry(desc):
+                            continue
+                        entries.append((year_int, str(parts[0]), desc, "milestone", 2))
                     except ValueError:
                         pass
 
     if not entries:
         return ""
 
-    # Deduplicate and sort by year
+    # Sort by year, then priority (founding first, then events, then milestones)
+    entries.sort(key=lambda x: (x[0], x[4]))
+
+    # Deduplicate
     seen = set()
     unique = []
-    for year, desc, etype in sorted(entries, key=lambda x: int(x[0]) if str(x[0]).isdigit() else 9999):
-        key = f"{year}:{desc}"
-        if key not in seen:
-            seen.add(key)
-            unique.append((year, desc, etype))
-    entries = unique
+    existing_entries = set()
+    for year_int, display_year, desc, etype, priority in entries:
+        key = f"{year_int}:{desc}"
+        if key in seen:
+            continue
+        # Skip redundant "Founded—" entries
+        if _is_redundant_founded(desc, year_int, existing_entries):
+            continue
+        seen.add(key)
+        existing_entries.add((year_int, desc))
+        unique.append((year_int, display_year, desc, etype, priority))
 
-    if len(entries) < 2:
+    # Cap at max entries — keep all founding/event entries, trim milestones if needed
+    if len(unique) > TIMELINE_MAX_ENTRIES:
+        important = [e for e in unique if e[4] <= 1]  # founding + events
+        milestones = [e for e in unique if e[4] == 2]
+        remaining = TIMELINE_MAX_ENTRIES - len(important)
+        if remaining > 0:
+            unique = important + milestones[:remaining]
+        else:
+            unique = important[:TIMELINE_MAX_ENTRIES]
+        # Re-sort after trimming
+        unique.sort(key=lambda x: (x[0], x[4]))
+
+    if len(unique) < 2:
         return ""
 
     # SVG dimensions
     line_x = 100
     row_height = 40
-    svg_height = len(entries) * row_height + 40
+    svg_height = len(unique) * row_height + 40
     svg_width = 600
 
     elements = []
@@ -640,7 +797,7 @@ def build_series_timeline_svg(series: dict, race_data: dict) -> str:
         f'stroke="{COLORS["tan"]}" stroke-width="2"/>'
     )
 
-    for i, (year, desc, etype) in enumerate(entries):
+    for i, (year_int, display_year, desc, etype, priority) in enumerate(unique):
         y = 30 + i * row_height
         # Dot size and color based on type
         if etype == "founding":
@@ -658,15 +815,16 @@ def build_series_timeline_svg(series: dict, race_data: dict) -> str:
         elements.append(
             f'  <text x="{line_x - 18}" y="{y + 4}" font-size="11" font-weight="700" '
             f'fill="{COLORS["dark_brown"]}" text-anchor="end" '
-            f"font-family=\"'Sometype Mono', monospace\">{year}</text>"
+            f"font-family=\"'Sometype Mono', monospace\">{_svg_text_esc(display_year)}</text>"
         )
-        # Description (right)
-        # Truncate long descriptions
-        display_desc = desc if len(desc) <= TIMELINE_DESC_MAX_LEN else desc[:TIMELINE_DESC_MAX_LEN - 2] + "..."
+        # Description (right) — truncate long descriptions, store full for tooltip
+        is_truncated = len(desc) > TIMELINE_DESC_MAX_LEN
+        display_desc = desc if not is_truncated else desc[:TIMELINE_DESC_MAX_LEN - 2] + "..."
+        full_attr = f' data-full-desc="{esc(desc)}"' if is_truncated else ""
         elements.append(
             f'  <text x="{line_x + 18}" y="{y + 4}" font-size="10" '
-            f'fill="{COLORS["secondary_brown"]}" '
-            f"font-family=\"'Sometype Mono', monospace\">{esc(display_desc)}</text>"
+            f'fill="{COLORS["secondary_brown"]}" class="gg-tl-desc"{full_attr} '
+            f"font-family=\"'Sometype Mono', monospace\">{_svg_text_esc(display_desc)}</text>"
         )
 
     content = "\n".join(elements)
@@ -1484,6 +1642,55 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   max-width: 720px;
 }}
 
+/* Radar interactivity */
+.gg-series-radar polygon[data-radar-idx] {{
+  cursor: pointer;
+  transition: fill-opacity 0.2s, stroke-width 0.2s;
+}}
+.gg-series-radar.gg-radar-hover polygon[data-radar-idx] {{
+  fill-opacity: 0.03;
+  stroke-width: 1;
+}}
+.gg-series-radar.gg-radar-hover polygon[data-radar-idx].gg-radar-active {{
+  fill-opacity: 0.35;
+  stroke-width: 3;
+}}
+.gg-series-radar-legend-item {{
+  cursor: pointer;
+  transition: opacity 0.2s;
+}}
+.gg-series-radar.gg-radar-hover .gg-series-radar-legend-item {{
+  opacity: 0.35;
+}}
+.gg-series-radar.gg-radar-hover .gg-series-radar-legend-item.gg-radar-active {{
+  opacity: 1;
+}}
+
+/* Matrix column highlight */
+.gg-series-matrix td.gg-col-highlight,
+.gg-series-matrix th.gg-col-highlight {{
+  background: var(--gg-color-sand);
+}}
+
+/* Timeline tooltip */
+.gg-series-timeline-tip {{
+  position: absolute;
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+  font-family: var(--gg-font-data);
+  font-size: 11px;
+  padding: 6px 10px;
+  max-width: 340px;
+  pointer-events: none;
+  z-index: 10;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 0.15s;
+}}
+.gg-series-timeline-tip.gg-visible {{
+  opacity: 1;
+}}
+
 /* Animations */
 @keyframes gg-radar-draw {{
   to {{ stroke-dashoffset: 0; }}
@@ -1675,6 +1882,116 @@ a.gg-series-event-name:hover {{
 
 </div>
 
+<script>
+(function() {{
+  'use strict';
+
+  /* ── Radar: hover/click legend to highlight polygon ── */
+  var radar = document.querySelector('.gg-series-radar');
+  if (radar) {{
+    var legendItems = radar.querySelectorAll('[data-radar-idx]');
+    var polygons = radar.querySelectorAll('polygon[data-radar-idx]');
+    var pinned = null;
+
+    function highlightRadar(idx) {{
+      radar.classList.add('gg-radar-hover');
+      legendItems.forEach(function(el) {{
+        el.classList.toggle('gg-radar-active', el.getAttribute('data-radar-idx') === String(idx));
+      }});
+      polygons.forEach(function(el) {{
+        el.classList.toggle('gg-radar-active', el.getAttribute('data-radar-idx') === String(idx));
+      }});
+    }}
+
+    function clearRadar() {{
+      if (pinned !== null) return;
+      radar.classList.remove('gg-radar-hover');
+      legendItems.forEach(function(el) {{ el.classList.remove('gg-radar-active'); }});
+      polygons.forEach(function(el) {{ el.classList.remove('gg-radar-active'); }});
+    }}
+
+    legendItems.forEach(function(item) {{
+      item.addEventListener('mouseenter', function() {{
+        if (pinned === null) highlightRadar(this.getAttribute('data-radar-idx'));
+      }});
+      item.addEventListener('mouseleave', clearRadar);
+      item.addEventListener('click', function(e) {{
+        e.preventDefault();
+        var idx = this.getAttribute('data-radar-idx');
+        if (pinned === idx) {{
+          pinned = null;
+          clearRadar();
+        }} else {{
+          pinned = idx;
+          highlightRadar(idx);
+        }}
+      }});
+    }});
+
+    polygons.forEach(function(poly) {{
+      poly.addEventListener('mouseenter', function() {{
+        if (pinned === null) highlightRadar(this.getAttribute('data-radar-idx'));
+      }});
+      poly.addEventListener('mouseleave', clearRadar);
+      poly.addEventListener('click', function(e) {{
+        var idx = this.getAttribute('data-radar-idx');
+        if (pinned === idx) {{
+          pinned = null;
+          clearRadar();
+        }} else {{
+          pinned = idx;
+          highlightRadar(idx);
+        }}
+      }});
+    }});
+  }}
+
+  /* ── Matrix: column highlight on hover ── */
+  var matrix = document.querySelector('.gg-series-matrix table');
+  if (matrix) {{
+    var cells = matrix.querySelectorAll('th, td');
+    cells.forEach(function(cell) {{
+      cell.addEventListener('mouseenter', function() {{
+        var colIdx = Array.prototype.indexOf.call(this.parentNode.children, this);
+        matrix.querySelectorAll('th, td').forEach(function(c) {{
+          var cIdx = Array.prototype.indexOf.call(c.parentNode.children, c);
+          c.classList.toggle('gg-col-highlight', cIdx === colIdx && colIdx > 0);
+        }});
+      }});
+      cell.addEventListener('mouseleave', function() {{
+        matrix.querySelectorAll('.gg-col-highlight').forEach(function(c) {{
+          c.classList.remove('gg-col-highlight');
+        }});
+      }});
+    }});
+  }}
+
+  /* ── Timeline: tooltip for truncated descriptions ── */
+  var timeline = document.querySelector('.gg-series-timeline');
+  if (timeline) {{
+    var tip = document.createElement('div');
+    tip.className = 'gg-series-timeline-tip';
+    timeline.style.position = 'relative';
+    timeline.appendChild(tip);
+
+    var tlTexts = timeline.querySelectorAll('.gg-tl-desc[data-full-desc]');
+    tlTexts.forEach(function(el) {{
+      el.style.cursor = 'pointer';
+      el.addEventListener('mouseenter', function(e) {{
+        tip.textContent = this.getAttribute('data-full-desc');
+        tip.classList.add('gg-visible');
+        var rect = this.getBoundingClientRect();
+        var parentRect = timeline.getBoundingClientRect();
+        tip.style.left = (rect.left - parentRect.left) + 'px';
+        tip.style.top = (rect.bottom - parentRect.top + 6) + 'px';
+      }});
+      el.addEventListener('mouseleave', function() {{
+        tip.classList.remove('gg-visible');
+      }});
+    }});
+  }}
+}})();
+</script>
 </body>
 </html>'''
 

@@ -678,6 +678,98 @@ class TestWorkoutScalingE2E:
                 )
 
 
+class TestNoWorkoutsBeforePlanStart:
+    """CRITICAL: No workout files should exist for dates before plan_start_date."""
+
+    def test_no_workouts_before_start_date(self, sarah_intake, tmp_path):
+        """Every workout file date must be >= plan_start_date."""
+        import re
+        from datetime import datetime
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        plan_start = datetime.strptime(derived["plan_start_date"], "%Y-%m-%d").date()
+
+        for f in workouts_dir.glob("*.zwo"):
+            # Extract date from filename: W01_6Sat_Feb14_... → Feb14
+            m = re.search(r"_([A-Z][a-z]{2})(\d{2})_", f.name)
+            if not m:
+                continue  # Race_Day has different format
+            month_str, day_str = m.group(1), m.group(2)
+            file_date = datetime.strptime(
+                f"{month_str}{day_str} 2026", "%b%d %Y"
+            ).date()
+            assert file_date >= plan_start, (
+                f"CRITICAL: {f.name} is dated {file_date} which is BEFORE "
+                f"plan start {plan_start}. Athletes cannot time-travel."
+            )
+
+    def test_last_workout_aligns_with_race_date(self, sarah_intake, tmp_path):
+        """Race day workout must fall on the actual race date."""
+        import re
+        from datetime import datetime
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        race_date = datetime.strptime(derived["race_date"], "%Y-%m-%d").date()
+        race_files = list(workouts_dir.glob("*Race_Day*"))
+        assert race_files, "No race day workout file found"
+
+        # Race day file should contain the race date
+        race_file = race_files[0]
+        race_month = race_date.strftime("%b")
+        race_day = race_date.strftime("%d")
+        assert f"{race_month}{race_day}" in race_file.name, (
+            f"Race day file {race_file.name} doesn't match race date {race_date}"
+        )
+
+    def test_first_workout_is_plan_start_date(self, sarah_intake, tmp_path):
+        """The earliest workout file must be on the plan start date."""
+        import re
+        from datetime import datetime
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        plan_start = datetime.strptime(derived["plan_start_date"], "%Y-%m-%d").date()
+
+        # Find earliest date across all workout files
+        dates = []
+        for f in sorted(workouts_dir.glob("*.zwo")):
+            m = re.search(r"_([A-Z][a-z]{2})(\d{2})_", f.name)
+            if m:
+                file_date = datetime.strptime(
+                    f"{m.group(1)}{m.group(2)} 2026", "%b%d %Y"
+                ).date()
+                dates.append(file_date)
+
+        assert dates, "No workout files with dates found"
+        earliest = min(dates)
+        assert earliest == plan_start, (
+            f"First workout is {earliest} but plan starts {plan_start}"
+        )
+
+
 def _parse_hours_range_for_test(val: str):
     """Test helper — mirrors _parse_hours_range without importing."""
     if not val:

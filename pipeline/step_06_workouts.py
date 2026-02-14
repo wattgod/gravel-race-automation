@@ -412,7 +412,7 @@ def generate_workouts(
                 # Apply long ride cap/floor only to actual endurance rides —
                 # a VO2max/threshold session on a long_ride day should NOT be inflated
                 workout_type = _detect_workout_type(template_workout.get("name", ""))
-                is_endurance = workout_type in ("Long_Endurance", "Easy_Recovery")
+                is_endurance = workout_type in ("Long_Endurance", "Endurance", "Easy_Recovery")
                 effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
                 effective_floor = long_ride_floor if session_type == "long_ride" and is_endurance else 0
                 _write_template_workout(
@@ -555,8 +555,8 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
     if race_data:
         description = _apply_race_mods(description, race_data, current_week, total_weeks)
 
-    # Build standardized filename
-    workout_type = _detect_workout_type(name)
+    # Build standardized filename — pass blocks so duration-based classification works
+    workout_type = _detect_workout_type(name, blocks)
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_{_sanitize_filename(workout_type)}.zwo"
 
@@ -574,9 +574,22 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
     prefix = _file_prefix(week_num, day_abbrev, date_str)
 
     if session_type == "long_ride":
-        name = _zwo_name(week_num, day_abbrev, date_str, "Long Endurance Ride")
+        blocks = (
+            '        <Warmup Duration="600" PowerLow="0.40" PowerHigh="0.60"/>\n'
+            '        <SteadyState Duration="7200" Power="0.65"/>\n'
+            '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
+        )
+        blocks = _scale_blocks(blocks, scale, long_ride_cap, long_ride_floor)
+        total = _total_duration(blocks)
+        if total >= 7200:
+            label = "Long Endurance Ride"
+            workout_tag = "Long_Endurance"
+        else:
+            label = "Endurance Ride"
+            workout_tag = "Endurance"
+        name = _zwo_name(week_num, day_abbrev, date_str, label)
         description = (
-            "LONG ENDURANCE RIDE\n\n"
+            f"{label.upper()}\n\n"
             "Zone 2 steady effort. This is the backbone of your gravel preparation.\n"
             "Build duration progressively each week.\n\n"
             "- Stay in Zone 2 (conversational pace)\n"
@@ -584,13 +597,7 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
             "- Include some gravel/dirt if possible\n"
             "- Focus on comfortable position for long hours"
         )
-        blocks = (
-            '        <Warmup Duration="600" PowerLow="0.40" PowerHigh="0.60"/>\n'
-            '        <SteadyState Duration="7200" Power="0.65"/>\n'
-            '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
-        )
-        blocks = _scale_blocks(blocks, scale, long_ride_cap, long_ride_floor)
-        filename = f"{prefix}_Long_Endurance.zwo"
+        filename = f"{prefix}_{workout_tag}.zwo"
 
     elif session_type == "intervals":
         name = _zwo_name(week_num, day_abbrev, date_str, "Interval Session")
@@ -727,14 +734,23 @@ def _apply_race_mods(description: str, race_data: Dict, week_num: int, total_wee
     return description
 
 
-def _detect_workout_type(name: str) -> str:
-    """Detect workout type from template name for standardized filename."""
+def _detect_workout_type(name: str, blocks: str = "") -> str:
+    """Detect workout type from template name for standardized filename.
+
+    If blocks are provided, uses actual duration to distinguish
+    "Long_Endurance" (2h+) from plain "Endurance" (<2h).
+    """
     upper = name.upper()
     if "REST" in upper or "OFF" in upper:
         return "Rest_Day"
     if "FTP" in upper or "TEST" in upper:
         return "FTP_Test"
     if "LONG" in upper or "ENDURANCE" in upper:
+        # Distinguish long vs regular endurance by actual duration
+        if blocks:
+            total = _total_duration(blocks)
+            if total < 7200:  # under 2 hours = just "Endurance"
+                return "Endurance"
         return "Long_Endurance"
     if "VO2" in upper or "HARD SESSION" in upper:
         return "VO2max_Intervals"
@@ -752,6 +768,11 @@ def _detect_workout_type(name: str) -> str:
         return "Race_Simulation"
     # Fallback: clean up the original name
     return _sanitize_filename(name.split("-")[-1].strip() if "-" in name else name)
+
+
+def _total_duration(blocks: str) -> int:
+    """Sum all non-interval Duration attributes in ZWO blocks."""
+    return sum(int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', blocks))
 
 
 def _date_label(date_str: str) -> str:

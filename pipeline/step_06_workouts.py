@@ -334,9 +334,15 @@ def generate_workouts(
     # Load race data for modifications
     race_data = load_race_data(race_name, race_distance, base_dir) if race_name else None
 
-    # Calculate start date (next Monday from today)
+    # Start date: use derived plan_start_date (aligned with guide), fall back to race calc
     race_date_str = derived.get("race_date")
-    start_date = _calculate_start_date(race_date_str, plan_duration)
+    plan_start_str = derived.get("plan_start_date")
+    if plan_start_str:
+        plan_start = datetime.strptime(plan_start_str, "%Y-%m-%d")
+        # Find Monday of the week containing plan_start_date
+        start_date = plan_start - timedelta(days=plan_start.weekday())
+    else:
+        start_date = _calculate_start_date(race_date_str, plan_duration)
 
     # Get weekly schedule
     days_schedule = schedule.get("days", {})

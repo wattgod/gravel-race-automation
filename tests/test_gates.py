@@ -2,6 +2,7 @@
 
 import json
 import pytest
+from datetime import date, timedelta
 from pathlib import Path
 
 from gates.quality_gates import (
@@ -23,7 +24,7 @@ def valid_intake():
     return {
         "name": "Test Athlete",
         "email": "test@example.com",
-        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100}],
+        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100, "race_day_of_week": "Sunday"}],
         "weekly_hours": "5-7",
         "off_days": ["wednesday"],
     }
@@ -211,18 +212,29 @@ class TestGate6:
         "</workout_file>"
     )
 
+    DAY_INFO = [
+        (1, "Mon"), (2, "Tue"), (3, "Wed"), (4, "Thu"),
+        (5, "Fri"), (6, "Sat"), (7, "Sun"),
+    ]
+
     def _populate_workouts(self, tmp_path, derived, extra_files=None):
-        """Create realistic workout files: 7 per week with strength + rest."""
+        """Create realistic workout files: 7 per week with strength + rest.
+
+        Uses the required sortable format: W01_1Mon_Feb02_Type.zwo
+        """
+        from datetime import datetime, timedelta
         plan_duration = derived["plan_duration"]
-        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        start = datetime(2026, 2, 2)  # a Monday
         for w in range(1, plan_duration + 1):
-            for d in days:
-                if d == "Wed":
-                    name = f"W{w:02d}_{d}_Rest_Day.zwo"
-                elif d == "Fri":
-                    name = f"W{w:02d}_{d}_Strength_Base.zwo"
+            for day_num, day_abbrev in self.DAY_INFO:
+                day_date = start + timedelta(weeks=w - 1, days=day_num - 1)
+                date_label = day_date.strftime("%b%d")
+                if day_abbrev == "Wed":
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Rest_Day.zwo"
+                elif day_abbrev == "Fri":
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Strength_Base.zwo"
                 else:
-                    name = f"W{w:02d}_{d}_workout.zwo"
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Endurance.zwo"
                 (tmp_path / name).write_text(self.ZWO_VALID)
         if extra_files:
             for ef in extra_files:
@@ -235,7 +247,7 @@ class TestGate6:
     def test_insane_power_fails(self, tmp_path, valid_derived):
         self._populate_workouts(tmp_path, valid_derived)
         # Overwrite one file with bad power
-        (tmp_path / "W01_Mon_workout.zwo").write_text(
+        (tmp_path / "W01_1Mon_Feb02_Endurance.zwo").write_text(
             '<?xml version="1.0"?>\n'
             "<workout_file>\n"
             "  <workout>\n"
@@ -254,28 +266,34 @@ class TestGate6:
 
     def test_no_strength_files_fails(self, tmp_path, valid_derived):
         """Gate 6 requires strength workout files exist."""
+        from datetime import datetime, timedelta
         plan_duration = valid_derived["plan_duration"]
-        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        start = datetime(2026, 2, 2)
         for w in range(1, plan_duration + 1):
-            for d in days:
-                if d == "Wed":
-                    name = f"W{w:02d}_{d}_Rest_Day.zwo"
+            for day_num, day_abbrev in self.DAY_INFO:
+                day_date = start + timedelta(weeks=w - 1, days=day_num - 1)
+                date_label = day_date.strftime("%b%d")
+                if day_abbrev == "Wed":
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Rest_Day.zwo"
                 else:
-                    name = f"W{w:02d}_{d}_workout.zwo"
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Endurance.zwo"
                 (tmp_path / name).write_text(self.ZWO_VALID)
         with pytest.raises(AssertionError, match="strength"):
             gate_6_workouts(tmp_path, valid_derived)
 
     def test_no_rest_files_fails(self, tmp_path, valid_derived):
         """Gate 6 requires rest/off-day ZWO files exist."""
+        from datetime import datetime, timedelta
         plan_duration = valid_derived["plan_duration"]
-        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        start = datetime(2026, 2, 2)
         for w in range(1, plan_duration + 1):
-            for d in days:
-                if d == "Fri":
-                    name = f"W{w:02d}_{d}_Strength_Base.zwo"
+            for day_num, day_abbrev in self.DAY_INFO:
+                day_date = start + timedelta(weeks=w - 1, days=day_num - 1)
+                date_label = day_date.strftime("%b%d")
+                if day_abbrev == "Fri":
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Strength_Base.zwo"
                 else:
-                    name = f"W{w:02d}_{d}_workout.zwo"
+                    name = f"W{w:02d}_{day_num}{day_abbrev}_{date_label}_Endurance.zwo"
                 (tmp_path / name).write_text(self.ZWO_VALID)
         with pytest.raises(AssertionError, match="rest"):
             gate_6_workouts(tmp_path, valid_derived)
@@ -394,6 +412,55 @@ class TestGate7:
 
 
 # ── Gate 8 Tests ─────────────────────────────────────────────
+
+class TestGate1DateValidation:
+    """Gate 1 now validates race dates: future, lead time, day-of-week enrichment."""
+
+    def test_past_date_fails(self):
+        intake = {
+            "name": "Test",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": "2020-06-28", "distance_miles": 100, "race_day_of_week": "Sunday"}],
+            "weekly_hours": "5-7",
+        }
+        with pytest.raises(AssertionError, match="past"):
+            gate_1_intake(intake)
+
+    def test_too_close_date_fails(self):
+        """Race less than 6 weeks away should fail gate."""
+        close_date = (date.today() + timedelta(weeks=3)).isoformat()
+        intake = {
+            "name": "Test",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": close_date, "distance_miles": 100, "race_day_of_week": "Monday"}],
+            "weekly_hours": "5-7",
+        }
+        with pytest.raises(AssertionError, match="weeks away"):
+            gate_1_intake(intake)
+
+    def test_missing_day_of_week_fails(self):
+        """Gate requires race_day_of_week enrichment from step_01."""
+        future_date = (date.today() + timedelta(weeks=20)).isoformat()
+        intake = {
+            "name": "Test",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": future_date, "distance_miles": 100}],
+            "weekly_hours": "5-7",
+        }
+        with pytest.raises(AssertionError, match="race_day_of_week"):
+            gate_1_intake(intake)
+
+    def test_valid_future_date_passes(self):
+        future_date = (date.today() + timedelta(weeks=20)).isoformat()
+        day_name = (date.today() + timedelta(weeks=20)).strftime("%A")
+        intake = {
+            "name": "Test",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": future_date, "distance_miles": 100, "race_day_of_week": day_name}],
+            "weekly_hours": "5-7",
+        }
+        gate_1_intake(intake)  # Should not raise
+
 
 class TestGate8:
     def test_missing_pdf_fails(self, tmp_path):

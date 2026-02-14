@@ -7,6 +7,7 @@ The pipeline HALTS on any gate failure. No partial delivery.
 
 import re
 import xml.etree.ElementTree as ET
+from datetime import datetime, date
 from pathlib import Path
 from typing import Dict
 
@@ -19,9 +20,30 @@ def gate_1_intake(intake: Dict):
     assert "@" in intake.get("email", ""), "Gate 1: Valid email required"
     assert intake.get("races"), "Gate 1: At least one race required"
 
+    today = date.today()
     for i, race in enumerate(intake["races"]):
         assert race.get("name"), f"Gate 1: Race {i+1} name required"
         assert race.get("date"), f"Gate 1: Race {i+1} date required"
+
+        # Date sanity: must be future, must have reasonable lead time
+        try:
+            race_date = datetime.strptime(race["date"], "%Y-%m-%d").date()
+            assert race_date > today, (
+                f"Gate 1: Race {i+1} date {race['date']} is in the past"
+            )
+            weeks_until = (race_date - today).days / 7
+            assert weeks_until >= 6, (
+                f"Gate 1: Race {i+1} is only {weeks_until:.0f} weeks away "
+                f"(need >= 6 weeks for a meaningful plan)"
+            )
+            # Day of week should be enriched by step_01
+            assert race.get("race_day_of_week"), (
+                f"Gate 1: Race {i+1} missing race_day_of_week enrichment"
+            )
+        except ValueError:
+            raise AssertionError(
+                f"Gate 1: Race {i+1} has unparseable date: {race['date']}"
+            )
 
     assert intake.get("weekly_hours"), "Gate 1: weekly_hours required"
 
@@ -73,8 +95,8 @@ def gate_3_classification(derived: Dict, profile: Dict):
     assert tier in VALID_TIERS, f"Gate 3: Invalid tier: {tier}"
     assert level in VALID_LEVELS, f"Gate 3: Invalid level: {level}"
     assert 6 <= plan_weeks <= 24, f"Gate 3: plan_weeks {plan_weeks} out of range [6, 24]"
-    assert derived["plan_duration"] in [6, 12, 16, 20], (
-        f"Gate 3: Invalid plan_duration: {derived['plan_duration']}"
+    assert 6 <= derived["plan_duration"] <= 24, (
+        f"Gate 3: plan_duration {derived['plan_duration']} out of range [6, 24]"
     )
 
     # Verify tier matches weekly hours
@@ -142,6 +164,19 @@ def gate_6_workouts(workouts_dir: Path, derived: Dict):
     # Verify rest/recovery day files exist
     rest_files = [f for f in zwo_files if "Rest" in f.name or "Off" in f.name or "Recovery_Day" in f.name]
     assert len(rest_files) > 0, "Gate 6: No rest/off-day ZWO files found"
+
+    # Verify filename format: W01_1Mon_Feb02_Type.zwo (sortable, with dates)
+    name_pattern = re.compile(
+        r"^W\d{2}_[1-7](Mon|Tue|Wed|Thu|Fri|Sat|Sun)_[A-Z][a-z]{2}\d{2}_.+\.zwo$"
+    )
+    for zwo in zwo_files:
+        if "Race_Day" in zwo.name:
+            continue  # Race day has a different format
+        assert name_pattern.match(zwo.name), (
+            f"Gate 6: Bad filename format '{zwo.name}'. "
+            f"Expected W{{week}}_{{daynum}}{{Day}}_{{MmmDD}}_{{Type}}.zwo "
+            f"(e.g. W01_1Mon_Feb02_Strength_Base.zwo)"
+        )
 
     for zwo in zwo_files:
         try:

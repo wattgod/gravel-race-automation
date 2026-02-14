@@ -243,36 +243,38 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
   box-shadow: none !important;
 }}
 
-/* Nav */
-.gg-hub-nav {{
+/* Site header */
+.gg-site-header {{
+  padding: 16px 24px;
+  border-bottom: 4px solid var(--gg-color-dark-brown);
+}}
+.gg-site-header-inner {{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 2px solid var(--gg-color-dark-brown);
-  margin-bottom: 0;
+  max-width: 960px;
+  margin: 0 auto;
 }}
-.gg-hub-nav-brand {{
-  font-family: var(--gg-font-editorial);
-  font-size: 18px;
-  font-weight: 700;
+.gg-site-header-logo img {{
+  display: block;
+  height: 50px;
+  width: auto;
+}}
+.gg-site-header-nav {{
+  display: flex;
+  gap: 28px;
+}}
+.gg-site-header-nav a {{
   color: var(--gg-color-dark-brown);
   text-decoration: none;
-}}
-.gg-hub-nav-links {{
-  display: flex;
-  gap: 16px;
-}}
-.gg-hub-nav-links a {{
+  font-family: 'Sometype Mono', monospace;
   font-size: 11px;
   font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--gg-color-secondary-brown);
-  text-decoration: none;
 }}
-.gg-hub-nav-links a:hover {{
-  color: var(--gg-color-dark-brown);
+.gg-site-header-nav a:hover {{
+  color: var(--gg-color-gold);
 }}
 
 /* Breadcrumb */
@@ -449,8 +451,8 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 @media (max-width: 768px) {{
   .gg-hub-hero {{ padding: 32px 20px; }}
   .gg-hub-hero h1 {{ font-size: 28px; }}
-  .gg-hub-nav-links {{ gap: 10px; }}
-  .gg-hub-nav-links a {{ font-size: 10px; }}
+  .gg-site-header-nav {{ gap: 12px; }}
+  .gg-site-header-nav a {{ font-size: 10px; letter-spacing: 1.5px; }}
   .gg-hub-tier-nav a {{ font-size: 9px; padding: 8px 4px; }}
 }}
 @media (max-width: 480px) {{
@@ -460,7 +462,10 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
   .gg-hub-card-score {{ min-width: 48px; font-size: 18px; }}
   .gg-hub-card-body {{ padding: 10px 12px; }}
   .gg-hub-card-name {{ font-size: 14px; }}
-  .gg-hub-nav {{ flex-wrap: wrap; gap: 8px; }}
+  .gg-site-header {{ padding: 12px 16px; }}
+  .gg-site-header-inner {{ flex-wrap: wrap; justify-content: center; gap: 10px; }}
+  .gg-site-header-logo img {{ height: 40px; }}
+  .gg-site-header-nav {{ flex-wrap: wrap; justify-content: center; gap: 8px; }}
 }}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
@@ -470,13 +475,19 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 
 <div class="gg-hub-page">
 
-  <nav class="gg-hub-nav">
-    <a href="/" class="gg-hub-nav-brand">Gravel God</a>
-    <div class="gg-hub-nav-links">
-      <a href="/gravel-races/">All Races</a>
-      <a href="/race/methodology/">How We Rate</a>
+  <header class="gg-site-header">
+    <div class="gg-site-header-inner">
+      <a href="/" class="gg-site-header-logo">
+        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
+      </a>
+      <nav class="gg-site-header-nav">
+        <a href="/gravel-races/">RACES</a>
+        <a href="/coaching/">COACHING</a>
+        <a href="/articles/">ARTICLES</a>
+        <a href="/about/">ABOUT</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <div class="gg-hub-breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; {esc(meta["name"])}

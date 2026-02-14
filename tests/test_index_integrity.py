@@ -173,3 +173,76 @@ class TestIndexDataConsistency:
                 "\n".join(mismatches[:20]) +
                 "\n\nFix: Run `python scripts/generate_index.py --with-jsonld`"
             )
+
+    def test_discipline_field_present(self):
+        """Every index entry must have a discipline field."""
+        data = load_index()
+        missing = [e["slug"] for e in data if "discipline" not in e]
+        if missing:
+            pytest.fail(
+                f"{len(missing)} entries missing 'discipline' field:\n" +
+                "\n".join(f"  {s}" for s in sorted(missing)[:20])
+            )
+
+    def test_discipline_values_valid(self):
+        """Discipline must be one of: gravel, mtb, bikepacking."""
+        data = load_index()
+        valid = {"gravel", "mtb", "bikepacking"}
+        invalid = [(e["slug"], e.get("discipline")) for e in data
+                   if e.get("discipline") not in valid]
+        if invalid:
+            pytest.fail(
+                f"{len(invalid)} entries with invalid discipline:\n" +
+                "\n".join(f"  {s}: {d}" for s, d in invalid[:20])
+            )
+
+    def test_discipline_matches_profile(self):
+        """Index discipline should match profile's gravel_god_rating.discipline."""
+        data = load_index()
+        index_by_slug = {e["slug"]: e for e in data if "slug" in e}
+
+        mismatches = []
+        for f in sorted(RACE_DATA_DIR.glob("*.json")):
+            slug = f.stem
+            if slug not in index_by_slug:
+                continue
+
+            profile = json.loads(f.read_text())
+            race = profile.get("race", profile)
+            rating = race.get("gravel_god_rating", {})
+            profile_disc = rating.get("discipline", "gravel")
+            index_disc = index_by_slug[slug].get("discipline", "gravel")
+
+            if profile_disc != index_disc:
+                mismatches.append(
+                    f"  {slug}: profile={profile_disc} vs index={index_disc}"
+                )
+
+        if mismatches:
+            pytest.fail(
+                f"{len(mismatches)} discipline mismatches between profile and index:\n" +
+                "\n".join(mismatches[:20]) +
+                "\n\nFix: Run `python scripts/generate_index.py --with-jsonld`"
+            )
+
+    def test_bikepacking_races_tagged(self):
+        """Known bikepacking races must NOT be tagged as gravel."""
+        data = load_index()
+        index_by_slug = {e["slug"]: e for e in data if "slug" in e}
+
+        bikepacking_slugs = [
+            "tour-divide", "trans-am-bike-race", "transcontinental-race",
+            "atlas-mountain-race", "colorado-trail-race", "badlands",
+            "torino-nice-rally",
+        ]
+        wrong = []
+        for slug in bikepacking_slugs:
+            entry = index_by_slug.get(slug)
+            if entry and entry.get("discipline") != "bikepacking":
+                wrong.append(f"  {slug}: discipline={entry.get('discipline')}")
+
+        if wrong:
+            pytest.fail(
+                f"{len(wrong)} bikepacking races mis-tagged:\n" +
+                "\n".join(wrong)
+            )

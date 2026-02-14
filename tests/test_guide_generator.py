@@ -307,10 +307,19 @@ class TestPageGeneration:
     def test_substack_embed(self, guide_html):
         assert "gravelgodcycling.substack.com/embed" in guide_html
 
+    def test_nav_has_site_header(self, guide_html):
+        """Guide must use the shared site header, not old dark nav."""
+        assert 'class="gg-site-header"' in guide_html
+        assert "cropped-Gravel-God-logo.png" in guide_html
+        assert "gg-site-nav" not in guide_html  # old class must be gone
+
     def test_nav_links(self, guide_html):
-        assert "ALL RACES" in guide_html
-        assert "HOW WE RATE" in guide_html
-        assert "GUIDE" in guide_html
+        assert '/gravel-races/">RACES</a>' in guide_html
+        assert '/coaching/">COACHING</a>' in guide_html
+        assert '/articles/">ARTICLES</a>' in guide_html
+        assert '/about/">ABOUT</a>' in guide_html
+        assert "ALL RACES" not in guide_html  # old link text
+        assert "HOW WE RATE" not in guide_html  # old link text
 
     def test_gate_position_between_ch3_and_ch4(self, guide_html):
         """Gate overlay must appear between chapter 3 and chapter 4."""

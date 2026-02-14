@@ -587,14 +587,82 @@ class TestFooter:
 # ── Nav ───────────────────────────────────────────────────────
 
 class TestNav:
-    def test_nav_has_brand(self, normalized_data):
+    def test_header_element_wraps_nav(self, normalized_data):
         html = build_nav_header(normalized_data, [])
-        assert "GRAVEL GOD" in html
+        assert html.strip().startswith("<header")
+        assert 'class="gg-site-header"' in html
 
-    def test_nav_has_breadcrumb(self, normalized_data):
+    def test_logo_links_to_homepage(self, normalized_data):
+        html = build_nav_header(normalized_data, [])
+        assert 'class="gg-site-header-logo"' in html
+        assert "cropped-Gravel-God-logo.png" in html
+        # Logo must link to site root
+        assert 'href="https://gravelgodcycling.com/"' in html
+
+    def test_four_nav_links_with_correct_urls(self, normalized_data):
+        html = build_nav_header(normalized_data, [])
+        assert 'href="https://gravelgodcycling.com/gravel-races/">RACES</a>' in html
+        assert 'href="https://gravelgodcycling.com/coaching/">COACHING</a>' in html
+        assert 'href="https://gravelgodcycling.com/articles/">ARTICLES</a>' in html
+        assert 'href="https://gravelgodcycling.com/about/">ABOUT</a>' in html
+
+    def test_no_old_nav_classes(self, normalized_data):
+        html = build_nav_header(normalized_data, [])
+        assert "gg-site-nav" not in html
+        assert "GRAVEL GOD</a>" not in html  # old brand text link
+        assert "ALL RACES" not in html
+        assert "HOW WE RATE" not in html
+
+    def test_breadcrumb_outside_header(self, normalized_data):
+        html = build_nav_header(normalized_data, [])
+        # Breadcrumb should be a separate div, not inside <header>
+        header_end = html.index("</header>")
+        breadcrumb_start = html.index('class="gg-breadcrumb"')
+        assert breadcrumb_start > header_end
+
+    def test_breadcrumb_has_race_name_and_tier(self, normalized_data):
         html = build_nav_header(normalized_data, [])
         assert "gg-breadcrumb" in html
         assert "Test Gravel 100" in html
+        tier = normalized_data["tier"]
+        tier_label = normalized_data["tier_label"]
+        assert tier_label in html
+        assert f'href="https://gravelgodcycling.com/race/tier-{tier}/"' in html
+
+
+class TestNavCrossGenerator:
+    """Verify ALL generators produce the same header structure.
+
+    This catches the failure mode where one generator gets updated
+    but others are forgotten (Shortcut #15, #16).
+    """
+
+    def test_neo_brutalist_css_has_site_header(self):
+        from generate_neo_brutalist import get_page_css
+        css = get_page_css()
+        assert ".gg-site-header " in css or ".gg-site-header{" in css
+        assert ".gg-site-header-nav " in css or ".gg-site-header-nav{" in css
+        # Must NOT have old classes
+        assert ".gg-site-nav " not in css
+        assert ".gg-site-nav{" not in css
+
+    def test_methodology_nav_uses_new_header(self):
+        from generate_methodology import build_nav
+        html = build_nav()
+        assert 'class="gg-site-header"' in html
+        assert "gg-site-nav" not in html
+        assert "cropped-Gravel-God-logo.png" in html
+        assert '/gravel-races/">RACES</a>' in html
+        assert '/coaching/">COACHING</a>' in html
+
+    def test_guide_nav_uses_new_header(self):
+        from generate_guide import build_nav
+        html = build_nav()
+        assert 'class="gg-site-header"' in html
+        assert "gg-site-nav" not in html
+        assert "cropped-Gravel-God-logo.png" in html
+        assert '/gravel-races/">RACES</a>' in html
+        assert '/coaching/">COACHING</a>' in html
 
 
 # ── Accordion & Radar ─────────────────────────────────────────

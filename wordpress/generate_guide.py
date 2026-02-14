@@ -522,19 +522,24 @@ def render_block(block: dict) -> str:
 
 
 def build_nav() -> str:
-    return f'''<nav class="gg-site-nav">
-    <div class="gg-site-nav-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
-      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
-      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link">HOW WE RATE</a>
-      <a href="{SITE_BASE_URL}/guide/" class="gg-site-nav-link" style="color:#178079">GUIDE</a>
+    return f'''<header class="gg-site-header">
+    <div class="gg-site-header-inner">
+      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
+        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
+      </a>
+      <nav class="gg-site-header-nav">
+        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
+        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
+        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
+        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
+      </nav>
     </div>
-    <div class="gg-breadcrumb">
-      <a href="{SITE_BASE_URL}/">Home</a>
-      <span class="gg-breadcrumb-sep">&rsaquo;</span>
-      <span class="gg-breadcrumb-current">Training Guide</span>
-    </div>
-  </nav>'''
+  </header>
+  <div class="gg-breadcrumb">
+    <a href="{SITE_BASE_URL}/">Home</a>
+    <span class="gg-breadcrumb-sep">&rsaquo;</span>
+    <span class="gg-breadcrumb-current">Training Guide</span>
+  </div>'''
 
 
 def build_hero(content: dict) -> str:
@@ -1586,17 +1591,18 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   font-family: 'Sometype Mono', monospace;
   box-sizing: border-box;
 }}
-/* Nav */
-.gg-neo-brutalist-page .gg-site-nav {{ background: #3a2e25; border: 3px solid #3a2e25; margin-bottom: 0; }}
-.gg-neo-brutalist-page .gg-site-nav-inner {{ display: flex; align-items: center; padding: 12px 20px; gap: 20px; }}
-.gg-neo-brutalist-page .gg-site-nav-brand {{ color: #fff; text-decoration: none; font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }}
-.gg-neo-brutalist-page .gg-site-nav-link {{ color: #d4c5b9; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
-.gg-neo-brutalist-page .gg-site-nav-link:hover {{ color: #fff; }}
-.gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 20px; font-size: 11px; background: #2e241d; }}
-.gg-neo-brutalist-page .gg-breadcrumb a {{ color: #c4b5ab; text-decoration: none; }}
-.gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: #d4c5b9; }}
-.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: #7d695d; margin: 0 6px; }}
-.gg-neo-brutalist-page .gg-breadcrumb-current {{ color: #d4c5b9; }}
+/* Site header */
+.gg-site-header {{ padding: 16px 24px; border-bottom: 4px solid var(--gg-color-dark-brown); }}
+.gg-site-header-inner {{ display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }}
+.gg-site-header-logo img {{ display: block; height: 50px; width: auto; }}
+.gg-site-header-nav {{ display: flex; gap: 28px; }}
+.gg-site-header-nav a {{ color: var(--gg-color-dark-brown); text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
+.gg-site-header-nav a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 24px; font-size: 11px; background: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-breadcrumb a {{ color: var(--gg-color-warm-brown); text-decoration: none; }}
+.gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-breadcrumb-sep {{ color: var(--gg-color-secondary-brown); margin: 0 6px; }}
+.gg-neo-brutalist-page .gg-breadcrumb-current {{ color: var(--gg-color-dark-brown); }}
 /* Hero */
 .gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; border-bottom: 4px double rgba(255,255,255,0.15); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #3a2e25; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
@@ -1611,7 +1617,12 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 @media(max-width:768px){{
   .gg-neo-brutalist-page .gg-hero {{ padding: 40px 20px; }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 26px; }}
-  .gg-neo-brutalist-page .gg-site-nav-inner {{ flex-wrap: wrap; gap: 12px; }}
+  .gg-site-header {{ padding: 12px 16px; }}
+  .gg-site-header-inner {{ flex-wrap: wrap; justify-content: center; gap: 10px; }}
+  .gg-site-header-logo img {{ height: 40px; }}
+  .gg-site-header-nav {{ gap: 12px; flex-wrap: wrap; justify-content: center; }}
+  .gg-site-header-nav a {{ font-size: 10px; letter-spacing: 1.5px; }}
+  .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
 }}
   </style>
   {css_html}

@@ -449,6 +449,7 @@
     if (params.get('distance')) document.getElementById('gg-distance').value = params.get('distance');
     if (params.get('month')) document.getElementById('gg-month').value = params.get('month');
     if (params.get('profile')) document.getElementById('gg-profile').value = params.get('profile');
+    if (params.has('discipline')) document.getElementById('gg-discipline').value = params.get('discipline');
     if (params.get('sort')) currentSort = params.get('sort');
 
     // Restore match mode from URL
@@ -495,6 +496,7 @@
     if (f.distance) params.set('distance', f.distance);
     if (f.month) params.set('month', f.month);
     if (f.profile) params.set('profile', f.profile);
+    if (f.discipline !== 'gravel') params.set('discipline', f.discipline);
     if (currentSort !== 'score') params.set('sort', currentSort);
 
     if (displayMode === 'match') {
@@ -540,6 +542,7 @@
         var d = r.distance_mi || 0;
         return d >= parts[0] && d <= parts[1];
       }
+      if (filterKey === 'discipline') return (r.discipline || 'gravel') === filterValue;
       return true;
     }).length;
   }
@@ -604,6 +607,19 @@
     var noProfile = countByFilter('profile', 'no');
     profSel.innerHTML += '<option value="yes">Has Profile (' + withProfile + ')</option>';
     profSel.innerHTML += '<option value="no">No Profile (' + noProfile + ')</option>';
+
+    var discSel = document.getElementById('gg-discipline');
+    var currentDisc = discSel.value;
+    discSel.innerHTML = '<option value="">All Types</option>';
+    [['gravel', 'Gravel'], ['mtb', 'MTB'], ['bikepacking', 'Bikepacking']].forEach(function(pair) {
+      var count = countByFilter('discipline', pair[0]);
+      if (count > 0) {
+        var opt = document.createElement('option');
+        opt.value = pair[0]; opt.textContent = pair[1] + ' (' + count + ')';
+        discSel.appendChild(opt);
+      }
+    });
+    discSel.value = currentDisc || 'gravel';
   }
 
   function getFilters() {
@@ -613,7 +629,8 @@
     var distance = document.getElementById('gg-distance').value;
     var month = document.getElementById('gg-month').value;
     var profile = document.getElementById('gg-profile').value;
-    return { search: search, tier: tier, region: region, distance: distance, month: month, profile: profile };
+    var discipline = document.getElementById('gg-discipline').value;
+    return { search: search, tier: tier, region: region, distance: distance, month: month, profile: profile, discipline: discipline };
   }
 
   function filterRaces() {
@@ -627,6 +644,7 @@
       if (f.month && r.month !== f.month) return false;
       if (f.profile === 'yes' && !r.has_profile) return false;
       if (f.profile === 'no' && r.has_profile) return false;
+      if (f.discipline && (r.discipline || 'gravel') !== f.discipline) return false;
       if (f.distance) {
         var parts = f.distance.split('-').map(Number);
         var d = r.distance_mi || 0;
@@ -772,6 +790,13 @@
       '<span class="gg-fav-icon">' + (isFav ? '&#9829;' : '&#9825;') + '</span>' +
     '</button>';
 
+    var discBadge = '';
+    var disc = race.discipline || 'gravel';
+    if (disc !== 'gravel') {
+      var discLabel = disc === 'mtb' ? 'MTB' : disc.charAt(0).toUpperCase() + disc.slice(1);
+      discBadge = '<span class="gg-discipline-badge">' + discLabel + '</span>';
+    }
+
     return '<div class="gg-card">' +
       '<div class="gg-card-header">' +
         compareCheck +
@@ -780,6 +805,7 @@
         '<div style="display:flex;gap:6px;align-items:center">' +
           matchBadge +
           distBadge +
+          discBadge +
           '<span class="gg-tier-badge gg-tier-' + race.tier + '">TIER ' + race.tier + '</span>' +
         '</div>' +
       '</div>' +
@@ -895,13 +921,15 @@
     var pills = [];
 
     var distLabels = { '0-50': 'Under 50 mi', '50-100': '50-100 mi', '100-200': '100-200 mi', '200-999': '200+ mi' };
+    var discLabels = { gravel: 'Gravel', mtb: 'MTB', bikepacking: 'Bikepacking' };
     var filterLabels = {
       search: f.search ? '"' + f.search + '"' : null,
       tier: f.tier ? 'Tier ' + f.tier : null,
       region: f.region || null,
       distance: f.distance ? distLabels[f.distance] : null,
       month: f.month || null,
-      profile: f.profile ? (f.profile === 'yes' ? 'Has Profile' : 'No Profile') : null
+      profile: f.profile ? (f.profile === 'yes' ? 'Has Profile' : 'No Profile') : null,
+      discipline: f.discipline !== 'gravel' ? (f.discipline ? discLabels[f.discipline] : 'All Disciplines') : null
     };
 
     // Add favorites pill
@@ -918,7 +946,8 @@
       var key = pair[0], label = pair[1];
       if (label) {
         var inputId = key === 'search' ? 'gg-search' : 'gg-' + key;
-        pills.push('<span class="gg-filter-pill">' + label + '<button onclick="document.getElementById(\'' + inputId + '\').value=\'\';document.getElementById(\'' + inputId + '\').dispatchEvent(new Event(\'change\'))">×</button></span>');
+        var resetVal = key === 'discipline' ? 'gravel' : '';
+        pills.push('<span class="gg-filter-pill">' + label + '<button onclick="document.getElementById(\'' + inputId + '\').value=\'' + resetVal + '\';document.getElementById(\'' + inputId + '\').dispatchEvent(new Event(\'change\'))">×</button></span>');
       }
     });
 
@@ -1166,6 +1195,7 @@
     document.getElementById('gg-distance').value = '';
     document.getElementById('gg-month').value = '';
     document.getElementById('gg-profile').value = '';
+    document.getElementById('gg-discipline').value = 'gravel';
     // Also clear near me
     if (userLat !== null) activateNearMe();
     showFavoritesOnly = false;
@@ -1219,7 +1249,7 @@
     var config = {
       name: name,
       created: Date.now(),
-      filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, profile: f.profile },
+      filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, profile: f.profile, discipline: f.discipline },
       sliders: getSliderValues(),
       matchMode: displayMode === 'match',
       sort: currentSort
@@ -1241,6 +1271,7 @@
     document.getElementById('gg-distance').value = f.distance || '';
     document.getElementById('gg-month').value = f.month || '';
     document.getElementById('gg-profile').value = f.profile || '';
+    document.getElementById('gg-discipline').value = f.discipline || 'gravel';
     // Restore sort
     if (config.sort) {
       currentSort = config.sort;
@@ -1346,7 +1377,7 @@
     // Text search: debounce to avoid DOM thrashing on every keystroke
     document.getElementById('gg-search').addEventListener('input', debouncedRender);
     // Dropdowns: render immediately on change (single event per selection)
-    ['gg-tier','gg-region','gg-distance','gg-month','gg-profile'].forEach(function(id) {
+    ['gg-tier','gg-region','gg-distance','gg-month','gg-profile','gg-discipline'].forEach(function(id) {
       document.getElementById(id).addEventListener('change', render);
     });
 

@@ -28,6 +28,7 @@
     "tagline": "2,745 miles from Banff to Mexico. The longest mountain bike time trial on earth. Self-supported. Unsupported. Unforgettable.",
     "has_profile": true,
     "profile_url": "/race/tour-divide/",
+    "discipline": "bikepacking",
     "lat": 51.18,
     "lng": -115.57,
     "rwgps_id": "53936176"
@@ -61,6 +62,7 @@
     "tagline": "530 miles of high-altitude suffering across the spine of the Rockies - 75% of starters don't finish, and that's the point.",
     "has_profile": true,
     "profile_url": "/race/colorado-trail-race/",
+    "discipline": "bikepacking",
     "lat": 38.7252,
     "lng": -105.6077,
     "rwgps_id": "53731235"
@@ -94,6 +96,7 @@
     "tagline": "4,200 miles from the Pacific to the Atlantic. The longest road ultra-race on earth. Self-supported across 10 states. America, coast to coast.",
     "has_profile": true,
     "profile_url": "/race/trans-am-bike-race/",
+    "discipline": "bikepacking",
     "lat": 37.1232,
     "lng": -78.4928,
     "rwgps_id": "46785461"
@@ -127,6 +130,7 @@
     "tagline": "4,000-5,000km self-supported across Europe. The clock never stops. The ultimate test of human endurance, navigation, and self-reliance.",
     "has_profile": true,
     "profile_url": "/race/transcontinental-race/",
+    "discipline": "bikepacking",
     "lat": 48.2082,
     "lng": 16.3738
   },
@@ -159,6 +163,7 @@
     "tagline": "800km self-supported through Spanish deserts and 3,400m alpine passes. Where ultra-endurance meets extreme heat.",
     "has_profile": true,
     "profile_url": "/race/badlands/",
+    "discipline": "bikepacking",
     "lat": 37.1735,
     "lng": -3.5995,
     "rwgps_id": "53936171"
@@ -192,6 +197,7 @@
     "tagline": "The Race Across the Sky. 100 miles at 10,000+ feet. The belt buckle that defines mountain biking.",
     "has_profile": true,
     "profile_url": "/race/leadville-100/",
+    "discipline": "mtb",
     "lat": 39.2508,
     "lng": -106.2925,
     "rwgps_id": "3227417"
@@ -225,6 +231,7 @@
     "tagline": "700km crossing the Alps from Italy to France on legendary military roads. Where bikepacking pilgrimage meets high-altitude adventure.",
     "has_profile": true,
     "profile_url": "/race/torino-nice-rally/",
+    "discipline": "bikepacking",
     "lat": 46.6034,
     "lng": 1.8883,
     "rwgps_id": "53387121"
@@ -258,6 +265,7 @@
     "tagline": "The toughest 70 miles on the planet. 10,000ft of climbing. Finish at 10,400ft elevation.",
     "has_profile": true,
     "profile_url": "/race/crusher-in-the-tushar/",
+    "discipline": "gravel",
     "lat": 38.3336,
     "lng": -113.2755,
     "rwgps_id": "32869577"
@@ -291,6 +299,7 @@
     "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
     "has_profile": true,
     "profile_url": "/race/the-traka/",
+    "discipline": "gravel",
     "lat": 41.9793,
     "lng": 2.8199,
     "rwgps_id": "53947204"
@@ -324,6 +333,7 @@
     "tagline": "UCI World Championship—180km elite, rainbow jersey, fastest field in gravel, rotating locations.",
     "has_profile": true,
     "profile_url": "/race/uci-gravel-worlds/",
+    "discipline": "gravel",
     "lat": 45.2083,
     "lng": 5.7148,
     "rwgps_id": "53011652"
@@ -357,6 +367,7 @@
     "tagline": "350 miles of Kansas limestone hell with zero aid stations. The ultimate test of whether you actually like riding bikes or just think you do.",
     "has_profile": true,
     "profile_url": "/race/unbound-xl/",
+    "discipline": "gravel",
     "lat": 38.404,
     "lng": -96.1816,
     "rwgps_id": "53768538"
@@ -390,6 +401,7 @@
     "tagline": "The most technical gravel race in America. 130 miles of everything—road, dirt, singletrack, sand, suffering.",
     "has_profile": true,
     "profile_url": "/race/bwr-california/",
+    "discipline": "gravel",
     "lat": 32.9595,
     "lng": -117.2653,
     "rwgps_id": "46433141"
@@ -423,6 +435,7 @@
     "tagline": "The world's toughest gravel ride where wine bottle sizes determine your suffering quota and 7,000 meters of climbing is just the appetizer.",
     "has_profile": true,
     "profile_url": "/race/jeroboam/",
+    "discipline": "gravel",
     "lat": 45.5985,
     "lng": 9.9722,
     "rwgps_id": "44742357"
@@ -456,6 +469,7 @@
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
     "has_profile": true,
     "profile_url": "/race/big-sugar/",
+    "discipline": "gravel",
     "lat": 36.3729,
     "lng": -94.2088,
     "rwgps_id": "52306059"
@@ -489,6 +503,7 @@
     "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
     "has_profile": true,
     "profile_url": "/race/gravel-earth/",
+    "discipline": "gravel",
     "lat": 41.9794,
     "lng": 2.8214
   },
@@ -521,6 +536,7 @@
     "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
     "has_profile": true,
     "profile_url": "/race/rebeccas-private-idaho/",
+    "discipline": "gravel",
     "lat": 43.6807,
     "lng": -114.3637,
     "rwgps_id": "24722263"
@@ -554,6 +570,7 @@
     "tagline": "Champagne gravel at altitude - where the pros come to play and the views will make you forget about the suffering",
     "has_profile": true,
     "profile_url": "/race/steamboat-gravel/",
+    "discipline": "gravel",
     "lat": 40.4848,
     "lng": -106.8317,
     "rwgps_id": "53876176"
@@ -587,6 +604,7 @@
     "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
     "has_profile": true,
     "profile_url": "/race/unbound-200/",
+    "discipline": "gravel",
     "lat": 38.404,
     "lng": -96.1816,
     "rwgps_id": "46551378"
@@ -620,6 +638,7 @@
     "tagline": "The OG American Spring Classic. 130 miles of kasseien-crushing brutality where 1 in 3 riders DNF, and the survivors earn their waffles.",
     "has_profile": true,
     "profile_url": "/race/bwr-san-diego/",
+    "discipline": "gravel",
     "lat": 32.9595,
     "lng": -117.2653,
     "rwgps_id": "38370873"
@@ -653,6 +672,7 @@
     "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
     "has_profile": true,
     "profile_url": "/race/gravel-worlds/",
+    "discipline": "gravel",
     "lat": 40.8089,
     "lng": -96.7078,
     "rwgps_id": "51659517"
@@ -686,6 +706,7 @@
     "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
     "has_profile": true,
     "profile_url": "/race/dirty-reiver/",
+    "discipline": "gravel",
     "lat": 55.2265,
     "lng": -2.5725,
     "rwgps_id": "53326466"
@@ -719,6 +740,7 @@
     "tagline": "New LTGP MTB race—30 miles of technical Bentonville singletrack, pairs with Big Sugar Gravel, pro field guaranteed.",
     "has_profile": true,
     "profile_url": "/race/little-sugar-mtb/",
+    "discipline": "mtb",
     "lat": 36.3729,
     "lng": -94.2088,
     "rwgps_id": "53139731"
@@ -752,6 +774,7 @@
     "tagline": "Oklahoma's weather lottery with a $100K prize purse and a guaranteed Bobby hug.",
     "has_profile": true,
     "profile_url": "/race/mid-south/",
+    "discipline": "gravel",
     "lat": 36.1156,
     "lng": -97.0586,
     "rwgps_id": "48969927"
@@ -785,6 +808,7 @@
     "tagline": "Australia's crown jewel gravel race. 125km through Western Australia's forests. Host of 2026 UCI Gravel World Championships.",
     "has_profile": true,
     "profile_url": "/race/seven/",
+    "discipline": "gravel",
     "lat": -33.9784,
     "lng": 115.7638
   },
@@ -817,6 +841,7 @@
     "tagline": "Ride the white roads of Tuscany. 138km through the iconic sectors. Finish in Siena's Piazza del Campo.",
     "has_profile": true,
     "profile_url": "/race/strade-bianche-gran-fondo/",
+    "discipline": "gravel",
     "lat": 43.1672,
     "lng": 11.4676,
     "rwgps_id": "53843273"
@@ -850,6 +875,7 @@
     "tagline": "Utah red rock adventure—135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
     "has_profile": true,
     "profile_url": "/race/bwr-utah/",
+    "discipline": "gravel",
     "lat": 37.6774,
     "lng": -113.0618,
     "rwgps_id": "52703090"
@@ -883,6 +909,7 @@
     "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
     "has_profile": true,
     "profile_url": "/race/gravel-locos/",
+    "discipline": "gravel",
     "lat": 31.9814,
     "lng": -98.0309,
     "rwgps_id": "50345473"
@@ -916,6 +943,7 @@
     "tagline": "Blue Ridge brutality—129 miles, 10,000 feet, Belgian-style mixed terrain in Asheville humidity.",
     "has_profile": true,
     "profile_url": "/race/bwr-asheville/",
+    "discipline": "gravel",
     "lat": 35.5954,
     "lng": -82.5508,
     "rwgps_id": "42567010"
@@ -949,6 +977,7 @@
     "tagline": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
     "has_profile": true,
     "profile_url": "/race/bwr-cedar-city/",
+    "discipline": "gravel",
     "lat": 37.6774,
     "lng": -113.0618,
     "rwgps_id": "39282960"
@@ -982,6 +1011,7 @@
     "tagline": "Montana Rockies adventure—140km of mountain gravel, 2,800m elevation, Missoula scenery, waffles.",
     "has_profile": true,
     "profile_url": "/race/bwr-montana/",
+    "discipline": "gravel",
     "lat": 46.8701,
     "lng": -113.9953,
     "rwgps_id": "52041600"
@@ -1015,6 +1045,7 @@
     "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
     "has_profile": true,
     "profile_url": "/race/grinduro/",
+    "discipline": "gravel",
     "lat": 38.4324,
     "lng": -120.0356,
     "rwgps_id": "53291723"
@@ -1048,6 +1079,7 @@
     "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
     "has_profile": true,
     "profile_url": "/race/giro-sardegna-gravel/",
+    "discipline": "gravel",
     "lat": 40.5732,
     "lng": 9.694,
     "rwgps_id": "48864427"
@@ -1081,6 +1113,7 @@
     "tagline": "Enduro-style gravel festival in France's Vosges with timed descents, French wine, and mountain views.",
     "has_profile": true,
     "profile_url": "/race/grinduro-france/",
+    "discipline": "gravel",
     "lat": 48.0813,
     "lng": 6.9267,
     "rwgps_id": "47342609"
@@ -1114,6 +1147,7 @@
     "tagline": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
     "has_profile": true,
     "profile_url": "/race/grinduro-germany/",
+    "discipline": "gravel",
     "lat": 51.1638,
     "lng": 10.4478,
     "rwgps_id": "46815624"
@@ -1147,6 +1181,7 @@
     "tagline": "UCI Gravel World Series qualifier at 8,000 feet—High Sierra alpine gravel where altitude humbles everyone.",
     "has_profile": true,
     "profile_url": "/race/mammoth-tuff/",
+    "discipline": "gravel",
     "lat": 37.6433,
     "lng": -118.9669,
     "rwgps_id": "52694679"
@@ -1180,6 +1215,7 @@
     "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
     "has_profile": true,
     "profile_url": "/race/nordic-chase-gravel/",
+    "discipline": "gravel",
     "lat": 61.1529,
     "lng": 8.7877
   },
@@ -1212,6 +1248,7 @@
     "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
     "has_profile": true,
     "profile_url": "/race/oregon-trail-gravel/",
+    "discipline": "gravel",
     "lat": 44.06,
     "lng": -121.31,
     "rwgps_id": "51970272"
@@ -1245,6 +1282,7 @@
     "tagline": "The OG Southwest MTB festival. Skull Valley will break you. Whiskey Row will rebuild you.",
     "has_profile": true,
     "profile_url": "/race/whiskey-off-road/",
+    "discipline": "gravel",
     "lat": 34.54,
     "lng": -112.4688,
     "rwgps_id": "39231737"
@@ -1278,6 +1316,7 @@
     "tagline": "The Cheq—40 years of mass start MTB chaos, 3,000+ riders, and Life Time Grand Prix glory in Wisconsin's Chequamegon National Forest.",
     "has_profile": true,
     "profile_url": "/race/chequamegon-mtb/",
+    "discipline": "mtb",
     "lat": 46.208,
     "lng": -91.2921,
     "rwgps_id": "43651747"
@@ -1311,6 +1350,7 @@
     "tagline": "UCI World Series racing in the Swiss Alps - where the world cycling headquarters meets 11,000 feet of alpine suffering",
     "has_profile": true,
     "profile_url": "/race/gravel-fondo-switzerland/",
+    "discipline": "gravel",
     "lat": 46.7986,
     "lng": 8.232,
     "rwgps_id": "52287506"
@@ -1344,6 +1384,7 @@
     "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
     "has_profile": true,
     "profile_url": "/race/gunni-grinder/",
+    "discipline": "gravel",
     "lat": 38.6477,
     "lng": -107.0603,
     "rwgps_id": "46250094"
@@ -1377,6 +1418,7 @@
     "tagline": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams",
     "has_profile": true,
     "profile_url": "/race/lauf-true-grit/",
+    "discipline": "gravel",
     "lat": 37.133,
     "lng": -113.6541
   },
@@ -1409,6 +1451,7 @@
     "tagline": "UCI Gravel World Series race through Minnesota's stunning North Shore at Lake Superior.",
     "has_profile": true,
     "profile_url": "/race/le-grand-du-nord/",
+    "discipline": "gravel",
     "lat": 47.7505,
     "lng": -90.3347
   },
@@ -1441,6 +1484,7 @@
     "tagline": "Four days through Kenya's Maasai Mara. Zebras on course.",
     "has_profile": true,
     "profile_url": "/race/migration-gravel-race/",
+    "discipline": "gravel",
     "lat": -1.0959,
     "lng": 35.8566,
     "rwgps_id": "45563845"
@@ -1474,6 +1518,7 @@
     "tagline": "Monaco/French Alps—110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
     "has_profile": true,
     "profile_url": "/race/monaco-gravel-race/",
+    "discipline": "gravel",
     "lat": 43.7323,
     "lng": 7.4277,
     "rwgps_id": "50327918"
@@ -1507,6 +1552,7 @@
     "tagline": "Tuscan strade bianche—135km of iconic white roads, 2,800m elevation, medieval town charm, Italian gravel paradise.",
     "has_profile": true,
     "profile_url": "/race/nova-eroica/",
+    "discipline": "gravel",
     "lat": 43.1382,
     "lng": 11.4821,
     "rwgps_id": "39107798"
@@ -1540,6 +1586,7 @@
     "tagline": "Where gravel meets the sky - high-altitude suffering in Colorado's Switzerland",
     "has_profile": true,
     "profile_url": "/race/ouray-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 38.146,
     "lng": -107.7415
   },
@@ -1572,6 +1619,7 @@
     "tagline": "Trans-Pyrenean ultra-gravel through volcanic zones, medieval villages, and Costa Brava coast - Spain's answer to the 200-mile question",
     "has_profile": true,
     "profile_url": "/race/pirinexus-360/",
+    "discipline": "gravel",
     "lat": 41.9793,
     "lng": 2.8199,
     "rwgps_id": "52671146"
@@ -1605,6 +1653,7 @@
     "tagline": "Festival racing on California's Central Coast. Where gravel meets expo madness.",
     "has_profile": true,
     "profile_url": "/race/sea-otter-gravel/",
+    "discipline": "gravel",
     "lat": 36.2231,
     "lng": -121.3877,
     "rwgps_id": "50233482"
@@ -1638,6 +1687,7 @@
     "tagline": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
     "has_profile": true,
     "profile_url": "/race/the-rift/",
+    "discipline": "gravel",
     "lat": 63.7508,
     "lng": -20.2238,
     "rwgps_id": "52620636"
@@ -1671,6 +1721,7 @@
     "tagline": "The little sibling that still kicks your ass. 100 miles of Flint Hills gravel—all the suffering, half the existential crisis.",
     "has_profile": true,
     "profile_url": "/race/unbound-100/",
+    "discipline": "gravel",
     "lat": 38.404,
     "lng": -96.1816
   },
@@ -1703,6 +1754,7 @@
     "tagline": "High, rough, and lonesome. Colorado's rowdiest gravel race.",
     "has_profile": true,
     "profile_url": "/race/big-horn-gravel/",
+    "discipline": "gravel",
     "lat": 39.6469,
     "lng": -106.9517
   },
@@ -1735,6 +1787,7 @@
     "tagline": "The OG of gravel racing - 25+ years of Northern California dirt, redwoods, and pure cycling soul.",
     "has_profile": true,
     "profile_url": "/race/grasshopper-series/",
+    "discipline": "gravel",
     "lat": 38.51,
     "lng": -122.81
   },
@@ -1767,6 +1820,7 @@
     "tagline": "Vermont's early season mud fest—46 miles of Class 4 roads, self-supported suffering, and guaranteed mud.",
     "has_profile": true,
     "profile_url": "/race/rasputitsa/",
+    "discipline": "gravel",
     "lat": 44.6179,
     "lng": -71.9235,
     "rwgps_id": "33718706"
@@ -1800,6 +1854,7 @@
     "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
     "has_profile": true,
     "profile_url": "/race/the-rad/",
+    "discipline": "gravel",
     "lat": 37.1694,
     "lng": -104.5005
   },
@@ -1832,6 +1887,7 @@
     "tagline": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
     "has_profile": true,
     "profile_url": "/race/bwr-north-carolina/",
+    "discipline": "gravel",
     "lat": 35.3187,
     "lng": -82.461,
     "rwgps_id": "52886757"
@@ -1865,6 +1921,7 @@
     "tagline": "Brazilian coastal mountains—100km, 2,000m elevation, steep technical terrain in beach town paradise.",
     "has_profile": true,
     "profile_url": "/race/gravel-brazil/",
+    "discipline": "gravel",
     "lat": -26.9924,
     "lng": -48.634
   },
@@ -1897,6 +1954,7 @@
     "tagline": "Technical snowmobile-trail gravel through Minnesota's North Shore at peak fall foliage.",
     "has_profile": true,
     "profile_url": "/race/heck-of-the-north/",
+    "discipline": "gravel",
     "lat": 47.0257,
     "lng": -91.6731,
     "rwgps_id": "31127155"
@@ -1930,6 +1988,7 @@
     "tagline": "Colorado Rockies adventure—100km of high-altitude gravel, 2,500m elevation, Salida scenery.",
     "has_profile": true,
     "profile_url": "/race/rad-dirt-fest/",
+    "discipline": "gravel",
     "lat": 38.5371,
     "lng": -105.991
   },
@@ -1962,6 +2021,7 @@
     "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
     "has_profile": true,
     "profile_url": "/race/southern-cross-gravel/",
+    "discipline": "gravel",
     "lat": 34.5328,
     "lng": -83.9846,
     "rwgps_id": "32690265"
@@ -1995,6 +2055,7 @@
     "tagline": "OG gravel since 2009—54 miles of Vermont pavé, 7,000 feet of climbing, and Paris-Roubaix dirt roads.",
     "has_profile": true,
     "profile_url": "/race/vermont-overland/",
+    "discipline": "gravel",
     "lat": 43.6248,
     "lng": -72.519,
     "rwgps_id": "37223600"
@@ -2028,6 +2089,7 @@
     "tagline": "The Granddaddy of All Gravel Races - where the movement was born, and where your legs go to die on Oriole Road.",
     "has_profile": true,
     "profile_url": "/race/almanzo-100/",
+    "discipline": "gravel",
     "lat": 43.687,
     "lng": -92.3893,
     "rwgps_id": "38583053"
@@ -2061,6 +2123,7 @@
     "tagline": "Southeast gravel staple—100 miles, 10,000 feet of North Georgia mountains, technical descents, Dahlonega charm.",
     "has_profile": true,
     "profile_url": "/race/bootlegger-100/",
+    "discipline": "gravel",
     "lat": 34.5328,
     "lng": -83.9846,
     "rwgps_id": "45519300"
@@ -2094,6 +2157,7 @@
     "tagline": "South African highveld classic—100km of red dirt roads, 2,500m elevation, stunning Mpumalanga scenery.",
     "has_profile": true,
     "profile_url": "/race/gravel-burn/",
+    "discipline": "gravel",
     "lat": -26.2768,
     "lng": 30.15
   },
@@ -2126,6 +2190,7 @@
     "tagline": "OG gravel party—timed enduro descents, untimed climbs, legendary Quincy vibes since 2015.",
     "has_profile": true,
     "profile_url": "/race/grinduro-california/",
+    "discipline": "gravel",
     "lat": 39.931,
     "lng": -120.9536,
     "rwgps_id": "31202456"
@@ -2159,6 +2224,7 @@
     "tagline": "Canada's Spring Classic. 100km of mud chutes, rail trails, and chaos. The race that eats bikes.",
     "has_profile": true,
     "profile_url": "/race/paris-to-ancaster/",
+    "discipline": "gravel",
     "lat": 61.0667,
     "lng": -107.9917,
     "rwgps_id": "53024230"
@@ -2192,6 +2258,7 @@
     "tagline": "USA Cycling National Championship—100km of Texas Panhandle gravel, collegiate field, wind, red dirt.",
     "has_profile": true,
     "profile_url": "/race/collegiate-gravel-nationals/",
+    "discipline": "gravel",
     "lat": 34.3939,
     "lng": -100.8941
   },
@@ -2224,6 +2291,7 @@
     "tagline": "The only US qualifier for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
     "has_profile": true,
     "profile_url": "/race/highlands-gravel-classic/",
+    "discipline": "gravel",
     "lat": 36.1012,
     "lng": -93.9913,
     "rwgps_id": "45297663"
@@ -2257,6 +2325,7 @@
     "tagline": "Southeast gravel classic—50 miles, 8,000 feet of technical Appalachian terrain in Pisgah National Forest.",
     "has_profile": true,
     "profile_url": "/race/pisgah-monster-cross/",
+    "discipline": "gravel",
     "lat": 35.2334,
     "lng": -82.7343,
     "rwgps_id": "28070012"
@@ -2290,6 +2359,7 @@
     "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
     "has_profile": true,
     "profile_url": "/race/rock-cobbler/",
+    "discipline": "gravel",
     "lat": 35.3739,
     "lng": -119.0195,
     "rwgps_id": "45578777"
@@ -2323,6 +2393,7 @@
     "tagline": "Scottish Highlands ultra—200km of remote terrain, 3,500m elevation, brutal weather, 25-35% DNF.",
     "has_profile": true,
     "profile_url": "/race/the-gralloch/",
+    "discipline": "gravel",
     "lat": 56.8,
     "lng": -5.0,
     "rwgps_id": "53947683"
@@ -2356,6 +2427,7 @@
     "tagline": "Hell of the North Desert—100+ miles of sand, rock, and technical singletrack through Arizona's high desert.",
     "has_profile": true,
     "profile_url": "/race/bwr-arizona/",
+    "discipline": "gravel",
     "lat": 34.3953,
     "lng": -111.7633,
     "rwgps_id": "44736827"
@@ -2389,6 +2461,7 @@
     "tagline": "Where the major series begins and Leadville dreams are made in California sand",
     "has_profile": true,
     "profile_url": "/race/fuego-mtb/",
+    "discipline": "mtb",
     "lat": 36.2231,
     "lng": -121.3877,
     "rwgps_id": "50233490"
@@ -2422,6 +2495,7 @@
     "tagline": "New Zealand countryside—160km of farmland gravel, 2,000m elevation, February warmth, 15-20% DNF.",
     "has_profile": true,
     "profile_url": "/race/gravel-and-tar-classic/",
+    "discipline": "gravel",
     "lat": -39.6408,
     "lng": 175.5714,
     "rwgps_id": "45397123"
@@ -2455,6 +2529,7 @@
     "tagline": "The Hell of the East - 8,000 feet of Pocono punishment that'll make you question every life decision",
     "has_profile": true,
     "profile_url": "/race/gravel-roubaix/",
+    "discipline": "gravel",
     "lat": 40.8015,
     "lng": -75.6102,
     "rwgps_id": "53316252"
@@ -2488,6 +2563,7 @@
     "tagline": "Race inside a 450-million-year-old meteorite crater where the party is as legendary as the singletrack",
     "has_profile": true,
     "profile_url": "/race/grinduro-canada/",
+    "discipline": "gravel",
     "lat": 47.5577,
     "lng": -70.5398,
     "rwgps_id": "37775773"
@@ -2521,6 +2597,7 @@
     "tagline": "Multi-discipline high desert festival in Bend—gravel, MTB, and trail run in one weekend.",
     "has_profile": true,
     "profile_url": "/race/bend-dirt-fest/",
+    "discipline": "gravel",
     "lat": 44.0582,
     "lng": -121.3153
   },
@@ -2553,6 +2630,7 @@
     "tagline": "West Virginia's Appalachian gravel grinder: 8,500 feet of relentless climbing through humid forest roads where heat management matters more than fitness.",
     "has_profile": true,
     "profile_url": "/race/lost-river-classic/",
+    "discipline": "gravel",
     "lat": 38.8763,
     "lng": -78.8658,
     "rwgps_id": "52228993"
@@ -2586,6 +2664,7 @@
     "tagline": "Adelaide Hills adventure—130km of rolling Australian bush, 2,500m elevation, South Australia gravel.",
     "has_profile": true,
     "profile_url": "/race/radl-grvl/",
+    "discipline": "gravel",
     "lat": -34.9014,
     "lng": 138.8293,
     "rwgps_id": "53794771"
@@ -2619,6 +2698,7 @@
     "tagline": "300 miles on Unbound roads—Kansas Flint Hills ultra distance, self-supported, 30-40% DNF, 15-25 hours of suffering.",
     "has_profile": true,
     "profile_url": "/race/rule-of-three/",
+    "discipline": "gravel",
     "lat": 38.404,
     "lng": -96.1816
   },
@@ -2651,6 +2731,7 @@
     "tagline": "192-mile overnight bikepacking odyssey from Wisconsin to Michigan's Upper Peninsula where darkness, cold, and solitude break you down and build you back.",
     "has_profile": true,
     "profile_url": "/race/crystal-bear/",
+    "discipline": "gravel",
     "lat": 43.6212,
     "lng": -84.6824,
     "rwgps_id": "50937006"
@@ -2684,6 +2765,7 @@
     "tagline": "Ohio's Appalachian suffer fest - 9,000 feet of vertical brutality in the heartland",
     "has_profile": true,
     "profile_url": "/race/dirty-french/",
+    "discipline": "gravel",
     "lat": 39.3331,
     "lng": -82.9824
   },
@@ -2716,6 +2798,7 @@
     "tagline": "Moroccan Atlas Mountains ultra-endurance gravel race.",
     "has_profile": true,
     "profile_url": "/race/atlas-mountain-race/",
+    "discipline": "bikepacking",
     "lat": 28.3348,
     "lng": -10.3713,
     "rwgps_id": "32078944"
@@ -2749,6 +2832,7 @@
     "tagline": "Early season Michigan gravel with cold starts, mud risk, and MGRS community.",
     "has_profile": true,
     "profile_url": "/race/dirty-30/",
+    "discipline": "gravel",
     "lat": 42.9292,
     "lng": -85.2129,
     "rwgps_id": "53839822"
@@ -2782,6 +2866,7 @@
     "tagline": "340 miles of relentless Iowa gravel where the wind never stops, the terrain never flattens, and 40 hours of continuous riding reveals who you really are.",
     "has_profile": true,
     "profile_url": "/race/iowa-wind-and-rock/",
+    "discipline": "gravel",
     "lat": 41.3348,
     "lng": -94.0136
   },
@@ -2814,6 +2899,7 @@
     "tagline": "Colorado State Championship mountain gravel in the Front Range.",
     "has_profile": true,
     "profile_url": "/race/ned-gravel/",
+    "discipline": "gravel",
     "lat": 39.9614,
     "lng": -105.5108,
     "rwgps_id": "38479446"
@@ -2847,6 +2933,7 @@
     "tagline": "Stars and stripes on gravel—the national championship with open entry and a UCI Worlds pathway.",
     "has_profile": true,
     "profile_url": "/race/usa-cycling-gravel-nationals/",
+    "discipline": "gravel",
     "lat": 41.737,
     "lng": -99.5874,
     "rwgps_id": "48359871"
@@ -2880,6 +2967,7 @@
     "tagline": "125-mile high-altitude Colorado mountain gravel in Leadville.",
     "has_profile": true,
     "profile_url": "/race/vapor-trail-125/",
+    "discipline": "gravel",
     "lat": 39.2508,
     "lng": -106.2925,
     "rwgps_id": "48333649"
@@ -2913,6 +3001,7 @@
     "tagline": "100-mile Georgia mountain gravel through Cohutta Wilderness.",
     "has_profile": true,
     "profile_url": "/race/cohutta-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 34.7666,
     "lng": -84.7699,
     "rwgps_id": "41524803"
@@ -2946,6 +3035,7 @@
     "tagline": "The happiest gravel in the world. F1 glamour meets midnight sun in a UNESCO Geopark. Fast, flat, and fckng Finnish.",
     "has_profile": true,
     "profile_url": "/race/finnish-gravel/",
+    "discipline": "gravel",
     "lat": 63.2468,
     "lng": 25.9209,
     "rwgps_id": "50081451"
@@ -2979,6 +3069,7 @@
     "tagline": "Colombian Andes mountain gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/transcordilleras/",
+    "discipline": "gravel",
     "lat": 4.0999,
     "lng": -72.9088
   },
@@ -3011,6 +3102,7 @@
     "tagline": "Central Wyoming ultra-distance gravel through mountain and high desert.",
     "has_profile": true,
     "profile_url": "/race/wyo-131/",
+    "discipline": "gravel",
     "lat": 42.8331,
     "lng": -108.7307,
     "rwgps_id": "52579752"
@@ -3044,6 +3136,7 @@
     "tagline": "Colorado mountain gravel in Gypsum near Vail with high altitude climbing.",
     "has_profile": true,
     "profile_url": "/race/bighorn-gravel/",
+    "discipline": "gravel",
     "lat": 39.6469,
     "lng": -106.9517
   },
@@ -3076,6 +3169,7 @@
     "tagline": "Vermont spring mud season mountain gravel in Burke.",
     "has_profile": true,
     "profile_url": "/race/rasputitsa-spring-classic/",
+    "discipline": "gravel",
     "lat": 44.6179,
     "lng": -71.9235,
     "rwgps_id": "26976210"
@@ -3109,6 +3203,7 @@
     "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
     "has_profile": true,
     "profile_url": "/race/sagan-fondo/",
+    "discipline": "gravel",
     "lat": 39.3279,
     "lng": -120.1836,
     "rwgps_id": "36389814"
@@ -3142,6 +3237,7 @@
     "tagline": "Missouri State Gravel Championship through wine country in brutal July heat.",
     "has_profile": true,
     "profile_url": "/race/the-equalizer/",
+    "discipline": "gravel",
     "lat": 38.6284,
     "lng": -91.0573
   },
@@ -3174,6 +3270,7 @@
     "tagline": "Argentine Andes mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/vuelta-altas-cumbres/",
+    "discipline": "gravel",
     "lat": -31.4167,
     "lng": -64.1834
   },
@@ -3206,6 +3303,7 @@
     "tagline": "Northern Utah mountain gravel in Wasatch Range near Park City.",
     "has_profile": true,
     "profile_url": "/race/wasatch-all-road/",
+    "discipline": "gravel",
     "lat": 40.6103,
     "lng": -111.2805,
     "rwgps_id": "51288808"
@@ -3239,6 +3337,7 @@
     "tagline": "East Coast ultra—150 miles of flat coastal gravel through Croatan National Forest, sandy terrain, 10-15 hours.",
     "has_profile": true,
     "profile_url": "/race/croatan-buck-fifty/",
+    "discipline": "gravel",
     "lat": 35.1068,
     "lng": -77.0399
   },
@@ -3271,6 +3370,7 @@
     "tagline": "Colorado mountain gravel in Winter Park with high altitude climbing.",
     "has_profile": true,
     "profile_url": "/race/crooked-gravel/",
+    "discipline": "gravel",
     "lat": 39.918,
     "lng": -105.7856,
     "rwgps_id": "42969175"
@@ -3304,6 +3404,7 @@
     "tagline": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
     "has_profile": true,
     "profile_url": "/race/gran-fondo-hincapie/",
+    "discipline": "gravel",
     "lat": 34.8514,
     "lng": -82.3985,
     "rwgps_id": "44781186"
@@ -3337,6 +3438,7 @@
     "tagline": "Colorado mountain cycling in Durango.",
     "has_profile": true,
     "profile_url": "/race/iron-horse-bicycle-classic/",
+    "discipline": "gravel",
     "lat": 37.2769,
     "lng": -107.8766,
     "rwgps_id": "39499356"
@@ -3370,6 +3472,7 @@
     "tagline": "Victorian high country gravel in historic gold rush territory.",
     "has_profile": true,
     "profile_url": "/race/maap-beechworth-granite-classic/",
+    "discipline": "gravel",
     "lat": -36.3595,
     "lng": 146.687,
     "rwgps_id": "46113189"
@@ -3403,6 +3506,7 @@
     "tagline": "100-mile rugged Upper Peninsula mountain bike/gravel endurance.",
     "has_profile": true,
     "profile_url": "/race/marji-gesick/",
+    "discipline": "gravel",
     "lat": 46.4482,
     "lng": -87.6306,
     "rwgps_id": "53265864"
@@ -3436,6 +3540,7 @@
     "tagline": "Southern Colorado State Championship gravel in high desert.",
     "has_profile": true,
     "profile_url": "/race/pony-xpress/",
+    "discipline": "gravel",
     "lat": 37.1453,
     "lng": -104.6211,
     "rwgps_id": "53884002"
@@ -3469,6 +3574,7 @@
     "tagline": "Wisconsin fall gravel—150/100/50 miles of rolling farmland, fall colors, and ultra-distance option.",
     "has_profile": true,
     "profile_url": "/race/red-granite-grinder/",
+    "discipline": "gravel",
     "lat": 45.035,
     "lng": -90.0739,
     "rwgps_id": "52962151"
@@ -3502,6 +3608,7 @@
     "tagline": "30-mile Michigan mountain bike race with 4000+ riders in November.",
     "has_profile": true,
     "profile_url": "/race/iceman-cometh/",
+    "discipline": "gravel",
     "lat": 44.6781,
     "lng": -85.1003,
     "rwgps_id": "48937112"
@@ -3535,6 +3642,7 @@
     "tagline": "British Columbia multi-stage gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/transrockies-gravel-royale/",
+    "discipline": "gravel",
     "lat": 55.0013,
     "lng": -125.0024,
     "rwgps_id": "52499537"
@@ -3568,6 +3676,7 @@
     "tagline": "The Hell of the (Mid) West—BWR's fall Midwest edition through the Flint Hills with 89% unroad.",
     "has_profile": true,
     "profile_url": "/race/belgian-waffle-ride-kansas/",
+    "discipline": "gravel",
     "lat": 38.9719,
     "lng": -95.2359,
     "rwgps_id": "44736943"
@@ -3601,6 +3710,7 @@
     "tagline": "180km Massachusetts rolling hills gravel in Deerfield.",
     "has_profile": true,
     "profile_url": "/race/d2r2/",
+    "discipline": "gravel",
     "lat": 42.5437,
     "lng": -72.6047,
     "rwgps_id": "52352400"
@@ -3634,6 +3744,7 @@
     "tagline": "150-mile Nebraska gravel challenge in Lincoln.",
     "has_profile": true,
     "profile_url": "/race/gravel-worlds-amateur/",
+    "discipline": "gravel",
     "lat": 40.8089,
     "lng": -96.7078
   },
@@ -3666,6 +3777,7 @@
     "tagline": "European Alpine multi-stage gravel event.",
     "has_profile": true,
     "profile_url": "/race/haute-route-gravel/",
+    "discipline": "gravel",
     "lat": 45.1885,
     "lng": 5.7245
   },
@@ -3698,6 +3810,7 @@
     "tagline": "French Alpine gravel.",
     "has_profile": true,
     "profile_url": "/race/la-resistance/",
+    "discipline": "gravel",
     "lat": 45.0757,
     "lng": 5.7736
   },
@@ -3730,6 +3843,7 @@
     "tagline": "Queensland hinterland enduro with technical terrain and tourist town base.",
     "has_profile": true,
     "profile_url": "/race/noosa-gravel-enduro/",
+    "discipline": "gravel",
     "lat": -26.3665,
     "lng": 152.8562,
     "rwgps_id": "53692811"
@@ -3763,6 +3877,7 @@
     "tagline": "Western Oregon Coast Range mountain gravel in wine country.",
     "has_profile": true,
     "profile_url": "/race/sasquatch-duro/",
+    "discipline": "gravel",
     "lat": 45.2943,
     "lng": -123.1765,
     "rwgps_id": "50487074"
@@ -3796,6 +3911,7 @@
     "tagline": "Iowa prairie ultra-endurance gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/spotted-horse-ultra/",
+    "discipline": "gravel",
     "lat": 41.9217,
     "lng": -93.3123
   },
@@ -3828,6 +3944,7 @@
     "tagline": "Five days of supported gravel cruising through Nebraska's rolling farmland - more family reunion than race, and that's exactly the point",
     "has_profile": true,
     "profile_url": "/race/tour-de-nebraska/",
+    "discipline": "gravel",
     "lat": 40.63,
     "lng": -100.08
   },
@@ -3860,6 +3977,7 @@
     "tagline": "300+ mile self-supported Iowa gravel ultra-distance challenge.",
     "has_profile": true,
     "profile_url": "/race/trans-iowa/",
+    "discipline": "gravel",
     "lat": 41.6546,
     "lng": -93.4998,
     "rwgps_id": "17383528"
@@ -3893,6 +4011,7 @@
     "tagline": "New York rolling hills gravel in Cambridge.",
     "has_profile": true,
     "profile_url": "/race/battenkill/",
+    "discipline": "gravel",
     "lat": 43.008,
     "lng": -73.4393,
     "rwgps_id": "40538995"
@@ -3926,6 +4045,7 @@
     "tagline": "Michigan ultra-distance crossing from Lake Huron to Lake Michigan.",
     "has_profile": true,
     "profile_url": "/race/coast-to-coast/",
+    "discipline": "gravel",
     "lat": 43.6212,
     "lng": -84.6824,
     "rwgps_id": "47196412"
@@ -3959,6 +4079,7 @@
     "tagline": "Vancouver Island forest roads around Lake Cowichan.",
     "has_profile": true,
     "profile_url": "/race/cowichan-crusher-gravel-fondo/",
+    "discipline": "gravel",
     "lat": 48.8259,
     "lng": -124.0563
   },
@@ -3991,6 +4112,7 @@
     "tagline": "Tasmanian mountain gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/devils-cardigan/",
+    "discipline": "gravel",
     "lat": -42.0351,
     "lng": 146.6367
   },
@@ -4023,6 +4145,7 @@
     "tagline": "New Zealand South Island gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/edition-zero/",
+    "discipline": "gravel",
     "lat": -43.5866,
     "lng": 171.2123,
     "rwgps_id": "53436658"
@@ -4056,6 +4179,7 @@
     "tagline": "Minnesota fall gravel—50 miles of rolling terrain, 1,000 riders, and peak autumn colors.",
     "has_profile": true,
     "profile_url": "/race/filthy-50/",
+    "discipline": "gravel",
     "lat": 47.47,
     "lng": -94.88,
     "rwgps_id": "53102035"
@@ -4089,6 +4213,7 @@
     "tagline": "Colombian Bogotá mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/gravel-bogota/",
+    "discipline": "gravel",
     "lat": 4.6534,
     "lng": -74.0836
   },
@@ -4121,6 +4246,7 @@
     "tagline": "Chilean Tierra del Fuego gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/karukinka/",
+    "discipline": "gravel",
     "lat": -53.7553,
     "lng": -68.9335,
     "rwgps_id": "49200669"
@@ -4154,6 +4280,7 @@
     "tagline": "Central Oregon coast gravel with coastal and mountain terrain.",
     "has_profile": true,
     "profile_url": "/race/oregon-coast-gravel-epic/",
+    "discipline": "gravel",
     "lat": 44.427,
     "lng": -124.0672,
     "rwgps_id": "50686348"
@@ -4187,6 +4314,7 @@
     "tagline": "South Carolina Paris Mountain gravel in Travelers Rest.",
     "has_profile": true,
     "profile_url": "/race/paris-mountain-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 34.9676,
     "lng": -82.4435
   },
@@ -4219,6 +4347,7 @@
     "tagline": "Colorado ultra gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/pony-xpress-gravel-160/",
+    "discipline": "gravel",
     "lat": 37.1694,
     "lng": -104.5005
   },
@@ -4251,6 +4380,7 @@
     "tagline": "Vancouver Island gravel through forest roads and coastal terrain.",
     "has_profile": true,
     "profile_url": "/race/river-city-gravel-fondo/",
+    "discipline": "gravel",
     "lat": 50.0231,
     "lng": -125.2442,
     "rwgps_id": "50401058"
@@ -4284,6 +4414,7 @@
     "tagline": "Northeast Nevada gravel in remote Ruby Mountains near Elko.",
     "has_profile": true,
     "profile_url": "/race/ruby-roubaix/",
+    "discipline": "gravel",
     "lat": 40.728,
     "lng": -115.4784,
     "rwgps_id": "53678724"
@@ -4317,6 +4448,7 @@
     "tagline": "Alberta mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/the-range/",
+    "discipline": "gravel",
     "lat": 55.0013,
     "lng": -115.0021
   },
@@ -4349,6 +4481,7 @@
     "tagline": "Three-state mountain gravel crossing Alabama, Georgia, and Tennessee.",
     "has_profile": true,
     "profile_url": "/race/3-state-3-mountain-challenge/",
+    "discipline": "gravel",
     "lat": 34.5795,
     "lng": -85.5905,
     "rwgps_id": "49021325"
@@ -4382,6 +4515,7 @@
     "tagline": "100+ mile Michigan gravel with 1000+ riders in Hastings.",
     "has_profile": true,
     "profile_url": "/race/barry-roubaix/",
+    "discipline": "gravel",
     "lat": 42.6485,
     "lng": -85.2895,
     "rwgps_id": "31249124"
@@ -4415,6 +4549,7 @@
     "tagline": "Romanian Carpathian mountainous gravel.",
     "has_profile": true,
     "profile_url": "/race/carpathian-gravel/",
+    "discipline": "gravel",
     "lat": 46.7336,
     "lng": 24.5274
   },
@@ -4447,6 +4582,7 @@
     "tagline": "New York State Championship gravel in Finger Lakes wine country.",
     "has_profile": true,
     "profile_url": "/race/dirty-hector/",
+    "discipline": "gravel",
     "lat": 42.5423,
     "lng": -76.6661,
     "rwgps_id": "53033649"
@@ -4480,6 +4616,7 @@
     "tagline": "North Georgia mountain gravel in Dahlonega.",
     "has_profile": true,
     "profile_url": "/race/fools-gold-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 34.5328,
     "lng": -83.9846
   },
@@ -4512,6 +4649,7 @@
     "tagline": "Arkansas Ozark Mountains gravel in Eureka Springs.",
     "has_profile": true,
     "profile_url": "/race/gran-fondo-ozarks/",
+    "discipline": "gravel",
     "lat": 36.4001,
     "lng": -93.7392
   },
@@ -4544,6 +4682,7 @@
     "tagline": "Chilean Patagonia gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/gravel-del-fuego/",
+    "discipline": "gravel",
     "lat": -33.0162,
     "lng": -71.5219
   },
@@ -4576,6 +4715,7 @@
     "tagline": "Colombian Medellín mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/gravel-medellin/",
+    "discipline": "gravel",
     "lat": 6.2697,
     "lng": -75.6026
   },
@@ -4608,6 +4748,7 @@
     "tagline": "Swiss Alpine gravel in Aigle.",
     "has_profile": true,
     "profile_url": "/race/gravel-suisse/",
+    "discipline": "gravel",
     "lat": 46.3179,
     "lng": 6.9689,
     "rwgps_id": "51959894"
@@ -4641,6 +4782,7 @@
     "tagline": "Italian coastal mountain gravel in Finale Ligure.",
     "has_profile": true,
     "profile_url": "/race/grinduro-italy/",
+    "discipline": "gravel",
     "lat": 44.1689,
     "lng": 8.3437,
     "rwgps_id": "52669799"
@@ -4674,6 +4816,7 @@
     "tagline": "British Columbia mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/kettle-mettle/",
+    "discipline": "gravel",
     "lat": 55.0013,
     "lng": -125.0024
   },
@@ -4706,6 +4849,7 @@
     "tagline": "South African mountain gravel stage race.",
     "has_profile": true,
     "profile_url": "/race/king-price-race-to-sun/",
+    "discipline": "gravel",
     "lat": -28.8166,
     "lng": 24.9916
   },
@@ -4738,6 +4882,7 @@
     "tagline": "Arkansas Ozark hills gravel in Rogers.",
     "has_profile": true,
     "profile_url": "/race/ozark-gravel/",
+    "discipline": "gravel",
     "lat": 36.3349,
     "lng": -94.1194,
     "rwgps_id": "49405718"
@@ -4771,6 +4916,7 @@
     "tagline": "Austrian Alps gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/worthersee-gravel-race/",
+    "discipline": "gravel",
     "lat": 46.6215,
     "lng": 14.0884,
     "rwgps_id": "50218872"
@@ -4804,6 +4950,7 @@
     "tagline": "German mountain gravel in Winterberg/Aachen.",
     "has_profile": true,
     "profile_url": "/race/3rides-aachen/",
+    "discipline": "gravel",
     "lat": 51.1638,
     "lng": 10.4478,
     "rwgps_id": "50935310"
@@ -4837,6 +4984,7 @@
     "tagline": "6-hour Arkansas endurance on Syllamo Trail in Mountain View.",
     "has_profile": true,
     "profile_url": "/race/6-hours-of-syllamo/",
+    "discipline": "gravel",
     "lat": 35.8684,
     "lng": -92.1177
   },
@@ -4869,6 +5017,7 @@
     "tagline": "French Pyrénées mountain gravel.",
     "has_profile": true,
     "profile_url": "/race/66-south-pyrenees/",
+    "discipline": "gravel",
     "lat": 48.8739,
     "lng": 2.3853
   },
@@ -4901,6 +5050,7 @@
     "tagline": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
     "has_profile": true,
     "profile_url": "/race/ardenne-gravel-stages/",
+    "discipline": "gravel",
     "lat": 50.1619,
     "lng": 5.5817,
     "rwgps_id": "52808946"
@@ -4934,6 +5084,7 @@
     "tagline": "Missouri Berryman Trail mixed surfaces in Potosi.",
     "has_profile": true,
     "profile_url": "/race/berryman-epic/",
+    "discipline": "gravel",
     "lat": 37.9364,
     "lng": -90.7879,
     "rwgps_id": "28761320"
@@ -4967,6 +5118,7 @@
     "tagline": "German Black Forest mountainous gravel in Freiburg.",
     "has_profile": true,
     "profile_url": "/race/black-forest-gravel/",
+    "discipline": "gravel",
     "lat": 51.1638,
     "lng": 10.4478
   },
@@ -4999,6 +5151,7 @@
     "tagline": "Alabama Cheaha Mountain gravel in Jacksonville.",
     "has_profile": true,
     "profile_url": "/race/cheaha-challenge/",
+    "discipline": "gravel",
     "lat": 33.8138,
     "lng": -85.7613,
     "rwgps_id": "53887891"
@@ -5032,6 +5185,7 @@
     "tagline": "West Virginia mountain gravel in Circleville.",
     "has_profile": true,
     "profile_url": "/race/grusk/",
+    "discipline": "gravel",
     "lat": 38.6709,
     "lng": -79.4912
   },
@@ -5064,6 +5218,7 @@
     "tagline": "Appalachian gravel in remote western North Carolina mountains.",
     "has_profile": true,
     "profile_url": "/race/hot-springs-gravel-gauntlet/",
+    "discipline": "gravel",
     "lat": 35.8923,
     "lng": -82.829,
     "rwgps_id": "50194650"
@@ -5097,6 +5252,7 @@
     "tagline": "Pennsylvania gravel/cyclocross with technical elements.",
     "has_profile": true,
     "profile_url": "/race/iron-cross/",
+    "discipline": "gravel",
     "lat": 40.97,
     "lng": -77.7279
   },
@@ -5129,6 +5285,7 @@
     "tagline": "Illinois State Championship 100-mile gravel through farmland.",
     "has_profile": true,
     "profile_url": "/race/little-apple-100/",
+    "discipline": "gravel",
     "lat": 41.4225,
     "lng": -87.9859,
     "rwgps_id": "52324707"
@@ -5162,6 +5319,7 @@
     "tagline": "California Sierra Nevada gravel in Portola.",
     "has_profile": true,
     "profile_url": "/race/lost-and-found-gravel/",
+    "discipline": "gravel",
     "lat": 39.8105,
     "lng": -120.4695,
     "rwgps_id": "48961525"
@@ -5195,6 +5353,7 @@
     "tagline": "Japanese Hokkaido mountain gravel.",
     "has_profile": true,
     "profile_url": "/race/niseko-gravel/",
+    "discipline": "gravel",
     "lat": 42.8047,
     "lng": 140.6873,
     "rwgps_id": "52644177"
@@ -5228,6 +5387,7 @@
     "tagline": "Southern Oregon Cascade foothills gravel near Eugene.",
     "has_profile": true,
     "profile_url": "/race/oregon-gran-fondo/",
+    "discipline": "gravel",
     "lat": 43.7975,
     "lng": -123.0589,
     "rwgps_id": "50774406"
@@ -5261,6 +5421,7 @@
     "tagline": "Arkansas Ouachita Mountains gravel in Mount Ida.",
     "has_profile": true,
     "profile_url": "/race/ouachita-challenge/",
+    "discipline": "gravel",
     "lat": 34.5576,
     "lng": -93.6326,
     "rwgps_id": "49224473"
@@ -5294,6 +5455,7 @@
     "tagline": "California coastal mountains gravel in Ojai.",
     "has_profile": true,
     "profile_url": "/race/pirate-cycling-league-gravel/",
+    "discipline": "gravel",
     "lat": 34.448,
     "lng": -119.2429
   },
@@ -5326,6 +5488,7 @@
     "tagline": "South Carolina mountain gravel in Walhalla.",
     "has_profile": true,
     "profile_url": "/race/race-to-valhalla/",
+    "discipline": "gravel",
     "lat": 34.7648,
     "lng": -83.064,
     "rwgps_id": "36682023"
@@ -5359,6 +5522,7 @@
     "tagline": "New Mexico mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/santa-fe-century-gravelon/",
+    "discipline": "gravel",
     "lat": 35.6876,
     "lng": -105.9385
   },
@@ -5391,6 +5555,7 @@
     "tagline": "Spanish Girona gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/sea-otter-europe-gravel/",
+    "discipline": "gravel",
     "lat": 41.9793,
     "lng": 2.8199
   },
@@ -5423,6 +5588,7 @@
     "tagline": "Pennsylvania multi-stage mountain gravel.",
     "has_profile": true,
     "profile_url": "/race/trans-sylvania-epic/",
+    "discipline": "gravel",
     "lat": 40.97,
     "lng": -77.7279
   },
@@ -5455,6 +5621,7 @@
     "tagline": "Forest gravel in central North Carolina's Uwharrie National Forest.",
     "has_profile": true,
     "profile_url": "/race/uwharrie-forest-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 35.9371,
     "lng": -80.9665
   },
@@ -5487,6 +5654,7 @@
     "tagline": "Appalachian gravel in remote southeast Tennessee mountains.",
     "has_profile": true,
     "profile_url": "/race/waucheesi-bike-race/",
+    "discipline": "gravel",
     "lat": 35.3626,
     "lng": -84.294,
     "rwgps_id": "38315398"
@@ -5520,6 +5688,7 @@
     "tagline": "Balkan mountainous gravel in Slovenia/Croatia.",
     "has_profile": true,
     "profile_url": "/race/balkan-gravel/",
+    "discipline": "gravel",
     "lat": 46.0422,
     "lng": 14.5137
   },
@@ -5552,6 +5721,7 @@
     "tagline": "100-mile Texas grasslands gravel in Decatur.",
     "has_profile": true,
     "profile_url": "/race/grasslands-100/",
+    "discipline": "gravel",
     "lat": 33.2343,
     "lng": -97.5861,
     "rwgps_id": "33883645"
@@ -5585,6 +5755,7 @@
     "tagline": "South Carolina Sumter National Forest gravel in Whitmire.",
     "has_profile": true,
     "profile_url": "/race/gravel-battle-of-sumter-forest/",
+    "discipline": "gravel",
     "lat": 34.5029,
     "lng": -81.6115,
     "rwgps_id": "50795630"
@@ -5618,6 +5789,7 @@
     "tagline": "Greek mountainous gravel in Peloponnese.",
     "has_profile": true,
     "profile_url": "/race/greek-gravel/",
+    "discipline": "gravel",
     "lat": 37.3634,
     "lng": 22.2395
   },
@@ -5650,6 +5822,7 @@
     "tagline": "Multi-day South Carolina gravel in Jamestown.",
     "has_profile": true,
     "profile_url": "/race/hellhole-gravel-grind/",
+    "discipline": "gravel",
     "lat": 33.286,
     "lng": -79.6926
   },
@@ -5682,6 +5855,7 @@
     "tagline": "Northern Wisconsin century in the Chequamegon area.",
     "has_profile": true,
     "profile_url": "/race/hungry-bear-100/",
+    "discipline": "gravel",
     "lat": 46.208,
     "lng": -91.2921,
     "rwgps_id": "39219103"
@@ -5715,6 +5889,7 @@
     "tagline": "New Zealand Lake Taupo gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/lake-taupo-cycle-challenge/",
+    "discipline": "gravel",
     "lat": -38.8065,
     "lng": 175.9312
   },
@@ -5747,6 +5922,7 @@
     "tagline": "Tennessee Natchez Trace Parkway cycling in Nashville.",
     "has_profile": true,
     "profile_url": "/race/natchez-trace-gran-fondo/",
+    "discipline": "gravel",
     "lat": 36.1623,
     "lng": -86.7743,
     "rwgps_id": "4014465"
@@ -5780,6 +5956,7 @@
     "tagline": "Tennessee mountain gravel.",
     "has_profile": true,
     "profile_url": "/race/reliance-deep-woods/",
+    "discipline": "gravel",
     "lat": 35.773,
     "lng": -86.282
   },
@@ -5812,6 +5989,7 @@
     "tagline": "Appalachian foothills gravel in remote southeast Tennessee.",
     "has_profile": true,
     "profile_url": "/race/reliance-tennessee-gravel/",
+    "discipline": "gravel",
     "lat": 35.187,
     "lng": -84.4991
   },
@@ -5844,6 +6022,7 @@
     "tagline": "Vermont rolling to mountainous gravel in Morrisville.",
     "has_profile": true,
     "profile_url": "/race/rooted-vermont/",
+    "discipline": "gravel",
     "lat": 44.5615,
     "lng": -72.5983,
     "rwgps_id": "40599549"
@@ -5877,6 +6056,7 @@
     "tagline": "Kenyan safari gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/safari-gravel-race/",
+    "discipline": "gravel",
     "lat": 1.442,
     "lng": 38.4314
   },
@@ -5909,6 +6089,7 @@
     "tagline": "Salida 76. 76 miles of gravel through Salida.",
     "has_profile": true,
     "profile_url": "/race/salida-76/",
+    "discipline": "gravel",
     "lat": 38.5371,
     "lng": -105.991,
     "rwgps_id": "52541765"
@@ -5942,6 +6123,7 @@
     "tagline": "Arizona desert gravel 100-miler.",
     "has_profile": true,
     "profile_url": "/race/spirit-world-100/",
+    "discipline": "gravel",
     "lat": 34.3953,
     "lng": -111.7633,
     "rwgps_id": "50564820"
@@ -5975,6 +6157,7 @@
     "tagline": "UCI Gravel World Series stop at a Khmer Empire outpost—jungle gravel in Kanchanaburi, Thailand.",
     "has_profile": true,
     "profile_url": "/race/uci-gravel-dustman/",
+    "discipline": "gravel",
     "lat": 14.02,
     "lng": 99.53,
     "rwgps_id": "53184604"
@@ -6008,6 +6191,7 @@
     "tagline": "Thirty miles of pure Texas Hill Country grit - where limestone legends are made",
     "has_profile": true,
     "profile_url": "/race/walburg-dirty-30/",
+    "discipline": "gravel",
     "lat": 30.7349,
     "lng": -97.5884
   },
@@ -6040,6 +6224,7 @@
     "tagline": "Western Colorado high desert gravel in De Beque.",
     "has_profile": true,
     "profile_url": "/race/wild-horse-gravel/",
+    "discipline": "gravel",
     "lat": 39.3348,
     "lng": -108.2153
   },
@@ -6072,6 +6257,7 @@
     "tagline": "French plateau gravel in Millau Grands Causses.",
     "has_profile": true,
     "profile_url": "/race/wish-one-millau/",
+    "discipline": "gravel",
     "lat": 44.146,
     "lng": 3.1722,
     "rwgps_id": "49327972"
@@ -6105,6 +6291,7 @@
     "tagline": "Northern Wyoming high plains gravel in Sheridan ranch country.",
     "has_profile": true,
     "profile_url": "/race/dead-swede-gravel/",
+    "discipline": "gravel",
     "lat": 44.7948,
     "lng": -106.8223,
     "rwgps_id": "30317261"
@@ -6138,6 +6325,7 @@
     "tagline": "Luxembourg Ardennes gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/eislek-gravel/",
+    "discipline": "gravel",
     "lat": 49.8159,
     "lng": 6.1297,
     "rwgps_id": "51630014"
@@ -6171,6 +6359,7 @@
     "tagline": "Belgian Flanders gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/flanders-legacy-gravel/",
+    "discipline": "gravel",
     "lat": 51.0378,
     "lng": 4.2406,
     "rwgps_id": "53068383"
@@ -6204,6 +6393,7 @@
     "tagline": "Kansas Flint Hills gravel in Cottonwood Falls.",
     "has_profile": true,
     "profile_url": "/race/flint-hills-death-ride/",
+    "discipline": "gravel",
     "lat": 38.3722,
     "lng": -96.5428,
     "rwgps_id": "44421298"
@@ -6237,6 +6427,7 @@
     "tagline": "UCI Gravel World Series stop on the Swedish coast—lakeside forests, farm roads, and Nordic grit.",
     "has_profile": true,
     "profile_url": "/race/gravel-grit-n-grind/",
+    "discipline": "gravel",
     "lat": 56.674,
     "lng": 12.8575,
     "rwgps_id": "45904274"
@@ -6270,6 +6461,7 @@
     "tagline": "Rolling New Jersey hills gravel in Hunterdon County.",
     "has_profile": true,
     "profile_url": "/race/hell-of-hunterdon/",
+    "discipline": "gravel",
     "lat": 40.5771,
     "lng": -74.9262,
     "rwgps_id": "26057641"
@@ -6303,6 +6495,7 @@
     "tagline": "Belgian Ardennes gravel in Houffalize.",
     "has_profile": true,
     "profile_url": "/race/houffa-gravel/",
+    "discipline": "gravel",
     "lat": 50.1619,
     "lng": 5.5817,
     "rwgps_id": "53380153"
@@ -6336,6 +6529,7 @@
     "tagline": "Kal-Tour Dirty 100. 100 miles of gravel through Kalamazoo.",
     "has_profile": true,
     "profile_url": "/race/kal-tour-dirty-100/",
+    "discipline": "gravel",
     "lat": 42.2917,
     "lng": -85.5872
   },
@@ -6368,6 +6562,7 @@
     "tagline": "German Lake Constance rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/king-of-the-lake/",
+    "discipline": "gravel",
     "lat": 47.6478,
     "lng": 9.3472
   },
@@ -6400,6 +6595,7 @@
     "tagline": "French Alps gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/la-dromoise-gravel/",
+    "discipline": "gravel",
     "lat": 44.7295,
     "lng": 5.2046
   },
@@ -6432,6 +6628,7 @@
     "tagline": "Welsh mountain gravel in Cambrian Mountains.",
     "has_profile": true,
     "profile_url": "/race/lauf-gritfest/",
+    "discipline": "gravel",
     "lat": 52.4149,
     "lng": -3.5047,
     "rwgps_id": "49119810"
@@ -6465,6 +6662,7 @@
     "tagline": "120-mile Kansas farmland/prairie gravel in Marysville.",
     "has_profile": true,
     "profile_url": "/race/pony-express-120/",
+    "discipline": "gravel",
     "lat": 39.8417,
     "lng": -96.6481
   },
@@ -6497,6 +6695,7 @@
     "tagline": "100-mile Alabama dirt roads in Waverly.",
     "has_profile": true,
     "profile_url": "/race/standard-deluxe-dirt-road-century/",
+    "discipline": "gravel",
     "lat": 32.7354,
     "lng": -85.5791
   },
@@ -6529,6 +6728,7 @@
     "tagline": "Multi-day Texas gravel summer challenge in Warda.",
     "has_profile": true,
     "profile_url": "/race/texas-hell-week/",
+    "discipline": "gravel",
     "lat": 30.0552,
     "lng": -96.9139
   },
@@ -6561,6 +6761,7 @@
     "tagline": "Italian Veneto hilly gravel in Asolo.",
     "has_profile": true,
     "profile_url": "/race/veneto-gravel/",
+    "discipline": "gravel",
     "lat": 45.8007,
     "lng": 11.9142
   },
@@ -6593,6 +6794,7 @@
     "tagline": "Portuguese rolling gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/114-gravel-race/",
+    "discipline": "gravel",
     "lat": 39.6622,
     "lng": -8.1354,
     "rwgps_id": "53045297"
@@ -6626,6 +6828,7 @@
     "tagline": "Portuguese Alentejo gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/alentejo-gravel/",
+    "discipline": "gravel",
     "lat": 38.0551,
     "lng": -7.8606,
     "rwgps_id": "53243412"
@@ -6659,6 +6862,7 @@
     "tagline": "Rural Ontario gravel through farmland and forest roads.",
     "has_profile": true,
     "profile_url": "/race/back-forty-highlander/",
+    "discipline": "gravel",
     "lat": 45.22,
     "lng": -76.2067
   },
@@ -6691,6 +6895,7 @@
     "tagline": "Arizona mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/bear-howard-gravel/",
+    "discipline": "gravel",
     "lat": 35.1988,
     "lng": -111.6518
   },
@@ -6723,6 +6928,7 @@
     "tagline": "GA/AL border rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/border-wars/",
+    "discipline": "gravel",
     "lat": 33.28,
     "lng": -85.1,
     "rwgps_id": "49741722"
@@ -6756,6 +6962,7 @@
     "tagline": "Wisconsin northwoods gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/burgr-95/",
+    "discipline": "gravel",
     "lat": 45.3089,
     "lng": -89.4965,
     "rwgps_id": "22556681"
@@ -6789,6 +6996,7 @@
     "tagline": "Cowichan Valley wine country gravel on Vancouver Island.",
     "has_profile": true,
     "profile_url": "/race/burnt-bridge-classic/",
+    "discipline": "gravel",
     "lat": 48.836,
     "lng": -124.1503,
     "rwgps_id": "50773175"
@@ -6822,6 +7030,7 @@
     "tagline": "Spanish Castellon gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/castellon-gravel-race/",
+    "discipline": "gravel",
     "lat": 40.2519,
     "lng": -0.0615
   },
@@ -6854,6 +7063,7 @@
     "tagline": "Central Arizona high desert gravel in Chino Valley.",
     "has_profile": true,
     "profile_url": "/race/chino-grinder/",
+    "discipline": "gravel",
     "lat": 34.7575,
     "lng": -112.4538,
     "rwgps_id": "44452406"
@@ -6887,6 +7097,7 @@
     "tagline": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
     "has_profile": true,
     "profile_url": "/race/dirty-sheets-gravel-grind/",
+    "discipline": "gravel",
     "lat": 33.5791,
     "lng": -84.7687,
     "rwgps_id": "53420740"
@@ -6920,6 +7131,7 @@
     "tagline": "New York rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/farmers-daughter/",
+    "discipline": "gravel",
     "lat": 40.7127,
     "lng": -74.006,
     "rwgps_id": "52380212"
@@ -6953,6 +7165,7 @@
     "tagline": "Nebraska rolling farmland gravel in Lincoln.",
     "has_profile": true,
     "profile_url": "/race/garmin-gravel-worlds/",
+    "discipline": "gravel",
     "lat": 40.8089,
     "lng": -96.7078,
     "rwgps_id": "48087626"
@@ -6986,6 +7199,7 @@
     "tagline": "Belgian Flanders rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/gravel-des-flandres/",
+    "discipline": "gravel",
     "lat": 51.0378,
     "lng": 4.2406
   },
@@ -7018,6 +7232,7 @@
     "tagline": "Louisiana rolling hills gravel in St. Francisville.",
     "has_profile": true,
     "profile_url": "/race/gravel-fondo-louisiana/",
+    "discipline": "gravel",
     "lat": 30.7807,
     "lng": -91.3763
   },
@@ -7050,6 +7265,7 @@
     "tagline": "Dutch flat gravel in Roden, Drenthe.",
     "has_profile": true,
     "profile_url": "/race/gravel-one-fifty/",
+    "discipline": "gravel",
     "lat": 53.1405,
     "lng": 6.4275,
     "rwgps_id": "51436606"
@@ -7083,6 +7299,7 @@
     "tagline": "Victorian rolling gravel in Australia.",
     "has_profile": true,
     "profile_url": "/race/gravelista/",
+    "discipline": "gravel",
     "lat": -36.5986,
     "lng": 144.678,
     "rwgps_id": "53482061"
@@ -7116,6 +7333,7 @@
     "tagline": "German rolling gravel in Singen.",
     "has_profile": true,
     "profile_url": "/race/hegau-gravel-race/",
+    "discipline": "gravel",
     "lat": 47.7618,
     "lng": 8.8349
   },
@@ -7148,6 +7366,7 @@
     "tagline": "KowTown Gravel. 60 miles of gravel through Kremmling.",
     "has_profile": true,
     "profile_url": "/race/kowtown-gravel/",
+    "discipline": "gravel",
     "lat": 40.0587,
     "lng": -106.3886
   },
@@ -7180,6 +7399,7 @@
     "tagline": "Upper Peninsula Michigan wilderness gravel in Iron Mountain.",
     "has_profile": true,
     "profile_url": "/race/lone-wolf-gravel/",
+    "discipline": "gravel",
     "lat": 45.8202,
     "lng": -88.066
   },
@@ -7212,6 +7432,7 @@
     "tagline": "Montana Gravel Challenge. 65 miles of gravel through Huson.",
     "has_profile": true,
     "profile_url": "/race/montana-gravel-challenge/",
+    "discipline": "gravel",
     "lat": 47.0313,
     "lng": -114.3273,
     "rwgps_id": "34532067"
@@ -7245,6 +7466,7 @@
     "tagline": "Rolling Alabama gravel in east Alabama's Opelika.",
     "has_profile": true,
     "profile_url": "/race/opelika-okey-dokey/",
+    "discipline": "gravel",
     "lat": 32.6454,
     "lng": -85.3783,
     "rwgps_id": "52233626"
@@ -7278,6 +7500,7 @@
     "tagline": "Texas Hill Country gravel in Fredericksburg.",
     "has_profile": true,
     "profile_url": "/race/purgatory-road-race/",
+    "discipline": "gravel",
     "lat": 30.2752,
     "lng": -98.872,
     "rwgps_id": "22021155"
@@ -7311,6 +7534,7 @@
     "tagline": "Italian flat to rolling gravel near Venice.",
     "has_profile": true,
     "profile_url": "/race/serenissima-gravel/",
+    "discipline": "gravel",
     "lat": 45.4372,
     "lng": 12.3346
   },
@@ -7343,6 +7567,7 @@
     "tagline": "Kansas Flint Hills gravel in Leonardville.",
     "has_profile": true,
     "profile_url": "/race/switchgrass/",
+    "discipline": "gravel",
     "lat": 39.3644,
     "lng": -96.8589,
     "rwgps_id": "53002568"
@@ -7376,6 +7601,7 @@
     "tagline": "Washington Cascades gravel adventure.",
     "has_profile": true,
     "profile_url": "/race/the-grit-adventure/",
+    "discipline": "gravel",
     "lat": 47.3984,
     "lng": -121.4144
   },
@@ -7408,6 +7634,7 @@
     "tagline": "Virginia state championship gravel race.",
     "has_profile": true,
     "profile_url": "/race/unravel-gravel-va/",
+    "discipline": "gravel",
     "lat": 37.5004,
     "lng": -78.2469
   },
@@ -7440,6 +7667,7 @@
     "tagline": "NSW valley gravel festival in historic Wollombi.",
     "has_profile": true,
     "profile_url": "/race/wollombi-gravel-fest/",
+    "discipline": "gravel",
     "lat": -32.93,
     "lng": 151.14
   },
@@ -7472,6 +7700,7 @@
     "tagline": "Big Sky Gravel. 70 miles of gravel through Red Lodge.",
     "has_profile": true,
     "profile_url": "/race/big-sky-gravel/",
+    "discipline": "gravel",
     "lat": 45.1859,
     "lng": -109.2471,
     "rwgps_id": "38380768"
@@ -7505,6 +7734,7 @@
     "tagline": "Czech rolling to hilly gravel.",
     "has_profile": true,
     "profile_url": "/race/bohemian-border-bash/",
+    "discipline": "gravel",
     "lat": 49.7439,
     "lng": 15.3381
   },
@@ -7537,6 +7767,7 @@
     "tagline": "Canadian mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/canmore-crux/",
+    "discipline": "gravel",
     "lat": 51.0867,
     "lng": -115.3481,
     "rwgps_id": "46220554"
@@ -7570,6 +7801,7 @@
     "tagline": "Rolling Illinois farmland gravel in rural Roubaix.",
     "has_profile": true,
     "profile_url": "/race/cirrem/",
+    "discipline": "gravel",
     "lat": 40.0797,
     "lng": -89.4337,
     "rwgps_id": "53919197"
@@ -7603,6 +7835,7 @@
     "tagline": "Florida flat gravel.",
     "has_profile": true,
     "profile_url": "/race/dirty-pecan/",
+    "discipline": "gravel",
     "lat": 27.7568,
     "lng": -81.464,
     "rwgps_id": "49652081"
@@ -7636,6 +7869,7 @@
     "tagline": "Dusty Bandita. 65 miles of gravel through Ovando.",
     "has_profile": true,
     "profile_url": "/race/dusty-bandita/",
+    "discipline": "gravel",
     "lat": 47.0227,
     "lng": -113.1733,
     "rwgps_id": "51122695"
@@ -7669,6 +7903,7 @@
     "tagline": "Essential Gravel. 65 miles of gravel through Ringle.",
     "has_profile": true,
     "profile_url": "/race/essential-gravel/",
+    "discipline": "gravel",
     "lat": 44.9117,
     "lng": -89.4568,
     "rwgps_id": "48038106"
@@ -7702,6 +7937,7 @@
     "tagline": "Alberta prairie gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/ghost-of-the-gravel/",
+    "discipline": "gravel",
     "lat": 55.0013,
     "lng": -115.0021
   },
@@ -7734,6 +7970,7 @@
     "tagline": "French rolling gravel in Châtellerault.",
     "has_profile": true,
     "profile_url": "/race/gravel-fever/",
+    "discipline": "gravel",
     "lat": 46.818,
     "lng": 0.5458,
     "rwgps_id": "52592435"
@@ -7767,6 +8004,7 @@
     "tagline": "Rolling Tennessee gravel in rural Hickman County.",
     "has_profile": true,
     "profile_url": "/race/gravel-revival/",
+    "discipline": "gravel",
     "lat": 35.7949,
     "lng": -87.4646,
     "rwgps_id": "49933586"
@@ -7800,6 +8038,7 @@
     "tagline": "Rolling Georgia gravel in central Georgia's Hawkinsville.",
     "has_profile": true,
     "profile_url": "/race/gravel-roll-pecan-shaker/",
+    "discipline": "gravel",
     "lat": 32.2835,
     "lng": -83.4668
   },
@@ -7832,6 +8071,7 @@
     "tagline": "Grand Marais, Minnesota 44-mile rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/gun-flint-44/",
+    "discipline": "gravel",
     "lat": 47.7505,
     "lng": -90.3347
   },
@@ -7864,6 +8104,7 @@
     "tagline": "Belgian heathland gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/heathland-gravel/",
+    "discipline": "gravel",
     "lat": 50.6403,
     "lng": 4.6667,
     "rwgps_id": "52603358"
@@ -7897,6 +8138,7 @@
     "tagline": "Coastal plain gravel in southeast North Carolina's Holly Shelter Game Land.",
     "has_profile": true,
     "profile_url": "/race/holly-shelter-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 38.8869,
     "lng": -76.9973
   },
@@ -7929,6 +8171,7 @@
     "tagline": "Rolling Georgia gravel in rural west Georgia.",
     "has_profile": true,
     "profile_url": "/race/homegrown-gravel-adventure/",
+    "discipline": "gravel",
     "lat": 34.3679,
     "lng": -83.2157,
     "rwgps_id": "49434983"
@@ -7962,6 +8205,7 @@
     "tagline": "Lake Country Gravel. 70 miles of gravel through Oconomowoc.",
     "has_profile": true,
     "profile_url": "/race/lake-country-gravel/",
+    "discipline": "gravel",
     "lat": 43.1117,
     "lng": -88.4993
   },
@@ -7994,6 +8238,7 @@
     "tagline": "Dutch flat to rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/marly-grav/",
+    "discipline": "gravel",
     "lat": 52.2435,
     "lng": 5.6343,
     "rwgps_id": "52812382"
@@ -8027,6 +8272,7 @@
     "tagline": "Wisconsin 40-mile rolling gravel.",
     "has_profile": true,
     "profile_url": "/race/pickerel-buck40/",
+    "discipline": "gravel",
     "lat": 44.4309,
     "lng": -89.6885
   },
@@ -8059,6 +8305,7 @@
     "tagline": "Polish rolling gravel in Kraków.",
     "has_profile": true,
     "profile_url": "/race/polish-gravel/",
+    "discipline": "gravel",
     "lat": 50.0469,
     "lng": 19.9972
   },
@@ -8091,6 +8338,7 @@
     "tagline": "Germany gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/rad-am-ring-gravel/",
+    "discipline": "gravel",
     "lat": 50.3413,
     "lng": 6.9519
   },
@@ -8123,6 +8371,7 @@
     "tagline": "Remote Upper Peninsula Michigan wilderness gravel.",
     "has_profile": true,
     "profile_url": "/race/the-crusher/",
+    "discipline": "gravel",
     "lat": 46.5436,
     "lng": -87.3963
   },
@@ -8155,6 +8404,7 @@
     "tagline": "UK Peak District gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/tor-divide/",
+    "discipline": "gravel",
     "lat": 53.3158,
     "lng": -1.727
   },
@@ -8187,6 +8437,7 @@
     "tagline": "Mississippi rolling hills gravel in Fulton.",
     "has_profile": true,
     "profile_url": "/race/tour-de-gap/",
+    "discipline": "gravel",
     "lat": 34.274,
     "lng": -88.4092
   },
@@ -8219,6 +8470,7 @@
     "tagline": "Belgian Turnhout gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/turnhout-gravel/",
+    "discipline": "gravel",
     "lat": 51.3289,
     "lng": 4.93,
     "rwgps_id": "53926943"
@@ -8252,6 +8504,7 @@
     "tagline": "Albia Holy Cow. 60 miles of gravel through Albia.",
     "has_profile": true,
     "profile_url": "/race/albia-holy-cow/",
+    "discipline": "gravel",
     "lat": 41.0265,
     "lng": -92.8075,
     "rwgps_id": "45354264"
@@ -8285,6 +8538,7 @@
     "tagline": "Northern Wisconsin Northwoods gravel century.",
     "has_profile": true,
     "profile_url": "/race/bear-100/",
+    "discipline": "gravel",
     "lat": 45.5609,
     "lng": -88.6725,
     "rwgps_id": "46661123"
@@ -8318,6 +8572,7 @@
     "tagline": "West Michigan gravel in Cedar Springs near Grand Rapids.",
     "has_profile": true,
     "profile_url": "/race/cedar-blitz/",
+    "discipline": "gravel",
     "lat": 43.2234,
     "lng": -85.5514,
     "rwgps_id": "50732883"
@@ -8351,6 +8606,7 @@
     "tagline": "Central Michigan farmland gravel in Ionia.",
     "has_profile": true,
     "profile_url": "/race/cow-pie-classic/",
+    "discipline": "gravel",
     "lat": 42.947,
     "lng": -85.0714
   },
@@ -8383,6 +8639,7 @@
     "tagline": "Fairfield Harvest Rush. 55 miles of gravel through Fairfield.",
     "has_profile": true,
     "profile_url": "/race/fairfield-harvest-rush/",
+    "discipline": "gravel",
     "lat": 41.0072,
     "lng": -91.963,
     "rwgps_id": "48571775"
@@ -8416,6 +8673,7 @@
     "tagline": "Glenwood Gravel. 60 miles of gravel through Glenwood.",
     "has_profile": true,
     "profile_url": "/race/glenwood-gravel/",
+    "discipline": "gravel",
     "lat": 41.0469,
     "lng": -95.7425,
     "rwgps_id": "51634081"
@@ -8449,6 +8707,7 @@
     "tagline": "Gravel and Granite. 65 miles of gravel through Tenterfield.",
     "has_profile": true,
     "profile_url": "/race/gravel-and-granite/",
+    "discipline": "gravel",
     "lat": -28.8384,
     "lng": 152.2813
   },
@@ -8481,6 +8740,7 @@
     "tagline": "Washington mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/gravel-unravel-bon-jon-pass-out/",
+    "discipline": "gravel",
     "lat": 47.8223,
     "lng": -122.8752
   },
@@ -8513,6 +8773,7 @@
     "tagline": "Southeast Minnesota gravel in Cannon Falls near Twin Cities.",
     "has_profile": true,
     "profile_url": "/race/gray-duck-grit/",
+    "discipline": "gravel",
     "lat": 44.5068,
     "lng": -92.9062
   },
@@ -8545,6 +8806,7 @@
     "tagline": "Hart Hills. 55 miles of gravel through Hart.",
     "has_profile": true,
     "profile_url": "/race/hart-hills/",
+    "discipline": "gravel",
     "lat": 43.6983,
     "lng": -86.364
   },
@@ -8577,6 +8839,7 @@
     "tagline": "West Michigan gravel in Lowell near Grand Rapids.",
     "has_profile": true,
     "profile_url": "/race/lowell-classic/",
+    "discipline": "gravel",
     "lat": 42.9336,
     "lng": -85.3419,
     "rwgps_id": "53079369"
@@ -8610,6 +8873,7 @@
     "tagline": "Marys Mayhem. 65 miles of gravel through Mudgee.",
     "has_profile": true,
     "profile_url": "/race/marys-mayhem/",
+    "discipline": "gravel",
     "lat": -32.5981,
     "lng": 149.5886,
     "rwgps_id": "51935057"
@@ -8643,6 +8907,7 @@
     "tagline": "Southwest Michigan spring thaw gravel in Vandalia.",
     "has_profile": true,
     "profile_url": "/race/melting-mann/",
+    "discipline": "gravel",
     "lat": 41.917,
     "lng": -85.9147,
     "rwgps_id": "53183899"
@@ -8676,6 +8941,7 @@
     "tagline": "Eastern Oregon high desert gravel in Pendleton wheat country.",
     "has_profile": true,
     "profile_url": "/race/real-west-gravel/",
+    "discipline": "gravel",
     "lat": 45.6721,
     "lng": -118.7886,
     "rwgps_id": "53678735"
@@ -8709,6 +8975,7 @@
     "tagline": "Ride the Gravel Trails. 60 miles of gravel through Dakota County.",
     "has_profile": true,
     "profile_url": "/race/ride-the-gravel-trails/",
+    "discipline": "gravel",
     "lat": 44.6667,
     "lng": -93.0449
   },
@@ -8741,6 +9008,7 @@
     "tagline": "Spring Valley 100. 100 miles of gravel through Spring Valley.",
     "has_profile": true,
     "profile_url": "/race/spring-valley-100/",
+    "discipline": "gravel",
     "lat": 43.687,
     "lng": -92.3893,
     "rwgps_id": "46674434"
@@ -8774,6 +9042,7 @@
     "tagline": "Queensland hinterland gravel through dairy country.",
     "has_profile": true,
     "profile_url": "/race/sunday-creek-classic/",
+    "discipline": "gravel",
     "lat": -26.6352,
     "lng": 152.6166,
     "rwgps_id": "50842659"
@@ -8807,6 +9076,7 @@
     "tagline": "South Carolina coastal forest gravel in Francis Marion NF.",
     "has_profile": true,
     "profile_url": "/race/swamp-fox-gravel-fondo/",
+    "discipline": "gravel",
     "lat": 33.1113,
     "lng": -79.5813,
     "rwgps_id": "47892812"
@@ -8840,6 +9110,7 @@
     "tagline": "Wyoming mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/the-mane-event-gravel/",
+    "discipline": "gravel",
     "lat": 44.7948,
     "lng": -106.8223,
     "rwgps_id": "40498983"
@@ -8873,6 +9144,7 @@
     "tagline": "Southeast Michigan gravel in Dexter near Ann Arbor.",
     "has_profile": true,
     "profile_url": "/race/the-watermoo/",
+    "discipline": "gravel",
     "lat": 42.3373,
     "lng": -83.8842,
     "rwgps_id": "43962788"
@@ -8906,6 +9178,7 @@
     "tagline": "Northern Wisconsin Northwoods gravel in Tomahawk.",
     "has_profile": true,
     "profile_url": "/race/total-tomahawk-terrain/",
+    "discipline": "gravel",
     "lat": 45.471,
     "lng": -89.7314
   },
@@ -8938,6 +9211,7 @@
     "tagline": "Waukon 100. 100 miles of gravel through Waukon.",
     "has_profile": true,
     "profile_url": "/race/waukon-100/",
+    "discipline": "gravel",
     "lat": 43.2694,
     "lng": -91.4758,
     "rwgps_id": "51103873"
@@ -8971,6 +9245,7 @@
     "tagline": "Clarkes Gambit. 60 miles of gravel through Nelligen.",
     "has_profile": true,
     "profile_url": "/race/clarkes-gambit/",
+    "discipline": "gravel",
     "lat": -35.6484,
     "lng": 150.1409,
     "rwgps_id": "53220003"
@@ -9004,6 +9279,7 @@
     "tagline": "De Ronde Van Grampian. 50 miles of gravel through Oxford.",
     "has_profile": true,
     "profile_url": "/race/de-ronde-van-grampian/",
+    "discipline": "gravel",
     "lat": 42.8248,
     "lng": -83.2647,
     "rwgps_id": "52132750"
@@ -9037,6 +9313,7 @@
     "tagline": "Fast Fitty. 50 miles of gravel through Charlotte.",
     "has_profile": true,
     "profile_url": "/race/fast-fitty/",
+    "discipline": "gravel",
     "lat": 42.5637,
     "lng": -84.8356,
     "rwgps_id": "32081488"
@@ -9070,6 +9347,7 @@
     "tagline": "New Mexico desert gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/galactic-grinder/",
+    "discipline": "gravel",
     "lat": 36.9366,
     "lng": -107.8896,
     "rwgps_id": "46269778"
@@ -9103,6 +9381,7 @@
     "tagline": "Colorado gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/grassroots-gravel/",
+    "discipline": "gravel",
     "lat": 38.264,
     "lng": -104.6142,
     "rwgps_id": "52981802"
@@ -9136,6 +9415,7 @@
     "tagline": "Gravel Rocks. 55 miles of gravel through North York Moors.",
     "has_profile": true,
     "profile_url": "/race/gravel-rocks/",
+    "discipline": "gravel",
     "lat": 54.3318,
     "lng": -0.6902,
     "rwgps_id": "53953422"
@@ -9169,6 +9449,7 @@
     "tagline": "Great Otway Gravel Grind. 60 miles of gravel through Forrest.",
     "has_profile": true,
     "profile_url": "/race/great-otway-gravel-grind/",
+    "discipline": "gravel",
     "lat": -38.5186,
     "lng": 143.7165,
     "rwgps_id": "50332000"
@@ -9202,6 +9483,7 @@
     "tagline": "Northern Wisconsin cooler-season Northwoods gravel.",
     "has_profile": true,
     "profile_url": "/race/hibernator/",
+    "discipline": "gravel",
     "lat": 45.5609,
     "lng": -88.6725
   },
@@ -9234,6 +9516,7 @@
     "tagline": "Iowa state championship gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/iowa-state-gravel-tt-championship/",
+    "discipline": "gravel",
     "lat": 41.8,
     "lng": -91.8707
   },
@@ -9266,6 +9549,7 @@
     "tagline": "UK Wales gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/north-wales-gravel-x/",
+    "discipline": "gravel",
     "lat": 53.1116,
     "lng": -3.3052,
     "rwgps_id": "50180883"
@@ -9299,6 +9583,7 @@
     "tagline": "Prairie Burn 100. 100 miles of gravel through Grinnell.",
     "has_profile": true,
     "profile_url": "/race/prairie-burn-100/",
+    "discipline": "gravel",
     "lat": 41.743,
     "lng": -92.724,
     "rwgps_id": "30208684"
@@ -9332,6 +9617,7 @@
     "tagline": "Spring Thaw. 50 miles of gravel through Muskegon.",
     "has_profile": true,
     "profile_url": "/race/spring-thaw/",
+    "discipline": "gravel",
     "lat": 43.2342,
     "lng": -86.2484
   },
@@ -9364,6 +9650,7 @@
     "tagline": "Oregon mountain gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/takelma-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 42.9276,
     "lng": -123.2812,
     "rwgps_id": "43400256"
@@ -9397,6 +9684,7 @@
     "tagline": "Oregon coast gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/west-coast-gravel/",
+    "discipline": "gravel",
     "lat": 44.3128,
     "lng": -124.105,
     "rwgps_id": "48942508"
@@ -9430,6 +9718,7 @@
     "tagline": "Nevada desert gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/beaver-dam-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 37.5224,
     "lng": -114.089,
     "rwgps_id": "43251943"
@@ -9463,6 +9752,7 @@
     "tagline": "Camp Michaux Gravel Grinder. 50 miles of gravel through Gardners.",
     "has_profile": true,
     "profile_url": "/race/camp-michaux-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 40.0056,
     "lng": -77.2069,
     "rwgps_id": "52537742"
@@ -9496,6 +9786,7 @@
     "tagline": "Wyoming gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/cowboy-crusher/",
+    "discipline": "gravel",
     "lat": 42.8615,
     "lng": -105.872,
     "rwgps_id": "53566970"
@@ -9529,6 +9820,7 @@
     "tagline": "Dirty Dino. 55 miles of gravel through Vernal.",
     "has_profile": true,
     "profile_url": "/race/dirty-dino/",
+    "discipline": "gravel",
     "lat": 40.4557,
     "lng": -109.5285,
     "rwgps_id": "47123599"
@@ -9562,6 +9854,7 @@
     "tagline": "Canadian coastal gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/forbidden-gravel/",
+    "discipline": "gravel",
     "lat": 49.6185,
     "lng": -125.032,
     "rwgps_id": "51878707"
@@ -9595,6 +9888,7 @@
     "tagline": "Remote Wisconsin hardwood forest gravel in tiny Nelma.",
     "has_profile": true,
     "profile_url": "/race/hardwood-hustle/",
+    "discipline": "gravel",
     "lat": 46.0197,
     "lng": -88.8179,
     "rwgps_id": "44349130"
@@ -9628,6 +9922,7 @@
     "tagline": "Heywood Ride. 50 miles of gravel through Northfield.",
     "has_profile": true,
     "profile_url": "/race/heywood-ride/",
+    "discipline": "gravel",
     "lat": 44.4582,
     "lng": -93.1612
   },
@@ -9660,6 +9955,7 @@
     "tagline": "UK Lake District gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/just-gravel/",
+    "discipline": "gravel",
     "lat": 54.7024,
     "lng": -3.2766
   },
@@ -9692,6 +9988,7 @@
     "tagline": "Colorado plains gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/mad-gravel/",
+    "discipline": "gravel",
     "lat": 39.3139,
     "lng": -104.0869
   },
@@ -9724,6 +10021,7 @@
     "tagline": "New Hampshire local gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/raid-rockingham/",
+    "discipline": "gravel",
     "lat": 42.9624,
     "lng": -71.3977,
     "rwgps_id": "51840080"
@@ -9757,6 +10055,7 @@
     "tagline": "Salty Lizard. 50 miles of gravel through Wendover.",
     "has_profile": true,
     "profile_url": "/race/salty-lizard/",
+    "discipline": "gravel",
     "lat": 40.7376,
     "lng": -114.0314,
     "rwgps_id": "49813317"
@@ -9790,6 +10089,7 @@
     "tagline": "Silver City Century. 100 miles of gravel through Silver City.",
     "has_profile": true,
     "profile_url": "/race/silver-city-century/",
+    "discipline": "gravel",
     "lat": 41.1133,
     "lng": -95.6372,
     "rwgps_id": "46675307"
@@ -9823,6 +10123,7 @@
     "tagline": "Soldier Cutoff Hillduro. 60 miles of gravel through Pisgah.",
     "has_profile": true,
     "profile_url": "/race/soldier-cutoff-hillduro/",
+    "discipline": "gravel",
     "lat": 41.8316,
     "lng": -95.9262,
     "rwgps_id": "47704687"
@@ -9856,6 +10157,7 @@
     "tagline": "Trough Creek Gravel Grinder. 50 miles of gravel through Trough Creek State Park.",
     "has_profile": true,
     "profile_url": "/race/trough-creek-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 40.3266,
     "lng": -78.1281,
     "rwgps_id": "52750788"
@@ -9889,6 +10191,7 @@
     "tagline": "Uncle John's Gravel Race. 50 miles of gravel through St Johns.",
     "has_profile": true,
     "profile_url": "/race/uncle-johns-gravel-race/",
+    "discipline": "gravel",
     "lat": 43.0009,
     "lng": -84.5585,
     "rwgps_id": "25106337"
@@ -9922,6 +10225,7 @@
     "tagline": "Bald Eagle Gravel Grinder. 50 miles of gravel through Lock Haven.",
     "has_profile": true,
     "profile_url": "/race/bald-eagle-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 41.1369,
     "lng": -77.4472,
     "rwgps_id": "50146763"
@@ -9955,6 +10259,7 @@
     "tagline": "Glengarry Games Gravel Run. 50 miles of gravel through Maxville.",
     "has_profile": true,
     "profile_url": "/race/glengarry-games-gravel-run/",
+    "discipline": "gravel",
     "lat": 45.2886,
     "lng": -74.8555,
     "rwgps_id": "52063952"
@@ -9988,6 +10293,7 @@
     "tagline": "Washington coastal gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/gravel-unravel-why-not-chee/",
+    "discipline": "gravel",
     "lat": 46.9809,
     "lng": -123.8893,
     "rwgps_id": "42075944"
@@ -10021,6 +10327,7 @@
     "tagline": "Kalona Horseshoe. 50 miles of gravel through Kalona.",
     "has_profile": true,
     "profile_url": "/race/kalona-horseshoe/",
+    "discipline": "gravel",
     "lat": 41.4831,
     "lng": -91.7062,
     "rwgps_id": "50701116"
@@ -10054,6 +10361,7 @@
     "tagline": "Mid-State Gravel Grinder. 50 miles of gravel through Central Pennsylvania.",
     "has_profile": true,
     "profile_url": "/race/mid-state-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 40.5398,
     "lng": -79.7809,
     "rwgps_id": "47788083"
@@ -10087,6 +10395,7 @@
     "tagline": "Muck n Mac Fest. 55 miles of gravel through Traquair House.",
     "has_profile": true,
     "profile_url": "/race/muck-n-mac-fest/",
+    "discipline": "gravel",
     "lat": 55.6083,
     "lng": -3.0638,
     "rwgps_id": "50611662"
@@ -10120,6 +10429,7 @@
     "tagline": "Nicolet Hot Days. 50 miles of gravel through Wabeno.",
     "has_profile": true,
     "profile_url": "/race/nicolet-hot-days/",
+    "discipline": "gravel",
     "lat": 45.4386,
     "lng": -88.6604,
     "rwgps_id": "48037993"
@@ -10153,6 +10463,7 @@
     "tagline": "Old Fashioned Gravel. 55 miles of gravel through Hokah.",
     "has_profile": true,
     "profile_url": "/race/old-fashioned-gravel/",
+    "discipline": "gravel",
     "lat": 43.7594,
     "lng": -91.3465,
     "rwgps_id": "51864673"
@@ -10186,6 +10497,7 @@
     "tagline": "Ottawa Valley Gravel Experience. 55 miles of gravel through Calabogie.",
     "has_profile": true,
     "profile_url": "/race/ottawa-valley-gravel-experience/",
+    "discipline": "gravel",
     "lat": 45.3022,
     "lng": -76.7258,
     "rwgps_id": "46966827"
@@ -10219,6 +10531,7 @@
     "tagline": "Parker Dam Gravel Grinder. 50 miles of gravel through Clearfield County.",
     "has_profile": true,
     "profile_url": "/race/parker-dam-gravel-grinder/",
+    "discipline": "gravel",
     "lat": 40.9909,
     "lng": -78.4457,
     "rwgps_id": "46635294"
@@ -10252,6 +10565,7 @@
     "tagline": "The Divide. 50 miles of gravel through Manton.",
     "has_profile": true,
     "profile_url": "/race/the-divide/",
+    "discipline": "gravel",
     "lat": 44.4108,
     "lng": -85.3989,
     "rwgps_id": "51916854"
@@ -10285,6 +10599,7 @@
     "tagline": "The Insayner. 55 miles of gravel through Sayner.",
     "has_profile": true,
     "profile_url": "/race/the-insayner/",
+    "discipline": "gravel",
     "lat": 45.9861,
     "lng": -89.5326,
     "rwgps_id": "46993712"
@@ -10318,6 +10633,7 @@
     "tagline": "Thunder Bay Thriller. 50 miles of gravel through Alpena.",
     "has_profile": true,
     "profile_url": "/race/thunder-bay-thriller/",
+    "discipline": "gravel",
     "lat": 45.0176,
     "lng": -83.667,
     "rwgps_id": "52641605"
@@ -10351,6 +10667,7 @@
     "tagline": "Australian remote gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/wild-gravel/",
+    "discipline": "gravel",
     "lat": -34.0848,
     "lng": 118.3207
   },
@@ -10383,6 +10700,7 @@
     "tagline": "Dalby Grit. 50 miles of gravel through Dalby Forest.",
     "has_profile": true,
     "profile_url": "/race/dalby-grit/",
+    "discipline": "gravel",
     "lat": 54.7024,
     "lng": -3.2766
   },
@@ -10415,6 +10733,7 @@
     "tagline": "Dunoon Dirt Dash. 45 miles of gravel through Dunoon.",
     "has_profile": true,
     "profile_url": "/race/dunoon-dirt-dash/",
+    "discipline": "gravel",
     "lat": 55.9477,
     "lng": -4.9235,
     "rwgps_id": "52742061"
@@ -10448,6 +10767,7 @@
     "tagline": "Belgian local gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/dusty-gravel-lacs-de-leau-dheure/",
+    "discipline": "gravel",
     "lat": 50.169,
     "lng": 4.4126,
     "rwgps_id": "50325989"
@@ -10481,6 +10801,7 @@
     "tagline": "Belgium gravel series event.",
     "has_profile": true,
     "profile_url": "/race/dusty-gravel-series-andenne/",
+    "discipline": "gravel",
     "lat": 50.4896,
     "lng": 5.0587
   },
@@ -10513,6 +10834,7 @@
     "tagline": "UK Devon gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/haldon-heroic/",
+    "discipline": "gravel",
     "lat": 50.6207,
     "lng": -3.5295,
     "rwgps_id": "53823486"
@@ -10546,6 +10868,7 @@
     "tagline": "BC coastal gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/nanaimo-unpaved/",
+    "discipline": "gravel",
     "lat": 49.1639,
     "lng": -123.9381
   },
@@ -10578,6 +10901,7 @@
     "tagline": "Mississippi gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/omg-oxford-ms-gravel/",
+    "discipline": "gravel",
     "lat": 34.3664,
     "lng": -89.5188
   },
@@ -10610,6 +10934,7 @@
     "tagline": "UK Yorkshire coast gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/yorkshire-coast-dirt-dash/",
+    "discipline": "gravel",
     "lat": 54.4874,
     "lng": -0.6155,
     "rwgps_id": "47428854"
@@ -10643,6 +10968,7 @@
     "tagline": "Georgia gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/rose-city-rampage/",
+    "discipline": "gravel",
     "lat": 30.8366,
     "lng": -83.9788,
     "rwgps_id": "45518916"
@@ -10676,6 +11002,7 @@
     "tagline": "Tennessee gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/rust-buster-gravel-fondo/",
+    "discipline": "gravel",
     "lat": 35.146,
     "lng": -90.0518
   },
@@ -10708,6 +11035,7 @@
     "tagline": "Florida gravel challenge.",
     "has_profile": true,
     "profile_url": "/race/scratch-ankle-gravel/",
+    "discipline": "gravel",
     "lat": 30.6324,
     "lng": -87.0397
   }

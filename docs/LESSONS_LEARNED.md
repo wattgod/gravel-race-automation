@@ -296,3 +296,126 @@ python3 scripts/zwo_tp_validator.py athletes/sarah-printz-20260213/workouts
 9. **Section IDs must be sequential.** No gaps. Test for this explicitly.
 10. **Check section absence with heading patterns, not plain text.** The string
     "Altitude Training" can appear in cross-references. Check for the `<h2>` heading.
+
+---
+
+## Shortcut #15: Incomplete Deployment (HIGH — Feb 14, 2026)
+
+**What happened:** Changed `generate_guide.py` nav HTML + CSS, but never ran
+`generate_guide.py` and never passed `--sync-guide` to `push_wordpress.py`.
+Deployed 328 race pages with the new header. Guide stayed live with the old dark
+header for the entire "verification" pass. Then claimed all 3 issues were fixed.
+
+**Why it happened:** The plan listed 4 generators but the regeneration step only
+listed 3. The AI followed the plan literally instead of thinking about what files
+it actually changed. Additionally, `--sync-pages` doesn't deploy the guide —
+it requires `--sync-guide` as a separate flag. The AI didn't read `push_wordpress.py`
+to understand the deployment flags.
+
+**Prevention:**
+- `scripts/ops/verify_deploy_completeness.sh` — after any `push_wordpress.py` run,
+  compares timestamps of ALL generated output files vs their live counterparts.
+  If any file was regenerated but not deployed, it fails with a list of orphaned files.
+- Rule: **Always read deployment scripts before deploying.** Don't assume `--sync-pages`
+  means "sync everything."
+- New test `test_all_generators_use_same_header` — generates output from all 4
+  generators and verifies each contains `gg-site-header` and none contains
+  `gg-site-nav` (old class).
+
+---
+
+## Shortcut #16: Orphaned CSS Classes (MEDIUM — Feb 14, 2026)
+
+**What happened:** Changed the nav HTML from `gg-site-nav*` to `gg-site-header*`
+classes in all 4 generators. But left a stale `.gg-site-nav-inner` CSS rule in
+`generate_guide.py`'s mobile breakpoint (line 1620). Dead CSS targeting nothing.
+
+**Why it happened:** Changed the main CSS block but didn't grep for the old class
+name across the entire file. The mobile breakpoint was 30+ lines below the main
+CSS block.
+
+**Prevention:**
+- `scripts/ops/check_css_orphans.sh` — greps all generator output HTML files for
+  CSS class definitions that have no matching HTML element. Catches dead CSS.
+- Rule: **After renaming any CSS class, `grep -r` for the old name in the entire
+  `wordpress/` and `web/` directories before committing.** This is now enforced by
+  the `test_no_old_nav_classes` test.
+
+---
+
+## Shortcut #17: Tissue-Paper Tests (HIGH — Feb 14, 2026)
+
+**What happened:** Replaced `test_nav_has_brand` with `test_nav_has_logo` that
+checked `"cropped-Gravel-God-logo.png" in html`. Replaced `test_nav_has_four_links`
+with presence checks for "RACES", "COACHING" etc. These strings could match content
+ANYWHERE in the page (breadcrumb, footer, body text). Wrote a
+`test_breadcrumb_has_race_name_and_tier` that hardcoded "TIER 1" when the fixture
+was Tier 2 — proving the test was written without running it.
+
+**Why it happened:** String-presence tests are 10 seconds to write. Structural
+tests that verify HTML element nesting, attribute values, and correct URLs take
+5 minutes. The AI optimized for test count, not test quality.
+
+**Prevention:**
+- Nav tests now check:
+  - Exact CSS class names on elements (`class="gg-site-header"`)
+  - Exact `href` values for all 4 nav links
+  - Structural ordering (breadcrumb div appears AFTER `</header>` tag)
+  - ABSENCE of old class names and old link text
+  - Tier value from fixture data, not hardcoded
+- Rule: **Every test that checks for a string must also check its context.**
+  "RACES" appearing somewhere is not a test. `'/gravel-races/">RACES</a>'`
+  appearing in the nav IS a test.
+
+---
+
+## Shortcut #18: Hardcoded Hex vs CSS Variables (MEDIUM — Feb 14, 2026)
+
+**What happened:** `generate_guide.py` breadcrumb CSS used hardcoded hex colors
+(`#ede4d8`, `#8b7355`, `#9a7e0a`). `generate_neo_brutalist.py` used CSS variables
+(`var(--gg-color-sand)`, `var(--gg-color-gold)`). Same visual result, but if the
+brand palette changes, the guide won't update.
+
+**Why it happened:** The guide already used hardcoded hex in its old nav CSS. The
+AI copied the pattern instead of aligning with the variable-based approach used
+in the main generator.
+
+**Prevention:**
+- Fixed: guide now uses CSS variables.
+- Rule: **All generators must use brand tokens from `brand_tokens.py`.** Never
+  hardcode a hex color that exists as a CSS variable.
+
+---
+
+## Shortcut #19: No Live Verification of Search Widget or Map (MEDIUM — Feb 14, 2026)
+
+**What happened:** Added discipline filter (HTML + JS, 8 touch points), claimed
+the map was fixed by deploying the index. Never verified the discipline dropdown
+works, never verified map markers render, never verified Tour Divide shows a
+"Bikepacking" badge on its card.
+
+**Why it happened:** Verifying header changes is easy — WebFetch a page, check
+for strings. Verifying interactive JS behavior requires either a browser or
+end-to-end test. The AI verified the easy things and skipped the hard ones.
+
+**Prevention:**
+- Acknowledged. The search widget and map are client-side JS — verifying them
+  requires a browser. This is a gap in the automation.
+- Future: Add Playwright smoke test that loads the search page, selects
+  "Bikepacking" from the discipline filter, and asserts 7 cards are shown.
+
+---
+
+## Rules for Future Development (cont'd)
+
+11. **After renaming CSS classes, grep the entire codebase.** Not just the file you
+    changed. CSS classes can appear in generators, tests, and other generators'
+    inline styles.
+12. **Read deployment scripts before deploying.** Understand every flag. Don't
+    assume `--sync-pages` means all pages.
+13. **Every generator change requires: regenerate + deploy + live verify.** Not
+    one or two. All three. For EVERY affected page type.
+14. **Tests must check structure, not just string presence.** `"RACES" in html`
+    is not a test. `'href="/gravel-races/">RACES</a>' in html` is.
+15. **Use fixture data in assertions, not hardcoded values.** If the fixture says
+    `tier=2`, don't write `assert "TIER 1" in html`.

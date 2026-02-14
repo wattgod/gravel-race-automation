@@ -38,20 +38,26 @@ def esc(text) -> str:
 
 
 def build_nav() -> str:
-    return f'''<nav class="gg-site-nav">
-    <div class="gg-site-nav-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-nav-brand">GRAVEL GOD</a>
-      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-site-nav-link">ALL RACES</a>
-      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-site-nav-link" style="color:var(--gg-color-teal)">HOW WE RATE</a>
+    return f'''<header class="gg-site-header">
+    <div class="gg-site-header-inner">
+      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
+        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
+      </a>
+      <nav class="gg-site-header-nav">
+        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
+        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
+        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
+        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
+      </nav>
     </div>
-    <div class="gg-breadcrumb">
-      <a href="{SITE_BASE_URL}/">Home</a>
-      <span class="gg-breadcrumb-sep">&rsaquo;</span>
-      <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
-      <span class="gg-breadcrumb-sep">&rsaquo;</span>
-      <span class="gg-breadcrumb-current">Methodology</span>
-    </div>
-  </nav>'''
+  </header>
+  <div class="gg-breadcrumb">
+    <a href="{SITE_BASE_URL}/">Home</a>
+    <span class="gg-breadcrumb-sep">&rsaquo;</span>
+    <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
+    <span class="gg-breadcrumb-sep">&rsaquo;</span>
+    <span class="gg-breadcrumb-current">Methodology</span>
+  </div>'''
 
 
 def build_hero() -> str:

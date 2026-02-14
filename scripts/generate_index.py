@@ -216,6 +216,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "tagline": race.get("tagline", ""),
         "has_profile": True,
         "profile_url": f"/race/{slug}/",
+        "discipline": rating.get("discipline", "gravel"),
     }
 
     # Include coordinates if available
@@ -290,6 +291,7 @@ def build_index_entry_from_flat(race: dict) -> dict:
         "has_profile": False,
         "profile_url": None,
         "has_rwgps": False,
+        "discipline": "gravel",
     }
 
 

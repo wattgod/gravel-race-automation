@@ -22,10 +22,12 @@ from pipeline.step_03_classify import classify_athlete
 from pipeline.step_04_schedule import build_schedule
 from pipeline.step_05_template import select_template
 from pipeline.step_06_workouts import generate_workouts
+from pipeline.step_06b_methodology import generate_methodology
 from pipeline.step_07_guide import generate_guide
 from pipeline.step_08_pdf import generate_pdf
 from pipeline.step_09_deploy import deploy_guide
 from pipeline.step_10_deliver import deliver
+from pipeline.step_11_touchpoints import generate_touchpoints
 
 from gates.quality_gates import (
     gate_1_intake,
@@ -34,10 +36,12 @@ from gates.quality_gates import (
     gate_4_schedule,
     gate_5_template,
     gate_6_workouts,
+    gate_6b_methodology,
     gate_7_guide,
     gate_8_pdf,
     gate_9_deploy,
     gate_10_deliver,
+    gate_11_touchpoints,
 )
 
 
@@ -128,6 +132,12 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     zwo_count = len(list(workouts_dir.glob("*.zwo")))
     print(f"   ZWO files: {zwo_count}")
 
+    # ── Step 6b: Generate Methodology Document ────────────────
+    _step("6b", "GENERATE METHODOLOGY")
+    generate_methodology(profile, derived, plan_config, schedule, athlete_dir)
+    gate_6b_methodology(athlete_dir)
+    _ok()
+
     # ── Step 7: Generate Guide ───────────────────────────────
     _step("7", "GENERATE GUIDE")
     guide_path = athlete_dir / "guide.html"
@@ -177,6 +187,13 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     # Save receipt
     with open(athlete_dir / "receipt.json", "w") as f:
         json.dump(receipt, f, indent=2)
+
+    # ── Step 11: Generate Touchpoints ─────────────────────────
+    _step("11", "GENERATE TOUCHPOINTS")
+    touchpoints = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+    gate_11_touchpoints(athlete_dir, derived)
+    _ok()
+    print(f"   Touchpoints: {len(touchpoints['touchpoints'])} scheduled")
 
     # ── Copy deliverables to Downloads ────────────────────────
     _copy_to_downloads(intake, athlete_dir, pdf_path, workouts_dir, skip_pdf)

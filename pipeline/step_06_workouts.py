@@ -76,9 +76,95 @@ Formula: FTP = 20-min average power x 0.95
 
 Do this test when fresh (not after a hard week). You want unbroken flat or slight uphill terrain."""
 
+# ── Exercise Library (Demo Video URLs) ────────────────────────
+
+EXERCISE_LIBRARY = {
+    "goblet_squat": "https://www.youtube.com/watch?v=MxsFDhcyFyE",
+    "romanian_deadlift": "https://www.youtube.com/watch?v=JCXUYuzwNrM",
+    "single_leg_romanian_deadlift": "https://www.youtube.com/watch?v=_MSaFhCzlBc",
+    "bulgarian_split_squat": "https://www.youtube.com/watch?v=2C-uNgKwPLE",
+    "plank": "https://www.youtube.com/watch?v=ASdvN_XEl_c",
+    "side_plank": "https://www.youtube.com/watch?v=K2VljzCC16g",
+    "glute_bridge": "https://www.youtube.com/watch?v=OUgsJ8-Vi0E",
+    "single_leg_glute_bridge": "https://www.youtube.com/watch?v=AVAXhy6pl7o",
+    "calf_raises": "https://www.youtube.com/watch?v=gwLzBJYoWlI",
+    "step_ups": "https://www.youtube.com/watch?v=dQqApCGd5Ss",
+    "pallof_press": "https://www.youtube.com/watch?v=AH_QZLm_0-s",
+    "farmers_carry": "https://www.youtube.com/watch?v=Fkzk_RqlYig",
+    "barbell_squat": "https://www.youtube.com/watch?v=ultWZbUMPL8",
+    "bird_dog": "https://www.youtube.com/watch?v=wiFNA3sqjCA",
+    "worlds_greatest_stretch": "https://www.youtube.com/watch?v=u-pP_dCenJA",
+    "cat_cow": "https://www.youtube.com/watch?v=kqnua4rHVVA",
+    "wall_sit": "https://www.youtube.com/watch?v=y-wV4Lz1yo4",
+}
+
+# Exercises that stress the knee — flagged for athletes with knee restrictions
+KNEE_STRESS_EXERCISES = {
+    "bulgarian_split_squat",
+    "step_ups",
+    "barbell_squat",
+}
+
+# Safe alternatives for knee-restricted athletes
+KNEE_SAFE_ALTERNATIVES = {
+    "bulgarian_split_squat": ("wall_sit", "WALL SIT (isometric): 3x45 sec — Back flat against wall, knees at 90°. No impact, low knee stress."),
+    "step_ups": ("glute_bridge", "GLUTE BRIDGE: 3x15 reps — Squeeze at top. Builds posterior chain without knee stress."),
+    "barbell_squat": ("goblet_squat", "GOBLET SQUAT (light): 3x12 reps — Controlled depth, stop before knee discomfort."),
+}
+
 # ── Strength Workout Templates ───────────────────────────────
 
+RECOVERY_WEEK_EASY_RIDE_BLOCKS = """        <Warmup Duration="300" PowerLow="0.35" PowerHigh="0.50"/>
+        <SteadyState Duration="2700" Power="0.50"/>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.35"/>
+"""
+
+RECOVERY_WEEK_EASY_RIDE_DESCRIPTION = """RECOVERY WEEK — EASY ENDURANCE RIDE (55 min)
+
+Zone 1-2 ONLY. This is a recovery week. The goal is adaptation, not fitness.
+
+- Spin easy. Conversational pace the entire time.
+- If your legs feel heavy, that's NORMAL. You're absorbing the training load.
+- Do NOT add intensity. Do NOT extend the ride.
+- Practice nutrition if you want, but keep the effort easy.
+
+Trust the process. Recovery weeks make you faster."""
+
 STRENGTH_WORKOUTS = {
+    "recovery": {
+        "name": "Cycling Strength - Recovery Week (Light)",
+        "description": """RECOVERY WEEK — MOBILITY & ACTIVATION SESSION (30 min)
+
+This is NOT a normal strength session. Recovery week = recovery everything.
+
+WARM-UP (5 min):
+- Foam rolling: quads, IT band, calves, glutes (30 sec each)
+- Light walking or easy spin
+
+MOBILITY CIRCUIT (15 min):
+Perform 2 rounds. Slow, controlled movements.
+
+1. BODYWEIGHT SQUAT: 2x10 reps — Slow tempo, full depth. No weight.
+2. GLUTE BRIDGE: 2x12 reps — Squeeze and hold 2 sec at top.
+3. BIRD DOG: 2x8 each side — Core stability, slow and controlled.
+4. WORLD'S GREATEST STRETCH: 2x5 each side — Hip mobility essential for cycling.
+5. CAT-COW: 2x10 reps — Spine mobility after long hours on the bike.
+
+COOL-DOWN (10 min):
+- Static stretching: quads, hamstrings, hip flexors, calves, chest
+- Hold each stretch 30-45 seconds
+- Deep breathing — this is active recovery
+
+NOTES:
+- NO heavy weights this week
+- NO going to failure
+- If something hurts, skip it
+- The goal is blood flow and mobility, not strength gains""",
+        "blocks": """        <SteadyState Duration="300" Power="0.40"/>
+        <FreeRide Duration="1200" FlatRoad="1"/>
+        <SteadyState Duration="300" Power="0.35"/>
+""",
+    },
     "base": {
         "name": "Cycling Strength - Foundation",
         "description": """CYCLING-SPECIFIC STRENGTH SESSION (45-60 min)
@@ -90,13 +176,13 @@ WARM-UP (10 min):
 MAIN SET (30-40 min):
 Perform 3 sets of each exercise. Rest 60-90 sec between sets.
 
-1. GOBLET SQUAT: 3x12 reps — Full depth, weight at chest. Builds quad and glute strength for climbing.
-2. SINGLE-LEG ROMANIAN DEADLIFT: 3x10 each leg — Slow and controlled. Builds hamstring strength and balance.
-3. BULGARIAN SPLIT SQUAT: 3x10 each leg — Rear foot elevated. The single most cycling-specific strength exercise.
-4. PLANK: 3x45 sec — Tight core, flat back. Core stability prevents power leaks on the bike.
-5. SIDE PLANK: 3x30 sec each side — Lateral stability for rough terrain.
-6. GLUTE BRIDGE: 3x15 reps — Squeeze at top. Activates glutes that sitting all day shuts down.
-7. CALF RAISES: 3x20 reps — Single leg if possible. Ankle stability for gravel.
+1. GOBLET SQUAT: 3x12 reps — Full depth, weight at chest. Builds quad and glute strength for climbing. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)
+2. SINGLE-LEG ROMANIAN DEADLIFT: 3x10 each leg — Slow and controlled. Builds hamstring strength and balance. [Demo](https://www.youtube.com/watch?v=_MSaFhCzlBc)
+3. BULGARIAN SPLIT SQUAT: 3x10 each leg — Rear foot elevated. The single most cycling-specific strength exercise. [Demo](https://www.youtube.com/watch?v=2C-uNgKwPLE)
+4. PLANK: 3x45 sec — Tight core, flat back. Core stability prevents power leaks on the bike. [Demo](https://www.youtube.com/watch?v=ASdvN_XEl_c)
+5. SIDE PLANK: 3x30 sec each side — Lateral stability for rough terrain. [Demo](https://www.youtube.com/watch?v=K2VljzCC16g)
+6. GLUTE BRIDGE: 3x15 reps — Squeeze at top. Activates glutes that sitting all day shuts down. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)
+7. CALF RAISES: 3x20 reps — Single leg if possible. Ankle stability for gravel. [Demo](https://www.youtube.com/watch?v=gwLzBJYoWlI)
 
 COOL-DOWN (5 min):
 - Quad stretch, hamstring stretch, hip flexor stretch
@@ -124,12 +210,12 @@ WARM-UP (10 min):
 MAIN SET (30-40 min):
 Perform 3-4 sets of each. Rest 90-120 sec between sets.
 
-1. BARBELL OR HEAVY GOBLET SQUAT: 4x6 reps — Heavy. Full depth. Build maximum force production.
-2. SINGLE-LEG DEADLIFT: 3x8 each leg — Add weight. Posterior chain strength for sustained power.
-3. STEP-UPS: 3x8 each leg — Use a box at knee height. Mimics pedal stroke force production.
-4. PALLOF PRESS: 3x12 each side — Anti-rotation core work. Resists the rotational forces of pedaling.
-5. FARMER'S CARRY: 3x40m — Heavy dumbbells. Total body stability and grip endurance.
-6. SINGLE-LEG GLUTE BRIDGE: 3x12 each leg — Addresses left/right imbalances.
+1. BARBELL OR HEAVY GOBLET SQUAT: 4x6 reps — Heavy. Full depth. Build maximum force production. [Demo](https://www.youtube.com/watch?v=ultWZbUMPL8)
+2. SINGLE-LEG DEADLIFT: 3x8 each leg — Add weight. Posterior chain strength for sustained power. [Demo](https://www.youtube.com/watch?v=_MSaFhCzlBc)
+3. STEP-UPS: 3x8 each leg — Use a box at knee height. Mimics pedal stroke force production. [Demo](https://www.youtube.com/watch?v=dQqApCGd5Ss)
+4. PALLOF PRESS: 3x12 each side — Anti-rotation core work. Resists the rotational forces of pedaling. [Demo](https://www.youtube.com/watch?v=AH_QZLm_0-s)
+5. FARMER'S CARRY: 3x40m — Heavy dumbbells. Total body stability and grip endurance. [Demo](https://www.youtube.com/watch?v=Fkzk_RqlYig)
+6. SINGLE-LEG GLUTE BRIDGE: 3x12 each leg — Addresses left/right imbalances. [Demo](https://www.youtube.com/watch?v=AVAXhy6pl7o)
 
 COOL-DOWN (5 min):
 - Stretch quads, hamstrings, hip flexors, calves
@@ -369,6 +455,9 @@ def generate_workouts(
     # Get weekly schedule
     days_schedule = schedule.get("days", {})
 
+    # Extract injuries for strength workout filtering
+    injuries = profile.get("health", {}).get("injuries_limitations", "")
+
     weeks = template.get("weeks", [])
 
     for week_idx in range(plan_duration):
@@ -376,8 +465,27 @@ def generate_workouts(
         week_data = weeks[week_idx] if week_idx < len(weeks) else {}
         template_workouts = week_data.get("workouts", [])
 
-        # Determine training phase for strength workout selection
-        phase = "base" if week_num <= plan_duration * 0.5 else "build"
+        # ── Recovery week detection from template volume_percent ──
+        volume_pct = week_data.get("volume_percent", 100)
+        is_recovery_week = volume_pct <= 65
+
+        # ── Phase detection (recovery > taper > build > base) ──
+        if is_recovery_week:
+            phase = "recovery"
+        elif week_num >= plan_duration - 1:
+            phase = "taper"
+        elif week_num <= plan_duration * 0.5:
+            phase = "base"
+        else:
+            phase = "build"
+
+        # ── Recovery week volume scaling ──
+        # Recovery weeks: scale ALL rides down by volume_pct on top of athlete scale
+        if is_recovery_week:
+            recovery_scale = volume_pct / 100  # e.g., 0.60 for 60% weeks
+            week_scale = scale * recovery_scale
+        else:
+            week_scale = scale
 
         # Is this an FTP test week?
         is_ftp_week = week_num in ftp_test_weeks
@@ -401,11 +509,20 @@ def generate_workouts(
                 _write_rest_day(workouts_dir, week_num, day_abbrev, date_str)
 
             elif session_type == "strength":
-                _write_strength_workout(workouts_dir, week_num, day_abbrev, date_str, phase)
+                _write_strength_workout(workouts_dir, week_num, day_abbrev, date_str, phase, injuries)
 
             elif session_type == "intervals" and is_ftp_week and day_name == _first_interval_day(days_schedule):
                 # FTP test replaces the first interval session of FTP test weeks
                 _write_ftp_test(workouts_dir, week_num, day_abbrev, date_str)
+
+            elif is_recovery_week and session_type in ("long_ride", "intervals"):
+                # Recovery weeks: replace long rides and intervals with easy rides
+                _write_default_workout(
+                    workouts_dir, week_num, day_abbrev, date_str,
+                    "easy_ride", race_data, week_num, plan_duration,
+                    week_scale, long_ride_cap, 0,  # NO floor on recovery weeks
+                    is_recovery_week=True,
+                )
 
             elif template_workout:
                 # Use the template workout with race modifications
@@ -413,22 +530,32 @@ def generate_workouts(
                 # a VO2max/threshold session on a long_ride day should NOT be inflated
                 workout_type = _detect_workout_type(template_workout.get("name", ""))
                 is_endurance = workout_type in ("Long_Endurance", "Endurance", "Easy_Recovery")
-                effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
-                effective_floor = long_ride_floor if session_type == "long_ride" and is_endurance else 0
+                if is_recovery_week:
+                    # Recovery weeks: cap still applies, but NO floor
+                    effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
+                    effective_floor = 0
+                else:
+                    effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
+                    effective_floor = long_ride_floor if session_type == "long_ride" and is_endurance else 0
                 _write_template_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
                     template_workout, race_data, week_num, plan_duration,
-                    scale, effective_cap, effective_floor
+                    week_scale, effective_cap, effective_floor
                 )
 
             else:
                 # Generate appropriate default workout for session type
-                effective_cap = long_ride_cap if session_type == "long_ride" else 99999
-                effective_floor = long_ride_floor if session_type == "long_ride" else 0
+                if is_recovery_week:
+                    effective_cap = long_ride_cap if session_type == "long_ride" else 99999
+                    effective_floor = 0  # NO floor on recovery weeks
+                else:
+                    effective_cap = long_ride_cap if session_type == "long_ride" else 99999
+                    effective_floor = long_ride_floor if session_type == "long_ride" else 0
                 _write_default_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
                     session_type, race_data, week_num, plan_duration,
-                    scale, effective_cap, effective_floor
+                    week_scale, effective_cap, effective_floor,
+                    is_recovery_week=is_recovery_week,
                 )
 
     # Generate race day workout as final file
@@ -519,14 +646,34 @@ def _write_rest_day(workouts_dir: Path, week_num: int, day_abbrev: str, date_str
 
 
 def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
-                            date_str: str, phase: str):
-    """Write a strength training ZWO file."""
+                            date_str: str, phase: str, injuries: str = ""):
+    """Write a strength training ZWO file with injury-aware exercise filtering."""
     template = STRENGTH_WORKOUTS.get(phase, STRENGTH_WORKOUTS["base"])
+    description = template["description"]
+
+    # Injury-aware filtering: append warnings for knee-restricted athletes
+    if injuries and _has_knee_restriction(injuries):
+        knee_note = (
+            "\n\n⚠ KNEE RESTRICTION NOTE:\n"
+            "Based on your intake, exercises marked with [MODIFY] should be "
+            "performed with reduced range of motion or replaced with the "
+            "alternative listed. Stop immediately if you feel knee pain.\n"
+            "Alternatives: Bulgarian Split Squat → Wall Sit, "
+            "Step-Ups → Glute Bridge, Heavy Squat → Light Goblet Squat."
+        )
+        description = description + knee_note
+
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_Strength_{phase.title()}.zwo"
     _write_zwo(workouts_dir, filename,
                _zwo_name(week_num, day_abbrev, date_str, template['name']),
-               template["description"], template["blocks"])
+               description, template["blocks"])
+
+
+def _has_knee_restriction(injuries: str) -> bool:
+    """Check if injuries string indicates knee restrictions."""
+    lower = injuries.lower()
+    return any(kw in lower for kw in ("knee", "chondromalacia", "patella", "acl", "mcl", "meniscus"))
 
 
 def _write_ftp_test(workouts_dir: Path, week_num: int, day_abbrev: str, date_str: str):
@@ -569,9 +716,25 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                            date_str: str, session_type: str, race_data: Optional[Dict],
                            current_week: int, total_weeks: int,
                            scale: float = 1.0, long_ride_cap: int = 99999,
-                           long_ride_floor: int = 0):
+                           long_ride_floor: int = 0,
+                           is_recovery_week: bool = False):
     """Write a default workout when no template workout exists for this day."""
     prefix = _file_prefix(week_num, day_abbrev, date_str)
+
+    if session_type == "long_ride" and is_recovery_week:
+        # Recovery week: easy ride, no floor inflation, capped at recovery volume
+        blocks = RECOVERY_WEEK_EASY_RIDE_BLOCKS
+        blocks = _scale_blocks(blocks, scale, long_ride_cap, 0)  # NO floor
+        label = "Recovery Week Easy Ride"
+        workout_tag = "Easy_Recovery"
+        name = _zwo_name(week_num, day_abbrev, date_str, label)
+        description = RECOVERY_WEEK_EASY_RIDE_DESCRIPTION
+        filename = f"{prefix}_{workout_tag}.zwo"
+
+        if race_data:
+            description = _apply_race_mods(description, race_data, current_week, total_weeks)
+        _write_zwo(workouts_dir, filename, name, description, blocks)
+        return
 
     if session_type == "long_ride":
         blocks = (
@@ -617,9 +780,14 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
         filename = f"{prefix}_Intervals.zwo"
 
     else:  # easy_ride or other
-        name = _zwo_name(week_num, day_abbrev, date_str, "Easy Recovery Ride")
-        description = RECOVERY_RIDE_DESCRIPTION
-        blocks = RECOVERY_RIDE_BLOCKS
+        if is_recovery_week:
+            name = _zwo_name(week_num, day_abbrev, date_str, "Recovery Week Easy Ride")
+            description = RECOVERY_WEEK_EASY_RIDE_DESCRIPTION
+            blocks = RECOVERY_WEEK_EASY_RIDE_BLOCKS
+        else:
+            name = _zwo_name(week_num, day_abbrev, date_str, "Easy Recovery Ride")
+            description = RECOVERY_RIDE_DESCRIPTION
+            blocks = RECOVERY_RIDE_BLOCKS
         filename = f"{prefix}_Easy_Recovery.zwo"
 
     if race_data:

@@ -883,7 +883,10 @@ class TestLongRideFloor:
         assert total < 2400, f"Total {total}s should be scaled down, not inflated"
 
     def test_long_rides_above_floor_for_sarah(self, sarah_intake, tmp_path):
-        """Every long ride for Sarah must be >= her floor (2h)."""
+        """Every BUILD WEEK long ride for Sarah must be >= her floor (2h).
+
+        Recovery weeks are exempt from the floor — the whole point is reduced volume.
+        """
         import re
         validated = validate_intake(sarah_intake)
         profile = create_profile(validated)
@@ -895,12 +898,28 @@ class TestLongRideFloor:
         workouts_dir.mkdir()
         generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
 
+        # Identify recovery and taper weeks (exempt from floor)
+        weeks = plan_config["template"]["weeks"]
+        plan_duration = plan_config["plan_duration"]
+        recovery_week_nums = {
+            w["week_number"] for w in weeks
+            if w.get("volume_percent", 100) <= 65
+        }
+        exempt_weeks = recovery_week_nums | {plan_duration - 1, plan_duration}
+
         longest_ride = sarah_intake.get("longest_ride", "2-4")
         lo, _ = _parse_hours_range_for_test(longest_ride)
         floor_seconds = max(3600, lo * 3600)
 
-        # Check Sunday long rides (day 7 = Sunday)
+        # Check Sunday long rides (day 7 = Sunday) — BUILD WEEKS ONLY
         for f in workouts_dir.glob("*7Sun*Long_Endurance*"):
+            m = re.match(r"W(\d+)", f.name)
+            if not m:
+                continue
+            week_num = int(m.group(1))
+            if week_num in exempt_weeks:
+                continue  # Recovery/taper weeks don't need floor
+
             content = f.read_text()
             durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
             total = sum(durations)

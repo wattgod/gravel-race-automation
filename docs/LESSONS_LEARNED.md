@@ -559,3 +559,120 @@ was shown.
 20. **Run `scripts/ops/series-quality-check.sh` before every series deployment.**
     It catches JSON-LD corruption, FAQ parity drift, hardcoded years, and magic
     numbers — all automatically.
+
+---
+
+## Shortcut #N+1: Recovery Week Volume Ignored (2026-02-14)
+
+**What happened:** Template weeks have `volume_percent` field (60 for recovery weeks, 100
+for build weeks). The workout generator in `step_06_workouts.py` loaded this field into
+`week_data` but never extracted or used it. The long ride floor applied uniformly regardless
+of recovery status, inflating Easy_Recovery rides to 4+ hours on recovery week Saturdays.
+
+**Root cause:** `volume_percent` exists in the template JSON and was accessed by the template
+extension logic and the guide generator, but the workout generator had no concept of
+"recovery week." Phase detection was binary (base/build) with no recovery or taper state.
+
+**What it caused:**
+- Mike Wallace's recovery weeks had 4+ hour Saturday rides (should be 60-90 min)
+- Recovery weeks were identical to build weeks in workout volume
+- No periodization awareness — the plan was flat-loaded
+
+**Fix (2026-02-14):**
+- Extract `volume_percent` from `week_data`, detect recovery when ≤65%
+- Phase detection: recovery > taper > build > base (4-way, not 2-way)
+- Recovery weeks: no floor, combined scale (athlete scale × recovery scale)
+- Recovery week long rides → easy rides (≤90 min)
+- Recovery week intervals → easy rides
+- Recovery week strength → mobility-focused (30 min)
+- Added `RECOVERY_WEEK_EASY_RIDE_BLOCKS` and `RECOVERY_WEEK_EASY_RIDE_DESCRIPTION`
+
+**Prevention:**
+- `test_recovery_weeks.py` — 20 tests covering recovery detection, volume limits,
+  floor suppression, build week floor regression, methodology, and touchpoints
+- Gate 6b (methodology doc) validates recovery weeks are listed
+- Build week floor test still enforces floor on non-recovery weeks
+
+**Lesson:** When template data contains behavioral metadata (like `volume_percent`),
+verify that every consumer of the data actually reads and acts on it. Data flowing
+through a pipeline without being used is worse than missing data — it creates the
+illusion of correctness.
+
+---
+
+## Shortcut #27: Deploy Script Doesn't Handle Directory-Only Output (MEDIUM)
+
+**Date:** 2026-02-14
+
+**What happened:** New page generators (vs, state, calendar, power rankings) create
+subdirectories with `index.html` files directly in `wordpress/output/`. The `sync_pages()`
+function looked for flat `*.html` files first and returned early when none were found,
+silently skipping all 186 subdirectories.
+
+**Root cause:** The original design assumed race profile pages would be flat HTML files
+that get converted to `{slug}/index.html` structure during upload. New generators skip
+the flat file step and create the directory structure directly.
+
+**Fix:** Updated `sync_pages()` to check for both flat `.html` files AND pre-built
+subdirectories with `index.html` (or nested `index.html` for calendar/2026/).
+
+**Prevention:**
+- Deploy script now has `SKIP_DIRS` allowlist to avoid uploading non-page directories
+- Added `.rglob("index.html")` fallback for nested directory structures
+
+**Lesson:** When adding new generators, verify the deploy pipeline handles the output
+format. Silent early-returns are worse than errors — at least errors tell you something
+went wrong.
+
+---
+
+## Shortcut #28: No Email Capture on Highest-Traffic Pages (STRATEGIC)
+
+**Date:** 2026-02-14
+
+**What happened:** 328 race profile pages are the highest-traffic pages on the site.
+Zero of them have any email capture mechanism. Users read the race profile, leave, and
+never return. Meanwhile, email capture exists on the training guide (gated chapters),
+training plan form, and fueling calculator — all lower-traffic pages.
+
+**Root cause:** Email capture was treated as a feature of specific tools (training plans,
+guide) rather than a site-wide conversion strategy.
+
+**Fix (planned):** Add "Get the free prep kit" email gate on every race profile that has
+a prep kit. Add exit-intent popup site-wide.
+
+**Lesson:** Email capture should be a property of the _content_, not the _tool_.
+If a page gets traffic, it should capture emails.
+
+---
+
+## Rule #21: Every Generator Gets a Sitemap Entry
+
+When creating a new page generator:
+1. Add its output URLs to `scripts/generate_sitemap.py`
+2. Verify the deploy script handles its output format
+3. Run the sitemap generator and check the count increased
+4. Manually verify 2-3 URLs resolve after deployment
+
+## Rule #22: Deploy Script Regression Test
+
+After modifying `push_wordpress.py`, manually verify:
+1. Flat `.html` files still upload (race profiles)
+2. Subdirectory pages still upload (tier hubs, vs, state, etc.)
+3. Nested directories still upload (calendar/2026/)
+4. `SKIP_DIRS` list is up to date
+
+## Rule #23: New Page Type Checklist
+
+For every new page type generator:
+- [ ] JSON-LD structured data (at minimum: BreadcrumbList)
+- [ ] FAQ section with FAQPage JSON-LD (for long-tail queries)
+- [ ] Meta description targeting specific search queries
+- [ ] Canonical URL
+- [ ] OG tags for social sharing
+- [ ] Training plan CTA or newsletter CTA
+- [ ] Internal links to race profiles
+- [ ] Mobile responsive CSS
+- [ ] Added to sitemap generator
+- [ ] Deploy script handles output format
+- [ ] Verified live after deployment

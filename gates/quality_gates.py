@@ -5,6 +5,7 @@ Each gate function raises AssertionError if the gate fails.
 The pipeline HALTS on any gate failure. No partial delivery.
 """
 
+import json
 import re
 import xml.etree.ElementTree as ET
 from datetime import datetime, date
@@ -321,3 +322,91 @@ def gate_10_deliver(receipt: Dict, intake: Dict):
     assert receipt.get("guide_url", "").startswith("http"), (
         f"Gate 10: Invalid guide URL: {receipt.get('guide_url')}"
     )
+
+
+# ── Gate 6b: Methodology Document ─────────────────────────────
+
+def gate_6b_methodology(athlete_dir: Path):
+    """Validate methodology document was generated with required sections."""
+    json_path = athlete_dir / "methodology.json"
+    md_path = athlete_dir / "methodology.md"
+
+    assert json_path.exists(), f"Gate 6b: methodology.json not created at {json_path}"
+    assert md_path.exists(), f"Gate 6b: methodology.md not created at {md_path}"
+
+    with open(json_path) as f:
+        doc = json.load(f)
+
+    required_sections = [
+        "athlete_summary", "why_this_plan", "template_selection",
+        "periodization", "scaling", "accommodations",
+        "weekly_structure", "key_workouts_per_phase", "generated_at",
+    ]
+    for section in required_sections:
+        assert section in doc, f"Gate 6b: Missing section: {section}"
+
+    # Athlete summary must have key fields
+    summary = doc["athlete_summary"]
+    for field in ["name", "tier", "level", "weekly_hours", "plan_duration_weeks"]:
+        assert summary.get(field), f"Gate 6b: Missing athlete_summary.{field}"
+
+    # Periodization must list recovery weeks
+    assert "recovery_weeks" in doc["periodization"], "Gate 6b: No recovery_weeks in periodization"
+
+    # Why this plan must not be empty
+    assert len(doc["why_this_plan"]) > 20, "Gate 6b: why_this_plan is too short"
+
+    # Markdown must be substantive
+    md_size = md_path.stat().st_size
+    assert md_size > 500, f"Gate 6b: methodology.md too small ({md_size} bytes)"
+
+
+# ── Gate 11: Touchpoints ──────────────────────────────────────
+
+def gate_11_touchpoints(athlete_dir: Path, derived: Dict):
+    """Validate touchpoints schedule was generated correctly."""
+    tp_path = athlete_dir / "touchpoints.json"
+    assert tp_path.exists(), f"Gate 11: touchpoints.json not created at {tp_path}"
+
+    with open(tp_path) as f:
+        tp_data = json.load(f)
+
+    # Must have touchpoints array
+    touchpoints = tp_data.get("touchpoints", [])
+    assert len(touchpoints) >= 8, (
+        f"Gate 11: Only {len(touchpoints)} touchpoints (expected >= 8)"
+    )
+
+    # All touchpoints must have required fields
+    for tp in touchpoints:
+        for field in ["id", "send_date", "subject", "template", "sent"]:
+            assert field in tp, f"Gate 11: Touchpoint missing field: {field}"
+
+    # Dates must be chronological
+    dates = [tp["send_date"] for tp in touchpoints]
+    assert dates == sorted(dates), "Gate 11: Touchpoint dates not chronological"
+
+    # Race week touchpoint must be ~7 days before race
+    race_date = derived.get("race_date")
+    if race_date:
+        race_week_tps = [tp for tp in touchpoints if tp["id"] == "race_week"]
+        if race_week_tps:
+            race_week_date = datetime.strptime(race_week_tps[0]["send_date"], "%Y-%m-%d")
+            race_dt = datetime.strptime(race_date, "%Y-%m-%d")
+            diff = (race_dt - race_week_date).days
+            assert 5 <= diff <= 9, (
+                f"Gate 11: Race week touchpoint is {diff} days before race (expected ~7)"
+            )
+
+    # Post-race touchpoints must be after race date
+    if race_date:
+        for tp in touchpoints:
+            if tp["id"].startswith("post_race"):
+                assert tp["send_date"] > race_date, (
+                    f"Gate 11: Post-race touchpoint '{tp['id']}' on {tp['send_date']} "
+                    f"is not after race date {race_date}"
+                )
+
+    # Athlete metadata
+    assert tp_data.get("athlete"), "Gate 11: Missing athlete name"
+    assert tp_data.get("email"), "Gate 11: Missing athlete email"

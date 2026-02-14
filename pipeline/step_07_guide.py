@@ -303,7 +303,6 @@ def _build_full_guide(
           <span>{race_distance} miles</span>
           <span>{elevation} ft</span>
           <span>{duration_est if duration_est else f'{plan_duration}-week plan'}</span>
-          <span class="guide-meta-tag--gold">{tier_display} {level_display}</span>
           <span>{location}</span>
         </div>
       </header>
@@ -325,7 +324,7 @@ def _build_full_guide(
         <div class="footer-logo">GRAVEL GOD</div>
         <div class="footer-tagline">Custom training plans for gravel racing</div>
         <p style="margin-top: 8px; font-family: var(--gg-font-data); font-size: 12px; color: var(--gg-color-secondary-brown);">
-          {tier_display} {level_display} &middot; {plan_duration} Weeks &middot; ENDURE Plan Engine
+          {plan_duration} Weeks &middot; ENDURE Plan Engine
         </p>
       </footer>
 
@@ -583,10 +582,6 @@ def _section_race_profile(race_name, race_distance, elevation, location,
       <div class="stat-card__value">{plan_duration}</div>
       <div class="stat-card__label">Weeks</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-card__value">{tier_display}</div>
-      <div class="stat-card__label">Tier</div>
-    </div>
   </div>
 
   <div class="data-card">
@@ -598,7 +593,7 @@ def _section_race_profile(race_name, race_distance, elevation, location,
           <tr><td><strong>Location</strong></td><td>{location}</td></tr>
           <tr><td><strong>Terrain</strong></td><td>{terrain}</td></tr>
           <tr><td><strong>Climate</strong></td><td>{climate}</td></tr>
-          <tr><td><strong>Your Tier</strong></td><td>{tier_display} {level_display}</td></tr>
+          <tr><td><strong>Methodology</strong></td><td>{tier_display.replace("Time Crunched", "Time-Crunched")} approach ({level_display} level)</td></tr>
           <tr><td><strong>Expected Duration</strong></td><td>{duration_est if duration_est else 'Varies by fitness'}</td></tr>
         </tbody>
       </table>
@@ -887,10 +882,6 @@ def _section_weekly_structure(schedule: Dict, tier_display: str):
     <div class="stat-card">
       <div class="stat-card__value">{len(key_days)}</div>
       <div class="stat-card__label">Key Sessions</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-card__value">{tier_display}</div>
-      <div class="stat-card__label">Tier</div>
     </div>
   </div>
 

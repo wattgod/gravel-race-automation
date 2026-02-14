@@ -406,6 +406,133 @@ end-to-end test. The AI verified the easy things and skipped the hard ones.
 
 ---
 
+## Shortcut #20: HTML Escaping Inside JSON-LD (CRITICAL — Feb 14, 2026)
+
+**What happened:** Series hub JSON-LD `<script>` blocks used `esc()` (HTML escaping)
+for string values. This produces `&#x27;`, `&amp;` etc. inside JSON — which is invalid.
+Google's structured data parser would reject it. Three JSON-LD blocks (SportsOrganization,
+BreadcrumbList, ItemList) all had this bug.
+
+**Why it happened:** `esc()` was the only escaping function in the file. The AI used it
+everywhere without considering that `<script>` blocks parse as raw text, not HTML.
+
+**Prevention:**
+- Added `_json_str()` helper that uses `json.dumps()[1:-1]` for proper JSON escaping.
+- Test `test_jsonld_is_valid_json` — parses every JSON-LD block with `json.loads()`.
+- Test `test_jsonld_no_html_entities` — rejects `&#` and `&amp;` in JSON-LD blocks.
+- Test `test_no_esc_in_jsonld_blocks` — scans generator source for `{esc(` inside
+  `application/ld+json` template blocks. Catches the mistake at source level.
+- Quality script check #2: scans generator for `esc()` in JSON-LD templates.
+
+**How enforcement works:** Three independent layers: pytest validates the output,
+pytest validates the source, bash script validates the source. An AI would have to
+defeat all three to reintroduce this bug.
+
+---
+
+## Shortcut #21: Duplicated FAQ Logic (HIGH — Feb 14, 2026)
+
+**What happened:** `build_series_faq()` and `build_faq_jsonld()` had 80+ lines of
+identical Q&A generation logic. The JSON-LD version only implemented 3 of 5-6 questions,
+so the HTML FAQ and JSON-LD FAQ showed different content.
+
+**Why it happened:** Copy-paste was faster than extracting a shared function.
+
+**Prevention:**
+- Extracted `_build_faq_pairs()` as single source of truth for Q&A content.
+- Both `build_series_faq()` and `build_faq_jsonld()` now call it.
+- Test `test_faq_html_and_jsonld_have_same_question_count` — counts questions in
+  both HTML and JSON-LD, asserts they match.
+- Test `test_faq_builders_share_single_source` — scans generator source to verify
+  both functions call `_build_faq_pairs()`.
+- Quality script check #3: verifies `_build_faq_pairs` exists and is called by both.
+
+**How enforcement works:** If someone duplicates the FAQ logic, the source-level test
+detects it. If the JSON-LD drifts from HTML, the parity test catches it.
+
+---
+
+## Shortcut #22: Hardcoded Year "2026" (MEDIUM — Feb 14, 2026)
+
+**What happened:** The string "2026" appeared 10 times in the generator — FAQ questions,
+FAQ answers, Event Calendar title. Every January these pages would be stale.
+
+**Why it happened:** F-strings with literal "2026" are faster to type than importing
+`datetime` and using a constant.
+
+**Prevention:**
+- Added `CURRENT_YEAR = date.today().year` constant.
+- All year references use `{CURRENT_YEAR}` or `{year}` (from the constant).
+- Test `test_generator_has_no_hardcoded_year` — scans every non-comment line of
+  the generator for "2026" without "CURRENT_YEAR" on the same line.
+- Test `test_no_hardcoded_year_in_html` — in 2027+, generated pages that still
+  say "2026" will fail.
+- Quality script check #1: greps generator for hardcoded year.
+
+**How enforcement works:** Source-level test catches the generator. Output-level test
+catches the HTML. Bash script catches both. Pages automatically update with the year.
+
+---
+
+## Shortcut #23: Magic Numbers Everywhere (LOW — Feb 14, 2026)
+
+**What happened:** Raw numbers like 8, 5, 6, 40, 65, 16, 22, 18 scattered through
+the code without explanation. `desc[:40]` for dedup, `name[:14]` for truncation,
+`event_names[:8]` for FAQ lists. All opaque to a future reader.
+
+**Why it happened:** Named constants add boilerplate. The AI optimized for speed.
+
+**Prevention:**
+- Named constants: `MAX_EVENT_NAMES_IN_FAQ`, `MAX_COST_ITEMS_IN_FAQ`,
+  `MAX_TERRAIN_TYPES_IN_FAQ`, `TIMELINE_DESC_MAX_LEN`, `MATRIX_NAME_MAX_LEN`,
+  `BAR_CHART_NAME_MAX_LEN`, `MAP_LABEL_NAME_MAX_LEN`.
+- Quality script check #6: greps for raw numeric slicing/comparison that doesn't
+  reference a named constant.
+
+---
+
+## Shortcut #24: Cost FAQ Was Raw Data Dump (MEDIUM — Feb 14, 2026)
+
+**What happened:** The cost FAQ answer was just `"BWR California: $125-150 BWR Kansas: $80"` —
+raw data concatenated with spaces. Not readable prose.
+
+**Why it happened:** Building a readable sentence from structured data requires thought.
+Concatenating strings is trivial.
+
+**Prevention:**
+- Rewrote cost FAQ to produce: "Registration costs vary across the Belgian Waffle Ride.
+  BWR California ($125-150), BWR Kansas ($80), and BWR Utah ($95)."
+- This is a judgment call, not automatable. Added to rules: FAQ answers must read as
+  natural prose, not data dumps.
+
+---
+
+## Shortcut #25: Timeline Dedup Used 40-Char Substring (LOW — Feb 14, 2026)
+
+**What happened:** Timeline deduplication key was `f"{year}:{desc[:40]}"`. Two different
+milestones starting with the same 40 characters would be falsely deduplicated.
+
+**Why it happened:** Lazy shortcut to avoid thinking about collision probability.
+
+**Prevention:**
+- Changed to `f"{year}:{desc}"` — uses the full description string. No false collisions.
+
+---
+
+## Shortcut #26: No Tie-Breaking in BEST FOR Picks (LOW — Feb 14, 2026)
+
+**What happened:** Decision matrix "BEST FOR" picks used `max(scores, key=...)` which
+silently picks the first element on ties. If two events scored identically, only one
+was shown.
+
+**Why it happened:** `max()` is one line. Tie detection requires a few more lines.
+
+**Prevention:**
+- Added `_pick_best()` helper that finds the target score, then collects ALL events
+  matching it, joining with " & " for ties.
+
+---
+
 ## Rules for Future Development (cont'd)
 
 11. **After renaming CSS classes, grep the entire codebase.** Not just the file you
@@ -419,3 +546,16 @@ end-to-end test. The AI verified the easy things and skipped the hard ones.
     is not a test. `'href="/gravel-races/">RACES</a>' in html` is.
 15. **Use fixture data in assertions, not hardcoded values.** If the fixture says
     `tier=2`, don't write `assert "TIER 1" in html`.
+16. **Never use `esc()` inside `<script>` blocks.** HTML escaping is for HTML
+    contexts only. JSON-LD uses JSON escaping. Use `_json_str()` or `json.dumps()`.
+17. **When two functions generate the same data, extract a shared builder.** The
+    DRY principle isn't optional. If HTML and JSON-LD show the same content, there
+    must be a single source of truth.
+18. **Never hardcode the current year.** Use `date.today().year` or equivalent.
+    Every hardcoded year becomes a stale page in January.
+19. **Name your magic numbers.** If a constant appears more than once or controls
+    display behavior, give it a name. `MAX_EVENT_NAMES_IN_FAQ = 8` is clear;
+    `[:8]` is opaque.
+20. **Run `scripts/ops/series-quality-check.sh` before every series deployment.**
+    It catches JSON-LD corruption, FAQ parity drift, hardcoded years, and magic
+    numbers — all automatically.

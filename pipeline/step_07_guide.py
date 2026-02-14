@@ -953,7 +953,7 @@ If you use Zwift, TrainerRoad, or a Garmin &mdash; update your FTP setting immed
 
   <h3>The Zone Chart</h3>
   <div style="overflow-x: auto;">
-  <table>
+  <table class="zone-table">
   <thead><tr><th>Zone</th><th>Name</th><th>Power</th><th>% FTP</th><th>% HRmax</th><th>RPE</th><th>Feel</th></tr></thead>
   <tbody>
   {rows_html}

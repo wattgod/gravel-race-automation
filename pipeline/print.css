@@ -43,6 +43,27 @@
     page-break-inside: avoid;
   }
 
+  /* Zone chart — 7 columns need compact treatment.
+     Targets both .zone-table class and any 7-column table (fallback). */
+  .zone-table,
+  table:has(th:nth-child(7)) {
+    font-size: 8pt;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .zone-table th, .zone-table td,
+  table:has(th:nth-child(7)) th,
+  table:has(th:nth-child(7)) td {
+    padding: 4px 3px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .zone-table th:nth-child(7), .zone-table td:nth-child(7),
+  table:has(th:nth-child(7)) th:nth-child(7),
+  table:has(th:nth-child(7)) td:nth-child(7) {
+    width: 40%;  /* Feel column gets the most space */
+  }
+
   /* Links — no underline, plain color */
   a {
     color: var(--gg-color-dark-brown);

@@ -364,6 +364,11 @@ def generate_workouts(
             day_abbrev = DAY_ABBREV[day_name]
             day_date = start_date + timedelta(weeks=week_idx, days=day_idx)
             date_str = day_date.strftime("%Y-%m-%d")
+
+            # Skip days before the plan actually starts
+            if plan_start_str and day_date < plan_start:
+                continue
+
             day_schedule = days_schedule.get(day_name, {"session": "rest"})
             session_type = day_schedule["session"]
 

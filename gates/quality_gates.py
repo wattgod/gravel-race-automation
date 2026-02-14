@@ -151,10 +151,11 @@ def gate_6_workouts(workouts_dir: Path, derived: Dict):
     plan_duration = derived["plan_duration"]
     zwo_files = list(workouts_dir.glob("*.zwo"))
 
-    # Expect 7 ZWO files per week (every day gets a file, including rest/recovery)
-    min_expected = plan_duration * 7
+    # Expect 7 ZWO files per week, minus up to 6 for partial first week
+    # (plan may start mid-week, so W01 has fewer days)
+    min_expected = plan_duration * 7 - 6
     assert len(zwo_files) >= min_expected, (
-        f"Gate 6: Too few ZWO files: {len(zwo_files)} (expected >= {min_expected} for {plan_duration} weeks x 7 days)"
+        f"Gate 6: Too few ZWO files: {len(zwo_files)} (expected >= {min_expected} for {plan_duration} weeks)"
     )
 
     # Verify strength workouts exist

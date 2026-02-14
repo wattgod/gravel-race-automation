@@ -27,6 +27,57 @@ _TIER_AVG_SPEED = {
 }
 
 
+def _get_phase_boundaries(plan_duration: int) -> Dict:
+    """Return phase boundaries for a given plan duration.
+
+    Used in training calendar, week-by-week table, and phase progression
+    to ensure consistent phase labels everywhere.
+
+    Returns dict with phase name → (start_week, end_week) inclusive.
+    """
+    if plan_duration == 20:
+        return {
+            "base": (1, 10),
+            "build": (11, 16),
+            "peak": (17, 18),
+            "taper": (19, 20),
+        }
+    elif plan_duration == 16:
+        return {
+            "base": (1, 6),
+            "build": (7, 12),
+            "peak": (13, 14),
+            "taper": (15, 16),
+        }
+    elif plan_duration <= 8:
+        return {
+            "base": (1, 2),
+            "build": (2, 4),
+            "peak": (5, plan_duration - 1),
+            "taper": (plan_duration, plan_duration),
+        }
+    else:
+        # 12-week default
+        return {
+            "base": (1, 4),
+            "build": (5, 8),
+            "peak": (9, 10),
+            "taper": (11, 12),
+        }
+
+
+def _week_phase(wnum: int, plan_duration: int) -> tuple:
+    """Return (phase_label, phase_type) for a given week number."""
+    boundaries = _get_phase_boundaries(plan_duration)
+    if wnum == plan_duration:
+        return ("Race Week", "race")
+    for phase_type, (start, end) in boundaries.items():
+        if start <= wnum <= end:
+            label = phase_type.upper() if phase_type != "race" else "Race Week"
+            return (label, phase_type)
+    return ("TAPER", "taper")
+
+
 def _estimate_race_hours(distance_miles: float, elevation_ft: float, tier: str) -> float:
     """Estimate race duration from distance, elevation, and athlete tier.
 
@@ -457,34 +508,17 @@ def _section_training_plan_brief(
     if race_date_str:
         try:
             race_date = datetime.strptime(str(race_date_str), "%Y-%m-%d")
-            # Plan starts on a Monday, plan_duration weeks before race
-            plan_start = race_date - timedelta(weeks=plan_duration)
-            # Adjust to Monday
-            days_to_monday = plan_start.weekday()  # 0=Mon
-            if days_to_monday != 0:
-                plan_start = plan_start - timedelta(days=days_to_monday)
+            # Race week = the Monday of the week containing race day
+            race_week_monday = race_date - timedelta(days=race_date.weekday())
+            # Plan starts plan_duration weeks before race week
+            plan_start = race_week_monday - timedelta(weeks=plan_duration - 1)
 
             cal_rows = []
             for w in range(1, plan_duration + 1):
                 week_start = plan_start + timedelta(weeks=w - 1)
                 week_end = week_start + timedelta(days=6)
 
-                if w <= plan_duration * 0.35:
-                    phase = "Base"
-                    phase_type = "base"
-                elif w <= plan_duration * 0.75:
-                    phase = "Build"
-                    phase_type = "build"
-                elif w <= plan_duration * 0.9:
-                    phase = "Peak"
-                    phase_type = "peak"
-                else:
-                    phase = "Taper"
-                    phase_type = "taper"
-
-                if w == plan_duration:
-                    phase = "Race Week"
-                    phase_type = "race"
+                phase, phase_type = _week_phase(w, plan_duration)
 
                 row_class = ' class="race-day-row"' if w == plan_duration else ""
                 cal_rows.append(
@@ -496,7 +530,7 @@ def _section_training_plan_brief(
             calendar_html = f"""
   <h3>Your Training Calendar</h3>
   <p>Your {plan_duration}-week plan starts <strong>{plan_start.strftime("%Y-%m-%d")}</strong> and ends race week
-  <strong>{(race_date - timedelta(days=race_date.weekday())).strftime("%Y-%m-%d")}</strong>.
+  <strong>{race_week_monday.strftime("%Y-%m-%d")}</strong>.
   Race day is <strong>{race_date.strftime("%Y-%m-%d (%A)")}</strong>.</p>
 
   <div style="overflow-x: auto;">
@@ -1021,7 +1055,7 @@ def _section_weekly_structure(schedule: Dict, tier_display: str, weekly_hours: s
     <div class="data-card__header">LONG RIDE</div>
     <div class="data-card__content">
       <p>The backbone of gravel preparation. Primarily Zone 2 with race-specific efforts mixed in
-      during Build and Peak phases. Build duration progressively &mdash; don't jump to 5 hours in Week 1.</p>
+      during Build and Peak phases. Build duration progressively &mdash; don't jump to your peak duration of {long_ride_duration} in Week 1.</p>
     </div>
   </div>
 
@@ -1071,26 +1105,33 @@ def _section_phase_progression(plan_duration: int, tier: str, ride_realism: floa
     else:
         base_lr_desc = "Long rides build progressively within your time budget. Quality over quantity &mdash; every long ride includes nutrition rehearsal and race-pace efforts to compensate for volume."
 
+    # Use shared phase boundaries so labels are consistent everywhere
+    bounds = _get_phase_boundaries(plan_duration)
+    b = bounds["base"]
+    bu = bounds["build"]
+    p = bounds["peak"]
+    t = bounds["taper"]
+
     if plan_duration == 20:
         phases = [
-            ("Base 1", "1-5", "base", f"Build aerobic foundation. All riding is Zone 1-2 with progressive volume increases. Strength is 2x/week. This phase feels easy &mdash; that's the point."),
-            ("Base 2", "6-10", "base", f"Introduce low-intensity intervals (tempo, G Spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
-            ("Build", "11-16", "build", "Race-specific intensity. VO2max and threshold intervals. Long rides include race-pace efforts. This is where it gets hard. Fatigue is expected and managed through recovery weeks."),
-            ("Peak + Taper", "17-20", "peak", "Sharpen fitness. Reduce volume by 30-40%, maintain intensity. Race simulation rides. Final dress rehearsal in Week 17-18. Taper begins 10-14 days before race."),
+            ("Base 1", f"1-5", "base", f"Build aerobic foundation. All riding is Zone 1-2 with progressive volume increases. Strength is 2x/week. This phase feels easy &mdash; that's the point."),
+            ("Base 2", f"6-{b[1]}", "base", f"Introduce low-intensity intervals (tempo, G Spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
+            ("Build", f"{bu[0]}-{bu[1]}", "build", "Race-specific intensity. VO2max and threshold intervals. Long rides include race-pace efforts. This is where it gets hard. Fatigue is expected and managed through recovery weeks."),
+            ("Peak + Taper", f"{p[0]}-{t[1]}", "peak", f"Sharpen fitness. Reduce volume by 30-40%, maintain intensity. Race simulation rides. Final dress rehearsal in Week {p[0]}-{p[0]+1}. Taper begins 10-14 days before race."),
         ]
     elif plan_duration == 16:
         phases = [
-            ("Base", "1-6", "base", f"Build aerobic foundation. Progressive volume with Zone 1-2 riding. Strength 2x/week. {base_lr_desc}"),
-            ("Build", "7-12", "build", "Race-specific intensity enters the picture. Threshold and VO2max intervals. Long rides add race-pace efforts. Manage fatigue with recovery weeks every 3rd week."),
-            ("Peak", "13-14", "peak", "Maximum specificity. Race simulation rides. Dress rehearsal long ride. Intensity stays high, volume starts to drop."),
-            ("Taper", "15-16", "taper", "Reduce volume 30-40%. Short sharp efforts to maintain top-end fitness. Rest is the priority. Trust the training. Arrive at the start line fresh."),
+            ("Base", f"{b[0]}-{b[1]}", "base", f"Build aerobic foundation. Progressive volume with Zone 1-2 riding. Strength 2x/week. {base_lr_desc}"),
+            ("Build", f"{bu[0]}-{bu[1]}", "build", "Race-specific intensity enters the picture. Threshold and VO2max intervals. Long rides add race-pace efforts. Manage fatigue with recovery weeks every 3rd week."),
+            ("Peak", f"{p[0]}-{p[1]}", "peak", "Maximum specificity. Race simulation rides. Dress rehearsal long ride. Intensity stays high, volume starts to drop."),
+            ("Taper", f"{t[0]}-{t[1]}", "taper", "Reduce volume 30-40%. Short sharp efforts to maintain top-end fitness. Rest is the priority. Trust the training. Arrive at the start line fresh."),
         ]
     else:
         phases = [
-            ("Base", "1-4", "base", f"Build aerobic foundation rapidly. Zone 2 focus with progressive volume. Strength 2x/week. {base_lr_desc if plan_duration <= 12 else 'Compressed timeline means every session counts.'}"),
-            ("Build", "5-8", "build", "Jump into race-specific work. Threshold and VO2max intervals. Long rides with race-pace efforts. Higher intensity than a longer plan because there's less time."),
-            ("Peak", "9-10", "peak", "Maximum specificity. Dress rehearsal ride. Race simulation intervals. Volume drops, intensity stays high."),
-            ("Taper", "11-12", "taper", "Reduce volume 30-40%. Short sharp efforts. Rest and recovery. Arrive fresh."),
+            ("Base", f"{b[0]}-{b[1]}", "base", f"Build aerobic foundation rapidly. Zone 2 focus with progressive volume. Strength 2x/week. {base_lr_desc if plan_duration <= 12 else 'Compressed timeline means every session counts.'}"),
+            ("Build", f"{bu[0]}-{bu[1]}", "build", "Jump into race-specific work. Threshold and VO2max intervals. Long rides with race-pace efforts. Higher intensity than a longer plan because there's less time."),
+            ("Peak", f"{p[0]}-{p[1]}", "peak", "Maximum specificity. Dress rehearsal ride. Race simulation intervals. Volume drops, intensity stays high."),
+            ("Taper", f"{t[0]}-{t[1]}", "taper", "Reduce volume 30-40%. Short sharp efforts. Rest and recovery. Arrive fresh."),
         ]
 
     phase_cards = []
@@ -1173,19 +1214,8 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
         vol_hrs = _scale_volume_hours(raw_hrs, scale_factor) if scale_factor < 1.0 else raw_hrs
         workout_count = len(week.get("workouts", []))
 
-        # Determine phase
-        if wnum <= plan_duration * 0.35:
-            phase_label = "BASE"
-            phase_type = "base"
-        elif wnum <= plan_duration * 0.75:
-            phase_label = "BUILD"
-            phase_type = "build"
-        elif wnum <= plan_duration * 0.9:
-            phase_label = "PEAK"
-            phase_type = "peak"
-        else:
-            phase_label = "TAPER"
-            phase_type = "taper"
+        # Determine phase — uses shared boundaries for consistency
+        phase_label, phase_type = _week_phase(wnum, plan_duration)
 
         ftp_weeks = plan_config.get("ftp_test_weeks", [])
         # When FTP is not provided, Week 1 is the mandatory testing week

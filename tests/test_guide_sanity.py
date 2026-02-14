@@ -561,13 +561,17 @@ class TestNoTemplateArtifacts:
             "Week focus text should use the original phase label, not the wrapped version."
         )
 
-    def test_focus_text_not_duplicated(self, sarah_html):
-        """Extended weeks shouldn't create confusing duplicate focus text.
+    def test_focus_text_not_duplicated(self, sarah_derived, sarah_html):
+        """Extended weeks should have transformed focus text, not verbatim duplicates.
 
-        When a 12-week template is extended to 20 weeks, the extension duplicates
-        weeks 5-8 as weeks 9-16. The focus text should still make sense when
-        repeated — no 'Build Phase Begins' appearing twice at different weeks.
+        When a 12-week template is extended, duplicated weeks should have different
+        focus text from the originals (e.g., "Continued Development" not "Build Phase Begins" again).
+        Recovery weeks are exempt — "Recovery & Absorption" repeating is fine.
         """
+        plan_duration = sarah_derived.get("plan_duration", 12)
+        if plan_duration <= 12:
+            pytest.skip("Plan not extended — duplicate test not applicable")
+
         wbw_section = re.search(
             r'Week-by-Week Overview.*?</section>',
             sarah_html, re.DOTALL
@@ -577,17 +581,32 @@ class TestNoTemplateArtifacts:
 
         # Extract all focus texts from the table
         focus_matches = re.findall(
-            r'<td>([^<]+)</td>\s*<td>\d+\.?\d*',
+            r'<td>([^<]+)</td>\s*<td>\d+%',
             wbw_section.group()
         )
-        # Filter out FTP TEST markers and empty strings
-        focus_texts = [f.strip() for f in focus_matches if f.strip() and "FTP" not in f.upper()]
+        # Clean up FTP TEST markers
+        focus_texts = [re.sub(r'\s*\[FTP TEST\]', '', f).strip()
+                       for f in focus_matches if f.strip()]
 
         # No focus text should contain internal wrapping like "Extended Base (...)"
         for focus in focus_texts:
             assert not re.match(r'^Extended\s', focus, re.IGNORECASE), (
                 f"Internal template label in week focus: '{focus}'"
             )
+
+        # Non-recovery focus texts should not appear more than once
+        non_recovery = [f for f in focus_texts
+                        if "recovery" not in f.lower() and "race week" not in f.lower()]
+        seen = {}
+        duplicates = []
+        for f in non_recovery:
+            if f in seen:
+                duplicates.append(f)
+            seen[f] = True
+        assert not duplicates, (
+            f"Duplicate focus text found in non-recovery weeks: {duplicates}. "
+            f"Extended weeks should have transformed labels."
+        )
 
 
 # ── Dress Rehearsal Realism ─────────────────────────────────
@@ -619,4 +638,187 @@ class TestDressRehearsalRealism:
             assert hours_val <= max_hrs * 0.7, (
                 f"Dress rehearsal mentions {hours_val}-hour ride but weekly budget is "
                 f"only {max_hrs}hrs. A single ride shouldn't exceed ~{max_hrs * 0.6:.0f} hours."
+            )
+
+
+# ── Calendar Date Integrity ─────────────────────────────────
+
+class TestCalendarDateIntegrity:
+    """Training calendar must contain the race date in the final week."""
+
+    def test_last_week_contains_race_date(self, sarah_derived, sarah_html):
+        """The last training week's date range must include race day."""
+        race_date_str = sarah_derived.get("race_date", "")
+        if not race_date_str:
+            pytest.skip("No race date")
+
+        race_date = datetime.strptime(str(race_date_str), "%Y-%m-%d")
+
+        # Find all week date ranges in calendar
+        cal_section = re.search(
+            r'Your Training Calendar.*?</table>',
+            sarah_html, re.DOTALL
+        )
+        assert cal_section, "Training calendar not found"
+
+        # Extract the last week's date range
+        date_ranges = re.findall(
+            r'<td>(\d{4}-\d{2}-\d{2})\s*-\s*(\d{4}-\d{2}-\d{2})</td>',
+            cal_section.group()
+        )
+        assert date_ranges, "No date ranges found in calendar"
+
+        last_start_str, last_end_str = date_ranges[-1]
+        last_start = datetime.strptime(last_start_str, "%Y-%m-%d")
+        last_end = datetime.strptime(last_end_str, "%Y-%m-%d")
+
+        assert last_start <= race_date <= last_end, (
+            f"Race day ({race_date_str}) falls outside the last training week "
+            f"({last_start_str} to {last_end_str}). "
+            f"There's a {(race_date - last_end).days}-day gap."
+        )
+
+    def test_no_week_gap_in_calendar(self, sarah_html):
+        """Calendar weeks should be contiguous — no missing weeks."""
+        cal_section = re.search(
+            r'Your Training Calendar.*?</table>',
+            sarah_html, re.DOTALL
+        )
+        if not cal_section:
+            pytest.skip("Training calendar not found")
+
+        date_ranges = re.findall(
+            r'<td>(\d{4}-\d{2}-\d{2})\s*-\s*(\d{4}-\d{2}-\d{2})</td>',
+            cal_section.group()
+        )
+        for i in range(1, len(date_ranges)):
+            prev_end = datetime.strptime(date_ranges[i-1][1], "%Y-%m-%d")
+            curr_start = datetime.strptime(date_ranges[i][0], "%Y-%m-%d")
+            gap = (curr_start - prev_end).days
+            assert gap == 1, (
+                f"Gap between week {i} and {i+1}: {gap} days "
+                f"({date_ranges[i-1][1]} to {date_ranges[i][0]})"
+            )
+
+
+# ── Phase Label Consistency ─────────────────────────────────
+
+class TestPhaseConsistency:
+    """Phase labels must be consistent between calendar and week-by-week table."""
+
+    def test_calendar_and_wbw_phases_match(self, sarah_html):
+        """Phase labels in calendar and week-by-week must agree for each week."""
+        # Extract phases from calendar
+        cal_section = re.search(
+            r'Your Training Calendar.*?</table>',
+            sarah_html, re.DOTALL
+        )
+        if not cal_section:
+            pytest.skip("Calendar not found")
+
+        cal_phases = re.findall(
+            r'<td>W(\d+)</td>.*?phase-indicator--(\w+)',
+            cal_section.group()
+        )
+
+        # Extract phases from week-by-week
+        wbw_section = re.search(
+            r'Week-by-Week Overview.*?</section>',
+            sarah_html, re.DOTALL
+        )
+        if not wbw_section:
+            pytest.skip("Week-by-week not found")
+
+        wbw_phases = re.findall(
+            r'<strong>W(\d+)</strong>.*?phase-indicator--(\w+)',
+            wbw_section.group()
+        )
+
+        # Build dicts for comparison
+        cal_dict = {int(w): p for w, p in cal_phases}
+        wbw_dict = {int(w): p for w, p in wbw_phases}
+
+        mismatches = []
+        for week in sorted(set(cal_dict.keys()) & set(wbw_dict.keys())):
+            if cal_dict[week] != wbw_dict[week]:
+                mismatches.append(
+                    f"W{week}: calendar={cal_dict[week]}, week-by-week={wbw_dict[week]}"
+                )
+
+        assert not mismatches, (
+            f"Phase labels differ between calendar and week-by-week: {mismatches}"
+        )
+
+    def test_phase_progression_matches_wbw(self, sarah_html, sarah_derived):
+        """Phase progression section week ranges must match week-by-week phase labels."""
+        plan_duration = sarah_derived.get("plan_duration", 12)
+
+        # Extract phase ranges from Phase Progression section
+        phase_section = re.search(
+            r'Phase Progression.*?</section>',
+            sarah_html, re.DOTALL
+        )
+        if not phase_section:
+            pytest.skip("Phase progression section not found")
+
+        # Match "WEEKS X-Y" in phase cards
+        phase_ranges = re.findall(
+            r'phase-indicator--(\w+).*?WEEKS\s+(\d+)-(\d+)',
+            phase_section.group()
+        )
+
+        # Extract week-by-week phases
+        wbw_section = re.search(
+            r'Week-by-Week Overview.*?</section>',
+            sarah_html, re.DOTALL
+        )
+        if not wbw_section:
+            pytest.skip("Week-by-week not found")
+
+        wbw_phases = re.findall(
+            r'<strong>W(\d+)</strong>.*?phase-indicator--(\w+)',
+            wbw_section.group()
+        )
+        wbw_dict = {int(w): p for w, p in wbw_phases}
+
+        for phase_type, start, end in phase_ranges:
+            for w in range(int(start), int(end) + 1):
+                if w in wbw_dict:
+                    # Race week overrides taper label — skip that check
+                    if w == plan_duration:
+                        continue
+                    assert wbw_dict[w] == phase_type, (
+                        f"Phase Progression says W{w} is {phase_type}, "
+                        f"but week-by-week shows {wbw_dict[w]}"
+                    )
+
+
+# ── Long Ride Cautionary Number ─────────────────────────────
+
+class TestLongRideCautionaryNumber:
+    """Long ride section should reference realistic hours, not hardcoded values."""
+
+    def test_no_unreachable_cautionary_hours(self, sarah_derived, sarah_html):
+        """The Long Ride data card should not mention hour counts
+        that exceed the athlete's long ride ceiling."""
+        weekly_hours = sarah_derived.get("weekly_hours", "")
+        if not weekly_hours:
+            pytest.skip("No weekly_hours")
+        _, max_hrs = _parse_hours_range(weekly_hours)
+
+        # Find the Long Ride data card
+        lr_section = re.search(
+            r'LONG RIDE</div>.*?</div>\s*</div>',
+            sarah_html, re.DOTALL
+        )
+        if not lr_section:
+            pytest.skip("Long Ride data card not found")
+
+        content = lr_section.group()
+        # Find any hour mentions like "5 hours" or "4-5 hours"
+        hour_mentions = re.findall(r'(\d+(?:\.\d+)?)\s*hour', content, re.IGNORECASE)
+        for h in hour_mentions:
+            assert float(h) <= max_hrs, (
+                f"Long Ride card mentions {h} hours but athlete's weekly budget "
+                f"is only {max_hrs}hrs. Cautionary number should reflect reality."
             )

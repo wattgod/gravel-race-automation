@@ -11,7 +11,7 @@ Brand system: Gravel God desert editorial palette, two-voice typography
 
 import json
 import math
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -28,42 +28,85 @@ _TIER_AVG_SPEED = {
 
 
 def _get_phase_boundaries(plan_duration: int) -> Dict:
-    """Return phase boundaries for a given plan duration.
+    """Return phase boundaries for any plan duration.
 
     Used in training calendar, week-by-week table, and phase progression
     to ensure consistent phase labels everywhere.
 
     Returns dict with phase name → (start_week, end_week) inclusive.
+
+    Formula: ~50% base, ~30% build, ~10% peak, ~10% taper (minimum 1 week each for peak/taper).
     """
-    if plan_duration == 20:
+    if plan_duration <= 8:
         return {
-            "base": (1, 10),
-            "build": (11, 16),
-            "peak": (17, 18),
-            "taper": (19, 20),
-        }
-    elif plan_duration == 16:
-        return {
-            "base": (1, 6),
-            "build": (7, 12),
-            "peak": (13, 14),
-            "taper": (15, 16),
-        }
-    elif plan_duration <= 8:
-        return {
-            "base": (1, 2),
-            "build": (2, 4),
-            "peak": (5, plan_duration - 1),
+            "base": (1, max(1, plan_duration - 4)),
+            "build": (max(2, plan_duration - 3), max(3, plan_duration - 2)),
+            "peak": (max(4, plan_duration - 1), max(4, plan_duration - 1)),
             "taper": (plan_duration, plan_duration),
         }
-    else:
-        # 12-week default
-        return {
-            "base": (1, 4),
-            "build": (5, 8),
-            "peak": (9, 10),
-            "taper": (11, 12),
-        }
+
+    # For plans 9+ weeks: compute proportional boundaries
+    taper_weeks = 2
+    peak_weeks = 2
+    remaining = plan_duration - taper_weeks - peak_weeks
+    # Base gets ~60% of remaining, build gets ~40%
+    base_weeks = round(remaining * 0.6)
+    build_weeks = remaining - base_weeks
+
+    base_end = base_weeks
+    build_end = base_end + build_weeks
+    peak_end = build_end + peak_weeks
+    # taper_end = plan_duration
+
+    return {
+        "base": (1, base_end),
+        "build": (base_end + 1, build_end),
+        "peak": (build_end + 1, peak_end),
+        "taper": (peak_end + 1, plan_duration),
+    }
+
+
+def _week_to_date(plan_start_date: str, week_num: int) -> date:
+    """Return the first day of a given plan week (1-indexed).
+
+    Week 1 starts on plan_start_date (whatever day of the week that is).
+    """
+    start = datetime.strptime(plan_start_date, "%Y-%m-%d").date()
+    return start + timedelta(weeks=week_num - 1)
+
+
+def _phase_date_range(plan_start_date: str, week_start: int, week_end: int) -> str:
+    """Return 'Mon D - Mon D' date range string for a phase span."""
+    d1 = _week_to_date(plan_start_date, week_start)
+    # End date is 6 days after the start of the last week
+    d2 = _week_to_date(plan_start_date, week_end) + timedelta(days=6)
+    return f"{d1.strftime('%b %-d')} &ndash; {d2.strftime('%b %-d')}"
+
+
+# Focus texts that imply a specific phase — used to detect conflicts
+_PHASE_IMPLYING_FOCUS = {
+    "build": ["Build Phase Begins", "Intensity Progression", "Peak Build Volume"],
+    "peak": ["Peak Phase", "Race Specificity", "Final Quality"],
+    "taper": ["Taper Week", "Race Week"],
+}
+
+# Replacement focus texts when the original conflicts with the computed phase
+_PHASE_FOCUS_OVERRIDES = {
+    # Original focus → replacement when it appears in a different phase
+    "Build Phase Begins": "Progressive Volume",
+    "Intensity Progression": "Volume Progression",
+    "Peak Build Volume": "Peak Base Volume",
+}
+
+
+def _sanitize_focus_for_phase(focus: str, phase_type: str) -> str:
+    """Override focus text that implies a different phase than the computed one."""
+    for implied_phase, keywords in _PHASE_IMPLYING_FOCUS.items():
+        if implied_phase != phase_type:
+            for keyword in keywords:
+                if keyword in focus:
+                    return _PHASE_FOCUS_OVERRIDES.get(focus, focus.replace(keyword, keyword.replace("Build", "Base")))
+    return focus
 
 
 def _week_phase(wnum: int, plan_duration: int) -> tuple:
@@ -243,6 +286,11 @@ def generate_guide(
     if race_data is None:
         race_data = {}
 
+    # Cross-reference race date against race-data database
+    from pipeline.step_01_validate import cross_reference_race_date
+    race_date_str = derived.get("race_date", "")
+    date_xref = cross_reference_race_date(race_name, race_date_str, base_dir) if race_name and race_date_str else {}
+
     html = _build_full_guide(
         athlete_name=athlete_name,
         race_name=race_name,
@@ -255,6 +303,7 @@ def generate_guide(
         schedule=schedule,
         plan_config=plan_config,
         race_data=race_data,
+        date_xref=date_xref,
     )
 
     output_path.write_text(html, encoding="utf-8")
@@ -272,6 +321,7 @@ def _build_full_guide(
     schedule: Dict,
     plan_config: Dict,
     race_data: Dict,
+    date_xref: Dict = None,
 ) -> str:
     """Build the complete HTML document with all sections using Gravel God brand system."""
 
@@ -327,7 +377,8 @@ def _build_full_guide(
     # 2. Race Profile
     sections.append(_section_race_profile(
         race_name, race_distance, elevation, location,
-        tier, level_display, plan_duration, radar_svg, race_data
+        tier, level_display, plan_duration, radar_svg, race_data,
+        derived=derived, date_xref=date_xref or {},
     ))
 
     # 3-15. Core sections
@@ -335,12 +386,12 @@ def _build_full_guide(
     sections.append(_section_training_zones(ftp, tier))
     sections.append(_section_adaptation())
     sections.append(_section_weekly_structure(schedule, tier_display, weekly_hours))
-    sections.append(_section_phase_progression(plan_duration, tier, ride_realism))
-    sections.append(_section_week_by_week(template, plan_duration, plan_config, weekly_hours, ftp))
+    sections.append(_section_phase_progression(plan_duration, tier, ride_realism, derived.get("plan_start_date", ""), derived.get("recovery_week_cadence", 4)))
+    sections.append(_section_week_by_week(template, plan_duration, plan_config, weekly_hours, ftp, derived.get("plan_start_date", "")))
     sections.append(_section_workout_execution(tier, ftp))
     sections.append(_section_recovery_protocol(tier, profile))
     sections.append(_section_equipment_checklist(profile, race_data))
-    sections.append(_section_nutrition(race_data, tier, race_distance, profile))
+    sections.append(_section_nutrition(race_data, tier, race_distance, profile, plan_duration, derived.get("plan_start_date", "")))
     sections.append(_section_mental_preparation(race_data, race_distance, tier))
     sections.append(_section_race_week(race_data, tier, race_name, derived))
     sections.append(_section_race_day(race_data, tier, race_distance, race_name, weekly_hours))
@@ -502,20 +553,17 @@ def _section_training_plan_brief(
                           for w in meth["key_workouts"]]
     key_workouts = "\n    ".join(f"<li>{w}</li>" for w in formatted_workouts)
 
-    # Training calendar with actual dates
+    # Training calendar with actual dates — uses plan_start_date from derived (single source of truth)
+    plan_start_str = derived.get("plan_start_date", "")
     race_date_str = derived.get("race_date", "")
     calendar_html = ""
-    if race_date_str:
+    if plan_start_str and race_date_str:
         try:
             race_date = datetime.strptime(str(race_date_str), "%Y-%m-%d")
-            # Race week = the Monday of the week containing race day
-            race_week_monday = race_date - timedelta(days=race_date.weekday())
-            # Plan starts plan_duration weeks before race week
-            plan_start = race_week_monday - timedelta(weeks=plan_duration - 1)
 
             cal_rows = []
             for w in range(1, plan_duration + 1):
-                week_start = plan_start + timedelta(weeks=w - 1)
+                week_start = _week_to_date(plan_start_str, w)
                 week_end = week_start + timedelta(days=6)
 
                 phase, phase_type = _week_phase(w, plan_duration)
@@ -527,12 +575,26 @@ def _section_training_plan_brief(
                     f'<td><span class="phase-indicator phase-indicator--{phase_type}">{phase}</span></td></tr>'
                 )
 
+            plan_start_dt = datetime.strptime(plan_start_str, "%Y-%m-%d")
+            last_week_start = _week_to_date(plan_start_str, plan_duration)
+            start_day_name = plan_start_dt.strftime("%A")
+            # Add mid-week start note if the plan doesn't start on Monday
+            midweek_note = ""
+            if plan_start_dt.weekday() != 0:  # 0 = Monday
+                start_date_formatted = plan_start_dt.strftime("%B %-d, %Y")
+                midweek_note = (
+                    f'\n  <div class="gg-module gg-tactical"><div class="gg-label">YOUR PLAN STARTS ON A {start_day_name.upper()}</div>'
+                    f"<p>Week 1 begins {start_day_name}, {start_date_formatted}. Follow your normal weekly template "
+                    f"(Monday = Strength, Tuesday = Intervals, etc.) for whatever days remain in this first week. "
+                    f"Look at the {start_day_name} slot in your weekly structure "
+                    f"and start there. The first full Monday-to-Sunday cycle begins the following week.</p></div>"
+                )
             calendar_html = f"""
   <h3>Your Training Calendar</h3>
-  <p>Your {plan_duration}-week plan starts <strong>{plan_start.strftime("%Y-%m-%d")}</strong> and ends race week
-  <strong>{race_week_monday.strftime("%Y-%m-%d")}</strong>.
+  <p>Your {plan_duration}-week plan starts <strong>{plan_start_dt.strftime("%Y-%m-%d")} ({start_day_name})</strong> and ends race week
+  <strong>{last_week_start.strftime("%Y-%m-%d")}</strong>.
   Race day is <strong>{race_date.strftime("%Y-%m-%d (%A)")}</strong>.</p>
-
+  {midweek_note}
   <div style="overflow-x: auto;">
   <table>
   <thead><tr><th>Week</th><th>Dates</th><th>Phase</th></tr></thead>
@@ -558,7 +620,7 @@ def _section_training_plan_brief(
         schedule_rows.append(f"<tr><td><strong>{day.title()}</strong></td><td>{session}</td></tr>")
     schedule_table = "\n    ".join(schedule_rows)
 
-    return f"""<section id="section-1" class="gg-section">
+    return f"""<section id="section-1" class="gg-section gg-section-cover">
   <h2>1 &middot; Training Plan Brief</h2>
 
   <p>Welcome to your <strong>{race_name} {race_distance}mi</strong> training plan. This guide is built
@@ -656,7 +718,8 @@ def _section_training_plan_brief(
 
 
 def _section_race_profile(race_name, race_distance, elevation, location,
-                          tier, level_display, plan_duration, radar_svg, race_data):
+                          tier, level_display, plan_duration, radar_svg, race_data,
+                          derived=None, date_xref=None):
     meth = TIER_METHODOLOGY.get(tier, TIER_METHODOLOGY["finisher"])
     race_chars = race_data.get("race_characteristics", {})
     terrain = race_chars.get("terrain", "gravel").replace("_", " ").title()
@@ -664,7 +727,60 @@ def _section_race_profile(race_name, race_distance, elevation, location,
     duration_est = race_data.get("duration_estimate", "")
 
     hooks = race_data.get("race_hooks", {})
-    hook_text = hooks.get("hook", "") if isinstance(hooks, dict) else ""
+    hook_text = hooks.get("punchy", "") if isinstance(hooks, dict) else ""
+
+    # Build race date verification callout
+    date_verification_html = ""
+    if derived:
+        race_date_str = derived.get("race_date", "")
+        if race_date_str:
+            try:
+                rd = datetime.strptime(str(race_date_str), "%Y-%m-%d")
+                day_of_week = rd.strftime("%A")
+                date_display = rd.strftime("%B %d, %Y")
+                days_until = (rd.date() - date.today()).days
+
+                # Determine verification status
+                xref = date_xref or {}
+                if xref.get("date_match") is True:
+                    verify_icon = "&#10003;"  # checkmark
+                    verify_class = "gg-success"
+                    verify_text = f"Verified against race database ({xref.get('date_specific', '')})"
+                elif xref.get("date_match") is False:
+                    verify_icon = "&#9888;"  # warning
+                    verify_class = "gg-alert"
+                    verify_text = (
+                        f"Date mismatch: race database says \"{xref.get('date_specific', '')}\". "
+                        f"Please verify your race date."
+                    )
+                elif xref.get("matched"):
+                    verify_icon = "&#8505;"  # info
+                    verify_class = "gg-module"
+                    verify_text = "Race found in database but date could not be cross-referenced"
+                else:
+                    verify_icon = "&#8505;"  # info
+                    verify_class = "gg-module"
+                    verify_text = "Race not in database — please verify your date independently"
+
+                date_verification_html = f"""
+  <div class="data-card" style="border-left: 4px solid {'#22c55e' if xref.get('date_match') else '#f59e0b'}; margin-top: 16px;">
+    <div class="data-card__header">RACE DATE VERIFICATION</div>
+    <div class="data-card__content">
+      <table>
+        <tbody>
+          <tr><td><strong>Race Date</strong></td><td>{day_of_week}, {date_display}</td></tr>
+          <tr><td><strong>Countdown</strong></td><td>{days_until} days from today</td></tr>
+          <tr><td><strong>Verification</strong></td><td><span class="{verify_class}">{verify_icon} {verify_text}</span></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 8px; font-size: 0.85em; color: #666;">
+        <strong>Triple-check:</strong> Confirm this is the correct date by visiting the official race website.
+        A wrong date means your entire taper and peak will be off.
+      </p>
+    </div>
+  </div>"""
+            except ValueError:
+                pass
 
     return f"""<section id="section-2" class="gg-section">
   <h2>2 &middot; Race Profile</h2>
@@ -701,6 +817,7 @@ def _section_race_profile(race_name, race_distance, elevation, location,
       </table>
     </div>
   </div>
+{date_verification_html}
 
   <div style="text-align: center; margin: 24px 0;">
 {radar_svg}
@@ -1096,7 +1213,7 @@ def _section_weekly_structure(schedule: Dict, tier_display: str, weekly_hours: s
 </section>"""
 
 
-def _section_phase_progression(plan_duration: int, tier: str, ride_realism: float = 1.0):
+def _section_phase_progression(plan_duration: int, tier: str, ride_realism: float = 1.0, plan_start_date: str = "", recovery_week_cadence: int = 4):
     # Long ride description adapts to what the athlete can actually do
     if ride_realism >= 0.6:
         base_lr_desc = "Long rides build from current fitness to 60-70% of race duration."
@@ -1136,8 +1253,17 @@ def _section_phase_progression(plan_duration: int, tier: str, ride_realism: floa
 
     phase_cards = []
     for name, weeks, phase_type, desc in phases:
+        # Compute date range from week span if plan_start_date is available
+        date_label = ""
+        if plan_start_date and "-" in weeks:
+            parts = weeks.split("-")
+            try:
+                w_start, w_end = int(parts[0]), int(parts[-1])
+                date_label = f" ({_phase_date_range(plan_start_date, w_start, w_end)})"
+            except ValueError:
+                pass
         phase_cards.append(f"""  <div class="data-card">
-    <div class="data-card__header"><span class="phase-indicator phase-indicator--{phase_type}">{name}</span> &mdash; WEEKS {weeks}</div>
+    <div class="data-card__header"><span class="phase-indicator phase-indicator--{phase_type}">{name}</span> &mdash; WEEKS {weeks}{date_label}</div>
     <div class="data-card__content">
       <p>{desc}</p>
     </div>
@@ -1152,7 +1278,7 @@ def _section_phase_progression(plan_duration: int, tier: str, ride_realism: floa
 
   <div class="gg-module gg-tactical">
     <div class="gg-label">RECOVERY WEEKS</div>
-    <p>Every 3rd or 4th week is a recovery week &mdash; volume drops 30-40%, intensity drops to Zone 2 only.
+    <p>Every {recovery_week_cadence}{'rd' if recovery_week_cadence == 3 else 'th'} week is a recovery week &mdash; volume drops 30-40%, intensity drops to Zone 2 only.
     These weeks are where adaptation happens. Skipping recovery weeks is the fastest path to
     overtraining and stalled progress. They are not optional.</p>
   </div>
@@ -1192,7 +1318,7 @@ def _scale_volume_hours(template_hrs: str, scale_factor: float) -> str:
     return f"{lo_s}-{hi_s}"
 
 
-def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict, weekly_hours: str = "", ftp: Optional[int] = None):
+def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict, weekly_hours: str = "", ftp: Optional[int] = None, plan_start_date: str = ""):
     weeks = template.get("weeks", [])
     if not weeks:
         return '<section id="section-8" class="gg-section"><h2>8 &middot; Week-by-Week Overview</h2><p>Week-by-week details will be provided with your ZWO workout files.</p></section>'
@@ -1212,10 +1338,14 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
         vol_pct = week.get("volume_percent", 100)
         raw_hrs = week.get("volume_hours", "")
         vol_hrs = _scale_volume_hours(raw_hrs, scale_factor) if scale_factor < 1.0 else raw_hrs
-        workout_count = len(week.get("workouts", []))
+        all_workouts = week.get("workouts", [])
+        # Count only training sessions, not rest/off days
+        workout_count = sum(1 for w in all_workouts if "rest" not in w.get("name", "").lower())
 
         # Determine phase — uses shared boundaries for consistency
         phase_label, phase_type = _week_phase(wnum, plan_duration)
+        # Override focus text that implies a different phase
+        focus = _sanitize_focus_for_phase(focus, phase_type)
 
         ftp_weeks = plan_config.get("ftp_test_weeks", [])
         # When FTP is not provided, Week 1 is the mandatory testing week
@@ -1223,8 +1353,16 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
             ftp_weeks = [1] + ftp_weeks
         ftp_marker = " [FTP TEST]" if wnum in ftp_weeks else ""
 
+        # Compute week date range (Mon-Sun) if plan_start_date available
+        date_col = ""
+        if plan_start_date:
+            w_mon = _week_to_date(plan_start_date, wnum)
+            w_sun = w_mon + timedelta(days=6)
+            date_col = f"<td>{w_mon.strftime('%b %-d')}&ndash;{w_sun.strftime('%b %-d')}</td>"
+
         rows.append(
             f'<tr><td><strong>W{wnum}</strong></td>'
+            f'{date_col}'
             f'<td><span class="phase-indicator phase-indicator--{phase_type}">{phase_label}</span></td>'
             f"<td>{focus}{ftp_marker}</td>"
             f"<td>{vol_pct}%</td>"
@@ -1241,7 +1379,7 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
 
   <div style="overflow-x: auto;">
   <table>
-  <thead><tr><th>Week</th><th>Phase</th><th>Focus</th><th>Volume</th><th>Hours</th><th>Sessions</th></tr></thead>
+  <thead><tr><th>Week</th>{('<th>Dates</th>' if plan_start_date else '')}<th>Phase</th><th>Focus</th><th>Volume</th><th>Hours</th><th>Sessions</th></tr></thead>
   <tbody>
   {rows_html}
   </tbody>
@@ -1494,9 +1632,10 @@ def _section_equipment_checklist(profile: Dict, race_data: Dict):
 </section>"""
 
 
-def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict = None):
+def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict = None, plan_duration: int = 12, plan_start_date: str = ""):
     if profile is None:
         profile = {}
+    phases = _get_phase_boundaries(plan_duration)
     mods = race_data.get("workout_modifications", {})
     fuel = mods.get("fueling", {})
 
@@ -1563,15 +1702,16 @@ def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict 
         </div>
       </div>
       <h4>Gut Training Progression</h4>
-      <p>Start gut training <strong>{gut_weeks} weeks</strong> before race day. SGLT1 transporters double
-      in ~2 weeks (GSSI), but full adaptation to your race rate takes longer.</p>
+      <p>Gut training starts from Week 1 and ramps through your plan phases. SGLT1 transporters double
+      in ~2 weeks (GSSI), but full adaptation to your race-day carb rate takes 6-12 weeks.
+      Start conservative, build steadily.</p>
       <table>
-      <thead><tr><th>Phase</th><th>Weeks</th><th>Target</th><th>Focus</th></tr></thead>
+      <thead><tr><th>Plan Phase</th><th>Target</th><th>Focus</th></tr></thead>
       <tbody>
-      <tr><td><strong>Base</strong></td><td>1-{gut_weeks // 3}</td><td>40-{gut_base_hi}g/hr</td><td>Build tolerance &mdash; start conservative</td></tr>
-      <tr><td><strong>Build</strong></td><td>{gut_weeks // 3 + 1}-{2 * gut_weeks // 3}</td><td>{gut_build_lo}-{gut_build_hi}g/hr</td><td>Increase absorption capacity</td></tr>
-      <tr><td><strong>Peak</strong></td><td>{2 * gut_weeks // 3 + 1}+</td><td>{carb_lo}-{carb_hi}g/hr</td><td>Race-rate practice</td></tr>
-      <tr class="race-day-row"><td><strong>Race</strong></td><td>Race day</td><td>{carb_lo}-{carb_hi}g/hr</td><td>Execute your fueling plan</td></tr>
+      <tr><td><strong>Base</strong></td><td>40-{gut_base_hi}g/hr</td><td>Build tolerance &mdash; real food on easy rides</td></tr>
+      <tr><td><strong>Build</strong></td><td>{gut_build_lo}-{gut_build_hi}g/hr</td><td>Increase absorption &mdash; mix liquids and solids at tempo</td></tr>
+      <tr><td><strong>Peak</strong></td><td>{carb_lo}-{carb_hi}g/hr</td><td>Race-rate practice with race-day products only</td></tr>
+      <tr class="race-day-row"><td><strong>Race</strong></td><td>{carb_lo}-{carb_hi}g/hr</td><td>Execute your fueling plan &mdash; nothing new</td></tr>
       </tbody>
       </table>
       <p><strong>Based on your {carb_lo}-{carb_hi}g/hr target:</strong> ~{round(carb_lo / 25, 1)}-{round(carb_hi / 25, 1)} gels per hour
@@ -1772,10 +1912,10 @@ def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict 
   your gut won't tolerate eating during races. SGLT1 transporters double in ~2 weeks of
   training (GSSI), but full adaptation takes 6-12 weeks.</p>
   <ul>
-    <li><strong>Base Phase (Weeks 1-4):</strong> Practice eating real food on easy rides. 40-50g carbs/hour, mostly solid. Build tolerance gradually.</li>
-    <li><strong>Build Phase (Weeks 5-8):</strong> Increase to 60-70g carbs/hour. Mix liquids and solids. Practice eating at tempo pace.</li>
-    <li><strong>Peak Training (Weeks 9-10):</strong> Hit your race-day target. Race nutrition only (gels, drink, bars you'll use on race day). Practice at race pace.</li>
-    <li><strong>Race Week:</strong> Stick with what worked in training. No new products. Trust your gut (literally).</li>
+    <li><strong>Base Phase &mdash; Weeks {phases['base'][0]}-{phases['base'][1]}{f" ({_phase_date_range(plan_start_date, phases['base'][0], phases['base'][1])})" if plan_start_date else ""}:</strong> Practice eating real food on easy rides. 40-50g carbs/hour, mostly solid. Build tolerance gradually.</li>
+    <li><strong>Build Phase &mdash; Weeks {phases['build'][0]}-{phases['build'][1]}{f" ({_phase_date_range(plan_start_date, phases['build'][0], phases['build'][1])})" if plan_start_date else ""}:</strong> Increase to 60-70g carbs/hour. Mix liquids and solids. Practice eating at tempo pace.</li>
+    <li><strong>Peak Training &mdash; Weeks {phases['peak'][0]}-{phases['peak'][1]}{f" ({_phase_date_range(plan_start_date, phases['peak'][0], phases['peak'][1])})" if plan_start_date else ""}:</strong> Hit your race-day target. Race nutrition only (gels, drink, bars you'll use on race day). Practice at race pace.</li>
+    <li><strong>Race Week{f" ({_week_to_date(plan_start_date, phases['taper'][1]).strftime('%b %-d')})" if plan_start_date else ""}:</strong> Stick with what worked in training. No new products. Trust your gut (literally).</li>
   </ul>
 
   <h3>Race-Day Nutrition Execution</h3>
@@ -3183,12 +3323,67 @@ footer.guide-footer {
 }
 
 /* === Print === */
+@page {
+  size: A4;
+  margin: 20mm 15mm;
+}
+
+@page :first {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 @media print {
-  body { background: white; padding: 0; }
+  body {
+    background: white;
+    padding: 0;
+    font-size: 11pt;
+  }
+
+  /* Hide interactive elements */
   nav.gg-guide-toc { display: none; }
+
+  /* Single column for print */
   .gg-guide-layout { display: block; }
-  section.gg-section { page-break-inside: avoid; }
-  a { color: var(--gg-color-dark-brown); text-decoration: none; }
+
+  /* Cover page fills entire first page */
+  .gg-section-cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+  }
+
+  /* Major sections start on new page */
+  section.gg-section {
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
+  section.gg-section:first-of-type {
+    page-break-before: avoid;
+  }
+
+  /* Prevent orphaned headings */
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* Keep tables and data cards together */
+  table, .gg-data-card, .gg-module, .data-card {
+    page-break-inside: avoid;
+  }
+
+  /* Keep week blocks together */
+  .week-block {
+    page-break-inside: avoid;
+  }
+
+  /* Links — no underline, plain color */
+  a {
+    color: var(--gg-color-dark-brown);
+    text-decoration: none;
+  }
 }
 
 /* === Mobile === */

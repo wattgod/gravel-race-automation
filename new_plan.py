@@ -3,11 +3,15 @@
 NEW PLAN — One command to go from SendGrid email to finished plan.
 
 Usage:
-  python3 new_plan.py --id tp-sbt-grvl-sarah-printz-mlju8jn9   # Pull from Supabase (zero typing)
+  python3 new_plan.py --id tp-sbt-grvl-sarah-printz-mlju8jn9   # Full pipeline (PDF + deploy + email)
+  python3 new_plan.py --id tp-sbt-grvl-sarah-printz-mlju8jn9 --draft  # Review first, deliver later
   python3 new_plan.py                                            # Interactive mode (manual entry)
 
-With --id: Pulls the questionnaire data from Supabase, runs pipeline, opens guide. Zero data entry.
-Without --id: Prompts you for each field (same order as the email), then runs pipeline.
+Default: runs ALL 10 steps (validate → profile → classify → schedule → template → workouts →
+         guide → PDF → deploy → deliver). Opens guide in browser AND emails athlete.
+
+--draft: skips PDF/deploy/deliver so you can review the guide first. Then run:
+         python3 run_pipeline.py athletes/<slug>/intake.json
 
 Requires .env file with SUPABASE_URL and SUPABASE_SERVICE_KEY for --id mode.
 """
@@ -312,8 +316,13 @@ def interactive_intake() -> dict:
     }
 
 
-def run_pipeline(intake: dict):
-    """Save intake, run pipeline, validate, open guide."""
+def run_pipeline(intake: dict, draft: bool = False):
+    """Save intake, run pipeline, validate, open guide.
+
+    Args:
+        draft: If True, skip PDF/deploy/deliver (review mode).
+               If False (default), run all 10 steps end-to-end.
+    """
     name = intake["name"]
     race = intake["races"][0]
     race_name = race["name"]
@@ -345,12 +354,13 @@ def run_pipeline(intake: dict):
     print(f"\n  Saved: {intake_path}")
 
     # ── RUN PIPELINE ───────────────────────────────────────────
-    print(f"\n  Running pipeline...\n")
-    result = subprocess.run(
-        [sys.executable, str(BASE_DIR / "run_pipeline.py"), str(intake_path),
-         "--skip-pdf", "--skip-deploy", "--skip-deliver"],
-        cwd=str(BASE_DIR),
-    )
+    cmd = [sys.executable, str(BASE_DIR / "run_pipeline.py"), str(intake_path)]
+    if draft:
+        cmd.extend(["--skip-pdf", "--skip-deploy", "--skip-deliver"])
+        print(f"\n  Running pipeline (draft mode — skipping PDF/deploy/deliver)...\n")
+    else:
+        print(f"\n  Running full pipeline (PDF + deploy + deliver)...\n")
+    result = subprocess.run(cmd, cwd=str(BASE_DIR))
     if result.returncode != 0:
         print("\n  PIPELINE FAILED. Check errors above.")
         sys.exit(1)
@@ -407,6 +417,11 @@ def main():
         dest="request_id",
         help="Plan request ID from the email subject (e.g. tp-sbt-grvl-sarah-printz-mlju8jn9)",
     )
+    parser.add_argument(
+        "--draft",
+        action="store_true",
+        help="Draft mode: skip PDF/deploy/deliver (review guide before sending)",
+    )
     args = parser.parse_args()
 
     if args.request_id:
@@ -432,7 +447,7 @@ def main():
         # ── INTERACTIVE MODE (manual entry) ──────────────────────
         intake = interactive_intake()
 
-    run_pipeline(intake)
+    run_pipeline(intake, draft=args.draft)
 
 
 if __name__ == "__main__":

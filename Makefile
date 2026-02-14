@@ -9,14 +9,21 @@ install:
 
 setup: install
 
-# Generate a full plan for an athlete
-generate:
+# Quick draft for review (skips PDF/deploy/deliver)
+draft:
 	python3 run_pipeline.py $(INTAKE) --skip-pdf --skip-deploy --skip-deliver
 
-# Generate + validate (the correct workflow — use this, not just generate)
-ship: generate validate check-tp
+# Full pipeline: generate + PDF + deploy + email
+deliver:
+	python3 run_pipeline.py $(INTAKE)
+
+# Legacy alias for draft
+generate: draft
+
+# Full QA workflow: draft → validate → check-tp → manual review → deliver
+ship: draft validate check-tp
 	@echo ""
-	@echo "READY TO SHIP"
+	@echo "DRAFT READY — review the guide, then run: make deliver"
 
 # Run all tests
 test:

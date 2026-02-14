@@ -42,4 +42,4 @@ def deploy_guide(athlete_id: str, guide_html: Path, base_dir: Path) -> str:
         capture_output=True,
     )
 
-    return f"https://wattgod.github.io/endure-plan-engine/guides/{slug}/"
+    return f"https://wattgod.github.io/gravel-race-automation/guides/{slug}/"

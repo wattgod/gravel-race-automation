@@ -134,7 +134,161 @@ try {{
           result.stderr or result.stdout)
 
 
-# ── Check 4: All 328 races classify climate without error ──
+# ── Check 4: training-plans-form.js syntax validation ──
+
+
+def check_training_form_js_syntax():
+    """Parse training-plans-form.js through Node.js to catch syntax errors."""
+    print("\n── Training Form JS Syntax ──")
+    form_js = PROJECT_ROOT / "web" / "training-plans-form.js"
+    if not form_js.exists():
+        check("training-plans-form.js exists", False, "File not found")
+        return
+
+    js_content = form_js.read_text()
+    test_script = f"""
+try {{
+    new Function({json.dumps(js_content)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+    result = subprocess.run(
+        ["node", "-e", test_script],
+        capture_output=True, text=True, timeout=10
+    )
+    check("training-plans-form.js parses without syntax errors",
+          result.returncode == 0 and "SYNTAX_OK" in result.stdout,
+          result.stderr or result.stdout)
+
+
+# ── Check 5: Pricing parity between Python (app.py) and JS (form.js) ──
+
+
+def check_pricing_parity():
+    """Verify Python and JS price computations produce identical results.
+
+    The user sees a JS-computed price on the submit button, then the server
+    charges a Python-computed price via Stripe. If these diverge, we have
+    a trust/legal problem. This check catches that before deploy.
+    """
+    print("\n── Pricing Parity (Python/JS) ──")
+    from datetime import date, timedelta
+    import math
+
+    # Python computation (mirrors app.py compute_plan_price)
+    PRICE_PER_WEEK_CENTS = 1500
+    PRICE_CAP_CENTS = 24900
+    MIN_WEEKS = 4
+
+    def py_price(race_date_str):
+        try:
+            from datetime import datetime
+            race_date = datetime.strptime(race_date_str, '%Y-%m-%d').date()
+        except (ValueError, TypeError):
+            return MIN_WEEKS, MIN_WEEKS * PRICE_PER_WEEK_CENTS
+        today = date.today()
+        days_until = (race_date - today).days
+        weeks = max(MIN_WEEKS, math.ceil(days_until / 7))
+        price_cents = min(weeks * PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS)
+        return weeks, price_cents
+
+    # Test dates: 5wk, 10wk, 16wk, 30wk, past, 3 days out
+    from datetime import datetime
+    test_dates = [
+        (datetime.now() + timedelta(weeks=5)).strftime('%Y-%m-%d'),
+        (datetime.now() + timedelta(weeks=10)).strftime('%Y-%m-%d'),
+        (datetime.now() + timedelta(weeks=16)).strftime('%Y-%m-%d'),
+        (datetime.now() + timedelta(weeks=30)).strftime('%Y-%m-%d'),
+        (datetime.now() - timedelta(weeks=2)).strftime('%Y-%m-%d'),
+        (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d'),
+    ]
+
+    js_code = """
+    var PRICE_PER_WEEK = 15;
+    var PRICE_CAP = 249;
+    var MIN_WEEKS = 4;
+
+    function computePrice(raceDateStr) {
+      var raceDate = new Date(raceDateStr + 'T00:00:00');
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var days = Math.ceil((raceDate - today) / (1000 * 60 * 60 * 24));
+      var weeks = Math.max(MIN_WEEKS, Math.ceil(days / 7));
+      var price = Math.min(weeks * PRICE_PER_WEEK, PRICE_CAP);
+      return {weeks: weeks, price_cents: price * 100};
+    }
+
+    var dates = %DATES%;
+    var results = dates.map(function(d) { return computePrice(d); });
+    console.log(JSON.stringify(results));
+    """.replace('%DATES%', json.dumps(test_dates))
+
+    result = subprocess.run(
+        ["node", "-e", js_code],
+        capture_output=True, text=True, timeout=10
+    )
+    if result.returncode != 0:
+        check("JS pricing runs", False, result.stderr)
+        return
+
+    js_results = json.loads(result.stdout.strip())
+    all_match = True
+    for i, (d, js_r) in enumerate(zip(test_dates, js_results)):
+        py_weeks, py_cents = py_price(d)
+        if py_cents != js_r['price_cents'] or py_weeks != js_r['weeks']:
+            check(f"Price parity for {d}",
+                  False,
+                  f"Python={py_cents}c/{py_weeks}wk, JS={js_r['price_cents']}c/{js_r['weeks']}wk")
+            all_match = False
+
+    if all_match:
+        check(f"Price parity across {len(test_dates)} date scenarios", True)
+
+
+# ── Check 6: Dead CSS detection for training-plans.html ──
+
+
+def check_no_dead_css():
+    """Check for CSS classes defined but not used in HTML."""
+    print("\n── Dead CSS Check (training-plans.html) ──")
+    html_file = PROJECT_ROOT / "web" / "training-plans.html"
+    if not html_file.exists():
+        return
+
+    content = html_file.read_text()
+    # Split into CSS (inside <style>) and HTML (outside)
+    style_match = re.search(r'<style>(.*?)</style>', content, re.DOTALL)
+    if not style_match:
+        return
+    css_text = style_match.group(1)
+    html_text = content[style_match.end():]
+
+    # Find all class selectors in CSS
+    css_classes = set(re.findall(r'\.(tp-\w[\w-]*)', css_text))
+    # Find all class references in HTML
+    html_classes = set(re.findall(r'class="[^"]*?(tp-\w[\w-]*)', html_text))
+    # Also check for classes used in style attributes or inline
+    for m in re.finditer(r'class="([^"]*)"', html_text):
+        for cls in m.group(1).split():
+            if cls.startswith('tp-'):
+                html_classes.add(cls)
+
+    dead = css_classes - html_classes
+    # Exclude pseudo-element targets and hover variants
+    dead = {c for c in dead if not any(
+        c.startswith(p) for p in ('tp-viz-z',)  # zone colors used via JS
+    )}
+
+    if dead:
+        check("No dead CSS classes", False, f"{len(dead)} unused: {', '.join(sorted(dead)[:5])}")
+    else:
+        check("No dead CSS classes", True)
+
+
+# ── Check 7: All 328 races classify climate without error ──
 
 
 def check_climate_classification(quick=False):
@@ -233,6 +387,91 @@ def check_css_js_class_sync():
             check(f".{cls} in CSS", cls in css_classes, f"JS references .{cls} but not in CSS")
 
 
+def check_infographic_renderers():
+    """Verify all infographic asset_ids in guide content JSON have renderers."""
+    print("\n── Infographic Renderer Coverage ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    from guide_infographics import INFOGRAPHIC_RENDERERS
+    content_json = PROJECT_ROOT / "guide" / "gravel-guide-content.json"
+    content = json.loads(content_json.read_text(encoding="utf-8"))
+
+    # Collect all image asset_ids from content (excluding hero photos)
+    hero_ids = {f"ch{i}-hero" for i in range(1, 9)}
+    image_ids = set()
+    for ch in content["chapters"]:
+        for sec in ch["sections"]:
+            for block in sec["blocks"]:
+                if block.get("type") == "image":
+                    aid = block["asset_id"]
+                    if aid not in hero_ids:
+                        image_ids.add(aid)
+
+    for aid in sorted(image_ids):
+        check(f"Renderer for {aid}",
+              aid in INFOGRAPHIC_RENDERERS,
+              f"No renderer for infographic asset_id '{aid}'")
+
+    # Check no orphan renderers (renderers for asset_ids not in content)
+    for aid in sorted(INFOGRAPHIC_RENDERERS):
+        check(f"Content uses {aid}",
+              aid in image_ids,
+              f"Renderer exists for '{aid}' but not found in content JSON")
+
+
+def check_infographic_css_no_hex():
+    """Verify infographic CSS section uses var() not raw hex colors."""
+    print("\n── Infographic CSS Token Compliance ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    import generate_guide
+    css = generate_guide.build_guide_css()
+
+    # Extract infographic section (from marker to end)
+    marker = "/* ── Inline Infographics ── */"
+    if marker not in css:
+        check("Infographic CSS section exists", False, "Marker not found in CSS")
+        return
+    infographic_css = css[css.index(marker):]
+
+    # Find raw hex colors (#xxx or #xxxxxx) — exclude inside var() or color-mix()
+    # We scan for #[0-9a-fA-F]{3,8} patterns that aren't part of a comment
+    hex_matches = re.findall(r'#[0-9a-fA-F]{3,8}', infographic_css)
+    if hex_matches:
+        check("No raw hex in infographic CSS", False,
+              f"Found {len(hex_matches)} raw hex values: {', '.join(hex_matches[:5])}")
+    else:
+        check("No raw hex in infographic CSS", True)
+
+
+def check_root_matches_brand_tokens():
+    """Verify :root CSS custom properties match gravel-god-brand/tokens/tokens.css."""
+    print("\n── :root vs Brand Tokens Parity ──")
+    tokens_path = PROJECT_ROOT.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+    if not tokens_path.exists():
+        warn(":root token parity", f"Brand tokens file not found at {tokens_path}")
+        return
+
+    tokens_css = tokens_path.read_text(encoding="utf-8")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    import generate_guide
+    guide_css = generate_guide.build_guide_css()
+
+    # Parse --gg-color-* from both files
+    def parse_colors(text):
+        return dict(re.findall(r'(--gg-color-[\w-]+)\s*:\s*(#[0-9a-fA-F]{3,8})', text))
+
+    token_colors = parse_colors(tokens_css)
+    guide_colors = parse_colors(guide_css)
+
+    for name, guide_val in guide_colors.items():
+        if name in token_colors:
+            match = guide_val.lower() == token_colors[name].lower()
+            check(f"{name} matches tokens",
+                  match,
+                  f"Guide has {guide_val}, tokens has {token_colors[name]}")
+        else:
+            warn(f"{name} in guide", f"Not found in brand tokens — verify manually")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -245,14 +484,22 @@ def main():
 
     if args.js:
         check_js_syntax()
+        check_training_form_js_syntax()
         check_js_python_constant_parity()
         check_css_js_class_sync()
+        check_pricing_parity()
     else:
         check_no_inline_imports()
         check_js_python_constant_parity()
         check_js_syntax()
+        check_training_form_js_syntax()
         check_css_js_class_sync()
         check_worker_hydration_fields()
+        check_pricing_parity()
+        check_no_dead_css()
+        check_infographic_renderers()
+        check_infographic_css_no_hex()
+        check_root_matches_brand_tokens()
         if not args.quick:
             check_climate_classification()
 

@@ -35,6 +35,8 @@ from generate_neo_brutalist import (
     TRAINING_PLANS_URL,
 )
 
+from guide_infographics import INFOGRAPHIC_RENDERERS
+
 GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
 
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
@@ -434,7 +436,12 @@ def render_calculator(block: dict) -> str:
 
 
 def render_image(block: dict) -> str:
-    """Render an image block with optional caption and layout variants."""
+    """Render an image block with optional caption and layout variants.
+    Infographic asset_ids are dispatched to inline SVG/HTML renderers;
+    hero photos fall through to <img> tags."""
+    infographic_renderer = INFOGRAPHIC_RENDERERS.get(block["asset_id"])
+    if infographic_renderer:
+        return infographic_renderer(block)
     asset_id = esc(block["asset_id"])
     alt = esc(block.get("alt", ""))
     caption = block.get("caption", "")
@@ -547,7 +554,7 @@ def build_hero(content: dict) -> str:
     subtitle = esc(content["subtitle"])
     return f'''<div class="gg-hero">
     <div class="gg-hero-tier" style="background:#178079">FREE GUIDE</div>
-    <h1 data-text="{title}">{title}</h1>
+    <h1>{title}</h1>
     <p class="gg-hero-tagline">{subtitle}</p>
   </div>'''
 
@@ -854,7 +861,28 @@ def build_jsonld(content: dict) -> str:
 
 def build_guide_css() -> str:
     """Return all guide-specific CSS."""
-    return '''/* ── Guide Progress Bar ── */
+    return ''':root{
+--gg-color-dark-brown:#3a2e25;
+--gg-color-primary-brown:#59473c;
+--gg-color-secondary-brown:#8c7568;
+--gg-color-warm-brown:#A68E80;
+--gg-color-tan:#d4c5b9;
+--gg-color-sand:#ede4d8;
+--gg-color-warm-paper:#f5efe6;
+--gg-color-gold:#B7950B;
+--gg-color-light-gold:#c9a92c;
+--gg-color-teal:#1A8A82;
+--gg-color-light-teal:#4ECDC4;
+--gg-color-near-black:#1a1613;
+--gg-color-white:#ffffff;
+--gg-color-error:#c0392b;
+--gg-color-tier-1:#59473c;
+--gg-color-tier-2:#8c7568;
+--gg-color-tier-3:#999999;
+--gg-color-tier-4:#cccccc
+}
+
+/* ── Guide Progress Bar ── */
 .gg-guide-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;background:transparent}
 .gg-guide-progress-bar{height:100%;width:0%;background:#178079}
 
@@ -1156,6 +1184,65 @@ def build_guide_css() -> str:
 .gg-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#9a7e0a}
 .gg-tooltip-trigger:hover .gg-tooltip,.gg-tooltip-trigger:focus .gg-tooltip{opacity:1;visibility:visible}
 @media(max-width:768px){.gg-tooltip{position:fixed;bottom:auto;top:auto;left:16px;right:16px;transform:none;max-width:none}}
+
+/* ── Inline Infographics ── */
+.gg-infographic{margin:0 0 20px;line-height:1.4}
+.gg-infographic--full-width{margin-left:-24px;margin-right:-24px}
+.gg-infographic-caption{font-size:11px;color:var(--gg-color-tan);padding:8px 12px;line-height:1.5;font-family:var(--gg-font-data);letter-spacing:0.5px;background:var(--gg-color-dark-brown);border:3px solid var(--gg-color-dark-brown);border-top:4px double var(--gg-color-dark-brown);margin-top:0}
+.gg-infographic-svg{display:block;width:100%;height:auto}
+.gg-infographic-card{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper)}
+.gg-infographic-card-icon{margin-bottom:8px}
+.gg-infographic-card-title{font-family:var(--gg-font-editorial);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-primary-brown);margin-bottom:4px;border-bottom:2px solid var(--gg-color-gold);padding-bottom:4px}
+.gg-infographic-card-desc{font-family:var(--gg-font-editorial);font-size:12px;line-height:1.6;color:var(--gg-color-dark-brown)}
+.gg-infographic-gear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gg-infographic-rider-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gg-infographic-rider-card{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper)}
+.gg-infographic-rider-name{font-family:var(--gg-font-editorial);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-primary-brown);margin-bottom:4px;border-bottom:2px solid var(--gg-color-gold);padding-bottom:4px}
+.gg-infographic-rider-hours{font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-secondary-brown);margin-bottom:8px}
+.gg-infographic-rider-bar-wrap{height:8px;background:var(--gg-color-tan);margin-bottom:4px}
+.gg-infographic-rider-bar{height:100%;background:var(--gg-color-teal)}
+.gg-infographic-rider-ftp{font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-dark-brown);margin-bottom:8px}
+.gg-infographic-rider-meta{font-family:var(--gg-font-data);font-size:11px;color:var(--gg-color-secondary-brown);display:flex;flex-direction:column;gap:2px}
+.gg-infographic-week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.gg-infographic-day-card{border:3px solid var(--gg-color-dark-brown);padding:12px 8px;background:var(--gg-color-warm-paper);text-align:center}
+.gg-infographic-day-card--race{background:var(--gg-color-teal);border-color:var(--gg-color-teal)}
+.gg-infographic-day-card--race .gg-infographic-day-abbr,.gg-infographic-day-card--race .gg-infographic-day-task,.gg-infographic-day-card--race .gg-infographic-day-note{color:var(--gg-color-warm-paper)}
+.gg-infographic-day-abbr{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown);margin-bottom:4px}
+.gg-infographic-day-task{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-primary-brown);margin-bottom:4px}
+.gg-infographic-day-note{font-family:var(--gg-font-data);font-size:10px;color:var(--gg-color-secondary-brown);line-height:1.4}
+.gg-infographic-traffic-light{display:flex;flex-direction:column;gap:12px}
+.gg-infographic-signal-row{display:flex;gap:16px;border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper);align-items:flex-start}
+.gg-infographic-signal-indicator{width:32px;height:32px;flex-shrink:0}
+.gg-infographic-signal-label{font-family:var(--gg-font-data);font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gg-color-dark-brown);margin-bottom:4px}
+.gg-infographic-signal-criteria{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin-bottom:4px}
+.gg-infographic-signal-action{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-dark-brown)}
+.gg-infographic-three-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gg-infographic-act-panel{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper)}
+.gg-infographic-act-num{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gg-color-secondary-brown);margin-bottom:2px}
+.gg-infographic-act-title{font-family:var(--gg-font-editorial);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-primary-brown);border-bottom:2px solid var(--gg-color-gold);padding-bottom:4px;margin-bottom:4px}
+.gg-infographic-act-range{font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-teal);font-weight:700;margin-bottom:8px}
+.gg-infographic-act-list{font-family:var(--gg-font-editorial);font-size:12px;line-height:1.6;color:var(--gg-color-dark-brown);padding-left:16px;margin:0}
+.gg-infographic-act-list li{margin-bottom:4px}
+.gg-infographic-bonk-math{text-align:center;padding:24px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-bonk-equation{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:8px}
+.gg-infographic-bonk-num{font-family:var(--gg-font-data);font-size:48px;font-weight:700;color:var(--gg-color-primary-brown)}
+.gg-infographic-bonk-op{font-family:var(--gg-font-data);font-size:32px;color:var(--gg-color-secondary-brown)}
+.gg-infographic-bonk-total{font-family:var(--gg-font-data);font-size:56px;font-weight:700;color:var(--gg-color-teal)}
+.gg-infographic-bonk-subtitle{font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-secondary-brown);margin-bottom:20px}
+.gg-infographic-bonk-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;max-width:480px;margin:0 auto 8px}
+.gg-infographic-bonk-gel{height:24px;background:var(--gg-color-gold);border:2px solid var(--gg-color-dark-brown)}
+.gg-infographic-bonk-label{font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);letter-spacing:1px}
+@media(max-width:768px){
+.gg-infographic--full-width{margin-left:-16px;margin-right:-16px}
+.gg-infographic-gear-grid{grid-template-columns:1fr 1fr}
+.gg-infographic-rider-grid{grid-template-columns:1fr 1fr}
+.gg-infographic-week-grid{grid-template-columns:repeat(4,1fr)}
+.gg-infographic-three-acts{grid-template-columns:1fr}
+.gg-infographic-bonk-equation{flex-wrap:wrap}
+.gg-infographic-bonk-num{font-size:36px}
+.gg-infographic-bonk-total{font-size:42px}
+.gg-infographic-bonk-grid{grid-template-columns:repeat(8,1fr)}
+}
 '''
 
 
@@ -1606,8 +1693,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 /* Hero */
 .gg-neo-brutalist-page .gg-hero {{ background: #59473c; color: #fff; padding: 60px 40px; border: 3px solid #3a2e25; border-top: none; border-bottom: 4px double rgba(255,255,255,0.15); margin-bottom: 0; position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: #3a2e25; color: #fff; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }}
-.gg-neo-brutalist-page .gg-hero h1 {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #fff; position: relative; }}
-.gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: #178079; opacity: 0.3; z-index: 0; pointer-events: none; }}
+.gg-neo-brutalist-page .gg-hero h1 {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 42px; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 16px; color: #fff; }}
 .gg-neo-brutalist-page .gg-hero-tagline {{ font-size: 14px; line-height: 1.6; color: #d4c5b9; max-width: 700px; }}
 /* Footer */
 .gg-neo-brutalist-page .gg-footer {{ padding: 24px 20px; border: 3px solid #3a2e25; border-top: 4px double #3a2e25; background: #3a2e25; color: #d4c5b9; margin-top: 0; }}

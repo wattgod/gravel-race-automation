@@ -67,26 +67,65 @@ class TestLevelDerivation:
 
 
 class TestPlanWeeks:
-    def test_long_plan_gets_20_weeks(self):
-        """Race far in the future should get 20-week plan."""
+    def test_plan_duration_equals_plan_weeks(self):
+        """No bucketing — plan_duration should equal plan_weeks."""
         from datetime import date, timedelta
-        far_date = (date.today() + timedelta(weeks=22)).strftime("%Y-%m-%d")
+        for weeks_out in [9, 13, 15, 18, 19, 22]:
+            future_date = (date.today() + timedelta(weeks=weeks_out)).strftime("%Y-%m-%d")
+            derived = classify_athlete(_make_profile(race_date=future_date))
+            assert derived["plan_duration"] == derived["plan_weeks"], (
+                f"plan_duration ({derived['plan_duration']}) != plan_weeks ({derived['plan_weeks']}) "
+                f"for {weeks_out} weeks out. No bucketing — use every week."
+            )
+
+    def test_plan_weeks_clamped_to_range(self):
+        """plan_weeks must be in [8, 24] regardless of actual time to race."""
+        from datetime import date, timedelta
+        # Very far out → capped at 24
+        far_date = (date.today() + timedelta(weeks=50)).strftime("%Y-%m-%d")
         derived = classify_athlete(_make_profile(race_date=far_date))
-        assert derived["plan_duration"] == 20
+        assert derived["plan_weeks"] <= 24
+        assert derived["plan_duration"] <= 24
 
-    def test_medium_plan_gets_16_weeks(self):
-        """Race ~16 weeks out should get 16-week plan."""
-        from datetime import date, timedelta
-        med_date = (date.today() + timedelta(weeks=16)).strftime("%Y-%m-%d")
-        derived = classify_athlete(_make_profile(race_date=med_date))
-        assert derived["plan_duration"] == 16
 
-    def test_short_plan_gets_12_weeks(self):
-        """Race in 10 weeks → 12-week template."""
-        from datetime import date, timedelta
-        short_date = (date.today() + timedelta(weeks=10)).strftime("%Y-%m-%d")
-        derived = classify_athlete(_make_profile(race_date=short_date))
-        assert derived["plan_duration"] == 12
+class TestPlanStartDate:
+    def test_plan_start_date_present(self):
+        """plan_start_date must always be in derived output."""
+        derived = classify_athlete(_make_profile())
+        assert "plan_start_date" in derived
+        assert derived["plan_start_date"]  # not empty
+
+    def test_plan_start_date_is_today(self):
+        """plan_start_date must be the day the plan was requested — today."""
+        from datetime import date, datetime
+        derived = classify_athlete(_make_profile())
+        start = datetime.strptime(derived["plan_start_date"], "%Y-%m-%d").date()
+        assert start == date.today(), (
+            f"plan_start_date should be today ({date.today()}) but got {start}. "
+            f"Plan starts the day the athlete submits, not next Monday."
+        )
+
+    def test_plan_start_date_format(self):
+        """plan_start_date must be YYYY-MM-DD format."""
+        derived = classify_athlete(_make_profile())
+        from datetime import datetime
+        # Will raise ValueError if format is wrong
+        datetime.strptime(derived["plan_start_date"], "%Y-%m-%d")
+
+    def test_race_day_falls_in_final_week(self):
+        """Race day must fall within the final week of the plan."""
+        from datetime import date, datetime, timedelta
+        for weeks_out in [9, 13, 15, 18, 19, 22]:
+            future_date = (date.today() + timedelta(weeks=weeks_out)).strftime("%Y-%m-%d")
+            derived = classify_athlete(_make_profile(race_date=future_date))
+            start = datetime.strptime(derived["plan_start_date"], "%Y-%m-%d").date()
+            race = datetime.strptime(future_date, "%Y-%m-%d").date()
+            plan_end = start + timedelta(weeks=derived["plan_duration"]) - timedelta(days=1)
+            last_week_start = start + timedelta(weeks=derived["plan_duration"] - 1)
+            assert last_week_start <= race <= plan_end, (
+                f"Race {race} not in final week ({last_week_start} to {plan_end}) "
+                f"for {weeks_out} weeks out. plan_duration={derived['plan_duration']}"
+            )
 
 
 class TestSarahPrintz:
@@ -128,3 +167,28 @@ class TestSarahPrintz:
         assert derived["level"] == "intermediate"
         assert derived["race_name"] == "SBT GRVL"
         assert derived["race_distance_miles"] == 100
+        assert derived["recovery_week_cadence"] == 3, (
+            f"Sarah is 44 — recovery_week_cadence should be 3, got {derived['recovery_week_cadence']}"
+        )
+
+
+class TestRecoveryWeekCadence:
+    def test_young_athlete_gets_4_week_cadence(self):
+        derived = classify_athlete(_make_profile(age=30))
+        assert derived["recovery_week_cadence"] == 4
+
+    def test_39_year_old_gets_4_week_cadence(self):
+        derived = classify_athlete(_make_profile(age=39))
+        assert derived["recovery_week_cadence"] == 4
+
+    def test_40_year_old_gets_3_week_cadence(self):
+        derived = classify_athlete(_make_profile(age=40))
+        assert derived["recovery_week_cadence"] == 3
+
+    def test_44_year_old_gets_3_week_cadence(self):
+        derived = classify_athlete(_make_profile(age=44))
+        assert derived["recovery_week_cadence"] == 3
+
+    def test_55_year_old_gets_3_week_cadence(self):
+        derived = classify_athlete(_make_profile(age=55))
+        assert derived["recovery_week_cadence"] == 3

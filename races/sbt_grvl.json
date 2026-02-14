@@ -12,6 +12,11 @@
     "terrain": "mountain_gravel",
     "technical_difficulty": "moderate"
   },
+  "race_hooks": {
+    "punchy": "Champagne gravel at 7,000 feet. 100 miles of Colorado mountain roads where the smooth surface lures you into burning matches the altitude won't forgive.",
+    "detail": "SBT GRVL's deceptively fast surfaces let you overcook the first half while altitude and relentless rolling terrain compound every pacing mistake. By mile 80, that silky gravel feels like wet cement.",
+    "dark_mile": 80
+  },
   "distance_variants": [
     {
       "distance_miles": 37,

@@ -75,25 +75,21 @@ def classify_athlete(profile: Dict) -> Dict:
         race_date = None
 
     if race_date:
-        # Calculate next Monday from today
+        # Plan starts today — the day the athlete submits
         today = date.today()
-        days_until_monday = (7 - today.weekday()) % 7
-        if days_until_monday == 0:
-            days_until_monday = 7
-        next_monday = today + timedelta(days=days_until_monday)
-
-        weeks_to_race = (race_date - next_monday).days // 7
+        # +1 so race day falls IN the final week, not after
+        weeks_to_race = (race_date - today).days // 7 + 1
         plan_weeks = min(24, max(8, weeks_to_race))
+        plan_start_date = today.strftime("%Y-%m-%d")
     else:
         plan_weeks = 12
+        plan_start_date = date.today().strftime("%Y-%m-%d")
 
-    # Round to nearest template duration: 12, 16, or 20
-    if plan_weeks <= 14:
-        plan_duration = 12
-    elif plan_weeks <= 18:
-        plan_duration = 16
-    else:
-        plan_duration = 20
+    # plan_duration = plan_weeks — no bucketing, use every week the athlete has
+    plan_duration = plan_weeks
+
+    # Recovery cadence: every 3 weeks for 40+, every 4 weeks for younger
+    recovery_week_cadence = 3 if (age is not None and age >= 40) else 4
 
     return {
         "tier": tier,
@@ -101,7 +97,9 @@ def classify_athlete(profile: Dict) -> Dict:
         "weekly_hours": weekly_hours,
         "plan_weeks": plan_weeks,
         "plan_duration": plan_duration,
+        "plan_start_date": plan_start_date,
         "is_masters": is_masters,
+        "recovery_week_cadence": recovery_week_cadence,
         "race_name": primary_race.get("name"),
         "race_date": race_date_str,
         "race_distance_miles": primary_race.get("distance_miles"),

@@ -5,9 +5,15 @@ Validates raw questionnaire data before processing.
 Adapted from athlete-profiles/athletes/scripts/validate_submission.py
 """
 
+import json
 import re
-from datetime import datetime, date
-from typing import Dict, List
+from datetime import datetime, date, timedelta
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+# Lead time bounds
+MIN_LEAD_WEEKS = 6    # Can't build a meaningful plan in less than 6 weeks
+MAX_LEAD_WEEKS = 78   # 1.5 years out — beyond this, date is likely wrong
 
 VALID_HOURS = ["3-5", "5-7", "7-10", "10-12", "12-15", "15+"]
 
@@ -63,6 +69,23 @@ def validate_intake(intake: Dict) -> Dict:
                         errors.append(
                             f"Race {i+1}: date {race['date']} is in the past"
                         )
+                    else:
+                        # Lead time validation
+                        weeks_until = (race_date - today).days / 7
+                        if weeks_until < MIN_LEAD_WEEKS:
+                            errors.append(
+                                f"Race {i+1}: date {race['date']} is only "
+                                f"{weeks_until:.0f} weeks away (minimum {MIN_LEAD_WEEKS} weeks "
+                                f"needed to build a meaningful plan)"
+                            )
+                        elif weeks_until > MAX_LEAD_WEEKS:
+                            errors.append(
+                                f"Race {i+1}: date {race['date']} is "
+                                f"{weeks_until:.0f} weeks away — please verify this date "
+                                f"(max {MAX_LEAD_WEEKS} weeks)"
+                            )
+                        # Enrich with day of week
+                        race["race_day_of_week"] = race_date.strftime("%A")
                 except ValueError:
                     errors.append(
                         f"Race {i+1}: invalid date format '{race['date']}' (use YYYY-MM-DD)"
@@ -104,3 +127,121 @@ def validate_intake(intake: Dict) -> Dict:
             intake[field] = [intake[field]]
 
     return intake
+
+
+def cross_reference_race_date(
+    race_name: str, race_date_str: str, base_dir: Path
+) -> Dict:
+    """
+    Cross-reference an intake race date against the race-data/ database.
+
+    Returns dict with:
+        - matched: bool — whether a matching race was found
+        - race_data_file: str — filename if matched
+        - date_specific: str — raw date_specific value from race data
+        - parsed_date: str — parsed YYYY-MM-DD if possible, else None
+        - date_match: bool — whether the dates match
+        - warning: str — human-readable warning if dates don't match
+        - day_of_week: str — day of week for the intake date
+    """
+    result = {
+        "matched": False,
+        "race_data_file": None,
+        "date_specific": None,
+        "parsed_date": None,
+        "date_match": None,
+        "warning": None,
+        "day_of_week": None,
+    }
+
+    # Parse intake date
+    try:
+        rd = datetime.strptime(race_date_str, "%Y-%m-%d").date()
+        result["day_of_week"] = rd.strftime("%A")
+    except ValueError:
+        result["warning"] = f"Cannot parse intake date: {race_date_str}"
+        return result
+
+    # Search race-data/ directory for matching race name
+    race_data_dir = base_dir / "race-data"
+    if not race_data_dir.exists():
+        return result
+
+    name_lower = race_name.lower().strip()
+    for json_file in sorted(race_data_dir.glob("*.json")):
+        try:
+            with open(json_file) as f:
+                data = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        # Check both top-level and nested structures
+        race_obj = data.get("race", data)
+        file_name = race_obj.get("name", "") or race_obj.get("display_name", "")
+        if file_name.lower().strip() != name_lower:
+            continue
+
+        # Found a match
+        result["matched"] = True
+        result["race_data_file"] = json_file.name
+
+        vitals = race_obj.get("vitals", {})
+        date_specific = vitals.get("date_specific", "")
+        result["date_specific"] = date_specific
+
+        if not date_specific:
+            break
+
+        # Try to parse date_specific (format: "YYYY: Month Day" or "YYYY: Month Day-Day")
+        parsed = _parse_date_specific(date_specific, rd.year)
+        if parsed:
+            result["parsed_date"] = parsed.isoformat()
+            result["date_match"] = (parsed == rd)
+            if not result["date_match"]:
+                result["warning"] = (
+                    f"Date mismatch: intake says {race_date_str} "
+                    f"({result['day_of_week']}), but race database says "
+                    f"\"{date_specific}\" → {parsed.isoformat()} "
+                    f"({parsed.strftime('%A')}). Please verify."
+                )
+        break
+
+    return result
+
+
+def _parse_date_specific(date_specific: str, target_year: int) -> Optional[date]:
+    """
+    Parse a date_specific string like "2026: June 28" into a date object.
+
+    Handles:
+        - "2026: June 28" → date(2026, 6, 28)
+        - "2026: May 19-23" → date(2026, 5, 19) (first day of range)
+        - "2026: February 6-15" → date(2026, 2, 6)
+        - Returns None for unparseable strings like "Check USA Cycling for date"
+    """
+    # Extract "YYYY: rest" pattern
+    m = re.match(r"(\d{4}):\s*(.+)", date_specific.strip())
+    if not m:
+        return None
+
+    year_str, date_part = m.group(1), m.group(2).strip()
+    year = int(year_str)
+
+    # Strip trailing range (e.g., "June 28-30" → "June 28", "May 6-15" → "May 6")
+    date_part = re.sub(r"-\d+.*$", "", date_part).strip()
+
+    # Strip parenthetical notes like "(overnight)"
+    date_part = re.sub(r"\(.*?\)", "", date_part).strip()
+
+    # Strip qualifiers like "Early", "Late", "Mid"
+    date_part = re.sub(r"^(Early|Late|Mid)\s+", "", date_part, flags=re.IGNORECASE).strip()
+
+    # Try parsing "Month Day"
+    for fmt in ["%B %d", "%b %d"]:
+        try:
+            parsed = datetime.strptime(date_part, fmt).date()
+            return parsed.replace(year=year)
+        except ValueError:
+            continue
+
+    return None

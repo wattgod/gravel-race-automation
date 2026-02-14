@@ -2,7 +2,7 @@
 Step 5: Select + Extend Plan Template
 
 Selects the correct 12-week base template for tier+level,
-then extends to 16 or 20 weeks if needed.
+then extends to the athlete's exact plan duration if needed.
 Adapted from gravel-plans-experimental/races/generate_expanded_race_plans.py
 """
 
@@ -35,12 +35,14 @@ SAVE_MY_RACE_MAP = {
     "compete": "13. Compete Save My Race (6 weeks)",
 }
 
-# FTP test insertion weeks by plan duration
-FTP_TEST_WEEKS = {
-    12: [1, 7],
-    16: [1, 7, 13],
-    20: [1, 7, 13, 19],
-}
+def _compute_ftp_test_weeks(plan_duration: int) -> list:
+    """Compute FTP test weeks for any plan duration. Test every 6 weeks, starting W1."""
+    weeks = [1]
+    w = 7
+    while w <= plan_duration - 2:  # don't test in taper/race week
+        weeks.append(w)
+        w += 6
+    return weeks
 
 
 def select_template(derived: Dict, base_dir: Path) -> Dict:
@@ -85,10 +87,11 @@ def select_template(derived: Dict, base_dir: Path) -> Dict:
 
     base_weeks = len(template.get("weeks", []))
     extended = False
+    recovery_cadence = derived.get("recovery_week_cadence", 4)
 
     # Extend if needed
     if plan_duration > base_weeks:
-        template = extend_plan_template(template, plan_duration)
+        template = extend_plan_template(template, plan_duration, recovery_cadence=recovery_cadence)
         extended = True
 
     return {
@@ -97,7 +100,7 @@ def select_template(derived: Dict, base_dir: Path) -> Dict:
         "template_dir": template_dir_name,
         "plan_duration": plan_duration,
         "extended": extended,
-        "ftp_test_weeks": FTP_TEST_WEEKS.get(plan_duration, [1, 7]),
+        "ftp_test_weeks": _compute_ftp_test_weeks(plan_duration),
     }
 
 
@@ -130,12 +133,15 @@ def _transform_extended_focus(focus: str, cycle: int) -> str:
     return base
 
 
-def extend_plan_template(base_template: Dict, target_weeks: int) -> Dict:
+def extend_plan_template(base_template: Dict, target_weeks: int, recovery_cadence: int = 4) -> Dict:
     """
-    Extend a 12-week plan template to 16 or 20 weeks.
+    Extend a 12-week plan template to any target duration.
 
-    Strategy: duplicate base phase patterns (weeks 5-8) to fill the gap,
+    Strategy: duplicate base phase patterns to fill the gap,
     then keep the original build/peak/taper progression at the end.
+
+    recovery_cadence: 3 for masters/40+ athletes, 4 for standard.
+    Controls how often recovery weeks appear across the entire plan.
     """
     extended = copy.deepcopy(base_template)
     weeks = extended.get("weeks", [])
@@ -146,17 +152,52 @@ def extend_plan_template(base_template: Dict, target_weeks: int) -> Dict:
 
     additional = target_weeks - base_count
 
-    # Use weeks 5-8 as the "extra base" block to repeat
-    # (weeks 1-4 = intro/base, 5-8 = build, 9-12 = peak/taper)
-    if base_count >= 8:
-        pattern_weeks = weeks[4:8]  # weeks 5-8 (0-indexed: 4-7)
+    # Base template structure (12 weeks):
+    # W1(70% intro), W2(80%), W3(90%), W4(60% recovery),
+    # W5(85%), W6(95%), W7(100%), W8(60% recovery),
+    # W9-W12(peak/taper)
+    #
+    # For cadence=3: rearrange base block so recovery is at W3 and W6,
+    # then extension pattern starts with recovery at W9 → every 3 weeks.
+    # For cadence=4: keep original base block (recovery at W4, W8),
+    # extension pattern puts recovery at W12, W16 → every 4 weeks.
+
+    if base_count >= 8 and recovery_cadence == 3:
+        # Rearrange base block: move recovery weeks to positions 3 and 6
+        # Original: [W1, W2, W3, W4(rec), W5, W6, W7, W8(rec)]
+        # Desired:  [W1, W2, W4(rec), W3, W5, W8(rec), W6, W7]
+        base_block = [
+            weeks[0],  # W1 intro (70%)
+            weeks[1],  # W2 build (80%)
+            weeks[3],  # W4 recovery → now at position 3
+            weeks[2],  # W3 build (90%) → now at position 4
+            weeks[4],  # W5 build (85%)
+            weeks[7],  # W8 recovery → now at position 6
+            weeks[5],  # W6 build (95%) → now at position 7
+            weeks[6],  # W7 peak build (100%) → now at position 8
+        ]
+        # Extension pattern: [recovery, build, build] so W9=recovery, W12=recovery, W15=recovery
+        pattern_weeks = [weeks[7], weeks[4], weeks[5]]  # W8(rec), W5(build), W6(build)
+    elif base_count >= 8:
+        base_block = weeks[:8]
+        # Standard 4-week cycle: build, build, build, recovery
+        pattern_weeks = weeks[4:8]  # weeks 5-8
     else:
+        base_block = weeks[:min(8, base_count)]
         pattern_weeks = weeks[-4:]
 
-    # Split: first 8 weeks = base block, last N weeks = final block (build/peak/taper)
-    split_point = min(8, base_count)
-    base_block = weeks[:split_point]   # weeks 1-8
-    final_block = weeks[split_point:]  # weeks 9-12
+    split_point = len(base_block)
+    final_block = weeks[min(8, base_count):]  # weeks 9-12 (peak/taper)
+
+    # Renumber base block (content was reordered, week_numbers need to match position)
+    for i, week in enumerate(base_block):
+        new_num = i + 1
+        old_num = week["week_number"]
+        week["week_number"] = new_num
+        for workout in week.get("workouts", []):
+            old_name = workout.get("name", "")
+            workout["name"] = re.sub(r"^W\d{1,2}", f"W{new_num:02d}", old_name)
+            workout["week_number"] = new_num
 
     # Extended base weeks are numbered starting after the base block
     new_weeks = []
@@ -173,8 +214,8 @@ def extend_plan_template(base_template: Dict, target_weeks: int) -> Dict:
         cycle = i // len(pattern_weeks)  # 0 for first repeat, 1 for second, etc.
         new_week["focus"] = _transform_extended_focus(original_focus, cycle)
 
-        # Slight volume progression for extended base
-        if i < additional // 2:
+        # Slight volume progression for extended base (skip recovery weeks)
+        if i < additional // 2 and new_week.get("volume_percent", 100) > 65:
             new_week["volume_percent"] = min(
                 105, new_week.get("volume_percent", 100) + 3
             )

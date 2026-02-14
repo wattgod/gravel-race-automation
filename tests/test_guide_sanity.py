@@ -822,3 +822,152 @@ class TestLongRideCautionaryNumber:
                 f"Long Ride card mentions {h} hours but athlete's weekly budget "
                 f"is only {max_hrs}hrs. Cautionary number should reflect reality."
             )
+
+
+class TestRaceDateVerification:
+    """Guide must show date verification callout with day of week and cross-reference."""
+
+    def test_guide_shows_race_day_of_week(self, sarah_html, sarah_derived):
+        """Race date verification must include the day of week."""
+        race_date_str = sarah_derived.get("race_date", "")
+        if not race_date_str:
+            pytest.skip("No race_date in derived")
+        rd = datetime.strptime(race_date_str, "%Y-%m-%d")
+        day_name = rd.strftime("%A")
+        assert day_name in sarah_html, (
+            f"Guide missing day of week '{day_name}' for race date {race_date_str}. "
+            f"Athletes need to see the day to verify it's correct."
+        )
+
+    def test_guide_has_date_verification_section(self, sarah_html):
+        """Guide must have a RACE DATE VERIFICATION callout."""
+        assert "RACE DATE VERIFICATION" in sarah_html, (
+            "Guide is missing the RACE DATE VERIFICATION callout. "
+            "Every guide must triple-check the race date."
+        )
+
+    def test_guide_has_triple_check_reminder(self, sarah_html):
+        """Guide must remind athlete to verify date independently."""
+        assert "triple-check" in sarah_html.lower() or "triple check" in sarah_html.lower(), (
+            "Guide missing triple-check reminder for race date."
+        )
+
+
+class TestExactDatesInGuide:
+    """Phase timelines must show exact calendar dates, not just week numbers."""
+
+    def test_gut_training_has_month_dates(self, sarah_html):
+        """Gut training timeline must show month/day date ranges, not just 'Weeks 1-8'."""
+        import re
+        # Look for month abbreviation in gut training section
+        start = sarah_html.find("Training Your Gut</h3>")
+        end = sarah_html.find("Race-Day Nutrition Execution")
+        assert start != -1, "Gut training section not found"
+        gut_section = sarah_html[start:end] if end != -1 else sarah_html[start:start+3000]
+        # Must contain month abbreviations (Feb, Mar, Apr, May, Jun)
+        month_pattern = re.compile(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d+")
+        matches = month_pattern.findall(gut_section)
+        assert len(matches) >= 2, (
+            f"Gut training timeline must show exact dates (e.g., 'Feb 16 – Apr 12'), "
+            f"found only {len(matches)} month references. No vague 'Weeks 1-8' without dates."
+        )
+
+    def test_phase_progression_has_month_dates(self, sarah_html):
+        """Phase progression cards must show month/day date ranges."""
+        import re
+        # Use the section heading (not the TOC link) to find the right section
+        marker = "Phase Progression</h2>"
+        start = sarah_html.find(marker)
+        assert start != -1, "Phase Progression section heading not found"
+        end = sarah_html.find("Week-by-Week Overview</h2>", start)
+        phase_section = sarah_html[start:end] if end != -1 else sarah_html[start:start+5000]
+        month_pattern = re.compile(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d+")
+        matches = month_pattern.findall(phase_section)
+        assert len(matches) >= 4, (
+            f"Phase progression must show exact dates for each phase, "
+            f"found only {len(matches)} month references."
+        )
+
+    def test_week_by_week_table_has_dates_column(self, sarah_html):
+        """Week-by-week table must have a Dates column with Mon-Sun ranges."""
+        assert ">Dates<" in sarah_html, (
+            "Week-by-week table missing 'Dates' column header. "
+            "Every week must show its exact calendar dates."
+        )
+
+    def test_week_by_week_table_has_date_per_row(self, sarah_html):
+        """Each week row must have a date range like 'Feb 16–Feb 22'."""
+        import re
+        start = sarah_html.find("Week-by-Week Overview</h2>")
+        end = sarah_html.find("Workout Execution</h2>", start)
+        assert start != -1, "Week-by-week section not found"
+        wbw_section = sarah_html[start:end] if end != -1 else sarah_html[start:start+10000]
+        # Count ndash date ranges (Feb 16&ndash;Feb 22 pattern)
+        date_ranges = re.findall(r"[A-Z][a-z]{2}\s+\d+&ndash;[A-Z][a-z]{2}\s+\d+", wbw_section)
+        # Should have at least plan_duration date ranges (one per week row)
+        assert len(date_ranges) >= 10, (
+            f"Week-by-week table should have date ranges for each week, found {len(date_ranges)}"
+        )
+
+
+class TestGuideConsistency:
+    """Guide content must be internally consistent."""
+
+    def test_midweek_start_note_present(self, sarah_html):
+        """When plan starts on non-Monday, guide must explain what to do."""
+        # Sarah's plan starts Feb 14, 2026 which is a Saturday
+        assert "YOUR PLAN STARTS ON A" in sarah_html, (
+            "Guide should have a mid-week start callout when plan_start_date is not a Monday"
+        )
+        assert "Saturday" in sarah_html.split("YOUR PLAN STARTS ON A")[1][:200], (
+            "Mid-week start note should mention the actual start day (Saturday)"
+        )
+
+    def test_recovery_cadence_text_matches_plan(self, sarah_html):
+        """Recovery week text must say 'every 3rd' for 40+ athlete, not 'every 3rd or 4th'."""
+        # Find the recovery weeks callout in phase progression
+        start = sarah_html.find("RECOVERY WEEKS</div>")
+        assert start != -1, "Recovery weeks callout not found"
+        section = sarah_html[start:start+300]
+        assert "Every 3rd week" in section, (
+            f"For 44-year-old athlete, should say 'Every 3rd week', not generic '3rd or 4th'. "
+            f"Found: {section[:200]}"
+        )
+        assert "3rd or 4th" not in section, (
+            "Should NOT say '3rd or 4th' — cadence is specific to athlete's age"
+        )
+
+    def test_gut_training_table_uses_plan_phases(self, sarah_html):
+        """Gut training table must use 'Plan Phase' column, not numbered gut-training weeks."""
+        start = sarah_html.find("Gut Training Progression</h4>")
+        assert start != -1, "Gut Training Progression section not found"
+        section = sarah_html[start:start+1500]
+        assert "Plan Phase" in section, (
+            "Gut training table should use 'Plan Phase' as column header, "
+            "not a standalone numbered-week protocol"
+        )
+        # Should NOT have the old "Start gut training N weeks before race day" framing
+        assert "weeks before race day" not in section.lower(), (
+            "Gut training table should not reference 'N weeks before race day' — "
+            "it should align with plan phases"
+        )
+
+    def test_session_count_excludes_rest_days(self, sarah_html):
+        """Week-by-week session count must not include rest days."""
+        import re
+        start = sarah_html.find("Week-by-Week Overview</h2>")
+        end = sarah_html.find("Workout Execution</h2>", start)
+        assert start != -1
+        wbw = sarah_html[start:end] if end != -1 else sarah_html[start:start+10000]
+        # The Sessions column is the last <td> in each row
+        # For W1, the template has 7 workouts but 2 are rest → should show 5
+        rows = re.findall(r"<tr><td><strong>W(\d+)</strong></td>.*?</tr>", wbw, re.DOTALL)
+        assert len(rows) > 0, "No week rows found"
+        # Check W1 specifically: should not be 7
+        w1_match = re.search(r"<tr><td><strong>W1</strong></td>.*?<td>(\d+)</td></tr>", wbw, re.DOTALL)
+        assert w1_match, "W1 row not found"
+        session_count = int(w1_match.group(1))
+        assert session_count < 7, (
+            f"W1 shows {session_count} sessions but should be less than 7 "
+            f"(rest days must not count as sessions)"
+        )

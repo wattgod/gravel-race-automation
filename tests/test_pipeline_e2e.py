@@ -7,9 +7,10 @@ Validates all quality gates pass through guide generation.
 
 import json
 import pytest
+from datetime import date, timedelta
 from pathlib import Path
 
-from pipeline.step_01_validate import validate_intake
+from pipeline.step_01_validate import validate_intake, cross_reference_race_date, _parse_date_specific
 from pipeline.step_02_profile import create_profile
 from pipeline.step_03_classify import classify_athlete
 from pipeline.step_04_schedule import build_schedule
@@ -232,3 +233,252 @@ class TestTemplateExtension:
                 f"Week {week['week_number']} has internal label: '{focus}'. "
                 f"Template extension should preserve original focus text."
             )
+
+
+class TestRecoveryWeekCadence:
+    """Recovery week placement must match athlete's age-appropriate cadence."""
+
+    def test_3_week_cadence_for_40_plus(self, sarah_intake):
+        """40+ athlete should have recovery every 3 weeks in pre-peak block."""
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        assert derived["recovery_week_cadence"] == 3
+
+        plan_config = select_template(derived, BASE_DIR)
+        weeks = plan_config["template"]["weeks"]
+        plan_duration = plan_config["plan_duration"]
+
+        # Find recovery weeks (vol <= 65%) in pre-peak block
+        from pipeline.step_07_guide import _get_phase_boundaries
+        phases = _get_phase_boundaries(plan_duration)
+        peak_start = phases["peak"][0]
+
+        recovery_weeks = [
+            w["week_number"] for w in weeks
+            if w.get("volume_percent", 100) <= 65 and w["week_number"] < peak_start
+        ]
+
+        # Recovery should be every 3 weeks: W3, W6, W9, W12, W15
+        for rw in recovery_weeks:
+            assert rw % 3 == 0, (
+                f"Recovery at W{rw} doesn't align with 3-week cadence. "
+                f"All recovery weeks: {recovery_weeks}"
+            )
+
+        # Verify gaps between recovery weeks are exactly 3
+        for i in range(1, len(recovery_weeks)):
+            gap = recovery_weeks[i] - recovery_weeks[i - 1]
+            assert gap == 3, (
+                f"Gap between recovery W{recovery_weeks[i-1]} and W{recovery_weeks[i]} is {gap}, expected 3. "
+                f"All recovery weeks: {recovery_weeks}"
+            )
+
+    def test_4_week_cadence_for_under_40(self):
+        """Under-40 athlete should have recovery every 4 weeks."""
+        intake = {
+            "name": "Young Rider", "email": "young@test.com",
+            "sex": "male", "age": 30, "weight_lbs": 165, "height_ft": 5, "height_in": 11,
+            "years_cycling": "3-5 years", "sleep": "good", "stress": "low",
+            "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100, "priority": "A"}],
+            "longest_ride": "2-4", "ftp": None, "max_hr": None, "weekly_hours": "5-7",
+            "trainer_access": "yes-basic", "long_ride_days": ["saturday", "sunday"],
+            "interval_days": ["tuesday", "thursday"], "off_days": ["wednesday"],
+            "strength_current": "regular", "strength_include": "yes",
+            "strength_equipment": "full-gym", "injuries": "NA",
+        }
+        validated = validate_intake(intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        assert derived["recovery_week_cadence"] == 4
+
+        plan_config = select_template(derived, BASE_DIR)
+        weeks = plan_config["template"]["weeks"]
+        plan_duration = plan_config["plan_duration"]
+
+        from pipeline.step_07_guide import _get_phase_boundaries
+        phases = _get_phase_boundaries(plan_duration)
+        peak_start = phases["peak"][0]
+
+        recovery_weeks = [
+            w["week_number"] for w in weeks
+            if w.get("volume_percent", 100) <= 65 and w["week_number"] < peak_start
+        ]
+
+        # Recovery should be every 4 weeks: W4, W8, W12, W16
+        for rw in recovery_weeks:
+            assert rw % 4 == 0, (
+                f"Recovery at W{rw} doesn't align with 4-week cadence. "
+                f"All recovery weeks: {recovery_weeks}"
+            )
+
+    def test_session_count_excludes_rest(self, sarah_intake):
+        """Week-by-week session count must not include rest days."""
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        plan_config = select_template(derived, BASE_DIR)
+        weeks = plan_config["template"]["weeks"]
+
+        for week in weeks:
+            workouts = week.get("workouts", [])
+            total = len(workouts)
+            non_rest = sum(1 for w in workouts if "rest" not in w.get("name", "").lower())
+            assert non_rest < total or total == 0, (
+                f"W{week['week_number']} has {total} workouts and none are rest — "
+                f"expected at least 1 rest day"
+            )
+
+
+class TestValidateLeadTime:
+    """Step 1 must enforce lead time bounds on race dates."""
+
+    def test_too_close_race_fails(self):
+        """Race < 6 weeks away should be rejected."""
+        close_date = (date.today() + timedelta(weeks=3)).isoformat()
+        intake = {
+            "name": "Test Athlete",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": close_date, "distance_miles": 100}],
+            "weekly_hours": "5-7",
+            "off_days": ["wednesday"],
+        }
+        with pytest.raises(ValueError, match="weeks away"):
+            validate_intake(intake)
+
+    def test_too_far_race_fails(self):
+        """Race > 78 weeks away should be rejected."""
+        far_date = (date.today() + timedelta(weeks=100)).isoformat()
+        intake = {
+            "name": "Test Athlete",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": far_date, "distance_miles": 100}],
+            "weekly_hours": "5-7",
+            "off_days": ["wednesday"],
+        }
+        with pytest.raises(ValueError, match="weeks away"):
+            validate_intake(intake)
+
+    def test_valid_lead_time_passes(self):
+        """Race 20 weeks away should pass."""
+        good_date = (date.today() + timedelta(weeks=20)).isoformat()
+        intake = {
+            "name": "Test Athlete",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": good_date, "distance_miles": 100}],
+            "weekly_hours": "5-7",
+            "off_days": ["wednesday"],
+        }
+        validated = validate_intake(intake)
+        assert validated["races"][0]["race_day_of_week"]  # day of week enriched
+
+    def test_day_of_week_enrichment(self):
+        """Step 1 must add race_day_of_week to each race."""
+        good_date = (date.today() + timedelta(weeks=20)).isoformat()
+        expected_dow = (date.today() + timedelta(weeks=20)).strftime("%A")
+        intake = {
+            "name": "Test Athlete",
+            "email": "test@example.com",
+            "races": [{"name": "SBT GRVL", "date": good_date, "distance_miles": 100}],
+            "weekly_hours": "5-7",
+            "off_days": ["wednesday"],
+        }
+        validated = validate_intake(intake)
+        assert validated["races"][0]["race_day_of_week"] == expected_dow
+
+
+class TestParseDateSpecific:
+    """Test the date_specific parser for race-data cross-reference."""
+
+    def test_standard_date(self):
+        assert _parse_date_specific("2026: June 28", 2026) == date(2026, 6, 28)
+
+    def test_date_range(self):
+        """Date ranges should parse to first day."""
+        assert _parse_date_specific("2026: May 19-23", 2026) == date(2026, 5, 19)
+
+    def test_date_with_parenthetical(self):
+        assert _parse_date_specific("2026: May 17-18 (overnight)", 2026) == date(2026, 5, 17)
+
+    def test_unparseable_returns_none(self):
+        assert _parse_date_specific("Check USA Cycling for date", 2026) is None
+
+    def test_vague_date_returns_none(self):
+        assert _parse_date_specific("2026: Early September (weather dependent)", 2026) is None
+
+    def test_single_digit_day(self):
+        assert _parse_date_specific("2026: February 6", 2026) == date(2026, 2, 6)
+
+    def test_wrong_year_still_parses(self):
+        """date_specific may list previous year — parser should use the year in the string."""
+        assert _parse_date_specific("2025: September 27", 2026) == date(2025, 9, 27)
+
+
+class TestCrossReferenceRaceDate:
+    """Cross-reference intake dates against race-data/ database."""
+
+    def test_sbt_grvl_date_match(self):
+        """SBT GRVL 2026 is June 28 — cross-ref should confirm."""
+        result = cross_reference_race_date("SBT GRVL", "2026-06-28", BASE_DIR)
+        assert result["matched"] is True
+        assert result["date_match"] is True
+        assert result["day_of_week"] == "Sunday"
+
+    def test_sbt_grvl_wrong_date(self):
+        """If intake says June 27, cross-ref should flag mismatch."""
+        result = cross_reference_race_date("SBT GRVL", "2026-06-27", BASE_DIR)
+        assert result["matched"] is True
+        assert result["date_match"] is False
+        assert result["warning"] is not None
+
+    def test_unknown_race_not_matched(self):
+        result = cross_reference_race_date("Fake Race 9000", "2026-06-28", BASE_DIR)
+        assert result["matched"] is False
+
+    def test_day_of_week_always_populated(self):
+        result = cross_reference_race_date("SBT GRVL", "2026-06-28", BASE_DIR)
+        assert result["day_of_week"] == "Sunday"
+
+
+class TestGuideDateHelpers:
+    """Unit tests for _week_to_date and _phase_date_range."""
+
+    def test_week_to_date_week_1_is_start_date(self):
+        from pipeline.step_07_guide import _week_to_date
+        d = _week_to_date("2026-02-16", 1)
+        assert d.strftime("%Y-%m-%d") == "2026-02-16"
+
+    def test_week_to_date_week_2_is_one_week_later(self):
+        from pipeline.step_07_guide import _week_to_date
+        d = _week_to_date("2026-02-16", 2)
+        assert d.strftime("%Y-%m-%d") == "2026-02-23"
+
+    def test_week_to_date_week_18(self):
+        from pipeline.step_07_guide import _week_to_date
+        d = _week_to_date("2026-02-16", 18)
+        assert d.strftime("%Y-%m-%d") == "2026-06-15"
+
+    def test_phase_date_range_format(self):
+        from pipeline.step_07_guide import _phase_date_range
+        result = _phase_date_range("2026-02-16", 1, 8)
+        # Should contain start and end dates with ndash
+        assert "Feb" in result
+        assert "Apr" in result
+        assert "&ndash;" in result
+
+    def test_phase_date_range_single_week(self):
+        from pipeline.step_07_guide import _phase_date_range
+        result = _phase_date_range("2026-02-16", 1, 1)
+        # Single week: Feb 16 – Feb 22
+        assert "Feb 16" in result
+        assert "Feb 22" in result
+
+    def test_phase_date_range_end_is_sunday(self):
+        """Phase end date should be the Sunday of the last week."""
+        from pipeline.step_07_guide import _phase_date_range, _week_to_date
+        from datetime import timedelta
+        result = _phase_date_range("2026-02-16", 1, 1)
+        # Monday Feb 16 + 6 days = Sunday Feb 22
+        end = _week_to_date("2026-02-16", 1) + timedelta(days=6)
+        assert end.weekday() == 6  # Sunday
+        assert end.strftime("%-d") in result

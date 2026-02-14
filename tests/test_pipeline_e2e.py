@@ -482,3 +482,211 @@ class TestGuideDateHelpers:
         end = _week_to_date("2026-02-16", 1) + timedelta(days=6)
         assert end.weekday() == 6  # Sunday
         assert end.strftime("%-d") in result
+
+
+# ── Duration Scaling Tests ──────────────────────────────────
+
+class TestDurationScaling:
+    """Workout durations must scale to athlete capacity and round cleanly."""
+
+    def test_parse_hours_range_standard(self):
+        from pipeline.step_06_workouts import _parse_hours_range
+        assert _parse_hours_range("5-7") == (5.0, 7.0)
+        assert _parse_hours_range("10-12") == (10.0, 12.0)
+        assert _parse_hours_range("3-5") == (3.0, 5.0)
+
+    def test_parse_hours_range_plus(self):
+        from pipeline.step_06_workouts import _parse_hours_range
+        lo, hi = _parse_hours_range("15+")
+        assert lo == 15.0
+        assert hi == 20.0
+
+    def test_parse_hours_range_empty(self):
+        from pipeline.step_06_workouts import _parse_hours_range
+        assert _parse_hours_range("") == (0.0, 0.0)
+        assert _parse_hours_range(None) == (0.0, 0.0)
+
+    def test_compute_scale_factor(self):
+        from pipeline.step_06_workouts import _compute_duration_scale
+        # 5-7h athlete on 10-12h template → 6/11 ≈ 0.545
+        scale = _compute_duration_scale("5-7", "10-12")
+        assert 0.54 <= scale <= 0.56
+
+    def test_scale_never_exceeds_1(self):
+        from pipeline.step_06_workouts import _compute_duration_scale
+        # 10-12h athlete on 10-12h template → 1.0
+        assert _compute_duration_scale("10-12", "10-12") == 1.0
+        # 15+h athlete on 10-12h template → clamped to 1.0
+        assert _compute_duration_scale("15+", "10-12") == 1.0
+
+    def test_scale_never_below_0_4(self):
+        from pipeline.step_06_workouts import _compute_duration_scale
+        # 3-5h athlete on 15+h template → 4/17.5 = 0.23 → clamped to 0.4
+        assert _compute_duration_scale("3-5", "15+") == 0.4
+
+    def test_longest_ride_cap(self):
+        from pipeline.step_06_workouts import _longest_ride_cap_seconds
+        # "2-4" → 4 hours → 14400 seconds
+        assert _longest_ride_cap_seconds("2-4") == 14400
+        # "4-6" → 6 hours → 21600 seconds
+        assert _longest_ride_cap_seconds("4-6") == 21600
+
+
+class TestDurationRounding:
+    """Scaled durations must round to clean 15-minute increments."""
+
+    def test_round_to_15_min_for_long_durations(self):
+        from pipeline.step_06_workouts import _round_duration
+        # 66 min (3960s) → 60 min (3600s)
+        assert _round_duration(3960) == 3600
+        # 99 min (5940s) → 105 min (6300s)
+        assert _round_duration(5940) == 6300
+        # 132 min (7920s) → 135 min (8100s)
+        assert _round_duration(7920) == 8100
+
+    def test_round_to_5_min_for_short_durations(self):
+        from pipeline.step_06_workouts import _round_duration
+        # 8 min (480s) → 10 min (600s)
+        assert _round_duration(480) == 600
+        # 12 min (720s) → 10 min (600s)
+        assert _round_duration(720) == 600
+
+    def test_minimum_5_minutes(self):
+        from pipeline.step_06_workouts import _round_duration
+        assert _round_duration(100) == 300
+        assert _round_duration(0) == 300
+
+    def test_scale_blocks_rounds_cleanly(self):
+        from pipeline.step_06_workouts import _scale_blocks
+        blocks = '        <SteadyState Duration="10800" Power="0.65"/>\n'
+        # 10800 * 0.55 = 5940 → rounds to 6300 (105 min)
+        result = _scale_blocks(blocks, 0.55)
+        assert 'Duration="6300"' in result
+
+    def test_scale_blocks_preserves_interval_structure(self):
+        from pipeline.step_06_workouts import _scale_blocks
+        blocks = (
+            '        <IntervalsT Repeat="5" OnDuration="240" OnPower="1.10" '
+            'OffDuration="240" OffPower="0.50"/>\n'
+        )
+        result = _scale_blocks(blocks, 0.55)
+        # OnDuration/OffDuration should NOT be scaled
+        assert 'OnDuration="240"' in result
+        assert 'OffDuration="240"' in result
+        # Repeat should be scaled: 5 * 0.55 = 2.75 → 2
+        assert 'Repeat="2"' in result
+
+    def test_long_ride_cap_enforced(self):
+        from pipeline.step_06_workouts import _scale_blocks
+        # 3h steady state, cap at 2h (7200s)
+        blocks = (
+            '        <Warmup Duration="600" PowerLow="0.40" PowerHigh="0.60"/>\n'
+            '        <SteadyState Duration="10800" Power="0.65"/>\n'
+            '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
+        )
+        result = _scale_blocks(blocks, 1.0, long_ride_cap=7200)
+        # Total should not exceed 7200s (2h)
+        import re
+        durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', result)]
+        assert sum(durations) <= 7200
+
+
+class TestWorkoutScalingE2E:
+    """End-to-end test: scaled workouts match athlete's stated capacity."""
+
+    def test_no_long_ride_exceeds_athlete_max(self, sarah_intake, tmp_path):
+        """No long ride workout should exceed the athlete's stated longest ride."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        longest_ride_hours = sarah_intake.get("longest_ride", "2-4")
+        _, max_hours = _parse_hours_range_for_test(longest_ride_hours)
+        max_seconds = max_hours * 3600
+
+        for f in workouts_dir.glob("*Long_Endurance*"):
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            total = sum(durations)
+            assert total <= max_seconds + 300, (  # 5 min grace for warmup/cooldown rounding
+                f"{f.name}: {total/3600:.1f}h exceeds athlete max {max_hours}h"
+            )
+
+    def test_weekly_hours_within_athlete_range(self, sarah_intake, tmp_path):
+        """Average weekly bike hours should be within athlete's stated range."""
+        import re
+        from collections import defaultdict
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        week_hours = defaultdict(float)
+        for f in workouts_dir.glob("*.zwo"):
+            if "Strength" in f.name or "Rest_Day" in f.name:
+                continue
+            m = re.match(r"W(\d+)", f.name)
+            if not m:
+                continue
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            week_hours[int(m.group(1))] += sum(durations) / 3600
+
+        avg_hours = sum(week_hours.values()) / len(week_hours) if week_hours else 0
+        lo, hi = _parse_hours_range_for_test(sarah_intake["weekly_hours"])
+
+        # Average should not wildly exceed stated range (allow 20% over for build weeks)
+        assert avg_hours <= hi * 1.2, (
+            f"Average {avg_hours:.1f}h/week exceeds athlete max {hi}h by > 20%"
+        )
+
+    def test_all_durations_are_clean_multiples(self, sarah_intake, tmp_path):
+        """Every scaled duration should be a multiple of 5 min (300s)."""
+        import re
+        validated = validate_intake(sarah_intake)
+        profile = create_profile(validated)
+        derived = classify_athlete(profile)
+        schedule = build_schedule(profile, derived)
+        plan_config = select_template(derived, BASE_DIR)
+
+        workouts_dir = tmp_path / "workouts"
+        workouts_dir.mkdir()
+        generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+        for f in workouts_dir.glob("*.zwo"):
+            if "Race_Day" in f.name or "FTP_Test" in f.name:
+                continue  # race day openers and FTP test have intentional short intervals
+            content = f.read_text()
+            durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', content)]
+            for dur in durations:
+                if dur == 1:
+                    continue  # rest day placeholder
+                assert dur % 300 == 0, (
+                    f"{f.name}: duration {dur}s ({dur/60:.0f}min) is not a multiple of 5 min"
+                )
+
+
+def _parse_hours_range_for_test(val: str):
+    """Test helper — mirrors _parse_hours_range without importing."""
+    if not val:
+        return (0.0, 0.0)
+    val = str(val).strip()
+    if val.endswith("+"):
+        lo = float(val[:-1])
+        return (lo, lo + 5.0)
+    if "-" in val:
+        parts = val.split("-", 1)
+        return (float(parts[0]), float(parts[1]))
+    return (float(val), float(val))

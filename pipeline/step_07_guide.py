@@ -153,6 +153,14 @@ def generate_guide(
     plan_duration = plan_config["plan_duration"]
     athlete_name = profile["name"]
 
+    # Load template if not already in plan_config (happens when regenerating from saved files)
+    if "template" not in plan_config or not plan_config["template"]:
+        from pipeline.step_05_template import select_template
+        full_config = select_template(derived, base_dir)
+        plan_config["template"] = full_config.get("template", {})
+        if "ftp_test_weeks" not in plan_config:
+            plan_config["ftp_test_weeks"] = full_config.get("ftp_test_weeks", [])
+
     # Load race data for guide content
     from pipeline.step_06_workouts import load_race_data
 
@@ -196,6 +204,8 @@ def _build_full_guide(
     level_display = level.title()
     ftp = profile["fitness"].get("ftp_watts")
     template = plan_config.get("template", {})
+    sched = profile.get("schedule", {})
+    weekly_hours = sched.get("weekly_hours", derived.get("weekly_hours", ""))
 
     # Race data
     race_chars = race_data.get("race_characteristics", {})
@@ -235,22 +245,22 @@ def _build_full_guide(
     # 2. Race Profile
     sections.append(_section_race_profile(
         race_name, race_distance, elevation, location,
-        tier_display, level_display, plan_duration, radar_svg, race_data
+        tier, level_display, plan_duration, radar_svg, race_data
     ))
 
     # 3-15. Core sections
     sections.append(_section_non_negotiables(non_negs, race_name, race_distance, elevation, race_data))
     sections.append(_section_training_zones(ftp, tier))
     sections.append(_section_adaptation())
-    sections.append(_section_weekly_structure(schedule, tier_display))
+    sections.append(_section_weekly_structure(schedule, tier_display, weekly_hours))
     sections.append(_section_phase_progression(plan_duration, tier))
-    sections.append(_section_week_by_week(template, plan_duration, plan_config))
+    sections.append(_section_week_by_week(template, plan_duration, plan_config, weekly_hours))
     sections.append(_section_workout_execution(tier))
     sections.append(_section_recovery_protocol(tier, profile))
     sections.append(_section_equipment_checklist(profile, race_data))
     sections.append(_section_nutrition(race_data, tier, race_distance, profile))
     sections.append(_section_mental_preparation(race_data, race_distance, tier))
-    sections.append(_section_race_week(race_data, tier, race_name))
+    sections.append(_section_race_week(race_data, tier, race_name, derived))
     sections.append(_section_race_day(race_data, tier, race_distance, race_name))
     sections.append(_section_gravel_skills(race_data))
 
@@ -520,7 +530,7 @@ def _section_training_plan_brief(
       <ul>
         <li><strong>{weekly_hours} hours/week</strong> matches the {meth['name']} approach</li>
         <li><strong>{years}</strong> of cycling experience at <strong>{level_display}</strong> level</li>
-        <li><strong>{tier_display}</strong> tier = {meth['name']} training distribution</li>
+        <li><strong>{meth['name']}</strong> training distribution (based on your available hours)</li>
       </ul>
     </div>
   </div>
@@ -555,7 +565,8 @@ def _section_training_plan_brief(
 
 
 def _section_race_profile(race_name, race_distance, elevation, location,
-                          tier_display, level_display, plan_duration, radar_svg, race_data):
+                          tier, level_display, plan_duration, radar_svg, race_data):
+    meth = TIER_METHODOLOGY.get(tier, TIER_METHODOLOGY["finisher"])
     race_chars = race_data.get("race_characteristics", {})
     terrain = race_chars.get("terrain", "gravel").replace("_", " ").title()
     climate = race_chars.get("climate", "").title()
@@ -593,7 +604,7 @@ def _section_race_profile(race_name, race_distance, elevation, location,
           <tr><td><strong>Location</strong></td><td>{location}</td></tr>
           <tr><td><strong>Terrain</strong></td><td>{terrain}</td></tr>
           <tr><td><strong>Climate</strong></td><td>{climate}</td></tr>
-          <tr><td><strong>Methodology</strong></td><td>{tier_display.replace("Time Crunched", "Time-Crunched")} approach ({level_display} level)</td></tr>
+          <tr><td><strong>Methodology</strong></td><td>{meth['name']} ({level_display} level)</td></tr>
           <tr><td><strong>Expected Duration</strong></td><td>{duration_est if duration_est else 'Varies by fitness'}</td></tr>
         </tbody>
       </table>
@@ -838,17 +849,67 @@ def _section_adaptation():
 </section>"""
 
 
-def _section_weekly_structure(schedule: Dict, tier_display: str):
+def _section_weekly_structure(schedule: Dict, tier_display: str, weekly_hours: str = ""):
     days = schedule.get("days", {})
     all_days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
+    # Calculate long ride duration from available hours
+    _, max_hrs = _parse_hours_range(weekly_hours)
+
+    # Session durations (hours) — use minimums to maximize long ride time
+    session_min_hours = {
+        "rest": 0,
+        "intervals": 1.0,    # 60 min minimum
+        "easy_ride": 0.75,    # 45 min minimum
+        "strength": 0.5,     # 30 min minimum (bodyweight OK)
+    }
+
+    # Count non-long-ride hours and long ride days
+    non_long_hours = 0
+    long_ride_count = 0
+    for day in all_days:
+        info = days.get(day, {"session": "rest"})
+        session = info["session"]
+        if session == "long_ride":
+            long_ride_count += 1
+        else:
+            non_long_hours += session_min_hours.get(session, 0.5)
+
+    # Calculate per-long-ride duration
+    if max_hrs > 0 and long_ride_count > 0:
+        remaining = max(max_hrs - non_long_hours, 1.5)
+        per_ride = remaining / long_ride_count
+        # Floor: at least 1.5 hours for meaningful endurance work
+        per_ride = max(per_ride, 1.5)
+        # Range: base to peak (recovery weeks to build weeks)
+        lr_lo = max(1.5, per_ride * 0.6)
+        lr_hi = per_ride
+        lr_lo_str = f"{lr_lo:.1f}".rstrip("0").rstrip(".")
+        lr_hi_str = f"{lr_hi:.1f}".rstrip("0").rstrip(".")
+        long_ride_duration = f"{lr_lo_str}-{lr_hi_str} hours"
+    else:
+        per_ride = 2.5
+        long_ride_duration = "2-3 hours"
+
     duration_map = {
         "rest": "&mdash;",
-        "long_ride": "3-5 hours",
+        "long_ride": long_ride_duration,
         "intervals": "60-90 min",
         "easy_ride": "45-60 min",
         "strength": "45-60 min",
     }
+
+    # If long rides are short relative to available time, add a tactical note
+    long_ride_note = ""
+    if max_hrs > 0 and long_ride_count > 0 and per_ride < 3.0:
+        long_ride_note = """<div class="gg-module gg-tactical">
+    <div class="gg-label">YOUR BIGGEST OPPORTUNITY</div>
+    <p>Your weekly structure fits your stated availability, but your long rides are shorter than ideal
+    for a race of this distance. If you can rearrange your schedule to fit <strong>1-3 longer rides per month</strong>
+    during Build and Peak phases &mdash; even if it means skipping a weekday session that week &mdash;
+    it will make a significant difference to your race-day durability. A single 3-4 hour ride
+    is worth more than two 1.5 hour rides for building the endurance you'll need on race day.</p>
+  </div>"""
 
     rows = []
     for day in all_days:
@@ -903,6 +964,8 @@ def _section_weekly_structure(schedule: Dict, tier_display: str):
       during Build and Peak phases. Build duration progressively &mdash; don't jump to 5 hours in Week 1.</p>
     </div>
   </div>
+
+  {long_ride_note}
 
   <div class="data-card">
     <div class="data-card__header">INTERVALS</div>
@@ -987,17 +1050,59 @@ def _section_phase_progression(plan_duration: int, tier: str):
 </section>"""
 
 
-def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict):
+def _parse_hours_range(hours_str: str):
+    """Parse '5-7' or '10-12' into (lo, hi) floats. Returns (0, 0) on failure."""
+    if not hours_str:
+        return (0, 0)
+    s = str(hours_str).replace("hrs", "").replace("hr", "").replace("+", "").strip()
+    if "-" in s:
+        parts = s.split("-")
+        try:
+            return (float(parts[0].strip()), float(parts[1].strip()))
+        except (ValueError, IndexError):
+            return (0, 0)
+    try:
+        v = float(s)
+        return (v, v)
+    except ValueError:
+        return (0, 0)
+
+
+def _scale_volume_hours(template_hrs: str, scale_factor: float) -> str:
+    """Scale a template volume_hours string by a factor. Returns formatted range."""
+    lo, hi = _parse_hours_range(template_hrs)
+    if lo == 0 and hi == 0:
+        return template_hrs
+    scaled_lo = round(lo * scale_factor, 1)
+    scaled_hi = round(hi * scale_factor, 1)
+    # Clean up: remove .0 for whole numbers
+    lo_s = str(int(scaled_lo)) if scaled_lo == int(scaled_lo) else str(scaled_lo)
+    hi_s = str(int(scaled_hi)) if scaled_hi == int(scaled_hi) else str(scaled_hi)
+    if lo_s == hi_s:
+        return lo_s
+    return f"{lo_s}-{hi_s}"
+
+
+def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict, weekly_hours: str = ""):
     weeks = template.get("weeks", [])
     if not weeks:
         return '<section id="section-8" class="gg-section"><h2>8 &middot; Week-by-Week Overview</h2><p>Week-by-week details will be provided with your ZWO workout files.</p></section>'
+
+    # Calculate scale factor: athlete's stated max hours / template's peak hours
+    athlete_lo, athlete_hi = _parse_hours_range(weekly_hours)
+    template_peak = 0
+    for w in weeks:
+        _, hi = _parse_hours_range(w.get("volume_hours", ""))
+        template_peak = max(template_peak, hi)
+    scale_factor = (athlete_hi / template_peak) if (athlete_hi > 0 and template_peak > 0) else 1.0
 
     rows = []
     for week in weeks:
         wnum = week.get("week_number", 0)
         focus = week.get("focus", "")
         vol_pct = week.get("volume_percent", 100)
-        vol_hrs = week.get("volume_hours", "")
+        raw_hrs = week.get("volume_hours", "")
+        vol_hrs = _scale_volume_hours(raw_hrs, scale_factor) if scale_factor < 1.0 else raw_hrs
         workout_count = len(week.get("workouts", []))
 
         # Determine phase
@@ -1120,6 +1225,20 @@ def _section_recovery_protocol(tier: str, profile: Dict):
     sleep = profile.get("health", {}).get("sleep_quality", "moderate")
     stress = profile.get("health", {}).get("stress_level", "moderate")
 
+    # Personalized post-workout targets from body weight
+    weight_lbs = profile.get("demographics", {}).get("weight_lbs")
+    if weight_lbs:
+        try:
+            weight_kg = float(weight_lbs) / 2.205
+            protein_g = round(weight_kg * 0.4)  # 0.4g/kg recovery dose
+            carb_lo = round(weight_kg * 1.0)     # 1.0g/kg low end
+            carb_hi = round(weight_kg * 1.2)     # 1.2g/kg high end
+            recovery_line = f"{protein_g}g protein + {carb_lo}-{carb_hi}g carbs within 30 minutes (based on your {round(weight_kg)}kg body weight)"
+        except (ValueError, TypeError):
+            recovery_line = "30g protein + 60-90g carbs within 30 minutes"
+    else:
+        recovery_line = "30g protein + 60-90g carbs within 30 minutes"
+
     stress_note = ""
     if stress in ("high", "very_high"):
         stress_note = """<div class="gg-module gg-alert">
@@ -1143,7 +1262,7 @@ def _section_recovery_protocol(tier: str, profile: Dict):
     <div class="data-card__header">IMMEDIATELY POST-RIDE</div>
     <div class="data-card__content">
       <ul>
-        <li>30g protein + 60-90g carbs within 30 minutes</li>
+        <li>{recovery_line}</li>
         <li>Rehydrate: 150% of fluid lost (weigh before/after)</li>
         <li>Compression garments for rides > 3 hours</li>
       </ul>
@@ -1480,7 +1599,7 @@ def _section_nutrition(race_data: Dict, tier: str, race_distance, profile: Dict 
   <p>For any ride over 90 minutes at moderate-to-high intensity (Z3+), you need 60-80g of
   carbohydrates per hour. Your gut can absorb approximately 60g of glucose per hour through
   SGLT1 transporters. Add fructose (which uses different transporters) and you can push to 90g total.
-  The sweet spot for most athletes is 70-75g per hour &mdash; enough to fuel hard efforts without GI distress.</p>
+  The target for most athletes is 70-75g per hour &mdash; enough to fuel hard efforts without GI distress.</p>
 
   <div class="data-card">
     <div class="data-card__header">WORKOUT-SPECIFIC FUELING</div>
@@ -1717,7 +1836,64 @@ def _section_mental_preparation(race_data: Dict, race_distance, tier: str):
 </section>"""
 
 
-def _section_race_week(race_data: Dict, tier: str, race_name: str):
+def _section_race_week(race_data: Dict, tier: str, race_name: str, derived: Dict = None):
+    # Determine race day from actual race date
+    day_names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    race_day_name = "Saturday"  # fallback
+    if derived:
+        race_date_str = derived.get("race_date", "")
+        if race_date_str:
+            try:
+                race_date = datetime.strptime(str(race_date_str), "%Y-%m-%d")
+                race_day_name = race_date.strftime("%A")
+            except (ValueError, TypeError):
+                pass
+
+    # Build race week schedule relative to race day
+    # Protocol: countdown from race day
+    race_day_idx = day_names.index(race_day_name)
+    schedule = {}
+    for offset in range(-6, 1):  # -6 days to race day
+        day_idx = (race_day_idx + offset) % 7
+        day = day_names[day_idx]
+        if offset == 0:
+            schedule[day] = ("race", "", "")
+        elif offset == -1:
+            schedule[day] = ("REST", "Pre-race dinner: familiar, carb-rich", "Course recon if possible, lay out everything")
+        elif offset == -2:
+            schedule[day] = ("20 min easy with 2x20sec openers", "Carb loading continues", "Travel if needed")
+        elif offset == -3:
+            schedule[day] = ("REST or 20 min easy spin", "Carb-rich meals, extra sodium", "Pack race bag")
+        elif offset == -4:
+            schedule[day] = ("30 min with 3x30sec openers", "Begin carb loading", "Finalize nutrition plan")
+        elif offset == -5:
+            schedule[day] = ("Easy spin 30-45 min, Zone 1", "Normal eating, well hydrated", "Lay out race gear, check bike")
+        elif offset == -6:
+            schedule[day] = ("Easy spin 30-45 min, Zone 1", "Normal eating, well hydrated", "Review plan, mental rehearsal")
+
+    # Also add recovery day after race
+    recovery_day_idx = (race_day_idx + 1) % 7
+    recovery_day = day_names[recovery_day_idx]
+    schedule[recovery_day] = ("rest_after", "", "")
+
+    # Build rows in Mon-Sun order
+    rows = []
+    for day in day_names:
+        if day not in schedule:
+            continue
+        entry = schedule[day]
+        if entry[0] == "race":
+            rows.append(f'<tr class="race-day-row"><td><strong>{day}</strong></td>'
+                        f'<td colspan="3"><strong>RACE DAY: {race_name}</strong> &mdash; see Race Day section below</td></tr>')
+        elif entry[0] == "rest_after":
+            rows.append(f'<tr><td><strong>{day}</strong></td><td>Easy spin or rest</td>'
+                        f'<td>Celebrate. You earned it.</td><td>Recovery begins</td></tr>')
+        else:
+            rows.append(f'<tr><td><strong>{day}</strong></td><td>{entry[0]}</td>'
+                        f'<td>{entry[1]}</td><td>{entry[2]}</td></tr>')
+
+    rows_html = "\n  ".join(rows)
+
     return f"""<section id="section-14" class="gg-section">
   <h2>14 &middot; Race Week</h2>
 
@@ -1729,13 +1905,7 @@ def _section_race_week(race_data: Dict, tier: str, race_name: str):
   <table>
   <thead><tr><th>Day</th><th>Training</th><th>Nutrition</th><th>Other</th></tr></thead>
   <tbody>
-  <tr><td><strong>Monday</strong></td><td>Easy spin 30-45 min, Zone 1</td><td>Normal eating, well hydrated</td><td>Lay out race gear, check bike</td></tr>
-  <tr><td><strong>Tuesday</strong></td><td>30 min with 3x30sec openers</td><td>Begin carb loading</td><td>Finalize nutrition plan</td></tr>
-  <tr><td><strong>Wednesday</strong></td><td>REST or 20 min easy spin</td><td>Carb-rich meals, extra sodium</td><td>Pack race bag</td></tr>
-  <tr><td><strong>Thursday</strong></td><td>20 min easy with 2x20sec openers</td><td>Carb loading continues</td><td>Travel if needed</td></tr>
-  <tr><td><strong>Friday</strong></td><td>REST</td><td>Pre-race dinner: familiar, carb-rich</td><td>Course recon if possible, lay out everything</td></tr>
-  <tr class="race-day-row"><td><strong>Saturday</strong></td><td colspan="3"><strong>RACE DAY: {race_name}</strong> &mdash; see Race Day section below</td></tr>
-  <tr><td><strong>Sunday</strong></td><td>Easy spin or rest</td><td>Celebrate. You earned it.</td><td>Recovery begins</td></tr>
+  {rows_html}
   </tbody>
   </table>
   </div>
@@ -2607,12 +2777,6 @@ h1 {
   border: 2px solid var(--gg-color-dark-brown);
   padding: 4px 8px;
   background: var(--gg-color-warm-paper);
-}
-
-.guide-meta-tag--gold {
-  background: var(--gg-color-gold) !important;
-  color: var(--gg-color-warm-paper) !important;
-  border-color: var(--gg-color-gold) !important;
 }
 
 /* === Typography === */

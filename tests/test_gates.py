@@ -305,7 +305,7 @@ class TestGate7:
             "<html><body>"
             "<h1>SBT GRVL 100mi Training Guide</h1>"
             f"{sections}"
-            "<p>finisher intermediate plan</p>"
+            "<p>traditional pyramidal plan</p>"
         )
         # Pad to reach size target with realistic content
         padding_needed = size_target - len(base) - 20
@@ -333,7 +333,7 @@ class TestGate7:
             "<html><body>"
             "<h1>SBT GRVL 100mi Training Guide</h1>"
             f"{sections}"
-            "<p>finisher intermediate</p>"
+            "<p>traditional pyramidal</p>"
             "</body></html>"
         )
         self._write_guide(guide, html)
@@ -350,7 +350,7 @@ class TestGate7:
             "<h2>Training Zones</h2><p>Content.</p>"
             "<h2>Weekly Structure</h2><p>Content.</p>"
             "<h2>Race Day</h2><p>Content.</p>"
-            "<p>finisher intermediate</p>"
+            "<p>traditional pyramidal</p>"
             + ("x" * 55000)
             + "</body></html>"
         )

@@ -117,8 +117,8 @@ class TestPipelineE2E:
         assert "100" in html
         # Race name present
         assert "SBT GRVL" in html
-        # Tier mentioned
-        assert "finisher" in html.lower()
+        # Methodology mentioned (tier communicated through methodology name)
+        assert "traditional pyramidal" in html.lower()
         # Has altitude section (Steamboat is at 6700ft)
         assert "altitude" in html.lower() or "elevation" in html.lower()
 

@@ -217,10 +217,17 @@ def gate_7_guide(guide_path: Path, intake: Dict, derived: Dict):
     if race_name:
         assert race_name in html, f"Gate 7: Guide doesn't mention race: {race_name}"
 
-    # Tier mentioned
+    # Methodology mentioned (tier is communicated through methodology name, not raw label)
     tier = derived["tier"]
-    assert tier.replace("_", " ") in html.lower(), (
-        f"Gate 7: Tier '{tier}' not mentioned in guide"
+    methodology_names = {
+        "time_crunched": "hiit-focused",
+        "finisher": "traditional pyramidal",
+        "compete": "polarized",
+        "podium": "high-volume polarized",
+    }
+    meth_name = methodology_names.get(tier, tier)
+    assert meth_name in html.lower(), (
+        f"Gate 7: Methodology for tier '{tier}' ('{meth_name}') not mentioned in guide"
     )
 
     # Required sections

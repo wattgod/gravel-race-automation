@@ -1,0 +1,166 @@
+{
+  "race_metadata": {
+    "name": "Mid South",
+    "full_name": "The Mid South",
+    "distance_miles": 100,
+    "elevation_feet": 4500,
+    "date": "March",
+    "location": "Stillwater, Oklahoma",
+    "start_elevation_feet": 900,
+    "max_elevation_feet": 1000,
+    "avg_elevation_feet": 950
+  },
+  "race_characteristics": {
+    "climate": "unpredictable",
+    "altitude_feet": 900,
+    "altitude_category": "low",
+    "terrain": "red_clay",
+    "technical_difficulty": "low",
+    "typical_weather": "Weather lottery: 40-75°F swings, potential freezing rain, heat, or wildfires",
+    "race_type": "tactical_distance"
+  },
+  "race_hooks": {
+    "punchy": "100 miles of Oklahoma red clay. Weather lottery that decides your race. Bobby Wintle hugs every finisher.",
+    "detail": "The Mid South is what happens when someone builds a gravel race around unreasonable hospitality instead of unreasonable suffering.",
+    "dark_mile": 60
+  },
+  "non_negotiables": [
+    {
+      "requirement": "Weather adaptation training for unpredictable conditions (cold, heat, wind)",
+      "by_when": "Week 4-10",
+      "why": "Mid South's weather lottery means you could face 40°F freezing rain or 75°F heat. Training in varied conditions prevents race-day shock."
+    },
+    {
+      "requirement": "Red clay handling skills and mud preparation",
+      "by_when": "Week 6-8",
+      "why": "Oklahoma red clay becomes unrideable peanut butter mud when wet. Bike handling prevents crashes and energy waste when conditions turn."
+    },
+    {
+      "requirement": "Wind exposure training on exposed ridgelines",
+      "by_when": "Week 7-9",
+      "why": "Mid South's exposed ridgelines amplify wind. Training in wind builds the strength and tactics needed for tactical pack racing."
+    },
+    {
+      "requirement": "5-7 hour dress rehearsal in week 9",
+      "by_when": "Week 9",
+      "why": "Tests nutrition, pacing, and mental preparation for 100 miles. Skipping it means discovering problems on race day."
+    }
+  ],
+  "masterclass_topics": {
+    "priority_order": [
+      "weather",
+      "tactics",
+      "fueling",
+      "mental",
+      "execution",
+      "recovery"
+    ],
+    "race_specific": true,
+    "topics": {
+      "weather": "Training for unpredictable conditions—cold, heat, wind, mud",
+      "tactics": "Pack racing tactics, when to sit in, when to push on exposed sections",
+      "fueling": "Calories, hydration, timing for 100-mile tactical race",
+      "mental": "What to do when weather turns and conditions change mid-race",
+      "execution": "Why most athletes fail intervals and how to execute correctly",
+      "recovery": "The honest takes on recovery between sessions"
+    }
+  },
+  "workout_modifications": {
+    "weather_training": {
+      "enabled": true,
+      "tier_3_weeks": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "tier_2_weeks": [
+        3,
+        4
+      ],
+      "tier_1_weeks": [
+        11,
+        12
+      ]
+    },
+    "dress_rehearsal": {
+      "enabled": true,
+      "week": 9,
+      "day": "Saturday",
+      "duration_hours": {
+        "ayahuasca": 4,
+        "finisher": 5,
+        "compete": 6,
+        "podium": 7
+      }
+    },
+    "aggressive_fueling": {
+      "enabled": true,
+      "target_carbs_per_hour": 60,
+      "long_ride_min_hours": 2
+    },
+    "robust_taper": {
+      "enabled": true,
+      "weeks": [
+        11,
+        12
+      ]
+    },
+    "wind_training": {
+      "enabled": true,
+      "week": 7,
+      "focus": "Exposed ridgeline simulation"
+    }
+  },
+  "guide_variables": {
+    "race_name": "The Mid South",
+    "race_distance": "100 miles",
+    "race_elevation": "4,500 feet",
+    "race_date": "Mid-March",
+    "race_location": "Stillwater, Oklahoma",
+    "race_terrain": "Oklahoma red clay gravel roads",
+    "race_weather": "Weather lottery: 40-75°F swings, potential freezing rain, heat, or wildfires",
+    "race_challenges": [
+      "Unpredictable weather (the defining feature)",
+      "Red clay that becomes unrideable mud when wet",
+      "Wind exposure on exposed ridgelines",
+      "Tactical pack racing when conditions are dry"
+    ],
+    "altitude_section": false,
+    "altitude_feet": null
+  },
+  "marketplace_variables": {
+    "race_name": "The Mid South",
+    "race_hook": "100 miles of Oklahoma red clay. Weather lottery that decides your race. Bobby Wintle hugs every finisher.",
+    "race_hook_detail": "The Mid South is what happens when someone builds a gravel race around unreasonable hospitality instead of unreasonable suffering.",
+    "distance": "100",
+    "dark_mile": "60",
+    "non_negotiable_1": "Weather adaptation training for unpredictable conditions",
+    "non_negotiable_2": "Red clay handling skills and mud preparation",
+    "non_negotiable_3": "5-7 hour dress rehearsal in week 9",
+    "trainingpeaks_url": "https://www.trainingpeaks.com/my-training-plans/MidSouth"
+  },
+  "tier_overrides": {
+    "ayahuasca": {
+      "dress_rehearsal_hours": 4,
+      "weekly_hours": "0-5"
+    },
+    "finisher": {
+      "dress_rehearsal_hours": 5,
+      "weekly_hours": "8-12"
+    },
+    "compete": {
+      "dress_rehearsal_hours": 6,
+      "weekly_hours": "12-18"
+    },
+    "podium": {
+      "dress_rehearsal_hours": 7,
+      "weekly_hours": "18+"
+    }
+  }
+}
+
+

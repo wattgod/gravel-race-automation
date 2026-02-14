@@ -1,0 +1,297 @@
+{
+  "plan_metadata": {
+    "name": "COMPETE SAVE MY RACE",
+    "duration_weeks": 6,
+    "philosophy": "Block Periodization (Balanced Compressed)",
+    "target_hours": "15-18",
+    "target_athlete": "Emergency situation, already race-fit, needs final sharpening for competitive performance",
+    "goal": "Convert existing race fitness into peak competitive performance in compressed timeframe"
+  },
+  "weeks": [
+    {
+      "week_number": 1,
+      "focus": "Rapid Assessment & Block Planning",
+      "volume_percent": 70,
+      "volume_hours": "10.5-12.5",
+      "workouts": [
+        {
+          "name": "W01 Mon - Rest",
+          "description": "• Welcome to competitive emergency mode. You have 6 weeks and 15-18 hours weekly. Unlike the other emergency plans, you're already race-fit—you just need final sharpening for competitive performance. We're using compressed Block Periodization: Week 1 assessment → Weeks 2-3 concentrated loading on biggest limiter → Week 4 recovery → Week 5 sharpening → Week 6 taper/race. This is advanced training—requires discipline and self-awareness. You need to push hard but recognize overtraining signals.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Tue - FTP Test + VO2max Assessment",
+          "description": "• STRUCTURE: 30 min warmup → 5 min all-out → 10 min recovery → 20 min max effort → 15 min easy → 5 min all-out → 10 min easy → 3x3 min @ 110-115% FTP (3 min easy between) → 15 min cooldown. • Comprehensive testing. FTP test (20-min × 0.95). Then 5-min max for power profile. Finally, VO2max repeatability test (can you hold power across 3 intervals?). This reveals limiters: If 5-min power &lt;120% FTP = VO2max limiter. If power drops &gt;5% on VO2 intervals = VO2max repeatability limiter. If everything tests strong but you fade in long races = durability limiter. Write everything down.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <SteadyState Duration=\"300\" Power=\"1.20\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"1.05\"/>\n    <SteadyState Duration=\"900\" Power=\"0.55\"/>\n    <SteadyState Duration=\"300\" Power=\"1.20\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"1.12\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W01 Wed - Easy Endurance",
+          "description": "• Full recovery from maximal testing. Keep it conversational. Your body is processing yesterday's efforts.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Thu - Threshold + Durability Assessment",
+          "description": "• STRUCTURE: 30 min warmup → 2x20 min @ 100-105% FTP (10 min easy between) → 30 min easy → 30 min @ 75-80% FTP (monitor power stability, HR drift) → 15 min cooldown. • Threshold check: does race pace feel sustainable? Then durability assessment: after threshold work, can you hold steady power for 30 min? Power drops or HR drifts significantly = durability limiter. This completes your limiter profile. You'll focus Weeks 2-3 on biggest weakness.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"1200\" OnPower=\"1.02\" Cadence=\"90\" OffDuration=\"600\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.68\" Cadence=\"85\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.78\" Cadence=\"88\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W01 Fri - Easy Endurance",
+          "description": "• Recovery from testing. Two hard days done. Easy today.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Sat - Long Endurance Assessment",
+          "description": "• STRUCTURE: First 2 hours Z2 → 3x20 min @ 95-100% FTP (8 min easy between) → Final 90 min Z2 • Longest ride of week. How does race pace feel deep into long ride? Strong = good durability. Fading = durability limiting. How's mental engagement in final 90 min? This matters for competitive racing. Eat 70-80g carbs/hour. Note everything.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6600\" Power=\"0.68\" Cadence=\"85\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.98\" Cadence=\"90\"/>\n    <SteadyState Duration=\"480\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.98\" Cadence=\"90\"/>\n    <SteadyState Duration=\"480\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"1.00\" Cadence=\"90\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Sun - Easy Endurance",
+          "description": "• Easy recovery ride. End of assessment week. You should feel moderately tired but not destroyed. • CRITICAL DECISION POINT: Based on testing, what's your biggest competitive limiter? • VO2max/Top-end: Weeks 2-3 = VO2max block • Threshold Endurance: Weeks 2-3 = Threshold block • Durability: Weeks 2-3 = Volume block with sustained efforts • All strong, just need sharpening: Weeks 2-3 = Mixed intensity block • Choose ONE. Block periodization works by concentrated loading on single capacity.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "focus": "Concentrated Loading Balanced Loading - Part 1",
+      "volume_percent": 90,
+      "volume_hours": "13.5-16",
+      "workouts": [
+        {
+          "name": "W02 Mon - Rest",
+          "description": "• Weeks 2-3 are concentrated loading with balanced approach. We're hitting threshold (race pace), VO2max (surges), and durability (volume) in balanced proportions. This hedges bets—6 weeks isn't enough time to specialize. By end of Week 3 you should feel accumulated fatigue. That's adaptation. Week 4 recovery allows conversion to performance.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Tue - Threshold Session #1",
+          "description": "• STRUCTURE: 30 min warmup → 3x15 min @ 100-105% FTP (7 min easy between) → 30 min cooldown. • Primary focus: threshold (race pace). Building race-pace endurance. This is what gravel racing feels like—sustained near-max effort. • CADENCE WORK: Mix cadences—interval 1 high (100+ rpm), interval 2 low (40-60 rpm), interval 3 self-selected.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1800\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W02 Wed - Easy Endurance",
+          "description": "• Recovery ride. Keep it conversational.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7800\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Thu - Threshold + VO2 Combo",
+          "description": "• STRUCTURE: 30 min warmup → 2x15 min @ 100-105% FTP (6 min easy) → 4x3 min @ 110-115% FTP (3 min easy) → 30 min cooldown. • Threshold first, then VO2 surges. This simulates racing—sustain pace, then respond to attacks. Balanced approach hits both systems. • CADENCE WORK: Threshold at mix cadences, VO2 at high cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"1.02\" Cadence=\"95\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"180\" OnPower=\"1.12\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1800\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W02 Fri - Easy Endurance",
+          "description": "• Recovery ride. Building volume.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Sat - Long Threshold + Durability",
+          "description": "• STRUCTURE: 90 min Z2 → 3x20 min @ 100-105% FTP (8 min easy between) → Final 90 min Z2 • Threshold embedded in long ride. Building race pace sustainability and durability. Eat 70-80g carbs/hour.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4800\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"1200\" OnPower=\"1.02\" Cadence=\"90\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Sun - Long Easy Endurance",
+          "description": "• Long easy ride. Maintaining durability during concentrated loading.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "focus": "Concentrated Loading Balanced Loading - Part 2 (Peak Balanced Loading)",
+      "volume_percent": 100,
+      "volume_hours": "15-18",
+      "workouts": [
+        {
+          "name": "W03 Mon - Rest",
+          "description": "• Peak loading week. Biggest volume and intensity. Balanced approach continues—threshold primary, VO2 touches, durability volume. By Sunday you should feel accumulated fatigue. That's intentional overload. Week 4 recovery allows conversion to performance.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Tue - Peak Threshold Session",
+          "description": "• STRUCTURE: 30 min warmup → 4x15 min @ 100-105% FTP (7 min easy between) → 30 min cooldown. • Maximum threshold volume. Building peak race pace endurance. 60 cumulative minutes at race pace. • CADENCE WORK: Mix cadences on intervals.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"900\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1800\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Wed - Easy Endurance",
+          "description": "• Recovery ride. Building volume.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Thu - Threshold + VO2 Peak Combo",
+          "description": "• STRUCTURE: 30 min warmup → 2x20 min @ 100-105% FTP (8 min easy) → 5x3 min @ 110-115% FTP (3 min easy) → 30 min cooldown. • Peak combo session. Threshold when fresh, VO2 when fatigued. This is race simulation—sustain pace, then respond to attacks when tired. • CADENCE WORK: Threshold at mix cadences, VO2 at high cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"1200\" OnPower=\"1.02\" Cadence=\"95\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"180\" OnPower=\"1.12\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1800\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Fri - Easy Endurance",
+          "description": "• Recovery ride. Building volume.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7800\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Sat - Long Race Simulation",
+          "description": "• STRUCTURE: 2 hours Z2 → 4x20 min @ 95-105% FTP (varied, 8 min easy between) → Final 90 min Z2 • Peak volume ride. Sustained threshold efforts deep into long ride. Building durability and race-pace sustainability. Eat 70-80g carbs/hour.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6600\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"1200\" OnPower=\"1.00\" Cadence=\"90\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Sun - Long Endurance",
+          "description": "• Long easy ride. Pure aerobic volume after peak loading.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"18000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "focus": "Recovery & Transmutation",
+      "volume_percent": 60,
+      "volume_hours": "9-11",
+      "workouts": [
+        {
+          "name": "W04 Mon - Rest",
+          "description": "• Recovery week. You just did 2 weeks of concentrated loading on one capacity. Your body needs this to adapt and convert that work into performance. By Friday you should feel fresh. If you're still crushed by Sunday, you overcooked Weeks 2-3. This is when the magic happens—concentrated loading transmutes into competitive fitness.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Tue - Light Quality Touch",
+          "description": "• STRUCTURE: 20 min warmup → 3x10 min @ 95-100% FTP (5 min easy between) → 20 min cooldown. • Light threshold work maintains fitness without adding fatigue. Should feel controlled. If it feels hard, skip intervals and just ride easy.",
+          "blocks": "    <Warmup Duration=\"1200\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W04 Wed - Easy Endurance",
+          "description": "• Easy recovery ride. Building freshness.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Thu - Easy Endurance",
+          "description": "• Easy recovery ride. Your body is adapting.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4800\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Fri - Easy Endurance",
+          "description": "• Easy recovery ride. Fitness is consolidating.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Sat - Moderate Long Ride",
+          "description": "• No intensity. Just aerobic time. Check bike. Address any equipment issues. Dial in everything for final two weeks.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"12000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Sun - Easy Endurance",
+          "description": "• Easy recovery ride. You should feel fresh and strong by end of this week. The limiter you targeted in Weeks 2-3 should feel improved. Not perfect—but noticeably better. That's block periodization working.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "focus": "Race Sharpening - Mixed Intensity",
+      "volume_percent": 85,
+      "volume_hours": "13-15",
+      "workouts": [
+        {
+          "name": "W05 Mon - Rest",
+          "description": "• Two weeks to race. You've targeted your limiter, recovered, and now we sharpen everything for competitive performance. Mixed intensity this week—VO2max, threshold, and sustained efforts. This is race-specific training. Quality stays high, volume controlled to maintain freshness toward race week.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Tue - Mixed Race Simulation #1",
+          "description": "• STRUCTURE: 30 min warmup → 5x5 min @ 110-115% FTP (5 min easy between) → 20 min easy → 2x15 min @ 100-105% FTP (8 min easy between) → 20 min cooldown. • VO2max + threshold. This is what competitive racing feels like—surges and sustained efforts. Practice fueling during intervals.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"300\" OnPower=\"1.12\" OffDuration=\"300\" OffPower=\"0.50\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"1.02\" Cadence=\"90\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Wed - Easy Endurance",
+          "description": "• Recovery ride. Building freshness.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7800\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Thu - Threshold Sharpness",
+          "description": "• STRUCTURE: 30 min warmup → 3x15 min @ 100-105% FTP (7 min easy between) → 15 min easy → 5x1 min @ 110% FTP (2 min easy between) → 15 min cooldown. • Threshold maintains race pace. Openers keep top-end sharp. Should feel powerful and controlled.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"1.02\" Cadence=\"90\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"60\" OnPower=\"1.10\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Fri - Easy Endurance",
+          "description": "• Recovery ride. Building freshness.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Sat - Final Long Race Prep",
+          "description": "• STRUCTURE: First 2 hours Z2 → 4x20 min @ 95-105% FTP (varied intensity, 8 min easy between) → Final 90 min Z2 • Final long race simulation. Variable efforts when tired. Eat 70-90g carbs/hour. Test FINAL race nutrition. This is dress rehearsal—everything you do today, you can do on race day.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6600\" Power=\"0.68\" Cadence=\"85\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.95\" Cadence=\"88\"/>\n    <SteadyState Duration=\"480\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.98\" Cadence=\"90\"/>\n    <SteadyState Duration=\"480\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"1.00\" Cadence=\"90\"/>\n    <SteadyState Duration=\"480\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"1.03\" Cadence=\"90\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Sun - Easy Endurance",
+          "description": "• Recovery ride. Building freshness for race week.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "focus": "Race Week - Taper & Compete",
+      "volume_percent": 40,
+      "volume_hours": "6-9",
+      "workouts": [
+        {
+          "name": "W06 Mon - Rest",
+          "description": "• Race week. Volume drops dramatically. You did 5 weeks of smart emergency training: assessment → concentrated loading → recovery → sharpening. You're ready for competitive performance. Now execute tactically.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Tue - Easy Endurance",
+          "description": "• Easy spin. Just moving legs. No stress.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W06 Wed - Final Sharpness",
+          "description": "• STRUCTURE: 30 min easy → 3x5 min @ 95-100% FTP (3 min easy between) → 15 min easy → 3x2 min @ 110% FTP (2 min easy between) → 4x30sec @ 120% FTP (90sec easy between) → 15 min easy • Final intensity. Should feel powerful, explosive, sharp. If legs feel dead, skip 30sec efforts. This is sharpness check—competitive power should come effortlessly.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"300\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"1.10\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"90\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.20\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Thu - Easy Endurance or Rest",
+          "description": "• If race is Sunday, easy spin. If race is Saturday, consider rest. Freshness matters.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W06 Fri - Pre-Race Shake-Out",
+          "description": "• STRUCTURE: 30 min easy → 3x3 min @ race pace (2 min easy between) → 3x90sec @ 110% FTP (2 min easy between) → 4x30sec @ 115% FTP (90sec easy between) → 15 min easy • Final ride before race. Legs should feel fresh and powerful. Check bike one last time. Test race-day tire pressure. Visualize competitive execution—positioning, tactics, when to attack. You're ready.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"120\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"90\" OnPower=\"1.10\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"90\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.15\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Sat - Race Day or Rest",
+          "description": "• If racing Saturday: EXECUTE COMPETITIVE PLAN • If racing Sunday: Rest or 60-90 min easy Z2 with 3x30sec openers • If racing today—position competitively from start, don't waste energy, fuel aggressively (70-90g carbs/hour), execute tactically, attack when it counts.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Sun - Race Day or Recovery",
+          "description": "• Race day. Tactical competitive execution. Position early. Fuel constantly. When it gets hard, you have the fitness—5 weeks of block periodization built that. Attack decisively. Compete. • If raced Saturday: 60-90 min easy recovery, celebrate",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    }
+  ],
+  "default_modifications": {
+    "cadence_work": {
+      "enabled": true,
+      "description": "High (100+ rpm) and low (40-60 rpm) cadence variations on all intervals",
+      "base_period": "Alternate high and low cadence",
+      "build_period": "Rhythm intervals use self-selected for Z3, high cadence for Z4"
+    },
+    "rhythm_intervals": {
+      "enabled": true,
+      "weeks": [
+        5
+      ],
+      "description": "Alternating 2 min Z3 + 1 min Z4 patterns"
+    },
+    "loaded_intervals": {
+      "enabled": true,
+      "weeks": [
+        5
+      ],
+      "description": "1 min Z5/Z6 surge then settle into 14 min Z3"
+    },
+    "gspot_terminology": {
+      "enabled": true,
+      "replaces": "Sweet Spot",
+      "range": "87-92% FTP"
+    }
+  }
+}

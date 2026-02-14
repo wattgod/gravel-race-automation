@@ -8,10 +8,14 @@ env/
 venv/
 ENV/
 .venv
+*.pyc
+*.pyo
+.pytest_cache/
 
 # Environment variables
 .env
 .env.local
+*.env.local
 
 # WordPress credentials (keep config.py.example, ignore actual config)
 config.py
@@ -24,6 +28,9 @@ dry_run_results.json
 # Database backups
 *.json.bak
 *.csv.bak
+
+# Generated athlete output
+athletes/
 
 # IDE
 .vscode/
@@ -45,4 +52,3 @@ guide/media/
 # OS
 .DS_Store
 Thumbs.db
-

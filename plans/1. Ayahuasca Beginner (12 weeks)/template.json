@@ -1,0 +1,581 @@
+{
+  "plan_metadata": {
+    "name": "AYAHUASCA BEGINNER",
+    "duration_weeks": 12,
+    "philosophy": "HIIT-Focused (Survival Mode)",
+    "target_hours": "0-5",
+    "target_athlete": "Complete beginner, severely time-limited (0-5 hrs/week), just needs to finish",
+    "goal": "Build minimum fitness to survive race day with maximum time efficiency"
+  },
+  "weeks": [
+    {
+      "week_number": 1,
+      "focus": "Foundation & Reality Check",
+      "volume_percent": 70,
+      "volume_hours": "0-3.5",
+      "workouts": [
+        {
+          "name": "W01 Mon - Rest",
+          "description": "• Welcome to survival mode training. Let's be brutally honest: 0-5 hours per week is NOT enough to train properly for a gravel race. But life happens—work, family, responsibilities limit your time. This plan accepts that reality. You won't be competitive. You won't feel amazing. But you WILL finish if you: (1) Execute this plan consistently, (2) Start the race VERY conservatively, (3) Fuel aggressively from mile 1. HIIT (High-Intensity Interval Training) gives maximum fitness in minimum time. Short, hard bursts build both aerobic and anaerobic capacity faster than long slow rides. Every minute counts. • WEEK PREVIEW: Foundation week. Tuesday has HIIT introduction (6x30sec HARD). Thursday is optional easy ride. Saturday is longer ride if possible. This week establishes baseline and introduces HIIT efficiency. Reality check: if you only do Tuesday's HIIT (30-40 min), that's OK—that's minimum effective dose. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Tue - HIIT Introduction",
+          "description": "• STRUCTURE: 10 min easy warmup → 6x30sec HARD (as hard as you can go) / 2 min easy recovery → 10 min easy cooldown • First HIIT session. 30 seconds HARD means ALL OUT—sprint-level effort. Then 2 minutes very easy recovery (you should be breathing hard still). These short bursts build fitness fast. If you can only do 4 intervals instead of 6, that's fine. Do what you can. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W01 Wed - Rest",
+          "description": "• Full rest. HIIT fatigues you more than you think. Your body needs recovery. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Thu - Easy Ride (if you have time)",
+          "description": "• Duration: 20-30 min • Intensity: Conversational pace, could talk in full sentences • Notes: Optional easy ride. If you don't have time, skip it. If you have time, just ride easy. This is aerobic base building without stress. Don't go hard—save that for HIIT days. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Fri - Rest",
+          "description": "• Rest day. Life day. Do what you need to do. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Sat - Longer Ride (if possible)",
+          "description": "• Duration: 45-60 min • Intensity: Conversational pace • Notes: Longest ride of week—but ONLY if you have time. If Saturday is busy, skip it and don't feel guilty. This is about survival, not perfection. If you ride, stay easy. Eat something during the ride (banana, energy bar, whatever). Practice fueling. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Sun - Rest or Optional Easy Spin",
+          "description": "• Optional: 20-30 min very easy • Notes: Default is REST. Your body, your schedule. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS. • REALITY CHECK: If you only did Tuesday's HIIT session this week (30-40 min), that's OK. That's literally minimum effective dose. If you did more, great. If you did less, life happened. Don't quit—just do what you can next week.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "focus": "Building HIIT Tolerance",
+      "volume_percent": 80,
+      "volume_hours": "0-4",
+      "workouts": [
+        {
+          "name": "W02 Mon - Rest",
+          "description": "• Week 2 adds slightly more work IF you have the time. Two HIIT sessions per week is ideal. One HIIT session per week is minimum. Zero sessions = you're not training and should seriously reconsider doing this race. Be honest with yourself. • WEEK PREVIEW: Building HIIT tolerance. Tuesday has extended HIIT (8x30sec HARD). Thursday has second HIIT session (10x20sec HARD). Saturday is longer endurance if time allows. This week increases HIIT duration and introduces second session. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Tue - HIIT Session #1",
+          "description": "• STRUCTURE: 10 min easy warmup → 8x30sec HARD / 2 min easy recovery → 10 min cooldown • Two more intervals than Week 1. 30 seconds all-out effort, then 2 minutes very easy. If you can only do 6, that's fine—do what you can complete with good quality. Better to do fewer intervals well than more intervals poorly. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"8\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W02 Wed - Rest",
+          "description": "• Recovery day. HIIT is hard on your body. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Thu - HIIT Session #2 (if possible)",
+          "description": "• STRUCTURE: 10 min easy warmup → 10x20sec HARD / 90sec easy recovery → 10 min cooldown • Shorter bursts, more of them. 20 seconds as hard as you can go, then 90 seconds easy. This builds power and repeatability. If you don't have time today, skip it—but try to fit it in somewhere this week. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"10\" OnDuration=\"20\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W02 Fri - Rest",
+          "description": "• Rest or life day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Sat - Longer Endurance (if time allows)",
+          "description": "• Duration: 60-75 min • Intensity: Easy conversational pace • Notes: Longer ride for endurance building. But ONLY if you have time. No guilt if you skip. If you ride, eat 40-50g carbs during it (sports drink, gel, whatever). Your body needs to learn to fuel. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Sun - Rest or Easy Spin",
+          "description": "• Optional: 20-30 min easy • Notes: Default is rest. Do what your schedule allows. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS. • MINIMUM THIS WEEK: If you only did Tuesday's HIIT (35-45 min), you did the minimum. Not ideal, but acceptable for survival training.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "focus": "Peak HIIT Volume",
+      "volume_percent": 90,
+      "volume_hours": "0-4.5",
+      "workouts": [
+        {
+          "name": "W03 Mon - Rest",
+          "description": "• Week 3 is your biggest volume of this phase. Two HIIT sessions + one longer ride if possible. By Saturday you should feel accumulated fatigue. That's overload working. Week 4 backs off so your body adapts. • WEEK PREVIEW: Peak HIIT volume week. Tuesday has maximum HIIT volume (10x30sec HARD). Thursday has mixed HIIT durations (5x45sec HARD). Saturday is longest ride of base phase (75-90 min with 3x5 min efforts). This is your \"A\" week. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Tue - HIIT Session #1",
+          "description": "• STRUCTURE: 10 min warmup → 10x30sec HARD / 2 min easy recovery → 10 min cooldown • Ten intervals—most yet. 30 seconds all-out, 2 minutes easy. This is HARD. Break it down: do 5, rest, then do 5 more if needed. If you fade on interval 8-10, you pushed hard enough. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"10\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Wed - Rest",
+          "description": "• Full rest after big HIIT session. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Thu - HIIT Session #2",
+          "description": "• STRUCTURE: 10 min warmup → 5x45sec HARD / 2.5 min easy → 10 min cooldown • Longer intervals—45 seconds all-out. These hurt more than 30-second intervals. Can't complete all 5? Do 3-4. Quality over quantity. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"45\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"150\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Fri - Rest",
+          "description": "• Rest day. Two hard sessions done this week. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Sat - Longest Ride of Base Phase",
+          "description": "• STRUCTURE: Mostly easy pace with 3x5 min @ \"comfortably hard\" in final 30 min (3 min easy between) • Longest ride yet. Mostly easy, but three 5-minute efforts at moderate-hard intensity (harder than easy, but not sprint). This simulates race demands. Eat 50g carbs during ride. This is critical—practice fueling NOW. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"300\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Sun - Rest or Easy Spin",
+          "description": "• Optional: 30 min easy • Notes: Default is rest. You should feel tired this week—that's appropriate. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS. • REALITY CHECK: You're at ~5-12 total training hours with 9 weeks to race. Your longest ride is maybe 90 minutes. Race is probably 4-8+ hours. This gap is HUGE. Accept it now: race day will hurt. Final hours will be survival mode. That's OK—mental toughness gets you through.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "focus": "Recovery & Adaptation",
+      "volume_percent": 60,
+      "volume_hours": "0-3",
+      "workouts": [
+        {
+          "name": "W04 Mon - Rest",
+          "description": "• Recovery week. Your body adapts during rest. By Friday you should feel fresh. If you're still tired by Sunday, you pushed too hard in Week 3 (or didn't sleep enough, or life stress is high). This is when fitness consolidates. • WEEK PREVIEW: Recovery week. Tuesday has light HIIT (4x20sec HARD). Thursday is optional easy ride. Saturday is moderate ride. This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Tue - Light HIIT",
+          "description": "• STRUCTURE: 8 min warmup → 4x20sec HARD / 2 min easy → 8 min cooldown • Lighter than recent weeks. Maintains fitness without adding fatigue. Should feel controlled. If it feels hard, you're not recovered—skip intervals and just ride easy. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"480\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"20\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"480\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W04 Wed - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Thu - Easy Ride (optional)",
+          "description": "• Duration: 20-30 min easy • Notes: Optional easy spin. Skip if busy or tired. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Sat - Moderate Ride",
+          "description": "• Duration: 45-60 min easy • Notes: No intensity. Just ride easy. If you don't have time, skip it. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Sun - Rest",
+          "description": "• Full rest. Recovery week complete. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "focus": "Build Phase - HIIT + Endurance",
+      "volume_percent": 85,
+      "volume_hours": "0-4.25",
+      "workouts": [
+        {
+          "name": "W05 Mon - Rest",
+          "description": "• Build phase begins. Weeks 5-7 progressively add both HIIT and longer moderate efforts. You're building minimal race-ready fitness. Not ideal fitness—survival fitness. • WEEK PREVIEW: Build phase begins. Tuesday has HIIT session (8x30sec HARD). Thursday has tempo intervals (3x8 min @ moderately hard). Saturday is long ride with moderate efforts (75-90 min). This week introduces sustained efforts alongside HIIT. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Tue - HIIT Session",
+          "description": "• STRUCTURE: 10 min warmup → 8x30sec HARD / 2 min easy → 10 min cooldown • Back to classic HIIT. Should feel strong after recovery week. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"8\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Wed - Rest",
+          "description": "• Recovery day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Thu - Tempo Intervals",
+          "description": "• STRUCTURE: 10 min warmup → 3x8 min @ \"moderately hard\" / 4 min easy between → 10 min cooldown • Not HIIT, not easy—moderately hard pace you could hold for 10-15 minutes. Harder than conversation pace but not sprinting. This builds threshold power in time-efficient way. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"480\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Sat - Long Ride (if possible)",
+          "description": "• STRUCTURE: First 45 min easy → 2x10 min @ \"moderately hard\" / 5 min easy between → Rest easy • Building endurance with moderate efforts when tired. Eat 50-60g carbs during ride. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Sun - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "focus": "Build Phase - Increased Intensity",
+      "volume_percent": 95,
+      "volume_hours": "0-4.75",
+      "workouts": [
+        {
+          "name": "W06 Mon - Rest",
+          "description": "• Intensity increases this week. Two HIIT sessions + one longer ride with sustained efforts. This is as hard as the plan gets before final recovery week. • WEEK PREVIEW: Peak intensity week. Tuesday has peak HIIT volume (10x30sec HARD). Thursday has long HIIT bursts (6x1 min HARD). Saturday is peak long ride (90-105 min with 3x10 min efforts). This week is maximum stimulus. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Tue - HIIT Session #1",
+          "description": "• STRUCTURE: 10 min warmup → 10x30sec HARD / 2 min easy → 10 min cooldown • Back to maximum HIIT volume. Ten all-out efforts. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"10\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Wed - Rest",
+          "description": "• Recovery between HIIT sessions. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Thu - HIIT Session #2",
+          "description": "• STRUCTURE: 10 min warmup → 6x1 min HARD / 3 min easy → 10 min cooldown • Longer bursts—1 minute all-out. These are brutally hard. Can't complete 6? Do 4-5. Quality matters. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"60\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Sat - Peak Long Ride",
+          "description": "• STRUCTURE: First 45 min easy → 3x10 min @ \"moderately hard\" / 5 min easy between → Final 30 min easy • Longest and hardest ride. Three 10-minute efforts at race pace intensity. Eat 60g carbs during ride. This is race practice. • RHYTHM INTERVALS: For one effort, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W06 Sun - Rest or Easy Spin",
+          "description": "• Optional: 30 min easy • Notes: Default is rest. Should feel tired this week. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "focus": "Build Phase - Consolidation",
+      "volume_percent": 100,
+      "volume_hours": "0-5",
+      "workouts": [
+        {
+          "name": "W07 Mon - Rest",
+          "description": "• Final high-intensity week before Week 8 recovery. This consolidates all the HIIT work you've done. Should feel strong in intervals now—efforts that crushed you in Week 3 should feel more manageable. • WEEK PREVIEW: Consolidation week. Tuesday has mixed HIIT (5x1 min + 6x30sec). Thursday has sustained efforts (3x10 min @ moderately hard). Saturday is maximum long ride (105-120 min with 3x12 min efforts). This week consolidates all training. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W07 Tue - HIIT Session",
+          "description": "• STRUCTURE: 10 min warmup → 5x1 min HARD / 3 min easy → 5 min easy → 6x30sec HARD / 2 min easy → 10 min cooldown • Combination workout—long bursts then short bursts. Maximum stimulus. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"60\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"300\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W07 Wed - Rest",
+          "description": "• Recovery day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W07 Thu - Sustained Efforts",
+          "description": "• STRUCTURE: 10 min warmup → 3x10 min @ \"moderately hard\" / 5 min easy between → 10 min cooldown • Three 10-minute blocks at race pace. This is what gravel racing feels like—sustained hard effort. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W07 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W07 Sat - Maximum Long Ride",
+          "description": "• STRUCTURE: First 60 min easy → 3x12 min @ \"moderately hard\" / 6 min easy between → Final 30 min easy • Peak session—longest duration, most sustained effort. Eat 60-70g carbs. Test all race-day gear and nutrition. • RHYTHM INTERVALS: For one effort, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W07 Sun - Rest or Easy Spin",
+          "description": "• Optional: 30 min easy • Notes: Default is rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "focus": "Recovery & Adaptation",
+      "volume_percent": 60,
+      "volume_hours": "0-3",
+      "workouts": [
+        {
+          "name": "W08 Mon - Rest",
+          "description": "• Recovery week after three hard weeks. Should feel tired Monday, fresh by Friday. This is when your limited training converts to fitness. • WEEK PREVIEW: Recovery week. Tuesday has light HIIT (4x20sec HARD). Thursday is optional easy ride. Saturday is moderate ride. This is when training stress converts to performance. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W08 Tue - Light HIIT",
+          "description": "• Duration: 25-30 min • STRUCTURE: 8 min warmup → 4x20sec HARD / 2 min easy → 8 min cooldown • Light maintenance work. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"480\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"20\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"480\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W08 Wed - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W08 Thu - Easy Ride",
+          "description": "• Duration: 20-30 min easy • Notes: Optional easy spin. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W08 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W08 Sat - Moderate Ride",
+          "description": "• Duration: 45-60 min easy • Notes: No intensity. Check bike, dial in fit. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W08 Sun - Rest",
+          "description": "• Full rest. Preparing for race prep phase. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 9,
+      "focus": "Race Prep - Specificity 1",
+      "volume_percent": 90,
+      "volume_hours": "0-4.5",
+      "workouts": [
+        {
+          "name": "W09 Mon - Rest",
+          "description": "• Final four weeks. Training becomes race-specific. You're practicing race pace, race-type efforts. Accept reality: your longest training ride is ~2 hours, race is 4-8+ hours. Gap is massive. This means conservative pacing and aggressive fueling are MANDATORY for survival. • WEEK PREVIEW: Race prep begins. Tuesday has race simulation HIIT (8x1 min HARD). Thursday has race pace intervals (3x10 min @ moderately hard). Saturday is long race simulation (90-105 min). This week practices race-specific efforts. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W09 Tue - Race Simulation HIIT",
+          "description": "• Duration: 40-50 min • STRUCTURE: 10 min warmup → 8x1 min HARD / 2 min easy → 10 min cooldown • 1-minute surges simulate attacks, short climbs, bridging gaps. This is race-specific. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"8\" OnDuration=\"60\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W09 Wed - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W09 Thu - Race Pace Intervals",
+          "description": "• Duration: 40-50 min • STRUCTURE: 10 min warmup → 3x10 min @ \"moderately hard\" / 5 min easy between → 10 min cooldown • Race pace for extended periods. Practice drinking/eating during these efforts. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W09 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W09 Sat - Long Race Simulation",
+          "description": "• Duration: 90-105 min • STRUCTURE: 30 min easy → 3x12 min @ \"moderately hard\" (varied within range) / 6 min easy between → Final 30 min easy • Race simulation. Eat 60g carbs/hour. Test final race-day nutrition. • LOADED INTERVALS: For one effort, try loaded pattern: 1 min Z5/Z6 (high cadence, seated) → settle into 11 min Z3 (self-selected cadence). This simulates race starts and surges. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use loaded/rhythm patterns.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W09 Sun - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 10,
+      "focus": "Race Prep - Specificity 2",
+      "volume_percent": 95,
+      "volume_hours": "0-4.75",
+      "workouts": [
+        {
+          "name": "W10 Mon - Rest",
+          "description": "• Three weeks to race. Focus on execution, recovery, race logistics. Order nutrition. Check bike. Confirm travel. Mental prep begins. • WEEK PREVIEW: Final race-specific sharpening. Tuesday has HIIT sharpness (6x1 min + 4x30sec). Thursday has race pace + openers (2x12 min + 4x30sec). Saturday is final long session (100-120 min). This week is final race-specific work. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W10 Tue - HIIT Sharpness",
+          "description": "• Duration: 35-45 min • STRUCTURE: 10 min warmup → 6x1 min HARD / 3 min easy → 5 min easy → 4x30sec HARD / 2 min easy → 10 min cooldown • Mixed HIIT for sharpness. Should feel powerful—fitness manifesting. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm seated), some low cadence (40-60 rpm seated, big gear).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"60\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"300\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W10 Wed - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W10 Thu - Race Pace + Openers",
+          "description": "• Duration: 40-50 min • STRUCTURE: 10 min warmup → 2x12 min @ \"moderately hard\" / 6 min easy → 5 min easy → 4x30sec HARD / 90sec easy → 10 min cooldown • Race pace + short bursts for sharpness. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3, continuous. This simulates race variability. • CADENCE WORK: Mix cadences on intervals—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use rhythm pattern. High cadence (100+ rpm) on openers.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"300\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W10 Fri - Rest",
+          "description": "• Rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W10 Sat - Final Long Session",
+          "description": "• Duration: 100-120 min • STRUCTURE: 30 min easy → 3x15 min @ \"moderately hard\" (varied) / 7 min easy between → Final 30 min easy • Final long ride before taper. Eat 60-70g carbs/hour. Confirm all race gear works. • LOADED INTERVALS: For one effort, try loaded pattern: 1 min Z5/Z6 (high cadence, seated) → settle into 14 min Z3 (self-selected cadence). This simulates race starts and surges. • CADENCE WORK: Mix cadences on efforts—some high cadence (100+ rpm), some low cadence (40-60 rpm), or use loaded/rhythm patterns.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W10 Sun - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 11,
+      "focus": "Taper Week 1",
+      "volume_percent": 70,
+      "volume_hours": "0-3.5",
+      "workouts": [
+        {
+          "name": "W11 Mon - Rest",
+          "description": "• Taper begins. Volume drops, intensity stays present. Should feel increasingly fresh each day. • WEEK PREVIEW: Taper begins. Tuesday has light HIIT (6x30sec HARD). Thursday is easy ride. Saturday has moderate ride with touches (60-75 min). Volume drops, intensity stays present. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W11 Tue - Light HIIT",
+          "description": "• Duration: 30-35 min • STRUCTURE: 10 min warmup → 6x30sec HARD / 2 min easy → 10 min cooldown • Reduced volume, maintained intensity. Should feel powerful. • CADENCE WORK: High cadence on all efforts (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W11 Wed - Rest",
+          "description": "• Full rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W11 Thu - Easy Ride",
+          "description": "• Duration: 20-30 min easy • Notes: Short easy spin. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W11 Fri - Rest",
+          "description": "• Scheduled rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W11 Sat - Moderate Ride with Touches",
+          "description": "• Duration: 60-75 min • STRUCTURE: 30 min easy → 2x8 min @ \"moderately hard\" / 4 min easy → Final 20 min easy • Final \"reminder\" workout. Should feel strong. Check bike final time. • CADENCE WORK: Mix cadences on efforts.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"480\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W11 Sun - Rest",
+          "description": "• Full rest day. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 12,
+      "focus": "Race Week",
+      "volume_percent": 40,
+      "volume_hours": "0-2.5",
+      "workouts": [
+        {
+          "name": "W12 Mon - Rest",
+          "description": "• Race week. You trained 0-5 hours per week for 11 weeks. Total training: ~10-48 hours. Race is 4-8+ hours. You're underprepared—accept it. Now execute survival plan: START VERY CONSERVATIVELY. Fuel from mile 1 (50-60g carbs/hour minimum). When it gets hard (and it will), mental toughness gets you home. • WEEK PREVIEW: Race week! Tuesday is easy spin (20-30 min). Wednesday has final openers. Thursday is rest or easy spin. Friday is pre-race shake-out (if racing Sunday). Saturday/Sunday: RACE DAY! • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Tue - Easy Spin",
+          "description": "• Duration: 20-30 min easy • Notes: Just moving legs. No stress. • CADENCE: Self-selected (85-95 rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W12 Wed - Final Openers",
+          "description": "• Duration: 30-35 min • STRUCTURE: 10 min easy → 3x2 min @ \"moderately hard\" / 2 min easy → 4x30sec HARD / 90sec easy → 5 min easy • Final sharpness check. Should feel good. If legs feel dead, skip it and just ride easy. • CADENCE WORK: High cadence on all efforts (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <SteadyState Duration=\"600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"0.85\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"300\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W12 Thu - Rest or Easy Spin",
+          "description": "• Optional: 15-20 min easy • Notes: If race is Sunday, easy spin. If race is Saturday, rest. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Fri - Pre-Race Shake-Out (if racing Sunday)",
+          "description": "• Duration: 20-30 min • STRUCTURE: 10 min easy → 2x2 min @ moderate / 2 min easy → 2x30sec HARD / 90sec easy → 5 min easy • Final ride before race. Legs should feel fresh and powerful. Check bike. Visualize CONSERVATIVE start. You're ready to survive. • CADENCE WORK: High cadence on all efforts (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <SteadyState Duration=\"600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"120\" OnPower=\"0.80\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"30\" OnPower=\"1.50\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"300\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W12 Sat - Race Day or Rest",
+          "description": "• If racing Saturday: EXECUTE SURVIVAL PLAN • If racing Sunday: Rest completely • Notes: If racing—START EASY (way easier than you think), fuel from mile 1 (50-60g carbs/hour MINIMUM), accept you're underprepared, mental toughness = finish line. You can do this.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Sun - Race Day or Recovery",
+          "description": "• If racing Sunday: EXECUTE SURVIVAL PLAN • If raced Saturday: Easy 15-20 min spin if you can move, celebrate survival • Notes: Race day. CONSERVATIVE START IS MANDATORY. Fuel constantly. Final hours will be pure survival—everyone's hurt, you just keep moving forward. Mental toughness. You. Can. Finish.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    }
+  ],
+  "default_modifications": {
+    "hiit_philosophy": {
+      "enabled": true,
+      "description": "HIIT-Focused (Survival Mode) - High-Intensity Interval Training gives maximum fitness in minimum time. Short, hard bursts build both aerobic and anaerobic capacity faster than long slow rides.",
+      "volume_range": "0-5 hours/week (flexible, life happens)",
+      "principle": "Every minute counts. Maximum fitness in minimum time.",
+      "reality_check": "0-5 hours/week is NOT enough to train properly, but you WILL finish if you execute consistently, start conservatively, and fuel aggressively."
+    },
+    "cadence_work": {
+      "enabled": true,
+      "base_period": "High cadence (100+ rpm seated) and low cadence/torque (40-60 rpm seated, big gear) on HIIT intervals",
+      "build_period": "Mix high/low cadence + rhythm intervals (2 min Z3 + 1 min Z4 patterns) on sustained efforts",
+      "peak_period": "Loaded intervals (1 min Z5/Z6 → settle into Z3) on race simulation rides",
+      "description": "Teaches power production in different ways, foundation for changing pace"
+    },
+    "rhythm_intervals": {
+      "enabled": true,
+      "weeks": [
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "description": "Alternating patterns: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 3-4, continuous. Applied to sustained 'moderately hard' efforts."
+    },
+    "loaded_intervals": {
+      "enabled": true,
+      "weeks": [
+        9,
+        10
+      ],
+      "description": "1 min Z5/Z6 (high cadence, seated) → settle into 9-14 min Z3 (self-selected cadence). Simulates race starts and surges. Applied to race simulation rides."
+    },
+    "strength_training": {
+      "enabled": false,
+      "note": "Athlete performs own strength program. Suggested on lighter training days. Survival mode prioritizes cycling work."
+    },
+    "monday_week_preview": {
+      "enabled": true,
+      "description": "Monday rest days include week preview with survival mode reminders, reality checks, key workouts, and race execution guidance"
+    },
+    "rest_day_tss_limit": 30,
+    "rest_day_duration_limit_hours": 1,
+    "survival_mode_considerations": {
+      "reality_check": "0-5 hrs/week + 12 weeks = SURVIVAL MODE. You survived. That's the win.",
+      "minimum_effective_dose": "One HIIT session per week is minimum. Zero sessions = reconsider doing this race.",
+      "conservative_pacing": "START VERY CONSERVATIVELY. Way easier than you think.",
+      "aggressive_fueling": "Fuel from mile 1 (50-60g carbs/hour MINIMUM).",
+      "mental_toughness": "Final hours will be survival mode. Mental toughness gets you through.",
+      "accept_underprepared": "You're underprepared—accept it. Now execute survival plan."
+    }
+  }
+}

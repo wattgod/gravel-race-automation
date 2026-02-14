@@ -1,0 +1,180 @@
+{
+  "race_metadata": {
+    "name": "Race Name",
+    "full_name": "Full Race Name",
+    "distance_miles": 200,
+    "elevation_feet": 11000,
+    "date": "June",
+    "location": "City, State",
+    "start_elevation_feet": 1200,
+    "max_elevation_feet": 1500,
+    "avg_elevation_feet": 1200
+  },
+  "race_characteristics": {
+    "climate": "hot",
+    "altitude_feet": 1200,
+    "altitude_category": "low",
+    "terrain": "flint_hills",
+    "technical_difficulty": "moderate",
+    "typical_weather": "Hot and humid, 85-95\u00b0F",
+    "race_type": "ultra_distance"
+  },
+  "race_hooks": {
+    "punchy": "200 miles across the Flint Hills. 11,000 feet of climbing. June heat that breaks people.",
+    "detail": "Unbound isn't a race you survive by accident. It's a race you prepare for\u2014or it prepares you for a very long day.",
+    "dark_mile": 150
+  },
+  "non_negotiables": [
+    {
+      "requirement": "Heat adaptation protocol built into weeks 6-10",
+      "by_when": "Week 6",
+      "why": "Heat adaptation takes 2-3 weeks. Starting too late means racing unprepared in dangerous conditions."
+    },
+    {
+      "requirement": "Flint-specific cornering and line selection skills",
+      "by_when": "Week 6-8",
+      "why": "Technical skills prevent crashes and save energy. Poor handling wastes watts and increases risk."
+    },
+    {
+      "requirement": "9-hour dress rehearsal in week 9",
+      "by_when": "Week 9",
+      "why": "This tests nutrition, pacing, and mental preparation. Skipping it means discovering problems on race day."
+    },
+    {
+      "requirement": "Aggressive fueling protocol (60-90g carbs/hour) on long rides",
+      "by_when": "Week 4-8",
+      "why": "Gut training is non-negotiable. Without it, you'll bonk or have GI distress during the race."
+    },
+    {
+      "requirement": "Robust taper protocol in final 2 weeks",
+      "by_when": "Week 11-12",
+      "why": "Proper taper ensures freshness on race day. Overtraining into race week guarantees underperformance."
+    }
+  ],
+  "masterclass_topics": {
+    "priority_order": [
+      "heat",
+      "fueling",
+      "tactics",
+      "mental",
+      "execution",
+      "recovery"
+    ],
+    "race_specific": true,
+    "topics": {
+      "heat": "The protocol that works\u2014when to start, how to adapt",
+      "fueling": "Calories, hydration, timing for 200+ miles",
+      "tactics": "When to sit in, when to push, when to survive",
+      "mental": "What to do when mile 150 hurts",
+      "execution": "Why most athletes fail intervals",
+      "recovery": "The honest takes"
+    }
+  },
+  "workout_modifications": {
+    "heat_training": {
+      "enabled": true,
+      "tier_3_weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "tier_2_weeks": [
+        4,
+        5
+      ],
+      "tier_1_weeks": [
+        11,
+        12
+      ]
+    },
+    "dress_rehearsal": {
+      "enabled": true,
+      "week": 9,
+      "day": "Saturday",
+      "duration_hours": {
+        "ayahuasca": 5,
+        "finisher": 7,
+        "compete": 9,
+        "podium": 10
+      }
+    },
+    "aggressive_fueling": {
+      "enabled": true,
+      "target_carbs_per_hour": 60,
+      "long_ride_min_hours": 3
+    },
+    "robust_taper": {
+      "enabled": true,
+      "weeks": [
+        11,
+        12
+      ]
+    },
+    "gravel_grit": {
+      "enabled": true,
+      "week": 12
+    }
+  },
+  "guide_variables": {
+    "race_name": "Unbound Gravel 200",
+    "race_distance": "200 miles",
+    "race_elevation": "11,000 feet",
+    "race_date": "June",
+    "race_location": "Emporia, Kansas",
+    "race_terrain": "Flint Hills gravel roads",
+    "race_weather": "Hot and humid, typically 85-95\u00b0F",
+    "race_challenges": [
+      "Extreme heat and humidity",
+      "Long distance requiring exceptional endurance",
+      "Technical gravel sections requiring bike handling skills"
+    ],
+    "altitude_section": false,
+    "altitude_feet": null
+  },
+  "marketplace_variables": {
+    "race_name": "Unbound Gravel 200",
+    "race_hook": "200 miles across the Flint Hills. 11,000 feet of climbing. June heat that breaks people.",
+    "race_hook_detail": "Unbound isn't a race you survive by accident. It's a race you prepare for\u2014or it prepares you for a very long day.",
+    "distance": "200",
+    "dark_mile": "150",
+    "non_negotiable_1": "Heat adaptation protocol built into weeks 6-10",
+    "non_negotiable_2": "Flint-specific cornering and line selection skills",
+    "non_negotiable_3": "9-hour dress rehearsal in week 9"
+  },
+  "tier_overrides": {
+    "ayahuasca": {
+      "dress_rehearsal_hours": 5,
+      "weekly_hours": "0-5"
+    },
+    "finisher": {
+      "dress_rehearsal_hours": 7,
+      "weekly_hours": "8-12"
+    },
+    "compete": {
+      "dress_rehearsal_hours": 9,
+      "weekly_hours": "12-18"
+    },
+    "podium": {
+      "dress_rehearsal_hours": 10,
+      "weekly_hours": "18+"
+    }
+  },
+  "_schema_info": {
+    "non_negotiables_format": {
+      "required_format": "dict",
+      "required_keys": [
+        "requirement",
+        "by_when",
+        "why"
+      ],
+      "description": "Each non-negotiable must be a dict with three keys: 'requirement' (string), 'by_when' (string with week/timing), and 'why' (string explaining consequence of skipping). The guide template supports up to 5 non-negotiables.",
+      "example": {
+        "requirement": "Heat adaptation protocol built into weeks 6-10",
+        "by_when": "Week 6",
+        "why": "Heat adaptation takes 2-3 weeks. Starting too late means racing unprepared in dangerous conditions."
+      }
+    }
+  }
+}

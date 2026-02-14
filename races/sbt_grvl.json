@@ -1,0 +1,126 @@
+{
+  "race_metadata": {
+    "name": "SBT GRVL",
+    "location": "Steamboat Springs, Colorado",
+    "date": "June/July",
+    "start_elevation_feet": 6732,
+    "avg_elevation_feet": 7500
+  },
+  "race_characteristics": {
+    "climate": "mountain",
+    "altitude_category": "moderate_high",
+    "terrain": "mountain_gravel",
+    "technical_difficulty": "moderate"
+  },
+  "distance_variants": [
+    {
+      "distance_miles": 37,
+      "name": "SBT GRVL 37",
+      "elevation_feet": 2800,
+      "race_type": "short_course",
+      "duration_estimate": "2-4 hours",
+      "dress_rehearsal_hours": {
+        "time_crunched": 2,
+        "finisher": 3,
+        "compete": 3,
+        "podium": 3
+      }
+    },
+    {
+      "distance_miles": 64,
+      "name": "SBT GRVL 64",
+      "elevation_feet": 5500,
+      "race_type": "mid_distance",
+      "duration_estimate": "4-7 hours",
+      "dress_rehearsal_hours": {
+        "time_crunched": 3,
+        "finisher": 4,
+        "compete": 5,
+        "podium": 5
+      }
+    },
+    {
+      "distance_miles": 100,
+      "name": "SBT GRVL 100",
+      "elevation_feet": 8000,
+      "race_type": "endurance",
+      "duration_estimate": "6-10 hours",
+      "dress_rehearsal_hours": {
+        "time_crunched": 4,
+        "finisher": 5,
+        "compete": 7,
+        "podium": 8
+      }
+    },
+    {
+      "distance_miles": 142,
+      "name": "SBT GRVL 142",
+      "elevation_feet": 11000,
+      "race_type": "ultra_distance",
+      "duration_estimate": "9-14 hours",
+      "dress_rehearsal_hours": {
+        "time_crunched": 5,
+        "finisher": 7,
+        "compete": 9,
+        "podium": 10
+      }
+    }
+  ],
+  "non_negotiables": {
+    "altitude_preparation": {
+      "requirement": "Altitude acclimatization or simulation training",
+      "by_when": "6 weeks before race",
+      "why": "Race is at 6,700-9,000 ft. Expect 3-8% power loss without preparation."
+    },
+    "climbing_fitness": {
+      "requirement": "Sustained climbing ability at altitude power",
+      "by_when": "4 weeks before race",
+      "why": "Multiple long climbs above 7,000 ft. You must be comfortable climbing at reduced power."
+    },
+    "dress_rehearsal": {
+      "requirement": "Complete a race-simulation long ride at target intensity",
+      "by_when": "3 weeks before race",
+      "why": "Validates fitness, fueling, and pacing strategy for race distance."
+    }
+  },
+  "masterclass_topics": [
+    "altitude_performance",
+    "climbing_pacing",
+    "mountain_weather",
+    "gravel_descending",
+    "race_nutrition",
+    "mental_preparation"
+  ],
+  "workout_modifications": {
+    "altitude_training": {
+      "enabled": true,
+      "note": "Race is at 6,700-9,000 ft. Expect 3-8% power loss. Include altitude simulation if possible."
+    },
+    "heat_training": {
+      "enabled": false,
+      "note": "Mountain climate - heat is not primary concern, but prepare for sun exposure at altitude."
+    }
+  },
+  "race_specific": {
+    "surface_hazards": [
+      "Loose gravel on descents",
+      "Rocky sections above 8,000 ft",
+      "Cattle guards",
+      "Afternoon thunderstorms possible"
+    ],
+    "in_race_decision_tree": {
+      "bonking": {
+        "action": "Stop at next aid station. Eat 200+ calories solid food. Walk for 10 min. Resume at Zone 2 only."
+      },
+      "altitude_sickness": {
+        "action": "Reduce effort to Zone 1-2. Focus on breathing rhythm. If headache worsens, stop and descend."
+      },
+      "mechanical": {
+        "action": "Move off course. Fix flat calmly. Check tire pressure for altitude (may need adjustment from sea level)."
+      },
+      "thunderstorm": {
+        "action": "If lightning: get low, off ridgeline. Do not shelter under lone trees. Wait it out - safety over finish time."
+      }
+    }
+  }
+}

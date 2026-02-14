@@ -1,0 +1,32 @@
+{
+  "name": "Sarah Printz",
+  "email": "sarah_printz@yahoo.com",
+  "sex": "female",
+  "age": 44,
+  "weight_lbs": 135,
+  "height_ft": 5,
+  "height_in": 10,
+  "years_cycling": "3-5 years",
+  "sleep": "good",
+  "stress": "moderate",
+  "races": [
+    {
+      "name": "SBT GRVL",
+      "date": "2026-06-28",
+      "distance_miles": 100,
+      "priority": "A"
+    }
+  ],
+  "longest_ride": "2-4",
+  "ftp": null,
+  "max_hr": null,
+  "weekly_hours": "5-7",
+  "trainer_access": "yes-basic",
+  "long_ride_days": ["saturday", "sunday"],
+  "interval_days": ["tuesday", "thursday"],
+  "off_days": ["wednesday"],
+  "strength_current": "regular",
+  "strength_include": "yes",
+  "strength_equipment": "full-gym",
+  "injuries": "NA"
+}

@@ -1,0 +1,293 @@
+{
+  "race_metadata": {
+    "name": "Unbound Gravel 200",
+    "full_name": "Unbound Gravel 200",
+    "distance_miles": 200,
+    "elevation_feet": 11000,
+    "date": "June",
+    "location": "Emporia, Kansas",
+    "start_elevation_feet": 1200,
+    "max_elevation_feet": 1500,
+    "avg_elevation_feet": 1200
+  },
+  "race_characteristics": {
+    "climate": "hot",
+    "altitude_feet": 1200,
+    "altitude_category": "low",
+    "terrain": "flint_hills",
+    "technical_difficulty": "moderate",
+    "typical_weather": "Hot and humid, 85-95\u00b0F",
+    "race_type": "ultra_distance"
+  },
+  "race_hooks": {
+    "punchy": "200 miles across the Flint Hills. 11,000 feet of climbing. June heat that breaks people.",
+    "detail": "Unbound isn't a race you survive by accident. It's a race you prepare for\u2014or it prepares you for a very long day.",
+    "dark_mile": 150
+  },
+  "non_negotiables": [
+    {
+      "requirement": "Heat adaptation protocol built into weeks 6-10",
+      "by_when": "Week 6",
+      "why": "Heat adaptation takes 2-3 weeks. Starting too late means racing unprepared in dangerous conditions."
+    },
+    {
+      "requirement": "Flint-specific cornering and line selection skills",
+      "by_when": "Week 6-8",
+      "why": "Technical skills prevent crashes and save energy. Poor handling wastes watts and increases risk."
+    },
+    {
+      "requirement": "9-hour dress rehearsal in week 9",
+      "by_when": "Week 9",
+      "why": "This tests nutrition, pacing, and mental preparation. Skipping it means discovering problems on race day."
+    }
+  ],
+  "masterclass_topics": {
+    "priority_order": [
+      "heat",
+      "fueling",
+      "tactics",
+      "mental",
+      "execution",
+      "recovery"
+    ],
+    "race_specific": true,
+    "topics": {
+      "heat": "The protocol that works\u2014when to start, how to adapt",
+      "fueling": "Calories, hydration, timing for 200+ miles",
+      "tactics": "When to sit in, when to push, when to survive",
+      "mental": "What to do when mile 150 hurts",
+      "execution": "Why most athletes fail intervals",
+      "recovery": "The honest takes"
+    }
+  },
+  "workout_modifications": {
+    "heat_training": {
+      "enabled": true,
+      "tier_3_weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "tier_2_weeks": [
+        4,
+        5
+      ],
+      "tier_1_weeks": [
+        11,
+        12
+      ]
+    },
+    "dress_rehearsal": {
+      "enabled": true,
+      "week": 9,
+      "day": "Saturday",
+      "duration_hours": {
+        "ayahuasca": 5,
+        "finisher": 7,
+        "compete": 9,
+        "podium": 10
+      }
+    },
+    "aggressive_fueling": {
+      "enabled": true,
+      "target_carbs_per_hour": 60,
+      "long_ride_min_hours": 3
+    },
+    "robust_taper": {
+      "enabled": true,
+      "weeks": [
+        11,
+        12
+      ]
+    },
+    "gravel_grit": {
+      "enabled": true,
+      "week": 12
+    }
+  },
+  "guide_variables": {
+    "race_name": "Unbound Gravel 200",
+    "race_distance": "200 miles",
+    "race_elevation": "11,000 feet",
+    "race_date": "June",
+    "race_location": "Emporia, Kansas",
+    "race_terrain": "Flint Hills gravel roads",
+    "race_weather": "Hot and humid, typically 85-95\u00b0F",
+    "race_challenges": [
+      "Extreme heat and humidity",
+      "Long distance requiring exceptional endurance",
+      "Technical gravel sections requiring bike handling skills"
+    ],
+    "altitude_section": false,
+    "altitude_feet": null
+  },
+  "marketplace_variables": {
+    "race_name": "Unbound Gravel 200",
+    "race_hook": "200 miles across the Flint Hills. 11,000 feet of climbing. June heat that breaks people.",
+    "race_hook_detail": "Unbound isn't a race you survive by accident. It's a race you prepare for\u2014or it prepares you for a very long day.",
+    "distance": "200",
+    "dark_mile": "150",
+    "non_negotiable_1": "Heat adaptation protocol built into weeks 6-10",
+    "non_negotiable_2": "Flint-specific cornering and line selection skills",
+    "non_negotiable_3": "9-hour dress rehearsal in week 9"
+  },
+  "tier_overrides": {
+    "ayahuasca": {
+      "dress_rehearsal_hours": 5,
+      "weekly_hours": "0-5"
+    },
+    "finisher": {
+      "dress_rehearsal_hours": 7,
+      "weekly_hours": "8-12"
+    },
+    "compete": {
+      "dress_rehearsal_hours": 9,
+      "weekly_hours": "12-18"
+    },
+    "podium": {
+      "dress_rehearsal_hours": 10,
+      "weekly_hours": "18+"
+    }
+  },
+  "race_specific": {
+    "surface": {
+      "terrain_type": "flint_rock",
+      "description": "Kansas flint rock - sharp, angular, sidewall-eating. This is NOT your typical gravel.",
+      "hazard_sectors": [
+        {
+          "name": "Flint Ridge",
+          "mile_marker": "20-40",
+          "risk_level": "high",
+          "tactics": "Avoid the crown. Ride the smoother edges where limestone is compacted. One puncture here sets the tone for your entire day."
+        },
+        {
+          "name": "The Gauntlet",
+          "mile_marker": "85-95",
+          "risk_level": "extreme",
+          "tactics": "Slow down 2-3 mph through here. Pick your line carefully and commit. One flat costs 15 minutes minimum. This is where races are lost."
+        },
+        {
+          "name": "Final Flint Stretch",
+          "mile_marker": "175-185",
+          "risk_level": "moderate",
+          "tactics": "Tired hands make bad line choices. Stay focused. You've made it this far - don't get sloppy now."
+        }
+      ]
+    },
+    "mechanicals": {
+      "recommended_tires": [
+        "Rene Herse 700x38mm Cayuse Pass",
+        "Panaracer GravelKing SK 700x40mm",
+        "Specialized Pathfinder Pro 700x38mm",
+        "Challenge Gravel Grinder 700x38mm"
+      ],
+      "pressure_by_weight": {
+        "140_160_lbs": {
+          "dry": "36F / 38R psi",
+          "mixed": "34F / 36R psi",
+          "mud": "28F / 30R psi"
+        },
+        "160_180_lbs": {
+          "dry": "38F / 40R psi",
+          "mixed": "36F / 38R psi",
+          "mud": "30F / 32R psi"
+        },
+        "180_200_lbs": {
+          "dry": "40F / 42R psi",
+          "mixed": "38F / 40R psi",
+          "mud": "32F / 34R psi"
+        },
+        "200_plus_lbs": {
+          "dry": "42F / 44R psi",
+          "mixed": "40F / 42R psi",
+          "mud": "34F / 36R psi"
+        }
+      }
+    },
+    "wind_protocol": {
+      "prevailing_direction": "Southwest afternoon headwinds",
+      "when_it_matters": "After 1pm, miles 100-180. This is the crux of Unbound - where the race really begins.",
+      "group_tactics": "Don't pull early. Save bullets for the last 50 miles. Rotate efficiently but let stronger riders do the heavy lifting early. You'll need every match later.",
+      "solo_tactics": "Accept the grind. Lower your power target by 5-10%. Stay aero. Don't fight it - you'll lose. Pace yourself for 3-4 hours of sustained headwind. Mental game matters here."
+    },
+    "environment": {
+      "time_drift": {
+        "note": "Unbound typically runs 1-2 hours longer than best-case estimates. Plan accordingly.",
+        "neutral": "+1 hour over predicted finish time",
+        "mild_mud": "+2-3 hours (course becomes bike-packing trip)",
+        "heavy_mud": "+4-6 hours (survival mode, expect 30%+ DNF rate)"
+      }
+    },
+    "in_race_decision_tree": {
+      "flat_tire": [
+        "Stay calm - this is expected at Unbound, not a crisis",
+        "Flip bike upside down or lean against hip",
+        "Check if sealant is working (spin wheel, look for bubbles)",
+        "If hole visible, insert plug immediately",
+        "If plug fails or sidewall cut, replace tube",
+        "Reinflate to race pressure (check your weight table)",
+        "Spin wheel to verify no rub",
+        "Resume at Z2 for 2-3 minutes to settle back in"
+      ],
+      "bonking": [
+        "STOP IMMEDIATELY - don't try to push through",
+        "Sit down if possible (don't stand around)",
+        "Consume 2-3 gels or 200-300 calories FAST",
+        "Wait 15-20 minutes MINIMUM",
+        "Let sugar hit bloodstream - this takes time, be patient",
+        "Drink 16oz water with gels",
+        "Resume at Z1-Z2 pace ONLY",
+        "Fuel aggressively for next hour to rebuild glycogen stores"
+      ],
+      "cramping": [
+        "Consume sodium (salt tabs or pretzels/chips) + 16oz water immediately",
+        "Stretch gently - don't force it or you'll tear muscle fibers",
+        "Drop to Z1-Z2 for 10-15 minutes minimum",
+        "Back off intensity by 10-15% even after cramps resolve",
+        "Continue aggressive sodium intake rest of race",
+        "Don't resume hard efforts until cramping completely resolved"
+      ],
+      "dropped_from_group": [
+        "Don't panic - emotional response costs more energy than you have",
+        "Assess honestly: were you overextended or did they surge?",
+        "Find YOUR sustainable pace (probably Z2-low Z3)",
+        "Look for riders at similar pace within 30-60 seconds",
+        "Form new working group if possible - communicate intentions",
+        "If solo, accept it - focus on YOUR race, not theirs",
+        "Use solo time gaps to fuel and recover without group pressure"
+      ],
+      "overheating": [
+        "Reduce effort IMMEDIATELY to Z1-Z2 - this is non-negotiable",
+        "Pour water over head, neck, forearms at next opportunity",
+        "Seek shade at next aid station - don't skip this",
+        "Consume cold fluids if available",
+        "Don't resume normal pace until core temp drops and you feel clear-headed",
+        "Monitor for heat exhaustion: dizziness, nausea, confusion, stop racing if present"
+      ]
+    },
+    "psychological_landmarks": {
+      "dark_patch": {
+        "miles": "120-150",
+        "description": "Where motivation dies. You've been out here 7-9 hours. Everything hurts. The finish still feels impossibly far. This is EXPECTED - not a crisis, not unique to you. Use your performance statements. 6-2-7 breathing. Keep. Moving. Forward. One pedal stroke at a time."
+      },
+      "where_field_shatters": {
+        "miles": "80-110",
+        "description": "The rollers blow apart groups. You'll see attacks fly. People will drop. Stay disciplined. DO NOT chase efforts you can't sustain. The real race hasn't started yet. Save your matches for when they matter - miles 150+."
+      },
+      "late_relief": {
+        "miles": "170-180",
+        "description": "Light at end of tunnel becomes real. Emporia is close enough to taste. Bodies hurt but minds lift. Use this energy surge wisely. This is where you collect rewards from earlier discipline. Push through - you've earned this."
+      },
+      "the_honeymoon": {
+        "miles": "25-60",
+        "description": "Everything feels easy. Legs are fresh. Groups rolling smooth. HUGE temptation to go hard and 'get ahead.' DON'T. This is the setup for the dark patch at mile 130. Stay disciplined now, dominate later. Patience wins Unbound."
+      },
+      "second_wind": {
+        "miles": "155-165",
+        "description": "Often happens after CP3 aid station. Body and mind reset briefly. Energy returns like magic. Capitalize on this window - it doesn't last forever. This is your time to move up through the field."
+      }
+    }
+  }
+}

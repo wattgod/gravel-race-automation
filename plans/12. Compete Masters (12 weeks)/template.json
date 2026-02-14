@@ -1,0 +1,573 @@
+{
+  "plan_metadata": {
+    "name": "COMPETE MASTERS",
+    "duration_weeks": 12,
+    "philosophy": "HRV-Guided Polarized",
+    "target_hours": "12-18",
+    "target_athlete": "Masters cyclist (40+), competitive racer, recovery-first approach",
+    "goal": "Sustainable race fitness through polarized training with HRV-guided intensity distribution and extended recovery"
+  },
+  "weeks": [
+    {
+      "week_number": 1,
+      "focus": "Assessment & Baseline",
+      "volume_percent": 70,
+      "volume_hours": "8.4-12.6",
+      "workouts": [
+        {
+          "name": "W01 Mon - Rest",
+          "description": "• Welcome to Compete Masters. You're 40+ with 12-18 hours per week and want to race competitively. This plan uses HRV-Guided Polarized training—80% easy, 20% hard, with recovery driving the schedule. Masters athletes adapt differently: we need more recovery between hard sessions, but we can still build exceptional race fitness. • WEEK PREVIEW: Tuesday has FTP + assessment testing. Wednesday is easy. Thursday has polarized intensity introduction. Saturday is long aerobic base. • HRV GUIDANCE: If using HRV, check morning reading before intensity days. Green = proceed. Yellow = reduce intensity 10%. Red = swap for easy day. No HRV? Use perceived fatigue—if legs feel heavy and motivation is low, that's your body saying rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Tue - FTP + Power Profile Assessment",
+          "description": "• STRUCTURE: 30 min warmup (progressive) → 5 min all-out → 10 min recovery → 20 min max effort → 15 min easy → 3 min all-out → 10 min easy → 1 min all-out → 15 min cooldown • FTP (20-min avg × 0.95), plus power profile (5-min VO2, 3-min anaerobic, 1-min neuromuscular). Masters often have strong aerobic engines but declining top-end—this reveals your profile. • MASTERS NOTE: Don't chase numbers from 10 years ago. Today's FTP is your training anchor. Progress is progress, regardless of absolute watts.",
+          "blocks": "    <Warmup Duration=\"1800\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <SteadyState Duration=\"300\" Power=\"1.20\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"1.05\"/>\n    <SteadyState Duration=\"900\" Power=\"0.55\"/>\n    <SteadyState Duration=\"180\" Power=\"1.25\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <SteadyState Duration=\"60\" Power=\"1.50\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W01 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 (60-72% FTP) • True recovery pace. Nasal breathing only. This is polarized easy—genuinely easy, not 'kind of easy.' • MASTERS NOTE: Easy means easy. If you can't hold a conversation, you're going too hard. Polarized only works if easy days are truly easy.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Thu - Polarized Intensity Introduction",
+          "description": "• STRUCTURE: 25 min warmup → 4x4 min @ 108-112% FTP (4 min easy between) → 20 min cooldown • Polarized = hard is HARD. VO2max efforts—should be gasping, not comfortable. 4-min efforts hit VO2max zone effectively. Recovery between = truly easy. • HRV CHECK: If HRV is suppressed (yellow/red), reduce to 3x4 min or swap for easy day. • CADENCE: High cadence (95-105 rpm) on hard efforts—reduces muscular strain, important for Masters recovery.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"240\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W01 Fri - Rest or Very Easy",
+          "description": "• Rest preferred. Optional: 45-60 min @ Z1 (55-65% FTP) if feeling good. • MASTERS NOTE: Extra rest day before weekend volume. Don't underestimate recovery needs. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W01 Sat - Long Aerobic Base",
+          "description": "• Duration: 3-4 hours @ Z2 (65-75% FTP) • Polarized long ride—all aerobic, no tempo or threshold. Building mitochondrial density and fat oxidation. Eat 50-60g carbs/hour even at easy pace—practicing fueling. • MASTERS NOTE: Long aerobic rides build the engine without the recovery cost of intensity. This is your bread and butter. • CADENCE: Self-selected, comfortable.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"12600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W01 Sun - Easy Aerobic Assessment",
+          "description": "• Duration: assessment • Easy spin. Assess current levels—bodyweight squats, lunges, planks. Note any mobility limitations. training is non-negotiable for performance and injury prevention.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "focus": "Polarized Base Building",
+      "volume_percent": 80,
+      "volume_hours": "9.6-14.4",
+      "workouts": [
+        {
+          "name": "W02 Mon - Rest",
+          "description": "• Week 2 establishes polarized rhythm: 2 hard days, rest easy. Quality over quantity on intensity days. • WEEK PREVIEW: Tuesday has VO2max intervals. Wednesday-Thursday easy. Friday rest. Saturday long aerobic. • HRV GUIDANCE: Establish your baseline this week. Note patterns—what affects your HRV? Sleep, alcohol, stress all show up. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Tue - VO2max Intervals",
+          "description": "• STRUCTURE: 25 min warmup → 5x4 min @ 108-112% FTP (4 min easy between) → 20 min cooldown • Polarized hard day. Five intervals—should be very hard by interval 4-5. If you can chat during these, you're not going hard enough. • HRV CHECK: Green = full session. Yellow = 4 intervals. Red = easy day. • CADENCE: High cadence (95-105 rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"240\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W02 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 (60-72% FTP) • Recovery from intensity. Truly easy—nasal breathing. • MASTERS NOTE: Two easy days between hard sessions is often optimal for Masters. Don't feel guilty about easy days—they're building fitness.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Thu - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 (60-72% FTP) • Second easy day. Building aerobic base without stress. • POLARIZED PRINCIPLE: 80% of training time at Z1-Z2. This feels like too much easy riding—that's the point. Adaptation happens during recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Fri - Rest",
+          "description": "• Complete rest before weekend. • MASTERS NOTE: Friday rest sets up quality weekend training. Resist temptation to add junk miles. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W02 Sat - Long Aerobic Base",
+          "description": "• Duration: 3.5-4.5 hours @ Z2 (65-75% FTP) • Building aerobic volume. All easy—no tempo, no surges. Practice race nutrition (60-70g carbs/hour). • MASTERS NOTE: Long slow distance builds durability without the recovery cost. This is smart training, not lazy training.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W02 Sun - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Easy ride. Begin",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "focus": "Polarized Progression",
+      "volume_percent": 90,
+      "volume_hours": "10.8-16.2",
+      "workouts": [
+        {
+          "name": "W03 Mon - Rest",
+          "description": "• Week 3 progresses intensity slightly while maintaining polarized structure. • WEEK PREVIEW: Tuesday has extended VO2max. Thursday has threshold touch (brief, controlled). Saturday is peak long aerobic. • HRV GUIDANCE: Watch for cumulative fatigue. If HRV trends down over several days, consider extra rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Tue - Extended VO2max",
+          "description": "• STRUCTURE: 25 min warmup → 5x5 min @ 106-110% FTP (4 min easy between) → 20 min cooldown • Longer intervals—5 minutes pushes deeper into VO2max. Should be very difficult. • HRV CHECK: Green = full session. Yellow = 4x5 min. Red = easy day. • CADENCE: High cadence (95-105 rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"300\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Recovery. Easy.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Thu - Threshold Touch",
+          "description": "• STRUCTURE: 25 min warmup → 2x12 min @ 95-100% FTP (6 min easy between) → 20 min cooldown • Brief threshold work. In polarized training, threshold is used sparingly—it's the 'gray zone' that can accumulate fatigue without clear benefit. This session introduces race-pace feel. • MASTERS NOTE: Threshold work is recovery-expensive. Use it strategically, not constantly. • CADENCE: Self-selected race cadence.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W03 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W03 Sat - Peak Long Aerobic",
+          "description": "• Duration: 4-5 hours @ Z2 (65-75% FTP) • Peak aerobic volume for Base phase. All easy—build durability. Practice all race systems—nutrition (70-80g carbs/hour), hydration, gear. • MASTERS NOTE: This is foundation building. Strong aerobic base = sustainable race efforts later.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"16200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W03 Sun - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Easy ride.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "focus": "Recovery & Adaptation",
+      "volume_percent": 55,
+      "volume_hours": "6.6-9.9",
+      "workouts": [
+        {
+          "name": "W04 Mon - Rest",
+          "description": "• Recovery week. Adaptation happens during rest. By Sunday you should feel fresh and powerful. • WEEK PREVIEW: Light intensity Tuesday. Easy Wednesday-Friday. Moderate Saturday. Easy Sunday. • HRV GUIDANCE: HRV should trend upward this week. If not, address sleep, nutrition, life stress. • MASTERS NOTE: Masters athletes often need MORE recovery than prescribed. Add an extra rest day if still tired by Wednesday. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Tue - Light VO2 Touch",
+          "description": "• STRUCTURE: 25 min warmup → 3x3 min @ 105-108% FTP (4 min easy between) → 20 min cooldown • Maintenance intensity. Should feel controlled, not crushing. • HRV CHECK: Skip if HRV is yellow/red.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"1.06\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"1200\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W04 Wed - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Very easy. Recovery focus.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Thu - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Easy recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W04 Sat - Moderate Aerobic",
+          "description": "• Duration: 2.5-3 hours @ Z2 • Moderate volume. Should feel refreshing, not tiring.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W04 Sun - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Easy. transitions to power phase.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "focus": "Build Phase - Race Specificity",
+      "volume_percent": 85,
+      "volume_hours": "10.2-15.3",
+      "workouts": [
+        {
+          "name": "W05 Mon - Rest",
+          "description": "• Build phase begins. Adding race-specific intensity while maintaining polarized structure. Two hard days per week, quality paramount. • WEEK PREVIEW: Tuesday has VO2max + threshold combo. Thursday has race-pace work. Saturday is long ride with race simulation. • HRV GUIDANCE: Build phases are stressful. Monitor HRV closely—back off at first sign of accumulated fatigue. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Tue - VO2max + Threshold Combo",
+          "description": "• STRUCTURE: 25 min warmup → 4x4 min @ 108-112% FTP (4 min easy) → 10 min easy → 2x10 min @ 95-100% FTP (5 min easy) → 15 min cooldown • VO2 first (hard), then threshold (race pace). Simulates racing—high-intensity surges followed by sustained effort. • HRV CHECK: Green = full session. Yellow = reduce threshold to 2x8 min. Red = easy day. • CADENCE: VO2 high cadence (100+ rpm), threshold self-selected.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"240\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Recovery. Easy.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Thu - Race-Pace Intervals",
+          "description": "• STRUCTURE: 25 min warmup → 3x12 min @ 93-98% FTP (6 min easy between) → 15 min cooldown • Race pace—sustainable threshold. This is your target power for race day. Practice race breathing, race focus. • CADENCE: Race cadence (self-selected).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W05 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W05 Sat - Long Ride + Race Simulation",
+          "description": "• STRUCTURE: First 2 hours Z2 → 3x15 min @ 93-98% FTP (6 min easy between) → Final 1.5 hours Z2 • Race simulation within long ride. Sustained race pace when fatigued. Practice nutrition (70-80g carbs/hour). • MASTERS NOTE: This is the key session of the week. If you can only do one quality ride, do this one.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W05 Sun - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Easy ride.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "focus": "Build Phase - Peak Quality",
+      "volume_percent": 95,
+      "volume_hours": "11.4-17.1",
+      "workouts": [
+        {
+          "name": "W06 Mon - Rest",
+          "description": "• Peak build week. Highest quality of the plan. Make every hard session count. • WEEK PREVIEW: Tuesday has peak VO2 + threshold. Thursday has extended race-pace. Saturday is peak long race simulation. • HRV GUIDANCE: Critical week for monitoring. Don't push through suppressed HRV—better to reduce one session than blow up the whole week. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Tue - Peak VO2 + Threshold",
+          "description": "• STRUCTURE: 25 min warmup → 5x4 min @ 108-112% FTP (4 min easy) → 10 min easy → 2x12 min @ 95-100% FTP (6 min easy) → 15 min cooldown • Peak quality session. VO2 intervals + extended threshold. Should be very hard. • HRV CHECK: Green = full session. Yellow = reduce VO2 to 4 intervals. Red = reschedule. • CADENCE: VO2 high cadence (100+ rpm), threshold mix.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"240\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"600\" Power=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Critical recovery day. Stay easy.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W06 Thu - Extended Race-Pace",
+          "description": "• STRUCTURE: 25 min warmup → 2x15 min @ 95-100% FTP (8 min easy between) → 4x2 min @ 105-110% FTP (3 min easy) → 15 min cooldown • Extended threshold + brief over-threshold surges. Race simulation intensity. • CADENCE: Threshold self-selected, surges high cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"120\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W06 Fri - Rest",
+          "description": "• Complete rest before peak long ride. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W06 Sat - Peak Long Race Simulation",
+          "description": "• STRUCTURE: First 2 hours Z2 → 4x15 min @ 93-98% FTP (6 min easy between) → 3x3 min @ 105-110% FTP (4 min easy) → Final 1.5 hours Z2 • Peak race simulation. Sustained race pace + surges within long ride. Test everything—nutrition (80g carbs/hour), hydration, gear, mental focus. • MASTERS NOTE: This is your fitness peak. Execute well and trust the work.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"900\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W06 Sun - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Easy ride. transitions to maintenance.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "focus": "Recovery & Absorption",
+      "volume_percent": 55,
+      "volume_hours": "6.6-9.9",
+      "workouts": [
+        {
+          "name": "W07 Mon - Rest",
+          "description": "• Recovery week. Absorb the build phase work. You should feel fresh and powerful by Sunday. • WEEK PREVIEW: Light intensity Tuesday. Easy Wednesday-Friday. Moderate Saturday. Easy Sunday. • HRV GUIDANCE: HRV should recover strongly this week. If still suppressed by Thursday, extend recovery. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W07 Tue - Light Intensity Touch",
+          "description": "• STRUCTURE: 25 min warmup → 3x4 min @ 105-108% FTP (4 min easy between) → 15 min cooldown • Maintenance. Should feel controlled. • HRV CHECK: Skip if HRV still suppressed.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"240\" OnPower=\"1.06\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W07 Wed - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Very easy recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W07 Thu - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Easy recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W07 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W07 Sat - Moderate Aerobic + Light Quality",
+          "description": "• STRUCTURE: 45 min easy → 3x8 min @ 90-95% FTP (4 min easy between) → 45 min easy • Moderate quality. Should feel refreshing, not depleting.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"480\" OnPower=\"0.93\" Cadence=\"90\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W07 Sun - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Easy.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "focus": "Race Sharpening - Specificity",
+      "volume_percent": 80,
+      "volume_hours": "9.6-14.4",
+      "workouts": [
+        {
+          "name": "W08 Mon - Rest",
+          "description": "• Race sharpening begins. Quality over quantity. Every session should leave you feeling sharp, not tired. Four weeks to race. • WEEK PREVIEW: Tuesday has sharpening intervals. Thursday has race openers. Saturday is race simulation. Sunday easy. • HRV GUIDANCE: You should be consistently in green zone. Any suppression = back off immediately. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W08 Tue - Sharpening Intervals",
+          "description": "• STRUCTURE: 25 min warmup → 4x5 min @ 105-110% FTP (5 min easy between) → 2x8 min @ 95-100% FTP (5 min easy) → 15 min cooldown • Over-threshold to sharpen top-end + threshold for race pace. Should feel powerful, controlled. • CADENCE: High cadence (100+ rpm) throughout.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"300\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"480\" OnPower=\"0.98\" Cadence=\"95\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W08 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Recovery between quality sessions.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W08 Thu - Race Openers",
+          "description": "• STRUCTURE: 25 min warmup → 4x3 min @ 100-105% FTP (4 min easy between) → 4x1 min @ 115% FTP (3 min easy between) → 15 min cooldown • Race openers—threshold + short hard efforts. Should feel snappy, explosive. • CADENCE: High cadence (100+ rpm) on all efforts.",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"180\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"60\" OnPower=\"1.15\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W08 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W08 Sat - Race Simulation",
+          "description": "• STRUCTURE: First 2 hours Z2 → 3x15 min @ 93-98% FTP (6 min easy between) → 3x2 min @ 105-110% FTP (3 min easy) → Final 1 hour Z2 • Race simulation. Test all race systems—nutrition, hydration, gear. Practice race visualization. • MASTERS NOTE: This is dress rehearsal. Execute exactly as you will race day.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W08 Sun - Easy Aerobic + Optional",
+          "description": "• Duration: • Easy. Skip if tired.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 9,
+      "focus": "Race Sharpening - Final Quality",
+      "volume_percent": 75,
+      "volume_hours": "9-13.5",
+      "workouts": [
+        {
+          "name": "W09 Mon - Rest",
+          "description": "• Final quality week. Last hard work before taper. Three weeks to race. • WEEK PREVIEW: Tuesday has final sharpening. Thursday has race openers. Saturday is final race simulation. Sunday easy. • HRV GUIDANCE: Maintain green zone. Any yellow = reduce intensity. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W09 Tue - Final Sharpening",
+          "description": "• STRUCTURE: 25 min warmup → 3x5 min @ 105-108% FTP (5 min easy between) → 2x10 min @ 95-100% FTP (5 min easy) → 15 min cooldown • Final hard session. Should feel powerful, in control. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"300\" OnPower=\"1.06\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.98\" Cadence=\"95\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W09 Wed - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W09 Thu - Race Openers",
+          "description": "• STRUCTURE: 25 min warmup → 4x4 min @ 100-105% FTP (4 min easy between) → 4x1 min @ 115% FTP (3 min easy) → 15 min cooldown • Race openers. Short, sharp, snappy. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"240\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"60\" OnPower=\"1.15\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W09 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W09 Sat - Final Race Simulation",
+          "description": "• STRUCTURE: First 1.5 hours Z2 → 3x12 min @ 93-98% FTP (5 min easy between) → 3x3 min @ 105-110% FTP (4 min easy) → Final 1 hour Z2 • Final race simulation. Dress rehearsal—exact race gear, exact race nutrition. • MASTERS NOTE: Visualize race day. Practice start, key moments, finish.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"1.08\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W09 Sun - Easy Aerobic",
+          "description": "• Duration: 1.5-2 hours @ Z1-Z2 • Easy recovery. No this week.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.62\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.66\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.66\" PowerHigh=\"0.55\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 10,
+      "focus": "Taper Week 1",
+      "volume_percent": 60,
+      "volume_hours": "7.2-10.8",
+      "workouts": [
+        {
+          "name": "W10 Mon - Rest",
+          "description": "• Taper week 1. Volume drops significantly. Intensity stays sharp. Two weeks to race. • WEEK PREVIEW: Tuesday has taper quality. Thursday has easy + openers. Saturday is final tune-up. Sunday easy or rest. • HRV GUIDANCE: Should be strong green. You're tapering—feel the freshness building. • MASTERS NOTE: Trust the taper. Resist adding extra riding. Your body is absorbing the work. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W10 Tue - Taper Quality",
+          "description": "• STRUCTURE: 25 min warmup → 3x6 min @ 100-105% FTP (5 min easy between) → 3x2 min @ 110% FTP (3 min easy) → 15 min cooldown • Maintained intensity, reduced volume. Should feel snappy, powerful. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"360\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W10 Wed - Easy Aerobic",
+          "description": "• Duration: 1-1.5 hours @ Z1-Z2 • Easy recovery.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.60\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W10 Thu - Easy + Openers",
+          "description": "• STRUCTURE: 30 min easy → 4x2 min @ 100-105% FTP (3 min easy between) → 25 min easy • Easy with brief openers. Keep legs turning. • CADENCE: High cadence (100+ rpm) on openers.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"120\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1500\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W10 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W10 Sat - Final Tune-Up",
+          "description": "• STRUCTURE: First 1 hour Z2 → 3x10 min @ 90-95% FTP (5 min easy between) → 3x2 min @ 105% FTP (3 min easy) → 45 min Z2 • Final reminder ride. Should feel great—fresh, powerful. • MASTERS NOTE: This confirms you're ready. Trust the feeling.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.93\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"1.05\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W10 Sun - Easy or Rest",
+          "description": "• Optional: 1-1.5 hours easy Z2 or complete rest. • Default is rest. One week to race. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 11,
+      "focus": "Taper Week 2",
+      "volume_percent": 45,
+      "volume_hours": "5.4-8.1",
+      "workouts": [
+        {
+          "name": "W11 Mon - Rest",
+          "description": "• Taper week 2. Minimal volume. Sharp intensity. One week to race. • WEEK PREVIEW: Tuesday has taper intensity. Thursday has easy + sharp openers. Saturday is final tune-up. Sunday rest. • HRV GUIDANCE: Peak freshness. You should feel powerful, eager, ready. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W11 Tue - Taper Intensity",
+          "description": "• STRUCTURE: 25 min warmup → 3x5 min @ 100-105% FTP (5 min easy between) → 3x1 min @ 115% FTP (2 min easy) → 15 min cooldown • Brief, sharp intensity. Should feel explosive. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"1500\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"300\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"60\" OnPower=\"1.15\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
+        },
+        {
+          "name": "W11 Wed - Very Easy",
+          "description": "• Duration: 45-60 min @ Z1 (55-65% FTP) • Very easy. Just moving legs.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.58\"/>\n    <SteadyState Duration=\"2400\" Power=\"0.62\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.62\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W11 Thu - Easy + Sharp Openers",
+          "description": "• STRUCTURE: 25 min easy → 3x3 min @ 100-105% FTP (4 min easy between) → 3x1 min @ 115% FTP (3 min easy) → 20 min easy • Sharp openers. Legs should feel fresh, powerful. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1500\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"1.02\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"60\" OnPower=\"1.15\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W11 Fri - Rest",
+          "description": "• Complete rest. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W11 Sat - Final Tune-Up",
+          "description": "• STRUCTURE: 30 min easy → 2x8 min @ 90-95% FTP (4 min easy between) → 3x2 min @ 105% FTP (3 min easy) → 25 min easy • Final quality before race week. Fresh, powerful, confident. • MASTERS NOTE: You're ready. Trust the work.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"480\" OnPower=\"0.93\" Cadence=\"90\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"120\" OnPower=\"1.05\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1500\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W11 Sun - Rest",
+          "description": "• Complete rest. Race week begins tomorrow. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    },
+    {
+      "week_number": 12,
+      "focus": "Race Week",
+      "volume_percent": 30,
+      "volume_hours": "3.6-5.4",
+      "workouts": [
+        {
+          "name": "W12 Mon - Rest",
+          "description": "• RACE WEEK. Minimal riding. Maximum freshness. You should feel powerful, eager, ready. Trust the work. • WEEK PREVIEW: Tuesday has activation. Wednesday rest or very easy. Thursday has openers. Friday is pre-race. Saturday/Sunday is race. • HRV GUIDANCE: Peak readings. Nervous energy is normal—channel it. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Tue - Activation",
+          "description": "• STRUCTURE: 25 min easy → 3x4 min @ 90-95% FTP (4 min easy between) → 4x1 min @ 110% FTP (2 min easy) → 15 min easy • Wake up systems. Confirm everything works. Should feel snappy, eager. • CADENCE: High cadence (100+ rpm) on efforts.",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1500\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"240\" OnPower=\"0.93\" Cadence=\"90\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"60\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W12 Wed - Rest or Very Easy",
+          "description": "• Rest preferred. Optional: 30-45 min @ Z1 if you need to move. • MASTERS NOTE: Extra rest is always right choice race week. • REST DAY NOTE: Complete rest recommended for Masters. Light movement (walk, yoga) is fine.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Thu - Openers",
+          "description": "• STRUCTURE: 25 min easy → 3x3 min @ 95-100% FTP (3 min easy between) → 4x30 sec @ 115% FTP (90 sec easy) → 15 min easy • Short openers. Keep systems firing. Should feel fresh, powerful. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1500\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"0.98\" Cadence=\"95\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.15\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W12 Fri - Pre-Race",
+          "description": "• STRUCTURE: 20 min easy → 3x3 min @ race pace (3 min easy between) → 4x30 sec @ 110% FTP (90 sec easy) → 15 min easy • Final ride. Prime the engine. Check bike. Visualize tomorrow. • CADENCE: High cadence (100+ rpm).",
+          "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"180\" OnPower=\"0.95\" Cadence=\"90\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"30\" OnPower=\"1.10\" Cadence=\"100\" OffDuration=\"90\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"900\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
+        },
+        {
+          "name": "W12 Sat - Race Day or Rest",
+          "description": "• If racing Saturday: RACE DAY—EXECUTE YOUR PLAN • If racing Sunday: Complete rest or 30-45 min with brief openers • Race Day Notes: Start controlled, find your group, fuel aggressively (70-80g carbs/hour). Polarized training built your aerobic engine—use it. Race conservatively first half, push second half. Your HRV-guided approach means you're fresh and ready. Trust the work. • MASTERS NOTE: Experience is your advantage. Race smart, stay hydrated, don't chase early attacks. You've trained for this.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        },
+        {
+          "name": "W12 Sun - Race Day or Recovery",
+          "description": "• If racing Sunday: RACE DAY—EXECUTE YOUR PLAN • If raced Saturday: 30-45 min easy spin, celebrate • Race Day Notes: 12 weeks of HRV-guided polarized training has built sustainable race fitness. Your aerobic base is strong, your top-end is sharp, and your body is fresh. Start smart, fuel consistently, and finish strong. • MASTERS NOTE: Age brings wisdom. Race the event, not the ego. You've prepared intelligently—now execute intelligently. Dominate your category.",
+          "blocks": "    <FreeRide Duration=\"60\"/>\n"
+        }
+      ]
+    }
+  ],
+  "default_modifications": {
+    "hrv_guided_polarized_philosophy": {
+      "enabled": true,
+      "description": "HRV-Guided Polarized training for Masters athletes—80% easy, 20% hard, recovery driving schedule",
+      "volume_range": "12-18 hours/week",
+      "intensity_distribution": "Two hard days per week, quality paramount, extended recovery between intensity sessions",
+      "principle": "Masters athletes adapt differently—more recovery needed, but exceptional race fitness still achievable"
+    },
+    "hrv_guidance": {
+      "enabled": true,
+      "green": "Proceed with planned intensity",
+      "yellow": "Reduce intensity by 10% or reduce volume",
+      "red": "Swap for easy day, prioritize recovery",
+      "no_hrv_alternative": "Use perceived fatigue—heavy legs + low motivation = body says rest"
+    },
+    "polarized_distribution": {
+      "enabled": true,
+      "z1_z2_percentage": 80,
+      "z4_z5_percentage": 20,
+      "z3_usage": "Minimal—used sparingly for race-pace feel, not routine training"
+    },
+    "masters_recovery": {
+      "enabled": true,
+      "intensity_spacing": "Minimum 48 hours between hard sessions, often 72 hours optimal",
+      "sleep_priority": "8+ hours non-negotiable for adaptation",
+      "recovery_week_frequency": "Every 3 weeks rather than every 4"
+    },
+    "cadence_work": {
+      "enabled": true,
+      "hard_efforts": "High cadence (95-105 rpm) on intensity—reduces muscular strain, improves recovery",
+      "easy_efforts": "Self-selected comfortable cadence"
+    },
+    "strength_training": {
+      "enabled": false,
+      "note": "Athlete performs own strength program. CRITICAL for Masters: muscle mass declines ~1%/year after 40. Phases: Max (Weeks 1-4), Power (Weeks 4-6), Maintenance (Weeks 6-12).",
+      "masters_emphasis": "Non-negotiable for performance and injury prevention"
+    },
+    "monday_week_preview": {
+      "enabled": true,
+      "description": "Monday rest days include week preview, HRV guidance, and Masters-specific notes"
+    },
+    "rest_day_guidance": {
+      "masters_recommendation": "Complete rest recommended—light movement (walk, yoga) is fine"
+    }
+  }
+}

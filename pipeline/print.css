@@ -1,0 +1,51 @@
+/*
+ * Print stylesheet for ENDURE training guides.
+ *
+ * Owned by step_08_pdf.py — injected at PDF render time.
+ * Changes here only require re-running step 8, never step 7.
+ */
+
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+    font-size: 11pt;
+  }
+
+  /* Hide interactive elements */
+  nav.gg-guide-toc { display: none; }
+
+  /* Single column for print */
+  .gg-guide-layout { display: block; }
+
+  /* Prevent orphaned headings */
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* Keep tables and data cards together */
+  table, .data-card, .gg-data-card, .gg-module, .stat-card {
+    page-break-inside: avoid;
+  }
+
+  /* Keep week blocks together */
+  .week-block {
+    page-break-inside: avoid;
+  }
+
+  /* Keep stats grids together */
+  .stats-grid {
+    page-break-inside: avoid;
+  }
+
+  /* Links — no underline, plain color */
+  a {
+    color: var(--gg-color-dark-brown);
+    text-decoration: none;
+  }
+}

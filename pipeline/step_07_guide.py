@@ -620,7 +620,7 @@ def _section_training_plan_brief(
         schedule_rows.append(f"<tr><td><strong>{day.title()}</strong></td><td>{session}</td></tr>")
     schedule_table = "\n    ".join(schedule_rows)
 
-    return f"""<section id="section-1" class="gg-section gg-section-cover">
+    return f"""<section id="section-1" class="gg-section">
   <h2>1 &middot; Training Plan Brief</h2>
 
   <p>Welcome to your <strong>{race_name} {race_distance}mi</strong> training plan. This guide is built
@@ -3322,69 +3322,7 @@ footer.guide-footer {
   margin-top: 8px;
 }
 
-/* === Print === */
-@page {
-  size: A4;
-  margin: 20mm 15mm;
-}
-
-@page :first {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-@media print {
-  body {
-    background: white;
-    padding: 0;
-    font-size: 11pt;
-  }
-
-  /* Hide interactive elements */
-  nav.gg-guide-toc { display: none; }
-
-  /* Single column for print */
-  .gg-guide-layout { display: block; }
-
-  /* Cover page fills entire first page */
-  .gg-section-cover {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    page-break-after: always;
-  }
-
-  /* Major sections start on new page */
-  section.gg-section {
-    page-break-before: always;
-    page-break-inside: avoid;
-  }
-  section.gg-section:first-of-type {
-    page-break-before: avoid;
-  }
-
-  /* Prevent orphaned headings */
-  h2, h3, h4 {
-    page-break-after: avoid;
-  }
-
-  /* Keep tables and data cards together */
-  table, .gg-data-card, .gg-module, .data-card {
-    page-break-inside: avoid;
-  }
-
-  /* Keep week blocks together */
-  .week-block {
-    page-break-inside: avoid;
-  }
-
-  /* Links — no underline, plain color */
-  a {
-    color: var(--gg-color-dark-brown);
-    text-decoration: none;
-  }
-}
+/* === Print — see pipeline/print.css (injected by step 8) === */
 
 /* === Mobile === */
 @media (max-width: 700px) {

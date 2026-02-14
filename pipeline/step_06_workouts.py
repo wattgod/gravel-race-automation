@@ -234,12 +234,24 @@ def _longest_ride_cap_seconds(longest_ride: str) -> int:
     return int(hi * 3600)
 
 
+def _round_duration(seconds: int) -> int:
+    """Round to clean training durations.
+
+    >= 30 min: nearest 15 min (900s)
+    < 30 min:  nearest 5 min (300s)
+    Floor: 5 min (300s)
+    """
+    if seconds <= 300:
+        return 300
+    if seconds >= 1800:
+        return max(900, round(seconds / 900) * 900)
+    return max(300, round(seconds / 300) * 300)
+
+
 def _scale_blocks(blocks: str, scale: float, long_ride_cap: int = 99999) -> str:
     """Scale Duration attributes in ZWO XML blocks.
 
-    - Scales all Duration values by `scale`
-    - Warmup/Cooldown minimum: 300s (5 min)
-    - Main set minimum: 300s (5 min)
+    - Scales all Duration values by `scale`, rounded to nearest 15 min
     - IntervalsT Repeat: scaled separately (minimum 2)
     - OnDuration/OffDuration: NOT scaled (interval structure matters)
     - Caps total workout duration at long_ride_cap
@@ -250,7 +262,7 @@ def _scale_blocks(blocks: str, scale: float, long_ride_cap: int = 99999) -> str:
     def scale_duration(match):
         attr = match.group(1)
         val = int(match.group(2))
-        scaled = max(300, int(val * scale))
+        scaled = _round_duration(int(val * scale))
         return f'{attr}="{scaled}"'
 
     # Scale Duration attributes (not OnDuration/OffDuration)
@@ -272,7 +284,7 @@ def _scale_blocks(blocks: str, scale: float, long_ride_cap: int = 99999) -> str:
         def cap_duration(match):
             attr = match.group(1)
             val = int(match.group(2))
-            capped = max(300, int(val * cap_scale))
+            capped = _round_duration(int(val * cap_scale))
             return f'{attr}="{capped}"'
         result = re.sub(r'((?<!On)(?<!Off)Duration)="(\d+)"', cap_duration, result)
 

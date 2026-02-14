@@ -3388,7 +3388,7 @@ def _generate_radar_svg(radar_data: Dict) -> str:
         for a in angles
     )
 
-    return f"""<svg viewBox="0 0 400 350" width="400" height="350">
+    return f"""<svg viewBox="-60 0 520 350" width="520" height="350" style="max-width:100%;">
     <rect x="0" y="0" width="400" height="350" fill="#f5efe6"/>
     {grid_circles}
     {axis_lines}

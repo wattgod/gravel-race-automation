@@ -431,3 +431,119 @@ class TestCrossSectionConsistency:
         assert weekly_hours in sarah_html, (
             f"Stated weekly hours '{weekly_hours}' not found in guide"
         )
+
+
+# ── Long Ride Realism ────────────────────────────────────────
+
+class TestLongRideRealism:
+    """Long ride targets must be achievable within the athlete's weekly budget."""
+
+    def test_no_unreachable_duration_target(self, sarah_derived, sarah_html):
+        """Key workouts should never claim 70-80% of race duration when that's impossible."""
+        weekly_hours = sarah_derived.get("weekly_hours", "")
+        if not weekly_hours:
+            pytest.skip("No weekly_hours")
+        _, max_hrs = _parse_hours_range(weekly_hours)
+        lr_ceiling = max_hrs * 0.4  # ~40% of weekly budget per long ride
+
+        # If ceiling < 3hrs, the guide should NOT say "70-80% of race duration"
+        if lr_ceiling < 3.0:
+            assert "70-80% of race duration" not in sarah_html, (
+                f"Guide claims '70-80% of race duration' but long ride ceiling is "
+                f"only {lr_ceiling:.1f}hrs (weekly budget: {max_hrs}hrs). "
+                f"This is an unreachable target."
+            )
+
+    def test_phase_progression_no_unreachable_target(self, sarah_derived, sarah_html):
+        """Phase descriptions should not reference 60-70% of race duration when unreachable."""
+        weekly_hours = sarah_derived.get("weekly_hours", "")
+        if not weekly_hours:
+            pytest.skip("No weekly_hours")
+        _, max_hrs = _parse_hours_range(weekly_hours)
+        lr_ceiling = max_hrs * 0.4
+
+        if lr_ceiling < 3.0:
+            assert "60-70% of race duration" not in sarah_html, (
+                f"Phase progression claims '60-70% of race duration' but long ride "
+                f"ceiling is only {lr_ceiling:.1f}hrs."
+            )
+
+
+# ── Race Week Table Order ────────────────────────────────────
+
+class TestRaceWeekTableOrder:
+    """Race week table must be in chronological countdown order."""
+
+    def test_race_day_is_second_to_last_row(self, sarah_html):
+        """Race day row should be near the end, not the beginning."""
+        race_table = re.search(
+            r'Race Week Schedule.*?</table>',
+            sarah_html, re.DOTALL
+        )
+        if not race_table:
+            pytest.skip("Race week table not found")
+
+        rows = re.findall(r'<tr[^>]*>.*?</tr>', race_table.group(), re.DOTALL)
+        # Skip header row
+        data_rows = rows[1:]
+        if not data_rows:
+            pytest.skip("No data rows in race week table")
+
+        # Race day should be second to last (last is recovery)
+        race_day_indices = [i for i, r in enumerate(data_rows) if "RACE DAY" in r]
+        assert race_day_indices, "No RACE DAY row found in table"
+        assert race_day_indices[0] == len(data_rows) - 2, (
+            f"RACE DAY row is at position {race_day_indices[0]} but should be at "
+            f"position {len(data_rows) - 2} (second to last). "
+            f"Recovery should be the final row."
+        )
+
+    def test_countdown_labels_present(self, sarah_html):
+        """Race week table should have countdown labels (Day -6, Day -5, etc.)."""
+        race_table = re.search(
+            r'Race Week Schedule.*?</table>',
+            sarah_html, re.DOTALL
+        )
+        if not race_table:
+            pytest.skip("Race week table not found")
+
+        table_text = race_table.group()
+        assert "Day -6" in table_text, "Missing Day -6 countdown label"
+        assert "Day -1" in table_text, "Missing Day -1 countdown label"
+        assert "Race Day" in table_text, "Missing Race Day label"
+        assert "Day +1" in table_text, "Missing Day +1 recovery label"
+
+
+# ── FTP Gating ───────────────────────────────────────────────
+
+class TestFTPGating:
+    """When FTP is not provided, the guide must gate structured training behind testing."""
+
+    def test_ftp_test_required_callout(self, sarah_profile, sarah_html):
+        """If no FTP, guide must have a strong testing callout."""
+        ftp = sarah_profile.get("fitness", {}).get("ftp_watts")
+        if ftp:
+            pytest.skip("FTP is provided — gating not needed")
+
+        # Must contain the "BEFORE YOU START" or similar gating language
+        assert "FTP TEST" in sarah_html.upper() or "FTP test" in sarah_html, (
+            "Guide doesn't mention FTP test despite FTP not being provided"
+        )
+        assert "before" in sarah_html.lower() or "Week 1" in sarah_html, (
+            "Guide doesn't frame FTP test as a prerequisite"
+        )
+
+    def test_week_1_shows_ftp_test(self, sarah_profile, sarah_html):
+        """Week 1 in the week-by-week table should show FTP TEST when FTP is missing."""
+        ftp = sarah_profile.get("fitness", {}).get("ftp_watts")
+        if ftp:
+            pytest.skip("FTP is provided")
+
+        # Find Week 1 row (W1 or W01)
+        w1_match = re.search(r'<tr>.*?<strong>W0?1</strong>.*?</tr>', sarah_html, re.DOTALL)
+        if not w1_match:
+            pytest.skip("Week 1 row not found")
+
+        assert "FTP TEST" in w1_match.group().upper(), (
+            "Week 1 should be marked with [FTP TEST] when FTP is not provided"
+        )

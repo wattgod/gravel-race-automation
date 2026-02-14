@@ -16,6 +16,30 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 
+# ── Race duration estimation ─────────────────────────────────
+
+# Average gravel speeds (mph) by tier — accounts for rest stops, navigation, terrain
+_TIER_AVG_SPEED = {
+    "time_crunched": 12.0,
+    "finisher": 13.5,
+    "compete": 15.5,
+    "podium": 17.0,
+}
+
+
+def _estimate_race_hours(distance_miles: float, elevation_ft: float, tier: str) -> float:
+    """Estimate race duration from distance, elevation, and athlete tier.
+
+    Uses tier-specific average speed + elevation penalty.
+    Returns estimated hours (e.g., 8.5).
+    """
+    speed = _TIER_AVG_SPEED.get(tier, 13.5)
+    base_hours = distance_miles / speed
+    # Elevation penalty: ~18min per 1000ft of climbing
+    elev_penalty = (elevation_ft / 1000) * 0.3
+    return round(base_hours + elev_penalty, 1)
+
+
 # ── Required guide sections (Gate 7 checks for these) ────────
 
 REQUIRED_SECTIONS = [
@@ -53,7 +77,7 @@ TIER_METHODOLOGY = {
         "intensity": [("Z1-Z2 (Easy Aerobic)", "70%", "Aerobic base, fat adaptation, durability"),
                       ("Z3 (Tempo)", "15%", "Muscular endurance, sustained power"),
                       ("Z4-Z5 (Threshold+)", "15%", "FTP development, VO2max, race sharpness")],
-        "key_workouts": ["Progressive long rides (building to 70-80% of race duration)", "G Spot intervals (2x20, 3x15)", "Tempo efforts on climbs", "Race-simulation rides"],
+        "key_workouts": ["Progressive long rides ({long_ride_target})", "G Spot intervals (2x20, 3x15)", "Tempo efforts on climbs", "Race-simulation rides"],
         "progression": "Build volume through base, then layer in intensity. Long rides are your most important session.",
     },
     "compete": {
@@ -216,6 +240,13 @@ def _build_full_guide(
     non_negs = race_data.get("non_negotiables", {})
     race_specific = race_data.get("race_specific", {})
 
+    # Ride realism index — drives all long ride target language
+    _, max_weekly = _parse_hours_range(weekly_hours)
+    elev_ft = float(elevation) if elevation else 0
+    est_race_hrs = _estimate_race_hours(float(race_distance), elev_ft, tier) if race_distance else 0
+    lr_ceiling = max_weekly * 0.4 if max_weekly > 0 else 0
+    ride_realism = (lr_ceiling / est_race_hrs) if est_race_hrs > 0 else 1.0
+
     # Radar data
     radar_data = {
         "elevation": _terrain_score(race_data),
@@ -253,9 +284,9 @@ def _build_full_guide(
     sections.append(_section_training_zones(ftp, tier))
     sections.append(_section_adaptation())
     sections.append(_section_weekly_structure(schedule, tier_display, weekly_hours))
-    sections.append(_section_phase_progression(plan_duration, tier))
-    sections.append(_section_week_by_week(template, plan_duration, plan_config, weekly_hours))
-    sections.append(_section_workout_execution(tier))
+    sections.append(_section_phase_progression(plan_duration, tier, ride_realism))
+    sections.append(_section_week_by_week(template, plan_duration, plan_config, weekly_hours, ftp))
+    sections.append(_section_workout_execution(tier, ftp))
     sections.append(_section_recovery_protocol(tier, profile))
     sections.append(_section_equipment_checklist(profile, race_data))
     sections.append(_section_nutrition(race_data, tier, race_distance, profile))
@@ -386,13 +417,39 @@ def _section_training_plan_brief(
     # Methodology
     meth = TIER_METHODOLOGY.get(tier, TIER_METHODOLOGY["finisher"])
 
+    # Compute long ride target text based on ride realism index
+    race_dist = derived.get("race_distance_miles", 0)
+    race_elev = derived.get("elevation_feet", 0) or 0
+    est_race_hrs = _estimate_race_hours(race_dist, race_elev, tier) if race_dist else 0
+    _, max_hrs = _parse_hours_range(weekly_hours)
+    # Rough long ride ceiling: ~40% of weekly budget (2 long rides in a 6-session week)
+    lr_ceiling = max_hrs * 0.4 if max_hrs > 0 else 0
+    ride_realism = (lr_ceiling / est_race_hrs) if est_race_hrs > 0 else 1.0
+
+    if ride_realism >= 0.6:
+        long_ride_target = "building to 70-80% of race duration"
+    elif ride_realism >= 0.3:
+        ceiling_str = f"{lr_ceiling:.0f}"
+        long_ride_target = (
+            f"building to {ceiling_str}+ hours — compensate with race-specific "
+            f"intensity and nutrition rehearsal"
+        )
+    else:
+        long_ride_target = (
+            "maximizing time in saddle; intensity quality and nutrition "
+            "rehearsal compensate for volume"
+        )
+
     # Intensity distribution table
     intensity_rows = []
     for zone, pct, purpose in meth["intensity"]:
         intensity_rows.append(f"<tr><td><strong>{zone}</strong></td><td>{pct}</td><td>{purpose}</td></tr>")
     intensity_html = "\n    ".join(intensity_rows)
 
-    key_workouts = "\n    ".join(f"<li>{w}</li>" for w in meth["key_workouts"])
+    # Format key workouts with computed long ride target
+    formatted_workouts = [w.format(long_ride_target=long_ride_target) if "{long_ride_target}" in w else w
+                          for w in meth["key_workouts"]]
+    key_workouts = "\n    ".join(f"<li>{w}</li>" for w in formatted_workouts)
 
     # Training calendar with actual dates
     race_date_str = derived.get("race_date", "")
@@ -720,10 +777,12 @@ def _section_training_zones(ftp: Optional[int], tier: str):
                 f'<td>&mdash;</td><td>{pct} FTP</td><td>{hr} HRmax</td><td>{rpe}</td>'
                 f'<td>{feel}</td></tr>'
             )
-        power_note = """<div class="gg-module gg-alert"><div class="gg-label">FTP NOT PROVIDED</div>
-<p>Your Week 1 includes an FTP test.
-Until then, use RPE (Rate of Perceived Exertion) to guide intensity.
-After testing, recalculate all zones using: Zone watts = FTP x zone percentage.</p></div>"""
+        power_note = """<div class="gg-module gg-alert"><div class="gg-label">BEFORE YOU START: FTP TEST REQUIRED</div>
+<p><strong>Your Week 1 priority is completing an FTP test.</strong> Without your FTP, every zone target
+in this plan is a percentage of an unknown number. Until you test, use RPE (Rate of Perceived Exertion)
+to guide intensity &mdash; but get this done in your first week. No structured intervals until you have your number.</p>
+<p>After testing, recalculate all zones: <strong>Zone watts = FTP &times; zone percentage.</strong>
+If you use Zwift, TrainerRoad, or a Garmin &mdash; update your FTP setting immediately after testing.</p></div>"""
 
     rows_html = "\n".join(power_rows)
 
@@ -1003,24 +1062,32 @@ def _section_weekly_structure(schedule: Dict, tier_display: str, weekly_hours: s
 </section>"""
 
 
-def _section_phase_progression(plan_duration: int, tier: str):
+def _section_phase_progression(plan_duration: int, tier: str, ride_realism: float = 1.0):
+    # Long ride description adapts to what the athlete can actually do
+    if ride_realism >= 0.6:
+        base_lr_desc = "Long rides build from current fitness to 60-70% of race duration."
+    elif ride_realism >= 0.3:
+        base_lr_desc = "Long rides build progressively. Your weekly budget limits ride length, so focus on making each long ride count with race-pace fueling practice."
+    else:
+        base_lr_desc = "Long rides build progressively within your time budget. Quality over quantity &mdash; every long ride includes nutrition rehearsal and race-pace efforts to compensate for volume."
+
     if plan_duration == 20:
         phases = [
-            ("Base 1", "1-5", "base", "Build aerobic foundation. All riding is Zone 1-2 with progressive volume increases. Strength is 2x/week. This phase feels easy &mdash; that's the point."),
-            ("Base 2", "6-10", "base", "Introduce low-intensity intervals (tempo, G Spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
+            ("Base 1", "1-5", "base", f"Build aerobic foundation. All riding is Zone 1-2 with progressive volume increases. Strength is 2x/week. This phase feels easy &mdash; that's the point."),
+            ("Base 2", "6-10", "base", f"Introduce low-intensity intervals (tempo, G Spot). Volume continues to build. Strength transitions to maintenance. Long rides extend by 15-20 min/week."),
             ("Build", "11-16", "build", "Race-specific intensity. VO2max and threshold intervals. Long rides include race-pace efforts. This is where it gets hard. Fatigue is expected and managed through recovery weeks."),
             ("Peak + Taper", "17-20", "peak", "Sharpen fitness. Reduce volume by 30-40%, maintain intensity. Race simulation rides. Final dress rehearsal in Week 17-18. Taper begins 10-14 days before race."),
         ]
     elif plan_duration == 16:
         phases = [
-            ("Base", "1-6", "base", "Build aerobic foundation. Progressive volume with Zone 1-2 riding. Strength 2x/week. Long rides build from current fitness to 60-70% of race duration."),
+            ("Base", "1-6", "base", f"Build aerobic foundation. Progressive volume with Zone 1-2 riding. Strength 2x/week. {base_lr_desc}"),
             ("Build", "7-12", "build", "Race-specific intensity enters the picture. Threshold and VO2max intervals. Long rides add race-pace efforts. Manage fatigue with recovery weeks every 3rd week."),
             ("Peak", "13-14", "peak", "Maximum specificity. Race simulation rides. Dress rehearsal long ride. Intensity stays high, volume starts to drop."),
             ("Taper", "15-16", "taper", "Reduce volume 30-40%. Short sharp efforts to maintain top-end fitness. Rest is the priority. Trust the training. Arrive at the start line fresh."),
         ]
     else:
         phases = [
-            ("Base", "1-4", "base", "Build aerobic foundation rapidly. Zone 2 focus with progressive volume. Strength 2x/week. Compressed timeline means every session counts."),
+            ("Base", "1-4", "base", f"Build aerobic foundation rapidly. Zone 2 focus with progressive volume. Strength 2x/week. {base_lr_desc if plan_duration <= 12 else 'Compressed timeline means every session counts.'}"),
             ("Build", "5-8", "build", "Jump into race-specific work. Threshold and VO2max intervals. Long rides with race-pace efforts. Higher intensity than a longer plan because there's less time."),
             ("Peak", "9-10", "peak", "Maximum specificity. Dress rehearsal ride. Race simulation intervals. Volume drops, intensity stays high."),
             ("Taper", "11-12", "taper", "Reduce volume 30-40%. Short sharp efforts. Rest and recovery. Arrive fresh."),
@@ -1084,7 +1151,7 @@ def _scale_volume_hours(template_hrs: str, scale_factor: float) -> str:
     return f"{lo_s}-{hi_s}"
 
 
-def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict, weekly_hours: str = ""):
+def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict, weekly_hours: str = "", ftp: Optional[int] = None):
     weeks = template.get("weeks", [])
     if not weeks:
         return '<section id="section-8" class="gg-section"><h2>8 &middot; Week-by-Week Overview</h2><p>Week-by-week details will be provided with your ZWO workout files.</p></section>'
@@ -1121,6 +1188,9 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
             phase_type = "taper"
 
         ftp_weeks = plan_config.get("ftp_test_weeks", [])
+        # When FTP is not provided, Week 1 is the mandatory testing week
+        if ftp is None and wnum == 1 and 1 not in ftp_weeks:
+            ftp_weeks = [1] + ftp_weeks
         ftp_marker = " [FTP TEST]" if wnum in ftp_weeks else ""
 
         rows.append(
@@ -1150,10 +1220,19 @@ def _section_week_by_week(template: Dict, plan_duration: int, plan_config: Dict,
 </section>"""
 
 
-def _section_workout_execution(tier: str):
+def _section_workout_execution(tier: str, ftp: Optional[int] = None):
+    no_ftp_note = ""
+    if ftp is None:
+        no_ftp_note = """
+  <div class="gg-module gg-alert"><div class="gg-label">UNTIL YOU COMPLETE YOUR FTP TEST</div>
+  <p>Your ZWO files use FTP-based power targets. Without your FTP number, use RPE (Rate of Perceived
+  Exertion) from the zone chart instead. After your Week 1 FTP test, update your FTP in Zwift/TrainerRoad/Garmin
+  and all workout targets will calibrate automatically.</p></div>
+"""
+
     return f"""<section id="section-9" class="gg-section">
   <h2>9 &middot; Workout Execution</h2>
-
+  {no_ftp_note}
   <h3>The Execution Gap</h3>
   <p><strong>The plan says:</strong> "4x4min at 110% FTP with 4min recovery."</p>
   <p><strong>What actually happens:</strong></p>
@@ -1872,26 +1951,25 @@ def _section_race_week(race_data: Dict, tier: str, race_name: str, derived: Dict
         elif offset == -6:
             schedule[day] = ("Easy spin 30-45 min, Zone 1", "Normal eating, well hydrated", "Review plan, mental rehearsal")
 
-    # Also add recovery day after race
+    # Build rows in chronological countdown order (Day -6 through Race Day, then Recovery)
+    rows = []
+    for offset in range(-6, 1):
+        day_idx = (race_day_idx + offset) % 7
+        day = day_names[day_idx]
+        entry = schedule.get(day, ("REST", "", ""))
+        countdown = f"Day {offset}" if offset < 0 else "Race Day"
+        if entry[0] == "race":
+            rows.append(f'<tr class="race-day-row"><td><strong>{countdown}</strong></td><td><strong>{day}</strong></td>'
+                        f'<td colspan="3"><strong>RACE DAY: {race_name}</strong> &mdash; see Race Day section below</td></tr>')
+        else:
+            rows.append(f'<tr><td>{countdown}</td><td><strong>{day}</strong></td><td>{entry[0]}</td>'
+                        f'<td>{entry[1]}</td><td>{entry[2]}</td></tr>')
+
+    # Recovery day is always the last row
     recovery_day_idx = (race_day_idx + 1) % 7
     recovery_day = day_names[recovery_day_idx]
-    schedule[recovery_day] = ("rest_after", "", "")
-
-    # Build rows in Mon-Sun order
-    rows = []
-    for day in day_names:
-        if day not in schedule:
-            continue
-        entry = schedule[day]
-        if entry[0] == "race":
-            rows.append(f'<tr class="race-day-row"><td><strong>{day}</strong></td>'
-                        f'<td colspan="3"><strong>RACE DAY: {race_name}</strong> &mdash; see Race Day section below</td></tr>')
-        elif entry[0] == "rest_after":
-            rows.append(f'<tr><td><strong>{day}</strong></td><td>Easy spin or rest</td>'
-                        f'<td>Celebrate. You earned it.</td><td>Recovery begins</td></tr>')
-        else:
-            rows.append(f'<tr><td><strong>{day}</strong></td><td>{entry[0]}</td>'
-                        f'<td>{entry[1]}</td><td>{entry[2]}</td></tr>')
+    rows.append(f'<tr><td>Day +1</td><td><strong>{recovery_day}</strong></td><td>Easy spin or rest</td>'
+                f'<td>Celebrate. You earned it.</td><td>Recovery begins</td></tr>')
 
     rows_html = "\n  ".join(rows)
 
@@ -1904,7 +1982,7 @@ def _section_race_week(race_data: Dict, tier: str, race_name: str, derived: Dict
   <h3>Race Week Schedule</h3>
   <div style="overflow-x: auto;">
   <table>
-  <thead><tr><th>Day</th><th>Training</th><th>Nutrition</th><th>Other</th></tr></thead>
+  <thead><tr><th>Countdown</th><th>Day</th><th>Training</th><th>Nutrition</th><th>Other</th></tr></thead>
   <tbody>
   {rows_html}
   </tbody>

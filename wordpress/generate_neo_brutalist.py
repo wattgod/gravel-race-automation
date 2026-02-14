@@ -161,7 +161,7 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
-RACER_RATING_FORM_BASE = "https://docs.google.com/forms/d/e/FORM_ID_HERE/viewform"
+RACER_RATING_FORM_BASE = "https://docs.google.com/forms/d/e/1iftu2qyenveSMQLE3STZgttug58QfIDur-ZfCEHXhlk/viewform"
 RACER_RATING_THRESHOLD = 3
 CURRENT_YEAR = str(datetime.now().year)
 
@@ -1564,7 +1564,7 @@ def build_racer_reviews(rd: dict) -> str:
     reviews = rr.get('reviews', [])
     name = rd['name']
     slug = rd['slug']
-    form_url = f"{RACER_RATING_FORM_BASE}?entry.FIELD_ID={slug}"
+    form_url = f"{RACER_RATING_FORM_BASE}?entry.148821ea={slug}"
 
     cta_btn = f'<a href="{esc(form_url)}" class="gg-btn gg-btn--rate" target="_blank" rel="noopener">RATE THIS RACE &rarr;</a>'
 

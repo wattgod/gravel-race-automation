@@ -49,6 +49,10 @@ video-scripts/
 guide/media-raw/
 guide/media/
 
+# Google API credentials
+credentials.json
+token.json
+
 # OS
 .DS_Store
 Thumbs.db

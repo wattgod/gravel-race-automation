@@ -14,11 +14,12 @@ Adapted from gravel-plans-experimental/races/generation_modules/zwo_generator.py
 """
 
 import json
+import math
 import re
 import html as html_lib
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 # ── ZWO Template ─────────────────────────────────────────────
 
@@ -185,6 +186,99 @@ If you make this hard, you're stealing recovery from yesterday's hard session
 and compromising tomorrow's training."""
 
 
+# ── Duration Scaling ────────────────────────────────────────
+
+def _parse_hours_range(val: str) -> Tuple[float, float]:
+    """Parse an hours range string into (min, max) floats.
+
+    '5-7' → (5.0, 7.0)
+    '15+' → (15.0, 20.0)
+    '3'   → (3.0, 3.0)
+    """
+    if not val:
+        return (0.0, 0.0)
+    val = str(val).strip()
+    if val.endswith("+"):
+        lo = float(val[:-1])
+        return (lo, lo + 5.0)
+    if "-" in val:
+        parts = val.split("-", 1)
+        return (float(parts[0]), float(parts[1]))
+    return (float(val), float(val))
+
+
+def _compute_duration_scale(athlete_hours: str, template_hours: str) -> float:
+    """Compute scale factor for workout durations.
+
+    Scale = midpoint(athlete_hours) / midpoint(template_hours).
+    Clamped to [0.4, 1.0] — never inflate, never go below 40%.
+    """
+    a_lo, a_hi = _parse_hours_range(athlete_hours)
+    t_lo, t_hi = _parse_hours_range(template_hours)
+    a_mid = (a_lo + a_hi) / 2
+    t_mid = (t_lo + t_hi) / 2
+    if t_mid <= 0:
+        return 1.0
+    scale = a_mid / t_mid
+    return max(0.4, min(1.0, scale))
+
+
+def _longest_ride_cap_seconds(longest_ride: str) -> int:
+    """Convert longest_ride range to a hard cap in seconds.
+
+    Uses the upper bound: '2-4' → 4 hours → 14400 seconds.
+    """
+    _, hi = _parse_hours_range(longest_ride)
+    if hi <= 0:
+        return 99999  # no cap
+    return int(hi * 3600)
+
+
+def _scale_blocks(blocks: str, scale: float, long_ride_cap: int = 99999) -> str:
+    """Scale Duration attributes in ZWO XML blocks.
+
+    - Scales all Duration values by `scale`
+    - Warmup/Cooldown minimum: 300s (5 min)
+    - Main set minimum: 300s (5 min)
+    - IntervalsT Repeat: scaled separately (minimum 2)
+    - OnDuration/OffDuration: NOT scaled (interval structure matters)
+    - Caps total workout duration at long_ride_cap
+    """
+    if scale >= 0.99 and long_ride_cap >= 99999:
+        return blocks  # no scaling needed
+
+    def scale_duration(match):
+        attr = match.group(1)
+        val = int(match.group(2))
+        scaled = max(300, int(val * scale))
+        return f'{attr}="{scaled}"'
+
+    # Scale Duration attributes (not OnDuration/OffDuration)
+    result = re.sub(r'((?<!On)(?<!Off)Duration)="(\d+)"', scale_duration, blocks)
+
+    # Scale IntervalsT Repeat count
+    def scale_repeat(match):
+        val = int(match.group(1))
+        scaled = max(2, int(val * scale))
+        return f'Repeat="{scaled}"'
+
+    result = re.sub(r'Repeat="(\d+)"', scale_repeat, result)
+
+    # Enforce long ride cap: sum all durations and proportionally reduce if over cap
+    durations = [int(d) for d in re.findall(r'(?<!On)(?<!Off)Duration="(\d+)"', result)]
+    total = sum(durations)
+    if total > long_ride_cap and total > 0:
+        cap_scale = long_ride_cap / total
+        def cap_duration(match):
+            attr = match.group(1)
+            val = int(match.group(2))
+            capped = max(300, int(val * cap_scale))
+            return f'{attr}="{capped}"'
+        result = re.sub(r'((?<!On)(?<!Off)Duration)="(\d+)"', cap_duration, result)
+
+    return result
+
+
 def generate_workouts(
     plan_config: Dict,
     profile: Dict,
@@ -196,12 +290,34 @@ def generate_workouts(
     """
     Generate ZWO files for every day of every week.
     Every day gets a file — training days, strength days, and rest days.
+
+    Workout durations are scaled to match the athlete's stated weekly hours
+    and capped at their stated longest ride. A 5-7 hour/week athlete should
+    NEVER get workouts designed for 10-12 hours/week.
     """
     template = plan_config["template"]
     plan_duration = plan_config["plan_duration"]
     ftp_test_weeks = plan_config.get("ftp_test_weeks", [1, 7])
     race_name = derived.get("race_name")
     race_distance = derived.get("race_distance_miles")
+
+    # ── Duration scaling ──────────────────────────────────────
+    # Compare athlete's weekly_hours to the template's designed capacity
+    athlete_hours = derived.get("weekly_hours", "")
+    template_meta = template.get("plan_metadata", {})
+    template_hours = template_meta.get("target_hours", athlete_hours)
+    scale = _compute_duration_scale(athlete_hours, template_hours)
+
+    # Cap long rides at athlete's stated longest ride
+    longest_ride = profile.get("fitness", {}).get("longest_ride_hours", "")
+    long_ride_cap = _longest_ride_cap_seconds(longest_ride) if longest_ride else 99999
+
+    if scale < 0.99 or long_ride_cap < 99999:
+        a_lo, a_hi = _parse_hours_range(athlete_hours)
+        t_lo, t_hi = _parse_hours_range(template_hours)
+        print(f"   Duration scaling: {scale:.2f}x (athlete {a_lo}-{a_hi}h vs template {t_lo}-{t_hi}h)")
+        if long_ride_cap < 99999:
+            print(f"   Long ride cap: {long_ride_cap/3600:.1f}h (athlete max: {longest_ride})")
 
     # Load race data for modifications
     race_data = load_race_data(race_name, race_distance, base_dir) if race_name else None
@@ -248,16 +364,21 @@ def generate_workouts(
 
             elif template_workout:
                 # Use the template workout with race modifications
+                # Apply long ride cap only to long_ride session types
+                effective_cap = long_ride_cap if session_type == "long_ride" else 99999
                 _write_template_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
-                    template_workout, race_data, week_num, plan_duration
+                    template_workout, race_data, week_num, plan_duration,
+                    scale, effective_cap
                 )
 
             else:
                 # Generate appropriate default workout for session type
+                effective_cap = long_ride_cap if session_type == "long_ride" else 99999
                 _write_default_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
-                    session_type, race_data, week_num, plan_duration
+                    session_type, race_data, week_num, plan_duration,
+                    scale, effective_cap
                 )
 
     # Generate race day workout as final file
@@ -324,13 +445,26 @@ def _write_zwo(workouts_dir: Path, filename: str, name: str, description: str,
     (workouts_dir / filename).write_text(content, encoding="utf-8")
 
 
+def _zwo_name(week_num: int, day_abbrev: str, date_str: str, workout_type: str) -> str:
+    """Build ZWO internal name matching the sortable filename format.
+
+    Result: 'W01 1Mon Feb02 - Strength Base'
+    No parentheses. Sorts chronologically in TP workout library.
+    """
+    abbrev_to_num = {"Mon": 1, "Tue": 2, "Wed": 3, "Thu": 4,
+                     "Fri": 5, "Sat": 6, "Sun": 7}
+    day_num = abbrev_to_num.get(day_abbrev, 0)
+    date = _date_label(date_str)
+    return f"W{week_num:02d} {day_num}{day_abbrev} {date} - {workout_type}"
+
+
 def _write_rest_day(workouts_dir: Path, week_num: int, day_abbrev: str, date_str: str):
     """Write a rest day ZWO file — yes, rest days get files for TrainingPeaks."""
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_Rest_Day.zwo"
     blocks = '        <SteadyState Duration="1" Power="0.40"/>\n'
     _write_zwo(workouts_dir, filename,
-               f"W{week_num:02d} {day_abbrev} - Rest Day ({date_str})",
+               _zwo_name(week_num, day_abbrev, date_str, "Rest Day"),
                REST_DAY_DESCRIPTION, blocks)
 
 
@@ -341,7 +475,7 @@ def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_Strength_{phase.title()}.zwo"
     _write_zwo(workouts_dir, filename,
-               f"W{week_num:02d} {day_abbrev} - {template['name']} ({date_str})",
+               _zwo_name(week_num, day_abbrev, date_str, template['name']),
                template["description"], template["blocks"])
 
 
@@ -350,17 +484,21 @@ def _write_ftp_test(workouts_dir: Path, week_num: int, day_abbrev: str, date_str
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_FTP_Test.zwo"
     _write_zwo(workouts_dir, filename,
-               f"W{week_num:02d} {day_abbrev} - FTP Test ({date_str})",
+               _zwo_name(week_num, day_abbrev, date_str, "FTP Test"),
                FTP_TEST_DESCRIPTION, FTP_TEST_BLOCKS)
 
 
 def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                             date_str: str, workout: Dict, race_data: Optional[Dict],
-                            current_week: int, total_weeks: int):
-    """Write a workout from the plan template."""
+                            current_week: int, total_weeks: int,
+                            scale: float = 1.0, long_ride_cap: int = 99999):
+    """Write a workout from the plan template, with duration scaling."""
     name = workout.get("name", f"W{week_num:02d}_{day_abbrev}_Workout")
     description = workout.get("description", "")
     blocks = workout.get("blocks", "")
+
+    # Scale durations to match athlete's capacity
+    blocks = _scale_blocks(blocks, scale, long_ride_cap)
 
     # Apply race-specific modifications
     if race_data:
@@ -372,18 +510,19 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
     filename = f"{prefix}_{_sanitize_filename(workout_type)}.zwo"
 
     _write_zwo(workouts_dir, filename,
-               f"W{week_num:02d} {day_abbrev} - {workout_type} ({date_str})",
+               _zwo_name(week_num, day_abbrev, date_str, workout_type),
                description, blocks)
 
 
 def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                            date_str: str, session_type: str, race_data: Optional[Dict],
-                           current_week: int, total_weeks: int):
+                           current_week: int, total_weeks: int,
+                           scale: float = 1.0, long_ride_cap: int = 99999):
     """Write a default workout when no template workout exists for this day."""
     prefix = _file_prefix(week_num, day_abbrev, date_str)
 
     if session_type == "long_ride":
-        name = f"W{week_num:02d} {day_abbrev} - Long Endurance Ride ({date_str})"
+        name = _zwo_name(week_num, day_abbrev, date_str, "Long Endurance Ride")
         description = (
             "LONG ENDURANCE RIDE\n\n"
             "Zone 2 steady effort. This is the backbone of your gravel preparation.\n"
@@ -398,10 +537,11 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
             '        <SteadyState Duration="7200" Power="0.65"/>\n'
             '        <Cooldown Duration="600" PowerLow="0.60" PowerHigh="0.40"/>\n'
         )
+        blocks = _scale_blocks(blocks, scale, long_ride_cap)
         filename = f"{prefix}_Long_Endurance.zwo"
 
     elif session_type == "intervals":
-        name = f"W{week_num:02d} {day_abbrev} - Interval Session ({date_str})"
+        name = _zwo_name(week_num, day_abbrev, date_str, "Interval Session")
         description = (
             "INTERVAL SESSION\n\n"
             "Hard effort intervals with full recovery.\n"
@@ -418,7 +558,7 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
         filename = f"{prefix}_Intervals.zwo"
 
     else:  # easy_ride or other
-        name = f"W{week_num:02d} {day_abbrev} - Easy Recovery Ride ({date_str})"
+        name = _zwo_name(week_num, day_abbrev, date_str, "Easy Recovery Ride")
         description = RECOVERY_RIDE_DESCRIPTION
         blocks = RECOVERY_RIDE_BLOCKS
         filename = f"{prefix}_Easy_Recovery.zwo"
@@ -433,8 +573,8 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
                             race_data: Optional[Dict], race_name: str,
                             race_distance, race_date_str: Optional[str] = None):
     """Write the race day execution workout as final ZWO."""
-    date_label_internal = race_date_str if race_date_str else "Race Day"
-    name = f"W{plan_duration:02d} Race Day - {race_name or 'Race'} {race_distance}mi ({date_label_internal})"
+    date_label = _date_label(race_date_str) if race_date_str else "RaceDay"
+    name = f"W{plan_duration:02d} {date_label} Race Day - {race_name or 'Race'} {race_distance}mi"
     description = (
         f"RACE DAY: {race_name} {race_distance}mi\n\n"
         "PRE-RACE:\n"

@@ -1252,6 +1252,48 @@
     }
     #gg-race-search .gg-match-banner button:hover { background: var(--gg-color-secondary-brown) !important; color: var(--gg-color-white) !important; border-color: var(--gg-color-secondary-brown) !important; }
 
+    /* Compact racer badge on cards */
+    #gg-race-search .gg-card-scores {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    #gg-race-search .gg-card-scores .gg-score-bar {
+      flex: 1;
+    }
+    #gg-race-search .gg-racer-compact {
+      border: 2px solid var(--gg-color-teal);
+      padding: 4px 8px;
+      text-align: center;
+      min-width: 72px;
+      flex-shrink: 0;
+    }
+    #gg-race-search .gg-racer-compact--pending {
+      border-style: dashed;
+    }
+    #gg-race-search .gg-racer-compact-label {
+      display: block;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gg-color-teal) !important;
+      text-transform: uppercase;
+    }
+    #gg-race-search .gg-racer-compact-pct {
+      display: block;
+      font-family: var(--gg-font-editorial);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gg-color-teal) !important;
+      line-height: 1.1;
+    }
+    #gg-race-search .gg-racer-compact-count {
+      display: block;
+      font-size: 8px;
+      color: var(--gg-color-secondary-brown) !important;
+      letter-spacing: 0.5px;
+    }
+
     @media (max-width: 768px) {
       #gg-race-search .gg-grid { grid-template-columns: 1fr; }
       #gg-race-search button.gg-filter-toggle { display: block; }

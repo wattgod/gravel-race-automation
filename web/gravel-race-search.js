@@ -737,6 +737,21 @@
 
     var radar = renderMiniRadar(race.scores);
 
+    var racerBadge = '';
+    if (race.racer_pct !== undefined && race.racer_pct !== null) {
+      racerBadge = '<div class="gg-racer-compact">' +
+        '<span class="gg-racer-compact-label">RACERS</span>' +
+        '<span class="gg-racer-compact-pct">' + race.racer_pct + '%</span>' +
+        '<span class="gg-racer-compact-count">' + race.racer_count + ' ratings</span>' +
+      '</div>';
+    } else if (race.racer_count > 0) {
+      racerBadge = '<div class="gg-racer-compact gg-racer-compact--pending">' +
+        '<span class="gg-racer-compact-label">RACERS</span>' +
+        '<span class="gg-racer-compact-pct">&mdash;</span>' +
+        '<span class="gg-racer-compact-count">' + race.racer_count + '/3 needed</span>' +
+      '</div>';
+    }
+
     var matchBadge = (displayMode === 'match' && matchScores[race.slug] !== undefined)
       ? '<span class="gg-match-badge">' + matchScores[race.slug] + '% match</span>'
       : '';
@@ -773,7 +788,7 @@
         (race.distance_mi ? '<div class="gg-stat"><span class="gg-stat-val">' + race.distance_mi + '</span><span class="gg-stat-label">Miles</span></div>' : '') +
         (race.elevation_ft ? '<div class="gg-stat"><span class="gg-stat-val">' + Number(race.elevation_ft).toLocaleString() + '</span><span class="gg-stat-label">Ft Elev</span></div>' : '') +
       '</div>' +
-      scoreBar +
+      '<div class="gg-card-scores">' + scoreBar + racerBadge + '</div>' +
       radar +
       (race.tagline ? '<div class="gg-card-tagline">' + race.tagline + '</div>' : '') +
     '</div>';

@@ -33,7 +33,7 @@ CANONICAL_KEYS = {
     'logistics', 'history', 'quotes', 'race_specific',
     'guide_variables', 'training_implications', 'seo',
     'training_plans', 'final_verdict', 'research_metadata',
-    'training_config', 'non_negotiables',
+    'training_config', 'non_negotiables', 'racer_rating',
 }
 
 # Keys that Cursor commonly adds but shouldn't

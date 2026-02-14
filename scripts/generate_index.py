@@ -229,6 +229,16 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     if rwgps_id and str(rwgps_id).strip() and str(rwgps_id).strip().lower() != "tbd":
         entry["rwgps_id"] = str(rwgps_id).strip()
 
+    # Include racer rating fields if any ratings exist
+    racer_rating = race.get("racer_rating", {})
+    total = racer_rating.get("total_ratings", 0)
+    if total >= 3 and racer_rating.get("would_race_again_pct") is not None:
+        entry["racer_pct"] = racer_rating["would_race_again_pct"]
+        entry["racer_count"] = total
+    elif total > 0:
+        entry["racer_pct"] = None
+        entry["racer_count"] = total
+
     return entry
 
 

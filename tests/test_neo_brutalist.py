@@ -19,6 +19,7 @@ from generate_neo_brutalist import (
     FAQ_TEMPLATES,
     MONTH_NUMBERS,
     OPINION_DIMS,
+    RACER_RATING_THRESHOLD,
     US_STATES,
     _build_race_name_map,
     build_accordion_html,
@@ -32,6 +33,7 @@ from generate_neo_brutalist import (
     build_nav_header,
     build_news_section,
     build_pullquote,
+    build_racer_reviews,
     build_radar_charts,
     build_ratings,
     build_similar_races,
@@ -710,3 +712,135 @@ class TestUtilities:
         assert score_bar_color(5) == COLORS["teal"]
         assert score_bar_color(4) == COLORS["gold"]
         assert score_bar_color(1) == COLORS["tan"]
+
+
+# ── Racer Rating ─────────────────────────────────────────────
+
+class TestRacerRating:
+    """Tests for Racer Rating dual-score display."""
+
+    @pytest.fixture
+    def race_with_ratings(self, sample_race_data):
+        """Race data with full racer_rating data."""
+        sample_race_data["race"]["racer_rating"] = {
+            "would_race_again_pct": 94,
+            "total_ratings": 47,
+            "star_average": 4.3,
+            "total_reviews": 12,
+            "reviews": [
+                {
+                    "text": "The Flint Hills broke me and I can't wait to go back.",
+                    "stars": 5,
+                    "would_race_again": True,
+                    "finish_category": "mid-pack",
+                    "submitted_at": "2026-01-15",
+                },
+                {
+                    "text": "Well organized but brutal heat.",
+                    "stars": 4,
+                    "would_race_again": True,
+                    "finish_category": "back half",
+                    "submitted_at": "2026-01-20",
+                },
+            ],
+        }
+        return sample_race_data
+
+    @pytest.fixture
+    def race_below_threshold(self, sample_race_data):
+        """Race data with ratings below display threshold."""
+        sample_race_data["race"]["racer_rating"] = {
+            "would_race_again_pct": None,
+            "total_ratings": 2,
+            "star_average": 4.0,
+            "total_reviews": 1,
+            "reviews": [],
+        }
+        return sample_race_data
+
+    def test_dual_score_in_hero_with_ratings(self, race_with_ratings):
+        rd = normalize_race_data(race_with_ratings)
+        html = build_hero(rd)
+        assert "gg-dual-score" in html
+        assert "gg-dual-panel--gg" in html
+        assert "gg-dual-panel--racer" in html
+        assert "94%" in html
+        assert "47 ratings" in html
+        assert "WOULD RACE AGAIN" in html
+        assert "GG SCORE" in html
+        # Should NOT have empty modifier
+        assert "gg-dual-panel--empty" not in html
+
+    def test_dual_score_empty_state(self, sample_race_data):
+        """No racer_rating field at all → empty state."""
+        rd = normalize_race_data(sample_race_data)
+        html = build_hero(rd)
+        assert "gg-dual-score" in html
+        assert "gg-dual-panel--empty" in html
+        assert "No ratings yet" in html
+        assert "BE THE FIRST TO RATE" in html
+
+    def test_dual_score_below_threshold(self, race_below_threshold):
+        rd = normalize_race_data(race_below_threshold)
+        html = build_hero(rd)
+        assert "gg-dual-panel--empty" in html
+        assert "1 more needed" in html
+
+    def test_racer_reviews_section(self, race_with_ratings):
+        rd = normalize_race_data(race_with_ratings)
+        html = build_racer_reviews(rd)
+        assert "gg-racer-reviews" in html
+        assert "RATE THIS RACE" in html
+        assert "Flint Hills broke me" in html
+        assert "mid-pack" in html
+        assert "4.3 avg" in html
+        assert "12 reviews" in html
+
+    def test_racer_reviews_empty_state(self, sample_race_data):
+        rd = normalize_race_data(sample_race_data)
+        html = build_racer_reviews(rd)
+        assert "gg-racer-empty" in html
+        assert "No racer ratings yet" in html
+        assert "RATE THIS RACE" in html
+
+    def test_racer_reviews_pending_state(self, race_below_threshold):
+        rd = normalize_race_data(race_below_threshold)
+        html = build_racer_reviews(rd)
+        assert "gg-racer-pending" in html
+        assert "1 more needed" in html
+        assert "RATE THIS RACE" in html
+
+    def test_jsonld_aggregate_rating_with_data(self, race_with_ratings):
+        rd = normalize_race_data(race_with_ratings)
+        jsonld = build_sports_event_jsonld(rd)
+        assert "aggregateRating" in jsonld
+        agg = jsonld["aggregateRating"]
+        assert agg["@type"] == "AggregateRating"
+        assert agg["ratingValue"] == "4.3"
+        assert agg["bestRating"] == "5"
+        assert agg["worstRating"] == "1"
+        assert agg["ratingCount"] == "47"
+        assert agg["reviewCount"] == "12"
+
+    def test_jsonld_no_aggregate_without_data(self, sample_race_data):
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert "aggregateRating" not in jsonld
+
+    def test_normalize_includes_racer_rating(self, race_with_ratings):
+        rd = normalize_race_data(race_with_ratings)
+        rr = rd['racer_rating']
+        assert rr['would_race_again_pct'] == 94
+        assert rr['total_ratings'] == 47
+        assert rr['star_average'] == 4.3
+        assert rr['total_reviews'] == 12
+        assert len(rr['reviews']) == 2
+
+    def test_normalize_missing_racer_rating(self, sample_race_data):
+        rd = normalize_race_data(sample_race_data)
+        rr = rd['racer_rating']
+        assert rr['would_race_again_pct'] is None
+        assert rr['total_ratings'] == 0
+        assert rr['star_average'] is None
+        assert rr['total_reviews'] == 0
+        assert rr['reviews'] == []

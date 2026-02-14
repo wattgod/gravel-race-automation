@@ -161,6 +161,8 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
+RACER_RATING_FORM_BASE = "https://docs.google.com/forms/d/e/FORM_ID_HERE/viewform"
+RACER_RATING_THRESHOLD = 3
 CURRENT_YEAR = str(datetime.now().year)
 
 
@@ -358,6 +360,13 @@ def normalize_race_data(data: dict) -> dict:
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
         'citations': race.get('citations', []),
+        'racer_rating': {
+            'would_race_again_pct': race.get('racer_rating', {}).get('would_race_again_pct'),
+            'total_ratings': race.get('racer_rating', {}).get('total_ratings', 0),
+            'star_average': race.get('racer_rating', {}).get('star_average'),
+            'total_reviews': race.get('racer_rating', {}).get('total_reviews', 0),
+            'reviews': race.get('racer_rating', {}).get('reviews', []),
+        },
     }
 
 
@@ -1046,6 +1055,18 @@ def build_sports_event_jsonld(rd: dict) -> dict:
             },
         }
 
+    # Racer Rating → AggregateRating (only with 3+ ratings)
+    racer_rating = rd.get('racer_rating', {})
+    if racer_rating.get('total_ratings', 0) >= RACER_RATING_THRESHOLD and racer_rating.get('star_average'):
+        jsonld["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": str(round(racer_rating['star_average'], 1)),
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": str(racer_rating['total_ratings']),
+            "reviewCount": str(racer_rating.get('total_reviews', 0)),
+        }
+
     if official_site and official_site.startswith('http'):
         jsonld["url"] = official_site
 
@@ -1104,6 +1125,36 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 # ── Phase 3: Section Builders ─────────────────────────────────
 
+def _build_racer_panel(rd: dict) -> str:
+    """Build the racer rating panel for the dual-score hero."""
+    rr = rd.get('racer_rating', {})
+    total = rr.get('total_ratings', 0)
+    pct = rr.get('would_race_again_pct')
+
+    if total >= RACER_RATING_THRESHOLD and pct is not None:
+        return f'''<div class="gg-dual-panel gg-dual-panel--racer">
+      <div class="gg-dual-label">RACER RATING</div>
+      <div class="gg-dual-number gg-dual-number--racer">{pct}%</div>
+      <div class="gg-dual-sublabel">{total} ratings</div>
+      <div class="gg-dual-desc">WOULD RACE AGAIN</div>
+    </div>'''
+    elif total > 0:
+        needed = RACER_RATING_THRESHOLD - total
+        return f'''<div class="gg-dual-panel gg-dual-panel--racer gg-dual-panel--empty">
+      <div class="gg-dual-label">RACER RATING</div>
+      <div class="gg-dual-number gg-dual-number--racer">&mdash;</div>
+      <div class="gg-dual-sublabel">{total} rating{"s" if total != 1 else ""} &mdash; {needed} more needed</div>
+      <div class="gg-dual-desc">WOULD RACE AGAIN</div>
+    </div>'''
+    else:
+        return f'''<div class="gg-dual-panel gg-dual-panel--racer gg-dual-panel--empty">
+      <div class="gg-dual-label">RACER RATING</div>
+      <div class="gg-dual-number gg-dual-number--racer">&mdash;</div>
+      <div class="gg-dual-sublabel">No ratings yet</div>
+      <div class="gg-dual-desc">BE THE FIRST TO RATE</div>
+    </div>'''
+
+
 def build_hero(rd: dict) -> str:
     """Build hero section with OG image background or primary race photo."""
     score = rd['overall_score']
@@ -1120,13 +1171,21 @@ def build_hero(rd: dict) -> str:
     site_btn = ''
     if official and official.startswith('http'):
         site_btn = f'\n  <a href="{esc(official)}" class="gg-btn gg-btn--hero-site" target="_blank" rel="noopener">OFFICIAL SITE &rarr;</a>'
+
+    racer_panel = _build_racer_panel(rd)
+
     return f'''<section class="gg-hero"{og_style}>
   <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>
   <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
   <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>{site_btn}
-  <div class="gg-hero-score">
-    <div class="gg-hero-score-number" data-target="{score}">{score}</div>
-    <div class="gg-hero-score-label">/ 100</div>
+  <div class="gg-dual-score">
+    <div class="gg-dual-panel gg-dual-panel--gg">
+      <div class="gg-dual-label">GG SCORE</div>
+      <div class="gg-dual-number gg-dual-number--gg" data-target="{score}">{score}</div>
+      <div class="gg-dual-sublabel">{esc(rd['tier_label'])}</div>
+      <div class="gg-dual-desc">14-CRITERIA EXPERT SCORE</div>
+    </div>
+    {racer_panel}
   </div>
 </section>'''
 
@@ -1492,6 +1551,91 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
       {verdict_grid}
       {bottom_line}
       {alt_html}
+    </div>
+  </section>'''
+
+
+def build_racer_reviews(rd: dict) -> str:
+    """Build Racer Reviews section — star summary, text reviews, CTA."""
+    rr = rd.get('racer_rating', {})
+    total_ratings = rr.get('total_ratings', 0)
+    total_reviews = rr.get('total_reviews', 0)
+    star_avg = rr.get('star_average')
+    reviews = rr.get('reviews', [])
+    name = rd['name']
+    slug = rd['slug']
+    form_url = f"{RACER_RATING_FORM_BASE}?entry.FIELD_ID={slug}"
+
+    cta_btn = f'<a href="{esc(form_url)}" class="gg-btn gg-btn--rate" target="_blank" rel="noopener">RATE THIS RACE &rarr;</a>'
+
+    # No ratings at all — empty state
+    if total_ratings == 0:
+        return f'''<section class="gg-racer-reviews gg-fade-section">
+    <div class="gg-racer-empty">
+      <div class="gg-racer-empty-text">No racer ratings yet. Be the first to rate {esc(name)}.</div>
+      {cta_btn}
+    </div>
+  </section>'''
+
+    # Below threshold — pending state
+    if total_ratings < RACER_RATING_THRESHOLD:
+        needed = RACER_RATING_THRESHOLD - total_ratings
+        return f'''<section class="gg-racer-reviews gg-fade-section">
+    <div class="gg-racer-pending">
+      <div class="gg-racer-pending-text">{total_ratings} rating{"s" if total_ratings != 1 else ""} so far &mdash; {needed} more needed to display the Racer Rating.</div>
+      {cta_btn}
+    </div>
+  </section>'''
+
+    # Full display — star summary + reviews
+    parts = []
+
+    # Star summary bar
+    if star_avg is not None:
+        full_stars = int(star_avg)
+        half_star = (star_avg - full_stars) >= 0.5
+        stars_html = '&#9733;' * full_stars
+        if half_star:
+            stars_html += '&#9733;'
+            empty = 5 - full_stars - 1
+        else:
+            empty = 5 - full_stars
+        stars_html += '&#9734;' * empty
+        parts.append(f'''<div class="gg-racer-stars">
+      <span class="gg-racer-stars-icons">{stars_html}</span>
+      <span class="gg-racer-stars-avg">{star_avg:.1f} avg</span>
+      <span class="gg-racer-stars-sep">&middot;</span>
+      <span class="gg-racer-stars-count">{total_reviews} review{"s" if total_reviews != 1 else ""}</span>
+    </div>''')
+
+    # Text reviews (up to 5)
+    for review in reviews[:5]:
+        text = review.get('text', '')
+        if not text:
+            continue
+        stars = review.get('stars')
+        finish = review.get('finish_category', '')
+        meta_parts = []
+        if stars:
+            meta_parts.append(f'{"&#9733;" * stars}')
+        if finish:
+            meta_parts.append(f'<span class="gg-review-finish">{esc(finish)}</span>')
+        meta_html = f'<div class="gg-review-meta">{" ".join(meta_parts)}</div>' if meta_parts else ''
+        parts.append(f'''<div class="gg-review-item">
+      <div class="gg-review-text">{esc(text)}</div>
+      {meta_html}
+    </div>''')
+
+    parts.append(cta_btn)
+
+    inner = '\n    '.join(parts)
+    return f'''<section class="gg-racer-reviews gg-fade-section">
+    <div class="gg-section-header gg-section-header--teal">
+      <span class="gg-section-kicker">RACER</span>
+      <h2 class="gg-section-title">Racer Reviews</h2>
+    </div>
+    <div class="gg-section-body">
+    {inner}
     </div>
   </section>'''
 
@@ -2315,6 +2459,36 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; }}
 .gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
 
+/* Dual score — hero */
+.gg-neo-brutalist-page .gg-dual-score {{ display: flex; border: 3px solid var(--gg-color-warm-paper); max-width: 440px; margin-top: var(--gg-spacing-lg); }}
+.gg-neo-brutalist-page .gg-dual-panel {{ flex: 1; padding: var(--gg-spacing-md) var(--gg-spacing-sm); text-align: center; }}
+.gg-neo-brutalist-page .gg-dual-panel--gg {{ background: rgba(154,126,10,0.12); border-right: 3px solid var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-dual-panel--racer {{ background: rgba(23,128,121,0.12); }}
+.gg-neo-brutalist-page .gg-dual-panel--empty {{ opacity: 0.6; }}
+.gg-neo-brutalist-page .gg-dual-number {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: 1; }}
+.gg-neo-brutalist-page .gg-dual-number--gg {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-dual-number--racer {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-dual-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-warm-paper); margin-bottom: var(--gg-spacing-2xs); }}
+.gg-neo-brutalist-page .gg-dual-sublabel {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); margin-top: var(--gg-spacing-2xs); }}
+.gg-neo-brutalist-page .gg-dual-desc {{ font-family: var(--gg-font-data); font-size: 8px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); margin-top: 2px; }}
+
+/* Racer reviews section */
+.gg-neo-brutalist-page .gg-racer-reviews {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-racer-stars {{ display: flex; align-items: center; gap: 8px; margin-bottom: var(--gg-spacing-md); font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); }}
+.gg-neo-brutalist-page .gg-racer-stars-icons {{ color: var(--gg-color-gold); font-size: var(--gg-font-size-md); }}
+.gg-neo-brutalist-page .gg-racer-stars-avg {{ font-weight: var(--gg-font-weight-bold); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-racer-stars-sep {{ color: var(--gg-color-warm-brown); }}
+.gg-neo-brutalist-page .gg-racer-stars-count {{ color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-review-item {{ border-bottom: 1px solid var(--gg-color-sand); padding: var(--gg-spacing-sm) 0; }}
+.gg-neo-brutalist-page .gg-review-item:last-of-type {{ border-bottom: none; }}
+.gg-neo-brutalist-page .gg-review-text {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); font-style: italic; line-height: var(--gg-line-height-relaxed); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-review-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-gold); margin-top: 4px; }}
+.gg-neo-brutalist-page .gg-review-finish {{ display: inline-block; background: var(--gg-color-sand); color: var(--gg-color-secondary-brown); padding: 1px 6px; font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-left: 8px; }}
+.gg-neo-brutalist-page .gg-btn--rate {{ display: inline-block; margin-top: var(--gg-spacing-md); padding: 10px 24px; background: var(--gg-color-teal); color: var(--gg-color-white); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; border: var(--gg-border-standard); cursor: pointer; }}
+.gg-neo-brutalist-page .gg-btn--rate:hover {{ background: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-racer-empty, .gg-neo-brutalist-page .gg-racer-pending {{ background: var(--gg-color-sand); padding: var(--gg-spacing-xl); text-align: center; }}
+.gg-neo-brutalist-page .gg-racer-empty-text, .gg-neo-brutalist-page .gg-racer-pending-text {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-bottom: var(--gg-spacing-sm); }}
+
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
   .gg-neo-brutalist-page .gg-radar-pair {{ gap: 8px; }}
@@ -2329,6 +2503,8 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: var(--gg-font-size-2xl); }}
   .gg-neo-brutalist-page .gg-hero-score {{ position: static; margin-top: var(--gg-spacing-md); text-align: left; }}
   .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: var(--gg-font-size-4xl); }}
+  .gg-neo-brutalist-page .gg-dual-score {{ flex-direction: column; max-width: 100%; }}
+  .gg-neo-brutalist-page .gg-dual-panel--gg {{ border-right: none; border-bottom: 3px solid var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
@@ -2475,6 +2651,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     course_route = build_course_route(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd, race_index)
+    racer_reviews = build_racer_reviews(rd)
     email_capture = build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
@@ -2521,9 +2698,9 @@ body{margin:0;background:#ede4d8}
     # Section order
     content_sections = []
     for section in [photos_section, course_overview, history, pullquote,
-                    course_route, ratings, verdict, email_capture, news,
-                    training, logistics_sec, similar, visible_faq,
-                    citations_sec]:
+                    course_route, ratings, verdict, racer_reviews,
+                    email_capture, news, training, logistics_sec, similar,
+                    visible_faq, citations_sec]:
         if section:
             content_sections.append(section)
 

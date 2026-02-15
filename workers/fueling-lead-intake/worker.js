@@ -220,7 +220,7 @@ async function sendNotificationEmail(env, lead) {
           to: [{ email: env.NOTIFICATION_EMAIL }],
           subject: `⛽ Fueling Lead: ${lead.race_name || lead.race_slug} — ${lead.email}`
         }],
-        from: { email: 'gravelgodcoaching@gmail.com', name: 'Gravel God Fueling' },
+        from: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
         reply_to: { email: lead.email },
         content: [{ type: 'text/html', value: emailBody }]
       })

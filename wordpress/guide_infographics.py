@@ -148,19 +148,28 @@ def _cubic_bezier_path(points: list[tuple[float, float]], closed: bool = False) 
 
 
 def _figure_wrap(inner: str, caption: str, layout: str = "inline",
-                 asset_id: str = "", alt: str = "") -> str:
-    """Wrap content in a <figure> with optional <figcaption> and aria-label."""
+                 asset_id: str = "", alt: str = "",
+                 title: str = "", takeaway: str = "") -> str:
+    """Wrap content in a <figure> with optional title bar, takeaway, caption, and aria-label."""
     cls = "gg-infographic"
     if layout and layout != "inline":
         cls += f" gg-infographic--{layout}"
     aid = f' data-asset-id="{_esc(asset_id)}"' if asset_id else ""
     aria = f' aria-label="{_esc(alt)}"' if alt else ""
     role = ' role="figure"' if alt else ""
+    title_html = (
+        f'<div class="gg-infographic-title">{_esc(title)}</div>'
+        if title else ""
+    )
+    takeaway_html = (
+        f'<div class="gg-infographic-takeaway">{_esc(takeaway)}</div>'
+        if takeaway else ""
+    )
     cap = (
         f'<figcaption class="gg-infographic-caption">{_esc(caption)}</figcaption>'
         if caption else ""
     )
-    return f'<figure class="{cls}"{aid}{role}{aria}>{inner}{cap}</figure>'
+    return f'<figure class="{cls}"{aid}{role}{aria}>{title_html}{inner}{takeaway_html}{cap}</figure>'
 
 
 # ── Shared SVG Micro-Icons (for gear grid cards) ────────────
@@ -243,26 +252,36 @@ _GEAR_ICONS = {
 def render_gear_grid(block: dict) -> str:
     """5-item gear essentials grid with inline SVG icons."""
     items = [
-        ("frame", "Bike Frame", "Your foundation. Gravel-specific geometry, tire clearance, and mounting points."),
-        ("tires", "Tires", "The single biggest performance variable. 40-50mm for most courses."),
-        ("helmet", "Helmet", "Non-negotiable safety. MIPS preferred. Ventilation matters for long days."),
-        ("repair", "Repair Kit", "Tubes/plugs, multi-tool, CO2. Practice repairs before race day."),
-        ("hydration", "Hydration", "Bottles or pack. Know your course's water availability."),
+        ("frame", "Bike Frame", "Your foundation. Gravel-specific geometry, tire clearance, and mounting points.",
+         "Look for 45mm+ tire clearance and multiple bottle mounts"),
+        ("tires", "Tires", "The single biggest performance variable. 40-50mm for most courses.",
+         "Run 38-42mm for fast courses, 45-50mm for chunky terrain"),
+        ("helmet", "Helmet", "Non-negotiable safety. MIPS preferred. Ventilation matters for long days.",
+         "MIPS or WaveCel for rotational impact protection"),
+        ("repair", "Repair Kit", "Tubes/plugs, multi-tool, CO2. Practice repairs before race day.",
+         "Carry both a tube and plugs — plugs fail on sidewall cuts"),
+        ("hydration", "Hydration", "Bottles or pack. Know your course's water availability.",
+         "Two bottles minimum; pack for courses with 30+ mile gaps between aid"),
     ]
 
     cards = []
-    for key, title, desc in items:
+    for key, card_title, desc, tip in items:
         icon_fn = _GEAR_ICONS.get(key, _icon_frame)
         cards.append(
-            f'<div class="gg-infographic-card">'
+            f'<div class="gg-infographic-card" data-tooltip="{_esc(tip)}" tabindex="0">'
             f'<div class="gg-infographic-card-icon">{icon_fn()}</div>'
-            f'<div class="gg-infographic-card-title">{_esc(title)}</div>'
+            f'<div class="gg-infographic-card-title">{_esc(card_title)}</div>'
             f'<div class="gg-infographic-card-desc">{_esc(desc)}</div>'
             f'</div>'
         )
 
     inner = f'<div class="gg-infographic-gear-grid">{"".join(cards)}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Essential Gear for Race Day",
+        takeaway="Get these five categories dialed in training \u2014 never debut new gear on race day.",
+    )
 
 
 def render_rider_categories(block: dict) -> str:
@@ -309,8 +328,11 @@ def render_rider_categories(block: dict) -> str:
     cards = []
     for r in riders:
         bar_w = r["ftp_pct"]
+        tip = f'{r["hours"]} training, {r["ftp_range"]} FTP \u2014 {r["reality"]}'
+        highlight = ' style="border-left:4px solid var(--gg-color-teal)"' if r["name"] == "Finisher" else ""
         cards.append(
-            f'<div class="gg-infographic-rider-card">'
+            f'<div class="gg-infographic-rider-card"{highlight}'
+            f' data-tooltip="{_esc(tip)}" tabindex="0">'
             f'<div class="gg-infographic-rider-name">{_esc(r["name"])}</div>'
             f'<div class="gg-infographic-rider-hours">{_esc(r["hours"])}</div>'
             f'<div class="gg-infographic-rider-bar-wrap">'
@@ -326,7 +348,12 @@ def render_rider_categories(block: dict) -> str:
         )
 
     inner = f'<div class="gg-infographic-rider-grid">{"".join(cards)}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Four Rider Archetypes",
+        takeaway="Most riders are Finishers \u2014 and that\u2019s the right goal for your first gravel race.",
+    )
 
 
 def render_race_week_countdown(block: dict) -> str:
@@ -347,7 +374,7 @@ def render_race_week_countdown(block: dict) -> str:
         if is_race_day:
             cls += " gg-infographic-day-card--race"
         cards.append(
-            f'<div class="{cls}">'
+            f'<div class="{cls}" data-tooltip="{_esc(note)}" tabindex="0">'
             f'<div class="gg-infographic-day-abbr">{_esc(abbr)}</div>'
             f'<div class="gg-infographic-day-task">{_esc(task)}</div>'
             f'<div class="gg-infographic-day-note">{_esc(note)}</div>'
@@ -355,7 +382,12 @@ def render_race_week_countdown(block: dict) -> str:
         )
 
     inner = f'<div class="gg-infographic-week-grid">{"".join(cards)}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Race Week: Seven Days Out",
+        takeaway="Race week is about rest and logistics, not fitness. The hay is in the barn.",
+    )
 
 
 def render_traffic_light(block: dict) -> str:
@@ -384,7 +416,7 @@ def render_traffic_light(block: dict) -> str:
     rows = []
     for s in signals:
         rows.append(
-            f'<div class="gg-infographic-signal-row">'
+            f'<div class="gg-infographic-signal-row" data-tooltip="{_esc(s["action"])}" tabindex="0">'
             f'<div class="gg-infographic-signal-indicator" style="background:{s["color"]}"></div>'
             f'<div class="gg-infographic-signal-body">'
             f'<div class="gg-infographic-signal-label">{_esc(s["label"])}</div>'
@@ -395,7 +427,12 @@ def render_traffic_light(block: dict) -> str:
         )
 
     inner = f'<div class="gg-infographic-traffic-light">{"".join(rows)}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Go / Caution / No-Go Framework",
+        takeaway="If you\u2019re in the red zone on two or more criteria, DNS is the smart play.",
+    )
 
 
 def render_three_acts(block: dict) -> str:
@@ -436,27 +473,39 @@ def render_three_acts(block: dict) -> str:
         },
     ]
 
+    act_colors = [
+        "var(--gg-color-teal)",
+        "var(--gg-color-gold)",
+        "var(--gg-color-primary-brown)",
+    ]
     panels = []
-    for act in acts:
+    for i, act in enumerate(acts):
         items = "".join(f"<li>{_esc(s)}</li>" for s in act["strategies"])
+        tip = f'{act["range"]} of the race \u2014 {act["strategies"][0]}'
         panels.append(
-            f'<div class="gg-infographic-act-panel">'
+            f'<div class="gg-infographic-act-panel" data-tooltip="{_esc(tip)}" tabindex="0">'
             f'<div class="gg-infographic-act-num">{_esc(act["num"])}</div>'
-            f'<div class="gg-infographic-act-title">{_esc(act["title"])}</div>'
+            f'<div class="gg-infographic-act-title" style="border-bottom-color:{act_colors[i]}">{_esc(act["title"])}</div>'
             f'<div class="gg-infographic-act-range">{_esc(act["range"])}</div>'
             f'<ul class="gg-infographic-act-list">{items}</ul>'
             f'</div>'
         )
 
     inner = f'<div class="gg-infographic-three-acts">{"".join(panels)}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Three Acts of Every Gravel Race",
+        takeaway="Restraint early, resilience in the middle, resolve at the end. Violate the order and you\u2019ll bonk.",
+    )
 
 
 def render_bonk_math(block: dict) -> str:
     """Bonk math equation + gel rectangle grid."""
     # Big equation typography
     equation = (
-        '<div class="gg-infographic-bonk-equation">'
+        '<div class="gg-infographic-bonk-equation"'
+        ' data-tooltip="75g/hr is the target for trained gut absorption. Build up to this in training." tabindex="0">'
         '<span class="gg-infographic-bonk-num">8</span>'
         '<span class="gg-infographic-bonk-op">&times;</span>'
         '<span class="gg-infographic-bonk-num">75g</span>'
@@ -477,7 +526,12 @@ def render_bonk_math(block: dict) -> str:
     )
 
     inner = f'<div class="gg-infographic-bonk-math">{equation}{gel_grid}</div>'
-    return _figure_wrap(inner, block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        inner, block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Math Behind the Bonk",
+        takeaway="Your body stores ~2,000 calories of glycogen. An 8-hour race burns ~4,000+. Do the math.",
+    )
 
 
 # ══════════════════════════════════════════════════════════════
@@ -488,13 +542,20 @@ def render_bonk_math(block: dict) -> str:
 def render_zone_spectrum(block: dict) -> str:
     """7 horizontal bars Z1-Z7 with zone labels and percentages."""
     zones = [
-        ("Z1 Active Recovery", 55, "var(--gg-color-light-teal)"),
-        ("Z2 Endurance", 75, "var(--gg-color-teal)"),
-        ("Z3 Tempo", 90, "var(--gg-color-gold)"),
-        ("Z4 Threshold", 105, "var(--gg-color-light-gold)"),
-        ("Z5 VO2max", 120, "var(--gg-color-warm-brown)"),
-        ("Z6 Anaerobic", 150, "var(--gg-color-secondary-brown)"),
-        ("Z7 Neuromuscular", 200, "var(--gg-color-primary-brown)"),
+        ("Z1 Active Recovery", 55, "var(--gg-color-light-teal)",
+         "Easy spinning, <55% FTP. Promotes blood flow and recovery."),
+        ("Z2 Endurance", 75, "var(--gg-color-teal)",
+         "55-75% FTP. The foundation of all gravel training."),
+        ("Z3 Tempo", 90, "var(--gg-color-gold)",
+         "76-90% FTP. Comfortably hard \u2014 the sweet spot for long rides."),
+        ("Z4 Threshold", 105, "var(--gg-color-light-gold)",
+         "91-105% FTP. Race pace for short-course gravel events."),
+        ("Z5 VO2max", 120, "var(--gg-color-warm-brown)",
+         "106-120% FTP. Hard intervals that build top-end power."),
+        ("Z6 Anaerobic", 150, "var(--gg-color-secondary-brown)",
+         "121-150% FTP. Short punchy efforts for climbs and surges."),
+        ("Z7 Neuromuscular", 200, "var(--gg-color-primary-brown)",
+         "Max effort sprints. Rarely needed in gravel racing."),
     ]
 
     vb_w, vb_h = 1200, 600
@@ -508,7 +569,7 @@ def render_zone_spectrum(block: dict) -> str:
 
     svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
 
-    for i, (label, pct, color) in enumerate(zones):
+    for i, (label, pct, color, tip) in enumerate(zones):
         y = top_margin + i * (bar_h + gap)
         bar_w = (pct / max_pct) * bar_area
 
@@ -519,8 +580,12 @@ def render_zone_spectrum(block: dict) -> str:
             anchor="end", weight="700",
             family="var(--gg-font-data)"
         ))
-        # Bar
-        svg.append(_svg_rect(left_margin, y, bar_w, bar_h, fill=color))
+        # Bar with animation + tooltip
+        svg.append(_svg_rect(
+            left_margin, y, bar_w, bar_h, fill=color,
+            extra=f'data-animate="bar" data-target-width="{bar_w}"'
+                  f' data-tooltip="{_esc(tip)}" tabindex="0"'
+        ))
         # Percentage label
         svg.append(_svg_text(
             left_margin + bar_w + 12, y + bar_h / 2 + 5,
@@ -530,17 +595,27 @@ def render_zone_spectrum(block: dict) -> str:
         ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Seven Training Zones",
+        takeaway="Gravel racing lives in Zones 2\u20134. Build your base there before chasing intensity.",
+    )
 
 
 def render_hierarchy_pyramid(block: dict) -> str:
     """5-layer performance hierarchy pyramid (trapezoids widening bottom-up)."""
     layers = [
-        ("Equipment", "0.5%", 0.15),
-        ("Bike Handling", "1.5%", 0.30),
-        ("Nutrition", "8%", 0.50),
-        ("Pacing", "20%", 0.75),
-        ("Fitness", "70%", 1.0),
+        ("Equipment", "0.5%", 0.15,
+         "Marginal gains: lighter wheels, aero bars. Matters least."),
+        ("Bike Handling", "1.5%", 0.30,
+         "Cornering, descending, loose-surface skills save minutes."),
+        ("Nutrition", "8%", 0.50,
+         "Proper fueling prevents bonking \u2014 worth 30+ min in long races."),
+        ("Pacing", "20%", 0.75,
+         "Even pacing beats heroic surges. Discipline > talent."),
+        ("Fitness", "70%", 1.0,
+         "+50W FTP = ~2mph faster. Train more, spend less."),
     ]
 
     vb_w, vb_h = 1200, 700
@@ -552,29 +627,32 @@ def render_hierarchy_pyramid(block: dict) -> str:
 
     svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
 
-    for i, (label, pct, width_frac) in enumerate(layers):
+    fills = [
+        "var(--gg-color-tan)",
+        "var(--gg-color-sand)",
+        "var(--gg-color-warm-brown)",
+        "var(--gg-color-secondary-brown)",
+        "var(--gg-color-primary-brown)",
+    ]
+    text_fills = [
+        "var(--gg-color-primary-brown)",
+        "var(--gg-color-primary-brown)",
+        "var(--gg-color-warm-paper)",
+        "var(--gg-color-warm-paper)",
+        "var(--gg-color-warm-paper)",
+    ]
+
+    for i, (label, pct, width_frac, tip) in enumerate(layers):
         y = top_margin + i * (layer_h + gap)
         w = max_width * width_frac
         x = center_x - w / 2
 
-        # Gradient fill from light to primary brown based on layer
-        fills = [
-            "var(--gg-color-tan)",
-            "var(--gg-color-sand)",
-            "var(--gg-color-warm-brown)",
-            "var(--gg-color-secondary-brown)",
-            "var(--gg-color-primary-brown)",
-        ]
-        text_fills = [
-            "var(--gg-color-primary-brown)",
-            "var(--gg-color-primary-brown)",
-            "var(--gg-color-warm-paper)",
-            "var(--gg-color-warm-paper)",
-            "var(--gg-color-warm-paper)",
-        ]
-
-        svg.append(_svg_rect(x, y, w, layer_h, fill=fills[i],
-                             stroke="var(--gg-color-near-black)", stroke_width=2))
+        svg.append(_svg_rect(
+            x, y, w, layer_h, fill=fills[i],
+            stroke="var(--gg-color-near-black)", stroke_width=2,
+            extra=f'data-animate="bar" data-target-width="{w}"'
+                  f' data-tooltip="{_esc(tip)}" tabindex="0"'
+        ))
         # Label
         svg.append(_svg_text(
             center_x, y + layer_h / 2 - 8, label,
@@ -591,7 +669,12 @@ def render_hierarchy_pyramid(block: dict) -> str:
         ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Hierarchy of Speed: What Actually Makes You Faster",
+        takeaway="Aero gains are sexy but fitness is 80% of the equation. Train more, spend less.",
+    )
 
 
 def render_tier_distribution(block: dict) -> str:
@@ -610,6 +693,13 @@ def render_tier_distribution(block: dict) -> str:
     bar_width = vb_w - 2 * bar_margin
     total = sum(t[1] for t in tiers)
 
+    tier_tips = [
+        "Unbound, BWR, Leadville \u2014 the bucket-list events",
+        "SBT GRVL, Gravel Worlds, Mid South \u2014 strong fields, great courses",
+        "Regional favorites with solid organization and community",
+        "Local or niche events \u2014 great entry points for beginners",
+    ]
+
     svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
 
     # Title
@@ -622,10 +712,14 @@ def render_tier_distribution(block: dict) -> str:
 
     # Stacked bar
     x_offset = bar_margin
-    for label, count, pct, color in tiers:
+    for i, (label, count, pct, color) in enumerate(tiers):
         seg_w = (count / total) * bar_width
-        svg.append(_svg_rect(x_offset, bar_y, seg_w, bar_h, fill=color,
-                             stroke="var(--gg-color-near-black)", stroke_width=2))
+        svg.append(_svg_rect(
+            x_offset, bar_y, seg_w, bar_h, fill=color,
+            stroke="var(--gg-color-near-black)", stroke_width=2,
+            extra=f'data-animate="bar" data-target-width="{seg_w}"'
+                  f' data-tooltip="{_esc(tier_tips[i])}" tabindex="0"'
+        ))
         # Label inside bar
         if seg_w > 60:
             svg.append(_svg_text(
@@ -656,7 +750,12 @@ def render_tier_distribution(block: dict) -> str:
         detail_y += 40
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="How We Tier 328 Gravel Races",
+        takeaway="Only 8% earn Tier 1. If your target race is T1, respect it with T1 preparation.",
+    )
 
 
 def render_training_phases(block: dict) -> str:
@@ -672,17 +771,23 @@ def render_training_phases(block: dict) -> str:
 
     # Phase boxes (background bands)
     phases = [
-        ("BASE", 0, 5, "color-mix(in srgb, var(--gg-color-teal) 12%, transparent)"),
-        ("BUILD", 5, 9, "color-mix(in srgb, var(--gg-color-gold) 12%, transparent)"),
-        ("PEAK / TAPER", 9, 12, "color-mix(in srgb, var(--gg-color-primary-brown) 12%, transparent)"),
+        ("BASE", 0, 5, "color-mix(in srgb, var(--gg-color-teal) 12%, transparent)",
+         "Weeks 1-5: Long Z2 rides, build aerobic engine. 3-5 rides/week."),
+        ("BUILD", 5, 9, "color-mix(in srgb, var(--gg-color-gold) 12%, transparent)",
+         "Weeks 6-9: Add intervals, tempo, and race-specificity."),
+        ("PEAK / TAPER", 9, 12, "color-mix(in srgb, var(--gg-color-primary-brown) 12%, transparent)",
+         "Weeks 10-12: Reduce volume 40%, maintain intensity, rest up."),
     ]
 
     week_w = chart_w / 12
-    for label, start, end, fill in phases:
+    for label, start, end, fill, tip in phases:
         x = margin_l + start * week_w
         w = (end - start) * week_w
-        svg.append(_svg_rect(x, chart_top, w, chart_h, fill=fill,
-                             stroke="var(--gg-color-tan)", stroke_width=1))
+        svg.append(_svg_rect(
+            x, chart_top, w, chart_h, fill=fill,
+            stroke="var(--gg-color-tan)", stroke_width=1,
+            extra=f'data-tooltip="{_esc(tip)}" tabindex="0"'
+        ))
         svg.append(_svg_text(
             x + w / 2, chart_top + 30, label,
             font_size=18, fill="var(--gg-color-primary-brown)",
@@ -712,7 +817,7 @@ def render_training_phases(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(vol_points),
         stroke="var(--gg-color-teal)", stroke_width=3,
-        extra='stroke-linecap="round"'
+        extra='stroke-linecap="round" data-animate="line"'
     ))
 
     # Intensity curve (low in Base, ramps in Build, peaks early Peak)
@@ -728,7 +833,7 @@ def render_training_phases(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(int_points),
         stroke="var(--gg-color-gold)", stroke_width=3,
-        extra='stroke-linecap="round" stroke-dasharray="8 4"'
+        extra='stroke-linecap="round" stroke-dasharray="8 4" data-animate="line"'
     ))
 
     # Legend
@@ -750,7 +855,12 @@ def render_training_phases(block: dict) -> str:
     ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "full-width"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "full-width"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Periodization: Building Fitness in Three Phases",
+        takeaway="Base \u2192 Build \u2192 Peak. Skip base and your peak will have no foundation.",
+    )
 
 
 def render_execution_gap(block: dict) -> str:
@@ -767,6 +877,14 @@ def render_execution_gap(block: dict) -> str:
     svg.append(_svg_line(mid_x, 20, mid_x, vb_h - 20,
                          stroke="var(--gg-color-tan)", stroke_width=2,
                          extra='stroke-dasharray="6 4"'))
+    # VS label with tooltip on divider
+    svg.append(_svg_text(
+        mid_x, vb_h / 2, "VS",
+        font_size=16, fill="var(--gg-color-secondary-brown)",
+        anchor="middle", weight="700",
+        family="var(--gg-font-data)",
+        extra='data-tooltip="Left: fading power from going too hard. Right: steady pacing that finishes strong." tabindex="0"'
+    ))
 
     # Left side: BAD — fading intervals
     svg.append(_svg_text(
@@ -804,9 +922,12 @@ def render_execution_gap(block: dict) -> str:
         x = bad_x_start + i * (bar_w + gap)
         h = pct * target_h
         y = base_y - h
-        svg.append(_svg_rect(x, y, bar_w, h,
-                             fill=bad_fills[i],
-                             stroke="var(--gg-color-near-black)", stroke_width=2))
+        svg.append(_svg_rect(
+            x, y, bar_w, h,
+            fill=bad_fills[i],
+            stroke="var(--gg-color-near-black)", stroke_width=2,
+            extra=f'data-animate="bar" data-target-height="{h}"'
+        ))
         svg.append(_svg_text(
             x + bar_w / 2, base_y + 25, f"Int {i + 1}",
             font_size=13, fill="var(--gg-color-secondary-brown)",
@@ -840,9 +961,12 @@ def render_execution_gap(block: dict) -> str:
         x = good_x_start + i * (bar_w + gap)
         h = pct * target_h
         y = base_y - h
-        svg.append(_svg_rect(x, y, bar_w, h,
-                             fill="var(--gg-color-teal)",
-                             stroke="var(--gg-color-near-black)", stroke_width=2))
+        svg.append(_svg_rect(
+            x, y, bar_w, h,
+            fill="var(--gg-color-teal)",
+            stroke="var(--gg-color-near-black)", stroke_width=2,
+            extra=f'data-animate="bar" data-target-height="{h}"'
+        ))
         svg.append(_svg_text(
             x + bar_w / 2, base_y + 25, f"Int {i + 1}",
             font_size=13, fill="var(--gg-color-secondary-brown)",
@@ -856,7 +980,12 @@ def render_execution_gap(block: dict) -> str:
         ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Execution Gap: Plan vs. Reality",
+        takeaway="Consistency beats heroism. Four steady efforts outperform three big ones with a crash.",
+    )
 
 
 def render_fueling_timeline(block: dict) -> str:
@@ -879,15 +1008,21 @@ def render_fueling_timeline(block: dict) -> str:
     line_w = vb_w - margin_l - margin_r
 
     # Timeline bar
-    svg.append(_svg_rect(margin_l, timeline_y, line_w, bar_h,
-                         fill="var(--gg-color-tan)"))
+    svg.append(_svg_rect(
+        margin_l, timeline_y, line_w, bar_h,
+        fill="var(--gg-color-tan)",
+        extra=f'data-animate="bar" data-target-width="{line_w}"'
+    ))
 
-    for i, (time_label, pos, title, detail) in enumerate(markers):
+    for i, (time_label, pos, mk_title, detail) in enumerate(markers):
         x = margin_l + pos * line_w
 
-        # Marker tick
-        svg.append(_svg_rect(x - 3, timeline_y - 8, 6, bar_h + 16,
-                             fill="var(--gg-color-primary-brown)"))
+        # Marker tick with tooltip
+        svg.append(_svg_rect(
+            x - 3, timeline_y - 8, 6, bar_h + 16,
+            fill="var(--gg-color-primary-brown)",
+            extra=f'data-tooltip="{_esc(detail)}" tabindex="0"'
+        ))
 
         # Alternate callout boxes above/below
         if i % 2 == 0:
@@ -910,7 +1045,7 @@ def render_fueling_timeline(block: dict) -> str:
         ))
         # Title
         svg.append(_svg_text(
-            x, box_y + 22, title,
+            x, box_y + 22, mk_title,
             font_size=15, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
             family="var(--gg-font-editorial)"
@@ -923,7 +1058,12 @@ def render_fueling_timeline(block: dict) -> str:
         ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Race Day Fueling: Hour by Hour",
+        takeaway="Start eating at minute 30, not when you\u2019re hungry. By then it\u2019s too late.",
+    )
 
 
 def _load_unbound_rating() -> dict:
@@ -948,6 +1088,22 @@ def render_scoring_dimensions(block: dict) -> str:
     Uses cached Unbound 200 data for example scores."""
     rating = _load_unbound_rating()
 
+    dim_tips = {
+        "Logistics": "Travel complexity, registration difficulty, permit requirements",
+        "Length": "Total race distance \u2014 longer races score higher",
+        "Technicality": "Surface difficulty, navigation challenges, technical terrain",
+        "Elevation": "Total climbing relative to distance",
+        "Climate": "Heat, cold, wind, altitude exposure risks",
+        "Altitude": "Maximum elevation and time spent above 5,000ft",
+        "Adventure": "Remoteness, scenery, exploration factor",
+        "Prestige": "Historical significance, brand recognition, media coverage",
+        "Race Quality": "Organization, course marking, aid station quality",
+        "Experience": "Overall rider experience, post-race atmosphere",
+        "Community": "Local engagement, volunteer quality, spectator support",
+        "Field Depth": "Pro presence, competitive depth, field size",
+        "Value": "Registration cost relative to what you get",
+        "Expenses": "Total trip cost: travel, lodging, gear requirements",
+    }
     dimensions = [
         ("Logistics", rating.get("logistics", 0)),
         ("Length", rating.get("length", 0)),
@@ -1007,8 +1163,13 @@ def render_scoring_dimensions(block: dict) -> str:
         ))
         # Bar
         bar_x = x_base + 150
-        svg.append(_svg_rect(bar_x, y, bar_w, bar_h, fill=fill,
-                             stroke="var(--gg-color-near-black)", stroke_width=1))
+        tip = dim_tips.get(label, "")
+        svg.append(_svg_rect(
+            bar_x, y, bar_w, bar_h, fill=fill,
+            stroke="var(--gg-color-near-black)", stroke_width=1,
+            extra=f'data-animate="bar" data-target-width="{bar_w}"'
+                  + (f' data-tooltip="{_esc(tip)}" tabindex="0"' if tip else '')
+        ))
         # Score label
         svg.append(_svg_text(
             bar_x + bar_w + 12, y + bar_h / 2 + 5, f"{score}/5",
@@ -1021,7 +1182,12 @@ def render_scoring_dimensions(block: dict) -> str:
                          stroke="var(--gg-color-tan)", stroke_width=1))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Inside the Rating: 14 Scoring Dimensions",
+        takeaway="No single score tells the whole story. A race can be Tier 3 overall but Tier 1 on course difficulty.",
+    )
 
 
 def render_supercompensation(block: dict) -> str:
@@ -1082,29 +1248,38 @@ def render_supercompensation(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(points),
         stroke="var(--gg-color-primary-brown)", stroke_width=3,
-        extra='stroke-linecap="round"'
+        extra='stroke-linecap="round" data-animate="line"'
     ))
 
-    # Phase labels
+    # Phase labels with tooltips
     phase_labels = [
-        (0.12, -140, "Training\nStress", "var(--gg-color-error)"),
-        (0.22, -150, "Fatigue", "var(--gg-color-error)"),
-        (0.35, 10, "Recovery", "var(--gg-color-gold)"),
-        (0.55, 95, "Supercompensation", "var(--gg-color-teal)"),
-        (0.80, 25, "Detraining", "var(--gg-color-secondary-brown)"),
+        (0.12, -140, "Training\nStress", "var(--gg-color-error)",
+         "The workout itself \u2014 muscle fiber damage and glycogen depletion"),
+        (0.22, -150, "Fatigue", "var(--gg-color-error)",
+         "Performance dips below baseline as body repairs damage"),
+        (0.35, 10, "Recovery", "var(--gg-color-gold)",
+         "Repair and adaptation \u2014 sleep, nutrition, and easy days"),
+        (0.55, 95, "Supercompensation", "var(--gg-color-teal)",
+         "The window where fitness exceeds previous baseline \u2014 train again here"),
+        (0.80, 25, "Detraining", "var(--gg-color-secondary-brown)",
+         "Wait too long and you lose the adaptation gains"),
     ]
 
-    for frac, y_off, label, color in phase_labels:
+    for frac, y_off, label, color, tip in phase_labels:
         x = margin_l + frac * chart_w
         y = baseline_y - y_off
         # Split multi-line labels
         lines = label.split("\n")
         for j, line in enumerate(lines):
+            extra_attr = ""
+            if j == 0:
+                extra_attr = f'data-tooltip="{_esc(tip)}" tabindex="0"'
             svg.append(_svg_text(
                 x, y + j * 18, line,
                 font_size=14, fill=color,
                 anchor="middle", weight="700",
-                family="var(--gg-font-editorial)"
+                family="var(--gg-font-editorial)",
+                extra=extra_attr
             ))
 
     # Insight box at bottom
@@ -1120,7 +1295,12 @@ def render_supercompensation(block: dict) -> str:
     ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="Supercompensation: Why Rest Makes You Faster",
+        takeaway="You don\u2019t get faster during the workout \u2014 you get faster during recovery.",
+    )
 
 
 def render_pmc_chart(block: dict) -> str:
@@ -1158,7 +1338,7 @@ def render_pmc_chart(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(ctl_points),
         stroke="var(--gg-color-teal)", stroke_width=3,
-        extra='stroke-linecap="round"'
+        extra='stroke-linecap="round" data-animate="line"'
     ))
 
     # ATL (Fatigue) — spiky, follows training load
@@ -1170,7 +1350,7 @@ def render_pmc_chart(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(atl_points),
         stroke="var(--gg-color-error)", stroke_width=3,
-        extra='stroke-linecap="round" stroke-dasharray="8 4"'
+        extra='stroke-linecap="round" stroke-dasharray="8 4" data-animate="line"'
     ))
 
     # TSB (Form) — CTL - ATL, shifted to visual range
@@ -1182,7 +1362,7 @@ def render_pmc_chart(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(tsb_points),
         stroke="var(--gg-color-gold)", stroke_width=3,
-        extra='stroke-linecap="round"'
+        extra='stroke-linecap="round" data-animate="line"'
     ))
 
     # Week labels
@@ -1197,24 +1377,33 @@ def render_pmc_chart(block: dict) -> str:
     # Legend
     leg_y = chart_bot + 55
     items = [
-        ("var(--gg-color-teal)", "CTL (Fitness)", ""),
-        ("var(--gg-color-error)", "ATL (Fatigue)", 'stroke-dasharray="8 4"'),
-        ("var(--gg-color-gold)", "TSB (Form)", ""),
+        ("var(--gg-color-teal)", "CTL (Fitness)", "",
+         "Chronic Training Load \u2014 your long-term fitness trend"),
+        ("var(--gg-color-error)", "ATL (Fatigue)", 'stroke-dasharray="8 4"',
+         "Acute Training Load \u2014 recent fatigue from hard training"),
+        ("var(--gg-color-gold)", "TSB (Form)", "",
+         "Training Stress Balance \u2014 positive = fresh, negative = fatigued"),
     ]
     leg_x = margin_l
-    for color, label, dash in items:
+    for color, label, dash, tip in items:
         svg.append(_svg_line(leg_x, leg_y, leg_x + 30, leg_y,
                              stroke=color, stroke_width=3,
                              extra=dash))
         svg.append(_svg_text(
             leg_x + 40, leg_y + 5, label,
             font_size=14, fill="var(--gg-color-primary-brown)",
-            family="var(--gg-font-data)"
+            family="var(--gg-font-data)",
+            extra=f'data-tooltip="{_esc(tip)}" tabindex="0"'
         ))
         leg_x += 220
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "full-width"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "full-width"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Performance Management Chart: Fitness, Fatigue, Form",
+        takeaway="CTL is your fitness. ATL is your fatigue. TSB is the gap \u2014 go positive before race day.",
+    )
 
 
 def render_psych_phases(block: dict) -> str:
@@ -1228,20 +1417,28 @@ def render_psych_phases(block: dict) -> str:
 
     # 5 psychological phases with background bands
     phases = [
-        ("Honeymoon", 0.0, 0.20, "color-mix(in srgb, var(--gg-color-teal) 10%, transparent)"),
-        ("Shattering", 0.20, 0.40, "color-mix(in srgb, var(--gg-color-gold) 10%, transparent)"),
-        ("Dark Patch", 0.40, 0.60, "color-mix(in srgb, var(--gg-color-error) 10%, transparent)"),
-        ("Second Wind", 0.60, 0.80, "color-mix(in srgb, var(--gg-color-teal) 10%, transparent)"),
-        ("Final Push", 0.80, 1.00, "color-mix(in srgb, var(--gg-color-gold) 10%, transparent)"),
+        ("Honeymoon", 0.0, 0.20, "color-mix(in srgb, var(--gg-color-teal) 10%, transparent)",
+         "Adrenaline and excitement carry you. Danger: going out too fast."),
+        ("Shattering", 0.20, 0.40, "color-mix(in srgb, var(--gg-color-gold) 10%, transparent)",
+         "Reality hits. Fatigue and doubt creep in. Stay process-focused."),
+        ("Dark Patch", 0.40, 0.60, "color-mix(in srgb, var(--gg-color-error) 10%, transparent)",
+         "The low point. Mantras, small goals, and fuel get you through."),
+        ("Second Wind", 0.60, 0.80, "color-mix(in srgb, var(--gg-color-teal) 10%, transparent)",
+         "Energy returns. The body adapts and endorphins kick in."),
+        ("Final Push", 0.80, 1.00, "color-mix(in srgb, var(--gg-color-gold) 10%, transparent)",
+         "The finish is close. Draw on everything you trained for."),
     ]
 
     svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
 
     # Background bands
-    for label, start, end, fill in phases:
+    for label, start, end, fill, tip in phases:
         x = margin_l + start * chart_w
         w = (end - start) * chart_w
-        svg.append(_svg_rect(x, chart_top, w, chart_h, fill=fill))
+        svg.append(_svg_rect(
+            x, chart_top, w, chart_h, fill=fill,
+            extra=f'data-tooltip="{_esc(tip)}" tabindex="0"'
+        ))
         svg.append(_svg_text(
             x + w / 2, chart_top + 25, label,
             font_size=15, fill="var(--gg-color-primary-brown)",
@@ -1282,7 +1479,7 @@ def render_psych_phases(block: dict) -> str:
     svg.append(_svg_path(
         _cubic_bezier_path(points),
         stroke="var(--gg-color-primary-brown)", stroke_width=3,
-        extra='stroke-linecap="round"'
+        extra='stroke-linecap="round" data-animate="line"'
     ))
 
     # Y-axis labels
@@ -1309,7 +1506,12 @@ def render_psych_phases(block: dict) -> str:
     ))
 
     svg.append(_svg_close())
-    return _figure_wrap("".join(svg), block.get("caption", ""), block.get("layout", "inline"), block.get("asset_id", ""), block.get("alt", ""))
+    return _figure_wrap(
+        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
+        block.get("asset_id", ""), block.get("alt", ""),
+        title="The Mental Arc: Excitement to Emptiness to Resolve",
+        takeaway="The low point at mile 60 isn\u2019t a sign you\u2019re failing \u2014 it\u2019s a phase everyone passes through.",
+    )
 
 
 # ══════════════════════════════════════════════════════════════

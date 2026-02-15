@@ -442,6 +442,43 @@ def check_infographic_css_no_hex():
         check("No raw hex in infographic CSS", True)
 
 
+def check_infographic_editorial():
+    """Verify every infographic renderer outputs title and takeaway editorial framing."""
+    print("\n── Infographic Editorial Framing ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    from guide_infographics import INFOGRAPHIC_RENDERERS
+    for aid, renderer in sorted(INFOGRAPHIC_RENDERERS.items()):
+        block = {"type": "image", "asset_id": aid, "alt": "test", "caption": "c"}
+        html = renderer(block)
+        has_title = "gg-infographic-title" in html
+        has_takeaway = "gg-infographic-takeaway" in html
+        check(f"Editorial framing: {aid}",
+              has_title and has_takeaway,
+              f"Missing {'title' if not has_title else 'takeaway'} for {aid}")
+
+
+def check_infographic_animation_a11y():
+    """Verify animation CSS is wrapped in prefers-reduced-motion media query."""
+    print("\n── Infographic Animation Accessibility ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    import generate_guide
+    css = generate_guide.build_guide_css()
+    marker = "/* ── Inline Infographics ── */"
+    if marker not in css:
+        check("Infographic CSS section exists", False, "Marker not found")
+        return
+    infographic_css = css[css.index(marker):]
+    parts = infographic_css.split("@media(prefers-reduced-motion:no-preference)")
+    if len(parts) >= 2:
+        before_rm = parts[0]
+        has_leak = "data-animate" in before_rm or "gg-in-view" in before_rm
+        check("Animation CSS inside prefers-reduced-motion", not has_leak,
+              "Animation selectors found outside @media(prefers-reduced-motion) block")
+    else:
+        check("Animation CSS inside prefers-reduced-motion", False,
+              "No @media(prefers-reduced-motion) block found in infographic CSS")
+
+
 def check_root_matches_brand_tokens():
     """Verify :root CSS custom properties match gravel-god-brand/tokens/tokens.css."""
     print("\n── :root vs Brand Tokens Parity ──")
@@ -499,6 +536,8 @@ def main():
         check_no_dead_css()
         check_infographic_renderers()
         check_infographic_css_no_hex()
+        check_infographic_editorial()
+        check_infographic_animation_a11y()
         check_root_matches_brand_tokens()
         if not args.quick:
             check_climate_classification()

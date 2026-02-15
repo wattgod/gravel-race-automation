@@ -1234,6 +1234,67 @@ def build_guide_css() -> str:
 .gg-infographic-bonk-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;max-width:480px;margin:0 auto 8px}
 .gg-infographic-bonk-gel{height:24px;background:var(--gg-color-gold);border:2px solid var(--gg-color-dark-brown)}
 .gg-infographic-bonk-label{font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);letter-spacing:1px}
+
+/* ── Infographic Editorial Framing ── */
+.gg-infographic-title{font-family:var(--gg-font-editorial);font-size:1.25rem;font-weight:700;color:var(--gg-color-near-black);border-bottom:3px solid var(--gg-color-gold);padding:0 0 0.5rem 0;margin:0 0 1rem 0}
+.gg-infographic-takeaway{border-left:4px solid var(--gg-color-teal);padding:0.75rem 1rem;margin:1.25rem 0 0 0;font-family:var(--gg-font-editorial);font-style:italic;font-size:0.95rem;color:var(--gg-color-secondary-brown)}
+
+/* ── Infographic Tooltips ── */
+.gg-infographic-tooltip{position:absolute;z-index:1000;background:var(--gg-color-dark-brown);color:var(--gg-color-warm-paper);border:3px solid var(--gg-color-gold);padding:8px 12px;font-family:var(--gg-font-data);font-size:11px;line-height:1.5;letter-spacing:0.5px;max-width:260px;pointer-events:none;display:none}
+.gg-infographic-tooltip--visible{display:block}
+
+/* ── Infographic Card Hover ── */
+.gg-infographic-card:hover,.gg-infographic-rider-card:hover,.gg-infographic-day-card:hover,.gg-infographic-signal-row:hover,.gg-infographic-act-panel:hover{border-color:var(--gg-color-gold)}
+
+/* ── Infographic Scroll Animations ── */
+/* .gg-has-js guard: without JS, elements render statically (no hidden initial state) */
+@media(prefers-reduced-motion:no-preference){
+.gg-has-js .gg-infographic-card{transform:translateY(20px);transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view .gg-infographic-card{transform:translateY(0)}
+.gg-in-view .gg-infographic-card:nth-child(2){transition-delay:0.1s}
+.gg-in-view .gg-infographic-card:nth-child(3){transition-delay:0.2s}
+.gg-in-view .gg-infographic-card:nth-child(4){transition-delay:0.3s}
+.gg-in-view .gg-infographic-card:nth-child(5){transition-delay:0.4s}
+.gg-in-view .gg-infographic-card:nth-child(6){transition-delay:0.5s}
+.gg-in-view .gg-infographic-card:nth-child(7){transition-delay:0.6s}
+.gg-has-js .gg-infographic-rider-card{transform:translateY(20px);transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view .gg-infographic-rider-card{transform:translateY(0)}
+.gg-in-view .gg-infographic-rider-card:nth-child(2){transition-delay:0.1s}
+.gg-in-view .gg-infographic-rider-card:nth-child(3){transition-delay:0.2s}
+.gg-in-view .gg-infographic-rider-card:nth-child(4){transition-delay:0.3s}
+.gg-has-js .gg-infographic-day-card{transform:translateY(16px);transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view .gg-infographic-day-card{transform:translateY(0)}
+.gg-in-view .gg-infographic-day-card:nth-child(2){transition-delay:0.07s}
+.gg-in-view .gg-infographic-day-card:nth-child(3){transition-delay:0.14s}
+.gg-in-view .gg-infographic-day-card:nth-child(4){transition-delay:0.21s}
+.gg-in-view .gg-infographic-day-card:nth-child(5){transition-delay:0.28s}
+.gg-in-view .gg-infographic-day-card:nth-child(6){transition-delay:0.35s}
+.gg-in-view .gg-infographic-day-card:nth-child(7){transition-delay:0.42s}
+.gg-has-js .gg-infographic-signal-row{transform:translateY(16px);transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view .gg-infographic-signal-row{transform:translateY(0)}
+.gg-in-view .gg-infographic-signal-row:nth-child(2){transition-delay:0.15s}
+.gg-in-view .gg-infographic-signal-row:nth-child(3){transition-delay:0.3s}
+.gg-has-js .gg-infographic-act-panel{transform:translateY(16px);transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view .gg-infographic-act-panel{transform:translateY(0)}
+.gg-in-view .gg-infographic-act-panel:nth-child(2){transition-delay:0.15s}
+.gg-in-view .gg-infographic-act-panel:nth-child(3){transition-delay:0.3s}
+.gg-has-js .gg-infographic-bonk-gel{transform:scale(0);transition:transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view .gg-infographic-bonk-gel{transform:scale(1)}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(2){transition-delay:0.03s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(3){transition-delay:0.06s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(4){transition-delay:0.09s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(5){transition-delay:0.12s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(6){transition-delay:0.15s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(7){transition-delay:0.18s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(8){transition-delay:0.21s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(9){transition-delay:0.24s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(10){transition-delay:0.27s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(11){transition-delay:0.3s}
+.gg-in-view .gg-infographic-bonk-gel:nth-child(12){transition-delay:0.33s}
+[data-animate="bar"]{transition:width 0.8s cubic-bezier(0.25,0.46,0.45,0.94),height 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+[data-animate="line"]{transition:stroke-dashoffset 1.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+}
+
 @media(max-width:768px){
 .gg-infographic--full-width{margin-left:-16px;margin-right:-16px}
 .gg-infographic-gear-grid{grid-template-columns:1fr 1fr}
@@ -1256,6 +1317,7 @@ def build_guide_js() -> str:
     """Return all guide-specific JavaScript as a single IIFE."""
     return '''(function(){
 "use strict";
+document.documentElement.classList.add("gg-has-js");
 function track(n,p){if(typeof gtag==="function")gtag("event",n,Object.assign({transport_type:"beacon"},p||{}));}
 var STORAGE_KEY="gg_guide_unlocked";
 var page=document.querySelector(".gg-neo-brutalist-page");
@@ -1563,6 +1625,73 @@ window.addEventListener("beforeunload",function(){
 var seconds=Math.round((Date.now()-pageStartTime)/1000);
 track("guide_time_on_page",{seconds:seconds,chapters_read:Object.keys(chaptersRead).length});
 });
+
+/* ── Infographic Scroll Animations ── */
+if("IntersectionObserver" in window){
+var prefersReduced=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!prefersReduced){
+var infoFigs=document.querySelectorAll("figure[data-asset-id]");
+if(infoFigs.length){
+var infoObs=new IntersectionObserver(function(entries,obs){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+var fig=entry.target;
+fig.classList.add("gg-in-view");
+/* SVG bar animations: set target dimensions */
+fig.querySelectorAll("[data-animate='bar']").forEach(function(el){
+var tw=el.getAttribute("data-target-width");
+var th=el.getAttribute("data-target-height");
+if(tw)el.setAttribute("width",tw);
+if(th)el.setAttribute("height",th);
+});
+/* SVG line-draw animations */
+fig.querySelectorAll("[data-animate='line']").forEach(function(el){
+var len=el.getTotalLength?el.getTotalLength():0;
+if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset="0";}
+});
+obs.unobserve(fig);
+track("infographic_view",{asset_id:fig.getAttribute("data-asset-id")});
+}
+});
+},{threshold:0.2});
+infoFigs.forEach(function(fig){
+/* Pre-set SVG bars to zero width/height */
+fig.querySelectorAll("[data-animate='bar']").forEach(function(el){
+var tw=el.getAttribute("data-target-width");
+var th=el.getAttribute("data-target-height");
+if(tw)el.setAttribute("width","0");
+if(th)el.setAttribute("height","0");
+});
+/* Pre-set SVG lines for draw animation */
+fig.querySelectorAll("[data-animate='line']").forEach(function(el){
+var len=el.getTotalLength?el.getTotalLength():0;
+if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset=len;}
+});
+infoObs.observe(fig);
+});
+}
+}
+}
+
+/* ── Infographic Tooltips ── */
+var ttDiv=null;
+function showTooltip(el){
+var tip=el.getAttribute("data-tooltip");
+if(!tip)return;
+if(!ttDiv){ttDiv=document.createElement("div");ttDiv.className="gg-infographic-tooltip";document.body.appendChild(ttDiv);}
+ttDiv.textContent=tip;
+ttDiv.classList.add("gg-infographic-tooltip--visible");
+var r=el.getBoundingClientRect();
+ttDiv.style.left=Math.max(8,r.left+r.width/2-130)+"px";
+ttDiv.style.top=(r.top+window.scrollY-ttDiv.offsetHeight-8)+"px";
+track("infographic_tooltip",{text:tip.slice(0,40)});
+}
+function hideTooltip(){if(ttDiv)ttDiv.classList.remove("gg-infographic-tooltip--visible");}
+document.addEventListener("mouseover",function(e){var t=e.target.closest("[data-tooltip]");if(t&&t.closest(".gg-infographic"))showTooltip(t);});
+document.addEventListener("mouseout",function(e){var t=e.target.closest("[data-tooltip]");if(t)hideTooltip();});
+document.addEventListener("focusin",function(e){var t=e.target.closest("[data-tooltip]");if(t&&t.closest(".gg-infographic"))showTooltip(t);});
+document.addEventListener("focusout",function(e){var t=e.target.closest("[data-tooltip]");if(t)hideTooltip();});
+
 })();'''
 
 

@@ -463,3 +463,225 @@ class TestSvgFontViaCssNotPresentation:
             assert val.startswith("var(--gg-font-"), (
                 f"SVG font-family style must use var(--gg-font-*), got: {val}"
             )
+
+
+# ══════════════════════════════════════════════════════════════
+# Editorial Framing Tests
+# ══════════════════════════════════════════════════════════════
+
+
+class TestEditorialFraming:
+    """Every infographic MUST have a title bar and takeaway box."""
+
+    @pytest.fixture(params=ALL_ASSET_IDS)
+    def rendered_editorial(self, request):
+        aid = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test", "caption": "cap"}
+        return INFOGRAPHIC_RENDERERS[aid](block)
+
+    def test_has_title_div(self, rendered_editorial):
+        """Every renderer output must contain .gg-infographic-title."""
+        assert "gg-infographic-title" in rendered_editorial
+
+    def test_has_takeaway_div(self, rendered_editorial):
+        """Every renderer output must contain .gg-infographic-takeaway."""
+        assert "gg-infographic-takeaway" in rendered_editorial
+
+    def test_title_text_non_empty(self, rendered_editorial):
+        """Title div must contain non-empty text."""
+        match = re.search(
+            r'class="gg-infographic-title">([^<]+)<', rendered_editorial
+        )
+        assert match, "Title div has no text content"
+        assert len(match.group(1).strip()) > 3
+
+    def test_takeaway_text_non_empty(self, rendered_editorial):
+        """Takeaway div must contain non-empty text."""
+        match = re.search(
+            r'class="gg-infographic-takeaway">([^<]+)<', rendered_editorial
+        )
+        assert match, "Takeaway div has no text content"
+        assert len(match.group(1).strip()) > 10
+
+
+# ══════════════════════════════════════════════════════════════
+# Animation Attribute Tests
+# ══════════════════════════════════════════════════════════════
+
+# SVG renderers that should have data-animate attributes
+SVG_ASSET_IDS = [
+    "ch1-hierarchy-of-speed",
+    "ch2-scoring-dimensions",
+    "ch2-tier-distribution",
+    "ch3-supercompensation",
+    "ch3-zone-spectrum",
+    "ch3-pmc-chart",
+    "ch3-training-phases",
+    "ch4-execution-gap",
+    "ch5-fueling-timeline",
+    "ch6-psych-phases",
+]
+
+# Card renderers that should have .gg-infographic-card or similar
+CARD_ASSET_IDS = [
+    "ch1-gear-essentials",
+    "ch1-rider-grid",
+    "ch7-race-week-countdown",
+    "ch4-traffic-light",
+    "ch6-three-acts",
+    "ch5-bonk-math",
+]
+
+
+class TestAnimationAttributes:
+    """SVG renderers must have data-animate attrs; card renderers need card classes."""
+
+    @pytest.fixture(params=SVG_ASSET_IDS)
+    def rendered_svg_anim(self, request):
+        aid = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test"}
+        return INFOGRAPHIC_RENDERERS[aid](block)
+
+    def test_svg_has_data_animate(self, rendered_svg_anim):
+        """SVG renderers must have at least one data-animate attribute."""
+        assert ('data-animate="bar"' in rendered_svg_anim
+                or 'data-animate="line"' in rendered_svg_anim), \
+            "SVG renderer missing data-animate attribute"
+
+    def test_no_keyframes_in_infographic_css(self):
+        """Infographic CSS must use transitions, not @keyframes."""
+        css = generate_guide.build_guide_css()
+        marker = "/* ── Inline Infographics ── */"
+        infographic_css = css[css.index(marker):]
+        assert "@keyframes" not in infographic_css, \
+            "Infographic CSS must use transitions only, not @keyframes"
+
+
+class TestTooltipAttributes:
+    """Renderers with tooltips must have data-tooltip + tabindex for a11y."""
+
+    @pytest.fixture(params=ALL_ASSET_IDS)
+    def rendered_tooltips(self, request):
+        aid = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test"}
+        return INFOGRAPHIC_RENDERERS[aid](block)
+
+    def test_has_data_tooltip(self, rendered_tooltips):
+        """Every renderer should have at least one data-tooltip."""
+        assert "data-tooltip=" in rendered_tooltips
+
+    def test_tooltip_values_non_empty(self, rendered_tooltips):
+        """All data-tooltip values must be non-empty strings."""
+        tooltips = re.findall(r'data-tooltip="([^"]*)"', rendered_tooltips)
+        for tip in tooltips:
+            assert len(tip.strip()) > 5, f"Empty or too-short tooltip: '{tip}'"
+
+    def test_tooltip_elements_have_tabindex(self, rendered_tooltips):
+        """Elements with data-tooltip must have tabindex for keyboard access."""
+        # Find all tags with data-tooltip
+        elements = re.findall(r'<[^>]*data-tooltip="[^"]*"[^>]*>', rendered_tooltips)
+        for el in elements:
+            assert 'tabindex="0"' in el, (
+                f"Element with data-tooltip missing tabindex: {el[:80]}"
+            )
+
+
+class TestAnimationCssReducedMotion:
+    """Animation CSS must be wrapped in prefers-reduced-motion media query."""
+
+    def test_animation_css_in_reduced_motion_block(self):
+        """All animation CSS must be inside @media(prefers-reduced-motion:no-preference)."""
+        css = generate_guide.build_guide_css()
+        marker = "/* ── Inline Infographics ── */"
+        infographic_css = css[css.index(marker):]
+
+        # data-animate selectors should ONLY appear inside reduced-motion block
+        # Find all data-animate rules outside the reduced-motion block
+        # Split on the @media block
+        parts = infographic_css.split("@media(prefers-reduced-motion:no-preference)")
+        if len(parts) >= 2:
+            before_rm = parts[0]
+            assert 'data-animate' not in before_rm, \
+                "data-animate CSS rules found outside @media(prefers-reduced-motion) block"
+            assert 'gg-in-view' not in before_rm, \
+                ".gg-in-view CSS rules found outside @media(prefers-reduced-motion) block"
+
+    def test_content_renders_without_gg_in_view(self):
+        """All content must be visible without .gg-in-view class (static fallback)."""
+        # Card renderers should not require .gg-in-view for content to exist
+        for aid in ALL_ASSET_IDS:
+            block = {"type": "image", "asset_id": aid, "alt": "test"}
+            html = INFOGRAPHIC_RENDERERS[aid](block)
+            # Content should be present regardless of gg-in-view
+            assert len(html) > 100, f"{aid} output too short"
+            assert "gg-in-view" not in html, \
+                f"{aid} renderer should not hardcode gg-in-view (JS adds it)"
+
+    def test_no_js_fallback_guard(self):
+        """Animation initial states (hidden cards) must require .gg-has-js class.
+
+        Without JS, cards should render in their default position (no transform).
+        The .gg-has-js class is added by JS, so without it, no hiding occurs.
+        """
+        css = generate_guide.build_guide_css()
+        # Find the reduced-motion block
+        rm_start = css.index("@media(prefers-reduced-motion:no-preference)")
+        rm_block = css[rm_start:]
+
+        # All initial-hidden selectors must be guarded by .gg-has-js
+        hidden_selectors = [
+            ".gg-infographic-card{transform:translateY",
+            ".gg-infographic-rider-card{transform:translateY",
+            ".gg-infographic-day-card{transform:translateY",
+            ".gg-infographic-signal-row{transform:translateY",
+            ".gg-infographic-act-panel{transform:translateY",
+            ".gg-infographic-bonk-gel{transform:scale(0)",
+        ]
+        for sel in hidden_selectors:
+            assert f".gg-has-js {sel}" in rm_block or f".gg-has-js{sel}" in rm_block, \
+                f"Missing .gg-has-js guard on: {sel}"
+
+    def test_js_adds_has_js_class(self):
+        """JS must add .gg-has-js to <html> for animation CSS to activate."""
+        js = generate_guide.build_guide_js()
+        assert 'classList.add("gg-has-js")' in js, \
+            "JS must add gg-has-js class to documentElement"
+
+
+class TestFigureWrapEditorial:
+    """Test _figure_wrap title and takeaway parameters."""
+
+    def test_title_rendered(self):
+        html = _figure_wrap("<p>inner</p>", "cap", title="My Title")
+        assert "gg-infographic-title" in html
+        assert "My Title" in html
+
+    def test_takeaway_rendered(self):
+        html = _figure_wrap("<p>inner</p>", "cap", takeaway="Key insight here")
+        assert "gg-infographic-takeaway" in html
+        assert "Key insight here" in html
+
+    def test_no_title_no_div(self):
+        html = _figure_wrap("<p>inner</p>", "cap")
+        assert "gg-infographic-title" not in html
+
+    def test_no_takeaway_no_div(self):
+        html = _figure_wrap("<p>inner</p>", "cap")
+        assert "gg-infographic-takeaway" not in html
+
+    def test_title_before_inner(self):
+        html = _figure_wrap("<p>inner</p>", "cap", title="My Title")
+        title_pos = html.index("gg-infographic-title")
+        inner_pos = html.index("<p>inner</p>")
+        assert title_pos < inner_pos
+
+    def test_takeaway_after_inner(self):
+        html = _figure_wrap("<p>inner</p>", "cap", takeaway="Insight")
+        inner_pos = html.index("<p>inner</p>")
+        takeaway_pos = html.index("gg-infographic-takeaway")
+        assert takeaway_pos > inner_pos
+
+    def test_title_html_escaped(self):
+        html = _figure_wrap("<p>x</p>", "", title='Test <script>"alert"</script>')
+        assert "<script>" not in html
+        assert "&lt;script&gt;" in html

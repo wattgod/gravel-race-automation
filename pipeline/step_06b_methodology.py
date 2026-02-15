@@ -185,9 +185,20 @@ def _periodization(derived: Dict, plan_config: Dict, weeks: List[Dict]) -> Dict:
     is_masters = derived.get("is_masters", False)
 
     # Detect recovery weeks from template
+    # Include: weeks explicitly marked as recovery (focus text or cadence-enforced)
+    # Exclude: taper/race weeks that have low volume but sharp intensity
     recovery_weeks = [
         w["week_number"] for w in weeks
-        if w.get("volume_percent", 100) <= 65
+        if (
+            # Cadence-enforced recovery (focus set by extension logic)
+            "recovery" in w.get("focus", "").lower()
+        ) or (
+            # Template recovery weeks (low volume, not taper/race)
+            w.get("volume_percent", 100) <= 65
+            and w["week_number"] <= plan_duration - 4
+            and "taper" not in w.get("focus", "").lower()
+            and "race" not in w.get("focus", "").lower()
+        )
     ]
 
     # Determine phase boundaries
@@ -303,12 +314,24 @@ def _accommodations(profile: Dict) -> Dict:
 
 
 def _weekly_structure(schedule: Dict) -> Dict:
+    """Build weekly structure from athlete's schedule preferences.
+
+    Note: This reflects the athlete's stated schedule preferences (off days,
+    long ride days, interval days). Actual workout content varies by phase
+    and week — recovery weeks replace intervals/long rides with easy rides,
+    and template workouts may override default session types.
+    """
     days = schedule.get("days", {})
     day_order = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     structure = {}
     for day in day_order:
         info = days.get(day, {"session": "rest"})
         structure[day] = info.get("session", "rest")
+    structure["_note"] = (
+        "This shows the athlete's preferred schedule. Actual workouts vary by phase: "
+        "recovery weeks replace intervals/long rides with easy rides, "
+        "and template workouts may adjust session types."
+    )
     return structure
 
 
@@ -407,15 +430,21 @@ def _render_markdown(doc: Dict) -> str:
     lines.append("")
     lines.append(f"- **Injuries/Limitations:** {acc['injuries']}")
     lines.append(f"- **Strength modifications:** {acc['strength_modifications']}")
+    lines.append(f"- **Nutrition modifications:** {acc.get('nutrition_modifications', 'None required')}")
     lines.append("")
 
     # Weekly Structure
     ws = doc["weekly_structure"]
     lines.append("## Weekly Structure")
     lines.append("")
+    if ws.get("_note"):
+        lines.append(f"*{ws['_note']}*")
+        lines.append("")
     lines.append("| Day | Session |")
     lines.append("|-----|---------|")
     for day, session in ws.items():
+        if day.startswith("_"):
+            continue
         lines.append(f"| {day.title()} | {session.replace('_', ' ').title()} |")
     lines.append("")
 

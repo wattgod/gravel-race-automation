@@ -128,11 +128,17 @@ class TestRecoveryWeekDetection:
         """Recovery week rides should be scaled down — no 4-hour recovery rides."""
         workouts_dir = sarah_full_pipeline["workouts_dir"]
         plan_config = sarah_full_pipeline["plan_config"]
+        plan_duration = plan_config["plan_duration"]
         weeks = plan_config["template"]["weeks"]
 
+        # Recovery weeks = low volume AND not taper/race phase
+        # Taper weeks (last 3-4 weeks) have low volume but sharp intensity
         recovery_week_nums = {
             w["week_number"] for w in weeks
             if w.get("volume_percent", 100) <= 65
+            and w["week_number"] <= plan_duration - 4  # Exclude taper/race
+            and "taper" not in w.get("focus", "").lower()
+            and "race" not in w.get("focus", "").lower()
         }
         assert recovery_week_nums, "No recovery weeks found in template"
 
@@ -160,11 +166,15 @@ class TestRecoveryWeekDetection:
         """Long ride floor must NOT apply during recovery weeks."""
         workouts_dir = sarah_full_pipeline["workouts_dir"]
         plan_config = sarah_full_pipeline["plan_config"]
+        plan_duration = plan_config["plan_duration"]
         weeks = plan_config["template"]["weeks"]
 
         recovery_week_nums = {
             w["week_number"] for w in weeks
             if w.get("volume_percent", 100) <= 65
+            and w["week_number"] <= plan_duration - 4
+            and "taper" not in w.get("focus", "").lower()
+            and "race" not in w.get("focus", "").lower()
         }
 
         for f in workouts_dir.glob("*.zwo"):
@@ -184,11 +194,16 @@ class TestRecoveryWeekDetection:
         """No ride on a recovery week should exceed 90 minutes — even for Mike (4-6h athlete)."""
         workouts_dir = mike_full_pipeline["workouts_dir"]
         plan_config = mike_full_pipeline["plan_config"]
+        plan_duration = plan_config["plan_duration"]
         weeks = plan_config["template"]["weeks"]
 
+        # Recovery weeks only — exclude taper/race phase
         recovery_week_nums = {
             w["week_number"] for w in weeks
             if w.get("volume_percent", 100) <= 65
+            and w["week_number"] <= plan_duration - 4
+            and "taper" not in w.get("focus", "").lower()
+            and "race" not in w.get("focus", "").lower()
         }
 
         for f in workouts_dir.glob("*.zwo"):
@@ -441,7 +456,7 @@ class TestExerciseLibraryURLs:
         assert base_strength, "No base strength workouts found"
 
         content = base_strength[0].read_text()
-        assert "youtube.com" in content, "Base strength workout missing exercise URLs"
+        assert "vimeo.com" in content, "Base strength workout missing Precision Nutrition exercise URLs"
 
     def test_build_strength_has_urls(self, sarah_full_pipeline):
         workouts_dir = sarah_full_pipeline["workouts_dir"]
@@ -449,7 +464,7 @@ class TestExerciseLibraryURLs:
         assert build_strength, "No build strength workouts found"
 
         content = build_strength[0].read_text()
-        assert "youtube.com" in content, "Build strength workout missing exercise URLs"
+        assert "vimeo.com" in content, "Build strength workout missing Precision Nutrition exercise URLs"
 
     def test_knee_exercises_actually_swapped(self, mike_full_pipeline):
         """Mike has chondromalacia — dangerous exercises must be REPLACED, not just warned about."""
@@ -764,3 +779,75 @@ class TestZWOStructuralValidity:
         for f in interval_files[:5]:  # Check first 5
             content = f.read_text()
             assert "<Warmup" in content, f"{f.name} is an interval workout with no warmup"
+
+
+# ── Email Template Tests ──────────────────────────────────────
+
+class TestEmailTemplates:
+    """Email templates must exist, render cleanly, and have no unresolved placeholders."""
+
+    TEMPLATES_DIR = BASE_DIR / "templates" / "emails"
+    REQUIRED_TEMPLATES = [
+        "week_1_welcome", "week_2_checkin", "first_recovery", "mid_plan",
+        "build_phase_start", "race_month", "race_week", "race_day_morning",
+        "post_race_3_days", "post_race_2_weeks",
+    ]
+    SAMPLE_DATA = {
+        "{athlete_name}": "Sarah Printz",
+        "{race_name}": "SBT GRVL",
+        "{race_date}": "2026-06-28",
+        "{plan_duration}": "20",
+    }
+
+    def test_all_templates_exist(self):
+        """Every required email template must exist."""
+        for tmpl in self.REQUIRED_TEMPLATES:
+            path = self.TEMPLATES_DIR / f"{tmpl}.html"
+            assert path.exists(), f"Email template missing: {tmpl}.html"
+
+    def test_templates_are_valid_html(self):
+        """Templates must contain HTML structure."""
+        for tmpl in self.REQUIRED_TEMPLATES:
+            path = self.TEMPLATES_DIR / f"{tmpl}.html"
+            if not path.exists():
+                continue
+            content = path.read_text()
+            assert "<div" in content, f"{tmpl}.html has no HTML div elements"
+            assert len(content) > 100, f"{tmpl}.html is suspiciously small ({len(content)} bytes)"
+
+    def test_templates_render_without_unresolved_placeholders(self):
+        """After substituting sample data, no {placeholder} should remain."""
+        for tmpl in self.REQUIRED_TEMPLATES:
+            path = self.TEMPLATES_DIR / f"{tmpl}.html"
+            if not path.exists():
+                continue
+            content = path.read_text()
+            rendered = content
+            for placeholder, value in self.SAMPLE_DATA.items():
+                rendered = rendered.replace(placeholder, value)
+            unresolved = re.findall(r'\{[a-z_]+\}', rendered)
+            assert not unresolved, (
+                f"{tmpl}.html has unresolved placeholders after rendering: {unresolved}"
+            )
+
+    def test_templates_have_gravel_god_branding(self):
+        """Templates must include Gravel God branding."""
+        for tmpl in self.REQUIRED_TEMPLATES:
+            path = self.TEMPLATES_DIR / f"{tmpl}.html"
+            if not path.exists():
+                continue
+            content = path.read_text()
+            assert "gravel god" in content.lower() or "gravelgod" in content.lower(), (
+                f"{tmpl}.html missing Gravel God branding"
+            )
+
+    def test_templates_have_athlete_name_placeholder(self):
+        """Every template must address the athlete by name."""
+        for tmpl in self.REQUIRED_TEMPLATES:
+            path = self.TEMPLATES_DIR / f"{tmpl}.html"
+            if not path.exists():
+                continue
+            content = path.read_text()
+            assert "{athlete_name}" in content, (
+                f"{tmpl}.html doesn't address athlete by name (missing {{athlete_name}})"
+            )

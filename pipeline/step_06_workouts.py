@@ -79,20 +79,22 @@ Do this test when fresh (not after a hard week). You want unbroken flat or sligh
 # ── Exercise Library (Demo Video URLs) ────────────────────────
 
 EXERCISE_LIBRARY = {
-    "goblet_squat": "https://www.youtube.com/watch?v=MxsFDhcyFyE",
-    "romanian_deadlift": "https://www.youtube.com/watch?v=JCXUYuzwNrM",
-    "single_leg_romanian_deadlift": "https://www.youtube.com/watch?v=_MSaFhCzlBc",
-    "bulgarian_split_squat": "https://www.youtube.com/watch?v=2C-uNgKwPLE",
-    "plank": "https://www.youtube.com/watch?v=ASdvN_XEl_c",
-    "side_plank": "https://www.youtube.com/watch?v=K2VljzCC16g",
-    "glute_bridge": "https://www.youtube.com/watch?v=OUgsJ8-Vi0E",
-    "single_leg_glute_bridge": "https://www.youtube.com/watch?v=AVAXhy6pl7o",
+    # Precision Nutrition video library (Vimeo) — professional demonstrations
+    "goblet_squat": "https://vimeo.com/111129796",
+    "romanian_deadlift": "https://vimeo.com/111121974",
+    "single_leg_romanian_deadlift": "https://vimeo.com/111545574",
+    "bulgarian_split_squat": "https://vimeo.com/111473746",
+    "plank": "https://vimeo.com/111471004",
+    "side_plank": "https://vimeo.com/111522888",
+    "glute_bridge": "https://vimeo.com/111553047",
+    "single_leg_glute_bridge": "https://vimeo.com/111546505",
+    "step_ups": "https://vimeo.com/111125511",
+    "pallof_press": "https://vimeo.com/111469204",
+    "farmers_carry": "https://vimeo.com/112074204",
+    "bird_dog": "https://vimeo.com/111048715",
+    # Not in PN library — keep YouTube
     "calf_raises": "https://www.youtube.com/watch?v=gwLzBJYoWlI",
-    "step_ups": "https://www.youtube.com/watch?v=dQqApCGd5Ss",
-    "pallof_press": "https://www.youtube.com/watch?v=AH_QZLm_0-s",
-    "farmers_carry": "https://www.youtube.com/watch?v=Fkzk_RqlYig",
     "barbell_squat": "https://www.youtube.com/watch?v=ultWZbUMPL8",
-    "bird_dog": "https://www.youtube.com/watch?v=wiFNA3sqjCA",
     "worlds_greatest_stretch": "https://www.youtube.com/watch?v=u-pP_dCenJA",
     "cat_cow": "https://www.youtube.com/watch?v=kqnua4rHVVA",
     "wall_sit": "https://www.youtube.com/watch?v=y-wV4Lz1yo4",
@@ -107,29 +109,29 @@ KNEE_SUBSTITUTIONS = {
     r"\d+\.\s*BULGARIAN SPLIT SQUAT:.*?\[Demo\]\([^)]*\)":
         "WALL SIT (isometric): 3x45 sec — Back flat against wall, knees at 90°. No deep knee flexion. [Demo](https://www.youtube.com/watch?v=y-wV4Lz1yo4)",
     r"\d+\.\s*STEP-UPS:.*?\[Demo\]\([^)]*\)":
-        "GLUTE BRIDGE: 3x15 reps — Squeeze at top 2 sec. Builds posterior chain without knee stress. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)",
+        "GLUTE BRIDGE: 3x15 reps — Squeeze at top 2 sec. Builds posterior chain without knee stress. [Demo](https://vimeo.com/111553047)",
     r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
-        "GOBLET SQUAT (light, controlled depth): 3x12 reps — Stop ABOVE parallel. Do NOT go to full depth. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+        "GOBLET SQUAT (light, controlled depth): 3x12 reps — Stop ABOVE parallel. Do NOT go to full depth. [Demo](https://vimeo.com/111129796)",
     r"GOBLET SQUAT: 3x12 reps — Full depth":
         "GOBLET SQUAT: 3x12 reps — Controlled depth, stop ABOVE parallel. Do NOT go to full depth",
 }
 
 BACK_SUBSTITUTIONS = {
     r"\d+\.\s*SINGLE-LEG ROMANIAN DEADLIFT:.*?\[Demo\]\([^)]*\)":
-        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://www.youtube.com/watch?v=wiFNA3sqjCA)",
+        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://vimeo.com/111048715)",
     r"\d+\.\s*SINGLE-LEG DEADLIFT:.*?\[Demo\]\([^)]*\)":
-        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://www.youtube.com/watch?v=wiFNA3sqjCA)",
+        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://vimeo.com/111048715)",
     r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
-        "GOBLET SQUAT (light): 3x12 reps — Controlled depth. Avoid heavy axial loading on spine. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+        "GOBLET SQUAT (light): 3x12 reps — Controlled depth. Avoid heavy axial loading on spine. [Demo](https://vimeo.com/111129796)",
     r"\d+\.\s*FARMER'S CARRY:.*?\[Demo\]\([^)]*\)":
-        "PALLOF PRESS: 3x12 each side — Anti-rotation core work without spinal compression. [Demo](https://www.youtube.com/watch?v=AH_QZLm_0-s)",
+        "PALLOF PRESS: 3x12 each side — Anti-rotation core work without spinal compression. [Demo](https://vimeo.com/111469204)",
 }
 
 HIP_SUBSTITUTIONS = {
     r"\d+\.\s*BULGARIAN SPLIT SQUAT:.*?\[Demo\]\([^)]*\)":
-        "GLUTE BRIDGE: 3x15 reps — Limited hip flexion range. Squeeze at top 2 sec. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)",
+        "GLUTE BRIDGE: 3x15 reps — Limited hip flexion range. Squeeze at top 2 sec. [Demo](https://vimeo.com/111553047)",
     r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
-        "GOBLET SQUAT (limited depth): 3x12 reps — Stop well above parallel. No deep hip flexion under load. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+        "GOBLET SQUAT (limited depth): 3x12 reps — Stop well above parallel. No deep hip flexion under load. [Demo](https://vimeo.com/111129796)",
     r"GOBLET SQUAT: 3x12 reps — Full depth":
         "GOBLET SQUAT: 3x12 reps — Limited depth, stop well above parallel. No deep hip flexion",
 }
@@ -210,12 +212,12 @@ WARM-UP (10 min):
 MAIN SET (30-40 min):
 Perform 3 sets of each exercise. Rest 60-90 sec between sets.
 
-1. GOBLET SQUAT: 3x12 reps — Full depth, weight at chest. Builds quad and glute strength for climbing. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)
-2. SINGLE-LEG ROMANIAN DEADLIFT: 3x10 each leg — Slow and controlled. Builds hamstring strength and balance. [Demo](https://www.youtube.com/watch?v=_MSaFhCzlBc)
-3. BULGARIAN SPLIT SQUAT: 3x10 each leg — Rear foot elevated. The single most cycling-specific strength exercise. [Demo](https://www.youtube.com/watch?v=2C-uNgKwPLE)
-4. PLANK: 3x45 sec — Tight core, flat back. Core stability prevents power leaks on the bike. [Demo](https://www.youtube.com/watch?v=ASdvN_XEl_c)
-5. SIDE PLANK: 3x30 sec each side — Lateral stability for rough terrain. [Demo](https://www.youtube.com/watch?v=K2VljzCC16g)
-6. GLUTE BRIDGE: 3x15 reps — Squeeze at top. Activates glutes that sitting all day shuts down. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)
+1. GOBLET SQUAT: 3x12 reps — Full depth, weight at chest. Builds quad and glute strength for climbing. [Demo](https://vimeo.com/111129796)
+2. SINGLE-LEG ROMANIAN DEADLIFT: 3x10 each leg — Slow and controlled. Builds hamstring strength and balance. [Demo](https://vimeo.com/111545574)
+3. BULGARIAN SPLIT SQUAT: 3x10 each leg — Rear foot elevated. The single most cycling-specific strength exercise. [Demo](https://vimeo.com/111473746)
+4. PLANK: 3x45 sec — Tight core, flat back. Core stability prevents power leaks on the bike. [Demo](https://vimeo.com/111471004)
+5. SIDE PLANK: 3x30 sec each side — Lateral stability for rough terrain. [Demo](https://vimeo.com/111522888)
+6. GLUTE BRIDGE: 3x15 reps — Squeeze at top. Activates glutes that sitting all day shuts down. [Demo](https://vimeo.com/111553047)
 7. CALF RAISES: 3x20 reps — Single leg if possible. Ankle stability for gravel. [Demo](https://www.youtube.com/watch?v=gwLzBJYoWlI)
 
 COOL-DOWN (5 min):
@@ -245,11 +247,11 @@ MAIN SET (30-40 min):
 Perform 3-4 sets of each. Rest 90-120 sec between sets.
 
 1. BARBELL OR HEAVY GOBLET SQUAT: 4x6 reps — Heavy. Full depth. Build maximum force production. [Demo](https://www.youtube.com/watch?v=ultWZbUMPL8)
-2. SINGLE-LEG DEADLIFT: 3x8 each leg — Add weight. Posterior chain strength for sustained power. [Demo](https://www.youtube.com/watch?v=_MSaFhCzlBc)
-3. STEP-UPS: 3x8 each leg — Use a box at knee height. Mimics pedal stroke force production. [Demo](https://www.youtube.com/watch?v=dQqApCGd5Ss)
-4. PALLOF PRESS: 3x12 each side — Anti-rotation core work. Resists the rotational forces of pedaling. [Demo](https://www.youtube.com/watch?v=AH_QZLm_0-s)
-5. FARMER'S CARRY: 3x40m — Heavy dumbbells. Total body stability and grip endurance. [Demo](https://www.youtube.com/watch?v=Fkzk_RqlYig)
-6. SINGLE-LEG GLUTE BRIDGE: 3x12 each leg — Addresses left/right imbalances. [Demo](https://www.youtube.com/watch?v=AVAXhy6pl7o)
+2. SINGLE-LEG DEADLIFT: 3x8 each leg — Add weight. Posterior chain strength for sustained power. [Demo](https://vimeo.com/111545574)
+3. STEP-UPS: 3x8 each leg — Use a box at knee height. Mimics pedal stroke force production. [Demo](https://vimeo.com/111125511)
+4. PALLOF PRESS: 3x12 each side — Anti-rotation core work. Resists the rotational forces of pedaling. [Demo](https://vimeo.com/111469204)
+5. FARMER'S CARRY: 3x40m — Heavy dumbbells. Total body stability and grip endurance. [Demo](https://vimeo.com/112074204)
+6. SINGLE-LEG GLUTE BRIDGE: 3x12 each leg — Addresses left/right imbalances. [Demo](https://vimeo.com/111546505)
 
 COOL-DOWN (5 min):
 - Stretch quads, hamstrings, hip flexors, calves
@@ -510,14 +512,33 @@ def generate_workouts(
         week_data = weeks[week_idx] if week_idx < len(weeks) else {}
         template_workouts = week_data.get("workouts", [])
 
-        # ── Recovery week detection from template volume_percent ──
+        # ── Recovery vs taper detection ──
+        # Taper/race weeks have low volume but MAINTAINED intensity (sharpening).
+        # Recovery weeks have low volume AND low intensity (absorption).
+        # These are fundamentally different — taper kills workouts if misclassified.
         volume_pct = week_data.get("volume_percent", 100)
-        is_recovery_week = volume_pct <= 65
+        focus = week_data.get("focus", "").lower()
 
-        # ── Phase detection (recovery > taper > build > base) ──
+        # Taper = last 3 weeks of plan (excluding race week itself),
+        # OR template explicitly labels it as taper/race/peak specificity
+        is_taper_phase = (
+            week_num > plan_duration - 4
+            or "taper" in focus
+            or "race week" in focus
+            or "race specificity" in focus
+        )
+
+        # Recovery = low volume in the MIDDLE of the plan (training absorption)
+        # NOT taper — taper has low volume but sharp intensity
+        is_recovery_week = (
+            (volume_pct <= 65 and not is_taper_phase)
+            or "recovery" in focus
+        )
+
+        # ── Phase detection ──
         if is_recovery_week:
             phase = "recovery"
-        elif week_num >= plan_duration - 1:
+        elif is_taper_phase:
             phase = "taper"
         elif week_num <= plan_duration * 0.5:
             phase = "base"
@@ -589,8 +610,9 @@ def generate_workouts(
                 # a VO2max/threshold session on a long_ride day should NOT be inflated
                 workout_type = _detect_workout_type(template_workout.get("name", ""))
                 is_endurance = workout_type in ("Long_Endurance", "Endurance", "Easy_Recovery")
-                if is_recovery_week:
-                    # Recovery weeks: cap still applies, but NO floor
+                if is_recovery_week or is_taper_phase:
+                    # Recovery/taper weeks: cap still applies, but NO floor
+                    # Taper = intentionally reduced volume with sharp intensity
                     effective_cap = long_ride_cap if session_type == "long_ride" and is_endurance else 99999
                     effective_floor = 0
                 else:
@@ -605,9 +627,9 @@ def generate_workouts(
 
             else:
                 # Generate appropriate default workout for session type
-                if is_recovery_week:
+                if is_recovery_week or is_taper_phase:
                     effective_cap = long_ride_cap if session_type == "long_ride" else 99999
-                    effective_floor = 0  # NO floor on recovery weeks
+                    effective_floor = 0  # NO floor on recovery or taper weeks
                 else:
                     effective_cap = long_ride_cap if session_type == "long_ride" else 99999
                     effective_floor = long_ride_floor if session_type == "long_ride" else 0

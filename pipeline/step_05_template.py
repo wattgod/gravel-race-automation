@@ -247,7 +247,28 @@ def extend_plan_template(base_template: Dict, target_weeks: int, recovery_cadenc
             )
             workout["week_number"] = new_num
 
-    extended["weeks"] = base_block + new_weeks + final_block
+    all_weeks = base_block + new_weeks + final_block
+
+    # ── Enforce recovery cadence across entire plan ──
+    # The extension logic may break the cadence at the boundary between
+    # extended weeks and the final block. E.g., Mike's 21-week plan with
+    # cadence=3 needs recovery at W18, but the final block puts peak phase
+    # there. This sweep ensures cadence is honored everywhere except the
+    # last 2 weeks (race week and the week before).
+    for week in all_weeks:
+        wn = week["week_number"]
+        # Don't touch the last 2 weeks (race week + pre-race taper)
+        if wn > target_weeks - 2:
+            continue
+        # If this week should be recovery per cadence but isn't marked as such
+        if wn % recovery_cadence == 0 and week.get("volume_percent", 100) > 65:
+            week["volume_percent"] = 60
+            week["focus"] = "Recovery & Adaptation"
+            # Clear hard workouts — step_06 will replace with easy rides
+            # based on volume_percent detection
+            week["workouts"] = []
+
+    extended["weeks"] = all_weeks
 
     # Update metadata
     if "plan_metadata" in extended:

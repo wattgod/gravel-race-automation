@@ -340,6 +340,39 @@ class TestInfographicCssTokenCompliance:
         assert "var(--gg-font-" in infographic_css
 
 
+class TestRootDefinesAllVarReferences:
+    """Every var(--gg-*) in infographic CSS must be defined in :root."""
+
+    def test_all_var_references_have_definitions(self):
+        """Extract all var(--gg-*) from infographic CSS, verify each in :root."""
+        css = generate_guide.build_guide_css()
+        marker = "/* ── Inline Infographics ── */"
+        assert marker in css
+        infographic_css = css[css.index(marker):]
+        # All var(--gg-...) references
+        refs = set(re.findall(r'var\((--gg-[\w-]+)\)', infographic_css))
+        assert len(refs) > 0, "No var() references found in infographic CSS"
+        # Parse :root definitions (both colors and fonts)
+        root_match = re.search(r':root\s*\{([^}]+)\}', css)
+        assert root_match, ":root block missing"
+        root_block = root_match.group(1)
+        defined = set(re.findall(r'(--gg-[\w-]+)\s*:', root_block))
+        # Check every reference is defined
+        undefined = refs - defined
+        assert not undefined, (
+            f"Infographic CSS uses var() for undefined properties: {sorted(undefined)}"
+        )
+
+    def test_font_vars_defined_in_root(self):
+        """Specifically verify font custom properties exist in :root."""
+        css = generate_guide.build_guide_css()
+        root_match = re.search(r':root\s*\{([^}]+)\}', css)
+        assert root_match, ":root block missing"
+        root_block = root_match.group(1)
+        assert "--gg-font-data" in root_block, "--gg-font-data not in :root"
+        assert "--gg-font-editorial" in root_block, "--gg-font-editorial not in :root"
+
+
 class TestRootTokenParity:
     """:root block must match brand tokens file exactly."""
 
@@ -390,3 +423,43 @@ class TestRootTokenParity:
         assert not invented, (
             f"Guide :root defines colors not in brand tokens: {invented}"
         )
+
+
+class TestSvgFontViaCssNotPresentation:
+    """SVG text must use style= for font-family, not presentation attribute.
+
+    Presentation attributes (font-family="...") cannot resolve CSS custom
+    properties. Only style="font-family:var(...)" works. This test catches
+    any renderer that writes font-family as a presentation attribute.
+    """
+
+    @pytest.fixture(params=ALL_ASSET_IDS)
+    def rendered_svg_text(self, request):
+        aid = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test"}
+        return INFOGRAPHIC_RENDERERS[aid](block)
+
+    def test_no_font_family_presentation_attribute(self, rendered_svg_text):
+        """font-family must not appear as a presentation attribute on <text>."""
+        # Match font-family="..." NOT preceded by style="
+        # Presentation attr: <text font-family="...">
+        # Style attr: <text style="font-family:...">  (this is fine)
+        if "<text " not in rendered_svg_text:
+            return  # HTML-only renderer, no SVG text
+        matches = re.findall(r'<text[^>]* font-family="[^"]*"', rendered_svg_text)
+        assert not matches, (
+            f"SVG <text> uses font-family as presentation attribute "
+            f"(must use style= for var() support): {matches[:3]}"
+        )
+
+    def test_svg_text_uses_var_for_fonts(self, rendered_svg_text):
+        """SVG text with style font-family must use var(--gg-font-*)."""
+        if "<text " not in rendered_svg_text:
+            return
+        font_styles = re.findall(
+            r'style="font-family:([^"]*)"', rendered_svg_text
+        )
+        for val in font_styles:
+            assert val.startswith("var(--gg-font-"), (
+                f"SVG font-family style must use var(--gg-font-*), got: {val}"
+            )

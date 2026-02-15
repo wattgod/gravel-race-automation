@@ -60,7 +60,11 @@ def _svg_rect(x, y, w, h, fill="", stroke="", stroke_width=0, rx=0, extra="") ->
 
 def _svg_text(x, y, text, font_size=14, fill="", anchor="start",
               weight="", family="", extra="") -> str:
-    """Render an SVG <text> element."""
+    """Render an SVG <text> element.
+
+    font-family is set via style="" attribute (not presentation attribute)
+    so that CSS custom properties like var(--gg-font-data) can resolve.
+    """
     parts = [f'<text x="{x}" y="{y}" font-size="{font_size}"']
     if fill:
         parts.append(f' fill="{fill}"')
@@ -69,7 +73,8 @@ def _svg_text(x, y, text, font_size=14, fill="", anchor="start",
     if weight:
         parts.append(f' font-weight="{weight}"')
     if family:
-        parts.append(f' font-family="{family}"')
+        # Use style attribute — presentation attributes can't resolve var()
+        parts.append(f' style="font-family:{family}"')
     if extra:
         parts.append(f" {extra}")
     parts.append(f">{_esc(text)}</text>")
@@ -512,7 +517,7 @@ def render_zone_spectrum(block: dict) -> str:
             left_margin - 16, y + bar_h / 2 + 5, label,
             font_size=16, fill="var(--gg-color-primary-brown)",
             anchor="end", weight="700",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
         # Bar
         svg.append(_svg_rect(left_margin, y, bar_w, bar_h, fill=color))
@@ -521,7 +526,7 @@ def render_zone_spectrum(block: dict) -> str:
             left_margin + bar_w + 12, y + bar_h / 2 + 5,
             f"{pct}%",
             font_size=15, fill="var(--gg-color-secondary-brown)",
-            weight="700", family="'Sometype Mono', monospace"
+            weight="700", family="var(--gg-font-data)"
         ))
 
     svg.append(_svg_close())
@@ -575,14 +580,14 @@ def render_hierarchy_pyramid(block: dict) -> str:
             center_x, y + layer_h / 2 - 8, label,
             font_size=22, fill=text_fills[i],
             anchor="middle", weight="700",
-            family="'Source Serif 4', Georgia, serif"
+            family="var(--gg-font-editorial)"
         ))
         # Percentage
         svg.append(_svg_text(
             center_x, y + layer_h / 2 + 20, pct,
             font_size=18, fill=text_fills[i],
             anchor="middle", weight="400",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
 
     svg.append(_svg_close())
@@ -612,7 +617,7 @@ def render_tier_distribution(block: dict) -> str:
         vb_w / 2, 35, "328 Gravel Races Across 4 Tiers",
         font_size=22, fill="var(--gg-color-primary-brown)",
         anchor="middle", weight="700",
-        family="'Source Serif 4', Georgia, serif"
+        family="var(--gg-font-editorial)"
     ))
 
     # Stacked bar
@@ -627,7 +632,7 @@ def render_tier_distribution(block: dict) -> str:
                 x_offset + seg_w / 2, bar_y + bar_h / 2 + 6, label,
                 font_size=20, fill="var(--gg-color-warm-paper)",
                 anchor="middle", weight="700",
-                family="'Sometype Mono', monospace"
+                family="var(--gg-font-data)"
             ))
         x_offset += seg_w
 
@@ -645,7 +650,7 @@ def render_tier_distribution(block: dict) -> str:
             x_offset + 30, detail_y + 15,
             f"{label}: {count} races ({pct}%)",
             font_size=16, fill="var(--gg-color-primary-brown)",
-            weight="600", family="'Sometype Mono', monospace"
+            weight="600", family="var(--gg-font-data)"
         ))
 
         detail_y += 40
@@ -682,7 +687,7 @@ def render_training_phases(block: dict) -> str:
             x + w / 2, chart_top + 30, label,
             font_size=18, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
-            family="'Source Serif 4', Georgia, serif"
+            family="var(--gg-font-editorial)"
         ))
 
     # Week labels along bottom
@@ -691,7 +696,7 @@ def render_training_phases(block: dict) -> str:
         svg.append(_svg_text(
             x, chart_bot + 30, f"W{wk + 1}",
             font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="'Sometype Mono', monospace"
+            anchor="middle", family="var(--gg-font-data)"
         ))
 
     # Volume curve (builds in Base, peaks mid-Build, tapers)
@@ -733,7 +738,7 @@ def render_training_phases(block: dict) -> str:
     svg.append(_svg_text(
         margin_l + 40, leg_y + 5, "Volume",
         font_size=14, fill="var(--gg-color-primary-brown)",
-        family="'Sometype Mono', monospace"
+        family="var(--gg-font-data)"
     ))
     svg.append(_svg_line(margin_l + 140, leg_y, margin_l + 170, leg_y,
                          stroke="var(--gg-color-gold)", stroke_width=3,
@@ -741,7 +746,7 @@ def render_training_phases(block: dict) -> str:
     svg.append(_svg_text(
         margin_l + 180, leg_y + 5, "Intensity",
         font_size=14, fill="var(--gg-color-primary-brown)",
-        family="'Sometype Mono', monospace"
+        family="var(--gg-font-data)"
     ))
 
     svg.append(_svg_close())
@@ -768,7 +773,7 @@ def render_execution_gap(block: dict) -> str:
         mid_x / 2, 45, "CHASING WATTS",
         font_size=20, fill="var(--gg-color-error)",
         anchor="middle", weight="700",
-        family="'Source Serif 4', Georgia, serif"
+        family="var(--gg-font-editorial)"
     ))
 
     bad_bars = [0.95, 0.78, 0.55]  # Fading power
@@ -786,7 +791,7 @@ def render_execution_gap(block: dict) -> str:
         bad_x_start - 16, target_y - 6, "TARGET",
         font_size=10, fill="var(--gg-color-gold)",
         anchor="end", weight="700",
-        family="'Sometype Mono', monospace"
+        family="var(--gg-font-data)"
     ))
 
     # Fading bars use color-mix to blend error color with warm-paper (no opacity)
@@ -805,13 +810,13 @@ def render_execution_gap(block: dict) -> str:
         svg.append(_svg_text(
             x + bar_w / 2, base_y + 25, f"Int {i + 1}",
             font_size=13, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="'Sometype Mono', monospace"
+            anchor="middle", family="var(--gg-font-data)"
         ))
         svg.append(_svg_text(
             x + bar_w / 2, y - 10, f"{int(pct * 100)}%",
             font_size=14, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
 
     # Right side: GOOD — consistent execution
@@ -819,7 +824,7 @@ def render_execution_gap(block: dict) -> str:
         mid_x + (vb_w - mid_x) / 2, 45, "CONSISTENT EXECUTION",
         font_size=20, fill="var(--gg-color-teal)",
         anchor="middle", weight="700",
-        family="'Source Serif 4', Georgia, serif"
+        family="var(--gg-font-editorial)"
     ))
 
     good_bars = [0.84, 0.83, 0.85, 0.84]
@@ -841,13 +846,13 @@ def render_execution_gap(block: dict) -> str:
         svg.append(_svg_text(
             x + bar_w / 2, base_y + 25, f"Int {i + 1}",
             font_size=13, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="'Sometype Mono', monospace"
+            anchor="middle", family="var(--gg-font-data)"
         ))
         svg.append(_svg_text(
             x + bar_w / 2, y - 10, f"{int(pct * 100)}%",
             font_size=14, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
 
     svg.append(_svg_close())
@@ -901,20 +906,20 @@ def render_fueling_timeline(block: dict) -> str:
             x, box_y, time_label,
             font_size=14, fill="var(--gg-color-gold)",
             anchor="middle", weight="700",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
         # Title
         svg.append(_svg_text(
             x, box_y + 22, title,
             font_size=15, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
-            family="'Source Serif 4', Georgia, serif"
+            family="var(--gg-font-editorial)"
         ))
         # Detail
         svg.append(_svg_text(
             x, box_y + 42, detail,
             font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="'Sometype Mono', monospace"
+            anchor="middle", family="var(--gg-font-data)"
         ))
 
     svg.append(_svg_close())
@@ -976,7 +981,7 @@ def render_scoring_dimensions(block: dict) -> str:
         vb_w / 2, 35, "Unbound Gravel 200 — Scoring Dimensions",
         font_size=22, fill="var(--gg-color-primary-brown)",
         anchor="middle", weight="700",
-        family="'Source Serif 4', Georgia, serif"
+        family="var(--gg-font-editorial)"
     ))
 
     for i, (label, score) in enumerate(dimensions):
@@ -998,7 +1003,7 @@ def render_scoring_dimensions(block: dict) -> str:
         svg.append(_svg_text(
             x_base, y + bar_h / 2 + 5, label,
             font_size=14, fill="var(--gg-color-primary-brown)",
-            weight="600", family="'Sometype Mono', monospace"
+            weight="600", family="var(--gg-font-data)"
         ))
         # Bar
         bar_x = x_base + 150
@@ -1008,7 +1013,7 @@ def render_scoring_dimensions(block: dict) -> str:
         svg.append(_svg_text(
             bar_x + bar_w + 12, y + bar_h / 2 + 5, f"{score}/5",
             font_size=14, fill="var(--gg-color-primary-brown)",
-            weight="700", family="'Sometype Mono', monospace"
+            weight="700", family="var(--gg-font-data)"
         ))
 
     # Divider line between columns
@@ -1070,7 +1075,7 @@ def render_supercompensation(block: dict) -> str:
     svg.append(_svg_text(
         margin_l - 10, baseline_y + 5, "Baseline",
         font_size=12, fill="var(--gg-color-secondary-brown)",
-        anchor="end", family="'Sometype Mono', monospace"
+        anchor="end", family="var(--gg-font-data)"
     ))
 
     # Main curve
@@ -1099,7 +1104,7 @@ def render_supercompensation(block: dict) -> str:
                 x, y + j * 18, line,
                 font_size=14, fill=color,
                 anchor="middle", weight="700",
-                family="'Source Serif 4', Georgia, serif"
+                family="var(--gg-font-editorial)"
             ))
 
     # Insight box at bottom
@@ -1111,7 +1116,7 @@ def render_supercompensation(block: dict) -> str:
         "Train hard enough to trigger adaptation, then rest long enough to realize it.",
         font_size=14, fill="var(--gg-color-primary-brown)",
         anchor="middle", weight="600",
-        family="'Source Serif 4', Georgia, serif"
+        family="var(--gg-font-editorial)"
     ))
 
     svg.append(_svg_close())
@@ -1135,7 +1140,7 @@ def render_pmc_chart(block: dict) -> str:
         svg.append(_svg_text(
             margin_l - 10, y + 4, label,
             font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="end", family="'Sometype Mono', monospace"
+            anchor="end", family="var(--gg-font-data)"
         ))
         svg.append(_svg_line(margin_l, y, margin_l + chart_w, y,
                              stroke="var(--gg-color-tan)", stroke_width=1,
@@ -1186,7 +1191,7 @@ def render_pmc_chart(block: dict) -> str:
         svg.append(_svg_text(
             x, chart_bot + 25, f"W{wk + 1}",
             font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="'Sometype Mono', monospace"
+            anchor="middle", family="var(--gg-font-data)"
         ))
 
     # Legend
@@ -1204,7 +1209,7 @@ def render_pmc_chart(block: dict) -> str:
         svg.append(_svg_text(
             leg_x + 40, leg_y + 5, label,
             font_size=14, fill="var(--gg-color-primary-brown)",
-            family="'Sometype Mono', monospace"
+            family="var(--gg-font-data)"
         ))
         leg_x += 220
 
@@ -1241,7 +1246,7 @@ def render_psych_phases(block: dict) -> str:
             x + w / 2, chart_top + 25, label,
             font_size=15, fill="var(--gg-color-primary-brown)",
             anchor="middle", weight="700",
-            family="'Source Serif 4', Georgia, serif"
+            family="var(--gg-font-editorial)"
         ))
 
     # Mood curve points (0=worst, 1=best)
@@ -1285,13 +1290,13 @@ def render_psych_phases(block: dict) -> str:
         margin_l - 8, chart_top + 15, "HIGH",
         font_size=11, fill="var(--gg-color-secondary-brown)",
         anchor="end", weight="700",
-        family="'Sometype Mono', monospace"
+        family="var(--gg-font-data)"
     ))
     svg.append(_svg_text(
         margin_l - 8, chart_bot - 5, "LOW",
         font_size=11, fill="var(--gg-color-secondary-brown)",
         anchor="end", weight="700",
-        family="'Sometype Mono', monospace"
+        family="var(--gg-font-data)"
     ))
 
     # X-axis label
@@ -1299,7 +1304,7 @@ def render_psych_phases(block: dict) -> str:
         vb_w / 2, chart_bot + 35, "RACE PROGRESS",
         font_size=13, fill="var(--gg-color-secondary-brown)",
         anchor="middle", weight="700",
-        family="'Sometype Mono', monospace",
+        family="var(--gg-font-data)",
         extra='letter-spacing="3"'
     ))
 

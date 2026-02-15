@@ -879,7 +879,9 @@ def build_guide_css() -> str:
 --gg-color-tier-1:#59473c;
 --gg-color-tier-2:#8c7568;
 --gg-color-tier-3:#999999;
---gg-color-tier-4:#cccccc
+--gg-color-tier-4:#cccccc;
+--gg-font-data:'Sometype Mono',monospace;
+--gg-font-editorial:'Source Serif 4',Georgia,serif
 }
 
 /* ── Guide Progress Bar ── */

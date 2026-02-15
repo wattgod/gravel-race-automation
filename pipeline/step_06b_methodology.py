@@ -109,8 +109,8 @@ def _why_this_plan(profile: Dict, derived: Dict, plan_config: Dict) -> str:
         )
     elif tier == "time_crunched":
         reasons.append(
-            f"Time-crunched tier ({hours} hrs/week) — HIIT-focused approach "
-            f"maximizing fitness gains per hour invested."
+            f"Time-crunched tier ({hours} hrs/week) — threshold/sweet-spot focused "
+            f"approach maximizing fitness gains per hour invested."
         )
 
     if race_distance and race_distance >= 80:
@@ -120,10 +120,26 @@ def _why_this_plan(profile: Dict, derived: Dict, plan_config: Dict) -> str:
         )
 
     if injuries and injuries.lower() not in ("na", "none", "n/a", ""):
-        reasons.append(
-            f"Injury accommodations applied — see accommodations section for "
-            f"exercise modifications."
-        )
+        # Only claim "accommodations applied" if there are actual exercise modifications
+        # GI/reflux conditions affect nutrition guidance, not exercise selection
+        _msk_keywords = ("knee", "chondromalacia", "patella", "acl", "mcl", "meniscus",
+                         "back", "spine", "lumbar", "herniat", "disc", "l4", "l5", "sciatica",
+                         "hip resurfac", "hip replac", "labral", "hip impingement",
+                         "shoulder", "rotator", "wrist", "ankle")
+        _gi_keywords = ("reflux", "gerd", "acid", "gi issue", "gastro", "ibs", "crohn")
+        lower_injuries = injuries.lower()
+        has_msk = any(kw in lower_injuries for kw in _msk_keywords)
+        has_gi = any(kw in lower_injuries for kw in _gi_keywords)
+        if has_msk:
+            reasons.append(
+                f"Injury accommodations applied — see accommodations section for "
+                f"exercise modifications."
+            )
+        if has_gi:
+            reasons.append(
+                f"GI/nutrition accommodations applied — modified fueling guidance "
+                f"in long ride and race day workouts."
+            )
 
     if plan_config.get("extended"):
         reasons.append(
@@ -252,19 +268,37 @@ def _accommodations(profile: Dict) -> Dict:
 
     # Build strength modification notes from injuries
     strength_mods = []
+    nutrition_mods = []
     injuries_lower = injuries.lower()
-    if "knee" in injuries_lower or "chondromalacia" in injuries_lower or "patella" in injuries_lower:
-        strength_mods.append("Avoid deep lunges, leg extensions, and heavy single-leg loading on affected knee")
-    if "hip" in injuries_lower or "resurfacing" in injuries_lower:
-        strength_mods.append("Avoid deep hip flexion under load, limit range of motion if discomfort")
-    if "back" in injuries_lower or "spine" in injuries_lower:
-        strength_mods.append("Avoid heavy axial loading, prioritize core stability exercises")
+    if any(kw in injuries_lower for kw in ("knee", "chondromalacia", "patella", "acl", "mcl", "meniscus")):
+        strength_mods.append(
+            "Exercises modified: Bulgarian Split Squat → Wall Sit, "
+            "Step-Ups → Glute Bridge, Heavy Squat → Light controlled-depth Goblet Squat. "
+            "No full-depth squatting."
+        )
+    if any(kw in injuries_lower for kw in ("hip resurfac", "hip replac", "labral", "hip impingement")):
+        strength_mods.append(
+            "Exercises modified: Limited depth on all squats, "
+            "Bulgarian Split Squat → Glute Bridge. No deep hip flexion under load."
+        )
+    if any(kw in injuries_lower for kw in ("back", "spine", "lumbar", "herniat", "disc", "l4", "l5", "sciatica")):
+        strength_mods.append(
+            "Exercises modified: Romanian Deadlift → Bird Dog, "
+            "Barbell Squat → Light Goblet Squat, Farmer's Carry → Pallof Press. "
+            "No heavy axial spinal loading."
+        )
     if "shoulder" in injuries_lower:
         strength_mods.append("Modify upper body exercises for shoulder range of motion")
+    if any(kw in injuries_lower for kw in ("reflux", "gerd", "acid", "gi issue", "gastro", "ibs", "crohn")):
+        nutrition_mods.append(
+            "GI-safe nutrition: 30-40g carbs/hour (not standard 60-80g), "
+            "no caffeine, easily digestible foods only. Gradual gut training on long rides."
+        )
 
     return {
         "injuries": injuries,
         "strength_modifications": "; ".join(strength_mods) if strength_mods else "None required",
+        "nutrition_modifications": "; ".join(nutrition_mods) if nutrition_mods else "None required",
     }
 
 

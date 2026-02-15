@@ -195,6 +195,17 @@ def run_pipeline(intake_path: str, skip_pdf: bool = False, skip_deploy: bool = F
     _ok()
     print(f"   Touchpoints: {len(touchpoints['touchpoints'])} scheduled")
 
+    # ── Pre-delivery audit — BLOCKS if any check fails ────────
+    _step("12", "PRE-DELIVERY AUDIT")
+    from scripts.pre_delivery_audit import audit_athlete
+    failures = audit_athlete(athlete_dir)
+    if failures:
+        print("FAILED")
+        for f in failures:
+            print(f)
+        raise RuntimeError(f"Pre-delivery audit failed with {len(failures)} issues — fix before delivering")
+    _ok()
+
     # ── Copy deliverables to Downloads ────────────────────────
     _copy_to_downloads(intake, athlete_dir, pdf_path, workouts_dir, skip_pdf)
 

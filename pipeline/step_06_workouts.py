@@ -98,19 +98,53 @@ EXERCISE_LIBRARY = {
     "wall_sit": "https://www.youtube.com/watch?v=y-wV4Lz1yo4",
 }
 
-# Exercises that stress the knee — flagged for athletes with knee restrictions
-KNEE_STRESS_EXERCISES = {
-    "bulgarian_split_squat",
-    "step_ups",
-    "barbell_squat",
+# ── Injury-Aware Exercise Substitutions ─────────────────────
+# These dicts are used by _apply_injury_modifications() to ACTUALLY SWAP
+# exercises in the workout description. Not warnings — real substitutions.
+
+KNEE_SUBSTITUTIONS = {
+    # (regex pattern in description, replacement line)
+    r"\d+\.\s*BULGARIAN SPLIT SQUAT:.*?\[Demo\]\([^)]*\)":
+        "WALL SIT (isometric): 3x45 sec — Back flat against wall, knees at 90°. No deep knee flexion. [Demo](https://www.youtube.com/watch?v=y-wV4Lz1yo4)",
+    r"\d+\.\s*STEP-UPS:.*?\[Demo\]\([^)]*\)":
+        "GLUTE BRIDGE: 3x15 reps — Squeeze at top 2 sec. Builds posterior chain without knee stress. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)",
+    r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
+        "GOBLET SQUAT (light, controlled depth): 3x12 reps — Stop ABOVE parallel. Do NOT go to full depth. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+    r"GOBLET SQUAT: 3x12 reps — Full depth":
+        "GOBLET SQUAT: 3x12 reps — Controlled depth, stop ABOVE parallel. Do NOT go to full depth",
 }
 
-# Safe alternatives for knee-restricted athletes
-KNEE_SAFE_ALTERNATIVES = {
-    "bulgarian_split_squat": ("wall_sit", "WALL SIT (isometric): 3x45 sec — Back flat against wall, knees at 90°. No impact, low knee stress."),
-    "step_ups": ("glute_bridge", "GLUTE BRIDGE: 3x15 reps — Squeeze at top. Builds posterior chain without knee stress."),
-    "barbell_squat": ("goblet_squat", "GOBLET SQUAT (light): 3x12 reps — Controlled depth, stop before knee discomfort."),
+BACK_SUBSTITUTIONS = {
+    r"\d+\.\s*SINGLE-LEG ROMANIAN DEADLIFT:.*?\[Demo\]\([^)]*\)":
+        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://www.youtube.com/watch?v=wiFNA3sqjCA)",
+    r"\d+\.\s*SINGLE-LEG DEADLIFT:.*?\[Demo\]\([^)]*\)":
+        "BIRD DOG: 3x10 each side — Opposite arm/leg extension. Core stability without spinal load. [Demo](https://www.youtube.com/watch?v=wiFNA3sqjCA)",
+    r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
+        "GOBLET SQUAT (light): 3x12 reps — Controlled depth. Avoid heavy axial loading on spine. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+    r"\d+\.\s*FARMER'S CARRY:.*?\[Demo\]\([^)]*\)":
+        "PALLOF PRESS: 3x12 each side — Anti-rotation core work without spinal compression. [Demo](https://www.youtube.com/watch?v=AH_QZLm_0-s)",
 }
+
+HIP_SUBSTITUTIONS = {
+    r"\d+\.\s*BULGARIAN SPLIT SQUAT:.*?\[Demo\]\([^)]*\)":
+        "GLUTE BRIDGE: 3x15 reps — Limited hip flexion range. Squeeze at top 2 sec. [Demo](https://www.youtube.com/watch?v=OUgsJ8-Vi0E)",
+    r"\d+\.\s*BARBELL OR HEAVY GOBLET SQUAT:.*?\[Demo\]\([^)]*\)":
+        "GOBLET SQUAT (limited depth): 3x12 reps — Stop well above parallel. No deep hip flexion under load. [Demo](https://www.youtube.com/watch?v=MxsFDhcyFyE)",
+    r"GOBLET SQUAT: 3x12 reps — Full depth":
+        "GOBLET SQUAT: 3x12 reps — Limited depth, stop well above parallel. No deep hip flexion",
+}
+
+GI_NUTRITION_NOTE = """
+⚠ GI ACCOMMODATION NOTE:
+Based on your intake (GI/acid reflux condition):
+- Start fueling at 30-40g carbs/hour (NOT the standard 60-80g)
+- Use easily digestible sources: rice cakes, bananas, maple syrup
+- Avoid high-fat/high-fiber foods during and 3h before rides
+- NO caffeine gels or caffeinated drinks during training
+- Practice your race nutrition on EVERY long ride — your gut needs training too
+- Gradually increase carb intake over weeks only if tolerated
+- If reflux flares during a ride, sit upright and reduce intensity
+"""
 
 # ── Strength Workout Templates ───────────────────────────────
 
@@ -533,9 +567,23 @@ def generate_workouts(
                     "easy_ride", race_data, week_num, plan_duration,
                     week_scale, long_ride_cap, 0,  # NO floor on recovery weeks
                     is_recovery_week=True,
+                    injuries=injuries,
                 )
 
             elif template_workout:
+                # Recovery week safety net: if a template workout on a recovery week
+                # contains high-intensity intervals (e.g. "Light Quality Session" at 102% FTP),
+                # replace it with an easy ride. Recovery means recovery.
+                if is_recovery_week and _template_has_hard_intervals(template_workout):
+                    _write_default_workout(
+                        workouts_dir, week_num, day_abbrev, date_str,
+                        "easy_ride", race_data, week_num, plan_duration,
+                        week_scale, long_ride_cap, 0,
+                        is_recovery_week=True,
+                        injuries=injuries,
+                    )
+                    continue
+
                 # Use the template workout with race modifications
                 # Apply long ride cap/floor only to actual endurance rides —
                 # a VO2max/threshold session on a long_ride day should NOT be inflated
@@ -551,7 +599,8 @@ def generate_workouts(
                 _write_template_workout(
                     workouts_dir, week_num, day_abbrev, date_str,
                     template_workout, race_data, week_num, plan_duration,
-                    week_scale, effective_cap, effective_floor
+                    week_scale, effective_cap, effective_floor,
+                    injuries=injuries,
                 )
 
             else:
@@ -567,10 +616,11 @@ def generate_workouts(
                     session_type, race_data, week_num, plan_duration,
                     week_scale, effective_cap, effective_floor,
                     is_recovery_week=is_recovery_week,
+                    injuries=injuries,
                 )
 
     # Generate race day workout as final file
-    _write_race_day_workout(workouts_dir, plan_duration, race_data, race_name, race_distance, race_date_str)
+    _write_race_day_workout(workouts_dir, plan_duration, race_data, race_name, race_distance, race_date_str, injuries)
 
 
 def _calculate_start_date(race_date_str: Optional[str], plan_duration: int):
@@ -658,21 +708,17 @@ def _write_rest_day(workouts_dir: Path, week_num: int, day_abbrev: str, date_str
 
 def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                             date_str: str, phase: str, injuries: str = ""):
-    """Write a strength training ZWO file with injury-aware exercise filtering."""
+    """Write a strength training ZWO file with injury-aware exercise substitution.
+
+    This function ACTUALLY SWAPS exercises — not just warnings.
+    Each injury type has a substitution dict that regex-replaces dangerous
+    exercises with safe alternatives. The athlete never sees the original.
+    """
     template = STRENGTH_WORKOUTS.get(phase, STRENGTH_WORKOUTS["base"])
     description = template["description"]
 
-    # Injury-aware filtering: append warnings for knee-restricted athletes
-    if injuries and _has_knee_restriction(injuries):
-        knee_note = (
-            "\n\n⚠ KNEE RESTRICTION NOTE:\n"
-            "Based on your intake, exercises marked with [MODIFY] should be "
-            "performed with reduced range of motion or replaced with the "
-            "alternative listed. Stop immediately if you feel knee pain.\n"
-            "Alternatives: Bulgarian Split Squat → Wall Sit, "
-            "Step-Ups → Glute Bridge, Heavy Squat → Light Goblet Squat."
-        )
-        description = description + knee_note
+    # Apply real exercise substitutions based on injury type
+    description = _apply_injury_modifications(description, injuries)
 
     prefix = _file_prefix(week_num, day_abbrev, date_str)
     filename = f"{prefix}_Strength_{phase.title()}.zwo"
@@ -681,10 +727,65 @@ def _write_strength_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                description, template["blocks"])
 
 
+def _apply_injury_modifications(description: str, injuries: str) -> str:
+    """Apply real exercise substitutions based on athlete injuries.
+
+    NOT warnings. NOT disclaimers. Actually replaces dangerous exercises
+    with safe alternatives and adds a note explaining what was changed.
+    """
+    if not injuries:
+        return description
+
+    modifications_applied = []
+
+    if _has_knee_restriction(injuries):
+        for pattern, replacement in KNEE_SUBSTITUTIONS.items():
+            new_desc = re.sub(pattern, replacement, description)
+            if new_desc != description:
+                modifications_applied.append("knee")
+                description = new_desc
+
+    if _has_back_restriction(injuries):
+        for pattern, replacement in BACK_SUBSTITUTIONS.items():
+            new_desc = re.sub(pattern, replacement, description)
+            if new_desc != description:
+                modifications_applied.append("back/spine")
+                description = new_desc
+
+    if _has_hip_restriction(injuries):
+        for pattern, replacement in HIP_SUBSTITUTIONS.items():
+            new_desc = re.sub(pattern, replacement, description)
+            if new_desc != description:
+                modifications_applied.append("hip")
+                description = new_desc
+
+    if modifications_applied:
+        unique_mods = sorted(set(modifications_applied))
+        description += (
+            f"\n\n⚠ EXERCISES MODIFIED ({', '.join(unique_mods)} accommodation):\n"
+            "Some exercises above have been substituted based on your intake form.\n"
+            "If any exercise still causes pain, STOP and contact your coach."
+        )
+
+    return description
+
+
 def _has_knee_restriction(injuries: str) -> bool:
     """Check if injuries string indicates knee restrictions."""
     lower = injuries.lower()
     return any(kw in lower for kw in ("knee", "chondromalacia", "patella", "acl", "mcl", "meniscus"))
+
+
+def _has_back_restriction(injuries: str) -> bool:
+    """Check if injuries string indicates back/spine restrictions."""
+    lower = injuries.lower()
+    return any(kw in lower for kw in ("back", "spine", "lumbar", "herniat", "disc", "l4", "l5", "l3", "sciatica"))
+
+
+def _has_hip_restriction(injuries: str) -> bool:
+    """Check if injuries string indicates hip restrictions."""
+    lower = injuries.lower()
+    return any(kw in lower for kw in ("hip resurfac", "hip replac", "hip arthroplasty", "labral", "hip impingement"))
 
 
 def _write_ftp_test(workouts_dir: Path, week_num: int, day_abbrev: str, date_str: str):
@@ -700,7 +801,7 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                             date_str: str, workout: Dict, race_data: Optional[Dict],
                             current_week: int, total_weeks: int,
                             scale: float = 1.0, long_ride_cap: int = 99999,
-                            long_ride_floor: int = 0):
+                            long_ride_floor: int = 0, injuries: str = ""):
     """Write a workout from the plan template, with duration scaling."""
     name = workout.get("name", f"W{week_num:02d}_{day_abbrev}_Workout")
     description = workout.get("description", "")
@@ -713,6 +814,9 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
     if race_data:
         description = _apply_race_mods(description, race_data, current_week, total_weeks)
 
+    # Apply GI nutrition modifications for affected athletes
+    description = _apply_gi_nutrition_mods(description, injuries)
+
     # Build standardized filename — pass blocks so duration-based classification works
     workout_type = _detect_workout_type(name, blocks)
     prefix = _file_prefix(week_num, day_abbrev, date_str)
@@ -723,12 +827,39 @@ def _write_template_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                description, blocks)
 
 
+def _has_gi_restriction(injuries: str) -> bool:
+    """Check if injuries string indicates GI/acid reflux restrictions."""
+    lower = injuries.lower()
+    return any(kw in lower for kw in ("reflux", "gerd", "acid", "gi issue", "gi condition", "gastro", "ibs", "crohn"))
+
+
+def _apply_gi_nutrition_mods(description: str, injuries: str) -> str:
+    """Replace standard nutrition guidance with GI-safe version for affected athletes."""
+    if not injuries or not _has_gi_restriction(injuries):
+        return description
+    # Replace standard carb recommendations with GI-safe versions
+    description = description.replace(
+        "60-80g carbs/hour",
+        "30-40g carbs/hour (GI accommodation — increase gradually only if tolerated)"
+    )
+    description = description.replace(
+        "Practice race nutrition every 30 minutes",
+        "Practice GI-safe nutrition every 30 min (rice cakes, banana, NO caffeine)"
+    )
+    # Add GI note if this is a long ride with nutrition guidance
+    if "nutrition" in description.lower() or "fueling" in description.lower():
+        if "GI ACCOMMODATION" not in description:
+            description += GI_NUTRITION_NOTE
+    return description
+
+
 def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
                            date_str: str, session_type: str, race_data: Optional[Dict],
                            current_week: int, total_weeks: int,
                            scale: float = 1.0, long_ride_cap: int = 99999,
                            long_ride_floor: int = 0,
-                           is_recovery_week: bool = False):
+                           is_recovery_week: bool = False,
+                           injuries: str = ""):
     """Write a default workout when no template workout exists for this day."""
     prefix = _file_prefix(week_num, day_abbrev, date_str)
 
@@ -771,6 +902,7 @@ def _write_default_workout(workouts_dir: Path, week_num: int, day_abbrev: str,
             "- Include some gravel/dirt if possible\n"
             "- Focus on comfortable position for long hours"
         )
+        description = _apply_gi_nutrition_mods(description, injuries)
         filename = f"{prefix}_{workout_tag}.zwo"
 
     elif session_type == "intervals":
@@ -835,7 +967,8 @@ def _estimate_race_seconds(race_data: Optional[Dict], race_distance) -> int:
 
 def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
                             race_data: Optional[Dict], race_name: str,
-                            race_distance, race_date_str: Optional[str] = None):
+                            race_distance, race_date_str: Optional[str] = None,
+                            injuries: str = ""):
     """Write the race day execution workout as final ZWO."""
     date_label = _date_label(race_date_str) if race_date_str else "RaceDay"
     name = f"W{plan_duration:02d} {date_label} Race Day - {race_name or 'Race'} {race_distance}mi"
@@ -861,6 +994,7 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
         "REMEMBER:\n"
         "Start slower than you think. The race doesn't start until the last third."
     )
+    description = _apply_gi_nutrition_mods(description, injuries)
     blocks = (
         '        <Warmup Duration="600" PowerLow="0.40" PowerHigh="0.60"/>\n'
         '        <SteadyState Duration="60" Power="0.90"/>\n'
@@ -872,6 +1006,27 @@ def _write_race_day_workout(workouts_dir: Path, plan_duration: int,
     race_date_label = _date_label(race_date_str) if race_date_str else "RaceDay"
     filename = f"W{plan_duration:02d}_{race_date_label}_Race_Day.zwo"
     _write_zwo(workouts_dir, filename, name, description, blocks)
+
+
+def _template_has_hard_intervals(workout: Dict) -> bool:
+    """Check if a template workout contains hard intervals (power > 0.85 FTP).
+
+    Used to catch template workouts like "Light Quality Session" that
+    sneak threshold intervals onto recovery weeks. If the template has
+    OnPower, OffPower, or Power values above 0.85, it's not recovery.
+    """
+    blocks = workout.get("blocks", "")
+    # Check for IntervalsT with high OnPower
+    on_powers = re.findall(r'OnPower="([^"]+)"', blocks)
+    for p in on_powers:
+        if float(p) > 0.85:
+            return True
+    # Check for SteadyState with high Power
+    powers = re.findall(r'Power="([^"]+)"', blocks)
+    for p in powers:
+        if float(p) > 0.85:
+            return True
+    return False
 
 
 # ── Helpers ──────────────────────────────────────────────────

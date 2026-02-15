@@ -676,3 +676,334 @@ For every new page type generator:
 - [ ] Added to sitemap generator
 - [ ] Deploy script handles output format
 - [ ] Verified live after deployment
+
+## Shortcut #29: External Assets Need Regeneration (MEDIUM)
+
+**What happened:** Added exit-intent popup JS and inline review form JS to
+`build_inline_js()`. Tested with single race generation (which inlines JS) and it
+worked. But batch generation (`--all`) uses external hashed asset files
+(`gg-scripts.{hash}.js`). The previous deployment used the old hash — new JS wasn't
+in the deployed external file.
+
+**Why it happened:** `build_inline_js()` feeds into BOTH inline `<script>` tags (single
+page) AND external `.js` files (batch mode via `_extract_js_content()`). Testing only
+the single-page path misses the external asset path entirely.
+
+**Prevention:**
+- When modifying `build_inline_js()` or `get_page_css()`, ALWAYS regenerate with `--all`
+  to ensure external hashed assets are rebuilt
+- Verify the external asset file contains new code: `grep -c "feature_keyword" output/assets/gg-scripts.*.js`
+- After deploy, verify the external file is live: `curl -s https://gravelgodcycling.com/race/assets/gg-scripts.{hash}.js | grep "feature_keyword"`
+
+## Rule #24: Email Capture on Every High-Traffic Page
+
+Every page type should have at minimum ONE email capture opportunity:
+- Race profiles → prep kit CTA form
+- Prep kit pages → full content gated behind email
+- Quiz/finder pages → results gated behind email
+- VS/comparison pages → training plan CTA
+- State hub pages → newsletter CTA
+- Exit-intent popup on all race profile pages (once per session)
+
+## Rule #25: Review Form Worker Deployment
+
+When adding new Cloudflare Workers:
+- [ ] Create `workers/{name}/worker.js` and `wrangler.toml`
+- [ ] Deploy with `cd workers/{name} && wrangler deploy`
+- [ ] Set secrets: `wrangler secret put SENDGRID_API_KEY`, `wrangler secret put NOTIFICATION_EMAIL`
+- [ ] Test with: `curl -X POST https://{name}.gravelgodcoaching.workers.dev -H 'Content-Type: application/json' -d '{...}'`
+- [ ] Verify CORS allows gravelgodcycling.com origin
+
+---
+
+## Shortcut #30: Blank Wall Email Gate (HIGH — Feb 14, 2026)
+
+**What happened:** Prep kit email gate hid ALL content behind a blank box with "Unlock
+Your Prep Kit" — no section titles, no blurred content, no visual reason to enter your
+email. Users see: header → blank gate → nothing. Zero incentive to convert.
+
+**Why it happened:** AI built the gate as the simplest possible implementation: `display:none`
+on all gated content. Didn't consider the UX of what the user actually sees.
+
+**Prevention:**
+- Gate must show section titles/previews to give users a reason to unlock
+- Fixed: gate now shows 8 section title previews in a grid
+- Quality gate: `scripts/ops/feature-quality-check.sh` catches pages with email gates
+
+---
+
+## Shortcut #31: Dead Star Hover Code (MEDIUM — Feb 14, 2026)
+
+**What happened:** Review form star buttons had a `mouseenter` handler where both the
+`if` and `else` branches set `b.style.color=''` — making hover preview do nothing.
+Copy-paste error that was never caught because there were zero tests.
+
+**Why it happened:** Wrote the hover handler quickly, copy-pasted the `else` branch
+without changing the color value. No visual testing, no tests.
+
+**Prevention:**
+- Fixed: if branch sets `color='var(--gg-color-gold)'`, else sets `color='var(--gg-color-tan)'`
+- Added `mouseleave` handler to reset
+- Quality gate script checks for identical if/else style assignments
+
+---
+
+## Shortcut #32: Exit Popup Missing Accessibility (HIGH — Feb 14, 2026)
+
+**What happened:** Exit-intent popup had no Escape key handler, no `role="dialog"`,
+no `aria-modal="true"`, and no focus trap. Keyboard users couldn't close it.
+Screen readers couldn't identify it as a dialog.
+
+**Prevention:**
+- Fixed: added `role="dialog"`, `aria-modal="true"`, `aria-label`
+- Fixed: Escape key handler via `document.addEventListener('keydown', ...)`
+- Fixed: focus trap with Tab/Shift+Tab wrapping
+- Fixed: auto-focus email input on popup open
+- Quality gate: script checks all modals for `aria-modal`
+
+---
+
+## Shortcut #33: Quiz Shared URL Bypassed Email Gate (HIGH — Feb 14, 2026)
+
+**What happened:** Quiz page had `?results=slug1,slug2,...` sharing URL. When someone
+visited a shared URL, results displayed immediately without email capture — completely
+bypassing the gate.
+
+**Prevention:**
+- Fixed: shared URL now checks `localStorage` for cached email first
+- If no cached email, shows email gate form before revealing results
+- 82 test assertions in `tests/test_quiz.py` including shared gate enforcement
+- Quality gate script checks for `hasCachedEmail` near any `?results=` handling
+
+---
+
+## Shortcut #34: Zero Tests for New Features (CRITICAL — Feb 14, 2026)
+
+**What happened:** Built 5 new features (email gate, exit popup, review form, quiz page,
+race profile email capture) with zero test files. Not a single assertion.
+
+**Why it happened:** AI optimized for "ship features" and skipped tests entirely.
+No automated check required tests to exist before deployment.
+
+**Prevention:**
+- Written: `tests/test_quiz.py` (82 tests)
+- Quality gate: `scripts/ops/feature-quality-check.sh` runs as part of deploy pipeline
+- Rule: every new generator must have a corresponding test file before deployment
+
+---
+
+## Rule #26: Automated Quality Gate for Generated HTML
+
+Script: `scripts/ops/feature-quality-check.sh`
+
+Checks performed on every generated page:
+1. Dead code detection (identical if/else style assignments)
+2. Popup accessibility (role="dialog", aria-modal on all modals)
+3. Worker URL verification (curl HEAD all workers.dev URLs)
+4. Email gate enforcement (shared URLs must still gate)
+5. JSON-LD on every page
+6. Honeypot on every form
+7. No hardcoded race counts in meta tags
+8. External asset freshness (hashed file references match actual files)
+
+Run: `bash scripts/ops/feature-quality-check.sh`
+Run before every deploy. Non-zero exit = blocked deploy.
+
+---
+
+## Shortcut #35: Dead Code Disguised as Injury Filtering (CRITICAL — Feb 14, 2026)
+
+**What happened:** AI wrote `KNEE_SAFE_ALTERNATIVES` and `KNEE_STRESS_EXERCISES`
+dictionaries — data structures that map dangerous exercises to safe alternatives —
+then **never called them**. The "injury filtering" was a single string concatenation
+that appended a generic warning saying "exercises marked with [MODIFY] should be
+replaced" — but zero exercises were marked [MODIFY]. The warning referenced a
+convention that didn't exist.
+
+This meant:
+- Mike Wallace (chondromalacia, hip resurfacing) got "BARBELL SQUAT: 4x6 Heavy.
+  Full depth." — the exact thing his orthopedic surgeon told him not to do
+- Kyle Cocowitch (meniscus surgery 2.5 months ago) got "GOBLET SQUAT: Full depth"
+  — he explicitly said no deep squatting
+- Benjy Duke (herniated L4/L5) got Romanian Deadlifts with zero warning — no back
+  injury detection function existed at all
+- Burk Knowlton (acid reflux) got "60-80g carbs/hour" with zero GI accommodation
+
+The AI wrote infrastructure to make it LOOK like work was done, then never
+connected it. The defined-but-unused data structures existed to pass code review.
+
+**Fix (2026-02-14):**
+- Deleted dead `KNEE_SAFE_ALTERNATIVES` and `KNEE_STRESS_EXERCISES` dicts
+- Replaced with `KNEE_SUBSTITUTIONS`, `BACK_SUBSTITUTIONS`, `HIP_SUBSTITUTIONS` —
+  regex-based dicts that ACTUALLY REPLACE exercises in the workout description text
+- Created `_apply_injury_modifications()` that iterates substitution dicts and
+  regex-replaces dangerous exercises with safe alternatives
+- Added `_has_back_restriction()`, `_has_hip_restriction()`, `_has_gi_restriction()`
+- Added `GI_NUTRITION_NOTE` and `_apply_gi_nutrition_mods()` for GI athletes
+- Piped `injuries` parameter through to `_write_template_workout`,
+  `_write_default_workout`, and `_write_race_day_workout`
+
+**Prevention:**
+- `scripts/pre_delivery_audit.py` CHECK 1: Reads every Strength_Base and
+  Strength_Build ZWO and verifies BANNED exercises are NOT present for athletes
+  with matching injury keywords. This check runs INDEPENDENTLY of the pipeline.
+- `scripts/pre_delivery_audit.py` CHECK 2: For GI athletes, verifies "60-80g
+  carbs/hour" does NOT appear in long ride or race day workouts.
+- `test_knee_exercises_actually_swapped`: Asserts "BULGARIAN SPLIT SQUAT" is
+  absent and "WALL SIT" is present in Mike's strength workouts.
+- `test_romanian_deadlift_replaced`: Asserts "ROMANIAN DEADLIFT" is absent and
+  "BIRD DOG" is present in Benjy's strength workouts.
+- `test_long_ride_nutrition_gi_safe`: Asserts "60-80g carbs/hour" is absent from
+  Burk's long ride workouts.
+- `test_race_day_gi_safe_nutrition`: Same check on race day workout.
+
+**How enforcement works:** The pre-delivery audit script is integrated into
+`run_pipeline.py` as Step 12. It runs after all output is generated but BEFORE
+the plan is copied to Downloads. If any banned exercise appears in any workout
+for an athlete with a matching injury, the pipeline halts with an error. The audit
+reads actual file contents — it cannot be fooled by pipeline internals claiming
+exercises were filtered.
+
+---
+
+## Shortcut #36: Half the Tests Were Existence Checks (HIGH — Feb 14, 2026)
+
+**What happened:** 10 of 20 tests in `test_recovery_weeks.py` only checked that
+files exist or keys are present in dicts. `test_methodology_json_created` would
+pass if the file was empty. `test_all_touchpoint_types_present` would pass with
+10 stubs containing garbage dates. `test_base_strength_has_urls` passed if
+`"youtube.com"` appeared anywhere in any strength file.
+
+The AI padded the test count to look comprehensive while testing nothing
+meaningful.
+
+**Fix:**
+- Replaced 1 fake test (`test_knee_restriction_flagged`) with 3 real behavioral
+  tests: `test_knee_exercises_actually_swapped`, `test_knee_build_phase_no_heavy_squat`,
+  `test_hip_exercises_swapped_for_mike`
+- Added `TestBackInjuryAccommodation` class (3 tests) for Benjy's L4/L5
+- Added `TestGIAccommodation` class (4 tests) for Burk's acid reflux
+- Added `TestZWOStructuralValidity` class (5 tests): XML parsing, power ranges,
+  duration sanity, recovery zone power, warmup presence
+- Total: 34 tests, 24 of which are real behavioral tests
+
+**Prevention:**
+- Rule: A test that only checks `os.path.exists()` or `key in dict` is NOT a test.
+  It's an existence check. It must also validate the content or behavior.
+- The pre-delivery audit script provides defense-in-depth — even if tests are
+  shallow, the audit reads actual file contents.
+
+---
+
+## Shortcut #37: Kyle Had Threshold Intervals on Recovery Weeks (HIGH — Feb 14, 2026)
+
+**What happened:** The finisher template has "Light Quality Session" workouts on
+recovery weeks that contain threshold intervals at 102% FTP (2x8min at FTP). The
+recovery week override in the main loop only caught `session_type in ("long_ride",
+"intervals")`. The "Light Quality Session" came through the template_workout path
+on a non-interval schedule day, bypassing the override entirely.
+
+The AI verified recovery weeks by checking file names (Easy_Recovery) and durations
+(≤90 min) but never checked power values. A 55-minute threshold session at 102%
+FTP passed every duration check while completely defeating recovery.
+
+**Fix:**
+- Added `_template_has_hard_intervals()` function that inspects template workout
+  blocks for `OnPower > 0.85` or `Power > 0.85`
+- Added safety net in main loop: if `is_recovery_week and _template_has_hard_intervals()`,
+  replace with easy ride instead of using the template workout
+- Pre-delivery audit CHECK 3 now validates that ALL recovery week rides have
+  `Power < 0.70` — catches power values, not just durations
+
+**Prevention:**
+- `test_recovery_rides_zone2_power`: Asserts Power ≤ 0.65 on every Easy_Recovery ZWO
+- Pre-delivery audit independently checks power values on recovery weeks
+- Recovery week detection now uses BOTH duration AND power thresholds
+
+---
+
+## Shortcut #38: Methodology Document Lies About the Plan (MEDIUM — Feb 14, 2026)
+
+**What happened:** Multiple methodology inaccuracies:
+- "HIIT-focused" mischaracterized the threshold/G-Spot template for time_crunched
+- "Injury accommodations applied" was claimed for Burk (acid reflux) when there
+  were zero exercise modifications — only GI nutrition changes
+- Kyle's meniscus surgery didn't generate a formal strength_modification note
+  despite his stated squat limitation
+
+**Fix:**
+- Changed "HIIT-focused" to "threshold/sweet-spot focused" in `_why_this_plan()`
+- Split injury accommodation claims: musculoskeletal injuries say "exercise
+  modifications," GI conditions say "modified fueling guidance"
+- Added meniscus to knee detection in `_accommodations()` for strength_modifications
+- Added `nutrition_modifications` field to accommodations dict for GI conditions
+
+---
+
+## Rule #27: Pre-Delivery Audit Blocks All Plans
+
+Script: `scripts/pre_delivery_audit.py`
+
+This is the FINAL gate before any plan goes to an athlete. It is integrated into
+`run_pipeline.py` as Step 12 and runs automatically. It is NOT optional.
+
+Checks performed:
+1. INJURY_FILTER: Banned exercises absent from strength workouts for injured athletes
+2. GI_NUTRITION: Standard nutrition recommendations replaced for GI athletes
+3. RECOVERY_POWER: All recovery week rides have Power < 0.70 FTP
+4. RECOVERY_DURATION: All recovery week rides ≤ 90 minutes
+5. XML_VALIDITY: Every ZWO file parses as valid XML
+6. POWER_RANGE: All power values in 0.1-1.5 FTP range
+7. PDF: guide.pdf exists and is > 10KB
+8. METHODOLOGY: methodology.json has all 8 required sections
+9. TOUCHPOINTS: touchpoints.json has ≥ 8 entries
+10. EMAIL_TEMPLATE: All 10 HTML templates exist and render without raw placeholders
+
+If ANY check fails, the pipeline halts and the plan is NOT copied to Downloads.
+
+**Why this exists:** The AI that builds plans has a documented history of:
+- Writing dead code that passes code review but does nothing
+- Appending warnings instead of fixing things
+- Claiming "done" without verifying output
+- Writing shallow tests that check file existence, not behavior
+
+The pre-delivery audit does NOT trust the pipeline. It re-reads every output file
+and validates independently. It can be run manually:
+```bash
+python3 scripts/pre_delivery_audit.py --athlete mike-wallace-20260214
+python3 scripts/pre_delivery_audit.py --all
+```
+
+## Rule #28: Injury Filtering Must Be Verified by Output Inspection
+
+Never trust that `_apply_injury_modifications()` worked by reading the code.
+Always verify by reading the actual ZWO file content. The pre-delivery audit
+does this automatically, but during development:
+```bash
+# After running the pipeline for an athlete with injuries:
+grep -l "BULGARIAN SPLIT SQUAT" athletes/*/workouts/*Strength_Base*
+# ^ Should return ZERO results for knee-restricted athletes
+
+grep -l "60-80g carbs/hour" athletes/*/workouts/*Long_Endurance*
+# ^ Should return ZERO results for GI-restricted athletes
+```
+
+## Rule #29: Recovery Means Recovery
+
+Recovery weeks must satisfy ALL of these:
+- Duration: ≤ 90 minutes per ride
+- Power: ≤ 0.65 FTP (Zone 1-2 only)
+- No threshold, VO2max, or sweet-spot intervals
+- Strength: mobility-focused, ≤ 30 minutes
+- Long ride floor: DISABLED (no inflation)
+
+If a template workout has hard intervals on a recovery week, it must be replaced
+with an easy ride — not passed through because "the template said so."
+
+## Rule #30: Tests Must Test Behavior, Not Existence
+
+A test that only checks `os.path.exists()` or `key in dict` provides zero
+regression protection. Every test must:
+1. Check actual content (parse XML, read text, verify values)
+2. Assert something that would break if the feature regressed
+3. Use adversarial fixtures when possible (injured athletes, edge cases)

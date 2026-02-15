@@ -451,13 +451,316 @@ class TestExerciseLibraryURLs:
         content = build_strength[0].read_text()
         assert "youtube.com" in content, "Build strength workout missing exercise URLs"
 
-    def test_knee_restriction_flagged(self, mike_full_pipeline):
-        """Mike has chondromalacia — strength workouts should have knee warning."""
+    def test_knee_exercises_actually_swapped(self, mike_full_pipeline):
+        """Mike has chondromalacia — dangerous exercises must be REPLACED, not just warned about."""
         workouts_dir = mike_full_pipeline["workouts_dir"]
-        strength_files = list(workouts_dir.glob("*Strength_B*"))
-        assert strength_files, "No strength workouts for Mike"
+        # Check base phase strength (has Bulgarian Split Squat in unmodified version)
+        base_strength = sorted(workouts_dir.glob("*Strength_Base*"))
+        assert base_strength, "No base strength workouts for Mike"
 
-        content = strength_files[0].read_text()
-        assert "KNEE RESTRICTION" in content or "MODIFY" in content, (
-            "Mike has chondromalacia but strength workout has no knee restriction note"
+        content = base_strength[0].read_text()
+        # Bulgarian Split Squat should be GONE — replaced with Wall Sit
+        assert "BULGARIAN SPLIT SQUAT" not in content, (
+            "Mike has chondromalacia but Bulgarian Split Squat was NOT replaced"
         )
+        assert "WALL SIT" in content, (
+            "Mike has chondromalacia but Wall Sit substitute is missing"
+        )
+        # Should have modification note
+        assert "EXERCISES MODIFIED" in content, (
+            "Mike's strength workout missing modification note"
+        )
+
+    def test_knee_build_phase_no_heavy_squat(self, mike_full_pipeline):
+        """Mike must NOT get 'Heavy. Full depth.' squat in build phase."""
+        workouts_dir = mike_full_pipeline["workouts_dir"]
+        build_strength = sorted(workouts_dir.glob("*Strength_Build*"))
+        assert build_strength, "No build strength workouts for Mike"
+
+        content = build_strength[0].read_text()
+        assert "Full depth" not in content, (
+            "Mike has chondromalacia but build phase still says 'Full depth'"
+        )
+        assert "STEP-UPS" not in content, (
+            "Mike has chondromalacia but Step-Ups were NOT replaced"
+        )
+
+    def test_hip_exercises_swapped_for_mike(self, mike_full_pipeline):
+        """Mike has hip resurfacing — hip-stress exercises must be replaced."""
+        workouts_dir = mike_full_pipeline["workouts_dir"]
+        base_strength = sorted(workouts_dir.glob("*Strength_Base*"))
+        assert base_strength, "No base strength workouts for Mike"
+
+        content = base_strength[0].read_text()
+        # Hip resurfacing: "Full depth" goblet squat should become limited depth
+        assert "Full depth" not in content, (
+            "Mike has hip resurfacing but 'Full depth' was not removed from goblet squat"
+        )
+
+
+# ── Fixtures for Back + GI Injury Testing ─────────────────────
+
+@pytest.fixture
+def benjy_intake():
+    """Benjy Duke — 38yo intermediate with herniated L4/L5 discs."""
+    return {
+        "name": "Benjy Duke",
+        "email": "benjyduke@gmail.com",
+        "sex": "male",
+        "age": 38,
+        "weight_lbs": None,
+        "height_ft": None,
+        "height_in": None,
+        "years_cycling": "3-5",
+        "sleep": "good",
+        "stress": "moderate",
+        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 75, "priority": "A"}],
+        "longest_ride": "1-2",
+        "ftp": 180,
+        "max_hr": None,
+        "weekly_hours": "3-5",
+        "trainer_access": "yes-basic",
+        "long_ride_days": ["saturday", "sunday"],
+        "interval_days": ["tuesday", "thursday"],
+        "off_days": ["monday", "friday"],
+        "strength_current": "bodyweight",
+        "strength_include": "yes",
+        "strength_equipment": "bodyweight",
+        "injuries": "Herniated L4/L5 discs in 2019. Recovered through extensive PT and routine stretching. Back occasionally tightens up.",
+    }
+
+
+@pytest.fixture
+def benjy_full_pipeline(benjy_intake, tmp_path):
+    """Run the full pipeline for Benjy and return all artifacts."""
+    validated = validate_intake(benjy_intake)
+    profile = create_profile(validated)
+    derived = classify_athlete(profile)
+    schedule = build_schedule(profile, derived)
+    plan_config = select_template(derived, BASE_DIR)
+
+    workouts_dir = tmp_path / "workouts"
+    workouts_dir.mkdir()
+    generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+    return {
+        "workouts_dir": workouts_dir,
+        "athlete_dir": tmp_path,
+        "profile": profile,
+        "derived": derived,
+    }
+
+
+@pytest.fixture
+def burk_intake():
+    """Burk Knowlton — 34yo intermediate with acid reflux/GI issues."""
+    return {
+        "name": "Burk Knowlton",
+        "email": "bknowlton91@gmail.com",
+        "sex": "male",
+        "age": 34,
+        "weight_lbs": None,
+        "height_ft": None,
+        "height_in": None,
+        "years_cycling": "3-5",
+        "sleep": "fair",
+        "stress": "high",
+        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 73, "priority": "A"}],
+        "longest_ride": "1-2",
+        "ftp": None,
+        "max_hr": None,
+        "weekly_hours": "3-5",
+        "trainer_access": "yes-basic",
+        "long_ride_days": ["sunday"],
+        "interval_days": ["thursday", "saturday"],
+        "off_days": ["monday", "friday"],
+        "strength_current": "dumbbells",
+        "strength_include": "yes",
+        "strength_equipment": "dumbbells-kettlebells",
+        "injuries": "Acid reflux and associated GI issue — managed with strict diet (no caffeine). Much improved but still recovering. On Pepcid.",
+    }
+
+
+@pytest.fixture
+def burk_full_pipeline(burk_intake, tmp_path):
+    """Run the full pipeline for Burk and return all artifacts."""
+    validated = validate_intake(burk_intake)
+    profile = create_profile(validated)
+    derived = classify_athlete(profile)
+    schedule = build_schedule(profile, derived)
+    plan_config = select_template(derived, BASE_DIR)
+
+    workouts_dir = tmp_path / "workouts"
+    workouts_dir.mkdir()
+    generate_workouts(plan_config, profile, derived, schedule, workouts_dir, BASE_DIR)
+
+    return {
+        "workouts_dir": workouts_dir,
+        "athlete_dir": tmp_path,
+        "profile": profile,
+        "derived": derived,
+    }
+
+
+# ── Back Injury Tests ──────────────────────────────────────────
+
+class TestBackInjuryAccommodation:
+    """Benjy has herniated L4/L5 — back-stress exercises must be replaced."""
+
+    def test_romanian_deadlift_replaced(self, benjy_full_pipeline):
+        """Romanian Deadlift is a spine-loading hinge — must be swapped for L4/L5."""
+        workouts_dir = benjy_full_pipeline["workouts_dir"]
+        base_strength = sorted(workouts_dir.glob("*Strength_Base*"))
+        assert base_strength, "No base strength workouts for Benjy"
+
+        content = base_strength[0].read_text()
+        assert "ROMANIAN DEADLIFT" not in content, (
+            "Benjy has herniated L4/L5 but Romanian Deadlift was NOT replaced"
+        )
+        assert "BIRD DOG" in content, (
+            "Benjy has herniated L4/L5 but Bird Dog substitute is missing"
+        )
+
+    def test_build_phase_no_heavy_axial_loading(self, benjy_full_pipeline):
+        """Build phase must not prescribe heavy barbell squats for back-injured athlete."""
+        workouts_dir = benjy_full_pipeline["workouts_dir"]
+        build_strength = sorted(workouts_dir.glob("*Strength_Build*"))
+        assert build_strength, "No build strength workouts for Benjy"
+
+        content = build_strength[0].read_text()
+        assert "BARBELL" not in content, (
+            "Benjy has herniated L4/L5 but BARBELL exercise still present"
+        )
+        assert "FARMER" not in content, (
+            "Benjy has herniated L4/L5 but Farmer's Carry (spinal compression) still present"
+        )
+
+    def test_modification_note_present(self, benjy_full_pipeline):
+        """Must have explicit note about which exercises were modified."""
+        workouts_dir = benjy_full_pipeline["workouts_dir"]
+        base_strength = sorted(workouts_dir.glob("*Strength_Base*"))
+        content = base_strength[0].read_text()
+        assert "EXERCISES MODIFIED" in content, (
+            "Benjy's strength workout missing modification note"
+        )
+        assert "back" in content.lower() or "spine" in content.lower(), (
+            "Modification note doesn't mention back/spine accommodation"
+        )
+
+
+# ── GI Accommodation Tests ─────────────────────────────────────
+
+class TestGIAccommodation:
+    """Burk has acid reflux — nutrition guidance must be modified."""
+
+    def test_long_ride_nutrition_gi_safe(self, burk_full_pipeline):
+        """Long rides must NOT recommend standard 60-80g carbs/hour for GI athlete."""
+        workouts_dir = burk_full_pipeline["workouts_dir"]
+        long_rides = sorted(workouts_dir.glob("*Long_Endurance*"))
+        if not long_rides:
+            long_rides = sorted(workouts_dir.glob("*Endurance*"))
+        assert long_rides, "No endurance rides found for Burk"
+
+        content = long_rides[0].read_text()
+        # Standard 60-80g recommendation must be replaced
+        assert "60-80g carbs/hour" not in content, (
+            "Burk has acid reflux but got standard 60-80g carbs/hour recommendation"
+        )
+
+    def test_gi_accommodation_note_present(self, burk_full_pipeline):
+        """Long rides must have GI accommodation note."""
+        workouts_dir = burk_full_pipeline["workouts_dir"]
+        long_rides = sorted(workouts_dir.glob("*Long_Endurance*"))
+        if not long_rides:
+            long_rides = sorted(workouts_dir.glob("*Endurance*"))
+        assert long_rides, "No endurance rides found"
+
+        content = long_rides[0].read_text()
+        assert "GI ACCOMMODATION" in content, (
+            "Burk has acid reflux but long ride is missing GI accommodation note"
+        )
+
+    def test_no_caffeine_recommendation(self, burk_full_pipeline):
+        """Must explicitly warn against caffeine for this athlete."""
+        workouts_dir = burk_full_pipeline["workouts_dir"]
+        long_rides = sorted(workouts_dir.glob("*Long_Endurance*"))
+        if not long_rides:
+            long_rides = sorted(workouts_dir.glob("*Endurance*"))
+        assert long_rides, "No endurance rides found"
+
+        content = long_rides[0].read_text()
+        assert "caffeine" in content.lower(), (
+            "Burk's intake says 'no caffeine' but workouts don't mention it"
+        )
+
+    def test_race_day_gi_safe_nutrition(self, burk_full_pipeline):
+        """Race day workout must have GI-safe nutrition, not standard advice."""
+        workouts_dir = burk_full_pipeline["workouts_dir"]
+        race_day = list(workouts_dir.glob("*Race_Day*"))
+        assert race_day, "No race day workout for Burk"
+
+        content = race_day[0].read_text()
+        assert "60-80g carbs/hour" not in content, (
+            "Burk's race day still has standard 60-80g recommendation despite acid reflux"
+        )
+
+
+# ── ZWO Structural Validation ──────────────────────────────────
+
+class TestZWOStructuralValidity:
+    """Every ZWO file must be valid XML with sane power/duration values."""
+
+    def test_all_zwos_parse_as_xml(self, sarah_full_pipeline):
+        """Every ZWO must be parseable XML."""
+        import xml.etree.ElementTree as ET
+        workouts_dir = sarah_full_pipeline["workouts_dir"]
+        for f in sorted(workouts_dir.glob("*.zwo")):
+            try:
+                ET.parse(f)
+            except ET.ParseError as e:
+                pytest.fail(f"{f.name} is not valid XML: {e}")
+
+    def test_power_values_in_range(self, sarah_full_pipeline):
+        """Power values must be FTP fractions (0.2 - 1.5), never absolute watts."""
+        workouts_dir = sarah_full_pipeline["workouts_dir"]
+        for f in sorted(workouts_dir.glob("*.zwo")):
+            content = f.read_text()
+            powers = re.findall(r'Power(?:Low|High)?="([^"]+)"', content)
+            for p in powers:
+                val = float(p)
+                assert 0.1 <= val <= 1.5, (
+                    f"{f.name} has Power={val} — must be 0.1-1.5 FTP fraction"
+                )
+
+    def test_no_zero_duration_blocks(self, sarah_full_pipeline):
+        """No workout block should have Duration=0."""
+        workouts_dir = sarah_full_pipeline["workouts_dir"]
+        for f in sorted(workouts_dir.glob("*.zwo")):
+            if "Rest_Day" in f.name:
+                continue
+            content = f.read_text()
+            durations = re.findall(r'Duration="(\d+)"', content)
+            for d in durations:
+                assert int(d) > 0, f"{f.name} has Duration=0"
+
+    def test_recovery_rides_zone2_power(self, mike_full_pipeline):
+        """Recovery week rides must be Zone 1-2 power (< 0.65 FTP)."""
+        workouts_dir = mike_full_pipeline["workouts_dir"]
+        plan_config = mike_full_pipeline["plan_config"] if "plan_config" in mike_full_pipeline else None
+        for f in sorted(workouts_dir.glob("*Easy_Recovery*")):
+            content = f.read_text()
+            powers = re.findall(r'Power="([^"]+)"', content)
+            for p in powers:
+                val = float(p)
+                assert val <= 0.65, (
+                    f"{f.name} has Power={val} — recovery rides must be ≤0.65 FTP"
+                )
+
+    def test_warmup_present_in_interval_workouts(self, sarah_full_pipeline):
+        """Interval workouts must have a warmup block."""
+        workouts_dir = sarah_full_pipeline["workouts_dir"]
+        interval_files = [f for f in workouts_dir.glob("*.zwo")
+                         if any(kw in f.name for kw in ("Interval", "VO2", "Threshold", "Sweet_Spot"))]
+        for f in interval_files[:5]:  # Check first 5
+            content = f.read_text()
+            assert "<Warmup" in content, f"{f.name} is an interval workout with no warmup"

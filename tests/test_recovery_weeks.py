@@ -363,10 +363,10 @@ class TestMethodologyDocument:
         gate_6b_methodology(athlete_dir)  # Should not raise
 
 
-# ── Touchpoints ──────────────────────────────────────────────
+# ── Touchpoints — Full Lifecycle ──────────────────────────────
 
 class TestTouchpoints:
-    """Automated check-in schedule must be generated."""
+    """Full-lifecycle touchpoint schedule must be generated."""
 
     def test_touchpoints_json_created(self, sarah_full_pipeline):
         athlete_dir = sarah_full_pipeline["athlete_dir"]
@@ -377,7 +377,8 @@ class TestTouchpoints:
         result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
         assert (athlete_dir / "touchpoints.json").exists()
 
-    def test_all_touchpoint_types_present(self, sarah_full_pipeline):
+    def test_static_touchpoints_present(self, sarah_full_pipeline):
+        """All static touchpoints must be present."""
         athlete_dir = sarah_full_pipeline["athlete_dir"]
         profile = sarah_full_pipeline["profile"]
         derived = sarah_full_pipeline["derived"]
@@ -386,15 +387,69 @@ class TestTouchpoints:
         result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
         tp_ids = {tp["id"] for tp in result["touchpoints"]}
 
-        expected_ids = {
-            "week_1_welcome", "week_2_checkin", "first_recovery",
-            "mid_plan", "build_phase_start", "race_month",
-            "race_week", "race_day_morning", "post_race_3_days",
-            "post_race_2_weeks",
+        expected_static = {
+            "account_connect", "week_1_welcome", "week_2_checkin",
+            "mid_plan", "build_phase_start",
+            "equipment_check", "race_month", "taper_start",
+            "race_week", "race_day_eve", "race_day_morning",
+            "post_race_3_days", "post_race_nps", "post_race_2_weeks",
+            "post_race_referral", "post_race_3_months",
         }
-        assert expected_ids == tp_ids, (
-            f"Missing: {expected_ids - tp_ids}, Extra: {tp_ids - expected_ids}"
+        missing = expected_static - tp_ids
+        assert not missing, f"Missing static touchpoints: {missing}"
+
+    def test_dynamic_recovery_touchpoints(self, sarah_full_pipeline):
+        """Every recovery week must have a touchpoint."""
+        athlete_dir = sarah_full_pipeline["athlete_dir"]
+        profile = sarah_full_pipeline["profile"]
+        derived = sarah_full_pipeline["derived"]
+        plan_config = sarah_full_pipeline["plan_config"]
+
+        result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+        recovery_tps = [tp for tp in result["touchpoints"]
+                        if tp["id"].startswith("recovery_week_")]
+        assert len(recovery_tps) >= 2, f"Only {len(recovery_tps)} recovery touchpoints"
+
+        # First recovery should use first_recovery template
+        first = sorted(recovery_tps, key=lambda t: t["send_date"])[0]
+        assert first["template"] == "first_recovery"
+
+        # Subsequent should use recovery_week template
+        if len(recovery_tps) > 1:
+            second = sorted(recovery_tps, key=lambda t: t["send_date"])[1]
+            assert second["template"] == "recovery_week"
+
+    def test_dynamic_ftp_touchpoints(self, sarah_full_pipeline):
+        """FTP test weeks must have reminder touchpoints."""
+        athlete_dir = sarah_full_pipeline["athlete_dir"]
+        profile = sarah_full_pipeline["profile"]
+        derived = sarah_full_pipeline["derived"]
+        plan_config = sarah_full_pipeline["plan_config"]
+
+        result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+        ftp_tps = [tp for tp in result["touchpoints"]
+                   if tp["id"].startswith("ftp_reminder_")]
+        assert len(ftp_tps) >= 1, "No FTP test reminder touchpoints"
+
+        # FTP weeks from plan_config should match
+        expected_ftp_weeks = set(plan_config.get("ftp_test_weeks", []))
+        actual_ftp_weeks = {int(tp["id"].split("_")[-1]) for tp in ftp_tps}
+        assert expected_ftp_weeks == actual_ftp_weeks, (
+            f"FTP touchpoint weeks {actual_ftp_weeks} != plan ftp_test_weeks {expected_ftp_weeks}"
         )
+
+    def test_all_categories_represented(self, sarah_full_pipeline):
+        """All 6 lifecycle categories must be present."""
+        athlete_dir = sarah_full_pipeline["athlete_dir"]
+        profile = sarah_full_pipeline["profile"]
+        derived = sarah_full_pipeline["derived"]
+        plan_config = sarah_full_pipeline["plan_config"]
+
+        result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+        categories = {tp["category"] for tp in result["touchpoints"]}
+        required = {"onboarding", "training", "recovery", "race_prep", "post_race", "retention"}
+        missing = required - categories
+        assert not missing, f"Missing categories: {missing}"
 
     def test_dates_are_chronological(self, sarah_full_pipeline):
         athlete_dir = sarah_full_pipeline["athlete_dir"]
@@ -434,6 +489,30 @@ class TestTouchpoints:
                 assert tp["send_date"] > race_date, (
                     f"Post-race '{tp['id']}' on {tp['send_date']} is before race {race_date}"
                 )
+
+    def test_touchpoint_count_minimum(self, sarah_full_pipeline):
+        """Expanded lifecycle should produce >= 15 touchpoints for a 20-week plan."""
+        athlete_dir = sarah_full_pipeline["athlete_dir"]
+        profile = sarah_full_pipeline["profile"]
+        derived = sarah_full_pipeline["derived"]
+        plan_config = sarah_full_pipeline["plan_config"]
+
+        result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+        assert len(result["touchpoints"]) >= 15, (
+            f"Only {len(result['touchpoints'])} touchpoints — full lifecycle needs >= 15"
+        )
+
+    def test_recovery_weeks_in_metadata(self, sarah_full_pipeline):
+        """touchpoints.json must include recovery_weeks and ftp_test_weeks metadata."""
+        athlete_dir = sarah_full_pipeline["athlete_dir"]
+        profile = sarah_full_pipeline["profile"]
+        derived = sarah_full_pipeline["derived"]
+        plan_config = sarah_full_pipeline["plan_config"]
+
+        result = generate_touchpoints(profile, derived, plan_config, athlete_dir)
+        assert "recovery_weeks" in result, "Missing recovery_weeks in touchpoints.json"
+        assert "ftp_test_weeks" in result, "Missing ftp_test_weeks in touchpoints.json"
+        assert len(result["recovery_weeks"]) >= 2
 
     def test_touchpoints_gate_passes(self, sarah_full_pipeline):
         athlete_dir = sarah_full_pipeline["athlete_dir"]
@@ -788,15 +867,21 @@ class TestEmailTemplates:
 
     TEMPLATES_DIR = BASE_DIR / "templates" / "emails"
     REQUIRED_TEMPLATES = [
+        # Original 10
         "week_1_welcome", "week_2_checkin", "first_recovery", "mid_plan",
         "build_phase_start", "race_month", "race_week", "race_day_morning",
         "post_race_3_days", "post_race_2_weeks",
+        # Expanded lifecycle
+        "account_connect", "recovery_week", "ftp_reminder",
+        "equipment_check", "taper_start", "race_day_eve",
+        "post_race_nps", "post_race_referral", "post_race_3_months",
     ]
     SAMPLE_DATA = {
         "{athlete_name}": "Sarah Printz",
         "{race_name}": "SBT GRVL",
         "{race_date}": "2026-06-28",
         "{plan_duration}": "20",
+        "{week_number}": "3",
     }
 
     def test_all_templates_exist(self):

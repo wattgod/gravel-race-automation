@@ -228,14 +228,29 @@ def audit_athlete(athlete_dir: Path) -> list:
     else:
         with open(touchpoints_path) as f:
             tp = json.load(f)
-        if len(tp.get("touchpoints", [])) < 8:
-            failures.append(AuditFailure("TOUCHPOINTS", f"Only {len(tp.get('touchpoints', []))} touchpoints (need ≥8)"))
+        tps = tp.get("touchpoints", [])
+        if len(tps) < 15:
+            failures.append(AuditFailure("TOUCHPOINTS", f"Only {len(tps)} touchpoints (need ≥15 for full lifecycle)"))
+        # Must have recovery week touchpoints
+        recovery_tps = [t for t in tps if t["id"].startswith("recovery_week_")]
+        if len(recovery_tps) < 2:
+            failures.append(AuditFailure("TOUCHPOINTS", f"Only {len(recovery_tps)} recovery week touchpoints (need ≥2)"))
+        # Must have all categories
+        categories = {t.get("category") for t in tps}
+        required_cats = {"onboarding", "training", "recovery", "race_prep", "post_race", "retention"}
+        missing_cats = required_cats - categories
+        if missing_cats:
+            failures.append(AuditFailure("TOUCHPOINTS", f"Missing categories: {missing_cats}"))
 
     # ── CHECK 9: Email templates all exist ──
     required_templates = [
         "week_1_welcome", "week_2_checkin", "first_recovery", "mid_plan",
         "build_phase_start", "race_month", "race_week", "race_day_morning",
         "post_race_3_days", "post_race_2_weeks",
+        # Expanded lifecycle templates
+        "account_connect", "recovery_week", "ftp_reminder",
+        "equipment_check", "taper_start", "race_day_eve",
+        "post_race_nps", "post_race_referral", "post_race_3_months",
     ]
     for tmpl in required_templates:
         tmpl_path = TEMPLATES_DIR / f"{tmpl}.html"
@@ -249,6 +264,7 @@ def audit_athlete(athlete_dir: Path) -> list:
             rendered = rendered.replace("{race_name}", "Test Race")
             rendered = rendered.replace("{race_date}", "2026-01-01")
             rendered = rendered.replace("{plan_duration}", "20")
+            rendered = rendered.replace("{week_number}", "3")
             if "{" in rendered and "}" in rendered:
                 # Find unreplaced placeholders
                 unresolved = re.findall(r'\{[a-z_]+\}', rendered)

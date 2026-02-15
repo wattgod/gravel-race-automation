@@ -371,16 +371,34 @@ def gate_11_touchpoints(athlete_dir: Path, derived: Dict):
     with open(tp_path) as f:
         tp_data = json.load(f)
 
-    # Must have touchpoints array
+    # Must have touchpoints array — expanded lifecycle requires >= 15
     touchpoints = tp_data.get("touchpoints", [])
-    assert len(touchpoints) >= 8, (
-        f"Gate 11: Only {len(touchpoints)} touchpoints (expected >= 8)"
+    assert len(touchpoints) >= 15, (
+        f"Gate 11: Only {len(touchpoints)} touchpoints (expected >= 15 for full lifecycle)"
     )
 
     # All touchpoints must have required fields
     for tp in touchpoints:
-        for field in ["id", "send_date", "subject", "template", "sent"]:
-            assert field in tp, f"Gate 11: Touchpoint missing field: {field}"
+        for field in ["id", "send_date", "subject", "template", "category", "sent"]:
+            assert field in tp, f"Gate 11: Touchpoint '{tp.get('id', '?')}' missing field: {field}"
+
+    # Must have all 6 lifecycle categories represented
+    categories = {tp["category"] for tp in touchpoints}
+    required_categories = {"onboarding", "training", "recovery", "race_prep", "post_race", "retention"}
+    missing = required_categories - categories
+    assert not missing, f"Gate 11: Missing touchpoint categories: {missing}"
+
+    # Must have dynamic recovery week touchpoints
+    recovery_tps = [tp for tp in touchpoints if tp["id"].startswith("recovery_week_")]
+    assert len(recovery_tps) >= 2, (
+        f"Gate 11: Only {len(recovery_tps)} recovery week touchpoints (need >= 2)"
+    )
+
+    # Must have FTP test reminder touchpoints
+    ftp_tps = [tp for tp in touchpoints if tp["id"].startswith("ftp_reminder_")]
+    assert len(ftp_tps) >= 1, (
+        f"Gate 11: No FTP test reminder touchpoints"
+    )
 
     # Dates must be chronological
     dates = [tp["send_date"] for tp in touchpoints]
@@ -410,3 +428,7 @@ def gate_11_touchpoints(athlete_dir: Path, derived: Dict):
     # Athlete metadata
     assert tp_data.get("athlete"), "Gate 11: Missing athlete name"
     assert tp_data.get("email"), "Gate 11: Missing athlete email"
+
+    # Recovery and FTP metadata
+    assert "recovery_weeks" in tp_data, "Gate 11: Missing recovery_weeks in touchpoints.json"
+    assert "ftp_test_weeks" in tp_data, "Gate 11: Missing ftp_test_weeks in touchpoints.json"

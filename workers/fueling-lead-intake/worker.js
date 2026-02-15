@@ -1,8 +1,16 @@
 /**
- * Cloudflare Worker: Fueling Calculator Lead Intake
+ * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
- * Receives fueling calculator form submissions from prep kit pages.
- * Validates, sends to coaching webhook + SendGrid notification.
+ * Handles 6 capture sources from gravelgodcycling.com:
+ *   - exit_intent:        email only (race profile exit popup)
+ *   - race_profile:       email + race context (prep kit CTA)
+ *   - prep_kit_gate:      email + race context (content unlock)
+ *   - race_quiz:          email + race context (quiz results gate)
+ *   - quiz_shared:        email + race context (shared quiz results)
+ *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
+ *
+ * Every valid submission upserts the contact into SendGrid Marketing Contacts.
+ * Notification emails only fire for fueling_calculator (contains actionable athlete data).
  */
 
 const DISPOSABLE_DOMAINS = [
@@ -10,6 +18,8 @@ const DISPOSABLE_DOMAINS = [
   'throwaway.email', 'fakeinbox.com', 'trashmail.com', 'maildrop.cc',
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
+
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared'];
 
 export default {
   async fetch(request, env) {
@@ -25,68 +35,120 @@ export default {
     try {
       const data = await request.json();
 
-      const validation = validateSubmission(data);
+      // Honeypot check (all forms include this)
+      if (data.website) {
+        return jsonResponse({ error: 'Bot detected' }, 400, origin);
+      }
+
+      // Detect source: fueling_calculator has weight_lbs but no source field
+      const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
+
+      if (!source || (source !== 'fueling_calculator' && !KNOWN_SOURCES.includes(source))) {
+        return jsonResponse({ error: 'Unknown source' }, 400, origin);
+      }
+
+      // Validate based on source
+      const validation = validateBySource(source, data);
       if (!validation.valid) {
         return jsonResponse({ error: validation.error }, 400, origin);
       }
 
-      const leadId = generateLeadId(data.email, data.race_slug);
-      const lead = formatLead(data, leadId);
-
-      // Dual destination: coaching webhook + SendGrid notification
       const promises = [];
 
-      if (env.COACHING_WEBHOOK_URL) {
-        promises.push(sendToWebhook(env.COACHING_WEBHOOK_URL, lead));
+      // Upsert to SendGrid Marketing Contacts (all sources)
+      if (env.SENDGRID_API_KEY && env.SG_LIST_ID) {
+        promises.push(upsertMarketingContact(env, data, source));
       }
 
-      if (env.SENDGRID_API_KEY && env.NOTIFICATION_EMAIL) {
-        promises.push(sendNotificationEmail(env, lead));
+      // Notification email only for fueling_calculator (has actionable athlete data)
+      if (source === 'fueling_calculator') {
+        const leadId = generateLeadId(data.email, data.race_slug);
+        const lead = formatFuelingLead(data, leadId);
+
+        if (env.COACHING_WEBHOOK_URL) {
+          promises.push(sendToWebhook(env.COACHING_WEBHOOK_URL, lead));
+        }
+        if (env.SENDGRID_API_KEY && env.NOTIFICATION_EMAIL) {
+          promises.push(sendNotificationEmail(env, lead));
+        }
       }
 
       await Promise.allSettled(promises);
 
-      console.log('Fueling lead captured:', { lead_id: leadId, race: data.race_slug, email: data.email });
+      console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
 
-      return jsonResponse({
-        success: true,
-        message: 'Your personalized plan is ready'
-      }, 200, origin);
+      return jsonResponse({ success: true, message: 'Your personalized plan is ready' }, 200, origin);
 
     } catch (error) {
       console.error('Worker error:', error);
-      return jsonResponse({ error: 'Invalid request' }, 400, origin);
+      // Return 200 to frontend — user already sees success UI
+      return jsonResponse({ success: true }, 200, origin);
     }
   }
 };
 
-function validateSubmission(data) {
-  // Required fields
-  if (!data.email) return { valid: false, error: 'Missing: email' };
-  if (!data.weight_lbs) return { valid: false, error: 'Missing: weight' };
-  if (!data.race_slug) return { valid: false, error: 'Missing: race slug' };
+// --- Validation ---
 
-  // Email validation
+function validateBySource(source, data) {
+  // Email required for all sources
+  if (!data.email) return { valid: false, error: 'Missing: email' };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     return { valid: false, error: 'Invalid email format' };
   }
-
   const emailDomain = data.email.split('@')[1].toLowerCase();
   if (DISPOSABLE_DOMAINS.includes(emailDomain)) {
     return { valid: false, error: 'Please use a non-disposable email' };
   }
 
-  // Honeypot
-  if (data.website) return { valid: false, error: 'Bot detected' };
-
-  // Weight bounds
-  const weight = parseFloat(data.weight_lbs);
-  if (isNaN(weight) || weight < 80 || weight > 400) {
-    return { valid: false, error: 'Weight must be between 80-400 lbs' };
+  // Fueling calculator has additional requirements
+  if (source === 'fueling_calculator') {
+    if (!data.weight_lbs) return { valid: false, error: 'Missing: weight' };
+    if (!data.race_slug) return { valid: false, error: 'Missing: race slug' };
+    const weight = parseFloat(data.weight_lbs);
+    if (isNaN(weight) || weight < 80 || weight > 400) {
+      return { valid: false, error: 'Weight must be between 80-400 lbs' };
+    }
   }
 
   return { valid: true };
 }
+
+// --- SendGrid Marketing Contacts ---
+
+async function upsertMarketingContact(env, data, source) {
+  try {
+    const customFields = {};
+    if (env.SG_FIELD_LATEST_SOURCE) customFields[env.SG_FIELD_LATEST_SOURCE] = source;
+    if (env.SG_FIELD_RACE_SLUG && data.race_slug) customFields[env.SG_FIELD_RACE_SLUG] = data.race_slug;
+    if (env.SG_FIELD_RACE_NAME && data.race_name) customFields[env.SG_FIELD_RACE_NAME] = data.race_name;
+    if (env.SG_FIELD_HAS_FUELING) customFields[env.SG_FIELD_HAS_FUELING] = source === 'fueling_calculator' ? 'yes' : 'no';
+
+    const contact = { email: data.email };
+    if (Object.keys(customFields).length > 0) {
+      contact.custom_fields = customFields;
+    }
+
+    const body = {
+      list_ids: [env.SG_LIST_ID],
+      contacts: [contact]
+    };
+
+    const resp = await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    console.log('SendGrid Marketing upsert:', resp.status, 'email:', data.email, 'source:', source);
+  } catch (error) {
+    console.error('SendGrid Marketing error:', error);
+  }
+}
+
+// --- Fueling Calculator Lead Formatting ---
 
 function generateLeadId(email, raceSlug) {
   const base = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 15);
@@ -94,7 +156,7 @@ function generateLeadId(email, raceSlug) {
   return `fuel-${race}-${base}-${Date.now().toString(36)}`;
 }
 
-function formatLead(data, leadId) {
+function formatFuelingLead(data, leadId) {
   const weightLbs = parseFloat(data.weight_lbs);
   const weightKg = Math.round(weightLbs * 0.453592);
 
@@ -127,6 +189,8 @@ function formatLead(data, leadId) {
   };
 }
 
+// --- Webhook ---
+
 async function sendToWebhook(webhookUrl, lead) {
   try {
     await fetch(webhookUrl, {
@@ -138,6 +202,8 @@ async function sendToWebhook(webhookUrl, lead) {
     console.error('Webhook error:', error);
   }
 }
+
+// --- Notification Email (fueling_calculator only) ---
 
 async function sendNotificationEmail(env, lead) {
   const emailBody = formatEmailBody(lead);
@@ -159,7 +225,7 @@ async function sendNotificationEmail(env, lead) {
         content: [{ type: 'text/html', value: emailBody }]
       })
     });
-    console.log('SendGrid response:', sgResponse.status);
+    console.log('SendGrid notification:', sgResponse.status);
   } catch (error) {
     console.error('Email error:', error);
   }
@@ -229,6 +295,8 @@ function formatEmailBody(lead) {
 </body>
 </html>`;
 }
+
+// --- CORS + Response Helpers ---
 
 function handleCORS(request, env) {
   const origin = request.headers.get('Origin');

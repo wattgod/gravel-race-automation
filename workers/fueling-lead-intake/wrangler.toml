@@ -9,6 +9,11 @@ ALLOWED_ORIGINS = "https://gravelgodcycling.com"
 vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com" }
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
-# SENDGRID_API_KEY = "your-sendgrid-api-key"
-# NOTIFICATION_EMAIL = "gravelgodcoaching@gmail.com"
-# COACHING_WEBHOOK_URL = "your-coaching-webhook-url"
+# SENDGRID_API_KEY       — SendGrid API key (used for both notification emails and marketing contacts)
+# NOTIFICATION_EMAIL     — Where fueling calculator lead notifications go (gravelgodcoaching@gmail.com)
+# COACHING_WEBHOOK_URL   — Optional webhook for fueling calculator leads
+# SG_LIST_ID             — SendGrid Marketing list ID for "Gravel God Subscribers"
+# SG_FIELD_LATEST_SOURCE — SendGrid custom field ID for latest_source (e.g. "e1_T")
+# SG_FIELD_RACE_SLUG     — SendGrid custom field ID for race_slug
+# SG_FIELD_RACE_NAME     — SendGrid custom field ID for race_name
+# SG_FIELD_HAS_FUELING   — SendGrid custom field ID for has_fueling_data

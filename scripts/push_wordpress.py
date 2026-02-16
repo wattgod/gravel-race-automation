@@ -457,6 +457,83 @@ def sync_homepage(homepage_file: str):
         return None
 
 
+def sync_about(about_file: str):
+    """Upload about.html to /about/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(about_file)
+    if not html_path.exists():
+        print(f"✗ About page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_about.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/about"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload about.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for about page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading about page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (about page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded about page: {wp_url}/about/")
+    return f"{wp_url}/about/"
+
+
 def sync_og(og_dir: str):
     """Upload OG images to /og/ on SiteGround via tar+ssh pipe.
 
@@ -661,91 +738,6 @@ def sync_pages(pages_dir: str):
     return f"{wp_url}/race/"
 
 
-def sync_series(series_dir: str):
-    """Upload series hub pages to /race/series/ on SiteGround via tar+ssh pipe.
-
-    Expects pre-built directory structure: series_dir/{slug}/index.html
-    """
-    ssh = get_ssh_credentials()
-    if not ssh:
-        return None
-    host, user, port = ssh
-
-    series_path = Path(series_dir)
-    if not series_path.exists():
-        print(f"✗ Series directory not found: {series_path}")
-        return None
-
-    # Count series subdirectories
-    series_dirs = [d for d in sorted(series_path.iterdir())
-                   if d.is_dir() and (d / "index.html").exists()]
-    if not series_dirs:
-        print(f"✗ No series pages found in {series_path}")
-        return None
-
-    remote_base = "~/www/gravelgodcycling.com/public_html/race/series"
-
-    # Create remote directory
-    try:
-        subprocess.run(
-            [
-                "ssh", "-i", str(SSH_KEY), "-p", port,
-                f"{user}@{host}",
-                f"mkdir -p {remote_base} && chmod 755 {remote_base}",
-            ],
-            check=True, capture_output=True, text=True, timeout=15,
-        )
-    except subprocess.CalledProcessError as e:
-        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
-        return None
-
-    print(f"  Uploading {len(series_dirs)} series pages via tar+ssh...")
-
-    try:
-        items = [p.name for p in series_dirs]
-        tar_cmd = ["tar", "-cf", "-", "-C", str(series_path)] + items
-        ssh_cmd = [
-            "ssh", "-i", str(SSH_KEY), "-p", port,
-            f"{user}@{host}",
-            f"tar -xf - -C {remote_base}",
-        ]
-
-        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
-        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
-                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        tar_proc.stdout.close()
-        stdout, stderr = ssh_proc.communicate(timeout=120)
-
-        if ssh_proc.returncode != 0:
-            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
-            return None
-    except subprocess.TimeoutExpired:
-        print("✗ Upload timed out (120s)")
-        tar_proc.kill()
-        ssh_proc.kill()
-        return None
-    except Exception as e:
-        print(f"✗ Error uploading series pages: {e}")
-        return None
-
-    # Fix permissions
-    try:
-        subprocess.run(
-            [
-                "ssh", "-i", str(SSH_KEY), "-p", port,
-                f"{user}@{host}",
-                f"chmod 755 {remote_base}",
-            ],
-            check=True, capture_output=True, text=True, timeout=15,
-        )
-    except subprocess.CalledProcessError:
-        print("  Warning: could not fix /race/series/ permissions")
-
-    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
-    print(f"✓ Uploaded {len(series_dirs)} series pages to {wp_url}/race/series/")
-    return f"{wp_url}/race/series/"
-
-
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -794,6 +786,9 @@ RewriteRule ^unbound-200/?$ /race/unbound-200/ [R=301,L]
 RewriteRule ^crusher-in-the-tushar/?$ /race/crusher-in-the-tushar/ [R=301,L]
 RewriteRule ^gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
 RewriteRule ^big-sugar/?$ /race/big-sugar/ [R=301,L]
+
+# /midsouth → TrainingPeaks plan (was PrettyLinks, now static redirect)
+RewriteRule ^midsouth/?$ https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-260379/gravel-god-the-midsouth-base-to-race [R=307,L]
 
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
@@ -1078,6 +1073,42 @@ def sync_ctas():
         return True
     except Exception as e:
         print(f"✗ Failed to deploy CTA mu-plugin: {e}")
+        return False
+
+
+def sync_ga4():
+    """Deploy the GA4 analytics mu-plugin to WordPress.
+
+    Uploads gg-ga4.php to wp-content/mu-plugins/ via SCP.
+    Lightweight replacement for MonsterInsights Pro + 6 addons.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-ga4.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-ga4.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-ga4.php mu-plugin")
+        print("  GA4 tracking: G-EJJZ9T6M52 (replaces MonsterInsights)")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy GA4 mu-plugin: {e}")
         return False
 
 
@@ -1478,20 +1509,20 @@ if __name__ == "__main__":
         help="Path to homepage HTML (default: wordpress/output/homepage.html)"
     )
     parser.add_argument(
+        "--sync-about", action="store_true",
+        help="Upload about page to /about/ via SCP"
+    )
+    parser.add_argument(
+        "--about-file", default="wordpress/output/about.html",
+        help="Path to about page HTML (default: wordpress/output/about.html)"
+    )
+    parser.add_argument(
         "--sync-pages", action="store_true",
         help="Upload race pages to /race/ via tar+ssh (with correct permissions)"
     )
     parser.add_argument(
         "--pages-dir", default="wordpress/output",
         help="Path to race pages directory (default: wordpress/output)"
-    )
-    parser.add_argument(
-        "--sync-series", action="store_true",
-        help="Upload series hub pages to /race/series/ via tar+ssh"
-    )
-    parser.add_argument(
-        "--series-dir", default="wordpress/output/race/series",
-        help="Path to series pages directory (default: wordpress/output/race/series)"
     )
     parser.add_argument(
         "--sync-sitemap", action="store_true",
@@ -1508,6 +1539,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--sync-ctas", action="store_true",
         help="Deploy race CTA mu-plugin to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
+        "--sync-ga4", action="store_true",
+        help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
         "--sync-photos", action="store_true",
@@ -1567,15 +1602,16 @@ if __name__ == "__main__":
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True
-        args.sync_series = True
         args.sync_index = True
         args.sync_widget = True
         args.sync_og = True
         args.sync_homepage = True
+        args.sync_about = True
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
         args.sync_ctas = True
+        args.sync_ga4 = True
         args.sync_prep_kits = True
         args.sync_blog = True
         args.sync_blog_index = True
@@ -1583,9 +1619,9 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_pages,
-                      args.sync_series, args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_prep_kits, args.sync_blog,
+                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about, args.sync_pages,
+                      args.sync_sitemap, args.sync_redirects,
+                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -1604,10 +1640,10 @@ if __name__ == "__main__":
         sync_og(args.og_dir)
     if args.sync_homepage:
         sync_homepage(args.homepage_file)
+    if args.sync_about:
+        sync_about(args.about_file)
     if args.sync_pages:
         sync_pages(args.pages_dir)
-    if args.sync_series:
-        sync_series(args.series_dir)
     if args.sync_sitemap:
         sync_sitemap()
     if args.sync_redirects:
@@ -1616,6 +1652,8 @@ if __name__ == "__main__":
         sync_noindex()
     if args.sync_ctas:
         sync_ctas()
+    if args.sync_ga4:
+        sync_ga4()
     if args.sync_photos:
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:

@@ -101,6 +101,7 @@ def check_key_pages(v):
         ("/gravel-races/", "Race search page"),
         ("/guide/", "Training guide"),
         ("/race/methodology/", "Methodology page"),
+        ("/about/", "About page"),
     ]
     for path, name in pages:
         code = curl_status(f"{BASE_URL}{path}")

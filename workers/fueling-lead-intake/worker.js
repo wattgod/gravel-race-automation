@@ -32,27 +32,40 @@ export default {
       return new Response('Forbidden', { status: 403 });
     }
 
+    // Parse JSON — return honest 400 if body is malformed
+    let data;
     try {
-      const data = await request.json();
+      data = await request.json();
+    } catch (parseError) {
+      return jsonResponse({ error: 'Invalid JSON' }, 400, origin);
+    }
 
-      // Honeypot check (all forms include this)
-      if (data.website) {
-        return jsonResponse({ error: 'Bot detected' }, 400, origin);
-      }
+    // Honeypot check (all forms include this)
+    if (data.website) {
+      return jsonResponse({ error: 'Bot detected' }, 400, origin);
+    }
 
-      // Detect source: fueling_calculator has weight_lbs but no source field
-      const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
+    // Detect source: fueling_calculator has weight_lbs but no source field
+    const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
 
-      if (!source || (source !== 'fueling_calculator' && !KNOWN_SOURCES.includes(source))) {
-        return jsonResponse({ error: 'Unknown source' }, 400, origin);
-      }
+    if (!source || (source !== 'fueling_calculator' && !KNOWN_SOURCES.includes(source))) {
+      return jsonResponse({ error: 'Unknown source' }, 400, origin);
+    }
 
-      // Validate based on source
-      const validation = validateBySource(source, data);
-      if (!validation.valid) {
-        return jsonResponse({ error: validation.error }, 400, origin);
-      }
+    // Sanitize string inputs: truncate to sane lengths
+    if (data.email) data.email = String(data.email).substring(0, 254);
+    if (data.race_slug) data.race_slug = String(data.race_slug).substring(0, 100);
+    if (data.race_name) data.race_name = String(data.race_name).substring(0, 200);
 
+    // Validate based on source
+    const validation = validateBySource(source, data);
+    if (!validation.valid) {
+      return jsonResponse({ error: validation.error }, 400, origin);
+    }
+
+    // Downstream work: SendGrid, webhook, notification email
+    // Failures here are logged but don't affect the user response
+    try {
       const promises = [];
 
       // Upsert to SendGrid Marketing Contacts (all sources)
@@ -74,18 +87,26 @@ export default {
       }
 
       await Promise.allSettled(promises);
-
-      console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
-
-      return jsonResponse({ success: true, message: 'Your personalized plan is ready' }, 200, origin);
-
-    } catch (error) {
-      console.error('Worker error:', error);
-      // Return 200 to frontend — user already sees success UI
-      return jsonResponse({ success: true }, 200, origin);
+    } catch (downstreamError) {
+      console.error('Downstream error (user unaffected):', downstreamError);
     }
+
+    console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
+
+    return jsonResponse({ success: true, message: 'Your personalized plan is ready' }, 200, origin);
   }
 };
+
+// --- HTML Escaping ---
+
+function esc(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
 
 // --- Validation ---
 
@@ -218,7 +239,7 @@ async function sendNotificationEmail(env, lead) {
       body: JSON.stringify({
         personalizations: [{
           to: [{ email: env.NOTIFICATION_EMAIL }],
-          subject: `⛽ Fueling Lead: ${lead.race_name || lead.race_slug} — ${lead.email}`
+          subject: `Fueling Lead: ${(lead.race_name || lead.race_slug).substring(0, 60)} - ${lead.email}`
         }],
         from: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
         reply_to: { email: lead.email },
@@ -232,15 +253,15 @@ async function sendNotificationEmail(env, lead) {
 }
 
 function formatEmailBody(lead) {
-  const ftp = lead.athlete.ftp ? `${lead.athlete.ftp}W` : '—';
+  const ftp = lead.athlete.ftp ? `${esc(lead.athlete.ftp)}W` : '—';
   const height = lead.athlete.height_ft
-    ? `${lead.athlete.height_ft}'${lead.athlete.height_in || 0}"`
+    ? `${esc(lead.athlete.height_ft)}'${esc(lead.athlete.height_in || 0)}"`
     : '—';
   const rate = lead.fueling.personalized_rate
-    ? `${lead.fueling.personalized_rate}g/hr`
+    ? `${esc(lead.fueling.personalized_rate)}g/hr`
     : '—';
   const total = lead.fueling.total_carbs
-    ? `${lead.fueling.total_carbs}g`
+    ? `${esc(lead.fueling.total_carbs)}g`
     : '—';
 
   return `
@@ -262,34 +283,34 @@ function formatEmailBody(lead) {
 <body>
   <div class="card">
     <h1>&#9981; Fueling Calculator Lead</h1>
-    <p style="margin: 0 0 10px; font-size: 12px;"><strong>ID:</strong> ${lead.lead_id}</p>
+    <p style="margin: 0 0 10px; font-size: 12px;"><strong>ID:</strong> ${esc(lead.lead_id)}</p>
 
     <h2>Contact</h2>
-    <div class="row"><span class="label">Email:</span><span class="value">${lead.email}</span></div>
-    <div class="row"><span class="label">Race:</span><span class="value"><span class="highlight">${lead.race_name || lead.race_slug}</span></span></div>
+    <div class="row"><span class="label">Email:</span><span class="value">${esc(lead.email)}</span></div>
+    <div class="row"><span class="label">Race:</span><span class="value"><span class="highlight">${esc(lead.race_name || lead.race_slug)}</span></span></div>
 
     <h2>Athlete</h2>
-    <div class="row"><span class="label">Weight:</span><span class="value">${lead.athlete.weight_lbs}lbs (${lead.athlete.weight_kg}kg)</span></div>
+    <div class="row"><span class="label">Weight:</span><span class="value">${esc(lead.athlete.weight_lbs)}lbs (${esc(lead.athlete.weight_kg)}kg)</span></div>
     <div class="row"><span class="label">Height:</span><span class="value">${height}</span></div>
-    <div class="row"><span class="label">Age:</span><span class="value">${lead.athlete.age || '—'}</span></div>
+    <div class="row"><span class="label">Age:</span><span class="value">${esc(lead.athlete.age) || '—'}</span></div>
     <div class="row"><span class="label">FTP:</span><span class="value">${ftp}</span></div>
 
     <h2>Fueling Results</h2>
-    <div class="row"><span class="label">Target Hours:</span><span class="value">${lead.fueling.target_hours || '—'}</span></div>
+    <div class="row"><span class="label">Target Hours:</span><span class="value">${esc(lead.fueling.target_hours) || '—'}</span></div>
     <div class="row"><span class="label">Carb Rate:</span><span class="value">${rate}</span></div>
     <div class="row"><span class="label">Total Carbs:</span><span class="value">${total}</span></div>
 
     <h2>Hydration</h2>
-    <div class="row"><span class="label">Fluid Target:</span><span class="value">${lead.fueling.fluid_target_ml_hr ? lead.fueling.fluid_target_ml_hr + ' ml/hr' : '—'}</span></div>
-    <div class="row"><span class="label">Sodium:</span><span class="value">${lead.fueling.sodium_mg_hr ? lead.fueling.sodium_mg_hr + ' mg/hr' : '—'}</span></div>
-    <div class="row"><span class="label">Climate:</span><span class="value">${lead.fueling.climate_heat || '—'}</span></div>
-    <div class="row"><span class="label">Sweat:</span><span class="value">${lead.fueling.sweat_tendency || '—'}</span></div>
-    <div class="row"><span class="label">Fuel Format:</span><span class="value">${lead.fueling.fuel_format || '—'}</span></div>
-    <div class="row"><span class="label">Cramping:</span><span class="value">${lead.fueling.cramp_history || '—'}</span></div>
+    <div class="row"><span class="label">Fluid Target:</span><span class="value">${lead.fueling.fluid_target_ml_hr ? esc(lead.fueling.fluid_target_ml_hr) + ' ml/hr' : '—'}</span></div>
+    <div class="row"><span class="label">Sodium:</span><span class="value">${lead.fueling.sodium_mg_hr ? esc(lead.fueling.sodium_mg_hr) + ' mg/hr' : '—'}</span></div>
+    <div class="row"><span class="label">Climate:</span><span class="value">${esc(lead.fueling.climate_heat) || '—'}</span></div>
+    <div class="row"><span class="label">Sweat:</span><span class="value">${esc(lead.fueling.sweat_tendency) || '—'}</span></div>
+    <div class="row"><span class="label">Fuel Format:</span><span class="value">${esc(lead.fueling.fuel_format) || '—'}</span></div>
+    <div class="row"><span class="label">Cramping:</span><span class="value">${esc(lead.fueling.cramp_history) || '—'}</span></div>
 
     <div class="footer">
       <p>Source: Prep Kit fueling calculator</p>
-      <p>Submitted: ${lead.timestamp}</p>
+      <p>Submitted: ${esc(lead.timestamp)}</p>
     </div>
   </div>
 </body>

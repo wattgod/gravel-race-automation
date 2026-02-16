@@ -1007,3 +1007,338 @@ regression protection. Every test must:
 1. Check actual content (parse XML, read text, verify values)
 2. Assert something that would break if the feature regressed
 3. Use adversarial fixtures when possible (injured athletes, edge cases)
+
+---
+
+## Shortcut #39: Dishonest "RATE IT" CTA (HIGH — Feb 15, 2026)
+
+**What happened:** Added racer rating display to race cards in 3 generators
+(state hubs, homepage, series hubs). When no rating data existed, the empty
+state showed "RATE IT" — implying users could click to rate. No rating form
+exists. The CTA went nowhere. This was shipped to 516 live pages.
+
+**Why it happened:** The AI copied the pattern from the existing race profile
+review section (which HAS a review form) without checking that the card context
+has no equivalent click target. The cards are `<a>` links to the race profile,
+not to a rating form. "RATE IT" was aspirational fiction.
+
+**Fix:** Changed to "NO RATINGS" (state hubs) and "RATE" (series hubs —
+shorter label, serves as a hint without being a lie). Homepage shows `&mdash;`
+with no misleading text.
+
+**Prevention:**
+- Test `test_no_dishonest_rate_it_cta` scans all generator source for "RATE IT"
+- `scripts/ops/generator-quality-check.sh` check #3 catches "RATE IT" at deploy time
+- Rule: **Every CTA must resolve to an actual destination.** If the feature
+  doesn't exist yet, show a passive label ("NO RATINGS"), not an action verb.
+
+---
+
+## Shortcut #40: Hardcoded Threshold in 3 Files (HIGH — Feb 15, 2026)
+
+**What happened:** The racer rating display threshold was hardcoded as `5` in
+three card generators (state hubs, homepage, series hubs) but defined as `3` in
+`generate_neo_brutalist.py`. Two different thresholds for the same concept,
+with no shared constant.
+
+**Why it happened:** When adding racer rating to cards, the AI picked an
+arbitrary number (5) instead of importing the existing `RACER_RATING_THRESHOLD`
+constant. The existing constant was defined locally in one file — not shared.
+
+**Fix:**
+- Moved `RACER_RATING_THRESHOLD = 3` to `brand_tokens.py` as the single source
+  of truth
+- All 4 generators now import from `brand_tokens`
+- Hardcoded `>= 5` replaced with `>= RACER_RATING_THRESHOLD` everywhere
+
+**Prevention:**
+- Test `test_no_generator_hardcodes_threshold` scans all generators for
+  `rr_total >= [number]` patterns
+- Test `test_all_generators_import_shared_threshold` verifies the import
+- `scripts/ops/generator-quality-check.sh` check #1 catches any hardcoded
+  threshold at deploy time
+- Rule: **Shared business logic must live in a shared module.** If two files
+  use the same constant, extract it to `brand_tokens.py`.
+
+---
+
+## Shortcut #41: Zero Tests for New HTML Sections (CRITICAL — Feb 15, 2026)
+
+**What happened:** Added racer rating dual-score HTML to 3 generators.
+Shipped 516 pages. Wrote ZERO tests for any of it. Also, map embed parameters
+(`sampleGraph=true`, removal of `scrolling="no"`) were changed without any
+corresponding test updates.
+
+**Why it happened:** The AI optimized for "ship visible changes quickly" and
+deferred testing. This is the same pattern as Shortcut #34. The AI has
+documented history of shipping features without tests.
+
+**Fix:**
+- Created `tests/test_card_racer_rating.py` with 23 tests covering:
+  - State hub cards (8 tests: layout, scores, empty state, threshold, colors)
+  - Homepage cards (5 tests: columns, labels, empty state, threshold import)
+  - Series hub cards (6 tests: populated, empty, threshold, no-profile)
+  - Cross-generator (4 tests: shared threshold, no hardcoding, no dead code)
+- Added 3 map embed tests to `test_neo_brutalist.py`:
+  `test_map_has_sample_graph`, `test_map_allows_scrolling`, `test_map_allows_fullscreen`
+
+**Prevention:**
+- `scripts/ops/generator-quality-check.sh` runs before deploy and catches
+  structural issues even without tests
+- Rule: **Every HTML change requires a corresponding test.** If you change a
+  card's HTML structure, you must add a test that verifies the new structure.
+
+---
+
+## Shortcut #42: Orphaned Dead Code Not Cleaned Up (MEDIUM — Feb 15, 2026)
+
+**What happened:** The hero redesign removed the dual-score panel from the
+race profile hero. The `_build_racer_panel()` function (28 lines), its CSS
+(11 rules), and the `RACER_RATING_FORM_BASE` constant were left behind —
+defined but never called/used.
+
+Also found: `_json_str()` in `generate_state_hubs.py` — defined, never called.
+
+**Why it happened:** The AI refactored the hero but only deleted the call site,
+not the function definition or its CSS. Didn't grep for orphaned code.
+
+**Fix:** Removed all dead code:
+- `_build_racer_panel()` function
+- 11 `.gg-dual-score` / `.gg-dual-panel` CSS rules
+- `RACER_RATING_FORM_BASE` constant
+- `_json_str()` in state hubs
+
+**Prevention:**
+- `scripts/ops/generator-quality-check.sh` check #2 finds private functions
+  (`_func()`) that are defined but never called
+- `scripts/ops/generator-quality-check.sh` check #4 catches known dead constants
+- Test `test_dead_code_removed` explicitly checks for the specific dead patterns
+- Rule: **After removing any function call, grep the file for the function
+  definition and its CSS classes.** `grep -n 'function_name\|css-class-name'`
+
+---
+
+## Shortcut #43: Hardcoded Year in Review Form and Footer (MEDIUM — Feb 15, 2026)
+
+**What happened:** Review form year dropdown started at literal `2026`
+(`range(2026, 2019, -1)`). Homepage footer said `© 2026`. Both would be
+wrong in January 2027.
+
+**Why it happened:** Pre-existing — not from this session, but caught by the
+new quality script.
+
+**Fix:** Both now use `CURRENT_YEAR` (dynamic from `date.today().year`).
+
+**Prevention:**
+- `scripts/ops/generator-quality-check.sh` check #6 catches hardcoded year
+  in any generator output string
+- Already documented as Shortcut #22 for series hubs — now enforced globally
+
+---
+
+## Rule #31: Run Generator Quality Check Before Deploy
+
+Script: `scripts/ops/generator-quality-check.sh`
+
+Checks performed on generator SOURCE code (not output HTML):
+1. No hardcoded racer rating thresholds (must use brand_tokens constant)
+2. No dead private functions (defined but never called)
+3. No dishonest CTAs ("RATE IT" without a rating form)
+4. No dead constants (RACER_RATING_FORM_BASE, etc.)
+5. No `esc()` inside JSON-LD template blocks
+6. No hardcoded year in output strings
+7. RACER_RATING_THRESHOLD imported from brand_tokens (not locally defined)
+
+Run: `bash scripts/ops/generator-quality-check.sh`
+Run before every deploy. Non-zero exit = blocked deploy.
+
+## Rule #32: New Card/Score Features Require Tests BEFORE Deploy
+
+When adding scores, ratings, or any new data display to race cards:
+- [ ] Test with populated data (above threshold)
+- [ ] Test with no data (empty state)
+- [ ] Test with data below threshold
+- [ ] Test that threshold comes from shared constant
+- [ ] Test that empty state doesn't lie about functionality
+- [ ] Source-level test that greps for hardcoded values
+
+## Rule #33: Every CTA Must Have a Real Destination
+
+Before adding any call-to-action text:
+1. Verify the destination URL exists and works
+2. If the feature doesn't exist yet, use a passive label
+3. "RATE IT" → needs a rating form. "NO RATINGS" → honest status.
+4. "SIGN UP" → needs a signup page. "COMING SOON" → honest status.
+
+---
+
+## Shortcut #45: Happy-Path-Only Testing of Worker (HIGH — Feb 15, 2026)
+
+**What happened:** Rewrote the fueling-lead-intake worker to accept 6 sources
+instead of 1. Tested all 6 with curl, confirmed 200, and declared it done.
+Never tested a single rejection path — unknown source, missing email, invalid
+email, disposable domain, honeypot, weight bounds, wrong origin, wrong HTTP
+method, malformed JSON. Wrote 10+ validation branches and proved zero of them.
+
+**Why it happened:** AI optimized for "does the success path work?" which is
+the easiest thing to test. Rejection paths require more thought and more curls.
+Laziness disguised as efficiency.
+
+**Fix:** Created `tests/test_worker_intake.sh` — 21 integration tests covering
+all 6 happy paths, 10 rejection paths, 4 protocol checks, and 1 security test.
+Must be run after every worker deploy.
+
+**Prevention:**
+- `tests/test_worker_intake.sh` — automated, exits non-zero on failure
+- Rule #34 below
+
+## Shortcut #46: Catch Block That Lies (MEDIUM — Feb 15, 2026)
+
+**What happened:** Changed the worker's catch-all error handler from returning
+400 to returning `{success: true}` with 200. Justified it with "frontend
+already shows success UI." This meant malformed JSON, runtime exceptions, and
+real bugs all returned 200 — making them invisible in Cloudflare's dashboard.
+
+**Why it happened:** AI collapsed two distinct failure modes into one. Parse
+errors (client's fault, should be 400) and downstream errors (SendGrid/webhook
+failures that shouldn't block the user response) are different. Returning 200
+on everything was a shortcut to avoid thinking about the distinction.
+
+**Fix:** Split into two try/catch blocks. JSON parse errors return 400 honestly.
+Downstream failures (SendGrid, webhook) are caught separately and the user
+still gets 200.
+
+**Prevention:**
+- Test script includes malformed JSON test that asserts 400
+- Rule #35 below
+
+## Shortcut #47: Unescaped User Data in HTML Email (MEDIUM — Feb 15, 2026)
+
+**What happened:** Notification email template interpolated `lead.email`,
+`lead.race_name`, `lead.race_slug`, and all athlete data directly into HTML
+with zero escaping. An attacker POSTing `race_name: "<img src=x onerror=...>"`
+gets HTML injected into the notification email.
+
+**Why it happened:** Copied the email template from the original worker
+verbatim. Original had the same vulnerability but AI didn't notice because it
+was focused on the source-routing logic, not reviewing existing code for flaws.
+
+**Fix:** Added `esc()` function. Applied to every user-supplied value in the
+email template.
+
+**Prevention:**
+- Rule #36 below
+
+## Shortcut #48: No Input Length Limits (LOW — Feb 15, 2026)
+
+**What happened:** Worker accepted unlimited-length strings for email,
+race_slug, race_name. Someone could POST a 10MB race_name string and it would
+go straight into SendGrid custom fields and the notification email body.
+
+**Fix:** Added `.substring()` truncation — email to 254, race_slug to 100,
+race_name to 200.
+
+## Shortcut #49: Non-Secret Data Stored as Secrets (LOW — Feb 15, 2026)
+
+**What happened:** SendGrid custom field IDs (`w1_T`, `e2_T`, etc.) and the
+marketing list ID were stored as Cloudflare Worker secrets. These are public
+identifiers, not credentials. Storing them as secrets meant they were invisible,
+undebuggable, and couldn't be verified without hitting the SendGrid API.
+
+**Fix:** Moved all 5 field/list IDs to `[vars]` in wrangler.toml. Only actual
+secrets (API keys, webhook URLs) remain as secrets.
+
+## Shortcut #50: API Key in Shell History (HIGH — Feb 15, 2026)
+
+**What happened:** Pasted SendGrid API key directly into curl commands to
+create the marketing list and custom fields. The key is now in `.zsh_history`
+and in the Claude conversation transcript.
+
+**Why it happened:** AI treated "get the thing working fast" as higher priority
+than "handle credentials safely." Should have used environment variables or
+a temporary file.
+
+**Prevention:**
+- Rule #37 below
+
+## Shortcut #51: Ignored Wrangler Environment Warnings (LOW — Feb 15, 2026)
+
+**What happened:** Every wrangler command warned "Multiple environments are
+defined but no target environment was specified." Ignored this 8+ times. The
+wrangler.toml has `[env.production]` — secrets and deploys may have targeted
+the wrong environment.
+
+**Fix:** The worker works in the default environment, so the warnings were
+benign in this case. But ignoring repeated warnings is how real bugs slip
+through.
+
+## Shortcut #52: Wrong SendGrid From Address (HIGH — Feb 15, 2026)
+
+**What happened:** Deployed the worker with `from: gravelgodcoaching@gmail.com`
+even though the authenticated SendGrid domain is `gravelgodcycling.com`.
+Notification emails got stuck in "processing" and never delivered. Had to
+redeploy with `from: leads@gravelgodcycling.com`.
+
+**Why it happened:** Copied the from address from the original worker without
+checking it against the SendGrid domain authentication settings. The original
+worked sporadically (possibly legacy allowance) but was never reliable.
+
+**Prevention:**
+- Test script implicitly catches this — if notification emails stop delivering,
+  SendGrid activity feed shows "processing" instead of "delivered"
+- Rule #38 below
+
+---
+
+## Rule #34: Worker Deploys Require test_worker_intake.sh
+
+After every `wrangler deploy` of fueling-lead-intake:
+```bash
+bash tests/test_worker_intake.sh
+```
+21 tests must pass. Non-zero exit = blocked. No exceptions.
+This is not optional. It takes 8 seconds to run.
+
+## Rule #35: Never Return 200 on Parse Errors
+
+When a client sends garbage (malformed JSON, wrong content type), return an
+honest error code (400). Only return 200 when the request was valid but
+downstream services failed — and log the downstream failure separately.
+
+Two try/catch blocks, not one. Parse errors are the client's fault.
+Downstream errors are our problem.
+
+## Rule #36: Escape All User Data in HTML Templates
+
+Any value that originates from user input and gets interpolated into HTML
+MUST be passed through `esc()` (or equivalent). This includes:
+- Email addresses
+- Race names/slugs
+- Athlete data (weight, FTP, etc.)
+- Any field the user can control via POST body
+
+No exceptions. Email clients strip most scripts but that's defense-in-depth,
+not an excuse.
+
+## Rule #37: Never Put API Keys in Shell Commands
+
+When calling APIs that need credentials:
+1. Export to an env var first: `export SG_KEY=$(wrangler secret get ...)`
+2. Or use a temp file that gets deleted: `cat /tmp/key | curl -H @-`
+3. Or pipe through stdin: `echo "$KEY" | wrangler secret put NAME`
+4. NEVER paste a key into a curl `-H` flag
+
+After any session where keys were used in commands:
+```bash
+grep -n "SG\." ~/.zsh_history | head -20
+# If found, remove those lines
+```
+
+## Rule #38: Verify SendGrid From Address Against Authenticated Domain
+
+Before deploying any worker that sends email via SendGrid:
+1. Check authenticated domains: `GET /v3/whitelabel/domains`
+2. Check verified senders: `GET /v3/verified_senders`
+3. The `from` email domain MUST match one of these
+4. Test by sending to yourself and checking activity feed for "delivered" status
+   (not "processing" or "deferred")

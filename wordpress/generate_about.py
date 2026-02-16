@@ -161,9 +161,9 @@ def build_who() -> str:
           <div class="gg-about-bio-card">
             <div class="gg-about-bio-card-label">Background</div>
             <dl class="gg-about-bio-dl">
-              <dt>TrainingPeaks</dt><dd>12 years</dd>
-              <dt>Racing</dt><dd>CAT 1 / National level</dd>
-              <dt>Team</dt><dd>Rio Grande (retired)</dd>
+              <dt>TrainingPeaks</dt><dd>12 years (only 2 promotions tho)</dd>
+              <dt>Racing</dt><dd>CAT 1 roadie (CAT 5 handling skills)</dd>
+              <dt>Team</dt><dd>Rio Grande Elite (until it folded)</dd>
               <dt>Athletes coached</dt><dd>100+</dd>
               <dt>Plans sold</dt><dd>1,000+</dd>
             </dl>

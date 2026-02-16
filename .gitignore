@@ -29,8 +29,14 @@ dry_run_results.json
 *.json.bak
 *.csv.bak
 
+# Mission Control database
+db/mission_control.db
+db/mission_control.db-wal
+db/mission_control.db-shm
+
 # Generated athlete output
 athletes/
+output/
 
 # IDE
 .vscode/

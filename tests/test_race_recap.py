@@ -409,3 +409,117 @@ def test_extract_real_grinduro_winner_male():
         pytest.skip("grinduro research dump not available")
     winner = extract_winner(dump, "grinduro", "male", 2024)
     assert winner == "Gordon Wadsworth", f"Got: {winner!r}"
+
+
+# ── Takeaway cleaning helpers ──
+
+
+from extract_results import _clean_takeaway, _truncate_at_word_boundary
+
+
+def test_clean_takeaway_strips_bare_urls():
+    text = "Set a new record https://example.com/results#:~:text=fast in 2024"
+    result = _clean_takeaway(text)
+    assert "https://" not in result
+    assert "#:~:text=" not in result
+    assert "new record" in result
+
+
+def test_clean_takeaway_strips_markdown_links():
+    text = "Won the race [Athlinks] (https://www.athlinks.com/foo) easily"
+    result = _clean_takeaway(text)
+    assert "https://" not in result
+    assert "Athlinks" in result
+    assert "easily" in result
+
+
+def test_clean_takeaway_strips_spaced_markdown_links():
+    text = "Result confirmed [source] (https://example.com) by officials"
+    result = _clean_takeaway(text)
+    assert "https://" not in result
+    assert "source" in result
+
+
+def test_clean_takeaway_strips_citation_brackets():
+    text = "First ever sub-9 hour finish [4] in ideal conditions [12]"
+    result = _clean_takeaway(text)
+    assert "[4]" not in result
+    assert "[12]" not in result
+    assert "sub-9 hour finish" in result
+
+
+def test_clean_takeaway_strips_html_tags():
+    text = "Big buckle for <u>sub-9 finishers</u> since 2019"
+    result = _clean_takeaway(text)
+    assert "<u>" not in result
+    assert "</u>" not in result
+    assert "sub-9 finishers" in result
+
+
+def test_clean_takeaway_strips_url_fragments():
+    text = "com/dispatches/#:~:text=8,the%20finish are deafening"
+    result = _clean_takeaway(text)
+    assert "#:~:text=" not in result
+
+
+def test_clean_takeaway_strips_bold_asterisks():
+    text = "**Cameron Jones** set a **new course record**"
+    result = _clean_takeaway(text)
+    assert "**" not in result
+    assert "Cameron Jones" in result
+
+
+def test_truncate_at_word_boundary_no_mid_word():
+    text = "This is a very long sentence that needs to be truncated at a word boundary to avoid mid-word cuts that look terrible in rendered HTML output on the page"
+    result = _truncate_at_word_boundary(text, 50)
+    assert len(result) <= 50
+    assert not result.endswith("boun")  # Should not cut mid-word
+    assert result.endswith(" ") is False  # Should not end with space
+    # Should end at a complete word
+    assert result == text[:50].rsplit(' ', 1)[0]
+
+
+def test_truncate_at_word_boundary_short_text():
+    text = "Short text"
+    result = _truncate_at_word_boundary(text, 150)
+    assert result == "Short text"
+
+
+# ── Hero image in recaps ──
+
+
+def test_recap_has_hero_image(tmp_path):
+    """Recap articles should have an OG hero image."""
+    import generate_race_recap as recap_mod
+
+    race_data = {
+        "race": {
+            "name": "Test Race",
+            "vitals": {"location": "Test, CO"},
+            "gravel_god_rating": {"tier": 1, "overall_score": 85},
+            "results": {
+                "years": {
+                    "2024": {
+                        "winner_male": "John Doe",
+                        "conditions": "Cool and dry",
+                    }
+                },
+                "latest_year": "2024"
+            }
+        }
+    }
+
+    race_dir = tmp_path / "race-data"
+    race_dir.mkdir()
+    (race_dir / "test-race.json").write_text(json.dumps(race_data))
+
+    orig_dir = recap_mod.RACE_DATA_DIR
+    recap_mod.RACE_DATA_DIR = race_dir
+    try:
+        html_content = recap_mod.generate_recap_html("test-race", 2024)
+        assert html_content is not None
+        assert "gg-blog-hero-img" in html_content
+        assert "/og/test-race.jpg" in html_content
+        assert 'alt="' in html_content
+    finally:
+        recap_mod.RACE_DATA_DIR = orig_dir

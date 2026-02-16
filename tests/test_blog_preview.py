@@ -12,8 +12,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from generate_blog_preview import (
     find_candidates,
     generate_preview_html,
+    is_generic_suffering,
     load_race,
     parse_race_date,
+    pick_best_opinions,
 )
 from generate_blog_index import (
     classify_blog_slug,
@@ -647,3 +649,142 @@ def test_no_python_repr_barry_roubaix():
     html = generate_preview_html("barry-roubaix")
     assert html is not None
     _assert_no_python_repr(html, "barry-roubaix")
+
+
+# ── is_generic_suffering ──
+
+
+def test_generic_suffering_detects_filler():
+    """Generic zone labels like 'Early Rolling', 'Midpoint' should be detected."""
+    zones = [
+        {"label": "Early Rolling", "mile": 15, "desc": "First rolling sections."},
+        {"label": "Midpoint", "mile": 25, "desc": "Halfway through the course."},
+        {"label": "Late Rolling", "mile": 40, "desc": "Final rolling sections before finish."},
+    ]
+    assert is_generic_suffering(zones) is True
+
+
+def test_generic_suffering_allows_real_zones():
+    """Real zone labels like named features should pass through."""
+    zones = [
+        {"label": "Flint Hills Gauntlet", "mile": 60, "desc": "Relentless 20mi of exposed limestone."},
+        {"label": "Thrall Creek Climb", "mile": 120, "desc": "Steep gravel climb after 100+ miles."},
+        {"label": "Final Wind Tunnel", "mile": 180, "desc": "Exposed prairie with crosswinds."},
+    ]
+    assert is_generic_suffering(zones) is False
+
+
+def test_generic_suffering_empty():
+    assert is_generic_suffering([]) is False
+    assert is_generic_suffering(None) is False
+    assert is_generic_suffering("a string") is False
+
+
+def test_generic_suffering_mixed_zones():
+    """Majority rule: if 2/3 are generic, suppress all."""
+    zones = [
+        {"label": "Flint Hills Gauntlet", "mile": 60, "desc": "Relentless exposed limestone."},
+        {"label": "Midpoint", "mile": 100, "desc": "Halfway through the course."},
+        {"label": "Final Stretch", "mile": 180, "desc": "Last sections before finish."},
+    ]
+    assert is_generic_suffering(zones) is True
+
+
+# ── pick_best_opinions ──
+
+
+def test_pick_best_opinions_returns_top3():
+    ratings = {
+        "prestige": {"score": 1, "explanation": "A" * 50},
+        "experience": {"score": 2, "explanation": "B" * 80},
+        "community": {"score": 3, "explanation": "C" * 60},
+        "value": {"score": 4, "explanation": "D" * 100},
+        "adventure": {"score": 3, "explanation": "E" * 70},
+    }
+    result = pick_best_opinions(ratings)
+    assert len(result) == 3
+    # Sorted by explanation length desc, so value (100), experience (80), adventure (70)
+    assert result[0][0] == "value"
+    assert result[1][0] == "experience"
+    assert result[2][0] == "adventure"
+
+
+def test_pick_best_opinions_empty():
+    assert pick_best_opinions({}) == []
+    assert pick_best_opinions(None) == []
+
+
+def test_pick_best_opinions_skips_short():
+    """Explanations under 40 chars should be skipped."""
+    ratings = {
+        "prestige": {"score": 1, "explanation": "Short."},
+        "experience": {"score": 2, "explanation": "A" * 50},
+    }
+    result = pick_best_opinions(ratings)
+    assert len(result) == 1
+    assert result[0][0] == "experience"
+
+
+# ── Real Talk section rendering ──
+
+
+def test_t4_preview_has_real_talk():
+    """T4 previews should have a 'Real Talk' section with strengths/weaknesses."""
+    html = generate_preview_html("wild-gravel")
+    assert html is not None
+    body = _body_content(html)
+    assert "The Real Talk" in body
+    assert "Strengths" in body
+    assert "Weaknesses" in body
+
+
+def test_t4_preview_suppresses_generic_suffering():
+    """T4 previews with generic suffering zones should not show them."""
+    html = generate_preview_html("bald-eagle-gravel-grinder")
+    assert html is not None
+    body = _body_content(html)
+    # Should NOT have the generic zone labels
+    assert "Early Rolling" not in body or "The Real Talk" in body
+
+
+def test_t1_preview_has_real_talk():
+    """T1 previews should also have Real Talk (they have rich opinion data)."""
+    html = generate_preview_html("unbound-200")
+    assert html is not None
+    body = _body_content(html)
+    assert "The Real Talk" in body
+
+
+def test_preview_uses_bottom_line():
+    """When bottom_line exists, it should appear in the Why Race section."""
+    rd = load_race("wild-gravel")
+    if rd is None:
+        pytest.skip("wild-gravel not available")
+    bottom_line = rd.get("biased_opinion", {}).get("bottom_line", "")
+    if not bottom_line:
+        pytest.skip("wild-gravel has no bottom_line")
+    html = generate_preview_html("wild-gravel")
+    assert html is not None
+    # The bottom_line text should appear in the output
+    import html as html_mod
+    assert html_mod.escape(bottom_line) in html or bottom_line[:30] in html
+
+
+# ── Hero image ──
+
+
+def test_preview_has_hero_image():
+    """Preview articles should have an OG hero image."""
+    html = generate_preview_html("unbound-200")
+    assert html is not None
+    assert "gg-blog-hero-img" in html
+    assert "/og/unbound-200.jpg" in html
+
+
+def test_preview_hero_image_alt_text():
+    """Hero image should have descriptive alt text."""
+    html = generate_preview_html("unbound-200")
+    assert html is not None
+    assert 'alt="' in html
+    # Alt should contain the race name
+    assert "Unbound" in html.split('alt="')[1].split('"')[0]

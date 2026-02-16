@@ -628,6 +628,128 @@ def check_blog_url_consistency(v):
             )
 
 
+RACE_DATA_DIR = PROJECT_ROOT / "race-data"
+
+# Takeaway quality patterns — raw URLs, markdown, citations, HTML tags
+TAKEAWAY_BAD_PATTERNS = [
+    (re.compile(r'https?://'), "bare URL"),
+    (re.compile(r'#:~:text='), "URL text fragment"),
+    (re.compile(r'\*\*'), "markdown bold **"),
+    (re.compile(r'\[\d+\]'), "citation bracket [N]"),
+    (re.compile(r'</?[a-zA-Z]'), "HTML tag"),
+]
+
+
+def check_hero_images(v):
+    """Verify non-roundup blog articles have hero images."""
+    v.section("Hero Images")
+
+    if not BLOG_DIR.exists():
+        v.check(False, "Blog directory exists")
+        return
+
+    html_files = sorted(BLOG_DIR.glob("*.html"))
+    non_roundup = [f for f in html_files if not f.stem.startswith("roundup-")]
+
+    if not non_roundup:
+        v.check(True, "No non-roundup articles to check")
+        return
+
+    missing = []
+    for f in non_roundup:
+        content = f.read_text()
+        if "gg-blog-hero-img" not in content:
+            missing.append(f.stem)
+
+    if missing:
+        shown = missing[:5]
+        extra = f" (+{len(missing)-5} more)" if len(missing) > 5 else ""
+        v.check(False, f"Hero images missing from {len(missing)} articles: {', '.join(shown)}{extra}")
+    else:
+        v.check(True, f"All {len(non_roundup)} non-roundup articles have hero images")
+
+
+def check_t4_content_quality(v):
+    """Verify T4 previews don't have generic filler without Real Talk section."""
+    v.section("T4 Content Quality")
+
+    if not BLOG_DIR.exists():
+        v.check(False, "Blog directory exists")
+        return
+
+    # Generic zone labels that indicate template filler
+    generic_labels = {
+        "early rolling", "midpoint", "late rolling", "final stretch",
+        "early climb", "mid climb", "final descent", "early hills",
+        "mid hills", "late hills", "early flat", "mid flat",
+        "final push", "opening miles", "middle miles", "closing miles",
+    }
+
+    preview_files = [f for f in BLOG_DIR.glob("*.html")
+                     if not f.stem.startswith("roundup-") and not f.stem.endswith("-recap")]
+
+    failures = []
+    for f in preview_files:
+        content = f.read_text()
+        content_lower = content.lower()
+
+        # Check if this is a T4 race (Tier 4 or Roster in hero)
+        if "tier 4" not in content_lower and "roster" not in content_lower:
+            continue
+
+        # Check for generic zone labels in the body
+        has_generic = any(label in content_lower for label in generic_labels)
+        has_real_talk = "the real talk" in content_lower
+
+        if has_generic and not has_real_talk:
+            failures.append(f.stem)
+
+    if failures:
+        shown = failures[:5]
+        extra = f" (+{len(failures)-5} more)" if len(failures) > 5 else ""
+        v.check(False, f"T4 previews with generic zones but no Real Talk: {', '.join(shown)}{extra}")
+    else:
+        v.check(True, "T4 previews have Real Talk section or no generic zones")
+
+
+def check_takeaway_quality(v):
+    """Verify race JSON takeaways are clean of URLs, markdown, citations, HTML."""
+    v.section("Takeaway Quality")
+
+    if not RACE_DATA_DIR.exists():
+        v.check(False, "Race data directory exists")
+        return
+
+    dirty_races = []
+    total_takeaways = 0
+
+    for f in sorted(RACE_DATA_DIR.glob("*.json")):
+        try:
+            data = json.loads(f.read_text())
+            race = data.get("race", data)
+            results = race.get("results", {})
+            for yr_data in results.get("years", {}).values():
+                takeaways = yr_data.get("key_takeaways", [])
+                for t in takeaways:
+                    total_takeaways += 1
+                    for pattern, desc in TAKEAWAY_BAD_PATTERNS:
+                        if pattern.search(str(t)):
+                            dirty_races.append((f.stem, desc, str(t)[:60]))
+                            break
+        except (json.JSONDecodeError, KeyError):
+            continue
+
+    if dirty_races:
+        shown = dirty_races[:5]
+        extra = f" (+{len(dirty_races)-5} more)" if len(dirty_races) > 5 else ""
+        for slug, desc, snippet in shown:
+            v.check(False, f"{slug}: takeaway has {desc}: {snippet}...")
+        if extra:
+            v.check(False, f"Additional dirty takeaways{extra}")
+    else:
+        v.check(True, f"All {total_takeaways} takeaways are clean")
+
+
 def main():
     global VERBOSE
     parser = argparse.ArgumentParser(description="Validate blog content quality")
@@ -646,6 +768,9 @@ def main():
     check_blog_index_schema(v)
     check_html_quality(v)
     check_no_python_repr(v)
+    check_hero_images(v)
+    check_t4_content_quality(v)
+    check_takeaway_quality(v)
     check_date_diversity(v)
     check_blog_index_ssr(v)
     check_recap_pipeline(v)

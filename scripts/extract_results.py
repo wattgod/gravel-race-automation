@@ -321,6 +321,37 @@ def extract_dnf_rate(dump, slug, year):
     return None
 
 
+def _clean_takeaway(text):
+    """Clean a raw takeaway string of markdown, URLs, citations, and HTML tags."""
+    # Strip markdown bold/italic
+    clean = re.sub(r'\*+', '', text)
+    # Strip markdown links: [text](url) and [text] (url) (spaced variant)
+    clean = re.sub(r'\[([^\]]*)\]\s*\([^)]*\)', r'\1', clean)
+    # Strip bare URLs (https://... up to whitespace or end)
+    clean = re.sub(r'https?://\S+', '', clean)
+    # Strip URL fragments that leaked (e.g. com/path#:~:text=...)
+    clean = re.sub(r'\S*#:~:text=\S*', '', clean)
+    # Strip HTML tags (<u>, </u>, etc.)
+    clean = re.sub(r'</?[a-zA-Z][^>]*>', '', clean)
+    # Strip citation brackets [4], [12], etc.
+    clean = re.sub(r'\[\d+\]', '', clean)
+    # Collapse multiple spaces
+    clean = re.sub(r'\s{2,}', ' ', clean).strip()
+    return clean
+
+
+def _truncate_at_word_boundary(text, max_len=150):
+    """Truncate text at a word boundary, never mid-word."""
+    if len(text) <= max_len:
+        return text
+    truncated = text[:max_len]
+    # Find last space to avoid cutting mid-word
+    last_space = truncated.rsplit(' ', 1)
+    if len(last_space) > 1:
+        return last_space[0]
+    return truncated
+
+
 def extract_key_takeaways(dump, slug, year):
     """Extract notable highlights/takeaways (max 5)."""
     if not dump:
@@ -347,11 +378,9 @@ def extract_key_takeaways(dump, slug, year):
                 for sent in re.split(r'[.!]', line):
                     sent = sent.strip().strip("*").strip("•").strip("-").strip()
                     if re.search(pattern, sent, re.IGNORECASE) and len(sent) > 15:
-                        # Clean up markdown
-                        clean = re.sub(r'\*+', '', sent).strip()
-                        clean = re.sub(r'\[.*?\]\(.*?\)', '', clean).strip()
-                        if clean and clean not in takeaways:
-                            takeaways.append(clean[:150])
+                        clean = _clean_takeaway(sent)
+                        if clean and len(clean) > 15 and clean not in takeaways:
+                            takeaways.append(_truncate_at_word_boundary(clean))
                             break
 
     return takeaways[:5]

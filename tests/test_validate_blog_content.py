@@ -14,8 +14,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from validate_blog_content import (
     PYTHON_REPR_PATTERNS,
+    TAKEAWAY_BAD_PATTERNS,
     Validator,
+    check_hero_images,
     check_no_python_repr,
+    check_t4_content_quality,
+    check_takeaway_quality,
 )
 
 # Single source of truth — imported from the validator, not duplicated
@@ -212,3 +216,192 @@ class TestCheckNoPythonReprIntegration:
             assert v.failed >= 1, "List-of-dicts repr should fail"
         finally:
             validate_blog_content.BLOG_DIR = orig_dir
+
+
+# ── Hero image validation ──
+
+
+class TestCheckHeroImages:
+    def test_passes_with_hero_image(self, tmp_path):
+        blog_dir = tmp_path / "blog"
+        blog_dir.mkdir()
+        (blog_dir / "test-race.html").write_text(
+            '<!DOCTYPE html><html><head></head><body>'
+            '<div class="gg-blog-hero-img"><img src="/og/test.jpg"></div>'
+            '</body></html>'
+        )
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.BLOG_DIR
+        validate_blog_content.BLOG_DIR = blog_dir
+        try:
+            v = Validator()
+            check_hero_images(v)
+            assert v.failed == 0
+        finally:
+            validate_blog_content.BLOG_DIR = orig_dir
+
+    def test_fails_without_hero_image(self, tmp_path):
+        blog_dir = tmp_path / "blog"
+        blog_dir.mkdir()
+        (blog_dir / "test-race.html").write_text(
+            '<!DOCTYPE html><html><head></head><body>'
+            '<p>No hero image here</p>'
+            '</body></html>'
+        )
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.BLOG_DIR
+        validate_blog_content.BLOG_DIR = blog_dir
+        try:
+            v = Validator()
+            check_hero_images(v)
+            assert v.failed >= 1
+        finally:
+            validate_blog_content.BLOG_DIR = orig_dir
+
+    def test_skips_roundup_files(self, tmp_path):
+        """Roundup files should not require hero images."""
+        blog_dir = tmp_path / "blog"
+        blog_dir.mkdir()
+        (blog_dir / "roundup-march-2026.html").write_text(
+            '<!DOCTYPE html><html><head></head><body>'
+            '<p>Roundup content without hero image</p>'
+            '</body></html>'
+        )
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.BLOG_DIR
+        validate_blog_content.BLOG_DIR = blog_dir
+        try:
+            v = Validator()
+            check_hero_images(v)
+            assert v.failed == 0
+        finally:
+            validate_blog_content.BLOG_DIR = orig_dir
+
+
+# ── T4 content quality ──
+
+
+class TestCheckT4ContentQuality:
+    def test_t4_with_real_talk_passes(self, tmp_path):
+        blog_dir = tmp_path / "blog"
+        blog_dir.mkdir()
+        (blog_dir / "test-t4.html").write_text(
+            '<!DOCTYPE html><html><head></head><body>'
+            '<div>Tier 4 Roster</div>'
+            '<div>Early Rolling</div>'
+            '<h2>The Real Talk</h2>'
+            '<p>Strengths and weaknesses</p>'
+            '</body></html>'
+        )
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.BLOG_DIR
+        validate_blog_content.BLOG_DIR = blog_dir
+        try:
+            v = Validator()
+            check_t4_content_quality(v)
+            assert v.failed == 0
+        finally:
+            validate_blog_content.BLOG_DIR = orig_dir
+
+    def test_t4_without_real_talk_fails(self, tmp_path):
+        blog_dir = tmp_path / "blog"
+        blog_dir.mkdir()
+        (blog_dir / "test-t4.html").write_text(
+            '<!DOCTYPE html><html><head></head><body>'
+            '<div>Tier 4 Roster</div>'
+            '<div>Early Rolling</div>'
+            '<div>Midpoint</div>'
+            '</body></html>'
+        )
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.BLOG_DIR
+        validate_blog_content.BLOG_DIR = blog_dir
+        try:
+            v = Validator()
+            check_t4_content_quality(v)
+            assert v.failed >= 1
+        finally:
+            validate_blog_content.BLOG_DIR = orig_dir
+
+
+# ── Takeaway quality ──
+
+
+class TestCheckTakeawayQuality:
+    def test_clean_takeaways_pass(self, tmp_path):
+        race_dir = tmp_path / "race-data"
+        race_dir.mkdir()
+        import json
+        (race_dir / "test.json").write_text(json.dumps({
+            "race": {
+                "results": {
+                    "years": {
+                        "2024": {
+                            "key_takeaways": ["New course record", "Largest field ever"]
+                        }
+                    }
+                }
+            }
+        }))
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.RACE_DATA_DIR
+        validate_blog_content.RACE_DATA_DIR = race_dir
+        try:
+            v = Validator()
+            check_takeaway_quality(v)
+            assert v.failed == 0
+        finally:
+            validate_blog_content.RACE_DATA_DIR = orig_dir
+
+    def test_dirty_takeaway_fails(self, tmp_path):
+        race_dir = tmp_path / "race-data"
+        race_dir.mkdir()
+        import json
+        (race_dir / "test.json").write_text(json.dumps({
+            "race": {
+                "results": {
+                    "years": {
+                        "2024": {
+                            "key_takeaways": [
+                                "Record set https://example.com/results",
+                                "Citation from source [4] confirmed",
+                            ]
+                        }
+                    }
+                }
+            }
+        }))
+
+        import validate_blog_content
+        orig_dir = validate_blog_content.RACE_DATA_DIR
+        validate_blog_content.RACE_DATA_DIR = race_dir
+        try:
+            v = Validator()
+            check_takeaway_quality(v)
+            assert v.failed >= 1
+        finally:
+            validate_blog_content.RACE_DATA_DIR = orig_dir
+
+    def test_takeaway_bad_patterns_catch_all_types(self):
+        """Verify each bad pattern catches its target."""
+        test_cases = [
+            ("Has https://example.com link", "bare URL"),
+            ("Fragment #:~:text=foo leaked", "URL text fragment"),
+            ("**bold markdown** text", "markdown bold **"),
+            ("Citation [4] reference", "citation bracket [N]"),
+            ("<u>underline</u> tag", "HTML tag"),
+        ]
+        for text, expected_desc in test_cases:
+            matched = False
+            for pattern, desc in TAKEAWAY_BAD_PATTERNS:
+                if pattern.search(text):
+                    assert desc == expected_desc, f"'{text}' matched '{desc}' not '{expected_desc}'"
+                    matched = True
+                    break
+            assert matched, f"No pattern matched: '{text}'"

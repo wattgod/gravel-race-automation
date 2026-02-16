@@ -416,6 +416,16 @@ def generate_recap_html(slug, year):
       letter-spacing: 1.5px;
     }}
     .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
+    .gg-blog-hero-img {{
+      margin-bottom: 32px;
+      line-height: 0;
+      border: 3px solid var(--gg-dark-brown);
+    }}
+    .gg-blog-hero-img img {{
+      width: 100%;
+      height: auto;
+      display: block;
+    }}
     @media (max-width: 600px) {{
       .gg-blog-hero {{ padding: 32px 20px; }}
       .gg-blog-hero h1 {{ font-size: 22px; }}
@@ -430,6 +440,9 @@ def generate_recap_html(slug, year):
       <div class="gg-blog-hero-meta">Race Recap &middot; Tier {tier} {esc(tier_name)} &middot; {esc(location)}</div>
       <h1>{esc(name)} {year} Recap</h1>
       <div class="gg-blog-hero-sub">{esc(headline)} &middot; Published {today_str}</div>
+    </div>
+    <div class="gg-blog-hero-img">
+      <img src="{og_image_url}" alt="{esc(name)} {year} race recap" width="1200" height="630" loading="eager">
     </div>
     {winners_html}
     {conditions_html}

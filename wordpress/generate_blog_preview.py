@@ -37,6 +37,69 @@ def esc(text):
     return html.escape(str(text)) if text else ""
 
 
+# Generic suffering zone labels used as filler in low-data profiles
+GENERIC_ZONE_LABELS = {
+    "early rolling", "midpoint", "late rolling", "final stretch",
+    "early climb", "mid climb", "final descent", "early hills",
+    "mid hills", "late hills", "early flat", "mid flat",
+    "final push", "opening miles", "middle miles", "closing miles",
+}
+
+
+def is_generic_suffering(suffering_zones):
+    """Detect if suffering_zones are generic template filler.
+
+    Returns True if the majority of zone labels match known generic patterns
+    or descriptions are very short/templated.
+    """
+    if not isinstance(suffering_zones, list) or not suffering_zones:
+        return False
+    generic_count = 0
+    for z in suffering_zones:
+        if not isinstance(z, dict):
+            continue
+        label = (z.get("label") or "").lower().strip()
+        desc = (z.get("desc") or "").lower().strip()
+        # Check for known generic labels
+        if label in GENERIC_ZONE_LABELS:
+            generic_count += 1
+        # Check for very short generic descriptions
+        elif len(desc) < 30 and any(g in desc for g in [
+            "first rolling", "halfway through", "final rolling",
+            "first sections", "last sections", "before finish",
+            "opening stretch", "closing stretch",
+        ]):
+            generic_count += 1
+    return generic_count >= len(suffering_zones) * 0.5
+
+
+# Editorial-interest priority for picking opinion explanations
+OPINION_PRIORITY_KEYS = [
+    "prestige", "experience", "community", "field_depth",
+    "race_quality", "value", "adventure",
+]
+
+
+def pick_best_opinions(biased_opinion_ratings, max_count=3):
+    """Select top opinion explanations by editorial interest.
+
+    Picks from high-editorial-value categories, preferring those with
+    the longest (most detailed) explanations.
+    """
+    if not isinstance(biased_opinion_ratings, dict):
+        return []
+    candidates = []
+    for key in OPINION_PRIORITY_KEYS:
+        rating = biased_opinion_ratings.get(key)
+        if isinstance(rating, dict):
+            explanation = (rating.get("explanation") or "").strip()
+            if len(explanation) > 40:
+                candidates.append((key, explanation))
+    # Sort by explanation length (most detailed first)
+    candidates.sort(key=lambda c: -len(c[1]))
+    return candidates[:max_count]
+
+
 def parse_race_date(date_str):
     """Parse date_specific string like '2026: June 6' into a date object."""
     if not date_str:
@@ -157,23 +220,58 @@ def generate_preview_html(slug):
     article_date_str = preview_date.strftime("%B %d, %Y")
     article_date_iso = preview_date.isoformat()
 
+    biased_ratings = rd.get("biased_opinion_ratings", {})
+
     # Build sections
     why_section = ""
     should_race = final_verdict.get("should_you_race", "")
+    bottom_line = biased.get("bottom_line", "")
     biased_summary = biased.get("summary", "")
-    if should_race or biased_summary:
+    # Prefer bottom_line (more direct) over should_you_race (hedging)
+    why_text = bottom_line or should_race
+    if why_text or biased_summary:
         why_section = f"""
     <section class="gg-blog-section">
       <h2>Why Race {esc(name)}?</h2>
-      {f'<p>{esc(should_race)}</p>' if should_race else ''}
+      {f'<p>{esc(why_text)}</p>' if why_text else ''}
       {f'<p>{esc(biased_summary)}</p>' if biased_summary else ''}
+    </section>"""
+
+    # "Real Talk" section — strengths, weaknesses, and top opinion explanations
+    real_talk_section = ""
+    strengths = biased.get("strengths", [])
+    weaknesses = biased.get("weaknesses", [])
+    best_opinions = pick_best_opinions(biased_ratings)
+    if strengths or weaknesses or best_opinions:
+        strengths_html = ""
+        if isinstance(strengths, list) and strengths:
+            items = "".join(f"<li>{esc(s)}</li>" for s in strengths[:5])
+            strengths_html = f'<p><strong>Strengths:</strong></p><ul>{items}</ul>'
+        weaknesses_html = ""
+        if isinstance(weaknesses, list) and weaknesses:
+            items = "".join(f"<li>{esc(w)}</li>" for w in weaknesses[:5])
+            weaknesses_html = f'<p><strong>Weaknesses:</strong></p><ul>{items}</ul>'
+        opinions_html = ""
+        if best_opinions:
+            items = "".join(
+                f"<li><strong>{esc(key.replace('_', ' ').title())}:</strong> {esc(explanation)}</li>"
+                for key, explanation in best_opinions
+            )
+            opinions_html = f'<p><strong>Our Take:</strong></p><ul>{items}</ul>'
+        real_talk_section = f"""
+    <section class="gg-blog-section">
+      <h2>The Real Talk</h2>
+      {strengths_html}
+      {weaknesses_html}
+      {opinions_html}
     </section>"""
 
     course_section = ""
     character = course_desc.get("character", "")
     suffering = course_desc.get("suffering_zones", "")
     suffering_html = ""
-    if isinstance(suffering, list) and suffering:
+    # Suppress generic suffering zones (template filler in low-data profiles)
+    if isinstance(suffering, list) and suffering and not is_generic_suffering(suffering):
         items = []
         for z in suffering:
             if isinstance(z, dict):
@@ -185,7 +283,7 @@ def generate_preview_html(slug):
             else:
                 items.append(f"<li>{esc(str(z))}</li>")
         suffering_html = f'<p><strong>Key challenges:</strong></p><ul>{"".join(items)}</ul>'
-    elif suffering:
+    elif suffering and not isinstance(suffering, list):
         suffering_html = f"<p><strong>Key challenges:</strong> {esc(str(suffering))}</p>"
     if character or suffering_html:
         course_section = f"""
@@ -419,6 +517,16 @@ def generate_preview_html(slug):
       letter-spacing: 1.5px;
     }}
     .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
+    .gg-blog-hero-img {{
+      margin-bottom: 32px;
+      line-height: 0;
+      border: 3px solid var(--gg-dark-brown);
+    }}
+    .gg-blog-hero-img img {{
+      width: 100%;
+      height: auto;
+      display: block;
+    }}
     @media (max-width: 600px) {{
       .gg-blog-hero {{ padding: 32px 20px; }}
       .gg-blog-hero h1 {{ font-size: 22px; }}
@@ -433,7 +541,11 @@ def generate_preview_html(slug):
       <h1>{esc(name)} Race Preview</h1>
       <div class="gg-blog-hero-sub">Rated {score} / 100 &middot; Published {article_date_str}</div>
     </div>
+    <div class="gg-blog-hero-img">
+      <img src="{og_image_url}" alt="{esc(name)} race preview" width="1200" height="630" loading="eager">
+    </div>
     {why_section}
+    {real_talk_section}
     {course_section}
     {stats_section}
     {training_section}

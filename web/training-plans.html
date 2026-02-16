@@ -77,49 +77,6 @@
   padding-right: 1.5rem;
 }
 
-.tp-section-dark {
-  background: #000;
-  color: #F5E5D3;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.tp-section-dark h2,
-.tp-section-dark h3,
-.tp-section-dark p {
-  color: #F5E5D3;
-}
-
-.tp-section-dark .tp-section-label {
-  color: #BFA595;
-}
-
-.tp-section-dark .tp-audience-col h3 {
-  color: #F5E5D3;
-}
-
-.tp-section-dark .tp-not-for h3 {
-  color: #999;
-}
-
-.tp-section-dark .tp-audience-list li {
-  color: #F5E5D3;
-  border-bottom-color: rgba(255,255,255,0.15);
-}
-
-.tp-section-dark .tp-for-list li::before {
-  color: #BFA595;
-}
-
-.tp-section-dark .tp-not-list li::before {
-  color: #666;
-}
-
-.tp-section-dark {
-  border-bottom-color: #333;
-}
 
 .tp-section-cream {
   border-bottom-color: #59473C;
@@ -408,85 +365,6 @@
   color: #000;
 }
 
-/* ---- Workout Structure Visualization ---- */
-.tp-landing .tp-workout-viz {
-  display: flex;
-  align-items: flex-end;
-  height: 110px;
-  gap: 1px;
-  margin-bottom: 1.25rem;
-  padding: 0.5rem 0 1rem;
-  border-bottom: 2px solid #000;
-  position: relative;
-  background: #fff;
-}
-
-.tp-landing .tp-workout-viz::before {
-  content: '% FTP';
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
-  font-family: 'Sometype Mono', monospace;
-}
-
-.tp-landing .tp-viz-block {
-  flex-grow: 0;
-  flex-shrink: 0;
-  min-width: 6px;
-  border: 2px solid #000;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.tp-landing .tp-viz-block .tp-viz-label {
-  position: absolute;
-  bottom: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.5rem;
-  white-space: nowrap;
-  color: #59473C;
-  font-weight: 700;
-  font-family: 'Sometype Mono', monospace;
-  letter-spacing: 0.02em;
-}
-
-/* Zone colors — monochrome palette, scoped */
-.tp-landing .tp-viz-z1 { background: #e8e8e8 !important; }
-.tp-landing .tp-viz-z2 { background: #F5E5D3 !important; border-color: #59473C !important; }
-.tp-landing .tp-viz-z3 { background: #c9b8a3 !important; }
-.tp-landing .tp-viz-z4 { background: #59473C !important; }
-.tp-landing .tp-viz-z5 { background: #222 !important; }
-.tp-landing .tp-viz-z6 { background: #000 !important; }
-
-.tp-landing .tp-viz-meta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.65rem;
-  color: #59473C;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: 'Sometype Mono', monospace;
-}
-
-.tp-landing .tp-viz-meta span::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border: 1px solid #000;
-  background: #59473C;
-  margin-right: 4px;
-  vertical-align: middle;
-}
 
 /* ================================================================
    HOW IT WORKS
@@ -842,24 +720,6 @@
   margin-bottom: 0;
 }
 
-/* ================================================================
-   ROTATED BADGE / STICKER
-   ================================================================ */
-
-.tp-badge-sticker {
-  display: inline-block;
-  background: #F5E5D3;
-  border: 3px solid #000;
-  box-shadow: 3px 3px 0 #000;
-  padding: 0.4rem 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  transform: rotate(-2deg);
-  position: relative;
-  color: #000;
-}
 
 /* ================================================================
    COLORED SHADOWS on key elements
@@ -914,18 +774,6 @@
    ANIMATIONS & MICRO-INTERACTIONS
    ================================================================ */
 
-/* Scroll reveal — JS adds .tp-animate, observer adds .is-visible */
-.tp-animate {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.tp-animate.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Hero entrance — pure CSS, no JS needed */
 .tp-hero h1,
@@ -1053,17 +901,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .tp-landing .tp-workout-viz {
-    height: 80px;
-  }
-
-  .tp-landing .tp-viz-block .tp-viz-label {
-    font-size: 0.4rem;
-  }
-
-  .tp-pricing-faq {
-    grid-template-columns: 1fr;
-  }
 
   .tp-audience-grid {
     grid-template-columns: 1fr;
@@ -1098,7 +935,7 @@
       fitness, your race, and the specific demands of the course you're lining up for.
     </p>
     <div class="tp-hero-cta">
-      <a href="https://gravelgodcycling.com/training-plans/questionnaire/" class="tp-btn">Build My Plan &mdash; $15/wk</a>
+      <a href="https://gravelgodcycling.com/training-plans/questionnaire/" class="tp-btn">Build My Plan</a>
       <a href="#how-it-works" class="tp-btn tp-btn-secondary">See How It Works</a>
     </div>
     <div class="tp-hero-bar">
@@ -1111,8 +948,8 @@
         <span>Methodology</span>
       </div>
       <div class="tp-hero-bar-item">
-        <strong>$15</strong>
-        <span>Per Week</span>
+        <strong>$2/day</strong>
+        <span>Less Than Coffee</span>
       </div>
       <div class="tp-hero-bar-item">
         <strong>5 min</strong>
@@ -1324,7 +1161,7 @@
         <ul class="tp-audience-list tp-not-list">
           <li>You want ongoing coaching with weekly adjustments</li>
           <li>You don't have a target event</li>
-          <li>Your race is in 4 weeks &mdash; not enough time to build anything real</li>
+          <li>Your race is in 3 weeks &mdash; not enough time to build anything real</li>
           <li>You need daily accountability to do the work</li>
           <li>You just want someone to tell you you're doing great</li>
         </ul>
@@ -1333,106 +1170,108 @@
   </div>
 
   <!-- ============================================================
-       PRICING + FAQ — Combined, side by side
+       PRICING — $15/wk computed, capped at $249
        ============================================================ -->
   <div class="tp-section">
-    <div class="tp-section-label">Pricing &amp; Questions</div>
-    <h2>$15 Per Week of Training.</h2>
-    <div class="tp-pricing-faq">
-      <!-- Pricing Card -->
-      <div class="tp-pricing-card" style="position: relative;">
-        <div class="tp-badge-sticker" style="position: absolute; top: -8px; right: 12px; z-index: 2;">Max $199</div>
+    <div class="tp-section-label">Pricing</div>
+    <h2>$15 Per Week. One Payment. No Subscription.</h2>
+
+    <div class="tp-pricing-faq" style="grid-template-columns: 1fr;">
+      <div class="tp-pricing-card" style="max-width: 500px;">
         <div class="tp-pricing-header">Custom Training Plan</div>
-        <div class="tp-price">$15 <span>/week of training</span></div>
-        <p style="font-size: 0.7rem; color: #59473C; padding: 0 1.5rem; margin: 0;">Typical plans: $120&ndash;$180. Maximum $199 for any length.</p>
+        <div class="tp-price">$15<span> / week of training</span></div>
         <ul class="tp-pricing-list">
-          <li>Structured workouts on your device (TrainingPeaks, Zwift, Wahoo)</li>
-          <li>Custom training guide with race-specific intel</li>
-          <li>Heat &amp; altitude acclimatization protocols</li>
-          <li>Race-optimized nutrition plan</li>
-          <li>Custom strength training</li>
-          <li>Power zones calculated from your data</li>
-          <li>Pushed directly to your TrainingPeaks calendar</li>
+          <li>Computed from your race date &mdash; pay for exactly what you need</li>
+          <li>6-week plan = $90. 12-week plan = $180. 16-week plan = $240</li>
+          <li>Capped at $249 no matter how long the plan</li>
+          <li>Structured .zwo workouts for Zwift/TrainingPeaks/Wahoo</li>
+          <li>30+ page custom training guide</li>
+          <li>Race-optimized fueling plan</li>
+          <li>Custom strength program</li>
+          <li>Heat &amp; altitude protocols</li>
           <li>Same-day delivery</li>
         </ul>
         <div class="tp-pricing-cta">
           <a href="https://gravelgodcycling.com/training-plans/questionnaire/" class="tp-btn">Build My Plan</a>
         </div>
-        <p class="tp-pricing-note">One-time purchase. No subscription. No upsells. Capped at $199.</p>
+        <p class="tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one. Full refund within 7 days.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <div class="tp-section tp-section-cream">
+    <div class="tp-section-label">Questions</div>
+    <h2>FAQ</h2>
+    <div class="tp-faq-list">
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          Do I need a power meter?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>Not required. Every workout includes RPE targets so you can train
+          by feel. But a power meter is strongly recommended &mdash; watt targets
+          remove guesswork entirely. Heart rate works as a middle ground.</p>
+        </div>
       </div>
 
-      <!-- FAQ -->
-      <div>
-        <div class="tp-faq-list">
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              Do I need a power meter?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>Not required. Every workout includes RPE targets so you can train
-              by feel. But a power meter is strongly recommended &mdash; watt targets
-              remove guesswork entirely. Heart rate works as a middle ground.
-              The plan adapts to whatever you measure with, but power is better.</p>
-            </div>
-          </div>
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          What if I don't know my FTP?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>Mark it unknown. Week 1 includes an FTP test protocol.
+          Once you have the number, every zone recalibrates.</p>
+        </div>
+      </div>
 
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              What if I don't know my FTP?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>Most people don't. Mark it unknown. Week 1 includes an FTP test protocol.
-              Once you have the number, every zone recalibrates.</p>
-            </div>
-          </div>
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          How are workouts delivered?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>.zwo files. Load directly into Zwift, TrainingPeaks, or anything that reads
+          the format. Each file has power targets, cadence cues, and coaching text built in.
+          Your guide is a web page &mdash; bookmark it.</p>
+        </div>
+      </div>
 
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              How are workouts delivered?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>.zwo files. Load directly into Zwift, TrainingPeaks, or anything that reads
-              the format. Each file has power targets, cadence cues, and coaching text built in.
-              Your guide is a web page &mdash; bookmark it.</p>
-            </div>
-          </div>
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          How is the price calculated?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>$15 per week of training, computed from your race date. A 6-week plan
+          is $90. A 12-week plan is $180. Anything over 16 weeks caps at $249.
+          You pay for exactly what you need &mdash; no more.</p>
+        </div>
+      </div>
 
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              Can I get a plan for multiple races?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>Yes. Add up to 10 races with A/B/C priority. The plan periodizes around
-              your A-race. B-races are secondary peaks. C-races are training races.</p>
-            </div>
-          </div>
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          Is this coaching?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>No. This is a plan, not a relationship. You get the full plan up front
+          and execute it yourself. No weekly check-ins.</p>
+        </div>
+      </div>
 
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              What if my race isn't in the database?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>The training still works. You won't get race-specific intel (suffering zones,
-              terrain breakdown), but the workouts, phases, and structure are identical.</p>
-            </div>
-          </div>
-
-          <div class="tp-faq-item">
-            <div class="tp-faq-q">
-              Is this coaching?
-              <span class="tp-faq-toggle">+</span>
-            </div>
-            <div class="tp-faq-a">
-              <p>No. This is a plan, not a relationship. You get the full plan up front
-              and execute it yourself. No weekly check-ins. For ongoing coaching with
-              adjustments and communication &mdash; that's a separate service.</p>
-            </div>
-          </div>
+      <div class="tp-faq-item">
+        <div class="tp-faq-q">
+          What if my race isn't in the database?
+          <span class="tp-faq-toggle">+</span>
+        </div>
+        <div class="tp-faq-a">
+          <p>The training still works. You won't get race-specific intel (suffering zones,
+          terrain breakdown), but the workouts, phases, and structure are identical.</p>
         </div>
       </div>
     </div>
@@ -1442,5 +1281,5 @@
 
 <!-- Mobile sticky CTA -->
 <div class="tp-sticky-cta">
-  <a href="https://gravelgodcycling.com/training-plans/questionnaire/">Build My Plan &mdash; $15/wk</a>
+  <a href="https://gravelgodcycling.com/training-plans/questionnaire/">Build My Plan &mdash; $2/day</a>
 </div>

@@ -73,7 +73,7 @@ def build_hero(race_count: int) -> str:
     return f'''<div class="gg-hero gg-about-hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-gold)">ABOUT</div>
     <h1 data-text="{race_count} Gravel Races. Scored. Zero Sponsors.">{race_count} Gravel Races. Scored. Zero Sponsors.</h1>
-    <p class="gg-hero-tagline">I built the most comprehensive gravel race database on the internet, then paired it with coaching that actually works for people with jobs.</p>
+    <p class="gg-hero-tagline">I scored every gravel race in America by hand, then paired it with coaching for people who have real jobs and limited PTO.</p>
   </div>'''
 
 
@@ -296,12 +296,12 @@ def build_ctas() -> str:
       <div class="gg-about-ctas">
         <div class="gg-about-cta">
           <h3>Training Plans</h3>
-          <p>Race-specific. Built for your target event. $15/week, capped at $199.</p>
+          <p>Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
           <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans">BUILD MY PLAN</a>
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>
-          <p>A human in your corner. Adapts week to week.</p>
+          <p>A human in your corner. Adapts week to week. Limited spots &mdash; opens quarterly.</p>
           <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--teal" data-cta="coaching_apply">APPLY</a>
         </div>
         <div class="gg-about-cta">

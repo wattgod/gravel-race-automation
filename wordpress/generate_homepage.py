@@ -517,7 +517,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
     <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-    <p class="gg-hp-hero-tagline">The definitive gravel race database. 14 dimensions. No sponsors. No pay-to-play. Just honest ratings.</p>
+    <p class="gg-hp-hero-tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
     <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
       <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
       <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
@@ -689,7 +689,7 @@ def build_how_it_works(stats: dict = None) -> str:
     steps = [
         ("01", "PICK YOUR RACE", f"{race_count} races. Scored honestly. Filter by what actually matters to you &mdash; not what a sponsor paid us to promote."),
         ("02", "READ THE REAL TAKE", "Every rating comes with an editorial opinion. We tell you if it&rsquo;s worth the flight, the entry fee, and the suffering."),
-        ("03", "SHOW UP READY", "Race-specific training plans and a 30-page guide so you don&rsquo;t blow up at mile 60 like we did."),
+        ("03", "SHOW UP READY", "You&rsquo;ve already paid for the entry fee. Don&rsquo;t waste it. Race-specific plans so you don&rsquo;t blow up at mile 60 like we did."),
     ]
     cells = ""
     for num, title, desc in steps:
@@ -753,13 +753,13 @@ def build_training_cta() -> str:
       </div>
       <div class="gg-hp-training-stat">
         <span class="gg-hp-training-stat-num">1,000+</span>
-        <span class="gg-hp-training-stat-label">Training Plans Sold</span>
+        <span class="gg-hp-training-stat-label">Plans Built Over 12 Years</span>
       </div>
     </div>
     <div class="gg-hp-training-grid">
       <div class="gg-hp-training-card gg-hp-training-card--primary">
         <h3>Training Plans</h3>
-        <p class="gg-hp-training-subtitle">Race-specific. Built for your target event. $15/week, capped at $199.</p>
+        <p class="gg-hp-training-subtitle">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
         <ul class="gg-hp-training-bullets">
           <li>Structured workouts pushed to your device</li>
           <li>30+ page custom training guide</li>
@@ -770,7 +770,7 @@ def build_training_cta() -> str:
       </div>
       <div class="gg-hp-training-card gg-hp-training-card--secondary">
         <h3>1:1 Coaching</h3>
-        <p class="gg-hp-training-subtitle">A human in your corner. Adapts week to week.</p>
+        <p class="gg-hp-training-subtitle">A human in your corner. Adapts week to week. Limited spots.</p>
         <div class="gg-hp-coaching-features">
           <div class="gg-hp-coaching-feat"><strong>Built around your reality.</strong> Work, kids, travel, and the random Tuesday emergency.</div>
           <div class="gg-hp-coaching-feat"><strong>No guilt. Just edits.</strong> When life happens, we adjust the plan instead of pretending you&rsquo;re a robot.</div>

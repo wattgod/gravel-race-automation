@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--gg-spacing-sm) var(--gg-spacing-md);
-  background: var(--gg-color-dark-brown);
+  background: var(--gg-color-sand);
   border-bottom: var(--gg-border-standard);
 }
 
@@ -48,7 +48,7 @@
   font-weight: var(--gg-font-weight-bold);
   letter-spacing: var(--gg-letter-spacing-wider);
   text-transform: uppercase;
-  color: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
 }
 
 .gg-modal__close {
@@ -58,8 +58,8 @@
   width: 32px;
   height: 32px;
   background: transparent;
-  border: var(--gg-border-width-subtle) solid var(--gg-color-warm-brown);
-  color: var(--gg-color-tan);
+  border: var(--gg-border-width-subtle) solid var(--gg-color-tan);
+  color: var(--gg-color-secondary-brown);
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-md);
   font-weight: var(--gg-font-weight-bold);
@@ -69,8 +69,8 @@
 }
 
 .gg-modal__close:hover {
-  border-color: var(--gg-color-gold);
-  color: var(--gg-color-gold);
+  border-color: var(--gg-color-dark-brown);
+  color: var(--gg-color-dark-brown);
 }
 
 /* Body */

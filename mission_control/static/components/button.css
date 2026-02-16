@@ -16,16 +16,16 @@
               border-color var(--gg-animation-duration-fast);
 }
 
-/* Default: dark-brown */
+/* Default: teal */
 .gg-btn--default {
-  background: var(--gg-color-dark-brown);
-  color: var(--gg-color-warm-paper);
-  border-color: var(--gg-color-dark-brown);
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
+  border-color: var(--gg-color-teal);
 }
 
 .gg-btn--default:hover {
-  background: var(--gg-color-primary-brown);
-  border-color: var(--gg-color-primary-brown);
+  background: var(--gg-color-light-teal);
+  border-color: var(--gg-color-light-teal);
 }
 
 /* Primary: gold */

@@ -12,9 +12,9 @@
   text-transform: uppercase;
   line-height: 1;
   padding: var(--gg-spacing-2xs) var(--gg-spacing-xs);
-  border: var(--gg-border-width-subtle) solid var(--gg-color-dark-brown);
-  background: var(--gg-color-dark-brown);
-  color: var(--gg-color-warm-paper);
+  border: var(--gg-border-width-subtle) solid var(--gg-color-teal);
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
   white-space: nowrap;
   vertical-align: middle;
 }

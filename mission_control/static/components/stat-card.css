@@ -1,4 +1,4 @@
-/* Stat Card — Desert Editorial: Dark-brown bg stat row, warm-paper values, gold accents */
+/* Stat Card — Light card, dark text, teal accents */
 
 .gg-stat-grid {
   display: grid;
@@ -10,19 +10,19 @@
   border: var(--gg-border-standard);
   padding: var(--gg-spacing-md);
   text-align: center;
-  background: var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
   transition: border-color var(--gg-transition-hover);
 }
 
 .gg-stat-card:hover {
-  border-color: var(--gg-color-gold);
+  border-color: var(--gg-color-teal);
 }
 
 .gg-stat-card__value {
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-xl);
   font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
   line-height: var(--gg-line-height-tight);
 }
 
@@ -32,7 +32,7 @@
   font-weight: var(--gg-font-weight-bold);
   letter-spacing: var(--gg-letter-spacing-wider);
   text-transform: uppercase;
-  color: var(--gg-color-gold);
+  color: var(--gg-color-secondary-brown);
   margin-top: var(--gg-spacing-2xs);
 }
 

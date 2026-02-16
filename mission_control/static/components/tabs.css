@@ -8,8 +8,8 @@
 
 .gg-tabs__nav {
   display: flex;
-  background: var(--gg-color-dark-brown);
-  border-bottom: var(--gg-border-double);
+  background: var(--gg-color-sand);
+  border-bottom: var(--gg-border-standard);
 }
 
 .gg-tabs__tab {
@@ -18,7 +18,7 @@
   font-weight: var(--gg-font-weight-bold);
   letter-spacing: var(--gg-letter-spacing-wide);
   text-transform: uppercase;
-  color: var(--gg-color-warm-brown);
+  color: var(--gg-color-secondary-brown);
   background: transparent;
   border: none;
   padding: var(--gg-spacing-sm) var(--gg-spacing-lg);
@@ -29,12 +29,12 @@
 }
 
 .gg-tabs__tab:hover {
-  color: var(--gg-color-tan);
+  color: var(--gg-color-dark-brown);
 }
 
 .gg-tabs__tab--active {
-  color: var(--gg-color-white);
-  border-bottom-color: var(--gg-color-gold);
+  color: var(--gg-color-teal);
+  border-bottom-color: var(--gg-color-teal);
 }
 
 .gg-tabs__panel {

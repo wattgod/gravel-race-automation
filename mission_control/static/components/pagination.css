@@ -23,7 +23,7 @@
   color: var(--gg-color-dark-brown);
   text-decoration: none;
   background: var(--gg-color-warm-paper);
-  border-right: 1px solid var(--gg-color-dark-brown);
+  border-right: 1px solid var(--gg-color-tan);
 
   transition: background-color var(--gg-transition-hover),
               color var(--gg-transition-hover),
@@ -43,13 +43,13 @@
 
 /* Active / current page */
 .gg-pagination__item--active {
-  background: var(--gg-color-dark-brown);
-  color: var(--gg-color-gold);
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
 }
 
 .gg-pagination__item--active:hover {
-  background: var(--gg-color-dark-brown);
-  color: var(--gg-color-gold);
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
 }
 
 /* Disabled (prev on first page, next on last page) */
@@ -79,7 +79,7 @@
   font-size: var(--gg-font-size-sm);
   color: var(--gg-color-secondary-brown);
   background: var(--gg-color-warm-paper);
-  border-right: 1px solid var(--gg-color-dark-brown);
+  border-right: 1px solid var(--gg-color-tan);
   cursor: default;
 }
 

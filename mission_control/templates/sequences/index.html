@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Sequences — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header mc-page-header--with-actions">
+    <div>
+        <span class="mc-page-header__kicker">Automation</span>
+        <h1 class="mc-page-header__title">Sequences</h1>
+        <p class="mc-page-header__desc">Code-defined email automation. A/B testing built in.</p>
+    </div>
+    <div class="mc-page-header__actions">
+        <form hx-post="/sequences/process-now" hx-target="#process-result" hx-swap="innerHTML">
+            <button type="submit" class="gg-btn gg-btn--ghost">Process Now</button>
+        </form>
+    </div>
+</div>
+
+<div id="process-result" class="mc-mb-lg"></div>
+
+<!-- Sequence Cards -->
+{% for item in sequences %}
+{% set seq = item.definition %}
+{% set stats = item.stats %}
+<div class="mc-card">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">
+            {{ seq.name }}
+            {% if seq.active %}
+            <span class="gg-badge gg-badge--teal" style="margin-left:8px;font-size:9px">ACTIVE</span>
+            {% else %}
+            <span class="gg-badge gg-badge--outline" style="margin-left:8px;font-size:9px">INACTIVE</span>
+            {% endif %}
+        </h3>
+        <a href="/sequences/{{ seq.id }}" class="mc-card__action">View Detail</a>
+    </div>
+    <div class="mc-card__body">
+        <p class="mc-text-muted mc-mb-md" style="font-size:var(--gg-font-size-sm)">{{ seq.description }}</p>
+
+        <div class="mc-flex mc-gap-md mc-mb-md" style="flex-wrap:wrap">
+            <div>
+                <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-secondary-brown)">TRIGGER</span><br>
+                <span class="gg-badge gg-badge--outline" style="font-size:11px">{{ seq.trigger }}</span>
+            </div>
+            <div>
+                <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-secondary-brown)">ENROLLED</span><br>
+                <span style="font-size:var(--gg-font-size-lg);font-weight:600">{{ stats.total }}</span>
+            </div>
+            <div>
+                <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-secondary-brown)">COMPLETED</span><br>
+                <span style="font-size:var(--gg-font-size-lg);font-weight:600">{{ stats.completion_rate }}%</span>
+            </div>
+            <div>
+                <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-secondary-brown)">VARIANTS</span><br>
+                <span style="font-size:var(--gg-font-size-lg);font-weight:600">{{ seq.variants|length }}</span>
+            </div>
+        </div>
+
+        <!-- Variant Performance -->
+        {% if stats.variants %}
+        <table class="gg-table gg-table--compact" style="font-size:var(--gg-font-size-xs)">
+            <thead>
+                <tr>
+                    <th>Variant</th>
+                    <th>Name</th>
+                    <th>Enrolled</th>
+                    <th>Opens</th>
+                    <th>Open Rate</th>
+                    <th>Clicks</th>
+                    <th>Click Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v_key, v_stats in stats.variants.items() %}
+                <tr>
+                    <td><span class="gg-badge gg-badge--outline-gold">{{ v_key }}</span></td>
+                    <td>{{ seq.variants[v_key].name }}</td>
+                    <td>{{ v_stats.total }}</td>
+                    <td>{{ v_stats.opens }}</td>
+                    <td class="mc-text-teal">{{ v_stats.open_rate }}%</td>
+                    <td>{{ v_stats.clicks }}</td>
+                    <td class="mc-text-teal">{{ v_stats.click_rate }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Test Enroll -->
+        <details style="margin-top:var(--gg-spacing-md)">
+            <summary class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);cursor:pointer;color:var(--gg-color-secondary-brown)">ENROLL TEST CONTACT</summary>
+            <form hx-post="/sequences/test-enroll" hx-target="#enroll-result-{{ seq.id }}" hx-swap="innerHTML" class="mc-form-row mc-mt-md">
+                <input type="hidden" name="sequence_id" value="{{ seq.id }}">
+                <div class="mc-form-group" style="flex:1;margin-bottom:0">
+                    <input type="email" name="email" placeholder="test@example.com" class="mc-input" required>
+                </div>
+                <div class="mc-form-group" style="flex:1;margin-bottom:0">
+                    <input type="text" name="name" placeholder="Test Name" class="mc-input" value="Test Contact">
+                </div>
+                <button type="submit" class="gg-btn gg-btn--secondary">Enroll</button>
+            </form>
+            <div id="enroll-result-{{ seq.id }}" class="mc-mt-md"></div>
+        </details>
+    </div>
+</div>
+{% endfor %}
+
+{% if not sequences %}
+<div class="mc-card">
+    <div class="mc-card__body">
+        <p class="mc-text-muted mc-text-center">No sequences defined.</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

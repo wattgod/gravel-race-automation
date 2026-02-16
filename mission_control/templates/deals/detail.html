@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Deal: {{ deal.contact_name or deal.contact_email }} — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Revenue / <a href="/deals" style="color:var(--gg-color-gold)">Deals</a></span>
+    <h1 class="mc-page-header__title">{{ deal.contact_name or deal.contact_email }}</h1>
+</div>
+
+<div class="mc-detail-grid">
+    <!-- Main Content -->
+    <div class="mc-detail-main">
+        <!-- Deal Info -->
+        <div class="mc-card">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Deal Info</h3>
+            </div>
+            <div class="mc-card__body">
+                <div class="mc-kv">
+                    <div class="mc-kv__key">Email</div>
+                    <div class="mc-kv__value mc-text-mono" style="font-size:var(--gg-font-size-xs)">{{ deal.contact_email }}</div>
+
+                    <div class="mc-kv__key">Name</div>
+                    <div class="mc-kv__value">{{ deal.contact_name or '—' }}</div>
+
+                    <div class="mc-kv__key">Race</div>
+                    <div class="mc-kv__value">{{ deal.race_name or '—' }}</div>
+
+                    <div class="mc-kv__key">Value</div>
+                    <div class="mc-kv__value mc-text-gold" style="font-size:var(--gg-font-size-lg);font-weight:700">${{ "%.2f"|format(deal.value) }}</div>
+
+                    <div class="mc-kv__key">Source</div>
+                    <div class="mc-kv__value"><span class="gg-badge gg-badge--outline">{{ deal.source or '—' }}</span></div>
+
+                    <div class="mc-kv__key">Stage</div>
+                    <div class="mc-kv__value" id="deal-stage">
+                        <span class="gg-badge mc-deal-stage--{{ deal.stage }}">{{ deal.stage.replace('_', ' ').title() }}</span>
+                    </div>
+
+                    <div class="mc-kv__key">Created</div>
+                    <div class="mc-kv__value mc-text-muted">{{ deal.created_at[:10] if deal.created_at else '—' }}</div>
+
+                    {% if deal.closed_at %}
+                    <div class="mc-kv__key">Closed</div>
+                    <div class="mc-kv__value mc-text-muted">{{ deal.closed_at[:10] }}</div>
+                    {% endif %}
+
+                    {% if athlete %}
+                    <div class="mc-kv__key">Athlete</div>
+                    <div class="mc-kv__value"><a href="/athletes/{{ athlete.slug }}">{{ athlete.name }}</a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="mc-card">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Notes</h3>
+            </div>
+            <div class="mc-card__body">
+                <form hx-post="/deals/{{ deal.id }}/notes" hx-target="#notes-result" hx-swap="innerHTML">
+                    <textarea name="notes" class="mc-textarea" rows="4">{{ deal.notes or '' }}</textarea>
+                    <div id="notes-result" class="mc-mt-md"></div>
+                    <button type="submit" class="gg-btn gg-btn--ghost mc-mt-md" style="font-size:12px">Save Notes</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payments -->
+        <div class="mc-card">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Payments</h3>
+            </div>
+            <div class="mc-card__body">
+                {% if payments %}
+                <table class="gg-table gg-table--compact mc-mb-lg">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Source</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in payments %}
+                        <tr>
+                            <td class="mc-text-gold" style="font-weight:700">${{ "%.2f"|format(p.amount) }}</td>
+                            <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ p.source }}</td>
+                            <td>{{ p.description or '—' }}</td>
+                            <td class="mc-text-muted">{{ p.paid_at[:10] if p.paid_at else '—' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+                <details>
+                    <summary class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);cursor:pointer;color:var(--gg-color-secondary-brown)">RECORD PAYMENT</summary>
+                    <form hx-post="/deals/{{ deal.id }}/payment" hx-target="#payment-result" hx-swap="innerHTML" class="mc-mt-md">
+                        <div class="mc-form-row">
+                            <div class="mc-form-group" style="flex:1;margin-bottom:0">
+                                <label class="mc-label">Amount ($)</label>
+                                <input type="number" name="amount" class="mc-input" value="{{ deal.value }}" step="0.01" required>
+                            </div>
+                            <div class="mc-form-group" style="flex:1;margin-bottom:0">
+                                <label class="mc-label">Source</label>
+                                <select name="source" class="mc-select">
+                                    <option value="manual">Manual</option>
+                                    <option value="stripe">Stripe</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="gg-btn gg-btn--primary">Record</button>
+                        </div>
+                    </form>
+                    <div id="payment-result" class="mc-mt-md"></div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="mc-detail-aside">
+        <!-- Stage Transitions -->
+        <div class="mc-card">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Move Stage</h3>
+            </div>
+            <div class="mc-card__body">
+                <div style="display:flex;flex-direction:column;gap:var(--gg-spacing-xs)">
+                    {% for stage in stages %}
+                    {% if stage != deal.stage %}
+                    <form hx-post="/deals/{{ deal.id }}/stage" hx-target="#deal-stage" hx-swap="innerHTML" style="display:inline">
+                        <input type="hidden" name="stage" value="{{ stage }}">
+                        <button type="submit" class="gg-btn gg-btn--{% if stage == 'closed_won' %}primary{% elif stage == 'closed_lost' %}ghost{% else %}secondary{% endif %}" style="width:100%;font-size:12px">
+                            {{ stage.replace('_', ' ').title() }}
+                        </button>
+                    </form>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

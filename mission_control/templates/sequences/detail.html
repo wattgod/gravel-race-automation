@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}{{ sequence.name }} — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Automation / Sequences</span>
+    <h1 class="mc-page-header__title">{{ sequence.name }}</h1>
+    <p class="mc-page-header__desc">{{ sequence.description }}</p>
+</div>
+
+<!-- Stats Overview -->
+<div class="gg-stat-grid">
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.total }}</div>
+        <div class="gg-stat-card__label">Total Enrolled</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value mc-text-teal">{{ stats.active }}</div>
+        <div class="gg-stat-card__label">Active</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.completed }}</div>
+        <div class="gg-stat-card__label">Completed</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.completion_rate }}%</div>
+        <div class="gg-stat-card__label">Completion Rate</div>
+    </div>
+</div>
+
+<!-- Variant Comparison -->
+<div class="mc-card mc-mt-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">A/B Variant Comparison</h3>
+    </div>
+    <div class="mc-card__body">
+        <div style="display:grid;grid-template-columns:repeat({{ sequence.variants|length }}, 1fr);gap:var(--gg-spacing-lg)">
+            {% for v_key, variant in sequence.variants.items() %}
+            <div>
+                <div class="mc-flex-between mc-mb-md">
+                    <span class="gg-badge gg-badge--gold" style="font-size:12px">Variant {{ v_key }}: {{ variant.name }}</span>
+                    <span class="mc-text-mono mc-text-muted" style="font-size:var(--gg-font-size-2xs)">Weight: {{ variant.weight }}%</span>
+                </div>
+
+                <!-- Steps visualization -->
+                <div class="mc-timeline">
+                    {% for step in variant.steps %}
+                    <div class="mc-timeline__item mc-timeline__item--sent">
+                        <div class="mc-timeline__date">Day {{ step.delay_days }}</div>
+                        <div class="mc-timeline__title">{{ step.subject }}</div>
+                        <div class="mc-timeline__meta">Template: {{ step.template }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Variant stats -->
+                {% if stats.variants and v_key in stats.variants %}
+                {% set v_stats = stats.variants[v_key] %}
+                <div style="margin-top:var(--gg-spacing-md);padding:var(--gg-spacing-sm);background:var(--gg-color-sand)">
+                    <div class="mc-kv" style="grid-template-columns:80px 1fr">
+                        <div class="mc-kv__key">Enrolled</div>
+                        <div class="mc-kv__value">{{ v_stats.total }}</div>
+                        <div class="mc-kv__key">Sends</div>
+                        <div class="mc-kv__value">{{ v_stats.sends }}</div>
+                        <div class="mc-kv__key">Open Rate</div>
+                        <div class="mc-kv__value mc-text-teal">{{ v_stats.open_rate }}%</div>
+                        <div class="mc-kv__key">Click Rate</div>
+                        <div class="mc-kv__value mc-text-teal">{{ v_stats.click_rate }}%</div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Recent Enrollments -->
+<div class="mc-card mc-mt-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Recent Enrollments</h3>
+        <a href="/sequences/{{ sequence.id }}/enrollments" class="mc-card__action">View All</a>
+    </div>
+    <div class="mc-card__body mc-card__body--flush">
+        {% if enrollments %}
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Variant</th>
+                    <th>Step</th>
+                    <th>Status</th>
+                    <th>Enrolled</th>
+                    <th>Source</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in enrollments[:20] %}
+                <tr>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ e.contact_email }}</td>
+                    <td><span class="gg-badge gg-badge--outline-gold">{{ e.variant }}</span></td>
+                    <td class="mc-text-mono">{{ e.current_step }}</td>
+                    <td id="status-{{ e.id }}">
+                        <span class="gg-badge mc-status--{{ e.status }}">{{ e.status }}</span>
+                    </td>
+                    <td class="mc-text-muted">{{ e.enrolled_at[:10] if e.enrolled_at else '—' }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ e.source or '—' }}</td>
+                    <td>
+                        {% if e.status == 'active' %}
+                        <form hx-post="/sequences/enrollments/{{ e.id }}/pause" hx-target="#status-{{ e.id }}" hx-swap="innerHTML" style="display:inline">
+                            <button type="submit" class="gg-btn gg-btn--ghost" style="padding:2px 8px;font-size:10px">Pause</button>
+                        </form>
+                        {% elif e.status == 'paused' %}
+                        <form hx-post="/sequences/enrollments/{{ e.id }}/resume" hx-target="#status-{{ e.id }}" hx-swap="innerHTML" style="display:inline">
+                            <button type="submit" class="gg-btn gg-btn--ghost" style="padding:2px 8px;font-size:10px">Resume</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div style="padding:var(--gg-spacing-lg);text-align:center">
+            <p class="mc-text-muted">No enrollments yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Recent Sends -->
+{% if sends %}
+<div class="mc-card mc-mt-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Recent Sends</h3>
+    </div>
+    <div class="mc-card__body mc-card__body--flush">
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Template</th>
+                    <th>Step</th>
+                    <th>Status</th>
+                    <th>Sent</th>
+                    <th>Opened</th>
+                    <th>Clicked</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in sends[:30] %}
+                <tr>
+                    <td>{{ s.subject }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ s.template }}</td>
+                    <td class="mc-text-mono">{{ s.step_index }}</td>
+                    <td><span class="gg-badge gg-badge--{% if s.status == 'clicked' %}teal{% elif s.status == 'opened' %}gold{% elif s.status == 'bounced' %}outline{% else %}outline{% endif %}">{{ s.status }}</span></td>
+                    <td class="mc-text-muted">{{ s.sent_at[:10] if s.sent_at else '—' }}</td>
+                    <td class="mc-text-muted">{{ s.opened_at[:10] if s.opened_at else '—' }}</td>
+                    <td class="mc-text-muted">{{ s.clicked_at[:10] if s.clicked_at else '—' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

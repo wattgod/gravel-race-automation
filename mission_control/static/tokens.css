@@ -8,8 +8,8 @@
   --gg-color-secondary-brown: #8c7568;
   --gg-color-warm-brown: #A68E80;
   --gg-color-tan: #d4c5b9;
-  --gg-color-sand: #ede4d8;
-  --gg-color-warm-paper: #f5efe6;
+  --gg-color-sand: #f8f3ec;
+  --gg-color-warm-paper: #fffcf8;
   --gg-color-gold: #B7950B;
   --gg-color-light-gold: #c9a92c;
   --gg-color-teal: #1A8A82;
@@ -66,10 +66,10 @@
   --gg-spacing-4xl: 96px;
 
   /* border */
-  --gg-border-width-subtle: 2px;
-  --gg-border-width-standard: 3px;
+  --gg-border-width-subtle: 1px;
+  --gg-border-width-standard: 2px;
   --gg-border-width-heavy: 4px;
-  --gg-border-color-default: #3a2e25;
+  --gg-border-color-default: #d4c5b9;
   --gg-border-color-brand: #59473c;
   --gg-border-color-secondary: #8c7568;
   --gg-border-color-gold: #B7950B;

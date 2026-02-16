@@ -18,7 +18,7 @@ ENV/
 *.env.local
 
 # WordPress credentials (keep config.py.example, ignore actual config)
-config.py
+wordpress/config.py
 
 # Results and logs
 push_results.json

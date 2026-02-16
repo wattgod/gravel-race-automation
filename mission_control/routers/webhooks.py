@@ -1,9 +1,15 @@
-"""Webhooks — receives intake from Cloudflare Worker."""
+"""Webhooks — receives intake from Cloudflare Worker + automation triggers."""
+
+import logging
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
 from mission_control.config import WEBHOOK_SECRET
 from mission_control import supabase_client as db
+from mission_control.sequences import get_sequences_for_trigger
+from mission_control.services.sequence_engine import enroll, record_event
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/webhooks")
 
@@ -70,3 +76,120 @@ async def intake_webhook(
                   f"New intake from webhook: {name} ({email})")
 
     return {"status": "created", "slug": slug}
+
+
+@router.post("/subscriber")
+async def subscriber_webhook(
+    request: Request,
+    authorization: str = Header(""),
+):
+    """Receive new subscriber from Cloudflare Worker.
+
+    Payload: { email, name?, source, race_slug?, race_name? }
+    Enrolls in appropriate sequences based on source.
+    """
+    if WEBHOOK_SECRET:
+        expected = f"Bearer {WEBHOOK_SECRET}"
+        if authorization != expected:
+            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+
+    body = await request.json()
+    email = body.get("email", "").strip()
+    if not email:
+        raise HTTPException(status_code=400, detail="email required")
+
+    name = body.get("name", "").strip()
+    source = body.get("source", "unknown")
+
+    source_data = {}
+    if body.get("race_slug"):
+        source_data["race_slug"] = body["race_slug"]
+    if body.get("race_name"):
+        source_data["race_name"] = body["race_name"]
+
+    # Map capture source to sequence trigger
+    trigger_map = {
+        "exit_intent": "new_subscriber",
+        "race_profile": "new_subscriber",
+        "prep_kit_gate": "prep_kit_download",
+        "race_quiz": "quiz_completed",
+        "quiz_shared": "quiz_completed",
+        "fueling_calculator": "new_subscriber",
+    }
+    trigger = trigger_map.get(source, "new_subscriber")
+
+    # Enroll in matching sequences
+    enrolled = []
+    for seq in get_sequences_for_trigger(trigger):
+        result = enroll(email, name, seq["id"], source=source, source_data=source_data)
+        if result:
+            enrolled.append(seq["id"])
+
+    # Also enroll in welcome if trigger wasn't new_subscriber
+    if trigger != "new_subscriber":
+        for seq in get_sequences_for_trigger("new_subscriber"):
+            result = enroll(email, name, seq["id"], source=source, source_data=source_data)
+            if result:
+                enrolled.append(seq["id"])
+
+    db.log_action(
+        "subscriber_received", "webhook", email,
+        f"Source: {source}, enrolled in: {', '.join(enrolled) or 'none (already enrolled)'}",
+    )
+
+    return {"status": "ok", "enrolled": enrolled}
+
+
+@router.post("/resend")
+async def resend_webhook(request: Request):
+    """Receive Resend email event webhooks (opens, clicks, bounces)."""
+    body = await request.json()
+
+    event_type = body.get("type", "")
+    data = body.get("data", {})
+
+    # Resend sends email_id in data
+    resend_id = data.get("email_id", "")
+    if not resend_id:
+        return {"status": "ignored", "reason": "no email_id"}
+
+    if event_type in ("email.opened", "email.clicked", "email.bounced"):
+        success = record_event(resend_id, event_type)
+        return {"status": "recorded" if success else "not_found"}
+
+    return {"status": "ignored", "reason": f"unhandled event: {event_type}"}
+
+
+@router.post("/resend-inbound")
+async def resend_inbound_webhook(request: Request):
+    """Receive inbound email replies via Resend."""
+    body = await request.json()
+    data = body.get("data", {})
+
+    from_email = data.get("from", "")
+    subject = data.get("subject", "")
+    text_body = data.get("text", "")
+
+    if not from_email:
+        return {"status": "ignored"}
+
+    # Try to match to an athlete by email
+    athletes = db.select("gg_athletes", match={"email": from_email}, limit=1)
+    if athletes:
+        athlete = athletes[0]
+        db.log_communication(
+            athlete_id=athlete["id"],
+            comm_type="inbound",
+            subject=subject,
+            recipient=from_email,
+            status="received",
+        )
+        db.log_action(
+            "inbound_email", "athlete", athlete["slug"],
+            f"Reply from {from_email}: {subject}",
+        )
+        return {"status": "recorded", "athlete_slug": athlete["slug"]}
+
+    # Log even if no matching athlete
+    db.log_action("inbound_email", "contact", from_email, f"Reply (no athlete match): {subject}")
+    return {"status": "recorded", "athlete_slug": None}

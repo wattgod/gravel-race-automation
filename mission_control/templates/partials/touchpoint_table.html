@@ -1,0 +1,32 @@
+{% for tp in touchpoints %}
+<tr id="tp-{{ tp.id }}" {% if tp.send_date <= today and not tp.sent %}style="background:color-mix(in srgb, var(--gg-color-gold) 8%, transparent)"{% endif %}>
+    <td class="mc-text-muted" style="white-space:nowrap">{{ tp.send_date }}</td>
+    <td>
+        {% if tp.gg_athletes %}
+        <a href="/athletes/{{ tp.gg_athletes.slug }}" class="mc-text-teal" style="font-size:var(--gg-font-size-sm)">{{ tp.gg_athletes.name }}</a>
+        {% else %}—{% endif %}
+    </td>
+    <td style="font-size:var(--gg-font-size-sm)">{{ tp.subject }}</td>
+    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ tp.category }}</td>
+    <td>
+        {% if tp.sent %}
+        <span class="gg-badge" style="background:var(--gg-color-teal);color:var(--gg-color-white)">Sent</span>
+        {% elif tp.send_date <= today %}
+        <span class="gg-badge gg-badge--gold">Due</span>
+        {% else %}
+        <span class="gg-badge gg-badge--default">Scheduled</span>
+        {% endif %}
+    </td>
+    <td>
+        {% if not tp.sent %}
+        <form hx-post="/touchpoints/send" hx-target="#tp-{{ tp.id }}" hx-swap="outerHTML">
+            <input type="hidden" name="touchpoint_id" value="{{ tp.id }}">
+            <input type="hidden" name="dry_run" value="true">
+            <button type="submit" class="mc-text-teal" style="font-size:var(--gg-font-size-2xs);background:none;border:none;cursor:pointer;text-decoration:underline">Preview</button>
+        </form>
+        {% else %}
+        <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ tp.sent_at or '' }}</span>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}

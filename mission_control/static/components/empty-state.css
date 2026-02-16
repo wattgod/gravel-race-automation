@@ -1,0 +1,68 @@
+/* Empty State — zero-result or blank content placeholder
+   Used in search widget, race listings, filtered views */
+
+.gg-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--gg-spacing-3xl) var(--gg-spacing-xl);
+  border: var(--gg-border-standard);
+  background: var(--gg-color-warm-paper);
+}
+
+/* Icon area — placeholder for future SVG or text icon */
+.gg-empty-state__icon {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-5xl);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-tan);
+  line-height: 1;
+  margin-bottom: var(--gg-spacing-lg);
+}
+
+/* Headline */
+.gg-empty-state__title {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xl);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  line-height: var(--gg-line-height-tight);
+  margin-bottom: var(--gg-spacing-sm);
+}
+
+/* Supporting text */
+.gg-empty-state__text {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-secondary-brown);
+  max-width: 400px;
+  margin-bottom: var(--gg-spacing-lg);
+}
+
+/* Action area */
+.gg-empty-state__actions {
+  display: flex;
+  gap: var(--gg-spacing-sm);
+}
+
+/* Compact variant — less vertical padding */
+.gg-empty-state--compact {
+  padding: var(--gg-spacing-xl) var(--gg-spacing-lg);
+}
+
+.gg-empty-state--compact .gg-empty-state__icon {
+  font-size: var(--gg-font-size-3xl);
+  margin-bottom: var(--gg-spacing-sm);
+}
+
+.gg-empty-state--compact .gg-empty-state__title {
+  font-size: var(--gg-font-size-lg);
+}
+
+/* Borderless variant — for inline placement */
+.gg-empty-state--borderless {
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Pipeline — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Execution</span>
+    <h1 class="mc-page-header__title">Pipeline</h1>
+    <p class="mc-page-header__desc">Trigger runs, view history, sync filesystem</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mb-lg">
+    <!-- Trigger Pipeline -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Trigger Pipeline Run</h3>
+        </div>
+        <div class="mc-card__body">
+            <form hx-post="/pipeline/trigger" hx-target="#pipeline-result" hx-swap="innerHTML">
+                <div style="display:flex;flex-direction:column;gap:var(--gg-spacing-sm)">
+                    <div>
+                        <label class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);display:block;margin-bottom:var(--gg-spacing-2xs)">Athlete</label>
+                        <select name="athlete_id" required class="mc-select" style="width:100%">
+                            {% for a in athletes %}
+                            <option value="{{ a.id }}">{{ a.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);display:block;margin-bottom:var(--gg-spacing-2xs)">Run Type</label>
+                        <select name="run_type" class="mc-select" style="width:100%">
+                            <option value="draft">Draft (skip PDF/deploy/deliver)</option>
+                            <option value="full">Full</option>
+                        </select>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:var(--gg-spacing-2xs)">
+                        <label style="display:flex;align-items:center;gap:var(--gg-spacing-sm);font-size:var(--gg-font-size-sm)">
+                            <input type="checkbox" name="skip_pdf" value="true" checked> Skip PDF
+                        </label>
+                        <label style="display:flex;align-items:center;gap:var(--gg-spacing-sm);font-size:var(--gg-font-size-sm)">
+                            <input type="checkbox" name="skip_deploy" value="true" checked> Skip Deploy
+                        </label>
+                        <label style="display:flex;align-items:center;gap:var(--gg-spacing-sm);font-size:var(--gg-font-size-sm)">
+                            <input type="checkbox" name="skip_deliver" value="true" checked> Skip Deliver
+                        </label>
+                    </div>
+                    <button type="submit" class="gg-btn gg-btn--primary" style="width:100%">Run Pipeline</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Run Audit -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Pre-Delivery Audit</h3>
+        </div>
+        <div class="mc-card__body">
+            <form hx-post="/pipeline/audit" hx-target="#pipeline-result" hx-swap="innerHTML">
+                <div style="display:flex;flex-direction:column;gap:var(--gg-spacing-sm)">
+                    <div>
+                        <label class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);display:block;margin-bottom:var(--gg-spacing-2xs)">Athlete</label>
+                        <select name="athlete_id" required class="mc-select" style="width:100%">
+                            {% for a in athletes %}
+                            <option value="{{ a.id }}">{{ a.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="gg-btn gg-btn--default" style="width:100%">Run Audit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sync -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Filesystem Sync</h3>
+        </div>
+        <div class="mc-card__body">
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm);margin-bottom:var(--gg-spacing-md)">Re-scan athletes/ directory and update database.</p>
+            <form hx-post="/pipeline/sync" hx-target="#pipeline-result" hx-swap="innerHTML">
+                <button type="submit" class="gg-btn gg-btn--default" style="width:100%">Sync from Filesystem</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="pipeline-result" class="mc-mb-lg"></div>
+
+<!-- Run History -->
+<div class="mc-card">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Run History</h3>
+    </div>
+    <div class="mc-card__body" style="padding:0">
+        {% if runs %}
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Run</th>
+                    <th>Athlete</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Step</th>
+                    <th>Duration</th>
+                    <th>Started</th>
+                    <th>Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for run in runs %}
+                <tr>
+                    <td><a href="/pipeline/{{ run.id }}" class="mc-text-teal mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.id[:8] }}</a></td>
+                    <td>{{ run.athlete_name or '—' }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.run_type }}</td>
+                    <td><span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span></td>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ run.current_step }}</td>
+                    <td class="mc-text-muted">{% if run.duration_secs %}{{ "%.1f"|format(run.duration_secs) }}s{% else %}—{% endif %}</td>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ run.started_at }}</td>
+                    <td style="color:var(--gg-color-error);font-size:var(--gg-font-size-2xs);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ run.error_message or '' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="mc-card__body">
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No pipeline runs yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

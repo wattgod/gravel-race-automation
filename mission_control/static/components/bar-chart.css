@@ -1,0 +1,86 @@
+/* Horizontal Bar Chart — Desert Editorial
+   Gold bar fills, dark-brown header, warm-paper body,
+   serif labels, mono data values. CSS-only, no JS. */
+
+.gg-bar-chart {
+  border: var(--gg-border-standard);
+  background: var(--gg-color-warm-paper);
+}
+
+.gg-bar-chart__header {
+  background: var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  border-bottom: var(--gg-border-double);
+}
+
+.gg-bar-chart__title {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-tan);
+  letter-spacing: var(--gg-letter-spacing-wide);
+}
+
+.gg-bar-chart__body {
+  padding: var(--gg-spacing-md);
+}
+
+.gg-bar-chart__row {
+  display: flex;
+  align-items: center;
+  gap: var(--gg-spacing-sm);
+  margin-bottom: var(--gg-spacing-sm);
+}
+
+.gg-bar-chart__row:last-child {
+  margin-bottom: 0;
+}
+
+.gg-bar-chart__label {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-semibold);
+  color: var(--gg-color-dark-brown);
+  min-width: 100px;
+  text-align: right;
+}
+
+.gg-bar-chart__track {
+  flex: 1;
+  height: 24px;
+  background: var(--gg-color-sand);
+  border: var(--gg-border-subtle);
+  position: relative;
+}
+
+.gg-bar-chart__fill {
+  height: 100%;
+  background: var(--gg-color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: var(--gg-spacing-xs);
+}
+
+.gg-bar-chart__fill--teal {
+  background: var(--gg-color-teal);
+}
+
+.gg-bar-chart__fill--brand {
+  background: var(--gg-color-primary-brown);
+}
+
+.gg-bar-chart__value {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-white);
+  letter-spacing: var(--gg-letter-spacing-wide);
+}
+
+/* If value is outside the bar (for small bars) */
+.gg-bar-chart__value--outside {
+  position: absolute;
+  right: -40px;
+  color: var(--gg-color-dark-brown);
+}

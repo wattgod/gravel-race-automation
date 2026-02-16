@@ -1,0 +1,132 @@
+/* Modal — overlay dialogs for image lightbox, confirmations, questionnaire
+   Variants: --narrow, --wide */
+
+.gg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(26, 22, 19, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gg-spacing-lg);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--gg-animation-duration-normal) var(--gg-animation-easing-sharp),
+              visibility var(--gg-animation-duration-normal) var(--gg-animation-easing-sharp);
+}
+
+.gg-modal-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gg-modal {
+  background: var(--gg-color-warm-paper);
+  border: var(--gg-border-heavy);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Header */
+.gg-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  background: var(--gg-color-dark-brown);
+  border-bottom: var(--gg-border-standard);
+}
+
+.gg-modal__title {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-warm-paper);
+}
+
+.gg-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: var(--gg-border-width-subtle) solid var(--gg-color-warm-brown);
+  color: var(--gg-color-tan);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-md);
+  font-weight: var(--gg-font-weight-bold);
+  cursor: pointer;
+  transition: border-color var(--gg-transition-hover),
+              color var(--gg-transition-hover);
+}
+
+.gg-modal__close:hover {
+  border-color: var(--gg-color-gold);
+  color: var(--gg-color-gold);
+}
+
+/* Body */
+.gg-modal__body {
+  padding: var(--gg-spacing-lg);
+}
+
+.gg-modal__body p {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+  margin-bottom: var(--gg-spacing-md);
+}
+
+.gg-modal__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.gg-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gg-spacing-sm);
+  padding: var(--gg-spacing-md);
+  border-top: var(--gg-border-standard);
+  background: var(--gg-color-sand);
+}
+
+/* Width variants */
+.gg-modal--narrow {
+  max-width: 420px;
+}
+
+.gg-modal--wide {
+  max-width: 800px;
+}
+
+/* Image modal — no padding, image fills */
+.gg-modal--image .gg-modal__body {
+  padding: 0;
+}
+
+.gg-modal--image .gg-modal__body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .gg-modal-overlay {
+    padding: var(--gg-spacing-sm);
+  }
+
+  .gg-modal {
+    max-height: 95vh;
+  }
+}

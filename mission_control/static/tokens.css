@@ -1,0 +1,96 @@
+/* Auto-generated from tokens.json — do not edit by hand */
+/* Run: python tokens/generate_css.py */
+
+:root {
+  /* color */
+  --gg-color-dark-brown: #3a2e25;
+  --gg-color-primary-brown: #59473c;
+  --gg-color-secondary-brown: #8c7568;
+  --gg-color-warm-brown: #A68E80;
+  --gg-color-tan: #d4c5b9;
+  --gg-color-sand: #ede4d8;
+  --gg-color-warm-paper: #f5efe6;
+  --gg-color-gold: #B7950B;
+  --gg-color-light-gold: #c9a92c;
+  --gg-color-teal: #1A8A82;
+  --gg-color-light-teal: #4ECDC4;
+  --gg-color-near-black: #1a1613;
+  --gg-color-white: #ffffff;
+  --gg-color-error: #c0392b;
+  --gg-color-tier-1: #59473c;
+  --gg-color-tier-2: #8c7568;
+  --gg-color-tier-3: #999999;
+  --gg-color-tier-4: #cccccc;
+
+  /* font */
+  --gg-font-data: 'Sometype Mono', monospace;
+  --gg-font-editorial: 'Source Serif 4', Georgia, serif;
+  --gg-font-size-2xs: 10px;
+  --gg-font-size-xs: 13px;
+  --gg-font-size-sm: 14px;
+  --gg-font-size-base: 16px;
+  --gg-font-size-md: 18px;
+  --gg-font-size-lg: 20px;
+  --gg-font-size-xl: 24px;
+  --gg-font-size-2xl: 28px;
+  --gg-font-size-3xl: 42px;
+  --gg-font-size-4xl: 48px;
+  --gg-font-size-5xl: 56px;
+  --gg-font-weight-regular: 400;
+  --gg-font-weight-semibold: 600;
+  --gg-font-weight-bold: 700;
+
+  /* line */
+  --gg-line-height-tight: 1.1;
+  --gg-line-height-normal: 1.5;
+  --gg-line-height-relaxed: 1.7;
+  --gg-line-height-prose: 1.75;
+
+  /* letter */
+  --gg-letter-spacing-tight: -0.5px;
+  --gg-letter-spacing-normal: 0;
+  --gg-letter-spacing-wide: 1px;
+  --gg-letter-spacing-wider: 2px;
+  --gg-letter-spacing-ultra-wide: 3px;
+  --gg-letter-spacing-extreme: 4px;
+
+  /* spacing */
+  --gg-spacing-2xs: 4px;
+  --gg-spacing-xs: 8px;
+  --gg-spacing-sm: 12px;
+  --gg-spacing-md: 16px;
+  --gg-spacing-lg: 24px;
+  --gg-spacing-xl: 32px;
+  --gg-spacing-2xl: 48px;
+  --gg-spacing-3xl: 64px;
+  --gg-spacing-4xl: 96px;
+
+  /* border */
+  --gg-border-width-subtle: 2px;
+  --gg-border-width-standard: 3px;
+  --gg-border-width-heavy: 4px;
+  --gg-border-color-default: #3a2e25;
+  --gg-border-color-brand: #59473c;
+  --gg-border-color-secondary: #8c7568;
+  --gg-border-color-gold: #B7950B;
+  --gg-border-radius: 0;
+
+  /* animation */
+  --gg-animation-duration-instant: 0ms;
+  --gg-animation-duration-fast: 150ms;
+  --gg-animation-duration-normal: 300ms;
+  --gg-animation-duration-slow: 500ms;
+  --gg-animation-easing-sharp: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Composite tokens (derived) */
+:root {
+  --gg-border-subtle: var(--gg-border-width-subtle) solid var(--gg-border-color-default);
+  --gg-border-standard: var(--gg-border-width-standard) solid var(--gg-border-color-default);
+  --gg-border-heavy: var(--gg-border-width-heavy) solid var(--gg-border-color-default);
+  --gg-border-double: var(--gg-border-width-heavy) double var(--gg-border-color-default);
+  --gg-border-gold: var(--gg-border-width-standard) solid var(--gg-border-color-gold);
+  --gg-border-brand: var(--gg-border-width-standard) solid var(--gg-border-color-brand);
+  --gg-border-secondary: var(--gg-border-width-standard) solid var(--gg-border-color-secondary);
+  --gg-transition-hover: var(--gg-animation-duration-normal) var(--gg-animation-easing-sharp);
+}

@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}Reports — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Analytics</span>
+    <h1 class="mc-page-header__title">Reports</h1>
+    <p class="mc-page-header__desc">Business health and metrics</p>
+</div>
+
+<!-- NPS + Referrals -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mb-lg">
+    <!-- NPS Overview -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">NPS Overview</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if nps_scores %}
+            <div class="mc-flex mc-gap-lg mc-mb-md" style="align-items:center">
+                <div>
+                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data);{% if nps_data.nps_score is not none and nps_data.nps_score >= 50 %}color:var(--gg-color-teal){% elif nps_data.nps_score is not none and nps_data.nps_score >= 0 %}color:var(--gg-color-gold){% else %}color:var(--gg-color-error){% endif %}">
+                        {{ nps_data.nps_score if nps_data.nps_score is not none else '—' }}
+                    </div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">NPS Score</div>
+                </div>
+                <div>
+                    <div style="font-size:var(--gg-font-size-xl);font-weight:700;font-family:var(--gg-font-data)">{{ nps_data.average }}</div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">Avg Rating</div>
+                </div>
+                <div style="font-size:var(--gg-font-size-2xs)">
+                    <div class="mc-flex mc-gap-sm" style="align-items:center;margin-bottom:var(--gg-spacing-2xs)">
+                        <span style="width:8px;height:8px;background:var(--gg-color-teal);display:inline-block"></span>
+                        Promoters (9-10): {{ nps_data.promoters }}
+                    </div>
+                    <div class="mc-flex mc-gap-sm" style="align-items:center;margin-bottom:var(--gg-spacing-2xs)">
+                        <span style="width:8px;height:8px;background:var(--gg-color-gold);display:inline-block"></span>
+                        Passives (7-8): {{ nps_data.passives }}
+                    </div>
+                    <div class="mc-flex mc-gap-sm" style="align-items:center">
+                        <span style="width:8px;height:8px;background:var(--gg-color-error);display:inline-block"></span>
+                        Detractors (0-6): {{ nps_data.detractors }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- NPS Distribution Bar Chart -->
+            <div class="gg-bar-chart mc-mb-md" style="display:flex;align-items:flex-end;gap:2px;height:80px">
+                {% for score in range(11) %}
+                {% set count = nps_data.distribution.get(score, 0) if nps_data.distribution else 0 %}
+                {% set max_count = nps_data.distribution.values()|max if nps_data.distribution and nps_data.distribution.values()|max > 0 else 1 %}
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+                    <div style="width:100%;{% if score >= 9 %}background:var(--gg-color-teal){% elif score >= 7 %}background:var(--gg-color-gold){% else %}background:var(--gg-color-error){% endif %};height:{{ (count / max_count * 64)|int if count > 0 else 2 }}px;min-height:2px"></div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);margin-top:var(--gg-spacing-2xs)">{{ score }}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Recent NPS entries -->
+            {% for nps in nps_scores[:5] %}
+            <div style="display:flex;align-items:center;gap:var(--gg-spacing-sm);padding:var(--gg-spacing-sm) 0;border-top:var(--gg-border-standard)">
+                <span style="font-size:var(--gg-font-size-lg);font-weight:700;font-family:var(--gg-font-data);{% if nps.score >= 9 %}color:var(--gg-color-teal){% elif nps.score >= 7 %}color:var(--gg-color-gold){% else %}color:var(--gg-color-error){% endif %}">{{ nps.score }}</span>
+                <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ nps.race_name }}</span>
+                {% if nps.comment %}<span style="font-size:var(--gg-font-size-sm)">{{ nps.comment }}</span>{% endif %}
+                <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);margin-left:auto">{{ nps.created_at }}</span>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No NPS scores recorded yet.</p>
+            {% endif %}
+
+            <!-- Record NPS -->
+            <div style="margin-top:var(--gg-spacing-md);padding-top:var(--gg-spacing-md);border-top:var(--gg-border-standard)">
+                <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--gg-spacing-sm)">Record NPS</div>
+                <form hx-post="/reports/nps" hx-target="#nps-result" hx-swap="innerHTML"
+                      style="display:flex;gap:var(--gg-spacing-sm);align-items:flex-end">
+                    <div style="flex:2">
+                        <select name="athlete_id" required class="mc-select" style="width:100%">
+                            {% for a in athletes %}
+                            <option value="{{ a.id }}">{{ a.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <input type="number" name="score" min="0" max="10" required class="mc-input" placeholder="0-10" style="width:60px">
+                    </div>
+                    <div style="flex:1">
+                        <input type="text" name="comment" placeholder="Comment" class="mc-input" style="width:100%">
+                    </div>
+                    <button type="submit" class="gg-btn gg-btn--default" style="font-size:var(--gg-font-size-2xs)">Record</button>
+                </form>
+                <div id="nps-result" class="mc-mt-sm"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Referral Funnel -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Referral Funnel</h3>
+        </div>
+        <div class="mc-card__body">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gg-spacing-md);text-align:center;margin-bottom:var(--gg-spacing-lg)">
+                <div>
+                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data)">{{ referral_stats.total }}</div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">Total</div>
+                </div>
+                <div>
+                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data);color:var(--gg-color-gold)">{{ referral_stats.contacted }}</div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">Contacted</div>
+                </div>
+                <div>
+                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data);color:var(--gg-color-teal)">{{ referral_stats.converted }}</div>
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">Converted</div>
+                </div>
+            </div>
+
+            {% if referrals %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr><th>Referrer</th><th>Referred</th><th>Status</th><th>Date</th></tr>
+                </thead>
+                <tbody>
+                    {% for r in referrals[:10] %}
+                    <tr>
+                        <td>{{ r.referrer_name }}</td>
+                        <td>{{ r.referred_name }}<div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ r.referred_email }}</div></td>
+                        <td><span class="gg-badge mc-status--{{ r.status }}">{{ r.status }}</span></td>
+                        <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ r.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No referrals yet.</p>
+            {% endif %}
+
+            <!-- Add Referral Form -->
+            <div style="margin-top:var(--gg-spacing-md);padding-top:var(--gg-spacing-md);border-top:var(--gg-border-standard)">
+                <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--gg-spacing-sm)">Record Referral</div>
+                <form hx-post="/reports/referral" hx-target="#referral-result" hx-swap="innerHTML"
+                      style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-sm)">
+                    <select name="referrer_id" required class="mc-select" style="grid-column:span 2">
+                        {% for a in athletes %}
+                        <option value="{{ a.id }}">{{ a.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="text" name="referred_name" placeholder="Referred name" required class="mc-input">
+                    <input type="email" name="referred_email" placeholder="Referred email" required class="mc-input">
+                    <button type="submit" class="gg-btn gg-btn--default" style="grid-column:span 2;font-size:var(--gg-font-size-2xs)">Record Referral</button>
+                </form>
+                <div id="referral-result" class="mc-mt-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plan Stats -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mb-lg">
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">By Tier</h3>
+        </div>
+        <div class="mc-card__body">
+            {% for t in tiers %}
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--gg-spacing-sm) 0;{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %}">
+                <span class="gg-badge gg-badge--{{ t.tier or 'default' }}">{{ (t.tier or 'Unknown')|replace('_',' ')|title }}</span>
+                <div style="display:flex;align-items:center;gap:var(--gg-spacing-sm)">
+                    <div style="width:80px;height:6px;background:var(--gg-color-sand)">
+                        {% set total_athletes = tiers|map(attribute='count')|sum %}
+                        <div style="height:100%;background:var(--gg-color-teal);width:{{ (t.count / total_athletes * 100)|int if total_athletes > 0 else 0 }}%"></div>
+                    </div>
+                    <span class="mc-text-mono" style="font-size:var(--gg-font-size-sm);width:24px;text-align:right">{{ t.count }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">By Level</h3>
+        </div>
+        <div class="mc-card__body">
+            {% for l in levels %}
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--gg-spacing-sm) 0;{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %}">
+                <span style="font-size:var(--gg-font-size-sm)">{{ (l.level or 'Unknown')|title }}</span>
+                <div style="display:flex;align-items:center;gap:var(--gg-spacing-sm)">
+                    <div style="width:80px;height:6px;background:var(--gg-color-sand)">
+                        {% set total_athletes = levels|map(attribute='count')|sum %}
+                        <div style="height:100%;background:var(--gg-color-gold);width:{{ (l.count / total_athletes * 100)|int if total_athletes > 0 else 0 }}%"></div>
+                    </div>
+                    <span class="mc-text-mono" style="font-size:var(--gg-font-size-sm);width:24px;text-align:right">{{ l.count }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">By Status</h3>
+        </div>
+        <div class="mc-card__body">
+            {% for s in statuses %}
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--gg-spacing-sm) 0;{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %}">
+                <span class="gg-badge mc-status--{{ s.plan_status }}">{{ s.plan_status }}</span>
+                <span class="mc-text-mono" style="font-size:var(--gg-font-size-sm)">{{ s.count }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Audit Log -->
+<div class="mc-card">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Audit Log <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">(recent 50)</span></h3>
+    </div>
+    <div class="mc-card__body" style="padding:0">
+        {% if audit_log %}
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr><th>Time</th><th>Action</th><th>Entity</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+                {% for entry in audit_log %}
+                <tr>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);white-space:nowrap">{{ entry.created_at }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-sm)">{{ entry.action }}</td>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ entry.entity_type }} #{{ entry.entity_id }}</td>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ entry.details }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="mc-card__body">
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No audit entries yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

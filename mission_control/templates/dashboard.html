@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Operations</span>
+    <h1 class="mc-page-header__title">Dashboard</h1>
+</div>
+
+<!-- Stat Cards -->
+<div class="gg-stat-grid">
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.total_athletes }}</div>
+        <div class="gg-stat-card__label">Total Athletes</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.active_plans }}</div>
+        <div class="gg-stat-card__label">Active Plans</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value mc-text-teal">{{ stats.due_touchpoints }}</div>
+        <div class="gg-stat-card__label">Due Touchpoints</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.nps_avg if stats.nps_avg is not none else '—' }}</div>
+        <div class="gg-stat-card__label">NPS Average{% if stats.nps_count %} ({{ stats.nps_count }}){% endif %}</div>
+    </div>
+</div>
+
+<div class="gg-stat-grid mc-mt-lg">
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.delivered }}</div>
+        <div class="gg-stat-card__label">Plans Delivered</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.sent_touchpoints }} / {{ stats.total_touchpoints }}</div>
+        <div class="gg-stat-card__label">Touchpoints Sent</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ stats.referral_count }}</div>
+        <div class="gg-stat-card__label">Referrals</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value" style="font-size:var(--gg-font-size-sm)">
+            {% for t in tiers %}
+            <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ t.tier|replace('_',' ')|title }}: {{ t.count }}</span>{% if not loop.last %} &middot; {% endif %}
+            {% endfor %}
+        </div>
+        <div class="gg-stat-card__label">Tier Breakdown</div>
+    </div>
+</div>
+
+<!-- Pending Intake Queue -->
+{% if pending_requests %}
+<div class="mc-card mc-mt-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Intake Queue</h3>
+        <span class="gg-badge gg-badge--gold">{{ pending_requests|length }} pending</span>
+    </div>
+    <div class="mc-card__body">
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Race</th>
+                    <th>Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for req in pending_requests %}
+                <tr>
+                    <td>{{ req.payload.name if req.payload else '—' }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ req.payload.email if req.payload else '—' }}</td>
+                    <td>{{ req.payload.races[0].name if req.payload and req.payload.races else '—' }}</td>
+                    <td class="mc-text-muted">{{ req.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mt-lg">
+    <!-- Upcoming Races -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Upcoming Races</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if upcoming_races %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Athlete</th>
+                        <th>Race</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in upcoming_races %}
+                    <tr>
+                        <td><a href="/athletes/{{ r.slug }}" class="mc-text-teal">{{ r.name }}</a></td>
+                        <td>{{ r.race_name }}</td>
+                        <td class="mc-text-muted">{{ r.race_date }}</td>
+                        <td><span class="gg-badge mc-status--{{ r.plan_status }}">{{ r.plan_status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No upcoming races.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Recent Pipeline Runs -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Recent Pipeline Runs</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if recent_runs %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Athlete</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for run in recent_runs %}
+                    <tr>
+                        <td><a href="/athletes/{{ run.athlete_slug }}" class="mc-text-teal">{{ run.athlete_name }}</a></td>
+                        <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.run_type }}</td>
+                        <td><span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span></td>
+                        <td class="mc-text-muted">{% if run.duration_secs %}{{ "%.1f"|format(run.duration_secs) }}s{% else %}—{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No pipeline runs yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

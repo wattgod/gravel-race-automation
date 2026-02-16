@@ -1,0 +1,43 @@
+/* Stat Card — Desert Editorial: Dark-brown bg stat row, warm-paper values, gold accents */
+
+.gg-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gg-spacing-md);
+}
+
+.gg-stat-card {
+  border: var(--gg-border-standard);
+  padding: var(--gg-spacing-md);
+  text-align: center;
+  background: var(--gg-color-dark-brown);
+  transition: border-color var(--gg-transition-hover);
+}
+
+.gg-stat-card:hover {
+  border-color: var(--gg-color-gold);
+}
+
+.gg-stat-value {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xl);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-warm-paper);
+  line-height: var(--gg-line-height-tight);
+}
+
+.gg-stat-label {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-gold);
+  margin-top: var(--gg-spacing-2xs);
+}
+
+@media (max-width: 768px) {
+  .gg-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

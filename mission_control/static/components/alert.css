@@ -1,0 +1,114 @@
+/* Alert — notification banners for feedback, warnings, info
+   Variants: --info, --success, --warning, --error, --dismissible */
+
+.gg-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gg-spacing-sm);
+  padding: var(--gg-spacing-md);
+  border: var(--gg-border-standard);
+  border-left: 6px solid var(--gg-color-teal);
+  background: var(--gg-color-warm-paper);
+  margin-bottom: var(--gg-spacing-md);
+}
+
+/* Label */
+.gg-alert__label {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-extreme);
+  text-transform: uppercase;
+  color: var(--gg-color-teal);
+  white-space: nowrap;
+  min-width: 60px;
+  padding-top: 2px;
+}
+
+/* Message */
+.gg-alert__message {
+  flex: 1;
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+}
+
+.gg-alert__message strong {
+  font-weight: var(--gg-font-weight-bold);
+}
+
+/* Dismiss button */
+.gg-alert__dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  color: var(--gg-color-secondary-brown);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--gg-transition-hover);
+}
+
+.gg-alert__dismiss:hover {
+  color: var(--gg-color-dark-brown);
+}
+
+/* Info (default — teal) */
+.gg-alert--info {
+  border-left-color: var(--gg-color-teal);
+}
+
+.gg-alert--info .gg-alert__label {
+  color: var(--gg-color-teal);
+}
+
+/* Success (teal, same visual as info in this brand) */
+.gg-alert--success {
+  border-left-color: var(--gg-color-teal);
+}
+
+.gg-alert--success .gg-alert__label {
+  color: var(--gg-color-teal);
+}
+
+/* Warning (gold) */
+.gg-alert--warning {
+  border-left-color: var(--gg-color-gold);
+}
+
+.gg-alert--warning .gg-alert__label {
+  color: var(--gg-color-gold);
+}
+
+/* Error (red) */
+.gg-alert--error {
+  border-left-color: var(--gg-color-error);
+}
+
+.gg-alert--error .gg-alert__label {
+  color: var(--gg-color-error);
+}
+
+/* Dark variant — for placement on dark backgrounds */
+.gg-alert--dark {
+  background: var(--gg-color-dark-brown);
+  border-color: var(--gg-color-dark-brown);
+}
+
+.gg-alert--dark .gg-alert__message {
+  color: var(--gg-color-tan);
+}
+
+.gg-alert--dark .gg-alert__dismiss {
+  color: var(--gg-color-warm-brown);
+}
+
+.gg-alert--dark .gg-alert__dismiss:hover {
+  color: var(--gg-color-warm-paper);
+}

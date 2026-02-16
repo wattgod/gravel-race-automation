@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Run {{ run.id[:8] }} — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <a href="/pipeline" class="mc-text-muted" style="font-size:var(--gg-font-size-xs);text-decoration:none">&larr; Pipeline</a>
+    <h1 class="mc-page-header__title mc-mt-sm">Pipeline Run</h1>
+    <p class="mc-page-header__desc mc-text-mono">{{ run.id }}</p>
+</div>
+
+<div class="mc-detail-grid">
+    <div>
+        <!-- Run Info -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Run Details</h3>
+                <span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span>
+            </div>
+            <div class="mc-card__body">
+                <div class="mc-kv">
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Athlete</span>
+                        <span class="mc-kv__value">
+                            {% if athlete %}
+                            <a href="/athletes/{{ athlete.slug }}" class="mc-text-teal">{{ athlete.name }}</a>
+                            {% else %}—{% endif %}
+                        </span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Run Type</span>
+                        <span class="mc-kv__value mc-text-mono">{{ run.run_type }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Duration</span>
+                        <span class="mc-kv__value">{% if run.duration_secs %}{{ "%.1f"|format(run.duration_secs) }}s{% else %}—{% endif %}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Started</span>
+                        <span class="mc-kv__value mc-text-muted">{{ run.started_at }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Finished</span>
+                        <span class="mc-kv__value mc-text-muted">{{ run.finished_at or '—' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Current Step</span>
+                        <span class="mc-kv__value mc-text-mono">{{ run.current_step or '—' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Steps -->
+        {% if run.steps_completed %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Steps</h3>
+            </div>
+            <div class="mc-card__body">
+                <div class="gg-stepper">
+                    {% for step in run.steps_completed %}
+                    <div class="gg-stepper__step gg-stepper__step--{{ step.status or 'pending' }}">
+                        <div class="gg-stepper__marker">
+                            {% if step.status == 'completed' %}
+                            <svg width="14" height="14" viewBox="0 0 14 14"><path d="M11.5 3.5L5.5 10.5L2.5 7.5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                            {% elif step.status == 'failed' %}
+                            <svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 3L11 11M11 3L3 11" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                            {% else %}
+                            <span style="width:8px;height:8px;border:2px solid currentColor;display:block"></span>
+                            {% endif %}
+                        </div>
+                        <div class="gg-stepper__content">
+                            <div class="gg-stepper__title">{{ step.step }}</div>
+                            {% if step.message %}
+                            <div class="gg-stepper__desc mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ step.message }}</div>
+                            {% endif %}
+                            {% if step.duration_ms %}
+                            <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ "%.0f"|format(step.duration_ms) }}ms</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Stdout -->
+        {% if run.stdout %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Output</h3>
+            </div>
+            <div class="mc-card__body">
+                <pre class="mc-pre">{{ run.stdout }}</pre>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Error -->
+        {% if run.error_message %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header" style="background:var(--gg-color-error)">
+                <h3 class="mc-card__title" style="color:var(--gg-color-white)">Error</h3>
+            </div>
+            <div class="mc-card__body">
+                <pre class="mc-pre" style="color:var(--gg-color-error)">{{ run.error_message }}</pre>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <aside>
+        <!-- Options used -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Options</h3>
+            </div>
+            <div class="mc-card__body">
+                <div class="mc-kv">
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Skip PDF</span>
+                        <span class="mc-kv__value">{{ 'Yes' if run.skip_pdf else 'No' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Skip Deploy</span>
+                        <span class="mc-kv__value">{{ 'Yes' if run.skip_deploy else 'No' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Skip Deliver</span>
+                        <span class="mc-kv__value">{{ 'Yes' if run.skip_deliver else 'No' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+{% endblock %}

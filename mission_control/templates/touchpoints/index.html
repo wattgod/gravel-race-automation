@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Touchpoints — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header mc-page-header--with-actions">
+    <div>
+        <span class="mc-page-header__kicker">Lifecycle</span>
+        <h1 class="mc-page-header__title">Touchpoints</h1>
+        <p class="mc-page-header__desc">
+            {{ touchpoints|length }} shown
+            {% if due_count %} &middot; <span class="mc-text-gold">{{ due_count }} due today or earlier</span>{% endif %}
+        </p>
+    </div>
+    <div>
+        <form hx-post="/touchpoints/batch-send" hx-target="#batch-result" hx-swap="innerHTML">
+            <input type="hidden" name="dry_run" value="true">
+            <button type="submit" class="gg-btn gg-btn--default">Batch Send Due (Dry Run)</button>
+        </form>
+    </div>
+</div>
+
+<div id="batch-result" class="mc-mb-md"></div>
+
+<!-- Category Tabs -->
+<div class="gg-tabs mc-mb-md">
+    {% for cat in categories %}
+    <a href="/touchpoints?category={{ cat }}&show={{ active_show }}"
+       class="gg-tabs__tab {% if active_category == cat %}gg-tabs__tab--active{% endif %}">
+        {{ cat|replace('_',' ')|title }}
+        <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">({{ cat_counts.get(cat, 0) }})</span>
+    </a>
+    {% endfor %}
+</div>
+
+<!-- Show Filter -->
+<div class="mc-flex mc-gap-sm mc-mb-md">
+    <a href="/touchpoints?category={{ active_category }}&show=all"
+       class="gg-btn {% if active_show == 'all' %}gg-btn--primary{% else %}gg-btn--default{% endif %}" style="font-size:var(--gg-font-size-2xs)">
+        All
+    </a>
+    <a href="/touchpoints?category={{ active_category }}&show=due"
+       class="gg-btn {% if active_show == 'due' %}gg-btn--secondary{% else %}gg-btn--default{% endif %}" style="font-size:var(--gg-font-size-2xs)">
+        Due
+    </a>
+    <a href="/touchpoints?category={{ active_category }}&show=sent"
+       class="gg-btn {% if active_show == 'sent' %}gg-btn--default{% else %}gg-btn--default{% endif %}" style="font-size:var(--gg-font-size-2xs)">
+        Sent
+    </a>
+</div>
+
+<!-- Touchpoints Table -->
+<div class="mc-card">
+    <div class="mc-card__body" style="padding:0">
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Athlete</th>
+                    <th>Subject</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="touchpoint-body">
+                {% include "partials/touchpoint_table.html" %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

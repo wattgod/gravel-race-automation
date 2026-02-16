@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Preview: {{ template_name }} — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <a href="/templates" class="mc-text-muted" style="font-size:var(--gg-font-size-xs);text-decoration:none">&larr; All Templates</a>
+    <h1 class="mc-page-header__title mc-mt-sm">{{ template_name|replace('_',' ')|title }}</h1>
+    <p class="mc-page-header__desc">Rendered with {{ result.athlete_name }}'s data</p>
+</div>
+
+<div class="mc-flex mc-gap-sm mc-mb-md">
+    <select onchange="window.location='/templates/preview?template_name={{ template_name }}&athlete_slug='+this.value"
+            class="mc-select">
+        <option value="">Default athlete</option>
+        {% for a in athletes %}
+        <option value="{{ a.slug }}" {% if athlete_slug == a.slug %}selected{% endif %}>{{ a.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="mc-card">
+    <div class="mc-card__body" style="background:var(--gg-color-white);overflow:auto;max-height:80vh">
+        {{ result.html|safe }}
+    </div>
+</div>
+{% endblock %}

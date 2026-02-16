@@ -1,0 +1,47 @@
+<table class="gg-table gg-table--striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Race</th>
+            <th>Date</th>
+            <th>Tier</th>
+            <th>Level</th>
+            <th>Weeks</th>
+            <th>FTP</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in athletes %}
+        <tr>
+            <td>
+                <a href="/athletes/{{ a.slug }}" class="mc-text-teal" style="font-family:var(--gg-font-data)">{{ a.name }}</a>
+                <div class="mc-text-mono mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ a.email }}</div>
+            </td>
+            <td>{{ a.race_name or '—' }}</td>
+            <td class="mc-text-muted">{{ a.race_date or '—' }}</td>
+            <td><span class="gg-badge gg-badge--{{ a.tier or 'default' }}">{{ (a.tier or '')|replace('_',' ')|title }}</span></td>
+            <td>{{ (a.level or '')|title }}</td>
+            <td style="text-align:center">{{ a.plan_weeks or '—' }}</td>
+            <td class="mc-text-mono" style="text-align:center">{{ a.ftp or '—' }}{% if a.ftp %}w{% endif %}</td>
+            <td><span class="gg-badge mc-status--{{ a.plan_status }}">{{ a.plan_status }}</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if total > per_page %}
+<div class="gg-pagination mc-mt-md">
+    <span class="gg-pagination__info">Showing {{ ((page-1)*per_page)+1 }}–{{ [page*per_page, total]|min }} of {{ total }}</span>
+    <div class="gg-pagination__controls">
+        {% if page > 1 %}
+        <a href="/athletes?page={{ page-1 }}&q={{ q }}&tier={{ tier }}&status={{ status }}"
+           class="gg-btn gg-btn--default" style="font-size:var(--gg-font-size-2xs)">Prev</a>
+        {% endif %}
+        {% if page * per_page < total %}
+        <a href="/athletes?page={{ page+1 }}&q={{ q }}&tier={{ tier }}&status={{ status }}"
+           class="gg-btn gg-btn--default" style="font-size:var(--gg-font-size-2xs)">Next</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}

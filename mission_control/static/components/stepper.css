@@ -1,0 +1,157 @@
+/* Stepper — multi-step progress for training plans, questionnaire, onboarding
+   Variants: --vertical */
+
+.gg-stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.gg-stepper__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* Connector line between steps */
+.gg-stepper__step::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 20px);
+  width: calc(100% - 40px);
+  height: 3px;
+  background: var(--gg-color-tan);
+}
+
+.gg-stepper__step:last-child::after {
+  display: none;
+}
+
+/* Step number circle */
+.gg-stepper__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: var(--gg-border-width-standard) solid var(--gg-color-tan);
+  background: var(--gg-color-warm-paper);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-tan);
+  position: relative;
+  z-index: 1;
+}
+
+/* Step label */
+.gg-stepper__label {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-semibold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  text-align: center;
+  margin-top: var(--gg-spacing-xs);
+  max-width: 100px;
+}
+
+/* Step description */
+.gg-stepper__desc {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  text-align: center;
+  margin-top: var(--gg-spacing-2xs);
+  max-width: 120px;
+  line-height: var(--gg-line-height-normal);
+}
+
+/* Completed step */
+.gg-stepper__step--completed .gg-stepper__number {
+  background: var(--gg-color-dark-brown);
+  border-color: var(--gg-color-dark-brown);
+  color: var(--gg-color-gold);
+}
+
+.gg-stepper__step--completed::after {
+  background: var(--gg-color-dark-brown);
+}
+
+.gg-stepper__step--completed .gg-stepper__label {
+  color: var(--gg-color-dark-brown);
+}
+
+/* Active step */
+.gg-stepper__step--active .gg-stepper__number {
+  background: var(--gg-color-gold);
+  border-color: var(--gg-color-gold);
+  color: var(--gg-color-warm-paper);
+}
+
+.gg-stepper__step--active .gg-stepper__label {
+  color: var(--gg-color-dark-brown);
+  font-weight: var(--gg-font-weight-bold);
+}
+
+/* Vertical variant */
+.gg-stepper--vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.gg-stepper--vertical .gg-stepper__step {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gg-spacing-md);
+  padding-bottom: var(--gg-spacing-lg);
+}
+
+.gg-stepper--vertical .gg-stepper__step::after {
+  top: 36px;
+  left: 18px;
+  width: 3px;
+  height: calc(100% - 36px);
+}
+
+.gg-stepper--vertical .gg-stepper__label {
+  text-align: left;
+  max-width: none;
+  margin-top: var(--gg-spacing-2xs);
+}
+
+.gg-stepper--vertical .gg-stepper__desc {
+  text-align: left;
+  max-width: none;
+}
+
+/* Responsive: stack horizontal on small screens */
+@media (max-width: 700px) {
+  .gg-stepper:not(.gg-stepper--vertical) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gg-stepper:not(.gg-stepper--vertical) .gg-stepper__step {
+    flex-direction: row;
+    gap: var(--gg-spacing-md);
+    padding-bottom: var(--gg-spacing-md);
+  }
+
+  .gg-stepper:not(.gg-stepper--vertical) .gg-stepper__step::after {
+    top: 36px;
+    left: 18px;
+    width: 3px;
+    height: calc(100% - 36px);
+  }
+
+  .gg-stepper:not(.gg-stepper--vertical) .gg-stepper__label,
+  .gg-stepper:not(.gg-stepper--vertical) .gg-stepper__desc {
+    text-align: left;
+    max-width: none;
+  }
+}

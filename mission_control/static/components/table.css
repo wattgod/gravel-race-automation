@@ -1,0 +1,142 @@
+/* Table — production data tables for race profiles, methodology, training
+   Variants: --compact, --striped, --sortable, --dark-header */
+
+.gg-table-wrap {
+  border: var(--gg-border-standard);
+  overflow-x: auto;
+  margin-bottom: var(--gg-spacing-lg);
+}
+
+.gg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-dark-brown);
+}
+
+/* Header */
+.gg-table thead {
+  border-bottom: var(--gg-border-double);
+}
+
+.gg-table th {
+  text-align: left;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-extreme);
+  text-transform: uppercase;
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+  white-space: nowrap;
+}
+
+/* Cells */
+.gg-table td {
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  border-bottom: 1px solid var(--gg-color-tan);
+  vertical-align: top;
+}
+
+.gg-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Row hover */
+.gg-table tbody tr {
+  transition: background-color var(--gg-transition-hover);
+}
+
+.gg-table tbody tr:hover {
+  background: rgba(183, 149, 11, 0.06);
+}
+
+/* Striped variant */
+.gg-table--striped tbody tr:nth-child(even) td {
+  background: rgba(212, 197, 185, 0.15);
+}
+
+/* Compact variant — tighter padding for dense data */
+.gg-table--compact th,
+.gg-table--compact td {
+  padding: var(--gg-spacing-2xs) var(--gg-spacing-sm);
+}
+
+/* Numeric columns — right-align */
+.gg-table td.gg-table__num,
+.gg-table th.gg-table__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial text columns — use serif */
+.gg-table td.gg-table__prose {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-normal);
+}
+
+/* Sortable headers */
+.gg-table--sortable th {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: var(--gg-spacing-xl);
+}
+
+.gg-table--sortable th::after {
+  content: "\2195";
+  position: absolute;
+  right: var(--gg-spacing-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+  font-size: var(--gg-font-size-xs);
+}
+
+.gg-table--sortable th.gg-table__sort-asc::after {
+  content: "\2191";
+  opacity: 1;
+  color: var(--gg-color-gold);
+}
+
+.gg-table--sortable th.gg-table__sort-desc::after {
+  content: "\2193";
+  opacity: 1;
+  color: var(--gg-color-gold);
+}
+
+/* Warm-paper header variant (lighter) */
+.gg-table--light-header th {
+  background: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
+  border-bottom: var(--gg-border-standard);
+}
+
+.gg-table--light-header thead {
+  border-bottom: none;
+}
+
+/* Caption */
+.gg-table caption {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  text-align: left;
+  padding: var(--gg-spacing-xs) var(--gg-spacing-md);
+  background: var(--gg-color-warm-paper);
+  border-bottom: 1px solid var(--gg-color-tan);
+}
+
+/* Responsive: make table scrollable */
+@media (max-width: 700px) {
+  .gg-table th,
+  .gg-table td {
+    padding: var(--gg-spacing-xs) var(--gg-spacing-sm);
+    font-size: var(--gg-font-size-xs);
+  }
+}

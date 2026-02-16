@@ -1,0 +1,105 @@
+/* Pagination — page navigation for search results, race listings
+   Variants: --compact */
+
+.gg-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: var(--gg-border-standard);
+  width: fit-content;
+}
+
+.gg-pagination__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 var(--gg-spacing-sm);
+
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-semibold);
+  color: var(--gg-color-dark-brown);
+  text-decoration: none;
+  background: var(--gg-color-warm-paper);
+  border-right: 1px solid var(--gg-color-dark-brown);
+
+  transition: background-color var(--gg-transition-hover),
+              color var(--gg-transition-hover),
+              border-color var(--gg-transition-hover);
+  cursor: pointer;
+}
+
+.gg-pagination__item:last-child {
+  border-right: none;
+}
+
+/* Hover */
+.gg-pagination__item:hover {
+  background: var(--gg-color-sand);
+  color: var(--gg-color-gold);
+}
+
+/* Active / current page */
+.gg-pagination__item--active {
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-gold);
+}
+
+.gg-pagination__item--active:hover {
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-gold);
+}
+
+/* Disabled (prev on first page, next on last page) */
+.gg-pagination__item--disabled {
+  color: var(--gg-color-tan);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Prev/next arrows */
+.gg-pagination__prev,
+.gg-pagination__next {
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  font-size: var(--gg-font-size-2xs);
+}
+
+/* Ellipsis */
+.gg-pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-secondary-brown);
+  background: var(--gg-color-warm-paper);
+  border-right: 1px solid var(--gg-color-dark-brown);
+  cursor: default;
+}
+
+/* Compact variant */
+.gg-pagination--compact .gg-pagination__item {
+  min-width: 36px;
+  height: 36px;
+  font-size: var(--gg-font-size-xs);
+}
+
+.gg-pagination--compact .gg-pagination__ellipsis {
+  min-width: 36px;
+  height: 36px;
+}
+
+/* Result count */
+.gg-pagination__info {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-secondary-brown);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  margin-left: var(--gg-spacing-md);
+}

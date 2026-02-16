@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mission Control{% endblock %} — Gravel God</title>
+    <link rel="stylesheet" href="/static/tokens.css">
+    <link rel="stylesheet" href="/static/fonts/fonts.css">
+    <link rel="stylesheet" href="/static/components/button.css">
+    <link rel="stylesheet" href="/static/components/table.css">
+    <link rel="stylesheet" href="/static/components/badge.css">
+    <link rel="stylesheet" href="/static/components/stat-card.css">
+    <link rel="stylesheet" href="/static/components/alert.css">
+    <link rel="stylesheet" href="/static/components/tabs.css">
+    <link rel="stylesheet" href="/static/components/stepper.css">
+    <link rel="stylesheet" href="/static/components/modal.css">
+    <link rel="stylesheet" href="/static/components/pagination.css">
+    <link rel="stylesheet" href="/static/components/empty-state.css">
+    <link rel="stylesheet" href="/static/components/bar-chart.css">
+    <link rel="stylesheet" href="/static/mission-control.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+<body hx-boost="true">
+    <div class="mc-layout">
+        <!-- Sidebar -->
+        <nav class="mc-sidebar">
+            <div class="mc-sidebar__brand">
+                <div class="mc-sidebar__title">Gravel God</div>
+                <div class="mc-sidebar__subtitle">Mission Control</div>
+            </div>
+            <div class="mc-nav">
+                <a href="/" class="mc-nav__link {% if active_page == 'dashboard' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/athletes" class="mc-nav__link {% if active_page == 'athletes' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>Athletes</span>
+                </a>
+                <a href="/pipeline" class="mc-nav__link {% if active_page == 'pipeline' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <span>Pipeline</span>
+                </a>
+                <a href="/touchpoints" class="mc-nav__link {% if active_page == 'touchpoints' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span>Touchpoints</span>
+                </a>
+                <a href="/templates" class="mc-nav__link {% if active_page == 'templates' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm10 0a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z"/></svg>
+                    <span>Templates</span>
+                </a>
+                <a href="/reports" class="mc-nav__link {% if active_page == 'reports' %}mc-nav__link--active{% endif %}">
+                    <svg class="mc-nav__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <span>Reports</span>
+                </a>
+            </div>
+            <div class="mc-sidebar__footer">
+                v1.0.0
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="mc-main">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

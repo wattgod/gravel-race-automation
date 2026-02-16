@@ -1,0 +1,60 @@
+/* Tabbed Content Panels — Desert Editorial
+   Gold active tab border, dark-brown tab bar,
+   warm-paper content panel. */
+
+.gg-tabs {
+  border: var(--gg-border-standard);
+}
+
+.gg-tabs__nav {
+  display: flex;
+  background: var(--gg-color-dark-brown);
+  border-bottom: var(--gg-border-double);
+}
+
+.gg-tabs__tab {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gg-color-warm-brown);
+  background: transparent;
+  border: none;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-lg);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color var(--gg-transition-hover),
+              border-color var(--gg-transition-hover);
+}
+
+.gg-tabs__tab:hover {
+  color: var(--gg-color-tan);
+}
+
+.gg-tabs__tab--active {
+  color: var(--gg-color-white);
+  border-bottom-color: var(--gg-color-gold);
+}
+
+.gg-tabs__panel {
+  display: none;
+  padding: var(--gg-spacing-lg);
+  background: var(--gg-color-warm-paper);
+}
+
+.gg-tabs__panel--active {
+  display: block;
+}
+
+.gg-tabs__panel p {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+  margin: 0;
+}
+
+.gg-tabs__panel p + p {
+  margin-top: var(--gg-spacing-sm);
+}

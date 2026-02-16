@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Email Templates — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Communications</span>
+    <h1 class="mc-page-header__title">Email Templates</h1>
+    <p class="mc-page-header__desc">{{ email_templates|length }} templates</p>
+</div>
+
+<div class="mc-split-pane">
+    <!-- Template List -->
+    <div class="mc-split-pane__list">
+        {% for category, tmpls in by_category.items() %}
+        <div class="mc-card mc-mb-md">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">{{ category|replace('_',' ')|title }} <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">({{ tmpls|length }})</span></h3>
+            </div>
+            <div class="mc-card__body" style="padding:0">
+                {% for t in tmpls %}
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--gg-spacing-sm) var(--gg-spacing-md);{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %};cursor:pointer;transition:background-color 300ms"
+                     onmouseover="this.style.backgroundColor='var(--gg-color-sand)'" onmouseout="this.style.backgroundColor=''"
+                     hx-get="/templates/preview?template_name={{ t.name }}"
+                     hx-target="#preview-pane"
+                     hx-swap="innerHTML">
+                    <span style="font-size:var(--gg-font-size-sm)">{{ t.name|replace('_',' ')|title }}</span>
+                    <span class="mc-text-teal" style="font-size:var(--gg-font-size-2xs)">Preview</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Preview Pane -->
+    <div class="mc-split-pane__preview">
+        <div class="mc-card" style="position:sticky;top:var(--gg-spacing-lg)">
+            <div class="mc-card__header" style="display:flex;justify-content:space-between;align-items:center">
+                <h3 class="mc-card__title">Preview</h3>
+                <select id="preview-athlete" class="mc-select" style="width:auto"
+                        onchange="updatePreviewAthlete(this.value)">
+                    <option value="">First athlete (default)</option>
+                    {% for a in athletes %}
+                    <option value="{{ a.slug }}">{{ a.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="preview-pane" class="mc-card__body" style="min-height:300px;display:flex;align-items:center;justify-content:center">
+                <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">Click a template to preview</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let currentTemplate = '';
+function updatePreviewAthlete(slug) {
+    if (!currentTemplate) return;
+    htmx.ajax('GET', '/templates/preview?template_name=' + currentTemplate + '&athlete_slug=' + slug, '#preview-pane');
+}
+document.body.addEventListener('htmx:afterRequest', function(evt) {
+    const url = evt.detail.requestConfig?.path || '';
+    const match = url.match(/template_name=([^&]+)/);
+    if (match) currentTemplate = match[1];
+});
+</script>
+{% endblock %}

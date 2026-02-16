@@ -1,0 +1,65 @@
+/* Button — Desert Editorial: Gold primary, dark-brown default, teal secondary, ghost variant */
+
+.gg-btn {
+  display: inline-block;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-lg);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--gg-border-standard);
+  transition: background var(--gg-animation-duration-fast),
+              color var(--gg-animation-duration-fast),
+              border-color var(--gg-animation-duration-fast);
+}
+
+/* Default: dark-brown */
+.gg-btn--default {
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+  border-color: var(--gg-color-dark-brown);
+}
+
+.gg-btn--default:hover {
+  background: var(--gg-color-primary-brown);
+  border-color: var(--gg-color-primary-brown);
+}
+
+/* Primary: gold */
+.gg-btn--primary {
+  background: var(--gg-color-gold);
+  color: var(--gg-color-dark-brown);
+  border-color: var(--gg-color-gold);
+}
+
+.gg-btn--primary:hover {
+  background: var(--gg-color-light-gold);
+  border-color: var(--gg-color-light-gold);
+}
+
+/* Secondary: teal */
+.gg-btn--secondary {
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
+  border-color: var(--gg-color-teal);
+}
+
+.gg-btn--secondary:hover {
+  background: var(--gg-color-light-teal);
+  border-color: var(--gg-color-light-teal);
+}
+
+/* Ghost: transparent with warm-paper border (for dark bg) */
+.gg-btn--ghost {
+  background: transparent;
+  color: var(--gg-color-warm-paper);
+  border-color: var(--gg-color-warm-paper);
+}
+
+.gg-btn--ghost:hover {
+  background: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
+}

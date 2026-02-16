@@ -157,6 +157,7 @@ def build_who() -> str:
           </div>
         </div>
         <div class="gg-about-bio-sidebar">
+          <img src="/about/matti-avatar.png" alt="Matti — cartoon portrait" class="gg-about-bio-avatar" width="280" height="280" loading="lazy">
           <div class="gg-about-bio-card">
             <div class="gg-about-bio-card-label">Background</div>
             <dl class="gg-about-bio-dl">
@@ -456,6 +457,15 @@ def build_about_css() -> str:
   grid-template-columns: 1fr 280px;
   gap: var(--gg-spacing-xl);
   align-items: start;
+}
+.gg-neo-brutalist-page .gg-about-bio-avatar {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border: var(--gg-border-standard);
+  background: var(--gg-color-warm-paper);
+  margin-bottom: var(--gg-spacing-md);
 }
 .gg-neo-brutalist-page .gg-about-bio-card {
   border: var(--gg-border-standard);

@@ -509,6 +509,24 @@ def sync_about(about_file: str):
         print(f"✗ Error uploading about page: {e}")
         return None
 
+    # Upload avatar image if present
+    avatar_path = html_path.parent / "matti-avatar.png"
+    if avatar_path.exists():
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(avatar_path),
+                    f"{user}@{host}:{remote_base}/matti-avatar.png",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+        except subprocess.CalledProcessError:
+            print("  ⚠ Could not upload matti-avatar.png (non-fatal)")
+
     # Upload shared CSS/JS assets (about page references them via /race/assets/)
     assets_dir = html_path.parent / "assets"
     remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"

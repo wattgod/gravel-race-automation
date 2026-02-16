@@ -25,7 +25,7 @@ from generate_neo_brutalist import (
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_preload_hints
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -296,12 +296,12 @@ def build_ctas() -> str:
       <div class="gg-about-ctas">
         <div class="gg-about-cta">
           <h3>Training Plans</h3>
-          <p>Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
-          <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans">BUILD MY PLAN</a>
+          <p data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
+          <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>
-          <p>A human in your corner. Adapts week to week. Limited spots &mdash; opens quarterly.</p>
+          <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots &mdash; opens quarterly.</p>
           <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--teal" data-cta="coaching_apply">APPLY</a>
         </div>
         <div class="gg-about-cta">
@@ -959,6 +959,7 @@ def generate_about_page(external_assets: dict = None) -> str:
   {about_css}
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ab_head_snippet()}
 </head>
 <body>
 

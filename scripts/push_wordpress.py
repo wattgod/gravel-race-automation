@@ -1130,6 +1130,76 @@ def sync_ga4():
         return False
 
 
+def sync_ab():
+    """Deploy A/B test assets: JS, config JSON, and mu-plugin.
+
+    Uploads:
+      - web/gg-ab-tests.js       → /ab/gg-ab-tests.js
+      - web/ab/experiments.json   → /ab/experiments.json
+      - wordpress/mu-plugins/gg-ab.php → wp-content/mu-plugins/gg-ab.php
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    js_file = project_root / "web" / "gg-ab-tests.js"
+    config_file = project_root / "web" / "ab" / "experiments.json"
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-ab.php"
+
+    for f, label in [(js_file, "gg-ab-tests.js"), (config_file, "experiments.json"),
+                     (plugin_file, "gg-ab.php")]:
+        if not f.exists():
+            print(f"✗ A/B file not found: {f}")
+            print(f"  Run: python wordpress/ab_experiments.py first")
+            return False
+
+    remote_base = "~/www/gravelgodcycling.com/public_html"
+    remote_ab = f"{remote_base}/ab"
+    remote_mu = f"{remote_base}/wp-content/mu-plugins"
+
+    # Create /ab/ directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_ab} && chmod 755 {remote_ab}",
+            ],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create /ab/ directory: {e.stderr.strip()}")
+        return False
+
+    # Upload all three files
+    uploads = [
+        (js_file, f"{remote_ab}/gg-ab-tests.js"),
+        (config_file, f"{remote_ab}/experiments.json"),
+        (plugin_file, f"{remote_mu}/gg-ab.php"),
+    ]
+    for local, remote in uploads:
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(local),
+                    f"{user}@{host}:{remote}",
+                ],
+                capture_output=True, text=True, timeout=15, check=True,
+            )
+        except Exception as e:
+            print(f"✗ Failed to upload {local.name}: {e}")
+            return False
+
+    print("✓ Deployed A/B testing assets:")
+    print("  /ab/gg-ab-tests.js")
+    print("  /ab/experiments.json")
+    print("  wp-content/mu-plugins/gg-ab.php")
+    return True
+
+
 def purge_cache():
     """Purge all SiteGround caches via wp-cli (static, dynamic, memcached, opcache)."""
     ssh = get_ssh_credentials()
@@ -1599,6 +1669,10 @@ if __name__ == "__main__":
         help="Path to blog index JSON (default: web/blog-index.json)"
     )
     parser.add_argument(
+        "--sync-ab", action="store_true",
+        help="Deploy A/B test assets (JS, config, mu-plugin) to /ab/"
+    )
+    parser.add_argument(
         "--purge-cache", action="store_true",
         help="Purge all SiteGround caches (static, dynamic, memcached, opcache)"
     )
@@ -1634,13 +1708,14 @@ if __name__ == "__main__":
         args.sync_blog = True
         args.sync_blog_index = True
         args.sync_photos = True
+        args.sync_ab = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits, args.sync_blog,
-                      args.sync_blog_index, args.sync_photos, args.purge_cache])
+                      args.sync_blog_index, args.sync_photos, args.sync_ab, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -1680,5 +1755,7 @@ if __name__ == "__main__":
         sync_blog(args.blog_dir)
     if args.sync_blog_index:
         sync_blog_index(args.blog_index_page, args.blog_index_json)
+    if args.sync_ab:
+        sync_ab()
     if args.purge_cache:
         purge_cache()

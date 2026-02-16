@@ -241,6 +241,32 @@ COLORS = {
 }
 
 
+# ── A/B Testing ──────────────────────────────────────────────
+
+
+def get_ab_head_snippet() -> str:
+    """Return inline bootstrap + deferred script tag for A/B tests.
+
+    The inline script synchronously swaps text for returning visitors
+    from localStorage cache (zero flicker). The deferred script handles
+    new visitor assignment, GA4 events, and cache refresh.
+    """
+    bootstrap = (
+        '(function(){var s=localStorage.getItem("gg_ab_assign");'
+        'if(!s)return;try{var a=JSON.parse(s);'
+        'var c=localStorage.getItem("gg_ab_cache");'
+        'if(!c)return;var cache=JSON.parse(c);'
+        'for(var eid in a){if(!cache[eid])continue;'
+        'var el=document.querySelector(cache[eid].sel);'
+        'if(el)el.textContent=cache[eid].txt;}'
+        '}catch(e){}})()'
+    )
+    return (
+        f'<script>{bootstrap}</script>\n'
+        f'  <script defer src="/ab/gg-ab-tests.js"></script>'
+    )
+
+
 # ── Racer Rating ─────────────────────────────────────────────
 # Minimum number of ratings before displaying the racer score.
 # Used by all generators (race profiles, state hubs, homepage, series hubs).

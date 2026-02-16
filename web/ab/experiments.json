@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "generated": "2026-02-16",
+  "experiments": [
+    {
+      "id": "homepage_hero_tagline",
+      "selector": "[data-ab='hero_tagline']",
+      "pages": [
+        "/",
+        "/index.html"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "Original tagline",
+          "content": "328 races. 14 criteria. 4,592 scores — all assigned by hand. Zero sponsors. Zero pay-to-play."
+        },
+        {
+          "id": "variant_a",
+          "name": "Short & direct",
+          "content": "Every gravel race in America. Scored by hand. No sponsors."
+        },
+        {
+          "id": "variant_b",
+          "name": "Reddit proof",
+          "content": "I read every Reddit thread, registration page, and Strava segment so you don’t have to."
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-ga='hero_cta_click'], [data-ga='hero_search'] button"
+      }
+    },
+    {
+      "id": "training_price_frame",
+      "selector": "[data-ab='training_price']",
+      "pages": [
+        "/",
+        "/index.html",
+        "/about/"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "Hotel anchor",
+          "content": "Race-specific. Built for your target event. Less than your race hotel — $2/day."
+        },
+        {
+          "id": "variant_a",
+          "name": "Gel anchor",
+          "content": "Race-specific. Built for your target event. $15/week. Less than one gel per ride."
+        },
+        {
+          "id": "variant_b",
+          "name": "Entry fee anchor",
+          "content": "Race-specific. Built for your target event. Your entry fee was $175. Your plan is $2/day."
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-ab='training_cta_btn']"
+      }
+    },
+    {
+      "id": "cta_button_text",
+      "selector": "[data-ab='training_cta_btn']",
+      "pages": [
+        "/",
+        "/index.html",
+        "/about/"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "BUILD MY PLAN",
+          "content": "BUILD MY PLAN"
+        },
+        {
+          "id": "variant_a",
+          "name": "GET MY PLAN",
+          "content": "GET MY PLAN"
+        },
+        {
+          "id": "variant_b",
+          "name": "START TRAINING",
+          "content": "START TRAINING"
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-ab='training_cta_btn']"
+      }
+    },
+    {
+      "id": "coaching_scarcity",
+      "selector": "[data-ab='coaching_scarcity']",
+      "pages": [
+        "/",
+        "/index.html",
+        "/about/"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "Generic scarcity",
+          "content": "A human in your corner. Adapts week to week. Limited spots."
+        },
+        {
+          "id": "variant_a",
+          "name": "Concrete number",
+          "content": "A human in your corner. Adapts week to week. 20 athletes/month."
+        },
+        {
+          "id": "variant_b",
+          "name": "Next window",
+          "content": "A human in your corner. Adapts week to week. Next window: April."
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-ga='coaching_click'], [data-cta='coaching_apply']"
+      }
+    }
+  ]
+}

@@ -588,6 +588,38 @@ def check_no_dead_end_infographics():
           f"Sections ending on infographic: {', '.join(dead_ends)}")
 
 
+def check_ab_config_sync():
+    """Ensure experiments.json matches ab_experiments.py source of truth."""
+    print("\n── A/B Config Sync ──")
+    config_path = PROJECT_ROOT / "web" / "ab" / "experiments.json"
+    if not config_path.exists():
+        warn("AB config sync", "experiments.json not found — run: python wordpress/ab_experiments.py")
+        return
+
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "ab_experiments",
+            WORDPRESS_DIR / "ab_experiments.py"
+        )
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        on_disk = json.loads(config_path.read_text())
+        from_source = mod.export_config()
+
+        check("AB experiments.json matches source",
+              on_disk["experiments"] == from_source["experiments"],
+              "Stale — run: python wordpress/ab_experiments.py")
+
+        errors = mod.validate_experiments()
+        check("AB experiment config valid",
+              len(errors) == 0,
+              f"Validation errors: {'; '.join(errors)}")
+    except Exception as e:
+        check("AB config sync", False, f"Error loading config: {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -620,6 +652,7 @@ def main():
         check_interactive_js_handlers()
         check_no_dead_end_infographics()
         check_root_matches_brand_tokens()
+        check_ab_config_sync()
         if not args.quick:
             check_climate_classification()
 

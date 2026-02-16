@@ -32,6 +32,7 @@ from generate_neo_brutalist import (
 from brand_tokens import (
     GA_MEASUREMENT_ID,
     RACER_RATING_THRESHOLD,
+    get_ab_head_snippet,
     get_font_face_css,
     get_preload_hints,
 )
@@ -517,7 +518,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
     <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-    <p class="gg-hp-hero-tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
+    <p class="gg-hp-hero-tagline" data-ab="hero_tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
     <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
       <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
       <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
@@ -759,18 +760,18 @@ def build_training_cta() -> str:
     <div class="gg-hp-training-grid">
       <div class="gg-hp-training-card gg-hp-training-card--primary">
         <h3>Training Plans</h3>
-        <p class="gg-hp-training-subtitle">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
+        <p class="gg-hp-training-subtitle" data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
         <ul class="gg-hp-training-bullets">
           <li>Structured workouts pushed to your device</li>
           <li>30+ page custom training guide</li>
           <li>Heat &amp; altitude protocols</li>
           <li>Nutrition &amp; strength training</li>
         </ul>
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="training_plan_click">BUILD MY PLAN</a>
+        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="training_plan_click" data-ab="training_cta_btn">BUILD MY PLAN</a>
       </div>
       <div class="gg-hp-training-card gg-hp-training-card--secondary">
         <h3>1:1 Coaching</h3>
-        <p class="gg-hp-training-subtitle">A human in your corner. Adapts week to week. Limited spots.</p>
+        <p class="gg-hp-training-subtitle" data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
         <div class="gg-hp-coaching-features">
           <div class="gg-hp-coaching-feat"><strong>Built around your reality.</strong> Work, kids, travel, and the random Tuesday emergency.</div>
           <div class="gg-hp-coaching-feat"><strong>No guilt. Just edits.</strong> When life happens, we adjust the plan instead of pretending you&rsquo;re a robot.</div>
@@ -1441,6 +1442,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {css}
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ab_head_snippet()}
 </head>
 <body>
 

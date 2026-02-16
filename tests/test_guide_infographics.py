@@ -16,35 +16,49 @@ from guide_infographics import (
 import generate_guide
 
 
-# ── All 16 asset_ids ────────────────────────────────────────
+# ── All 30 asset_ids ────────────────────────────────────────
 
 ALL_ASSET_IDS = [
     "ch1-gear-essentials",
     "ch1-rider-grid",
     "ch1-hierarchy-of-speed",
+    "ch1-gear-weight",
     "ch2-scoring-dimensions",
     "ch2-tier-distribution",
+    "ch2-course-profile",
+    "ch2-field-scatter",
+    "ch2-race-table",
     "ch3-supercompensation",
     "ch3-zone-spectrum",
     "ch3-pmc-chart",
     "ch3-training-phases",
+    "ch3-power-duration",
+    "ch3-gantt-season",
+    "ch3-before-after",
     "ch4-execution-gap",
     "ch4-traffic-light",
+    "ch4-recovery-dash",
+    "ch4-sleep-debt",
     "ch5-fueling-timeline",
     "ch5-bonk-math",
+    "ch5-hydration-calc",
+    "ch5-glycogen-gauge",
+    "ch5-macro-split",
+    "ch5-calorie-burn",
     "ch6-three-acts",
     "ch6-psych-phases",
     "ch7-race-week-countdown",
+    "ch7-weather-matrix",
 ]
 
 
 class TestDispatchMap:
-    def test_all_16_asset_ids_have_renderers(self):
+    def test_all_30_asset_ids_have_renderers(self):
         for aid in ALL_ASSET_IDS:
             assert aid in INFOGRAPHIC_RENDERERS, f"Missing renderer for {aid}"
 
-    def test_exactly_16_renderers(self):
-        assert len(INFOGRAPHIC_RENDERERS) == 16
+    def test_exactly_30_renderers(self):
+        assert len(INFOGRAPHIC_RENDERERS) == 30
 
     def test_all_renderers_are_callable(self):
         for aid, fn in INFOGRAPHIC_RENDERERS.items():
@@ -186,7 +200,7 @@ class TestSpecificRenderers:
     def test_rider_categories_has_4_cards(self):
         block = {"type": "image", "asset_id": "ch1-rider-grid", "caption": ""}
         html = INFOGRAPHIC_RENDERERS["ch1-rider-grid"](block)
-        assert html.count("gg-infographic-rider-card") == 4
+        assert html.count('data-interactive="flip"') == 4
 
     def test_race_week_has_7_days(self):
         block = {"type": "image", "asset_id": "ch7-race-week-countdown", "caption": ""}
@@ -196,7 +210,7 @@ class TestSpecificRenderers:
     def test_race_week_has_race_day(self):
         block = {"type": "image", "asset_id": "ch7-race-week-countdown", "caption": ""}
         html = INFOGRAPHIC_RENDERERS["ch7-race-week-countdown"](block)
-        assert "gg-infographic-day-card--race" in html
+        assert "gg-infographic-timeline-node--highlight" in html
 
     def test_traffic_light_has_3_signals(self):
         block = {"type": "image", "asset_id": "ch4-traffic-light", "caption": ""}
@@ -213,10 +227,10 @@ class TestSpecificRenderers:
         html = INFOGRAPHIC_RENDERERS["ch5-bonk-math"](block)
         assert html.count("gg-infographic-bonk-gel") == 24
 
-    def test_scoring_dimensions_has_14_bars(self):
+    def test_scoring_dimensions_has_14_axes(self):
         block = {"type": "image", "asset_id": "ch2-scoring-dimensions", "caption": ""}
         html = INFOGRAPHIC_RENDERERS["ch2-scoring-dimensions"](block)
-        # Each dimension produces a label + bar + score = 14 sets
+        # Radar chart has 14 axis labels with /5 in tooltips
         assert html.count("/5") == 14
 
     def test_tier_distribution_shows_328(self):
@@ -247,8 +261,8 @@ class TestSpecificRenderers:
     def test_execution_gap_has_two_sides(self):
         block = {"type": "image", "asset_id": "ch4-execution-gap", "caption": ""}
         html = INFOGRAPHIC_RENDERERS["ch4-execution-gap"](block)
-        assert "CHASING WATTS" in html
-        assert "CONSISTENT EXECUTION" in html
+        assert "Chasing Watts" in html
+        assert "Consistent Execution" in html
 
     def test_fueling_timeline_has_markers(self):
         block = {"type": "image", "asset_id": "ch5-fueling-timeline", "caption": ""}
@@ -296,11 +310,14 @@ class TestAccessibility:
         """Figure with alt must have role=figure for assistive tech."""
         assert 'role="figure"' in rendered_with_alt
 
-    def test_no_aria_label_without_alt(self):
-        """No aria-label when alt is empty."""
+    def test_no_aria_label_on_figure_without_alt(self):
+        """No aria-label on <figure> when alt is empty."""
         block = {"type": "image", "asset_id": "ch1-gear-essentials"}
         html = INFOGRAPHIC_RENDERERS["ch1-gear-essentials"](block)
-        assert "aria-label" not in html
+        # Check the <figure> tag specifically — inner elements may have aria-label
+        import re
+        figure_tag = re.search(r"<figure[^>]*>", html).group()
+        assert "aria-label" not in figure_tag
 
 
 class TestNoOpacity:
@@ -508,45 +525,24 @@ class TestEditorialFraming:
 # Animation Attribute Tests
 # ══════════════════════════════════════════════════════════════
 
-# SVG renderers that should have data-animate attributes
-SVG_ASSET_IDS = [
-    "ch1-hierarchy-of-speed",
-    "ch2-scoring-dimensions",
-    "ch2-tier-distribution",
-    "ch3-supercompensation",
-    "ch3-zone-spectrum",
-    "ch3-pmc-chart",
-    "ch3-training-phases",
-    "ch4-execution-gap",
-    "ch5-fueling-timeline",
-    "ch6-psych-phases",
-]
-
-# Card renderers that should have .gg-infographic-card or similar
-CARD_ASSET_IDS = [
-    "ch1-gear-essentials",
-    "ch1-rider-grid",
-    "ch7-race-week-countdown",
-    "ch4-traffic-light",
-    "ch6-three-acts",
-    "ch5-bonk-math",
-]
+# Renderers that use data-animate or data-interactive attributes
+ANIMATED_ASSET_IDS = list(ALL_ASSET_IDS)  # All renderers now have animation/interaction
 
 
 class TestAnimationAttributes:
-    """SVG renderers must have data-animate attrs; card renderers need card classes."""
+    """All renderers must have data-animate or data-interactive attrs."""
 
-    @pytest.fixture(params=SVG_ASSET_IDS)
-    def rendered_svg_anim(self, request):
+    @pytest.fixture(params=ANIMATED_ASSET_IDS)
+    def rendered_anim(self, request):
         aid = request.param
         block = {"type": "image", "asset_id": aid, "alt": "test"}
         return INFOGRAPHIC_RENDERERS[aid](block)
 
-    def test_svg_has_data_animate(self, rendered_svg_anim):
-        """SVG renderers must have at least one data-animate attribute."""
-        assert ('data-animate="bar"' in rendered_svg_anim
-                or 'data-animate="line"' in rendered_svg_anim), \
-            "SVG renderer missing data-animate attribute"
+    def test_has_data_animate_or_interactive(self, rendered_anim):
+        """All renderers must have at least one data-animate or data-interactive."""
+        assert ("data-animate=" in rendered_anim
+                or "data-interactive=" in rendered_anim), \
+            "Renderer missing data-animate or data-interactive attribute"
 
     def test_no_keyframes_in_infographic_css(self):
         """Infographic CSS must use transitions, not @keyframes."""
@@ -566,9 +562,11 @@ class TestTooltipAttributes:
         block = {"type": "image", "asset_id": aid, "alt": "test"}
         return INFOGRAPHIC_RENDERERS[aid](block)
 
-    def test_has_data_tooltip(self, rendered_tooltips):
-        """Every renderer should have at least one data-tooltip."""
-        assert "data-tooltip=" in rendered_tooltips
+    def test_has_data_tooltip_or_interactive(self, rendered_tooltips):
+        """Every renderer should have data-tooltip or data-interactive for info access."""
+        assert ("data-tooltip=" in rendered_tooltips
+                or "data-interactive=" in rendered_tooltips), \
+            "Renderer has neither data-tooltip nor data-interactive"
 
     def test_tooltip_values_non_empty(self, rendered_tooltips):
         """All data-tooltip values must be non-empty strings."""
@@ -631,10 +629,6 @@ class TestAnimationCssReducedMotion:
         # All initial-hidden selectors must be guarded by .gg-has-js
         hidden_selectors = [
             ".gg-infographic-card{transform:translateY",
-            ".gg-infographic-rider-card{transform:translateY",
-            ".gg-infographic-day-card{transform:translateY",
-            ".gg-infographic-signal-row{transform:translateY",
-            ".gg-infographic-act-panel{transform:translateY",
             ".gg-infographic-bonk-gel{transform:scale(0)",
         ]
         for sel in hidden_selectors:
@@ -685,3 +679,184 @@ class TestFigureWrapEditorial:
         html = _figure_wrap("<p>x</p>", "", title='Test <script>"alert"</script>')
         assert "<script>" not in html
         assert "&lt;script&gt;" in html
+
+
+# ── Hero Stat Renderer ──────────────────────────────────────
+
+
+class TestHeroStat:
+    """Tests for the hero_stat block renderer."""
+
+    def test_renders_value(self):
+        html = generate_guide.render_hero_stat({"value": "600", "unit": "grams", "context": "ctx"})
+        assert "600" in html
+        assert "gg-guide-hero-stat__value" in html
+
+    def test_renders_unit(self):
+        html = generate_guide.render_hero_stat({"value": "80", "unit": "%"})
+        assert "gg-guide-hero-stat__unit" in html
+        assert "%" in html
+
+    def test_renders_context(self):
+        html = generate_guide.render_hero_stat({"value": "8", "unit": "%", "context": "Of 328 races"})
+        assert "gg-guide-hero-stat__context" in html
+        assert "Of 328 races" in html
+
+    def test_optional_unit(self):
+        html = generate_guide.render_hero_stat({"value": "42"})
+        assert "gg-guide-hero-stat__unit" not in html
+
+    def test_optional_context(self):
+        html = generate_guide.render_hero_stat({"value": "42"})
+        assert "gg-guide-hero-stat__context" not in html
+
+    def test_no_border_radius(self):
+        html = generate_guide.render_hero_stat({"value": "600", "unit": "grams", "context": "ctx"})
+        assert "border-radius" not in html
+
+    def test_html_escaped(self):
+        html = generate_guide.render_hero_stat({"value": "<script>", "unit": "&", "context": "<b>bad</b>"})
+        assert "<script>" not in html
+        assert "&lt;script&gt;" in html
+
+
+# ── Interactive Attribute Spot Checks ──────────────────────
+
+
+# Map of asset_ids to their expected data-interactive type
+INTERACTIVE_RENDERERS = {
+    "ch1-rider-grid": "flip",
+    "ch1-gear-essentials": "flip",
+    "ch1-gear-weight": "gear-toggle",
+    "ch2-scoring-dimensions": "radar-morph",
+    "ch2-race-table": "sortable-table",
+    "ch3-before-after": "before-after",
+    "ch4-traffic-light": "traffic-light",
+    "ch5-bonk-math": "digit-roller",
+    "ch5-hydration-calc": "range-calculator",
+    "ch6-three-acts": "accordion",
+    "ch6-psych-phases": "accordion",
+    "ch7-race-week-countdown": "timeline",
+}
+
+
+class TestInteractiveAttributes:
+    """Verify specific renderers have the correct data-interactive type."""
+
+    @pytest.fixture(params=list(INTERACTIVE_RENDERERS.items()),
+                    ids=lambda x: x[0])
+    def rendered_interactive(self, request):
+        aid, expected_type = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test"}
+        html = INFOGRAPHIC_RENDERERS[aid](block)
+        return aid, expected_type, html
+
+    def test_has_correct_interactive_type(self, rendered_interactive):
+        aid, expected_type, html = rendered_interactive
+        assert f'data-interactive="{expected_type}"' in html, \
+            f'{aid} should have data-interactive="{expected_type}"'
+
+    def test_interactive_elements_are_focusable(self, rendered_interactive):
+        """Interactive elements should have tabindex or be natively focusable."""
+        aid, expected_type, html = rendered_interactive
+        # Check that the data-interactive container or its children have tabindex
+        assert ('tabindex=' in html
+                or '<button' in html
+                or '<input' in html
+                or '<a ' in html), \
+            f'{aid} interactive element lacks keyboard accessibility'
+
+
+# Map of asset_ids to their expected data-animate type
+ANIMATE_RENDERERS = {
+    "ch2-course-profile": "profile",
+    "ch2-field-scatter": "scatter",
+    "ch3-supercompensation": "line",
+    "ch3-zone-spectrum": "bar",
+    "ch3-pmc-chart": "line",
+    "ch3-training-phases": "bar",
+    "ch3-power-duration": "line",
+    "ch3-gantt-season": "gantt",
+    "ch4-execution-gap": "fade-stagger",
+    "ch4-recovery-dash": "stroke",
+    "ch4-sleep-debt": "counter",
+    "ch5-fueling-timeline": "fade-stagger",
+    "ch5-glycogen-gauge": "stroke",
+    "ch5-macro-split": "bar",
+    "ch5-calorie-burn": "bar",
+    "ch7-weather-matrix": "fade-stagger",
+    "ch1-hierarchy-of-speed": "pyramid",
+    "ch2-tier-distribution": "pyramid",
+}
+
+
+class TestNewAnimationTypes:
+    """Verify specific renderers have the correct data-animate type."""
+
+    @pytest.fixture(params=list(ANIMATE_RENDERERS.items()),
+                    ids=lambda x: x[0])
+    def rendered_animate(self, request):
+        aid, expected_type = request.param
+        block = {"type": "image", "asset_id": aid, "alt": "test"}
+        html = INFOGRAPHIC_RENDERERS[aid](block)
+        return aid, expected_type, html
+
+    def test_has_correct_animate_type(self, rendered_animate):
+        aid, expected_type, html = rendered_animate
+        assert f'data-animate="{expected_type}"' in html, \
+            f'{aid} should have data-animate="{expected_type}"'
+
+    def test_all_animation_types_covered(self):
+        """Every data-animate type used in renderers has CSS or JS support."""
+        css = generate_guide.build_guide_css()
+        js = generate_guide.build_guide_js()
+        animate_types = set()
+        for aid in ALL_ASSET_IDS:
+            block = {"type": "image", "asset_id": aid, "alt": "test"}
+            html = INFOGRAPHIC_RENDERERS[aid](block)
+            for m in re.findall(r'data-animate="([^"]+)"', html):
+                animate_types.add(m)
+        for atype in animate_types:
+            in_css = f'data-animate="{atype}"' in css
+            in_js = (f'data-animate="{atype}"' in js
+                     or f"data-animate='{atype}'" in js
+                     or f"=== '{atype}'" in js
+                     or f'=== "{atype}"' in js)
+            assert in_css or in_js, \
+                f'data-animate="{atype}" used in renderer but has no CSS or JS support'
+
+    def test_all_interactive_types_have_js(self):
+        """Every data-interactive type used in renderers has a JS handler."""
+        js = generate_guide.build_guide_js()
+        interactive_types = set()
+        for aid in ALL_ASSET_IDS:
+            block = {"type": "image", "asset_id": aid, "alt": "test"}
+            html = INFOGRAPHIC_RENDERERS[aid](block)
+            for m in re.findall(r'data-interactive="([^"]+)"', html):
+                interactive_types.add(m)
+        for itype in interactive_types:
+            assert f"data-interactive='{itype}'" in js or \
+                   f'data-interactive="{itype}"' in js, \
+                f'data-interactive="{itype}" used in renderer but has no JS handler'
+
+
+# ── Dead-End Infographic Guard ──────────────────────────────
+
+
+class TestNoDeadEndInfographics:
+    """Verify no infographic image block is the last block in its section."""
+
+    def test_no_dead_end_infographics(self):
+        import json
+        content_path = Path(__file__).parent.parent / "guide" / "gravel-guide-content.json"
+        data = json.load(open(content_path, encoding="utf-8"))
+        dead_ends = []
+        for ch in data["chapters"]:
+            for sec in ch.get("sections", []):
+                blocks = sec.get("blocks", [])
+                if not blocks:
+                    continue
+                last = blocks[-1]
+                if last.get("type") == "image" and last.get("asset_id", "").startswith("ch"):
+                    dead_ends.append(f'{sec["id"]}/{last["asset_id"]}')
+        assert dead_ends == [], f"Dead-end infographics found: {dead_ends}"

@@ -95,6 +95,10 @@
               "caption": "Four training profiles — find where you fit."
             },
             {
+              "type": "prose",
+              "content": "Be honest about where you are. Most first-time gravel racers are Finishers — and that is the right goal. Trying to train like a Competitor on Finisher hours leads to injury, burnout, or both. Pick the category that matches your actual available training time."
+            },
+            {
               "type": "tabs",
               "tabs": [
                 {
@@ -265,6 +269,10 @@
               "caption": "The five things you actually need. Everything else is optimization."
             },
             {
+              "type": "prose",
+              "content": "Five categories. That is all you need to get started. Everything beyond this list is optimization — useful eventually, but not before your first event. Get the bike dialed, protect your head, carry tools for the inevitable flat. Do not overthink it."
+            },
+            {
               "type": "callout",
               "style": "quote",
               "content": "If money is tight, spend in this order: (1) Fit + function on the bike, (2) decent bibs and a modern helmet, (3) head unit + budget power meter. Hunt used on local classifieds, FB groups, Pro's Closet, or friends \"upgrading.\" Last year's head units and single-sided power meters are stupid-good value."
@@ -281,6 +289,21 @@
                   "content": "Spare tube (even if tubeless). Tire plug kit + CO2 or mini pump. Multi-tool with chain breaker. Quick link for your chain. Tire levers.\n\nIf you can't fix a flat in under 10 minutes, practice until you can."
                 }
               ]
+            },
+            {
+              "type": "prose",
+              "content": "Weight matters for some components and does not matter for others. Here is where your grams actually go\u2014and which ones are worth optimizing."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch1-gear-weight",
+              "alt": "Interactive gear weight budget showing component weights with toggle switches to compare standard versus lightweight options",
+              "caption": "Toggle components on and off to see how weight adds up \u2014 and where to save it.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Gear weight is worth optimizing after you have fitness. Until then, the cheapest speed gains come from training, not from lighter parts."
             }
           ]
         },
@@ -327,6 +350,10 @@
               "asset_id": "ch1-hierarchy-of-speed",
               "alt": "Pyramid showing hierarchy of speed: fitness 70%, pacing 20%, nutrition 8%, bike handling 1.5%, equipment 0.5%",
               "caption": "Fitness dominates. Equipment is a rounding error."
+            },
+            {
+              "type": "prose",
+              "content": "Fitness accounts for 80% of your result. Pacing accounts for 15%. Everything else — nutrition, equipment, bike handling — is single digits combined. That pyramid should inform every dollar and every hour you spend preparing. Train your engine first."
             },
             {
               "type": "callout",
@@ -411,6 +438,10 @@
               "asset_id": "ch2-scoring-dimensions",
               "alt": "Two-column chart showing 14 scoring dimensions with Unbound Gravel as example",
               "caption": "14 dimensions scored 1-5 by human editors. No algorithms."
+            },
+            {
+              "type": "prose",
+              "content": "Fourteen dimensions sounds like a lot. It is. That is the point. A single 'difficulty' number cannot capture the difference between a flat, hot, windy course and a mountainous, technical one. Both might score 4/5 — but they demand completely different preparation. The 14 dimensions tell you exactly what kind of hard your target race is."
             },
             {
               "type": "data_table",
@@ -536,10 +567,20 @@
               "content": "The 14 dimension scores (each 1-5) are summed, then normalized: (sum / 70) × 100 = overall score. That score determines tier placement."
             },
             {
+              "type": "hero_stat",
+              "value": "8",
+              "unit": "%",
+              "context": "Of 328 rated races earn Tier 1 status. The bar is deliberately high."
+            },
+            {
               "type": "image",
               "asset_id": "ch2-tier-distribution",
               "alt": "Distribution of 328 gravel races across 4 tiers: T1=25, T2=73, T3=154, T4=76",
               "caption": "Only 8% make Tier 1. Most races are solid Tier 3."
+            },
+            {
+              "type": "prose",
+              "content": "Only 25 races — 8% of the database — earn Tier 1 status. That is deliberate. If every race is elite, none of them are. The pyramid shape means something: most races are solid, well-run events that do not need national prestige to be worth your time."
             },
             {
               "type": "tabs",
@@ -614,9 +655,54 @@
               ]
             },
             {
+              "type": "prose",
+              "content": "The full database is searchable and sortable. Here is what comparing races looks like in practice."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch2-race-table",
+              "alt": "Sortable race comparison table showing tier, distance, elevation, field size, and overall score for selected gravel races",
+              "caption": "Click any column header to sort \u2014 find the race that fits your goals.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Use filters to narrow down to races that match your goals and timeline. Then dig into the individual profiles."
+            },
+            {
+              "type": "prose",
+              "content": "Field size and race duration tell you what kind of experience you are signing up for. Massive fields with long distances are a different animal from intimate local events."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch2-field-scatter",
+              "alt": "Scatter plot showing field size versus median finish time for T1 through T4 gravel races",
+              "caption": "T1 races combine massive fields with brutal distances. T4 events are intimate and accessible.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "T1 races live in the upper right\u2014big fields, long days. T4 events cluster in the lower left\u2014small groups, manageable distances. Pick your adventure accordingly."
+            },
+            {
+              "type": "prose",
+              "content": "Each race profile includes an elevation profile showing gradient difficulty by segment. Flat sections, moderate climbs, and brutal walls are color-coded so you know exactly what you are getting into."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch2-course-profile",
+              "alt": "Elevation profile with gradient-colored segments showing flat, moderate, steep, and brutal sections of a gravel race course",
+              "caption": "Red segments demand conservation. Save matches for gold. Recover on green and gray.",
+              "layout": "full-width"
+            },
+            {
+              "type": "prose",
+              "content": "Study the profile before race day. Know where the hard sections are and plan your pacing accordingly."
+            },
+            {
               "type": "callout",
               "style": "highlight",
-              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works—the adaptation cycle, zones, and periodization that will get you to the start line ready."
+              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works\u2014the adaptation cycle, zones, and periodization that will get you to the start line ready."
             }
           ]
         }
@@ -702,6 +788,25 @@
               "asset_id": "ch3-supercompensation",
               "alt": "Supercompensation curve showing stress, fatigue, recovery, and adaptation overshoot",
               "caption": "The foundational model — train, recover, adapt, repeat."
+            },
+            {
+              "type": "prose",
+              "content": "This is the mechanism behind every training gain you will ever make. You stress the system, you let it recover, and it rebuilds slightly stronger than before. Skip the stress and nothing changes. Skip the recovery and you just accumulate damage. The athletes who get this wrong usually err on the recovery side \u2014 they train hard enough but never rest enough to let adaptation happen. Respect the curve."
+            },
+            {
+              "type": "prose",
+              "content": "What does 12 weeks of consistent training actually look like? Drag the divider to compare untrained versus trained physiology."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch3-before-after",
+              "alt": "Before and after comparison of trained versus untrained metrics showing improvements in VO2max, lactate threshold, and economy",
+              "caption": "12 weeks of consistent training \u2014 the numbers do not lie.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "These gains are real and replicable. But they require patience and consistency. Skip weeks, train sporadically, and the before and after look identical."
             }
           ]
         },
@@ -792,11 +897,36 @@
               ]
             },
             {
+              "type": "hero_stat",
+              "value": "80",
+              "unit": "%",
+              "context": "Of your training should be Zone 2. Boring. Conversational. Foundational."
+            },
+            {
               "type": "image",
               "asset_id": "ch3-zone-spectrum",
               "alt": "Training zone spectrum showing 7 zones from Z1 Active Recovery to Z7 Neuromuscular with power and heart rate ranges",
               "caption": "The zone spectrum — from recovery spin to redline effort.",
               "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Here is the uncomfortable truth: most of your training should be in Zone 2. Boring, conversational, feels-like-nothing Zone 2. The riders who train too hard too often never build the aerobic base that carries them through the final third of a race. Train easy enough that it feels embarrassing. That is the right intensity."
+            },
+            {
+              "type": "prose",
+              "content": "Your power-duration curve defines what you can sustain at different time intervals\u2014from a 5-second sprint to a 6-hour gravel race. The zones are derived from this curve."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch3-power-duration",
+              "alt": "Power-duration curve showing sustainable watts from 5 seconds to 6 hours with training zone bands overlaid",
+              "caption": "The power-duration curve \u2014 your physiological fingerprint as a rider.",
+              "layout": "full-width"
+            },
+            {
+              "type": "prose",
+              "content": "Training at the right intensity means respecting these boundaries. The curve bends sharply\u2014even a small increase above threshold drops sustainable duration dramatically."
             },
             {
               "type": "flashcard",
@@ -1053,6 +1183,10 @@
               "alt": "12-week Performance Management Chart showing CTL fitness, ATL fatigue, and TSB form",
               "caption": "CTL builds slowly. ATL spikes fast. TSB tells you when to race.",
               "layout": "full-width"
+            },
+            {
+              "type": "prose",
+              "content": "The PMC is not a toy — it is the most powerful planning tool in endurance sport. When CTL is climbing steadily and TSB turns positive 10-14 days before race day, you are ready. When CTL flatlines or TSB is deep negative on race week, something went wrong. Check your chart weekly."
             }
           ]
         },
@@ -1084,6 +1218,25 @@
               "alt": "12-week gravel training periodization timeline showing Base, Build, and Peak/Taper phases with volume and intensity curves",
               "caption": "The 12-week build: volume peaks in Base, intensity peaks in Build, both taper for race day.",
               "layout": "full-width"
+            },
+            {
+              "type": "prose",
+              "content": "Notice the shape: volume peaks early, intensity peaks late, both taper together. Base fitness takes weeks of accumulated volume to build but decays slowly. Race sharpness takes hard efforts to develop but fatigues you quickly. The taper strips away the fatigue layer while preserving both. Every serious training plan follows this arc."
+            },
+            {
+              "type": "prose",
+              "content": "Zoom out further and the same periodization principles apply to an entire season\u2014multiple race targets, off-season base, and strategic recovery blocks."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch3-gantt-season",
+              "alt": "12-month season Gantt chart showing off-season, base, build, race, and recovery blocks across a full calendar year",
+              "caption": "A full season planned \u2014 stack race-specific blocks with recovery windows.",
+              "layout": "full-width"
+            },
+            {
+              "type": "prose",
+              "content": "Plan backwards from your A-race. Everything else\u2014B races, training camps, recovery weeks\u2014serves that primary goal."
             }
           ]
         },
@@ -1161,6 +1314,10 @@
               "asset_id": "ch4-execution-gap",
               "alt": "Side-by-side comparison: fading intervals vs consistent execution",
               "caption": "Chase time-in-zone, not watts. Consistency beats heroics."
+            },
+            {
+              "type": "prose",
+              "content": "The gap between plan and execution is where most training fails. Not because the plan was bad — because the execution was undisciplined. The rider who completes four average workouts per week will outperform the rider who crushes two sessions and misses three. Consistency is the multiplier."
             }
           ]
         },
@@ -1261,6 +1418,10 @@
               "caption": "Check before every session. Green = go. Yellow = modify. Red = rest."
             },
             {
+              "type": "prose",
+              "content": "This framework works because it removes ego from the decision. You are not deciding whether you are tough enough — you are checking objective signals. Resting HR elevated? Sleep wrecked? Those are red signals, not character tests. The athletes who last decades in this sport respect red lights."
+            },
+            {
               "type": "scenario",
               "prompt": "It's Tuesday. Your plan calls for 3×15 min threshold intervals. You slept 5 hours last night, work was brutal, and your legs feel like concrete. Your resting HR is 8 bpm above normal. What do you do?",
               "options": [
@@ -1309,6 +1470,36 @@
             {
               "type": "prose",
               "content": "The workout ends when you get off the bike. Recovery starts immediately.\n\n**Immediately After (0-30 minutes):** Refuel if session was long (>2.5 hours) AND hard. 20-30g protein, 60-120g carbs, liquid is fine.\n\n**That Evening:** Real dinner with adequate carbs + protein. Screen curfew 60-90 min before bed. Same bedtime every night. Dark room, cool temperature, no alcohol."
+            },
+            {
+              "type": "prose",
+              "content": "Recovery is not one thing\u2014it is a dashboard of signals. Sleep quality, heart rate variability, and muscle soreness each tell you something different."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch4-recovery-dash",
+              "alt": "Recovery dashboard showing three gauges for sleep quality, HRV trend, and muscle soreness indicating readiness to train",
+              "caption": "Three gauges that tell you if you are ready to train hard or need another easy day.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "These are not optional metrics. The quality of recovery determines the quality of your next training session. Ignore the signals and you accumulate debt."
+            },
+            {
+              "type": "prose",
+              "content": "Sleep debt compounds faster than most athletes realize. One bad night recovers quickly. Five consecutive short nights create a deficit that takes a week to repay."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch4-sleep-debt",
+              "alt": "Weekly sleep debt tracker showing daily hours slept versus needed with cumulative debt calculation",
+              "caption": "7 hours of sleep debt in race week costs you 10\u201315% power output.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Bank sleep earlier in the week. You cannot recover seven days of poor sleep in one good night before the race."
             },
             {
               "type": "callout",
@@ -1378,6 +1569,36 @@
             {
               "type": "prose",
               "content": "**Protein** rebuilds muscle tissue damaged during training. Spread it across the day: four meals with 25-40g each beats one massive post-workout shake.\n\n**Carbs** fuel high-intensity work and restock glycogen. Match carb intake to training load.\n\n**Fat** supports hormones, cell membranes, vitamin absorption. Keep it moderate and consistent."
+            },
+            {
+              "type": "prose",
+              "content": "The ratios shift based on training load. Easy days, hard days, and rest days all look different on the plate."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch5-macro-split",
+              "alt": "Macronutrient progress bars showing carb, protein, and fat targets for easy day, hard day, and rest day",
+              "caption": "Protein stays constant. Carbs scale with intensity. Fat fills the remaining calories.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Protein stays constant regardless of training day. Carbs are the variable\u2014they scale directly with how hard you train. Fat fills the remaining calorie budget."
+            },
+            {
+              "type": "prose",
+              "content": "Daily hydration is the most overlooked variable in endurance training. Most athletes are chronically under-hydrated before they even start a ride."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch5-hydration-calc",
+              "alt": "Interactive hydration calculator with sliders for duration, temperature, and intensity showing fluid and sodium needs",
+              "caption": "Dial in your baseline hydration \u2014 adjust for conditions, not guesswork.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Use this as your baseline and adjust for race-day conditions. Heat, humidity, and altitude all increase fluid needs significantly."
             },
             {
               "type": "calculator",
@@ -1463,6 +1684,21 @@
               "content": "For any ride over 90 minutes at moderate-to-high intensity, you need 60-80g of carbohydrates per hour. Not 30g. Not 100g. 60-80g."
             },
             {
+              "type": "prose",
+              "content": "Not all hours are created equal. Calorie burn scales dramatically with intensity\u2014a Zone 2 hour and a threshold hour are completely different metabolic events."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch5-calorie-burn",
+              "alt": "Hourly calorie burn waterfall chart showing cumulative energy expenditure across a 6-hour gravel race",
+              "caption": "The calorie math hour by hour \u2014 deficit grows faster than you think.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "This is why a 4-hour Zone 2 ride needs different fueling than a 4-hour race effort. Match your nutrition to the actual metabolic demand, not just the clock."
+            },
+            {
               "type": "data_table",
               "caption": "Workout-Specific Fueling",
               "headers": [
@@ -1497,6 +1733,21 @@
                   "Test different products. Figure out what your stomach tolerates at race pace."
                 ]
               ]
+            },
+            {
+              "type": "prose",
+              "content": "Your glycogen stores deplete at different rates depending on intensity. Here is what your fuel tank looks like over a long ride\u2014with and without proper fueling."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch5-glycogen-gauge",
+              "alt": "Dual glycogen depletion gauges comparing fueled versus unfueled scenarios over 6 hours of racing",
+              "caption": "Fed vs. unfed \u2014 the gap between finishing strong and bonking hard.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "The longer you ride, the more critical external fueling becomes. You cannot out-store the glycogen you will burn. Start fueling early and stay consistent."
             },
             {
               "type": "calculator",
@@ -1626,6 +1877,10 @@
               "caption": "Fuel by the clock, not by feel. Set a timer."
             },
             {
+              "type": "prose",
+              "content": "Every milestone on this timeline is non-negotiable. Miss the pre-race breakfast window and you start in a glycogen hole. Skip the first-hour fueling because you feel fine and you are building a debt you will pay at mile 60. Follow it mechanically."
+            },
+            {
               "type": "callout",
               "style": "quote",
               "content": "Set a timer. Seriously. Your brain will be stupid. It will forget to eat. It will lie to you and say \"I'm fine, I'll eat at the next aid station.\" The timer removes decision-making."
@@ -1641,10 +1896,20 @@
               "content": "Most race nutrition failures fall into four predictable categories. Recognizing them before race day is the difference between finishing strong and crawling to the line."
             },
             {
+              "type": "hero_stat",
+              "value": "600",
+              "unit": "grams",
+              "context": "Total carbohydrates needed for an 8-hour race at 75g/hr"
+            },
+            {
               "type": "image",
               "asset_id": "ch5-bonk-math",
               "alt": "The bonk math: 8 hours times 75g/hr equals 600g carbs or 24 gels",
               "caption": "This is how much fuel a long race actually takes. Do the math."
+            },
+            {
+              "type": "prose",
+              "content": "Look at those numbers again: 600 grams of carbohydrates for an 8-hour race. That is 24 gels. When you see it visualized like that, the scale of race fueling stops being abstract. This is why you practice nutrition in training."
             },
             {
               "type": "accordion",
@@ -1927,6 +2192,10 @@
               "content": "Every long gravel race follows a predictable three-act structure. Understanding this structure lets you make smart decisions when others are making emotional ones.\n\nThe specifics vary by race—some front-load the climbing, some back-load it, some are flat. But the psychological and physiological patterns are consistent across all long events.\n\nHere's how it plays out, and what your job is in each phase."
             },
             {
+              "type": "prose",
+              "content": "You have seen this structure play out in every long race you have ever watched or ridden. The only question is whether you recognized it."
+            },
+            {
               "type": "image",
               "asset_id": "ch6-three-acts",
               "alt": "Three vertical panels: Act 1 Restraint, Act 2 Resilience, Act 3 Resolve",
@@ -2067,6 +2336,10 @@
               "asset_id": "ch6-psych-phases",
               "alt": "Psychological phases mood curve showing Honeymoon, Shattering, Dark Patch, Second Wind, and Final Push",
               "caption": "Everyone hits the Dark Patch. It is normal. It passes."
+            },
+            {
+              "type": "prose",
+              "content": "The dark patch is not a sign of failure. It is a phase. Everyone goes through it. The riders who know this keep pedaling."
             },
             {
               "type": "timeline",
@@ -2230,6 +2503,10 @@
               "asset_id": "ch7-race-week-countdown",
               "alt": "Seven daily cards showing race week countdown from Monday to Race Day Sunday",
               "caption": "Your fitness is locked in. This week is logistics."
+            },
+            {
+              "type": "prose",
+              "content": "Resist the urge to squeeze in one more hard session. Your fitness is locked in — it was determined weeks ago. This week is about arriving at the start line rested, organized, and mentally calm. Every decision should reduce stress, not add it. Trust the work you have already done."
             }
           ]
         },
@@ -2249,6 +2526,21 @@
                   "content": "**Essentials:** Spare tube (even if tubeless), tire plugs, CO2 cartridges (2-3) or mini pump, multi-tool with chain breaker, quick link, tire levers.\n\n**Nutrition:** Gels, bars, chews—whatever you practiced with. Bottle with sports drink pre-mixed. Extra water bottle.\n\n**Other:** Sunscreen, chamois cream, arm warmers/vest, rain jacket (if forecast), extra base layer.\n\n**Race essentials:** Bib number and pins, race chip, ID and emergency contact info."
                 }
               ]
+            },
+            {
+              "type": "prose",
+              "content": "Weather changes your gear strategy completely. A 55\u00b0F start with 15 mph wind feels very different from a 75\u00b0F calm morning\u2014and your clothing choices should reflect that."
+            },
+            {
+              "type": "image",
+              "asset_id": "ch7-weather-matrix",
+              "alt": "Wind speed by temperature matrix showing recommended clothing for each combination of race day conditions",
+              "caption": "The race-morning gear decision matrix \u2014 check the forecast Thursday, lock it in by Friday.",
+              "layout": "inline"
+            },
+            {
+              "type": "prose",
+              "content": "Scout the forecast Thursday morning. Lock in your plan by Friday. Do not second-guess Saturday morning\u2014the stress of indecision costs more energy than being slightly overdressed."
             }
           ]
         },

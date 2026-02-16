@@ -509,6 +509,85 @@ def check_root_matches_brand_tokens():
             warn(f"{name} in guide", f"Not found in brand tokens — verify manually")
 
 
+def check_interactive_js_handlers():
+    """Verify every data-interactive value in renderers has a JS handler."""
+    print("\n── Interactive JS Handler Coverage ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    import generate_guide
+    from guide_infographics import INFOGRAPHIC_RENDERERS
+
+    js = generate_guide.build_guide_js()
+
+    # Collect all data-interactive types used in renderer output
+    interactive_types = set()
+    for aid, renderer in INFOGRAPHIC_RENDERERS.items():
+        try:
+            block = {"type": "image", "asset_id": aid, "alt": "test"}
+            html = renderer(block)
+            for m in re.findall(r'data-interactive="([^"]+)"', html):
+                interactive_types.add(m)
+        except Exception:
+            pass
+
+    if not interactive_types:
+        warn("interactive types", "No data-interactive attributes found in renderers")
+        return
+
+    check(f"Found {len(interactive_types)} interactive types in renderers", True)
+
+    for itype in sorted(interactive_types):
+        has_handler = (f"data-interactive='{itype}'" in js
+                       or f'data-interactive="{itype}"' in js)
+        check(f"JS handler for data-interactive=\"{itype}\"",
+              has_handler,
+              f"No JS handler found for data-interactive=\"{itype}\"")
+
+    # Also verify all data-animate types have CSS support
+    css = generate_guide.build_guide_css()
+    animate_types = set()
+    for aid, renderer in INFOGRAPHIC_RENDERERS.items():
+        try:
+            block = {"type": "image", "asset_id": aid, "alt": "test"}
+            html = renderer(block)
+            for m in re.findall(r'data-animate="([^"]+)"', html):
+                animate_types.add(m)
+        except Exception:
+            pass
+
+    js = generate_guide.build_guide_js()
+    for atype in sorted(animate_types):
+        has_css = f'data-animate="{atype}"' in css
+        has_js = (f'data-animate="{atype}"' in js
+                  or f"data-animate='{atype}'" in js
+                  or f"=== '{atype}'" in js
+                  or f'=== "{atype}"' in js)
+        check(f"CSS/JS support for data-animate=\"{atype}\"",
+              has_css or has_js,
+              f"No CSS or JS support found for data-animate=\"{atype}\"")
+
+
+def check_no_dead_end_infographics():
+    """Ensure no infographic image block is the last block in its section."""
+    print("\n── No Dead-End Infographics ──")
+    content_path = PROJECT_ROOT / "guide" / "gravel-guide-content.json"
+    if not content_path.exists():
+        warn("dead-end infographic", f"Content JSON not found at {content_path}")
+        return
+    data = json.load(open(content_path, encoding="utf-8"))
+    dead_ends = []
+    for ch in data.get("chapters", []):
+        for sec in ch.get("sections", []):
+            blocks = sec.get("blocks", [])
+            if not blocks:
+                continue
+            last = blocks[-1]
+            if last.get("type") == "image" and last.get("asset_id", "").startswith("ch"):
+                dead_ends.append(f'{sec["id"]}/{last["asset_id"]}')
+    check("No dead-end infographics",
+          len(dead_ends) == 0,
+          f"Sections ending on infographic: {', '.join(dead_ends)}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -538,6 +617,8 @@ def main():
         check_infographic_css_no_hex()
         check_infographic_editorial()
         check_infographic_animation_a11y()
+        check_interactive_js_handlers()
+        check_no_dead_end_infographics()
         check_root_matches_brand_tokens()
         if not args.quick:
             check_climate_classification()

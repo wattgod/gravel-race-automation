@@ -497,6 +497,16 @@ def render_zone_visualizer(block: dict) -> str:
     </div>'''
 
 
+def render_hero_stat(block: dict) -> str:
+    """Render a hero stat callout — big number with optional unit and context."""
+    value = esc(block["value"])
+    unit = esc(block.get("unit", ""))
+    context = esc(block.get("context", ""))
+    unit_html = f'<span class="gg-guide-hero-stat__unit">{unit}</span>' if unit else ''
+    ctx_html = f'<div class="gg-guide-hero-stat__context">{context}</div>' if context else ''
+    return f'<div class="gg-guide-hero-stat"><div class="gg-guide-hero-stat__value">{value}{unit_html}</div>{ctx_html}</div>'
+
+
 # Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
@@ -513,6 +523,7 @@ BLOCK_RENDERERS = {
     "zone_visualizer": render_zone_visualizer,
     "image": render_image,
     "video": render_video,
+    "hero_stat": render_hero_stat,
 }
 
 
@@ -1187,6 +1198,13 @@ def build_guide_css() -> str:
 .gg-tooltip-trigger:hover .gg-tooltip,.gg-tooltip-trigger:focus .gg-tooltip{opacity:1;visibility:visible}
 @media(max-width:768px){.gg-tooltip{position:fixed;bottom:auto;top:auto;left:16px;right:16px;transform:none;max-width:none}}
 
+/* ── Hero Stat ── */
+.gg-guide-hero-stat{text-align:center;padding:var(--gg-spacing-xl) var(--gg-spacing-2xl);background:var(--gg-color-dark-brown);border:3px solid var(--gg-color-dark-brown);margin:var(--gg-spacing-lg) 0}
+.gg-guide-hero-stat__value{font-family:var(--gg-font-data);font-size:48px;font-weight:700;color:var(--gg-color-warm-paper);line-height:1.1}
+.gg-guide-hero-stat__unit{font-family:var(--gg-font-data);font-size:20px;font-weight:700;color:var(--gg-color-gold);letter-spacing:2px;text-transform:uppercase;margin-left:4px}
+.gg-guide-hero-stat__context{font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-tan);margin-top:8px;line-height:1.7}
+@media(max-width:768px){.gg-guide-hero-stat{padding:var(--gg-spacing-lg) var(--gg-spacing-md)}.gg-guide-hero-stat__value{font-size:36px}.gg-guide-hero-stat__unit{font-size:16px}}
+
 /* ── Inline Infographics ── */
 .gg-infographic{margin:0 0 20px;line-height:1.4}
 .gg-infographic--full-width{margin-left:-24px;margin-right:-24px}
@@ -1234,6 +1252,184 @@ def build_guide_css() -> str:
 .gg-infographic-bonk-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;max-width:480px;margin:0 auto 8px}
 .gg-infographic-bonk-gel{height:24px;background:var(--gg-color-gold);border:2px solid var(--gg-color-dark-brown)}
 .gg-infographic-bonk-label{font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);letter-spacing:1px}
+
+/* ── Flip Cards ── */
+.gg-infographic-card--flip{cursor:pointer;min-height:160px;position:relative}
+.gg-infographic-card--flip .gg-infographic-card-front,.gg-infographic-card--flip .gg-infographic-card-back{padding:16px}
+.gg-infographic-card--flip .gg-infographic-card-back{display:none;background:var(--gg-color-dark-brown);color:var(--gg-color-warm-paper)}
+.gg-infographic-card--flip.flipped .gg-infographic-card-front{display:none}
+.gg-infographic-card--flip.flipped .gg-infographic-card-back{display:block}
+.gg-infographic-card-back .gg-infographic-card-title{color:var(--gg-color-warm-paper);border-bottom-color:var(--gg-color-gold)}
+.gg-infographic-card-back .gg-infographic-card-desc{color:var(--gg-color-tan)}
+.gg-infographic-card-flip-hint{font-family:var(--gg-font-data);font-size:10px;color:var(--gg-color-secondary-brown);letter-spacing:1px;text-align:center;margin-top:8px}
+
+/* ── Infographic Accordion ── */
+.gg-infographic-accordion{display:flex;flex-direction:column;gap:8px}
+.gg-infographic-accordion-item{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-accordion-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;border:none;width:100%;background:var(--gg-color-warm-paper);font-family:var(--gg-font-editorial);font-size:14px;font-weight:700;color:var(--gg-color-primary-brown);text-align:left}
+.gg-infographic-accordion-header:hover{background:var(--gg-color-sand)}
+.gg-infographic-accordion-icon{font-size:18px;font-weight:700;color:var(--gg-color-teal)}
+.gg-infographic-accordion-body{display:none;padding:16px;border-top:2px solid var(--gg-color-dark-brown)}
+.gg-infographic-accordion-item.open .gg-infographic-accordion-body{display:block}
+.gg-infographic-accordion-item.open .gg-infographic-accordion-icon{color:var(--gg-color-gold)}
+.gg-infographic-accordion-sparkline{display:block;margin-bottom:8px}
+
+/* ── Traffic Light States ── */
+.gg-infographic-signal-row[data-state]{cursor:pointer}
+.gg-infographic-signal-row[data-state="go"] .gg-infographic-signal-indicator rect{fill:var(--gg-color-teal)}
+.gg-infographic-signal-row[data-state="caution"] .gg-infographic-signal-indicator rect{fill:var(--gg-color-gold)}
+.gg-infographic-signal-row[data-state="stop"] .gg-infographic-signal-indicator rect{fill:var(--gg-color-error)}
+
+/* ── Timeline Nodes ── */
+.gg-infographic-timeline{display:flex;flex-direction:column;gap:0}
+.gg-infographic-timeline-node{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper);position:relative;margin-bottom:-3px}
+.gg-infographic-timeline-node--highlight{background:var(--gg-color-teal);border-color:var(--gg-color-teal)}
+.gg-infographic-timeline-node--highlight .gg-infographic-timeline-label,.gg-infographic-timeline-node--highlight .gg-infographic-timeline-summary,.gg-infographic-timeline-node--highlight .gg-infographic-timeline-tag{color:var(--gg-color-warm-paper)}
+.gg-infographic-timeline-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.gg-infographic-timeline-label{font-family:var(--gg-font-editorial);font-size:15px;font-weight:700;color:var(--gg-color-primary-brown)}
+.gg-infographic-timeline-tag{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown)}
+.gg-infographic-timeline-summary{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin-top:4px}
+.gg-infographic-timeline-detail{display:none;padding-top:12px;border-top:2px solid var(--gg-color-tan);margin-top:12px;font-family:var(--gg-font-editorial);font-size:13px;color:var(--gg-color-dark-brown);line-height:1.6}
+.gg-infographic-timeline-node.open .gg-infographic-timeline-detail{display:block}
+.gg-infographic-timeline-expand{font-family:var(--gg-font-data);font-size:14px;font-weight:700;color:var(--gg-color-teal);cursor:pointer;background:none;border:none;padding:0}
+
+/* ── Pyramid Bars ── */
+.gg-infographic-pyramid{display:flex;flex-direction:column;align-items:center;gap:4px}
+.gg-infographic-pyramid-row{display:flex;align-items:center;gap:12px}
+.gg-infographic-pyramid-bar{height:28px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;border:2px solid var(--gg-color-dark-brown)}
+.gg-infographic-pyramid-label{font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-dark-brown);min-width:40px;text-align:right}
+.gg-infographic-pyramid-value{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-warm-paper);letter-spacing:1px}
+
+/* ── Heatmap Grid ── */
+.gg-infographic-heatmap{display:grid;gap:2px}
+.gg-infographic-heatmap-cell{padding:8px;text-align:center;border:2px solid var(--gg-color-dark-brown);font-family:var(--gg-font-data);font-size:11px;font-weight:700}
+.gg-infographic-heatmap-cell[data-v="1"]{background:var(--gg-color-sand);color:var(--gg-color-dark-brown)}
+.gg-infographic-heatmap-cell[data-v="2"]{background:var(--gg-color-tan);color:var(--gg-color-dark-brown)}
+.gg-infographic-heatmap-cell[data-v="3"]{background:var(--gg-color-gold);color:var(--gg-color-warm-paper)}
+.gg-infographic-heatmap-cell[data-v="4"]{background:var(--gg-color-teal);color:var(--gg-color-warm-paper)}
+.gg-infographic-heatmap-cell[data-v="5"]{background:var(--gg-color-dark-brown);color:var(--gg-color-warm-paper)}
+.gg-infographic-heatmap-header{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown);text-align:center;padding:6px 4px}
+
+/* ── Sortable Table ── */
+.gg-infographic-sortable th{cursor:pointer;user-select:none}
+.gg-infographic-sortable th:hover{background:var(--gg-color-teal);color:var(--gg-color-warm-paper)}
+.gg-infographic-sort-indicator{font-size:10px;margin-left:4px}
+
+/* ── Gauge ── */
+.gg-gauge{text-align:center}
+.gg-gauge--sm{max-width:120px}
+.gg-gauge__fill{transition:stroke-dashoffset 1.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-gauge__value{font-family:var(--gg-font-data);font-size:20px;font-weight:700;color:var(--gg-color-primary-brown);margin-top:4px}
+.gg-gauge__label{font-family:var(--gg-font-data);font-size:11px;color:var(--gg-color-secondary-brown);letter-spacing:1px}
+
+/* ── Glycogen Compare ── */
+.gg-infographic-glycogen-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gg-infographic-glycogen-panel{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper)}
+.gg-infographic-glycogen-title{font-family:var(--gg-font-editorial);font-size:14px;font-weight:700;color:var(--gg-color-primary-brown);margin-bottom:12px;border-bottom:2px solid var(--gg-color-gold);padding-bottom:4px}
+.gg-infographic-glycogen-gauges{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.gg-infographic-glycogen-summary{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);font-style:italic}
+
+/* ── Macro Split Progress ── */
+.gg-infographic-macro-grid{display:flex;flex-direction:column;gap:12px}
+.gg-infographic-macro-row{display:flex;align-items:center;gap:12px}
+.gg-infographic-macro-label{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-primary-brown);min-width:80px}
+.gg-infographic-macro-track{flex:1;height:24px;background:var(--gg-color-sand);border:2px solid var(--gg-color-dark-brown);position:relative;overflow:hidden}
+.gg-infographic-macro-fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;position:relative;overflow:hidden}
+.gg-infographic-macro-fill::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--gg-color-white) 25%,transparent) 50%,transparent 100%)}
+.gg-infographic-macro-value{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-warm-paper);letter-spacing:1px}
+
+/* ── Calorie Waterfall ── */
+.gg-infographic-waterfall{display:flex;align-items:flex-end;gap:4px;height:200px;padding:16px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-waterfall-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.gg-infographic-waterfall-bar{width:100%;border:2px solid var(--gg-color-dark-brown)}
+.gg-infographic-waterfall-label{font-family:var(--gg-font-data);font-size:10px;color:var(--gg-color-secondary-brown);letter-spacing:1px}
+.gg-infographic-waterfall-val{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-primary-brown)}
+
+/* ── Recovery Dash ── */
+.gg-infographic-recovery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gg-infographic-recovery-card{border:3px solid var(--gg-color-dark-brown);padding:16px;background:var(--gg-color-warm-paper);text-align:center}
+.gg-infographic-recovery-title{font-family:var(--gg-font-editorial);font-size:14px;font-weight:700;color:var(--gg-color-primary-brown);margin-bottom:8px}
+.gg-infographic-recovery-status{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:1px;margin-top:8px}
+
+/* ── Sleep Tracker ── */
+.gg-sleep-tracker{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-sleep-tracker__header{background:var(--gg-color-dark-brown);padding:8px 16px}
+.gg-sleep-tracker__title{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-tan);letter-spacing:2px;text-transform:uppercase}
+.gg-sleep-tracker__body{padding:16px}
+.gg-sleep-tracker__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px}
+.gg-sleep-tracker__day{border:2px solid var(--gg-color-dark-brown);padding:12px 8px;text-align:center;background:var(--gg-color-warm-paper)}
+.gg-sleep-tracker__day--deficit{border-color:var(--gg-color-error)}
+.gg-sleep-tracker__day--surplus{border-color:var(--gg-color-teal)}
+.gg-sleep-tracker__day-name{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown);margin-bottom:4px}
+.gg-sleep-tracker__day-hrs{font-family:var(--gg-font-data);font-size:20px;font-weight:700;color:var(--gg-color-primary-brown)}
+.gg-sleep-tracker__day-unit{font-family:var(--gg-font-data);font-size:10px;color:var(--gg-color-secondary-brown)}
+.gg-sleep-tracker__day-need{font-family:var(--gg-font-data);font-size:10px;color:var(--gg-color-secondary-brown);margin-top:4px}
+.gg-sleep-tracker__debt{display:flex;align-items:baseline;justify-content:center;gap:8px;padding:12px;border:3px solid var(--gg-color-error);background:var(--gg-color-warm-paper)}
+.gg-sleep-tracker__debt-label{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-primary-brown)}
+.gg-sleep-tracker__debt-num{font-family:var(--gg-font-data);font-size:32px;font-weight:700;color:var(--gg-color-error)}
+.gg-sleep-tracker__debt-unit{font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-secondary-brown)}
+
+/* ── Gear Weight Toggle ── */
+.gg-infographic-gear-toggle{display:flex;flex-direction:column;gap:8px}
+.gg-infographic-gear-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);cursor:pointer}
+.gg-infographic-gear-item.active{border-color:var(--gg-color-teal)}
+.gg-infographic-gear-item-name{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-primary-brown);flex:1}
+.gg-infographic-gear-item-weight{font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-teal)}
+.gg-infographic-gear-item-toggle{width:20px;height:20px;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-sand);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.gg-infographic-gear-item.active .gg-infographic-gear-item-toggle{background:var(--gg-color-teal);color:var(--gg-color-warm-paper);border-color:var(--gg-color-teal)}
+.gg-infographic-gear-total{display:flex;justify-content:space-between;padding:12px 14px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-dark-brown)}
+.gg-infographic-gear-total-label{font-family:var(--gg-font-editorial);font-size:14px;font-weight:700;color:var(--gg-color-tan)}
+.gg-infographic-gear-total-value{font-family:var(--gg-font-data);font-size:18px;font-weight:700;color:var(--gg-color-gold)}
+.gg-infographic-gear-bar-track{height:12px;background:var(--gg-color-sand);border:2px solid var(--gg-color-dark-brown);margin-top:8px}
+.gg-infographic-gear-bar-fill{height:100%;background:var(--gg-color-teal)}
+
+/* ── Digit Roller ── */
+.gg-infographic-digit-roller{display:flex;justify-content:center;gap:2px;overflow:hidden;height:56px}
+.gg-infographic-digit{width:36px;height:56px;overflow:hidden;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-digit-strip{display:flex;flex-direction:column}
+.gg-infographic-digit-strip span{height:56px;display:flex;align-items:center;justify-content:center;font-family:var(--gg-font-data);font-size:32px;font-weight:700;color:var(--gg-color-primary-brown)}
+
+/* ── Range Calculator ── */
+.gg-infographic-range-calc{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-range-calc__header{background:var(--gg-color-dark-brown);padding:8px 16px}
+.gg-infographic-range-calc__title{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-tan);letter-spacing:2px;text-transform:uppercase}
+.gg-infographic-range-calc__body{padding:16px}
+.gg-infographic-range-slider{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.gg-infographic-range-slider label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-primary-brown);letter-spacing:1px}
+.gg-infographic-range-slider input[type="range"]{width:100%;accent-color:var(--gg-color-teal);height:8px}
+.gg-infographic-range-slider output{font-family:var(--gg-font-data);font-size:13px;font-weight:700;color:var(--gg-color-teal)}
+.gg-infographic-range-calc__output{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding-top:12px;border-top:2px solid var(--gg-color-dark-brown)}
+.gg-infographic-range-calc__result{padding:12px;border:2px solid var(--gg-color-dark-brown);text-align:center}
+.gg-infographic-range-calc__result-label{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown);margin-bottom:4px}
+.gg-infographic-range-calc__result-value{font-family:var(--gg-font-data);font-size:22px;font-weight:700;color:var(--gg-color-teal)}
+
+/* ── Before/After ── */
+.gg-infographic-before-after{position:relative;border:3px solid var(--gg-color-dark-brown);overflow:hidden;cursor:col-resize;user-select:none}
+.gg-infographic-ba-side{padding:20px}
+.gg-infographic-ba-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gg-color-secondary-brown);margin-bottom:8px}
+.gg-infographic-ba-divider{position:absolute;top:0;bottom:0;width:4px;background:var(--gg-color-gold);cursor:col-resize;z-index:2}
+.gg-infographic-ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;background:var(--gg-color-gold);border:2px solid var(--gg-color-dark-brown);display:flex;align-items:center;justify-content:center;font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-dark-brown)}
+
+/* ── Gantt Chart ── */
+.gg-infographic-gantt{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-infographic-gantt__header{background:var(--gg-color-dark-brown);padding:8px 16px}
+.gg-infographic-gantt__title{font-family:var(--gg-font-editorial);font-size:13px;font-weight:700;color:var(--gg-color-tan);letter-spacing:2px;text-transform:uppercase}
+.gg-infographic-gantt__body{padding:16px}
+.gg-infographic-gantt__row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.gg-infographic-gantt__label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-primary-brown);min-width:80px;text-align:right}
+.gg-infographic-gantt__track{flex:1;height:20px;background:var(--gg-color-sand);border:1px solid var(--gg-color-tan);position:relative}
+.gg-infographic-gantt__bar{height:100%;position:absolute;top:0}
+
+/* ── Weather Matrix ── */
+.gg-infographic-weather-matrix{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);padding:16px}
+.gg-infographic-weather-title{font-family:var(--gg-font-editorial);font-size:14px;font-weight:700;color:var(--gg-color-primary-brown);margin-bottom:12px;text-align:center}
+
+/* ── Radar Chart ── */
+.gg-infographic-radar{text-align:center}
+.gg-infographic-radar-controls{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.gg-infographic-radar-btn{padding:6px 14px;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);font-family:var(--gg-font-data);font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px}
+.gg-infographic-radar-btn:hover{border-color:var(--gg-color-teal)}
+.gg-infographic-radar-btn.active{background:var(--gg-color-teal);color:var(--gg-color-warm-paper);border-color:var(--gg-color-teal)}
 
 /* ── Infographic Editorial Framing ── */
 .gg-infographic-title{font-family:var(--gg-font-editorial);font-size:1.25rem;font-weight:700;color:var(--gg-color-near-black);border-bottom:3px solid var(--gg-color-gold);padding:0 0 0.5rem 0;margin:0 0 1rem 0}
@@ -1293,6 +1489,46 @@ def build_guide_css() -> str:
 .gg-in-view .gg-infographic-bonk-gel:nth-child(12){transition-delay:0.33s}
 [data-animate="bar"]{transition:width 0.8s cubic-bezier(0.25,0.46,0.45,0.94),height 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
 [data-animate="line"]{transition:stroke-dashoffset 1.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+/* Flip card transition */
+.gg-infographic-card--flip{transition:border-color 0.3s}
+/* Accordion body slide */
+.gg-infographic-accordion-icon{transition:color 0.2s}
+/* Timeline expand */
+.gg-infographic-timeline-node{transition:border-color 0.3s}
+/* Pyramid bar growth */
+.gg-has-js [data-animate="pyramid"] .gg-infographic-pyramid-bar{width:0;transition:width 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view [data-animate="pyramid"] .gg-infographic-pyramid-bar,.gg-in-view[data-animate="pyramid"] .gg-infographic-pyramid-bar{width:var(--w)}
+/* Gantt bar growth */
+.gg-has-js [data-animate="gantt"] .gg-infographic-gantt__bar{width:0 !important;transition:width 1s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view [data-animate="gantt"] .gg-infographic-gantt__bar,.gg-in-view[data-animate="gantt"] .gg-infographic-gantt__bar{width:var(--w) !important}
+/* Scatter fade-in markers */
+.gg-has-js [data-animate="scatter"] .gg-line-chart__marker{fill-opacity:0;transition:fill-opacity 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view [data-animate="scatter"] .gg-line-chart__marker,.gg-in-view[data-animate="scatter"] .gg-line-chart__marker{fill-opacity:1;transition-delay:var(--delay,0ms)}
+/* Fade-stagger for grid items */
+.gg-has-js [data-animate="fade-stagger"] > *{transform:translateY(16px);transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),border-color 0.3s}
+.gg-in-view [data-animate="fade-stagger"] > *,.gg-in-view[data-animate="fade-stagger"] > *{transform:translateY(0)}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(2),.gg-in-view[data-animate="fade-stagger"] > :nth-child(2){transition-delay:0.08s}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(3),.gg-in-view[data-animate="fade-stagger"] > :nth-child(3){transition-delay:0.16s}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(4),.gg-in-view[data-animate="fade-stagger"] > :nth-child(4){transition-delay:0.24s}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(5),.gg-in-view[data-animate="fade-stagger"] > :nth-child(5){transition-delay:0.32s}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(6),.gg-in-view[data-animate="fade-stagger"] > :nth-child(6){transition-delay:0.40s}
+.gg-in-view [data-animate="fade-stagger"] > :nth-child(7),.gg-in-view[data-animate="fade-stagger"] > :nth-child(7){transition-delay:0.48s}
+/* Progress bar growth */
+.gg-has-js [data-animate="progress"] .gg-infographic-macro-fill{width:0;transition:width 1s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view [data-animate="progress"] .gg-infographic-macro-fill,.gg-in-view[data-animate="progress"] .gg-infographic-macro-fill{width:var(--w)}
+.gg-in-view [data-animate="progress"] .gg-infographic-macro-fill::before,.gg-in-view[data-animate="progress"] .gg-infographic-macro-fill::before{left:100%;transition:left 0.6s ease-out;transition-delay:1.2s}
+/* Gauge stroke */
+.gg-has-js [data-animate="stroke"] .gg-gauge__fill{stroke-dashoffset:var(--gauge-perimeter);transition:stroke-dashoffset 1.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+.gg-in-view [data-animate="stroke"] .gg-gauge__fill,.gg-in-view[data-animate="stroke"] .gg-gauge__fill{stroke-dashoffset:calc(var(--gauge-perimeter) - var(--gauge-target))}
+/* Counter animation — JS drives the number increment */
+/* Profile / course draw — uses same stroke-dashoffset as "line" */
+[data-animate="profile"] path{transition:stroke-dashoffset 2s cubic-bezier(0.25,0.46,0.45,0.94)}
+/* Digit roller transition */
+.gg-infographic-digit-strip{transition:transform 1.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+/* Shimmer sweep in bar fills */
+.gg-infographic-macro-fill::before{transition:left 0.6s ease-out}
+/* Gear bar fill */
+.gg-infographic-gear-bar-fill{transition:width 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
 }
 
 @media(max-width:768px){
@@ -1305,6 +1541,19 @@ def build_guide_css() -> str:
 .gg-infographic-bonk-num{font-size:36px}
 .gg-infographic-bonk-total{font-size:42px}
 .gg-infographic-bonk-grid{grid-template-columns:repeat(8,1fr)}
+.gg-infographic-glycogen-compare{grid-template-columns:1fr}
+.gg-infographic-glycogen-gauges{grid-template-columns:repeat(2,1fr)}
+.gg-infographic-recovery-grid{grid-template-columns:1fr}
+.gg-sleep-tracker__grid{grid-template-columns:repeat(4,1fr)}
+.gg-sleep-tracker__day-hrs{font-size:16px}
+.gg-infographic-before-after{flex-direction:column}
+.gg-infographic-heatmap{font-size:9px}
+.gg-infographic-heatmap-cell{padding:4px 2px}
+.gg-infographic-radar-controls{flex-wrap:wrap}
+.gg-infographic-range-calc__output{grid-template-columns:1fr 1fr}
+.gg-infographic-gantt__label{min-width:60px;font-size:10px}
+.gg-infographic-digit{width:28px;height:44px}
+.gg-infographic-digit-strip span{height:44px;font-size:24px}
 }
 '''
 
@@ -1649,6 +1898,39 @@ fig.querySelectorAll("[data-animate='line']").forEach(function(el){
 var len=el.getTotalLength?el.getTotalLength():0;
 if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset="0";}
 });
+/* Counter animation (countUp) */
+fig.querySelectorAll("[data-animate='counter'] [data-target]").forEach(function(el){
+var target=parseFloat(el.getAttribute("data-target"));
+if(isNaN(target))return;
+var start=0;var dur=1200;var t0=performance.now();
+function tick(now){
+var pct=Math.min((now-t0)/dur,1);
+var val=Math.round(start+(target-start)*pct);
+el.textContent=val;
+if(pct<1)requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+});
+/* Stroke gauge animation — CSS handles via .gg-in-view, just trigger class */
+/* Pyramid / gantt / progress — CSS handles via .gg-in-view + --w custom property */
+/* Profile draw animation */
+fig.querySelectorAll("[data-animate='profile'] path").forEach(function(el){
+var len=el.getTotalLength?el.getTotalLength():0;
+if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset="0";}
+});
+/* Scatter marker reveal — CSS handles via .gg-in-view + --delay */
+/* Digit roller animation */
+fig.querySelectorAll("[data-interactive='digit-roller']").forEach(function(roller){
+var digits=roller.querySelectorAll(".gg-infographic-digit");
+var targetVal=roller.getAttribute("data-value")||"0";
+var padded=targetVal.padStart(digits.length,"0");
+digits.forEach(function(d,i){
+var strip=d.querySelector(".gg-infographic-digit-strip");
+if(!strip)return;
+var digit=parseInt(padded[i],10)||0;
+strip.style.transform="translateY(-"+(digit*56)+"px)";
+});
+});
 obs.unobserve(fig);
 track("infographic_view",{asset_id:fig.getAttribute("data-asset-id")});
 }
@@ -1666,6 +1948,16 @@ if(th)el.setAttribute("height","0");
 fig.querySelectorAll("[data-animate='line']").forEach(function(el){
 var len=el.getTotalLength?el.getTotalLength():0;
 if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset=len;}
+});
+/* Pre-set profile paths for draw animation */
+fig.querySelectorAll("[data-animate='profile'] path").forEach(function(el){
+var len=el.getTotalLength?el.getTotalLength():0;
+if(len){el.style.strokeDasharray=len;el.style.strokeDashoffset=len;}
+});
+/* Pre-set gauge strokes — CSS initial state handles via .gg-has-js */
+/* Pre-set digit roller to initial position (all zeros visible) */
+fig.querySelectorAll("[data-interactive='digit-roller'] .gg-infographic-digit-strip").forEach(function(strip){
+strip.style.transform="translateY(0)";
 });
 infoObs.observe(fig);
 });
@@ -1691,6 +1983,184 @@ document.addEventListener("mouseover",function(e){var t=e.target.closest("[data-
 document.addEventListener("mouseout",function(e){var t=e.target.closest("[data-tooltip]");if(t)hideTooltip();});
 document.addEventListener("focusin",function(e){var t=e.target.closest("[data-tooltip]");if(t&&t.closest(".gg-infographic"))showTooltip(t);});
 document.addEventListener("focusout",function(e){var t=e.target.closest("[data-tooltip]");if(t)hideTooltip();});
+
+/* ── Interactive Handlers (event delegation) ── */
+var prefersReduced=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+/* Flip cards */
+document.addEventListener("click",function(e){
+var card=e.target.closest("[data-interactive='flip']");
+if(!card)return;
+card.classList.toggle("flipped");
+track("infographic_interact",{type:"flip",asset_id:(card.closest("figure[data-asset-id]")||{}).getAttribute("data-asset-id")||""});
+});
+document.addEventListener("keydown",function(e){
+if(e.key!=="Enter"&&e.key!==" ")return;
+var card=e.target.closest("[data-interactive='flip']");
+if(!card)return;
+e.preventDefault();
+card.classList.toggle("flipped");
+});
+
+/* Traffic light click-to-cycle */
+document.addEventListener("click",function(e){
+var row=e.target.closest("[data-interactive='traffic-light']");
+if(!row)return;
+var states=["go","caution","stop"];
+var cur=row.getAttribute("data-state")||"go";
+var idx=(states.indexOf(cur)+1)%states.length;
+row.setAttribute("data-state",states[idx]);
+track("infographic_interact",{type:"traffic-light",state:states[idx]});
+});
+
+/* Infographic accordion */
+document.addEventListener("click",function(e){
+var header=e.target.closest("[data-interactive='accordion'] .gg-infographic-accordion-header");
+if(!header)return;
+var item=header.closest(".gg-infographic-accordion-item");
+if(item)item.classList.toggle("open");
+track("infographic_interact",{type:"accordion"});
+});
+
+/* Radar morph */
+document.addEventListener("click",function(e){
+var btn=e.target.closest("[data-interactive='radar-morph'] .gg-infographic-radar-btn");
+if(!btn)return;
+var radar=btn.closest("[data-interactive='radar-morph']");
+if(!radar)return;
+var polygon=radar.querySelector("polygon.gg-infographic-radar-data");
+if(!polygon)return;
+var targetPts=btn.getAttribute("data-points");
+if(!targetPts)return;
+/* Update active button */
+radar.querySelectorAll(".gg-infographic-radar-btn").forEach(function(b){b.classList.remove("active");});
+btn.classList.add("active");
+/* Animate polygon morph with rAF */
+if(prefersReduced){polygon.setAttribute("points",targetPts);return;}
+var fromPts=polygon.getAttribute("points").split(" ").map(function(p){var xy=p.split(",");return[parseFloat(xy[0]),parseFloat(xy[1])];});
+var toPts=targetPts.split(" ").map(function(p){var xy=p.split(",");return[parseFloat(xy[0]),parseFloat(xy[1])];});
+if(fromPts.length!==toPts.length){polygon.setAttribute("points",targetPts);return;}
+var dur=600;var t0=performance.now();
+function morphTick(now){
+var pct=Math.min((now-t0)/dur,1);
+var ease=pct<0.5?2*pct*pct:1-Math.pow(-2*pct+2,2)/2;
+var pts=fromPts.map(function(f,i){return(f[0]+(toPts[i][0]-f[0])*ease).toFixed(1)+","+(f[1]+(toPts[i][1]-f[1])*ease).toFixed(1);}).join(" ");
+polygon.setAttribute("points",pts);
+if(pct<1)requestAnimationFrame(morphTick);
+}
+requestAnimationFrame(morphTick);
+track("infographic_interact",{type:"radar-morph",race:btn.textContent.trim()});
+});
+
+/* Sortable table */
+document.addEventListener("click",function(e){
+var th=e.target.closest("[data-interactive='sortable-table'] th[data-col]");
+if(!th)return;
+var table=th.closest("table");
+if(!table)return;
+var tbody=table.querySelector("tbody");
+if(!tbody)return;
+var col=parseInt(th.getAttribute("data-col"),10);
+var rows=Array.from(tbody.querySelectorAll("tr"));
+var asc=th.getAttribute("data-sort-dir")!=="asc";
+rows.sort(function(a,b){
+var aText=(a.children[col]||{}).textContent||"";
+var bText=(b.children[col]||{}).textContent||"";
+var aNum=parseFloat(aText.replace(/[^0-9.\-]/g,""));
+var bNum=parseFloat(bText.replace(/[^0-9.\-]/g,""));
+if(!isNaN(aNum)&&!isNaN(bNum))return asc?aNum-bNum:bNum-aNum;
+return asc?aText.localeCompare(bText):bText.localeCompare(aText);
+});
+rows.forEach(function(r){tbody.appendChild(r);});
+table.querySelectorAll("th[data-col]").forEach(function(h){h.removeAttribute("data-sort-dir");var ind=h.querySelector(".gg-infographic-sort-indicator");if(ind)ind.textContent="";});
+th.setAttribute("data-sort-dir",asc?"asc":"desc");
+var indicator=th.querySelector(".gg-infographic-sort-indicator");
+if(indicator)indicator.textContent=asc?"\u25b2":"\u25bc";
+track("infographic_interact",{type:"sortable-table",column:col,direction:asc?"asc":"desc"});
+});
+
+/* Range calculator */
+document.querySelectorAll("[data-interactive='range-calculator']").forEach(function(calc){
+var sliders=calc.querySelectorAll("input[type='range']");
+function updateCalc(){
+var vals={};
+sliders.forEach(function(s){vals[s.name]=parseFloat(s.value);var out=calc.querySelector("output[for='"+s.id+"']");if(out)out.textContent=s.value+(s.getAttribute("data-unit")||"");});
+/* Hydration calc formula */
+var dur=vals.duration||4;var temp=vals.temp||70;var intensity=vals.intensity||6;
+var baseMl=500*dur;var heatAdj=temp>80?1.3:temp>70?1.1:1.0;
+var intAdj=intensity>7?1.2:intensity>5?1.1:1.0;
+var totalMl=Math.round(baseMl*heatAdj*intAdj);
+var sodiumMg=Math.round(totalMl*0.7);
+var outFluid=calc.querySelector("[data-result='fluid']");
+var outSodium=calc.querySelector("[data-result='sodium']");
+var outRate=calc.querySelector("[data-result='rate']");
+if(outFluid)outFluid.textContent=(totalMl/1000).toFixed(1)+"L";
+if(outSodium)outSodium.textContent=sodiumMg+"mg";
+if(outRate)outRate.textContent=Math.round(totalMl/dur)+"ml/hr";
+}
+sliders.forEach(function(s){s.addEventListener("input",updateCalc);});
+updateCalc();
+});
+
+/* Gear weight toggle */
+document.addEventListener("click",function(e){
+var item=e.target.closest("[data-interactive='gear-toggle'] .gg-infographic-gear-item");
+if(!item)return;
+item.classList.toggle("active");
+var container=item.closest("[data-interactive='gear-toggle']");
+if(!container)return;
+var total=0;
+container.querySelectorAll(".gg-infographic-gear-item.active").forEach(function(it){
+total+=parseFloat(it.getAttribute("data-weight")||"0");
+});
+var valEl=container.querySelector(".gg-infographic-gear-total-value");
+if(valEl)valEl.textContent=total.toFixed(1)+"kg";
+var fillEl=container.querySelector(".gg-infographic-gear-bar-fill");
+var maxW=parseFloat(container.getAttribute("data-max-weight")||"12");
+if(fillEl)fillEl.style.width=Math.min(100,total/maxW*100)+"%";
+track("infographic_interact",{type:"gear-toggle",total:total.toFixed(1)});
+});
+
+/* Before/after drag */
+(function(){
+var active=null;
+function startDrag(e){
+var ba=e.target.closest("[data-interactive='before-after']");
+if(!ba)return;
+active=ba;
+e.preventDefault();
+}
+function moveDrag(e){
+if(!active)return;
+var rect=active.getBoundingClientRect();
+var clientX=e.touches?e.touches[0].clientX:e.clientX;
+var pct=Math.max(10,Math.min(90,((clientX-rect.left)/rect.width)*100));
+var divider=active.querySelector(".gg-infographic-ba-divider");
+var afterSide=active.querySelector(".gg-infographic-ba-side:last-of-type");
+if(divider)divider.style.left=pct+"%";
+if(afterSide)afterSide.style.clipPath="inset(0 0 0 "+pct+"%)";
+}
+function stopDrag(){
+if(active){track("infographic_interact",{type:"before-after"});active=null;}
+}
+document.addEventListener("mousedown",startDrag);
+document.addEventListener("mousemove",moveDrag);
+document.addEventListener("mouseup",stopDrag);
+document.addEventListener("touchstart",startDrag,{passive:false});
+document.addEventListener("touchmove",moveDrag,{passive:false});
+document.addEventListener("touchend",stopDrag);
+})();
+
+/* Timeline expand */
+document.addEventListener("click",function(e){
+var header=e.target.closest("[data-interactive='timeline'] .gg-infographic-timeline-header");
+if(!header)return;
+var node=header.closest(".gg-infographic-timeline-node");
+if(node)node.classList.toggle("open");
+var expand=header.querySelector(".gg-infographic-timeline-expand");
+if(expand)expand.textContent=node.classList.contains("open")?"\u2212":"+";
+track("infographic_interact",{type:"timeline"});
+});
 
 })();'''
 

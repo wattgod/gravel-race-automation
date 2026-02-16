@@ -61,26 +61,80 @@ FEATURED_SLUGS = [
 # Each entry: (title, url_path, category_tag, teaser)
 # Update FEATURED_ONSITE_UPDATED when you change these articles.
 
-FEATURED_ONSITE_UPDATED = "2026-02-10"  # YYYY-MM-DD — last time articles were curated
+FEATURED_ONSITE_UPDATED = "2026-02-15"  # YYYY-MM-DD — last time articles were curated
 
 FEATURED_ONSITE_ARTICLES = [
+    (
+        "If You're Not Talented, You Should Probably Quit",
+        "/if-youre-not-talented-you-should-probably-quit/",
+        "HOT TAKE",
+        "The worst advice in cycling is \u201canyone can do it.\u201d Here\u2019s what nobody says out loud.",
+    ),
     (
         "I Opened a FasCat AI Coaching Email So You Don't Have To",
         "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
         "CONTROVERSIAL OPINION",
-        "What happens when AI tries to coach cyclists? We opened the email so you can skip the sales pitch.",
+        "What happens when AI tries to coach cyclists? I opened the email so you can skip the sales pitch.",
     ),
     (
-        "Maybe a Hater Poster is What You've Been Missing",
-        "/maybe-a-hate-poster-is-what-youve-been-missing/",
+        "5 Ways to Become a Power Meter Clown",
+        "/5-ways-to-become-a-power-meter-clown/",
+        "TRAINING",
+        "The power meter doesn\u2019t make you fast. Staring at it while you ride makes you slow.",
+    ),
+    (
+        "Your Eating Habits Are Killing Your Performance",
+        "/your-eating-habits-are-killing-your-performance/",
+        "NUTRITION",
+        "You\u2019re not under-training. You\u2019re under-eating. And the solution isn\u2019t another gel.",
+    ),
+    (
+        "Maybe Stop Sandbagging Your Goals",
+        "/maybe-stop-sandbagging-your-goals/",
         "MINDSET",
-        "Sometimes the best motivation isn't a quote from Marcus Aurelius. Sometimes it's spite.",
+        "Setting \u201crealistic\u201d goals is just fear wearing a sensible hat.",
+    ),
+    (
+        "How to Beat People 20 Years Younger Than You",
+        "/how-to-beat-people-20-years-younger-than-you/",
+        "RACING",
+        "Age is an excuse until it isn\u2019t. Here\u2019s what actually changes \u2014 and what doesn\u2019t.",
+    ),
+    (
+        "Does Beer Make You Slow?",
+        "/does-beer-make-you-slow/",
+        "SINCE YOU ASKED",
+        "The question every cyclist asks and nobody answers honestly.",
+    ),
+    (
+        "How to Develop Your Athletic Sh**t Detector",
+        "/how-to-develop-your-athletic-sht-detector/",
+        "TRAINING",
+        "Most cycling advice is marketing. Here\u2019s how to tell the difference.",
     ),
     (
         "I Messed Up Big Horn Gravel So You Don't Have To",
         "/i-messed-up-big-horn-gravel-so-you-dont-have-to/",
         "RACE REPORT",
-        "Every mistake you can make in a gravel race, catalogued for your benefit. You're welcome.",
+        "Every mistake you can make in a gravel race, catalogued for your benefit.",
+    ),
+    (
+        "You Don't Need To Bike To Bike Fast",
+        "/you-dont-need-to-bike-to-bike-fast/",
+        "CONTROVERSIAL OPINION",
+        "The fastest gains most cyclists will ever make happen off the bike.",
+    ),
+    (
+        "Your FTP Does Matter",
+        "/since-no-one-asked-why-did-dumoulin-retire-he-just-wants-to-eat-some-cheese/",
+        "CONTROVERSIAL OPINION",
+        "Everyone\u2019s telling you FTP doesn\u2019t matter. They\u2019re wrong, and here\u2019s why.",
+    ),
+    (
+        "Maybe a Hater Poster is What You've Been Missing",
+        "/maybe-a-hate-poster-is-what-youve-been-missing/",
+        "MINDSET",
+        "Sometimes the best motivation isn\u2019t a quote from Marcus Aurelius. Sometimes it\u2019s spite.",
     ),
 ]
 
@@ -273,9 +327,26 @@ def build_nav() -> str:
       </a>
       <nav class="gg-hp-header-nav">
         <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
-        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
-        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
+        <div class="gg-hp-dropdown">
+          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">SERVICES</button>
+          <div class="gg-hp-dropdown-menu">
+            <a href="{esc(COACHING_URL)}">Coaching</a>
+          </div>
+        </div>
+        <div class="gg-hp-dropdown">
+          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">PRODUCTS</button>
+          <div class="gg-hp-dropdown-menu">
+            <a href="{SITE_BASE_URL}/training-plans/">Custom Training Plans</a>
+            <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
+          </div>
+        </div>
+        <div class="gg-hp-dropdown">
+          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">ARTICLES</button>
+          <div class="gg-hp-dropdown-menu">
+            <a href="{esc(SUBSTACK_URL)}" target="_blank" rel="noopener">Substack</a>
+            <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>'''
@@ -569,7 +640,7 @@ def build_featured_races(race_index: list) -> str:
 
 
 def build_latest_takes() -> str:
-    """Build the 'Latest Takes' section with curated on-site article cards."""
+    """Build the 'Latest Takes' carousel with curated on-site article cards."""
     if not FEATURED_ONSITE_ARTICLES:
         return ""
 
@@ -587,18 +658,25 @@ def build_latest_takes() -> str:
     cards = ""
     for title, url_path, tag, teaser in FEATURED_ONSITE_ARTICLES:
         cards += f'''
-      <a href="{SITE_BASE_URL}{esc(url_path)}" class="gg-hp-take-card" data-ga="article_click" data-ga-label="{esc(title)}">
-        <span class="gg-hp-take-tag">{esc(tag)}</span>
-        <h3 class="gg-hp-take-title">{esc(title)}</h3>
-        <p class="gg-hp-take-teaser">{esc(teaser)}</p>
-        <span class="gg-hp-take-read">READ &rarr;</span>
-      </a>'''
+        <a href="{SITE_BASE_URL}{esc(url_path)}" class="gg-hp-take-card" data-ga="article_click" data-ga-label="{esc(title)}">
+          <span class="gg-hp-take-tag">{esc(tag)}</span>
+          <h3 class="gg-hp-take-title">{esc(title)}</h3>
+          <p class="gg-hp-take-teaser">{esc(teaser)}</p>
+          <span class="gg-hp-take-read">READ &rarr;</span>
+        </a>'''
+
+    total = len(FEATURED_ONSITE_ARTICLES)
 
     return f'''<section class="gg-hp-latest-takes" id="takes">
     <div class="gg-hp-section-header gg-hp-section-header--gold">
       <h2>LATEST TAKES</h2>
     </div>
-    <div class="gg-hp-take-grid">{cards}
+    <div class="gg-hp-take-carousel" id="gg-takes-carousel">{cards}
+    </div>
+    <div class="gg-hp-take-nav">
+      <button class="gg-hp-take-btn" id="gg-takes-prev" aria-label="Previous articles">&larr;</button>
+      <span class="gg-hp-take-counter" id="gg-takes-count">1 / {(total + 2) // 3}</span>
+      <button class="gg-hp-take-btn" id="gg-takes-next" aria-label="Next articles">&rarr;</button>
     </div>
     <div class="gg-hp-take-cta">
       <a href="{SITE_BASE_URL}/articles/" class="gg-hp-btn gg-hp-btn--primary" data-ga="view_all_articles">ALL ARTICLES &rarr;</a>
@@ -698,7 +776,7 @@ def build_training_cta() -> str:
           <div class="gg-hp-coaching-feat"><strong>No guilt. Just edits.</strong> When life happens, we adjust the plan instead of pretending you&rsquo;re a robot.</div>
           <div class="gg-hp-coaching-feat"><strong>Race-day guardrails.</strong> Pacing, fueling, and &ldquo;if this happens, do that&rdquo; so you don&rsquo;t improvise at mile 140.</div>
         </div>
-        <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--secondary" target="_blank" rel="noopener" data-ga="coaching_click">APPLY</a>
+        <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--secondary" data-ga="coaching_click">APPLY</a>
       </div>
     </div>
   </section>'''
@@ -728,7 +806,7 @@ def build_testimonials() -> str:
     <div class="gg-hp-test-grid">{cards}
     </div>
     <div class="gg-hp-test-cta">
-      <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--primary" target="_blank" rel="noopener" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
+      <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
     </div>
   </section>'''
 
@@ -816,8 +894,17 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
 .gg-hp-header-logo img { display: block; height: 50px; width: auto; }
 .gg-hp-header-nav { display: flex; gap: 28px; }
-.gg-hp-header-nav a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); }
-.gg-hp-header-nav a:hover { color: #9a7e0a; }
+.gg-hp-header-nav > a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); }
+.gg-hp-header-nav > a:hover { color: #9a7e0a; }
+.gg-hp-dropdown { position: relative; display: flex; align-items: center; }
+.gg-hp-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); line-height: 1; }
+.gg-hp-dropdown-trigger::after { content: ' \\25BE'; font-size: 9px; }
+.gg-hp-dropdown-trigger:hover, .gg-hp-dropdown:hover .gg-hp-dropdown-trigger { color: #9a7e0a; }
+.gg-hp-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; min-width: 200px; background: #f5efe6; border: 3px solid #3a2e25; padding: 8px 0; z-index: 100; }
+.gg-hp-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+.gg-hp-dropdown:hover .gg-hp-dropdown-menu { display: block; }
+.gg-hp-dropdown-menu a { display: block; padding: 8px 16px; color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: none; transition: background var(--gg-ease), color var(--gg-ease); }
+.gg-hp-dropdown-menu a:hover { background: #3a2e25; color: #f5efe6; }
 
 /* ── Ticker ──────────────────────────────────────────────── */
 .gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: hidden; white-space: nowrap; }
@@ -910,13 +997,18 @@ a { text-decoration: none; color: #178079; }
 /* ── Latest Takes ───────────────────────────────────────── */
 .gg-hp-latest-takes { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-section-header--gold { border-bottom-color: #9a7e0a; }
-.gg-hp-take-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.gg-hp-take-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
+.gg-hp-take-carousel { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.gg-hp-take-carousel::-webkit-scrollbar { display: none; }
+.gg-hp-take-card { flex: 0 0 calc(33.333% - 0px); scroll-snap-align: start; display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); box-sizing: border-box; min-width: 0; }
 .gg-hp-take-card:hover { border-color: #9a7e0a; }
 .gg-hp-take-tag { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 10px; }
 .gg-hp-take-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
 .gg-hp-take-teaser { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #7d695d; line-height: 1.7; margin: 0 0 16px; flex: 1; }
 .gg-hp-take-read { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #178079; }
+.gg-hp-take-nav { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px; background: #ede4d8; border-top: 1px solid #d4c5b9; }
+.gg-hp-take-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; background: #f5efe6; border: 2px solid #3a2e25; color: #3a2e25; cursor: pointer; font-family: 'Sometype Mono', monospace; transition: background-color var(--gg-ease), border-color var(--gg-ease); }
+.gg-hp-take-btn:hover { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
+.gg-hp-take-counter { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #7d695d; min-width: 48px; text-align: center; }
 .gg-hp-take-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 .gg-hp-take-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-take-cta .gg-hp-btn--primary:hover { background: #b8960d; border-color: #b8960d; }
@@ -1057,7 +1149,7 @@ a { text-decoration: none; color: #178079; }
 /* ── Responsive: tablet ─────────────────────────────────── */
 @media (max-width: 1024px) {
   .gg-hp-race-grid { grid-template-columns: repeat(2, 1fr); }
-  .gg-hp-take-grid { grid-template-columns: 1fr; }
+  .gg-hp-take-card { flex: 0 0 calc(50% - 0px); }
   .gg-hp-guide-grid { grid-template-columns: 1fr; }
   .gg-hp-footer-grid { grid-template-columns: 1fr 1fr; }
   .gg-hp-feat-inner { flex-direction: column; text-align: center; }
@@ -1079,7 +1171,9 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-header-inner { flex-wrap: wrap; justify-content: center; gap: 10px; }
   .gg-hp-header-logo img { height: 40px; }
   .gg-hp-header-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
-  .gg-hp-header-nav a { font-size: 10px; letter-spacing: 1.5px; }
+  .gg-hp-header-nav > a { font-size: 10px; letter-spacing: 1.5px; }
+  .gg-hp-dropdown-trigger { font-size: 10px; letter-spacing: 1.5px; }
+  .gg-hp-dropdown-menu { left: 50%; transform: translateX(-50%); min-width: 180px; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }
@@ -1113,8 +1207,7 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-featured-cta { padding: 16px; }
 
   /* Latest takes */
-  .gg-hp-take-grid { grid-template-columns: 1fr; }
-  .gg-hp-take-card { padding: 16px; }
+  .gg-hp-take-card { flex: 0 0 100%; padding: 16px; }
   .gg-hp-take-cta { padding: 16px; }
 
   /* How it works */
@@ -1191,6 +1284,68 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
     }
   });
 });
+
+// Latest Takes carousel
+(function() {
+  var carousel = document.getElementById('gg-takes-carousel');
+  var prev = document.getElementById('gg-takes-prev');
+  var next = document.getElementById('gg-takes-next');
+  var counter = document.getElementById('gg-takes-count');
+  if (!carousel || !prev || !next) return;
+  var cards = carousel.querySelectorAll('.gg-hp-take-card');
+  var total = cards.length;
+
+  function perPage() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+  function totalPages() {
+    return Math.ceil(total / perPage());
+  }
+  function getPage() {
+    if (!cards.length) return 0;
+    var cardWidth = cards[0].offsetWidth;
+    return Math.round(carousel.scrollLeft / (cardWidth * perPage()));
+  }
+  function updateCounter() {
+    if (counter) counter.textContent = (getPage() + 1) + ' / ' + totalPages();
+  }
+  function scrollToPage(page) {
+    var cardWidth = cards[0].offsetWidth;
+    carousel.scrollTo({ left: page * perPage() * cardWidth, behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', function() {
+    var page = getPage();
+    scrollToPage(page > 0 ? page - 1 : totalPages() - 1);
+    stopAuto(); startAuto();
+    if (typeof gtag === 'function') gtag('event', 'takes_carousel', { action: 'prev' });
+  });
+  next.addEventListener('click', function() {
+    var page = getPage();
+    scrollToPage(page < totalPages() - 1 ? page + 1 : 0);
+    stopAuto(); startAuto();
+    if (typeof gtag === 'function') gtag('event', 'takes_carousel', { action: 'next' });
+  });
+  carousel.addEventListener('scroll', function() { updateCounter(); });
+  window.addEventListener('resize', function() { updateCounter(); });
+  updateCounter();
+
+  // Auto-rotate every 6 seconds, pause on hover
+  var autoTimer = null;
+  var paused = false;
+  function autoAdvance() {
+    if (paused) return;
+    var page = getPage();
+    scrollToPage(page < totalPages() - 1 ? page + 1 : 0);
+  }
+  function startAuto() { autoTimer = setInterval(autoAdvance, 6000); }
+  function stopAuto() { clearInterval(autoTimer); }
+  carousel.addEventListener('mouseenter', function() { paused = true; });
+  carousel.addEventListener('mouseleave', function() { paused = false; });
+  startAuto();
+})();
 </script>'''
 
 

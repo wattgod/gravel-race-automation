@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Deals Pipeline — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header mc-page-header--with-actions">
+    <div>
+        <span class="mc-page-header__kicker">Revenue</span>
+        <h1 class="mc-page-header__title">Deals Pipeline</h1>
+    </div>
+    <div class="mc-page-header__actions">
+        <button class="gg-btn gg-btn--primary" hx-get="/deals/new" hx-target="#deal-form-area" hx-swap="innerHTML">New Deal</button>
+    </div>
+</div>
+
+<!-- Revenue Target -->
+<div class="gg-stat-grid">
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value mc-text-teal">${{ "%.0f"|format(revenue.actual) }}</div>
+        <div class="gg-stat-card__label">{{ revenue.month }} Revenue</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">${{ "%.0f"|format(revenue.target) }}</div>
+        <div class="gg-stat-card__label">Monthly Target</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value{% if revenue.pct >= 100 %} mc-text-teal{% elif revenue.pct >= 50 %} mc-text-gold{% else %} mc-text-error{% endif %}">{{ revenue.pct }}%</div>
+        <div class="gg-stat-card__label">Target Progress</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">${{ "%.0f"|format(revenue.remaining) }}</div>
+        <div class="gg-stat-card__label">Remaining</div>
+    </div>
+</div>
+
+<!-- Progress Bar -->
+<div style="margin:var(--gg-spacing-md) 0 var(--gg-spacing-lg);background:var(--gg-color-sand);height:8px;border:1px solid var(--gg-color-tan)">
+    <div style="height:100%;background:var(--gg-color-teal);width:{{ [revenue.pct, 100]|min }}%;transition:width 0.3s"></div>
+</div>
+
+<div id="deal-form-area" class="mc-mb-lg"></div>
+
+<!-- Pipeline Board -->
+<div style="display:grid;grid-template-columns:repeat({{ stages|length }}, 1fr);gap:var(--gg-spacing-sm);overflow-x:auto">
+    {% for stage in stages %}
+    <div>
+        <div style="background:var(--gg-color-dark-brown);padding:var(--gg-spacing-xs) var(--gg-spacing-sm);margin-bottom:var(--gg-spacing-sm)">
+            <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-tan);letter-spacing:2px;text-transform:uppercase">{{ stage.replace('_', ' ') }}</span>
+            <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs);color:var(--gg-color-gold);float:right">
+                {{ summary[stage].count }} &middot; ${{ "%.0f"|format(summary[stage].value) }}
+            </span>
+        </div>
+
+        {% for deal in by_stage[stage] %}
+        <a href="/deals/{{ deal.id }}" style="text-decoration:none;display:block">
+            <div class="mc-card" style="margin-bottom:var(--gg-spacing-xs);cursor:pointer">
+                <div class="mc-card__body" style="padding:var(--gg-spacing-sm)">
+                    <div style="font-weight:600;font-size:var(--gg-font-size-sm);color:var(--gg-color-dark-brown)">
+                        {{ deal.contact_name or deal.contact_email }}
+                    </div>
+                    {% if deal.race_name %}
+                    <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ deal.race_name }}</div>
+                    {% endif %}
+                    <div class="mc-flex-between mc-mt-md" style="font-size:var(--gg-font-size-2xs)">
+                        <span class="mc-text-mono mc-text-gold">${{ "%.0f"|format(deal.value) }}</span>
+                        <span class="mc-text-muted">{{ deal.created_at[:10] if deal.created_at else '' }}</span>
+                    </div>
+                    {% if deal.source %}
+                    <span class="gg-badge gg-badge--outline" style="font-size:9px;margin-top:4px">{{ deal.source }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+        {% if not by_stage[stage] %}
+        <div style="padding:var(--gg-spacing-lg);text-align:center">
+            <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">No deals</span>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

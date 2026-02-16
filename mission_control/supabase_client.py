@@ -363,3 +363,15 @@ def get_pending_plan_requests(limit: int = 20) -> list[dict]:
 def get_plan_request(request_id: str) -> dict | None:
     """Get a plan request by request_id."""
     return select_one("plan_requests", match={"request_id": request_id})
+
+
+# ---------------------------------------------------------------------------
+# Unread Communications (v2)
+# ---------------------------------------------------------------------------
+
+def count_unread_inbound() -> int:
+    """Count inbound communications not yet acknowledged."""
+    q = _table("gg_communications").select("*", count="exact")
+    q = q.eq("comm_type", "inbound").eq("status", "received")
+    result = q.execute()
+    return result.count or 0

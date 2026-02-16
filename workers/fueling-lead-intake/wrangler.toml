@@ -17,3 +17,5 @@ vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com", SG_LIST_ID = "6f2810b
 # SENDGRID_API_KEY     — SendGrid API key (mail send + marketing contacts)
 # NOTIFICATION_EMAIL   — Where fueling calculator lead notifications go
 # COACHING_WEBHOOK_URL — Optional webhook for fueling calculator leads
+# MC_WEBHOOK_URL       — Mission Control base URL (e.g. https://mc.example.com)
+# MC_WEBHOOK_SECRET    — Bearer token for Mission Control webhook auth

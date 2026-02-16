@@ -73,6 +73,11 @@ export default {
         promises.push(upsertMarketingContact(env, data, source));
       }
 
+      // Notify Mission Control for sequence enrollment (all sources)
+      if (env.MC_WEBHOOK_URL) {
+        promises.push(notifyMissionControl(env, data, source));
+      }
+
       // Notification email only for fueling_calculator (has actionable athlete data)
       if (source === 'fueling_calculator') {
         const leadId = generateLeadId(data.email, data.race_slug);
@@ -315,6 +320,33 @@ function formatEmailBody(lead) {
   </div>
 </body>
 </html>`;
+}
+
+// --- Mission Control Webhook ---
+
+async function notifyMissionControl(env, data, source) {
+  try {
+    const payload = {
+      email: data.email,
+      name: data.name || '',
+      source: source,
+      race_slug: data.race_slug || '',
+      race_name: data.race_name || '',
+    };
+
+    await fetch(`${env.MC_WEBHOOK_URL}/webhooks/subscriber`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${env.MC_WEBHOOK_SECRET || ''}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    console.log('Mission Control notified:', data.email, source);
+  } catch (error) {
+    console.error('Mission Control webhook error:', error);
+  }
 }
 
 // --- CORS + Response Helpers ---

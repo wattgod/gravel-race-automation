@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{ sequence.name }} Enrollments — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Automation / <a href="/sequences/{{ sequence.id }}" style="color:var(--gg-color-gold)">{{ sequence.name }}</a></span>
+    <h1 class="mc-page-header__title">Enrollments</h1>
+</div>
+
+<div class="mc-card">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">{{ enrollments|length }} Enrollments</h3>
+    </div>
+    <div class="mc-card__body mc-card__body--flush">
+        {% if enrollments %}
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Variant</th>
+                    <th>Step</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                    <th>Enrolled</th>
+                    <th>Next Send</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in enrollments %}
+                <tr>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ e.contact_email }}</td>
+                    <td>{{ e.contact_name or '—' }}</td>
+                    <td><span class="gg-badge gg-badge--outline-gold">{{ e.variant }}</span></td>
+                    <td class="mc-text-mono">{{ e.current_step }}</td>
+                    <td id="status-{{ e.id }}">
+                        <span class="gg-badge mc-status--{{ e.status }}">{{ e.status }}</span>
+                    </td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ e.source or '—' }}</td>
+                    <td class="mc-text-muted">{{ e.enrolled_at[:10] if e.enrolled_at else '—' }}</td>
+                    <td class="mc-text-muted">{{ e.next_send_at[:16] if e.next_send_at else '—' }}</td>
+                    <td>
+                        {% if e.status == 'active' %}
+                        <form hx-post="/sequences/enrollments/{{ e.id }}/pause" hx-target="#status-{{ e.id }}" hx-swap="innerHTML" style="display:inline">
+                            <button type="submit" class="gg-btn gg-btn--ghost" style="padding:2px 8px;font-size:10px">Pause</button>
+                        </form>
+                        {% elif e.status == 'paused' %}
+                        <form hx-post="/sequences/enrollments/{{ e.id }}/resume" hx-target="#status-{{ e.id }}" hx-swap="innerHTML" style="display:inline">
+                            <button type="submit" class="gg-btn gg-btn--ghost" style="padding:2px 8px;font-size:10px">Resume</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div style="padding:var(--gg-spacing-lg);text-align:center">
+            <p class="mc-text-muted">No enrollments yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

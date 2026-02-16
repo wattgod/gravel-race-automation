@@ -48,7 +48,7 @@ a:hover {
   top: 0;
   left: 0;
   background: var(--gg-color-dark-brown);
-  border-right: var(--gg-border-gold);
+  border-right: 2px solid var(--gg-color-primary-brown);
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -160,7 +160,7 @@ a:hover {
 .mc-page-header__title {
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-2xl);
-  font-weight: var(--gg-font-weight-bold);
+  font-weight: var(--gg-font-weight-regular);
   color: var(--gg-color-dark-brown);
   line-height: var(--gg-line-height-tight);
 }
@@ -192,6 +192,7 @@ a:hover {
   background: var(--gg-color-warm-paper);
   border: var(--gg-border-standard);
   margin-bottom: var(--gg-spacing-lg);
+  box-shadow: 0 1px 3px rgba(58,46,37,0.08);
 }
 
 .mc-card__header {
@@ -330,6 +331,18 @@ a:hover {
 .mc-status--active { background: var(--gg-color-teal); border-color: var(--gg-color-teal); }
 .mc-status--post_race { background: var(--gg-color-primary-brown); border-color: var(--gg-color-primary-brown); }
 .mc-status--archived { background: var(--gg-color-tan); border-color: var(--gg-color-tan); color: var(--gg-color-dark-brown); }
+
+/* Deal pipeline stages */
+.mc-deal-stage--lead { background: var(--gg-color-tan); border-color: var(--gg-color-tan); color: var(--gg-color-dark-brown); }
+.mc-deal-stage--qualified { background: var(--gg-color-gold); border-color: var(--gg-color-gold); color: var(--gg-color-dark-brown); }
+.mc-deal-stage--proposal_sent { background: var(--gg-color-light-gold); border-color: var(--gg-color-light-gold); color: var(--gg-color-dark-brown); }
+.mc-deal-stage--closed_won { background: var(--gg-color-teal); border-color: var(--gg-color-teal); }
+.mc-deal-stage--closed_lost { background: var(--gg-color-secondary-brown); border-color: var(--gg-color-secondary-brown); }
+
+/* Sequence enrollment statuses */
+.mc-status--paused { background: var(--gg-color-warm-brown); border-color: var(--gg-color-warm-brown); }
+.mc-status--unsubscribed { background: var(--gg-color-secondary-brown); border-color: var(--gg-color-secondary-brown); }
+.mc-status--completed { background: var(--gg-color-teal); border-color: var(--gg-color-teal); }
 
 /* Pipeline run statuses */
 .mc-run-status--pending { background: var(--gg-color-tan); border-color: var(--gg-color-tan); color: var(--gg-color-dark-brown); }

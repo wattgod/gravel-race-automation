@@ -8,6 +8,50 @@
     <h1 class="mc-page-header__title">Dashboard</h1>
 </div>
 
+<!-- Revenue Overview -->
+<div class="mc-card mc-mb-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Revenue — {{ revenue.month }}</h3>
+        <a href="/deals" class="mc-card__action">View Pipeline</a>
+    </div>
+    <div class="mc-card__body">
+        <div class="gg-stat-grid" style="margin-bottom:var(--gg-spacing-md)">
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value mc-text-teal">${{ "%.0f"|format(revenue.actual) }}</div>
+                <div class="gg-stat-card__label">Revenue</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">{{ revenue.pct }}%</div>
+                <div class="gg-stat-card__label">of ${{ "%.0f"|format(revenue.target) }} target</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">{{ plans_sold }}</div>
+                <div class="gg-stat-card__label">Plans Sold</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">${{ "%.0f"|format(pipeline_value) }}</div>
+                <div class="gg-stat-card__label">Pipeline Value</div>
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div style="background:var(--gg-color-sand);height:6px;border:1px solid var(--gg-color-tan)">
+            <div style="height:100%;background:var(--gg-color-teal);width:{{ [revenue.pct, 100]|min }}%"></div>
+        </div>
+        <!-- Monthly Trend -->
+        {% if trend %}
+        <div class="mc-flex mc-gap-sm mc-mt-lg" style="align-items:flex-end;height:60px">
+            {% set max_rev = trend|map(attribute='revenue')|max if trend|map(attribute='revenue')|max > 0 else 1 %}
+            {% for m in trend %}
+            <div style="flex:1;text-align:center">
+                <div style="background:{% if loop.last %}var(--gg-color-teal){% else %}var(--gg-color-tan){% endif %};height:{{ (m.revenue / max_rev * 50)|int if max_rev > 0 else 2 }}px;min-height:2px;margin:0 auto;width:80%"></div>
+                <div class="mc-text-mono mc-text-muted" style="font-size:9px;margin-top:4px">{{ m.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
 <!-- Stat Cards -->
 <div class="gg-stat-grid">
     <div class="gg-stat-card">

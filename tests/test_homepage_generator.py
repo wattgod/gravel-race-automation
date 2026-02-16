@@ -402,8 +402,8 @@ class TestCSS:
         assert "radial-gradient" not in css
         assert "Source Serif 4" in css
         assert "#ede4d8" in css  # sand background
-        assert "#3a2e25" in css  # dark brown borders
-        assert "4px double" in css  # double-rule structural borders
+        assert "#3a2e25" in css  # dark brown text color
+        assert "#d4c5b9" in css  # tan borders (Variant F lighter palette)
 
 
 # ── JavaScript ───────────────────────────────────────────────

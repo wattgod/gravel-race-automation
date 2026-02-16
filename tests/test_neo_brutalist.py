@@ -334,9 +334,11 @@ class TestHero:
         html = build_hero(normalized_data)
         assert "TIER 2" in html
 
-    def test_hero_has_tagline(self, normalized_data):
-        html = build_hero(normalized_data)
+    def test_tagline_in_course_overview(self, normalized_data):
+        """Tagline moved from hero to course overview section."""
+        html = build_course_overview(normalized_data)
         assert "test gravel race" in html.lower()
+        assert "gg-overview-tagline" in html
 
     def test_hero_has_race_name(self, normalized_data):
         html = build_hero(normalized_data)
@@ -402,6 +404,21 @@ class TestSections:
     def test_course_overview_has_map(self, normalized_data):
         html = build_course_overview(normalized_data)
         assert "ridewithgps.com" in html
+
+    def test_map_has_sample_graph(self, normalized_data):
+        """Map iframe must include sampleGraph=true for elevation profile."""
+        html = build_course_overview(normalized_data)
+        assert "sampleGraph=true" in html
+
+    def test_map_allows_scrolling(self, normalized_data):
+        """Map iframe must NOT have scrolling='no' — allow full interaction."""
+        html = build_course_overview(normalized_data)
+        assert 'scrolling="no"' not in html
+
+    def test_map_allows_fullscreen(self, normalized_data):
+        """Map iframe must have allowfullscreen attribute."""
+        html = build_course_overview(normalized_data)
+        assert "allowfullscreen" in html
 
     def test_course_overview_has_stat_cards(self, normalized_data):
         html = build_course_overview(normalized_data)
@@ -826,33 +843,19 @@ class TestRacerRating:
         }
         return sample_race_data
 
-    def test_dual_score_in_hero_with_ratings(self, race_with_ratings):
+    def test_hero_has_gg_score(self, race_with_ratings):
+        """Hero shows GG Score as masthead element (no dual panel)."""
         rd = normalize_race_data(race_with_ratings)
         html = build_hero(rd)
-        assert "gg-dual-score" in html
-        assert "gg-dual-panel--gg" in html
-        assert "gg-dual-panel--racer" in html
-        assert "94%" in html
-        assert "47 ratings" in html
-        assert "WOULD RACE AGAIN" in html
+        assert "gg-hero-score" in html
         assert "GG SCORE" in html
-        # Should NOT have empty modifier
-        assert "gg-dual-panel--empty" not in html
+        assert "gg-hero-score-number" in html
 
-    def test_dual_score_empty_state(self, sample_race_data):
-        """No racer_rating field at all → empty state."""
+    def test_hero_has_vitals_line(self, sample_race_data):
+        """Hero shows vitals line (location, date, distance, elevation)."""
         rd = normalize_race_data(sample_race_data)
         html = build_hero(rd)
-        assert "gg-dual-score" in html
-        assert "gg-dual-panel--empty" in html
-        assert "No ratings yet" in html
-        assert "BE THE FIRST TO RATE" in html
-
-    def test_dual_score_below_threshold(self, race_below_threshold):
-        rd = normalize_race_data(race_below_threshold)
-        html = build_hero(rd)
-        assert "gg-dual-panel--empty" in html
-        assert "1 more needed" in html
+        assert "gg-hero-vitals" in html
 
     def test_racer_reviews_section(self, race_with_ratings):
         rd = normalize_race_data(race_with_ratings)

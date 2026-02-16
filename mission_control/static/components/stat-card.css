@@ -2,7 +2,7 @@
 
 .gg-stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--gg-spacing-md);
 }
 
@@ -18,7 +18,7 @@
   border-color: var(--gg-color-gold);
 }
 
-.gg-stat-value {
+.gg-stat-card__value {
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-xl);
   font-weight: var(--gg-font-weight-bold);
@@ -26,7 +26,7 @@
   line-height: var(--gg-line-height-tight);
 }
 
-.gg-stat-label {
+.gg-stat-card__label {
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-2xs);
   font-weight: var(--gg-font-weight-bold);

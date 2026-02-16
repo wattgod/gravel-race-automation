@@ -239,3 +239,9 @@ COLORS = {
     "tier_3": "#766a5e",
     "tier_4": "#5e6868",
 }
+
+
+# ── Racer Rating ─────────────────────────────────────────────
+# Minimum number of ratings before displaying the racer score.
+# Used by all generators (race profiles, state hubs, homepage, series hubs).
+RACER_RATING_THRESHOLD = 3

@@ -1450,6 +1450,24 @@ def build_prep_kit_css() -> str:
 .gg-pk-calc-shopping-label{font-family:var(--gg-font-data);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-primary-brown)}
 .gg-pk-calc-shopping-note{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin:8px 0 0;line-height:1.5}
 
+/* ── Email Gate ── */
+.gg-pk-gate{text-align:center;padding:48px 20px;border:3px solid var(--gg-color-near-black);background:var(--gg-color-white);margin-bottom:32px}
+.gg-pk-gate-inner{max-width:440px;margin:0 auto}
+.gg-pk-gate-badge{display:inline-block;font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gg-color-teal);color:var(--gg-color-white);padding:4px 12px;margin-bottom:16px}
+.gg-pk-gate-title{font-family:var(--gg-font-data);font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;color:var(--gg-color-near-black)}
+.gg-pk-gate-text{font-family:var(--gg-font-editorial);font-size:14px;line-height:1.6;color:var(--gg-color-primary-brown);margin:0 0 20px}
+.gg-pk-gate-form{display:flex;gap:0;max-width:400px;margin:0 auto 12px}
+.gg-pk-gate-input{flex:1;font-family:var(--gg-font-data);font-size:13px;padding:12px 14px;border:3px solid var(--gg-color-near-black);border-right:none;background:var(--gg-color-warm-paper);color:var(--gg-color-near-black);min-width:0}
+.gg-pk-gate-input:focus{outline:none;border-color:var(--gg-color-teal)}
+.gg-pk-gate-btn{font-family:var(--gg-font-data);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:12px 20px;background:var(--gg-color-near-black);color:var(--gg-color-warm-paper);border:3px solid var(--gg-color-near-black);cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.gg-pk-gate-btn:hover{background:var(--gg-color-teal);border-color:var(--gg-color-teal)}
+.gg-pk-gate-fine{font-family:var(--gg-font-data);font-size:11px;color:var(--gg-color-secondary-brown);letter-spacing:1px;margin:0}
+.gg-pk-gate-preview{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 24px;text-align:left}
+.gg-pk-gate-preview-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gg-color-sand);border-left:3px solid var(--gg-color-teal)}
+.gg-pk-gate-preview-num{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-teal);letter-spacing:1px;min-width:20px}
+.gg-pk-gate-preview-label{font-family:var(--gg-font-data);font-size:11px;letter-spacing:0.5px;color:var(--gg-color-near-black)}
+@media (max-width:600px){.gg-pk-gate-form{flex-direction:column;gap:8px}.gg-pk-gate-input{border-right:3px solid var(--gg-color-near-black)}.gg-pk-gate{padding:32px 16px}.gg-pk-gate-preview{grid-template-columns:1fr}}
+
 /* ── Print Styles ── */
 @media print{
   body{background:#fff !important}
@@ -1489,8 +1507,67 @@ def build_prep_kit_css() -> str:
 
 
 def build_prep_kit_js() -> str:
-    """JS for accordion toggle and fueling calculator on prep kit pages."""
-    return """document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
+    """JS for email gate, accordion toggle, and fueling calculator on prep kit pages."""
+    return """/* ── Email Gate ── */
+(function(){
+  var WORKER_URL='""" + FUELING_WORKER_URL + """';
+  var LS_KEY='gg-pk-fueling';
+  var EXPIRY_DAYS=90;
+  var gate=document.getElementById('gg-pk-gate');
+  var content=document.getElementById('gg-pk-gated-content');
+  var gateForm=document.getElementById('gg-pk-gate-form');
+  if(!gate||!content) return;
+
+  function unlockContent(email){
+    gate.style.display='none';
+    content.style.display='block';
+    /* Pre-fill fueling calculator email if present */
+    var calcEmail=document.getElementById('gg-pk-email');
+    if(calcEmail&&email) calcEmail.value=email;
+  }
+
+  /* Check localStorage for cached email */
+  try{
+    var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
+    if(cached&&cached.email&&cached.exp>Date.now()){
+      unlockContent(cached.email);
+      return;
+    }
+  }catch(e){}
+
+  /* Handle gate form submit */
+  if(gateForm){
+    gateForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=gateForm.email.value.trim();
+      if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){
+        alert('Please enter a valid email address.');return;
+      }
+      /* Honeypot check */
+      if(gateForm.website&&gateForm.website.value){return;}
+      /* Cache email */
+      try{
+        localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+      }catch(ex){}
+      /* Fire-and-forget POST to Worker */
+      var payload={
+        email:email,
+        race_slug:gateForm.race_slug.value,
+        race_name:gateForm.race_name.value,
+        source:'prep_kit_gate',
+        website:gateForm.website.value
+      };
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+      /* GA4 event */
+      if(typeof gtag==='function'){
+        gtag('event','pk_gate_unlock',{race_slug:gateForm.race_slug.value});
+      }
+      unlockContent(email);
+    });
+  }
+})();
+
+document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
   btn.addEventListener('click',function(){
     var expanded=this.getAttribute('aria-expanded')==='true';
     this.setAttribute('aria-expanded',String(!expanded));
@@ -1735,14 +1812,106 @@ def build_prep_kit_js() -> str:
 })();"""
 
 
+def build_pk_email_gate(rd: dict) -> str:
+    """Build email gate overlay that blocks content until email is provided.
+
+    Shows section title previews with blur to give users a reason to unlock.
+    """
+    name = esc(rd["name"])
+    slug = esc(rd["slug"])
+    # Section titles users can see through the gate (teaser)
+    preview_sections = [
+        ("01", "12-Week Training Timeline"),
+        ("02", "Non-Negotiables Checklist"),
+        ("03", "Race Week Protocol"),
+        ("04", "Equipment & Packing List"),
+        ("05", "Race Morning Routine"),
+        ("06", "Personalized Fueling Calculator"),
+        ("07", "In-Race Decision Tree"),
+        ("08", "Recovery Protocol"),
+    ]
+    preview_html = "".join(
+        f'<div class="gg-pk-gate-preview-item">'
+        f'<span class="gg-pk-gate-preview-num">{num}</span>'
+        f'<span class="gg-pk-gate-preview-label">{label}</span>'
+        f'</div>'
+        for num, label in preview_sections
+    )
+    return f'''<div class="gg-pk-gate" id="gg-pk-gate">
+    <div class="gg-pk-gate-inner">
+      <div class="gg-pk-gate-badge">FREE DOWNLOAD</div>
+      <h2 class="gg-pk-gate-title">Unlock Your {name} Prep Kit</h2>
+      <p class="gg-pk-gate-text">12-week training timeline, race-day checklists, packing list, and a personalized fueling calculator — free, instant access.</p>
+      <div class="gg-pk-gate-preview">{preview_html}</div>
+      <form class="gg-pk-gate-form" id="gg-pk-gate-form" autocomplete="off">
+        <input type="hidden" name="race_slug" value="{slug}">
+        <input type="hidden" name="race_name" value="{name}">
+        <input type="hidden" name="website" value="">
+        <input type="email" id="gg-pk-gate-email" name="email" required placeholder="your@email.com" class="gg-pk-gate-input" aria-label="Email address">
+        <button type="submit" class="gg-pk-gate-btn">UNLOCK PREP KIT</button>
+      </form>
+      <p class="gg-pk-gate-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>'''
+
+
+def build_howto_schema(name: str, slug: str, canonical: str, has_full: bool) -> str:
+    """Build HowTo + BreadcrumbList JSON-LD schema for prep kit pages."""
+    steps = [
+        {"name": "12-Week Training Timeline", "text": "Follow a periodized Base/Build/Peak/Taper training plan calibrated to your race distance and terrain."},
+        {"name": "Race Week Countdown", "text": "Execute a 7-day taper protocol: reduce volume, lock in nutrition, and finalize logistics."},
+        {"name": "Equipment & Packing Checklist", "text": "Assemble race-day gear including bike setup, nutrition, repair kit, and clothing for expected conditions."},
+        {"name": "Race Morning Protocol", "text": "Follow a timed pre-race morning routine from alarm to start line: eat, hydrate, warm up, check gear."},
+        {"name": "Race-Day Fueling", "text": "Execute your carb-per-hour fueling plan with gut-trained nutrition strategy and aid station planning."},
+        {"name": "In-Race Decision Tree", "text": "Handle race-day problems — bonking, cramping, mechanicals, weather — with pre-planned decision frameworks."},
+        {"name": "Post-Race Recovery", "text": "Follow immediate and multi-day recovery protocols to minimize damage and return to training safely."},
+    ]
+    if has_full:
+        steps.insert(1, {"name": "Race-Specific Non-Negotiables", "text": "Complete must-do training milestones specific to this race before race day."})
+
+    howto_steps = []
+    for i, step in enumerate(steps, 1):
+        howto_steps.append({
+            "@type": "HowToStep",
+            "position": i,
+            "name": step["name"],
+            "text": step["text"],
+        })
+
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": "Gravel Races", "item": f"{SITE_BASE_URL}/gravel-races/"},
+                    {"@type": "ListItem", "position": 3, "name": name, "item": f"{SITE_BASE_URL}/race/{slug}/"},
+                    {"@type": "ListItem", "position": 4, "name": "Prep Kit", "item": canonical},
+                ],
+            },
+            {
+                "@type": "HowTo",
+                "name": f"How to Prepare for {name}",
+                "description": f"Free 12-week race prep kit for {name}: training timeline, checklists, fueling calculator, and race-day strategy.",
+                "totalTime": "P84D",
+                "step": howto_steps,
+            },
+        ],
+    }
+    return json.dumps(schema, ensure_ascii=False, indent=2)
+
+
 def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
     """Assemble the complete prep kit HTML page."""
     slug = rd["slug"]
     name = rd["name"]
     canonical = f"{SITE_BASE_URL}/race/{slug}/prep-kit/"
 
-    sections = [
-        build_pk_header(rd, raw),
+    header = build_pk_header(rd, raw)
+    gate = build_pk_email_gate(rd)
+
+    gated_sections = [
         build_pk_training_timeline(guide_sections, raw, rd),
         build_pk_non_negotiables(raw),
         build_pk_race_week(guide_sections, raw),
@@ -1754,16 +1923,22 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
         build_pk_footer_cta(rd),
     ]
 
-    body = "\n".join(s for s in sections if s)
+    gated_body = "\n".join(s for s in gated_sections if s)
 
     # Renumber sections sequentially (handles generic races skipping Section 02)
     counter = [0]
     def _renumber(m):
         counter[0] += 1
         return f'<span class="gg-pk-section-num">{counter[0]:02d}</span>'
-    body = re.sub(
-        r'<span class="gg-pk-section-num">\d{2}</span>', _renumber, body
+    gated_body = re.sub(
+        r'<span class="gg-pk-section-num">\d{2}</span>', _renumber, gated_body
     )
+
+    body = f'''{header}
+{gate}
+<div class="gg-pk-gated-content" id="gg-pk-gated-content" style="display:none">
+{gated_body}
+</div>'''
 
     tokens_css = get_tokens_css()
     font_css = get_font_face_css("/race/assets/fonts")
@@ -1772,20 +1947,26 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
     js = build_prep_kit_js()
 
     meta_desc = f"Free race prep kit for {name}: 12-week training timeline, race-day checklists, packing list, and fueling strategy."
+    title = f"Free {name} Prep Kit: 12-Week Plan, Checklists & Fueling | Gravel God"
+    has_full = has_full_training_data(raw)
+    schema_jsonld = build_howto_schema(name, slug, canonical, has_full)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Race Prep Kit: {esc(name)} | Gravel God</title>
+  <title>{esc(title)}</title>
   <meta name="description" content="{esc(meta_desc)}">
   <link rel="canonical" href="{canonical}">
-  <meta property="og:title" content="Race Prep Kit: {esc(name)}">
+  <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Gravel God">
+  <script type="application/ld+json">
+  {schema_jsonld}
+  </script>
   {preload}
   <style>
 {font_css}

@@ -34,6 +34,7 @@ from brand_tokens import (
     BRAND_FONTS_DIR,
     COLORS,
     FONT_FILES,
+    RACER_RATING_THRESHOLD,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
@@ -161,8 +162,6 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
-RACER_RATING_FORM_BASE = "https://docs.google.com/forms/d/e/1iftu2qyenveSMQLE3STZgttug58QfIDur-ZfCEHXhlk/viewform"
-RACER_RATING_THRESHOLD = 3
 CURRENT_YEAR = str(datetime.now().year)
 
 
@@ -956,6 +955,220 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
     }
   });
 });
+
+// Email capture form — prep kit CTA
+(function() {
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  var LS_KEY='gg-pk-fueling';
+  var EXPIRY_DAYS=90;
+  var form=document.getElementById('gg-email-capture-form');
+  if(!form) return;
+
+  /* Check if already captured */
+  try{
+    var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
+    if(cached&&cached.email&&cached.exp>Date.now()){
+      /* Already captured — show success state */
+      form.style.display='none';
+      var success=document.getElementById('gg-email-capture-success');
+      if(success) success.style.display='block';
+      return;
+    }
+  }catch(e){}
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.email.value.trim();
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alert('Please enter a valid email address.');return;
+    }
+    if(form.website&&form.website.value) return;
+    /* Cache email */
+    try{
+      localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+    }catch(ex){}
+    /* POST to Worker */
+    var payload={
+      email:email,
+      race_slug:form.race_slug.value,
+      race_name:form.race_name.value,
+      source:form.source.value,
+      website:form.website.value
+    };
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    /* GA4 */
+    if(typeof gtag==='function'){
+      gtag('event','email_capture',{race_slug:form.race_slug.value,source:'race_profile'});
+    }
+    /* Show success state */
+    form.style.display='none';
+    var success=document.getElementById('gg-email-capture-success');
+    if(success) success.style.display='block';
+  });
+})();
+
+// Inline review form
+(function() {
+  var WORKER_URL='https://review-intake.gravelgodcoaching.workers.dev';
+  var form=document.getElementById('gg-review-form');
+  if(!form) return;
+
+  /* Star rating interaction */
+  var starBtns=document.querySelectorAll('.gg-review-star-btn');
+  var starsInput=document.getElementById('gg-review-stars-val');
+  starBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var val=parseInt(this.getAttribute('data-star'));
+      starsInput.value=val;
+      starBtns.forEach(function(b){
+        var active=parseInt(b.getAttribute('data-star'))<=val;
+        b.classList.toggle('is-active',active);
+        b.setAttribute('aria-checked',active?'true':'false');
+      });
+    });
+    btn.addEventListener('mouseenter',function(){
+      var val=parseInt(this.getAttribute('data-star'));
+      starBtns.forEach(function(b){
+        if(parseInt(b.getAttribute('data-star'))<=val) b.style.color='var(--gg-color-gold)';
+        else b.style.color='var(--gg-color-tan)';
+      });
+    });
+    btn.addEventListener('mouseleave',function(){
+      starBtns.forEach(function(b){b.style.color='';});
+    });
+  });
+
+  /* Character counts on textareas */
+  document.querySelectorAll('.gg-review-charcount').forEach(function(el){
+    var ta=document.getElementById(el.getAttribute('data-for'));
+    if(ta){ta.addEventListener('input',function(){el.textContent=ta.value.length+'/500';});}
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.email.value.trim();
+    var stars=parseInt(starsInput.value);
+    if(!stars||stars<1||stars>5){alert('Please select a star rating.');return;}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email.');return;}
+    if(form.website&&form.website.value) return;
+
+    var payload={
+      email:email,
+      race_slug:form.race_slug.value,
+      race_name:form.race_name.value,
+      stars:stars,
+      year_raced:form.year_raced.value,
+      would_race_again:form.would_race_again.value,
+      finish_position:form.finish_position.value,
+      best:form.best.value,
+      worst:form.worst.value,
+      website:form.website.value
+    };
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    if(typeof gtag==='function') gtag('event','review_submit',{race_slug:form.race_slug.value,stars:stars});
+
+    /* Show success, clear char counts */
+    document.querySelectorAll('.gg-review-charcount').forEach(function(el){el.textContent='0/500';});
+    document.getElementById('gg-review-form-wrap').querySelector('.gg-review-form').style.display='none';
+    document.getElementById('gg-review-success').style.display='block';
+  });
+})();
+
+// Exit-intent popup
+(function() {
+  var LS_KEY='gg-exit-popup-dismissed';
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  var DISMISS_DAYS=14;
+  /* Don't show if already captured email or dismissed recently */
+  try{
+    var cached=JSON.parse(localStorage.getItem('gg-pk-fueling')||'null');
+    if(cached&&cached.email&&cached.exp>Date.now()) return;
+    var dismissed=parseInt(localStorage.getItem(LS_KEY)||'0',10);
+    if(dismissed&&Date.now()<dismissed) return;
+  }catch(e){}
+
+  var shown=false;
+  function createPopup(){
+    if(shown) return;
+    shown=true;
+    try{localStorage.setItem(LS_KEY,String(Date.now()+DISMISS_DAYS*86400000));}catch(e){}
+    var overlay=document.createElement('div');
+    overlay.className='gg-exit-overlay';
+    overlay.setAttribute('role','dialog');
+    overlay.setAttribute('aria-modal','true');
+    overlay.setAttribute('aria-label','Email signup');
+    overlay.innerHTML='<div class="gg-exit-modal">'
+      +'<button class="gg-exit-close" aria-label="Close">&times;</button>'
+      +'<div class="gg-exit-badge">BEFORE YOU GO</div>'
+      +'<h3 class="gg-exit-title">GET YOUR FREE RACE PREP KIT</h3>'
+      +'<p class="gg-exit-text">12-week training timeline, packing list, and personalized fueling calculator for any gravel race.</p>'
+      +'<form class="gg-exit-form" id="gg-exit-form" autocomplete="off">'
+      +'<input type="hidden" name="source" value="exit_intent">'
+      +'<input type="hidden" name="website" value="">'
+      +'<div class="gg-exit-row">'
+      +'<input type="email" name="email" required placeholder="your@email.com" class="gg-exit-input" aria-label="Email">'
+      +'<button type="submit" class="gg-exit-btn">SEND IT</button>'
+      +'</div></form>'
+      +'<p class="gg-exit-fine">No spam. Unsubscribe anytime.</p>'
+      +'</div>';
+    document.body.appendChild(overlay);
+
+    /* Close handlers */
+    function closePopup(){overlay.remove();document.removeEventListener('keydown',escHandler);}
+    function escHandler(e){if(e.key==='Escape') closePopup();}
+    overlay.querySelector('.gg-exit-close').addEventListener('click',closePopup);
+    overlay.addEventListener('click',function(e){if(e.target===overlay) closePopup();});
+    document.addEventListener('keydown',escHandler);
+
+    /* Focus trap: keep focus inside modal */
+    var emailInput=overlay.querySelector('.gg-exit-input');
+    if(emailInput) emailInput.focus();
+    overlay.addEventListener('keydown',function(e){
+      if(e.key!=='Tab') return;
+      var focusable=overlay.querySelectorAll('button,input,[tabindex]');
+      var first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    });
+
+    /* Form submit */
+    var exitForm=document.getElementById('gg-exit-form');
+    if(exitForm){
+      exitForm.addEventListener('submit',function(ev){
+        ev.preventDefault();
+        var email=exitForm.email.value.trim();
+        if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+          alert('Please enter a valid email.');return;
+        }
+        if(exitForm.website&&exitForm.website.value) return;
+        try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
+        var payload={email:email,source:'exit_intent',website:exitForm.website.value};
+        fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+        if(typeof gtag==='function') gtag('event','email_capture',{source:'exit_intent'});
+        overlay.querySelector('.gg-exit-modal').innerHTML='<div class="gg-exit-badge" style="background:#178079">DONE</div>'
+          +'<h3 class="gg-exit-title">CHECK YOUR INBOX</h3>'
+          +'<p class="gg-exit-text">Browse our <a href="/gravel-races/" style="color:#178079;text-decoration:underline">race profiles</a> to find your prep kit.</p>';
+        setTimeout(function(){overlay.remove();},4000);
+      });
+    }
+  }
+
+  /* Desktop: mouse leaves viewport top */
+  document.addEventListener('mouseout',function(e){
+    if(!e.relatedTarget&&e.clientY<5) createPopup();
+  });
+  /* Mobile: scroll up quickly (back button intent) */
+  var lastScroll=0;
+  var triggered=false;
+  window.addEventListener('scroll',function(){
+    var st=window.pageYOffset||document.documentElement.scrollTop;
+    if(st>500&&lastScroll-st>200&&!triggered){
+      triggered=true;
+      setTimeout(createPopup,500);
+    }
+    lastScroll=st;
+  },{passive:true});
+})();
 </script>'''
 
 
@@ -1126,72 +1339,47 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 # ── Phase 3: Section Builders ─────────────────────────────────
 
-def _build_racer_panel(rd: dict) -> str:
-    """Build the racer rating panel for the dual-score hero."""
-    rr = rd.get('racer_rating', {})
-    total = rr.get('total_ratings', 0)
-    pct = rr.get('would_race_again_pct')
-
-    if total >= RACER_RATING_THRESHOLD and pct is not None:
-        return f'''<div class="gg-dual-panel gg-dual-panel--racer">
-      <div class="gg-dual-label">RACER RATING</div>
-      <div class="gg-dual-number gg-dual-number--racer">{pct}%</div>
-      <div class="gg-dual-sublabel">{total} ratings</div>
-      <div class="gg-dual-desc">WOULD RACE AGAIN</div>
-    </div>'''
-    elif total > 0:
-        needed = RACER_RATING_THRESHOLD - total
-        return f'''<div class="gg-dual-panel gg-dual-panel--racer gg-dual-panel--empty">
-      <div class="gg-dual-label">RACER RATING</div>
-      <div class="gg-dual-number gg-dual-number--racer">&mdash;</div>
-      <div class="gg-dual-sublabel">{total} rating{"s" if total != 1 else ""} &mdash; {needed} more needed</div>
-      <div class="gg-dual-desc">WOULD RACE AGAIN</div>
-    </div>'''
-    else:
-        return f'''<div class="gg-dual-panel gg-dual-panel--racer gg-dual-panel--empty">
-      <div class="gg-dual-label">RACER RATING</div>
-      <div class="gg-dual-number gg-dual-number--racer">&mdash;</div>
-      <div class="gg-dual-sublabel">No ratings yet</div>
-      <div class="gg-dual-desc">BE THE FIRST TO RATE</div>
-    </div>'''
-
-
 def build_hero(rd: dict) -> str:
-    """Build hero section with OG image background or primary race photo."""
+    """Build clean editorial hero — race name + score masthead."""
     score = rd['overall_score']
-    slug = rd['slug']
-    # Use primary race photo if available, otherwise fall back to OG image
-    photos = rd.get('photos', [])
-    primary_photo = next((p for p in photos if p.get('primary')), None)
-    if primary_photo:
-        bg_url = primary_photo['url']
-    else:
-        bg_url = f'/og/{esc(slug)}.jpg'
-    og_style = f' style="background-image:linear-gradient(rgba(58,46,37,0.82),rgba(58,46,37,0.92)),url({bg_url});background-size:cover;background-position:center"'
-    official = rd['logistics'].get('official_site', '')
-    site_btn = ''
-    if official and official.startswith('http'):
-        site_btn = f'\n  <a href="{esc(official)}" class="gg-btn gg-btn--hero-site" target="_blank" rel="noopener">OFFICIAL SITE &rarr;</a>'
-
-    racer_panel = _build_racer_panel(rd)
 
     series = rd.get('series', {})
     series_badge = ''
     if series.get('id') and series.get('name'):
-        series_badge = f'\n  <a href="/race/series/{esc(series["id"])}/" class="gg-series-badge">{esc(series["name"]).upper()} SERIES</a>'
+        series_badge = f' <a href="/race/series/{esc(series["id"])}/" class="gg-series-badge">{esc(series["name"]).upper()} SERIES</a>'
 
-    return f'''<section class="gg-hero"{og_style}>
-  <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
-  <h1 data-text="{esc(rd['name'])}">{esc(rd['name'])}</h1>
-  <p class="gg-hero-tagline">{esc(rd['tagline'])}</p>{site_btn}
-  <div class="gg-dual-score">
-    <div class="gg-dual-panel gg-dual-panel--gg">
-      <div class="gg-dual-label">GG SCORE</div>
-      <div class="gg-dual-number gg-dual-number--gg" data-target="{score}">{score}</div>
-      <div class="gg-dual-sublabel">{esc(rd['tier_label'])}</div>
-      <div class="gg-dual-desc">14-CRITERIA EXPERT SCORE</div>
-    </div>
-    {racer_panel}
+    # Build vitals line: Location · Month · Distance · Elevation
+    vitals = rd.get('vitals', {})
+    parts = []
+    location = vitals.get('location', '')
+    if location:
+        parts.append(esc(location))
+    month = vitals.get('month', '')
+    date_specific = vitals.get('date_specific', '')
+    if date_specific:
+        parts.append(esc(date_specific))
+    elif month:
+        parts.append(esc(month))
+    dist = vitals.get('distance_mi')
+    if dist:
+        parts.append(f"{dist} mi")
+    elev = vitals.get('elevation_ft')
+    if elev:
+        try:
+            parts.append(f"{int(elev):,} ft")
+        except (ValueError, TypeError):
+            parts.append(f"{elev} ft")
+    vitals_line = " &middot; ".join(parts)
+
+    return f'''<section class="gg-hero">
+  <div class="gg-hero-content">
+    <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
+    <h1>{esc(rd['name'])}</h1>
+    <div class="gg-hero-vitals">{vitals_line}</div>
+  </div>
+  <div class="gg-hero-score">
+    <div class="gg-hero-score-number" data-target="{score}">{score}</div>
+    <div class="gg-hero-score-label">GG SCORE</div>
   </div>
 </section>'''
 
@@ -1282,8 +1470,14 @@ def _build_nearby_races(rd: dict, race_index: list) -> str:
 
 
 def build_course_overview(rd: dict, race_index: list = None) -> str:
-    """Build [01] Course Overview section — merged map + stat cards."""
+    """Build [01] Course Overview section — tagline lead + map + stat cards."""
     v = rd['vitals']
+
+    # Tagline — relocated from hero as editorial lead paragraph
+    tagline = rd.get('tagline', '').strip()
+    tagline_html = ''
+    if tagline:
+        tagline_html = f'<p class="gg-overview-tagline">{esc(tagline)}</p>'
 
     # Map embed — prefer explicit ridewithgps_id, fall back to extracting from map_url
     map_html = ''
@@ -1296,7 +1490,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     rwgps_name = rd['course'].get('ridewithgps_name', '')
     if rwgps_id:
         map_html = f'''<div class="gg-map-embed">
-        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;title={esc(rwgps_name)}" title="Course map for {esc(rd['name'])}" scrolling="no" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;sampleGraph=true&amp;title={esc(rwgps_name)}" title="Course map for {esc(rd['name'])}" allowfullscreen loading="lazy"></iframe>
       </div>'''
 
     # Stat cards — (value, label, countable) where countable means "animate the number"
@@ -1355,6 +1549,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
       <h2 class="gg-section-title">Course Overview</h2>
     </div>
     <div class="gg-section-body">
+      {tagline_html}
       {map_html}
       <div class="gg-stat-grid">
       {cards}
@@ -1561,8 +1756,77 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
   </section>'''
 
 
+def _build_inline_review_form(slug: str, name: str) -> str:
+    """Build inline review form HTML — replaces Google Forms link."""
+    years = "".join(f'<option value="{y}">{y}</option>' for y in range(int(CURRENT_YEAR), 2019, -1))
+    return f'''<div class="gg-review-form-wrap" id="gg-review-form-wrap">
+      <h3 class="gg-review-form-title">RATE {esc(name.upper())}</h3>
+      <form class="gg-review-form" id="gg-review-form" autocomplete="off">
+        <input type="hidden" name="race_slug" value="{esc(slug)}">
+        <input type="hidden" name="race_name" value="{esc(name)}">
+        <input type="hidden" name="website" value="">
+        <div class="gg-review-stars-input" id="gg-review-stars-input">
+          <label class="gg-review-field-label" id="gg-review-star-label">Overall Experience <span style="color:var(--gg-color-teal)">*</span></label>
+          <div class="gg-review-star-row" role="radiogroup" aria-labelledby="gg-review-star-label">
+            {"".join(f'<button type="button" class="gg-review-star-btn" data-star="{i}" role="radio" aria-checked="false" aria-label="{i} star{"s" if i>1 else ""}">&#9733;</button>' for i in range(1, 6))}
+          </div>
+          <input type="hidden" name="stars" id="gg-review-stars-val" value="">
+        </div>
+        <div class="gg-review-form-row">
+          <div class="gg-review-field">
+            <label for="gg-review-email">Email <span style="color:var(--gg-color-teal)">*</span></label>
+            <input type="email" id="gg-review-email" name="email" required placeholder="you@example.com" class="gg-review-input">
+          </div>
+          <div class="gg-review-field">
+            <label for="gg-review-year">Year Raced</label>
+            <select id="gg-review-year" name="year_raced" class="gg-review-select">
+              <option value="">Select</option>
+              {years}
+            </select>
+          </div>
+        </div>
+        <div class="gg-review-form-row">
+          <div class="gg-review-field">
+            <label for="gg-review-again">Would you race again?</label>
+            <select id="gg-review-again" name="would_race_again" class="gg-review-select">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="gg-review-field">
+            <label for="gg-review-finish">Finish Position</label>
+            <select id="gg-review-finish" name="finish_position" class="gg-review-select">
+              <option value="">Select</option>
+              <option value="Top 10%">Top 10%</option>
+              <option value="Top Quarter">Top Quarter</option>
+              <option value="Mid-Pack">Mid-Pack</option>
+              <option value="Back Half">Back Half</option>
+              <option value="DNF">DNF</option>
+            </select>
+          </div>
+        </div>
+        <div class="gg-review-field gg-review-field--full">
+          <label for="gg-review-best">Best thing about this race</label>
+          <textarea id="gg-review-best" name="best" maxlength="500" rows="2" class="gg-review-textarea" placeholder="What made it great?"></textarea>
+          <span class="gg-review-charcount" data-for="gg-review-best">0/500</span>
+        </div>
+        <div class="gg-review-field gg-review-field--full">
+          <label for="gg-review-worst">Worst thing about this race</label>
+          <textarea id="gg-review-worst" name="worst" maxlength="500" rows="2" class="gg-review-textarea" placeholder="What could improve?"></textarea>
+          <span class="gg-review-charcount" data-for="gg-review-worst">0/500</span>
+        </div>
+        <button type="submit" class="gg-btn gg-btn--rate">SUBMIT REVIEW</button>
+      </form>
+      <div class="gg-review-success" id="gg-review-success" style="display:none">
+        <div class="gg-review-success-icon">&#10003;</div>
+        <p class="gg-review-success-text">Review submitted — thank you! It will appear after moderation.</p>
+      </div>
+    </div>'''
+
+
 def build_racer_reviews(rd: dict) -> str:
-    """Build Racer Reviews section — star summary, text reviews, CTA."""
+    """Build Racer Reviews section — star summary, text reviews, inline form."""
     rr = rd.get('racer_rating', {})
     total_ratings = rr.get('total_ratings', 0)
     total_reviews = rr.get('total_reviews', 0)
@@ -1570,16 +1834,15 @@ def build_racer_reviews(rd: dict) -> str:
     reviews = rr.get('reviews', [])
     name = rd['name']
     slug = rd['slug']
-    form_url = f"{RACER_RATING_FORM_BASE}?entry.148821ea={slug}"
 
-    cta_btn = f'<a href="{esc(form_url)}" class="gg-btn gg-btn--rate" target="_blank" rel="noopener">RATE THIS RACE &rarr;</a>'
+    review_form = _build_inline_review_form(slug, name)
 
     # No ratings at all — empty state
     if total_ratings == 0:
         return f'''<section class="gg-racer-reviews gg-fade-section">
     <div class="gg-racer-empty">
       <div class="gg-racer-empty-text">No racer ratings yet. Be the first to rate {esc(name)}.</div>
-      {cta_btn}
+      {review_form}
     </div>
   </section>'''
 
@@ -1589,7 +1852,7 @@ def build_racer_reviews(rd: dict) -> str:
         return f'''<section class="gg-racer-reviews gg-fade-section">
     <div class="gg-racer-pending">
       <div class="gg-racer-pending-text">{total_ratings} rating{"s" if total_ratings != 1 else ""} so far &mdash; {needed} more needed to display the Racer Rating.</div>
-      {cta_btn}
+      {review_form}
     </div>
   </section>'''
 
@@ -1632,7 +1895,7 @@ def build_racer_reviews(rd: dict) -> str:
       {meta_html}
     </div>''')
 
-    parts.append(cta_btn)
+    parts.append(review_form)
 
     inner = '\n    '.join(parts)
     return f'''<section class="gg-racer-reviews gg-fade-section">
@@ -1696,7 +1959,7 @@ def build_training(rd: dict, q_url: str) -> str:
           <p class="gg-training-subtitle">A human in your corner. Adapts week to week.</p>
           <p>Your coach reviews every session, adjusts when life happens, and builds race-day strategy with you. Not a plan &mdash; a partnership.</p>
         </div>
-        <a href="{esc(COACHING_URL)}" class="gg-btn" target="_blank" rel="noopener">APPLY</a>
+        <a href="{esc(COACHING_URL)}" class="gg-btn" target="_blank" rel="noopener">APPLY FOR 1:1 COACHING</a>
       </div>
     </div>
   </section>'''
@@ -1836,12 +2099,29 @@ def linkify_alternatives(alt_text: str, race_index: list) -> str:
 
 
 def build_email_capture(rd: dict) -> str:
-    """Build email capture section — Substack iframe embed for native subscribe flow."""
+    """Build email capture section — prep kit CTA + Substack subscribe."""
+    slug = esc(rd["slug"])
+    name = esc(rd["name"])
     return f'''<div class="gg-email-capture gg-fade-section">
     <div class="gg-email-capture-inner">
-      <h3 class="gg-email-capture-title">SLOW, MID, 38s</h3>
-      <p class="gg-email-capture-text">For cyclists with more passion than talent. Commentary on cycling training, culture and life. Free. No spam.</p>
-      <iframe src="{esc(SUBSTACK_EMBED)}" title="Newsletter signup" width="100%" height="100" style="border:none; background:transparent;" frameborder="0" scrolling="no" loading="lazy"></iframe>
+      <div class="gg-email-capture-badge">FREE DOWNLOAD</div>
+      <h3 class="gg-email-capture-title">GET THE {name.upper()} PREP KIT</h3>
+      <p class="gg-email-capture-text">12-week training timeline, race-day checklists, packing list, and personalized fueling calculator — delivered instantly.</p>
+      <form class="gg-email-capture-form" id="gg-email-capture-form" autocomplete="off">
+        <input type="hidden" name="race_slug" value="{slug}">
+        <input type="hidden" name="race_name" value="{name}">
+        <input type="hidden" name="source" value="race_profile">
+        <input type="hidden" name="website" value="">
+        <div class="gg-email-capture-row">
+          <input type="email" name="email" required placeholder="your@email.com" class="gg-email-capture-input" aria-label="Email address">
+          <button type="submit" class="gg-email-capture-btn">GET PREP KIT</button>
+        </div>
+      </form>
+      <div class="gg-email-capture-success" id="gg-email-capture-success" style="display:none">
+        <p class="gg-email-capture-check">\u2713 Prep kit unlocked!</p>
+        <a href="/race/{slug}/prep-kit/" class="gg-email-capture-link">Open Your {name} Prep Kit \u2192</a>
+      </div>
+      <p class="gg-email-capture-fine">No spam. Unsubscribe anytime.</p>
     </div>
   </div>'''
 
@@ -2073,7 +2353,7 @@ def build_webpage_jsonld(rd: dict) -> dict:
         "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": [
-                ".gg-hero-tagline",
+                ".gg-overview-tagline",
                 ".gg-verdict-text",
                 ".gg-faq-answer",
             ],
@@ -2171,7 +2451,7 @@ def get_page_css() -> str:
   font-family: var(--gg-font-data);
   color: var(--gg-color-dark-brown);
   line-height: 1.6;
-  background: var(--gg-color-sand);
+  background: var(--gg-color-warm-paper);
 }}
 .gg-neo-brutalist-page *, .gg-neo-brutalist-page *::before, .gg-neo-brutalist-page *::after {{
   border-radius: 0 !important;
@@ -2179,71 +2459,71 @@ def get_page_css() -> str:
   box-sizing: border-box;
 }}
 
-/* Hero */
-.gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); padding: var(--gg-spacing-3xl) var(--gg-spacing-2xl); border-bottom: var(--gg-border-double); margin-bottom: 0; position: relative; overflow: hidden; }}
-.gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-2xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; margin-bottom: var(--gg-spacing-md); }}
-.gg-neo-brutalist-page .gg-series-badge {{ display: inline-block; margin-left: 8px; background: transparent; color: var(--gg-color-teal); padding: var(--gg-spacing-2xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; text-decoration: none; border: 2px solid var(--gg-color-teal); margin-bottom: var(--gg-spacing-md); vertical-align: middle; }}
-.gg-neo-brutalist-page .gg-series-badge:hover {{ background: var(--gg-color-teal); color: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: var(--gg-line-height-tight); letter-spacing: var(--gg-letter-spacing-tight); margin-bottom: 16px; color: var(--gg-color-white); position: relative; }}
-.gg-neo-brutalist-page .gg-hero h1::after {{ content: attr(data-text); position: absolute; left: 3px; top: 3px; color: var(--gg-color-teal); opacity: 0.3; z-index: 0; pointer-events: none; }}
-.gg-neo-brutalist-page .gg-hero-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); max-width: 700px; }}
-.gg-neo-brutalist-page .gg-btn--hero-site {{ display: inline-block; margin-top: 16px; background: transparent; color: var(--gg-color-warm-paper); border: 2px solid var(--gg-color-warm-paper); padding: 8px 20px; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; }}
-.gg-neo-brutalist-page .gg-btn--hero-site:hover {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-hero-score {{ position: absolute; top: 40px; right: 40px; text-align: center; }}
-.gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-5xl); font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); }}
+/* Hero — clean editorial masthead: name left, score right */
+.gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 48px 32px; border-bottom: 2px solid var(--gg-color-gold); margin-bottom: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }}
+.gg-neo-brutalist-page .gg-hero-content {{ flex: 1; min-width: 0; }}
+.gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-sm); }}
+.gg-neo-brutalist-page .gg-series-badge {{ display: inline-block; margin-left: 12px; color: var(--gg-color-teal); font-family: var(--gg-font-data); font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gg-color-teal); padding-bottom: 1px; }}
+.gg-neo-brutalist-page .gg-series-badge:hover {{ color: var(--gg-color-dark-teal); }}
+.gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: 42px; font-weight: var(--gg-font-weight-bold); line-height: 1.05; letter-spacing: var(--gg-letter-spacing-tight); margin: 0; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-hero-vitals {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; text-transform: uppercase; margin-top: 14px; }}
+.gg-neo-brutalist-page .gg-hero-score {{ text-align: center; flex-shrink: 0; }}
+.gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: 72px; font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: var(--gg-font-weight-bold); letter-spacing: 3px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
 
-/* TOC */
-.gg-neo-brutalist-page .gg-toc {{ background: var(--gg-color-near-black); padding: 16px 20px; border: var(--gg-border-standard); border-top: none; display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 32px; }}
-.gg-neo-brutalist-page .gg-toc a {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; transition: color 0.2s; }}
-.gg-neo-brutalist-page .gg-toc a:hover {{ color: var(--gg-color-white); }}
+/* TOC — light version */
+.gg-neo-brutalist-page .gg-toc {{ background: var(--gg-color-warm-paper); padding: 16px 20px; border-bottom: 1px solid var(--gg-color-gold); display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 32px; }}
+.gg-neo-brutalist-page .gg-toc a {{ color: var(--gg-color-secondary-brown); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; transition: color 0.2s; }}
+.gg-neo-brutalist-page .gg-toc a:hover {{ color: var(--gg-color-gold); }}
 
-/* Section common */
-.gg-neo-brutalist-page .gg-section {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-section-header {{ background: var(--gg-color-primary-brown); color: var(--gg-color-warm-paper); padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: var(--gg-border-double); }}
+/* Section common — Variant F: warm paper bg, gold hairlines */
+.gg-neo-brutalist-page .gg-section {{ margin-bottom: 32px; border: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-section-header {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-section-kicker {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-gold); white-space: nowrap; }}
-.gg-neo-brutalist-page .gg-section-title {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: var(--gg-font-weight-semibold); letter-spacing: var(--gg-letter-spacing-normal); color: var(--gg-color-white); margin: 0; }}
+.gg-neo-brutalist-page .gg-section-title {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: var(--gg-font-weight-semibold); letter-spacing: var(--gg-letter-spacing-normal); color: var(--gg-color-dark-brown); margin: 0; }}
 .gg-neo-brutalist-page .gg-section-body {{ padding: 24px 20px; }}
 
-/* Section header variant: dark */
-.gg-neo-brutalist-page .gg-section-header--dark {{ background: var(--gg-color-dark-brown); }}
+/* Section header variant: dark — now uses primary-brown text on warm paper */
+.gg-neo-brutalist-page .gg-section-header--dark {{ background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-section-header--dark .gg-section-kicker {{ color: var(--gg-color-gold); }}
 
 /* Section variant: accent (subtle warm bg) */
-.gg-neo-brutalist-page .gg-section--accent {{ background: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-section--accent {{ background: var(--gg-color-warm-paper); }}
 
-/* Section variant: dark (near-black bg, light text) */
-.gg-neo-brutalist-page .gg-section--dark {{ background: var(--gg-color-near-black); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-section-body {{ color: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-prose {{ color: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-prose p {{ color: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-prose strong {{ color: var(--gg-color-white); }}
+/* Section variant: dark — now warm-paper with brown text (no dark backgrounds) */
+.gg-neo-brutalist-page .gg-section--dark {{ background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-section-body {{ color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-prose {{ color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-prose p {{ color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-prose strong {{ color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-section--dark .gg-timeline {{ border-left-color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-timeline-text {{ color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-timeline-text {{ color: var(--gg-color-primary-brown); }}
 .gg-neo-brutalist-page .gg-section--dark .gg-verdict-grid {{ gap: 16px; }}
-.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box--race {{ background: var(--gg-color-near-black); border-color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box--skip {{ background: var(--gg-color-near-black); border-color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box-title {{ color: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-verdict-list li {{ color: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-section--dark .gg-verdict-bottom-line {{ background: var(--gg-color-near-black); border-color: var(--gg-color-dark-brown); color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box--race {{ background: var(--gg-color-warm-paper); border-color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box--skip {{ background: var(--gg-color-warm-paper); border-color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-verdict-box-title {{ color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-verdict-list li {{ color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-section--dark .gg-verdict-bottom-line {{ background: var(--gg-color-warm-paper); border-color: var(--gg-color-gold); color: var(--gg-color-primary-brown); }}
 .gg-neo-brutalist-page .gg-section--dark .gg-verdict-bottom-line strong {{ color: var(--gg-color-gold); }}
 
 /* Section variant: teal accent (teal top border) */
-.gg-neo-brutalist-page .gg-section--teal-accent {{ border-top: var(--gg-border-width-heavy) solid var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-section--teal-accent {{ border-top: 2px solid var(--gg-color-teal); }}
 
-/* Section header variant: teal */
-.gg-neo-brutalist-page .gg-section-header--teal {{ background: var(--gg-color-teal); }}
-.gg-neo-brutalist-page .gg-section-header--teal .gg-section-kicker {{ color: rgba(255,255,255,0.6); }}
+/* Section header variant: teal — now warm-paper with teal text */
+.gg-neo-brutalist-page .gg-section-header--teal {{ background: var(--gg-color-warm-paper); border-bottom-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-section-header--teal .gg-section-title {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-section-header--teal .gg-section-kicker {{ color: var(--gg-color-teal); opacity: 0.6; }}
 
-/* Section header variant: gold */
-.gg-neo-brutalist-page .gg-section-header--gold {{ background: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-section-header--gold .gg-section-kicker {{ color: rgba(255,255,255,0.6); }}
+/* Section header variant: gold — now warm-paper with gold text */
+.gg-neo-brutalist-page .gg-section-header--gold {{ background: var(--gg-color-warm-paper); border-bottom-color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-section-header--gold .gg-section-title {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-section-header--gold .gg-section-kicker {{ color: var(--gg-color-gold); opacity: 0.6; }}
 
 /* Stat cards */
 .gg-neo-brutalist-page .gg-stat-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }}
-.gg-neo-brutalist-page .gg-stat-card {{ border: var(--gg-border-standard); padding: var(--gg-spacing-md); text-align: center; background: var(--gg-color-dark-brown); transition: border-color var(--gg-transition-hover); }}
+.gg-neo-brutalist-page .gg-stat-card {{ border: 1px solid var(--gg-color-tan); padding: var(--gg-spacing-md); text-align: center; background: var(--gg-color-warm-paper); transition: border-color var(--gg-transition-hover); }}
 .gg-neo-brutalist-page .gg-stat-card:hover {{ border-color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-stat-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xl); font-weight: var(--gg-font-weight-bold); color: var(--gg-color-warm-paper); line-height: var(--gg-line-height-tight); }}
+.gg-neo-brutalist-page .gg-stat-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xl); font-weight: var(--gg-font-weight-bold); color: var(--gg-color-dark-brown); line-height: var(--gg-line-height-tight); }}
 .gg-neo-brutalist-page .gg-stat-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-gold); margin-top: var(--gg-spacing-2xs); }}
 
 /* Difficulty gauge */
@@ -2256,14 +2536,17 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
 
 /* Nearby races — in-content cross-links */
-.gg-neo-brutalist-page .gg-nearby-races {{ margin-top: 16px; padding: 10px 16px; background: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: 11px; }}
+.gg-neo-brutalist-page .gg-nearby-races {{ margin-top: 16px; padding: 10px 16px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-tan); font-family: var(--gg-font-data); font-size: 11px; }}
 .gg-neo-brutalist-page .gg-nearby-label {{ font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-nearby-races a {{ color: var(--gg-color-tan); text-decoration: none; }}
-.gg-neo-brutalist-page .gg-nearby-races a:hover {{ color: var(--gg-color-white); text-decoration: underline; }}
+.gg-neo-brutalist-page .gg-nearby-races a {{ color: var(--gg-color-primary-brown); text-decoration: none; }}
+.gg-neo-brutalist-page .gg-nearby-races a:hover {{ color: var(--gg-color-gold); text-decoration: underline; }}
+
+/* Overview tagline — editorial lead */
+.gg-neo-brutalist-page .gg-overview-tagline {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-style: italic; line-height: var(--gg-line-height-prose); color: var(--gg-color-primary-brown); margin: 0 0 20px 0; }}
 
 /* Map embed */
 .gg-neo-brutalist-page .gg-map-embed {{ border: var(--gg-border-subtle); margin-bottom: 16px; overflow: hidden; }}
-.gg-neo-brutalist-page .gg-map-embed iframe {{ width: 100%; height: 400px; border: none; display: block; }}
+.gg-neo-brutalist-page .gg-map-embed iframe {{ width: 100%; height: 500px; border: none; display: block; }}
 
 /* Prose — editorial font */
 .gg-neo-brutalist-page .gg-prose {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-prose); color: var(--gg-color-dark-brown); }}
@@ -2363,23 +2646,23 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-btn--secondary:hover {{ background: var(--gg-color-light-teal); }}
 
 /* Training */
-.gg-neo-brutalist-page .gg-training-primary {{ border: var(--gg-border-standard); background: var(--gg-color-primary-brown); color: var(--gg-color-white); padding: 32px; margin-bottom: 16px; }}
-.gg-neo-brutalist-page .gg-training-primary h3 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-training-primary .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-training-primary {{ border: 1px solid var(--gg-color-tan); border-left: 4px solid var(--gg-color-gold); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 32px; margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-training-primary h3 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-training-primary .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-training-bullets {{ list-style: none; padding: 0; margin-bottom: 24px; }}
-.gg-neo-brutalist-page .gg-training-bullets li {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-tan); padding: 6px 0; padding-left: 20px; position: relative; }}
-.gg-neo-brutalist-page .gg-training-bullets li::before {{ content: '\\2014'; position: absolute; left: 0; color: var(--gg-color-tan); }}
-.gg-neo-brutalist-page .gg-training-primary .gg-btn {{ background: var(--gg-color-white); color: var(--gg-color-primary-brown); border-color: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-training-primary .gg-btn:hover {{ background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-training-bullets li {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); padding: 6px 0; padding-left: 20px; position: relative; }}
+.gg-neo-brutalist-page .gg-training-bullets li::before {{ content: '\\2014'; position: absolute; left: 0; color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-training-primary .gg-btn {{ background: var(--gg-color-gold); color: var(--gg-color-dark-brown); border-color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-training-primary .gg-btn:hover {{ background: var(--gg-color-light-gold); }}
 .gg-neo-brutalist-page .gg-training-divider {{ display: flex; align-items: center; gap: 16px; margin: 20px 0; }}
 .gg-neo-brutalist-page .gg-training-divider-line {{ flex: 1; height: 1px; background: var(--gg-color-tan); }}
 .gg-neo-brutalist-page .gg-training-divider-text {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-ultra-wide); }}
-.gg-neo-brutalist-page .gg-training-secondary {{ border: var(--gg-border-standard); background: var(--gg-color-near-black); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }}
-.gg-neo-brutalist-page .gg-training-secondary-text h4 {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-white); }}
+.gg-neo-brutalist-page .gg-training-secondary {{ border: 1px solid var(--gg-color-tan); border-top: 2px solid var(--gg-color-gold); background: var(--gg-color-warm-paper); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }}
+.gg-neo-brutalist-page .gg-training-secondary-text h4 {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-training-secondary-text .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin: 0 0 8px 0; }}
 .gg-neo-brutalist-page .gg-training-secondary-text p {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.5; margin: 0; }}
-.gg-neo-brutalist-page .gg-training-secondary .gg-btn {{ background: transparent; color: var(--gg-color-white); border-color: var(--gg-color-white); }}
-.gg-neo-brutalist-page .gg-training-secondary .gg-btn:hover {{ background: var(--gg-color-white); color: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-training-secondary .gg-btn {{ background: transparent; color: var(--gg-color-primary-brown); border-color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-training-secondary .gg-btn:hover {{ background: var(--gg-color-primary-brown); color: var(--gg-color-warm-paper); }}
 
 /* Free Prep Kit CTA */
 .gg-neo-brutalist-page .gg-training-free {{ text-align: center; margin-bottom: 20px; padding: 20px; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); }}
@@ -2394,14 +2677,14 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
 
 /* News ticker */
-.gg-neo-brutalist-page .gg-news-ticker {{ background: var(--gg-color-near-black); border: var(--gg-border-standard); margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }}
-.gg-neo-brutalist-page .gg-news-ticker-label {{ background: var(--gg-color-gold); color: var(--gg-color-near-black); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 0 var(--gg-spacing-md); display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-news-ticker {{ background: var(--gg-color-sand); border: 1px solid var(--gg-color-tan); margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }}
+.gg-neo-brutalist-page .gg-news-ticker-label {{ background: var(--gg-color-gold); color: var(--gg-color-warm-paper); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 0 var(--gg-spacing-md); display: flex; align-items: center; white-space: nowrap; min-width: fit-content; border-right: 1px solid var(--gg-color-tan); }}
 .gg-neo-brutalist-page .gg-news-ticker-track {{ flex: 1; overflow: hidden; position: relative; display: flex; align-items: center; }}
 .gg-neo-brutalist-page .gg-news-ticker-content {{ display: flex; align-items: center; white-space: nowrap; animation: gg-ticker-scroll 80s linear infinite; padding-left: 100%; }}
 .gg-neo-brutalist-page .gg-news-ticker-content:hover {{ animation-play-state: paused; }}
 .gg-neo-brutalist-page .gg-news-ticker-item {{ display: inline-flex; align-items: center; gap: 6px; padding: 0 32px; }}
-.gg-neo-brutalist-page .gg-news-ticker-item a {{ color: var(--gg-color-tan); text-decoration: none; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }}
-.gg-neo-brutalist-page .gg-news-ticker-item a:hover {{ color: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-news-ticker-item a {{ color: var(--gg-color-primary-brown); text-decoration: none; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-news-ticker-item a:hover {{ color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-news-ticker-source {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); font-weight: 400; }}
 .gg-neo-brutalist-page .gg-news-ticker-sep {{ color: var(--gg-color-teal); font-size: 8px; margin: 0 8px; }}
 .gg-neo-brutalist-page .gg-news-ticker-loading {{ color: var(--gg-color-secondary-brown); font-size: 11px; letter-spacing: 1px; padding-left: 16px; }}
@@ -2418,6 +2701,23 @@ def get_page_css() -> str:
 .gg-sticky-dismiss {{ background: none; border: none; color: var(--gg-color-white); font-size: 22px; cursor: pointer; opacity: 0.6; padding: 0 4px; line-height: 1; }}
 .gg-sticky-dismiss:hover {{ opacity: 1; }}
 
+/* Exit-intent popup */
+.gg-exit-overlay {{ position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(26,22,19,0.85); display: flex; align-items: center; justify-content: center; padding: 20px; animation: gg-fade-in 0.3s ease; }}
+.gg-exit-modal {{ background: var(--gg-color-warm-paper); border: 4px solid var(--gg-color-near-black); max-width: 440px; width: 100%; padding: 40px 32px; text-align: center; position: relative; animation: gg-slide-up 0.3s ease; }}
+.gg-exit-close {{ position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 28px; color: var(--gg-color-secondary-brown); cursor: pointer; line-height: 1; }}
+.gg-exit-close:hover {{ color: var(--gg-color-near-black); }}
+.gg-exit-badge {{ display: inline-block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); padding: 4px 12px; margin-bottom: 16px; }}
+.gg-exit-title {{ font-family: var(--gg-font-data); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px; color: var(--gg-color-near-black); }}
+.gg-exit-text {{ font-family: var(--gg-font-editorial); font-size: 14px; line-height: 1.6; color: var(--gg-color-primary-brown); margin: 0 0 20px; }}
+.gg-exit-row {{ display: flex; gap: 0; }}
+.gg-exit-input {{ flex: 1; font-family: var(--gg-font-data); font-size: 13px; padding: 12px 14px; border: 3px solid var(--gg-color-near-black); border-right: none; background: var(--gg-color-white); color: var(--gg-color-near-black); min-width: 0; }}
+.gg-exit-input:focus {{ outline: none; border-color: var(--gg-color-teal); }}
+.gg-exit-btn {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 18px; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); border: 3px solid var(--gg-color-near-black); cursor: pointer; white-space: nowrap; transition: background 0.2s; }}
+.gg-exit-btn:hover {{ background: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
+.gg-exit-fine {{ font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; margin: 10px 0 0; }}
+@keyframes gg-fade-in {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+@keyframes gg-slide-up {{ from {{ transform: translateY(20px); opacity: 0; }} to {{ transform: translateY(0); opacity: 1; }} }}
+
 /* Back to top */
 .gg-back-to-top {{ position: fixed; bottom: 72px; right: 20px; z-index: 199; width: 40px; height: 40px; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); border: 2px solid var(--gg-color-warm-paper); font-size: 18px; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; display: flex; align-items: center; justify-content: center; }}
 .gg-back-to-top.is-visible {{ opacity: 1; visibility: visible; }}
@@ -2428,14 +2728,24 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-fade-section.is-visible {{ opacity: 1; transform: translateY(0); }}
 
 /* Email capture */
-.gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: var(--gg-spacing-xl); border: var(--gg-border-standard); background: var(--gg-color-primary-brown); padding: 0; }}
+.gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: var(--gg-spacing-xl); border: 1px solid var(--gg-color-tan); border-top: 2px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); padding: 0; }}
 .gg-neo-brutalist-page .gg-email-capture-inner {{ padding: var(--gg-spacing-lg) var(--gg-spacing-xl); text-align: center; }}
-.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-white); margin: 0 0 var(--gg-spacing-2xs) 0; }}
-.gg-neo-brutalist-page .gg-email-capture-text {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-tan); line-height: var(--gg-line-height-relaxed); margin: 0 0 var(--gg-spacing-sm) 0; max-width: 500px; margin-left: auto; margin-right: auto; }}
-.gg-neo-brutalist-page .gg-email-capture iframe {{ max-width: 480px; height: 100px; margin: 0 auto; display: block; overflow: hidden; }}
+.gg-neo-brutalist-page .gg-email-capture-badge {{ display: inline-block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gg-color-teal); color: var(--gg-color-white); padding: 3px 10px; margin-bottom: var(--gg-spacing-xs); }}
+.gg-neo-brutalist-page .gg-email-capture-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-dark-brown); margin: 0 0 var(--gg-spacing-2xs) 0; }}
+.gg-neo-brutalist-page .gg-email-capture-text {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: 0 0 var(--gg-spacing-md) 0; max-width: 500px; margin-left: auto; margin-right: auto; }}
+.gg-neo-brutalist-page .gg-email-capture-row {{ display: flex; gap: 0; max-width: 420px; margin: 0 auto var(--gg-spacing-xs); }}
+.gg-neo-brutalist-page .gg-email-capture-input {{ flex: 1; font-family: var(--gg-font-data); font-size: 13px; padding: 12px 14px; border: 2px solid var(--gg-color-tan); border-right: none; background: var(--gg-color-white); color: var(--gg-color-dark-brown); min-width: 0; }}
+.gg-neo-brutalist-page .gg-email-capture-input:focus {{ outline: none; border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-email-capture-btn {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 18px; background: var(--gg-color-teal); color: var(--gg-color-white); border: 2px solid var(--gg-color-teal); cursor: pointer; white-space: nowrap; transition: background 0.2s; }}
+.gg-neo-brutalist-page .gg-email-capture-btn:hover {{ background: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-email-capture-fine {{ font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-warm-brown); letter-spacing: 1px; margin: 0; }}
+.gg-neo-brutalist-page .gg-email-capture-success {{ padding: var(--gg-spacing-sm) 0; }}
+.gg-neo-brutalist-page .gg-email-capture-check {{ font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; color: var(--gg-color-light-teal); margin: 0 0 var(--gg-spacing-xs); }}
+.gg-neo-brutalist-page .gg-email-capture-link {{ display: inline-block; font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-white); background: var(--gg-color-teal); padding: 10px 20px; text-decoration: none; border: 2px solid var(--gg-color-teal); transition: background 0.2s; }}
+.gg-neo-brutalist-page .gg-email-capture-link:hover {{ background: var(--gg-color-light-teal); }}
 
 /* Countdown */
-.gg-neo-brutalist-page .gg-countdown {{ border: var(--gg-border-width-standard) solid var(--gg-color-teal); background: var(--gg-color-near-black); color: var(--gg-color-white); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-countdown {{ border: 1px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 32px; color: var(--gg-color-teal); display: block; line-height: 1.2; }}
 
 /* FAQ accordion */
@@ -2458,7 +2768,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
 
 /* Site header */
-.gg-site-header {{ padding: 16px 24px; border-bottom: 4px solid var(--gg-color-dark-brown); }}
+.gg-site-header {{ padding: 16px 24px; border-bottom: 2px solid var(--gg-color-gold); }}
 .gg-site-header-inner {{ display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }}
 .gg-site-header-logo img {{ display: block; height: 50px; width: auto; }}
 .gg-site-header-nav {{ display: flex; gap: 28px; }}
@@ -2489,19 +2799,6 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; }}
 .gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
 
-/* Dual score — hero */
-.gg-neo-brutalist-page .gg-dual-score {{ display: flex; border: 3px solid var(--gg-color-warm-paper); max-width: 440px; margin-top: var(--gg-spacing-lg); }}
-.gg-neo-brutalist-page .gg-dual-panel {{ flex: 1; padding: var(--gg-spacing-md) var(--gg-spacing-sm); text-align: center; }}
-.gg-neo-brutalist-page .gg-dual-panel--gg {{ background: rgba(154,126,10,0.12); border-right: 3px solid var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-dual-panel--racer {{ background: rgba(23,128,121,0.12); }}
-.gg-neo-brutalist-page .gg-dual-panel--empty {{ opacity: 0.6; }}
-.gg-neo-brutalist-page .gg-dual-number {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-4xl); font-weight: var(--gg-font-weight-bold); line-height: 1; }}
-.gg-neo-brutalist-page .gg-dual-number--gg {{ color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-dual-number--racer {{ color: var(--gg-color-teal); }}
-.gg-neo-brutalist-page .gg-dual-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-warm-paper); margin-bottom: var(--gg-spacing-2xs); }}
-.gg-neo-brutalist-page .gg-dual-sublabel {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); margin-top: var(--gg-spacing-2xs); }}
-.gg-neo-brutalist-page .gg-dual-desc {{ font-family: var(--gg-font-data); font-size: 8px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); margin-top: 2px; }}
-
 /* Racer reviews section */
 .gg-neo-brutalist-page .gg-racer-reviews {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-racer-stars {{ display: flex; align-items: center; gap: 8px; margin-bottom: var(--gg-spacing-md); font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); }}
@@ -2515,9 +2812,28 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-review-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-gold); margin-top: 4px; }}
 .gg-neo-brutalist-page .gg-review-finish {{ display: inline-block; background: var(--gg-color-sand); color: var(--gg-color-secondary-brown); padding: 1px 6px; font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-left: 8px; }}
 .gg-neo-brutalist-page .gg-btn--rate {{ display: inline-block; margin-top: var(--gg-spacing-md); padding: 10px 24px; background: var(--gg-color-teal); color: var(--gg-color-white); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; border: var(--gg-border-standard); cursor: pointer; }}
-.gg-neo-brutalist-page .gg-btn--rate:hover {{ background: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-btn--rate:hover {{ background: #14695F; }}
 .gg-neo-brutalist-page .gg-racer-empty, .gg-neo-brutalist-page .gg-racer-pending {{ background: var(--gg-color-sand); padding: var(--gg-spacing-xl); text-align: center; }}
 .gg-neo-brutalist-page .gg-racer-empty-text, .gg-neo-brutalist-page .gg-racer-pending-text {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-bottom: var(--gg-spacing-sm); }}
+
+/* Inline review form */
+.gg-neo-brutalist-page .gg-review-form-wrap {{ border-top: 2px solid var(--gg-color-tan); padding-top: var(--gg-spacing-lg); margin-top: var(--gg-spacing-lg); }}
+.gg-neo-brutalist-page .gg-review-form-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-dark-brown); margin: 0 0 var(--gg-spacing-md); }}
+.gg-neo-brutalist-page .gg-review-form-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-review-field {{ display: flex; flex-direction: column; gap: 4px; }}
+.gg-neo-brutalist-page .gg-review-field--full {{ grid-column: 1 / -1; margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-review-field label {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-review-input, .gg-neo-brutalist-page .gg-review-select, .gg-neo-brutalist-page .gg-review-textarea {{ font-family: var(--gg-font-data); font-size: 13px; padding: 8px 10px; border: 2px solid var(--gg-color-tan); background: var(--gg-color-white); color: var(--gg-color-dark-brown); width: 100%; box-sizing: border-box; }}
+.gg-neo-brutalist-page .gg-review-input:focus, .gg-neo-brutalist-page .gg-review-textarea:focus {{ outline: none; border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-review-textarea {{ resize: vertical; min-height: 48px; }}
+.gg-neo-brutalist-page .gg-review-charcount {{ display: block; font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-secondary-brown); text-align: right; margin-top: 2px; letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-review-star-row {{ display: flex; gap: 4px; margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-review-star-btn {{ background: none; border: none; font-size: 28px; color: var(--gg-color-tan); cursor: pointer; padding: 0 2px; transition: color 0.15s; }}
+.gg-neo-brutalist-page .gg-review-star-btn:hover, .gg-neo-brutalist-page .gg-review-star-btn.is-active {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-review-field-label {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); margin-bottom: 4px; }}
+.gg-neo-brutalist-page .gg-review-success {{ text-align: center; padding: var(--gg-spacing-lg); }}
+.gg-neo-brutalist-page .gg-review-success-icon {{ font-size: 36px; color: var(--gg-color-teal); margin-bottom: var(--gg-spacing-xs); }}
+.gg-neo-brutalist-page .gg-review-success-text {{ font-family: var(--gg-font-data); font-size: 13px; color: var(--gg-color-primary-brown); }}
 
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
@@ -2529,12 +2845,11 @@ def get_page_css() -> str:
 
 /* Responsive — mobile */
 @media (max-width: 768px) {{
-  .gg-neo-brutalist-page .gg-hero {{ padding: var(--gg-spacing-2xl) var(--gg-spacing-lg); }}
-  .gg-neo-brutalist-page .gg-hero h1 {{ font-size: var(--gg-font-size-2xl); }}
-  .gg-neo-brutalist-page .gg-hero-score {{ position: static; margin-top: var(--gg-spacing-md); text-align: left; }}
-  .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: var(--gg-font-size-4xl); }}
-  .gg-neo-brutalist-page .gg-dual-score {{ flex-direction: column; max-width: 100%; }}
-  .gg-neo-brutalist-page .gg-dual-panel--gg {{ border-right: none; border-bottom: 3px solid var(--gg-color-warm-paper); }}
+  .gg-neo-brutalist-page .gg-hero {{ flex-direction: column; align-items: flex-start; padding: 32px 20px; gap: 20px; }}
+  .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 28px; }}
+  .gg-neo-brutalist-page .gg-hero-score {{ display: flex; align-items: baseline; gap: 10px; }}
+  .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: 48px; }}
+  .gg-neo-brutalist-page .gg-hero-score-label {{ margin-top: 0; }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
@@ -2544,16 +2859,21 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-accordion-content {{ padding-left: 0; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-sticky-cta-name {{ display: none; }}
+  .gg-exit-row {{ flex-direction: column; gap: 8px; }}
+  .gg-exit-input {{ border-right: 3px solid var(--gg-color-near-black); }}
+  .gg-exit-modal {{ padding: 32px 20px; }}
   .gg-sticky-cta .gg-btn {{ width: 100%; text-align: center; }}
   .gg-neo-brutalist-page .gg-toc {{ flex-direction: column; gap: 6px; }}
-  .gg-neo-brutalist-page .gg-map-embed iframe {{ height: 250px; }}
+  .gg-neo-brutalist-page .gg-map-embed iframe {{ height: 350px; }}
   .gg-neo-brutalist-page .gg-pullquote {{ padding: var(--gg-spacing-lg); }}
   .gg-neo-brutalist-page .gg-pullquote-text {{ font-size: var(--gg-font-size-base); }}
   .gg-neo-brutalist-page .gg-pullquote-text::before {{ position: static; display: block; margin-bottom: -10px; }}
   .gg-neo-brutalist-page .gg-pullquote-text::after {{ display: none; }}
   .gg-neo-brutalist-page .gg-news-ticker-label {{ font-size: 9px; padding: 0 10px; letter-spacing: 1px; }}
-  .gg-neo-brutalist-page .gg-email-capture iframe {{ height: 100px; }}
+  .gg-neo-brutalist-page .gg-email-capture-row {{ flex-direction: column; gap: 8px; }}
+  .gg-neo-brutalist-page .gg-email-capture-input {{ border-right: 2px solid var(--gg-color-tan); }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-review-form-row {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
 }}
 
@@ -2719,12 +3039,12 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 body{margin:0;background:#ede4d8}
 .gg-neo-brutalist-page{max-width:960px;margin:0 auto;padding:0 20px;font-family:'Sometype Mono',monospace;color:#3a2e25;background:#ede4d8}
 .gg-neo-brutalist-page *,.gg-neo-brutalist-page *::before,.gg-neo-brutalist-page *::after{border-radius:0!important;box-shadow:none!important;box-sizing:border-box}
-.gg-site-header{padding:16px 24px;border-bottom:4px solid #3a2e25}
+.gg-site-header{padding:16px 24px;border-bottom:2px solid #9a7e0a}
 .gg-site-header-inner{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto}
 .gg-site-header-logo img{display:block;height:50px;width:auto}
 .gg-site-header-nav{display:flex;gap:28px}
 .gg-site-header-nav a{color:#3a2e25;text-decoration:none;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.gg-hero{background:#3a2e25;color:#f5efe6;padding:64px 48px;border-bottom:4px double #3a2e25;position:relative;overflow:hidden}
+.gg-hero{background:#f5efe6;color:#3a2e25;padding:48px 32px;border-bottom:2px solid #9a7e0a;display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
 </style>
   '''
         css = critical_css + external_assets['css_tag']

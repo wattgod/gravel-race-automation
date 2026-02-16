@@ -31,6 +31,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import (
     GA_MEASUREMENT_ID,
+    RACER_RATING_THRESHOLD,
     get_font_face_css,
     get_preload_hints,
 )
@@ -42,6 +43,7 @@ GUIDE_CONTENT_PATH = Path(__file__).parent.parent / "guide" / "gravel-guide-cont
 SUBSTACK_RSS_URL = "https://gravelgodcycling.substack.com/feed"
 
 GA4_MEASUREMENT_ID = GA_MEASUREMENT_ID
+CURRENT_YEAR = date.today().year
 
 # ── Featured race slugs (curated for homepage diversity) ─────
 
@@ -511,12 +513,31 @@ def build_featured_races(race_index: list) -> str:
         meta_str = " &middot; ".join(meta_parts)
 
         badge_cls = _tier_badge_class(tier)
+        score_colors = {1: "#59473c", 2: "#7d695d", 3: "#A68E80", 4: "#5e6868"}
+        score_color = score_colors.get(tier, "#A68E80")
+
+        # Racer rating
+        rr_pct = race.get("racer_pct")
+        rr_total = race.get("racer_total", 0)
+        if rr_pct is not None and rr_total >= RACER_RATING_THRESHOLD:
+            racer_score_html = f'<span class="gg-hp-racer-score" style="color:#178079">{rr_pct}%</span>'
+        else:
+            racer_score_html = '<span class="gg-hp-racer-score gg-hp-racer-score--empty">&mdash;</span>'
 
         cards += f'''
       <a href="{SITE_BASE_URL}{esc(profile_url)}" class="gg-hp-race-card" data-ga="featured_race_click" data-ga-label="{esc(name)}">
         <div class="gg-hp-race-card-top">
           <span class="gg-hp-tier-badge {badge_cls}">TIER {tier}</span>
-          <span class="gg-hp-score">{score}</span>
+          <div class="gg-hp-scores">
+            <div class="gg-hp-score-col">
+              <span class="gg-hp-score" style="color:{score_color}">{score}</span>
+              <span class="gg-hp-score-label">GG</span>
+            </div>
+            <div class="gg-hp-score-col">
+              {racer_score_html}
+              <span class="gg-hp-score-label">RACER</span>
+            </div>
+          </div>
         </div>
         <h3 class="gg-hp-race-name">{esc(name)}</h3>
         <div class="gg-hp-race-meta">{meta_str}</div>
@@ -766,7 +787,7 @@ def build_footer() -> str:
       </div>
     </div>
     <div class="gg-hp-footer-legal">
-      <span>&copy; 2026 Gravel God Cycling. All rights reserved.</span>
+      <span>&copy; {CURRENT_YEAR} Gravel God Cycling. All rights reserved.</span>
     </div>
   </footer>'''
 
@@ -791,7 +812,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-page { margin: 0; padding: 0; }
 
 /* ── Header ──────────────────────────────────────────────── */
-.gg-hp-header { padding: 16px 24px; border-bottom: 4px solid #3a2e25; }
+.gg-hp-header { padding: 16px 24px; border-bottom: 2px solid #9a7e0a; }
 .gg-hp-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
 .gg-hp-header-logo img { display: block; height: 50px; width: auto; }
 .gg-hp-header-nav { display: flex; gap: 28px; }
@@ -799,14 +820,14 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-header-nav a:hover { color: #9a7e0a; }
 
 /* ── Ticker ──────────────────────────────────────────────── */
-.gg-hp-ticker { background: #1a1613; border-bottom: 3px solid #9a7e0a; overflow: hidden; white-space: nowrap; }
+.gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: hidden; white-space: nowrap; }
 .gg-hp-ticker-track { overflow: hidden; }
 .gg-hp-ticker-content { display: inline-block; animation: gg-ticker-scroll 60s linear infinite; padding: 10px 0; }
 .gg-hp-ticker-content:hover { animation-play-state: paused; }
 .gg-hp-ticker-item { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #7d695d; letter-spacing: 0.5px; }
-.gg-hp-ticker-item a { color: #d4c5b9; text-decoration: none; transition: color var(--gg-ease); }
-.gg-hp-ticker-item a:hover { color: #f5efe6; }
-.gg-hp-ticker-sep { color: #3a2e25; margin: 0 20px; }
+.gg-hp-ticker-item a { color: #59473c; text-decoration: none; transition: color var(--gg-ease); }
+.gg-hp-ticker-item a:hover { color: #9a7e0a; }
+.gg-hp-ticker-sep { color: #d4c5b9; margin: 0 20px; }
 .gg-ticker-tag { display: inline-block; padding: 1px 6px; font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-right: 6px; }
 .gg-ticker-tag--teal { background: #178079; color: #fff; }
 .gg-ticker-tag--gold { background: #9a7e0a; color: #fff; }
@@ -836,53 +857,59 @@ a { text-decoration: none; color: #178079; }
 /* On light backgrounds, dark button variant */
 .gg-hp-featured-cta .gg-hp-btn--primary,
 .gg-hp-cal-cta .gg-hp-btn--primary,
-.gg-hp-guide-cta .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
+.gg-hp-guide-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-featured-cta .gg-hp-btn--primary:hover,
 .gg-hp-cal-cta .gg-hp-btn--primary:hover,
 .gg-hp-guide-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
-.gg-hp-training .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
+.gg-hp-training .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-training .gg-hp-btn--primary:hover { border-color: #9a7e0a; }
 .gg-hp-training .gg-hp-btn--secondary { background: #f5efe6; color: #59473c; border-color: #59473c; }
 .gg-hp-training .gg-hp-btn--secondary:hover { background: #59473c; color: #fff; }
 
 /* ── Stats bar ───────────────────────────────────────────── */
-.gg-hp-stats-bar { background: #1a1613; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 4px double #3a2e25; }
-.gg-hp-stat { text-align: center; padding: 32px 16px; border-right: 2px solid #3a2e25; }
+.gg-hp-stats-bar { background: #f5efe6; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #d4c5b9; }
+.gg-hp-stat { text-align: center; padding: 32px 16px; border-right: 1px solid #d4c5b9; }
 .gg-hp-stat:last-child { border-right: none; }
-.gg-hp-stat-number { display: block; font-family: 'Sometype Mono', monospace; font-size: 44px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+.gg-hp-stat-number { display: block; font-family: 'Sometype Mono', monospace; font-size: 44px; font-weight: 700; color: #3a2e25; line-height: 1.1; margin-bottom: 8px; }
 .gg-hp-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7d695d; }
 
 /* ── Section headers ─────────────────────────────────────── */
-.gg-hp-section-header { background: #59473c; padding: 16px 20px; border-bottom: 4px double #3a2e25; }
-.gg-hp-section-header h2 { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #f5efe6; margin: 0; }
-.gg-hp-section-header--teal { background: #178079; }
+.gg-hp-section-header { background: #f5efe6; padding: 16px 20px; border-bottom: 1px solid #9a7e0a; }
+.gg-hp-section-header h2 { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #3a2e25; margin: 0; }
+.gg-hp-section-header--teal { border-bottom-color: #178079; }
 
 /* ── Featured races ──────────────────────────────────────── */
-.gg-hp-featured { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-featured { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-race-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .gg-hp-race-card { display: block; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
 .gg-hp-race-card:hover { border-color: #9a7e0a; }
 .gg-hp-race-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.gg-hp-tier-badge { display: inline-block; font-family: 'Sometype Mono', monospace; padding: 3px 10px; font-size: 9px; font-weight: 700; letter-spacing: 2px; }
-.gg-hp-badge-t1 { background: #59473c; color: #fff; }
-.gg-hp-badge-t2 { background: #7d695d; color: #fff; }
-.gg-hp-badge-t3 { background: transparent; color: #766a5e; border: 2px solid #766a5e; }
-.gg-hp-badge-t4 { background: transparent; color: #5e6868; border: 2px solid #5e6868; }
-.gg-hp-score { font-family: 'Sometype Mono', monospace; font-size: 28px; font-weight: 700; color: #178079; }
-.gg-hp-race-name { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.1; margin-bottom: 6px; }
+.gg-hp-tier-badge { display: inline-block; font-family: 'Sometype Mono', monospace; padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: 2px; }
+.gg-hp-badge-t1 { background: transparent; color: #59473c; border: 1px solid #59473c; }
+.gg-hp-badge-t2 { background: transparent; color: #7d695d; border: 1px solid #7d695d; }
+.gg-hp-badge-t3 { background: transparent; color: #766a5e; border: 1px solid #766a5e; }
+.gg-hp-badge-t4 { background: transparent; color: #5e6868; border: 1px solid #5e6868; }
+.gg-hp-scores { display: flex; align-items: flex-end; gap: 12px; }
+.gg-hp-score-col { display: flex; flex-direction: column; align-items: center; }
+.gg-hp-score { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; }
+.gg-hp-score-label { font-family: 'Sometype Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: 2px; color: #A68E80; margin-top: 2px; }
+.gg-hp-racer-score { font-family: 'Source Serif 4', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1; color: #178079; }
+.gg-hp-racer-score--empty { opacity: 0.35; color: #A68E80; }
+.gg-hp-race-card:hover .gg-hp-racer-score--empty { opacity: 0.6; }
+.gg-hp-race-name { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.1; margin-bottom: 6px; color: #3a2e25; }
 .gg-hp-race-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 0.5px; margin-bottom: 10px; }
 .gg-hp-race-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; color: #7d695d; line-height: 1.7; margin: 0; }
 .gg-hp-featured-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 .gg-hp-quick-filters { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
 .gg-hp-quick-label { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #7d695d; }
-.gg-hp-quick-chip { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 2px solid #59473c; color: #59473c; text-decoration: none; transition: all var(--gg-ease); }
-.gg-hp-quick-chip:hover { background: #59473c; color: #f5efe6; }
+.gg-hp-quick-chip { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 1px solid #7d695d; color: #59473c; text-decoration: none; transition: all var(--gg-ease); }
+.gg-hp-quick-chip:hover { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-quick-chip--accent { border-color: #178079; color: #178079; }
 .gg-hp-quick-chip--accent:hover { background: #178079; color: #f5efe6; border-color: #178079; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
-.gg-hp-latest-takes { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
-.gg-hp-section-header--gold { background: #9a7e0a; }
+.gg-hp-latest-takes { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-section-header--gold { border-bottom-color: #9a7e0a; }
 .gg-hp-take-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .gg-hp-take-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
 .gg-hp-take-card:hover { border-color: #9a7e0a; }
@@ -891,19 +918,19 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-take-teaser { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #7d695d; line-height: 1.7; margin: 0 0 16px; flex: 1; }
 .gg-hp-take-read { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #178079; }
 .gg-hp-take-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
-.gg-hp-take-cta .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
-.gg-hp-take-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
+.gg-hp-take-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
+.gg-hp-take-cta .gg-hp-btn--primary:hover { background: #b8960d; border-color: #b8960d; }
 
 /* ── How it works ────────────────────────────────────────── */
-.gg-hp-how-it-works { background: #1a1613; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 3px solid #3a2e25; }
-.gg-hp-step { padding: 36px 24px; border-right: 2px solid #3a2e25; }
+.gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
+.gg-hp-step { padding: 36px 24px; border-right: 1px solid #d4c5b9; }
 .gg-hp-step:last-child { border-right: none; }
 .gg-hp-step-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; margin-bottom: 12px; }
-.gg-hp-step-title { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #f5efe6; margin-bottom: 10px; }
+.gg-hp-step-title { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #3a2e25; margin-bottom: 10px; }
 .gg-hp-step-desc { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; line-height: 1.7; }
 
 /* ── Coming Up ───────────────────────────────────────────── */
-.gg-hp-coming-up { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-coming-up { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-cal-list { padding: 0; }
 .gg-hp-cal-item { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: #3a2e25; transition: border-color var(--gg-ease), background-color var(--gg-ease); }
 .gg-hp-cal-item:last-child { border-bottom: none; }
@@ -923,7 +950,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cal-offseason a { color: #178079; font-weight: 700; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
-.gg-hp-guide { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-guide { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-guide-intro { padding: 20px; font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #3a2e25; line-height: 1.75; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-guide-intro p { margin: 0; }
 .gg-hp-guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
@@ -940,7 +967,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-guide-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 
 /* ── As Featured In ─────────────────────────────────────── */
-.gg-hp-featured-in { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; background: #f5efe6; }
+.gg-hp-featured-in { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; background: #f5efe6; }
 .gg-hp-feat-inner { display: flex; align-items: center; gap: 32px; padding: 32px 24px; }
 .gg-hp-feat-text { flex: 0 0 auto; max-width: 260px; }
 .gg-hp-feat-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 8px; }
@@ -951,10 +978,10 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
 /* ── Training CTA ────────────────────────────────────────── */
-.gg-hp-training { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-training { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-training-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; }
 .gg-hp-training-card { padding: 36px 24px; }
-.gg-hp-training-card--primary { border-right: 3px solid #3a2e25; border-top: 3px solid #9a7e0a; }
+.gg-hp-training-card--primary { border-right: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
 .gg-hp-training-card h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 .gg-hp-training-subtitle { font-family: 'Sometype Mono', monospace; font-size: 12px; color: #7d695d; margin-bottom: 16px; }
 .gg-hp-training-bullets { padding-left: 20px; margin-bottom: 24px; }
@@ -964,8 +991,8 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-training-card--secondary p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; margin-bottom: 16px; }
 
 /* ── Training stats ──────────────────────────────────────── */
-.gg-hp-training-stats { display: grid; grid-template-columns: repeat(2, 1fr); background: #1a1613; border-bottom: 3px solid #3a2e25; }
-.gg-hp-training-stat { text-align: center; padding: 24px 16px; border-right: 2px solid #3a2e25; }
+.gg-hp-training-stats { display: grid; grid-template-columns: repeat(2, 1fr); background: #f5efe6; border-bottom: 1px solid #d4c5b9; }
+.gg-hp-training-stat { text-align: center; padding: 24px 16px; border-right: 1px solid #d4c5b9; }
 .gg-hp-training-stat:last-child { border-right: none; }
 .gg-hp-training-stat-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; line-height: 1.1; margin-bottom: 6px; }
 .gg-hp-training-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7d695d; }
@@ -977,7 +1004,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-coaching-feat strong { color: #3a2e25; }
 
 /* ── Testimonials ────────────────────────────────────────── */
-.gg-hp-testimonials { max-width: 960px; margin: 32px auto 0; border: 3px solid #3a2e25; }
+.gg-hp-testimonials { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 .gg-hp-test-card { padding: 24px; border: 1px solid #d4c5b9; background: #f5efe6; }
 .gg-hp-test-quote { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a2e25; font-style: italic; margin: 0 0 16px; border-left: 3px solid #9a7e0a; padding-left: 16px; }
@@ -986,20 +1013,20 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-test-title { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #9a7e0a; letter-spacing: 0.5px; margin-left: 8px; }
 .gg-hp-test-tags { font-family: 'Sometype Mono', monospace; font-size: 9px; color: #7d695d; letter-spacing: 1.5px; text-transform: uppercase; }
 .gg-hp-test-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
-.gg-hp-test-cta .gg-hp-btn--primary { background: #59473c; color: #fff; border-color: #3a2e25; }
+.gg-hp-test-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-test-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
 
 /* ── Email capture ───────────────────────────────────────── */
-.gg-hp-email { background: #59473c; margin-top: 32px; padding: 48px; border: 3px solid #3a2e25; }
+.gg-hp-email { background: #f5efe6; margin-top: 32px; padding: 48px; border: 1px solid #d4c5b9; border-top: 2px solid #178079; }
 .gg-hp-email-inner { max-width: 560px; margin: 0 auto; text-align: center; }
 .gg-hp-email-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 12px; }
-.gg-hp-email-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.gg-hp-email-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #d4c5b9; margin-bottom: 0; line-height: 1.75; }
+.gg-hp-email-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; color: #3a2e25; margin-bottom: 12px; }
+.gg-hp-email-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; margin-bottom: 0; line-height: 1.75; }
 
 /* ── Article carousel ───────────────────────────────────── */
 .gg-hp-article-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px 48px; -webkit-overflow-scrolling: touch; }
 .gg-hp-article-carousel::-webkit-scrollbar { height: 4px; }
-.gg-hp-article-carousel::-webkit-scrollbar-track { background: #3a2e25; }
+.gg-hp-article-carousel::-webkit-scrollbar-track { background: #d4c5b9; }
 .gg-hp-article-carousel::-webkit-scrollbar-thumb { background: #9a7e0a; }
 .gg-hp-article-card { flex: 0 0 280px; scroll-snap-align: start; padding: 20px; background: #f5efe6; border: 2px solid transparent; text-decoration: none; color: #3a2e25; transition: border-color var(--gg-ease); }
 .gg-hp-article-card:hover { border-color: #9a7e0a; }
@@ -1010,7 +1037,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-email-form { background: #f5efe6; padding: 20px 32px; max-width: 480px; margin: 24px auto 0; min-height: 150px; }
 
 /* ── Footer ──────────────────────────────────────────────── */
-.gg-hp-footer { background: #59473c; margin-top: 32px; border-top: 4px double #3a2e25; }
+.gg-hp-footer { background: #3a2e25; margin-top: 32px; border-top: 2px solid #9a7e0a; }
 .gg-hp-footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 32px; padding: 48px 32px; max-width: 960px; margin: 0 auto; }
 .gg-hp-footer-title { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; margin-bottom: 12px; }
 .gg-hp-footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #d4c5b9; margin: 0; }
@@ -1021,7 +1048,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-footer-newsletter p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #d4c5b9; line-height: 1.75; margin: 0 0 16px; }
 .gg-hp-footer-subscribe { display: inline-block; padding: 10px 24px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; background: #178079; color: #fff; text-decoration: none; border: 3px solid #178079; transition: background-color var(--gg-ease), border-color var(--gg-ease); }
 .gg-hp-footer-subscribe:hover { background: transparent; border-color: #178079; }
-.gg-hp-footer-legal { padding: 16px 32px; border-top: 2px solid #3a2e25; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 1px; max-width: 960px; margin: 0 auto; }
+.gg-hp-footer-legal { padding: 16px 32px; border-top: 1px solid #59473c; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 1px; max-width: 960px; margin: 0 auto; }
 
 /* ── Skip link ───────────────────────────────────────────── */
 .gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #9a7e0a; color: #3a2e25; z-index: 100; }
@@ -1056,7 +1083,7 @@ a { text-decoration: none; color: #178079; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }
-  .gg-hp-ticker-mobile { display: block; background: #1a1613; border-bottom: 3px solid #9a7e0a; padding: 10px 16px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gg-hp-ticker-mobile { display: block; background: #ede4d8; border-bottom: 1px solid #d4c5b9; padding: 10px 16px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   /* Hero */
   .gg-hp-hero { padding: 36px 16px; }
@@ -1076,7 +1103,7 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-stats-bar { grid-template-columns: repeat(2, 1fr); }
   .gg-hp-stat { padding: 20px 10px; }
   .gg-hp-stat:nth-child(2) { border-right: none; }
-  .gg-hp-stat:nth-child(1), .gg-hp-stat:nth-child(2) { border-bottom: 2px solid #3a2e25; }
+  .gg-hp-stat:nth-child(1), .gg-hp-stat:nth-child(2) { border-bottom: 1px solid #d4c5b9; }
   .gg-hp-stat-number { font-size: 28px; }
   .gg-hp-stat-label { font-size: 9px; letter-spacing: 2px; }
 
@@ -1092,7 +1119,7 @@ a { text-decoration: none; color: #178079; }
 
   /* How it works */
   .gg-hp-how-it-works { grid-template-columns: 1fr; }
-  .gg-hp-step { padding: 24px 16px; border-right: none; border-bottom: 2px solid #3a2e25; }
+  .gg-hp-step { padding: 24px 16px; border-right: none; border-bottom: 1px solid #d4c5b9; }
   .gg-hp-step:last-child { border-bottom: none; }
   .gg-hp-step-num { font-size: 28px; }
 
@@ -1117,7 +1144,7 @@ a { text-decoration: none; color: #178079; }
   /* Training */
   .gg-hp-training-grid { grid-template-columns: 1fr; }
   .gg-hp-training-card { padding: 24px 16px; }
-  .gg-hp-training-card--primary { border-right: none; border-bottom: 3px solid #3a2e25; }
+  .gg-hp-training-card--primary { border-right: none; border-bottom: 1px solid #d4c5b9; }
 
   /* Testimonials */
   .gg-hp-test-grid { grid-template-columns: 1fr; }

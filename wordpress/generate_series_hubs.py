@@ -21,7 +21,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, get_font_face_css, get_tokens_css
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SERIES_DIR = PROJECT_ROOT / "series-data"
@@ -62,9 +62,9 @@ MATRIX_CRITERIA = [
 CURRENT_YEAR = date.today().year
 
 # Display/truncation limits (named to prevent magic numbers)
-MAX_EVENT_NAMES_IN_FAQ = 8
+MAX_EVENT_NAMES_IN_FAQ = 12
 MAX_COST_ITEMS_IN_FAQ = 5
-MAX_TERRAIN_TYPES_IN_FAQ = 6
+MAX_TERRAIN_TYPES_IN_FAQ = 10
 TIMELINE_DESC_MAX_LEN = 65
 MATRIX_NAME_MAX_LEN = 16
 BAR_CHART_NAME_MAX_LEN = 22
@@ -147,7 +147,11 @@ def _dot_meter_svg(value, max_val=5):
         cx = 5 + i * 10
         fill = COLORS["teal"] if i < val else COLORS["sand"]
         circles.append(f'<circle cx="{cx}" cy="6" r="4" fill="{fill}"/>')
-    return f'<svg viewBox="0 0 50 12" width="50" height="12" xmlns="http://www.w3.org/2000/svg">{"".join(circles)}</svg>'
+    return (
+        f'<svg viewBox="0 0 50 12" width="50" height="12" '
+        f'xmlns="http://www.w3.org/2000/svg" role="img" '
+        f'aria-label="{val} out of {max_val}">{"".join(circles)}</svg>'
+    )
 
 
 def _us_outline_path(bounds):
@@ -229,9 +233,10 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
     month = event.get("month", "TBD")
     has_profile = event.get("has_profile", False)
 
-    # Pull tier from index if available
+    # Pull tier + scores from index if available
     tier_badge = ""
     score_html = ""
+    racer_html = ""
     if slug and slug in race_lookup:
         race = race_lookup[slug]
         tier = race.get("tier", 0)
@@ -239,7 +244,14 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
         if tier:
             tier_badge = f'<span class="gg-series-event-tier gg-tier-{tier}">T{tier}</span>'
         if score:
-            score_html = f'<span class="gg-series-event-score">{score}</span>'
+            score_html = f'<span class="gg-series-event-score">{score}<small class="gg-series-score-label">GG</small></span>'
+        # Racer rating
+        rr_pct = race.get("racer_pct")
+        rr_total = race.get("racer_total", 0)
+        if rr_pct is not None and rr_total >= RACER_RATING_THRESHOLD:
+            racer_html = f'<span class="gg-series-event-racer">{rr_pct}%<small class="gg-series-score-label">RACER</small></span>'
+        else:
+            racer_html = '<span class="gg-series-event-racer gg-series-event-racer--empty">&mdash;<small class="gg-series-score-label">RATE</small></span>'
 
     if has_profile and slug:
         name_html = f'<a href="/race/{esc(slug)}/" class="gg-series-event-name">{esc(name)}</a>'
@@ -252,7 +264,7 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
       <div class="gg-series-event-month">{esc(month)}</div>
       {name_html}{link_icon}
       <div class="gg-series-event-location">{esc(location)}</div>
-      <div class="gg-series-event-badges">{tier_badge}{score_html}</div>
+      <div class="gg-series-event-badges">{tier_badge}{score_html}{racer_html}</div>
     </div>'''
 
 
@@ -384,6 +396,17 @@ def build_series_radar_svg(series: dict, race_data: dict) -> str:
   </div>'''
 
 
+def _bar_smart_label(event_name: str, series_name: str) -> str:
+    """Strip shared series prefix from event name for bar chart labels."""
+    prefix_candidates = [series_name, series_name.upper(), series_name.split()[0]]
+    for prefix in prefix_candidates:
+        if event_name.upper().startswith(prefix.upper()) and len(event_name) > len(prefix) + 1:
+            suffix = event_name[len(prefix):].strip(" -–—:")
+            if suffix:
+                return suffix
+    return event_name
+
+
 def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
     """Build horizontal dual-bar chart comparing distance and elevation."""
     events = series.get("events", [])
@@ -427,11 +450,13 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         f"font-family=\"'Sometype Mono', monospace\" letter-spacing=\"1\">ELEVATION (FT)</text>"
     )
 
+    series_name = series.get("display_name") or series.get("name", "")
     for i, (event, dist, elev) in enumerate(profiled):
         y_base = 36 + i * row_height
         name = event.get("name", "")
-        # Truncate long names
-        display_name = name if len(name) <= BAR_CHART_NAME_MAX_LEN else name[:BAR_CHART_NAME_MAX_LEN - 2] + "..."
+        # Strip series prefix for readability, then truncate if still too long
+        short_name = _bar_smart_label(name, series_name)
+        display_name = short_name if len(short_name) <= BAR_CHART_NAME_MAX_LEN else short_name[:BAR_CHART_NAME_MAX_LEN - 2] + "..."
 
         # Event name label
         rows.append(
@@ -585,7 +610,8 @@ def build_geographic_map_svg(series: dict, race_data: dict, race_lookup: dict) -
         # Final fallback: truncated name
         return event_name if len(event_name) <= MAP_LABEL_NAME_MAX_LEN else event_name[:MAP_LABEL_NAME_MAX_LEN - 2] + "..."
 
-    # Event dots and labels with collision avoidance
+    # Event dots and labels with collision avoidance for BOTH dots and labels
+    placed_dots = []   # list of (x, y) for placed dots
     placed_labels = []  # list of (x, y) for placed labels
 
     dots = []
@@ -595,20 +621,28 @@ def build_geographic_map_svg(series: dict, race_data: dict, race_lookup: dict) -
         location = e.get("location", "")
         label = _smart_label(name, location)
 
+        # Offset dot if another event occupies the same spot
+        dot_x, dot_y = x, y
+        for px, py in placed_dots:
+            if abs(dot_x - px) < 8 and abs(dot_y - py) < 8:
+                dot_x = px + 12
+                dot_y = py - 8
+        placed_dots.append((dot_x, dot_y))
+
         dots.append(
-            f'  <circle cx="{x}" cy="{y}" r="6" fill="{COLORS["teal"]}" '
+            f'  <circle cx="{dot_x}" cy="{dot_y}" r="6" fill="{COLORS["teal"]}" '
             f'stroke="{COLORS["warm_paper"]}" stroke-width="2">'
             f'<title>{_svg_text_esc(name)}</title></circle>'
         )
         # Position label to avoid overlap with dot and other labels
-        label_x = x + 10
+        label_x = dot_x + 10
         anchor = "start"
-        if x > vw - 150:
-            label_x = x - 10
+        if dot_x > vw - 150:
+            label_x = dot_x - 10
             anchor = "end"
 
         # Offset y if another label is too close
-        label_y = y + 4
+        label_y = dot_y + 4
         for px, py in placed_labels:
             if abs(label_x - px) < 100 and abs(label_y - py) < 14:
                 label_y = py + 14  # push down
@@ -879,24 +913,35 @@ def build_decision_matrix(series: dict, race_data: dict) -> str:
 
     # "BEST FOR" editorial picks — with tie handling
     def _pick_best(scores, highest=True):
-        """Return name(s) for best/worst score, handling ties."""
+        """Return name(s) for best/worst score, or None if too many tie (>50%)."""
         if not scores:
-            return ""
+            return None
         target = max(scores, key=lambda x: x[1])[1] if highest else min(scores, key=lambda x: x[1])[1]
         winners = [name for name, score in scores if score == target]
+        # If more than half the events tie, the pick is meaningless
+        if len(winners) > len(scores) / 2:
+            return None
         return " &amp; ".join(esc(w) for w in winners)
 
     picks = []
     diff_scores = scores_by_criterion.get("Difficulty", [])
     if diff_scores:
-        picks.append(f"<strong>Hardest challenge:</strong> {_pick_best(diff_scores, highest=True)}")
-        picks.append(f"<strong>First-timers:</strong> {_pick_best(diff_scores, highest=False)}")
+        hardest = _pick_best(diff_scores, highest=True)
+        if hardest:
+            picks.append(f"<strong>Hardest challenge:</strong> {hardest}")
+        easiest = _pick_best(diff_scores, highest=False)
+        if easiest:
+            picks.append(f"<strong>First-timers:</strong> {easiest}")
     budget_scores = scores_by_criterion.get("Budget-Friendliness", [])
     if budget_scores:
-        picks.append(f"<strong>Best value:</strong> {_pick_best(budget_scores, highest=True)}")
+        best_val = _pick_best(budget_scores, highest=True)
+        if best_val:
+            picks.append(f"<strong>Best value:</strong> {best_val}")
     tech_scores = scores_by_criterion.get("Technicality", [])
     if tech_scores:
-        picks.append(f"<strong>Most technical:</strong> {_pick_best(tech_scores, highest=True)}")
+        most_tech = _pick_best(tech_scores, highest=True)
+        if most_tech:
+            picks.append(f"<strong>Most technical:</strong> {most_tech}")
 
     picks_html = ""
     if picks:
@@ -999,23 +1044,47 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
             cost_text
         ))
 
-    # Q5: Terrain types
-    terrain_parts = set()
+    # Q5: Terrain types — extract clean keywords only, never raw paragraph strings
+    _terrain_kw_list = [
+        "gravel", "dirt", "pavement", "paved", "singletrack", "single-track",
+        "sand", "rock", "mud", "fire road", "doubletrack", "double-track",
+        "mixed", "water crossing", "mountain", "high desert",
+    ]
+    _terrain_normalize = {
+        "single-track": "singletrack",
+        "double-track": "doubletrack",
+        "paved": "pavement",
+    }
+    terrain_keywords = set()
+    tech_ratings = []
     for e in events:
         e_slug = e.get("slug")
         if e_slug and e_slug in race_data:
             rd = race_data[e_slug]
-            terrain_types = rd.get("vitals", {}).get("terrain_types", [])
-            for t in terrain_types:
-                terrain_parts.add(str(t))
+            # Scan both terrain_types list AND surface string for keywords
+            text_sources = rd.get("vitals", {}).get("terrain_types", [])
             surface = rd.get("terrain", {}).get("surface", "")
             if surface:
-                terrain_parts.add(surface)
-    if terrain_parts:
-        terrain_list = ", ".join(sorted(terrain_parts)[:MAX_TERRAIN_TYPES_IN_FAQ])
+                text_sources.append(surface)
+            for raw in text_sources:
+                raw_lower = str(raw).lower()
+                for kw in _terrain_kw_list:
+                    if kw in raw_lower:
+                        clean = _terrain_normalize.get(kw, kw)
+                        terrain_keywords.add(clean)
+            tech = rd.get("terrain", {}).get("technical_rating")
+            if tech:
+                tech_ratings.append(tech)
+    if terrain_keywords:
+        sorted_terrain = sorted(terrain_keywords)[:MAX_TERRAIN_TYPES_IN_FAQ]
+        terrain_list = ", ".join(sorted_terrain)
+        answer = f"The {name} features diverse terrain including {terrain_list}."
+        if tech_ratings:
+            avg_tech = sum(tech_ratings) / len(tech_ratings)
+            answer += f" Technical ratings across events range from {min(tech_ratings)}/5 to {max(tech_ratings)}/5 (average {avg_tech:.1f}/5)."
         qa_pairs.append((
             f"What terrain types are in {name} races?",
-            f"The {name} features diverse terrain including: {terrain_list}."
+            answer
         ))
 
     # Q6: LTGP-specific points question
@@ -1161,10 +1230,23 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
     faq_jsonld = build_faq_jsonld(series, race_data, race_lookup)
 
     # "Series At A Glance" wrapper for radar + bars
+    # Count profiled events for subtitle when showing partial data
+    profiled_count = sum(
+        1 for e in events
+        if e.get("slug") and e.get("has_profile") and e.get("slug") in race_data
+        and race_data[e["slug"]].get("gravel_god_rating")
+    )
     at_a_glance = ""
     if radar_svg or bars_svg:
+        subtitle = ""
+        if profiled_count < total_events:
+            subtitle = (
+                f'<div class="gg-series-at-a-glance-subtitle">'
+                f'{profiled_count} of {total_events} events profiled</div>'
+            )
         at_a_glance = f'''<div class="gg-series-at-a-glance">
     <div class="gg-series-at-a-glance-title">SERIES AT A GLANCE</div>
+    {subtitle}
     {radar_svg}
     {bars_svg}
   </div>'''
@@ -1277,7 +1359,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 /* Site header */
 .gg-site-header {{
   padding: 16px 24px;
-  border-bottom: 4px solid var(--gg-color-dark-brown);
+  border-bottom: 2px solid var(--gg-color-gold);
 }}
 .gg-site-header-inner {{
   display: flex;
@@ -1325,11 +1407,11 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 
 /* Hero */
 .gg-series-hero {{
-  background: var(--gg-color-dark-brown);
-  color: var(--gg-color-warm-paper);
+  background: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
   padding: 48px 32px;
   margin: 0 -24px;
-  border-bottom: 4px double var(--gg-color-dark-brown);
+  border-bottom: 2px solid var(--gg-color-gold);
 }}
 .gg-series-hero-badge {{
   display: inline-block;
@@ -1347,7 +1429,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   display: inline-block;
   margin-left: 12px;
   font-size: 11px;
-  color: var(--gg-color-tan);
+  color: var(--gg-color-secondary-brown);
   letter-spacing: 1px;
 }}
 .gg-series-hero h1 {{
@@ -1359,7 +1441,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 }}
 .gg-series-hero-stats {{
   font-size: 13px;
-  color: var(--gg-color-tan);
+  color: var(--gg-color-secondary-brown);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -1368,7 +1450,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   font-family: var(--gg-font-editorial);
   font-size: 16px;
   line-height: 1.5;
-  color: var(--gg-color-sand);
+  color: var(--gg-color-secondary-brown);
   max-width: 720px;
   margin-bottom: 16px;
 }}
@@ -1380,13 +1462,14 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--gg-color-warm-paper);
-  border: 2px solid var(--gg-color-warm-paper);
+  color: var(--gg-color-primary-brown);
+  border: 1px solid var(--gg-color-primary-brown);
   transition: background 0.15s, color 0.15s;
 }}
 .gg-btn--series-site:hover {{
-  background: var(--gg-color-warm-paper);
-  color: var(--gg-color-dark-brown);
+  background: var(--gg-color-gold);
+  color: var(--gg-color-warm-paper);
+  border-color: var(--gg-color-gold);
 }}
 
 /* Collapsible sections */
@@ -1447,8 +1530,16 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   text-transform: uppercase;
   color: var(--gg-color-secondary-brown);
   padding: 16px 0;
-  border-bottom: 2px solid var(--gg-color-dark-brown);
-  margin-bottom: 16px;
+  border-bottom: 1px solid var(--gg-color-gold);
+  margin-bottom: 4px;
+}}
+.gg-series-at-a-glance-subtitle {{
+  font-family: var(--gg-font-data);
+  font-size: 10px;
+  color: var(--gg-color-warm-brown);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  font-style: italic;
 }}
 
 /* Radar chart */
@@ -1549,7 +1640,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 8px 6px;
-  border-bottom: 2px solid var(--gg-color-dark-brown);
+  border-bottom: 1px solid var(--gg-color-gold);
   text-align: left;
   color: var(--gg-color-dark-brown);
   white-space: nowrap;
@@ -1602,7 +1693,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   text-transform: uppercase;
   color: var(--gg-color-secondary-brown);
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--gg-color-dark-brown);
+  border-bottom: 1px solid var(--gg-color-gold);
 }}
 .gg-series-faq details {{
   border-bottom: 1px solid var(--gg-color-sand);
@@ -1675,7 +1766,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 /* Timeline tooltip */
 .gg-series-timeline-tip {{
   position: absolute;
-  background: var(--gg-color-dark-brown);
+  background: var(--gg-color-primary-brown);
   color: var(--gg-color-warm-paper);
   font-family: var(--gg-font-data);
   font-size: 11px;
@@ -1709,7 +1800,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   text-transform: uppercase;
   color: var(--gg-color-secondary-brown);
   padding: 24px 0 16px;
-  border-bottom: 2px solid var(--gg-color-dark-brown);
+  border-bottom: 1px solid var(--gg-color-gold);
 }}
 .gg-series-calendar {{
   display: grid;
@@ -1769,18 +1860,46 @@ a.gg-series-event-name:hover {{
   border: 1px solid var(--gg-color-secondary-brown);
   color: var(--gg-color-secondary-brown);
 }}
+.gg-tier-1 {{
+  color: var(--gg-color-gold);
+  border-color: var(--gg-color-gold);
+}}
+.gg-tier-2 {{
+  color: var(--gg-color-teal);
+  border-color: var(--gg-color-teal);
+}}
+.gg-tier-3 {{
+  color: var(--gg-color-secondary-brown);
+  border-color: var(--gg-color-secondary-brown);
+}}
 .gg-series-event-score {{
   font-family: var(--gg-font-editorial);
   font-size: 14px;
   font-weight: 700;
   color: var(--gg-color-dark-brown);
 }}
+.gg-series-score-label {{
+  font-family: var(--gg-font-data);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gg-color-warm-brown);
+  margin-left: 3px;
+}}
+.gg-series-event-racer {{
+  font-family: var(--gg-font-editorial);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gg-color-teal);
+  margin-left: 8px;
+}}
+.gg-series-event-racer--empty {{ opacity: 0.4; color: var(--gg-color-warm-brown); }}
 
 /* Footer */
 .gg-series-footer {{
   padding: 24px 0;
   margin-top: 32px;
-  border-top: 4px double var(--gg-color-dark-brown);
+  border-top: 2px solid var(--gg-color-gold);
   text-align: center;
   font-size: 11px;
   color: var(--gg-color-secondary-brown);
@@ -1804,6 +1923,28 @@ a.gg-series-event-name:hover {{
   .gg-series-calendar {{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }}
   .gg-series-matrix table {{ font-size: 10px; }}
   .gg-series-matrix th, .gg-series-matrix td {{ padding: 6px 4px; }}
+  /* Sticky first column for matrix on mobile */
+  .gg-series-matrix td:first-child,
+  .gg-series-matrix th:first-child {{
+    position: sticky;
+    left: 0;
+    background: var(--gg-color-warm-paper);
+    z-index: 1;
+  }}
+  /* Scroll hint — fade on right edge */
+  .gg-series-matrix {{
+    position: relative;
+  }}
+  .gg-series-matrix::after {{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--gg-color-warm-paper));
+    pointer-events: none;
+  }}
 }}
 @media (max-width: 480px) {{
   .gg-series-page {{ padding: 0 12px; }}

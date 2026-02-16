@@ -551,8 +551,15 @@ def sync_pages(pages_dir: str):
         return None
 
     html_files = sorted(pages_path.glob("*.html"))
-    if not html_files:
-        print(f"✗ No .html files found in {pages_path}")
+    # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race"}
+    subdirs_with_pages = [
+        d for d in sorted(pages_path.iterdir())
+        if d.is_dir() and d.name not in SKIP_DIRS
+        and ((d / "index.html").exists() or any(d.rglob("index.html")))
+    ]
+    if not html_files and not subdirs_with_pages:
+        print(f"✗ No .html files or page subdirectories found in {pages_path}")
         return None
 
     remote_base = "~/www/gravelgodcycling.com/public_html/race"
@@ -585,12 +592,17 @@ def sync_pages(pages_dir: str):
             shutil.copy2(html_file, slug_dir / "index.html")
             page_count += 1
 
-        # Also include pre-built subdirectories (e.g., tier-1/, tier-2/)
+        # Also include pre-built subdirectories (e.g., tier-1/, vs pages, state hubs, calendar)
+        SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race"}
         for subdir in sorted(pages_path.iterdir()):
-            if subdir.is_dir() and (subdir / "index.html").exists() and subdir.name != "assets":
-                dst = tmpdir / subdir.name
-                shutil.copytree(subdir, dst, dirs_exist_ok=True)
-                page_count += 1
+            if subdir.is_dir() and subdir.name not in SKIP_DIRS:
+                # Check for index.html directly or in nested subdirs (e.g., calendar/2026/)
+                has_index = (subdir / "index.html").exists()
+                has_nested = any(subdir.rglob("index.html")) if not has_index else False
+                if has_index or has_nested:
+                    dst = tmpdir / subdir.name
+                    shutil.copytree(subdir, dst, dirs_exist_ok=True)
+                    page_count += 1
 
         # Also include assets/ if present
         assets_src = pages_path / "assets"

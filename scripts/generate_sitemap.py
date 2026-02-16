@@ -39,6 +39,45 @@ def load_series_slugs(project_root: Path) -> list:
     return slugs
 
 
+def load_vs_slugs(project_root: Path) -> list:
+    """Load vs page slugs from wordpress/output/ directory."""
+    output_dir = project_root / "wordpress" / "output"
+    slugs = []
+    if not output_dir.exists():
+        return slugs
+    for path in sorted(output_dir.iterdir()):
+        if path.is_dir() and "-vs-" in path.name:
+            slugs.append(path.name)
+    return slugs
+
+
+def load_state_slugs(project_root: Path) -> list:
+    """Load state hub page slugs from wordpress/output/ directory."""
+    output_dir = project_root / "wordpress" / "output"
+    slugs = []
+    if not output_dir.exists():
+        return slugs
+    for path in sorted(output_dir.iterdir()):
+        if path.is_dir() and path.name.startswith("best-gravel-races-"):
+            slugs.append(path.name)
+    return slugs
+
+
+def load_special_pages(project_root: Path) -> list:
+    """Load calendar/power-rankings/quiz page slugs."""
+    output_dir = project_root / "wordpress" / "output"
+    slugs = []
+    for pattern in ["calendar", "power-rankings-*", "quiz"]:
+        import glob as glob_mod
+        for path in sorted(output_dir.glob(pattern)):
+            if path.is_dir():
+                # May be nested (calendar/2026)
+                for sub in sorted(path.rglob("index.html")):
+                    rel = sub.parent.relative_to(output_dir)
+                    slugs.append(str(rel))
+    return slugs
+
+
 def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
                      series_slugs: list = None) -> Path:
     today = date.today().isoformat()
@@ -81,6 +120,33 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/{slug}/"
         SubElement(url, 'lastmod').text = today
         SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.8'
+
+    # VS comparison pages
+    vs_slugs = load_vs_slugs(output_path.parent.parent)
+    for slug in vs_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.6'
+
+    # State/region hub pages
+    state_slugs = load_state_slugs(output_path.parent.parent)
+    for slug in state_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.7'
+
+    # Special pages (calendar, power rankings)
+    special_slugs = load_special_pages(output_path.parent.parent)
+    for slug in special_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'weekly'
         SubElement(url, 'priority').text = '0.8'
 
     # Race pages
@@ -183,11 +249,19 @@ def main():
 
     series_slugs = load_series_slugs(project_root)
     generate_sitemap(race_index, output_path, data_dir, series_slugs=series_slugs)
-    # Count: homepage + gravel-races + methodology + 4 tier hubs + series + all races
-    total_urls = 7 + len(series_slugs) + len(race_index)
+    vs_slugs = load_vs_slugs(project_root)
+    state_slugs = load_state_slugs(project_root)
+    special_slugs = load_special_pages(project_root)
+    total_urls = 7 + len(series_slugs) + len(vs_slugs) + len(state_slugs) + len(special_slugs) + len(race_index)
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if series_slugs:
         print(f"  Including {len(series_slugs)} series hub pages")
+    if vs_slugs:
+        print(f"  Including {len(vs_slugs)} vs comparison pages")
+    if state_slugs:
+        print(f"  Including {len(state_slugs)} state hub pages")
+    if special_slugs:
+        print(f"  Including {len(special_slugs)} special pages (calendar, rankings)")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
 

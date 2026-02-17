@@ -241,8 +241,8 @@ async def get_training_context(request: Request, slug: str):
     include_in_schema=False,
 )
 async def ai_plugin_manifest(request: Request):
-    # Build base URL from request
-    base = str(request.base_url).rstrip("/")
+    # Build base URL from request (force https — Railway proxies as http internally)
+    base = str(request.base_url).rstrip("/").replace("http://", "https://", 1)
     return JSONResponse({
         "schema_version": "v1",
         "name_for_human": "Gravel God Race Database",

@@ -2,6 +2,8 @@
 
 import logging
 import re
+import time
+from collections import defaultdict
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
@@ -18,6 +20,24 @@ router = APIRouter(prefix="/webhooks")
 _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
+
+# In-memory rate limiter: {ip: [timestamp, ...]}
+_rate_buckets: dict[str, list[float]] = defaultdict(list)
+_RATE_LIMIT = 30       # max requests per window
+_RATE_WINDOW = 60      # window in seconds
+
+
+def _check_rate_limit(request: Request) -> None:
+    """Raise 429 if IP exceeds rate limit. Simple sliding window."""
+    ip = request.client.host if request.client else "unknown"
+    now = time.monotonic()
+    bucket = _rate_buckets[ip]
+    # Prune old entries
+    cutoff = now - _RATE_WINDOW
+    _rate_buckets[ip] = bucket = [t for t in bucket if t > cutoff]
+    if len(bucket) >= _RATE_LIMIT:
+        raise HTTPException(status_code=429, detail="Rate limit exceeded")
+    bucket.append(now)
 
 
 def _validate_email(email: str) -> str:
@@ -38,6 +58,7 @@ async def intake_webhook(
     request: Request,
     authorization: str = Header(""),
 ):
+    _check_rate_limit(request)
     # Verify webhook secret
     if WEBHOOK_SECRET:
         expected = f"Bearer {WEBHOOK_SECRET}"
@@ -62,10 +83,8 @@ async def intake_webhook(
     email = payload.get("email", "").strip().lower()
 
     # Generate slug
-    slug_base = name.lower().replace(" ", "-")
-    import re
     from datetime import date
-    slug_base = re.sub(r"[^a-z0-9-]", "", slug_base)
+    slug_base = re.sub(r"[^a-z0-9-]", "", name.lower().replace(" ", "-"))
     slug = f"{slug_base}-{date.today().strftime('%Y%m%d')}"
 
     # Check if athlete already exists
@@ -107,6 +126,7 @@ async def subscriber_webhook(
     Payload: { email, name?, source, race_slug?, race_name? }
     Enrolls in appropriate sequences based on source.
     """
+    _check_rate_limit(request)
     if WEBHOOK_SECRET:
         expected = f"Bearer {WEBHOOK_SECRET}"
         if authorization != expected:
@@ -162,6 +182,7 @@ async def resend_webhook(
     authorization: str = Header(""),
 ):
     """Receive Resend email event webhooks (opens, clicks, bounces)."""
+    _check_rate_limit(request)
     if WEBHOOK_SECRET:
         expected = f"Bearer {WEBHOOK_SECRET}"
         if authorization != expected:
@@ -190,6 +211,7 @@ async def resend_inbound_webhook(
     authorization: str = Header(""),
 ):
     """Receive inbound email replies via Resend."""
+    _check_rate_limit(request)
     if WEBHOOK_SECRET:
         expected = f"Bearer {WEBHOOK_SECRET}"
         if authorization != expected:

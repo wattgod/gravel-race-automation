@@ -44,10 +44,13 @@ async def touchpoint_list(
 
     due_count = db.count_due_touchpoints()
 
-    # Category counts
-    cat_counts = {}
-    for cat in CATEGORIES[1:]:
-        cat_counts[cat] = db.count("gg_touchpoints", {"category": cat})
+    # Category counts — single query instead of 6 separate DB calls
+    all_cats = db.select("gg_touchpoints", columns="category")
+    cat_counts = {cat: 0 for cat in CATEGORIES[1:]}
+    for row in all_cats:
+        c = row.get("category", "")
+        if c in cat_counts:
+            cat_counts[c] += 1
     cat_counts["all"] = sum(cat_counts.values())
 
     context = {

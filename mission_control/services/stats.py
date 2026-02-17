@@ -6,19 +6,25 @@ from mission_control import supabase_client as db
 
 
 def dashboard_stats() -> dict:
-    """Return stats for the main dashboard."""
-    total_athletes = db.count("gg_athletes")
-    # Count specific statuses
-    active_statuses = ["intake_received", "pipeline_running", "pipeline_complete", "audit_passed", "approved"]
-    active_count = 0
-    for s in active_statuses:
-        active_count += db.count("gg_athletes", {"plan_status": s})
+    """Return stats for the main dashboard.
 
-    delivered = db.count("gg_athletes", {"plan_status": "delivered"})
+    Optimized: fetches athletes once (plan_status column) and counts in Python
+    instead of 7+ separate count() queries.
+    """
+    # Single query for all athlete statuses
+    all_statuses = db.select("gg_athletes", columns="plan_status")
+    total_athletes = len(all_statuses)
+
+    active_statuses = {"intake_received", "pipeline_running", "pipeline_complete", "audit_passed", "approved"}
+    active_count = sum(1 for a in all_statuses if a.get("plan_status") in active_statuses)
+    delivered = sum(1 for a in all_statuses if a.get("plan_status") == "delivered")
+
     due_touchpoints = db.count_due_touchpoints()
 
-    all_tp = db.count("gg_touchpoints")
-    sent_tp = db.count("gg_touchpoints", {"sent": True})
+    # Single query for touchpoint sent/total
+    all_tp_rows = db.select("gg_touchpoints", columns="sent")
+    all_tp = len(all_tp_rows)
+    sent_tp = sum(1 for t in all_tp_rows if t.get("sent"))
 
     nps_data = db.get_nps_distribution()
 

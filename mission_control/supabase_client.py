@@ -1,5 +1,7 @@
 """Supabase connection and query helpers for all gg_* tables."""
 
+import re
+import threading
 from datetime import date, datetime, timezone
 from typing import Any
 
@@ -8,15 +10,18 @@ from supabase import Client, create_client
 from mission_control.config import SUPABASE_SERVICE_KEY, SUPABASE_URL
 
 _client: Client | None = None
+_client_lock = threading.Lock()
 
 
 def get_client() -> Client:
-    """Return the Supabase client singleton."""
+    """Return the Supabase client singleton (thread-safe)."""
     global _client
     if _client is None:
-        if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
-            raise RuntimeError("SUPABASE_URL and SUPABASE_SERVICE_KEY must be set")
-        _client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
+        with _client_lock:
+            if _client is None:
+                if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+                    raise RuntimeError("SUPABASE_URL and SUPABASE_SERVICE_KEY must be set")
+                _client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
     return _client
 
 
@@ -108,7 +113,8 @@ def get_athletes(status: str | None = None, search: str | None = None,
     if status:
         q = q.eq("plan_status", status)
     if search:
-        q = q.or_(f"name.ilike.%{search}%,email.ilike.%{search}%,race_name.ilike.%{search}%")
+        safe = re.sub(r"[%,.()\[\]]", "", search)[:100]
+        q = q.or_(f"name.ilike.%{safe}%,email.ilike.%{safe}%,race_name.ilike.%{safe}%")
     q = q.order(order, desc=True).range(offset, offset + limit - 1)
     result = q.execute()
     return result.data or []

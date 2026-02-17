@@ -49,48 +49,8 @@ async def deals_index(request: Request):
 
 @router.get("/new")
 async def deal_new(request: Request):
-    """Create deal form (inline HTMX)."""
-    return HTMLResponse(f'''
-    <div class="mc-card">
-        <div class="mc-card__header">
-            <h3 class="mc-card__title">New Deal</h3>
-        </div>
-        <div class="mc-card__body">
-            <form hx-post="/deals" hx-target="#deal-form-area" hx-swap="innerHTML">
-                <div class="mc-form-group">
-                    <label class="mc-label">Email</label>
-                    <input type="email" name="email" class="mc-input" required>
-                </div>
-                <div class="mc-form-group">
-                    <label class="mc-label">Name</label>
-                    <input type="text" name="name" class="mc-input">
-                </div>
-                <div class="mc-form-group">
-                    <label class="mc-label">Race</label>
-                    <input type="text" name="race_name" class="mc-input">
-                </div>
-                <div class="mc-form-group">
-                    <label class="mc-label">Source</label>
-                    <select name="source" class="mc-select">
-                        <option value="quiz">Quiz</option>
-                        <option value="prep_kit">Prep Kit</option>
-                        <option value="exit_intent">Exit Intent</option>
-                        <option value="referral">Referral</option>
-                        <option value="direct">Direct</option>
-                    </select>
-                </div>
-                <div class="mc-form-group">
-                    <label class="mc-label">Value ($)</label>
-                    <input type="number" name="value" class="mc-input" value="249" step="0.01">
-                </div>
-                <div class="mc-flex mc-gap-sm">
-                    <button type="submit" class="gg-btn gg-btn--primary">Create Deal</button>
-                    <a href="/deals" class="gg-btn gg-btn--ghost">Cancel</a>
-                </div>
-            </form>
-        </div>
-    </div>
-    ''')
+    """Create deal form."""
+    return templates.TemplateResponse("deals/new.html", {"request": request})
 
 
 @router.post("/")

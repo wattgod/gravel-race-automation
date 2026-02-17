@@ -61,11 +61,11 @@ def trigger_pipeline(
     if skip_deliver:
         cmd.append("--skip-deliver")
 
-    # Run in background thread
+    # Run in background thread (non-daemon so shutdown waits for completion)
     thread = threading.Thread(
         target=_run_pipeline_subprocess,
         args=(run_id, athlete_id, slug, cmd),
-        daemon=True,
+        name=f"pipeline-{run_id[:8]}",
     )
     thread.start()
 
@@ -88,7 +88,7 @@ def trigger_audit(athlete_id: str, slug: str) -> str:
     thread = threading.Thread(
         target=_run_pipeline_subprocess,
         args=(run_id, athlete_id, slug, cmd),
-        daemon=True,
+        name=f"audit-{run_id[:8]}",
     )
     thread.start()
 

@@ -1,6 +1,7 @@
 """Athletes routes — list, detail, search, filter, approve, deliver."""
 
 import json
+import re
 from datetime import date
 
 from fastapi import APIRouter, Form, Query, Request
@@ -12,6 +13,11 @@ from mission_control import supabase_client as db
 
 router = APIRouter(prefix="/athletes")
 templates = Jinja2Templates(directory=str(WEB_TEMPLATES_DIR))
+
+
+def _sanitize_search(q: str) -> str:
+    """Strip PostgREST filter metacharacters from search input."""
+    return re.sub(r"[%,.()\[\]]", "", q)[:100]
 
 
 @router.get("/")
@@ -28,6 +34,7 @@ async def athlete_list(
     # Build query
     query = db._table("gg_athletes").select("*", count="exact")
     if q:
+        q = _sanitize_search(q)
         query = query.or_(f"name.ilike.%{q}%,email.ilike.%{q}%,race_name.ilike.%{q}%")
     if status:
         query = query.eq("plan_status", status)

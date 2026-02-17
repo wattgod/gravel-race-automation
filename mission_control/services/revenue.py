@@ -49,6 +49,19 @@ def monthly_revenue(year: int, month: int) -> float:
     return sum(float(p["amount"]) for p in (result.data or []))
 
 
+def _monthly_revenue_from_rows(rows: list[dict], year: int, month: int) -> float:
+    """Sum payments for a month from pre-fetched rows."""
+    start = f"{year}-{month:02d}-01"
+    if month == 12:
+        end = f"{year + 1}-01-01"
+    else:
+        end = f"{year}-{month + 1:02d}-01"
+    return sum(
+        float(p["amount"]) for p in rows
+        if p.get("paid_at", "") >= start and p.get("paid_at", "") < end
+    )
+
+
 def revenue_vs_target(target: float = 10395.0) -> dict:
     """Current month actual revenue vs target."""
     now = datetime.now(timezone.utc)
@@ -63,17 +76,31 @@ def revenue_vs_target(target: float = 10395.0) -> dict:
 
 
 def monthly_trend(months: int = 6) -> list[dict]:
-    """Revenue for the last N months."""
+    """Revenue for the last N months. Single DB query instead of N queries."""
     now = datetime.now(timezone.utc)
+
+    # Calculate the start of the earliest month we need
+    earliest_month = now.month - (months - 1)
+    earliest_year = now.year
+    while earliest_month <= 0:
+        earliest_month += 12
+        earliest_year -= 1
+    start = f"{earliest_year}-{earliest_month:02d}-01T00:00:00Z"
+
+    # Single query: fetch all payments from earliest month to now
+    q = db._table("gg_payments").select("amount, paid_at")
+    q = q.gte("paid_at", start)
+    result = q.execute()
+    all_payments = result.data or []
+
     trend = []
     for i in range(months - 1, -1, -1):
-        # Calculate month offset
         month = now.month - i
         year = now.year
         while month <= 0:
             month += 12
             year -= 1
-        rev = monthly_revenue(year, month)
+        rev = _monthly_revenue_from_rows(all_payments, year, month)
         trend.append({
             "month": f"{year}-{month:02d}",
             "label": datetime(year, month, 1).strftime("%b"),

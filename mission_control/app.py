@@ -47,6 +47,10 @@ def create_app() -> FastAPI:
     # Static files
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
+    @app.get("/health")
+    async def health():
+        return {"status": "ok"}
+
     # Routers — v1
     app.include_router(dashboard.router)
     app.include_router(athletes.router)

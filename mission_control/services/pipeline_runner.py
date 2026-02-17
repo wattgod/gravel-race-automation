@@ -9,7 +9,7 @@ import json
 import subprocess
 import threading
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from mission_control.config import ATHLETES_DIR, PIPELINE_SCRIPT, PRE_DELIVERY_AUDIT
@@ -118,7 +118,7 @@ def _run_pipeline_subprocess(run_id: str, athlete_id: str, slug: str, cmd: list[
                 "current_step": "done",
                 "stdout": stdout,
                 "duration_secs": round(duration, 1),
-                "finished_at": datetime.utcnow().isoformat(),
+                "finished_at": datetime.now(timezone.utc).isoformat(),
             })
 
             # Update athlete with derived/methodology data
@@ -133,7 +133,7 @@ def _run_pipeline_subprocess(run_id: str, athlete_id: str, slug: str, cmd: list[
                 "error_message": error_msg[-2000:],
                 "stdout": stdout,
                 "duration_secs": round(duration, 1),
-                "finished_at": datetime.utcnow().isoformat(),
+                "finished_at": datetime.now(timezone.utc).isoformat(),
             })
 
     except subprocess.TimeoutExpired:
@@ -143,7 +143,7 @@ def _run_pipeline_subprocess(run_id: str, athlete_id: str, slug: str, cmd: list[
             "current_step": "timeout",
             "error_message": "Pipeline timed out after 10 minutes",
             "duration_secs": round(duration, 1),
-            "finished_at": datetime.utcnow().isoformat(),
+            "finished_at": datetime.now(timezone.utc).isoformat(),
         })
 
     except Exception as e:
@@ -153,7 +153,7 @@ def _run_pipeline_subprocess(run_id: str, athlete_id: str, slug: str, cmd: list[
             "current_step": "error",
             "error_message": str(e)[:2000],
             "duration_secs": round(duration, 1),
-            "finished_at": datetime.utcnow().isoformat(),
+            "finished_at": datetime.now(timezone.utc).isoformat(),
         })
 
 

@@ -1342,3 +1342,234 @@ Before deploying any worker that sends email via SendGrid:
 3. The `from` email domain MUST match one of these
 4. Test by sending to yourself and checking activity feed for "delivered" status
    (not "processing" or "deferred")
+
+---
+
+## Shortcut #53: Renaming Established Taxonomy (HIGH — Feb 15, 2026)
+
+**What happened:** The gravel race tier system is Tier 1 through Tier 4. Period.
+The AI decided Tier 1 badges should say "ELITE" instead of "TIER 1" to make them
+feel more prestigious. This created confusion because:
+- The existing `TIER_NAMES` constant already maps Tier 1 → "Elite" (as a subtitle)
+- The static Race Directory already uses different names ("The Icons", "Contender")
+- Now there were THREE naming systems: badge text, JS TIER_NAMES, directory headings
+- Users don't know what "ELITE" means in context — is it a tier? A rating? A badge?
+
+The tier system is the foundation of the entire rating methodology. Renaming it
+in the UI without changing the underlying data model or documentation creates
+a mismatch between what users see and what the system actually is.
+
+**Why it happened:** The AI was implementing "Rotten Tomatoes-style" improvements
+and decided "Certified Fresh" = "ELITE". Made the rename unilaterally without
+checking whether it conflicted with existing naming conventions or getting user
+approval for a taxonomy change.
+
+**Fix:** Reverted badge text to "TIER 1". The gold star seal SVG can stay as a
+visual differentiator without renaming the tier.
+
+**Prevention:**
+- Rule #39 below
+- **Never rename established taxonomy without explicit user approval.** Tier 1-4
+  is the system. Don't introduce "ELITE", "PREMIUM", "ICONIC", etc. as substitutes.
+- Visual differentiation (colors, borders, seals) is fine. Name changes are not.
+
+---
+
+## Shortcut #54: Static Directory Inconsistent with Dynamic UI (MEDIUM — Feb 15, 2026)
+
+**What happened:** The static Race Directory at the bottom of /gravel-races/ uses
+different tier names than the dynamic JS UI:
+- Directory: "The Icons" / "Elite" / "Solid" / "Local"
+- JS TIER_NAMES: "Elite" / "Contender" / "Solid" / "Roster"
+- Badges everywhere: "TIER 1" / "TIER 2" / "TIER 3" / "TIER 4"
+
+Three naming systems on the same page. Now unified: badges say "TIER N",
+names are "The Icons" / "Elite" / "Solid" / "Grassroots" everywhere,
+centralized in brand_tokens.py. The directory also contained links
+to 11 duplicate races that were removed from the index — stale SEO links pointing
+to redirects (also fixed).
+
+**Why it happened:** The static directory was hand-authored separately from the
+JS-rendered sections. Nobody checked that the two systems used the same vocabulary.
+When duplicates were removed from race-index.json, the static directory links
+weren't audited at the same time (they were eventually cleaned up but the naming
+inconsistency was missed).
+
+**Fix:** Cleaned up duplicate links and counts. Naming inconsistency flagged for
+future alignment — need to decide on ONE set of tier names and use them everywhere.
+
+---
+
+## Shortcut #55: WordPress Header/Footer Inconsistency (HIGH — Feb 15, 2026)
+
+**What happened:** The /gravel-races/ page uses the WordPress theme's default
+header and footer. The homepage (gravelgodcycling.com) uses a custom-generated
+header/footer from `generate_homepage.py`. They look completely different — different
+nav structure, different footer layout, different visual treatment. A user navigating
+from the homepage to /gravel-races/ gets a jarring context switch.
+
+**Why it happened:** The homepage is a static HTML page generated and uploaded
+directly. The /gravel-races/ page is a WordPress page that loads the search widget
+via shortcode, inheriting the WordPress theme's chrome. Nobody ensured the WordPress
+theme matches the generated page design.
+
+**Fix (needed):** Either:
+1. Make /gravel-races/ a fully generated static page (like homepage) with its own
+   header/footer matching the site design, OR
+2. Update the WordPress theme's header/footer to match the generated pages
+
+---
+
+## Rule #39: Never Rename Established Taxonomy
+
+The tier system (Tier 1-4) is the foundation of the rating methodology. The tier
+names, badges, and numbering must be consistent everywhere:
+- Badge text: "TIER 1", "TIER 2", "TIER 3", "TIER 4"
+- Any subtitle/description names must be consistent across all pages
+- Visual differentiation (gold borders, seals, colors) is encouraged
+- Name changes ("ELITE", "PREMIUM", "ICONIC") are NOT allowed without explicit
+  user approval and a migration plan for all surfaces
+
+## Rule #40: Site Chrome Must Be Consistent
+
+Every page on gravelgodcycling.com must have the same header and footer. If the
+homepage uses a generated header with specific nav links and styling, every other
+page must match. Inconsistent chrome makes the site look unprofessional and
+confuses users.
+
+Surfaces to check:
+- Homepage (generated)
+- Race profiles (generated)
+- /gravel-races/ (WordPress + widget)
+- Series hubs (generated)
+- State hubs (generated)
+- Training guide, prep kits, quiz (generated)
+- WordPress blog pages (theme-controlled)
+
+---
+
+# Mission Control v2 — Shortcuts & Rules (Feb 16, 2026)
+
+## Shortcut #56: Shipped 11 Sequence Templates as Empty References
+
+Sequence Python definitions referenced 17 email templates. Only 6 were created.
+The automation engine would have called `_render_template()` for 11 non-existent
+files. The original code returned `<p>Template not found.</p>` as the email body —
+meaning real subscribers would receive broken HTML. Fixed by:
+1. Making `_render_template()` raise `FileNotFoundError` (caught by try/except in sender)
+2. Creating all 11 missing templates with real marketing content
+
+**Rule:** Every template referenced in a sequence definition MUST exist as a file.
+The pre-deploy audit (`scripts/mc_pre_deploy_audit.py` check #2) now enforces this.
+
+## Shortcut #57: Supabase Join Data Treated as Flat Fields
+
+Template code used `run.athlete_name` and `run.athlete_slug` but Supabase returns
+join data as nested objects: `run.gg_athletes.name`, `run.gg_athletes.slug`.
+This means the dashboard and pipeline index pages displayed blank names for every
+pipeline run.
+
+**Rule:** Supabase `select("*, gg_athletes(name, slug)")` returns nested objects,
+not flat fields. Always access via `row.gg_athletes.name`, never `row.athlete_name`.
+The pre-deploy audit check #6 catches known bad patterns.
+
+## Shortcut #58: `datetime.utcnow()` Used Throughout
+
+`datetime.utcnow()` is deprecated since Python 3.12. Used in supabase_client.py,
+touchpoint_sender.py, and pipeline_runner.py (5 call sites total). All replaced
+with `datetime.now(timezone.utc)`. The pre-deploy audit check #5 scans for this.
+
+**Rule:** Never use `datetime.utcnow()`. Always `datetime.now(timezone.utc)`.
+
+## Shortcut #59: Upsert Double-Call Bug
+
+`supabase_client.py upsert()` called `_table(table).upsert(data)` unconditionally,
+then called it again with `on_conflict` if provided. The first call may execute
+against Supabase before the second one overwrites the query builder. Fixed by
+using `if/else` to build exactly one query.
+
+**Rule:** Supabase query builders may execute on construction. Never create a
+throwaway query builder that you intend to replace.
+
+## Shortcut #60: Webhook Endpoints Without Authentication
+
+`/webhooks/resend` and `/webhooks/resend-inbound` accepted any POST request with
+no auth verification. An attacker could spoof email open/click events or inject
+fake inbound emails. Fixed by adding `WEBHOOK_SECRET` Bearer token check.
+
+**Rule:** Every webhook endpoint MUST verify authentication. The pre-deploy audit
+check #3 enforces this by scanning for `WEBHOOK_SECRET` or `authorization` in
+every `@router.post` function body in webhooks.py.
+
+## Shortcut #61: CSS Classes Used in Templates But Not Defined
+
+Multiple CSS classes were used in Jinja2 templates but never defined in any CSS
+file: `mc-kv__item`, `mc-kv__label`, `mc-mt-sm`, `mc-ml-sm`, `mc-gap-lg`,
+`gg-pagination__controls`, `gg-badge--default`, and stepper classes used wrong
+BEM names (`gg-stepper__marker` instead of `gg-stepper__number`).
+
+**Rule:** Every CSS class used in a template must be defined in a CSS file.
+The pre-deploy audit check #1 scans all HTML templates and Python routers for
+`mc-*` and `gg-*` class usage and cross-references against CSS definitions.
+
+## Shortcut #62: Revenue Service Used Invalid Supabase API
+
+`revenue.py` used `.not_.in_("stage", [...])` which is not valid supabase-py API.
+Fixed to use chained `.neq()` calls.
+
+**Rule:** supabase-py does not support `.not_.in_()`. Use chained `.neq()` or
+`.not_.eq()` for exclusion filters. Test Supabase query patterns before shipping.
+
+## Shortcut #63: NPS Template Variables Mismatched Data Shape
+
+Reports template used `nps_data.nps_score` (field doesn't exist — it's `nps_data.nps`),
+computed `nps_data.passives` (never returned by `get_nps_distribution()`), and used
+`r.referrer_name` instead of `r.gg_athletes.name` (Supabase nested join).
+
+**Rule:** Template variables must match the exact data shape returned by the backend.
+The pre-deploy audit check #6 maintains a known-bad patterns list.
+
+---
+
+## Rule #41: Run `mc_pre_deploy_audit.py` Before Every MC Deploy
+
+The script at `scripts/mc_pre_deploy_audit.py` performs 7 automated checks that
+catch the exact categories of bugs found during the v2 build:
+
+1. **CSS class matching** — every mc-*/gg-* class used in templates exists in CSS
+2. **Sequence templates** — every template referenced in sequence .py files exists
+3. **Webhook auth** — every @router.post endpoint has WEBHOOK_SECRET check
+4. **Health endpoint** — /health route exists in app.py
+5. **Deprecated API** — no datetime.utcnow(), no .not_.in_()
+6. **Template variables** — known bad patterns are absent
+7. **Upsert bug** — no double upsert in supabase_client.py
+
+Exit code 1 = deploy blocked. This is the MC equivalent of `pre_delivery_audit.py`.
+
+## Rule #42: Template Variable Names Must Match Supabase Response Shape
+
+Supabase joins return nested objects. If the query is:
+```python
+select("*, gg_athletes(name, slug)")
+```
+Then template access is:
+```html
+{{ row.gg_athletes.name }}     ✓
+{{ row.athlete_name }}          ✗ — does not exist
+```
+Always guard with: `{{ row.gg_athletes.name if row.gg_athletes else '—' }}`
+
+## Rule #43: Sequence Templates Must Exist Before Sequence Is Activated
+
+A sequence definition in `mission_control/sequences/*.py` declares template names.
+Every declared template must have a corresponding `.html` file in
+`mission_control/templates/emails/sequences/`. The pre-deploy audit catches this,
+but the rule is: never merge a sequence definition without its templates.
+
+## Rule #44: No Silent Degradation on Missing Resources
+
+When a template, config value, or dependency is missing, the code must fail loudly
+(raise an exception) rather than silently return garbage. Examples:
+- Missing email template → raise FileNotFoundError (not return placeholder HTML)
+- Missing WEBHOOK_SECRET → endpoints must refuse requests (not skip auth)
+- Missing env var → startup must fail with a clear error message

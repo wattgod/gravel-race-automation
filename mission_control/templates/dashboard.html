@@ -180,7 +180,7 @@
                 <tbody>
                     {% for run in recent_runs %}
                     <tr>
-                        <td><a href="/athletes/{{ run.athlete_slug }}" class="mc-text-teal">{{ run.athlete_name }}</a></td>
+                        <td><a href="/athletes/{{ run.gg_athletes.slug if run.gg_athletes else '' }}" class="mc-text-teal">{{ run.gg_athletes.name if run.gg_athletes else '—' }}</a></td>
                         <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.run_type }}</td>
                         <td><span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span></td>
                         <td class="mc-text-muted">{% if run.duration_secs %}{{ "%.1f"|format(run.duration_secs) }}s{% else %}—{% endif %}</td>

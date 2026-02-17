@@ -112,7 +112,7 @@
                 {% for run in runs %}
                 <tr>
                     <td><a href="/pipeline/{{ run.id }}" class="mc-text-teal mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.id[:8] }}</a></td>
-                    <td>{{ run.athlete_name or '—' }}</td>
+                    <td>{{ run.gg_athletes.name if run.gg_athletes else '—' }}</td>
                     <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.run_type }}</td>
                     <td><span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span></td>
                     <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ run.current_step }}</td>

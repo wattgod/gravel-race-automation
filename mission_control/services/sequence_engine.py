@@ -207,8 +207,7 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     template_path = WEB_TEMPLATES_DIR / "emails" / "sequences" / f"{template_name}.html"
 
     if not template_path.exists():
-        # Fallback: simple text email
-        return f"<p>Template {template_name} not found.</p>"
+        raise FileNotFoundError(f"Sequence email template '{template_name}' not found at {template_path}")
 
     html = template_path.read_text()
 

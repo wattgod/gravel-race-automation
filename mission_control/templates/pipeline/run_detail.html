@@ -58,10 +58,10 @@
                 <h3 class="mc-card__title">Steps</h3>
             </div>
             <div class="mc-card__body">
-                <div class="gg-stepper">
+                <div class="gg-stepper gg-stepper--vertical">
                     {% for step in run.steps_completed %}
                     <div class="gg-stepper__step gg-stepper__step--{{ step.status or 'pending' }}">
-                        <div class="gg-stepper__marker">
+                        <div class="gg-stepper__number">
                             {% if step.status == 'completed' %}
                             <svg width="14" height="14" viewBox="0 0 14 14"><path d="M11.5 3.5L5.5 10.5L2.5 7.5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
                             {% elif step.status == 'failed' %}
@@ -71,7 +71,7 @@
                             {% endif %}
                         </div>
                         <div class="gg-stepper__content">
-                            <div class="gg-stepper__title">{{ step.step }}</div>
+                            <div class="gg-stepper__label">{{ step.step }}</div>
                             {% if step.message %}
                             <div class="gg-stepper__desc mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ step.message }}</div>
                             {% endif %}

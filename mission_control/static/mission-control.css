@@ -391,6 +391,21 @@ a:hover {
   color: var(--gg-color-dark-brown);
 }
 
+/* Aliases for template compatibility */
+.mc-kv__item {
+  display: contents;
+}
+
+.mc-kv__label {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  padding-top: 2px;
+}
+
 /* ---------------------------------------------------------------------------
    Timeline
    --------------------------------------------------------------------------- */
@@ -505,6 +520,16 @@ a:hover {
 .mc-flex-between { display: flex; justify-content: space-between; align-items: center; }
 .mc-gap-sm { gap: var(--gg-spacing-sm); }
 .mc-gap-md { gap: var(--gg-spacing-md); }
+.mc-gap-lg { gap: var(--gg-spacing-lg); }
+
+.mc-mt-sm { margin-top: var(--gg-spacing-sm); }
+.mc-ml-sm { margin-left: var(--gg-spacing-sm); }
+
+.gg-pagination__controls {
+  display: flex;
+  gap: var(--gg-spacing-sm);
+  margin-left: var(--gg-spacing-md);
+}
 
 /* Pre/code for stdout display */
 .mc-pre {

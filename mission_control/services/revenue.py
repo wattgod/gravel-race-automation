@@ -95,6 +95,6 @@ def plans_sold_this_month() -> int:
 def total_open_pipeline_value() -> float:
     """Total value of deals not yet closed."""
     q = db._table("gg_deals").select("value")
-    q = q.not_.in_("stage", ["closed_won", "closed_lost"])
+    q = q.neq("stage", "closed_won").neq("stage", "closed_lost")
     result = q.execute()
     return sum(float(d["value"]) for d in (result.data or []))

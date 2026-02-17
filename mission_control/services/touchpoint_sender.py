@@ -1,7 +1,7 @@
 """Touchpoint sender — render template, send via Resend, update Supabase."""
 
 import json
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from mission_control.config import ATHLETES_DIR, RESEND_API_KEY, RESEND_FROM_EMAIL, TEMPLATES_DIR
@@ -87,7 +87,7 @@ def send_touchpoint(touchpoint_id: str, dry_run: bool = False) -> dict:
         })
 
         resend_id = result.get("id", "")
-        now = datetime.utcnow().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
 
         # Update touchpoint
         db.update_touchpoint(touchpoint_id, {

@@ -1,6 +1,6 @@
 """Supabase connection and query helpers for all gg_* tables."""
 
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from typing import Any
 
 from supabase import Client, create_client
@@ -37,9 +37,10 @@ def insert(table: str, data: dict) -> dict:
 
 def upsert(table: str, data: dict, on_conflict: str = "") -> dict:
     """Upsert a row and return it."""
-    q = _table(table).upsert(data)
     if on_conflict:
         q = _table(table).upsert(data, on_conflict=on_conflict)
+    else:
+        q = _table(table).upsert(data)
     result = q.execute()
     return result.data[0] if result.data else {}
 
@@ -130,7 +131,7 @@ def upsert_athlete(data: dict) -> dict:
 
 def update_athlete(slug: str, data: dict) -> dict:
     """Update an athlete by slug."""
-    data["updated_at"] = datetime.utcnow().isoformat()
+    data["updated_at"] = datetime.now(timezone.utc).isoformat()
     return update("gg_athletes", data, {"slug": slug})
 
 

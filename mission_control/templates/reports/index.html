@@ -20,8 +20,8 @@
             {% if nps_scores %}
             <div class="mc-flex mc-gap-lg mc-mb-md" style="align-items:center">
                 <div>
-                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data);{% if nps_data.nps_score is not none and nps_data.nps_score >= 50 %}color:var(--gg-color-teal){% elif nps_data.nps_score is not none and nps_data.nps_score >= 0 %}color:var(--gg-color-gold){% else %}color:var(--gg-color-error){% endif %}">
-                        {{ nps_data.nps_score if nps_data.nps_score is not none else '—' }}
+                    <div style="font-size:var(--gg-font-size-2xl);font-weight:700;font-family:var(--gg-font-data);{% if nps_data.nps is not none and nps_data.nps >= 50 %}color:var(--gg-color-teal){% elif nps_data.nps is not none and nps_data.nps >= 0 %}color:var(--gg-color-gold){% else %}color:var(--gg-color-error){% endif %}">
+                        {{ nps_data.nps if nps_data.nps is not none else '—' }}
                     </div>
                     <div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">NPS Score</div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="mc-flex mc-gap-sm" style="align-items:center;margin-bottom:var(--gg-spacing-2xs)">
                         <span style="width:8px;height:8px;background:var(--gg-color-gold);display:inline-block"></span>
-                        Passives (7-8): {{ nps_data.passives }}
+                        Passives (7-8): {{ nps_data.total - nps_data.promoters - nps_data.detractors }}
                     </div>
                     <div class="mc-flex mc-gap-sm" style="align-items:center">
                         <span style="width:8px;height:8px;background:var(--gg-color-error);display:inline-block"></span>
@@ -124,7 +124,7 @@
                 <tbody>
                     {% for r in referrals[:10] %}
                     <tr>
-                        <td>{{ r.referrer_name }}</td>
+                        <td>{{ r.gg_athletes.name if r.gg_athletes else '—' }}</td>
                         <td>{{ r.referred_name }}<div class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ r.referred_email }}</div></td>
                         <td><span class="gg-badge mc-status--{{ r.status }}">{{ r.status }}</span></td>
                         <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ r.created_at }}</td>

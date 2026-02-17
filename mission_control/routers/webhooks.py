@@ -141,8 +141,16 @@ async def subscriber_webhook(
 
 
 @router.post("/resend")
-async def resend_webhook(request: Request):
+async def resend_webhook(
+    request: Request,
+    authorization: str = Header(""),
+):
     """Receive Resend email event webhooks (opens, clicks, bounces)."""
+    if WEBHOOK_SECRET:
+        expected = f"Bearer {WEBHOOK_SECRET}"
+        if authorization != expected:
+            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+
     body = await request.json()
 
     event_type = body.get("type", "")
@@ -161,8 +169,16 @@ async def resend_webhook(request: Request):
 
 
 @router.post("/resend-inbound")
-async def resend_inbound_webhook(request: Request):
+async def resend_inbound_webhook(
+    request: Request,
+    authorization: str = Header(""),
+):
     """Receive inbound email replies via Resend."""
+    if WEBHOOK_SECRET:
+        expected = f"Bearer {WEBHOOK_SECRET}"
+        if authorization != expected:
+            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+
     body = await request.json()
     data = body.get("data", {})
 

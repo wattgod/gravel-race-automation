@@ -57,6 +57,13 @@
   color: var(--gg-color-warm-paper);
 }
 
+/* Default variant — neutral/muted for non-status labels */
+.gg-badge--default {
+  background: var(--gg-color-sand);
+  border-color: var(--gg-color-tan);
+  color: var(--gg-color-dark-brown);
+}
+
 /* Outline variant — no fill */
 .gg-badge--outline {
   background: transparent;

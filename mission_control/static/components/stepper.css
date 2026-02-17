@@ -129,6 +129,12 @@
   max-width: none;
 }
 
+/* Content wrapper for vertical stepper */
+.gg-stepper--vertical .gg-stepper__content {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Responsive: stack horizontal on small screens */
 @media (max-width: 700px) {
   .gg-stepper:not(.gg-stepper--vertical) {

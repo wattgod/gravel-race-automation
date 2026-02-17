@@ -1,13 +1,26 @@
-"""GA4 Data API client — fetches analytics data with caching."""
+"""GA4 Data API client — fetches analytics data with caching.
+
+Caching uses Supabase (gg_ga4_cache table) when available.
+When Supabase isn't configured (e.g. standalone daily_report.py),
+caching is skipped and data is fetched fresh every call.
+"""
 
 from __future__ import annotations
 
-import json
 import logging
+import os
 from datetime import datetime, timedelta, timezone
 
-from mission_control import supabase_client as db
-from mission_control.config import GA4_CREDENTIALS_PATH, GA4_PROPERTY_ID
+try:
+    from mission_control import supabase_client as db
+except Exception:
+    db = None
+
+try:
+    from mission_control.config import GA4_CREDENTIALS_PATH, GA4_PROPERTY_ID
+except Exception:
+    GA4_CREDENTIALS_PATH = os.environ.get("GA4_CREDENTIALS_PATH", "")
+    GA4_PROPERTY_ID = os.environ.get("GA4_PROPERTY_ID", "")
 
 logger = logging.getLogger(__name__)
 
@@ -15,25 +28,35 @@ CACHE_TTL_HOURS = 4
 
 
 def _get_cached(cache_key: str) -> dict | None:
-    """Get cached data if fresh enough."""
-    row = db.select_one("gg_ga4_cache", match={"cache_key": cache_key})
-    if not row:
+    """Get cached data if fresh enough. Returns None if caching unavailable."""
+    if db is None:
         return None
+    try:
+        row = db.select_one("gg_ga4_cache", match={"cache_key": cache_key})
+        if not row:
+            return None
 
-    fetched_at = datetime.fromisoformat(row["fetched_at"].replace("Z", "+00:00"))
-    if datetime.now(timezone.utc) - fetched_at > timedelta(hours=CACHE_TTL_HOURS):
+        fetched_at = datetime.fromisoformat(row["fetched_at"].replace("Z", "+00:00"))
+        if datetime.now(timezone.utc) - fetched_at > timedelta(hours=CACHE_TTL_HOURS):
+            return None
+
+        return row["data"]
+    except Exception:
         return None
-
-    return row["data"]
 
 
 def _set_cached(cache_key: str, data: dict) -> None:
-    """Store data in cache."""
-    db.upsert("gg_ga4_cache", {
-        "cache_key": cache_key,
-        "data": data,
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
-    }, on_conflict="cache_key")
+    """Store data in cache. No-op if caching unavailable."""
+    if db is None:
+        return
+    try:
+        db.upsert("gg_ga4_cache", {
+            "cache_key": cache_key,
+            "data": data,
+            "fetched_at": datetime.now(timezone.utc).isoformat(),
+        }, on_conflict="cache_key")
+    except Exception:
+        pass
 
 
 def _get_client():
@@ -242,10 +265,11 @@ def get_conversion_events(days: int = 30) -> list[dict]:
 def refresh_cache() -> int:
     """Force refresh all cached metrics. Returns count of metrics refreshed."""
     # Delete all cached entries
-    try:
-        db._table("gg_ga4_cache").delete().neq("cache_key", "").execute()
-    except Exception:
-        pass
+    if db is not None:
+        try:
+            db._table("gg_ga4_cache").delete().neq("cache_key", "").execute()
+        except Exception:
+            pass
 
     # Re-fetch all
     count = 0

@@ -31,6 +31,9 @@ from xml.etree import ElementTree
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from dotenv import load_dotenv  # noqa: E402
+load_dotenv(PROJECT_ROOT / ".env")
+
 CURRENT_DATE = date.today()
 DEFAULT_RECIPIENT = "matt@gravelgodcycling.com"
 REPORTS_DIR = PROJECT_ROOT / "reports" / "daily"

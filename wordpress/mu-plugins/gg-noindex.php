@@ -44,6 +44,12 @@ function gg_noindex_junk_pages() {
     if (strpos($uri, '/gravel-races/') !== false && !empty($_SERVER['QUERY_STRING'])) {
         $dominated = true;
     }
+
+    // Noindex blog preview pages (/blog/{slug}/) — thin content that duplicates
+    // race profiles. Keep /blog/ index page indexed.
+    if (preg_match('#^/blog/[a-z0-9-]+/?$#', $uri)) {
+        $dominated = true;
+    }
     foreach ($noindex_patterns as $pattern) {
         if (strpos($uri, $pattern) !== false) {
             $dominated = true;

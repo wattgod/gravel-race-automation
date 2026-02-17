@@ -384,6 +384,7 @@ def generate_preview_html(slug):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
   <title>{esc(name)} Race Preview — Gravel God</title>
   <meta name="description" content="Everything you need to know about {esc(name)}: course preview, key stats, training tips, and registration info. Tier {tier} {tier_name} rated {score}/100.">
   <meta property="og:title" content="{esc(name)} Race Preview — Gravel God">

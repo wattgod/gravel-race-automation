@@ -262,6 +262,7 @@ def generate_recap_html(slug, year):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
   <title>{esc(name)} {year} Race Recap — Gravel God</title>
   <meta name="description" content="{esc(name)} {year} recap: {esc(headline)}. Tier {tier} {tier_name} rated {score}/100.">
   <meta property="og:title" content="{esc(name)} {year} Race Recap — Gravel God">

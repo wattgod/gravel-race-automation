@@ -221,6 +221,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
   <title>{esc(title)}: {esc(subtitle)} — Gravel God</title>
   <meta name="description" content="{esc(title)}: {esc(subtitle)}. {stats['count']} races rated and ranked by Gravel God.">
   <meta property="og:title" content="{esc(title)}: {esc(subtitle)} — Gravel God">

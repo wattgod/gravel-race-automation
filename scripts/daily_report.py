@@ -718,9 +718,13 @@ def send_email(html: str, recipient: str) -> dict:
         import resend
         resend.api_key = api_key
 
+        from_email = os.environ.get(
+            "REPORT_FROM", "Gravel God <matt@gravelgodcycling.com>"
+        )
+
         subject = f"Daily Report — {CURRENT_DATE.strftime('%b %d, %Y')}"
         result = resend.Emails.send({
-            "from": "Gravel God <matt@gravelgodcycling.com>",
+            "from": from_email,
             "to": [recipient],
             "subject": subject,
             "html": html,

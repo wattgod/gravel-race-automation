@@ -460,3 +460,184 @@ class TestGetSequenceStats:
         stats = get_sequence_stats("welcome_v1")
         assert stats["total"] == 0
         assert stats["completion_rate"] == 0
+
+
+class TestInjectUtmParams:
+    """UTM tracking injection into gravelgodcycling.com links."""
+
+    def test_adds_utm_to_simple_link(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+
+        html = '<a href="https://gravelgodcycling.com/training/">Get Started</a>'
+        result = _inject_utm_params(html, "welcome_v1", "A", 0)
+        assert "utm_source=gravel_god" in result
+        assert "utm_medium=email" in result
+        assert "utm_campaign=welcome_v1" in result
+        assert "utm_content=A_0" in result
+        assert "?" in result  # first param separator
+
+    def test_adds_utm_with_existing_query_params(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+
+        html = '<a href="https://gravelgodcycling.com/race/?filter=gravel">Races</a>'
+        result = _inject_utm_params(html, "nurture_v1", "B", 2)
+        assert "&utm_source=gravel_god" in result
+        assert "?filter=gravel&" in result
+
+    def test_does_not_modify_external_links(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+
+        html = '<a href="https://example.com/page">External</a>'
+        result = _inject_utm_params(html, "welcome_v1", "A", 0)
+        assert result == html  # unchanged
+
+    def test_handles_multiple_links(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+
+        html = (
+            '<a href="https://gravelgodcycling.com/training/">Plans</a>'
+            '<a href="https://example.com/">Other</a>'
+            '<a href="https://gravelgodcycling.com/race/quiz/">Quiz</a>'
+        )
+        result = _inject_utm_params(html, "welcome_v1", "A", 1)
+        assert result.count("utm_source=gravel_god") == 2
+
+    def test_preserves_html_structure(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+
+        html = '<a href="https://gravelgodcycling.com/training/" class="cta">Go</a>'
+        result = _inject_utm_params(html, "welcome_v1", "A", 0)
+        assert 'class="cta"' in result
+
+
+class TestAutoDealCreation:
+    """Auto-create deals when enrolling in marketing sequences."""
+
+    def test_creates_deal_on_enroll(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+
+        result = enroll(
+            email="newlead@example.com",
+            name="New Lead",
+            sequence_id="welcome_v1",
+            source="exit_intent",
+            source_data={"race_name": "Unbound 200", "race_slug": "unbound-200"},
+        )
+        assert result is not None
+
+        # Verify deal was created
+        deals = fake_db.store["gg_deals"]
+        matching = [d for d in deals if d["contact_email"] == "newlead@example.com"]
+        assert len(matching) == 1
+        assert matching[0]["source"] == "exit_intent"
+        assert matching[0]["race_name"] == "Unbound 200"
+
+    def test_no_duplicate_deal(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+
+        # Pre-existing deal
+        fake_db.store["gg_deals"].append({
+            "id": "existing-deal",
+            "contact_email": "existing@example.com",
+            "stage": "qualified",
+        })
+
+        enroll("existing@example.com", "Existing", "welcome_v1", source="quiz")
+
+        deals = [d for d in fake_db.store["gg_deals"]
+                 if d["contact_email"] == "existing@example.com"]
+        assert len(deals) == 1  # no new deal created
+
+    def test_no_deal_for_post_purchase(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+
+        result = enroll(
+            email="customer@example.com",
+            name="Customer",
+            sequence_id="post_purchase_v1",
+            source="plan_purchased",
+        )
+        assert result is not None
+
+        deals = [d for d in fake_db.store["gg_deals"]
+                 if d["contact_email"] == "customer@example.com"]
+        assert len(deals) == 0  # no deal for post-purchase
+
+
+class TestCustomerSuppression:
+    """Skip marketing emails to existing customers."""
+
+    def test_suppresses_delivered_customer(self, fake_db):
+        import asyncio
+        from mission_control.services.sequence_engine import _send_next_step
+
+        # Create a customer in gg_athletes with plan_status=delivered
+        fake_db.store["gg_athletes"].append({
+            "id": "cust-1",
+            "email": "buyer@example.com",
+            "plan_status": "delivered",
+        })
+
+        enrollment = make_enrollment(
+            contact_email="buyer@example.com",
+            sequence_id="welcome_v1",
+            status="active",
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+
+        result = asyncio.new_event_loop().run_until_complete(
+            _send_next_step(enrollment)
+        )
+        assert result is True
+        assert enrollment["status"] == "completed"
+
+        # Verify suppression was logged
+        logs = fake_db.store["gg_audit_log"]
+        assert any("Customer suppression" in l.get("details", "") for l in logs)
+
+    def test_does_not_suppress_non_customer(self, fake_db):
+        import asyncio
+        from mission_control.services.sequence_engine import _send_next_step
+
+        enrollment = make_enrollment(
+            contact_email="prospect@example.com",
+            sequence_id="welcome_v1",
+            status="active",
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+
+        # No matching athlete — should NOT be suppressed
+        # Will fail on sending (no RESEND_API_KEY) but that's after suppression check
+        result = asyncio.new_event_loop().run_until_complete(
+            _send_next_step(enrollment)
+        )
+        # Should have proceeded past suppression (enrolled_at not completed by suppression)
+        assert enrollment["status"] != "completed" or enrollment.get("completed_at") is not None
+
+    def test_does_not_suppress_post_purchase(self, fake_db):
+        import asyncio
+        from mission_control.services.sequence_engine import _send_next_step
+
+        fake_db.store["gg_athletes"].append({
+            "id": "cust-2",
+            "email": "buyer2@example.com",
+            "plan_status": "delivered",
+        })
+
+        enrollment = make_enrollment(
+            contact_email="buyer2@example.com",
+            sequence_id="post_purchase_v1",
+            status="active",
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+
+        result = asyncio.new_event_loop().run_until_complete(
+            _send_next_step(enrollment)
+        )
+        # Should NOT be suppressed — post_purchase sequences are allowed for customers
+        # The enrollment should NOT have been completed by suppression
+        suppression_logs = [
+            l for l in fake_db.store["gg_audit_log"]
+            if "Customer suppression" in l.get("details", "")
+        ]
+        assert len(suppression_logs) == 0

@@ -5,6 +5,7 @@ import hashlib
 import hmac
 import logging
 import random
+import re
 import urllib.parse
 from datetime import datetime, timedelta, timezone
 
@@ -13,6 +14,9 @@ from mission_control.config import (
     PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
 )
 from mission_control.sequences import get_sequence, SEQUENCES
+
+# Triggers that are post-purchase — should NOT be suppressed for customers
+_POST_PURCHASE_TRIGGERS = {"plan_purchased"}
 
 logger = logging.getLogger(__name__)
 
@@ -70,6 +74,21 @@ def enroll(
         sequence_id,
         f"{email} enrolled in {seq['name']} variant {variant}",
     )
+
+    # Auto-create deal for marketing sequences (not post-purchase)
+    if seq.get("trigger") not in _POST_PURCHASE_TRIGGERS:
+        existing_deal = db.select_one("gg_deals", match={"contact_email": email})
+        if not existing_deal:
+            from mission_control.services.deals import create_deal
+            sd = source_data or {}
+            create_deal(
+                email=email,
+                name=name,
+                race_name=sd.get("race_name", ""),
+                race_slug=sd.get("race_slug", ""),
+                source=source,
+                value=249.00,
+            )
 
     return enrollment
 
@@ -157,6 +176,27 @@ async def _send_next_step(enrollment: dict) -> bool:
     if not seq:
         return False
 
+    # Customer suppression — don't send marketing emails to existing customers
+    if seq.get("trigger") not in _POST_PURCHASE_TRIGGERS:
+        customer = db.select_one(
+            "gg_athletes",
+            columns="plan_status",
+            match={"email": enrollment["contact_email"]},
+        )
+        if customer and customer.get("plan_status") in (
+            "delivered", "approved", "audit_passed",
+        ):
+            db.update("gg_sequence_enrollments", {
+                "status": "completed",
+                "completed_at": datetime.now(timezone.utc).isoformat(),
+            }, {"id": enrollment["id"]})
+            db.log_action(
+                "sequence_suppressed", "enrollment", str(enrollment["id"]),
+                f"Customer suppression: {enrollment['contact_email']} "
+                f"has plan_status={customer['plan_status']}",
+            )
+            return True
+
     variant_key = enrollment["variant"]
     variant = seq["variants"].get(variant_key)
     if not variant:
@@ -178,8 +218,14 @@ async def _send_next_step(enrollment: dict) -> bool:
     # Render subject with source_data substitutions
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
 
-    # Render email template and inject unsubscribe link
+    # Render email template, inject UTM tracking, and inject unsubscribe link
     html = _render_template(step["template"], enrollment)
+    html = _inject_utm_params(
+        html,
+        sequence_id=enrollment["sequence_id"],
+        variant=enrollment["variant"],
+        step_index=step_index,
+    )
     html = _inject_unsubscribe(html, enrollment["contact_email"])
 
     # Send via Resend (in thread to avoid blocking event loop)
@@ -272,6 +318,29 @@ def _render_template(template_name: str, enrollment: dict) -> str:
         html = html.replace(placeholder, value)
 
     return html
+
+
+def _inject_utm_params(
+    html: str, sequence_id: str, variant: str, step_index: int,
+) -> str:
+    """Append UTM tracking params to all gravelgodcycling.com links in HTML."""
+    utm = urllib.parse.urlencode({
+        "utm_source": "gravel_god",
+        "utm_medium": "email",
+        "utm_campaign": sequence_id,
+        "utm_content": f"{variant}_{step_index}",
+    })
+
+    def _add_utm(match: re.Match) -> str:
+        url = match.group(1)
+        sep = "&" if "?" in url else "?"
+        return f'href="{url}{sep}{utm}"'
+
+    return re.sub(
+        r'href="(https://gravelgodcycling\.com[^"]*)"',
+        _add_utm,
+        html,
+    )
 
 
 def _send_email_sync(to_email: str, subject: str, html: str) -> str:

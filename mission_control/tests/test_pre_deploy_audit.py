@@ -6,8 +6,11 @@ If this test fails, it means the codebase has a bug that the audit catches.
 
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
+
+REPO_ROOT = str(Path(__file__).resolve().parent.parent.parent)
 
 
 class TestPreDeployAudit:
@@ -17,7 +20,7 @@ class TestPreDeployAudit:
             [sys.executable, "scripts/mc_pre_deploy_audit.py"],
             capture_output=True,
             text=True,
-            cwd="/Users/mattirowe/endure-plan-engine",
+            cwd=REPO_ROOT,
         )
         assert result.returncode == 0, (
             f"Pre-deploy audit failed with {result.returncode}:\n{result.stdout}\n{result.stderr}"
@@ -29,7 +32,7 @@ class TestPreDeployAudit:
             [sys.executable, "scripts/mc_pre_deploy_audit.py"],
             capture_output=True,
             text=True,
-            cwd="/Users/mattirowe/endure-plan-engine",
+            cwd=REPO_ROOT,
         )
         assert "CSS CLASS MATCH" in result.stdout
 
@@ -39,7 +42,7 @@ class TestPreDeployAudit:
             [sys.executable, "scripts/mc_pre_deploy_audit.py"],
             capture_output=True,
             text=True,
-            cwd="/Users/mattirowe/endure-plan-engine",
+            cwd=REPO_ROOT,
         )
         assert "SEQUENCE EMAIL TEMPLATES" in result.stdout
 
@@ -49,7 +52,7 @@ class TestPreDeployAudit:
             [sys.executable, "scripts/mc_pre_deploy_audit.py"],
             capture_output=True,
             text=True,
-            cwd="/Users/mattirowe/endure-plan-engine",
+            cwd=REPO_ROOT,
         )
         assert "WEBHOOK AUTHENTICATION" in result.stdout
 
@@ -59,7 +62,7 @@ class TestPreDeployAudit:
             [sys.executable, "scripts/mc_pre_deploy_audit.py"],
             capture_output=True,
             text=True,
-            cwd="/Users/mattirowe/endure-plan-engine",
+            cwd=REPO_ROOT,
         )
         for check in [
             "CSS CLASS MATCH",

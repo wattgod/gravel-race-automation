@@ -11,6 +11,7 @@ from mission_control.routers import (
     athletes, dashboard, pipeline, reports, templates_page, touchpoints, webhooks,
 )
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
+from mission_control.routers import races_api
 
 logger = logging.getLogger(__name__)
 
@@ -39,31 +40,33 @@ async def lifespan(app: FastAPI):
 def create_app() -> FastAPI:
     app = FastAPI(
         title="Gravel God Mission Control",
-        docs_url=None,
-        redoc_url=None,
+        description=(
+            "Mission Control dashboard and the Gravel God Race Database API. "
+            "Query 328 gravel and mountain bike races at /api/v1/races."
+        ),
+        version="1.0.0",
+        docs_url="/api/v1/docs",
+        redoc_url="/api/v1/redoc",
+        openapi_url="/api/v1/openapi.json",
         lifespan=lifespan,
     )
 
     # Static files
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
-    @app.get("/health")
+    @app.get("/health", include_in_schema=False)
     async def health():
         return {"status": "ok"}
 
-    # Routers — v1
-    app.include_router(dashboard.router)
-    app.include_router(athletes.router)
-    app.include_router(pipeline.router)
-    app.include_router(touchpoints.router)
-    app.include_router(templates_page.router)
-    app.include_router(reports.router)
-    app.include_router(webhooks.router)
+    # Routers — v1 (dashboard, internal — hidden from API docs)
+    for r in [dashboard, athletes, pipeline, touchpoints, templates_page, reports, webhooks]:
+        app.include_router(r.router, include_in_schema=False)
 
-    # Routers — v2
-    app.include_router(sequences.router)
-    app.include_router(deals_router.router)
-    app.include_router(analytics.router)
-    app.include_router(unsubscribe.router)
+    # Routers — v2 (internal — hidden from API docs)
+    for r in [sequences, deals_router, analytics, unsubscribe]:
+        app.include_router(r.router, include_in_schema=False)
+
+    # Races API — public, included in API docs
+    app.include_router(races_api.router)
 
     return app

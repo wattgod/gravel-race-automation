@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block title %}{{ athlete.name }} — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <a href="/athletes" class="mc-text-muted" style="font-size:var(--gg-font-size-xs);text-decoration:none">&larr; All Athletes</a>
+    <h1 class="mc-page-header__title mc-mt-sm">{{ athlete.name }}</h1>
+    <p class="mc-page-header__desc mc-text-mono">{{ athlete.email }} &middot; {{ athlete.slug }}</p>
+</div>
+
+<div class="mc-detail-grid">
+    <!-- Main Column -->
+    <div>
+        <!-- Profile Card -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Profile</h3>
+                <span class="gg-badge mc-status--{{ athlete.plan_status }}">{{ athlete.plan_status }}</span>
+            </div>
+            <div class="mc-card__body">
+                <div class="mc-kv">
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Race</span>
+                        <span class="mc-kv__value">{{ athlete.race_name or '—' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Race Date</span>
+                        <span class="mc-kv__value">{{ athlete.race_date or '—' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Tier</span>
+                        <span class="mc-kv__value"><span class="gg-badge gg-badge--{{ athlete.tier or 'default' }}">{{ (athlete.tier or '')|replace('_',' ')|title }}</span></span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Level</span>
+                        <span class="mc-kv__value">{{ (athlete.level or '')|title }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Plan Weeks</span>
+                        <span class="mc-kv__value">{{ athlete.plan_weeks or '—' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Weekly Hours</span>
+                        <span class="mc-kv__value">{{ athlete.weekly_hours or '—' }}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">FTP</span>
+                        <span class="mc-kv__value mc-text-mono">{{ athlete.ftp or '—' }}{% if athlete.ftp %}w{% endif %}</span>
+                    </div>
+                    <div class="mc-kv__item">
+                        <span class="mc-kv__label">Created</span>
+                        <span class="mc-kv__value mc-text-muted">{{ athlete.created_at }}</span>
+                    </div>
+                </div>
+
+                {% if intake %}
+                <div style="border-top:var(--gg-border-standard);margin-top:var(--gg-spacing-md);padding-top:var(--gg-spacing-md)">
+                    <div class="mc-kv">
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Age</span>
+                            <span class="mc-kv__value">{{ intake.age or '—' }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Sex</span>
+                            <span class="mc-kv__value">{{ (intake.sex or '')|title }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Years Cycling</span>
+                            <span class="mc-kv__value">{{ intake.years_cycling or '—' }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Trainer</span>
+                            <span class="mc-kv__value">{{ intake.trainer_access or '—' }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Sleep</span>
+                            <span class="mc-kv__value">{{ (intake.sleep or '')|title }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Stress</span>
+                            <span class="mc-kv__value">{{ (intake.stress or '')|title }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Strength</span>
+                            <span class="mc-kv__value">{{ (intake.strength_current or '')|title }}</span>
+                        </div>
+                        <div class="mc-kv__item">
+                            <span class="mc-kv__label">Longest Ride</span>
+                            <span class="mc-kv__value">{{ intake.longest_ride or '—' }}{% if intake.longest_ride %}h{% endif %}</span>
+                        </div>
+                    </div>
+                </div>
+                {% if intake.injuries and intake.injuries != 'NA' %}
+                <div style="margin-top:var(--gg-spacing-sm)">
+                    <span class="mc-kv__label">Injuries:</span>
+                    <span style="color:var(--gg-color-error)">{{ intake.injuries }}</span>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        {% if methodology %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Methodology</h3>
+            </div>
+            <div class="mc-card__body">
+                {% if methodology.why_this_plan %}
+                <p style="font-size:var(--gg-font-size-sm);line-height:1.6">{{ methodology.why_this_plan[:500] }}{% if methodology.why_this_plan|length > 500 %}...{% endif %}</p>
+                {% endif %}
+                {% if methodology.template_selection %}
+                <div class="mc-flex mc-gap-md mc-mt-md" style="font-size:var(--gg-font-size-2xs)">
+                    <span class="mc-text-muted">Template: <strong>{{ methodology.template_selection.template_key }}</strong></span>
+                    <span class="mc-text-muted">Base: {{ methodology.template_selection.base_weeks }}w</span>
+                    {% if methodology.template_selection.extended_to %}
+                    <span class="mc-text-muted">Extended: {{ methodology.template_selection.extended_to }}w</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if methodology.periodization and methodology.periodization.phases %}
+                <div class="mc-flex mc-gap-sm mc-mt-md" style="flex-wrap:wrap">
+                    {% for phase in methodology.periodization.phases %}
+                    <span class="gg-badge gg-badge--default">{{ phase.phase }}: Wk {{ phase.weeks }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Touchpoint Timeline -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">
+                    Touchpoints ({{ touchpoints|length }})
+                    {% if due_count %}
+                    <span class="gg-badge gg-badge--gold mc-ml-sm">{{ due_count }} due</span>
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="mc-card__body" style="padding:0">
+                <table class="gg-table gg-table--compact">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Category</th>
+                            <th>Template</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tp in touchpoints %}
+                        <tr id="tp-{{ tp.id }}" {% if tp.send_date <= today and not tp.sent %}class="mc-timeline__item--due"{% endif %}>
+                            <td class="mc-text-muted" style="white-space:nowrap">{{ tp.send_date }}</td>
+                            <td>{{ tp.subject }}</td>
+                            <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ tp.category }}</td>
+                            <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ tp.template }}</td>
+                            <td>
+                                {% if tp.sent %}
+                                <span class="gg-badge mc-timeline__item--sent">Sent</span>
+                                {% elif tp.send_date <= today %}
+                                <span class="gg-badge gg-badge--gold">Due</span>
+                                {% else %}
+                                <span class="gg-badge gg-badge--default">Scheduled</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if not tp.sent %}
+                                <form hx-post="/touchpoints/send" hx-target="#tp-{{ tp.id }}" hx-swap="outerHTML">
+                                    <input type="hidden" name="touchpoint_id" value="{{ tp.id }}">
+                                    <input type="hidden" name="dry_run" value="true">
+                                    <button type="submit" class="mc-text-teal" style="font-size:var(--gg-font-size-2xs);background:none;border:none;cursor:pointer;text-decoration:underline">Preview</button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Communications -->
+        {% if communications %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Communications</h3>
+            </div>
+            <div class="mc-card__body" style="padding:0">
+                <table class="gg-table gg-table--compact">
+                    <thead>
+                        <tr><th>Date</th><th>Type</th><th>Subject</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for c in communications %}
+                        <tr>
+                            <td class="mc-text-muted">{{ c.sent_at }}</td>
+                            <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ c.comm_type }}</td>
+                            <td>{{ c.subject }}</td>
+                            <td><span class="gg-badge mc-status--{{ c.status }}">{{ c.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Pipeline Runs -->
+        {% if pipeline_runs %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Pipeline Runs</h3>
+            </div>
+            <div class="mc-card__body" style="padding:0">
+                <table class="gg-table gg-table--compact">
+                    <thead>
+                        <tr><th>Started</th><th>Type</th><th>Status</th><th>Duration</th><th>Error</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for run in pipeline_runs %}
+                        <tr>
+                            <td class="mc-text-muted">{{ run.started_at }}</td>
+                            <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ run.run_type }}</td>
+                            <td><span class="gg-badge mc-run-status--{{ run.status }}">{{ run.status }}</span></td>
+                            <td class="mc-text-muted">{% if run.duration_secs %}{{ "%.1f"|format(run.duration_secs) }}s{% else %}—{% endif %}</td>
+                            <td style="color:var(--gg-color-error);font-size:var(--gg-font-size-2xs);max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ run.error_message or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Aside Column -->
+    <aside>
+        <!-- Actions -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Actions</h3>
+            </div>
+            <div class="mc-card__body">
+                <div style="display:flex;flex-direction:column;gap:var(--gg-spacing-sm)">
+                    <form hx-post="/pipeline/trigger" hx-target="#action-result" hx-swap="innerHTML">
+                        <input type="hidden" name="athlete_id" value="{{ athlete.id }}">
+                        <input type="hidden" name="run_type" value="draft">
+                        <input type="hidden" name="skip_pdf" value="true">
+                        <input type="hidden" name="skip_deploy" value="true">
+                        <input type="hidden" name="skip_deliver" value="true">
+                        <button type="submit" class="gg-btn gg-btn--primary" style="width:100%">Run Pipeline (Draft)</button>
+                    </form>
+                    <form hx-post="/pipeline/audit" hx-target="#action-result" hx-swap="innerHTML">
+                        <input type="hidden" name="athlete_id" value="{{ athlete.id }}">
+                        <button type="submit" class="gg-btn gg-btn--default" style="width:100%">Run Audit</button>
+                    </form>
+
+                    {% if athlete.plan_status == 'audit_passed' %}
+                    <form hx-post="/athletes/{{ athlete.slug }}/approve" hx-target="#action-result" hx-swap="innerHTML">
+                        <button type="submit" class="gg-btn gg-btn--secondary" style="width:100%">Approve Plan</button>
+                    </form>
+                    {% endif %}
+
+                    {% if athlete.plan_status == 'approved' %}
+                    <form hx-post="/athletes/{{ athlete.slug }}/deliver" hx-target="#deliver-result" hx-swap="innerHTML">
+                        <input type="hidden" name="dry_run" value="true">
+                        <button type="submit" class="gg-btn gg-btn--secondary" style="width:100%">Deliver Plan (Preview)</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <div id="action-result" class="mc-mt-sm"></div>
+                <div id="deliver-result" class="mc-mt-sm"></div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Notes</h3>
+            </div>
+            <div class="mc-card__body">
+                <div id="notes-section">
+                    <textarea name="notes" rows="4" class="mc-textarea" style="width:100%"
+                        hx-post="/athletes/{{ athlete.slug }}/notes" hx-target="#notes-section" hx-swap="outerHTML"
+                        hx-trigger="change">{{ athlete.notes or '' }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Files -->
+        {% if files %}
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">Files</h3>
+            </div>
+            <div class="mc-card__body">
+                {% for f in files %}
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:var(--gg-spacing-2xs) 0;{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %}">
+                    <span class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ f.file_name }}</span>
+                    <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ f.file_type }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- NPS Scores -->
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">NPS Scores</h3>
+            </div>
+            <div class="mc-card__body">
+                {% if nps_scores %}
+                {% for nps in nps_scores %}
+                <div style="display:flex;align-items:center;gap:var(--gg-spacing-sm);padding:var(--gg-spacing-2xs) 0;{% if not loop.last %}border-bottom:var(--gg-border-standard){% endif %}">
+                    <span style="font-size:var(--gg-font-size-lg);font-weight:700;{% if nps.score >= 9 %}color:var(--gg-color-teal){% elif nps.score >= 7 %}color:var(--gg-color-gold){% else %}color:var(--gg-color-error){% endif %}">{{ nps.score }}</span>
+                    <span class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ nps.race_name or '' }}</span>
+                    {% if nps.comment %}<span style="font-size:var(--gg-font-size-xs)">{{ nps.comment }}</span>{% endif %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No NPS scores recorded.</p>
+                {% endif %}
+
+                <form hx-post="/reports/nps" hx-target="#nps-result" hx-swap="innerHTML"
+                      style="display:flex;gap:var(--gg-spacing-sm);align-items:flex-end;margin-top:var(--gg-spacing-md);padding-top:var(--gg-spacing-md);border-top:var(--gg-border-standard)">
+                    <input type="hidden" name="athlete_id" value="{{ athlete.id }}">
+                    <div>
+                        <label class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);display:block">Score</label>
+                        <input type="number" name="score" min="0" max="10" required class="mc-input" style="width:60px">
+                    </div>
+                    <div style="flex:1">
+                        <label class="mc-text-muted" style="font-size:var(--gg-font-size-2xs);display:block">Comment</label>
+                        <input type="text" name="comment" placeholder="Optional" class="mc-input" style="width:100%">
+                    </div>
+                    <button type="submit" class="gg-btn gg-btn--default" style="font-size:var(--gg-font-size-2xs)">Record</button>
+                </form>
+                <div id="nps-result" class="mc-mt-sm"></div>
+            </div>
+        </div>
+    </aside>
+</div>
+{% endblock %}

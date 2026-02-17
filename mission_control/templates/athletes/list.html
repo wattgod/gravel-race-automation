@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Athletes — Gravel God Mission Control{% endblock %}
+
+{% block content %}
+<div class="mc-page-header mc-page-header--with-actions">
+    <div>
+        <span class="mc-page-header__kicker">Roster</span>
+        <h1 class="mc-page-header__title">Athletes</h1>
+        <p class="mc-page-header__desc">{{ total }} athlete{{ 's' if total != 1 else '' }}</p>
+    </div>
+</div>
+
+<!-- Search & Filters -->
+<div class="mc-flex mc-gap-sm mc-mb-md" style="flex-wrap:wrap">
+    <input type="text" name="q" value="{{ q }}"
+           placeholder="Search name, email, or race..."
+           class="mc-input mc-input--search"
+           hx-get="/athletes" hx-target="#athlete-table" hx-swap="innerHTML"
+           hx-trigger="keyup changed delay:300ms" hx-include="[name='tier'],[name='status']">
+
+    <select name="tier" class="mc-select"
+            hx-get="/athletes" hx-target="#athlete-table" hx-swap="innerHTML"
+            hx-trigger="change" hx-include="[name='q'],[name='status']">
+        <option value="">All Tiers</option>
+        <option value="time_crunched" {% if tier == 'time_crunched' %}selected{% endif %}>Time Crunched</option>
+        <option value="finisher" {% if tier == 'finisher' %}selected{% endif %}>Finisher</option>
+        <option value="compete" {% if tier == 'compete' %}selected{% endif %}>Compete</option>
+        <option value="podium" {% if tier == 'podium' %}selected{% endif %}>Podium</option>
+    </select>
+
+    <select name="status" class="mc-select"
+            hx-get="/athletes" hx-target="#athlete-table" hx-swap="innerHTML"
+            hx-trigger="change" hx-include="[name='q'],[name='tier']">
+        <option value="">All Statuses</option>
+        <option value="intake_received" {% if status == 'intake_received' %}selected{% endif %}>Intake Received</option>
+        <option value="pipeline_running" {% if status == 'pipeline_running' %}selected{% endif %}>Pipeline Running</option>
+        <option value="pipeline_complete" {% if status == 'pipeline_complete' %}selected{% endif %}>Pipeline Complete</option>
+        <option value="audit_passed" {% if status == 'audit_passed' %}selected{% endif %}>Audit Passed</option>
+        <option value="approved" {% if status == 'approved' %}selected{% endif %}>Approved</option>
+        <option value="delivered" {% if status == 'delivered' %}selected{% endif %}>Delivered</option>
+        <option value="active" {% if status == 'active' %}selected{% endif %}>Active</option>
+        <option value="post_race" {% if status == 'post_race' %}selected{% endif %}>Post Race</option>
+        <option value="archived" {% if status == 'archived' %}selected{% endif %}>Archived</option>
+    </select>
+</div>
+
+<!-- Athletes Table -->
+<div class="mc-card">
+    <div class="mc-card__body" style="padding:0">
+        <div id="athlete-table">
+            {% include "partials/athlete_table.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

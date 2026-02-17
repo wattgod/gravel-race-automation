@@ -34,8 +34,8 @@ db/mission_control.db
 db/mission_control.db-wal
 db/mission_control.db-shm
 
-# Generated athlete output
-athletes/
+# Generated athlete output (root level only, not template subdirs)
+/athletes/
 output/
 
 # IDE

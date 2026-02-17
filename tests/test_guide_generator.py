@@ -98,7 +98,7 @@ class TestBlockRenderers:
             "prose", "data_table", "accordion", "tabs", "timeline",
             "process_list", "callout", "knowledge_check",
             "flashcard", "scenario", "calculator", "zone_visualizer",
-            "image", "video",
+            "image", "video", "hero_stat",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 

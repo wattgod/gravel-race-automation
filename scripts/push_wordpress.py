@@ -1131,13 +1131,16 @@ def sync_ga4():
 
 
 def sync_ab():
-    """Deploy A/B test assets: JS, config JSON, and mu-plugin.
+    """Deploy A/B test assets: JS (hashed + unhashed), config JSON, and mu-plugin.
 
     Uploads:
-      - web/gg-ab-tests.js       → /ab/gg-ab-tests.js
+      - web/gg-ab-tests.js       → /ab/gg-ab-tests.js (for mu-plugin)
+      - web/gg-ab-tests.js       → /ab/gg-ab-tests.{hash}.js (for static pages)
       - web/ab/experiments.json   → /ab/experiments.json
       - wordpress/mu-plugins/gg-ab.php → wp-content/mu-plugins/gg-ab.php
     """
+    import hashlib
+
     ssh = get_ssh_credentials()
     if not ssh:
         return False
@@ -1155,17 +1158,23 @@ def sync_ab():
             print(f"  Run: python wordpress/ab_experiments.py first")
             return False
 
+    # Compute content hash for cache-busted JS filename
+    js_content = js_file.read_text()
+    js_hash = hashlib.md5(js_content.encode()).hexdigest()[:8]
+    hashed_js_name = f"gg-ab-tests.{js_hash}.js"
+
     remote_base = "~/www/gravelgodcycling.com/public_html"
     remote_ab = f"{remote_base}/ab"
     remote_mu = f"{remote_base}/wp-content/mu-plugins"
 
-    # Create /ab/ directory
+    # Create /ab/ directory and clean old hashed JS files
     try:
         subprocess.run(
             [
                 "ssh", "-i", str(SSH_KEY), "-p", port,
                 f"{user}@{host}",
-                f"mkdir -p {remote_ab} && chmod 755 {remote_ab}",
+                f"mkdir -p {remote_ab} && chmod 755 {remote_ab} && "
+                f"rm -f {remote_ab}/gg-ab-tests.*.js",
             ],
             check=True, capture_output=True, text=True, timeout=15,
         )
@@ -1173,9 +1182,10 @@ def sync_ab():
         print(f"✗ Failed to create /ab/ directory: {e.stderr.strip()}")
         return False
 
-    # Upload all three files
+    # Upload: unhashed (for mu-plugin) + hashed (for static pages) + config + plugin
     uploads = [
         (js_file, f"{remote_ab}/gg-ab-tests.js"),
+        (js_file, f"{remote_ab}/{hashed_js_name}"),
         (config_file, f"{remote_ab}/experiments.json"),
         (plugin_file, f"{remote_mu}/gg-ab.php"),
     ]
@@ -1194,7 +1204,8 @@ def sync_ab():
             return False
 
     print("✓ Deployed A/B testing assets:")
-    print("  /ab/gg-ab-tests.js")
+    print(f"  /ab/gg-ab-tests.js (unhashed, for mu-plugin)")
+    print(f"  /ab/{hashed_js_name} (cache-busted, for static pages)")
     print("  /ab/experiments.json")
     print("  wp-content/mu-plugins/gg-ab.php")
     return True

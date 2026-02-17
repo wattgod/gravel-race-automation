@@ -1289,7 +1289,7 @@ def build_pk_footer_cta(rd: dict) -> str:
          strategy — get a custom training plan.</p>
       <div class="gg-pk-footer-buttons">
         <a href="{esc(TRAINING_PLANS_URL)}" class="gg-pk-btn gg-pk-btn--primary">BUILD MY PLAN &mdash; $15/WK</a>
-        <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary" target="_blank" rel="noopener">1:1 COACHING</a>
+        <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary">1:1 COACHING</a>
       </div>
       <p class="gg-pk-footer-back">
         <a href="/race/{slug}/">Back to {name} Race Profile</a>

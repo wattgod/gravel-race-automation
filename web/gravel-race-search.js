@@ -1215,6 +1215,7 @@
   function toggleFavoritesFilter() {
     showFavoritesOnly = !showFavoritesOnly;
     updateFavoritesToggle();
+    clearActiveSaved();
     render();
     saveToURL();
   }
@@ -1240,7 +1241,11 @@
       filters: { search: f.search, tier: f.tier, region: f.region, distance: f.distance, month: f.month, discipline: f.discipline },
       sliders: getSliderValues(),
       matchMode: displayMode === 'match',
-      sort: currentSort
+      sort: currentSort,
+      viewMode: viewMode,
+      showFavoritesOnly: showFavoritesOnly,
+      compareSlugs: compareSlugs.slice(),
+      compareMode: compareMode
     };
     savedConfigs.push(config);
     try { localStorage.setItem('gg-saved-filters', JSON.stringify(savedConfigs)); } catch(e) {}
@@ -1263,6 +1268,21 @@
     if (config.sort) {
       currentSort = config.sort;
       updateSortButtons();
+    }
+    // Restore view mode
+    if (config.viewMode && config.viewMode !== viewMode) {
+      toggleView(config.viewMode);
+    }
+    // Restore favorites
+    if (config.showFavoritesOnly !== undefined) {
+      showFavoritesOnly = config.showFavoritesOnly;
+      updateFavoritesToggle();
+    }
+    // Restore compare state
+    if (config.compareSlugs) {
+      compareSlugs = config.compareSlugs.slice();
+      compareMode = !!config.compareMode;
+      updateCompareBar();
     }
     // Handle match mode
     if (config.matchMode && config.sliders) {
@@ -1312,6 +1332,13 @@
     bar.innerHTML = html;
   }
 
+  function clearActiveSaved() {
+    if (activeSavedIndex !== -1) {
+      activeSavedIndex = -1;
+      renderSavedBar();
+    }
+  }
+
   // ── Main render ──
   function render(resetPages) {
     if (resetPages !== false) {
@@ -1359,13 +1386,13 @@
     var searchTimer = null;
     function debouncedRender() {
       clearTimeout(searchTimer);
-      searchTimer = setTimeout(render, 200);
+      searchTimer = setTimeout(function() { clearActiveSaved(); render(); }, 200);
     }
     // Text search: debounce to avoid DOM thrashing on every keystroke
     document.getElementById('gg-search').addEventListener('input', debouncedRender);
     // Dropdowns: render immediately on change (single event per selection)
     ['gg-tier','gg-region','gg-distance','gg-month','gg-discipline'].forEach(function(id) {
-      document.getElementById(id).addEventListener('change', render);
+      document.getElementById(id).addEventListener('change', function() { clearActiveSaved(); render(); });
     });
 
     window.addEventListener('gg-reset-filters', function() {
@@ -1378,6 +1405,7 @@
       showFavoritesOnly = false;
       tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
       updateFavoritesToggle();
+      clearActiveSaved();
       render();
     });
 
@@ -1385,6 +1413,7 @@
       btn.addEventListener('click', function() {
         currentSort = btn.dataset.sort;
         updateSortButtons();
+        clearActiveSaved();
         render();
       });
       if (btn.dataset.sort === currentSort) {

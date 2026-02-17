@@ -244,14 +244,9 @@ COLORS = {
 # ── A/B Testing ──────────────────────────────────────────────
 
 
-def get_ab_head_snippet() -> str:
-    """Return inline bootstrap + deferred script tag for A/B tests.
-
-    The inline script synchronously swaps text for returning visitors
-    from localStorage cache (zero flicker). The deferred script handles
-    new visitor assignment, GA4 events, and cache refresh.
-    """
-    bootstrap = (
+def get_ab_bootstrap_js() -> str:
+    """Return the minified inline bootstrap JS (shared with gg-ab.php)."""
+    return (
         '(function(){var s=localStorage.getItem("gg_ab_assign");'
         'if(!s)return;try{var a=JSON.parse(s);'
         'var c=localStorage.getItem("gg_ab_cache");'
@@ -259,11 +254,33 @@ def get_ab_head_snippet() -> str:
         'for(var eid in a){if(!cache[eid])continue;'
         'var el=document.querySelector(cache[eid].sel);'
         'if(el)el.textContent=cache[eid].txt;}'
-        '}catch(e){}})()'
+        '}catch(e){}})();'
     )
+
+
+def get_ab_js_filename() -> str:
+    """Return the cache-busted AB JS filename based on content hash."""
+    import hashlib
+    js_path = Path(__file__).resolve().parent.parent / "web" / "gg-ab-tests.js"
+    if not js_path.exists():
+        return "gg-ab-tests.js"
+    content = js_path.read_text()
+    js_hash = hashlib.md5(content.encode()).hexdigest()[:8]
+    return f"gg-ab-tests.{js_hash}.js"
+
+
+def get_ab_head_snippet() -> str:
+    """Return inline bootstrap + deferred script tag for A/B tests.
+
+    The inline script synchronously swaps text for returning visitors
+    from localStorage cache (zero flicker). The deferred script handles
+    new visitor assignment, GA4 events, and cache refresh.
+    """
+    bootstrap = get_ab_bootstrap_js()
+    js_filename = get_ab_js_filename()
     return (
         f'<script>{bootstrap}</script>\n'
-        f'  <script defer src="/ab/gg-ab-tests.js"></script>'
+        f'  <script defer src="/ab/{js_filename}"></script>'
     )
 
 

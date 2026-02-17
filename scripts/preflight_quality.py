@@ -589,13 +589,44 @@ def check_no_dead_end_infographics():
 
 
 def check_ab_config_sync():
-    """Ensure experiments.json matches ab_experiments.py source of truth."""
-    print("\n── A/B Config Sync ──")
+    """Ensure AB system files exist, config is in sync, and JS parses."""
+    print("\n── A/B Testing System ──")
+
+    # 1. File existence — all three AB files must exist
+    js_path = PROJECT_ROOT / "web" / "gg-ab-tests.js"
     config_path = PROJECT_ROOT / "web" / "ab" / "experiments.json"
-    if not config_path.exists():
-        warn("AB config sync", "experiments.json not found — run: python wordpress/ab_experiments.py")
+    php_path = WORDPRESS_DIR / "mu-plugins" / "gg-ab.php"
+
+    check("AB JS file exists (gg-ab-tests.js)", js_path.exists(),
+          "Missing — file deleted?")
+    check("AB config exists (experiments.json)", config_path.exists(),
+          "Missing — run: python wordpress/ab_experiments.py")
+    check("AB mu-plugin exists (gg-ab.php)", php_path.exists(),
+          "Missing — file deleted?")
+
+    if not config_path.exists() or not js_path.exists():
         return
 
+    # 2. JS syntax validation via Node.js
+    js_code = js_path.read_text()
+    test_script = f"""
+try {{
+    new Function({json.dumps(js_code)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+    result = subprocess.run(
+        ["node", "-e", test_script],
+        capture_output=True, text=True, timeout=10
+    )
+    check("AB JS parses without syntax errors",
+          result.returncode == 0 and "SYNTAX_OK" in result.stdout,
+          result.stderr or result.stdout)
+
+    # 3. Config sync — experiments.json matches Python source
     try:
         import importlib.util
         spec = importlib.util.spec_from_file_location(
@@ -616,6 +647,25 @@ def check_ab_config_sync():
         check("AB experiment config valid",
               len(errors) == 0,
               f"Validation errors: {'; '.join(errors)}")
+
+        # 4. Selector parity — generator data-ab attrs match experiment selectors
+        import re
+        exp_ab_values = set()
+        for exp in mod.EXPERIMENTS:
+            m = re.search(r"data-ab=['\"]([^'\"]+)['\"]", exp["selector"])
+            if m:
+                exp_ab_values.add(m.group(1))
+
+        for gen_name in ("generate_homepage.py", "generate_about.py"):
+            gen_path = WORDPRESS_DIR / gen_name
+            if gen_path.exists():
+                gen_content = gen_path.read_text()
+                for m in re.finditer(r'data-ab="([^"]+)"', gen_content):
+                    val = m.group(1)
+                    check(f"AB selector parity: {gen_name} data-ab=\"{val}\"",
+                          val in exp_ab_values,
+                          f"Orphaned data-ab in {gen_name} — no experiment uses '{val}'")
+
     except Exception as e:
         check("AB config sync", False, f"Error loading config: {e}")
 

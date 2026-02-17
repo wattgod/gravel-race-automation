@@ -451,6 +451,32 @@ def check_permissions(v):
     v.check(code in ("301", "302"), "/race/ redirects (not 403)", f"HTTP {code}")
 
 
+def check_ab_testing_assets(v):
+    """Verify A/B testing assets are deployed and accessible."""
+    print("\n[A/B Testing]")
+    # JS file must return 200
+    code = curl_status(f"{BASE_URL}/ab/gg-ab-tests.js")
+    v.check(code == "200", "/ab/gg-ab-tests.js accessible", f"HTTP {code}")
+
+    # Config JSON must return 200 and be valid JSON
+    code = curl_status(f"{BASE_URL}/ab/experiments.json")
+    v.check(code == "200", "/ab/experiments.json accessible", f"HTTP {code}")
+
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/ab/experiments.json")
+        try:
+            data = json.loads(body)
+            v.check("experiments" in data,
+                    "/ab/experiments.json has experiments key",
+                    "Missing 'experiments' key in JSON")
+            v.check(len(data.get("experiments", [])) > 0,
+                    "/ab/experiments.json has active experiments",
+                    "No active experiments in config")
+        except json.JSONDecodeError:
+            v.check(False, "/ab/experiments.json is valid JSON",
+                    "Invalid JSON response")
+
+
 def main():
     print(f"Validating {BASE_URL}...")
     v = Validator()
@@ -468,6 +494,7 @@ def main():
     check_blog_index(v)
     check_blog_sitemap(v)
     check_photo_infrastructure(v)
+    check_ab_testing_assets(v)
 
     check_search_schema(v)
     check_featured_slugs(v)

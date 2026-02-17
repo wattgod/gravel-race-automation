@@ -1,5 +1,5 @@
 (function() {
-  var WORKER_URL = 'https://training-plan-intake.gravelgodcoaching.workers.dev';
+  var API_URL = 'https://gravel-god-webhook.up.railway.app/api/create-checkout';
   var form = document.getElementById('gg-training-form');
   var messageEl = document.getElementById('gg-form-message');
   var submitBtn = form.querySelector('.gg-submit-btn');
@@ -12,6 +12,35 @@
   var formSubmitted = false;
   var sectionsSeen = {};
   var STORAGE_KEY = 'gg_training_form';
+
+  // ---- Pricing constants (must match server) ----
+  var PRICE_PER_WEEK = 15;
+  var PRICE_CAP = 249;
+  var MIN_WEEKS = 4;
+
+  function computePrice(raceDateStr) {
+    if (!raceDateStr) return null;
+    var raceDate = new Date(raceDateStr + 'T00:00:00');
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var days = Math.ceil((raceDate - today) / (1000 * 60 * 60 * 24));
+    var weeks = Math.max(MIN_WEEKS, Math.ceil(days / 7));
+    var price = Math.min(weeks * PRICE_PER_WEEK, PRICE_CAP);
+    return { weeks: weeks, price: price };
+  }
+
+  function updatePriceDisplay() {
+    var races = getRaces();
+    var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
+    if (aRace && aRace.date) {
+      var pricing = computePrice(aRace.date);
+      if (pricing) {
+        submitBtn.textContent = 'Submit & Pay — $' + pricing.price;
+        return;
+      }
+    }
+    submitBtn.textContent = 'Submit & Pay';
+  }
 
   // ---- GA4 Analytics Helper ----
   function track(event, params) {
@@ -219,6 +248,13 @@
   addRace(); // First race by default
   addRaceBtn.addEventListener('click', addRace);
 
+  // ---- Update price when race fields change ----
+  racesContainer.addEventListener('change', updatePriceDisplay);
+  racesContainer.addEventListener('input', function() {
+    clearTimeout(racesContainer._priceTimeout);
+    racesContainer._priceTimeout = setTimeout(updatePriceDisplay, 500);
+  });
+
   // ---- Power/HR toggle ----
   var powerHrRadios = document.querySelectorAll('input[name="powerOrHr"]');
   var powerFields = document.getElementById('powerFields');
@@ -386,8 +422,9 @@
 
   // ---- Restore saved form data ----
   restoreForm();
+  updatePriceDisplay(); // Show price from restored race dates
 
-  // ---- Form submission ----
+  // ---- Form submission → Stripe Checkout ----
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     var races = getRaces();
@@ -400,7 +437,7 @@
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
+    submitBtn.textContent = 'Preparing checkout...';
     messageEl.style.display = 'none';
 
     // Build data object with camelCase field names
@@ -430,41 +467,39 @@
     var workerData = mapToWorkerFormat(data);
 
     try {
-      var response = await fetch(WORKER_URL, {
+      var response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(workerData)
       });
       var result = await response.json();
-      if (result.success) {
+
+      if (result.checkout_url) {
+        // Success — redirect to Stripe Checkout
         formSubmitted = true;
-        messageEl.className = 'gg-form-message success';
-        messageEl.textContent = result.message;
-        form.reset();
-        racesContainer.innerHTML = '';
-        raceCount = 0;
-        addRace();
-        powerFields.style.display = 'none';
-        hrFields.style.display = 'none';
-        pwCalc.style.display = 'none';
         clearSaved();
+        var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
+        var pricing = aRace ? computePrice(aRace.date) : null;
         track('tp_form_submit', {
           races_count: races.length,
           has_power: !!(ftpInput && ftpInput.value),
-          sections_completed: Object.keys(sectionsSeen).length
+          sections_completed: Object.keys(sectionsSeen).length,
+          price: pricing ? pricing.price : 0,
+          weeks: pricing ? pricing.weeks : 0
         });
+        window.location.href = result.checkout_url;
+        return; // Don't re-enable button — page is navigating away
       } else {
-        throw new Error(result.error || 'Submission failed');
+        throw new Error(result.error || 'Failed to create checkout session');
       }
     } catch (error) {
       messageEl.className = 'gg-form-message error';
       messageEl.textContent = error.message || 'Something went wrong. Please try again.';
       track('tp_form_error', { error: error.message || 'unknown' });
+      messageEl.style.display = 'block';
+      submitBtn.disabled = false;
+      updatePriceDisplay();
+      messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    messageEl.style.display = 'block';
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Submit & Build My Plan';
-    messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 })();

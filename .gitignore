@@ -59,6 +59,11 @@ guide/media/
 credentials.json
 token.json
 
+# Daily reports (generated via: python3 scripts/daily_report.py)
+reports/daily/*.html
+reports/daily/*.json
+!reports/daily/.gitkeep
+
 # OS
 .DS_Store
 Thumbs.db

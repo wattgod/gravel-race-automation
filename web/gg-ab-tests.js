@@ -87,25 +87,28 @@
   function applyVariant(experiment, variant) {
     var el = document.querySelector(experiment.selector);
     if (!el) return;
-    // For links/buttons, swap textContent; for paragraphs, swap innerHTML
-    var tag = el.tagName.toLowerCase();
-    if (tag === 'a' || tag === 'button') {
-      el.textContent = variant.content;
-    } else {
-      el.textContent = variant.content;
-    }
+    // All variants are plain text — textContent for XSS safety.
+    // If rich HTML variants are needed later, add an explicit "html"
+    // flag to the variant config.
+    el.textContent = variant.content;
   }
 
-  // ── Conversion tracking ────────────────────────────────────
+  // ── Conversion tracking (deduplicated per session) ─────────
   function bindConversion(experiment, variant) {
     if (!experiment.conversion || experiment.conversion.type !== 'click') return;
     var targets = document.querySelectorAll(experiment.conversion.selector);
     for (var i = 0; i < targets.length; i++) {
       (function (target) {
-        // Avoid double-binding
+        // Avoid double-binding on same element
         if (target.dataset.abConversion) return;
         target.dataset.abConversion = experiment.id;
         target.addEventListener('click', function () {
+          // Deduplicate: one conversion per experiment per session
+          var dedupKey = 'gg_ab_conv_' + experiment.id;
+          try {
+            if (sessionStorage.getItem(dedupKey)) return;
+            sessionStorage.setItem(dedupKey, '1');
+          } catch (e) { /* sessionStorage unavailable — fire anyway */ }
           fireGA4('ab_conversion', {
             experiment_id: experiment.id,
             variant_id: variant.id,

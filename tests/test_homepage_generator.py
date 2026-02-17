@@ -214,9 +214,12 @@ class TestSectionBuilders:
     def test_nav_has_links(self):
         nav = build_nav()
         assert "/gravel-races/" in nav
-        assert "/coaching/" in nav
         assert "/articles/" in nav
-        assert "/about/" in nav
+        assert "/training-plans/" in nav
+        assert "/guide/" in nav
+        assert "SERVICES" in nav
+        assert "PRODUCTS" in nav
+        assert "gg-hp-dropdown" in nav
 
     def test_nav_no_breadcrumb(self):
         nav = build_nav()
@@ -323,7 +326,7 @@ class TestSectionBuilders:
     def test_training_cta_links(self):
         html = build_training_cta()
         assert "/training-plans/" in html
-        assert "wattgod.com/apply" in html
+        assert "gravelgodcycling.com/coaching/" in html
 
     def test_email_capture_has_content(self):
         html = build_email_capture()

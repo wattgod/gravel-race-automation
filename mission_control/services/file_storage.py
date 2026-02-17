@@ -1,10 +1,13 @@
 """Supabase Storage upload/download/signed-URL helpers."""
 
+import logging
 import os
 from pathlib import Path
 
 from mission_control.config import ATHLETES_DIR, STORAGE_BUCKET
 from mission_control import supabase_client as db
+
+logger = logging.getLogger(__name__)
 
 
 def get_storage():
@@ -38,7 +41,7 @@ def upload_file(athlete_slug: str, local_path: Path, storage_subpath: str = "") 
     try:
         bucket.remove([storage_path])
     except Exception:
-        pass
+        pass  # Expected if file doesn't exist yet
 
     bucket.upload(storage_path, content)
     return storage_path
@@ -81,7 +84,7 @@ def upload_athlete_artifacts(athlete_id: str, slug: str) -> int:
                 )
                 count += 1
             except Exception:
-                pass
+                logger.exception("Failed to upload %s for athlete %s", filename, slug)
 
     # Upload workouts
     workouts_dir = athlete_dir / "workouts"
@@ -98,7 +101,7 @@ def upload_athlete_artifacts(athlete_id: str, slug: str) -> int:
                 )
                 count += 1
             except Exception:
-                pass
+                logger.exception("Failed to upload workout %s for athlete %s", zwo_file.name, slug)
 
     return count
 
@@ -134,4 +137,5 @@ def list_athlete_files(athlete_slug: str) -> list[dict]:
         files = bucket.list(athlete_slug)
         return files or []
     except Exception:
+        logger.exception("Failed to list files for athlete %s", athlete_slug)
         return []

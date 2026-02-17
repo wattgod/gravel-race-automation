@@ -1,6 +1,7 @@
 """Webhooks — receives intake from Cloudflare Worker + automation triggers."""
 
 import logging
+import re
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
@@ -12,6 +13,24 @@ from mission_control.services.sequence_engine import enroll, record_event
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/webhooks")
+
+# Basic email validation — intentionally permissive
+_EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
+_MAX_NAME_LEN = 200
+_MAX_SOURCE_LEN = 100
+
+
+def _validate_email(email: str) -> str:
+    """Validate and normalize email. Raises HTTPException on invalid."""
+    email = email.strip().lower()
+    if not email or not _EMAIL_RE.match(email):
+        raise HTTPException(status_code=400, detail="Invalid email format")
+    return email
+
+
+def _truncate(value: str, max_len: int) -> str:
+    """Truncate string to max length."""
+    return value[:max_len] if value else ""
 
 
 @router.post("/intake")
@@ -38,9 +57,9 @@ async def intake_webhook(
 
     payload = plan_request.get("payload", {})
 
-    # Extract athlete info from payload
-    name = payload.get("name", "Unknown")
-    email = payload.get("email", "")
+    # Extract and validate athlete info from payload
+    name = _truncate(payload.get("name", "Unknown"), _MAX_NAME_LEN)
+    email = payload.get("email", "").strip().lower()
 
     # Generate slug
     slug_base = name.lower().replace(" ", "-")
@@ -94,12 +113,9 @@ async def subscriber_webhook(
             raise HTTPException(status_code=401, detail="Invalid webhook secret")
 
     body = await request.json()
-    email = body.get("email", "").strip()
-    if not email:
-        raise HTTPException(status_code=400, detail="email required")
-
-    name = body.get("name", "").strip()
-    source = body.get("source", "unknown")
+    email = _validate_email(body.get("email", ""))
+    name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
+    source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
     source_data = {}
     if body.get("race_slug"):

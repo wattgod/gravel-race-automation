@@ -8,7 +8,6 @@ from mission_control import supabase_client as db
 def dashboard_stats() -> dict:
     """Return stats for the main dashboard."""
     total_athletes = db.count("gg_athletes")
-    active_plans = len(db.select("gg_athletes", columns="id", match=None))
     # Count specific statuses
     active_statuses = ["intake_received", "pipeline_running", "pipeline_complete", "audit_passed", "approved"]
     active_count = 0

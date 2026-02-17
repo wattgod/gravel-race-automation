@@ -66,6 +66,15 @@ class TestSubscriberWebhook:
         resp = self._post(client, {"name": "No Email"})
         assert resp.status_code == 400
 
+    def test_rejects_invalid_email_format(self, client):
+        resp = self._post(client, {"email": "not-an-email", "name": "Bad"})
+        assert resp.status_code == 400
+        assert "email" in resp.json()["detail"].lower()
+
+    def test_rejects_empty_email(self, client):
+        resp = self._post(client, {"email": "   ", "name": "Blank"})
+        assert resp.status_code == 400
+
     def test_enrolls_subscriber(self, client, fake_db):
         resp = self._post(client, {
             "email": "new-sub@example.com",

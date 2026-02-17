@@ -6,6 +6,7 @@ Uploads artifacts to Supabase Storage on completion.
 """
 
 import json
+import logging
 import subprocess
 import threading
 import time
@@ -14,6 +15,8 @@ from pathlib import Path
 
 from mission_control.config import ATHLETES_DIR, PIPELINE_SCRIPT, PRE_DELIVERY_AUDIT
 from mission_control import supabase_client as db
+
+logger = logging.getLogger(__name__)
 
 
 def trigger_pipeline(
@@ -196,4 +199,4 @@ def _sync_athlete_artifacts(athlete_id: str, slug: str) -> None:
         from mission_control.services.file_storage import upload_athlete_artifacts
         upload_athlete_artifacts(athlete_id, slug)
     except Exception:
-        pass  # Non-fatal — artifacts can be uploaded later
+        logger.exception("Failed to upload artifacts for athlete %s (%s)", slug, athlete_id)

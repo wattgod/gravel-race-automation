@@ -29,6 +29,22 @@ class TestPickVariant:
         variants = {"ONLY": {"weight": 50, "steps": []}}
         assert _pick_variant(variants) == "ONLY"
 
+    def test_all_zero_weights_raises(self, fake_db):
+        from mission_control.services.sequence_engine import _pick_variant
+
+        variants = {
+            "A": {"weight": 0, "steps": []},
+            "B": {"weight": 0, "steps": []},
+        }
+        with pytest.raises(ValueError, match="All variant weights are zero"):
+            _pick_variant(variants)
+
+    def test_empty_variants_raises(self, fake_db):
+        from mission_control.services.sequence_engine import _pick_variant
+
+        with pytest.raises(ValueError, match="No variants defined"):
+            _pick_variant({})
+
 
 class TestEnroll:
     """Enrollment logic — deduplication, variant assignment, scheduling."""
@@ -381,6 +397,29 @@ class TestInjectUnsubscribe:
         result = _inject_unsubscribe(html, "test@example.com")
         assert "test%40example.com" in result
         assert "token=" in result
+
+
+class TestProcessingLock:
+    """process_due_sends() uses async lock to prevent duplicates."""
+
+    def test_lock_exists(self, fake_db):
+        import asyncio
+        from mission_control.services.sequence_engine import _processing_lock
+        assert isinstance(_processing_lock, asyncio.Lock)
+
+    def test_skips_when_locked(self, fake_db):
+        import asyncio
+        from mission_control.services.sequence_engine import process_due_sends, _processing_lock
+
+        async def run():
+            # Acquire lock first
+            async with _processing_lock:
+                result = await process_due_sends()
+            return result
+
+        result = asyncio.new_event_loop().run_until_complete(run())
+        assert result["skipped"] is True
+        assert result["processed"] == 0
 
 
 class TestGetSequenceStats:

@@ -3,6 +3,7 @@
 import asyncio
 import hashlib
 import hmac
+import logging
 import random
 import urllib.parse
 from datetime import datetime, timedelta, timezone
@@ -12,6 +13,11 @@ from mission_control.config import (
     PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
 )
 from mission_control.sequences import get_sequence, SEQUENCES
+
+logger = logging.getLogger(__name__)
+
+# Lock to prevent concurrent process_due_sends() from sending duplicate emails
+_processing_lock = asyncio.Lock()
 
 
 def enroll(
@@ -69,9 +75,16 @@ def enroll(
 
 
 def _pick_variant(variants: dict) -> str:
-    """Pick a variant based on weights."""
+    """Pick a variant based on weights.
+
+    Raises ValueError if variants is empty or all weights are zero.
+    """
+    if not variants:
+        raise ValueError("No variants defined")
     keys = list(variants.keys())
     weights = [variants[k]["weight"] for k in keys]
+    if not any(w > 0 for w in weights):
+        raise ValueError(f"All variant weights are zero: {keys}")
     return random.choices(keys, weights=weights, k=1)[0]
 
 
@@ -97,36 +110,45 @@ def build_unsubscribe_url(email: str) -> str:
 async def process_due_sends() -> dict:
     """Process all enrollments with due sends. Called by scheduler.
 
-    Returns dict with counts: {processed, sent, errors}.
+    Uses an async lock to prevent concurrent invocations from sending
+    duplicate emails (e.g. if scheduler fires twice in quick succession).
+
+    Returns dict with counts: {processed, sent, errors, skipped}.
     """
-    now = datetime.now(timezone.utc).isoformat()
+    if _processing_lock.locked():
+        logger.info("process_due_sends already running, skipping")
+        return {"processed": 0, "sent": 0, "errors": 0, "skipped": True}
 
-    # Query enrollments where status=active and next_send_at <= now
-    q = db._table("gg_sequence_enrollments").select("*")
-    q = q.eq("status", "active").lte("next_send_at", now)
-    result = q.execute()
-    enrollments = result.data or []
+    async with _processing_lock:
+        now = datetime.now(timezone.utc).isoformat()
 
-    sent = 0
-    errors = 0
+        # Query enrollments where status=active and next_send_at <= now
+        q = db._table("gg_sequence_enrollments").select("*")
+        q = q.eq("status", "active").lte("next_send_at", now)
+        result = q.execute()
+        enrollments = result.data or []
 
-    for enrollment in enrollments:
-        try:
-            success = await _send_next_step(enrollment)
-            if success:
-                sent += 1
-            else:
+        sent = 0
+        errors = 0
+
+        for enrollment in enrollments:
+            try:
+                success = await _send_next_step(enrollment)
+                if success:
+                    sent += 1
+                else:
+                    errors += 1
+            except Exception as e:
                 errors += 1
-        except Exception as e:
-            errors += 1
-            db.log_action(
-                "sequence_send_error",
-                "enrollment",
-                str(enrollment["id"]),
-                str(e),
-            )
+                logger.exception("Error sending step for enrollment %s", enrollment["id"])
+                db.log_action(
+                    "sequence_send_error",
+                    "enrollment",
+                    str(enrollment["id"]),
+                    str(e),
+                )
 
-    return {"processed": len(enrollments), "sent": sent, "errors": errors}
+        return {"processed": len(enrollments), "sent": sent, "errors": errors, "skipped": False}
 
 
 async def _send_next_step(enrollment: dict) -> bool:
@@ -202,7 +224,10 @@ async def _send_next_step(enrollment: dict) -> bool:
             "next_send_at": None,
         }, {"id": enrollment["id"]})
     else:
-        # Schedule next send
+        # Schedule next send.
+        # delay_days is CUMULATIVE from enrollment (day 0, 3, 7 = gaps of 3, 4).
+        # Delta = next step's delay minus current step's delay.
+        # min 1 day gap to prevent same-day sends from config errors.
         next_delay = steps[next_step]["delay_days"]
         current_delay = step["delay_days"]
         delta_days = next_delay - current_delay
@@ -252,9 +277,11 @@ def _render_template(template_name: str, enrollment: dict) -> str:
 def _send_email_sync(to_email: str, subject: str, html: str) -> str:
     """Send an email via Resend. Runs in a thread (called via asyncio.to_thread)."""
     import resend
-    resend.api_key = RESEND_API_KEY
-
     from mission_control.config import SEQUENCE_FROM_EMAIL, SEQUENCE_FROM_NAME
+
+    if not resend.api_key:
+        resend.api_key = RESEND_API_KEY
+
     result = resend.Emails.send({
         "from": f"{SEQUENCE_FROM_NAME} <{SEQUENCE_FROM_EMAIL}>",
         "to": [to_email],
@@ -337,8 +364,11 @@ def get_sequence_stats(sequence_id: str) -> dict:
         elif e["status"] == "active":
             variant_stats[v]["active"] += 1
 
-    # Send stats per variant
-    sends = db.select("gg_sequence_sends")
+    # Send stats per variant — only fetch sends for this sequence's enrollments
+    enrollment_ids = {e["id"] for e in enrollments}
+    sends = []
+    for eid in enrollment_ids:
+        sends.extend(db.select("gg_sequence_sends", match={"enrollment_id": eid}))
     enrollment_map = {e["id"]: e for e in enrollments}
 
     for v in variant_stats:

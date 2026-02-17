@@ -317,6 +317,72 @@ class TestUnsubscribe:
         assert count == 0
 
 
+class TestUnsubscribeTokens:
+    """HMAC-based unsubscribe token generation and verification."""
+
+    def test_generate_token_deterministic(self, fake_db):
+        from mission_control.services.sequence_engine import generate_unsubscribe_token
+
+        t1 = generate_unsubscribe_token("test@example.com")
+        t2 = generate_unsubscribe_token("test@example.com")
+        assert t1 == t2
+
+    def test_different_emails_different_tokens(self, fake_db):
+        from mission_control.services.sequence_engine import generate_unsubscribe_token
+
+        t1 = generate_unsubscribe_token("a@example.com")
+        t2 = generate_unsubscribe_token("b@example.com")
+        assert t1 != t2
+
+    def test_verify_valid_token(self, fake_db):
+        from mission_control.services.sequence_engine import (
+            generate_unsubscribe_token, verify_unsubscribe_token,
+        )
+
+        email = "valid@example.com"
+        token = generate_unsubscribe_token(email)
+        assert verify_unsubscribe_token(email, token) is True
+
+    def test_verify_invalid_token(self, fake_db):
+        from mission_control.services.sequence_engine import verify_unsubscribe_token
+
+        assert verify_unsubscribe_token("test@example.com", "bogus-token") is False
+
+    def test_case_insensitive_email(self, fake_db):
+        from mission_control.services.sequence_engine import (
+            generate_unsubscribe_token, verify_unsubscribe_token,
+        )
+
+        token = generate_unsubscribe_token("Test@Example.COM")
+        assert verify_unsubscribe_token("test@example.com", token) is True
+
+    def test_build_unsubscribe_url(self, fake_db):
+        from mission_control.services.sequence_engine import build_unsubscribe_url
+
+        url = build_unsubscribe_url("test@example.com")
+        assert "/unsubscribe?" in url
+        assert "email=test%40example.com" in url
+        assert "token=" in url
+
+
+class TestInjectUnsubscribe:
+    def test_injects_before_body_close(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_unsubscribe
+
+        html = "<html><body><p>Hello</p></body></html>"
+        result = _inject_unsubscribe(html, "test@example.com")
+        assert "Unsubscribe" in result
+        assert result.index("Unsubscribe") < result.index("</body>")
+
+    def test_link_contains_email_and_token(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_unsubscribe
+
+        html = "<html><body><p>Hello</p></body></html>"
+        result = _inject_unsubscribe(html, "test@example.com")
+        assert "test%40example.com" in result
+        assert "token=" in result
+
+
 class TestGetSequenceStats:
     def test_stats_with_enrollments(self, fake_db):
         from mission_control.services.sequence_engine import get_sequence_stats

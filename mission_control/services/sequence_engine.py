@@ -1,10 +1,16 @@
 """Sequence engine — enrollment, scheduling, sending, A/B assignment."""
 
+import asyncio
+import hashlib
+import hmac
 import random
+import urllib.parse
 from datetime import datetime, timedelta, timezone
 
 from mission_control import supabase_client as db
-from mission_control.config import RESEND_API_KEY, WEB_TEMPLATES_DIR
+from mission_control.config import (
+    PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
+)
 from mission_control.sequences import get_sequence, SEQUENCES
 
 
@@ -69,6 +75,25 @@ def _pick_variant(variants: dict) -> str:
     return random.choices(keys, weights=weights, k=1)[0]
 
 
+def generate_unsubscribe_token(email: str) -> str:
+    """Generate an HMAC token for unsubscribe URL verification."""
+    secret = (UNSUBSCRIBE_SECRET or "fallback-dev-secret").encode()
+    return hmac.new(secret, email.lower().encode(), hashlib.sha256).hexdigest()[:32]
+
+
+def verify_unsubscribe_token(email: str, token: str) -> bool:
+    """Verify an unsubscribe token is valid for the given email."""
+    expected = generate_unsubscribe_token(email)
+    return hmac.compare_digest(expected, token)
+
+
+def build_unsubscribe_url(email: str) -> str:
+    """Build the full unsubscribe URL for an email address."""
+    token = generate_unsubscribe_token(email)
+    params = urllib.parse.urlencode({"email": email, "token": token})
+    return f"{PUBLIC_URL}/unsubscribe?{params}"
+
+
 async def process_due_sends() -> dict:
     """Process all enrollments with due sends. Called by scheduler.
 
@@ -131,24 +156,20 @@ async def _send_next_step(enrollment: dict) -> bool:
     # Render subject with source_data substitutions
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
 
-    # Render email template
+    # Render email template and inject unsubscribe link
     html = _render_template(step["template"], enrollment)
+    html = _inject_unsubscribe(html, enrollment["contact_email"])
 
-    # Send via Resend
+    # Send via Resend (in thread to avoid blocking event loop)
     resend_id = ""
     if RESEND_API_KEY:
         try:
-            import resend
-            resend.api_key = RESEND_API_KEY
-
-            from mission_control.config import SEQUENCE_FROM_EMAIL, SEQUENCE_FROM_NAME
-            result = resend.Emails.send({
-                "from": f"{SEQUENCE_FROM_NAME} <{SEQUENCE_FROM_EMAIL}>",
-                "to": [enrollment["contact_email"]],
-                "subject": subject,
-                "html": html,
-            })
-            resend_id = result.get("id", "")
+            resend_id = await asyncio.to_thread(
+                _send_email_sync,
+                enrollment["contact_email"],
+                subject,
+                html,
+            )
         except Exception as e:
             db.log_action(
                 "sequence_send_error",
@@ -224,6 +245,42 @@ def _render_template(template_name: str, enrollment: dict) -> str:
 
     for placeholder, value in replacements.items():
         html = html.replace(placeholder, value)
+
+    return html
+
+
+def _send_email_sync(to_email: str, subject: str, html: str) -> str:
+    """Send an email via Resend. Runs in a thread (called via asyncio.to_thread)."""
+    import resend
+    resend.api_key = RESEND_API_KEY
+
+    from mission_control.config import SEQUENCE_FROM_EMAIL, SEQUENCE_FROM_NAME
+    result = resend.Emails.send({
+        "from": f"{SEQUENCE_FROM_NAME} <{SEQUENCE_FROM_EMAIL}>",
+        "to": [to_email],
+        "subject": subject,
+        "html": html,
+    })
+    return result.get("id", "")
+
+
+def _inject_unsubscribe(html: str, email: str) -> str:
+    """Inject unsubscribe link into email HTML before closing </body> or at end."""
+    unsub_url = build_unsubscribe_url(email)
+    unsub_block = (
+        '<div style="text-align:center;padding:16px 32px;font-family:\'Courier New\',monospace;'
+        'font-size:11px;color:#8c7568;border-top:1px solid #d4c5b9">'
+        f'<a href="{unsub_url}" style="color:#8c7568;text-decoration:underline">'
+        'Unsubscribe</a> from future emails'
+        '</div>'
+    )
+
+    if '</body>' in html:
+        html = html.replace('</body>', f'{unsub_block}</body>')
+    elif '</html>' in html:
+        html = html.replace('</html>', f'{unsub_block}</html>')
+    else:
+        html += unsub_block
 
     return html
 

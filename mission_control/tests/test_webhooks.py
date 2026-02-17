@@ -142,3 +142,40 @@ class TestIntakeWebhook:
     def test_returns_404_for_unknown_request(self, client, fake_db):
         resp = self._post(client, {"request_id": "nonexistent"})
         assert resp.status_code == 404
+
+
+class TestUnsubscribeEndpoint:
+    """GET /unsubscribe — public, HMAC-verified."""
+
+    def test_valid_unsubscribe(self, client, fake_db):
+        from mission_control.services.sequence_engine import generate_unsubscribe_token
+        from mission_control.tests.conftest import make_enrollment
+
+        email = "unsub-test@example.com"
+        enrollment = make_enrollment(contact_email=email, status="active")
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+
+        token = generate_unsubscribe_token(email)
+        resp = client.get(f"/unsubscribe?email={email}&token={token}")
+        assert resp.status_code == 200
+        assert "Unsubscribed" in resp.text
+        assert enrollment["status"] == "unsubscribed"
+
+    def test_invalid_token_rejected(self, client, fake_db):
+        resp = client.get("/unsubscribe?email=test@example.com&token=bogus")
+        assert resp.status_code == 200
+        assert "invalid" in resp.text.lower()
+
+    def test_missing_params(self, client, fake_db):
+        resp = client.get("/unsubscribe")
+        assert resp.status_code == 200
+        assert "missing" in resp.text.lower()
+
+    def test_already_unsubscribed(self, client, fake_db):
+        from mission_control.services.sequence_engine import generate_unsubscribe_token
+
+        email = "already-unsub@example.com"
+        token = generate_unsubscribe_token(email)
+        resp = client.get(f"/unsubscribe?email={email}&token={token}")
+        assert resp.status_code == 200
+        assert "Already" in resp.text

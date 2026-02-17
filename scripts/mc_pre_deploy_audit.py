@@ -241,6 +241,40 @@ def check_upsert_bug():
 
 
 # ---------------------------------------------------------------------------
+# CHECK 8: Unsubscribe link present in sequence engine
+# ---------------------------------------------------------------------------
+def check_unsubscribe():
+    print("\n8. CAN-SPAM UNSUBSCRIBE")
+
+    engine_file = MC_DIR / "services" / "sequence_engine.py"
+    if not engine_file.exists():
+        check("sequence_engine.py exists", False)
+        return
+
+    content = engine_file.read_text()
+    has_inject = "_inject_unsubscribe" in content
+    check("Unsubscribe injection function exists", has_inject,
+          "No _inject_unsubscribe found — emails will lack unsubscribe link" if not has_inject else "")
+
+    has_call = "html = _inject_unsubscribe(html" in content
+    check("Unsubscribe injected before sending", has_call,
+          "_inject_unsubscribe not called in _send_next_step" if not has_call else "")
+
+    # Check unsubscribe route exists
+    unsub_router = MC_DIR / "routers" / "unsubscribe.py"
+    check("Unsubscribe route exists", unsub_router.exists(),
+          "mission_control/routers/unsubscribe.py not found" if not unsub_router.exists() else "")
+
+    # Check app.py includes the router
+    app_file = MC_DIR / "app.py"
+    if app_file.exists():
+        app_content = app_file.read_text()
+        has_router = "unsubscribe" in app_content
+        check("Unsubscribe router mounted", has_router,
+              "unsubscribe router not imported/included in app.py" if not has_router else "")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
@@ -255,6 +289,7 @@ def main():
     check_deprecated_api()
     check_template_vars()
     check_upsert_bug()
+    check_unsubscribe()
 
     print("\n" + "=" * 60)
     if failures:

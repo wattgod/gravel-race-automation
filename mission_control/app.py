@@ -10,7 +10,7 @@ from mission_control.config import STATIC_DIR
 from mission_control.routers import (
     athletes, dashboard, pipeline, reports, templates_page, touchpoints, webhooks,
 )
-from mission_control.routers import sequences, deals_router, analytics
+from mission_control.routers import sequences, deals_router, analytics, unsubscribe
 
 logger = logging.getLogger(__name__)
 
@@ -64,5 +64,6 @@ def create_app() -> FastAPI:
     app.include_router(sequences.router)
     app.include_router(deals_router.router)
     app.include_router(analytics.router)
+    app.include_router(unsubscribe.router)
 
     return app

@@ -54,3 +54,9 @@ GA4_CREDENTIALS_PATH = os.environ.get("GA4_CREDENTIALS_PATH", "")
 # Stripe (optional)
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 STRIPE_API_KEY = os.environ.get("STRIPE_API_KEY", "")
+
+# Public URL (for unsubscribe links in emails)
+PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.up.railway.app")
+
+# HMAC secret for unsubscribe tokens (falls back to WEBHOOK_SECRET)
+UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", "") or WEBHOOK_SECRET

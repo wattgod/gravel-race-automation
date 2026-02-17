@@ -1,4 +1,6 @@
 """Sequence registry — loads all sequence definitions and exports SEQUENCES dict."""
+from __future__ import annotations
+
 
 from mission_control.sequences.welcome import SEQUENCE as welcome
 from mission_control.sequences.nurture import SEQUENCE as nurture

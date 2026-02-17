@@ -1,5 +1,7 @@
 """Deals service — deal CRUD + pipeline aggregation."""
 
+from __future__ import annotations
+
 from datetime import datetime, timezone
 
 from mission_control import supabase_client as db

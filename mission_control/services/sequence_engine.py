@@ -1,5 +1,7 @@
 """Sequence engine — enrollment, scheduling, sending, A/B assignment."""
 
+from __future__ import annotations
+
 import asyncio
 import hashlib
 import hmac

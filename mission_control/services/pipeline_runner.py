@@ -5,6 +5,8 @@ Background thread keeps HTTP response non-blocking.
 Uploads artifacts to Supabase Storage on completion.
 """
 
+from __future__ import annotations
+
 import json
 import logging
 import subprocess

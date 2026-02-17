@@ -1,5 +1,7 @@
 """Email template preview with real or sample data from Supabase."""
 
+from __future__ import annotations
+
 import json
 from pathlib import Path
 

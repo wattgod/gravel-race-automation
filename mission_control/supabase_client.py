@@ -1,4 +1,5 @@
 """Supabase connection and query helpers for all gg_* tables."""
+from __future__ import annotations
 
 import re
 import threading

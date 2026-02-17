@@ -1,5 +1,7 @@
 """GA4 Data API client — fetches analytics data with caching."""
 
+from __future__ import annotations
+
 import json
 import logging
 from datetime import datetime, timedelta, timezone

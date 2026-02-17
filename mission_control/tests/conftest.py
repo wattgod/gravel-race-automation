@@ -7,6 +7,8 @@ Provides:
 """
 
 import os
+import sys
+import types
 import uuid
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -19,6 +21,18 @@ os.environ.setdefault("SUPABASE_URL", "https://fake.supabase.co")
 os.environ.setdefault("SUPABASE_SERVICE_KEY", "fake-key")
 os.environ.setdefault("WEBHOOK_SECRET", "test-secret-123")
 os.environ.setdefault("RESEND_API_KEY", "")
+
+# Pre-mock the supabase package so mission_control.supabase_client can import.
+# The real supabase pip package may not be installed, and the local supabase/
+# CLI config directory (from `supabase init`) shadows the package namespace.
+if "supabase" not in sys.modules or not hasattr(sys.modules["supabase"], "Client"):
+    _fake_supabase = types.ModuleType("supabase")
+    _fake_supabase.Client = MagicMock
+    _fake_supabase.create_client = MagicMock()
+    sys.modules["supabase"] = _fake_supabase
+
+# Eagerly import so patch("mission_control.supabase_client...") can resolve it.
+import mission_control.supabase_client  # noqa: E402, F401
 
 
 # ---------------------------------------------------------------------------

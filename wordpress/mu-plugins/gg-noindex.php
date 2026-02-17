@@ -18,6 +18,7 @@ function gg_noindex_junk_pages() {
     if (is_date()) $dominated = true;
     if (is_paged()) $dominated = true;
     if (is_category()) $dominated = true;
+    if (is_tag()) $dominated = true;
     if (is_feed()) $dominated = true;
     if (is_search()) $dominated = true;
 

@@ -128,7 +128,8 @@ class TestCommentary:
         result = generate_commentary(data)
         assert any("down" in b.lower() for b in result)
 
-    def test_all_clear(self):
+    @patch("scripts.daily_report._load_yesterday_data", return_value=None)
+    def test_all_clear(self, _mock_yesterday):
         data = {
             "ga4": {"configured": False},
             "revenue": {"configured": False},

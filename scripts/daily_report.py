@@ -35,7 +35,7 @@ from dotenv import load_dotenv  # noqa: E402
 load_dotenv(PROJECT_ROOT / ".env")
 
 CURRENT_DATE = date.today()
-DEFAULT_RECIPIENT = "matt@gravelgodcycling.com"
+DEFAULT_RECIPIENT = "gravelgodcoaching@gmail.com"
 REPORTS_DIR = PROJECT_ROOT / "reports" / "daily"
 
 

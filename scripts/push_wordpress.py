@@ -1395,6 +1395,101 @@ def sync_prep_kits(prep_kit_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_series(series_dir: str):
+    """Upload series hub pages to /race/series/{slug}/ on SiteGround via tar+ssh.
+
+    Each series hub is already structured as {slug}/index.html under the
+    series output directory. Deploys to /race/series/ on the server.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    series_path = Path(series_dir)
+    if not series_path.exists():
+        print(f"✗ Series directory not found: {series_path}")
+        return None
+
+    # Find all series hub directories with index.html
+    series_dirs = sorted([
+        d for d in series_path.iterdir()
+        if d.is_dir() and (d / "index.html").exists()
+    ])
+    if not series_dirs:
+        print(f"✗ No series hub pages found in {series_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race/series"
+
+    # Create remote directory with correct permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base} && chmod 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    page_count = len(series_dirs)
+    print(f"  Uploading {page_count} series hub pages via tar+ssh...")
+
+    try:
+        items = [d.name for d in series_dirs]
+        tar_cmd = ["tar", "-cf", "-", "-C", str(series_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading series hub pages: {e}")
+        return None
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        print("⚠️  Warning: could not fix /race/series/ permissions — verify manually")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} series hub pages to {wp_url}/race/series/")
+    return f"{wp_url}/race/series/"
+
+
 def sync_blog_index(index_page: str, index_json: str):
     """Upload blog index page and JSON to /blog/ on SiteGround via SCP."""
     ssh = get_ssh_credentials()
@@ -1663,6 +1758,14 @@ if __name__ == "__main__":
         help="Path to prep kit directory (default: wordpress/output/prep-kit)"
     )
     parser.add_argument(
+        "--sync-series", action="store_true",
+        help="Upload series hub pages to /race/series/{slug}/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--series-dir", default="wordpress/output/race/series",
+        help="Path to series hub directory (default: wordpress/output/race/series)"
+    )
+    parser.add_argument(
         "--sync-blog", action="store_true",
         help="Upload blog preview pages to /blog/{slug}/ via tar+ssh"
     )
@@ -1719,6 +1822,7 @@ if __name__ == "__main__":
         args.sync_ctas = True
         args.sync_ga4 = True
         args.sync_prep_kits = True
+        args.sync_series = True
         args.sync_blog = True
         args.sync_blog_index = True
         args.sync_photos = True
@@ -1728,7 +1832,8 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits, args.sync_blog,
+                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits,
+                      args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -1765,6 +1870,8 @@ if __name__ == "__main__":
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:
         sync_prep_kits(args.prep_kit_dir)
+    if args.sync_series:
+        sync_series(args.series_dir)
     if args.sync_blog:
         sync_blog(args.blog_dir)
     if args.sync_blog_index:

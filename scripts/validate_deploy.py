@@ -477,6 +477,22 @@ def check_ab_testing_assets(v):
                     "Invalid JSON response")
 
 
+def check_series_hubs(v):
+    """Verify series hub pages are deployed and accessible."""
+    print("\n[Series Hubs]")
+    series_slugs = [
+        "belgian-waffle-ride",
+        "life-time-grand-prix",
+        "grinduro",
+        "grasshopper-adventure-series",
+        "gravel-earth-series",
+    ]
+    for slug in series_slugs:
+        url = f"{BASE_URL}/race/series/{slug}/"
+        code = curl_status(url)
+        v.check(code == "200", f"/race/series/{slug}/ accessible", f"HTTP {code}")
+
+
 def main():
     print(f"Validating {BASE_URL}...")
     v = Validator()
@@ -495,6 +511,7 @@ def main():
     check_blog_sitemap(v)
     check_photo_infrastructure(v)
     check_ab_testing_assets(v)
+    check_series_hubs(v)
 
     check_search_schema(v)
     check_featured_slugs(v)

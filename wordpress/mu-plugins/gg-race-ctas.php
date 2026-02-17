@@ -24,7 +24,9 @@ add_filter( 'the_content', 'gg_append_race_cta_filter', 99 );
 add_action( 'wp_footer', 'gg_race_cta_footer_fallback', 99 );
 
 function gg_append_race_cta_filter( $content ) {
-    if ( ! is_singular( 'post' ) ) {
+    // Run on posts and specific high-traffic pages
+    $page_cta_ids = array( 5033 ); // the-big-three (3,504 impressions)
+    if ( ! is_singular( 'post' ) && ! ( is_singular( 'page' ) && in_array( get_the_ID(), $page_cta_ids, true ) ) ) {
         return $content;
     }
     $cta = gg_build_race_cta();
@@ -35,17 +37,19 @@ function gg_append_race_cta_filter( $content ) {
 }
 
 function gg_race_cta_footer_fallback() {
-    if ( ! is_singular( 'post' ) ) {
+    $page_cta_ids = array( 5033 );
+    $is_cta_page = is_singular( 'page' ) && in_array( get_the_ID(), $page_cta_ids, true );
+    if ( ! is_singular( 'post' ) && ! $is_cta_page ) {
         return;
     }
-    // Posts with elementor_header_footer template render their own Elementor
+    // Posts/pages with elementor_header_footer template render their own Elementor
     // content — the_content filter works for these. Posts with 'default' template
-    // use the Elementor Theme Builder single-post template (ID 4524), which
-    // discards the_content modifications. Those need this wp_footer fallback.
+    // or elementor_canvas use the Elementor Theme Builder, which discards
+    // the_content modifications. Those need this wp_footer fallback.
     $post_id = get_the_ID();
     $tpl = get_post_meta( $post_id, '_wp_page_template', true );
     if ( $tpl === 'elementor_header_footer' ) {
-        return; // the_content filter handles these posts
+        return; // the_content filter handles these
     }
     $cta = gg_build_race_cta();
     if ( ! $cta ) {
@@ -75,6 +79,7 @@ function gg_build_race_cta() {
         2209 => 'red-granite-grinder',
         2844 => 'red-granite-grinder',
         3537 => 'red-granite-grinder',
+        3504 => 'foco-fondo',
     );
 
     $names = array(
@@ -86,6 +91,7 @@ function gg_build_race_cta() {
         'gunni-grinder'             => 'Gunni Grinder',
         'iron-horse-bicycle-classic' => 'Iron Horse Bicycle Classic',
         'red-granite-grinder'       => 'Red Granite Grinder',
+        'foco-fondo'                => 'FoCo Fondo',
     );
 
     if ( isset( $race_map[ $post_id ] ) ) {
@@ -100,6 +106,12 @@ function gg_build_race_cta() {
         return gg_hydration_cta_html();
     }
 
+    // High-traffic non-race posts get a general race database CTA
+    $general_cta_posts = array( 4060, 3594, 3581, 5033 ); // FasCat review, Nate Wilson, Beckham, Big Three
+    if ( in_array( $post_id, $general_cta_posts, true ) ) {
+        return gg_general_race_cta_html();
+    }
+
     return null;
 }
 
@@ -110,6 +122,16 @@ function gg_race_cta_html( $name, $race_url, $kit_url ) {
         . '<p style="margin:0;">'
         . '<a href="' . esc_url( $race_url ) . '" style="color:#178079;font-weight:700;text-decoration:underline;margin-right:20px;">' . esc_html( $name ) . ' Race Profile &rarr;</a>'
         . '<a href="' . esc_url( $kit_url ) . '" style="color:#9a7e0a;font-weight:700;text-decoration:underline;">Free Race Prep Kit &rarr;</a>'
+        . '</p></div>';
+}
+
+function gg_general_race_cta_html() {
+    return '<div data-gg-race-cta="1" style="background:#f5efe6;border:3px solid #59473c;padding:24px 28px;margin:40px 0 0;font-family:\'Source Serif 4\',Georgia,serif;">'
+        . '<h3 style="margin:0 0 12px;color:#59473c;font-size:1.3em;">Find Your Next Gravel Race</h3>'
+        . '<p style="margin:0 0 16px;color:#59473c;line-height:1.6;">We rated and analyzed 328 gravel races worldwide across 14 dimensions &mdash; from Unbound to The Traka, T1 to T4. Search by distance, terrain, region, and more.</p>'
+        . '<p style="margin:0;">'
+        . '<a href="https://gravelgodcycling.com/gravel-races/" style="color:#178079;font-weight:700;text-decoration:underline;margin-right:20px;">Browse All 328 Races &rarr;</a>'
+        . '<a href="https://gravelgodcycling.com/race/unbound-200/" style="color:#9a7e0a;font-weight:700;text-decoration:underline;">See: Unbound 200 Profile &rarr;</a>'
         . '</p></div>';
 }
 

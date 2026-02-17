@@ -25,7 +25,7 @@ function gg_noindex_junk_pages() {
     if (function_exists('is_cart') && is_cart()) $dominated = true;
     if (function_exists('is_account_page') && is_account_page()) $dominated = true;
 
-    // URL-pattern matching for WooCommerce, LearnDash, xAPI, dashboard
+    // URL-pattern matching for WooCommerce, LearnDash, xAPI, dashboard, junk pages
     $uri = $_SERVER['REQUEST_URI'] ?? '';
     $noindex_patterns = [
         '/cart',
@@ -34,8 +34,16 @@ function gg_noindex_junk_pages() {
         '/courses/',
         '/gb_xapi_content/',
         '/dashboard',
+        '/student-registration',
+        '/instructor-registration',
         'wc-ajax=',
     ];
+
+    // Noindex search page with query params (e.g. ?region=Midwest) to avoid
+    // duplicate content — the canonical /gravel-races/ is the only one to index
+    if (strpos($uri, '/gravel-races/') !== false && !empty($_SERVER['QUERY_STRING'])) {
+        $dominated = true;
+    }
     foreach ($noindex_patterns as $pattern) {
         if (strpos($uri, $pattern) !== false) {
             $dominated = true;

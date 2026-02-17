@@ -808,6 +808,9 @@ RewriteRule ^big-sugar/?$ /race/big-sugar/ [R=301,L]
 # /midsouth → TrainingPeaks plan (was PrettyLinks, now static redirect)
 RewriteRule ^midsouth/?$ https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-260379/gravel-god-the-midsouth-base-to-race [R=307,L]
 
+# /about-me/ → /about/ (old WP page trashed, consolidate 1,169 impressions)
+RewriteRule ^about-me/?$ /about/ [R=301,L]
+
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 </IfModule>

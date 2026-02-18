@@ -35,7 +35,7 @@ RESEND_FROM_NAME = os.environ.get("RESEND_FROM_NAME", "Gravel God Training")
 
 # Sequence email identity (marketing automation)
 SEQUENCE_FROM_EMAIL = os.environ.get("SEQUENCE_FROM_EMAIL", "matt@gravelgodcycling.com")
-SEQUENCE_FROM_NAME = os.environ.get("SEQUENCE_FROM_NAME", "Matt at Gravel God")
+SEQUENCE_FROM_NAME = os.environ.get("SEQUENCE_FROM_NAME", "Matti at Gravel God")
 
 # Webhook secret (for Worker → Mission Control auth)
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "")

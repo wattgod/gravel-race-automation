@@ -94,7 +94,12 @@ def clean_explanation(text):
         return m.group(1) + m.group(2).upper()
     text = re.sub(r'(\.\s+)([a-z])', fix_sentence_start, text)
 
-    return text.strip()
+    # Fix explanation starting with lowercase (e.g. "genuine X" → "X" after deletion)
+    text = text.strip()
+    if text and text[0].islower():
+        text = text[0].upper() + text[1:]
+
+    return text
 
 
 def main():

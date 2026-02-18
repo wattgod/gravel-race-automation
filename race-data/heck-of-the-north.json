@@ -170,6 +170,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Free parking at Two Harbors City Hall and 17 years of race experience show in the execution. Aid stations at miles 32 and 64 provide \"toilet, water, snacks and volunteers,\" though organizers note \"we do not offer a drop bag service.\" Limited Two Harbors lodging remains the main constraint."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Mike Ward hit 50 miles in 2:45 through paceline work, noting \"15 minutes per 5 mile watch split\" before the technical terrain slowed progress. The 100-mile route includes a 32-mile loop ridden twice, with constant elevation changes making it feel longer than typical centuries."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Race Director Jeremy calls the Briton Pit Sector \"the Paris Roubaix Arenberg Forest right off the bat\" with loose rocks ready to \"slip your front wheel.\" Mike Ward encountered an \"A-frame wooden bridge\" where \"4 or 5 riders were walking,\" forcing him to \"shimmy the rest of the way up and down.\" Officials recommend 40-50mm tires minimum."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 100-mile route packs 3,600 feet of climbing into constant rollers rather than sustained climbs. The 60-mile option drops to 2,000 feet, while the 19-mile route features just 500 feet. Mike Ward described the terrain as relentless ups and downs through dense Minnesota woods."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late September temps of 40-55°F with 20-30% rain chance means layering strategy matters. 2023's knee-deep Lester River crossing left riders with numb feet for 10 miles. Beautiful fall colors, but hypothermia risk if you get wet and cold."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Two Harbors sits at Lake Superior level with zero altitude considerations. The race takes place essentially at sea level, making altitude irrelevant for performance or acclimatization needs."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Water crossings at Lester River, technical snowmobile trails through dense Northwoods, and unpredictable late September weather create uncertainty. Peak fall foliage along Lake Superior provides the scenic payoff. Real adventure, not manufactured difficulty."
+      },
       "prestige": {
         "score": 3,
         "explanation": "17 years old with a 400+ field means it's established, but nobody outside the Midwest has heard of it. It's not pulling international talent or getting coverage in cycling media. Local Minnesota legend status, national obscurity."
@@ -192,39 +220,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "$90-110 for 100 miles of maintained trails, post-race food, and fall foliage is reasonable. You're paying for trail access and small-town logistics, not fancy swag or marketing budgets. Fair price for what you get."
+        "explanation": "Aid stations provide substantial support with \"water, energy drink, cola, bananas, pb & j sandwiches, chips, and gummy bears\" plus toilets at each stop. The pickle hummus wraps and volunteer enthusiasm show attention to rider experience. No drop bag service keeps logistics simple and costs reasonable."
       },
       "expenses": {
         "score": 4,
         "explanation": "Duluth airport is 30 miles away, Minneapolis is 2.5 hours if you need more flight options. Limited Two Harbors lodging means booking 2-3 months ahead or driving from Duluth daily. Manageable if you plan, painful if you don't."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "100 miles sounds standard until you hit the snowmobile trails. 4,500 feet of constant rollers plus technical terrain makes this feel longer than most century rides. The 19-mile and 60-mile options show they understand not everyone wants to suffer for 6+ hours."
-      },
-      "technicality": {
-        "score": 5,
-        "explanation": "60% snowmobile trails with roots, rocks, and singletrack-width sections demand mountain bike skills on a gravel bike. Riders recommend 40mm minimum tires and dropper posts. If you're on 28mm road tires, you're walking home."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "4,500 feet over 100 miles isn't mountain racing, but it's relentless Minnesota rollers with no recovery. Constant punchy climbs through dense woods rather than sustained mountain passes. Your legs will know the difference by mile 60."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late September temps of 40-55°F with 20-30% rain chance means layering strategy matters. 2023's knee-deep Lester River crossing left riders with numb feet for 10 miles. Beautiful fall colors, but hypothermia risk if you get wet and cold."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Two Harbors sits at Lake Superior level—basically sea level. Zero altitude considerations unless you're coming from Death Valley. Your lungs will work fine, your legs are another story."
-      },
-      "logistics": {
-        "score": 4,
-        "explanation": "Free parking at Two Harbors City Hall, reasonable airport access via Duluth, and 17 years of experience running this event means they've figured out the basics. Limited local lodging is the main headache, but that's geography, not organization."
-      },
-      "adventure": {
-        "score": 4,
-        "explanation": "Water crossings at Lester River, technical snowmobile trails through dense Northwoods, and unpredictable late September weather create uncertainty. Peak fall foliage along Lake Superior provides the scenic payoff. Real adventure, not manufactured difficulty."
       }
     },
     "final_verdict": {
@@ -288,6 +288,36 @@
         "url": "https://www.bikemn.org/events/heck-of-the-north-2025/",
         "category": "community",
         "label": "bikemn.org: Heck Of The North 2025"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4939/the-heck-of-the-north-gravel-classic",
+        "category": "community",
+        "label": "granfondoguide.com: The Heck Of The North Gravel Classic"
+      },
+      {
+        "url": "https://www.heckofthenorth.com/cadence/2025/9/20/getting-ready",
+        "category": "community",
+        "label": "heckofthenorth.com: Getting Ready"
+      },
+      {
+        "url": "https://www.heckofthenorth.com/heck-registration",
+        "category": "community",
+        "label": "heckofthenorth.com: Heck Registration"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/daufse/i_drove_15_hours_to_ride_heck_of_the_north_13/",
+        "category": "community",
+        "label": "reddit.com: I Drove 15 Hours To Ride Heck Of The North 13"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/MN/TwoHarbors/HeckOfTheNorthGravelClassic",
+        "category": "community",
+        "label": "bikesignup.com: Heckofthenorthgravelclassic"
+      },
+      {
+        "url": "https://northshorevisitor.com/events/heck-of-north-gravel-bike-race/",
+        "category": "community",
+        "label": "northshorevisitor.com: Heck Of North Gravel Bike Race"
       }
     ],
     "results": {

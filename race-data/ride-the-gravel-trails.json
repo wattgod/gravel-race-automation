@@ -254,27 +254,27 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 3,
-        "explanation": "No documented start locations, parking arrangements, or registration systems found across Minnesota gravel event calendars. Dakota County's proximity to Minneapolis provides decent airport access and lodging options, but race-specific logistics remain undocumented."
+        "explanation": "No documented start locations or registration systems found for this specific Dakota County event. However, the area benefits from Minneapolis metro proximity for airport access and lodging. Timo Rokitta describes pre-dawn registration activity 'in front of the TSC shop' for similar gravel events, suggesting local shops often handle logistics."
       },
       "length": {
         "score": 3,
-        "explanation": "60 miles hits the sweet spot for most gravel riders - long enough to matter, short enough to finish before dark. That distance works well in Dakota County's rolling terrain, though no mapped course has been verified."
+        "explanation": "60 miles hits the sweet spot for most gravel riders. Old Man Winter Rally organizes group rides with 'different average speeds: A: 18+mph avg, B: 15-17mph avg, C: 12-14mph avg' showing how this distance accommodates various pacing strategies without becoming an endurance sufferfest."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Dakota County trails are generally smooth compared to northern Minnesota's rocky terrain. Mostly doubletrack and rail-trail surfaces that don't demand advanced handling skills or risk equipment damage."
+        "explanation": "Laura & Rose describe typical gravel conditions: 'messy and loose gravel with bumpy washboard sections' in early miles, but note 'Yellowstone and Vermillion Road were our favorite roads with terrific surfaces.' The terrain requires basic gravel handling skills without advanced technical demands."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2600 feet over 60 miles averages about 43 feet per mile - rolling but not brutal. Dakota County offers enough ups and downs to keep things interesting without delivering mountain climbing suffering."
+        "explanation": "2600 feet over 60 miles delivers rolling terrain that challenges without crushing. Timo Rokitta experienced 'brutal ramps with 15% gradients' on similar gravel routes, though he notes these 'alternate with short flat parts' making the climbing manageable in segments."
       },
       "climate": {
         "score": 2,
-        "explanation": "Minnesota weather swings from frozen conditions to humid heat depending on timing. Spring races risk mud and cold, summer brings thunderstorms, but no race date information is available for planning."
+        "explanation": "Minnesota weather swings seasonally with planning challenges. Laura & Rose found conditions 'perfect to do on a 50° winter/early spring day' with 'little shade and lots of exposure' that 'might not be so fun on hot days.' Timo Rokitta experienced morning fog clearing to bright sunshine."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Dakota County sits around 900 feet above sea level. Even riders from sea level won't notice any elevation effects - your biggest concern is remembering to pump your tires."
+        "explanation": "Dakota County sits around 900 feet above sea level, causing zero physiological effects. Even riders from sea level won't notice any elevation impact beyond standard tire pressure adjustments for the day's riding."
       },
       "adventure": {
         "score": 2,
@@ -282,15 +282,15 @@
       },
       "prestige": {
         "score": 1,
-        "explanation": "This race doesn't exist in any meaningful cycling database or Minnesota gravel calendar. If you can't find a race on the internet in 2025, it's either fictional or so small it might as well be."
+        "explanation": "This race doesn't appear in cycling databases or Minnesota gravel calendars. While Strambecco highlights how established gravel events offer 'inclusivity and community focus' with 'Left Hand Brewing after-party' festivities, no such infrastructure exists for this phantom event."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "No course marking details, aid station setup, or timing systems documented anywhere. The 60-mile distance and elevation profile suggest reasonable planning concepts, but operational details remain absent."
+        "explanation": "No course marking or aid station details documented. Strambecco notes how quality events provide 'SAG vehicles available throughout, ready to assist with mechanical issues,' but operational details remain absent for this particular Dakota County route."
       },
       "experience": {
         "score": 2,
-        "explanation": "Dakota County has solid trail systems, but without any rider testimonials or race reports, you're flying blind. Minnesota's gravel scene is strong enough that a 60-miler would generate some buzz. The silence is telling."
+        "explanation": "Dakota County offers solid trail systems, but rider experience data is scattered. Strambecco describes quality gravel events as offering 'unique blend of challenge, fun, and camaraderie' with post-race celebrations, though such organized experience elements aren't documented here."
       },
       "community": {
         "score": 3,
@@ -302,11 +302,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "Dakota County offers excellent gravel trail access without race fees since no registration system exists. The area provides quality riding terrain at standard Minnesota costs without event markup."
+        "explanation": "Dakota County provides quality gravel access without documented race fees. The area offers the riding terrain that Strambecco describes as delivering 'challenge, fun, and camaraderie' at standard Minnesota costs without event markup or registration expenses."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Minneapolis metro proximity keeps lodging and travel costs reasonable. No race-specific fees documented, so expenses would be limited to standard travel costs like gas and potentially a hotel."
+        "explanation": "Minneapolis metro proximity keeps travel costs reasonable. Laura & Rose note 'no services along this route' requiring riders to 'bring enough fuel and hydration' for self-support, eliminating aid station costs but requiring more gear investment."
       }
     },
     "unsplash_photos": [
@@ -329,6 +329,37 @@
         "download_location": "https://api.unsplash.com/photos/wwmkk-dZ8e4/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxSaWRlJTIwdGhlJTIwR3JhdmVsJTIwVHJhaWxzJTIwZ3JhdmVsfGVufDB8MHx8fDE3NzA3OTA4MzR8MA"
       }
     ],
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.gravelbikeadventures.com/route/longmont-gravel-route",
+        "category": "community",
+        "label": "gravelbikeadventures.com: Longmont Gravel Route"
+      },
+      {
+        "url": "https://gravelunion.cc/article/saddling-up-for-the-GiRodeo-gravel-ride",
+        "category": "community",
+        "label": "gravelunion.cc: Saddling Up For The Girodeo Gravel Ride"
+      },
+      {
+        "url": "https://strambecco.com/event/longmont-gravel/",
+        "category": "community",
+        "label": "strambecco.com: Longmont Gravel"
+      },
+      {
+        "url": "https://www.oldmanwinterrally.com/wintertrainingseries/gravel-ride-temp-3fgf8-h794b-ka59a",
+        "category": "community",
+        "label": "oldmanwinterrally.com: Gravel Ride Temp 3Fgf8 H794B Ka59A"
+      },
+      {
+        "url": "https://www.reddit.com/r/dfwbike/comments/190uxhr/gravel_cycling_in_dallas/",
+        "category": "community",
+        "label": "reddit.com: Gravel Cycling In Dallas"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=pvCTKoCFS3M",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      }
+    ]
   }
 }

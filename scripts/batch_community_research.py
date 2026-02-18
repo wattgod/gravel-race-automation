@@ -371,6 +371,72 @@ def google_search(query, max_results=8, retries=2):
                 return []
 
 
+def perplexity_search(race_name, slug="", retries=2):
+    """Use Perplexity sonar to find community content DDG/Google miss.
+
+    Perplexity does grounded web search + synthesis. We ask it specifically
+    for rider reports, forum threads, and race reviews — then extract the
+    cited URLs from its response for our own fetching pipeline.
+
+    Returns list of dicts matching DDG format: {href, title, body}
+    """
+    import requests as req
+
+    api_key = os.environ.get("PERPLEXITY_API_KEY", "")
+    if not api_key:
+        return []
+
+    prompt = (
+        f'Find personal race reports, Reddit threads, forum posts, and blog entries '
+        f'about the "{race_name}" gravel bike race. I need first-person rider '
+        f'experiences — course conditions, terrain descriptions, race strategy, '
+        f'equipment choices, and community atmosphere. '
+        f'Return the URLs of the most relevant sources you find.'
+    )
+
+    for attempt in range(retries + 1):
+        try:
+            resp = req.post(
+                "https://api.perplexity.ai/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "sonar",
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+
+            # Extract citations (URLs) from Perplexity response
+            citations = data.get("citations", [])
+            content = data["choices"][0]["message"]["content"]
+
+            results = []
+            # Citations array contains URLs Perplexity found
+            for url in citations:
+                results.append({"href": url, "title": "", "body": ""})
+
+            # Also extract any URLs from the response text itself
+            import re as _re
+            for url_match in _re.findall(r'https?://[^\s\)>\]"\']+', content):
+                clean_url = url_match.rstrip('.,;:')
+                if clean_url not in {r["href"] for r in results}:
+                    results.append({"href": clean_url, "title": "", "body": ""})
+
+            return results
+
+        except Exception as e:
+            if attempt < retries:
+                time.sleep(3)
+            else:
+                print(f"    Perplexity search error: {e}")
+                return []
+
+
 def fetch_content(url):
     """Fetch and extract text content from a URL. Returns (text, title)."""
     import requests
@@ -480,14 +546,14 @@ def _process_search_results(results, seen_urls, sources, race_name, slug,
 
 
 def search_and_fetch(race_name, slug="", dry_run=False, delay=3.0, verbose=False):
-    """Search DuckDuckGo + Google and fetch community content for a race.
+    """Search DuckDuckGo + Google + Perplexity and fetch community content.
 
-    Uses two search engines to avoid single-source blindness. DuckDuckGo and
-    Google surface different results — especially for personal blogs, niche
-    forums, and Reddit threads.
+    Three search engines with different strengths:
+    - DuckDuckGo: privacy-focused, good for blogs and forums
+    - Google: broadest index, catches personal blogs DDG misses
+    - Perplexity: AI-grounded search, finds deep Reddit/forum threads
 
     Returns list of dicts: {url, title, source_type, content, snippet, rider_level}
-    Validates content relevance and tags rider level before returning.
     """
     seen_urls = set()
     sources = []
@@ -536,6 +602,20 @@ def search_and_fetch(race_name, slug="", dry_run=False, delay=3.0, verbose=False
 
             if not dry_run and i < len(google_queries) - 1:
                 time.sleep(delay)
+
+    # --- Pass 3: Perplexity (1 AI-grounded search, catches deep threads) ---
+    if len(sources) < MAX_SOURCES_PER_RACE:
+        if dry_run:
+            print(f"    [Perplexity] AI search for {race_name}")
+        else:
+            pplx_results = perplexity_search(race_name, slug=slug)
+            new_urls = [r for r in pplx_results if r.get("href", "") not in seen_urls]
+            if verbose:
+                print(f"    [Perplexity] → {len(pplx_results)} citations ({len(new_urls)} new)")
+
+            total_rejected += _process_search_results(
+                pplx_results, seen_urls, sources, race_name, slug, verbose, dry_run
+            )
 
     if total_rejected > 0 and verbose:
         print(f"    Rejected {total_rejected} off-topic sources")

@@ -169,41 +169,17 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 4,
-        "explanation": "Grinduro carries serious brand weight in the gravel world—it's the festival race that everyone talks about. The series has cachet, and Germany draws 400-600 riders from across Europe who know what they're signing up for. It's not Unbound famous, but it's definitely more than your local weekend warrior special."
-      },
-      "race_quality": {
-        "score": 5,
-        "explanation": "The enduro format is brilliant—untimed climbs let you socialize and save energy, then four timed descent stages separate the MTB skilled from the pretenders. Professional course marking, multiple aid stations, and a format that rewards technical descending skills over pure watts. When only 5-10% DNF in normal conditions, the organization knows what they're doing."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "This is 90% festival, 10% racing, and that's the point. Live music, German beer garden at the finish, camping on-site, and riding through the volcanic Eifel landscape. One rider called it 'the best weekend of the year,' and when you're chatting with people on untimed climbs then bombing technical descents, it's hard to argue."
-      },
-      "community": {
-        "score": 5,
-        "explanation": "The untimed climb format creates natural social riding—you literally have time to chat and make friends between the timed descents. International field from Germany, Belgium, Netherlands, and beyond, all there for the party atmosphere. The festival setting with camping means you're hanging out with these people all weekend, not just racing against them."
-      },
-      "field_depth": {
+      "logistics": {
         "score": 3,
-        "explanation": "Most riders are there for the experience, not to throw down serious watts. The format rewards MTB descending skills over pure fitness, so traditional roadie powerhouses get humbled by technical riders. Competitive depth exists but takes a backseat to the festival vibe—which is exactly what most people want."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "€100-€180 for a full festival weekend including live music, beer garden, camping options, and a professionally organized 62-mile course through German forests. Compare that to paying similar money for a basic gravel race with a banana and you're getting serious bang for your euro. The experience-to-cost ratio is solid."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Hellenthal is a small German town near the Belgian border—accommodation books up fast but camping is €30-50 on-site. Cologne-Bonn airport is an hour away, and you're not dealing with major city hotel prices. The festival format means food and beer are handled at the venue, keeping costs reasonable for a European race weekend."
+        "explanation": "Hellenthal is a small town that gets overwhelmed—Loek Luijbregts describes riders like Nick from Jersey making handmade signs hoping for rides to the Netherlands after the event. Cologne-Bonn airport is an hour away, parking is free at the venue, but accommodation books up fast. The festival format handles food and beer once you're there."
       },
       "length": {
         "score": 3,
-        "explanation": "62 miles is respectable but not epic—you'll be done in 4-6 hours depending on how much you socialize on the untimed climbs. The enduro format makes it feel shorter since you're only racing four descent stages. It's the right distance for a festival race where the party matters as much as the pedaling."
+        "explanation": "100km with only four timed segments of 5-7 minutes each makes this feel shorter than the distance suggests. As one rider report notes, 'this unique format enables riders to enjoy a more relaxed pace between timed segments, allowing them to take in the scenery, socialise with fellow riders and save their energy.' It's the right distance for a festival race."
       },
       "technicality": {
         "score": 4,
-        "explanation": "The timed descents are properly technical—loose, rooty, rocky singletrack where a dropper post is a 'HUGE advantage' according to riders. The 'gravel race' label is misleading when you need MTB skills for the stages that actually count. 30% singletrack and aggressive tire recommendations don't lie about what you're getting into."
+        "explanation": "Loek Luijbregts describes the Schwalbe prologue with 'gradients reaching up to 30%, riders were pushed to their limits as they navigated steep climbs and descents. Many riders were forced to dismount and walk their bikes.' The timed descents are technical singletrack where MTB skills separate fast from slow on stages that actually count."
       },
       "elevation": {
         "score": 4,
@@ -211,19 +187,43 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Late May in the Eifel runs 50-70°F with a 30% rain chance—spring is wet season in Germany. When it's dry, conditions are perfect. When it rains, those forest trails turn into muddy mess and DNF rates double to 10%. Pack layers and pray to the weather gods."
+        "explanation": "Late May brings 50-70°F temperatures but rain is common—Amanda Chudobey-Berger experienced 'brutal weather, with heavy rain and cold winds' while OriginalJimDog noted 'rain (of which there was a LOT).' When conditions are dry, they're perfect. When wet, those forest trails turn into slick technical challenges."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is the German Eifel region near Belgium, not the Alps. You're barely above sea level for most of the course. Your legs will hurt from the climbs and technical descents, not from lack of oxygen."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Hellenthal is a small town that gets overwhelmed—book accommodation 3+ months ahead or plan on camping. Cologne-Bonn airport is an hour away, parking is free at the venue, but this isn't a major city with endless hotel options. The festival format helps with food and beer logistics once you're there."
+        "explanation": "The German Eifel region sits near sea level close to the Belgian border. Your legs will hurt from steep climbs with 30% gradients and technical forest descents, not from lack of oxygen."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Riding through German volcanic forests, bombing technical singletrack descents, camping with riders from across Europe, and partying in a German beer garden—this hits every adventure checkbox. The untimed climbs let you stop for photos in the Eifel landscape, and the whole weekend feels like a cycling adventure vacation, not just a race."
+        "explanation": "Amanda Chudobey-Berger calls her approach 'Gravel Madness—everything about it is just so much fun: the technicality, the speed, the vibe, and the beautiful places your gravel bike can take you.' Riding through volcanic Eifel forests, bombing technical singletrack, and camping with European riders hits every adventure checkbox."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Grinduro carries serious brand weight globally and the Germany edition draws riders from across Europe—participants came from Netherlands, France, England, Poland and Italy according to race reports. The series has established cachet in the gravel world, with the enduro format and festival atmosphere setting it apart from standard gravel races."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "The enduro format is brilliant—untimed climbs for socializing, four technical timed descents that reward MTB skills over pure watts. Professional course marking through 100km of mixed terrain, and when Loek Luijbregts describes riders walking 30% gradients while others keep pedaling, the course design clearly separates skill levels effectively."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Loek Luijbregts describes 'DJs MulderOnTheDanceFloor and 8000Watt hosting a one-of-a-kind Grinduro rave that kept the crowd dancing for hours' on Saturday night. OriginalJimDog confirms 'when they say Grinduro is a part bike race, part party, they really mean it!' It's 90% festival, 10% racing."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The format creates natural social riding—OriginalJimDog and their friend 'both enjoyed' the challenging course despite not being competitive. Amanda Chudobey-Berger notes how 'the gravel community can be quite awesome, where you find people encouraging each other' and the untimed climbs literally give you time to chat between timed stages."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Most riders prioritize experience over results—OriginalJimDog describes themselves and their friend as 'definitely not competitive riders' but still enjoying the challenging course. The format rewards technical descending skills over pure fitness, and while competitive depth exists, the festival vibe attracts more adventure-seekers than serious racers."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "€100-€180 gets you a full festival weekend with what riders describe as 'an impressive display of art and music, excellent food, great people and camping!' The Saturday night rave with professional DJs, on-site camping options, and 100km of professionally marked course through German forests delivers serious bang for your euro."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Hellenthal is a small German border town where accommodation books up fast but on-site camping runs €30-50. Cologne-Bonn airport is an hour away, and you avoid major city hotel prices. The festival format handles food and beer at the venue, keeping costs reasonable for a European race weekend with international draw."
       }
     },
     "final_verdict": {
@@ -292,6 +292,16 @@
         "url": "https://www.youtube.com/channel/UCjbWgI_ljSn0jQmZWSfMVYA",
         "category": "community",
         "label": "youtube.com: Ucjbwgi Ljsn0Jqmzwsfmvya"
+      },
+      {
+        "url": "https://www.reddit.com/user/Imaginary-Drummer-45/",
+        "category": "community",
+        "label": "reddit.com: Imaginary Drummer 45"
+      },
+      {
+        "url": "https://www.reddit.com/user/OriginalJimDog/",
+        "category": "community",
+        "label": "reddit.com: Originaljimdog"
       }
     ],
     "results": {

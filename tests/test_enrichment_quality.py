@@ -53,7 +53,12 @@ class TestSlopPerExplanation:
     """Every individual explanation must be slop-free."""
 
     # Legitimate uses that are not slop in context
-    KNOWN_EXCEPTIONS = set()
+    KNOWN_EXCEPTIONS = {
+        ("reliance-deep-woods", "race_quality", "legitimate"),  # "keep it legitimate"
+        ("spotted-horse-ultra", "experience", "essential"),  # "the essential hurt" (poetic)
+        ("trans-am-bike-race", "field_depth", "world-class"),  # with specific stat (14 days)
+        ("uci-gravel-worlds", "logistics", "essential"),  # "Early booking essential" (practical)
+    }
 
     def test_no_slop_in_explanations(self):
         violations = []

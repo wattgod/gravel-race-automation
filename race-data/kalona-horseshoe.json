@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Starting at Kalona Historical Village provides clear location and parking, with packet pickup the night before and morning of race. But no details on nearest airports, lodging options, or travel logistics for a small Iowa town. The basics are covered, but you're on your own for everything else."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The 50km and 100km distances attracted elite competition - Michael Lambert won the 100km race while Ren Stinson podiumed in the 50K. Neither distance pushes epic boundaries, but they're proven race distances that draw serious riders to southeastern Iowa."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The Amish and Mennonite population keeps \"these roads beautiful and rustic without the complexity of asphalt.\" Course features \"moderate terrain with rolling short steep hills or moderate, sustained climbs\" - consistent climbing without technical bike handling challenges."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Race promotion emphasizes that \"Iowa is not FLAT!!\" with \"Iowa City's rolling hills gravel\" delivering 2000 feet over 50 miles. The constant \"rolling short steep hills\" create consistent climbing without major defining ascents."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "May in Iowa delivers the \"windy and rolly\" conditions that define this course. The emphasis on wind as a consistent feature rather than bonus challenge reflects the reality of spring racing on exposed Iowa farm roads."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "This is Iowa flatlands starting around 700-800 feet elevation. Zero altitude considerations for performance or acclimatization. You'll get more elevation change driving to the race than racing it."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The race offers a unique opportunity to \"race your bike past a horse-drawn buggy\" through Amish country. The course provides \"a bit of a preview of the terrain in Southeastern Iowa\" with \"captivating and quiet\" scenery, but 50 miles on farm roads has adventure limits."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This is a brand new grassroots race that joined the Iowa Gravel Series in 2024. Your winner Chad Showalter clocked 3:53:47 - respectable but not exactly pulling UCI pros to Kalona. It's pie and horse buggies, not podium prestige."
@@ -266,7 +294,7 @@
       },
       "community": {
         "score": 2,
-        "explanation": "The Iowa Gravel Series creates a decent grassroots community across seven races with full season jerseys and meals. Starting at Kalona Historical Village gives it local character, and the Amish setting adds authenticity. But with minimal field size and zero notable rider reviews or social media buzz, the community feels more intimate than energizing."
+        "explanation": "\"Come for the race, stay for the amazing bakeries!\" captures the local flavor that draws teams like Goosetown Racing with multiple podium finishes. Starting at Kalona Historical Village adds authenticity, though the community remains grassroots intimate rather than energizing."
       },
       "field_depth": {
         "score": 1,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Kalona sits in rural Iowa with no obvious nearby airports or hotel clusters mentioned in research. You're probably driving from Des Moines or Iowa City and finding basic accommodations. The race entry is cheap, but getting there and staying overnight adds typical small-town travel costs without big-city convenience."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "50 miles hits the sweet spot for a morning gravel race without being a sufferfest. The 100km option bumps to 62 miles for those wanting more distance. Neither distance challenges your limits or creates epic bragging rights - it's standard weekend warrior territory."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Iowa gravel roads described as 'windy and rolly' aren't exactly technical challenges. No mention of singletrack, creek crossings, or technical descents - just farm roads through Amish country. This is about endurance and wind management, not bike handling skills."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "2300 feet over 50km creates consistent rolling terrain without major climbs. The 'rolly' description confirms constant ups and downs rather than flat Iowa stereotypes, but nothing that creates defining climbing moments. It's enough to keep you honest, not enough to break you."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "May in Iowa typically delivers mild temps and unpredictable wind - the course description specifically calls out 'windy' conditions as a feature. Without weather data, you're gambling on spring conditions that could range from perfect to stormy. The emphasis on wind suggests it's a consistent factor, not a bonus."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "This is Iowa flatlands starting around 700-800 feet elevation. Zero altitude considerations for performance or acclimatization. You'll get more elevation change driving to the race than racing it."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Starting at Kalona Historical Village provides clear location and parking, with packet pickup the night before and morning of race. But no details on nearest airports, lodging options, or travel logistics for a small Iowa town. The basics are covered, but you're on your own for everything else."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Racing through Amish country past horse buggies creates genuine cultural immersion you won't find at most gravel races. The 'captivating and quiet' scenery and mandatory pie add local flavor. But 50 miles on Iowa farm roads, however scenic, doesn't exactly push your boundaries or create epic adventure stories."
+        "explanation": "Kalona sits in rural Iowa with no obvious nearby airports or hotel clusters. You're driving from Iowa City or Des Moines and finding basic accommodations. Cheap entry fees offset typical small-town travel logistics without big-city convenience."
       }
     },
     "citations": [
@@ -314,6 +314,36 @@
         "url": "https://ridewithgps.com/routes/50701116",
         "category": "route",
         "label": "RideWithGPS: Dry 50K Kalona Horseshoe on"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_7VS-l6yPqA",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ugqMl15yQQ0",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11788/kalona-horseshoe",
+        "category": "community",
+        "label": "granfondoguide.com: Kalona Horseshoe"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/kalona-horseshoe",
+        "category": "community",
+        "label": "racecenter.com: Kalona Horseshoe"
+      },
+      {
+        "url": "https://icorrmtb.org/event/kalona-horseshoe/",
+        "category": "community",
+        "label": "icorrmtb.org: Kalona Horseshoe"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Event/15673/kalona-horseshoe",
+        "category": "community",
+        "label": "bikeiowa.com: Kalona Horseshoe"
       }
     ],
     "results": {

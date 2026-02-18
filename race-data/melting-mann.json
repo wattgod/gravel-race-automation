@@ -243,41 +243,17 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This is Michigan's season opener gravel race, which sounds impressive until you realize it's late March in southwest Michigan. No pro field, no notable past winners mentioned, and the biggest prize is a Trek Checkpoint ALR 4 in a raffle. It's the 13th annual, so it has staying power, but 700 riders showing up doesn't make it prestigious—it makes it popular with locals who need to scratch the early-season itch."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "The course is described as a 'roller coaster' on challenging gravel roads featuring Mann Road, but that's marketing speak without substance. No aid stations mentioned, awards cutoff at 1:00pm regardless of your suffering, and you better show up for the 1:30pm ceremony or you get nothing. The staging by speed groups (0-12mph to 22+mph) suggests they know traffic management, but basic execution doesn't equal quality."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "You get post-race BBQ, beer, and medals if you stick around, which beats driving home hungry. The race promises an 'unforgettable cycling adventure' while seeking 'the Yeti,' but vague mythology doesn't replace actual course character. Starting at Vandalia Community Center and finishing before lunch feels more like a morning club ride that got out of hand than a destination event."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Over 700 riders and growing, with multiple categories including fat bike, single speed, vintage 25+, and even Clydesdale/Athena divisions shows they're trying to include everyone. It kicks off the Michigan Gravel Race Series, making it a regional hub race where Midwest racers show up to start their season. The post-race BBQ and beer suggests actual community building, not just collect-your-medal-and-leave."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No pro riders mentioned, no notable past winners, and the fact that they stage riders from 0-12mph tells you everything about the field depth. This is 700+ weekend warriors showing up for Michigan's first gravel race of the year because they're desperate to ride, not because the competition is fierce. The champions jersey goes to whoever shows up and has legs."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Starting at $75 individual entry with tiered pricing that maxes at $90 for 750+ registrants is reasonable for a full day experience. You get the race, post-race BBQ, beer, medals for age divisions, and a shot at winning a Trek in the raffle. First 500 get a t-shirt, and winners get free entry next year—they're actually trying to give you something for your money."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Vandalia, Michigan isn't going to break your bank on lodging or food, and everything happens at the Community Center so no expensive venue fees passed to riders. Entry caps at $90 even for the biggest field, packet pickup runs Friday evening and Saturday morning for convenience. This is small-town racing without small-town price gouging."
+        "explanation": "Pete Post praised race director Mark Wright's first-year execution: \"The volunteers were super helpful, the swag and race prizes were awesome.\" Wave starts limited to 80 riders prevent Mann Road bottlenecks, with pace cars managing the Swiss Valley Ski entrance at 15mph before racers split onto Patterson Hill Road."
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options at 24, 39, and 58 miles give you actual choices based on fitness and masochism level. The 58-mile option is a legitimate gravel distance without being an ultra-endurance suffer-fest. Staggered start times (9:00am for long course, 10:45am for short) show they've thought about logistics and traffic management."
+        "explanation": "Three distances at 24, 38, and 58 miles with staggered starts from 9am to 10:45am manage traffic flow effectively. Race director Mark Wright warns \"The race could be lost near the beginning but not won\" about Mann Road's early technical challenge that can derail longer distance attempts."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Described as 'challenging gravel roads of southwest Michigan' but no specific technical features mentioned beyond Mann Road. They welcome fat bikes with 3.7-inch tires, suggesting some conditions require clearance, but no rock gardens, creek crossings, or hike-a-bike sections detailed. This sounds like rolling gravel roads that get sketchy when wet, not technical terrain that demands bike handling skills."
+        "explanation": "Mann Road's \"sandy dirt uphill\" claims riders \"whose wheels get stuck, lose traction or topple\" right after the ski area descent. The soft soil and wetland mud puddles require line choice skills, but it's more about traction management than technical bike handling through southwest Michigan's rolling terrain."
       },
       "elevation": {
         "score": 2,
@@ -285,19 +261,43 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Late March in southwest Michigan means you're gambling with winter's last tantrum or spring's false promise. No historical weather incidents mentioned, but scheduling Michigan's season opener for March 28th is optimistic at best. You could get 70 degrees and perfect conditions, or snow and frozen ground—that's the gamble you take for being first out of the gate."
+        "explanation": "March weather swings wildly—Pete Post raced through 3 inches of fresh snow in 2014 while 2025 saw 35°F temps. \"Some years are chilly and icy, while others are sunny and warm,\" making studded tires a gamble that paid off for prepared riders during the snowy edition."
       },
       "altitude": {
         "score": 1,
         "explanation": "This is southwest Michigan, not Colorado. Starting elevation isn't mentioned because it's essentially at sea level, and the 2500 feet of climbing doesn't take you anywhere meaningful altitude-wise. If you need altitude training, you're in the wrong state entirely."
       },
-      "logistics": {
-        "score": 2,
-        "explanation": "Everything happens at Vandalia Community Center (18035 W State Street), which simplifies parking and staging but offers zero destination appeal. Packet pickup runs Friday 4-7pm and Saturday from 7am, giving you options. Online registration closes March 20th, on-site available until race start if under 1,000 riders—basic competence without any frills or convenience that makes travel easier."
-      },
       "adventure": {
         "score": 2,
-        "explanation": "Marketing promises 'seeking the Yeti' and an 'unforgettable cycling adventure,' but that's creative writing covering for rolling through rural Michigan farmland. No epic terrain, no destination location, no unique features mentioned beyond Mann Road being challenging. This is adventure in the sense that any gravel ride away from home counts as adventure—technically true, completely ordinary."
+        "explanation": "The course winds \"through forests, around lakes, past farms, and across open fields\" on gravel roads \"often overlooked by cars and tourists.\" Conditions can include \"mud, water crossings, or patches of snow and ice,\" but it's countryside exploration rather than wilderness adventure."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Multiple March Fly and June Fly awards recognize race director excellence and tough conditions, but winning speeds show regional competition levels. Robert Oehler's 22.1 mph average for 58 miles in 2025 reflects solid midwest gravel racing without national-level field depth."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Wave management prevents crashes at Mann Road, chip timing posts live results, and awards ceremonies run promptly at 1:15pm. Pete Post noted seamless first-year execution, though the challenging start can determine outcomes early rather than building drama throughout the course."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Post-race BBQ from Q-It Up, Goshen Brewing beverages, warming fires, and Trek bike raffles create a \"full-blown experience\" atmosphere. Pete Post appreciated how \"post race brews and lunch totally hit the spot,\" though the community center venue limits destination appeal."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "\"People come back year after year because they fall in love with the vibe, the people, and the challenge.\" Riders \"stop to help with mechanical issues, and share snacks and stories,\" creating what participants describe as \"a reunion of outdoor lovers and biking enthusiasts.\""
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Wave starts accommodate 0-12mph beginners alongside 22+mph racers, showing the broad recreational range. While 80-rider waves and 700+ total participants create good field size, the lack of mentioned pro riders or notable past champions indicates weekend warrior competition levels."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Starting at $75 individual entry with tiered pricing that maxes at $90 for 750+ registrants is reasonable for a full day experience. You get the race, post-race BBQ, beer, medals for age divisions, and a shot at winning a Trek in the raffle. First 500 get a t-shirt, and winners get free entry next year—they're actually trying to give you something for your money."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Vandalia Community Center staging keeps venue costs low, with packet pickup Friday evening or Saturday morning for convenience. Small-town Michigan lodging and dining won't strain budgets, while the $90 entry cap even for maximum field size maintains affordability for Midwest families and recreational racers."
       }
     },
     "citations": [
@@ -305,6 +305,41 @@
         "url": "https://ridewithgps.com/routes/53183899",
         "category": "route",
         "label": "RideWithGPS: 2026 Melting Mann 58 Mile"
+      },
+      {
+        "url": "https://cmsraceteam.blogspot.com/2014/03/melting-mann-race-report.html",
+        "category": "community",
+        "label": "cmsraceteam.blogspot.com: Melting Mann Race Report.Html"
+      },
+      {
+        "url": "https://www.reddit.com/r/MichiganCycling/comments/1bl942v/anybody_else_racing_melting_mann_tomorrow/",
+        "category": "community",
+        "label": "reddit.com: Anybody Else Racing Melting Mann Tomorrow"
+      },
+      {
+        "url": "https://www.yahoo.com/entertainment/mann-ly-bike-race-grind-101259302.html",
+        "category": "community",
+        "label": "yahoo.com: Mann Ly Bike Race Grind 101259302.Html"
+      },
+      {
+        "url": "https://bmtimes.co.uk/melting-mann-the-coolest-trail-race-youve-never-heard-of/",
+        "category": "community",
+        "label": "bmtimes.co.uk: Melting Mann The Coolest Trail Race Youve Never Heard Of"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/03/25/melting-mann-coolest-gravel-race-in-north-america-results/",
+        "category": "community",
+        "label": "granfondodailynews.com: Melting Mann Coolest Gravel Race In North America Results"
+      },
+      {
+        "url": "https://meltingmann.com/details/",
+        "category": "community",
+        "label": "meltingmann.com: Details"
+      },
+      {
+        "url": "https://meltingmann.com/",
+        "category": "community",
+        "label": "meltingmann.com"
       }
     ]
   }

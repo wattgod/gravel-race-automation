@@ -252,9 +252,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "The tri-national location provides multiple airport options - Zurich, Munich, or regional Friedrichshafen. Lake Constance has solid infrastructure since it's a major European tourist region with established cycling routes. The downside: no specific race logistics data exists, which makes planning a guessing game."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Elite men like Brian Megens finish the 47.2km Austrian course in 55:08 at 50.59 km/h average, while recreational riders target around 1:08:00. Sixty-five miles translates to a proper gravel distance that hurts without the death march commitment of century rides. It's long enough to separate fitness levels but manageable for undertrained riders willing to suffer."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Dr.hannibal reports \"the first half is rather flat or flows smoothly\" before hills that \"can really hurt - once even a 13° incline, but luckily only briefly.\" The Austrian course suggests fire roads and gravel paths rather than technical singletrack. Starting ramp crashes occur when riders clip in, but the main challenge appears to be sustained power rather than bike handling skills."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Dr.hannibal's Garmin recorded 383 meters of elevation gain on the Austrian course, noting \"no wonder it took me longer if I have to ride 100 more meters of elevation than everyone else.\" The 3,500 feet over 65 miles averages 54 feet per mile - rolling terrain that builds fatigue without the leg-breaking ascents of mountain races."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The 2024 Austrian event enjoyed \"sunshine, pleasant temperatures, hardly any wind\" according to dr.hannibal, who noted \"the weather was perfect again this year. With little wind, there are no excuses.\" Lake Constance's mild continental climate typically delivers stable late summer conditions, though severe flooding affected the NC mountain bike series in 2013."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Lake Constance sits at 1,300 feet with climbs into Alpine foothills that won't produce meaningful altitude effects. Dr.hannibal's flat-to-rolling course description from the Austrian event confirms low-altitude cycling throughout. Sea-level fitness works fine here, with mountain scenery masking the minimal elevation impact."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Racing through Germany, Switzerland, and Austria in one ride delivers three-country bragging rights with Alpine foothill scenery. The Arkansas ultra-endurance version spans \"the Ozark and Ouachita Mountains and the Arkansas River Valley\" over 1000+ miles with 80,000 feet of climbing. Ted King earned the nickname \"King of the High Country\" finishing in 4 days, 20 hours, 51 minutes."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "Here's the brutal truth: this race barely exists online, which tells you everything about its standing in the gravel world. The research turned up zero mentions of a Lake Constance gravel \"King of the Lake\" - just a completely different Austrian time trial with the same name that actually sells out with 1500 riders. When a race is this invisible in the digital age, it's either brand new, poorly run, or you're competing with the local cycling club."
+        "explanation": "The Austrian time trial draws \"almost 1500 riders\" and is described as \"highly popular, prestigious and always sold out\" with Olympic champion Anna Kiesenhofer setting records. Daniel Hochstraßer called his victory \"the most beautiful victory I have ever had the pleasure to celebrate\" racing in front of friends and family. However, the Lake Constance gravel variant lacks this established reputation."
       },
       "race_quality": {
         "score": 2,
@@ -262,11 +290,11 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "Lake Constance sits at the intersection of Germany, Switzerland, and Austria - that's genuinely special geography for a bike race. The Gravel Giro route description mentions Alpine foothills dropping to the lake, which sounds like legitimate scenery payoff. You're getting three-country bragging rights even if the race organization is amateur hour."
+        "explanation": "Alexandra Krenmayr, the 47-year-old Queen of the Lake winner, calls it \"such a cool race, I can recommend participation to everyone\" after her fifth participation. The closed roads transform the lakeside route \"into the picturesque dream of every two-wheeled speed junkie\" with turquoise Lake Attersee views throughout the 47.2 kilometers."
       },
       "community": {
         "score": 3,
-        "explanation": "The tri-national location creates an interesting rider mix, and Europeans generally show up ready to suffer together. The Lake Constance cycling scene supports events like the 52nd Bodensee-Radmarathon, proving there's established cycling culture here. Small fields often mean tighter communities, assuming anyone actually shows up."
+        "explanation": "Dr.hannibal describes festival tent dining, expo areas with \"wicked gear,\" and starting intervals creating structured interaction between 10-person teams, 4-person teams, and solo riders. The Austrian event draws riders from 17+ nations with professional timing systems and 15-second starting intervals. Even flooded NC races generate \"thanks to everyone that came out and played around in the mud\" camaraderie."
       },
       "field_depth": {
         "score": 2,
@@ -274,42 +302,45 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Can't find entry fees, but obscure European gravel races usually price reasonably to fill fields. You're getting Alpine foothills, lake views, and three-country riding for whatever they're charging. The real value question is whether the race actually delivers on basic organization and course marking."
+        "explanation": "Dr.hannibal highlights expo bargain opportunities, quality festival tent food, and nearby Billa grocery convenience for the Austrian event. The NC mountain bike series charged $25 including \"Blimpie sub, chips & drink\" in 2008. Professional timing, closed roads, and three-country scenery deliver solid value for whatever entry fees these regional events charge."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Lake Constance region isn't cheap - you're looking at Swiss/German pricing for hotels and meals. Nearest major airports are Zurich or Munich, neither budget-friendly for international travel. The tri-national location sounds exotic until you're paying for accommodation in one of Europe's pricier regions."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Sixty-five miles hits the sweet spot - long enough to hurt, short enough to survive if you're undertrained. It's a proper gravel distance without the death march commitment of 100+ mile sufferfests. Smart length for a race that needs to establish itself before asking people to commit six hours of suffering."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Lake Constance sits at 1,300 feet elevation with Alpine foothills - that suggests fire roads and gravel paths rather than gnarly singletrack. The Gravel Giro description mentions bike paths mixed with gravel, which sounds more like smooth German efficiency than technical challenge. Expect rolling terrain, not rock gardens."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3,500 feet over 65 miles averages about 54 feet per mile - that's rolling, not mountainous. Starting from Lake Constance at 1,300 feet and climbing into Alpine foothills won't produce the leg-breaking ascents you'd find in proper mountain races. It'll hurt, but it won't break you."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Lake Constance enjoys mild continental climate without the weather extremes that ruin races. Late summer/early fall timing typically delivers stable conditions - warm but not brutal, lower chance of the rain that turns German dirt into unrideable paste. The lake moderates temperature swings, which is actually smart race planning."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Starting at 1,300 feet around Lake Constance means zero altitude impact - your sea-level fitness works just fine here. Even climbing into the Alpine foothills won't push you high enough to notice thinner air. This is low-altitude cycling disguised by mountain scenery."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "The tri-national location provides multiple airport options - Zurich, Munich, or regional Friedrichshafen. Lake Constance has solid infrastructure since it's a major European tourist region with established cycling routes. The downside: no specific race logistics data exists, which makes planning a guessing game."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Racing gravel through Germany, Switzerland, and Austria in one ride is legitimately cool, even if the race itself is questionable. The Alpine foothills-to-lake descent offers genuine scenic payoff, and the region's cycling infrastructure means you can extend the trip into proper adventure. Just don't expect the race itself to be the adventure highlight."
+        "explanation": "Lake Constance region pricing reflects Swiss/German tourist costs with major airports requiring Zurich, Munich, or regional Friedrichshafen access. The tri-national location creates attractive riding opportunities but expensive accommodation in one of Europe's pricier regions. Arkansas ultra-endurance competitors spend months preparing gear setups, suggesting significant equipment investment beyond basic entry costs."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://bikeboard.cc/eng/king-of-the-lake-2024-review-th11098",
+        "category": "community",
+        "label": "bikeboard.cc: King Of The Lake 2024 Review Th11098"
+      },
+      {
+        "url": "https://ridemonkey.com/threads/bmcc-king-of-the-lake-nc-state-super-d-series-race-2-may-18th.257618/",
+        "category": "community",
+        "label": "ridemonkey.com: Bmcc King Of The Lake Nc State Super D Series Race 2 May ..."
+      },
+      {
+        "url": "https://www.experiencefayetteville.com/experience/cycling/arkansaw-high-country-race",
+        "category": "community",
+        "label": "experiencefayetteville.com: Arkansaw High Country Race"
+      },
+      {
+        "url": "https://www.lakecycling.com/blogs/newsletter/the-rebirth-of-trail-and-xc-mountain-biking",
+        "category": "community",
+        "label": "lakecycling.com: The Rebirth Of Trail And Xc Mountain Biking"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/09/22/15th-king-of-the-lake-tt-results-megens-ventker-crowned-champions/",
+        "category": "community",
+        "label": "granfondodailynews.com: 15Th King Of The Lake Tt Results Megens Ventker Crowned C..."
+      },
+      {
+        "url": "https://ridemonkey.com/threads/bmcc-king-of-the-lake-series.195081/",
+        "category": "community",
+        "label": "ridemonkey.com: Bmcc King Of The Lake Series.195081"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

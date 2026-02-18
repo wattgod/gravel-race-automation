@@ -252,63 +252,79 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "A $3,000 prize purse split between men and women tells you everything about where this sits in the gravel hierarchy. Custom hand-made trophies from Grouchy Old Main Studios sound charming until you realize they require minimum 5 pre-registered riders per category to even exist. This is regional racing trying to dress up as something bigger."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "When your preliminary routes aren't final by July for an October race, that's not attention to detail. Field caps bounce between 200 and 600 riders depending on which listing you believe, suggesting organizational confusion. The staggered starts 15 minutes apart for 100-mile men versus women shows they're thinking about timing, but execution remains unproven."
-      },
-      "experience": {
+      "logistics": {
         "score": 3,
-        "explanation": "Packet pickup at S&S Fire Pits with beverages, fire, and s'mores is genuinely thoughtful community building. Multiple distance options from 20 to 102 miles means you can find your suffering level. The Thursday night pre-race gathering near Hartsfield-Jackson creates actual connection before you scatter across Georgia gravel."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "The fire pit packet pickup isn't marketing theater—it's real community investment. First-come, first-served registration and hand-made trophies suggest organizers who care more about riders than revenue optimization. When race directors choose s'mores over corporate sponsors, that usually translates to better rider experience."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "200-600 rider field caps suggest regional draw, not national talent migration. The prize money split indicates they're trying to attract faster riders, but Georgia gravel doesn't pull the depth of Colorado or Kansas events. You'll race against solid regional competition, not the traveling circus of gravel mercenaries."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "Registration starts at $70 through August, hitting $125 day-of—reasonable for what you're getting. The packet pickup party, custom trophies, and multiple distance options deliver solid bang for buck. No price gouging, no mandatory overpriced swag packages."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Chattahoochee Hills sits close enough to Atlanta that you're not looking at resort town lodging prices. Packet pickup near Hartsfield-Jackson means easy airport access without rental car drama. Georgia in October won't break your budget on gear or travel logistics."
+        "explanation": "Packet pickup at S&S Fire Pits near Hartsfield-Jackson includes beverages, fire, and s'mores—thoughtful community building rather than grab-and-go efficiency. Pete Edmondson notes the area \"provides an escape from Atlanta traffic to grind some gravel,\" highlighting accessibility from the metro area."
       },
       "length": {
         "score": 3,
-        "explanation": "75 miles hits the gravel sweet spot—long enough to hurt, short enough to recover by Monday. The 102-mile option exists for masochists, while 62 and 20-mile distances let mortals participate. Smart distance staging that acknowledges not everyone needs to suffer equally."
+        "explanation": "Fast times show the challenge: Jason Thomas's personal best of 1h 23m for 19.2 miles versus recreational rider Kevin Akers needing 5h 54m for 24.6 miles. The spread from sub-90-minute efforts to nearly six-hour sufferfests confirms this distance rewards both speed and endurance across skill levels."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Georgia gravel typically means fire roads and rolling terrain, not rock garden technical sections. The research shows no mention of named climbs or technical features, suggesting this leans more endurance than skills challenge. You'll need fitness more than bike handling wizardry."
+        "explanation": "Mark Hurley describes \"some gravel packed and other loose\" surface conditions throughout the route. Casey Wichman rode 38c tires on a cross bike but noted he \"would've been comfier with bigger tires,\" suggesting variable but manageable technical demands that favor wider rubber over precise handling."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3,000 feet over 75 miles averages 40 feet per mile—rolling but not punishing. Georgia's piedmont region delivers consistent ups and downs rather than categorized climbs. Enough to make your legs remember the day, not enough to create suffering legends."
+        "explanation": "Kevin Akers describes \"lots of hills that are brutal when you're tired,\" capturing how the rolling terrain accumulates difficulty over distance. The consistent climbing through Georgia's piedmont region creates sustained effort rather than dramatic peak moments, wearing down riders progressively."
       },
       "climate": {
         "score": 2,
-        "explanation": "October in Georgia can range from pleasant fall mornings to humid summer flashbacks. You're gambling on weather that could be perfect or swamp-like, with no mountain elevation to guarantee cooler temperatures. Pack for variability, hope for luck."
+        "explanation": "Weather swings wildly: Robert Durham reported \"Never seen it this dusty\" in May 2019, while Donald LeRoy rode through \"rainy day\" conditions in March. Casey Wichman encountered \"a little mud on last 5 miles\" in May 2021, showing Georgia's unpredictable seasonal patterns affect course conditions significantly."
       },
       "altitude": {
         "score": 1,
         "explanation": "Chattahoochee Hills sits barely above sea level in gravel terms. Zero altitude consideration needed for preparation or performance. If you're coming from elevation, expect to feel stronger; if you're from sea level, this changes nothing."
       },
-      "logistics": {
-        "score": 3,
-        "explanation": "Packet pickup near Hartsfield-Jackson airport is genuinely convenient for travelers. 45-minute early arrival requirement suggests organized staging, not chaotic scrambling. Multiple distance options with staggered starts shows they've thought through traffic flow."
-      },
       "adventure": {
         "score": 2,
-        "explanation": "Georgia gravel through Chattahoochee Hills offers pleasant countryside, not epic wilderness immersion. You're riding through farmland and forest, not discovering hidden canyons or remote mountain passes. Solid regional adventure, but don't expect stories that last decades."
+        "explanation": "Chaz Pattillo \"saw an armadillo\" on his first Sheets ride, while Mark Odendahl enjoyed solitude with \"nobody around but me and the cows.\" The route delivers pastoral Georgia countryside—rolling farmland and wooded areas that feel remote despite proximity to Atlanta's sprawl."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "2024 results show Brock Mason winning the 102-mile in 4:52:50, with 16th place Logan Hunt finishing in 7:45:23—a nearly three-hour spread indicating regional competition rather than elite depth. The $3,000 prize purse split between men and women suggests ambition exceeding current field strength."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Race organizers acknowledge the rough edges: \"It's not polished. It's not easy.\" Multiple distance variations and hand-thrown ceramic trophies show care for participant experience, but the emphasis on \"Type 2 fun and courses with bite\" suggests challenging logistics match the challenging terrain."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Post-race includes \"enough to make you happy and then some\"—feast with vegetarian and meat options, drinks, entertainment, plus free photography downloads. The Thursday fire pit pickup with s'mores and planned camping at MTB Atlanta HQ create multi-day community gathering rather than single-event transaction."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Registration proceeds fund MTB Atlanta trail building and maintenance, connecting racing to local trail advocacy. The name plays off the area's \"Silk Sheets\" road cycling reputation—\"Dirty Sheets\" as the \"unruly counterpart.\" Harold Solomon captured the appeal: \"Remarkable to have this so close to Atlanta.\""
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Times span from Jason Thomas's 1h 23m effort to Mary Hawthorne's 4h 31m recreational ride, showing wide participation but limited elite depth. The 2024 men's field stretched over nearly three hours from winner to mid-pack, suggesting strong regional participation without national competitive draw."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Hand-thrown ceramic trophies from Grouchy Ass Pottery Studio and the organizers' note that \"the real flex\" is \"Ceramic Glory\" over cash prizes shows personality-driven value proposition. Registration starting at $70 with proceeds supporting local trail building connects individual participation to community infrastructure investment."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "$5 parking at Cochran Mill Park and proximity to Atlanta keep costs minimal. Thursday packet pickup near Hartsfield-Jackson eliminates rental car needs for flying participants. Casey Wichman's successful completion on a cross bike with 38c tires shows equipment flexibility reduces gear investment requirements."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.mtbproject.com/trail/7012793/dirty-sheets-gravel-loop",
+        "category": "community",
+        "label": "mtbproject.com: Dirty Sheets Gravel Loop"
+      },
+      {
+        "url": "https://results.bikereg.com/race/19779",
+        "category": "community",
+        "label": "results.bikereg.com: 19779"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12001/dirty-sheets-gravel-grind",
+        "category": "community",
+        "label": "granfondoguide.com: Dirty Sheets Gravel Grind"
+      }
+    ]
   }
 }

@@ -252,21 +252,49 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Race logistics delivered the basics with aid stations that DNA Cycling Crew called \"stocked\" with \"fantastic volunteers,\" plus mechanics at two stations. But Cassie Cobb noted \"headwinds made the last few miles a slow grind\" and John Cobb described being \"exhausted and dehydrated\" at finish, suggesting nutrition planning gaps. The 7:00 am start from 4250 N 3500 W gets riders moving, but specific packet pickup and parking details remain unclear."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "Multiple distance confusion persists—Dawn Manfredonia switched from 106-mile Dino-Mite to 60-mile Dino-Bite mid-race due to nutrition mistakes, while Matt Tennison got \"completely destroyed\" by elevation on the longer course. The official 55-mile listing conflicts with rider reports of 32-mile Dino-Lite, 60-mile Dino-Bite, and 100+ mile options. Distance clarity matters when altitude is already crushing people."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Cassie Cobb joked she \"could be on our road bikes\" during 8 miles of \"pristine gravel,\" while SooperDew found \"forest roads were super smooth and wide nearly the entire time.\" Race Director Breanne Nalder Harward confirms \"gravel sections are not super technical\" though recommends \"knobby tires at least.\" The terrain prioritizes endurance suffering over bike handling skills."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "DNA Cycling Crew gained \"3,100 ft of vert climbing Taylor Mountain Road\" in the first 15 miles alone, with the full Dino-Bite delivering 6,155 feet over 60 miles. Dawn Manfredonia tackled Dino-Mite's \"9,400 ft of vertical gain\" over 106 miles before switching courses. The climbing is front-loaded and relentless, but the published 3,500 feet significantly understates what riders actually face."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "DNA Cycling Crew reported \"temperatures were perfect\" with cooling as elevation increased, but Cassie Cobb battled \"headwinds\" that made \"the last few miles a slow grind.\" June in the High Uinta Mountains delivers variable conditions—from perfect climbing weather to punishing wind exposure on descents back to the valley finish."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Matt Tennison got crushed by elevation: \"The elevation literally drained me. I could barely push low endurance on the out and back climb.\" SooperDew's GPS showed the 100-mile course \"topped out at 10,100 feet above sea level,\" while Tennison noted the Dino-Mite peak hits 11,000 feet. Starting around 5,200 feet in Vernal, the altitude gain becomes a race-defining factor rather than a minor consideration."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "John Cobb captured the remoteness: \"By mile 30, civilization had faded into the rear-view mirror and hope was a mirage of an aid station up ahead.\" bergensbanen pulled out his phone multiple times for photos of the \"amazing gravel roads that take you up into the Ashley National Forest.\" The descent through valleys with \"running water and cliffs on both sides\" delivers the High Uinta wilderness experience that justifies the journey to eastern Utah."
+      },
       "prestige": {
         "score": 1,
-        "explanation": "Three years old and already bouncing between dates and distances like a rookie organizer having an identity crisis. Sure, it landed a spot as Stop 5 in the USA Cycling Junior Gravel National Series, but that's more about geography than gravitas. The promotional copy reads like a sixth-grader's dinosaur pun assignment—'Jurass-kicked' and 'Mega-Saur-Ass' don't exactly scream legitimacy."
+        "explanation": "Three years in and still bouncing between course distances like an amateur operation finding its identity. Landing USA Cycling Junior Gravel National Series Stop 5 status provides some legitimacy, but the persistent confusion over basic race details and dinosaur pun marketing (\"Jurass-kicked,\" \"Mega-Saur-Ass\") keeps this firmly in regional novelty territory rather than must-do gravel status."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The course data is a mess—official sources can't agree if it's 55 miles with 3,500 feet or 98 miles with 9,293 feet of climbing. No published aid station info, no cutoff times, no field size data. When basic race logistics are this opaque three years in, you're dealing with organizational amateur hour."
+        "explanation": "SooperDew praised \"support on par with Ironman events\" with \"fully stocked aid stations every 15ish miles\" and mechanics available. But basic course data remains chaotic—official sources can't agree whether it's 55 or 60 miles, with riders reporting everything from 32 to 106 miles. When Dawn Manfredonia can switch courses mid-race due to poor planning, organization still has work to do."
       },
       "experience": {
         "score": 2,
-        "explanation": "Vernal sits at the base of the eastern Uinta Mountains with legitimate High Uinta terrain and views of Dinosaur National Monument—the raw ingredients are solid. But with zero rider reports, no race coverage, and promotional material that sounds like it was written by a theme park marketing intern, the actual rider experience remains a mystery. The 'pristine dirt roads and massive climb' promise could deliver, or could be another case of overselling underwhelming terrain."
+        "explanation": "bergensbanen found \"amazing gravel roads\" with \"beautiful scenery the whole time,\" calling it \"the most beautiful ride I've ever done scenery-wise.\" John Cobb's journey from \"soul crushing climb\" through remote wilderness to \"descent into a valley with running water and cliffs\" captures the High Uinta terrain payoff. The landscape delivers, even when logistics don't."
       },
       "community": {
         "score": 2,
-        "explanation": "Part of the Utah Gravel Series, which gives it some regional network credibility. Vernal offers the full tourist weekend package—hotels, camping, museums, petroglyphs—so the infrastructure exists for a proper gravel community gathering. But with no visible rider testimonials, forum chatter, or social media buzz after three years, this feels more like a race hoping for community than building one."
+        "explanation": "bergensbanen loved how \"everyone I talked to there wanted to come back\" and \"shared a meal and beer with my new friends afterwards.\" The race director's family presence made it \"really welcoming,\" even leading a pre-race ride. Cassie Cobb \"spent the afternoon hanging in the sun with fellow Dino-Lite racers.\" Small-scale intimacy works when the organizers show up personally."
       },
       "field_depth": {
         "score": 1,
@@ -274,39 +302,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "No published entry fees found, but Vernal delivers legitimate High Uinta Mountain terrain that costs serious money to access elsewhere. You're getting Dinosaur National Monument views and 'pristine dirt roads' in one package. The weekend infrastructure—camping, trails, rafting, museums—means your race entry buys access to a full adventure playground, not just a few hours of suffering."
+        "explanation": "bergensbanen emphasized it \"wasn't over-commercialized\" with family organizers present, while SooperDew got \"Ironman-level support\" in a grassroots setting. The High Uinta Mountain access alone costs serious money elsewhere, plus Vernal's full adventure weekend infrastructure. Multiple riders immediately committed to returning—the strongest value indicator for any gravel race."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Vernal sits in eastern Utah's middle of nowhere, meaning you're driving or flying into Salt Lake City and adding 200 miles of travel. The town promotes 'plenty of hotels' and camping options, suggesting reasonable accommodation costs, but getting there from anywhere significant requires commitment. Remote locations always cost more in time and gas, even when the destination is affordable."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "At 55 miles, this sits in the gravel middle ground—not short enough to be accessible, not long enough to be epic. The conflicting course data showing a 98-mile T-Rex option suggests multiple distances exist, but the information chaos makes it impossible to know what you're actually signing up for. Moderate distance with immoderate confusion."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "75% gravel roads through the High Uinta Mountains sounds legitimate but not gnarly—think Wyoming backcountry more than Vermont singletrack. The 'pristine dirt roads' description suggests maintained surfaces rather than technical challenges. High Uinta terrain can deliver real technicality, but this course appears designed for accessibility over difficulty."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "The official 3,500 feet over 55 miles is respectable but not crushing—standard Western gravel climbing that'll hurt but won't destroy you. The conflicting data showing 9,293 feet over 98 miles suggests either multiple courses or serious organizational confusion. Either way, you're looking at meaningful but manageable climbing in legitimate mountain terrain."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "June in eastern Utah means heat, wind, and potential afternoon thunderstorms rolling off the Uinta Mountains. No weather data available, but Vernal's high desert location at mountain base means variable conditions and limited shade on those 'pristine dirt roads.' The climate won't kill you, but it won't coddle you either."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Vernal starts around 5,200 feet at the base of the eastern Uinta Mountains, with the High Uinta terrain potentially pushing higher. Not Colorado-brutal, but enough to notice if you're coming from sea level. The altitude impact depends entirely on which course elevation data proves accurate—moderate concern or significant factor."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Start location listed as 4250 N 3500 W in Vernal with a 7:00 am start time—the basics are covered. But packet pickup details, parking info, and aid station logistics are completely absent from available information. Having 'plenty of hotels and camping' helps, but race-day execution details remain a black box three years in."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "High Uinta Mountains, Dinosaur National Monument proximity, and legitimate Utah backcountry access deliver real adventure potential. Vernal offers petroglyphs, museums, rafting, and trails for a full weekend of exploration beyond the race. The terrain and location provide genuine remote mountain experience, even if the race organization feels amateur. Sometimes the landscape carries the day."
+        "explanation": "Vernal sits 200 miles from Salt Lake City in eastern Utah's nowhere, requiring significant travel commitment from anywhere populated. The town offers \"plenty of hotels\" and camping per race promotion, suggesting reasonable local costs once you arrive. But getting to this High Uinta Mountain access point means either a long drive through Utah's empty middle or flying into SLC and adding hours of additional travel."
       }
     },
     "citations": [
@@ -314,6 +314,41 @@
         "url": "https://ridewithgps.com/routes/47123599",
         "category": "route",
         "label": "RideWithGPS: 2026 Dirty Dino - Stegosaurus 60"
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/gravel-racing/inaugural-dirty-dino-gravel-grinder-rider-reports/",
+        "category": "community",
+        "label": "cyclingwest.com: Inaugural Dirty Dino Gravel Grinder Rider Reports"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14w2p5b/just_came_across_a_post_bashing_the_dirty_dino/",
+        "category": "community",
+        "label": "reddit.com: Just Came Across A Post Bashing The Dirty Dino"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14cmdx0/dirty_dino_gravel_ride_report_vernal_utah/",
+        "category": "community",
+        "label": "reddit.com: Dirty Dino Gravel Ride Report Vernal Utah"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1cy36pa/first_gravel_race/",
+        "category": "community",
+        "label": "reddit.com: First Gravel Race"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10508/dirty-dino-gravel",
+        "category": "community",
+        "label": "granfondoguide.com: Dirty Dino Gravel"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1470vj8/anyone_raced_the_dirty_dino_gravel_grinder_in_utah/",
+        "category": "community",
+        "label": "reddit.com: Anyone Raced The Dirty Dino Gravel Grinder In Utah"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19725",
+        "category": "community",
+        "label": "gravel-results.com: 19725"
       }
     ],
     "results": {

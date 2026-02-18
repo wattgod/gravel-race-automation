@@ -85,6 +85,34 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Events span Ukiah, Maxwell, Caspar, and Sonoma County - all within a few hours of San Francisco Bay Area. Stephen Vogel describes the pre-race scene: \"It's still a parking lot, and still pretty damn early. But first, find yourself among redwoods, green hills, and a quiet town.\" Series pass option simplifies multi-event logistics with early-bird pricing through December."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Events range from 48 miles (Low Gap) to 91 miles (King Ridge), averaging around 70 miles across the series. Stephen Vogel notes Low Gap features \"22 miles of road followed by 22 miles of dirt\" with a \"20 minute road climb from the gun.\" Squarely in the 60-100 mile category for most events, with shorter options available."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain varying by event - Jackson Forest features flowing singletrack, while King Ridge is 96% paved. Low Gap presents technical challenges including \"downhill, one lane, pot-holed road with grades up to 12% and plenty of damp hairpins... a minefield of pot holes.\" Amy Cameron describes Old Caz requiring riders to \"slosh across the creek\" mid-race."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Serious climbing at every event - from 4,500 ft at Jackson Forest to a leg-breaking 9,116 ft at King Ridge. Multiple events feature 6,000-8,000+ ft of elevation gain with pitches exceeding 12%. Amy Cameron captures the relentless nature: \"Climb, descend, group up with some others, climb, descend, shove in some food, climb, refill bottles, descend.\""
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "January through May in Northern California means variable winter/spring conditions. Stephen Vogel encountered \"The valley was dark under redwood canopies, still wet from last week's rain\" with \"damp hairpins.\" The 2023 Huffmaster was described as \"mud-caked\" with Miguel Crawford calling it \"like a five hour cyclocross race.\""
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Northern California coastal and inland routes at relatively low elevation - most courses stay below 3,000 ft. Altitude is not a significant factor, though the climbing is relentless. The routes traverse redwood forests and coastal areas where oxygen availability remains consistent throughout."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Routes traverse exclusive private Mendocino Redwood Company roads and hidden NorCal gems. Ted King captures the essence: \"It's everything that's right about bike riding as we know it! It's fun, it's camaraderie, it's mass start, it's gravel, and it's badass.\" Amy Cameron emphasizes the raw experience: getting \"really dirty, embracing the punch to the gut.\""
+      },
       "prestige": {
         "score": 4,
         "explanation": "The world's first and longest-running gravel series, now celebrating over 25 years. The Grasshopper Adventure Series sparked the entire mixed-terrain movement. Attracts World Cup pros like Kate Courtney, Peter Stetina, and US gravel national champion Brennan Wertz. Not major series or UCI, but historic significance and strong reputation."
@@ -112,34 +140,6 @@
       "expenses": {
         "score": 4,
         "explanation": "Northern California is accessible from major West Coast airports. Ukiah and Sonoma County have reasonable lodging options. Total per-event costs likely $300-500 including registration, travel, and lodging for most participants. Series pass makes multi-event participation economical. Not budget-friendly for out-of-state travelers, but reasonable for the region."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Events range from 48 miles (Low Gap) to 91 miles (King Ridge), averaging around 70 miles across the series. Squarely in the 60-100 mile category for most events, with shorter and longer options available."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Mixed terrain varying by event - Jackson Forest features 9.5 miles of flowing singletrack per lap with rooty/rocky sections, while King Ridge is 96% paved. Low Gap and Ukiah Mendo Epic offer chunky gravel and logging roads. Overall a diverse technical challenge across the series."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "Serious climbing at every event - from 4,500 ft at Jackson Forest to a leg-breaking 9,116 ft at King Ridge. Multiple events feature 6,000-8,000+ ft of elevation gain with pitches exceeding 12%. This is a climbing series through and through."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "January through May in Northern California means variable winter/spring conditions. Potential for rain, mud, and cool temperatures, especially early season. The 2025 Ukiah Mendo Epic was won in muddy conditions. Not extreme, but conditions require preparation."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Northern California coastal and inland routes at relatively low elevation - most courses stay below 3,000 ft. Altitude is not a significant factor, though the climbing is relentless."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Events span Ukiah, Maxwell, Caspar, and Sonoma County - all within a few hours of San Francisco Bay Area. Requires moderate planning for NorCal travel, but well-established venues with hotels and airports accessible. Series pass option simplifies multi-event logistics."
-      },
-      "adventure": {
-        "score": 4,
-        "explanation": "This is the OG of gravel racing - founded in 1998 by Miguel Crawford. Routes traverse exclusive private Mendocino Redwood Company roads, coastal views, redwood forests, and hidden NorCal gems. The self-sufficiency ethos and diverse terrain create memorable adventures. Not quite bucket-list epic, but genuinely special."
       }
     },
     "historical_significance": {
@@ -366,6 +366,46 @@
         "url": "https://www.movemint.cc/series/grasshopper_adventure_series_2026",
         "category": "other",
         "label": "Movemint"
+      },
+      {
+        "url": "http://www.teammikesbikes.com/blog-2020/2019/2/5/grasshopper-adventure-series-numero-uno-low-gap",
+        "category": "community",
+        "label": "teammikesbikes.com: Grasshopper Adventure Series Numero Uno Low Gap"
+      },
+      {
+        "url": "http://www.teammikesbikes.com/blog-2020/2018/2/5/grasshopper-adventure-series-old-caz",
+        "category": "community",
+        "label": "teammikesbikes.com: Grasshopper Adventure Series Old Caz"
+      },
+      {
+        "url": "https://www.outsideonline.com/outdoor-adventure/biking/discover-grasshopper-adventure-series/",
+        "category": "community",
+        "label": "outsideonline.com: Discover Grasshopper Adventure Series"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/katerina-nash-ian-lopez-de-san-roman-win-mud-caked-huffmaster-hopper/",
+        "category": "community",
+        "label": "velo.outsideonline.com: Katerina Nash Ian Lopez De San Roman Win Mud Caked Huffma..."
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/my-mentor-gave-me-the-confidence-to-try-a-gravel-race-in-the-first-place-year-2-of-low-gap-hopper-initiative-a-success/",
+        "category": "community",
+        "label": "velo.outsideonline.com: My Mentor Gave Me The Confidence To Try A Gravel Race In ..."
+      },
+      {
+        "url": "https://www.sportful.com/US/en/stories/cycling/grasshopper-adventure-series",
+        "category": "community",
+        "label": "sportful.com: Grasshopper Adventure Series"
+      },
+      {
+        "url": "https://www.grasshopperadventureseries.com/",
+        "category": "community",
+        "label": "grasshopperadventureseries.com"
+      },
+      {
+        "url": "https://www.grasshopperadventureseries.com/about-us",
+        "category": "community",
+        "label": "grasshopperadventureseries.com: About Us"
       }
     ],
     "history": {

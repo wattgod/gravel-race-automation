@@ -215,13 +215,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Secret course revealed only at start forces riders to navigate with paper cue sheets—\"Zero experience with cue sheets,\" admits Cory Rood, whose group missed the second turn within a mile. Drop bags at two checkpoints provide resupply, but navigation errors \"can be massive, adding hours to your time.\" Registration is refreshingly simple: table at a winery, name checked off paper list, generic number plate."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "340 miles with tight checkpoint cutoffs separate finishers from DNFs—Cory Rood built only a 44-minute cushion at CP1 after 80 miles, forcing him to rush through resupply stops. \"Knowing I had only built such a small cushion, I rushed through my Checkpoint routine,\" he explains. In 2024, only 5 of 24 starters finished, with 19 DNFs highlighting the distance's brutal reality."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Iowa gravel stays \"96-97% off tarmac\" as Wilco notes, but technical challenge comes from chunky rock and sketch bridges rather than singletrack skills. Bull Run Road featured \"several of the steepest grades\" with \"super chunky and loose\" gravel earning the Strava segment name \"Misery in Missouri.\" Fresh Shelby County rock sections force riders to walk steeper climbs when \"spread the full width of the road.\""
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Cory Rood's GPS recorded 7,000 feet in the first 80 miles and 8,300 feet over the second 111-mile section, confirming elevation gain concentrates in rolling farmland punches. \"The hills on this section were relentless,\" he reports from the northbound headwind section. Wilco describes the pattern: \"fly down at 30-40 mph, cross a bridge, dump momentum, then grind in lowest gear to the next crest.\""
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "April weather delivered the full Midwest experience across race years: 2021 brought \"low 40s to high 50s with 10-20mph N-NW winds\" and wet ground from overnight rain; 2024 was \"cold, a bit windy, but the sun was out\"; 2019 saw \"temperatures soared for the first time this year\" creating hydration crises. Consistent wind exposure on endless farm roads defines the climate challenge more than temperature swings."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Iowa elevation around 1,000 feet poses zero physiological challenge. The 8,000+ feet of climbing comes from rolling terrain, not altitude gain—riders start and finish near the same elevation after 340 miles of constant undulation through agricultural valleys and ridgelines."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "\"Remote!\" exclaims Wilco about terrain where \"we never passed a single gas station the entire route other than our pre-planned 3 stops.\" Navigation with secret cue sheets adds risk—early wrong turns cost the lead group immediately. Heather Poskevich's water crisis 30 miles in required finding \"a farmer willing to allow us to fill up at his pump,\" highlighting how quickly things turn serious in Iowa's agricultural vastness."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "This is Iowa gravel ultra racing, not the Tour de France. 150-300 rider fields and minimal online chatter tell you everything about its place in the cycling hierarchy. It's a legitimate suffer-fest that builds character, but don't expect podium photos to impress anyone outside the ultra-endurance nerd circle."
+        "explanation": "Born from TransIowa's 2018 end, race directors Sarah Cooper, Steve Fuller, and Dori Jansma created this \"in the spirit of Trans Iowa and with Mark Stevenson's blessing.\" The understated vibe matches its niche appeal—\"like the Barkley Marathon of gravel races,\" observes Wilco about the simple grocery store parking lot start and minimal registration ceremony."
       },
       "race_quality": {
         "score": 3,
-        "explanation": "Self-supported format with GPS navigation and defined time limits shows proper race structure, but you're basically riding solo for 340 miles with gas station resupply. No aid stations, minimal support, and potential course reroutes for bridge closures keep this from premium territory. It's organized enough to function, raw enough to hurt."
+        "explanation": "Tight checkpoint cutoffs and organized volunteer support at remote locations like \"an old Iron bridge on a B-road\" show solid infrastructure, but course hazards emerge. Mile 44's \"wet, sloppy dirt with road rock mixed in\" destroyed derailleurs and chains, \"costing numerous people their race.\" The secret course format prevents pre-riding but creates navigation challenges that can end races through wrong turns alone."
       },
       "experience": {
         "score": 5,
@@ -229,7 +257,7 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Small fields and self-supported format mean limited rider interaction during the event itself. The Iowa Gravel Series connection provides some regional community, but this isn't a social ride—you're mostly alone with your thoughts and the wind. What community exists is forged in shared suffering rather than post-race beer gardens."
+        "explanation": "\"The IWAR vibe and people are cool,\" notes Wilco about the understated atmosphere where \"there is deep respect for anyone that shows up to even toe the line.\" Small fields mean limited interaction during the race itself—riders spread out quickly and spend most miles solo. Race directors and volunteers provide encouragement at remote checkpoints, but the self-supported format limits community building to pre- and post-race moments."
       },
       "field_depth": {
         "score": 2,
@@ -237,39 +265,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "$150-200 entry fee for 340 miles of organized suffering is solid economics—that's less than $0.60 per mile of existential crisis. Self-supported format means no fancy aid stations or swag, but you're paying for route planning, timing, and the privilege of pushing your limits in Iowa's agricultural vastness."
+        "explanation": "Free entry with donations accepted makes this exceptional value for 340 miles of organized suffering. Created \"to offer the cycling community a similar boundary-expanding experience\" after TransIowa ended, race directors prioritize access over profit. Drop bags, checkpoint timing, volunteer support, and secret route planning provide substantial organization without entry fees—rare in ultra-endurance cycling."
       },
       "expenses": {
         "score": 3,
         "explanation": "Winterset, Iowa isn't exactly a destination resort, so lodging and food costs stay reasonable for Midwest standards. You'll need serious lighting, navigation gear, and overnight clothing for the 30-50 hour effort, plus cash for gas station resupply runs. Budget accommodations exist, but gear requirements for ultra-endurance push total costs up."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "340 miles is legitimate ultra-endurance distance that separates pretenders from the genuinely unhinged. Most riders need 30-50 hours to finish, crossing multiple day/night cycles and entering sleep deprivation territory where hallucinations become navigation hazards. This isn't a long gravel race—it's a multi-day ordeal disguised as a single event."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Iowa gravel roads are fast, maintained crushed limestone through farmland—technical as a Walmart parking lot when dry. The challenge is endurance and navigation, not bike handling skills. When rain hits and turns everything to peanut butter mud, the technical difficulty spikes briefly, but mostly you're grinding straight roads through corn country."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "8,000 feet over 340 miles averages 24 feet per mile—barely noticeable individually but cumulatively brutal. Iowa's rolling farmland means constant undulation with no flat recovery sections, and river valley crossings add periodic legitimate climbs. By Mile 300, every gentle rise feels like a mountain when your legs are cooked."
-      },
-      "climate": {
-        "score": 4,
-        "explanation": "April in Iowa delivers the full Midwestern weather experience: 30-70°F temperature swings, constant 10-20 mph winds, and 40-50% rain probability that turns gravel to unrideable soup. The relentless wind exposure on endless farm roads becomes the defining challenge—headwinds for 50+ miles break souls. Add tornado season risk and overnight cold for true suffering variety."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Winterset, Iowa sits around 1,000 feet above sea level—altitude training for sea level dwellers. Oxygen isn't your limiting factor here, willpower is. The only thing thin at this elevation is your patience after 200 miles of Iowa wind."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Self-supported format puts logistics burden on riders—you handle navigation, nutrition, and mechanicals solo for 340 miles. Small Iowa towns provide resupply every 25-40 miles, but stores close early and not all take cards. GPS tracks are provided and time limits enforced, but bridge closures and road reroutes happen without warning in rural Iowa."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "340 miles alone on Iowa gravel roads pushes you into legitimate adventure territory where things can go genuinely wrong. Navigation errors in the grid road system, severe weather encounters, and 40+ hours of sleep deprivation create real consequences. You'll discover parts of Iowa most people never see and parts of yourself you'd rather forget."
       }
     },
     "final_verdict": {
@@ -283,6 +283,36 @@
         "url": "https://www.iowagravel.com",
         "category": "official",
         "label": "Official Website"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/a-success-story-iowa-wind-and-rock/57591",
+        "category": "community",
+        "label": "trainerroad.com: 57591"
+      },
+      {
+        "url": "https://wilcounchained.substack.com/p/iowa-wind-and-rock-iwar-2024",
+        "category": "community",
+        "label": "wilcounchained.substack.com: Iowa Wind And Rock Iwar 2024"
+      },
+      {
+        "url": "https://www.hpultracycling.com/iowa-wind-and-rock-2019-heather-poskevichs-race-report/",
+        "category": "community",
+        "label": "hpultracycling.com: Iowa Wind And Rock 2019 Heather Poskevichs Race Report"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Event/15945/iowa-wind-and-rock",
+        "category": "community",
+        "label": "bikeiowa.com: Iowa Wind And Rock"
+      },
+      {
+        "url": "https://iowawindandrock.com/",
+        "category": "community",
+        "label": "iowawindandrock.com"
+      },
+      {
+        "url": "https://blackhillsbackbone.blogspot.com/2018/09/iowa-wind-and-rock-gravel-family-steps.html",
+        "category": "community",
+        "label": "blackhillsbackbone.blogspot.com: Iowa Wind And Rock Gravel Family Steps.Html"
       }
     ]
   }

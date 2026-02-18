@@ -157,9 +157,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "International travel to Gqeberha plus seven-day stage race logistics across remote Karoo regions. The inaugural 2025 edition faced 'extreme weather conditions' that forced stage neutralization, showing how African storms can disrupt even well-organized events. While the full-service Burn Camps handle tent setup and meals, you're still managing customs, gear transport, and multi-timezone coordination to reach the Great Karoo."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Seven stages of 90-140km each totaling 800km pushes most riders past their comfort zone without crossing into masochism. Race organizers note that 'completing the race requires endurance, experience, and preparation – qualities that are within reach of a moderately fit cyclist' with 12+ hours weekly training over six months. The cumulative fatigue matters more than individual stage distances."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Described as 'relatively smooth, non-technical gravel roads' but terrain varies from 'wide, open Champagne Gravel to remote and narrow paths.' The route demands bike handling skills across coastal forests, Karoo semi-desert plains, and African bushveld. Andri Frischknecht's crash during a neutralized section shows that even non-technical terrain poses handling challenges in exposed conditions."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "11,000m of climbing over 800km creates serious vertical density across South Africa's most dramatic landscapes. The route traverses 'rugged passes and breathtaking vistas' from Knysna's rolling coastal hills through the Great Karoo's expansive plains to Shamwari's African bushveld terrain. Seven days of accumulated climbing through these geological transitions will break plenty of riders by the final stages."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "The inaugural 2025 race experienced 'extreme weather conditions' and significant storms that forced stage neutralization. October brings temperature swings from 95°F daytime highs in the Great Karoo to sharp drops after sunset. Lateral wind gusts proved dangerous enough to cause serious crashes even during neutralized racing, highlighting the climate challenges of this arid semi-desert crossing."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Starting near sea level in Knysna and traversing Eastern Cape highlands means most elevation comes from climbing rather than sustained altitude stress. The route through Great Karoo and African bushveld likely stays below serious oxygen debt thresholds for most riders. Temperature and terrain pose greater physiological challenges than altitude in these South African highlands."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Riding through Big Five territory in fossil-rich semi-desert where 'the hardiest creatures thrive' maxes the adventure meter. You're literally crossing geological and ecological zones most humans never experience, let alone on a bike. The inaugural status means you're writing the first chapter of this race's story in some of Africa's most remote terrain."
+      },
       "prestige": {
         "score": 4,
-        "explanation": "Nedbank as title sponsor and a groundbreaking 7-day, 800km stage race format puts this on the international gravel map from day one. The inaugural 2025 edition creates instant legend status – you're literally among the first humans to tackle this beast. Sure, it's not Unbound yet, but founding a new multi-day format in South Africa's most unforgiving terrain? That's how cycling legends start."
+        "explanation": "The $150,000 prize purse makes this 'the largest in gravel racing history' and attracts elite fields including three-time Cape Epic winner Matt Beers and Paris-Roubaix champion Alison Jackson. Founded by Cape Epic creator Kevin Vermaak with Nedbank title sponsorship, the race launched with what Beers called 'a major milestone that will undoubtedly attract global attention, setting a new standard for gravel racing.'"
       },
       "race_quality": {
         "score": 4,
@@ -167,15 +195,15 @@
       },
       "experience": {
         "score": 5,
-        "explanation": "Where else do you ride past Big Five wildlife while grinding through fossil-rich Karoo plains? The full immersion concept with Burn Camps creates actual recovery and storytelling time between stages – not just crash and dash. From Garden Route forests to semi-desert to bushveld, this is geography most cyclists will never see otherwise."
+        "explanation": "The Burn Camps create 'camaraderie, storytelling, and shared adventure' with communal campfires and local cultural integration including live music and regional cuisine. Alison Jackson captured the appeal: 'I can't wait to make some new friends in the Burn Camps next to the fireside in the evenings.' Racing through three distinct ecosystems while living among Olympic champions creates an expedition-level experience."
       },
       "community": {
         "score": 4,
-        "explanation": "The 'everyone is welcome' philosophy backed by actual full-service support shows they get community building right from launch. Two-night Burn Camp stays force riders to actually connect instead of just racing past each other. Being inaugural edition means you're founding the tribe, not just joining it."
+        "explanation": "When Andri Frischknecht crashed seriously, he thanked 'all other riders for their fairness and for stopping and taking care of me,' showing the mutual support culture. The Burn Camps foster connection through two-night stays with spacious tented accommodations where 'the prevailing atmosphere is one of camaraderie, storytelling, and shared adventure.' Pro-am integration lets riders 'live among Olympic and world champions.'"
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Inaugural race means unknown field strength – could be hardcore adventurers or could be trust-fund tourists with nice bikes. The 7-day commitment and South African location will filter out casual participants, but pro depth remains to be seen. Give it three years to see who actually shows up to suffer through the Karoo."
+        "explanation": "Elite field includes Cape Epic winners Matt Beers and Annika Langvad, Paris-Roubaix champion Alison Jackson, and multiple world champions. The inaugural edition drew serious international talent with the $150,000 prize purse, but age-group depth remains to be proven. More than 20% of registered riders were women, showing strong gender representation for a new event seeking to establish competitive credibility."
       },
       "value": {
         "score": 5,
@@ -184,34 +212,6 @@
       "expenses": {
         "score": 3,
         "explanation": "International flight to Gqeberha plus seven days of racing and lodging adds up fast, even with race-organized transport options. The full-service model likely costs more upfront than bare-bones stage races, but eliminates surprise expenses. Budget for African adventure pricing, not domestic gravel race fees."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Individual stages range 90-140km, which hits the sweet spot for multi-day racing – long enough to matter, short enough to recover. Seven days total pushes most riders past their comfort zone without crossing into pure masochism. It's not ultra-distance per stage, but the cumulative load will break plenty of riders by day five."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Narrow, uneven gravel descents and varied terrain from forest to semi-desert suggest real skill demands, not just power grinding. The 10km descent from Blaauwater and steep drops after climbs like Tarka Botha will separate bike handlers from power meters. Without detailed surface breakdowns, assume African gravel means technical challenges most riders haven't seen."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "11,000m over 800km averages serious climbing density, especially with features like the long drag to Conical Peak and the 7km Tarka Botha climb. Stage 3's 1,450m in 90km and Stage 7's 1,250m in 112km show they're not afraid to stack vertical. The lumpy bushveld terrain ensures constant elevation changes, not just a few big climbs."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "The Great Karoo is literally described as arid semi-desert where 'life clings to the edges and the hardiest creatures thrive' – that should tell you everything. October/November timing could mean brutal heat, sudden weather changes, or both. No weather data available, but semi-desert plus multi-day exposure equals serious climate challenges."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Starting in Knysna near sea level means most elevation is temporary climbing rather than sustained altitude stress. The route through Eastern Cape and Karoo likely stays under serious altitude thresholds for most riders. Without specific elevation profiles, assume standard South African highland riding, not Leadville-level oxygen debt."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "International travel to Gqeberha for a stage race spanning remote Karoo regions creates real complexity. While race-organized transport exists, you're still dealing with South African logistics, customs, and gear transport across multiple time zones. The full-service Burn Camps help, but getting there with your bike intact remains an adventure."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Riding through Big Five territory in fossil-rich semi-desert where 'the hardiest creatures thrive' maxes the adventure meter. You're literally crossing geological and ecological zones most humans never experience, let alone on a bike. The inaugural status means you're writing the first chapter of this race's story in some of Africa's most remote terrain."
       }
     },
     "final_verdict": {
@@ -265,6 +265,56 @@
         "url": "https://www.velonews.com",
         "category": "media",
         "label": "VeloNews"
+      },
+      {
+        "url": "https://capovelo.com/gravel-burn-stage-race-ups-the-ante-to-150000-in-prizing-money/",
+        "category": "community",
+        "label": "capovelo.com: Gravel Burn Stage Race Ups The Ante To 150000 In Prizing ..."
+      },
+      {
+        "url": "https://gravel-burn.com/",
+        "category": "community",
+        "label": "gravel-burn.com"
+      },
+      {
+        "url": "https://diverge.info/2025/06/20/gravel-burn-alison-jackson-to-light-up-the-inaugural-race/",
+        "category": "community",
+        "label": "diverge.info: Gravel Burn Alison Jackson To Light Up The Inaugural Race"
+      },
+      {
+        "url": "https://www.ride-mtb.com/de/news/sturz-bei-gravel-premiere-schluesselbein-durchsticht-frischknechts-lunge",
+        "category": "community",
+        "label": "ride-mtb.com: Sturz Bei Gravel Premiere Schluesselbein Durchsticht Fris..."
+      },
+      {
+        "url": "https://www.thenxrth.com/post/from-the-northwoods-to-south-africa-meet-the-world-s-newest-and-wildest-gravel-stage-race",
+        "category": "community",
+        "label": "thenxrth.com: From The Northwoods To South Africa Meet The World S Newe..."
+      },
+      {
+        "url": "https://gravel-burn.com/racing/",
+        "category": "community",
+        "label": "gravel-burn.com: Racing"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=3Tx4dzclTY0",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/from-the-northwoods-to-south-africa-meet-the-world-s-newest-and-wildest-gravel-race",
+        "category": "community",
+        "label": "thenxrth.com: From The Northwoods To South Africa Meet The World S Newe..."
+      },
+      {
+        "url": "https://cycling-info.com/gravel-burn-matt-beers-and-axelle-dubau-prevot-conquer-epic-seven-day-race-across-south-africas-great-karoo/",
+        "category": "community",
+        "label": "cycling-info.com: Gravel Burn Matt Beers And Axelle Dubau Prevot Conquer Ep..."
+      },
+      {
+        "url": "https://ngontinh24.com/article/giant-factory-tour-gravel-burn-bike-tech-with-kevin-bekenstein",
+        "category": "community",
+        "label": "ngontinh24.com: Giant Factory Tour Gravel Burn Bike Tech With Kevin Beken..."
       }
     ]
   }

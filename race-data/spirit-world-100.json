@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Multiple distance options and weekend format show decent planning, with Friday group rides and meals extending the experience. Course requires GPS upload since it's 'lightly marked'—that's honest about their marking limitations. Medical support and stocked aid stations cover the basics, though specifics aren't detailed."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "100 miles hits the gravel century sweet spot with multiple options from 30 to 100 miles. Winning times show elite riders averaging 18.6 mph (Matan Sopher's 5:22:14) while Karl completed 80 miles in 7 hours at 11.4 mph, demonstrating the distance accommodates both competitive and recreational pacing within the 10-hour cutoff."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Rolling ranch roads and wide-open valleys in the San Rafael Valley sounds like fire road cruising, not technical gravel. No mention of singletrack, rock gardens, or demanding descents—just 'gravel roads' through ranch country. The 10-hour cutoff for 3,500 feet of climbing confirms this isn't technically challenging terrain."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The route features 'a 12-mile and 1000-foot gradual climb to start the race' through Harshaw Canyon according to Don Scheese, confirming gentle sustained grades rather than punishing climbs. At 3,500 feet over 100 miles, the elevation averages manageable rolling terrain through three ecological zones at 4,000-5,000 feet elevation."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late October in southern Arizona borderlands means desert conditions with potential temperature swings from cold dawn to blazing midday sun. No historical weather data provided, but desert racing always brings hydration and heat management challenges. The timing avoids summer hell but doesn't guarantee comfort."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Don Scheese describes the route traversing 'three ecological zones at 4,000-5,000 feet elevation' from cottonwood-lined canyons to oak-juniper-pinyon pine forests to high desert grasslands. The elevation is noticeable for sea-level riders but well below serious altitude training zones, sitting in Arizona's high desert borderlands."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding toward the Mexico border through San Rafael Valley delivers legitimate adventure factor you won't find at suburban gravel races. The 'transformative experience' marketing aside, riders consistently mentioned the unique setting and 'unlike anything I've ever done' experience. Wide-open borderlands scenery beats manicured park loops every time."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "This is grassroots gravel at its core, not some UCI-sanctioned circus. No pro field depth mentioned, no notable winners in the research, just 'total adult summer camp vibes' according to riders. The race markets itself as transformative spiritual journey nonsense rather than athletic achievement, which tells you everything about its competitive standing."
+        "explanation": "Elite winners like Matan Sopher (5:22:14) and Serena Gordon (6:01:01) show some competitive depth, but the race explicitly states 'The Spirit World is more about the adventure than the race.' The 250-rider field cap and grassroots focus prioritize experience over racing prestige, drawing enthusiasts rather than building competitive reputation."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Course is 'lightly marked' and dumps navigation responsibility on riders with mandatory GPS uploads—that's budget organizing 101. 10-hour cutoff for 100 miles with 3,500 feet of climbing is generous enough for weekend warriors but suggests they're not running a tight competitive ship. Rolling ranch roads toward Mexico sounds scenic but hardly demanding."
+        "explanation": "Course marking requires rider GPS upload due to limited signage, shifting navigation responsibility to participants rather than race organization. Karl's 7-hour struggle against wind and terrain shows the route delivers physical challenge, but the 10-hour cutoff for 100 miles with 3,500 feet of climbing indicates generous time allowances."
       },
       "experience": {
         "score": 3,
@@ -274,41 +302,44 @@
       },
       "value": {
         "score": 3,
-        "explanation": "The weekend package includes way more than most gravel races—multiple meals, live music, group rides, handmade swag, and Sunday recovery ride to 'the Boomshakalaka.' Multiple distance options from 30 to 100 miles give flexibility. Without specific pricing data, can't judge the dollar value, but the inclusions suggest decent bang for buck."
+        "explanation": "The weekend package includes extensive amenities beyond typical gravel races: live music, multiple group rides, western-themed dinner, handmade ceramic mug, post-race meal, and Sunday recovery ride. Multiple distance options from 30 to 100 miles accommodate different skill levels within one registration, though specific pricing remains undisclosed."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Patagonia, Arizona isn't exactly metropolitan convenience—you're looking at travel costs to reach southern borderlands with no airport data provided. The weekend format with Friday arrival means extra lodging nights, and small-town options likely mean limited, pricier accommodations. Registration pricing isn't disclosed, which never signals bargain rates."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "100 miles hits the gravel century sweet spot perfectly, with shorter options at 30, 58, and 80 miles for different skill levels. The 10-hour cutoff gives you plenty of buffer time without making it a joke. Distance variety means couples and groups can ride together at different challenge levels."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Rolling ranch roads and wide-open valleys in the San Rafael Valley sounds like fire road cruising, not technical gravel. No mention of singletrack, rock gardens, or demanding descents—just 'gravel roads' through ranch country. The 10-hour cutoff for 3,500 feet of climbing confirms this isn't technically challenging terrain."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3,500 feet over 100 miles averages 35 feet per mile—that's gentle rolling terrain, not mountain suffering. The 'rolling ranch roads' description confirms gradual grades rather than punishing climbs. Southern Arizona has serious mountains, but this route clearly avoids them for accessibility over challenge."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late October in southern Arizona borderlands means desert conditions with potential temperature swings from cold dawn to blazing midday sun. No historical weather data provided, but desert racing always brings hydration and heat management challenges. The timing avoids summer hell but doesn't guarantee comfort."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Patagonia sits in southern Arizona high desert, likely 4,000-5,000 feet elevation, but research provides no specific numbers. Not Colorado suffering altitude, but enough to notice if you're coming from sea level. The rolling terrain suggests modest elevation variation rather than sustained high-altitude grinding."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Multiple distance options and weekend format show decent planning, with Friday group rides and meals extending the experience. Course requires GPS upload since it's 'lightly marked'—that's honest about their marking limitations. Medical support and stocked aid stations cover the basics, though specifics aren't detailed."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Riding toward the Mexico border through San Rafael Valley delivers legitimate adventure factor you won't find at suburban gravel races. The 'transformative experience' marketing aside, riders consistently mentioned the unique setting and 'unlike anything I've ever done' experience. Wide-open borderlands scenery beats manicured park loops every time."
+        "explanation": "Patagonia, Arizona location requires travel to southern borderlands with limited metropolitan access options. The weekend format with Friday arrival extends lodging costs, and the 250-rider cap with quick sellouts suggests premium pricing. Small-town accommodation options likely mean higher per-night costs and advance booking requirements."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.thebetterbar.co/conquering-80-miles-karls-journey-through-the-spirit-world-100/",
+        "category": "community",
+        "label": "thebetterbar.co: Conquering 80 Miles Karls Journey Through The Spirit Worl..."
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/gravel-racing/entering-the-spirit-world-an-arizona-gravel-event/",
+        "category": "community",
+        "label": "cyclingwest.com: Entering The Spirit World An Arizona Gravel Event"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/the-spirit-world-100-and-other-grassroots-gravel-events-offer-more-than-just-a-finish-line/",
+        "category": "community",
+        "label": "velo.outsideonline.com: The Spirit World 100 And Other Grassroots Gravel Events O..."
+      },
+      {
+        "url": "https://velo.outsideonline.com/gallery/gallery-the-spirit-of-gravel-revisited/",
+        "category": "community",
+        "label": "velo.outsideonline.com: Gallery The Spirit Of Gravel Revisited"
+      },
+      {
+        "url": "https://theradavist.com/sometimes-you-meet-the-people-and-the-animals-racing-the-spirit-world-100",
+        "category": "community",
+        "label": "theradavist.com: Sometimes You Meet The People And The Animals Racing The ..."
+      },
+      {
+        "url": "https://www.thespiritworld100.com/",
+        "category": "community",
+        "label": "thespiritworld100.com"
+      }
+    ]
   }
 }

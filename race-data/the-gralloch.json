@@ -165,41 +165,17 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 3,
-        "explanation": "Britain's first UCI Gravel World Series event sounds impressive until you realize it's only in its fourth edition. Sure, it qualifies you for Worlds and RED:ON Events runs a tight ship, but calling yourself 'Britain's leading gravel event' when you're practically the only game in town is like being the tallest building in Gatehouse of Fleet. The 'world's best gravel racers' claim needs some names to back it up."
-      },
-      "race_quality": {
-        "score": 3,
-        "explanation": "The course delivers with 111km of 80% gravel through Galloway Forest Park, plus proper feed stations and GPS tracking. But that 67.9km cutoff at 4:15 PM forces slower riders onto a shortened route, which feels more like damage control than race design. Professional timing and age group podiums check the boxes, but this isn't Unbound-level organization yet."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Cycling Weekly called the route 'relentless' and riders rave about it being 'one of the most beautiful courses in the series,' winding through UNESCO Biosphere terrain. The opening kilometer dumps you straight onto gravel for an 11km climb, so you know what you're getting. Missing rider reports and DNF data make it hard to judge how the beauty translates to actual suffering."
-      },
-      "community": {
-        "score": 4,
-        "explanation": "The weekend festival format with live music, local food, camping, and kids activities creates proper community vibes beyond just pinning numbers. Starting and finishing in tiny Gatehouse of Fleet means the whole town becomes part of the event. The addition of a 330km ultra and standalone women's race shows they're thinking beyond just the main event."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Fourth edition status and UCI World Series qualification should attract serious talent, but 'thousands of incredible amateur racers' alongside unnamed elites doesn't scream deep competition yet. Being Britain's only top-level gravel race means you get the UK's best by default, not necessarily because you've earned global respect. The field is probably stronger than most regional events but weaker than established classics."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "You get UCI points, World Championships qualification, and a proper 111km challenge with full support for whatever they're charging. The weekend festival atmosphere and Galloway Forest Park setting add value beyond just the race. But pricing details are mysteriously absent, and being the only major UK gravel option means they can charge whatever the market will bear."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Gatehouse of Fleet isn't exactly a major airport hub - you're looking at 90+ miles from Glasgow or Edinburgh, plus whatever accommodation costs in rural Scotland during festival weekend. Camping is available but hotel options in a town this small probably book up fast. Remote Scottish location means this isn't a budget destination race."
+      "logistics": {
+        "score": 2,
+        "explanation": "Gatehouse of Fleet is 90+ miles from major airports with limited accommodation for a UCI event weekend. Tom Couzens describes getting there as requiring \"serious travel planning,\" and multiple riders experienced equipment failures that suggest limited local bike shop support. The event village setup works well once you arrive, but reaching this remote Scottish town remains the primary barrier."
       },
       "length": {
         "score": 5,
-        "explanation": "111km with 1,761m of climbing hits the gravel sweet spot perfectly - long enough to hurt without becoming an endurance slog. The addition of a 330km ultra option for masochists gives you choices. That opening 11km climb within the first kilometer sets the tone immediately, and 'relentless' terrain means every kilometer counts."
+        "explanation": "The 111km with 1,761m of climbing hits the gravel sweet spot perfectly. Tom Couzens averaged 32 km/h despite the \"brutal\" terrain, while slower riders like Michael Newton needed over 4 hours. \"The first 12 km is nearly all uphill, right out of the blocks\" sets an immediate aggressive tone that separates contenders from survivors."
       },
       "technicality": {
         "score": 4,
-        "explanation": "Eighty percent gravel through Galloway's 'rugged hillsides' with 1,761m of climbing demands real bike handling skills. The terrain 'suits climbers and rouleurs alike' suggests varied technical challenges beyond just grinding climbs. Firm gravel surfaces keep it challenging without getting stupidly sketchy, though missing specific technical feature details prevents a perfect score."
+        "explanation": "Matt Buckley describes \"fist-sized bits of gravel and relentless corrugations\" on the Loch Grannoch descent as \"letting go of the brakes and hanging on for dear life.\" Tom Couzens used \"cyclocross skills\" to attack through narrow technical sections at 40km. The course features varied challenges from steep opening climbs to technical descents through Galloway Forest."
       },
       "elevation": {
         "score": 4,
@@ -207,19 +183,43 @@
       },
       "climate": {
         "score": 5,
-        "explanation": "Mid-May in Scotland's southwest coast hits the weather lottery - spring conditions without summer heat or winter misery. The Solway Firth maritime influence keeps temperatures moderate, and May typically avoids Scotland's worst weather patterns. You might get rain, but it won't be the biblical downpours or freezing temperatures that can ruin other seasons."
+        "explanation": "The 2024 edition delivered \"cloudless blue skies\" with temperatures \"nudging 28°C\" - exceptional conditions for Scotland. Matt Buckley called it \"blazing sun and bone-dry, dust-choked trails\" that transformed the normally wet Scottish course. The maritime location provides spring conditions without Scotland's typical weather misery, though heat management becomes the challenge."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Sea level start in Gatehouse of Fleet means zero altitude considerations. Even with 1,761m of climbing, you're nowhere near altitude that affects performance or requires acclimatization. This is low-elevation suffering, where your lungs work fine but your legs still get destroyed."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Gatehouse of Fleet is charming but logistically challenging - 90+ miles from major airports with limited accommodation options for a festival weekend. No parking details, no packet pickup info, and camping as the main lodging suggestion for an international UCI event feels underdeveloped. The remote Scottish Highlands location is beautiful but demands serious travel planning."
+        "explanation": "Sea level start in Gatehouse of Fleet means zero altitude considerations. Even with 1,761m of total climbing through the Galloway Hills, you're nowhere near elevations that affect performance or require acclimatization. This is low-elevation suffering where lungs work fine but legs still get destroyed."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Racing through a UNESCO Biosphere in the Galloway Forest Park, starting from a tiny Scottish town most people can't pronounce - this is pure adventure. The route showcases 'lochs, forests and rugged hillsides' while being 'almost entirely off road' through terrain described as Scotland's 'rawest, most beautiful form.' You're not just racing; you're exploring somewhere genuinely wild."
+        "explanation": "Matt Buckley captures it perfectly: \"One minute, I was riding through wide open glens with views stretching miles, and the next, I was picking the smoothest line through a lochside path with the deep blue water looking so inviting.\" Racing through UNESCO Biosphere terrain from tiny Gatehouse of Fleet delivers pure Scottish Highlands adventure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Britain's first UCI Gravel World Series event attracts international talent - 35 nations competed in 2024. Elite finishes came down to one-second separations in both men's and women's races, with Petr Vakoc winning despite a late puncture. Fourth edition status and World Championships qualification elevate it above regional events, but it lacks the established reputation of continental classics."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Professional timing delivered precise results with the men's top four separated by one second. Feed stations at 87km provided proper support, though Michael Newton noted stomach issues from \"all the energy food.\" The 67.9km cutoff still forces slower riders onto a shortened route, and \"punctures were a common theme\" suggests course maintenance challenges."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Cycling Weekly called the route 'relentless' and riders rave about it being 'one of the most beautiful courses in the series,' winding through UNESCO Biosphere terrain. The opening kilometer dumps you straight onto gravel for an 11km climb, so you know what you're getting. Missing rider reports and DNF data make it hard to judge how the beauty translates to actual suffering."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The event village creates proper festival atmosphere with \"live music, local food\" and camping options. Michael Newton praised \"the fantastic atmosphere at the finish,\" and riders spent evenings \"drinking a few ciders whilst listening to the live band.\" The weekend format transforms tiny Gatehouse of Fleet into a cycling celebration beyond just pinning numbers."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Fourth edition status and UCI World Series qualification should attract serious talent, but 'thousands of incredible amateur racers' alongside unnamed elites doesn't scream deep competition yet. Being Britain's only top-level gravel race means you get the UK's best by default, not necessarily because you've earned global respect. The field is probably stronger than most regional events but weaker than established classics."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "UCI points and World Championships qualification justify the investment for competitive riders. The weekend festival format with camping and entertainment adds value beyond just the race. However, pricing details remain mysteriously absent, and equipment failure rates suggest riders need backup gear budgets for the \"sharp dagger-like rocks\" that line the course."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Gatehouse of Fleet isn't exactly a major airport hub - you're looking at 90+ miles from Glasgow or Edinburgh, plus whatever accommodation costs in rural Scotland during festival weekend. Camping is available but hotel options in a town this small probably book up fast. Remote Scottish location means this isn't a budget destination race."
       }
     },
     "final_verdict": {
@@ -268,6 +268,56 @@
         "url": "https://www.velonews.com",
         "category": "media",
         "label": "VeloNews"
+      },
+      {
+        "url": "https://www.huntbikewheels.com/blogs/news/racing-the-gralloch-with-tom-couzens",
+        "category": "community",
+        "label": "huntbikewheels.com: Racing The Gralloch With Tom Couzens"
+      },
+      {
+        "url": "https://laka.co/gb/blog/uci/racing-the-gralloch-my-experience-at-the-uci-gravel-world-series-in-scotland/",
+        "category": "community",
+        "label": "laka.co: Racing The Gralloch My Experience At The Uci Gravel World..."
+      },
+      {
+        "url": "https://www.barnsleyroadclub.co.uk/post/gralloch-uci-gravel-2024-111km-race-report",
+        "category": "community",
+        "label": "barnsleyroadclub.co.uk: Gralloch Uci Gravel 2024 111Km Race Report"
+      },
+      {
+        "url": "https://www.rlscyclingclub.com/post/the-gralloch-a-uci-gravel-race-in-scotland",
+        "category": "community",
+        "label": "rlscyclingclub.com: The Gralloch A Uci Gravel Race In Scotland"
+      },
+      {
+        "url": "https://www.t3.com/active/cycling/i-rode-the-uks-most-brutal-gravel-race-and-lived-to-tell-the-tale",
+        "category": "community",
+        "label": "t3.com: I Rode The Uks Most Brutal Gravel Race And Lived To Tell ..."
+      },
+      {
+        "url": "https://www.benthomascoaching.com/post/gralloch-almost-a-dream-ride",
+        "category": "community",
+        "label": "benthomascoaching.com: Gralloch Almost A Dream Ride"
+      },
+      {
+        "url": "https://escapecollective.com/tech-gallery-gravel-gear-at-the-gralloch/",
+        "category": "community",
+        "label": "escapecollective.com: Tech Gallery Gravel Gear At The Gralloch"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8533/",
+        "category": "community",
+        "label": "granfondoguide.com: 8533"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c79ze01xqzdo",
+        "category": "community",
+        "label": "bbc.com: C79Ze01Xqzdo"
+      },
+      {
+        "url": "https://www.grallochgravel.com/journal/the-road-to-the-european-gravel-championships-starts-at-the-gralloch",
+        "category": "community",
+        "label": "grallochgravel.com: The Road To The European Gravel Championships Starts At T..."
       }
     ]
   }

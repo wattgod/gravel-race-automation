@@ -252,37 +252,13 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "Red Bull and offroad.cc mentions don't make you famous when nobody can name a single winner or pro who's shown up. Zero field depth data and no rider quotes suggests this is still small-time Devon racing. Recognition from cycling media is nice, but prestige comes from who shows up to race, not who writes about it."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "Chip timing and GPX files show basic organization, but self-navigation on the longer routes screams budget operation. The new 'Prize Segment' Strava integration is clever, but when your main selling point is forest trails and mud, you're not exactly reinventing gravel racing. Sportiva Events keeps it functional without being memorable."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Starting at Exeter Racecourse gives it proper event feel, and the finish line beer plus recovery support hits the basics. Three distance options from 17 to 50 miles means everyone gets something, but the lack of any rider testimonials or memorable course features suggests this is pleasant without being special. Forest trails and a unique medal don't compensate for unremarkable racing."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Age 15+ entry and multiple distance options shows inclusivity, but zero rider reviews or community quotes suggests limited engagement. The 'Done this event?' prompt on race listings with no responses tells you everything about community enthusiasm. Devon gravel scene exists, but this race hasn't become its focal point."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No field size numbers, no notable winners, no pro mentions means you're racing weekend warriors in the woods. When research turns up zero competitive depth data for an established race, that's usually because there isn't any. Regional UK gravel without the draw of bigger names or serious prize money."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "£37-43 entry fees are reasonable for UK standards, especially with early entry including a quality cotton t-shirt. Chip timing, GPX files, feed stations, and finish line support deliver solid basics without premium pricing. Free parking at the racecourse saves you money, and three distance options mean you're not paying for more race than you want."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Devon location keeps accommodation cheaper than London or major cities, but no specific lodging strategy available in research. Exeter International Airport proximity helps travel costs for international riders. Entry fees are mid-range for UK gravel, but total trip costs depend on how far you're traveling for forest trails and mud."
+        "explanation": "Exeter Racecourse start provides free parking and proper facilities, but navigation issues plague riders. One participant reported \"I actually did 16.7 miles because I went the wrong way\" on the shortest route, adding unwanted mileage due to self-navigation requirements on longer distances."
       },
       "length": {
         "score": 2,
-        "explanation": "50-mile Mega distance with 4616ft climbing puts it in solid gravel territory without being epic. Three route options from 17 to 50 miles covers recreational to serious riders. For UK gravel standards, it's respectable mileage, but won't challenge riders used to 100-mile sufferfests or multi-day adventures."
+        "explanation": "theysellcoke completed \"the 48 mile Haldon Heroic\" as their first sportive of 2016, while Andy_Sweet found the Medio route left him \"pretty knackered.\" Three distance options from 17 to 50 miles cover recreational to serious riders without reaching epic territory."
       },
       "technicality": {
         "score": 2,
@@ -290,23 +266,47 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "4616ft of climbing over 50 miles is legitimate work - about 92ft per mile keeps you honest without destroying legs. The hilly profile through Devon countryside provides consistent effort rather than massive singular climbs. New Prize Segment climb shows they're trying to create memorable suffering, but total elevation falls short of true mountain challenges."
+        "explanation": "The Mega route delivers 1170m of climbing over 81km through Haldon Forest's hilly terrain. Community reviews confirm \"Cycling: Hilly 81% of reviews,\" providing consistent elevation challenge without extreme mountain climbs."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-April in Devon means you're gambling with British weather - could be perfect spring conditions or sideways rain. Mud noted as a course feature suggests wet conditions are expected, not exceptional. Research lacks specific weather history, but Devon's maritime climate means unpredictable conditions and the need for weather contingency planning."
+        "explanation": "Dibbs and companions suffered \"4 punctures between them\" by the second stage, forcing them to \"bale at 35 miles\" after running out of spare tubes. The gravel trails and bridleways can be harsh on equipment, requiring extra repair capacity."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at Exeter Racecourse near sea level means zero altitude considerations for performance or acclimatization. Haldon Forest maxes out at low-lying hills that won't affect breathing or power output. This is about legs and lungs, not thin air adaptation - altitude simply isn't a factor in Devon."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Exeter location provides decent access with international airport nearby, but research lacks specific accommodation or travel logistics. Free parking at the racecourse solves one major headache, but starting at 8:00 AM means finding lodging close enough for race morning. Self-navigation requirements add complexity that simpler races avoid."
+        "explanation": "Starting at Exeter Racecourse near sea level with maximum elevations in low-lying Haldon Forest means altitude plays zero role in performance. This is about legs and lungs, not thin air adaptation."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Forest trails, mud, and self-navigation through Devon countryside delivers legitimate gravel adventure without manufactured difficulty. Three distance options let you choose your suffering level, and the terrain variability keeps it interesting. Not exotic location adventure, but proper off-road exploration that feels like discovery rather than just riding in circles."
+        "explanation": "The course \"showcases the best gravel trails & bridleways in the Haldon Forest Area\" with \"challenging gravel trails and bridleways through the scenic Haldon Forest.\" Riders describe it as delivering \"everything you'd want from a spring gravel ride\" through proper off-road terrain."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Featured in Red Bull's Best Cyclocross and Gravel Events and recognized by Cycling Weekly, but rider reports show regular enthusiasts like theysellcoke using it as their \"first sportive of 2016.\" Media mentions don't translate to elite field depth."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "One reviewer called it \"a thoroughly enjoyable and well-organised event,\" but navigation failures plague execution. Self-navigation on longer routes leads to wrong turns and extra mileage, showing organizational gaps despite chip timing and GPX support."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "The event maintains a 4.6/5 rating from 59 reviews with amenities including \"finishers medal, bike wash facilities, car parking, food supplies, technical support.\" Andy_Sweet found the Medio route \"a good ride\" despite being \"pretty knackered\" afterward."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Riders describe \"Atmosphere: Small & Intimate 72% of reviews\" in a \"Remote Nature 66% of reviews\" setting. The 4.6/5 rating across multiple platforms shows satisfied participants, though the small scale limits broader gravel community engagement."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "George Thomas won the eBike Medio category while riders like Dibbs bring their sons for family participation. The competitive depth shows recreational enthusiasts rather than serious racers, fitting the \"small & intimate\" atmosphere most riders report."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "£37-43 entry fees are reasonable for UK standards, especially with early entry including a quality cotton t-shirt. Chip timing, GPX files, feed stations, and finish line support deliver solid basics without premium pricing. Free parking at the racecourse saves you money, and three distance options mean you're not paying for more race than you want."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Devon location keeps accommodation costs reasonable compared to major UK cities, with Exeter International Airport providing travel access. Mid-range entry fees for UK gravel racing, though total costs depend on distance traveled for forest trails racing."
       }
     },
     "citations": [
@@ -314,6 +314,46 @@
         "url": "https://ridewithgps.com/routes/53823486",
         "category": "route",
         "label": "RideWithGPS: Haldon Heroic"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/4dfxb4/first_sportive_of_2016_done_the_48_mile_haldon/",
+        "category": "community",
+        "label": "reddit.com: First Sportive Of 2016 Done The 48 Mile Haldon"
+      },
+      {
+        "url": "https://singletrackworld.com/forum/bike-forum/haldon-heroic/",
+        "category": "community",
+        "label": "singletrackworld.com: Haldon Heroic"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=aMSegvkedW8",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.webscorer.com/racedetails?raceid=386389&did=511901",
+        "category": "community",
+        "label": "webscorer.com: Racedetails"
+      },
+      {
+        "url": "https://tortugo.run/race/haldon-heroic-gravel-sportive-devon-united-kingdom-e4",
+        "category": "community",
+        "label": "tortugo.run: Haldon Heroic Gravel Sportive Devon United Kingdom E4"
+      },
+      {
+        "url": "https://racecheck.com/races/haldon-heroic-gravel-sportive/",
+        "category": "community",
+        "label": "racecheck.com: Haldon Heroic Gravel Sportive"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=-xPnmU_w2o8",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/6334/haldon-heroic",
+        "category": "community",
+        "label": "granfondoguide.com: Haldon Heroic"
       }
     ]
   }

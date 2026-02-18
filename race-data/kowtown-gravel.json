@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Parking split between West Grand High School and a separate K-8 lot suggests tight space management in a small town. On-site camping and packet pickup streamlines race morning, but rural Kremmling means limited lodging options and long drives from Denver. Course permitting uncertainty until race time is amateur hour."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Bull at 88 miles with long climbs hits the sweet spot for serious gravel riders, while the Cow at 54 miles delivers what organizers call 'big views, fast gravel, and enough elevation to keep you honest.' The Calf at 28 miles and Cow Dog at 16 miles show they understand not everyone needs equal suffering. Good range across commitment levels."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Course descriptions promise 'long climbs, sun-baked gravel flats, and technical descents that demand respect' on the Bull, with 'hard-packed county roads, doubletrack, punchy climbs' throughout. Laura Wisner notes the roads 'are so smooth around here' but warns when it 'got a little chunky, well, I hope your bike handling's up to the challenge.'"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The Bull climbs 10,000 feet over 88 miles through rolling mountain terrain, while the Cow delivers 5,500 feet over 54 miles. Course descriptions emphasize 'punchy climbs' and elevation that will 'keep you honest.' That's sustained climbing work through Colorado high country without being crushing by Rockies standards."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "June in Kremmling means exposure on those 'sun-baked gravel flats' the organizers warn about, plus afternoon thunderstorm potential at 8,000+ feet elevation. The course runs through 'wide-open ranch country' where weather changes fast and shelter is scarce. No historical weather guidance provided for planning purposes."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Kremmling sits around 8,000 feet with climbs heading higher into thin-air territory through rolling mountain terrain. That's enough altitude to matter for sea-level riders but not debilitating like some Colorado events. Laura Wisner notes you can 'go for miles and miles and hours and hours' on Boulder County gravel at similar elevations."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Remote ranchlands, rolling mountains, and 85% gravel through BLM territory delivers legitimate Colorado backcountry experience. The 'untapped and untamed' marketing actually matches the terrain description for once. Long climbs and technical descents in high-altitude ranch country provides real adventure, not manufactured difficulty."
+      },
       "prestige": {
         "score": 1,
-        "explanation": "This is year four of a grassroots Colorado event that can't even lock down its course routes until BLM permitting comes through. No prize purse, no documented pro field, no race reports or YouTube coverage in the research. It's a local celebration masquerading as a 'Colorado gravel classic' — which means absolutely nothing in the current landscape."
+        "explanation": "Now in its fourth year with $5,000 in prize money split between top five men and women on the Bull course. Limited to 750 riders and serves as a fundraiser for the community gym floor in Kremmling. Still very much a grassroots Colorado event without documented pro field or major gravel scene recognition."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The Bull course delivers 10,000 feet over 100 miles with 85% gravel through remote ranchlands, which sounds legitimate on paper. But course routes are 'subject to change pending final permitting,' and there's zero documentation of aid station strategy, cutoff times, or actual race execution. Good terrain held back by small-town operational reality."
+        "explanation": "Course distances have shifted each year—Bull went from 90 to 100 to 88 miles across three editions, suggesting ongoing route development. Organizers promise 'aid stations are well stocked, signage is clear, and on-course support has you covered,' but operational consistency remains unproven for a young event still finding its footing."
       },
       "experience": {
         "score": 2,
@@ -270,45 +298,48 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Zero documentation of past winners, competitive results, or notable participants in four years of racing. When the research can't find a single name or result, that tells you everything about the caliber of rider this attracts. This is weekend warriors and bucket-listers, not racers."
+        "explanation": "Prize money goes to top five overall men and women on the Bull course, but no past winner names or competitive results surface in available race reports. The 750-rider cap suggests decent participation, but this remains a weekend warrior and bucket-list event without documented competitive depth or notable gravel scene participants."
       },
       "value": {
         "score": 3,
-        "explanation": "Early bird Bull course at $130 gets you 100 miles of legitimate Colorado mountain gravel, meals, camping, and post-race festivities. That's reasonable for what amounts to a weekend camping trip with 10,000 feet of climbing thrown in. Standard pricing jumps to $155, which pushes the threshold but isn't outrageous for the region."
+        "explanation": "Early bird Bull at $130 includes race entry, meal tickets, camping, Friday spaghetti dinner, free showers, and bike wash for 88 miles of Colorado mountain gravel. That's solid value for a weekend camping trip with 10,000 feet of climbing. Standard pricing jumps to $155, which pushes but doesn't break the threshold for the region."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Camping is available on-site, eliminating hotel costs in a tourist region where lodging gets expensive fast. Kremmling isn't exactly a destination dining scene, so meal costs stay reasonable. Biggest expense is getting to rural Colorado, but once you're there, this won't drain your wallet like Steamboat events."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "The Bull at 100 miles with 10,000 feet of climbing is a legitimate day's work, while the Cow at 68 miles hits the sweet spot for most gravel riders. The Calf options at 28 and 16 miles show they understand not everyone needs to suffer equally. Good range of commitment levels."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Long climbs, exposed gravel flats, and technical descents through remote ranchlands sounds appropriately challenging without being gimmicky. The Bull's 85% gravel ratio means you're actually riding gravel, not touring paved farm roads. Rolling mountains at altitude will test bike handling and line choice."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "10,000 feet of climbing over 100 miles averages to steady, grinding elevation gain through Colorado high country. That's not crushing by Rockies standards, but it's legitimate work that will separate riders. The rolling mountain terrain means sustained climbs rather than short punchy walls."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "June in Kremmling at 8,000+ feet means afternoon thunderstorms, unpredictable mountain weather, and potentially brutal sun exposure on those exposed gravel flats. Research shows zero historical weather data or preparation guidance, which is concerning for an event marketing 'untamed adventure' in volatile conditions."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "Kremmling sits around 8,000 feet, and you'll be climbing higher into proper thin-air territory on the longer courses. That's enough to matter if you're coming from sea level, but not debilitating like some Colorado events. Real mountain racing without the full oxygen debt penalty."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Parking split between West Grand High School and a separate K-8 lot suggests tight space management in a small town. On-site camping and packet pickup streamlines race morning, but rural Kremmling means limited lodging options and long drives from Denver. Course permitting uncertainty until race time is amateur hour."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Remote ranchlands, rolling mountains, and 85% gravel through BLM territory delivers legitimate Colorado backcountry experience. The 'untapped and untamed' marketing actually matches the terrain description for once. Long climbs and technical descents in high-altitude ranch country provides real adventure, not manufactured difficulty."
+        "explanation": "On-site camping eliminates hotel costs in tourist country where lodging gets expensive fast. Free post-race meals, Friday spaghetti dinner, and bike wash reduce additional spending. Kremmling isn't a destination dining scene, so meal costs stay reasonable beyond what's included. Biggest expense is reaching rural Colorado from population centers."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://thegravelride.bike/kowtown-gravel-another-secret-stash-of-great-colorado-gravel-with-laura-wisner",
+        "category": "community",
+        "label": "thegravelride.bike: Kowtown Gravel Another Secret Stash Of Great Colorado Gra..."
+      },
+      {
+        "url": "https://funhurts.cc/catalog",
+        "category": "community",
+        "label": "funhurts.cc: Catalog"
+      },
+      {
+        "url": "https://www.kowtowngravel.com/",
+        "category": "community",
+        "label": "kowtowngravel.com"
+      },
+      {
+        "url": "https://avidcyclist.com/event/kowtown-gravel/",
+        "category": "community",
+        "label": "avidcyclist.com: Kowtown Gravel"
+      },
+      {
+        "url": "https://competitivetiming.com/kowtown-gravel-results/",
+        "category": "community",
+        "label": "competitivetiming.com: Kowtown Gravel Results"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11969/kowtown-gravel",
+        "category": "community",
+        "label": "granfondoguide.com: Kowtown Gravel"
+      }
+    ]
   }
 }

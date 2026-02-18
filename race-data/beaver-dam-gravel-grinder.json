@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Camping at Beaver Dam State Park handles lodging, but organizer Dawn Andone warns 'the closest town is 35 miles down a gravel road.' Registration is open with 6:30-7:00 AM start times, though packet pickup details remain unspecified."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "Dawn Andone notes 'riders usually complete the course in six hours' for the 50-mile distance. Multiple options exist (10, 35, and 45 miles), but the featured distance hits that recreational middle ground between quick ride and epic challenge."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Coach Mark Orton describes surfaces that 'vary from hard-packed dirt to softball-sized rocks.' Dawn Andone explains 'some rocky patches can be considered technical, but we have tried to keep those to a minimum.'"
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Course travels 'along the rim of the park so you can see all the geologic formations' at approximately 5,000 feet elevation. The 3,000 feet of gain over 50 miles creates rolling terrain through pines and junipers rather than dramatic climbs."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "2021 temperatures reached 106°F during the event, while 33 riders 'battled the wind' in 2022. June racing in Nevada desert demands early 6:30 AM starts, but heat management remains a significant challenge."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The course runs at approximately 5,000 feet elevation through Beaver Dam State Park. High enough to affect sea-level riders but not Colorado-severe, sitting in that middle altitude range where fitness matters more than acclimatization."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Nevada's remote desert terrain and state park camping setting delivers legitimate adventure factor. Being the state's only gravel race adds pioneer appeal for Nevada cycling bragging rights. Remote location and sparse details suggest you're signing up for genuine uncertainty, which some riders crave."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This is 'Nevada's 1st and only Gravel Grinder Event' which sounds impressive until you realize Nevada has like twelve people who ride gravel. Zero mention of notable winners, pros, or media coverage in the search results. Being first in Nevada is like being the tallest midget."
@@ -270,43 +298,15 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No field size data, no mention of competitive categories or notable participants. Being Nevada's only gravel race means you're racing whoever shows up from a state with minimal cycling population. Expect more weekend warriors than watts-per-kilo monsters."
+        "explanation": "Field of 33 riders in 2022 with six-hour average completion times suggests recreational participation levels. Non-timed format and emphasis on friendship over competition attracts weekend warriors rather than competitive depth."
       },
       "value": {
         "score": 4,
-        "explanation": "No entry fee data found, but camping at Beaver Dam State Park and Nevada's generally low cost of living suggest budget-friendly racing. If you're already in the area, this could be solid bang for buck. Just don't expect premium amenities with that value pricing."
+        "explanation": "$60 registration includes park entry, breakfast, lunch, and dinner according to research. State park camping keeps lodging costs low, and the meal package plus aid station support delivers solid value for a non-competitive event."
       },
       "expenses": {
         "score": 2,
         "explanation": "Nevada location means flight costs for most riders, but Beaver Dam State Park camping keeps lodging cheap. No nearby major airports mentioned in research, suggesting drive time from Vegas or Salt Lake. Remote location cuts both ways on expense."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "50 miles hits that awkward middle distance - too long for a fun ride, too short for epic bragging rights. Most serious gravel races offer 100+ mile options for masochists. This distance suggests targeting recreational riders over hardcore gravel addicts."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Zero course details surfaced in research - no surface breakdown, technical features, or rider warnings about challenging sections. Nevada desert could mean anything from smooth fire roads to chunky mining trails. You're gambling on what 'gravel' means here."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3000 feet over 50 miles averages 60 feet per mile - not flat, not mountainous. That's enough to hurt recreational riders but won't impress climbers. No specific elevation profile or named climbs mentioned, suggesting rolling rather than dramatic terrain."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "June in Nevada desert screams heat management issues, but no specific weather data or rider warnings found. Smart scheduling would mean early start times, but that's not mentioned. Desert racing is all about temperature control and this gives zero guidance."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Beaver Dam State Park sits around 4000+ feet elevation, enough to notice if you're coming from sea level. Not Colorado-high, but sufficient to affect performance for flatlanders. No specific altitude details provided, which is poor planning intel."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Basic camping arrangements mentioned but no packet pickup, start times, or airport details surfaced. First-come-first-serve camping in Campground B sounds like amateur hour organization. When basic logistics aren't prominently featured, expect gaps in race day execution."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Nevada's remote desert terrain and state park camping setting delivers legitimate adventure factor. Being the state's only gravel race adds pioneer appeal for Nevada cycling bragging rights. Remote location and sparse details suggest you're signing up for genuine uncertainty, which some riders crave."
       }
     },
     "citations": [
@@ -314,6 +314,26 @@
         "url": "https://ridewithgps.com/routes/43251943",
         "category": "route",
         "label": "RideWithGPS: Beaver Dam Gravel Grinder (Unoffical)"
+      },
+      {
+        "url": "https://www.cyclingwest.com/gravel-biking/beaver-dam-gravel-grinder-comes-south-east-nevada-june/",
+        "category": "community",
+        "label": "cyclingwest.com: Beaver Dam Gravel Grinder Comes South East Nevada June"
+      },
+      {
+        "url": "https://lincolncountynevada.com/events/spring-events/beaver-dam-gravel-grinder/",
+        "category": "community",
+        "label": "lincolncountynevada.com: Beaver Dam Gravel Grinder"
+      },
+      {
+        "url": "https://lccentral.com/2022/06/24/mountain-bikers-take-on-beaver-dam-gravel-grinder/",
+        "category": "community",
+        "label": "lccentral.com: Mountain Bikers Take On Beaver Dam Gravel Grinder"
+      },
+      {
+        "url": "https://lincolncountynevada.com/gravel-grinder-challenge-lincoln-countys-ultimate-ride/",
+        "category": "community",
+        "label": "lincolncountynevada.com: Gravel Grinder Challenge Lincoln Countys Ultimate Ride"
       }
     ],
     "results": {

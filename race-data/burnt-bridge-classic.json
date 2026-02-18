@@ -234,13 +234,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Island location creates automatic ferry constraints, and even elite repeat participants like Chad Grice note the race has grown substantially over the years without infrastructure keeping pace. Search and rescue teams are positioned on course, which is professional, but basic details like packet pickup and parking remain unspecified in race materials."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Chad Grice's elite performance data shows the course's punishing nature: 5:08:10 finish time at 185W average power, with complete bonking on the second lap where he \"cracked so hard\" at 190W and 10 kph. The distance separates fitness levels decisively—even seasoned racers struggle to maintain power through the full route."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The Kapoor main descent features a corner technical enough that multiple riders \"slid one by one\" into the trees in 2025, requiring search and rescue mobilization. Chad Grice specifically ran 2.1-inch tires and a 75mm dropper post for the technical sections, indicating meaningful skill requirements beyond fire road grinding."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "3200 feet over 62 miles averages about 52 feet per mile—respectable but not mountain brutal. The 'decisive climbs' description suggests the elevation is concentrated into meaningful ascents rather than constant grinding. It's enough climbing to matter in the final results without being the defining characteristic of the race."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "June 14th date hits Vancouver Island's prime weather window—typically dry with moderate temperatures perfect for gravel racing. The coastal Pacific climate means less extreme heat than interior locations but potential for marine weather changes. Cowichan Valley's sheltered position provides more stable conditions than exposed coastal areas."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Vancouver Island terrain keeps riders at sea level with no altitude considerations affecting performance or equipment needs."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Black bear encounters on descents and search and rescue mobilizations for crashed riders create wilderness elements within an organized event structure. Brenna Pauly noted \"lots of variety of terrain and beautiful scenery\" during her solo victory ride, but the race stays within established trail systems rather than true backcountry exploration."
+      },
       "prestige": {
         "score": 2,
         "explanation": "Getting tapped to host the 2026 Canadian Gravel Championships bumps this from complete obscurity to mild relevance. Race director Jon Watkin is 'super pumped' about the big year ahead, but one championship hosting gig doesn't erase being a regional Vancouver Island event most gravel racers have never heard of. It's 'one of the longest-running' island races, which sounds impressive until you realize that's a pretty small pond."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Cycling Magazine calls it worthy of national championships with 'decisive climbs' and 'technical gravel racing,' but the research is thin on actual course details. The fact that it's been around long enough to be considered established suggests they've figured out the basics. Without specific course features, aid station details, or rider feedback, you're rolling dice on whether the execution matches the championship billing."
+        "explanation": "The course delivers variety—technical descents, sustained climbs, and a \"final 10 km flat time trial to the finish\"—with professional safety support including positioned search and rescue teams. However, mechanical failures and course management issues like the neutral start motorcycle crash indicate execution gaps remain."
       },
       "experience": {
         "score": 3,
@@ -256,39 +284,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "BC races typically offer solid bang for your buck compared to premium gravel events. You get 62 miles of legitimate technical racing in scenic terrain without inflated championship-level pricing. The series context means they're competing on value within the BC gravel circuit, keeping costs reasonable for the experience delivered."
+        "explanation": "Search and rescue positioning, varied technical terrain, and professional organization through Panache Cycling Sports provide substantial racing infrastructure. The course delivers technical challenges, scenic variety, and professional safety support at BC Gravel Series pricing, which typically offers solid value compared to premium gravel events."
       },
       "expenses": {
         "score": 3,
         "explanation": "Vancouver Island location means ferry costs and limited lodging options drive up total trip expense. Victoria International Airport access helps for fly-in participants, but you're still looking at island logistics and pricing. The BC setting keeps baseline costs reasonable compared to premium destinations, but geography adds unavoidable transportation overhead."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "62 miles hits the gravel sweet spot—long enough to separate pretenders from contenders without becoming an endurance death march. It's substantial racing distance that rewards fitness and pacing strategy. The length works with the 3200 feet of climbing to create legitimate suffering without requiring overnight recovery."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Cycling Magazine specifically mentions 'technical gravel racing' as a course feature, suggesting more than just fire road grinding. The research lacks specifics on surface breakdown or technical sections, but the championship designation implies legitimate skill requirements. Without detailed course descriptions, you're trusting the technical reputation is earned, not inflated marketing."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3200 feet over 62 miles averages about 52 feet per mile—respectable but not mountain brutal. The 'decisive climbs' description suggests the elevation is concentrated into meaningful ascents rather than constant grinding. It's enough climbing to matter in the final results without being the defining characteristic of the race."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "June 14th date hits Vancouver Island's prime weather window—typically dry with moderate temperatures perfect for gravel racing. The coastal Pacific climate means less extreme heat than interior locations but potential for marine weather changes. Cowichan Valley's sheltered position provides more stable conditions than exposed coastal areas."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Vancouver Island keeps you at sea level with minimal elevation impact on performance. Even the highest points on the course won't create altitude considerations for training or racing strategy. It's pure fitness racing without the oxygen debt variable."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Island location creates automatic logistical friction with ferry schedules and limited transportation options. The research provides zero details on parking, packet pickup, or start logistics, which is concerning for a championship host venue. Cowichan Valley setting at least provides more accessibility than remote island locations, but you're still dealing with island constraints."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Vancouver Island gravel racing offers solid scenery and terrain variety, but it's not exactly wilderness expedition territory. The technical elements and valley setting provide legitimate adventure within a relatively controlled environment. Being part of an established series with known logistics limits the true adventure factor—you're racing, not exploring."
       }
     },
     "citations": [
@@ -296,6 +296,31 @@
         "url": "https://ridewithgps.com/routes/50773175",
         "category": "route",
         "label": "RideWithGPS: 2025 Burnt Bridge Classic - Esperto V2"
+      },
+      {
+        "url": "https://bookofchad.ca/2025/05/19/burnt-bridge-classic-gravel-2025/",
+        "category": "community",
+        "label": "bookofchad.ca: Burnt Bridge Classic Gravel 2025"
+      },
+      {
+        "url": "https://pacificcyclingcentre.ca/news/brenna-pauly-takes-the-win-at-burnt-bridge/",
+        "category": "community",
+        "label": "pacificcyclingcentre.ca: Brenna Pauly Takes The Win At Burnt Bridge"
+      },
+      {
+        "url": "https://bookofchad.ca/category/race-reports/",
+        "category": "community",
+        "label": "bookofchad.ca: Race Reports"
+      },
+      {
+        "url": "https://www.webscorer.com/racealldetails?raceid=390636",
+        "category": "community",
+        "label": "webscorer.com: Racealldetails"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/",
+        "category": "community",
+        "label": "bcgravelseries.com"
       }
     ]
   }

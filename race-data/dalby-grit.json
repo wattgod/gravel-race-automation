@@ -252,63 +252,94 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This is literally year two of a race nobody's heard of yet. Sure, Focal Events runs the Dirty Reiver, but that doesn't make their forest experiment instantly prestigious. No meaningful winners list, no history, no stories - just a new event trying to position itself as a 'UK gravel classic' before it's earned the right."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "The organization looks solid - UCI format categories, professional timing with splits, three feed stations, and clear course marking with distance callouts. But it's still unproven territory with only one edition behind it. The 110km loop through Dalby Forest hits the technical boxes, but race quality needs time to reveal itself in the chaos of execution."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "You get the full weekend village experience with camping, showers, and expo access, plus they're not cutting corners on support. The course promises technical corners and fast descents through Crosscliff Wood after the White Cliff Rigg climb. But without rider testimonials or established atmosphere, it's still a gamble whether this delivers memorable or just adequate."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Zero community feedback exists because this thing barely has a pulse yet. Age categories from 19-84 suggest they want everyone involved, and the camping/weekend format could build something decent. But community isn't programmed by organizers - it's earned through shared suffering and stories that don't exist yet."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Pro/Elite category exists on paper, but there's no evidence serious riders are showing up. Field size isn't even disclosed, which usually means it's embarrassingly small. New races take years to attract depth - right now you're racing against whoever happened to stumble across the entry page."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "£87.50 gets you professional timing, three feed stations, mechanical support, weekend parking, showers, and camping options. That's actually reasonable for a properly supported gravel event in the UK. The distance-to-suffering ratio looks decent at 110km with 1800m of climbing - you're not getting shortchanged on the physical challenge."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Entry fee sits at £87.50 which isn't cheap but isn't highway robbery either. Camping is available at sign-on, and parking is free for the weekend, so accommodation costs stay reasonable. Dalby Forest location means you're not dealing with London-level expense inflation, but travel costs depend entirely on where you're starting from."
+        "explanation": "Free weekend parking with access codes and on-site facilities cover basics, but key details remain missing. The Coeliac Cyclist noted this was their \"first elite gravel race at Dalby Grit\" suggesting the event is attracting riders, though no specified start times or clear packet pickup schedules appear in official communications."
       },
       "length": {
         "score": 2,
-        "explanation": "110km is respectable but not epic - it's in that middle ground where it's not a quick blast but won't destroy your weekend either. The 1800m of elevation spread over that distance means you're working but not grinding through endless suffering. It's a solid day out, just not the kind of distance that separates pretenders from believers."
+        "explanation": "110km with three feed stations at 23km, 53km, and 76km intervals provides solid structure, though organizers warn riders \"do not rely solely on the feed station.\" The distance hits that middle ground where it's substantial work but won't destroy your weekend - respectable without being epic."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Technical corners and fast descents through forest trails sound promising, plus short sharp kickers after the sustained climbing. The course marking includes double/triple arrows for steep descents, suggesting some legitimate technical challenge. But 'perfect Dalby gravel' on forest access roads isn't exactly gnarly - it's technical enough to matter, not technical enough to terrify."
+        "explanation": "The \"Infamous White Cliff Rigg\" climb and technical corners through Crosscliff Wood with \"short, sharp kickers\" provide challenge, plus fast descents marked with double/triple arrows. The \"perfect Dalby gravel\" on forest access roads offers technical engagement without being intimidating."
       },
       "elevation": {
         "score": 2,
-        "explanation": "1800m over 110km gives you 16.4m per kilometer - that's steady work but nothing brutal. White Cliff Rigg provides the main climbing test early, then sustained height through the middle sections. It's enough elevation to hurt but not enough to make this a pure climber's race."
+        "explanation": "1800m over 110km delivers steady climbing work with the long pull up White Cliff Rigg as the main test. One elite rider noted they \"quickly ran out of steam on the relentless\" climbs, suggesting the sustained elevation gain accumulates into serious suffering without being brutal."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late June in North York Moors could be anything from perfect to miserable, and there's zero historical weather data since this race barely exists. British weather in summer is a coin flip between decent and soggy disappointment. The forest setting provides some shelter but also traps humidity when it gets warm."
+        "explanation": "Late June in North York Moors remains a weather gamble with no historical data from this young event. Course warnings about not being \"fooled by initial flatter sections\" suggest conditions can catch riders off-guard, but the forest setting provides some shelter from typical British summer variability."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is the North York Moors, not the Alps. You're looking at lowland moors with forest trails - altitude isn't even worth discussing. The highest point probably barely registers as a hill compared to real mountain racing."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Free weekend parking with access codes and on-site facilities cover the basics, but key details are missing. No specified start time, no airport information, no clear packet pickup schedule - it's amateur hour on the communication front. The camping and shower setup sounds organized, but incomplete information kills confidence."
+        "explanation": "Dalby Forest sits in the North York Moors lowlands where altitude simply doesn't factor into racing considerations. The elevation profile focuses on accumulated climbing rather than high-altitude challenges - this is forest trail racing, not mountain territory."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Forest trails in the North York Moors with camping and a proper weekend atmosphere has adventure potential. The technical sections and sustained climbs through Crosscliff Wood beat riding in circles around a field. It's not epic wilderness, but it's legitimate backcountry gravel with enough terrain variety to keep things interesting."
+        "explanation": "The route through Deep Dale traverse and \"super fast descent\" into Bickley Gate climb offers varied terrain beyond typical gravel loops. \"Pristine gravel routes\" through Dalby Forest provide backcountry feel with camping options, delivering adventure potential without wilderness isolation."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Despite one rider noting it \"absolutely lived up to the hype,\" this remains a second-year event building reputation. The race director's claim that riders are \"craving more high-level gravel racing in the UK\" positions it ambitiously, but prestige requires time and established winners."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Professional timing with splits, lead vehicles for Elite categories, and industry partners like TORQ Nutrition and Wahoo suggest solid organization. One 55-59 category rider called it \"A tough but fantastic day out,\" indicating the execution is meeting expectations for a developing event."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Event village with brand expo, on-site showers, and podium ceremonies create full weekend atmosphere. The 2026 edition \"sold out within 36 hours\" to the closed community, suggesting riders are returning for the experience, though it's still building memorable traditions."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The inaugural 2025 edition \"drew hundreds of riders across multiple age and ability categories\" with 2026 entries selling out rapidly. The Coeliac Cyclist's critique about category systems suggests engaged discussion, while the Focal Events pedigree from Dirty Reiver brings established community connections."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Elite categories exist with lead vehicle support, and The Coeliac Cyclist noted issues with \"the category system\" suggesting competitive fields. However, as a second-year event, the depth remains thin compared to established races - serious riders are still discovering it exists."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "£87.50 delivers professional timing, three feed stations, mechanical support, weekend parking, showers, and event village access. With partners like Wahoo and Fenwicks providing support, plus the rapid sellout indicating demand, the price-to-service ratio shows strong value for UK gravel racing."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Entry fee of £87.50 sits reasonably for UK gravel events, with camping at £10 per night and campervan slots at £18. Required self-sufficient kit including spare tubes, tools, and nutrition adds gear costs, though free weekend parking and Dalby Forest location keep accommodation expenses manageable."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.youtube.com/watch?v=kkT3HxL2XkY",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=mpOyjcvuqCY",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=f3_15M1yyCw",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://cycletechreview.com/2026/news/dalby-grit-2026/",
+        "category": "community",
+        "label": "cycletechreview.com: Dalby Grit 2026"
+      },
+      {
+        "url": "https://www.dalbygrit.cc/event-info",
+        "category": "community",
+        "label": "dalbygrit.cc: Event Info"
+      },
+      {
+        "url": "https://news.paceupmedia.com/championship-style-gravel-racing-returns-to-dalby-forest-this-summer-as-dalby-grit-2026-entries-open",
+        "category": "community",
+        "label": "news.paceupmedia.com: Championship Style Gravel Racing Returns To Dalby Forest ..."
+      }
+    ]
   }
 }

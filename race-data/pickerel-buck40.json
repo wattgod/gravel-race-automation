@@ -252,61 +252,61 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Self-supported format with no course marking means \"use paper cue sheets, gpx, or your phone to navigate.\" Shane Hitz calls this route \"hard, no doubt about it\" with gnarly chunk roads and unrelenting sand sections that vary by drought conditions."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "40 miles with a sub-10-hour benchmark and only two resupply options at Pickerel or Waubee Lodge. The route offers bikepacking as an alternative to the single-day format for Ironbear 1000 eligibility."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "33% pavement balances technical sections including four miles of old school singletrack and shouldering bikes over downed trees. Nick Holzem notes the steep ATV trails are \"even harder at night despite trail repairs.\""
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "2500 feet over 40 miles includes climbs up Big Rock and Thunder Mountain. Nick Holzem describes pushing his full suspension rig up Big Rock then \"had a blast riding down the steep technical chute.\""
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "June conditions bring \"muddy two-track\" and river ford crossings. Shane Hitz notes drought years worsen sand sections since \"this area hasn't had meaningful rain since the beginning of May.\""
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Northern Wisconsin lowlands provide zero altitude training benefit. Heat management becomes the priority - Shane Hitz used \"almost all of the four liters I was carrying on one section\" during hot conditions."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "River ford at mile 28 and routes through \"overgrown vegetation\" to \"remote and hard-to-get-to places.\" Wildlife encounters include Chris Schotz meeting \"a fairly good sized bear at dusk\" that left when confronted."
+      },
       "prestige": {
         "score": 2,
         "explanation": "This is IRONBULL's Wisconsin deep cut that nobody outside the Midwest has heard of. No competitive timing, no pro field, no race reports floating around social media. It's part of the Ironbear 1000 challenge, which adds some credibility, but that's more about grinding through events than earning bragging rights."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Self-supported format with a flexible two-week window screams 'we're not really organizing much here.' No aid stations, no official timing, no structured race infrastructure. You get a route and a vague group start option on June 1st at 7am if you want company."
+        "explanation": "Free event with self-timing and flexible June window. No course marking or aid stations, just route curation through technical terrain that demands navigation skills and self-sufficiency planning."
       },
       "experience": {
         "score": 3,
-        "explanation": "Pickerel sits in northern Wisconsin's legitimate gravel country with river crossings and terrain that IRONBULL describes as challenging. The flexible format lets you ride it how you want without race-day pressure. It's more adventure ride than competitive suffering, which works if that's what you're after."
+        "explanation": "Route travels through Nicolet Trail and Butler Rock area with \"loose big rock, and plenty of sand.\" Shane Hitz found renewal after a tough first day, describing magical night riding \"with all of the fireflies.\""
       },
       "community": {
         "score": 3,
-        "explanation": "IRONBULL has built a solid Wisconsin gravel series, and the group ride option creates some camaraderie without the ego drama. The self-supported format attracts riders who want the challenge without the competitive posturing. Small but committed community that knows Wisconsin gravel."
+        "explanation": "Group departure option June 1st at 7am encourages social riding. Chris Schotz notes ATV riders on Nicolet Trail are \"nice enough and always have a cooler\" offering Miller Lite to passing cyclists."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No competitive element means no competitive field. You're riding with whoever shows up for the group start or crossing paths with others doing it solo during the two-week window. Think weekend warriors and adventure seekers, not racers hunting KOMs."
+        "explanation": "Self-supported format attracts adventure seekers over competitive racers. Elite riders use it for training on longer IRONBULL routes, but the flexible timing window spreads out any potential field concentration."
       },
       "value": {
         "score": 3,
-        "explanation": "No entry fee information available, but IRONBULL events typically run reasonable. You're paying for route curation and series participation, not race production overhead. 40 miles of northern Wisconsin gravel with river crossings delivers solid riding per dollar."
+        "explanation": "Free gravel ride requiring only registration \"to be included in the results.\" Access to northern Wisconsin's technical terrain and Ironbear 1000 eligibility without entry fees delivers solid adventure value."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Pickerel, Wisconsin isn't exactly a tourism hub with abundant lodging options. You're looking at driving distance or camping scenarios for most riders. Remote location means limited food and accommodation choices, driving up your weekend costs."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "40 miles is a solid morning ride, not a day-long suffer fest. With 2500 feet of elevation, you're done by lunch even if you're taking photos at the river crossing. Good for testing legs or easy adventure, but won't leave you with war stories."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Wisconsin gravel with a river crossing suggests some variety beyond straight farm roads. IRONBULL calls it challenging terrain, but northern Wisconsin isn't known for technical rock gardens or steep descents. Expect rolling gravel with some character, nothing that requires mountain bike skills."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "2500 feet over 40 miles averages out to rolling terrain, not lung-burning climbs. Wisconsin's northern woods provide more elevation change than the southern farm country, but you're not getting mountain training here. Enough to feel it, not enough to break you."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late May to mid-June in northern Wisconsin hits the sweet spot before summer heat and humidity. You might catch some spring weather variability, but you're generally looking at pleasant riding temperatures. The two-week window lets you dodge bad weather days."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Pickerel sits in Wisconsin's northern lowlands, probably under 1500 feet elevation. Zero altitude training benefit, zero acclimatization concerns. Your sea-level lungs work just fine here."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Self-supported format eliminates most logistics headaches - no packet pickup, no race morning rush, no aid station timing. The flexible window means you pick your day and start when you want. Simple approach that removes barriers, though you're on your own for everything else."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "River crossing adds some character, and northern Wisconsin's gravel roads deliver prettier scenery than farm country loops. But 40 miles in familiar Midwest terrain isn't pushing any boundaries. It's a nice day out, not an expedition into the unknown."
+        "explanation": "Remote Pickerel location limits lodging options, with Waubee Lodge serving as key resupply. Elite riders recommend 700x50 tires minimum for the technical sections, with some choosing full suspension setups."
       }
     },
     "unsplash_photos": [
@@ -338,6 +338,17 @@
         "download_location": "https://api.unsplash.com/photos/f4xmtITfEHM/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxXaXNjb25zaW4lMjBjeWNsaW5nfGVufDB8MHx8fDE3NzA3ODcxOTN8MA"
       }
     ],
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.ironbull.org/fkt-leaderboard",
+        "category": "community",
+        "label": "ironbull.org: Fkt Leaderboard"
+      },
+      {
+        "url": "https://www.ironbull.org/pickerel-buck40",
+        "category": "community",
+        "label": "ironbull.org: Pickerel Buck40"
+      }
+    ]
   }
 }

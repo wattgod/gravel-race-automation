@@ -96,21 +96,49 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Yampa Valley Regional Airport offers direct flights from 12 cities, and Denver is a 3-hour drive. Registration sells out via lottery with no race day packet pickup. Ben Brown describes early morning challenges: \"The first hour was fucked... you had to go crazy hard just to stay with the group\" as riders navigate altitude adjustment and aggressive pacing from the gun."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Black course at 108 miles demands serious strategy and fitness. Ben Delaney on the Blue course noted \"there was still 100 miles to go\" at mile 40, while Bruce Lin planned to \"reduce aid station stops to a single stop at Aid 4 (mile 95)\" to maintain his target pace of 18 mph over the full distance."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed terrain includes the famous champagne gravel plus technical challenges. Ben Brown encountered \"an impromptu bit of CX\" through hay fields and \"thick, loose gravel on a downhill... like riding through sand... except you're going like 40mph.\" Bruce Lin crashed on a \"steep and twisty descent\" with \"loose and bumpy\" surface conditions."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The 8,189 feet of climbing includes serious sustained efforts. Ben Brown described the mile 40 climb as \"a 4-mile, 9%, gravel situation that goes from 6.5k to around 9.5k.\" Ben Delaney averaged 356w normalized power for 11.5 minutes on the Steamboat Lake climb, calling it where \"a critical selection was made.\""
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late June in the Colorado Rockies means variable conditions - cool mornings, warm afternoons, and the ever-present threat of afternoon thunderstorms. Not extreme, but requires preparation."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Starting at 6,700 feet and climbing to ~8,500 feet puts this firmly in high-altitude territory. Riders from sea level will feel the thin air significantly - acclimatization is strongly recommended."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The route through working ranches and Rocky Mountain terrain delivers bucket-list scenery. Micah Ling describes the sensory experience: \"Steamboat Springs, Colorado smells amazing... hills surrounding the area are packed with sage and fields are dotted with fresh bales of sweet hay.\" The Oak Creek loop and champagne gravel roads create an iconic gravel pilgrimage."
+      },
       "prestige": {
         "score": 5,
         "explanation": "One of the crown jewels of gravel cycling. Independent event founded by Amy Charity in 2019, attracts world-class pros (Keegan Swenson's three-peat, Lauren De Crescenzo, Lauren Stephens) despite not being part of any major series. Iconic status on its own merit."
       },
       "race_quality": {
         "score": 5,
-        "explanation": "Elite-level organization with professional race production, rolling enclosure for the Black course, 5 well-stocked aid stations, separate elite starts, and a multi-day expo experience. World-class in every detail."
+        "explanation": "Professional production includes rolling enclosure, five well-stocked aid stations, and multi-day expo. Micah Ling praised the execution: \"I can't say enough about the aid stations. The sponsors were awesome, the volunteers were awesome, the food/drink selection was awesome.\" Organizers provide detailed course warnings about challenging sections like loose gravel descents."
       },
       "experience": {
         "score": 5,
-        "explanation": "Life-changing territory. From packet pickup on Yampa Street to the champagne gravel roads through working ranches, the Zipp Cow Creek finish, and the post-race celebration in one of Colorado's best mountain towns - this is what gravel dreams are made of."
+        "explanation": "From Yampa Street staging through champagne gravel to the Zipp Cow Creek finish, riders encounter life-changing terrain. Micah Ling captured the progression: \"By mile-85, I was having the time of my life... maybe I was heat-delirious, or just happy that I was feeling so good, but the second-half seemed even better than the first.\""
       },
       "community": {
         "score": 5,
-        "explanation": "Founded with equal prize money from day one, strong emphasis on respect for local ranching community, inclusive with para-cycling resources and e-bike options. The vibe is welcoming and the gravel tribe comes out in force - 2,750 riders strong."
+        "explanation": "Founded with equal prize money and strong inclusivity focus. Peter Abraham noted unprecedented diversity: \"more riders of color present than at any bike race I've been to in my 40 years in the sport.\" Micah Ling observed the supportive atmosphere: \"just around each bend there was someone encouraging racers\" throughout the remote ranch country."
       },
       "field_depth": {
         "score": 5,
@@ -122,35 +150,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Total trip costs add up quickly - flights to remote Yampa Valley or 3-hour drive from Denver, lodging in a ski resort town during summer, and the registration fees. Expect $1,000-1,500+ for the full experience from most locations."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "Black course at 108 miles puts this firmly in the 100-150 mile category. Substantial distance that demands fitness and strategy, though not ultra-distance territory."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "The famous 'champagne gravel' is actually quite smooth and fast, with mixed terrain including some rougher sections and descents. Technical enough to keep you honest, but not extreme singletrack territory."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "8,189 feet of climbing on the Black course is serious vertical. Multiple significant climbs including Dunkley Pass demand climbing legs and smart pacing throughout the day."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late June in the Colorado Rockies means variable conditions - cool mornings, warm afternoons, and the ever-present threat of afternoon thunderstorms. Not extreme, but requires preparation."
-      },
-      "altitude": {
-        "score": 4,
-        "explanation": "Starting at 6,700 feet and climbing to ~8,500 feet puts this firmly in high-altitude territory. Riders from sea level will feel the thin air significantly - acclimatization is strongly recommended."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Yampa Valley Regional Airport offers direct flights from 12 cities, and Denver is a 3-hour drive. Steamboat has good lodging options, but it's still a destination requiring planning and the event sells out via lottery."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "This is bucket-list territory. World-renowned champagne gravel through stunning Colorado ranch country, aspen groves, and mountain vistas. The scenery alone makes this a must-do pilgrimage for serious gravel riders."
+        "explanation": "Total costs escalate quickly between remote location travel, resort town lodging, and premium registration fees. Flights to Yampa Valley or Denver drives plus summer Steamboat Springs accommodation rates create significant barriers. The destination nature and lottery system mean substantial financial commitment with no guarantee of entry, pushing total trip costs toward $1,500+ from most locations."
       }
     },
     "uniqueCharacteristics": [
@@ -212,6 +212,56 @@
         "url": "https://ridewithgps.com/routes/53876176",
         "category": "route",
         "label": "RideWithGPS: Black Race Course | SBT GRVL® p/b Wahoo 2026"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/sbt-grvl-recap",
+        "category": "community",
+        "label": "tobedetermined.cc: Sbt Grvl Recap"
+      },
+      {
+        "url": "https://www.theproscloset.com/blogs/news/sometimes-ambition-outweighs-talent-my-2023-sbt-grvl-recap",
+        "category": "community",
+        "label": "theproscloset.com: Sometimes Ambition Outweighs Talent My 2023 Sbt Grvl Recap"
+      },
+      {
+        "url": "https://www.pactimo.com/en-uk/blogs/alisons-blog/sbt-grvl-recap",
+        "category": "community",
+        "label": "pactimo.com: Sbt Grvl Recap"
+      },
+      {
+        "url": "https://fascatcoaching.com/blogs/training-tips/winning-sbt-grvl-blue-power-analysis",
+        "category": "community",
+        "label": "fascatcoaching.com: Winning Sbt Grvl Blue Power Analysis"
+      },
+      {
+        "url": "http://micah-ling-dofs.squarespace.com/blog/2019/8/27/race-report-sbt-grvl-black-course-140-miles",
+        "category": "community",
+        "label": "micah-ling-dofs.squarespace.com: Race Report Sbt Grvl Black Course 140 Miles"
+      },
+      {
+        "url": "https://trainright.com/reggie-miller-sbt-gravel-100-mile-gravel-race/",
+        "category": "community",
+        "label": "trainright.com: Reggie Miller Sbt Gravel 100 Mile Gravel Race"
+      },
+      {
+        "url": "https://stephanieholbrook.com/blog/the-thrilling-steamboat-springs-gravel-race-my-experience-at-sbt-grvl",
+        "category": "community",
+        "label": "stephanieholbrook.com: The Thrilling Steamboat Springs Gravel Race My Experience..."
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/gravel-racing/sbt-grvl-the-best-bike-race-in-north-america/",
+        "category": "community",
+        "label": "cyclingwest.com: Sbt Grvl The Best Bike Race In North America"
+      },
+      {
+        "url": "https://www.theproscloset.com/blogs/news/sometimes-ambition-outweigows-talent-my-2023-sbt-grvl-recap",
+        "category": "community",
+        "label": "theproscloset.com: Sometimes Ambition Outweigows Talent My 2023 Sbt Grvl Recap"
+      },
+      {
+        "url": "https://www.progravelmagazine.com/post/sbt-grvl-redefining-gravel-racing-with-a-spectator-friendly-format",
+        "category": "community",
+        "label": "progravelmagazine.com: Sbt Grvl Redefining Gravel Racing With A Spectator Friend..."
       }
     ],
     "logistics": {

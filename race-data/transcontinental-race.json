@@ -80,13 +80,41 @@
       "discipline": "bikepacking"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "Vincent Nadon's experience captures the true self-supported challenge: \"Dead phone, GPS coordinates pointing to the wrong place… I ended up losing an hour trying to find the Checkpoint 1 hotel!\" Riders navigate 4,000+ km across 10+ countries managing visas, languages, resupply, and accommodation entirely alone. Commercial services only—no third-party support across an entire continent."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Christoph Strasser completed TCR9's 3,943 km in 8 days, 16 hours, 30 minutes, noting that \"2023 felt far harder than 2022.\" The 2026 edition spans ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days. This is continental crossing measured in weeks of sustained effort across Europe's breadth."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Vincent Nadon experienced equipment failures from vibration: \"A 3D-printed mount for my Garmin Varia that gave way under the vibrations of the Flemish cobblestones.\" TCR10 includes cobbled climbs from Roubaix, while parcours feature gravel sections. Nadon found \"32mm road tires were not enough for rough sections,\" highlighting mixed-surface technical demands."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The 2026 edition features 64,000m of climbing—equivalent to ascending Everest seven times. Routes cross major Alpine passes including Italian Alps and Julian Alps. The Rallarvegen climb out of Norwegian fjords and twin Tatra Mountains parcours in Slovakia create sustained high-altitude challenges that define every TCR edition's suffering quotient."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Vincent Nadon struggled with extreme heat: \"The lowest point was on parcours 3, which seemed endless with the heat and the tough gravel for kilometers.\" Race organizers acknowledge climate impacts: \"Severe flooding in Slovenia putting riders at risk while raging heatwaves in the south exacerbated riders' suffering.\" Temperature swings from Alpine cold to Balkan heat exceed 30°C."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Extended riding above 2,000m on Alpine passes including Mangartsko Sedlo and climbs through Italian Alps. The 2026 route adds Rallarvegen and Tatra Mountains sections. Mt Korab region in North Macedonia provides sustained high-altitude terrain. Not Himalayan elevation, but significant altitude stress combined with sleep deprivation and multi-day physical exhaustion."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Crossing an entire continent by bicycle—from Norwegian fjords to Greek antiquity. Alpine passes at sunrise, Balkan villages off the tourist track, sleeping in bivvies behind churches, navigating by GPS through remote terrain. The 2026 route goes from Winter Olympic host city to ancient Olympic Games site. This is bucket-list, life-defining adventure."
+      },
       "prestige": {
         "score": 5,
         "explanation": "The flagship European ultra-endurance race. Founded by Mike Hall, the legend of ultra-distance cycling who won Tour Divide and Trans Am before his tragic death in 2017. TCR's winners are cycling legends: Kristof Allegaert (3x), James Hayden (2x), Christoph Strasser (2x), and Fiona Kolbinger's historic 2019 overall victory. Finishing TCR earns permanent respect in ultra-cycling."
       },
       "race_quality": {
         "score": 5,
-        "explanation": "Lost Dot runs a meticulously organized race despite its self-supported nature. GPS tracking every 5 minutes via Follow My Challenge, brevet cards stamped at control points, mandatory equipment checks, clear rules (the famous 10 Rules). Control points have volunteers and support. The organization honors Mike Hall's legacy with professional execution."
+        "explanation": "Lost Dot provides meticulous organization with GPS tracking every 5 minutes, control point volunteers, and safety monitoring. Riders like Tim de Witte, Alex Kopp, and Cynthia Carson compete in a professionally managed format despite self-supported rules. The 350-rider field selected from 1,000+ applicants ensures competitive integrity while honoring Mike Hall's organizational legacy."
       },
       "experience": {
         "score": 5,
@@ -94,7 +122,7 @@
       },
       "community": {
         "score": 5,
-        "explanation": "The dotwatcher community follows every edition obsessively. Mikko Makipaa has started and finished all 7+ editions. The Mike Hall Bursary supports riders from lower-income households. #100TCRWomen campaign promotes diversity. Post-race camaraderie is legendary—those who finish share an unbreakable bond. The community carries Mike Hall's spirit forward."
+        "explanation": "The field demonstrates community evolution: \"Outside of the bikes and wheels, we were surprised to see just how slimmed down rider's luggage set-ups are getting—a sure sign of how serious this epic event is becoming.\" Equipment standardization around Apidura bags and 4Season wheels shows knowledge sharing. The TCR6 field's professionalization reflects growing community sophistication."
       },
       "field_depth": {
         "score": 5,
@@ -102,39 +130,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "~350 GBP entry for a 2-week continental crossing is reasonable. The organization provides GPS tracking, control point support, and safety monitoring. But the true value is what TCR represents—a life-defining challenge with Mike Hall's legacy. The experience transcends cost-benefit analysis."
+        "explanation": "~350 GBP entry for continental crossing with GPS tracking, control point support, and safety monitoring represents solid value. Equipment standardization shows community knowledge: \"Mainly a split between 4Season Disc and 4Season Gravel Disc with a few carbons and dynamos thrown in.\" The experience transcends cost-benefit analysis for life-defining challenge."
       },
       "expenses": {
         "score": 2,
         "explanation": "Budget 2,000-3,500 EUR total. Entry ~350 GBP, travel to/from start/finish 200-500 EUR, food 400-500 EUR, accommodation 600-900 EUR (hotels plus bivvy nights), insurance/visa. Western Europe costs more; prices halve in the Balkans. Self-supported means funding your own multi-week expedition across a continent."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "4,000-5,000+ km (2,500-3,100+ mi) is among the longest unsupported races on earth. The 2026 edition is ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days, back of pack 15-16 days. This is not a race—it's a continental crossing measured in weeks, not hours."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Predominantly road-focused, but mandatory parcours include significant gravel and technical terrain. Albanian roads are notoriously brutal with 'half the cobbles missing.' Alpine descents demand technical skill. Navigation complexity adds mental technicality—riders plan and execute their own 4,000km+ route across multiple countries."
-      },
-      "elevation": {
-        "score": 5,
-        "explanation": "40,000-64,000+ meters (131,000-210,000+ ft) of cumulative climbing is almost incomprehensible. The 2026 edition features 64,000m. That's climbing Everest seven times. Daily climbing often exceeds 1,000m. Major Alpine passes like Stelvio (2,757m), plus mountain parcours at every checkpoint. The climbing never stops."
-      },
-      "climate": {
-        "score": 5,
-        "explanation": "The TCR spans climate extremes few races can match. Alpine passes hit near-freezing with snow possible even in July. Then the Balkans deliver 40C+ heatwaves. Riders experience 30-40C temperature swings within days. 'The Transcontinental has really been two races—the Alps with cold, then the Balkans with heat and rugged roads.' Climate change has intensified flooding and heatwaves."
-      },
-      "altitude": {
-        "score": 4,
-        "explanation": "Extended time above 2,000m on Alpine passes. Stelvio at 2,757m, with multiple other cols. The 2026 route includes Rallarvegen climb and Tatra Mountains. Not Himalayan altitude, but sustained high-altitude riding for days, combined with sleep deprivation and physical exhaustion, creates real altitude stress."
-      },
-      "logistics": {
-        "score": 5,
-        "explanation": "Completely self-supported across an entire continent. No third-party support, no pre-arranged lodging, no resupply planned in advance. Riders navigate their own 4,000+ km route through 10+ countries, managing visas, languages, resupply, accommodation, navigation, and bike maintenance entirely alone. Commercial services only. True expedition logistics at racing pace."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Crossing an entire continent by bicycle—from Norwegian fjords to Greek antiquity. Alpine passes at sunrise, Balkan villages off the tourist track, sleeping in bivvies behind churches, navigating by GPS through remote terrain. The 2026 route goes from Winter Olympic host city to ancient Olympic Games site. This is bucket-list, life-defining adventure."
       }
     },
     "biased_opinion": {
@@ -317,6 +317,46 @@
         "url": "https://www.thevelocitynerd.com/blog/the-transcontinental-race",
         "category": "other",
         "label": "Thevelocitynerd"
+      },
+      {
+        "url": "https://www.panoramacycles.com/blogs/blog/tcr-2023-race-report",
+        "category": "community",
+        "label": "panoramacycles.com: Tcr 2023 Race Report"
+      },
+      {
+        "url": "https://www.lostdot.cc/blog/the-transcontinental-race-no10-pre-race-report",
+        "category": "community",
+        "label": "lostdot.cc: The Transcontinental Race No10 Pre Race Report"
+      },
+      {
+        "url": "https://cyclite.cc/en/blogs/news/10-long-distance-cycling-events-to-follow-in-2025",
+        "category": "community",
+        "label": "cyclite.cc: 10 Long Distance Cycling Events To Follow In 2025"
+      },
+      {
+        "url": "https://www.cyclingnews.com/features/transcontinental-racing-4000km-from-belgium-to-greece-in-less-than-nine-days/",
+        "category": "community",
+        "label": "cyclingnews.com: Transcontinental Racing 4000Km From Belgium To Greece In ..."
+      },
+      {
+        "url": "https://eu.huntbikewheels.com/blogs/news/readers-rides-transcontinental-race-no-6-setups",
+        "category": "community",
+        "label": "eu.huntbikewheels.com: Readers Rides Transcontinental Race No 6 Setups"
+      },
+      {
+        "url": "https://3t.bike/blogs/news/transcontinental-race-no11-a-pilgrimage-to-the-black-sea",
+        "category": "community",
+        "label": "3t.bike: Transcontinental Race No11 A Pilgrimage To The Black Sea"
+      },
+      {
+        "url": "https://www.reddit.com/r/ultracycling/comments/1583l8c/transcontinental_race/",
+        "category": "community",
+        "label": "reddit.com: Transcontinental Race"
+      },
+      {
+        "url": "https://dotwatcher.cc/race/transcontinental-race-no11-2025",
+        "category": "community",
+        "label": "dotwatcher.cc: Transcontinental Race No11 2025"
       }
     ],
     "results": {

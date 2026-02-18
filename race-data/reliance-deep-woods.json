@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Single start at 155 Ellis Creek Road with 7:30 AM rollout keeps it simple, though course marking remains nonexistent. Carey Lowery witnessed navigation disasters firsthand: \"Randy Kerr came riding up behind me. Apparently he had ridden the Piney Flats section twice instead of coming down Smith.\" Download your GPX or repeat sections accidentally."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 66-mile Stage 1 with 9200 feet of climbing delivers proper suffer-fest territory, as Carey Lowery discovered: \"Saturday's course was burly: 66 miles and 9200 feet.\" Stage 2 adds another 45 miles through terrain that had Jon Livengood logging \"5:20 hrs on the bike and 338 TSS!\" Multiple distance options let you choose your destruction level."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Jon Livengood summarizes the terrain perfectly: \"many miles of climbs and descents where a mtb would (and did) shine. Basically the gravel turned to eroded dirt roads with endless embedded rock outcrops.\" Chunky double track dominates, with Carey noting \"severely rutted out sections where you had to carefully pick your lines\" after overnight rain."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The Wolf Creek-McFarland climb alone spans 10 miles with \"horribly steep pitches, washed out road beds, and chonky bedrock to negotiate.\" Carey Lowery found the 3-mile Swinging Bridge climb \"went by quickly,\" but Stage 2's final 20 miles featured \"multiple 'Flanders steepness' hills...3-5 minute efforts on 15%+ grades\" according to Jon Livengood."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late April in east Tennessee mountains hits that sweet spot—cool enough for big climbing efforts, warm enough that you won't freeze on descents. Spring weather can be unpredictable but beats summer heat or winter misery. No historical weather disasters mentioned in the research."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "This is Tennessee, not Colorado. Cherokee National Forest elevations won't challenge your oxygen intake or require acclimatization. The climbing difficulty comes from gradient and distance, not thin air."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Cherokee National Forest delivers legitimate wilderness gravel with no course marking—just you, your GPS, and Tennessee mountains. Camping under the stars with live music and beer after destroying yourself on Buck Bald and Starr Mountain. This is proper gravel adventure, not sanitized corporate racing."
+      },
       "prestige": {
         "score": 2,
         "explanation": "This is grassroots Tennessee gravel through and through—SORBA Chattanooga fundraiser with camping and beer, not UCI points. No notable past winners or pro field mentioned anywhere. It's a killer weekend in Cherokee National Forest that the locals love, but nobody's building their season around it."
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "East Tennessee location means driving for most people, and Reliance isn't exactly a major hub. Camping keeps lodging cheap if you're into that scene, but the remote Cherokee National Forest setting limits dining and convenience options. Budget for gas and pack your own food."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "The 72-mile route with 8700 feet of climbing is a proper suffer-fest, while the 46-mile option gives you Buck Bald without total destruction. Sunday adds another 28 miles of rocky punishment if you're glutton enough. Multiple distance options let you choose your own adventure level."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Cherokee National Forest gravel that's \"not flat\" and \"not easy champagne gravel\" but still rideable on gravel bikes. Sunday's rockier terrain gets a hardtail recommendation for descents. It's challenging terrain without being full mountain bike technical—proper gravel difficulty."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "8700 feet over 72 miles puts real hurt on your legs, with mandatory checkpoints at Buck Bald and Starr Mountain summits. Even the short route serves up 5600 feet of climbing. Tennessee doesn't mess around when it comes to vertical gain."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late April in east Tennessee mountains hits that sweet spot—cool enough for big climbing efforts, warm enough that you won't freeze on descents. Spring weather can be unpredictable but beats summer heat or winter misery. No historical weather disasters mentioned in the research."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "This is Tennessee, not Colorado. Cherokee National Forest elevations won't challenge your oxygen intake or require acclimatization. The climbing difficulty comes from gradient and distance, not thin air."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Single start location at 155 Ellis Creek Road with 7:30 AM roll-out keeps it simple. No course marking means download your GPX beforehand or get lost. Camping on-site eliminates lodging logistics, though that East Tennessee location means a drive for most riders."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Cherokee National Forest delivers legitimate wilderness gravel with no course marking—just you, your GPS, and Tennessee mountains. Camping under the stars with live music and beer after destroying yourself on Buck Bald and Starr Mountain. This is proper gravel adventure, not sanitized corporate racing."
+        "explanation": "Reliance, Tennessee location means driving for most riders, though on-site camping controls lodging costs. Carey's equipment choices—mountain bike for Stage 1's chunk, gravel bike with 45mm tires for Stage 2—suggest gear-conscious riders might want multiple setups. Remote Cherokee National Forest setting limits nearby amenities and convenience options."
       }
     },
     "unsplash_photos": [
@@ -338,6 +338,22 @@
         "download_location": "https://api.unsplash.com/photos/taCCqO2DtNE/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxSZWxpYW5jZSUyMERlZXAlMjBXb29kcyUyMGdyYXZlbHxlbnwwfDB8fHwxNzcwNzkwODMyfDA"
       }
     ],
-    "citations": []
+    "citations": [
+      {
+        "url": "https://careylowery.blogspot.com/2025/04/reliance-deep-woods-gravel-race-stage-1.html",
+        "category": "community",
+        "label": "careylowery.blogspot.com: Reliance Deep Woods Gravel Race Stage 1.Html"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/jons-story-reliance-deep-woods-gravel-grinder",
+        "category": "community",
+        "label": "joinbasecamp.com: Jons Story Reliance Deep Woods Gravel Grinder"
+      },
+      {
+        "url": "https://careylowery.blogspot.com/2025/04/reliance-deep-woods-gravel-race-stage-2.html",
+        "category": "community",
+        "label": "careylowery.blogspot.com: Reliance Deep Woods Gravel Race Stage 2.Html"
+      }
+    ]
   }
 }

@@ -252,64 +252,95 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "Claims to be 'North America's Original Gravel Race' with 22 years of history, but where are the pros? The field caps at 300 riders and there's zero mention of notable winners or media coverage. Being first doesn't mean being best — this feels more like a regional classic that never broke into the big leagues."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "The basics are there — fully stocked aid stations, marked course through Tiadaghton State Forest, finisher prizes from DeFeet. But the organization feels small-time with vague start times listed and basic BikeReg registration. No detailed course profiles, no technical specs, just promises of 'nothing else quite like it' without backing it up."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Fall foliage in Pennsylvania forest plus post-race meal and beer at Stonehouse creates a solid weekend vibe. The packet pickup party at New Trail Brewing and the fact riders want to 'make a trip out of the full weekend' suggests they're doing something right beyond just the race itself. Classic Iron Cross socks from DeFeet beat another cheap medal."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "That rider quote about 'amazing and very friendly' volunteers who 'alone makes me wanna come back' isn't marketing fluff — it's the real deal. After 22 years, they've built something people return to, not just for the course but for the people. Small field of 300 means you're not just another number."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "Age group categories split down to 10-year increments and a singlespeed option shows they're trying, but 300 total riders across all distances isn't exactly Unbound numbers. No mention of competitive depth or notable performances — this reads more like enthusiasts than athletes pushing limits."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "$120 gets you marked course, aid stations, post-race meal, beer, DeFeet socks, and custom finisher prize — that's honest value without gouging. The 30k option at $80 gives newer riders an entry point, and weekend activities in Williamsport mean your travel dollar stretches beyond just race day."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "South Williamsport isn't exactly a major destination, so lodging won't destroy your budget, but it's not cheap to get there either. No major airport nearby means driving or connecting flights, and being a destination weekend rather than just a race day adds accommodation costs you can't avoid."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "60 miles hits that sweet spot — long enough to hurt, short enough to not ruin your week. Three distance options from 30k to 100k means everyone from first-timers to masochists can find their level of suffering. The main event distance respects your time while still demanding respect."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Routes through Tiadaghton State Forest with potential mountain bike singletrack suggests more than fire road grinding. Pennsylvania terrain doesn't mess around — rocks, roots, and real consequences for poor line choice. No specific technical details available, but forest singletrack in PA will test your bike handling."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "4500 feet over 60 miles means you're climbing consistently, not just grinding out one monster ascent. Pennsylvania doesn't give you flat relief between climbs — it's rolling punishment that accumulates in your legs. That elevation-to-distance ratio will separate the climbers from the pretenders."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Mid-October in Pennsylvania means perfect gravel weather — cool enough to not overheat, warm enough to not freeze. Fall foliage timing means you're riding at peak conditions before winter sets in. No historical weather disasters mentioned, which in cycling terms means boring-good conditions."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Starting around 600 feet in South Williamsport, this is sea-level racing for anyone not from Florida. Zero altitude considerations — your fitness limitations are your own, not the atmosphere's. If you're looking for altitude training, keep driving west."
-      },
       "logistics": {
         "score": 3,
         "explanation": "Packet pickup party at New Trail Brewing and clear start location at 423 East Central Ave keeps things simple. Race limit of 300 means no chaos at registration or start line. But vague timing details and no major airport access keeps this from being seamless — you'll figure it out, but it takes effort."
       },
+      "length": {
+        "score": 3,
+        "explanation": "Cole House notes the mental challenge: 'There was so much climbing — if you don't know how long it is mentally, you can kind of give up.' McCluskey didn't hit his groove until mile 22. The 60-mile distance with multiple options respects different ambitions without being a multi-day commitment."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "McCluskey describes 'wheels slipping on the wet leaves and rocks' before reaching the run-up — 'a wall of thick moss-covered loose rocks going straight up to the heavens.' Cole House won by gapping riders on singletrack: 'I just popped over those logs. That's where a mountain bike really paid off.'"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Liz M reports 'over 7,000 feet of climbing' in 56 miles, including switchback sections with 'pitches of up to 9%' on old granite roads. The course features repeated hard climbing after the halfway point, and ends with what she calls a 'kick-in-the-chamois single-track section that goes STRAIGHT UP.'"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "October conditions vary dramatically — McCluskey faced 'cold, steady autumn rain that continued all day' with wind 'pelting my face and pushing me side to side.' But the 2013 race featured 'perfect trail and weather conditions, with sunny skies and comfortable temperatures.' Mid-October in Pennsylvania means prepare for anything."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Starting at South Williamsport around 600 feet elevation, this is sea-level racing. Zero altitude considerations affect performance — your fitness limitations are atmospheric, not geographic. Pennsylvania climbing is about gradient and duration, not thin air."
+      },
       "adventure": {
         "score": 3,
-        "explanation": "Tiadaghton State Forest singletrack during peak fall colors delivers real adventure, not just mileage accumulation. Being the 'original' gravel race means they're not copying someone else's formula — this is the blueprint others followed. Remote Pennsylvania forest with technical terrain and 22 years of history creates genuine adventure, not manufactured experience."
+        "explanation": "McCluskey navigates 'thick wet mud, with standing water ponds on the double track' before hitting technical singletrack. The run-up requires shouldering bikes up moss-covered rocks. Liz M describes the deep woods as 'mystical fairy land' during peak fall colors — this delivers terrain variety that defines adventure."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Claims 'North America's Original Gravel Race' with 22 years of history, but the competitive field remains regional. Cole House and Brian Toone battled for the 2013 win, yet there's no broader recognition or media coverage. Being first doesn't guarantee being famous — Iron Cross stays a Pennsylvania institution."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "The basics work — Liz M praises 'great snacks and awesome volunteers' at aid stations, plus the self-support option at checkpoint 2. But course marking isn't foolproof — Selene Yeager went four miles off-course following incorrect directions. Small-scale organization with regional execution standards."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Liz M describes registration including 'a free pint glass, a spiffy pair of socks, and a token for a free beer and dinner' at Stonehouse post-race. The packet pickup party at New Trail Brewing and Warren Holtzman cooking 'a few hundred pounds of pork' creates weekend value beyond just racing."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Larry's Tavern defines the spirit — McCluskey describes 'raucous roar of enthusiasm' as volunteers pass out 'beers, pickle/vodka shots and chunks of grilled venison' with 'a slap on the back.' Liz M notes the crew 'are all named Larry' and hand out official stickers. This is community theater at its finest."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Evan McGregor finished 12th and earned an age group podium, suggesting modest competitive depth across the 300-rider field. Elite riders like Cole House and Ruth Sherman compete, but the emphasis stays recreational. Multiple distance options accommodate different skill levels without creating racing intensity."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$120 includes post-race meal, beer token, DeFeet socks, and custom finisher prize — plus Liz M notes organizers provide gallon bags for personal supplies at aid stations. The weekend experience from brewery pickup to Stonehouse dinner stretches registration value across multiple venues."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "McCluskey's 4:45am start suggests overnight accommodation requirements, and South Williamsport isn't a budget destination. The Official FAQ recommends making 'a trip out of the full weekend,' which means lodging and dining costs beyond registration. Travel to central Pennsylvania adds expense without major airport convenience."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://www.worldwidecyclery.com/blogs/worldwide-cyclery-blog/my-experience-at-the-iron-cross-race",
+        "category": "community",
+        "label": "worldwidecyclery.com: My Experience At The Iron Cross Race"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/why-iron-cross-is-the-best-event-ever",
+        "category": "community",
+        "label": "tobedetermined.cc: Why Iron Cross Is The Best Event Ever"
+      },
+      {
+        "url": "https://ironcrossrace.blogspot.com/",
+        "category": "community",
+        "label": "ironcrossrace.blogspot.com"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/evans-story-iron-cross-gravel",
+        "category": "community",
+        "label": "joinbasecamp.com: Evans Story Iron Cross Gravel"
+      },
+      {
+        "url": "https://ironcrossrace.blogspot.com/p/ic-faqs.html",
+        "category": "community",
+        "label": "ironcrossrace.blogspot.com: Ic Faqs.Html"
+      },
+      {
+        "url": "https://ironcrossgravel.com/routes/",
+        "category": "community",
+        "label": "ironcrossgravel.com: Routes"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

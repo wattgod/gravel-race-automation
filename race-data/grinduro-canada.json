@@ -45,25 +45,53 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Remote Quebec location requires significant planning, but Caitlin Bernstein notes the opportunity to visit near Devinci's HQ and connect with Canadian friends. Quebec City airport is 60+ miles away, Montreal is 4 hours, and the metric course markings confused some US riders - Bernstein admits 'my brain was having a hard time with the metric system while also trying to ride hard.'"
+      },
+      "length": {
+        "score": 3,
+        "explanation": "At 67 miles, the enduro format with timed segments means you're racing only 7-12 minute intervals within the longer loop. As Bernstein explains, this 'takes the stress of I can't even stop for water/snacks or I might get dropped out of the equation' since you can ride at party pace between the four competitive segments."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Course demands serious bike handling skills through sand, loose gravel, grass, and singletrack descents. Matt Surch describes it as 'next-level sandy' while one rider reported 'the sand along the middle part of the route was brutal, I was slipping all over the place.' Bernstein ran 40mm Schwalbe G-One Bite tires specifically for the technical terrain mix."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 5,900-foot climbing total is shaped by the ancient meteorite impact that created Charlevoix's topography. Bernstein notes the course segments had more climbing than expected when converted from metric, with the terrain formed 350 million years ago when 'a meteorite struck the area' - creating the rolling, relentless landscape riders face today."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August conditions in Charlevoix allow for post-race activities like river dips, as Bernstein enjoyed 'cold beers, a river dip and delicious local food' after racing. The comfortable temperatures support the festival atmosphere, though the region's humid continental climate brings rain risk that can turn the technical terrain slick."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Racing near sea level in the St. Lawrence lowlands means zero altitude concerns. The meteorite crater setting sits in Quebec's lowlands without elevation-related breathing challenges - riders can focus entirely on the technical terrain and sandy sections without acclimatization factors."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing inside a 450-million-year-old meteorite crater delivers unique terrain found nowhere else in gravel racing. As Bernstein observed, 'the topography of the region was created by a meteorite that struck the area 350 million years ago - not sure if it gets much more unique than that?!' The cosmic impact created the landscape that challenges modern cyclists."
+      },
       "prestige": {
         "score": 3,
-        "explanation": "Part of the legendary Grinduro series that pioneered the gravel-enduro format, but the Canada edition never achieved the iconic status of California or Scotland. Its uncertain future (not held since 2022) further diminishes its prestige."
+        "explanation": "Part of the pioneering Grinduro series but remains the smaller, more intimate version. Bernstein found it 'felt really similar to the California Grinduro that I've come to love, just a much smaller version and a bit more French.' The Canada edition draws serious riders but lacks the iconic status of the original California event."
       },
       "race_quality": {
         "score": 4,
-        "explanation": "When running, Grinduro events are professionally organized with clear course markings, solid aid stations, and the 'event-in-a-box' model that's been refined globally. The festival production (art, music, catering) is genuinely excellent."
+        "explanation": "Professional organization with clear course markings and the refined Grinduro festival model. Bernstein praises how 'organizers and sponsors put a lot of effort into setting up and sourcing local vendors' for the camping, food, expo, music, and photo booth elements that define the Grinduro experience when executed properly."
       },
       "experience": {
         "score": 5,
-        "explanation": "This is Grinduro's calling card - 'the perfect party to race ratio.' Three-course dinners, live music, art installations, camping with fellow riders, French-Canadian culture, and a course that reveals itself as you ride. The meteorite crater setting elevates everything."
+        "explanation": "Delivers Grinduro's signature 'perfect party to race ratio' with camping, food, music, and river access. Bernstein captures the essence: 'These events are set up with fun in mind - camping, food, beer, expo, music, the volunteers, the photo booth, the river.' The format values having fun at the party as much as racing fast on the course."
       },
       "community": {
         "score": 4,
-        "explanation": "Grinduro attracts a specific tribe - riders who value experience over results, who can laugh at the sand sections while their legs burn. The festival format creates genuine connections. The French-Canadian influence adds unique character."
+        "explanation": "Attracts riders who value experience over pure competition, creating the festival atmosphere Grinduro is known for. The event philosophy prioritizes inclusivity - 'having a good time at the party is just as important as going fast in the race' - while the French-Canadian setting adds unique cultural character to the typical Grinduro community vibe."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional competitive field without major pro presence. Not part of any major series or qualification pathway. The enduro format and remote location limit elite field depth compared to mainstream gravel events."
+        "explanation": "Regional competitive field without major pro presence, drawing enthusiasts like Bernstein who appreciate the opportunity to race while visiting the Devinci area and connecting with Canadian cycling friends. The remote Quebec location and smaller scale limit elite participation compared to the flagship California Grinduro."
       },
       "value": {
         "score": 4,
@@ -71,35 +99,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Remote Quebec location drives up total costs. Flight to Quebec City + rental car + accommodation (limited options near Saint-Urbain) + border crossing logistics for international travelers. Budget $800-1200 total for US-based riders."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "At 67 miles (107 km), Grinduro Canada falls squarely in the 60-100 mile range. The enduro format with timed stages means you're not racing the full distance, but the total riding commitment is substantial for a festival-style event."
-      },
-      "technicality": {
-        "score": 4,
-        "explanation": "This course demands serious MTB skills - 20-30% singletrack, technical descents with roots and rocks, soul-sucking sand sections, and terrain that causes even experienced riders to dismount. Dropper post strongly recommended; pure gravel bikes will suffer."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "5,900 ft (1,800m) of climbing provides a solid challenge without being extreme. The terrain is relentlessly rolling with no flat sections to recover, making the climbing feel harder than the numbers suggest."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "August in Charlevoix offers comfortable temperatures (68-77F) but high rain risk - August is one of the rainiest months. The humid continental climate can turn trails muddy and slick without warning."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Racing at sea level in the St. Lawrence lowlands means zero altitude concerns. No acclimatization needed - just bring your lungs and legs."
-      },
-      "logistics": {
-        "score": 4,
-        "explanation": "Remote Quebec location requires significant planning. Quebec City airport is 60+ miles away, Montreal is 4 hours. French is the primary language, cell coverage is spotty, and international travelers need passport/border crossing. Rental car mandatory."
-      },
-      "adventure": {
-        "score": 4,
-        "explanation": "Racing inside a 450-million-year-old meteorite crater in a UNESCO Biosphere Reserve is genuinely bucket-list material. The Charlevoix landscape - shaped by cosmic impact, featuring the Laurentian Mountains and St. Lawrence views - delivers epic scenery found nowhere else in gravel racing."
+        "explanation": "Remote Quebec location drives up total costs through required flights, rental cars, and limited accommodation near Saint-Urbain. International travelers face border crossing logistics, and the specialized tire setup - Bernstein used 40mm tubeless Schwalbe G-One Bite at 30 psi front/32 rear - shows equipment considerations for the sandy, technical terrain."
       }
     },
     "location": {
@@ -312,6 +312,36 @@
         "url": "https://www.teknecycling.com/collection/grinduro-canada-bike-check",
         "category": "other",
         "label": "Teknecycling"
+      },
+      {
+        "url": "https://eastoncycling.com/blogs/news/overland-caitlin-bernstein-heads-to-grinduro-canada",
+        "category": "community",
+        "label": "eastoncycling.com: Overland Caitlin Bernstein Heads To Grinduro Canada"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/csnx2y/grinduro_canada_is_in_the_books/",
+        "category": "community",
+        "label": "reddit.com: Grinduro Canada Is In The Books"
+      },
+      {
+        "url": "https://eastoncycling.com/blogs/news/tagged/wheels",
+        "category": "community",
+        "label": "eastoncycling.com: Wheels"
+      },
+      {
+        "url": "https://www.ornotbike.com/blogs/news/ritchey-outback",
+        "category": "community",
+        "label": "ornotbike.com: Ritchey Outback"
+      },
+      {
+        "url": "https://singletrackworld.com/gritcx/2019/02/grinduro-announces-2019-dates-new-locations-and-headline-sponsor-for-grinduro-scotland/",
+        "category": "community",
+        "label": "singletrackworld.com: Grinduro Announces 2019 Dates New Locations And Headline ..."
+      },
+      {
+        "url": "https://chumbausa.com/blog/2023/10/3/pt1-why-race-the-silk-road-mountain-race",
+        "category": "community",
+        "label": "chumbausa.com: Pt1 Why Race The Silk Road Mountain Race"
       }
     ],
     "history": {

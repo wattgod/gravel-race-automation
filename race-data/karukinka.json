@@ -252,61 +252,61 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "Only in its third edition as of 2025, so nobody knows what this thing is yet. Zero notable past winners or pro riders in the search results, which tells you everything about its current racing credibility. It's building a reputation as 'one of the most unique gravel events in the world,' but that's marketing speak when you can't point to actual racing pedigree."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "The organizing seems solid with full logistics support and remote camps, but there's zero data on field size, cutoff times, or aid station details. When basic race infrastructure info is missing, that's usually a red flag. They're clearly focused more on the adventure experience than running a tight racing operation."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "You're riding through Sierra Carmen Silva and two southernmost mountain passes on Earth on a road built by army engineers at one kilometer per year. The pampa plains, Lago Blanco, and llanura del río Grande with guanacos create scenery most cyclists will never see. As one rider put it: 'The perfect opportunity to explore somewhere that very few people have ever visited, let alone ridden a gravel bike.'"
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Three years old with no visible community presence on Reddit or major forums. The rider reports are basically travel blogs, not race analysis or community discussion. When a race this 'unique' generates zero chatter in gravel communities, that tells you the participant numbers are tiny."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "No field size data available, no notable finisher lists, and the focus is clearly on completing the journey rather than competitive racing. When organizers tout 'pristine natural beauty' instead of competition quality, you know the fast guys aren't showing up. This is adventure tourism with timing chips."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "No entry fee data available, but they provide full logistics support including transport from Punta Arenas, food, shelter, and safety support through genuinely remote terrain. You're paying for access to places with no regular public transport and riding roads most people will never see. Whether that justifies the likely massive cost depends on your adventure budget."
-      },
-      "expenses": {
+      "logistics": {
         "score": 1,
-        "explanation": "Getting to Punta Arenas from anywhere costs serious money, then you need group transport to Tierra del Fuego because there's no regular public access. The organized logistics through 'inhóspitas lands' with full support for five days won't be cheap. One rider noted 'you start to be conscious of how remote this area is when you look into the time that it takes to get there.'"
+        "explanation": "After a 13-hour flight to Santiago plus 3+ hours to Punta Arenas, riders face an 8-hour minibus journey including ferry crossing to reach Villa Cameron (population: 90). Jorge Padrones notes you \"start to be conscious of how remote this area is when you look into the time that it takes to get there.\" No self-supported transport options exist - you're entirely dependent on organizer logistics from Punta Arenas."
       },
       "length": {
         "score": 4,
-        "explanation": "The research shows 440 kilometers across four stages, not the listed 120 miles, but either way this is substantial distance. Stage 1 alone is 98 kilometers through deserted steppe landscape. The multi-day format with camping makes the distance feel bigger than single-day centuries most riders are used to."
+        "explanation": "Five stages covering 440 kilometers with riders going out to \"the end of any road in that part of the world\" then returning on the same route. Stage 1 alone covers 98km through steppe landscape, while Stage 2 spans 114km crossing mountain ranges. The multi-day format with basic albergue lodging makes the distance feel substantial compared to single-day centuries."
       },
       "technicality": {
         "score": 4,
-        "explanation": "Described as 'grueling' terrain with 'difficult terrain with longer, steeper hills' through virgin wilderness environment. The Ruta Vicuña-Yendegaia was built by military engineers through legitimately challenging Patagonian landscape. This isn't technical like singletrack, but it's demanding gravel through unforgiving terrain where mechanical problems get serious fast."
+        "explanation": "Racing begins immediately with Jorge Padrones reporting \"straight away there was a nasty climb in which we could see the first attacks\" just minutes from Villa Cameron. The course follows the military-built Ruta Vicuña-Yendegaia through hairpin-filled mountain passes and forests. Riders get exclusive access to 10km of unopened road sections built by Chilean Army engineers at one kilometer per year."
       },
       "elevation": {
         "score": 4,
-        "explanation": "5,500 meters of climbing over 440 kilometers puts you through two southernmost mountain passes on Earth. That's substantial vertical in terrain that transitions from steppe to pampa magallánica to native forests. The elevation profile moves through dramatically different ecosystems, which means real climbing rather than rolling hills."
+        "explanation": "5,500 meters of climbing across two southernmost mountain passes on Earth, with Stage 2 alone featuring approximately 2,000 meters of ascent. The route transitions dramatically from Magellanic pampa through native forests to snow-capped peaks. Jorge Padrones described Stage 2 as \"a hard mountain stage\" with \"two long climbs crossing a huge mountain range.\""
       },
       "climate": {
         "score": 1,
-        "explanation": "December in Patagonia means wind 'often over 100 km/h' that becomes 'a protagonist' in the race experience. Cold, humid Tierra del Fuego conditions with 19-hour daylight from 4 AM to 11 PM mess with your sleep patterns. Even the 2024 race report mentions dealing with wind on Stage 1 through 'almost deserted landscape.'"
+        "explanation": "Snow fell all night before Stage 2, forcing a one-hour start delay for temperatures to rise. Antonio Ortiz battled \"wind, one of the cyclist's greatest enemies, often blowing head-on\" while organizers warn conditions \"can change rapidly in Tierra de Fuego\" from cold and snowy to warm and sunny. Patagonian wind often exceeds 100 km/h throughout stages."
       },
       "altitude": {
         "score": 2,
-        "explanation": "No specific elevation data available, but you're riding through mountain passes in Tierra del Fuego, which means some altitude without the brutal oxygen debt of high Andes racing. The terrain moves from sea-level steppe to mountain passes, so you'll feel some altitude effects but nothing that requires acclimatization protocols."
-      },
-      "logistics": {
-        "score": 1,
-        "explanation": "No regular public transport to the race area means mandatory group travel from Punta Arenas. No packet pickup details, no parking info, basically zero self-supported options for getting there. The remoteness that makes this race special also makes it logistically brutal - you're completely dependent on organizer transport and timing."
+        "explanation": "The course crosses mountain passes in Tierra del Fuego without reaching the oxygen-debt altitudes of Andean racing. Riders transition from sea-level Villa Cameron through forested valleys to mountain crossings, experiencing modest altitude effects. No specific elevation data available beyond the southern latitude mountain pass crossings."
       },
       "adventure": {
         "score": 5,
-        "explanation": "You're riding a road built one kilometer per year by army engineers to 'assert Chilean sovereignty' in lands described as 'the edge of the world.' The course traverses pampa plains, native forests, and lakes including Lago Lynch and Lago Blanco in terrain so remote that very few people have ever visited, let alone ridden. This is legitimate exploration disguised as a bike race."
+        "explanation": "Jorge Padrones reached \"the end of any road in that part of the world\" where riders become \"the first ones to cycle on that road which went into deep valleys surrounded by glaciers.\" King Penguins greeted riders at Caleta María while guanacos populate the Grande River plains. Between villages exists \"nothing apart from amazing ocean views, pure nature and wild animals. No cars, villages, trucks, or coffee shops.\""
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Only in its third edition with retired pro Robert Gesink participating alongside Jetse Bol and Dennis van Winden in 2024. Part of the Gran Fondo World Tour Gravel Series, but the race explicitly positions itself as \"a boutique small event for just the lucky ones\" rather than pursuing racing credibility. The focus remains adventure over competitive prestige."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Race capacity is limited to 50-60 people including crew due to infrastructure constraints at remote locations like Caleta María. While the event includes official timing and finisher medals, the organization prioritizes the adventure experience over competitive racing infrastructure. MTB Patagonia brings \"more than 15 years of experience in sporting events in the extreme south of Chile.\""
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Jorge Padrones called Stage 2 \"one of the most beautiful and magical places I have visited\" riding through endless forests and peaks. Riders cross the Straits of Magellan by ferry and sleep in communal gyms in Villa Cameron. The event concludes with \"slow-cooked barbecue on lenga wood\" while Antonio Ortiz described the finish as \"not just a physical achievement but an emotional milestone.\""
+      },
+      "community": {
+        "score": 2,
+        "explanation": "From arrival, \"all race participants and crew started to live as a community as we shared meals and space where we slept.\" Despite competitive racing, there were \"no distinctions\" between pros like Robert Gesink and other participants. Local engagement includes protocol ceremonies with Villa Cameron authorities and campfire stories with Don Julio, the 70-year-old property owner who completed the hardest stage."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field includes retired pro Robert Gesink alongside recreational riders, with Don Julio (nearly 70) completing the longest stage. Race capacity is intentionally capped at 50-60 people due to accommodation limits at remote locations. The focus centers on completion and experience rather than competitive depth, with the organization describing it as adventure tourism with timing rather than serious racing."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Full logistics include transport from Punta Arenas, all meals, basic albergue accommodation, timing, photos, and safety support through terrain where \"nothing exists apart from pure nature.\" The package provides access to military road sections and exclusive locations like Caleta María's two houses. Whether this justifies the likely substantial cost depends on your appetite for extreme adventure tourism."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "International flights to Punta Arenas plus mandatory group transport to Tierra del Fuego create substantial baseline costs before entry fees. Riders must bring sleeping bags for communal gym accommodations and basic mountain lodges. The multi-day logistics package through completely remote terrain with full support, meals, and exclusive road access will command premium adventure tourism pricing."
       }
     },
     "citations": [
@@ -314,6 +314,36 @@
         "url": "https://ridewithgps.com/routes/49200669",
         "category": "route",
         "label": "RideWithGPS: 🥇2 de 2 en Karukinka 🏆"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/armchair-adventure-karukinka-gravel",
+        "category": "community",
+        "label": "gravelunion.cc: Armchair Adventure Karukinka Gravel"
+      },
+      {
+        "url": "https://www.bhbikes.com/en_GB/stories/gravelxr/antonio-ortiz-karukinka-gravel-race",
+        "category": "community",
+        "label": "bhbikes.com: Antonio Ortiz Karukinka Gravel Race"
+      },
+      {
+        "url": "https://karukinkagravelrace.com/",
+        "category": "community",
+        "label": "karukinkagravelrace.com"
+      },
+      {
+        "url": "https://stageraces.com/event/karukinka-gravel-race/",
+        "category": "community",
+        "label": "stageraces.com: Karukinka Gravel Race"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8187/robert-gesink-to-participate-in-the-karukinka-gravel-race-in-chile-",
+        "category": "community",
+        "label": "granfondoguide.com: Robert Gesink To Participate In The Karukinka Gravel Race..."
+      },
+      {
+        "url": "https://my.raceresult.com/270903/results",
+        "category": "community",
+        "label": "my.raceresult.com: Results"
       }
     ],
     "results": {

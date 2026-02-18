@@ -243,37 +243,13 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This is the 3rd edition of a race that started around 2024. No pro riders, no notable winners, no prize purse mentioned anywhere. Sure, they call it an 'instant classic' but that's what every new race director says when 300 people show up to their first rodeo."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "94% pure Pendleton gravel sounds promising, but the course details are vaguer than a weather forecast. They can't even nail down consistent distances across their own marketing - is it 68 miles, 67, or 66? When basic race specs are this sloppy, don't expect precision elsewhere."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Rolling hills through 'untapped Eastern Oregon gravel areas rarely ridden before' could be gold or could be boring farm roads nobody rides for good reason. Without rider reports or course specifics beyond marketing speak, you're buying a lottery ticket. The 9:30am start at least shows they understand March daylight."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Pendleton's tourism folks are clearly invested - $30 lodging kickback and official quotes about 'world-class hospitality' from Travel Pendleton. Packet pickup at Prodigal Sons Brewery shows local business buy-in. For a young race, they've built decent community partnerships, even if the field depth isn't there yet."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "500 rider cap with no mentioned pro field or competitive categories. Zero notable past winners or elite participation in the research. This is weekend warrior territory, which is fine, but don't expect to test yourself against serious competition."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "$135 early bird for 62+ miles of gravel, fully stocked aid stations, mechanical support, and swag is solid pricing. Even the late registration at $160 beats most comparable events. The $10 GranFondoGuide discount code sweetens it further - rare to see actual savings opportunities."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Pendleton sits 3 hours from PDX, Boise, or Spokane - pick your poison for flight costs. Lodging kickback of $30 helps offset accommodation costs in a smaller town. Remote location means you're committed to the weekend, but Eastern Oregon isn't Napa Valley pricing."
+        "explanation": "Three hours from PDX, Boise, and Spokane creates the expected travel hassle. Matthew Wiebe notes the 9:30am start with packet pickup Saturday at Prodigal Sons Brewery or race morning at Pendleton Community Park. However, brutal conditions can emerge—2025 saw temps drop to mid-30s with strong headwinds that forced one elite rider to abandon mid-race due to cold."
       },
       "length": {
         "score": 3,
-        "explanation": "The long course hits that sweet spot around 62-68 miles depending on which marketing material you believe. Not a epic suffer-fest, not a charity ride. The 50-mile option gives flexibility for different fitness levels without compromising the main event's credibility."
+        "explanation": "The 67-mile course hits the sweet spot for gravel racing. Matthew Wiebe observed that \"course is only ~65 miles long too so with a smaller group that means basically any major move will be important.\" Early attacks matter more on shorter distances, as demonstrated when his mile-6 move whittled the field to just three riders rotating through the long false flat sections."
       },
       "technicality": {
         "score": 2,
@@ -281,23 +257,47 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "3000 feet over 62 miles averages about 50 feet per mile - respectable but not mountainous. The 'rolling hills' description suggests steady grinding rather than punchy climbs. Enough to hurt if you're soft, not enough to break strong riders."
+        "explanation": "The 67-mile course averages 60 feet of climbing per mile with over 5,000 feet total—respectable but not mountainous. The profile features a \"nice steep kicker\" at mile 6 followed by \"truly long and arduous false flat\" sections with kickers thrown in. Matthew Wiebe noted the final approach includes a \"13-mile false flat descent into town\" before a steep 0.75-mile finishing climb."
       },
       "climate": {
         "score": 2,
-        "explanation": "March in Eastern Oregon is a gamble - could be perfect spring conditions or late winter misery. Their marketing claims 'March was never better for Gravel' but provides zero historical weather data to back it up. No mention of typical wind, mud, or temperature ranges means you're rolling dice."
+        "explanation": "March weather in Eastern Oregon proves unpredictable and race-defining. 2025 brought \"temperatures plummeting from 45 degrees to a chilling 38 and morning rain\" with \"relentless 12 mph winds gusting up to 20 mph.\" The first 23 miles featured \"treacherous stretch of soggy, muddy roads.\" For comparison, 2024 saw temperatures in the 70s—a stark contrast that shows the March gamble."
       },
       "altitude": {
         "score": 2,
         "explanation": "Pendleton sits around 1200 feet elevation - basically sea level for most cyclists. No altitude considerations unless you're coming from Death Valley. The rolling terrain might add a few hundred feet but nothing that impacts performance or requires acclimatization."
       },
-      "logistics": {
-        "score": 2,
-        "explanation": "Three hours minimum from any major airport kills easy travel. Packet pickup schedule is reasonable with brewery option the night before. Pendleton Community Park start 'minutes off I-84' helps with access, but small town infrastructure and remote location create natural bottlenecks."
-      },
       "adventure": {
         "score": 2,
         "explanation": "'Untamed beauty of Eastern Oregon' and 'rarely ridden gravel areas' sound adventurous until you realize it might just be empty because it's boring. The North Loop route from downtown could showcase genuine Western landscape or agricultural monotony. Without rider reports, the adventure factor remains theoretical marketing."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "This is the 3rd edition of a race that started around 2024. No pro riders, no notable winners, no prize purse mentioned anywhere. Sure, they call it an 'instant classic' but that's what every new race director says when 300 people show up to their first rodeo."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "The course reveals poor weather planning and maintenance issues. Brutal 2025 conditions prompted organizers to \"reevaluate the course layout for future events\" and \"shift the race to the north side in 2026, where a more maintained road system will help mitigate the muddy conditions.\" Mechanical failures plagued multiple riders, with GRX shifters locking into crash mode and drivetrains clogging with mud."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Rolling hills through 'untapped Eastern Oregon gravel areas rarely ridden before' could be gold or could be boring farm roads nobody rides for good reason. Without rider reports or course specifics beyond marketing speak, you're buying a lottery ticket. The 9:30am start at least shows they understand March daylight."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The event showcases strong community values and local support. When a rider crashed, Ryan \"made the selfless decision to stay behind and assist an injured rider—putting community before competition.\" Race organizers praised this as \"the kind of integrity we're proud to see in the sport.\" Post-race includes Pendleton Catering meals and support from local volunteers from Pendleton On Wheels."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "500 rider cap with no mentioned pro field or competitive categories. Zero notable past winners or elite participation in the research. This is weekend warrior territory, which is fine, but don't expect to test yourself against serious competition."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "At $135-160 registration, riders get fully stocked aid stations, mechanical support, custom meals from Pendleton Catering, and a $14 voucher for local businesses. The Oregon Triple Crown Series offers 10-25% discounts for multi-event passes. Age group champions receive 50% off next year's entry, and the GranFondoGuide code provides additional $10 savings."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Pendleton sits 3 hours from PDX, Boise, or Spokane - pick your poison for flight costs. Lodging kickback of $30 helps offset accommodation costs in a smaller town. Remote location means you're committed to the weekend, but Eastern Oregon isn't Napa Valley pricing."
       }
     },
     "citations": [
@@ -305,6 +305,41 @@
         "url": "https://ridewithgps.com/routes/53678735",
         "category": "route",
         "label": "RideWithGPS: Real West Gravel Short 2026"
+      },
+      {
+        "url": "https://argonautcycles.com/real-west-gravel-from-matthews-eyes/",
+        "category": "community",
+        "label": "argonautcycles.com: Real West Gravel From Matthews Eyes"
+      },
+      {
+        "url": "https://argonautcycles.com/racing-roundup-real-west-gravel-grit-strategy-and-sheer-determination/",
+        "category": "community",
+        "label": "argonautcycles.com: Racing Roundup Real West Gravel Grit Strategy And Sheer D..."
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/shawns-story-real-west-gravel",
+        "category": "community",
+        "label": "joinbasecamp.com: Shawns Story Real West Gravel"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/shawn-s-story-real-west-gravel",
+        "category": "community",
+        "label": "joinbasecamp.com: Shawn S Story Real West Gravel"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8431/brutal-conditions-mark-2nd-edition-of-real-west-gravel-race",
+        "category": "community",
+        "label": "granfondoguide.com: Brutal Conditions Mark 2Nd Edition Of Real West Gravel Race"
+      },
+      {
+        "url": "https://groups.google.com/a/obra.org/g/obra-chat/c/sN854zTvRPs",
+        "category": "community",
+        "label": "groups.google.com: Sn854Ztvrps"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/real-west-gravel",
+        "category": "community",
+        "label": "mudslingerevents.com: Real West Gravel"
       }
     ],
     "results": {

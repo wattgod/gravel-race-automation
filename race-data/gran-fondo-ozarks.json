@@ -252,9 +252,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Based on available research, this event appears to be a different entity from the documented Randonneuring Gravel Rally in Mountain Home. Eureka Springs has tourism infrastructure but no confirmed race organization details exist in current rider reports."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "65 miles sits in the sweet spot between sprint and suffer-fest. For comparison, the documented Ozarks gravel routes run 20-23 miles each with significant elevation - this distance respects both your time and pain threshold."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Ozarks terrain delivers chunky limestone and creek crossings that test bike handling. Research shows routes featuring \"High River Crossings\" - standard Arkansas gravel that requires skill without needing suspension."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6000 feet over 65 miles means climbing every 10th foot of progress. Documented Ozarks routes show similar ratios - the Rea Valley route packs 1,897 feet into 20 miles with \"one hellacious hill in the middle.\""
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Arkansas weather delivers humidity that drowns you in sweat plus unpredictable storms. Spring and fall offer brief windows of reasonableness, but summer heat and winter freezes make timing critical."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Research confirms Ozarks elevations around 2,280 feet - high enough for scenery, low enough that sea-level lungs work fine. Your breathing challenge will be humidity, not thin air."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Ozarks gravel delivers backcountry feel with actual creek crossings and more trees than people. Research documents routes through areas like Bryant Creek and Webster County that provide adventure without requiring GPS expertise."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "This thing barely registers on the gravel radar - search for it and you'll find more references to other Ozarks races like Doom and High In The Ozarks. No pro field, no media coverage, no sponsors fighting to get their logos on finisher bottles. It's a local affair that hasn't earned its way into anyone's must-do conversation."
+        "explanation": "This event doesn't appear in current race databases alongside established Arkansas races like Doom. The Ozarks host documented events, but this specific gran fondo hasn't built radar presence among gravel communities."
       },
       "race_quality": {
         "score": 2,
@@ -262,53 +290,31 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "Eureka Springs delivers the postcard - Victorian architecture, decent food, quirky mountain town vibe that doesn't suck. The terrain around there will test you properly with 6000 feet over 65 miles. But the race experience itself? Mystery meat until someone proves otherwise with actual organization and community."
+        "explanation": "Eureka Springs provides Victorian architecture and mountain town atmosphere that doesn't disappoint. The terrain delivers with documented routes showing 85-99% gravel surfaces, but race-specific experience details remain unconfirmed."
       },
       "community": {
         "score": 3,
-        "explanation": "Arkansas gravel riders are solid people who show up and suffer together without the drama. Eureka Springs attracts the kind of riders who appreciate good beer after hard miles. But this specific event hasn't built the tribal identity that makes races sticky - no clear crew of regulars or stories that get retold at other races."
+        "explanation": "Arkansas gravel riders show up and suffer together without drama. Documented events feature brewery partnerships like Rapp's Barren Brewing for social gatherings, suggesting regional community exists even if this specific race hasn't built tribal identity."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional race pulling from Arkansas, Missouri, maybe Oklahoma if they're feeling adventurous. No magnet for serious competition when Dirty Kanza descendants and SBT GRVL exist. You'll race against weekend warriors and local fast guys, which is fine, but don't expect to measure yourself against anyone whose name appears in Cycling Weekly."
+        "explanation": "Regional drawing pool from Arkansas, Missouri, and Oklahoma without major competition magnet status. Documented Ozarks events attract weekend warriors and local fast riders rather than national-level fields."
       },
       "value": {
         "score": 3,
-        "explanation": "Probably priced like most regional fondos - reasonable entry fee, basic support, maybe a t-shirt that won't embarrass you. Eureka Springs won't bankrupt you for lodging like Steamboat or Bentonville during peak season. You'll get your money's worth if you value suffering over swag."
+        "explanation": "Likely priced like regional fondos with reasonable entry fees and basic support. Eureka Springs offers tourist pricing for pickup truck budgets rather than Range Rover wallets - you'll get suffering over swag."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Arkansas keeps it real - gas is cheap, motels exist, food doesn't require a second mortgage. Eureka Springs has tourist pricing but it's tourist pricing for people who drive pickup trucks, not Range Rovers. You can do this race without your accountant getting involved."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "65 miles hits the sweet spot - long enough to hurt, short enough to finish before your significant other files a missing person report. Not an epic that requires base camp planning, not a sprint that's over before your legs warm up. Solid middle distance that respects both your time and your pain threshold."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Ozarks terrain brings chunky limestone, creek crossings, and surfaces that'll remind your bike it's not supposed to be comfortable. Not rock garden technical like Colorado or sand pit brutal like Nebraska. Standard-issue Arkansas gravel that requires bike handling without needing a suspension fork."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "6000 feet over 65 miles means you're climbing every 10th foot of forward progress - that's legitimate suffering mathematics. The Ozarks don't mess around with gentle rollers; they deliver punchy climbs that make your quads question your life choices. This isn't altitude, it's accumulated pain."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Arkansas weather is a cruel mistress - humid enough to drown in your own sweat, unpredictable enough to deliver thunderstorms when you're 30 miles from shelter. Spring and fall offer brief windows of reasonableness, but summer will cook you and winter will freeze-dry you. Plan accordingly or suffer accordingly."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Eureka Springs sits around 2000 feet - high enough to call it mountains, low enough that sea-level lungs work fine. Your biggest breathing challenge will be the humidity, not thin air. Colorado refugees will find the oxygen embarrassingly abundant."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Eureka Springs is accessible but not convenient - you'll drive winding roads to get there, which keeps out the casual tourist hordes. The town can handle cyclists without major infrastructure breakdown. But without clear race organization details, who knows if they've figured out start/finish logistics or just wing it."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Ozarks gravel delivers legitimate backcountry feel without requiring GPS expertise or emergency beacon. You'll see more trees than people, cross actual creeks, climb hills that make you work. It's adventure-flavored without the full commitment to Type 2 fun that some races demand."
+        "explanation": "Arkansas keeps costs reasonable - cheap gas, available motels, and food that won't require a second mortgage. Eureka Springs tourist pricing stays grounded for people who drive trucks, not luxury vehicles."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.trifind.com/re_793140/RandonneuringGravelRallyoftheOzarks",
+        "category": "community",
+        "label": "trifind.com: Randonneuringgravelrallyoftheozarks"
+      }
+    ]
   }
 }

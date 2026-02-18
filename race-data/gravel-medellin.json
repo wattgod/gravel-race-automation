@@ -252,9 +252,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 1,
+        "explanation": "Route and start location still unconfirmed for a race six months away shows concerning organizational gaps. International bike travel, Colombian customs, and local transportation create multiple failure points. Being inaugural means zero proven systems for packet pickup, parking, or basic race day logistics."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "120km hits the sweet spot for most riders—long enough to matter, manageable enough to finish strong. Tour operators in the region describe stages ranging from moderate 60km efforts to queen stages packing \"a leg-sapping 2,500m of elevation into just 55km of riding.\""
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Described as moderate terrain with rolling short steep hills and sustained climbs rather than technical rock gardens. Regional routes \"climb high into the mountains on a mix of gravel & paved roads,\" suggesting more fitness test than bike handling challenge through Colombian Andes terrain."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "7,500 feet of climbing over 75 miles creates substantial suffering without being soul-crushing. Regional tours feature queen stages with \"a leg-sapping 2,500m of elevation into just 55km of riding\" at altitudes reaching 2,500m, indicating serious vertical challenges ahead."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August racing in Medellín means the \"City of Eternal Spring\" delivers mild year-round temperatures of 18-28°C thanks to Andean elevation. The timing coincides with Feria de las Flores featuring parades, music, and traditional 'silletas' flower displays throughout the city."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Starting at approximately 1,495m above sea level with climbs pushing higher into thin air territory around 2,500m elevation. Enough altitude to notice if you're coming from sea level, but not the oxygen-starved suffering of true high-altitude racing in the Colombian Andes."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing through \"coffee-scented mountains of the Western Colombian Andes\" with routes passing \"through Colombian coffee plantations & taste the best coffee in the world at its source.\" The setting combines Medellín's transformation from cartel capital to cycling mecca with serious mountain consequence."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "Brand new UCI Gravel World Series qualifier for 2026 means zero history and no proven reputation. Run by the same crew behind other South American UCI events in Brazil, Chile, and Bogotá, so competent organizers but still unknown quantity. Top 25% qualify for Worlds, which matters if you're chasing points, but being one of 45 global qualifiers dilutes the exclusivity factor."
+        "explanation": "New UCI Gravel World Series qualifier organized by the same team behind established UCI events in Brazil, Chile, and Bogotá suggests competent execution. Top 25% qualify for 2026 Worlds in Australia, but being one of 45 global qualifiers dilutes exclusivity factor considerably."
       },
       "race_quality": {
         "score": 2,
@@ -262,53 +290,46 @@
       },
       "experience": {
         "score": 4,
-        "explanation": "Racing gravel through Colombian Andes at 5,000+ feet elevation is legitimately exotic for most riders. Medellín's transformation from cartel capital to cycling mecca creates genuine adventure factor you can't manufacture. The cultural immersion combined with serious mountain terrain delivers the kind of stories you'll tell for years."
+        "explanation": "Racing gravel in the transformed city once \"associated with conflict and cartels\" now positioned as \"hub of innovation, culture, and urban development\" creates compelling narrative. Attractions like Comuna 13's street art tours and Guatapé's colorful lakeside setting add cultural depth beyond the racing."
       },
       "community": {
         "score": 3,
-        "explanation": "Colombia's cycling obsession runs deep—this isn't some corporate cash grab in cycling wasteland. Local gravel scene is growing but still developing compared to established markets. Being new means no established rider traditions or reunion factor that mature races develop over time."
+        "explanation": "Colombia's cycling culture runs deeper than most destinations, with the region described as \"filled with brightly colored towns and enchanting landscapes\" perfect for bike discovery. Being new means no established rider traditions, but the local cycling obsession provides solid foundation."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "New race in expensive international destination means small, self-selected field of adventure seekers rather than deep competitive talent. Colombian climbers will show up and destroy the elevation sections, but overall field size and depth remain complete unknowns. Don't expect Unbound-level competition in year one."
+        "explanation": "New race in expensive international destination means small, self-selected field of adventure seekers rather than deep competitive talent. Colombian climbers will excel on the elevation sections, but overall field size and competitive depth remain complete unknowns for the inaugural edition."
       },
       "value": {
         "score": 3,
-        "explanation": "120km through Colombian mountains with Worlds qualification potential delivers decent bang for entry fee, but the real cost hits in travel expenses. Getting to Medellín and staying there will dwarf whatever registration costs, making this more destination adventure than local racing value proposition."
+        "explanation": "120km through Colombian Andes with Worlds qualification potential plus access to Plaza Botero sculptures and Parque Arví nature reserve delivers solid racing-plus-tourism value. Registration costs remain unannounced, but the cultural immersion adds substance beyond just the race itself."
       },
       "expenses": {
         "score": 1,
         "explanation": "International flights to José María Córdova Airport, Colombian accommodations, and logistics for getting your bike there safely will demolish your wallet. Even if registration stays reasonable, the total trip cost puts this firmly in expensive adventure category rather than accessible racing."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "120km hits the sweet spot between meaningful distance and manageable suffering for most riders. Long enough to matter, short enough that you won't be crawling through darkness if things go sideways. Single distance option keeps it simple but eliminates choices for different ambition levels."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Described as moderate terrain with rolling short steep hills and sustained climbs rather than technical rock gardens or gnarly descents. Colombian mountain roads can surprise you with surface conditions and tight corners, but this sounds more fitness test than bike handling challenge."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "7,500 feet of climbing over 75 miles creates legitimate suffering without being completely soul-crushing. Those Colombian punchy climbs will hurt, especially if you're sea-level soft, but it's manageable elevation for anyone who trains hills seriously."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "August in Medellín means dry season at eternal spring temperatures, typically 60s-70s thanks to Andean elevation. Weather stability is generally reliable, but mountain conditions can change quickly and nobody knows how this specific route handles rain yet."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "Medellín sits around 5,000 feet with climbs pushing higher into thin air territory. Enough altitude to notice if you're coming from sea level, but not the oxygen-starved suffering of true high-altitude racing. Your fitness matters more than your red blood cell count here."
-      },
-      "logistics": {
-        "score": 1,
-        "explanation": "Route and start location still unconfirmed for a race six months away shows concerning organizational gaps. International bike travel, Colombian customs, and local transportation create multiple failure points. Being inaugural means zero proven systems for packet pickup, parking, or basic race day logistics."
-      },
-      "adventure": {
-        "score": 4,
-        "explanation": "Racing gravel in the Colombian Andes delivers legitimate adventure credibility most domestic races can't touch. Medellín's cycling culture runs deeper than anywhere outside Europe, and the mountain terrain provides proper consequence and beauty. This is the kind of international gravel experience that separates weekend warriors from actual adventurers."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Gravelking Uci Gravel World Series 2026 A Record 45 Event..."
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/gravel-medellin/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Gravel Medellin"
+      },
+      {
+        "url": "https://www.eatsleepcycle.com/tour/colombia-gravel-adventure/",
+        "category": "community",
+        "label": "eatsleepcycle.com: Colombia Gravel Adventure"
+      },
+      {
+        "url": "https://www.uci.org/article/2026-gravelking-uci-gravel-world-series-a-comprehensive-season/XWSarTMx2S2EhfkqJvKMW",
+        "category": "community",
+        "label": "uci.org: Xwsartmx2S2Ehfkqjvkmw"
+      }
+    ]
   }
 }

@@ -244,6 +244,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Packet pickup split between Trinidad on Saturday and race-day pickup ending at 8:30 AM for a 9 AM start. Whitney Allison noted that 'newly and deeply graded roads' made times slower in 2022, suggesting inconsistent course preparation. Remote Las Animas County location means limited services and the 2025 race already got postponed from April to May."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "100 miles with 7,300 feet of climbing hits serious gravel distance territory. Whitney Allison rode 'the next ~92 miles almost entirely alone, passing dozens of age groupers' after the opening 13-mile climb separated the field. The double-lap 85K format provides bailout options but the full distance demands self-reliance in remote terrain."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Course organizers recommend 'lighter tires can be run' on these 'fine gravel' county roads, suggesting manageable surfaces. However, Whitney Allison found that 'the higher elevation parts of the course were quite technical' in 2022 conditions. Road bikes can finish but gravel or mountain bikes handle the 'endless curvy areas' better."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "4,500 feet of climbing over 100 miles with a range from 6,000 to 8,800 feet elevation. That's legitimate vertical in the Sangre de Cristo Mountains. Not crushing, but enough to separate the climbers from the pretenders."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "50°F start to 75°F midday in May is nearly perfect gravel weather. Southern Colorado location reduces snow risk, and 70% tree/canyon shelter protects from wind. Hard to complain about those conditions."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Starting at 6,000 feet and maxing out at 8,800 feet will humble sea-level riders quickly. That's legitimate altitude that affects performance and requires acclimatization. The thin air doesn't care about your FTP."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Race organizers warn that 'portions of the course have no mobile phone reception' and emphasize that 'you cannot ride till your too tired and then pull over and expect someone to ferry you home.' The remote Las Animas County roads require GPS navigation and self-reliance, with no support crews allowed on course."
+      },
       "prestige": {
         "score": 3,
         "explanation": "Part of the Colorado Gravel Grinder Championships series, but nobody's talking about it online. Zero notable past winners or pro field depth mentioned anywhere. It's inspired by the 1860s Pony Express which sounds cool until you realize that's just marketing fluff for a remote Colorado county road ride."
@@ -266,39 +294,11 @@
       },
       "value": {
         "score": 3,
-        "explanation": "$129.95 for 160K gets you three feed stations, lunch, awards, and a T-shirt at the finish. Not cheap, not expensive, just standard Colorado gravel pricing. The course delivers what it promises - remote roads and decent views."
+        "explanation": "$129.95 for the 160K gets you three feed stations, lunch, awards, and remote mountain terrain access. The fairgrounds camping option adds $25 per night with basic facilities. Standard Colorado gravel pricing for a well-supported event, though the small fields suggest riders are finding better value elsewhere."
       },
       "expenses": {
         "score": 3,
         "explanation": "Trinidad, Colorado isn't exactly a destination resort, so lodging and food should be reasonable. No airport mentioned means you're driving, probably from Denver. Middle-of-nowhere location keeps costs down once you're there."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "100 miles hits the sweet spot for serious gravel racing without being an ultra-endurance suffer fest. The 85K and 48K options give you outs if you're not ready for the full distance. Smart course design with the double-lap format."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "They literally say road bikes can handle it with wide tires. 90% gravel county roads means maintained surfaces, not gnarly technical terrain. The most technical advice given is tire choice - Schwalbe Thunder Burt rear, Rocket Ron front for mountain bikes."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "4,500 feet of climbing over 100 miles with a range from 6,000 to 8,800 feet elevation. That's legitimate vertical in the Sangre de Cristo Mountains. Not crushing, but enough to separate the climbers from the pretenders."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "50°F start to 75°F midday in May is nearly perfect gravel weather. Southern Colorado location reduces snow risk, and 70% tree/canyon shelter protects from wind. Hard to complain about those conditions."
-      },
-      "altitude": {
-        "score": 4,
-        "explanation": "Starting at 6,000 feet and maxing out at 8,800 feet will humble sea-level riders quickly. That's legitimate altitude that affects performance and requires acclimatization. The thin air doesn't care about your FTP."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Packet pickup split between Trinidad on Saturday and race-day pickup ending at 8:30 AM for a 9 AM start. Remote location means limited services and no mentioned airport access. The 2025 race already got postponed from April to May, which doesn't inspire confidence."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Limited cell service, remote mining areas, and GPS mandatory for navigation through Las Animas County back roads. The course description emphasizes self-reliance like the original Pony Express. It's adventure by isolation, not technical challenge."
       }
     },
     "citations": [
@@ -306,6 +306,16 @@
         "url": "https://ridewithgps.com/routes/53884002",
         "category": "route",
         "label": "RideWithGPS: PX 160 Pony Xpress Ride in Trinidad CO"
+      },
+      {
+        "url": "https://slowguyonthefastride.com/whitney-allison-pony-xpress-160-from-the-saddle/",
+        "category": "community",
+        "label": "slowguyonthefastride.com: Whitney Allison Pony Xpress 160 From The Saddle"
+      },
+      {
+        "url": "http://coloradogravelgrinderchampionship.com/pony-xpress/details",
+        "category": "community",
+        "label": "coloradogravelgrinderchampionship.com: Details"
       }
     ]
   }

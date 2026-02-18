@@ -242,63 +242,79 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 1,
-        "explanation": "This was only 'back for a second year' in 2023, making it roughly a 4-year-old race with zero name recognition. No pro riders, no notable winners, no race coverage anywhere. Being part of the Ironbear 1000 series gives it a pulse, but that's like saying your garage band is famous because you played at a festival once."
-      },
-      "race_quality": {
-        "score": 1,
-        "explanation": "Self-supported with no aid stations, no official support, and proceeds going to the local fire department screams 'charity ride masquerading as a race.' No field size data, no timing infrastructure mentioned, no real race organization visible. This is a group ride with a donation box, not a race."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Beautiful forest roads in northern Wisconsin have potential, but the complete lack of support or infrastructure means you're paying to ride roads you could ride for free any Saturday. No unique race experience here—just gravel roads and a start time. The scenery keeps it from being a complete waste of gas money."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Small-town Wisconsin gravel events tend to have genuine community feel, and the fire department charity angle suggests local involvement. Being part of the Ironbear 1000 connects it to Wisconsin's gravel scene. Limited field size probably means you actually talk to people instead of getting lost in a sea of lycra."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No field size data, no pro attendance, no competitive depth mentioned anywhere. This is a training ride for 'events like The Hibernator and Red Granite Grinder'—literally positioned as practice for real races. You're not racing anyone who matters here."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Hard to beat the value when there's no race infrastructure to pay for. Entry fees aren't even listed, suggesting they're minimal. You get gravel roads, GPS tracks, and the satisfaction of donating to local firefighters. Low expectations, low cost, decent bang for minimal buck."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Nelma, Wisconsin isn't exactly a tourist destination driving up lodging costs. No fancy race village, no premium amenities, no airport surge pricing. Your biggest expense is gas to get to the middle of nowhere and maybe a cheap motel room."
+        "explanation": "Self-supported format with minimal infrastructure—GPS routes via RidewithGPS and $30 minimum donation registration. No packet pickup details, parking info, or lodging guidance available."
       },
       "length": {
         "score": 3,
-        "explanation": "62 miles hits the gravel sweet spot—long enough to hurt, short enough to not ruin your weekend. Past events offered 85, 50, and 26-mile options, giving flexibility. Not epic distance, but respectable for a regional event."
+        "explanation": "Three distance options: 85, 50, and 26 miles with 9:00 AM starts and afternoon cutoffs. Event promotes flexibility: \"Ride at your own pace. Enjoy some slow gravel or get your hustle on!\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Northern Wisconsin forest roads are typically well-maintained gravel without serious technical challenges. 'Beautiful forest roads' suggests smooth riding, not rock gardens or river crossings. This isn't going to test your bike handling skills beyond basic gravel competency."
+        "explanation": "Described as \"some of the best gravel the Northwoods has to offer\" with \"challenging climbs\" even on the shortest route. Course features \"beautiful forest roads\" without serious technical obstacles."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3000 feet over 62 miles averages under 50 feet per mile—rolling terrain, not climbs that'll break you. Wisconsin isn't known for serious elevation, and this confirms it. Enough to keep your legs honest, not enough to separate the climbers from the rest."
+        "explanation": "3000 feet over 62 miles provides rolling terrain rather than major climbs. Even the 26-mile route includes \"challenging climbs\" according to event descriptions, keeping legs engaged without breaking riders."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late September in northern Wisconsin means you're gambling with weather. Could be perfect fall riding, could be the first snow, could be muddy mess if it rains. No historical weather data available, but the timing puts you in shoulder season roulette."
+        "explanation": "Late September timing in northern Wisconsin puts riders in shoulder season uncertainty. No historical weather data available, but timing suggests potential for anything from perfect fall conditions to early winter weather."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Wisconsin—you're barely above sea level. No altitude considerations, no acclimatization needed, no performance impact from elevation. Completely irrelevant factor for this race location."
-      },
-      "logistics": {
-        "score": 1,
-        "explanation": "Zero logistical information available—no packet pickup details, no parking info, no lodging suggestions, no airport access. Self-supported format means minimal race infrastructure. You're flying blind on basic race weekend planning, which is amateur hour."
+        "explanation": "Northern Wisconsin location means negligible altitude considerations. No elevation-related performance factors or acclimatization needed for this race."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Northern Wisconsin forests offer decent scenery and some isolation, but this isn't wilderness adventure—it's maintained forest roads. Self-supported aspect adds mild adventure factor, but you're never far from civilization. Pretty riding, not epic adventure."
+        "explanation": "Self-supported format through Northwoods forest roads adds mild adventure element. One gas station resupply at mile 55 in Hiles on the long route provides the only on-course services."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "\"Back for a second year\" in 2023 indicates roughly 4-year-old event with minimal recognition. Part of Ironbear 1000 series but positioned as training for \"events like The Hibernator and Red Granite Grinder.\""
+      },
+      "race_quality": {
+        "score": 1,
+        "explanation": "Fundraiser ride format rather than timed race, with all proceeds supporting Town of Alvin Volunteer Fire and Rescue. Emphasizes participation and community support over competitive infrastructure."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Multiple distance options accommodate different goals, from training rides to personal challenges. Charitable focus supporting local volunteer fire department adds community purpose beyond just riding gravel roads."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Fundraiser supporting local volunteer fire and rescue creates community connection. Self-supported format and multiple distance options foster inclusive atmosphere over pure competition focus."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Explicitly positioned as \"great opportunity to train\" for other regional races rather than destination event itself. \"Ride at your own pace\" philosophy attracts recreational riders more than competitive depth."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$30 minimum donation entry fee with proceeds supporting local volunteer fire department. Self-supported format means no race infrastructure costs passed to riders, delivering solid value for northern Wisconsin gravel access."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Minimal entry fee and Nelma, Wisconsin location keeps costs low. No premium race amenities or tourist destination pricing to inflate weekend expenses beyond basic travel and lodging."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.bikesignup.com/Race/Events/WI/LongLake/TheHardwoodHustle",
+        "category": "community",
+        "label": "bikesignup.com: Thehardwoodhustle"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/the-hardwood-hustle",
+        "category": "community",
+        "label": "thenxrth.com: The Hardwood Hustle"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/WI/LongLake/TheHardwoodHustle",
+        "category": "community",
+        "label": "bikesignup.com: Thehardwoodhustle"
+      }
+    ]
   }
 }

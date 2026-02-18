@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Packet pickup at S&S Fire Pits the day before shows local business integration and prevents race morning chaos. Franklin, Georgia provides a small-town race hub without big-city complications, though specific parking and lodging details remain vague. The missing airport and accommodation strategy information keeps this from being higher."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 62-mile main option delivers 5000 feet over varied terrain, with Jason Lopez completing it in 5:58 moving time at 245W normalized power. Bridge washouts forced last-minute course changes, shortening routes by \"a few miles,\" but the staggered starts (8am/9:30am/11am) \"significantly reduced the number of riders at the start of the race.\""
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The mud logjam one mile in forced riders to \"walk single file around the deepest section,\" while the course features \"gravel with random chunks that could cause a pinch flat if hit wrong.\" Jason Lopez excelled on descents with \"two top 10s\" on Strava segments, noting the course had \"quite a few fast technical descents\" and sketchy bridge crossings."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "5000 feet over 62 miles delivers consistent work without massive climbing blocks. The rolling profile with ridgeline connections means you're always going up or down, but nothing suggests monster climbs that separate the field. Alabama's steep, direct descents into creek crossings provide the most elevation drama."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The 2024 race started at 38°F and warmed to 60°F with \"20-30 mph gusts with mostly headwind,\" making the Alabama section particularly challenging. Carolyn Misick appreciated the \"sunny and temps in the 60s\" forecast, though the temperature range \"made it a bit tough to dress for.\" Late February timing avoids summer heat while staying generally rideable."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "GA/AL border region means you're barely above sea level throughout the course. Starting elevation and max elevation are unreported, but this isn't mountain territory—it's rolling piedmont that won't challenge anyone's oxygen intake. Altitude is completely irrelevant to this race experience."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Creek crossings provide the main adventure elements, with Carolyn Misick noting \"sinking your shoe into deep muddy water\" before a \"stream crossing at the bottom\" that served as a \"shoe wash.\" The route crosses state lines mid-race, and Carolyn enjoyed seeing \"my time greatly improve as we rode through Alabama which is on central standard time.\""
+      },
       "prestige": {
         "score": 2,
         "explanation": "Three years old and still finding its identity—started as Border Wars, morphed into Homegrown Gravel Adventure, but everyone still calls it Border Wars. No pro field, no prize purse, no mention of notable winners in any coverage. It's a solid regional event that locals respect for the terrain punishment, but it's not moving any needles beyond the GA/AL border."
@@ -274,42 +302,30 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Registration fees are unlisted, which usually means reasonable pricing for a regional event. You get 60-70% gravel across varied terrain, aid stations, and a route that genuinely showcases two states' different gravel personalities. The $2000 charity contribution suggests they're not extracting maximum profit from participants."
+        "explanation": "Registration cost $91.78 total ($85 plus BikeReg fees) with spots available until a week before the event. The route delivers 65% gravel across two states with three aid stations, including \"Oreos at the last stop which always makes me happy.\" For 2025, field limits increase from 600 to 800 with new age group categories and post-ride shower additions."
       },
       "expenses": {
         "score": 2,
         "explanation": "Franklin, Georgia isn't exactly a destination hub—no airport details, no lodging strategy provided, which means you're driving and figuring out accommodations yourself. The GA/AL border location means most riders face significant travel unless they're regional, and the late February timing could complicate weather-dependent travel plans."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "The 62-mile main option hits the sweet spot for most gravel riders, with 30 and 100-mile alternatives covering the spectrum. Note the discrepancy: research shows 62 miles with 5000 feet, not the listed 65 miles with 3500 feet—either way, it's substantial without being punitive. Three distance options mean you can choose your suffering level."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "The terrain difficulty comes from gravel quality differences rather than technical features—Georgia smooth versus Alabama steep and direct. Riders report punctures, crashes, and DNFs, but the challenge seems more about endurance and bike handling than navigating technical sections. Cross bikes work fine, suggesting the technical demands aren't extreme."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "5000 feet over 62 miles delivers consistent work without massive climbing blocks. The rolling profile with ridgeline connections means you're always going up or down, but nothing suggests monster climbs that separate the field. Alabama's steep, direct descents into creek crossings provide the most elevation drama."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late February in the GA/AL border region typically means cool, manageable conditions without summer heat brutality. The 2024 mud logjam shows weather can still bite—winter/spring conditions create their own challenges when gravel turns to slop. No historical weather disasters reported, suggesting generally rideable February conditions."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "GA/AL border region means you're barely above sea level throughout the course. Starting elevation and max elevation are unreported, but this isn't mountain territory—it's rolling piedmont that won't challenge anyone's oxygen intake. Altitude is completely irrelevant to this race experience."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Packet pickup at S&S Fire Pits the day before shows local business integration and prevents race morning chaos. Franklin, Georgia provides a small-town race hub without big-city complications, though specific parking and lodging details remain vague. The missing airport and accommodation strategy information keeps this from being higher."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "The GA/AL border crossing concept promises more adventure than it delivers—riders report the twists obscure when you're actually crossing states. Remote rural roads provide scenery, but this feels more like a well-planned training ride than a true adventure challenge. Rock Mills, Alabama gets mentioned as a highlight, but the overall route stays civilized rather than wild."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://jaylocycling.com/2024-border-wars-gravel-race-report/",
+        "category": "community",
+        "label": "jaylocycling.com: 2024 Border Wars Gravel Race Report"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/blog/2024/2/27/border-wars-gravel",
+        "category": "community",
+        "label": "ohiogravelgrinders.com: Border Wars Gravel"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8123/homegrown-gravel-adventure-heads-into-fourth-year",
+        "category": "community",
+        "label": "granfondoguide.com: Homegrown Gravel Adventure Heads Into Fourth Year"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

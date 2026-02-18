@@ -183,13 +183,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Flying into Nairobi, staying at Holiday Inn Two Rivers, then transport to Maasai Mara basecamp is straightforward but inflexible. Lukas Baum's early puncture recovery shows mechanical support exists, though riders handle their own repairs. Haley Hunter Smith's full-suspension MTB with gravel handlebar setup demonstrates equipment flexibility, but you're locked into race HQ's schedule with 14:00 bike build on Mara Day."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Maddy Nutt's pacing strategy reveals the multi-stage challenge: \"I needed to control my enthusiasm to race fast each day and pace my efforts across the week.\" Her Stage 4 performance - taking 31 minutes out of second place after four days of racing - proves accumulated fatigue becomes the defining factor. Elite winner times of 14:57 for men, 17:57 for women across 650km show proper stage race endurance demands."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Stage 1's opening section saw \"15 punctures in less than 5km\" on terrain described as \"Paris Roubaix on rocks\" with \"each cobble has a faceted side as sharp as a blade.\" Stage 2 required 50% of Leopard riders to take escape routes due to technical difficulty. Ian Boswell notes the mental shift needed: \"accepting the conditions and not try to fight it cause that's when you start to have a miserable time.\""
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Stage 2's 18km main climb starts at 1,800m and reaches 2,630m through the Loita Hills, described as \"relentless up and down with barely any moment to recover.\" Maddy Nutt found her body \"struggled with the altitude\" initially at elevations above 2,000m, with climbing pushing closer to 3,000m. The 8,000m total elevation comes in sustained chunks that compound across four stages."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Heavy rain before Stage 1 created \"thick mud we had to ride, or walk, through something that was more like clay, with our wheels unable to keep turning.\" Stage 2 started \"quite cold, with thick fog\" at 2,300m elevation. The 2025 edition saw \"crosswinds that would shape the day\" on Stage 1 and \"long climbs and high heat\" on Stage 2, showing the equatorial weather's tactical impact."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Racing entirely above 2,000m with Stage 2 climbing toward 3,000m creates noticeable effects. Maddy Nutt reports: \"initially my body struggled with the altitude, but it quickly adapted and I was no longer as conscious of how it inhibited my performance.\" The Stage 2 camp at 2,300m elevation combined altitude with cold temperatures and thick morning fog that cleared minutes before the start."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Stage 3 featured \"knee-deep water crossings, navigated herds, and dodged thorn bushes as nature took center stage.\" Riders regularly encounter \"wildebeests, zebras, giraffes, antelopes\" on course, with lions spotted 500 meters from camp. David Millar captured it: \"blood, sweat and tears, flat tires and broken souls, that's the price here and it is still a bargain.\" Wildlife has absolute right of way."
+      },
       "prestige": {
         "score": 4,
-        "explanation": "They call it 'the hardest and wildest gravel race in the world' and that's not marketing bullshit when you're dodging elephants on Stage 2. Only two years in and already hailed as legendary, though it needs more time to build the winner mythology. Being offered as a double-header with UCI Gravel Qualifier Safari Gravel Race adds some official weight to the madness."
+        "explanation": "Elite field includes Unbound winner Ian Boswell, former WorldTour pros Hans Becking, Chad Haga, David Millar, and rising stars like Samuel Kagiri. Nathan Haas calls it \"absolutely on my bucket list\" after seeing race footage. The race draws comparison to Cape Epic for difficulty level, with one finisher describing it as \"the most amazing experience of my life\" due to wildlife encounters during racing."
       },
       "race_quality": {
         "score": 4,
-        "explanation": "Four stages, 650km, 8,000m of climbing through legitimate wilderness where wildlife has right of way. The course design is diabolical - Stage 4's Loita Hills climb into Mara plains descent will separate the wheat from the chaff. Organization appears solid with daily 08:30 starts, 19:00 cutoffs, and proper basecamp logistics, though missing key details like aid station spacing."
+        "explanation": "Four stages with daily 08:30 starts and 19:00 cutoffs create proper stage race structure, though Stage 2's difficulty forced 50% of Leopard riders to escape routes. Course design separates contenders through sustained climbing and technical terrain. Hans Becking's assessment: \"Lukas won two stages, I won one, Lawrence won one, we had a super fun week,\" showing competitive but collegial racing among elites."
       },
       "experience": {
         "score": 5,
@@ -197,11 +225,11 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Too new to have built the tight-knit community of established races, and the logistics barrier keeps field sizes manageable but not massive. No rider reviews or forum chatter in the data means the community story hasn't been written yet. The shared suffering of dodging motorbikes and jeeps while navigating savannah gravel will bond whoever shows up."
+        "explanation": "Local Maasai community integration creates unique atmosphere with \"thousands of kids shouting 'Jambo!'\" along Stage 3. Chad Haga working for teammate Mattia de Marchi: \"I can call him a friend now and I wanted to do everything I could.\" The international field bonds over shared suffering, but the race is too new and logistically challenging to build the tight community of established events."
       },
       "field_depth": {
         "score": 3,
-        "explanation": "No data on field size or notable past winners because this thing barely exists yet - 2025 was the new course, 2026 is only the second edition. The expense and logistics of getting to Kenya naturally filter for serious riders, but pro participation unknown. The Zebra option keeps recreational riders from diluting the competitive field."
+        "explanation": "Elite field features former WorldTour pros Hans Becking, Chad Haga, David Millar, Ian Boswell alongside strong African riders Samuel Kagiri and Nancy Akinyi Debe. Haley Hunter Smith won 3 of 4 stages in 2025 women's field, while Lukas Baum controlled men's racing despite early puncture. Kenya travel requirements naturally filter for serious participants, but field sizes remain modest due to logistical barriers."
       },
       "value": {
         "score": 2,
@@ -209,35 +237,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Kenya isn't cheap when you factor in international flights, race package, accommodation at Holiday Inn Two Rivers or City Lodge, and a week away from work. The remote Maasai Mara location means you're locked into their logistics - no budget options for camping or driving yourself. This is premium adventure racing with premium pricing."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "650km over four stages is proper stage race distance that will test your endurance and recovery. Stage 4 alone is 181km with 1,980m of climbing through Loita Hills - that's a full day in the saddle. Four days of racing means accumulated fatigue becomes a real factor, especially when navigating technical descents and unpredictable weather."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "It's not technical in the rock garden sense - it's technical in the 'don't hit the elephant' sense. Wildlife trails, cattle tracks, and thick black clay when wet require different skills than your typical gravel race. Stage 2's technical descents and bridge crossings demand caution, but the real challenge is navigation and animal awareness, not bike handling."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "8,000m over 650km averages out reasonable, but Stage 4's Loita Hills climb and the multi-stage format make it hurt more than the numbers suggest. Stage 3's 158km with 2,500m through savannah isn't flat cruising. The elevation comes in chunks that will test your climbing legs after multiple days of racing."
-      },
-      "climate": {
-        "score": 5,
-        "explanation": "June in the Maasai Mara is peak adventure - dry season but with unpredictable weather that can turn Stage 2 into thick black clay hell. You'll face windy shamba land on Stage 1 and variable conditions that add another layer of challenge. The climate isn't just weather, it's part of the race strategy."
-      },
-      "altitude": {
-        "score": 4,
-        "explanation": "Maasai Mara sits around 1,500-1,800m, so you'll feel it if you're coming from sea level but it won't destroy you like high-altitude races. The Loita Hills climb on Stage 4 pushes higher into proper altitude territory. Enough elevation to notice, not enough to require acclimatization weeks."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Flying into Nairobi, staying at Holiday Inn Two Rivers, then transport to Maasai Mara basecamp is straightforward but inflexible. Race HQ handles meals and accommodation, but you're locked into their schedule with bike build at 14:00 on Mara Day and 12:00 pack-up on June 20. International logistics always add complexity and stress."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "This is peak adventure - riding through actual wilderness where you yield to elephants and navigate around wildebeest herds. Stage 2's wildlife encounters and forest exits through Maasai villages deliver genuine exploration, not manufactured adventure. Four days in the untamed Maasai Mara with nights at basecamp puts you properly off the grid."
+        "explanation": "Kenya logistics require international flights, race accommodation package, and locked-in basecamp meals with earliest June 21 departure. Equipment considerations shown by Haley Hunter Smith's full-suspension MTB success versus Chris McCormack's underprepared 2012 mountain bike highlight gear investment needs. Factor riders used premium setups with 25 psi tire pressure, foam inserts, and hydration packs - showing equipment costs beyond standard gravel racing."
       }
     },
     "citations": [
@@ -250,6 +250,56 @@
         "url": "https://ridewithgps.com/routes/45563845",
         "category": "route",
         "label": "RideWithGPS: Migration Gravel Race"
+      },
+      {
+        "url": "https://gravelearthseries.com/2025/06/25/four-days-through-the-wild-the-spirit-of-migration-gravel/",
+        "category": "community",
+        "label": "gravelearthseries.com: Four Days Through The Wild The Spirit Of Migration Gravel"
+      },
+      {
+        "url": "https://www.parcours.cc/blogs/news/migration-gravel-race-report-contributed-by-maddy-nutt",
+        "category": "community",
+        "label": "parcours.cc: Migration Gravel Race Report Contributed By Maddy Nutt"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/migration-gravel-race-results-sarah-sturm-and-hans-becking-celebrate-overall-victory-in-the-maasai-mara/",
+        "category": "community",
+        "label": "velo.outsideonline.com: Migration Gravel Race Results Sarah Sturm And Hans Beckin..."
+      },
+      {
+        "url": "https://rawcyclingmag.com/migration-gravel-race-2024-when-finishing-is-a-remarkable-feat/",
+        "category": "community",
+        "label": "rawcyclingmag.com: Migration Gravel Race 2024 When Finishing Is A Remarkable..."
+      },
+      {
+        "url": "https://www.albioncycling.com/log/no-word-for-stranger-the-migration-gravel-race/",
+        "category": "community",
+        "label": "albioncycling.com: No Word For Stranger The Migration Gravel Race"
+      },
+      {
+        "url": "https://cyclespeak.com/tag/migration-gravel-race/",
+        "category": "community",
+        "label": "cyclespeak.com: Migration Gravel Race"
+      },
+      {
+        "url": "https://journal.brooksengland.com/migration-gravel-race-followup/",
+        "category": "community",
+        "label": "journal.brooksengland.com: Migration Gravel Race Followup"
+      },
+      {
+        "url": "https://factorbikes.com/news/the-migration-diaries-part-one",
+        "category": "community",
+        "label": "factorbikes.com: The Migration Diaries Part One"
+      },
+      {
+        "url": "https://www.cyclingnews.com/blogs/nathan-haas/nathan-haas-2023-gravel-guide-for-new-races-toughest-races-and-wild-adventures/",
+        "category": "community",
+        "label": "cyclingnews.com: Nathan Haas 2023 Gravel Guide For New Races Toughest Race..."
+      },
+      {
+        "url": "https://journal.brooksengland.com/migration-gravel-race/",
+        "category": "community",
+        "label": "journal.brooksengland.com: Migration Gravel Race"
       }
     ]
   }

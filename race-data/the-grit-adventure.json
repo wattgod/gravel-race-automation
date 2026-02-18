@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Packet pickup from 7:00-8:30am for a 9:00am start leaves little buffer time, especially with day-of registration closing at 8:30am. Martin Criminale praised Off-Camber Productions as organizers with \"VERY POSITIVE STAFF,\" but starting at Crystal Springs Sno-Park via I-90 Exit 62 then a mile on forest road adds access complexity."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Martin Criminale's pre-ride of the 45-mile version \"took us almost five hours at a moderate pace with just a few short stops,\" showing the terrain demands respect even at social pace. At 65 miles for the full course, it's substantial enough to matter without being an epic."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The lollipop course mixes doubletrack, singletrack, and technical obstacles that caught Martin Criminale's fender repeatedly: \"I kept bending the front one when I tried to ride over logs.\" Water troughs require \"get off and walk your bike as the transition at the bottom is too sudden to ride.\""
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "5500 feet over 65 miles averages 85 feet per mile, which is legitimate climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "July in the Cascades can be perfect or miserable—no weather data available, but Snoqualmie Pass sees everything from snow to heat waves. The region's reputation for unpredictable mountain weather and potential for afternoon thunderstorms makes this a gamble. You might get postcard conditions or survival mode."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Snoqualmie Pass location provides mountain elevation with clear-day views \"for miles in every direction,\" but specific altitude figures aren't detailed. High enough to matter for pacing, not enough to cause serious altitude issues for most riders."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The first descent \"turn right into the woods\" leads to \"mostly doubletrack, singletrack, and FUN\" through forest terrain. Creek crossings, \"lush green meadows,\" and technical descents where \"some of the dips and bumps are bigger than you think\" deliver exploration over speed."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This is a small regional event that went dark after 2023 and just resurfaced for 2025. No notable winners, no coverage beyond a basic highlight reel from 2022, and zero buzz in the broader gravel scene. It's Adventure Gravel for locals who think suffering in the Cascades counts as prestige."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The 2023 rider Chris W. praised \"excellent courses\" and \"VERY POSITIVE STAFF,\" but that's one quote from a race that disappeared for two years. Day-of registration ending at 8:30am for a 9am start is cutting it close. The course promises \"brutal climbs\" and \"tricky descents,\" but without cutoff times or proper aid station details, it feels more like organized chaos than race quality."
+        "explanation": "Off-Camber Productions brings experience from MFG Cyclocross Series, and riders praise \"excellent courses\" and \"VERY POSITIVE STAFF.\" However, the tight registration window ending 30 minutes before start time and two-year disappearance suggest organizational growing pains."
       },
       "experience": {
         "score": 3,
@@ -279,36 +307,19 @@
       "expenses": {
         "score": 3,
         "explanation": "Snoqualmie Pass location means driving distance for most of the Pacific Northwest, and camping options keep lodging cheap. No airport info suggests you're driving anyway, which works for most regional participants. The Crystal Springs Sno-Park venue keeps venue costs minimal, though you'll pay Seattle-area food prices."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "65 miles hits the sweet spot for Adventure Gravel—long enough to hurt, short enough to finish before dark. Multiple course options including the \"Maximus\" brute give different commitment levels. It's not an epic like Unbound, but it's substantial enough to matter."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "\"Gravel riding meet mountain biking\" with recommendations for gravel bikes or hard-tail mountain bikes tells you everything. Double track sections and descents described as \"tricky at high speed\" mean you'll use more than your legs. It's technical enough to demand bike handling skills without going full mountain bike race."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "5500 feet over 65 miles averages 85 feet per mile, which is legitimate climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "July in the Cascades can be perfect or miserable—no weather data available, but Snoqualmie Pass sees everything from snow to heat waves. The region's reputation for unpredictable mountain weather and potential for afternoon thunderstorms makes this a gamble. You might get postcard conditions or survival mode."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Snoqualmie Pass sits around 3000 feet with higher elevations on course, but specific max altitude isn't provided. Enough elevation to matter for sea-level riders, not enough to cause real altitude issues. It's a factor for pacing but not a game-changer for most."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Packet pickup from 7:00-8:30am for a 9:00am start is tight, especially with day-of registration. Crystal Springs Sno-Park access via I-90 Exit 62 then a mile on forest road adds complexity. No airport information suggests you're driving to the middle of nowhere, which matches the Adventure Gravel vibe but hurts convenience."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "\"Remote forest roads & trails\" in the North Cascades wilderness delivers genuine adventure over groomed gravel paths. The mix of surfaces and \"Adventure Gravel\" positioning means exploration over speed. Starting from a Sno-Park and heading into mountain terrain promises the kind of suffering that makes good stories."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://martin.criminale.com/2022/06/pre-riding-grit-l-course.html",
+        "category": "community",
+        "label": "martin.criminale.com: Pre Riding Grit L Course.Html"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10617/the-grit",
+        "category": "community",
+        "label": "granfondoguide.com: The Grit"
+      }
+    ]
   }
 }

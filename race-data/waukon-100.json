@@ -252,41 +252,17 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "Zero notable winners, no pro field, no YouTube coverage worth mentioning. This is Iowa Gravel Series territory where the biggest claim to fame is having 'testimonials from Tracy, Kurt, and Jon.' The only recognition comes from locals saying it has the 'best roads in Iowa' — which tells you everything about the competition level."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "Two aid stations for 62 miles with a sweep that starts at 1:00PM and abandons you by 2:00PM if you're still out there. Pulled pork sandwiches and podium photos for top 3 — that's your production value. The course promises 4,300 feet over 100k but can't deliver basic details about surface breakdown or named climbs."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Packet pickup at St. John the Baptist Church tells you this is small-town gravel racing at its most humble. The race advertises as 'friendly to new and experienced racers' which usually means it's optimized for neither. You get 'a bit more climbing' than other series races and the promise that 'Waukon and Allamakee county might surprise you' — but surprises aren't always good."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Part of the Iowa Gravel Series running May through October, so you're getting regional weekend warrior energy. Testimonials exist but no actual quotes made it into their marketing materials, which suggests the feedback wasn't quotable. The community spirit peaks at church basement packet pickup and ends with unsupported riding after 2:00PM."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No field size data, no notable finishers, no competitive depth worth documenting anywhere online. When your race can't generate enough interest for basic participation numbers or YouTube coverage, you're looking at a local club ride with timing chips. The 'friendly to new racers' positioning confirms this isn't attracting serious competition."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "No registration fees listed, but two distance options, two aid stations, and post-race food suggests reasonable bang for buck in Iowa terms. You're paying for 4,300 feet of climbing over 100k, which delivers more vertical than most Midwest options. The value proposition works if you need climbing practice without traveling to real mountains."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Waukon, Iowa isn't exactly a destination requiring expensive hotels or flights to regional airports. The race date coordination with packet pickup the night before suggests local lodging exists and is accessible. No premium pricing pressure from prestige or demand — this is Midwest gravel racing where costs stay reasonable by necessity."
+        "explanation": "Church basement packet pickup and 6:00AM race day check-in covers the basics without sophistication. The sweep ending at 2:00PM creates a hard cutoff that could strand unprepared riders miles from anywhere in rural Waukon."
       },
       "length": {
         "score": 4,
-        "explanation": "100k (62 miles) hits the sweet spot for serious gravel distance without entering ultra territory. The 30-mile option handles beginners while the longer distance provides legitimate challenge with 4,300 feet of climbing. Two distance options executed properly scores points even if the overall production doesn't."
+        "explanation": "100 miles with 5000 feet of climbing hits the century distance sweet spot for serious gravel challenge. The route explores the driftless region's \"long valleys and steep ridges\" north of Waukon, delivering substantial distance with meaningful terrain variety."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Iowa gravel with 4,300 feet of gain over 100k suggests more than flat farm roads, and locals warn that 'Allamakee county might surprise you.' Without surface breakdown data or technical feature details, you're gambling on unknown terrain. The climbing suggests at least moderate technical demands, but Iowa's reputation for smooth gravel keeps expectations in check."
+        "explanation": "The driftless region creates \"an amazing series of long valleys and steep ridges\" that challenge Iowa's flat reputation. As one competitive rider noted, \"Make no mistake, there's a bit more climbing in Waukon than the Silver City race, but it's absolutely worth it.\""
       },
       "elevation": {
         "score": 3,
@@ -294,19 +270,43 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "June 21st in Iowa brings heat, humidity, and potential thunderstorms with zero weather mitigation mentioned in race planning. No historical weather incidents documented suggests either perfect conditions every year or races too small for weather stories to matter. The 7:00AM start helps beat heat, but Iowa summer weather can turn ugly fast."
+        "explanation": "June 21st in Iowa brings heat and humidity with zero weather mitigation mentioned in race planning. The 7:00AM start helps beat heat, but Iowa summer weather can turn ugly fast with no documented contingency plans."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Iowa — you're barely above sea level with zero altitude considerations. No starting elevation data provided because it doesn't matter for performance or acclimatization. The only elevation that counts here is the 4,300 feet you'll climb during the race, not where you start."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Church basement packet pickup and 6:00AM race day check-in covers the basics without sophistication. No airport, lodging, or parking information suggests you're expected to figure out small-town Iowa logistics yourself. The sweep ending at 2:00PM creates a hard cutoff that could strand unprepared riders miles from anywhere."
+        "explanation": "This is Iowa with zero altitude considerations for performance or acclimatization. The only elevation that matters is the 5000 feet you'll climb during the race through the Upper Iowa River bottoms and surrounding ridges."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Exploring Iowa's 'best roads' through Allamakee County offers genuine rural adventure for those who've never experienced Midwest gravel. The promise that the terrain 'might surprise you' suggests hidden gems, but without route details or standout features documented, you're trusting local knowledge. Adventure here means discovering what Iowa can offer, not conquering legendary terrain."
+        "explanation": "The route explores \"all the beauty of the Upper Iowa River and Waterloo river bottoms\" through terrain that organizers admit \"might surprise you.\" The driftless region offers Iowa's most varied topography, though adventure here means discovering regional gems rather than conquering legendary terrain."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Elite winner Mitch Brekke was featured on the Iowa Gravel Series Podium Podcast for \"his unbelievable journey,\" but competitive depth remains regional. The race explicitly positions itself as \"friendly to both new and experienced racers\" rather than pursuing elite field development."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "The race includes \"chip timing, marked course, pro photography and aid stations\" with tiered registration packages. Organizers emphasize that riders can \"know the route will be well marked and the people friendly,\" prioritizing execution basics over premium production value."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Packet pickup at St. John the Baptist Church epitomizes small-town gravel racing. Ian Frink discussed \"his experiences in the Waukon 100, and his thoughts on the gravel racing community\" in podcast coverage, suggesting meaningful rider engagement despite humble production scale."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The Iowa Gravel Series philosophy focuses on \"having a great day in the saddle and riding some of the best roads in Iowa\" rather than pure competition. The race welcomes riders you can \"invite your family or buddy to that's new to gravel grinding,\" creating inclusive rather than intimidating atmosphere."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "No field size data available, with competitive depth limited to regional weekend warriors. While Mitch Brekke's elite victory generated podcast coverage, the emphasis on being \"friendly to new racers\" confirms this attracts participation over serious competition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The race delivers 100 miles through Iowa's most varied terrain with \"chip timing, marked course, pro photography and aid stations.\" Tiered registration options including lunch and shirt packages suggest reasonable pricing for the distance and support provided in the driftless region."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Waukon, Iowa keeps costs reasonable without premium pricing pressure from prestige or demand. The race date coordination with packet pickup the night before suggests local lodging exists and remains accessible for Midwest gravel racing budgets."
       }
     },
     "citations": [
@@ -314,6 +314,31 @@
         "url": "https://ridewithgps.com/routes/51103873",
         "category": "route",
         "label": "RideWithGPS: Waukon 100 Training ride (casey)"
+      },
+      {
+        "url": "https://www.allamakeecounty.com/events/waukon-100-iowa-gravel-series",
+        "category": "community",
+        "label": "allamakeecounty.com: Waukon 100 Iowa Gravel Series"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Event/16025/waukon-one-hundred-iowa-gravel-series",
+        "category": "community",
+        "label": "bikeiowa.com: Waukon One Hundred Iowa Gravel Series"
+      },
+      {
+        "url": "https://www.cityofwaukon.com/events/waukon-100",
+        "category": "community",
+        "label": "cityofwaukon.com: Waukon 100"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=J0q4sRsjUCo",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=-FzQr-rqnq4",
+        "category": "community",
+        "label": "youtube.com: Watch"
       }
     ]
   }

@@ -123,13 +123,41 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Remote locations are part of the experience. Quincy, California requires driving from Sacramento or Reno with camping at fairgrounds. Italy requires a medical certificate from the Italian Cycling Federation. Niky Taylor found the format 'super inclusive and great,' praising how 'you can kinda just roll out slow with the group' without start-line anxiety."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "Main courses run 56-73 miles, placing it in the moderate distance category. Iggy95 tackled '63 miles /5300ft elevation' and called it 'a doozie of a ride.' The unique format means only about 1 hour of actual racing across 4 timed segments in what becomes 'a 7+ hour day from roll out to finish line' according to one elite rider."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Courses push gravel bike limits with singletrack descents and MTB-style terrain. One rider noted 'Segment 1 was pretty sketchy' on gravel descents, while another experienced 'multiple-mile-long 30mph gravel descents' for the first time. An elite rider admitted 'I really would have appreciated the comfort of front suspension' on the technical downhill segments."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Mt. Shasta 2023 packed '7k climbing' into 62 miles according to rider reports. One competitive rider needed 'every tooth' of a 42t chainring with 10-52t cassette 'to get up some of the steep climbs.' The elevation profile consistently challenges riders across the series with sustained climbing that demands wide-range gearing."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Weather varies dramatically by location and can be extreme. Mt. Shasta 2023 saw '90 degree weather' creating layering dilemmas for riders. Scotland events face notorious conditions cycling 'between steady drizzle, heavy mist and occasional downpour.' California 2019 saw snow and hail, while 2025 Quincy hit 94°F/34°C on race day."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "California events operate in the Sierra Nevada at elevation where thin air starts to matter on climbs. Mt. Shasta sits at significant altitude, and one rider reported 5300ft elevation data points on course. While not extreme altitude racing like some mountain events, the elevation is noticeable during sustained climbing efforts."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The format delivers unique experiences across varied terrain. Iggy95 described their first gravel race as 'Holy shit what an absolute blast! It felt like time stood still, just totally in the moment' during high-speed descents. Courses mix 'gravel and singletrack (and a bit of road)' with segments including 'gravel descent, road TT, gravel climb, singletrack mostly descent.'"
+      },
       "prestige": {
         "score": 4,
-        "explanation": "Grinduro isn't Unbound-level famous, but it's earned iconic status within gravel culture. Voted 'Event of the Year' by Design and Innovation Awards. The series created an entirely new race format that has influenced the sport. Past winners include former American Downhill Champion Duncan Riffle, pro cyclocross racers like Katerina Nash and Meredith Miller, and World Tour riders like Tiffany Cromwell (Canyon/SRAM). It's nationally significant and internationally recognized, but not quite the household name of the major series races."
+        "explanation": "Grinduro created an entirely new race format that influenced gravel culture. Paul Errington notes they 'ignored the broader industry-led trends, did our own thing, and as it turned out, it was exactly what a lot of riders wanted.' Carl Decker represents the Giant Factory Off-Road Team at events, showing pro-level participation and industry recognition."
       },
       "race_quality": {
         "score": 4,
-        "explanation": "Professional organization with quality timing systems across timed segments. Aid stations and feed zones strategically placed in untimed liaison sections. However, the 'black pill' truths are real: flat tire epidemics are endemic ('dozens of flat tires, particularly on the final timed segment'), cutoff times have left riders in tears, and course difficulty is often underestimated. The production is professional, but the event's wildness creates quality variance."
+        "explanation": "Professional timing systems track 4 timed segments with aid stations strategically placed. However, mechanical issues are common - one elite rider suffered 'a small sidewall cut' requiring a Dynaplug repair mid-race. Chain maintenance became critical as one rider's chain 'was squeaking by mile 40' in dusty conditions, forcing an oil application at the final aid station."
       },
       "experience": {
         "score": 5,
@@ -137,47 +165,19 @@
       },
       "community": {
         "score": 5,
-        "explanation": "Legendary community spirit is Grinduro's defining characteristic. 'In a famously tribal community, Grinduro creates a space where pros and beginners ride the same course, share the same struggles, and celebrate the same achievements.' Elitism has no place - everyone is genuinely welcome. The format eliminates start-line anxiety and road-rage mid-race because timed sections are brief. Theme camps, vibrant tented communities, and shared suffering create bonds. This is a 10/10 community score per the research."
+        "explanation": "The festival atmosphere creates exceptional community spirit. Events blend 'the exhilaration of a bike race with the relaxed atmosphere of a cycling festival' according to Loek Luijbregts. John Watson observed that 'Events that encourage camping, a social atmosphere, and unforgettable course routing, will always have a place in cycling,' highlighting the communal camping and celebration elements."
       },
       "field_depth": {
         "score": 4,
-        "explanation": "Strong pro attendance across disciplines - not just gravel specialists. Winners include former professional downhill racers, pro road racers, current cyclocross pros like Katerina Nash, Meredith Miller, and Rebecca Fahringer, plus World Tour rider Tiffany Cromwell. Michael van den Ham (Canadian champion) has won. The cross-discipline appeal means you're racing against genuine talent from MTB, road, and CX, but this isn't an major series stop with mandatory pro attendance."
+        "explanation": "The series attracts cross-discipline talent from road, cyclocross, and mountain biking. Carl Decker races for Giant Factory Off-Road Team, while past winners include former professional downhill racers and current cyclocross pros. The field draws 2000 riders creating competitive depth across categories, though this isn't a mandatory World Tour stop."
       },
       "value": {
         "score": 3,
-        "explanation": "Entry fees run $180-235 USD (£150 GBP for UK), which is substantial for a single-day event. However, inclusion matters: breakfast, lunch, dinner on race day, camping, live music, festival access, bike expo, and aid stations are all bundled in. The all-inclusive nature partially justifies the cost, but forum debates exist - 'If it's worth it, pay it. If it isn't, don't.' Compared to events like Unbound ($130-200+), it's in the upper range for what you get."
+        "explanation": "Entry fees run $180-235 USD for a single-day event, which is substantial. However, the all-inclusive nature provides significant value - breakfast, lunch, dinner, camping, live music, and festival access are bundled. The format creates what Paul Errington describes as 'an event space where everyone could find something appealing...racing, riding, music, socialising.'"
       },
       "expenses": {
         "score": 3,
-        "explanation": "Total trip cost is moderate to high. Entry: $180-235. Camping is included (tent camping) but is basic fairground camping, not glamping. Remote locations mean driving from major airports/cities. International events (Scotland, Italy, Japan, South Africa) require significant travel investment - flights, rental cars, potentially ferry crossings. Scotland events have faced Brexit-related sponsor complications adding cost pressure. Budget $500-1,000+ depending on location."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "Main courses range from 56-73 miles (California to Pennsylvania), placing it in the 40-60 mile category. While the total loop distance is moderate, the unique format means only 20-60 minutes of actual racing across 4 timed segments. The Grindurito half-course option (~27-34 miles) makes it accessible to newer riders."
-      },
-      "technicality": {
-        "score": 5,
-        "explanation": "Grinduro pushes the boundaries of what a gravel bike can handle. Courses feature singletrack descents (10-mile singletrack descent in California), MTB-style technical sections with A-line and B-line options (Wales), steep loose slate, and terrain that has been won by former professional downhill racers. The research explicitly notes 'the last timed segment would probably have been best tackled on a full suspension mountain bike' - this is extreme terrain for gravel bikes."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "California flagship event packs 7,800 feet of climbing into 56 miles - that's 139 feet per mile, a punishing ratio. Pennsylvania adds ~6,000-6,250 feet, while international events (Italy, South Africa) hit 1,500m/4,900ft. The China Grade climb in California averages 10% with sections over 20%. This isn't casual climbing."
-      },
-      "climate": {
-        "score": 4,
-        "explanation": "Weather is the true wildcard across the series. Scotland is notorious - 'the weather cycles between steady drizzle, heavy mist and occasional downpour' with courses turning into 'skating rinks of mud-greased grass.' California 2019 saw snow and hail. Even 'usually sunny' California sits at high elevation where weather apps show snowflake icons for September dates. Scotland specifically earns a 4/10 weather rating in the research."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "California events sit in the Sierra Nevada at elevation, with courses reaching significant altitude on mountain climbs. Pennsylvania peaks at ~2,051 feet (modest), but California and Scotland (Highlands) operate at elevations between 3,000-6,000 feet where the thin air starts to matter. Not extreme altitude racing, but enough to feel it on the climbs."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Remote locations are a feature, not a bug. Quincy, California requires driving from Sacramento or Reno with no nearby airport. Scotland's Isle of Arran events required CalMac Ferry crossings. Japan is 90 minutes by bullet train from Tokyo. Italy requires a medical certificate from the Italian Cycling Federation. Camping at fairgrounds is the norm, not hotels. Brexit complications nearly killed UK events with customs fees hitting sponsors."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Grinduro delivers bucket-list experiences across three continents. The unique enduro format - invented here in 2015 - creates something genuinely different: race hard for 5-15 minute timed segments, then cruise with friends through stunning scenery. Forum consensus: 'Without a doubt, Grinduro was the most fun I've ever had with drop bars.' The festival atmosphere with live music, gourmet food, bike expo, and camping communities adds to the life-changing experience."
+        "explanation": "Total costs are moderate to high depending on location. Entry fees of $180-235 include camping and meals, but remote locations require significant travel. Equipment demands are real - riders need wide tires (47mm mentioned), Dynaplugs for tire repair, and wide-range gearing. One rider carried 'two Dynaplugs' as essential equipment, while 28 PSI tire pressure was standard for technical terrain."
       }
     },
     "format_details": {
@@ -394,6 +394,51 @@
         "url": "https://www.patagonia.com/stories/grinduro-scotland",
         "category": "other",
         "label": "Patagonia"
+      },
+      {
+        "url": "https://www.altovelo.org/blog/race-report-grinduro-2023",
+        "category": "community",
+        "label": "altovelo.org: Race Report Grinduro 2023"
+      },
+      {
+        "url": "https://www.cyclepathpdx.com/blogs/news/grinduro-2025-experience-and-gear",
+        "category": "community",
+        "label": "cyclepathpdx.com: Grinduro 2025 Experience And Gear"
+      },
+      {
+        "url": "https://theradavist.com/2025-grinduro",
+        "category": "community",
+        "label": "theradavist.com: 2025 Grinduro"
+      },
+      {
+        "url": "https://gravelunion.cc/article/ride-report-grinduro-germany2023",
+        "category": "community",
+        "label": "gravelunion.cc: Ride Report Grinduro Germany2023"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dcmw3i/my_first_gravel_race_grinduro_pa/",
+        "category": "community",
+        "label": "reddit.com: My First Gravel Race Grinduro Pa"
+      },
+      {
+        "url": "https://bikebiz.com/grinduro-turns-10-celebrating-a-decade-of-gravel-good-times/",
+        "category": "community",
+        "label": "bikebiz.com: Grinduro Turns 10 Celebrating A Decade Of Gravel Good Times"
+      },
+      {
+        "url": "https://www.giant-bicycles.com/us/the_road_to_grinduro",
+        "category": "community",
+        "label": "giant-bicycles.com: The Road To Grinduro"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/2025-grinduro-italy-crazy-italian-gravel-race-party/",
+        "category": "community",
+        "label": "gravelcyclist.com: 2025 Grinduro Italy Crazy Italian Gravel Race Party"
+      },
+      {
+        "url": "https://mostlybybike.com/tag/grinduro-2018/",
+        "category": "community",
+        "label": "mostlybybike.com: Grinduro 2018"
       }
     ],
     "logistics": {

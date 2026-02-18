@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Renée notes glass shards scattered across \"the most technical descent,\" forcing cautious line selection and significant time loss. The race creates bottlenecks at two tight road-to-off-road transitions that force dismounts. Multiple riders praised organization—\"number distribution ran very smoothly, we got our numbers without queuing\"—but course hazards reveal maintenance gaps."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Flachlandtiroler_ completed the distance but noted \"hands and back were more done than the legs,\" suggesting the 62-mile length hits riders differently than pure endurance events. The 25km loop format with 300m gain per lap creates tactical opportunities—riders report making up time on long climbs after losing it on technical descents."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The course transitions from Grand Prix track to Nordschleife, then predominantly off-road with loose gravel on steep descents where \"you had to slide around corners more than steer.\" One rooty section forced most riders to walk, while a 17% gradient between Karussell and Hohe Acht challenges even experienced riders. Glass debris on the most technical descent adds hazard navigation."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 300m climb over 5.5km to Hohen Acht dominates each 25km loop, totaling 2,300m over 100km for the full distance. Renée found \"the long climbs suited me well and I could make up the lost time\" after conservative descending. The elevation profile rewards sustained climbing power over explosive efforts."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "2025 conditions were \"hot and oppressive with bone-dry, dusty conditions\" that caught riders unprepared. The dust was so severe on steep descents that riders described a \"Staubapokalypse\" (dust apocalypse) at 60+ km/h speeds. Only 93 of 192 starters finished the 100km race, with heat and underestimation of difficulty as primary DNF factors."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Nürburgring sits around 1,640 feet above sea level with the highest course points barely reaching 2,300 feet in the Eifel region. No altitude considerations affect performance or preparation for this race."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Starting in the Formula 1 arena before transitioning onto the legendary Nordschleife creates unique motorsport crossover appeal. The route runs entirely within the \"Green Hell\" complex without crossing public roads. LessGeersMoreBeers described \"nearly 200 people doing 60+ km/h through the dust apocalypse down steep gravel roads and nobody knows the course.\""
+      },
       "prestige": {
         "score": 2,
-        "explanation": "The 2026 German Gravel Championships are coming to Rad am Ring, which bumps the credibility slightly above weekend warrior territory. But let's be honest—this is still a regional event that happens to borrow the Nürburgring's reputation. The Green Hell mystique only goes so far when you're on gravel instead of tarmac at 200 kph. Nobody's building their season around this one."
+        "explanation": "The 2026 German Gravel Championships elevate the event's profile, with Paul Voß as course patron and defending champion. However, field size concerns emerge—one rider hopes \"starting fields don't get much bigger in the future,\" suggesting the ~200-rider capacity feels near maximum for the technical course demands."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The race piggybacks on a massive cycling festival that drew 11,948 participants in 2025, but that's spread across every category imaginable. No specific gravel field size data means it's probably small enough to get lost in the shuffle. The course details are suspiciously absent from official sources, which tells you everything about race organization priorities."
+        "explanation": "The 48% DNF rate in 2025 reveals significant race management challenges, though riders noted \"surprisingly courteous and skilled overtaking behavior\" despite high speeds and dust conditions. Glass debris on technical sections and multiple first-lap mechanical failures indicate course preparation issues that compromise race quality."
       },
       "experience": {
         "score": 3,
@@ -266,11 +294,11 @@
       },
       "community": {
         "score": 2,
-        "explanation": "Nearly 12,000 cyclists showed up to the overall festival in 2025, but community strength gets diluted when you're one small slice of a massive event. The gravel contingent is fighting for attention against 24-hour racers and e-bike tourists. German cycling culture runs deep, but this isn't where the gravel community gathers to make memories."
+        "explanation": "Riders praised organization efficiency but one observed \"some gave the impression they arrived with completely different expectations.\" The technical course and harsh 2025 conditions created a divide between prepared and unprepared participants. Feed zone support received specific praise, though the high DNF rate suggests community preparation could improve."
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Zero data on notable past winners or pro participation tells you the competitive depth here. Even with the 2026 German Championships designation, this is still building its reputation from scratch. The pros who matter are racing Belgian classics or American series, not chasing German national titles through forest fire roads. Expect enthusiastic locals and some traveling adventurers."
+        "explanation": "Elite riders were lapping mid-pack at 2:40 into the race, with Paul Voß posting fastest lap times in the 47-minute range. The competitive field remains shallow beyond the top level, though the upcoming German Championships may attract stronger depth."
       },
       "value": {
         "score": 3,
@@ -278,37 +306,40 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Flying into Germany isn't cheap from most places, and the Nürburgring area doesn't have budget accommodation infrastructure like major cities. July is peak tourist season in the Eifel region, which means inflated lodging costs. The lack of specific logistics info in race materials suggests you'll be figuring out expensive details on your own."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Sixty-two miles hits the sweet spot—long enough to matter, short enough to leave you wanting more. This isn't a survival epic that breaks your body for weeks afterward, but it's substantial enough to separate the serious from the curious. Perfect length for exploring what German gravel has to offer without committing to ultra-distance masochism."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "The Eifel region delivers legitimate terrain challenges through German forests and rolling hills. While specific course details are mysteriously absent, the 4000-foot elevation gain over 62 miles suggests varied terrain that'll test your bike handling. This isn't Belgian cobbles or Colorado singletrack, but German forests don't hand out participation trophies either."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "Four thousand feet over 62 miles averages out to manageable but persistent climbing—about 65 feet per mile keeps you honest without destroying your legs. The Eifel region rolls rather than punches, so expect sustained efforts rather than lung-burning wall climbs. Enough elevation to feel accomplished, not enough to require altitude training."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late July in western Germany means potential heat, humidity, and afternoon thunderstorms rolling through those forest sections. The Eifel region can turn nasty quickly when weather systems move in from the Atlantic. No historical weather incident data available, but German summers increasingly mean dealing with unexpected heat waves that your training probably didn't account for."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "The Nürburgring sits around 1,640 feet above sea level, which is basically nothing for altitude considerations. Even the highest points in the Eifel region barely scratch 2,300 feet, so your sea-level fitness translates directly. If you're looking for altitude training benefits, book a different trip."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "The research shows a stunning lack of specific logistics information—no packet pickup details, parking situation, or even start times published. For a race hosted at a world-famous motorsport complex, this organizational opacity is concerning. The July 26, 2026 date is confirmed, but apparently figuring out the rest is your problem."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Racing gravel through the same forests where Formula 1 drivers earned their reputations carries legitimate adventure credibility. The Eifel region offers proper exploration potential beyond just the race itself, and the Nordschleife connection adds narrative weight to your suffering. Not exotic adventure, but solid European gravel exploration with cultural significance that beats most weekend gran fondos."
+        "explanation": "Flachlandtiroler_ recommends wide tires—\"43mm front, 38mm rear\"—though noted even wider would help with hand and back fatigue on fast descents. Multiple riders experienced flats from glass debris, requiring quality tire sealant. The Nürburgring area lacks budget accommodation during July peak season, inflating lodging costs significantly."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://rsv-rheinadler.de/wordpress/2025/07/20/rad-am-ring-gravel-race-100km-rennbericht/",
+        "category": "community",
+        "label": "rsv-rheinadler.de: Rad Am Ring Gravel Race 100Km Rennbericht"
+      },
+      {
+        "url": "https://www.rennrad-news.de/forum/threads/rad-am-ring-2025-erstes-gravel-race-am-nürburgring.196393/page-2",
+        "category": "community",
+        "label": "rennrad-news.de: Page 2"
+      },
+      {
+        "url": "https://www.bike-x.de/alle-radarten/gravelbike/titelkaempfe-bei-rad-am-ring-gravelbike-dm-2026-am-nuerburgring/",
+        "category": "community",
+        "label": "bike-x.de: Titelkaempfe Bei Rad Am Ring Gravelbike Dm 2026 Am Nuerbu..."
+      },
+      {
+        "url": "https://www.tour-magazin.de/event/jedermann-rennen/rad-am-ring-2025-restplatze-fur-gravel-tt-und-rtf/",
+        "category": "community",
+        "label": "tour-magazin.de: Rad Am Ring 2025 Restplatze Fur Gravel Tt Und Rtf"
+      },
+      {
+        "url": "https://radamring.de/en/the-course-is-set-and-what-a-course-it-is/",
+        "category": "community",
+        "label": "radamring.de: The Course Is Set And What A Course It Is"
+      },
+      {
+        "url": "https://radamring.de/en/gravel-race_eng/",
+        "category": "community",
+        "label": "radamring.de: Gravel Race Eng"
+      }
+    ]
   }
 }

@@ -252,17 +252,45 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 1,
+        "explanation": "George Bennett, fresh off European WorldTour racing, worried about basic logistics: 'I was worried about aid stations; I was worried about getting there in time for sign on.' Drop bags collected at registration create complexity, and GPS navigation is mandatory for Mains since the course isn't fully marked. Waimate remains a small agricultural town with infrastructure challenges for mass participation events."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The Mains delivers 248km of punishment that tests mental limits as much as physical. Ant described the psychological warfare: 'Whilst the 70km to the first bag drop seemed to, and in fact did, take hours, once I reached the second and final bag drop, I felt that I was nearly home even though there was still 80km left to ride.' At his longest bike ride ever, it earned that status."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Riders encounter 'unexpectedly deep gravel that you wouldn't notice until your bike started to fishtail on a descent' mixed with stream crossings over 'rounded wet slippery stones.' The course demands line discipline through freshly graded sections where riders warned 'stay on your line... no one front or behind.' Multiple crashes occurred at ford crossings despite rider caution."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Three key passes—Mackenzie, Hakataramea, and Meyers—deliver 3,500-4,000m of climbing across 248km. Mackenzie Pass features 'an excruciating straight headwind section' before a 4km climb at 6.3% gradient. The elevation creates selection without dominating, as one rider noted it 'didn't feel that hilly overall' despite the substantial vertical gain."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "New Zealand spring weather delivers extremes: '2022 we had snow on one side of the course and bright sunshine on the other!' Charlotte Clarke's pre-race recon hit winds so severe she was 'pinned by the wind against a fence, hanging on for dear life' while Caleb struggled with a bike that 'wouldn't stay upright.' Race day 2025 brought surprisingly hot conditions that eliminated drafting benefits."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Rolling South Canterbury farmland keeps elevation gains moderate rather than oxygen-debt inducing. The three passes climb through pastoral terrain where the limiting factor remains muscular endurance, not cardiovascular adaptation. Sea-level fitness translates directly—your legs will surrender before your lungs protest the altitude."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "'It's 250 kilometres with no towns. There are smatterings of dairy farms, but it's limited to the very start and end of the course,' explains race founder Andy Chalmers. The route crosses pristine gravel where 'there isn't a lot of traffic going up and down the roads every day.' Finishing at the 1891 velodrome adds historical theater to the remote backcountry exploration."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "Four years in and you've got Cam Jones showing up fresh off his Unbound win, setting a 7:24 course record. That's real credibility, not marketing fluff. But let's be honest — it's still the new kid trying to prove it belongs at the big table. The global field is growing, but prestige takes decades to earn, not press releases."
+        "explanation": "2025 Unbound winner Cam Jones targeting Edition Zero and setting a 7:24 course record signals growing credibility. Race founder Andy Chalmers noted 'This year it was very evident that people had targeted it. It wasn't just another race on their calendar. It was something they were putting specific effort towards.' International participation is building, but prestige accumulates over decades, not seasons."
       },
       "race_quality": {
         "score": 3,
-        "explanation": "Andy Chalmers knows what he's doing — proper gravel that tests bike handling, not just fitness. The deep freshly-graded sections at 6km split fields immediately, and attacks through feed zones create real tactical racing. Finishing on that 1891 velodrome is inspired theater. The course delivers legitimate selection, just needs time to perfect the details."
+        "explanation": "Feed zones operate like triathlon transitions where 'valuable time, or your position in a strong group, can be lost through poor planning or execution.' George Bennett discovered this when he 'dropped into the third group coming out of' the first feed zone. Early graded gravel splits fields immediately, creating tactical racing that rewards preparation and punishes hesitation."
       },
       "experience": {
         "score": 4,
-        "explanation": "Twenty kilometers of tailwind-assisted perfection through Hakataramea Pass, then they hit you with slippery stream crossings and rocky descents that'll humble your bike handling. The velodrome finish is pure spectacle — how many gravel races end where actual cycling history was made in 1891? One rider called it 'stunning scenery' and 'proper gravel course' in the same breath."
+        "explanation": "Hakataramea Pass delivers 'the nicest section of the ride. 20km of tailwind and gravity assisted fun on a smooth gravel road' before the course turns punitive again. The velodrome finish creates theater—Charlotte Clarke described 'The atmosphere inside the velodrome with the crowd was unreal.' One rider summarized it as 'stunning scenery... proper gravel course' that justifies the journey to New Zealand's remote interior."
       },
       "community": {
         "score": 3,
@@ -270,46 +298,49 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Cam Jones targeting this race after winning Unbound legitimizes the field quality at the pointy end. You've got international participation and riders calling it a 'specific effort towards' the race. But depth means more than a few fast guys — it means 500+ riders across all categories, which this race hasn't reached yet."
+        "explanation": "Elite participation includes George Bennett and 2025 Unbound winner Cam Jones alongside competitive local riders like Charlotte Clarke defending her title. International riders now travel specifically for Edition Zero, but field depth requires hundreds across all categories. The race attracts quality at the front and recreational challengers, though total participation numbers remain modest for a global event."
       },
       "value": {
         "score": 3,
-        "explanation": "$140 early bird for 84km gets you aid stations with drop bag service, medics, and caffeine at water stops. The organization is solid — one rider praised Andy's crew specifically. But value isn't just what you get, it's what you don't pay for, and flying to New Zealand isn't cheap for most of the world."
+        "explanation": "Snack distance costs $140 early bird for aid stations with drop bag service, GPS files, and finish line festivities. The organization earns praise—one rider specifically commended being 'really well organized by Andy and his crew.' Drop bags, medics, and the historic velodrome finish justify entry fees, though international travel costs dwarf the reasonable registration price."
       },
       "expenses": {
         "score": 1,
-        "explanation": "Waimate, South Canterbury, New Zealand. Unless you live on the South Island, you're looking at international flights, rental cars, and accommodations in a region with limited options. The entry fee is reasonable, but everything else will crush your budget. This isn't a drive-up-from-the-city weekend warrior race."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "The Mains clocks 248km with proper gravel punishment — that's Unbound distance with New Zealand attitude. Cam Jones needed 7:24 to tame it, which puts it in legitimate ultra-endurance territory. Even the 84km Snack option delivers 900m of climbing. These aren't social rides masquerading as challenges."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Deep gravel that'll fishtail you on descents, stream crossings over slippery stones, and freshly-graded sections that force tactical line choices. One rider warned 'stay on your line, no one front or behind' through the early gravel. It's not Leadville-level technical, but it'll expose weak bike handling skills quickly."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "3,400m of climbing over 248km hits the sweet spot — enough to hurt, not enough to dominate the race narrative. Hakataramea Pass and Meyers Pass provide legitimate climbing, but riders report it 'didn't feel that hilly overall.' The elevation creates selection without turning it into a pure climbing contest."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Late November spring timing delivered 'surprisingly hot' conditions in 2025, hot enough to eliminate drafting benefits. But another rider reported 'great temperature, not windy' the following year. Spring weather in New Zealand is notoriously unpredictable — you might get perfect conditions or get hammered."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Rolling South Canterbury farmland means you're not dealing with altitude sickness or oxygen debt. The passes like Hakataramea and Meyers are legitimate climbs but nothing approaching high-altitude suffering. Sea-level lungs work fine here — your legs will quit before your cardiovascular system does."
-      },
-      "logistics": {
-        "score": 1,
-        "explanation": "Waimate is a small agricultural town in South Canterbury with limited infrastructure for a mass participation event. No clear information on parking, lodging strategy, or even the nearest major airport. The race organization might be solid, but the location logistics will test your planning skills and patience."
-      },
-      "adventure": {
-        "score": 4,
-        "explanation": "Pristine gravel roads through rolling farm country with no towns and limited farms — this is proper remote New Zealand backcountry. Stream crossings, rocky descents, and 20km stretches of pure solitude before finishing on a velodrome built in 1891. You're not just racing, you're exploring terrain most cyclists will never see."
+        "explanation": "Mandatory GPS navigation device, emergency blanket, and tools add equipment costs before considering Waimate logistics. International flights to reach South Canterbury, rental cars for the remote location, and limited regional accommodation options create substantial expense barriers. One rider noted needing emergency bivi blankets available at the expo, highlighting the specialized gear requirements for this remote challenge."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://www.climbbikeski.com/2025/12/12/edition-zero-gravel-2025/",
+        "category": "community",
+        "label": "climbbikeski.com: Edition Zero Gravel 2025"
+      },
+      {
+        "url": "https://www.nzcyclingjournal.com/inside-edition-zero/",
+        "category": "community",
+        "label": "nzcyclingjournal.com: Inside Edition Zero"
+      },
+      {
+        "url": "https://charlottelucyclarke.substack.com/p/edition-zero-gravel-2025",
+        "category": "community",
+        "label": "charlottelucyclarke.substack.com: Edition Zero Gravel 2025"
+      },
+      {
+        "url": "https://www.greatkiwigravel.com/post/edition-zero-2025-newsletter-one",
+        "category": "community",
+        "label": "greatkiwigravel.com: Edition Zero 2025 Newsletter One"
+      },
+      {
+        "url": "https://www.greatkiwigravel.com/post/edition-zero-2024-newsletter-one",
+        "category": "community",
+        "label": "greatkiwigravel.com: Edition Zero 2024 Newsletter One"
+      },
+      {
+        "url": "https://www.squirtcyclingproducts.com/2025/10/edition-zero-gravel-adventure-challenge-community/",
+        "category": "community",
+        "label": "squirtcyclingproducts.com: Edition Zero Gravel Adventure Challenge Community"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

@@ -252,33 +252,9 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "UCI Gravel World Series qualifier status gives it some credibility, but this is a baby race born from a road gran fondo in 2021. No legendary winners, no storied history, no rider reports floating around—just another regional French event trying to make its mark. The gravel community barely knows it exists outside the UCI calendar."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "On-site packet pickup only, 7 PM same-day cutoff, and zero details about course marking or support quality. 108 checkpoints sounds impressive until you realize that's about every kilometer—either overengineered paranoia or acknowledgment that navigation is a shitshow. The organization piggybacks off their road event experience, but gravel demands different expertise."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Three proper climbs including a steep opener at km 7, rocky singletracks, and forest sections between 1600-2000m elevation deliver legitimate Pyrenees suffering. The course hits varied terrain with meaningful technical challenges, though specifics remain frustratingly vague. Post-race music and local activity discounts add some charm to the village finish in Les Angles."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Regional French cycling culture runs deep, and the race builds on an established road event with local support. Village start/finish in Les Angles creates intimate atmosphere, and the range of distances (20km to 110km) suggests inclusive community building. But no evidence of broader gravel scene engagement or rider testimonials to prove the vibe."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "UCI qualifier status attracts some serious riders chasing World Championship spots, but field size remains unknown and no notable names have touched this race. Age-group qualification categories split the competitive field, and the regional French focus limits international depth. It's amateur hour with a few sharp locals mixed in."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "€80 for 110km includes timing, aid stations, medal, welcome bag, and 30% discounts on local activities like cable cars and spa access. That's reasonable for European gravel racing, especially with the Pyrenees location. Multiple distance options provide entry points, though the shortest costs €20 for essentially a neighborhood loop."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Les Angles sits in the Pyrenees with limited lodging options and no budget accommodations mentioned. Nearest major airport likely requires significant travel, and mountain resort pricing hits hard during peak season. The 30% local activity discount helps slightly, but you're paying resort rates in rural France without much choice."
+        "explanation": "On-site only packet pickup with complete file required screams bureaucratic nightmare, especially for international riders. No parking details, no airport information, no lodging strategy—just show up and figure it out. Les Angles village location is charming but offers limited infrastructure for race operations."
       },
       "length": {
         "score": 3,
@@ -286,7 +262,7 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Rocky ground and singletracks sound promising, but vague course descriptions hide the real technical demands. Starting with steep climbs at km 7 immediately sorts the field, yet no specific technical features are detailed. Forest sections suggest some bike handling, but this reads more like fire roads than proper technical gravel."
+        "explanation": "Course features forest trails, rocky paths and mountain roads with singletracks through underbrush. The 20km route includes \"a playful single track in the underbrush, technical but smooth\" with views of Lake Matemale. Terrain \"plays with your nerves\" but reads more like mountain fire roads than technical gravel challenges."
       },
       "elevation": {
         "score": 4,
@@ -294,19 +270,43 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "September in the Pyrenees offers stable weather windows between summer heat and winter storms, though mountain conditions change rapidly. Racing at 1600-2000m elevation means temperature swings and potential weather exposure. No historical weather incidents reported, but that's likely due to the race's short existence rather than consistently perfect conditions."
+        "explanation": "September in the Pyrenees offers stable weather windows, though mountain conditions change rapidly at racing altitude of 1600-2000m. Mandatory warm and waterproof clothing requirements suggest organizers expect temperature swings and potential weather exposure during the event."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Racing between 1600-2000m provides noticeable but manageable altitude effects for most riders. High enough to feel it on the climbs, not high enough to require acclimatization or cause serious physiological stress. This is Pyrenees mountain air, not Alpine suffering—expect some lung burn but nothing dramatic."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "On-site only packet pickup with complete file required screams bureaucratic nightmare, especially for international riders. No parking details, no airport information, no lodging strategy—just show up and figure it out. Les Angles village location is charming but offers limited infrastructure for race operations and spectator access."
+        "explanation": "Racing between 1600-2000m provides noticeable but manageable altitude effects, with routes peaking at 2,400m featuring \"rocky trails and forest paths.\" High enough to feel lung burn on climbs through Scots pine forests around Formiguères station, not high enough to require serious acclimatization."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Pyrenees singletracks, rocky terrain, and village-to-village racing through proper mountain landscape delivers genuine adventure. The course explores varied terrain between 1600-2000m with forest sections and technical challenges. However, 108 checkpoints suggest over-managed adventure rather than true exploration—this is guided wilderness, not wild discovery."
+        "explanation": "Route explores varied terrain through Capcir, Formiguères, and around Lake Calvet with forest trails and rocky paths typical of the southwest Pyrenees. Course climbs \"straight into the slope\" through forest trail to 1,900m, but 108 checkpoints suggests over-managed adventure rather than true exploration."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "UCI Gravel World Series qualifier status provides credibility with UCI jerseys and Gran Fondo medals for qualifiers. Post-race prize-giving ceremony rewards top 3 overall plus category winners, but this remains a baby race with no legendary winners or established gravel community recognition."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Well-stocked refreshment stations with zero waste operation and comprehensive safety coverage throughout 108 checkpoints shows organizational competence. Medical assistance and signage included, though on-site only packet pickup and 7 PM same-day cutoff creates logistical stress for participants."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Post-race prize ceremony at 7 PM same day with music evening invitation creates proper celebration atmosphere. Welcome bags for participants and 30% discounts on local activities like Lou Bac Mountain and Angléo Balnéo add value to the village finish experience in Les Angles."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Regional French cycling culture runs deep, and the race builds on an established road event with local support. Village start/finish in Les Angles creates intimate atmosphere, and the range of distances (20km to 110km) suggests inclusive community building. But no evidence of broader gravel scene engagement or rider testimonials to prove the vibe."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "UCI qualifier status attracts riders chasing World Championship spots with separate age-group qualification categories (men 60+/women 50+ for 74km option). Time gates enforce competitive standards by stopping riders who miss cutoffs, though field size and notable participants remain unknown."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "€80 for 110km includes timing, aid stations, medal, welcome bag, and 30% discounts on local activities like cable cars and spa access. That's reasonable for European gravel racing, especially with the Pyrenees location. Multiple distance options provide entry points, though the shortest costs €20 for essentially a neighborhood loop."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Les Angles mountain resort location means paying peak season rates with limited lodging options. Mandatory equipment includes hard helmet, repair kit, and weather-appropriate clothing, adding gear costs. The 30% local activity discount helps slightly but you're paying Pyrenees resort pricing."
       }
     },
     "citations": []

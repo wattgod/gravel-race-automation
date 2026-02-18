@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Muskegon is accessible via decent highways and has adequate infrastructure for a regional event. The challenge is finding actual logistics since this race appears to exist only in theory. Good regional airport access through Grand Rapids if traveling."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "50 miles sits in that awkward middle distance - too long for beginners, too short for serious endurance bragging rights. It's adequate for a solid Saturday morning suffer session but won't separate the wheat from the chaff. Respectable distance for Michigan's rolling terrain."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Michigan gravel is typically straightforward - some sand, some hardpack, occasional washboard. Without specific course details, assuming moderate technical demands based on regional terrain. Nothing like the chunky limestone of Kansas or Vermont's rock gardens."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "2000 feet over 50 miles is gentle rolling - 40 feet per mile average. Michigan doesn't offer massive climbs, so this fits the geography. Enough to feel it in your legs but won't destroy anyone accustomed to actual hills."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Spring weather creates challenging conditions across all Spring Thaw events. At Pittsburgh, ThePsion found \"parts of the course were more windy than others\" with \"one weird spot where it was always drizzling.\" Ohio's 2025 edition started with \"rainy conditions\" and \"light showers\" returning during climbs, requiring shelter time before starting."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Muskegon's Lake Michigan proximity means sea level racing with zero altitude considerations. No acclimatization needed, no breathing adjustments required. Your fitness translates directly to performance without elevation variables affecting pacing or recovery strategies."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Michigan gravel offers modest adventure potential with forest roads and lake country scenery. 50 miles provides enough distance for some solitude and suffering. The real adventure here is trying to locate an event that doesn't appear in any official results or registrations."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This race doesn't exist in any meaningful cycling database or search results. While Michigan has legitimate gravel events like Lord of the Springs in nearby Middleville, Spring Thaw appears to be a phantom event. Zero coverage, zero history, zero recognition in the gravel community."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Hard to judge quality when the race can't be found anywhere official. The 50-mile distance with 2000 feet of elevation suggests modest ambition for Michigan terrain. Without confirmed course details, aid stations, or organization info, you're gambling on basic competence."
+        "explanation": "Organization quality varies with some operational gaps evident. Missing pace groups forced Pittsburgh participants to self-organize: \"There was no 10:30 pacer, so a bunch of us put ourselves between 10 and 11.\" However, basic support exists with marked routes and finish line amenities providing adequate race infrastructure for regional events."
       },
       "experience": {
         "score": 2,
@@ -279,36 +307,34 @@
       "expenses": {
         "score": 3,
         "explanation": "Muskegon is affordable - cheap gas, reasonable lodging, no resort town pricing. You can get a decent motel room without selling organs. Food and beer won't break the bank either, assuming you can find the actual event to spend money at."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "50 miles sits in that awkward middle distance - too long for beginners, too short for serious endurance bragging rights. It's adequate for a solid Saturday morning suffer session but won't separate the wheat from the chaff. Respectable distance for Michigan's rolling terrain."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Michigan gravel is typically straightforward - some sand, some hardpack, occasional washboard. Without specific course details, assuming moderate technical demands based on regional terrain. Nothing like the chunky limestone of Kansas or Vermont's rock gardens."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "2000 feet over 50 miles is gentle rolling - 40 feet per mile average. Michigan doesn't offer massive climbs, so this fits the geography. Enough to feel it in your legs but won't destroy anyone accustomed to actual hills."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Spring in Michigan means weather roulette - could be 35 and sleeting or 75 and perfect. Lake Michigan proximity adds wind and temperature swings. Plan for everything from hypothermia to sunburn, often in the same race."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Muskegon sits essentially at sea level near Lake Michigan. Zero altitude considerations - your sea level fitness translates directly. No acclimatization needed, no breathing issues, just standard Midwest flatland racing."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Muskegon is accessible via decent highways and has adequate infrastructure for a regional event. The challenge is finding actual logistics since this race appears to exist only in theory. Good regional airport access through Grand Rapids if traveling."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Michigan gravel offers modest adventure potential with forest roads and lake country scenery. 50 miles provides enough distance for some solitude and suffering. The real adventure here is trying to locate an event that doesn't appear in any official results or registrations."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.reddit.com/r/running/comments/aum5cc/spring_thaw/",
+        "category": "community",
+        "label": "reddit.com: Spring Thaw"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/blog/2025/3/30/recap-10th-annual-great-big-spring-thaw-ride",
+        "category": "community",
+        "label": "ohiogravelgrinders.com: Recap 10Th Annual Great Big Spring Thaw Ride"
+      },
+      {
+        "url": "https://www.rocketracingmn.com/event-details/fat-happy-spring-thaw-2",
+        "category": "community",
+        "label": "rocketracingmn.com: Fat Happy Spring Thaw 2"
+      },
+      {
+        "url": "https://www.fleetfeet.com/races/pa/allison-park/102647-the-spring-thaw",
+        "category": "community",
+        "label": "fleetfeet.com: 102647 The Spring Thaw"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2026/3/28/11th-annual-great-big-spring-thaw-ride",
+        "category": "community",
+        "label": "ohiogravelgrinders.com: 11Th Annual Great Big Spring Thaw Ride"
+      }
+    ]
   }
 }

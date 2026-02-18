@@ -252,33 +252,9 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "It's New Zealand's largest cycling event in its 47th year, so locals know it exists. But zero mention of pro fields or international recognition in the gravel world. The 4.0/5 rating from exactly one person on 10times tells you everything about its global reach."
-      },
-      "race_quality": {
-        "score": 3,
-        "explanation": "They've got the basics sorted after 47 years—water stations, mechanical support, drop bag service, secure bike parking. The Great Lake Centre setup in Taupo provides proper event infrastructure. But this isn't really a gravel race at all—it's road and MTB with multiple distance options trying to be everything to everyone."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "15,000 visitors descending on Taupo creates proper event atmosphere around Lake Taupō's scenic loop. The pine forests and native bush on MTB routes deliver legitimate New Zealand scenery. Just don't expect gravel adventure when you're mostly on pavement or singletrack."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Nearly five decades of operation builds local cycling tradition, and they actively promote weekend family participation. The multiple distance options from 16km Lakesider to full lake loop cater to different abilities. But with no rider quotes or forum chatter found, the passionate community buzz remains invisible."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Multiple race categories and 47 years of history suggest decent local participation. The various distance options from leisurely 16km to full century attract different rider levels. Zero data on actual field sizes or competitive depth means you're gambling on who shows up."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "$194-224 NZD for the main event isn't highway robbery for a century ride with full support. Transport to remote start points and event infrastructure justify moderate pricing. But you're paying road race prices for what's marketed as multiple experiences without clear delivery on any single discipline."
-      },
-      "expenses": {
-        "score": 1,
-        "explanation": "Getting to Taupo means flying into Auckland then 3-4 hours driving, or gambling on tiny Taupo airport connections. November is peak spring season so accommodation gets expensive fast. The $40 transport fee to reach some start points adds insult to the international travel injury."
+        "explanation": "Packet pickup remains Friday-only 12pm-8pm at Great Lake Centre with no Saturday backup option. Multiple course start points complicate logistics—Great Lake 100 requires included transport to Waihaha, while other events start from different locations around the lake. Richard Gibson's nervousness about \"the level of other group 1 riders\" suggests decent seeding systems, but international access to Taupo remains challenging."
       },
       "length": {
         "score": 4,
@@ -286,29 +262,104 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "MTB options through pine forests and native bush offer some technical challenge, but road segments around the lake are just pavement grinding. No specific technical features or named climbs mentioned in course descriptions. This is endurance volume, not skills testing."
+        "explanation": "The Gravel Grind offers \"70% gravel roads/tracks, 16% Mountain Bike trails\" with mostly Grade 2 difficulty, while the main Round the Lake event stays on pavement. Named climbs like Waihaha Hill and Hatepe Hill provide some challenge, but most technical difficulty comes from optional MTB categories rather than the flagship road course."
       },
       "elevation": {
         "score": 2,
-        "explanation": "4,000 feet over 100 miles averages 40 feet per mile—rolling terrain, not mountain suffering. Starting from Taupo at 1,170 feet means modest altitude with gentle undulations around the lake. Enough climbing to feel it in your legs, not enough to break you."
+        "explanation": "The 160km course gains approximately 1,200 meters through \"rolling hills that rise and fall like a living pulse beneath you.\" Named climbs include the 1km Waihaha Hill (\"noisy water\") and Hatepe Hill sections. Enough climbing to matter for pacing strategies, but the elevation profile favors sustained power over explosive climbing ability."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late November puts you in New Zealand spring with generally stable conditions around Lake Taupō. No historical weather disasters reported, suggesting predictable riding conditions. The lake effect moderates temperature extremes, though spring weather can surprise you anywhere."
+        "explanation": "Mike Harding noted 2025's \"great weather; unlike the last few cooler years, the temperature increased during the day and hydration was important.\" Previous editions dealt with \"cold weather\" and \"gusty lake winds,\" while riders face \"sudden wind gusts and variable weather, especially around exposed lake edges.\" Late November timing hits New Zealand's unpredictable spring shoulder season."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Taupo sits at 1,170 feet—basically sea level for altitude training purposes. You'll breathe normally and blame your suffering on fitness, not thin air. Zero altitude adaptation needed unless you're coming from Death Valley."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Packet pickup only Friday 12pm-8pm at Great Lake Centre forces tight travel timing with no Saturday backup. Remote start points require included transport to Waihaha, adding complexity and schedule dependence. 47 years of experience shows in support infrastructure, but international accessibility remains limited."
+        "explanation": "Taupo sits at 357 meters (1,170 feet) with minimal elevation variation around the lake loop. Zero altitude adaptation needed—any breathing difficulties stem from fitness, not thin air. The course stays well below any meaningful altitude training zone throughout the entire circumnavigation."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Circumnavigating New Zealand's largest lake delivers genuine scenery through native bush and volcanic landscape. The scale of 15,000 visitors transforming Taupo creates proper event adventure. But adventure requires uncertainty, and this feels more like organized tourism around pretty scenery."
+        "explanation": "Circumnavigating New Zealand's largest lake through sections where \"pines stand like silent guardians\" and past \"vast sapphire surface\" delivers scenic variety. The Gravel Grind uses \"private roads\" only accessible during the event. However, with over 3,000 participants and 47 years of organization, this feels more like guided tourism than true adventure cycling."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Tony Levaggi winning Kapiti Cycling Club's \"Fast\" Round Taupo Time award suggests regional cycling club recognition. Richard Gibson's nervousness about Group 1 competition indicates some competitive depth. As \"New Zealand's largest cycling event\" in its 47th year, it carries domestic weight but lacks international gravel racing recognition or pro field participation."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Brent James managed \"running repairs\" on a broken spoke and still finished in 5:02, suggesting adequate but not exceptional mechanical support. The event provides four aid stations for the Gravel Grind and organized group starts, with cut-off times at 45km (12pm) and 69km (2:30pm). Forty-seven years of operation shows in functional infrastructure."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The post-race \"Event Village\" atmosphere includes prize giving from a \"$50,000 spot prize pool\" including a 20-month Suzuki lease. Kapiti Cycling Club's organized after-ride dinner where \"everyone was quickly chatting and sharing the days experiences\" captures the social element. Multiple distance options from 16km Lakesider to 320km Enduro accommodate different ambitions."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Over 3,000 cyclists participated in 2025 with \"a philosophy of inclusion\" across nine event categories. The event contributes \"over $75,000 to local community groups by way of volunteer payments.\" Kapiti Cycling Club's group training rides of \"110 to 130km\" and coordinated participation shows cycling club integration, though the massive scale dilutes intimate community feel."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Alex Botha's winning 3:57:15 was decided by just \"0.18 seconds\" in the \"closest men's race yet,\" indicating competitive front-end depth. Richard Gibson's 71st place Group 1 finish and nervousness about competition suggests meaningful field size in the faster groups. The sub-5-hour barrier remains a significant benchmark, with Shane Durrant achieving his \"first sub 5hr\" as a notable accomplishment."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees of $194-224 NZD for the main event include course support and contribute to the $50,000 prize pool plus community volunteer payments. Kapiti Cycling Club provided \"drinks and nibbles\" for their group dinner, showing value-added club experiences. Nine different event options from $144-314 NZD spread costs across various distance and difficulty commitments."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "Equipment recommendations include \"gravel tires or sturdy road tires\" and \"windproof and layered cycling apparel\" for variable conditions. The $40 transport fee for remote starts adds to entry costs. Getting to Taupo requires either Auckland flights plus 3-4 hour drives or limited regional airport access, with November being peak spring tourism season driving up accommodation costs."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.kapiticyclingclub.co.nz/newsarticle/160363?newsfeedId=2290504",
+        "category": "community",
+        "label": "kapiticyclingclub.co.nz: 160363"
+      },
+      {
+        "url": "https://laketaupocyclechallenge.blogspot.com/",
+        "category": "community",
+        "label": "laketaupocyclechallenge.blogspot.com"
+      },
+      {
+        "url": "https://www.nzherald.co.nz/waikato-news/sport/lake-taupo-cycle-challenge-results-great-lake-100-debuts-top-times-logged/OFA65LKEBREDPNGUOJMWR5X3TM/",
+        "category": "community",
+        "label": "nzherald.co.nz: Ofa65Lkebredpnguojmwr5X3Tm"
+      },
+      {
+        "url": "https://app.advcollective.com/travel-guides/Taupo/conquering-the-lake-taupo-cycle-challenge-a-riders-practical-guide",
+        "category": "community",
+        "label": "app.advcollective.com: Conquering The Lake Taupo Cycle Challenge A Riders Practi..."
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Ill9qHrJDyk",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tuwGfUohMJY",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://app.advcollective.com/travel-guides/Turangi/taupo-lake-cycle-challenge-turangi-new-zealand",
+        "category": "community",
+        "label": "app.advcollective.com: Taupo Lake Cycle Challenge Turangi New Zealand"
+      },
+      {
+        "url": "https://www.cyclechallenge.com/gravel-grind",
+        "category": "community",
+        "label": "cyclechallenge.com: Gravel Grind"
+      },
+      {
+        "url": "https://www.tauponews.co.nz/stories/sprint-finish-at-the-lake-taupo-cycle-challenge",
+        "category": "community",
+        "label": "tauponews.co.nz: Sprint Finish At The Lake Taupo Cycle Challenge"
+      },
+      {
+        "url": "https://www.cyclechallenge.com/",
+        "category": "community",
+        "label": "cyclechallenge.com"
+      }
+    ]
   }
 }

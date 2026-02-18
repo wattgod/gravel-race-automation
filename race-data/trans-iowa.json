@@ -270,9 +270,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Guitar Ted kept logistics deliberately rough—secret routes until race day, cue sheet navigation only, and checkpoints in random parks with volunteers tracking riders. Greg Gleason describes the whole event as 'like a train wreck in many ways. You can see the imminent disaster coming from a long ways off.' The anti-logistics were intentional, designed to test problem-solving without race support."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "320-340 miles in 34 hours with zero support created proper suffering. Greg Gleason and Walter needed convenience store fuel stops every 100+ miles: 'Mountain Dew, fried pies, pizza, and topping off our water bottles.' Even in the favorable conditions of V12, only 55% finished versus the typical 15-20% rate. This wasn't just long—it was 'carry county maps in case you get lost' long."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Iowa gravel roads don't require advanced bike handling—the challenge was navigating by cue sheets in darkness and dealing with conditions. Kate Ankofski found 'riding at night, alone' required focus on 'pedaling up hills you can't see, guided solely by a few hundred lumens.' Technical difficulty came from conditions and paper navigation, not terrain demanding bike skills."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Iowa's rolling farmland provided steady climbs but nothing mountainous—roughly 9,000 feet over 320 miles. Greg Gleason noted the final 75 miles featured 'steep, freshly graveled hilltops that headed directly into the south-east wind.' Guitar Ted warned riders would be 'either going up or down, and doing that over and over, ad infinitum,' but at corn-growing elevations."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late April in Iowa delivered the worst of Midwest spring weather—V2, V4, V6, and V11 were all truncated or affected by brutal conditions. Rain turned the B-roads into impassable mud that could 'swallow riders whole,' while cold and wind made the 34-hour exposure genuinely dangerous. The weather wasn't just uncomfortable, it was race-ending."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "This is Iowa farmland at agricultural elevations. Altitude simply wasn't a factor in Trans Iowa's difficulty equation—the suffering came from distance, weather, and self-sufficiency, not thin air affecting performance."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Trans Iowa delivered pure adventure racing—secret routes, paper navigation, complete self-sufficiency, and real consequences. Jeff Kerkove witnessed riders 'sitting quietly in a convenience store staring with eyes glazed over onto a slice of pizza covered in Cheetos.' Kate Ankofski learned how badly she wanted this during mile-long portage sections through B-road mud. This was gravel's last truly wild race."
+      },
       "prestige": {
         "score": 3,
-        "explanation": "Trans Iowa earned middle-tier prestige as gravel's OG sufferfest—14 years of breaking souls before most people knew what gravel was. Ira Ryan's three wins and the mystique of V2's zero finishers built legend status among the hardcore. But it never cracked mainstream awareness like Unbound, and now it's dead, which caps its ceiling at cult classic rather than gravel royalty."
+        "explanation": "Trans Iowa earned cult status as gravel's original sufferfest—14 years of breaking souls before most people knew what gravel racing was. V2's zero finishers and the mystique around Guitar Ted's deliberately rough organization built legend status among the hardcore. It never cracked mainstream awareness like Unbound, capping its prestige at underground classic rather than household name."
       },
       "race_quality": {
         "score": 2,
@@ -284,7 +312,7 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Trans Iowa built a tight cult of masochists who understood the specific madness of Iowa B-roads and peanut butter mud. The free entry and Guitar Ted's blog created genuine camaraderie among the 100-rider cap. But the community stayed small by design—never growing beyond the hardcore willing to risk everything on unmarked gravel roads with zero safety net."
+        "explanation": "Trans Iowa built a tight cult around the 'TI Family' who understood the specific madness of Iowa B-roads and peanut butter mud. Guitar Ted's pre-race steakhouse gathering and the shared suffering created camaraderie among the 100-rider cap. But the community stayed deliberately small—never growing beyond the hardcore willing to risk everything on unmarked roads."
       },
       "field_depth": {
         "score": 2,
@@ -297,34 +325,6 @@
       "expenses": {
         "score": 3,
         "explanation": "No entry fee meant your biggest costs were getting to Grinnell and having someone ready to extract you from rural Iowa when things went wrong. Accommodation was cheap in small-town Iowa, and gas station resupply kept food costs minimal during the race. The catch was gear—you needed everything from navigation to emergency supplies since zero support was the whole point."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "340 miles in 34 hours with zero support is properly absurd—longer than most modern ultras and with no safety net. The distance was genuinely intimidating when V2 saw zero finishers and multiple editions were truncated due to conditions. This wasn't just long, it was 'carry a county map in case you get completely lost in rural Iowa' long."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Iowa gravel roads don't require technical bike handling—it's mostly straight lines through farmland with rolling hills. The challenge was navigating by cue sheets only and dealing with B-road surfaces that turned to 'peanut butter mud' after rain. Technical difficulty came from conditions and navigation, not terrain that demanded advanced bike skills."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "Iowa's rolling farmland provided steady ups and downs but nothing genuinely mountainous—roughly 500 feet of climbing every 7 miles in hilly sections. The successor Iowa Wind and Rock features 28,000+ feet over similar distance, suggesting Trans Iowa was more about endurance than vertical suffering. Quarry Hill Road was mentioned as a notable climb, but this wasn't destination climbing."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late April in Iowa delivered the worst of Midwest spring weather—V2, V4, V6, and V11 were all truncated or affected by brutal conditions. Rain turned the B-roads into impassable mud that could 'swallow riders whole,' while cold and wind made the 34-hour exposure genuinely dangerous. The weather wasn't just uncomfortable, it was race-ending."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "This is Iowa farmland—you're dealing with corn-growing elevation, not altitude that affects performance. The highest points are gentle hills in a landscape designed for agriculture, not mountain passes that test your red blood cell count. Altitude was simply not a factor in this race's difficulty equation."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Guitar Ted deliberately kept logistics rough—secret routes until race day, no GPS allowed, and checkpoints in random parks around Grinnell with volunteers handing out cue sheets. The self-supported nature meant zero race infrastructure beyond basic tracking. This was intentional anti-logistics, designed to test your ability to handle problems without race support."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Trans Iowa was pure adventure racing before that term got watered down—secret routes, paper navigation, zero support, and genuine risk of getting lost on Iowa B-roads at 2 AM. The combination of complete self-sufficiency and unpredictable weather created real consequences for poor decisions. When Guitar Ted ended it after 14 years, he killed gravel's last truly wild race."
       }
     },
     "citations": [
@@ -362,6 +362,41 @@
         "url": "https://www.ridinggravel.com/transiowaradio/",
         "category": "community",
         "label": "Riding Gravel"
+      },
+      {
+        "url": "https://www.salsacycles.com/blogs/articles/trans-iowa-v12-the-big-easy",
+        "category": "community",
+        "label": "salsacycles.com: Trans Iowa V12 The Big Easy"
+      },
+      {
+        "url": "https://dirtscrolls.com/14951591-blast-from-the-past-trans-iowa-and-the-rise-of-gravel-grinders",
+        "category": "community",
+        "label": "dirtscrolls.com: 14951591 Blast From The Past Trans Iowa And The Rise Of G..."
+      },
+      {
+        "url": "https://transiowa.blogspot.com/p/trans-iowa-stories.html",
+        "category": "community",
+        "label": "transiowa.blogspot.com: Trans Iowa Stories.Html"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Blog/1568/trans-iowa-v11-recap",
+        "category": "community",
+        "label": "bikeiowa.com: Trans Iowa V11 Recap"
+      },
+      {
+        "url": "https://transiowa.blogspot.com/",
+        "category": "community",
+        "label": "transiowa.blogspot.com"
+      },
+      {
+        "url": "https://transiowa.blogspot.com/p/trans-iowa-faq.html",
+        "category": "community",
+        "label": "transiowa.blogspot.com: Trans Iowa Faq.Html"
+      },
+      {
+        "url": "https://iowawindandrock.com/",
+        "category": "community",
+        "label": "iowawindandrock.com"
       }
     ]
   }

@@ -252,63 +252,109 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "Claims to be 'Western Canada's Premier Gravel Fondo' and the oldest in the region, but that's like being the tallest building in a farm town. No mention of pro fields, prize money, or anyone outside BC giving a damn. It's a nice regional event that thinks bigger of itself than the cycling world thinks of it."
-      },
-      "race_quality": {
-        "score": 3,
-        "explanation": "The Kettle Valley Rail Trail provides a solid backbone with historic trestles and tunnels, plus they've been doing this for 11 years so the kinks are worked out. Organization gets praised by locals like Justin Payeur from Maple Ridge. But it's fundamentally a rail-trail ride with some FSR thrown in—competent, not inspired."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Rolling through wildflower canyons and shaded railway tunnels while overlooking Okanagan wineries hits the scenic checkbox hard. The historic trestles and sweeping switchbacks add character beyond your typical gravel slog. Just don't expect anything that'll make you forget you're basically on a fancy bike path for most of it."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Eleven years of 'sunshine and great times' according to repeat riders, and being part of the Triple Crown of Gravel creates some regional camaraderie. The beginner-friendly options bring out families and newer riders, which builds the sport but dilutes the hardcore vibe. Solid BC cycling community energy without the intensity of bigger races."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "When your race markets heavily to 'novices' and 'beginner to intermediate' riders, you're not attracting the sharp end of the stick. Three distance options cater to everyone from weekend warriors to actual cyclists, but that wide net means the competitive depth stays shallow. Regional race with regional talent."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "At $150 for 100km you're getting historic rail trail access, organized aid, and scenic Okanagan Valley views—reasonable for what's delivered. Early bird pricing drops it to more sensible levels if you plan ahead. Not a bargain, not a ripoff, just standard Canadian event pricing for a solid day out."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Princeton, BC isn't exactly a budget destination, and being remote means driving hours or flying into Vancouver then driving more hours. No lodging details provided because there probably aren't many options that don't involve camping or driving back to Penticton. The race fee is the cheap part of this weekend."
+        "explanation": "Packet pickup runs 6:55-7:55AM at Princeton Rodeo Grounds with one hour to get sorted before the start. Justin Payeur from Maple Ridge calls it \"well organized\" but no parking, lodging, or travel details are provided for this remote BC location."
       },
       "length": {
         "score": 3,
-        "explanation": "The 100km option hits the sweet spot for most gravel riders—long enough to matter, short enough to not become an ordeal. Multiple distance choices mean you can pick your poison, from the 25km 'let me try this gravel thing' to the full century. Respectable distance without the suffering Olympics mentality."
+        "explanation": "The 100km option hits the sweet spot for most gravel riders, with 25km and 50km alternatives for beginners. YoBooMaFoo described completing \"~100 km of gravel with breathtaking old train trestle views of the Myra canyon.\""
       },
       "technicality": {
         "score": 3,
-        "explanation": "Rail trails are inherently flow-friendly with gentle grades, though the FSR sections and 'more technical' 100km route add some bike handling. Historic trestles and tunnels provide visual interest but not technical challenge. This is gravel for people who want to enjoy their ride, not prove their skills."
+        "explanation": "Built on railway grades with maximum 2.2% incline, the KVR trail stays flow-friendly though riders report \"coarse gravel\" and \"steeper\" sections. Most use gravel or cyclocross bikes; \"suspension mountain bikes are not necessary for the event.\""
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 7000ft over 80 miles sits right in the middle ground—enough climbing to feel accomplished, not enough to ruin your day. Rail trail grades were built for trains, so the suffering comes from distance, not ridiculous pitches. Decent vertical without the masochistic mountain bike climbs that some gravel races throw at you."
+        "explanation": "The 7000ft over 80 miles provides steady climbing without brutal pitches, thanks to the historic railway grade design. One rider described a \"relentless climb through the dry, rocky hills\" that builds gradually rather than punishing with steep walls."
       },
       "climate": {
         "score": 3,
-        "explanation": "June in the Okanagan means warm, dry conditions and those 'sunshine and great times' that riders rave about. Shaded tunnels provide relief from heat, and the region's reputation for perfect summer weather is well-earned. Predictable good conditions take the weather lottery out of the equation."
+        "explanation": "Weather conditions vary significantly by season. Fall riders plan for \"10-15 degrees and that light drizzly rain,\" while summer events feature \"hot sun\" during midday sections and the historic \"sunshine and great times\" reputation."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Starting elevation and max altitude aren't specified, but Princeton sits low enough that oxygen isn't a factor. This is Okanagan Valley riding, not Rocky Mountain suffering. The altitude won't help or hurt you—it's just not part of the challenge here."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Packet pickup runs from 6:55-7:55am at Princeton Rodeo Grounds, which gives you exactly one hour to get your shit together before things presumably start. No details on parking, lodging, or how to actually get to this remote corner of BC. They've figured out the race part, not the 'helping people actually attend' part."
+        "explanation": "Princeton sits at moderate elevation in the Okanagan Valley, low enough that oxygen isn't a limiting factor. Starting and maximum elevations aren't specified, but altitude doesn't factor into the challenge here."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Riding historic railway trestles through wildflower canyons while overlooking wine country delivers legitimate adventure vibes. The decommissioned tunnels and sweeping valley views provide more character than most gravel events manage. It's adventure with training wheels—scenic and memorable without being genuinely remote or challenging."
+        "explanation": "The route passes through Myra Canyon Provincial Park with 17 historic trestles and several tunnels that riders describe as \"dark and cool, a welcome reprieve from the hot sun.\" Jessica Stephens notes \"you won't quite find a ride like this anywhere else.\""
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Markets itself as \"Western Canada's Premier Gravel Fondo\" and claims to be the oldest in the region, but draws mainly regional participants. Part of the Triple Crown of Gravel series, giving it some BC cycling circuit credibility."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Justin Payeur confirms the events are \"well organized and great people turn out,\" with multiple aid stations and mechanical support positioned strategically along the route. The historic KVR trail provides a solid backbone refined over 11 years."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Rolling through \"wildflower-blanketed canyons\" and shaded railway tunnels while overlooking Okanagan wineries delivers memorable scenery. Fall riders see \"leaves on the vineyards turn a rich palette of gold and crimson\" across the valley views."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Post-race gatherings feature local wines and beer where \"cyclists gathered at the finish line to share stories, swap tales of their journey.\" Designed for \"people of all ages and athletic abilities\" rather than hardcore competition, building inclusive community energy."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Marketed as suitable for \"beginner to intermediate\" riders with three distance options catering to novices and families. The wide accessibility focus means competitive depth stays shallow, drawing regional recreational riders more than elite talent."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry includes custom t-shirt, complimentary bottle from Lang Vineyards, race photo, and post-ride meal with local wine. At $150 for the 100km with historic trail access and organized support, it delivers reasonable value for the experience provided."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Princeton's remote location requires significant travel from population centers, with limited local lodging options. Most riders need road bikes rather than specialized equipment, but getting to this corner of BC represents the major expense beyond registration fees."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://infotel.ca/newsitem/kettle-mettle-bike-race-set-to-roll-in-october/it34656",
+        "category": "community",
+        "label": "infotel.ca: It34656"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/55jkxj/kettle_mettle_along_the_kettle_valley_railway/",
+        "category": "community",
+        "label": "reddit.com: Kettle Mettle Along The Kettle Valley Railway"
+      },
+      {
+        "url": "https://www.reddit.com/r/xbiking/comments/d7zei2/another_kettle_mettle_in_the_books_so_fun/",
+        "category": "community",
+        "label": "reddit.com: Another Kettle Mettle In The Books So Fun"
+      },
+      {
+        "url": "https://www.kettlemettle.ca/",
+        "category": "community",
+        "label": "kettlemettle.ca"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/8026/register-now-for-the-9th-annual-kettle-mettle-gravel-fondo-and-save",
+        "category": "community",
+        "label": "granfondoguide.com: Register Now For The 9Th Annual Kettle Mettle Gravel Fond..."
+      },
+      {
+        "url": "https://www.adventurebc.com/articles-and-adventure/kettle-mettle-gravel-fondo-a-gritty-ride-through-bcs-history",
+        "category": "community",
+        "label": "adventurebc.com: Kettle Mettle Gravel Fondo A Gritty Ride Through Bcs History"
+      },
+      {
+        "url": "https://triplecrownofgravel.ca/kettlemettle/",
+        "category": "community",
+        "label": "triplecrownofgravel.ca: Kettlemettle"
+      },
+      {
+        "url": "https://strambecco.com/event/kettle-mettle-dirty-fondo/",
+        "category": "community",
+        "label": "strambecco.com: Kettle Mettle Dirty Fondo"
+      },
+      {
+        "url": "https://www.reddit.com/r/vancouvercycling/comments/4worr1/kettle_mettle_weather/",
+        "category": "community",
+        "label": "reddit.com: Kettle Mettle Weather"
+      }
+    ]
   }
 }

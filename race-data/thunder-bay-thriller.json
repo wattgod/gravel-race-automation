@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Thunder Bay Junior High School provides basic venue infrastructure with Harborside Cycle & Sport handling bike support. The \"Chiller for the Thriller\" pre-race dinner at Hopside Brewery includes full course breakdown, though no packet pickup or parking details are specified."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The 50-mile distance sits in standard gravel territory with 27-mile and 16-mile options available. Tracy Gravlin noted the final three miles \"back to the finish\" allowed her to \"take off and felt great\" after the technical sand sections eased up."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Tracy Gravlin faced \"potholes to look out for and many deep sand areas\" in the final 14 miles, plus \"7 miles of that and then on to a single track that was even more deep sand!\" She had to dismount four times and fell once through these sections."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Tracy Gravlin described \"some good climbing in the middle part of the course\" through rolling terrain that reminded her of \"Nebraska with the long roads and farm fields.\" The 2000ft gain provides modest but honest climbing for northern Michigan."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "September race date in northern Michigan near Lake Huron means you're gambling on fall weather that could be perfect or miserable. No historical weather data provided, but you know the drill - potential for everything from crisp autumn perfection to cold rain and mud. The lake effect could work for or against you depending on wind direction and systems moving through."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Starting near Lake Huron at roughly 600 feet elevation means zero altitude considerations. Pure Great Lakes terrain where fitness is the only limiting factor, not thin air."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Riding through Devils Lake two-track and Norway Ridge Pathway single-track offers legitimate backcountry Michigan exploration beyond just road grinding. The 'Sanctuary of the Great Lakes' setting near Lake Huron provides scenic backdrop for a solid gravel adventure. But it's still fundamentally Midwest terrain - pleasant and rideable, not the kind of epic landscape that defines destination races."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This is literally labeled a 'New Race' in the Michigan Gravel Race Series - you're not exactly rolling up to Unbound here. No mention of pro riders, past winners, or YouTube coverage because there isn't any yet. It's a charity ride for cystic fibrosis that happens to time you, which is admirable but doesn't move needles in the gravel scene."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "They promise 'fun and challenging' multi-surface terrain through Devils Lake two-track and Norway Ridge Pathway, but that's marketing speak until proven otherwise. The course includes rolling gravel backroads and the Alpena-Hillman Trail with proper signage and Strava routes. For a new race, the infrastructure sounds competent but unproven - we'll see if they can actually deliver on race day logistics."
+        "explanation": "The course delivers varied terrain from \"fast rolling hero gravel\" to \"slightly rougher two-track\" with strategic sand placement. Organizers \"made an adjustment to the final few miles to minimize the amount of sand near the finish\" based on rider feedback."
       },
       "experience": {
         "score": 2,
@@ -274,39 +302,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "No entry fees listed but for a new charity race in northern Michigan, you're probably looking at reasonable pricing for 62 miles of mixed terrain. Your money goes entirely to cystic fibrosis research, not some promoter's pocket, which actually means something. Plus you get a legitimate gravel experience without the inflated costs of established events - assuming they don't screw up the execution."
+        "explanation": "All proceeds fund cystic fibrosis research through Rock CF Foundation, giving entry fees direct charitable impact. The pre-race dinner costs $15 with full course breakdown, while diverse terrain and multiple distance options deliver solid racing value."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Alpena isn't exactly a destination resort town, so lodging and food costs should be manageable for a weekend trip. They mention 'plenty of opportunities' for activities near Lake Huron, which translates to affordable small-town pricing. No major airport nearby means you're driving, but that keeps the total damage reasonable for a Michigan gravel adventure."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "The 62-mile main course is solidly in the standard gravel distance range - not short enough to feel cheated, not long enough to be epic. They offer 27-mile and 16-mile options for the less committed, with mentions of a possible 100-mile ultra that may or may not exist. It's adequate distance for a legitimate gravel experience without being a suffer-fest."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Multi-surface riding through snowmobile two-track, single-track sections on Norway Ridge Pathway, and rolling gravel backroads suggests moderate technical demands. The mix of surfaces keeps it interesting beyond just rail-trail cruising, but this isn't gnarly mountain biking terrain. Expect typical Midwest gravel challenges - loose surfaces, some roots, nothing that requires advanced bike handling skills."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "No elevation data provided, but 'rolling gravel backroads' in northern Michigan suggests modest climbs without serious suffering. This isn't mountain country - you're dealing with Great Lakes region topography that undulates without major sustained climbing. Enough ups and downs to keep your legs honest but nothing approaching real elevation challenges."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "September race date in northern Michigan near Lake Huron means you're gambling on fall weather that could be perfect or miserable. No historical weather data provided, but you know the drill - potential for everything from crisp autumn perfection to cold rain and mud. The lake effect could work for or against you depending on wind direction and systems moving through."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "You're starting near Lake Huron at roughly 600 feet elevation - this is essentially sea level for any physiological purposes. Zero altitude considerations, zero acclimatization needed, zero excuses about thin air when you're suffering. Pure Great Lakes flatland riding where your fitness is the only limiting factor."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Thunder Bay Junior High School as the venue suggests basic facilities without resort-level amenities. Harborside Cycle & Sport provides bike support, and they promise course signage plus Strava routes for navigation. No packet pickup details, parking info, or airport access mentioned - you're flying blind on the practical stuff that can make or break race weekend."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Riding through Devils Lake two-track and Norway Ridge Pathway single-track offers legitimate backcountry Michigan exploration beyond just road grinding. The 'Sanctuary of the Great Lakes' setting near Lake Huron provides scenic backdrop for a solid gravel adventure. But it's still fundamentally Midwest terrain - pleasant and rideable, not the kind of epic landscape that defines destination races."
+        "explanation": "Alpena offers affordable small-town lodging and dining near Lake Huron without resort pricing. The recommended minimum 38c tires work for the entire course on a standard gravel bike, though mountain bikes provide extra comfort in sand sections."
       }
     },
     "citations": [
@@ -314,6 +314,21 @@
         "url": "https://ridewithgps.com/routes/52641605",
         "category": "route",
         "label": "RideWithGPS: Thunder Bay Thriller - 27 Mile Short Route"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/tracys-story-thunder-bay-thriller",
+        "category": "community",
+        "label": "joinbasecamp.com: Tracys Story Thunder Bay Thriller"
+      },
+      {
+        "url": "https://www.letsrockcf.org/thunder-bay-thriller",
+        "category": "community",
+        "label": "letsrockcf.org: Thunder Bay Thriller"
+      },
+      {
+        "url": "https://www.letsrockcf.org/upcoming-events/thunder-bay-thriller",
+        "category": "community",
+        "label": "letsrockcf.org: Thunder Bay Thriller"
       }
     ],
     "results": {

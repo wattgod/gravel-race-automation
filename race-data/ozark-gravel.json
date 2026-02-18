@@ -252,21 +252,49 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Northwest Arkansas offers decent access through XNA airport and established cycling infrastructure. Rogers provides adequate staging without the chaos of major destination races. Jacob Ashton's report of falling asleep while descending suggests challenging navigation and course marking, though elite riders like Tom Schwemberger managed despite starting 30 minutes late after doubling back for forgotten gear."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "65 miles hits the sweet spot—long enough to matter, short enough to finish without suffering through darkness. Jacob Ashton noted moving for \"nearly 20 hours straight\" on ultra distances, but this shorter format avoids the sleep deprivation issues that plague 400+ mile events. Solid day-long effort that separates casual riders from committed cyclists."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Arkansas terrain delivers proper technical challenge through the Ozark region's forest roads and doubletrack. As one rider observed: \"I'm confident I would have been faster leaving my 'gravel' bike at the top and trail-running the entire 20-mile segment.\" Ed Rogers switched from gravel to full-suspension MTB between 2023 and 2024, indicating significant technical demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "5000 feet over 65 miles creates serious climbing challenge in the Ozark terrain. Jacob Ashton described \"a number of climbs that easily enter 25%+ grades\" where riders were \"pushing bikes up hills.\" Nic reported that at Horseshoe Canyon, \"the first climbs hit like a brick wall. Singlespeeders of immense accomplishment hopped off before leaving the property.\""
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Arkansas weather creates race-defining challenges, as demonstrated in 2025 when \"biblical rains\" forced a one-day delay. Race day brought \"misting, frozen rains\" with temperatures \"barely above freezing.\" Buffalo River reached flood stage, costing rider Nic his shoe and forcing a scratch at mile 40. Spring races risk severe weather disruption."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Rogers sits in the eroded Ozark plateau, which as described \"are not 'actual' mountains.\" Zero altitude challenge or acclimatization concerns. The Ozarks exist as \"an ancient, eroded plateau\" worn down by \"millions of years of rain,\" offering elevation gain through steep climbs rather than high-altitude training benefits."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Arkansas backroads deliver exploration through Ozark terrain with proper backcountry character. Nic described entering \"the alien-like lichen green sprawling over anthracite rock and crag contrasted by the gloom of a dark and dour chasm. It was horrifically magnificent.\" The region offers \"unending, unknowable beauty of the cavernous gorges and canyons\" for shorter-distance adventure."
+      },
       "prestige": {
         "score": 2,
         "explanation": "This race doesn't even show up in searches—that tells you everything about its prestige. While Northwest Arkansas has built legitimate cycling credibility through events like the OZ Trails system, this particular 65-miler isn't making waves. No notable winners, no coverage, no buzz in the gravel community that matters."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Can't evaluate what doesn't exist in any meaningful documentation. No course details, no aid station info, no rider reports—red flags for race organization. The region has quality events like the Randonneuring Gravel Rally with proper checkpoints at Gamaliel and Norfork, but this isn't one of them."
+        "explanation": "Organization shows mixed results based on rider reports. Tom Schwemberger won despite mechanical failures and starting late due to forgotten gear, suggesting flexible race management. However, navigation errors occurred where riders found themselves \"re-routing on the Ozark National Forest hiking trail\" after missing course markers, indicating room for improvement in route marking."
       },
       "experience": {
         "score": 3,
-        "explanation": "Arkansas gravel delivers solid riding through the Ozark terrain, even if this specific event lacks identity. The region offers legitimate rural roads and 5000 feet of climbing over 65 miles creates real challenge. You'll get proper gravel experience, just not the polished event package you'd find elsewhere."
+        "explanation": "Arkansas gravel delivers memorable challenge through Ozark terrain and community atmosphere. The pre-race gremlin bell ceremony has \"EVERY rider walk around their bikes ringing them to ward off evil spirits\" before departure. Race director Andrew creates an aesthetic where \"what we're doing out here is badass,\" backed by terrain that demands respect."
       },
       "community": {
         "score": 3,
-        "explanation": "Northwest Arkansas has built genuine cycling community since 2023 through the OZ Gravel movement and established mountain bike culture. The Facebook/Instagram/Strava groups are active and welcoming to newcomers. The foundation exists, even if this particular race hasn't tapped into it effectively."
+        "explanation": "The Ozark gravel scene has built authentic community since 2023 through events like the gremlin bell ceremony where \"grown-ass adults are walking around in circles ringing bells.\" Race director Andrew Onerma embodies grassroots culture, \"waiting in the dark, offering hugs and beers at the barn.\" Northwest Arkansas cycling infrastructure supports welcoming community atmosphere."
       },
       "field_depth": {
         "score": 2,
@@ -274,41 +302,54 @@
       },
       "value": {
         "score": 3,
-        "explanation": "No entry fee data, but Arkansas generally delivers decent value through lower costs than destination races. The terrain and elevation gain provide legitimate challenge for your dollars. Just don't expect premium race support or memorable swag."
+        "explanation": "Arkansas events deliver solid value through challenging terrain and memorable experiences like the gremlin bell ceremony where Andrew \"passes out gremlin bells 15 minutes before the race starts.\" The region offers 5000 feet of climbing and Ozark backcountry exploration without premium destination race pricing, though specific entry fees remain unavailable."
       },
       "expenses": {
         "score": 3,
         "explanation": "Rogers sits in accessible Northwest Arkansas with reasonable lodging and XNA airport proximity. Not a budget-buster destination, but not dirt cheap either. Mid-tier cycling region pricing without the premium markup of established gravel hotspots."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "65 miles hits the sweet spot—long enough to matter, short enough to finish without suffering through darkness. Solid day-long effort that separates casual riders from committed cyclists. Reasonable distance for testing fitness without the commitment of ultra-endurance masochism."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Arkansas rural roads offer legitimate gravel variety—not just smooth county maintenance. The Ozark region delivers proper technical challenge through forest roads and doubletrack, based on area terrain. No specific course details available, but the geography doesn't lie about what you'll face."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "5000 feet over 65 miles creates real climbing—that's legitimate vertical challenge. The Ozark Mountains don't mess around with gentle rollers. Expect sustained climbs and technical descents that will expose your fitness gaps and reward proper preparation."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Arkansas weather plays games—humidity, sudden storms, temperature swings that ruin race day plans. No specific weather data available, but the region's notorious for unpredictable conditions. Spring races risk rain turning gravel into slip-and-slide misery."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Rogers sits barely above sea level in cycling terms. Zero altitude challenge or acclimatization concerns. Flatlanders won't struggle with thin air, but you won't get training benefits of elevation either."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Northwest Arkansas offers decent access through XNA airport and established cycling infrastructure. Rogers provides adequate staging without the chaos of major destination races. Missing critical details like parking and packet pickup hurt the score—basic organization questions remain unanswered."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Arkansas backroads deliver legitimate exploration through Ozark terrain without excessive remoteness. The region offers proper gravel adventure—forest roads, creek crossings, genuine backcountry feel. Not epic wilderness like Doom's 325+ mile sufferfest, but real adventure for normal humans."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.starlingcycles.com/a-murmur-of-doom-jacobs-story/",
+        "category": "community",
+        "label": "starlingcycles.com: A Murmur Of Doom Jacobs Story"
+      },
+      {
+        "url": "https://bikepacking.com/news/tom-schwemberger-wins-ozark-gravel-doom-2025/",
+        "category": "community",
+        "label": "bikepacking.com: Tom Schwemberger Wins Ozark Gravel Doom 2025"
+      },
+      {
+        "url": "https://bikepacking.com/news/doom-2025-scratch-report/",
+        "category": "community",
+        "label": "bikepacking.com: Doom 2025 Scratch Report"
+      },
+      {
+        "url": "https://www.angrycatfishbicycle.com/articles/doom-gravel-race-recap-pg374.htm",
+        "category": "community",
+        "label": "angrycatfishbicycle.com: Doom Gravel Race Recap Pg374.Htm"
+      },
+      {
+        "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-101-ozark-gravel-doom-with-ed-rogers",
+        "category": "community",
+        "label": "komcycling.com: Dirty Chain Podcast Episode 101 Ozark Gravel Doom With Ed..."
+      },
+      {
+        "url": "https://bikepacking.com/news/2025-ozark-gravel-doom-dismay-winners/",
+        "category": "community",
+        "label": "bikepacking.com: 2025 Ozark Gravel Doom Dismay Winners"
+      },
+      {
+        "url": "https://theradavist.com/tag/ozark-gravel-doom",
+        "category": "community",
+        "label": "theradavist.com: Ozark Gravel Doom"
+      },
+      {
+        "url": "https://www.ozarkgravelcyclists.com/doombikepacking",
+        "category": "community",
+        "label": "ozarkgravelcyclists.com: Doombikepacking"
+      }
+    ]
   }
 }

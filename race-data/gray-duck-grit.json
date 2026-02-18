@@ -241,17 +241,45 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Brian Turk's crew support met him \"at every aid station every 55 miles\" during his 333-mile effort, indicating well-spaced aid infrastructure. The Cannon Valley Fairgrounds venue provides a horse race track start and finish area with cowbell celebrations, food trucks, and music. However, 50 miles from MSP airport means reasonable but not convenient travel access."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 62-mile distance sits in gravel's sweet spot - long enough for meaningful suffering without the multi-day recovery of the ultra distances. Paul Palecek and his partner \"rode our ride and never separated the entire 70 miles\" (with wrong turns included), suggesting the distance allows for social riding while still testing fitness and pacing decisions."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Elite riders describe \"limestone gravel, and LOTS of rollers\" through the driftless region terrain. The course features \"rolling climbs and fast descents\" with navigation challenges - Paul Palecek took \"about a mile's worth of wrong turns\" on his route. Technical difficulty comes from route-finding rather than bike handling skills."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The course gains elevation by \"dropping in and out of the canyons along the Mississippi River valley,\" creating rolling hill patterns rather than sustained climbs. One elite rider noted the climbs \"near Frontenac are not something I went out of my way to climb,\" suggesting manageable but noticeable elevation changes throughout the driftless region."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Weather ranges from brutal to perfect depending on the year. The 2023 race saw \"cold and rain\" with \"30 mph head and cross winds that took out a lot of riders,\" while other years featured \"blue skies, perfect temps in the 60's.\" Late August timing means variable conditions from ideal to race-ending."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Southern Minnesota farmland and river valleys mean sea-level racing with zero altitude considerations. The driftless region's elevation changes are relative to local terrain, not absolute altitude that would affect breathing or performance."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Pat Moore describes riding through \"a healthy mix of forest and farmland, popping in and out of the woods and occasionally riding along the Cannon River.\" The driftless region is called \"the most beautiful and most challenging in the state,\" offering scenic variety beyond typical Midwest corn-and-soybean monotony."
+      },
       "prestige": {
         "score": 1,
-        "explanation": "Gray Duck Grit is a grassroots Minnesota event that's only on its fifth edition in 2026. Nobody outside the Twin Cities region knows this race exists, and the search results show zero notable winners or pro field presence. It's the kind of local event where your biggest competition is the guy who owns the bike shop in Cannon Falls."
+        "explanation": "Brian Turk called completing the 333-mile distance \"the top of my lifetime accomplishments list,\" but this reflects personal achievement rather than broader recognition. The race draws regional participation without documented pro fields or notable winners that would elevate its profile beyond Minnesota gravel circles."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The race offers four distance options (50, 69, 111, 222 miles) which shows organizational ambition, but it's held at a fairgrounds in Cannon Falls. The gravel and cyclocross format suggests variety, but without specific course details or rider testimonials, you're rolling the dice on whether they actually know how to string together 62 miles of decent riding. Fairgrounds venues usually mean compromise."
+        "explanation": "Aid stations every 55 miles support ultra-distance attempts, and the fairgrounds finish features cowbells, food trucks, and music. Riders report \"overwhelmingly positive feedback\" with organizers receiving praise for \"changing gravel cycling.\" However, navigation issues persist - wrong turns remain common even on shorter distances."
       },
       "experience": {
         "score": 2,
-        "explanation": "Racing at the Cannon Valley Fair creates a 'festival atmosphere' but that's code for amateur hour logistics and dust from the livestock barns. The organizers talk about pushing past 'preconceived mental and physical barriers' which sounds like motivational poster speak for a course that might just be hard by accident. At least the proceeds benefit FRASER of MN, so your suffering serves autism and mental health resources."
+        "explanation": "The race philosophy emphasizes \"Ride Your Ride\" with no pacing restrictions, creating a supportive atmosphere where Paul Palecek and his partner \"talked and laughed almost the entire way.\" The horse track start and fairgrounds finish provide unique venue character, though the experience depends heavily on weather cooperation."
       },
       "community": {
         "score": 3,
@@ -259,46 +287,54 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "This is a regional Minnesota event with no documented pro presence or notable past winners. The research shows zero evidence of competitive depth - no times, no names, no race reports mentioning fierce competition. You're racing against weekend warriors who think Cannon Falls is exotic travel."
+        "explanation": "Elite riders like Brian Turk and Jack Reher participate, but the field lacks documented competitive depth or pro presence. The race attracts regional weekend warriors and dedicated ultra-distance riders rather than deep competitive fields that would create tactical racing or fast finishing times."
       },
       "value": {
         "score": 4,
-        "explanation": "Four distance options mean you can pick your poison, and grassroots events typically charge reasonable entry fees compared to the Instagram-famous races. The fairgrounds location probably keeps costs down, and supporting FRASER of MN means your money goes somewhere meaningful. Plus you avoid the premium pricing of prestige events while getting similar gravel punishment."
+        "explanation": "Multiple distance options (50, 69, 111, 222, 333 miles) let riders choose their challenge level, while all proceeds support autism and mental health resources at Fraser of Minnesota. The grassroots approach keeps costs reasonable while providing meaningful aid station support and a festival atmosphere finish experience."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Cannon Falls is about 50 miles from Minneapolis-St. Paul International, so flights aren't terrible if you're coming from outside the region. The fairgrounds location suggests basic but functional facilities without resort pricing. However, rural Minnesota doesn't offer much lodging variety, so you're either camping or driving back to the Twin Cities for decent hotels."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "The 62-mile distance (though official options are 50, 69, 111, 222) hits the gravel sweet spot - long enough to hurt but short enough to survive poor pacing decisions. It's a proper half-day suffer without requiring the multi-day recovery of the 200+ mile options. Perfect for testing fitness without destroying your next two weeks of training."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Southern Minnesota gravel lacks the rock gardens of Iowa or the creek crossings of more adventurous terrain. The 'gravel and cyclocross' description suggests some variety but nothing that requires advanced bike handling skills. This is farm country - expect straightforward gravel roads with manageable grades rather than technical challenges that separate skilled riders."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3,000 feet over 62 miles in Minnesota means rolling hills, not mountains. You'll work for your climbing but nothing that requires specific hill training or compact gearing. The terrain will test your legs without the sustained climbs that make western races genuinely mountainous. Expect steady grinding rather than explosive efforts."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Labor Day weekend in Minnesota means late summer heat and humidity without the cooling of higher elevations. Expect temperatures in the 80s with typical Midwest mugginess that makes everything feel harder than it should. If it rains, you're dealing with sticky mud that'll clog your drivetrain and add pounds to your bike."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "This is Minnesota farmland - you're racing at essentially sea level elevation. Zero altitude considerations, zero acclimatization needed, zero excuses about thin air. Your cardiovascular system will function exactly as it does at home unless you live in Denver."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "The fairgrounds venue centralizes everything but fairgrounds logistics are hit-or-miss depending on the organizers' competence. Being 50 miles from MSP airport is reasonable for travel, and the festival atmosphere suggests decent spectator access. However, parking at fairgrounds events can be a muddy nightmare, and rural Minnesota doesn't offer urban amenities if things go sideways."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Southern Minnesota gravel roads through farm country offer pleasant but predictable scenery - corn, soybeans, and the occasional farm dog chase. The Cannon Falls area has some charm but you're not exploring hidden gems or epic wilderness. It's solid Midwest gravel riding that won't generate Instagram envy or stories you'll tell for years."
+        "explanation": "Cannon Falls sits 50 miles from Minneapolis-St. Paul International Airport, making flights accessible without urban pricing. The fairgrounds location likely keeps accommodation costs reasonable, though rural Minnesota limits lodging variety. Grassroots organization typically means lower entry fees compared to destination gravel events."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://www.thenxrth.com/post/gray-duck-grit-first-look-3-riders-share-3-perspectives-of-3-races",
+        "category": "community",
+        "label": "thenxrth.com: Gray Duck Grit First Look 3 Riders Share 3 Perspectives O..."
+      },
+      {
+        "url": "https://www.thenxrth.com/post/horsetracks-cowbells-blue-sky-gravel-pat-moore-s-gray-duck-grit-recap",
+        "category": "community",
+        "label": "thenxrth.com: Horsetracks Cowbells Blue Sky Gravel Pat Moore S Gray Duc..."
+      },
+      {
+        "url": "https://grayduckgrit.com/",
+        "category": "community",
+        "label": "grayduckgrit.com"
+      },
+      {
+        "url": "https://thegravelride.bike/gray-duck-grit-unleashing-your-endurance-in-the-driftless-region-of-minnesota",
+        "category": "community",
+        "label": "thegravelride.bike: Gray Duck Grit Unleashing Your Endurance In The Driftless..."
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/grey-duck-grit-in-minnesota/74859",
+        "category": "community",
+        "label": "trainerroad.com: 74859"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/y5o64a/completed_the_gray_duck_grit_2022/",
+        "category": "community",
+        "label": "reddit.com: Completed The Gray Duck Grit 2022"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/the-collective-passion-for-gravel-gray-duck-grit-rounds-the-corner-into-year-2",
+        "category": "community",
+        "label": "thenxrth.com: The Collective Passion For Gravel Gray Duck Grit Rounds T..."
+      }
+    ],
     "results": {
       "years": {
         "2024": {

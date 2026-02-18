@@ -1573,3 +1573,292 @@ When a template, config value, or dependency is missing, the code must fail loud
 - Missing email template → raise FileNotFoundError (not return placeholder HTML)
 - Missing WEBHOOK_SECRET → endpoints must refuse requests (not skip auth)
 - Missing env var → startup must fail with a clear error message
+
+---
+
+# Enrichment Pipeline — Shortcuts & Rules (Feb 17, 2026)
+
+## Shortcut #64: Dead Code in community_parser.py (MEDIUM)
+
+**What happened:** `community_parser.py` contained three dead definitions:
+- `KNOWN_SECTIONS`: a list of 14 section names — defined at module scope, never used
+- `RE_MILES`: a compiled regex for mile markers — defined, never called
+- `RE_TIRE`: a compiled regex for tire pressure — defined, never called
+
+These were infrastructure for future features that were never built. They bloated
+the module and created the illusion of capability.
+
+**Why it happened:** The AI scaffolded extraction functions it intended to build
+later, then moved on. Dead code was never cleaned up because no tool checked for it.
+
+**Fix:** Deleted all three. If the functionality is needed later, write it then.
+
+**Prevention:**
+- `scripts/audit_community_parser.py` — runs the parser against all 317 community
+  dumps and reports coverage statistics. Dead extraction functions would show 0%
+  coverage, making them visible.
+- Rule #45 below.
+
+---
+
+## Shortcut #65: HEADER_WORDS Blocklist Was Whack-a-Mole (HIGH)
+
+**What happened:** `extract_riders()` used a `HEADER_WORDS` set to filter false
+positive rider names. When "Strategy" appeared as a name, "Strategy" was added to
+the blocklist. When "Dynamics" appeared, "Dynamics" was added. This grew to 30+
+words and STILL missed 198 false positives across 317 dumps because:
+- Topic prefixes like "Tires - Nicholas Garbis [COMPETITIVE]:" extracted "Tires - Nicholas Garbis"
+- Em-dash separators like "Bike Setup — Nicole Duke [ELITE]:" extracted "Bike Setup — Nicole Duke"
+- `:**` patterns weren't handled
+- Trailing dashes weren't stripped
+- Single-word abstract nouns in novel forms weren't in the blocklist
+
+**Why it happened:** Blocklists feel productive. Add a word, run the test, green.
+But they're O(vocabulary) — you need to enumerate every possible false positive,
+which is unbounded. Structural filtering is O(patterns) — you filter by the shape
+of the data, which is bounded.
+
+**Fix:** Replaced HEADER_WORDS entirely with structural filtering:
+1. Line-anchored regex (`RE_RIDER_LINE`) — only matches `**` at start of line
+2. Topic prefix stripping — handles ` - `, ` — `, and `:**` separators
+3. Trailing separator stripping — handles `"Bike Setup -"` → "Bike Setup"
+4. `_NON_SURNAME_SUFFIXES` — rejects names ending in abstract nouns (strategy,
+   dynamics, formation, etc.)
+5. `[UNKNOWN level]` filter — rejects topic sub-headers with "level" in the bracket
+6. Lowercase word detection (multi-word only) — rejects "Group Race Dynamics"
+
+Result: 198 false positives → 0 across all 317 dumps.
+
+**Prevention:**
+- `scripts/audit_community_parser.py` — runs at scale across all dumps and reports
+  suspicious riders. Exit code 1 if any found. CI-friendly.
+- `tests/test_community_parser.py` — 51 unit tests covering standard riders,
+  false positive rejection, edge cases, and integration with real dumps.
+- Rule #46 below.
+
+---
+
+## Shortcut #66: `__import__('re')` Hack in batch_enrich.py (MEDIUM)
+
+**What happened:** `batch_enrich.py` used `__import__('re').compile(RE_NO_EVIDENCE_PATTERN)`
+to compile a regex pattern — even though `re` was already imported at the top of the
+file. Additionally, `RE_NO_EVIDENCE` was defined locally in batch_enrich.py with a
+pattern string, duplicating the same regex that already existed in community_parser.py.
+
+**Why it happened:** Copy-paste from a different context where `re` wasn't imported.
+The AI didn't check the file's existing imports before adding its own.
+
+**Fix:** Deleted the local `RE_NO_EVIDENCE` definition and `__import__` call. Now
+imports `RE_NO_EVIDENCE` directly from `community_parser.py` as the single source
+of truth.
+
+**Prevention:**
+- Rule #47 below.
+
+---
+
+## Shortcut #67: RE_NO_EVIDENCE Duplicated in 3 Files (HIGH)
+
+**What happened:** The "false uncertainty" regex pattern was independently defined in:
+1. `scripts/community_parser.py` — as `RE_NO_EVIDENCE`
+2. `scripts/batch_enrich.py` — as a string constant + `__import__` compile
+3. `scripts/enrich_diff.py` — as its own `RE_NO_EVIDENCE` regex
+4. `tests/test_enrichment_quality.py` — as yet another inline regex
+
+Four copies of the same pattern. If someone updated the pattern in one file, the
+other three would silently use the old version. The `test_enrichment_quality.py`
+version was a subset — it caught "zero rider reports" but missed "limited information
+available" which the community_parser version caught.
+
+**Why it happened:** Each file was written in a separate session. The AI didn't check
+whether the pattern already existed before defining a new one.
+
+**Fix:** `community_parser.py` is now the single source of truth for `RE_NO_EVIDENCE`.
+All other files import it:
+```python
+from community_parser import RE_NO_EVIDENCE
+```
+Same fix applied to `extract_proper_nouns` and `RE_PROPER_NOUN`.
+
+**Prevention:**
+- Rule #47 below.
+- `tests/test_community_parser.py::TestSharedUtilities` — 3 tests verify the shared
+  regex and function work correctly.
+
+---
+
+## Shortcut #68: extract_key_quotes Pulled from Any Text (MEDIUM)
+
+**What happened:** `extract_key_quotes()` searched the entire text for anything in
+double quotes. This pulled section headers, URLs, methodology descriptions, and
+random quoted phrases — not just rider quotes. The function was supposed to extract
+quotes from rider attributions only.
+
+**Why it happened:** The quick implementation was `re.findall(r'"([^"]+)"', text)`.
+Simple, wrong. Extracting only from rider attribution lines requires understanding
+the document structure.
+
+**Fix:** Now only extracts quotes from lines starting with `**` (rider attribution
+lines). This means "Bobby Kennedy described Silver Island Pass as 'brutal'" gets
+extracted, but "The race description says 'challenging terrain'" does not.
+
+**Prevention:**
+- `tests/test_community_parser.py::TestExtractKeyQuotes::test_only_from_rider_lines`
+  — verifies quotes from non-attribution text are NOT extracted.
+
+---
+
+## Shortcut #69: Zero Tests for 500-Line Parser (CRITICAL)
+
+**What happened:** `community_parser.py` was 500+ lines with 10+ public functions
+and zero unit tests. The only testing was manual — run the parser on one dump,
+eyeball the output. This meant:
+- False positives were invisible (who manually checks 6800 attributions?)
+- Regressions from fixes were undetectable
+- The audit that finally revealed 198 false positives could have been caught day one
+
+**Why it happened:** The parser was written as a utility for the enrichment pipeline,
+not a product. "It works for salty-lizard" was considered sufficient. The AI
+optimized for the downstream consumer (batch_enrich.py) and skipped testing the
+component itself.
+
+**Fix:** Created `tests/test_community_parser.py` with 51 tests across 10 classes:
+- TestExtractRiders (17 tests): standard, false positives, edge cases, dedup
+- TestParseSections (5 tests): header, content, empty
+- TestExtractTerrainFeatures (4 tests): real features, headers filtered
+- TestExtractWeather (3 tests): temperature, wind, missing
+- TestExtractNumbers (5 tests): elevation, field size, power, pressure
+- TestExtractKeyQuotes (4 tests): rider-only extraction, URL filtering
+- TestSharedUtilities (3 tests): shared regex, proper noun extraction
+- TestTruncateAtSentence (4 tests): boundary cases
+- TestBuildFactSheet (2 tests): integration with real dump data
+- TestBuildCriterionHints (4 tests): routing, truncation, coverage
+
+Also created `scripts/audit_community_parser.py` for full-scale validation.
+
+**Prevention:**
+- 51 tests run in <1 second: `pytest tests/test_community_parser.py -v`
+- Full audit in <3 seconds: `python3 scripts/audit_community_parser.py`
+- Rule #48 below.
+
+---
+
+## Shortcut #70: No Scale Testing of Parser (HIGH)
+
+**What happened:** The parser was tested on 1-3 community dumps (salty-lizard, mid-south,
+dirty-30). It was deployed to process all 317. The 198 false positives were spread
+across 80+ dumps — invisible unless you ran the parser against ALL of them and
+aggregated the results.
+
+**Why it happened:** Manual testing is sample-based. You pick a few representative
+cases and assume they generalize. But false positive patterns are long-tail — a pattern
+like "Bike Setup — [ELITE] Nicole Duke:" only appears in 2 of 317 dumps.
+
+**Fix:** `scripts/audit_community_parser.py` runs the parser against ALL 317 dumps
+and reports:
+- Total riders extracted vs total raw matches (extraction rate)
+- Dumps with 0 riders (possible missed content)
+- Suspicious rider names (flagged by structural patterns)
+- Coverage statistics (weather, elevation, field size, power)
+
+Non-zero exit code if suspicious names found. CI-friendly.
+
+**Prevention:**
+- Run `python3 scripts/audit_community_parser.py` after ANY change to
+  community_parser.py. This is the enrichment equivalent of `pre_delivery_audit.py`.
+- Rule #48 below.
+
+---
+
+## The Enrichment Defense System
+
+Three independent layers, each catching different failure modes:
+
+| Layer | Script | What it catches |
+|-------|--------|-----------------|
+| Unit tests | `tests/test_community_parser.py` (51 tests) | Regressions in individual extraction functions |
+| Unit tests | `tests/test_validate_enrichment.py` (14 tests) | Regressions in the post-enrichment quality gate |
+| Scale audit | `scripts/audit_community_parser.py` | False positives/negatives across ALL 317 dumps |
+| Quality suite | `tests/test_enrichment_quality.py` (8 tests) | Slop, duplication, false uncertainty in live data |
+
+**How they interlock:**
+- Unit tests catch function-level regressions instantly (51 tests in <1s)
+- Scale audit catches long-tail false positives invisible to sample-based testing
+- Quality suite catches data quality issues in the 328 live race profiles
+- Validate enrichment tests catch regressions in the post-enrichment gate
+
+**To silently introduce a false positive:** You'd need to:
+1. Get past the unit tests (test_false_positive_strategy_labels_rejected, etc.)
+2. Get past the scale audit (runs against all 317 dumps)
+3. Get past the enrichment quality tests (checks live data for community penetration)
+
+---
+
+## Rule #45: Dead Code Is Not a Feature Roadmap
+
+If a function, variable, regex, or constant is defined but never called/used,
+delete it. Don't keep it "for later." Dead code:
+- Creates the illusion of capability that doesn't exist
+- Makes the module look larger and more complex than it is
+- Confuses future developers (including the AI) about what's active
+- Passes code review because it "looks intentional"
+
+If the functionality is needed later, write it then. Version control exists.
+
+## Rule #46: Structural Filtering Over Blocklists
+
+When filtering false positives from text extraction:
+- **Don't:** maintain a growing list of specific words/phrases to reject
+- **Do:** identify the structural pattern that makes something a false positive
+  and filter by that pattern
+
+Examples:
+- Bad: `HEADER_WORDS = {"Strategy", "Dynamics", "Formation", ...}` (grows forever)
+- Good: `if words[-1].lower() in _NON_SURNAME_SUFFIXES` (catches the pattern)
+- Bad: `if name == "Women's Race Dynamics"` (catches one case)
+- Good: `if "level" in level_text.lower()` (catches the structural pattern)
+
+Blocklists are O(vocabulary). Structural filters are O(patterns).
+
+## Rule #47: One Source of Truth for Shared Patterns
+
+If a regex, constant, or utility function is used in more than one file:
+1. Define it in exactly one module (the most logical home)
+2. Export it from that module
+3. Import it everywhere else
+4. Never define a local copy "for convenience"
+
+Current single sources of truth:
+- `RE_NO_EVIDENCE` → `community_parser.py`
+- `RE_PROPER_NOUN` → `community_parser.py`
+- `extract_proper_nouns()` → `community_parser.py`
+- `RACER_RATING_THRESHOLD` → `brand_tokens.py`
+- `CURRENT_YEAR` → `brand_tokens.py`
+
+## Rule #48: Parser Changes Require Full-Scale Audit
+
+After ANY change to `community_parser.py`:
+```bash
+# 1. Unit tests (catches regressions)
+pytest tests/test_community_parser.py -v
+
+# 2. Scale audit (catches long-tail false positives)
+python3 scripts/audit_community_parser.py
+
+# 3. Validate enrichment (catches gate regressions)
+pytest tests/test_validate_enrichment.py -v
+```
+
+All three must pass. The scale audit takes <3 seconds. There is no excuse to skip it.
+
+## Rule #49: Test at the Scale You Deploy
+
+If a component processes N items in production, test it against N items (or a
+representative subset). Testing against 3 of 317 is not testing — it's hoping.
+
+- Parser processes 317 community dumps → audit runs against 317
+- Enrichment covers 328 race profiles → quality tests scan 328
+- Rider extraction produces 6800 attributions → audit checks all 6800
+
+Sample-based testing is fine for development. Scale testing is required before
+claiming "done."

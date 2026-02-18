@@ -252,9 +252,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Registration opens at 9:00 AM at Railroad Park in downtown Manton, with starts between 9:00-2:00 PM depending on the year. Christina Vipond praised organizers Jeff and Don: 'volunteers were stationed throughout the course to make sure racers stayed on course.' However, no parking, lodging, or packet pickup details are documented anywhere."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The 50-mile distance delivers what Jared Dunham called 'probably the most memorable 50 mile race course I've done so far... very hilly with some sand thrown in.' Three distance options (19/34/50 miles) mean beginners get their shorter route while the full distance provides substantial challenge without epic 100+ mile suffering."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Jared Dunham rode 42cc tires but felt 'you don't need a big tire to ride the course,' while Christina Vipond on 36cc noted 'choosing lines on the edge of the two-tracks was helpful but I still did my fair share of walking some of the deeper sand.' The Gilbert Corners section is 3-4 miles of 'sandy two-track that keeps racers guessing about their bike choice.'"
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "All routes are described as 'very hilly' with El Diablo on E. 35 Rd. being 'both steep and long.' Melanie Post found 'the sandy climbs were definitely the most challenging part of the course, aside from just the elevation gain in general.' The 2500 feet over 50 miles creates consistent climbing without massive single ascents."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "July weather proved volatile in recent years. Terry Ritter benefited from 'plenty of heavy rain the day before' that firmed up conditions, while other riders faced washouts that made 'Gilbert Corners a little bigger.' The noon start in 2025 put riders into peak heat, though 2026 shows an earlier start window to avoid the worst temperatures."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Manton, Michigan sits firmly in the Midwest flatlands with no meaningful elevation above sea level. The hills are real, but you're not getting any altitude training benefits or respiratory challenges here."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The course skirts Manistee National Forest through terrain that includes the Amish Sawmill area and named features like the Redneck Roughneck downhill. Hunter Post noted sand was 'particularly energy draining on the 2nd lap, once the sand was chewed up by other riders,' adding unpredictability to the forest road adventure."
+      },
       "prestige": {
         "score": 1,
-        "explanation": "The Divide is a regional Michigan Gravel Race Series event starting from downtown Manton, population irrelevant. No pro field, no prize purse mentioned, no notable winners documented anywhere. It's the kind of race where showing up makes you memorable."
+        "explanation": "Started in 2015 as a fundraiser for Manton Public School's cross country and track teams, The Divide remains a regional Michigan Gravel Race Series event. No pro field, prize purse, or notable winners documented. Christina Vipond finished 2nd overall women, but the competitive depth stays local."
       },
       "race_quality": {
         "score": 2,
@@ -262,7 +290,7 @@
       },
       "experience": {
         "score": 2,
-        "explanation": "Skirting the Manistee National Forest through Amish Sawmill territory has character, and El Diablo on E. 35 Rd delivers the suffering you came for. The mix of gravel, seasonal roads, and sandy spots creates variety. But starting from a railroad park in Manton isn't exactly bucket-list material."
+        "explanation": "The mix of forest roads and sandy two-track through Amish territory creates memorable character. One section dubbed 'the redneck roughneck' adds personality to the route design. However, starting from a small Michigan railroad park limits the overall experience compared to destination events with more dramatic landscapes."
       },
       "community": {
         "score": 2,
@@ -270,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Michigan regional race with no documented pro participation or notable winners. The field includes fat bikes and tandems, which tells you everything about competitive depth. If you're hunting for fast company, look elsewhere."
+        "explanation": "Hunter Post won his age group with 4th overall, while Terry Ritter took 1st in 50+ class, indicating thin competitive depth across categories. Jared Dunham's 3rd overall suggests modest field sizes where top-10 finishes are achievable for recreational racers. No documented elite or professional participation."
       },
       "value": {
         "score": 4,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Manton, Michigan isn't exactly a tourist destination, so lodging and food costs stay reasonable. No prize purse means entry fees likely stay modest, and being regional keeps travel costs down for Midwest riders. You won't break the bank getting there or staying fed."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "The 50-mile option hits that middle distance that's long enough to hurt but short enough to race hard. It's not the epic 100+ mile sufferfests that define gravel's reputation. Three distance options mean beginners get their 19-mile participation trophy while serious riders get a proper workout."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Gravel roads with sand base and some rougher sections like Redneck Roughneck, but the course is described as 'doable by any rider' on the standard route. Riders recommend 32-38cc tires, suggesting it's technical enough to punish poor equipment choices. The Outer Loop adds bigger hills but lower gradients except for El Diablo."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "All routes are 'very hilly' with El Diablo described as 'both steep and long,' and the 2500 feet over 50 miles creates consistent climbing without massive single ascents. The short punchy climbs from Amish Sawmill and bigger hills on the Outer Loop provide variety. It's not mountain suffering, but it's not flat either."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late July in Michigan means heat, humidity, and the possibility of afternoon thunderstorms rolling through those forest roads. Starting at noon in 2025 put riders into the day's peak heat, though 2026 shows an earlier start window. Summer in the Midwest is predictably unpredictable."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Manton, Michigan sits firmly in the Midwest flatlands. You're not getting any altitude training benefits or respiratory challenges here. The hills are real, but the elevation above sea level is irrelevant."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Starting from downtown Manton's Railroad Park is straightforward enough, but research shows zero information about parking, lodging options, or packet pickup details. The race happens, people show up, but don't expect hand-holding on the practical stuff. Figure it out yourself or stay home."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Seasonal forest roads through Manistee National Forest and past Amish territory offer legitimate backwoods character you won't find on paved centuries. The sand base and mixed surfaces keep you honest on equipment choices. But starting from a small Michigan town limits the epic factor compared to true wilderness events."
+        "explanation": "Manton, Michigan keeps lodging and food costs reasonable compared to tourist destinations. Terry Ritter used 36cc tires while others ran 40-42cc, suggesting equipment requirements stay modest. Entry fees aren't documented, but the fundraiser nature and regional scope likely keep costs accessible for Michigan riders."
       }
     },
     "citations": [
@@ -314,6 +314,41 @@
         "url": "https://ridewithgps.com/routes/51916854",
         "category": "route",
         "label": "RideWithGPS: THE DIVIDE: 2025 NEW 41 Mile Route"
+      },
+      {
+        "url": "https://ultra-jo.com/2025/06/09/td2025/",
+        "category": "community",
+        "label": "ultra-jo.com: Td2025"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/blog/2025/7/14/five-questions-with-tour-divide-rider-shannon-allison",
+        "category": "community",
+        "label": "ohiogravelgrinders.com: Five Questions With Tour Divide Rider Shannon Allison"
+      },
+      {
+        "url": "https://bikepacking.com/tracker/2025-tour-divide-tracker/",
+        "category": "community",
+        "label": "bikepacking.com: 2025 Tour Divide Tracker"
+      },
+      {
+        "url": "https://bikepacking.com/plog/2025-tour-divide-eddie-clark-part-1/",
+        "category": "community",
+        "label": "bikepacking.com: 2025 Tour Divide Eddie Clark Part 1"
+      },
+      {
+        "url": "https://www.athleticmentors.com/the-divide-gravel-road-race/",
+        "category": "community",
+        "label": "athleticmentors.com: The Divide Gravel Road Race"
+      },
+      {
+        "url": "http://hardracingevents.com/events/the-divide/",
+        "category": "community",
+        "label": "hardracingevents.com: The Divide"
+      },
+      {
+        "url": "https://bikepacking.com/plog/2024-tour-divide-preview/",
+        "category": "community",
+        "label": "bikepacking.com: 2024 Tour Divide Preview"
       }
     ]
   }

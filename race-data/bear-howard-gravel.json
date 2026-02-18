@@ -252,63 +252,89 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "Fifth-year event by Sable Events hasn't cracked the big leagues yet. Zero notable winners or pro field depth on record. Named after some 1882 railroad brawler which sounds cool but doesn't move the needle in modern gravel racing."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Three distance options with the 100-mile featuring a Saddle Mountain out-and-back sounds legitimate. Technical gravel sections around Flagstaff's peaks could deliver, but complete absence of rider reports or race coverage suggests mediocre execution. The bones are there but the proof isn't."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Coconino National Forest setting with Grand Canyon 1.5 hours away creates solid adventure potential. But when your rider meeting runs until 7:15am for a 6:15am start, you're cutting logistics thin. No field reports means no one's talking about memorable moments."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Wild West storytelling about Bear Howard shows they're trying to build culture around the event. Problem is after five years, there's zero community buzz or rider testimonials floating around. Either the vibe isn't sticking or people aren't talking."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Complete radio silence on participant numbers, past winners, or competitive field. Regional Arizona event without documented pro attendance or competitive depth. You're racing weekend warriors, not legends."
-      },
-      "value": {
+      "logistics": {
         "score": 3,
-        "explanation": "Registration costs unknown but three distance options and Coconino National Forest access suggests decent bang for buck. Flagstaff location means you can extend into Grand Canyon or local trails. Solid weekend destination value if the race delivers."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Flagstaff isn't cheap for lodging during summer season, and no clear airport strategy beyond driving in. High-altitude town means limited budget accommodation options. You'll spend more than expected getting there and staying comfortable."
+        "explanation": "Friday packet pickup at SOSTA restaurant comes with a warning: \"Please be aware there are very few parking spaces in the parking lot but along San Francisco, Leroux, Dale and Elm.\" Race morning pickup runs 5:30-7:15am at Flagstaff High School for a 6:30am start. Limited to 200 participants keeps chaos manageable."
       },
       "length": {
         "score": 3,
-        "explanation": "60 miles hits the gravel sweet spot without overdoing it. 100-mile option with Saddle Mountain climb separates the committed from the curious. Smart 30-mile addition for newcomers shows they understand their market."
+        "explanation": "60 miles delivers \"2,800 ft of climbing\" staying \"west of the peaks\" with fast times \"just over 3 hours\" and mid-pack \"around the 4 hour mark.\" Quinn Travis won in 2:59:36, proving the distance hits the sweet spot. 100-mile option adds Saddle Mountain suffering for the committed."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Technical gravel sections around Flagstaff's peaks suggest legitimate challenge beyond fire roads. Saddle Mountain out-and-back for the century sounds like it'll test handling skills. Arizona terrain doesn't coddle smooth-tire heroes."
+        "explanation": "Organizers warn the 100-mile \"will test your bike handling as well as your fitness\" with \"a few sections of technical gravel.\" The course includes \"a cool section of single track\" and is \"mostly gravel\" with minimal asphalt. They emphasize it's \"challenging in its features\" beyond just distance."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4000 feet over 60 miles puts real climbing in your legs without going full-masochist. Starting around 7000 feet elevation means the ups hurt more than expected. Saddle Mountain climb for the century adds proper suffering potential."
+        "explanation": "The 100-mile delivers \"just over 6k of total elevation gain\" including the \"challenging out and back climb up Saddle Mountain\" with a $250 Strava prize. Organizers get feedback that the course is \"epic and certainly no walk in the park.\" 60-mile riders face 2,800 feet of climbing west of the peaks."
       },
       "climate": {
         "score": 3,
-        "explanation": "August in Flagstaff means high-altitude summer conditions - hot days but not Phoenix brutal. Afternoon thunderstorms possible but mornings typically clear. Starting at 6:15am gets you moving before heat peaks."
+        "explanation": "August start times are staggered from 6:30am for the 100-mile through 8:15am for the 30-mile, getting riders moving before Flagstaff heat peaks. High-altitude location moderates summer temperatures compared to lower Arizona deserts. Morning starts avoid afternoon thunderstorm potential."
       },
       "altitude": {
         "score": 3,
-        "explanation": "Flagstaff's 7000+ foot elevation hits sea-level riders hard from the start line. Thin air makes every climb feel harder and recovery slower. Come a few days early or expect to suffer more than the course profile suggests."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Flagstaff High School start with downtown packet pickup keeps things simple. 45-minute window for race morning pickup is cutting it close but manageable. BikeReg registration and established venue suggests competent organization."
+        "explanation": "Flagstaff's 7,000+ foot elevation hits every rider from the start line, making climbs hurt more than the profile suggests. Organizers emphasize the 100-mile \"should not be underestimated\" partly due to altitude effects on performance. Thin air makes recovery slower throughout the ride."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Coconino National Forest and proximity to Grand Canyon creates solid adventure framework. Technical gravel around Flagstaff's peaks should deliver scenery and challenge. But zero rider reports means the adventure story isn't being told or isn't worth telling."
+        "explanation": "Race finishes at Lowell Observatory which \"has just completed a state of the art observatory and visitors center\" with Bear Howard discounts. Coconino National Forest setting delivers on the promise to \"leave you feeling legendary (if only in your own mind)\" in the shadow of Flagstaff's peaks."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Fifth-year event organized by Sable Events caps at 200 riders. Winners include Kyle Trudeau (5:07:19 in 2022) and Tyler Arnett (5:30:52 in 2024), but no major pro field depth or national attention. Named after 1882 railroad brawler Bear Howard for Wild West storytelling appeal."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Course is \"fully marked with large green and yellow signs at every turn\" with GPS files available. Aid stations provide \"neutral water, nutrition and snacks\" though organizers warn those with dietary restrictions to \"pack enough food on your bike for the entire ride.\" Three distance options with proper support."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Primary rule is \"DON'T BE A JERK\" with emphasis on being kind to volunteers who \"are not your personal mechanic.\" Finish party at Lowell Observatory includes \"race number, socks, finishers glass, and Awards.\" Stories \"will be exaggerated and inflated, fueled by whiskey and grandeur.\""
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Sable Events promotes gravel racing as \"more than just a sport – it's a community\" fostering \"a welcoming and inclusive environment.\" DNF policy is supportive: \"That's okay, there is always next year and now you know what to expect!\" 200-rider cap maintains intimate atmosphere."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "200-rider cap limits competitive depth. 2024 60-mile winner Quinn Travis finished in 2:59:36 with David Rakestraw close at 2:59:43, suggesting decent local competition. 100-mile times range 5:07-5:30 for winners with mid-pack finishing 6:00-7:00 hours. Regional Arizona field without national draw."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Three distance options from 30-100 miles with aid stations, course marking, GPS files, and finish party at Lowell Observatory. Includes race swag and observatory discount for families. Coconino National Forest access and Grand Canyon proximity (1.5 hours) extend weekend destination value."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Flagstaff lodging runs expensive during August tourist season with limited budget options. Parking challenges at packet pickup location require street parking along San Francisco, Leroux, Dale and Elm streets. High-altitude mountain town costs more than expected for food and accommodation."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.sableevents.com/events/bearhowardgravel",
+        "category": "community",
+        "label": "sableevents.com: Bearhowardgravel"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9471/bear-howard-gravel-race",
+        "category": "community",
+        "label": "granfondoguide.com: Bear Howard Gravel Race"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19993",
+        "category": "community",
+        "label": "gravel-results.com: 19993"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/22807",
+        "category": "community",
+        "label": "gravel-results.com: 22807"
+      },
+      {
+        "url": "https://www.sableevents.com/about",
+        "category": "community",
+        "label": "sableevents.com: About"
+      }
+    ]
   }
 }

@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Oden School Cafeteria serves as race hub with gym floor sleeping and on-site camping, creating functional grassroots infrastructure. Carey Lowery experienced severe chain-suck mechanical issues twice during her elite race, highlighting the remote location's self-sufficiency requirements. Mount Ida's rural Arkansas location means limited lodging beyond school facilities, making this a drive-to regional event."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Elite riders clock 5-6 hours for the 65-mile course, with Andrew Evans noting \"For the last 45 miles of the race I rode solo, getting in the aero bars as much as I could.\" The technical terrain stretches finishing times beyond typical gravel distances, with official guidance suggesting \"7 to 9 hour ride\" for most participants."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Carey Lowery counted 9 flat tires on Brushy Mountain alone, while Blowout Mountain proved \"slicker n snot\" with overnight dew making rock sections unrideable at race pace. Andrew Evans sliced a tire sidewall at creek crossings where \"smooth gravel surface gave way to large rocks,\" requiring 8-minute repairs mid-race."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Chalybeate Mountain's initial climb had elite rider Carey Lowery \"wishing for a 24 x 36 instead of my 26 x 36\" gearing, steep enough that \"This is where I started to see some racers blow up.\" Individual trail segments range from 477 to 2,431 feet of climbing, with hike-a-bike sections putting \"the best of riders off their bike.\""
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late March in Arkansas means temperatures 'can vary widely from the mild in the 70's to very cold below freezing and weather can change abruptly.' Race directors plan for course reroutes and weather delays, which tells you everything about Arkansas spring reliability. When organizers specifically warn about lightning stops, you know the weather gamble is real."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Ouachita Mountains near Mount Ida barely register elevation impact, with riders camping at the school and experiencing zero physiological effects from altitude. The climbing challenge comes from grade steepness, not thin air at these Arkansas hill country elevations."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Genuine Ouachita National Forest singletrack and technical creek crossings deliver real backcountry experience beyond typical gravel fare. The combination of rural farm roads and IMBA Epic trail systems creates legitimate exploration potential. But Arkansas isn't exactly exotic destination adventure—this is regional technical riding, not expedition-level discovery."
+      },
       "prestige": {
         "score": 2,
         "explanation": "Twenty-three years of operation since 2001 doesn't automatically create prestige when nobody outside Arkansas knows about it. No pro field, no notable winners mentioned in any coverage, and zero YouTube presence means this stays firmly regional. The Ouachita Trail and Womble Trail are legit IMBA Epic terrain, but that doesn't translate to gravel racing clout."
@@ -266,7 +294,7 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Two decades of operation with local volunteer groups and regional sponsors creates solid small-town race community. The school cafeteria serves meals family-style for 19 groups at a time, forcing interaction whether you want it or not. But this stays Arkansas-centric—no evidence of drawing riders from major gravel scenes or creating lasting connections beyond the weekend."
+        "explanation": "Jess Nankman highlighted \"Good old Arkansas hospitality\" with locals offering water bottles along the course and volunteers \"moping the showers and refilling toilet paper.\" The school cafeteria serves hot meals family-style, while the event functions as a fundraiser for the local community and school needs."
       },
       "field_depth": {
         "score": 2,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Mount Ida, Arkansas isn't exactly a destination resort town driving up accommodation costs. School gym sleeping as backup lodging keeps things affordable for budget racers. No mention of nearest airport suggests you're driving, which cuts flight costs but adds gas money depending on your starting point."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Sixty-five miles hits the sweet spot for serious gravel racing without venturing into ultra-endurance territory. The 'plan to go long, not fast' guidance suggests technical terrain will stretch your day beyond typical 65-mile expectations. Two-day format lets you double down if the Saturday gravel course doesn't satisfy your suffering quota."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Ouachita and Womble trails bring legitimate technical challenge with steep climbs requiring hike-a-bike and creek crossings. Very narrow sections with steep drop-offs separate pretenders from riders who actually know how to handle a bike. The 'fairly technical; challenging yet fun' description suggests real skill requirements without full-blown expert-only terrain."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "Six thousand feet of climbing in the Ouachita Mountains delivers legitimate vertical challenge with individual segments ranging from 477 to 2,431 feet of gain. The 'challenging climbs' that put good riders into hike-a-bike mode proves this isn't rolling Arkansas farmland. Multiple steep technical ascents through National Forest terrain earn the elevation rating honestly."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late March in Arkansas means temperatures 'can vary widely from the mild in the 70's to very cold below freezing and weather can change abruptly.' Race directors plan for course reroutes and weather delays, which tells you everything about Arkansas spring reliability. When organizers specifically warn about lightning stops, you know the weather gamble is real."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Ouachita Mountains near Mount Ida top out around 2,800 feet, barely registering as elevation for anyone not from the Mississippi Delta. Zero physiological impact from altitude means your suffering comes from grade and distance, not thin air. This is hill country, not mountain altitude."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "School cafeteria packet pickup with gym floor backup sleeping shows grassroots charm but limited infrastructure. Registration confusion with multiple conflicting start times in their own documentation suggests organizational gaps. Mount Ida's remote location means limited lodging options and no nearby airport access, making this a regional drive-to event only."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Genuine Ouachita National Forest singletrack and technical creek crossings deliver real backcountry experience beyond typical gravel fare. The combination of rural farm roads and IMBA Epic trail systems creates legitimate exploration potential. But Arkansas isn't exactly exotic destination adventure—this is regional technical riding, not expedition-level discovery."
+        "explanation": "Gym sleeping options and on-site camping eliminate lodging costs, while Jess Nankman noted carrying \"all our Honey Stinger nutrition in our back pockets\" for 3-6 hour race duration. Rural Arkansas location means driving rather than flights, keeping travel costs reasonable for regional participants."
       }
     },
     "unsplash_photos": [
@@ -343,6 +343,26 @@
         "url": "https://ridewithgps.com/routes/49224473",
         "category": "route",
         "label": "RideWithGPS: Ouachita Challenge Gravel 2025"
+      },
+      {
+        "url": "https://careylowery.blogspot.com/2012/04/ouachita-challenge-race-report.html",
+        "category": "community",
+        "label": "careylowery.blogspot.com: Ouachita Challenge Race Report.Html"
+      },
+      {
+        "url": "https://nankmancycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
+        "category": "community",
+        "label": "nankmancycling.blogspot.com: Ouachita Challenge Race Beauty And.Html"
+      },
+      {
+        "url": "https://andrewevans.bike/2022/03/30/ouachita-challenge-recap/",
+        "category": "community",
+        "label": "andrewevans.bike: Ouachita Challenge Recap"
+      },
+      {
+        "url": "https://arkansasoutside.com/guts-and-glory-on-the-ouachita-challenge/",
+        "category": "community",
+        "label": "arkansasoutside.com: Guts And Glory On The Ouachita Challenge"
       }
     ],
     "results": {

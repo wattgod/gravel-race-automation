@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Everything happens at Pisgah City Park – parking, packet pickup, start/finish, camping. Simple but basic, with no information about nearest airports or travel logistics for out-of-state riders. The Friday evening packet pickup suggests they expect mostly regional participation who can drive in after work."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 60-mile distance hits that productive middle ground for weekend gravel racing, substantial enough to create real suffering without destroying recovery. Gary Wenzl's cramping experience shows the challenge accumulates - starting strong but 'with 30 miles left to go, I started getting leg cramps' and 'last 5 miles was torture.'"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Course features steeper climbing than Iowa's reputation suggests, with one climb reportedly hitting 17% gradient near the top according to post-race discussions. Route winds through Loess Hills State Forest and around Preparation Canyon State Park, but specific technical features remain undefined beyond the climbing gradients."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Gary Wenzl recorded 2,720 feet on the wet route but called it 'some of the most challenging' climbing he'd experienced, with that 17% grade conversation happening over lunch afterward. The climbing opens to vistas with descents into less-traveled valleys around Little Sioux River, delivering more vertical than typical Iowa terrain."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late September weather ran 47°F to 57°F in 2025 with overcast skies throughout, ideal temperature conditions that didn't prevent severe cramping issues. Pre-race rain forced route modifications to avoid dangerous wet sections, suggesting weather-dependent course variations are standard operating procedure."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Iowa elevation barely registers as a performance factor. The Loess Hills provide some relief above surrounding farmland, but you're still fundamentally racing at near sea level with zero altitude considerations for training or race day execution."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Loess Hills State Forest offers less-traveled gravel through diverse terrain around Soldier River Cutoff – more adventurous than Iowa's corn country reputation suggests. But it's still fundamentally Midwest agricultural region with organized aid stations and swept courses. Real adventure means getting lost in unknown territory, not following marked routes through state parks."
+      },
       "prestige": {
         "score": 1,
         "explanation": "Part of the Iowa Gravel Series but zero name recognition outside the Midwest. No pro field, no notable winners in the search results, no YouTube coverage. It's a regional series race that markets itself as 'The best of Iowa gravel racing' – which tells you everything about its actual standing in the sport."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Basic organization with packet pickup at Pisgah City Park and aid stations that close at noon. Route sweeps finish by 2PM, leaving stragglers unsupported – hardly premium race management. The course swings around Preparation Canyon State Park through Loess Hills terrain, but specific route details are thin on the ground."
+        "explanation": "Organization handles weather adaptations with alternative routes when conditions demand it, switching to the 'very wet route' for safety. Aid stations close at noon with route sweeps finishing by 2PM, leaving later finishers unsupported. Navigation challenges remain - even experienced riders like Shawna Young take wrong turns."
       },
       "experience": {
         "score": 2,
@@ -266,7 +294,7 @@
       },
       "community": {
         "score": 2,
-        "explanation": "Regional Iowa cycling scene that shows up for the full series from May to September. Pisgah City Park becomes the hangout spot for pre and post-race socializing. But there's zero evidence of the passionate community you find at destination gravel events – this feels more like a local club ride with timing chips."
+        "explanation": "Marketed as friendly to newcomers - 'a ride that you can invite your family or buddy to that's new to gravel grinding' with well-marked routes. Post-race meal and camping at the venue creates social atmosphere, though small fields suggest limited regional participation rather than destination event status."
       },
       "field_depth": {
         "score": 1,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Rural Iowa keeps costs manageable with camping at Pisgah City Park and no premium lodging gouging. But getting to western Iowa from anywhere significant means driving hours or flying into distant airports. The series pass model at $299 works if you're doing multiple Iowa events, but one-off participation economics aren't clear."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "100km option hits that sweet spot for serious gravel racing, while the 50km gives newer riders an entry point. At roughly 56 miles for the long course, it's substantial enough to matter but won't destroy your weekend. The dual-distance format makes sense for a regional series trying to build participation."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Loess Hills terrain promises some legitimate challenge beyond flat Iowa stereotypes, but specific technical details are missing from all race materials. The hills around Preparation Canyon State Park and river valleys suggest varied terrain, but without surface breakdowns or technical feature descriptions, you're riding blind into whatever Iowa considers challenging."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "4,000 feet of climbing on the 100km route is legit work in a region not known for vertical gain. The Loess Hills deliver more elevation than Iowa's reputation suggests, with climbs opening to actual vistas. But 4,000 feet over 56 miles isn't going to test anyone who regularly rides real mountains."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late September in Iowa means unpredictable weather – could be perfect fall conditions or surprise heat/storms. No historical weather data available, but 7AM starts suggest they're worried about something, likely heat or afternoon storms. You're gambling on Midwest weather patterns that can shift dramatically in September."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Iowa elevation barely registers as a factor in performance or logistics. The Loess Hills might get you a few hundred feet above sea level, but there's zero altitude consideration needed for training or race day execution. This is as close to sea level racing as you get in the continental US."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Everything happens at Pisgah City Park – parking, packet pickup, start/finish, camping. Simple but basic, with no information about nearest airports or travel logistics for out-of-state riders. The Friday evening packet pickup suggests they expect mostly regional participation who can drive in after work."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Loess Hills State Forest offers less-traveled gravel through diverse terrain around Soldier River Cutoff – more adventurous than Iowa's corn country reputation suggests. But it's still fundamentally Midwest agricultural region with organized aid stations and swept courses. Real adventure means getting lost in unknown territory, not following marked routes through state parks."
+        "explanation": "Rural Iowa keeps lodging costs minimal with camping and showers at the start/finish venue. Season pass model at $399 works for regional riders hitting multiple events, though getting to western Iowa requires significant drive time from any major population center outside the immediate region."
       }
     },
     "citations": [
@@ -314,6 +314,41 @@
         "url": "https://ridewithgps.com/routes/47704687",
         "category": "route",
         "label": "RideWithGPS: 100km - 2024 Soldier Cutoff Hillduro"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/garys-story-soldier-cutoff-hillduro",
+        "category": "community",
+        "label": "joinbasecamp.com: Garys Story Soldier Cutoff Hillduro"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IRDmhDusWss",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10857/soldier-cutoff-hillduro",
+        "category": "community",
+        "label": "granfondoguide.com: Soldier Cutoff Hillduro"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=0UHgsDA94HA?hl=en-US",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19988",
+        "category": "community",
+        "label": "gravel-results.com: 19988"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/soldier-cutoff-hillduro",
+        "category": "community",
+        "label": "racecenter.com: Soldier Cutoff Hillduro"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Event/16437/soldier-cutoff-hillduro",
+        "category": "community",
+        "label": "bikeiowa.com: Soldier Cutoff Hillduro"
       }
     ]
   }

@@ -252,41 +252,17 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "Called a 'bucketlist' event on RacePass, but that's marketing fluff when nobody can tell you who's won it or when it started. Zero notable pro riders, no race history, no YouTube coverage - this thing exists in a vacuum. The testimonials read like your aunt's Facebook posts about a charity ride."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Riders praise the organization and 'amazing hydration stations,' but that's basic race promotion competence, not excellence. The course dates are confused across platforms, distance descriptions conflict, and there's zero transparency on field size or results. When a race can't get its own logistics straight online, that's a red flag."
-      },
-      "experience": {
-        "score": 4,
-        "explanation": "Point-to-point from Hartbeespoort Dam through sunflower fields to Sun City Resort is genuinely scenic terrain. One rider captured it: 'We had rain, wind, cold and some sun but an all round perfect day on the bike.' The route diversity and finishing at a resort beats most cookie-cutter loops."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Testimonials exist but they're generic praise posted on the official site - not exactly independent voices. 'No reviews yet on RacePass' tells the real story about community engagement. When riders aren't talking about your race organically, you're not building community."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "Marketed as suitable for 'all levels' which usually means fast riders get bored and slow riders get dropped. No data on field size, no notable winners, no competitive depth indicators. The 'very fast pace' mentioned suggests some speed, but without context it's meaningless."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "R1650 for the 100-miler isn't terrible by international standards, but you're getting basic gravel racing without the prestige or competition depth. Finishing at Sun City Resort adds some value if you're making a weekend of it. No refunds or transfers to 2027 is standard but still stings."
-      },
-      "expenses": {
+      "logistics": {
         "score": 1,
-        "explanation": "Flying into South Africa from anywhere meaningful costs serious money, then you're looking at Sun City Resort accommodation prices. The entry fee is just the appetizer - the real expense is getting there and staying somewhere decent. This isn't a cheap weekend warrior option."
+        "explanation": "Race dates conflict across platforms - 16 May vs 30 May 2026 with no official resolution. Elite winner Cherise Willeit and another rider missed the critical turn in final kilometers, highlighting course marking issues even at the front. Basic logistics like field size and cutoff times remain unpublished."
       },
       "length": {
         "score": 4,
-        "explanation": "161km delivers proper gravel race distance without being a sufferfest - that's the sweet spot for most riders. The 50-mile option starting at Beestekraal Kerk gives flexibility. Distance options done right, though the actual 250-mile claim in the database doesn't match reality."
+        "explanation": "161km hits the sweet spot without being a sufferfest. JJDT warns riders: 'The first half is easy, mostly flat with some downhill and no climbs... The second half do have more climbs and uphill drags.' The distance creates proper pacing challenges - Mountain Bru averaged 28km/h for first 100km but faded to 6:34 finish."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Described as 'flat and fast' with primarily gravel roads - this isn't technical mountain terrain, it's power and endurance racing. The diverse landscapes suggest varied surfaces but nothing that'll require bike handling wizardry. Speed-focused riders will love it; technical junkies will be bored."
+        "explanation": "Described as 'flat and fast' but riders face 'quite a bit of corrugation and loose sand' according to Dexter-morgan. Charity85 ran 45c tires 'as low as possible' but reports 'my hands are wrecked, everything after about 100km was k@k.' The corrugations demand equipment choices and bike handling without requiring mountain bike skills."
       },
       "elevation": {
         "score": 4,
@@ -294,21 +270,71 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "May timing in South Africa's autumn should mean decent conditions, and one 2025 rider got 'rain, wind, cold and some sun' - basically everything except extreme heat. Variable weather keeps it interesting without being dangerous. No historical weather disasters reported."
+        "explanation": "May timing in South Africa's autumn delivered 'rain, wind, cold and some sun' during 2025 - everything except extreme heat. The variable conditions kept riders honest without creating dangerous weather. One finisher called it 'an all round perfect day on the bike' despite the mixed elements."
       },
       "altitude": {
         "score": 2,
         "explanation": "Starting elevation at Hartbeespoort Dam isn't specified, but this isn't high-altitude suffering territory in South Africa. You're not dealing with oxygen debt, just regular gravel race pain. Altitude is irrelevant here - save your concern for actual mountain races."
       },
-      "logistics": {
-        "score": 1,
-        "explanation": "Race dates conflict across multiple platforms, distance descriptions don't match, and basic details like field size and cutoff times are missing. When a race can't maintain consistent information on its own logistics, that's amateur hour. International travel to a poorly communicated event is a recipe for frustration."
-      },
       "adventure": {
         "score": 4,
         "explanation": "Point-to-point through North West Province sunflower fields to Sun City Resort is legitimately adventurous terrain. You're crossing diverse South African landscapes on a proper journey, not grinding loops. The route concept delivers real exploration, even if the race execution has questions."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Elite riders like Marc Pritzen and Hayley Preen compete, with Pritzen winning via 70km solo breakaway in 4:30:11. However, even elite winner Cherise Willeit missed the final turn, and pre-race favorite Sarah Hill faded after 132km. The race attracts quality riders but lacks broader gravel racing recognition or history."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Organisation draws praise - riders call it 'unbelievably well organised' with 'amazing hydration stations' offering hot pancakes and chicken. But Cherise Willeit and another rider missed the critical final turn, and seeding issues plague the field. Pall Catt spent energy 'sitting behind slower riders occupying the only smooth strip of road.'"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The route delivers on its promise as a 'story of two distinct halves' - flowing canals and dam wall, then rugged bush terrain through Sediba Kwele Reserve. Water points impressed with 'everything from traditional bananas to hot pancakes, juices, chicken and popcorn.' Finishing at Sun City Resort caps the adventure properly."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Water point volunteers earn praise as 'very friendly and helpful,' and post-race facilities include air conditioned recovery tents. But community discussion reveals equipment debates and pacing mistakes rather than shared race culture. One rider's only complaint: 'having stronger beers at the end.'"
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Marc Pritzen's 70km solo breakaway winning by 7 minutes suggests limited chase depth. Elite women's race saw decisive moves at 130km, but pre-race favorite Sarah Hill faded after 132km. Seeding problems compound the issue - Mountain Bru started in A batch but 'was having to pass tons of riders that were barely moving on the climbs.'"
+      },
+      "value": {
+        "score": 3,
+        "explanation": "R1650 for 161km includes 'exceptional' water points with hot food and efficient vehicle transfers to Sun City finish. The race donates proceeds to local Sanddrift Laerskool and delivers on its 'bucket list' terrain promise. Equipment demands are real - riders debate tire choice and bike selection for the corrugated sections."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "International travel to South Africa plus Sun City Resort accommodation turns the R1650 entry fee into an expensive weekend. Riders also face equipment decisions - debate rages over 45c vs 50c tires, gravel bike vs hardtail MTB. RearWheelDrive managed post-race shower and dinner, but you'll pay resort prices for everything."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://racetothesun.co.za/honeycomb226ers_dominate/",
+        "category": "community",
+        "label": "racetothesun.co.za: Honeycomb226Ers Dominate"
+      },
+      {
+        "url": "https://forum.bikehub.co.za/topic/195470-event-king-price-race-to-the-sun/",
+        "category": "community",
+        "label": "forum.bikehub.co.za: 195470 Event King Price Race To The Sun"
+      },
+      {
+        "url": "https://forum.bikehub.co.za/topic/195470-event-king-price-race-to-the-sun/page/4/",
+        "category": "community",
+        "label": "forum.bikehub.co.za: 4"
+      },
+      {
+        "url": "https://racetothesun.co.za/",
+        "category": "community",
+        "label": "racetothesun.co.za"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=FYSA5w9weX0",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      }
+    ]
   }
 }

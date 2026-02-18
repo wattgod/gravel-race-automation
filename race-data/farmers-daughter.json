@@ -252,63 +252,104 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "Ahotu calls it 'the must-do spring cycling event in the Northeast' and CycloWorld labels it a 'Legendary Gravelrace,' but those are marketing words, not earned reputation. The non-competitive format means no winners list to build legend around. It's a solid regional draw, not a bucket-list destination."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Three aid stations and motorcycle support with spare tires shows they're trying, but the course details are frustratingly vague. 'Scenic and challenging terrain in the Northeast' tells you nothing about what you're actually riding. The safety warnings about open roads suggest questionable route selection."
-      },
-      "experience": {
+      "logistics": {
         "score": 3,
-        "explanation": "All finishers 21+ get a Farmer's Daughter Rye IPA pint, full meal, Belgian beer glass, custom bike name plate, and hat - that's solid post-ride value. The emphasis on community support for Columbia Land Conservancy and Crellin Park Pump Track gives it purpose beyond just suffering. Motorcycle sweep support keeps you from walking home."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Andy Ruiz runs a tight ship with multiple motorcycles providing support, earning rider praise for being 'very well run.' The local charity angle and beer-focused finish create genuine community feel. Non-competitive format attracts people who actually want to ride together rather than destroy each other."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "Non-competitive format by design means no competitive field to speak of. 'Suitable for experienced and beginner cyclists alike' translates to weekend warriors, not racers pushing limits. No prize purse or winners list means serious competitors go elsewhere."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "Custom beer glass, bike name plate, hat, full meal, and beer for finishers is legitimate swag value. Three supported aid stations and motorcycle support justify whatever they're charging. The charity component means your money goes somewhere meaningful beyond event overhead."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Registration fees aren't listed anywhere, which is always suspicious - usually means they're higher than they want to advertise upfront. Chatham, NY isn't exactly a budget destination, and May is peak Northeast tourism season. No packet pickup details suggests you're flying blind on logistics costs."
+        "explanation": "Start and finish at 182 Hudson Place in Chatham keeps it simple, with motorcycle support providing spare tires throughout the course. Field sizes vary dramatically - sportsfan42069 reported \"1200 people over 3 waves\" while Cullen MacDonald noted 482 registrants in 2019, suggesting inconsistent capacity management."
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles hits the gravel sweet spot - long enough to matter, short enough to not destroy your week. They added 'Farmer's Granddaughter' as a shorter option, showing they understand not everyone wants the full beating. It's a proper day out without being an endurance epic."
+        "explanation": "Distance varies by source (62-68 miles) but consistently lands in gravel's sweet spot. Jason Gonzalez on his fatbike \"wanted to quit at 45 miles in, but stayed the course,\" while sportsfan42069 noted feeling less sore than after his ultras, suggesting the distance challenges without destroying."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course details are maddeningly vague - no surface breakdown, no named climbs, just generic 'challenging terrain.' The safety warnings about open roads suggest more pavement than pure gravel. Without technical specifics, assume it's fire roads and farm lanes, not rock gardens."
+        "explanation": "Mix of gravel roads, pavement, and technical singletrack creates bottlenecks. sportsfan42069 described \"a section of singletrack that was so technical it was a Conga line of people walking their bikes. After what must have been 10 minutes we were through the thick of it.\""
       },
       "elevation": {
         "score": 2,
-        "explanation": "Official website claims 6,400 feet over 65 miles, which is real climbing - about 100 feet per mile average. That's enough to hurt but not enough to break you. No named climbs or profile details means it's probably grinding rollers rather than signature ascents."
+        "explanation": "6,000-7,000 feet of climbing over 65 miles with grades hitting 20%. Jason Gonzalez detailed \"15 climbs each varying between .5 mile to 4 miles with grades starting at 5% and going up to 17%,\" including \"one 4 mile climb from 6%-, 17% gradients.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-May in upstate New York is about as good as it gets - spring warmth without summer heat, everything green and alive. Race day is typically 60-70°F with manageable humidity. You might catch rain, but you won't cook or freeze."
+        "explanation": "Mid-May weather ranges from challenging to ideal. Cullen MacDonald experienced \"hottest days so far this year\" with conditions \"from outright soup to bright sun,\" while another rider needed medical attention on \"the first hot day of the year in NYC.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Chatham, NY sits under 500 feet elevation with no meaningful altitude gained anywhere on course. You could train for this at sea level and feel no difference. Altitude is completely irrelevant here."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Start and finish at 182 Hudson Place in Chatham keeps it simple - one location, no shuttles. Motorcycle support and sweep vehicles mean they're thinking about rider safety and extraction. The lack of specific airport, lodging, or parking details is annoying but typical for regional events."
+        "explanation": "Chatham, NY sits under 500 feet elevation with no meaningful altitude gained on course. Altitude is completely irrelevant for training or race day performance."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Upstate New York farm country is pleasant but hardly exotic - you're riding past corn fields and dairy farms, not discovering hidden wilderness. The non-competitive format and strong support network minimize actual adventure risk. It's a well-managed tour of familiar terrain, not an expedition."
+        "explanation": "Cullen MacDonald crashed when his \"35mm Cross Boss tires right in the gap in between the planks\" on a wooden bridge, \"which promptly flipped me straight over the bars.\" The course includes \"baby rock gardens link rooty switchbacks to just-rideable mud\" but stays within supported farm country."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Billed as non-competitive but Cullen MacDonald noted it \"doesn't feel that way\" with the lead group more \"aggro racer than we had anticipated.\" The ambiguous race-versus-ride format and no official finish line or timing chips limit any competitive reputation building."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Strong aid station support - sportsfan42069 praised \"awesome\" stations with variety, though the middle one \"was serving lunch\" while another \"just had Ice Cream.\" However, course cutting is tolerated, with some riders skipping sections to manage the difficulty."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "All finishers 21+ get Farmer's Daughter Rye IPA pint, full meal, Belgian beer glass, custom bike name plate, and hat. Barb Blakley Millott summarized: \"I loved almost every minute of it\" despite crashes and 20% grades on \"gorgeous country roads.\""
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Event draws 482-1200 riders depending on year, with strong local charity support for Columbia Land Conservancy and Crellin Park Pump Track. Despite being \"billed as non-competitive,\" the atmosphere creates natural racing dynamics among lead groups while maintaining inclusive aid station culture."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Non-competitive format attracts mixed abilities, from trail runners like sportsfan42069 to elite riders like Cullen MacDonald. The technical sections and steep climbs create natural selection, but the lack of official timing means no competitive field development or depth measurement."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Substantial finish line package includes custom beer glass, bike name plate, hat, full meal, and local brewery IPA for finishers 21+. Three supported aid stations with diverse food options and motorcycle support with spare tires justify the entry investment."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Registration costs remain unlisted across all sources, which typically signals higher-than-advertised pricing. Chatham, NY location during peak May tourism season adds accommodation costs, while the extensive finish line package and multiple aid stations suggest premium pricing structure."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/",
+        "category": "community",
+        "label": "reddit.com: Trail Runner Does Gravel Farmers Daughter Race"
+      },
+      {
+        "url": "https://groups.google.com/g/racer-x/c/1bQi7FvDiVA",
+        "category": "community",
+        "label": "groups.google.com: 1Bqi7Fvdiva"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/one-of-new-yorks-best-events-farmers-daughter-2022",
+        "category": "community",
+        "label": "tobedetermined.cc: One Of New Yorks Best Events Farmers Daughter 2022"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird",
+        "category": "community",
+        "label": "tobedetermined.cc: Farmers Daughter Get It While Its Weird"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4718/the-farmers-daughter-gravel-grinder",
+        "category": "community",
+        "label": "granfondoguide.com: The Farmers Daughter Gravel Grinder"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/farmers-daughter-gravel-grinder-2025",
+        "category": "community",
+        "label": "tobedetermined.cc: Farmers Daughter Gravel Grinder 2025"
+      },
+      {
+        "url": "http://www.farmersdaughtergravelgrinder.com/",
+        "category": "community",
+        "label": "farmersdaughtergravelgrinder.com"
+      },
+      {
+        "url": "https://www.cbrc.club/farmers-daughter",
+        "category": "community",
+        "label": "cbrc.club: Farmers Daughter"
+      }
+    ]
   }
 }

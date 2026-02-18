@@ -252,33 +252,9 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "Prairie Burn calls itself a 'legendary Sportive' but the internet barely knows it exists. Zero notable pro finishers in the search results, zero race coverage, zero buzz in gravel forums. When your event history is so thin that even basic course details are mystery meat, you're not legendary—you're invisible."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "The 2026 edition promises a 'new and better format' which translates to 'we're still figuring this out.' Starting at 811 Park St in Grinnell with an 8-hour window suggests they're trying, but when basic course details, aid station info, and cutoff times are all unknown quantities, you're gambling on competence. The multiple distance options (25/50/100 miles) show ambition, but execution remains unproven."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Iowa gravel through Grinnell should deliver classic Midwest farmland grinding, but this event's rider experience is a black box. No race reports, no rider quotes, no YouTube coverage—not even complaints to learn from. When zero participants are talking about your race online, either nobody's doing it or nobody cares enough to share."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "The 5K Fun Run estimates 1-100 participants, which tells you everything about field size expectations. Grinnell's a small college town that could foster tight community vibes, but there's zero evidence of race culture or returning rider base. When your event resurfaces with a 'better format,' it suggests the old community didn't stick around."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Participant estimates of 1-100 people for associated events paint a picture of local club ride numbers, not competitive fields. No pro presence, no elite results to reference, no mention of competitive categories or serious racing depth. You're racing against whoever shows up from central Iowa and maybe a few tourists."
-      },
-      "value": {
+      "logistics": {
         "score": 3,
-        "explanation": "Registration fees are unknown, but Iowa races typically run reasonable compared to destination events. You get 100 miles of gravel with 3500 feet of climbing, multiple distance options, and presumably basic support for whatever they're charging. Not premium, not budget, just functional Midwest racing where the course does the work."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Grinnell sits in affordable Iowa farm country where lodging and food won't break you. No major airport means driving for most, but once you're there, costs stay reasonable. The lack of race tourism infrastructure probably keeps prices honest—nobody's gouging because nobody's coming specifically for this event."
+        "explanation": "Aid stations every 10-25 miles with Central Park serving as the hub for 25 and 50-mile route returns. Official timing ends at 3:30 PM with bailout support until 5:00 PM, though the race director warns riders to 'know how to fix a flat' as pickup support is limited."
       },
       "length": {
         "score": 4,
@@ -286,27 +262,51 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Iowa gravel typically means maintained county roads with occasional rough patches, not technical rock gardens or gnarly descents. Surface breakdown details are missing, but this is farm country where roads exist to move grain trucks, not challenge mountain bikers. Expect straightforward gravel grinding with navigation being the main skill requirement."
+        "explanation": "Tim Stahl notes 'Iowa has some of the best gravel roads in the world' with terrain described as 'moderate terrain with rolling short steep hills.' Course uses Poweshiek County's 700+ miles of maintained gravel roads designed for agricultural traffic, not technical challenges."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3500 feet over 100 miles averages 35 feet per mile—not flat, but not mountainous. Iowa's rolling prairie creates steady grinding rather than steep punches, so you'll earn every foot through accumulated fatigue rather than explosive climbing efforts. Enough to hurt your legs by mile 80, not enough to walk your bike."
+        "explanation": "Stahl warns 'we think of Iowa as flat, but you leave town, there are some impressive hills.' The 3500 feet comes through 'rolling short steep hills or moderate, sustained climbs' rather than single big efforts—accumulated grinding over prairie rollers."
       },
       "climate": {
         "score": 2,
-        "explanation": "June 6th in Iowa means potential heat, humidity, and afternoon thunderstorms that can turn gravel roads into slip-n-slides. Morning starts at 8 AM suggest they're trying to beat the heat, but summer in the Midwest delivers weather gambling whether you want it or not. No historical weather data available, but expect to pack for everything."
+        "explanation": "Second Saturday in June brings Midwest summer weather gambling, though organizers promise 'the PB100 will occur rain or shine! All bike routes will have hard surface rain re-routes if needed.' Morning 8 AM start attempts to beat afternoon heat and storms."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Grinnell sits around 1000 feet above sea level—basically pancake flat in altitude terms. Zero altitude training benefit, zero acclimatization concerns, zero excuses for feeling winded. Your legs will hurt from grinding gravel, not from thin air."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Starting from 811 Park St in a small college town keeps things simple—no massive parking nightmares or urban chaos. The 8 AM to 4 PM window suggests organized timing, and small-scale events usually mean shorter lines and easier packet pickup. Unknown details on aid stations and support, but Iowa hospitality typically covers the basics without fancy frills."
+        "explanation": "Central Iowa prairie elevation creates zero altitude concerns. The 'impressive hills' Stahl mentions are about leg-burning grade and accumulated climbing, not thin air at altitude."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Iowa farmland offers scenic rural grinding but not wilderness exploration or epic terrain features. You'll see corn, soybeans, and farmhouses rather than dramatic landscapes or challenging navigation. The adventure comes from internal suffering over distance, not external challenges or memorable scenery that'll fill your Instagram feed."
+        "explanation": "Course explores Poweshiek County's network of agricultural gravel roads through farming landscape. Two 'Burner Challenge Segments' in the first 50 miles add competitive elements, but the adventure comes from internal suffering over Iowa's deceptively rolling terrain rather than dramatic scenery."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "The 2026 edition promises a 'new and better format' after previous iterations, suggesting the event is rebuilding rather than established. Despite claims of being 'legendary,' the race lacks visible pro participation or widespread gravel community recognition."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Well-planned aid station placement and GPS files for all routes show organizational competence. The $50 prizes for Burner Challenge segments verified via Strava add competitive structure, though the 'new and better format' language suggests previous execution needed improvement."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Post-race includes beer garden, food trucks, and live music by The Surf Zombies creating festival atmosphere. The explicitly 'not competitive' nature focuses on 'having a good time, making connections' rather than pure racing experience."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The 5K Fun Run estimates 1-100 participants, which tells you everything about field size expectations. Grinnell's a small college town that could foster tight community vibes, but there's zero evidence of race culture or returning rider base. When your event resurfaces with a 'better format,' it suggests the old community didn't stick around."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Burner Challenge segments offer $50 prizes across male, female, and non-binary categories, creating some competitive structure. However, the associated 5K estimates just 1-100 participants, suggesting small field sizes without serious racing depth."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Post-race activities include beer garden, live music, yoga, and farmer's market creating full day experience. Free gravel bike rentals available at Bikes to You for newcomers, showing commitment to growing the sport beyond just race day revenue."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Small Iowa college town keeps lodging and dining affordable. Tim Stahl's equipment advice focuses on 'forgiving' gravel bike geometry rather than expensive gear requirements, and free bike rentals lower the barrier to entry for curious riders."
       }
     },
     "unsplash_photos": [
@@ -325,6 +325,21 @@
         "url": "https://ridewithgps.com/routes/30208684",
         "category": "route",
         "label": "RideWithGPS: Prairie Burn 100 - 2019"
+      },
+      {
+        "url": "https://thesandb.com/53911/sports/prairie-burners-group-ride-blazes-through-iowas-gravel-roads/",
+        "category": "community",
+        "label": "thesandb.com: Prairie Burners Group Ride Blazes Through Iowas Gravel Roads"
+      },
+      {
+        "url": "https://www.prairieburn100.com/",
+        "category": "community",
+        "label": "prairieburn100.com"
+      },
+      {
+        "url": "https://www.prairieburn100.com/event-info",
+        "category": "community",
+        "label": "prairieburn100.com: Event Info"
       }
     ]
   }

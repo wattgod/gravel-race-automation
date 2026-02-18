@@ -252,9 +252,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Downtown Red Lodge start/finish at Roosevelt Center is convenient for lodging access. Packet pickup until 6:30 AM race morning suggests thin staffing, though drop bag collection by Saturday 8 PM shows some planning. Registration closes by February for August event indicates limited capacity."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Three distance options (22, 50, 100 miles) hit sweet spots for different capabilities with staggered starts from 7:00 AM to 9:30 AM. The 22-mile offers tour/e-bike non-timed option alongside racing. No 70-mile distance exists despite database listing."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Course description promises \"rolling hills and mostly smooth gravel roads\" through Montana ranching country. The Saturday Cocktail Loop preview runs \"mostly downhill\" in reverse, suggesting climbing on race day. Beartooth Mountain foothills terrain means business beyond rail-trail cruising."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 100-mile route delivers 6,000-6,500 feet of climbing through foothills from Red Lodge to Fishtail and back through Roscoe & Luther. The 2022 version packed 6,103 feet into 92 miles. \"While cut offs will be strictly enforced, they are generous and manageable.\""
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late August in Montana mountain foothills means weather roulette with no historical data provided in race materials. Morning starts help avoid afternoon heat, but Beartooth weather changes fast. Zero climate preparation guidance for out-of-state riders."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Red Lodge sits in Beartooth foothills with race reaching 6,500 feet mentioned in elevation data. Enough elevation to matter for sea-level riders but not Colorado suffering. The route ventures higher into mountain terrain beyond the downtown start."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "\"The Red Lodge and surrounding area is known for its immense landscapes connected by gravel roads in Carbon County.\" Race organizers encourage riders to \"stay and play in Red Lodge, the Beartooth Pass and take in local amenities.\" Remote enough that Custer Gallatin camping is viable lodging."
+      },
       "prestige": {
         "score": 1,
-        "explanation": "Zero notable winners mentioned anywhere, no media coverage, no YouTube race reports. The research vacuum speaks volumes - this isn't the kind of race that generates buzz or attracts cycling media. Registration costs $70-$107 which suggests local club race pricing, not destination event territory."
+        "explanation": "Post-race festivities feature \"music by Fracture, kids area, food and beverages\" from 11 AM-3 PM with public access. No notable winners or media coverage mentioned anywhere. Registration costs and local bike shop organization suggest community-level event, not destination race territory."
       },
       "race_quality": {
         "score": 2,
@@ -262,15 +290,15 @@
       },
       "experience": {
         "score": 2,
-        "explanation": "Beartooth Mountain foothills setting has potential, but the Saturday 'Cocktail Loop' pre-ride covering race sections in reverse feels like filler entertainment. Downtown Red Lodge start/finish at Roosevelt Center is convenient but unremarkable. Research shows zero rider testimonials or memorable experience stories - usually a red flag."
+        "explanation": "\"Cyclists and their families are encouraged to stay and play in Red Lodge\" with finish line festivities including live music and kids area open to the public. Downtown Roosevelt Center location provides convenient access to town amenities. Saturday Cocktail Loop preview adds social element."
       },
       "community": {
         "score": 2,
-        "explanation": "Organized by Big Sky Gravel & Red Lodge Bike Center suggests local bike shop involvement, which can mean tight-knit community or limited reach. Zero reviews on Findarace despite being listed there. No Reddit discussions, forum posts, or community reputation data found anywhere - that's unusual for events people actually talk about."
+        "explanation": "Montana Tour nonprofit organizes the event with \"proceeds benefit our Community Bike Center.\" Generous volunteer program offers \"free/discounted race fees\" for helping at races. Age-based pricing discounts automatically applied \"to get more young riders on the starting line.\""
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No field size data, no pro participation mentioned, no competitive results anywhere in the research. When a gravel race generates zero discussion about competition or notable performances, the field is probably locals and weekend warriors. Three distance options (22/50/100 miles) spreads the already thin talent pool even thinner."
+        "explanation": "No competitive results or notable performances mentioned in any research. Three distance options spread thin talent pool even thinner. Community-focused nonprofit organization suggests local participation over destination racing talent."
       },
       "value": {
         "score": 3,
@@ -278,37 +306,40 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Red Lodge isn't exactly a tourism hotspot, so lodging costs through Redlodge.com/stay won't be Steamboat Springs pricing. Camping available through Custer Gallatin or Montana FWP offers budget options. But getting to Carbon County, Montana requires serious travel commitment for most riders, and nearest airport isn't even mentioned in race materials."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Three distance options (22, 50, 100 miles) hit the sweet spots for different rider capabilities. The 70-mile distance mentioned in your database doesn't actually exist - race offers 50 or 100, nothing in between. 7:00 AM start for the century gives reasonable daylight buffer for Montana August conditions."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Beartooth Mountain foothills gravel suggests legitimate terrain, not rail-trail cruise control. The Saturday 'Cocktail Loop' preview is described as 'mostly downhill' covering race finish sections in reverse - implies real climbing on race day. No specific surface breakdown or technical ratings provided, but Montana gravel typically means business."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "Foothills of the Beartooth Mountains deliver legitimate vertical, though specific elevation profiles aren't provided in race materials. The pre-ride 'Cocktail Loop' being 'mostly downhill' when run in reverse suggests significant climbing in the final race sections. Your 5000 ft gain estimate for 70 miles seems reasonable for Montana foothill terrain."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late August in Montana mountain foothills means weather roulette - could be perfect 70s or surprise thunderstorms rolling off the Bearteeth. Research provides zero historical weather data or typical race day conditions, which is concerning for route planning. Morning starts help avoid afternoon heat, but mountain weather changes fast."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "Red Lodge sits in mountain foothills with race venturing higher into Beartooth terrain - enough elevation to matter for sea-level riders but not Colorado suffering. Specific start elevation isn't provided, but 'foothills' suggests 4000-6000+ feet range. Noticeable but manageable for most gravel athletes."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Downtown Red Lodge start/finish at Roosevelt Center (519 Broadway Avenue South) is convenient for lodging and food access. But packet pickup running until 6:30 AM race morning suggests understaffing or poor planning. Registration closed by February for August event indicates limited capacity, and no parking details provided for a car-dependent Montana location."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Beartooth Mountain foothills in Carbon County, Montana - legitimate wilderness territory where gravel roads mean something. Remote enough that camping through Montana Fish, Wildlife & Parks is a viable lodging option. The setting delivers on adventure promise, even if race execution might not match the terrain's potential."
+        "explanation": "Accommodations available through Redlodge.com/stay with Custer Gallatin and Montana FWP camping options for budget travelers. Getting to Carbon County, Montana requires serious travel commitment with no airport information provided. Small mountain town lodging costs beat resort destination pricing."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.redlodgeevents.com/bigskygravel",
+        "category": "community",
+        "label": "redlodgeevents.com: Bigskygravel"
+      },
+      {
+        "url": "https://www.tetongravity.com/forums/showthread.php/348092-Big-Sky-Gravel/",
+        "category": "community",
+        "label": "tetongravity.com: 348092 Big Sky Gravel"
+      },
+      {
+        "url": "https://bigskygravel.com/",
+        "category": "community",
+        "label": "bigskygravel.com"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
+        "category": "community",
+        "label": "granfondoguide.com: Big Sky Gravel"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/training-rides/meet-big-sky-gravel-in-red-lodge-montana-22-50-100-mile-distances-coming-august-24-2024/",
+        "category": "community",
+        "label": "gravelcyclist.com: Meet Big Sky Gravel In Red Lodge Montana 22 50 100 Mile D..."
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/MT/RedLodge/BigSkyGravelTour",
+        "category": "community",
+        "label": "bikesignup.com: Bigskygraveltour"
+      }
+    ]
   }
 }

@@ -252,64 +252,100 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This is Wyoming gravel racing, not Kansas. The race started around 2024 and calls itself Wyoming's 'premier' gravel race, which is like being the tallest building in Cheyenne. No notable winners or pro field mentioned anywhere, just grassroots enthusiasm and Western flair."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "Four distance options from 17-mile Mutton Buster to 121-mile Cowboy route with 9,000 feet of climbing shows range. Live timing and well-stocked aid stations until 8pm course closure are solid basics. But it's a young race still finding its operational rhythm in a town most people drive through."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Starting at Glenrock Town Park in historic Oregon Trail country has authentic Western charm. The 'gritty, dirty, Cowboy Tough' messaging promises character over polish. Food trucks and craft beer post-race hits the right notes, but the experience lives or dies on whether the remote backcountry delivers the adventure they're selling."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Family-friendly event with music and relaxed spirit suggests genuine local investment. Four staggered start times from 6am to 9am keeps different pace groups happy. But community depth in a town like Glenrock has natural limits - this isn't Steamboat Springs throwing a party."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "No field size data available and zero mention of competitive depth or notable participants. For a race that started in 2024 in Glenrock, Wyoming, you're not exactly drawing the sport's elite. The competitive field probably thins out fast after the front handful of regional hammers."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Early bird at $105 and regular registration at $115 is honest pricing for gravel racing. Four distance options mean you're not paying premium prices for premium suffering you might not want. No gouging here - just straightforward Wyoming pricing for a straightforward Wyoming experience."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Glenrock isn't exactly a destination town with boutique lodging and farm-to-table dining. Limited accommodation options probably mean basic motels or camping. No airport details provided, so you're likely driving from Denver or flying into Casper and making the trek."
+        "explanation": "Single venue at Glenrock Town Park with Friday 4-8pm packet pickup and Saturday staggered starts works well enough. GPS devices required for the Cowboy 121 since \"you'll spend a large part of the day outside of cell coverage.\" No airport or lodging details provided for this small Wyoming town."
       },
       "length": {
         "score": 3,
-        "explanation": "The 60-mile distance hits the gravel sweet spot - long enough to hurt, short enough to not require expedition planning. Four total options from 17 to 121 miles cover the spectrum from families to masochists. Middle-distance racing without the logistical complexity of ultra-endurance events."
+        "explanation": "Four distance options from 17-mile Mutton Buster (\"fast and fun right out of the gate\") to 121-mile Cowboy with 9,000+ feet of climbing cover the spectrum. Strict cutoffs for the 121: Mile 33 by 11am, Mile 80 by 4pm, Mile 104 by 6:30pm or \"you will be picked up by the sweeper.\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Described as 'rugged terrain' with winding two-track roads and alpine climbs, but no specific technical features detailed. Wyoming backcountry usually means more power than finesse - long grinding climbs and exposed descents rather than rock gardens or tight singletrack. Probably more about endurance than bike handling skills."
+        "explanation": "Course surfaces described as \"mixed surfaces and anything from champagne gravel to whiskey wielding roads with some two-track.\" The Broncobuster 75 guide includes Mormon Canyon self-talk: \"Wow, beautiful scenery...Wow, shut up legs.\" More about sustained climbing than technical bike handling."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3,500 feet of climbing over 60 miles puts you at about 58 feet per mile - noticeable but not crushing. The longer Cowboy route claims over 9,000 feet, so the climbing is there if you want it. Base of the Rocky Mountains location suggests sustained climbing rather than punchy rollers."
+        "explanation": "The Cowboy 121 rider guide warns \"Be sure to save a little in the tank as this climb is a doozy\" for the final ascent up Windy Ridge Road and lower Boxelder Canyon. Broncobuster climbs 6,500 feet over 75 miles, with Mormon Canyon gaining 1,700 feet by Mile 10."
       },
       "climate": {
         "score": 2,
-        "explanation": "July in Wyoming means heat, wind, and afternoon thunderstorm potential. No specific weather data provided, but high desert climate at the base of the Rockies is predictably unpredictable. Early 6am start for the long course suggests they know the heat is coming."
+        "explanation": "July in Wyoming requires preparation for mountain weather variability. Mandatory gear list includes \"extra clothing: arm/leg warmers, wind vest and/or rain jacket\" because \"anything can happen in the mountains.\" No outside support allowed except at official aid stations adds weather exposure risk."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Glenrock sits at the base of the Rocky Mountains but no specific elevation data provided. Probably around 4,000-5,000 feet starting elevation based on location. High enough to notice if you're coming from sea level, not high enough to require acclimatization strategy."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Single venue at Glenrock Town Park keeps things simple - packet pickup Friday 4-8pm, race Saturday with staggered starts. No airport or lodging details provided, which either means they're basic or nonexistent. Small-town logistics work until they don't."
+        "explanation": "Glenrock sits at the base of the Rocky Mountains with specific elevation markers at key points: Mile 29 at 3,039 feet gained, Mile 53 at 5,165 feet gained on the Broncobuster. High enough to notice coming from sea level, not high enough to require acclimatization planning."
       },
       "adventure": {
         "score": 2,
         "explanation": "Remote backcountry gravel and wide-open prairie sounds promising for the Western experience. Historic Oregon Trail area adds narrative weight to the suffering. But without specific course details or rider reports, you're trusting Wyoming geography to deliver the goods."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "2025 Cowboy 121 won by Stephen and Luke Finnan in 7:27:53. Cash purse for top three finishers shows competitive intent, but this grassroots Wyoming event emphasizes \"dirt lovin, grit lovin, and gravel lovin friends\" over elite racing prestige."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Well-structured aid station network every 15-20 miles with electrolyte mix, real food, mechanical supplies, and air pumps. Live timing and course marshals provide solid operational basics. The 8pm course closure and sweeper vehicle system keeps things running on schedule."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Glenrock Town Park venue includes playground for kids, music, and beverages creating a family-friendly atmosphere. Post-race schedule runs from 11am food service through 4:30pm awards with raffle giveaways. \"Cowboy Tough\" messaging delivers on authentic Western small-town character."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Organizers emphasize bringing \"your dirt lovin, grit lovin, and gravel lovin friends\" to this grassroots celebration. Family-friendly setup with four staggered start times from 6am to 9am accommodates different pace groups. The venue encourages participants to \"bring your friends and family to stay and play.\""
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "2025 Cowboy 121 field shows limited depth with winners at 7:27:53 and fifth place at 8:38:12. John Weiner won the Buckaroo 40 in back-to-back years (2024: 2:21:54, 2025: 2:40:07). Regional competition in a town most people drive through."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Registration at $105 early bird, $115 regular represents honest pricing for gravel racing. Race packet includes t-shirt, meal ticket, drink voucher, and additional swag. Four distance options mean you pay for the suffering you want without premium pricing gouging."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Glenrock offers basic small-town amenities with no camping allowed at the park venue. Mandatory gear list includes standard gravel essentials plus \"extra butt butter\" recommendation. Limited accommodation options in this Wyoming town mean basic motels or driving from larger cities."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://www.cowboycrusher.com/",
+        "category": "community",
+        "label": "cowboycrusher.com"
+      },
+      {
+        "url": "https://www.cyclingwest.com/gravel-biking/cowboy-crusher-central-wyomings-grassroots-gravel-event-and-one-heck-of-a-shindig-to-be-held-july-13-2024/",
+        "category": "community",
+        "label": "cyclingwest.com: Cowboy Crusher Central Wyomings Grassroots Gravel Event A..."
+      },
+      {
+        "url": "https://cowboycrush.itsyourrace.com/",
+        "category": "community",
+        "label": "cowboycrush.itsyourrace.com"
+      },
+      {
+        "url": "https://www.cowboycrusher.com/faqs",
+        "category": "community",
+        "label": "cowboycrusher.com: Faqs"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/21659",
+        "category": "community",
+        "label": "gravel-results.com: 21659"
+      },
+      {
+        "url": "https://bluegraycrit.itsyourrace.com/Results.aspx?id=16089",
+        "category": "community",
+        "label": "bluegraycrit.itsyourrace.com: Results.Aspx"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/21086",
+        "category": "community",
+        "label": "gravel-results.com: 21086"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

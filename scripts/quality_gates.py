@@ -85,6 +85,18 @@ SLOP_PHRASES_MULTI = [
     "I don't have personal",
     "based on my training",
     "delve into",
+
+    # Performative snark (banned punchline patterns)
+    "probably doing real races",
+    "isn't your sport",
+    "isn't exactly",
+    "not exactly",
+    "nobody's traveling from",
+    "no one's traveling from",
+    "staying awake driving",
+    "bragging rights and total destruction",
+    "suffering without annihilation",
+    "bigger problems than",
 ]
 
 # Single-word slop: matched with word boundaries (\bword\b) to prevent
@@ -104,6 +116,10 @@ SLOP_WORDS_SINGLE = [
     "arguably",
     "perhaps",
     "world-class",
+    "legitimate",
+    "legitimately",
+    "genuine",
+    "genuinely",
 ]
 
 # Domain allowlist: if these words appear near a slop word, suppress the flag.
@@ -115,6 +131,10 @@ DOMAIN_ALLOWLIST = {
     "comprehensive": ["coverage", "insurance"],
     "world-class": ["field", "athletes", "pros", "riders"],
     "perhaps": [],  # always flag
+    "legitimate": [],  # always flag — it's a crutch qualifier
+    "legitimately": [],  # always flag
+    "genuine": [],  # always flag — it's a crutch qualifier
+    "genuinely": [],  # always flag
 }
 
 

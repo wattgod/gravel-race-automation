@@ -253,9 +253,37 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Three-day event in regional Victoria means accommodation books fast and costs real money, but no specific logistics details available in the research. 1000 riders descending on Beechworth requires serious coordination that either works seamlessly or creates expensive chaos. You're trusting local organizers with your weekend and wallet."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "93 miles hits proper gravel distance with smart flexibility built in. Ben Kraus notes the 90km and 115km routes split at Chiltern, letting fatigued riders drop to shorter distance mid-ride: \"All the routes come back together for the finish, so you might be riding with people who have done 115km and 90km and 45km.\""
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Up to 60km of gravel on the full route includes varied surfaces from Mount Stanley's red-clay hard-pack through sub-alpine rainforest to the granitic roads of Pilot and Barambogie forests described as \"faster than bitumen.\" Grass sections through private farmland break up long gravel stretches."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8000 feet over 93 miles delivers nearly 90 feet per mile through North East Victoria's High Country terrain. Mount Stanley's winding climbs and the undulating private farm lanes provide sustained vertical that will separate strong riders from the optimistic."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "April in Victoria's High Country means shoulder season weather gambles. Mount Stanley's red-clay hard-pack becomes unrideable when wet, and sub-alpine conditions add unpredictability to what could be perfect autumn riding or cold misery."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "High Country location provides elevation gain from gradient, not thin air. If you train at sea level, the climbs will test your legs more than your lungs - oxygen won't be the limiting factor on Mount Stanley."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Private farm lanes and bush tracks deliver terrain you can't access solo, including the famed 'Champagne de Pilot' gravel sector. Lewis Ciddor notes \"(The Classic) can really be whatever you want it to be as a rider\" across the varied surfaces and exclusive access."
+      },
       "prestige": {
         "score": 3,
-        "explanation": "A regional Australian event that caps at 1000 riders and explicitly calls itself 'strictly podium free' isn't chasing international clout. It's a love letter to dirt roads by local riders for gravel nerds who care more about the terrain than Instagram posts. Zero prize money means zero ego, which keeps it honest but also keeps it off the world stage."
+        "explanation": "Regional Australian event that's explicitly \"not a competition\" with no podiums attracts riders seeking dirt roads over Instagram posts. MAAP ultra-endurance rider Lewis Ciddor's participation suggests growing credibility among serious gravel athletes, but it's not chasing international recognition."
       },
       "race_quality": {
         "score": 3,
@@ -267,7 +295,7 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Built by local riders as a celebration of participation over competition - no podiums, no prizes, just connection and fun across multiple days. That philosophy attracts the right kind of gravel heads who care about the dirt more than the drama. But 1000 riders over three days in regional Victoria means you're either getting intimate or scattered thin."
+        "explanation": "Started as Ben Kraus's local \"Tour de Beechworth\" winter ride to watch Tour de France at the brewery with French dinner. Now 1,300 riders with no podiums, just \"good riding and good people\" in what organizers call \"a riding weekender for anyone and everyone.\""
       },
       "field_depth": {
         "score": 2,
@@ -275,39 +303,11 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Three days of riding across private farm lanes and exclusive terrain you can't access solo sounds decent for the experience collector. But without knowing entry fees, accommodation costs, or what's actually included, you're flying blind on the money math. Regional Australia isn't cheap, and gravel tourism adds up fast."
+        "explanation": "Three days of exclusive terrain access plus entertainment from roving bands to hilltop DJ sets creates a festival experience. Routes interconnect allowing distance flexibility, and Bridge Road Brewers provides substantial food upgrades over typical gravel events. No pricing data available."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Flying to regional Victoria from anywhere costs real money, and three days of lodging in Beechworth during a cycling event won't be backpacker rates. No entry fee data available, but the multi-day format with exclusive terrain access suggests they're not giving this away. Budget accordingly or stay home."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "93 miles is proper gravel distance - long enough to hurt, short enough to finish without bivouacking. Multiple distance options from 15km to 115km means you can choose your suffering level, but the main event hits that sweet spot where fitness matters and weakness gets exposed. Real distance for real riders."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Mix of dirt roads, bush tracks, fire roads, and private farm lanes through varied terrain suggests moderate technical demands without full mountain bike requirements. The granitic roads through Pilot forest are described as fast, while Mount Stanley's red-clay climbs will test bike handling when wet. Sounds rideable on normal gravel setups without heroics."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "8000 feet over 93 miles puts you at nearly 90 feet per mile - that's legitimate climbing that will separate the strong from the delusional. Mount Stanley and the High Country terrain deliver real vertical gain, not rolling hills masquerading as mountains. Your legs will know the difference."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "April in North East Victoria's High Country means shoulder season weather that could swing from perfect autumn conditions to cold, wet misery. Red-clay hard-pack becomes unrideable slop when wet, and sub-alpine rainforest climate adds unpredictability. Weather gamble that could make or break your weekend."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "High Country location suggests some elevation but nothing approaching altitude sickness territory. Mount Stanley climbs will test your lungs more from gradient than thin air. If you train at sea level, the hills will hurt but oxygen won't be your limiting factor."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Three-day event in regional Victoria means accommodation books fast and costs real money, but no specific logistics details available in the research. 1000 riders descending on Beechworth requires serious coordination that either works seamlessly or creates expensive chaos. You're trusting local organizers with your weekend and wallet."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Private farm lanes, exclusive bush tracks, and terrain you can't access solo delivers legitimate adventure for the access collector. Riding through sub-alpine rainforest and granitic forest roads sounds genuinely unique compared to your local gravel loops. But adventure depends on execution, and without detailed rider reports, you're gambling on the locals' promises."
+        "explanation": "Regional Victoria accommodation during cycling weekend costs serious money, and three-day format with brewery dinners and entertainment adds up. Travel to Beechworth from anywhere requires planning, but specific entry fees and package costs remain unavailable for budget planning."
       }
     },
     "citations": [
@@ -315,6 +315,16 @@
         "url": "https://ridewithgps.com/routes/46113189",
         "category": "route",
         "label": "RideWithGPS: MAAP Beechworth Granite Classic"
+      },
+      {
+        "url": "https://flowmountainbike.com/post-all/beechworth-granite-classic-2025/",
+        "category": "community",
+        "label": "flowmountainbike.com: Beechworth Granite Classic 2025"
+      },
+      {
+        "url": "https://events.humanitix.com/maap-beechworth-granite-classic-2024",
+        "category": "community",
+        "label": "events.humanitix.com: Maap Beechworth Granite Classic 2024"
       }
     ]
   }

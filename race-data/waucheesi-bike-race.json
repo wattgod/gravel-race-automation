@@ -252,6 +252,34 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Multiple conflicting distance listings across platforms and no confirmed 2026 start time reveal organizational gaps. Start location at 105 Depot St is clear enough, but missing details on parking, packet pickup, and basic race infrastructure suggest thin operational support. Remote Tellico Plains location limits backup options when things go sideways."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "75 miles hits the sweet spot for serious gravel without requiring full century commitment. Multiple distance options from 25 to 100 miles accommodate different ambitions, though the conflicting information across platforms makes it unclear what you're actually signing up for. Solid middle-distance option if you can figure out which version is real."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Appalachian gravel through Tellico Plains terrain suggests legitimate technical challenges without extreme exposure. The 5000 feet of elevation gain over 75 miles indicates sustained climbing rather than flat cruise control. No specific course details available, but this region doesn't do easy - expect real gravel, not paved paths with dirt shoulders."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The 88-mile 'Wily' route delivers 11,500+ feet of climbing while the 63-mile 'Wondrous' option packs 8,800+ feet of elevation gain. Even the shortest 45-mile route climbs 4,100 feet through Bald River terrain. These are substantial elevation totals that will test climbing endurance across all distance options."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late March timing in Tennessee Appalachians catches transition season weather where conditions remain unpredictable. The mandatory lighting requirement for 88-mile riders reaching rest stop 4 after 6:00 PM acknowledges potential for finishing in darkness. Sunset cutoff times add weather-dependent pressure to pacing strategies."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Tellico Plains starts around 1000 feet and even the highest Appalachian climbs in the area stay well under 4000 feet. This is elevation gain, not altitude - your sea-level lungs won't notice any difference. Save the altitude training for Colorado; this is just regular earth-gravity suffering."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Tellico Plains puts you in legitimate Appalachian territory where cell service gets spotty and the mountains feel real. 75 miles with 5000 feet of climbing through this terrain will test you properly without requiring expedition-level preparation. The operational uncertainty adds unintended adventure - you never know what version of the race you'll actually get."
+      },
       "prestige": {
         "score": 2,
         "explanation": "Gets called a 'legendary Sportive' by some calendars, but that's Tennessee gravel marketing talking. Shows up alongside regional events like Rust Buster and Gosh Darn - solid company but hardly the big leagues. No notable pro winners or major coverage found, which tells you everything about where this sits in the gravel hierarchy."
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Tellico Plains isn't exactly a destination town, so lodging costs should stay reasonable compared to tourism hotspots. Remote location means you're driving regardless, but at least you're not paying Asheville hotel prices. The operational uncertainty might mean fewer amenities, which could save or cost you depending on your expectations."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "75 miles hits the sweet spot for serious gravel without requiring full century commitment. Multiple distance options from 25 to 100 miles accommodate different ambitions, though the conflicting information across platforms makes it unclear what you're actually signing up for. Solid middle-distance option if you can figure out which version is real."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Appalachian gravel through Tellico Plains terrain suggests legitimate technical challenges without extreme exposure. The 5000 feet of elevation gain over 75 miles indicates sustained climbing rather than flat cruise control. No specific course details available, but this region doesn't do easy - expect real gravel, not paved paths with dirt shoulders."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "5000 feet over 75 miles delivers serious climbing without being purely masochistic. That's nearly 70 feet per mile average, meaning you're either grinding sustained climbs or hitting some legitimate walls. Tellico Plains sits in proper Appalachian country where the mountains don't apologize - this will test your climbing legs thoroughly."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Late March in Tennessee Appalachians is weather roulette - could be perfect spring conditions or freezing rain nightmare. No historical weather data found, but this timing catches the transition season when mountain weather gets unpredictable. The elevation changes on course add another variable to an already uncertain climate equation."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Tellico Plains starts around 1000 feet and even the highest Appalachian climbs in the area stay well under 4000 feet. This is elevation gain, not altitude - your sea-level lungs won't notice any difference. Save the altitude training for Colorado; this is just regular earth-gravity suffering."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Multiple conflicting distance listings across platforms and no confirmed 2026 start time reveal organizational gaps. Start location at 105 Depot St is clear enough, but missing details on parking, packet pickup, and basic race infrastructure suggest thin operational support. Remote Tellico Plains location limits backup options when things go sideways."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Tellico Plains puts you in legitimate Appalachian territory where cell service gets spotty and the mountains feel real. 75 miles with 5000 feet of climbing through this terrain will test you properly without requiring expedition-level preparation. The operational uncertainty adds unintended adventure - you never know what version of the race you'll actually get."
+        "explanation": "Tellico Plains location keeps lodging costs reasonable compared to major tourism destinations in the region. The bakery venue provides convenient packet pickup and post-race food options within walking distance. Remote Appalachian location means driving regardless of origin, but avoids premium pricing of popular gravel destinations."
       }
     },
     "citations": [
@@ -314,6 +314,21 @@
         "url": "https://ridewithgps.com/routes/38315398",
         "category": "route",
         "label": "RideWithGPS: Waucheesi Bike Race 63 mile (copy)"
+      },
+      {
+        "url": "https://rapidexpeditions.com/waucheesi-bike-race.html",
+        "category": "community",
+        "label": "rapidexpeditions.com: Waucheesi Bike Race.Html"
+      },
+      {
+        "url": "https://thewaucheesi2025.itsyourrace.com/",
+        "category": "community",
+        "label": "thewaucheesi2025.itsyourrace.com"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10043/the-waucheesi-bike-race",
+        "category": "community",
+        "label": "granfondoguide.com: The Waucheesi Bike Race"
       }
     ]
   }

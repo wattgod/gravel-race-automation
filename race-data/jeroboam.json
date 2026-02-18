@@ -43,13 +43,41 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Milan-area airports provide access to Erbusco, Lombardy with free camping at the event village. Paul Errington describes firing up the route at the airport: \"12,000m of climbing! I messaged Uggi from AltomCykling.dk to ask about this crazy number.\" Wine country accommodation runs $100-600/night, making this a multi-day commitment in Italy's premier sparkling wine region."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The 300km flagship distance earned its brutal reputation through rider experience. Elite rider Paul Errington needed 21 hours to finish, noting \"it was obvious that Jeroboam 300 was a serious undertaking.\" Dave Arthur's 150km took \"9 hours (8 hrs 15 mins ride time; I had to stop for photos and snacks).\" The new 600km Mathusalem pushes into true ultra territory."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Paul Errington describes \"long tarmac climbs, rough descents, singletrack and gravel\" where \"no one rider or bike would have a distinct advantage.\" At 80km riders \"descended back down on a rocky cart track where a mountain bike would have been at home.\" Jack Luke encountered \"off-camber singletrack\" described as \"low risk, high consequence\" that ended his partner's attempt."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "A savage 7,000m+ (23,000ft) of climbing on the 300km, with 1,200m gained in just the first 30km. The Dolomites edition pushes to 10,000m. The Mathusalem 600km features 14,500m. This is alpine warfare."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Northern Italian autumn brings variable conditions - fog, mist, thunderstorms, and rain are common. Cold wet night riding is virtually guaranteed. Weather has repeatedly 'added an unpredictable layer' to the suffering."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Routes traverse the Lombard Prealps with alpine road climbs. While not at extreme altitude, the continuous climbing through 3,000-6,000ft terrain affects performance over 20+ hours."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Absolute bucket list material. Mandatory night riding through alpine passes, watching sunrise after 20+ hours of suffering, circumnavigating Lake Iseo, passing through legendary Franciacorta vineyards. The wine bottle naming, 3T heritage, and 'world's toughest gravel' reputation create an unforgettable experience."
+      },
       "prestige": {
         "score": 4,
         "explanation": "Legendary status in the ultra-gravel community as arguably 'the world's toughest gravel ride.' Backed by 3T's Gerard Vroomen and embodying the brand's gravel philosophy. However, no UCI or major series affiliation limits global recognition outside dedicated ultra circles."
       },
       "race_quality": {
         "score": 4,
-        "explanation": "Professional organization by REVERB Cycling and 3T. GPS tracking on 300km, structured aid stations with gate closures, quality event village with camping, and well-planned checkpoints. The 'not a race' philosophy is executed authentically."
+        "explanation": "Professional organization includes aid stations where riders find \"some pasta and a hot chocolate\" at mountain refuges. The event provides \"aid stations along the way for food, drinks and technical support, but you should be self-sufficient.\" GPS tracking on 300km distances and structured checkpoints support the 24-hour format, though route conflicts occasionally arise."
       },
       "experience": {
         "score": 5,
@@ -65,39 +93,11 @@
       },
       "value": {
         "score": 4,
-        "explanation": "EUR 100-110 for the 300km is remarkably reasonable for an ultra-endurance event with GPS tracking, organic shirts, aid stations, and 24-hour support. The experience delivered significantly exceeds the entry fee."
+        "explanation": "EUR 100-110 entry fees provide access to \"aid stations along the way for food, drinks and technical support\" plus GPS tracking on 300km distances. The festival atmosphere includes \"much more than a race, it's a celebration of all things cycling\" with expo and events. Considering 20+ hours of support infrastructure and Italian wine country access, the value proposition delivers significantly."
       },
       "expenses": {
         "score": 2,
         "explanation": "The entry is cheap; everything else is not. International flights to Italy, 3-4 nights in wine country accommodation ($100-600/night), meals, and bike logistics easily push total trip costs to $1,500-2,500+ for North American riders."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "The flagship 300km (186 miles) Jeroboam distance is true ultra territory, with a new 600km Mathusalem option for the certifiably insane. Even the 'Magnum' at 150km is substantial."
-      },
-      "technicality": {
-        "score": 5,
-        "explanation": "This is MTB terrain masquerading as gravel. Unrideable hike-a-bike sections, 30% gradients, Roman cobbles, sweet singletrack, and loose rock descents. Riders consistently surprised by how technical it actually is."
-      },
-      "elevation": {
-        "score": 5,
-        "explanation": "A savage 7,000m+ (23,000ft) of climbing on the 300km, with 1,200m gained in just the first 30km. The Dolomites edition pushes to 10,000m. The Mathusalem 600km features 14,500m. This is alpine warfare."
-      },
-      "climate": {
-        "score": 4,
-        "explanation": "Northern Italian autumn brings variable conditions - fog, mist, thunderstorms, and rain are common. Cold wet night riding is virtually guaranteed. Weather has repeatedly 'added an unpredictable layer' to the suffering."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "Routes traverse the Lombard Prealps with alpine road climbs. While not at extreme altitude, the continuous climbing through 3,000-6,000ft terrain affects performance over 20+ hours."
-      },
-      "logistics": {
-        "score": 4,
-        "explanation": "International travel to Italy required for most participants. Milan-area airports are accessible, but it's a multi-day commitment in a wine country region. Free camping available, but quality accommodation runs $100-600/night."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Absolute bucket list material. Mandatory night riding through alpine passes, watching sunrise after 20+ hours of suffering, circumnavigating Lake Iseo, passing through legendary Franciacorta vineyards. The wine bottle naming, 3T heritage, and 'world's toughest gravel' reputation create an unforgettable experience."
       }
     },
     "distances": [
@@ -381,6 +381,31 @@
         "url": "https://www.winespectator.com/articles/how-did-jeroboam-wine-bottle-get-its-name-56204",
         "category": "other",
         "label": "Winespectator"
+      },
+      {
+        "url": "https://road.cc/offroad/content/feature/riding-and-surviving-the-jeroboam-a-tough-as-nails-gravel-race-in-italy-4258",
+        "category": "community",
+        "label": "road.cc: Riding And Surviving The Jeroboam A Tough As Nails Gravel..."
+      },
+      {
+        "url": "https://rawcyclingmag.com/jeroboam-gravel-czechia-2023/",
+        "category": "community",
+        "label": "rawcyclingmag.com: Jeroboam Gravel Czechia 2023"
+      },
+      {
+        "url": "https://road.cc/content/tech-news/266890-fulcrum-rapid-red-5-db-gravel-wheels-150km-first-ride-review-jeroboam",
+        "category": "community",
+        "label": "road.cc: 266890 Fulcrum Rapid Red 5 Db Gravel Wheels 150Km First R..."
+      },
+      {
+        "url": "https://en.365mountainbike.it/news/Jeroboam-Gravel-Series-2026-returns--the-gravel-experience-that-unites-territories--culture--and-adventure./",
+        "category": "community",
+        "label": "en.365mountainbike.it: Jeroboam Gravel Series 2026 Returns  The Gravel Experienc..."
+      },
+      {
+        "url": "https://3t.bike/blogs/news/jeroboam-last-chance-to-enter",
+        "category": "community",
+        "label": "3t.bike: Jeroboam Last Chance To Enter"
       }
     ],
     "logistics": {

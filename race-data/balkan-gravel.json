@@ -252,63 +252,89 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "There's some confusion whether this is even the right race name - search results only turn up the Trans Balkan Race, a 1400km monster that's completely different from this 65-mile event. No notable pros, no race coverage, no rider quotes in the results. The Balkans might be exotic to Western riders, but anonymity doesn't equal prestige."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Can't judge what I can't find. The research dump shows no specific course details, no aid station strategy, no field management info for this particular event. If it's borrowing from the Trans Balkan Race's reputation, that's 82% off-road through the Dinaric Alps - solid terrain, but organization details are ghost town."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Slovenia to Croatia through karstic landscapes and white gravel roads hits different than your typical gravel fare. The Dinaric Alps backdrop and cross-border element adds legitimate adventure points. Just don't expect hand-holding - the region's reputation for 'raw and wild' experiences seems earned."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "The Balkan gravel scene is emerging but tight-knit from what's visible. Trans Balkan Race describes itself as 'Balkan Party!' which suggests the regional vibe leans social. Small field sizes typically mean you know everyone by name, though no specific community details surfaced in research."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "Field size unavailable in research, no mention of competitive depth or notable finishers. Regional European events this length typically pull local enthusiasts rather than international talent. The logistics barrier of getting to Slovenia/Croatia keeps the serious racers focused elsewhere."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "If it follows Trans Balkan Race pricing at €350, that's reasonable for a cross-border European event. You're paying for terrain access and the novelty of racing through less-traveled gravel territory. Exchange rates and travel costs are the real budget killers, not entry fees."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Slovenia/Croatia means international travel for most riders, with no clear airport logistics mentioned in research. Lodging strategy unclear, parking situation unknown - classic smaller race organization gaps that cost you time and money figuring out yourself. Budget for problem-solving."
+        "explanation": "Martin Moschek planned \"6 days for the route\" but kept \"a maximum of 9 days at my disposal\" because he didn't \"know the area or all the challenges.\" Cross-border Slovenia/Croatia adds passport complexity, and Golo notes route planning difficulties since \"maps do not allow reliable conclusions about road condition.\""
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles sits in the sweet spot - long enough to hurt, short enough to race hard rather than just survive. It's a proper day in the saddle without the multi-day logistics nightmare of the region's longer events. Good distance for testing yourself without the full suffer-fest commitment."
+        "explanation": "At 65 miles, this sits in the sweet spot for a day race rather than the region's multi-day epics. Golo's recreational touring pace averaged 68-113km daily over 8 days on longer Balkan routes, suggesting this distance allows racing hard without survival logistics."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Research shows 82% off-road terrain through karstic landscapes but notes it's 'designed for endurance, not tricks.' White gravel roads and mountain trails suggest grinding over technical skills. The Dinaric Alps setting promises some bite, but this isn't a handling clinic."
+        "explanation": "Golo describes terrain that \"offered everything from perfect asphalt to washboard to coarse gravel.\" The surface mix emphasizes grinding over technical skills - Martin Moschek's Komoot data shows 81.5km natural surface and 322km loose surface across similar Balkan routes."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4500 feet across 65 miles through the Dinaric Alps is legitimate climbing without being sadistic. The karstic terrain means sharp ups and downs rather than one big mountain pass. Enough elevation to separate the climbers from the pretenders, but won't destroy your legs completely."
+        "explanation": "4500 feet across 65 miles delivers solid climbing without the sadistic ratios of longer Balkan events. Martin Moschek notes regional routes average \"2,000 metres of elevation gain per 100 km\" - this falls well below that punishing standard while still separating climbers."
       },
       "climate": {
         "score": 3,
-        "explanation": "Research mentions 'extreme temperature swings up to 20°C in hours' for the region's longer races. The Slovenia/Croatia border area serves up weather variety - from flourishing muddy forests to lunar karst landscapes. Plan for anything, which keeps it interesting but manageable."
+        "explanation": "Golo experienced \"a heavy rain shower\" and \"problematic weather\" requiring route changes during his June ride. The Slovenia/Croatia border region serves up variety - riders plan for rain contingencies and temperature swings without extreme conditions."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Starting elevation and max altitude unavailable in research results. Slovenia's karst plateau runs moderate elevations, not the high-altitude suffering of Alpine events. The Dinaric Alps backdrop suggests some legitimate climbing, but nothing approaching oxygen debt territory."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Nearest airport unknown, lodging strategy unavailable, parking situation unclear - classic small race information gaps. Cross-border Slovenia/Croatia adds passport complexity most gravel races skip. You're flying blind on basic logistics, which means planning headaches and higher costs sorting it yourself."
+        "explanation": "Golo hit \"the highest point at almost 900m altitude\" through Kozana National Park on similar regional routes. The 1180m Karaula Pass represents typical elevations - enough climbing to matter without approaching high-altitude territory."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Cross-border racing through 'exotic other Europe' delivers on the adventure promise. Karstic landscapes, white gravel roads, and the Dinaric Alps setting beats another corn field loop. The research describes it as 'raw and wild' - probably marketing speak, but the terrain backs it up."
+        "explanation": "Golo describes riding \"through completely uninhabited territory\" where \"before the war there were a few places of which only ruins remain - now there is only nature and lots of it.\" Cross-border racing through karstic landscapes delivers adventure beyond typical gravel fare."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The field includes elite names like Leanne Bentley and Benedek Borsos, but this appears connected to the longer Trans Balkan Race rather than establishing independent prestige. Regional Balkan events are growing but lack the international recognition of established European races."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "With 160 riders signed up for related regional events, there's organizational infrastructure, but specific details for this 65-mile format remain unclear. The longer Trans Balkan Race provides proven course management through challenging terrain."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Tenul found locals \"very friendly\" and managed communication \"quite well without English or German\" with mountain farmers. Golo notes \"very cheap compared to EU, friendly people\" and \"surprisingly large uninhabited areas by European standards.\""
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The regional Balkan gravel scene draws 160 riders including elite talent like Tour Divide winner Justinas Leveika and Jenny Tough. Golo describes excellent \"price/performance ratio\" with \"apartments from 18 euros upwards\" fostering an accessible community atmosphere."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "While elite riders like Valerio Cecchi and Jochen Böhringer participate in regional Balkan events, the specific competitive depth for this 65-mile format remains unclear. The broader Trans Balkan Race attracts international talent but over vastly different distances."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Following regional pricing at €350, this delivers solid value for cross-border European gravel racing. Golo emphasizes the economic advantage: \"very cheap compared to EU\" with quality accommodation from \"18 euros upwards\" keeping total costs reasonable."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "International travel to Slovenia/Croatia plus cross-border logistics create the main expense burden. Elite setups like Valerio Cecchi's custom Miss Grape bags and dynamo lighting systems suggest equipment costs can escalate, though basic participation remains accessible."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.biketour-global.de/en/2024/05/26/my-next-adventure-trans-balkan-race-2024/",
+        "category": "community",
+        "label": "biketour-global.de: My Next Adventure Trans Balkan Race 2024"
+      },
+      {
+        "url": "https://bikeboard.at/forum/topic/262848-balkan-gravel/",
+        "category": "community",
+        "label": "bikeboard.at: 262848 Balkan Gravel"
+      },
+      {
+        "url": "https://bikeboard.at/forum/topic/262848-balkan-gravel/page/2/",
+        "category": "community",
+        "label": "bikeboard.at: 2"
+      },
+      {
+        "url": "https://bikepacking.com/bikes/rigs-of-the-2025-trans-balkan-race/",
+        "category": "community",
+        "label": "bikepacking.com: Rigs Of The 2025 Trans Balkan Race"
+      },
+      {
+        "url": "https://dotwatcher.cc/feature/bikes-of-trans-balkans-race-2024",
+        "category": "community",
+        "label": "dotwatcher.cc: Bikes Of Trans Balkans Race 2024"
+      }
+    ]
   }
 }

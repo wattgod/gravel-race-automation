@@ -252,33 +252,9 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This thing launched in 2024 and already had to move from September to October in year two. No pro field, no prize purse, no race history worth mentioning. When your main selling point is sharing roads with GravelNats rather than being GravelNats, you're the opening act, not the headliner."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "Professional timing and four distance options starting from The Wieser Farm sound competent, but this is still a baby event finding its legs. They promise 'best gravel riding in the Midwest' but can't nail down consistent race dates or provide basic course details. Good bones, zero track record."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Post-ride food and drinks with local business support hits the right notes for community vibes. The coulee terrain and ridge gravel could deliver scenic payoff, but starting with a mile of paved climbing feels like amateur hour route design. You're paying to be a beta tester for someone's good intentions."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Supporting local causes and partnering with Hokah businesses shows genuine community integration beyond just dropping a race on the map. The 'novices to seasoned racers' welcome suggests inclusive vibes, but when you're this new and small, community is more aspiration than reality."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Zero data on field size, no notable finishers, no competitive depth worth documenting. This is a participation ribbon event where your biggest competition is probably the guy who brought his mountain bike. When you can't even find DNF rates, the field isn't deep enough to drown in."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Four distance options, professional timing, food, drinks, and supporting local causes for an undisclosed but presumably reasonable entry fee delivers solid bang for buck. You're getting a legitimate organized event experience without the premium pricing of established races. Sometimes being nobody's first choice makes you everybody's good deal."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Hokah isn't exactly a destination requiring flights and resort bookings, so you're looking at modest Midwest travel costs. Local lodging in a 'super cool little town' probably won't break the bank, and four distance options mean you can match your suffering to your budget. No airport shuttle drama, no $300/night race weekend hotel gouging."
+        "explanation": "Ian Breitlow, who has \"done so many grassroots events in the Midwest,\" calls this \"#1 for quality and hospitality\" citing \"hot coffee and pastries in the morning\" and \"super clean, not-porta potty bathrooms.\" Eric Cleveland noted \"Maps were a bit wonky\" and Carolyn Franzone got lost on the shake-out ride due to cue sheet errors."
       },
       "length": {
         "score": 2,
@@ -286,7 +262,7 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Coulee terrain with ridge gravel suggests some legitimate technical elements, but the 'a little bit of everything' description screams vanilla difficulty. One mile of paved climbing to start isn't technical, it's just annoying. Without specific course breakdowns, assume it's challenging enough to matter but not enough to scare the newcomers they're courting."
+        "explanation": "All routes start with \"one mile of paved climb\" before reaching gravel on the ridge, then descend the same paved section to finish. Kevin Huang summarized it as \"Really mfn hard, really hilly\" while Mark Lee noted the 40-mile had \"great versatile terrain.\" The Driftless region delivers rolling hills, farms, and wooded descents."
       },
       "elevation": {
         "score": 2,
@@ -294,19 +270,43 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "September to October date shifts suggest they're still figuring out optimal weather windows in southeast Minnesota. Fall in the upper Midwest means you could get perfect crisp conditions or freezing rain hellscape with equal probability. No historical weather data because this race has no history."
+        "explanation": "Uriah Matznick suffered a mechanical DNF at mile 40 of the 100-mile course, highlighting the self-supported nature where riders must \"bring some sort of tire plug, inner tube, and Co2.\" The race warns \"There will not be any mechanical support on the road, you are responsible for arranging a ride if you have issues.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Driftless region means you're looking at 800-1400 feet elevation in southeast Minnesota. This is sea level racing for anyone who doesn't live in a swamp. Zero altitude considerations, zero training adjustments needed, zero excuses available."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Starting and finishing at The Wieser Farm provides a clear hub, but the lack of basic details like start times, parking, or packet pickup suggests logistical amateur hour. Being two miles from gravel via a paved climb indicates poor venue selection or lazy route planning. Simple doesn't always mean smooth."
+        "explanation": "Southeast Minnesota's Driftless region sits at typical elevations of 800-1400 feet with no altitude training considerations. The paved climb to reach gravel on the ridge represents standard Midwest topography rather than any meaningful elevation challenge."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Coulee terrain and 'best gravel riding in the Midwest' promises some scenic payoff, but this reads more like a nice Sunday ride than an adventure. Four distance options and novice-friendly positioning suggest they've sanded off the rough edges that make things interesting. Sometimes predictable is what you need, sometimes it's what you're settling for."
+        "explanation": "Leslie Johnson enjoyed \"a true gravel experience highlighting MN rolling farmland, barns and bluff views\" while Jeanne Fricke called it \"one of the prettiest rides I've ever done.\" The Driftless terrain offers \"spectacular views\" with \"wide open to wooded descents\" and minimal pavement once riders reach the ridge system."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Ryan Greene, who \"raced all over this year everything from Midsouth to Montana to Steamboat,\" noted \"the only thing lacking was some organization and that big finish line feel\" compared to established events. The race caps at 300 riders and launched in 2024, building grassroots reputation rather than national recognition."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Colin Timm praised the \"perfect blend of casual community riding and competitive racing\" while Keith Rust would \"give it a 10\" if the scale went higher than 5. Ryan Greene ranked it among his \"fav races of the year\" despite noting minor organizational gaps typical of a second-year event finding its footing."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "The farm venue provides a \"cool old structure with a rustic feel\" barn as event center with post-ride \"food, drink, and hangs with new friends.\" Erin Sullivan appreciated being able to \"sleep in my car in the pasture\" due to high hotel costs, while Phil Solberg had a \"great experience\" for his first gravel ride."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Race Director Paul Reardon emphasizes inclusivity: \"if you want to come challenge yourself, or just go for a ride with other rad people, make new friends, eat, drink, and laugh, that's what it is all about!\" Entry fees support local causes and the event partners with Hokah businesses for food and hydration."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "The 100-mile field shows modest competitive depth with winners around 4:44 and mid-pack finishing 2-3 hours later. Brian Werner's enthusiastic but generic review (\"the venue was great, the route was great, the vendors were great\") reflects a friendly participation-focused field rather than serious racing depth."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Four distance options, professional timing, food, drinks, and supporting local causes for an undisclosed but presumably reasonable entry fee delivers solid bang for buck. You're getting a legitimate organized event experience without the premium pricing of established races. Sometimes being nobody's first choice makes you everybody's good deal."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Hokah represents modest Midwest travel costs with car camping available in the farm pasture as Erin Sullivan utilized. Local business partnerships for food and lodging in what organizers call a \"super cool little town\" keep costs reasonable compared to destination race weekend gouging."
       }
     },
     "citations": [
@@ -314,6 +314,36 @@
         "url": "https://ridewithgps.com/routes/51864673",
         "category": "route",
         "label": "RideWithGPS: Old Fashioned Gravel (Winnie Cooper) "
+      },
+      {
+        "url": "https://www.raceentry.com/old-fashioned-gravel/race-reviews",
+        "category": "community",
+        "label": "raceentry.com: Race Reviews"
+      },
+      {
+        "url": "https://www.oldfashionedgravel.com/",
+        "category": "community",
+        "label": "oldfashionedgravel.com"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/everything-you-need-to-know-about-the-new-old-fashioned-gravel-race-this-october",
+        "category": "community",
+        "label": "thenxrth.com: Everything You Need To Know About The New Old Fashioned G..."
+      },
+      {
+        "url": "https://www.gravel-results.com/race/23253",
+        "category": "community",
+        "label": "gravel-results.com: 23253"
+      },
+      {
+        "url": "https://oldfashionedgravel.com/routes/butter-valley-20",
+        "category": "community",
+        "label": "oldfashionedgravel.com: Butter Valley 20"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/everything-you-need-to-know-about-the-new-old-fashioned-gravel-race-this-quarter",
+        "category": "community",
+        "label": "thenxrth.com: Everything You Need To Know About The New Old Fashioned G..."
       }
     ],
     "results": {

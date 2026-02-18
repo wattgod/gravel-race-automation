@@ -252,63 +252,69 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "It's a UCI Gravel World Series qualifier, which sounds impressive until you realize there are 45 of these things in 2026. Being part of the South American expansion is nice for regional riders, but this is a debut event with zero race history. No notable winners, no pro field data, no reputation beyond 'new UCI event in Colombia.'"
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Hard to judge quality when there's literally no information on course design, aid stations, or cutoff times. Registration opened January 1st, which is professional, but that's about all we know about organization. The UCI backing suggests baseline competence, but debut events are always a gamble on execution."
-      },
-      "experience": {
-        "score": 4,
-        "explanation": "Racing gravel in the Colombian highlands near Bogotá is genuinely special terrain that most riders will never see otherwise. You're mixing with locals in Chía at serious altitude, part of a global series that puts amateurs alongside elites. The adventure factor alone makes this memorable, assuming they don't botch the logistics completely."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "It's run by the same team behind races in Brazil and Chile, so there's some South American gravel network happening. Being a UCI event means you'll get international riders mixing with the Colombian scene. But with no race history or rider testimonials, the actual community vibe is pure speculation."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "Zero data on field size, elite participation, or competitive depth. It's a Worlds qualifier, so serious riders will show up, but South American gravel fields tend to be smaller than European or US events. The altitude alone will thin out international participation from sea-level warriors."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "No entry fees listed, but Colombian races typically offer decent bang for buck compared to European UCI events. You're getting Worlds qualification potential and unique terrain access. The value equation depends entirely on costs they haven't announced yet and whether the experience delivers on the setting's promise."
-      },
-      "expenses": {
+      "logistics": {
         "score": 1,
-        "explanation": "Flying to Bogotá from anywhere outside South America is expensive, period. El Dorado International is your only realistic airport option, then you need lodging near Chía with zero guidance on packet pickup or logistics. Colombian peso might be favorable, but getting there and dealing with international travel logistics kills the budget."
+        "explanation": "Registration opened January 1st but no information available on parking, packet pickup, start times, or local logistics for the May 24, 2026 debut. International travel to Chía with zero guidance on race weekend operations from organizers who run events across Brazil and Chile."
       },
       "length": {
         "score": 3,
-        "explanation": "80 miles hits the sweet spot for serious gravel racing without being an ultra-endurance suffer-fest. It's long enough to separate the field and create real racing, short enough that strong riders from different backgrounds can compete. Standard distance for UCI events, nothing revolutionary but nothing wrong either."
+        "explanation": "80 miles hits the standard distance for UCI Gravel World Series events without being an ultra-endurance challenge. Long enough to create field separation and reward endurance, short enough that riders from different backgrounds can compete for Worlds qualification spots."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Colombian highland terrain around Chía suggests legitimate technical challenge, but there's zero specific course data available. No information on surface breakdown, key sectors, or technical features. The region's reputation implies real gravel and climbing, but I'm rating blind here on geographic assumptions."
+        "explanation": "Course details unpublished for the 2026 debut, but the Colombian highland terrain around Chía suggests technical gravel and climbing challenges. The region's elevation and geography imply surface variety beyond simple dirt roads."
       },
       "elevation": {
         "score": 3,
-        "explanation": "8,000 feet of climbing over 80 miles is solid but not extreme - exactly 100 feet per mile average. It's enough to create selection and reward climbing strength without becoming a pure mountaineer's race. Respectable elevation gain that matches the Colombian terrain without being gratuitously brutal."
+        "explanation": "8,000 feet of climbing over 80 miles averages 100 feet per mile, creating steady selection without extreme brutality. Respectable elevation gain that matches Colombian terrain expectations and will reward climbing strength throughout the race."
       },
       "climate": {
         "score": 3,
-        "explanation": "May in Bogotá typically offers dry season conditions, which is smart scheduling. No weather data specific to race day, but the region's climate is generally rider-friendly if you can handle the altitude. Unknown factors like wind patterns or temperature swings keep this from being higher."
+        "explanation": "May scheduling in Bogotá targets dry season conditions, smart planning for the highland climate. No race-specific weather data available, but the region typically offers stable conditions during this period if altitude doesn't affect performance."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting near Bogotá at 8,500 feet elevation makes this a legitimate high-altitude challenge that most gravel races can't match. The thin air will separate sea-level athletes from altitude-adapted riders immediately. It's a unique physiological challenge that defines the entire race experience, assuming you don't arrive and immediately feel like garbage."
-      },
-      "logistics": {
-        "score": 1,
-        "explanation": "Absolutely zero information available on parking, packet pickup, start times, or local logistics. International travel to a debut event with no guidance on where to stay near Chía or how race weekend works. The organizational silence is deafening for an event happening in months."
+        "explanation": "Starting at 2,564 meters (8,412 feet) in Chía makes this a serious high-altitude challenge that separates sea-level athletes immediately. The thin air creates a physiological hurdle most gravel races can't match, defining the entire race experience."
       },
       "adventure": {
         "score": 4,
-        "explanation": "Racing gravel in the Colombian highlands is legitimately adventurous terrain that delivers on the promise of going somewhere special. The altitude, international field, and South American location create real adventure factor beyond typical gravel racing. You're pioneering a new event in spectacular geography, which is what adventure is actually about."
+        "explanation": "Racing in the Colombian highlands near the historic 'Pueblo de la Luna' offers terrain most riders will never see otherwise. The combination of Muisca ceremonial grounds, colonial architecture, and high-altitude gravel creates adventure beyond typical race locations."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Part of the expanded 47-event UCI Gravel World Series offering Worlds qualification to top 25% finishers in each age group. Being among 16 new events added for South American growth is notable regionally, but it's a debut race with no competitive history."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Organized by the team behind UCI events in Medellín, Brazil, and Chile, suggesting operational experience across South American gravel racing. However, no published course details, aid station information, or cutoff times available for the May 2026 debut."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Racing gravel in the shadow of Peña de Juaica near historic Chía combines high-altitude challenge with cultural immersion. The setting blends pre-Columbian ceremonial sites with colonial architecture, creating a backdrop few gravel events can match."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Part of South American gravel expansion with the same organizers running events across the continent, building a regional network. UCI qualification format brings international riders to mix with Colombian gravel scene in an emerging market."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Worlds qualification potential attracts serious competitors, but South American gravel fields typically run smaller than European or US events. The 2,564-meter starting elevation will limit international participation from sea-level-based athletes."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "UCI Worlds qualification opportunity combined with access to unique Colombian highland terrain offers solid value proposition. No entry fees announced, but South American events typically price below European UCI races while delivering distinctive experiences."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "International flights to El Dorado Airport plus lodging near Chía with no logistical guidance creates expensive travel requirements. Getting to high-altitude Colombian gravel racing means significant costs for anyone outside South America, regardless of favorable peso exchange rates."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/gravel-bogota/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Gravel Bogota"
+      }
+    ]
   }
 }

@@ -257,63 +257,89 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "Part of the Canada Gravel Cup series, which sounds impressive until you realize it's basically the only game in town for Canadian gravel racing. The Back Forty Highlander is event #3 in the series, making it a regional fixture rather than a destination race. No pro field, no prize purse mentioned, no notable past winners on record."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "The course runs on roads not closed to traffic, meaning you're dodging cars on rural Ontario backroads for 62 miles. Multiple aid stations are promised but details are non-existent. The organization seems competent enough to keep it running annually, but there's nothing here that screams professional race management."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Finishing near the Mississippi River and a waterfall at Back Forty Artisan Cheese Farm is genuinely scenic. The post-ride meal gets specific mention in race coverage, suggesting they actually feed you properly. Rolling gravel roads through North Frontenac and Lanark Highlands beat strip malls and subdivisions."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "The Ontario gravel scene rallies around events like this, with the venue specifically noted for 'gorgeous' facilities and 'delicious post-ride meals.' Part of a broader provincial series that includes charity rides, suggesting actual community engagement rather than just corporate cycling. Small but committed local following."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Zero mention of competitive field, pro riders, or notable past winners. This is clearly a participation event where showing up puts you in contention for a podium spot. Regional Canadian gravel racing doesn't exactly draw the sport's elite."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "No entry fees listed in research, but Canadian gravel races typically run reasonable compared to US premium events. Multiple distance options (35km, 75km, 115km) let you pick your suffering level. Post-ride meal at an artisan cheese farm probably costs more than your entry fee at most races."
-      },
-      "expenses": {
-        "score": 4,
-        "explanation": "Mississippi Station, Ontario isn't exactly a tourist trap pricing market. Rural location means cheap lodging options, though you'll need to drive since there's no convenient airport access. The venue is the race expense highlight, not gouging participants on basics."
+        "explanation": "The race starts at Back Forty Artisan Cheese Farm on 1406 Gulley Road, but rider navigation issues plagued the 2025 event. Douglas Van Den Ham went off course and completed 79km instead of the full Epic distance, highlighting course marking deficiencies."
       },
       "length": {
         "score": 3,
-        "explanation": "62 miles hits the gravel racing sweet spot - long enough to matter, short enough to not require expedition planning. Three distance options mean beginners aren't forced into the full sufferfest. It's a proper day out without becoming a multi-day recovery project."
+        "explanation": "The Epic Course (108.5 km) produces competitive racing, with Michael Joannisse winning in 3:13:32 and the top 8 men finishing within 4:32 of each other. Three distance options accommodate different abilities, from 35km to the full Epic distance that tests endurance without requiring multi-day recovery."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Rolling gravel roads with 'challenging climbs' describes most of rural Ontario - nothing particularly technical about it. The terrain tests fitness more than bike handling skills. If you can ride gravel without crashing, you can handle this course."
+        "explanation": "Single lane treed gravel roads through challenging sections at Ranger Camp, North Shore, and Clarendon test bike handling skills. The marble-white roads from nearby Tatlock Quarry create a Strada Bianche aesthetic but don't demand advanced technical abilities beyond standard gravel competency."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3,500 feet over 62 miles is steady climbing without major peaks - think rolling resistance rather than Alpine suffering. The 'challenging climbs' mentioned are probably 8-10% grades that grind rather than explode legs. Respectable elevation for Eastern Canada but nothing approaching mountain territory."
+        "explanation": "Rolling hills through North Frontenac and Lanark Highlands create steady climbing rather than explosive ascents. The terrain features enough elevation to separate the field - Jennifer Stephenson's 26.47 km/h winning pace in the women's Epic shows the hills demand respect without approaching mountain territory."
       },
       "climate": {
         "score": 2,
-        "explanation": "Early September in rural Ontario means potentially anything - could be 70 and perfect or 45 and raining. No weather data available but the region's reputation for unpredictable conditions stands. Fall weather adds uncertainty without the guaranteed suffering of summer heat or winter cold."
+        "explanation": "The 2024 event experienced \"not ideal\" weather conditions that still allowed riders to have \"an amazing time\" according to race coverage. September in rural Ontario brings unpredictable conditions, with regional gravel events noting potential for muddy courses depending on rainfall."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Mississippi Station sits near sea level in the Canadian Shield - altitude is not a factor here whatsoever. If you're looking for thin air training, you picked the wrong continent. This is pure Ontario flatland with some rolling hills thrown in."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "No packet pickup details, parking info, or lodging recommendations in any available information. The venue address exists but that's where helpful logistics information ends. You're figuring out the basics yourself, which works fine for locals but creates friction for traveling riders."
+        "explanation": "Mississippi Station sits in the Canadian Shield near sea level. Altitude plays no role whatsoever in this race - the challenge comes entirely from distance and terrain, not thin air."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Rural Ontario gravel roads through North Frontenac and Lanark Highlands offer genuine scenery without genuine remoteness. The waterfall finish and artisan cheese farm provide nice touches, but this isn't wilderness exploration. It's a pleasant countryside ride dressed up as adventure racing."
+        "explanation": "Old logging roads wind through forests with views of Dalhousie Lake, taking riders through terrain where \"maple syrup is the most abundant natural resource.\" The single lane treed roads offer countryside exploration, though the adventure stays within civilized rural Ontario rather than wilderness territory."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "As a \"marquee event\" in the Gravel Cup Canada series, it draws regional attention but lacks international recognition. Organized by Brendan Gorman, the race accommodated 112 participants in 2025, making it a solid provincial fixture rather than a destination event."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Navigation issues affected the 2025 event, with Douglas Van Den Ham going off course and completing only 79km. Staggered starts by distance (Epic at 9:00am, Medio at 9:30am, Petit at 9:45am) show organized planning, though course marking needs improvement to prevent rider errors."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Riders finish at Back Forty Artisan Cheese Farm's \"picturesque location\" on the Mississippi River shore with \"calming distant sound of waterfalls.\" Post-race, participants \"relax and reminisce with food and drink\" while being \"spellbound by views\" of the natural landscape."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The venue earns praise for its \"gorgeous venue and delicious post-ride meals\" at the artisan cheese farm. Even with \"not ideal\" weather in 2024, participants \"managed to have an amazing time,\" showing the community spirit that sustains this rural Ontario gathering."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "The Epic Course men's field spread from Michael Joannisse's winning 3:13:32 to finish times over 6:47:49, indicating primarily recreational participation. With 36 starters and 5 DNFs in the men's Epic, competitive depth remains limited to regional riders."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Three distance options let riders choose their challenge level, while the post-race experience at an artisan cheese farm by the Mississippi River with waterfalls delivers memorable value. The scenic venue and quality post-ride meals likely exceed typical entry fee expectations for Canadian gravel racing."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Rural Mississippi Station, Ontario offers affordable lodging and dining options far from tourist pricing. The remote location requires driving but keeps accommodation costs low, with the biggest expense being the artisan cheese farm venue that enhances rather than gouges the race experience."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander-2024",
+        "category": "community",
+        "label": "gravelcup.com: Back Forty Highlander 2024"
+      },
+      {
+        "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander",
+        "category": "community",
+        "label": "gravelcup.com: Back Forty Highlander"
+      },
+      {
+        "url": "https://northernontario.travel/cycling/ontario-gravel-bike-events",
+        "category": "community",
+        "label": "northernontario.travel: Ontario Gravel Bike Events"
+      },
+      {
+        "url": "http://www.timeral.info/Archive/A3-2025.html",
+        "category": "community",
+        "label": "timeral.info: A3 2025.Html"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZvDCMD-Bpe0",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      }
+    ]
   }
 }

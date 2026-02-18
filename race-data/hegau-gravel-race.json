@@ -252,64 +252,90 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 2,
-        "explanation": "It's a UCI Gravel World Series qualifier riding parts of the 2017 MTB Marathon World Championships course in Singen, which sounds impressive until you realize it launched in 2024. No notable winners yet, no legendary status, just a new race trying to borrow credibility from a mountain bike course. The UCI badge gets you qualification points but doesn't make you famous."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 3,
-        "explanation": "Two-thirds offroad mixing farmer roads and woods with the 52km lap format repeated twice for most categories. Using proven terrain from the 2017 UCI MTB World Championships gives it solid bones, even if it's new. The age-based distance options show some organizational thought, though we're missing critical details about aid stations and timing."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "Starting and finishing at Singen's Rathaus gives it proper town square drama, and the opening 2km along Radolfzeller Aach river sets a scenic tone. The 52km lap with 1067m elevation per loop creates a predictable rhythm. It's competent race experience on proven terrain, just don't expect the refined touches of a decade-old event."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "As Germany's season opener for UCI Gravel World Series qualifiers, it attracts the qualification-hungry crowd. Too new for established traditions or legendary post-race scenes, but the central European location and World Series status should pull a solid international field. Community is still forming around this one."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "UCI Gravel World Series qualification brings competitive riders, but it's competing against more established European events for top talent. First ran in 2024 so no track record of elite participation or competitive depth. The July 5th date could conflict with other major races pulling away the strongest fields."
-      },
-      "value": {
-        "score": 2,
-        "explanation": "Registration costs unknown, which never signals a bargain. You're paying for UCI points and riding historic MTB terrain, but it's Germany - expect European pricing without European race refinement. Hard to justify value when basic details like entry fees aren't transparent."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Singen near Lake Constance means German accommodation prices and no budget lodging insights available. Nearest airport details missing, but you're looking at central European travel costs. The region's tourist appeal around Lake Constance won't help your wallet."
+        "explanation": "Jonas Koch confirms \"Had a blast racing at Gravel World Series Singen\" with defending champions returning, indicating smooth operations. One rider notes \"Organisation ist sicher Top, wie schon immer beim Bike Marathon... Organisation war Top, wie immer.\" However, 2025 weather forced course shortening to two laps, showing reactive but not proactive planning."
       },
       "length": {
         "score": 3,
-        "explanation": "The 104km total distance hits the gravel sweet spot - long enough to matter, short enough to not destroy your week. Smart age-based options with single 52km lap for older riders shows practical thinking. It's proper gravel distance without the masochistic ultra-endurance posturing."
+        "explanation": "The 65-mile distance hits the gravel sweet spot, with elite men finishing in 3:10:45 over 108km when weather shortened the course. One rider estimated the gravel lap \"müsste vielleicht nochmal 10 Minuten schneller gehen, aber halt nicht 3 mal hintereinander\" - fast enough to matter but manageable for most riders."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Farmer roads and woods sections suggest standard gravel terrain rather than technical challenges. Using MTB World Championship course parts could add complexity, but the description sounds more rolling countryside than rock gardens. Likely fast and flowing rather than technically demanding."
+        "explanation": "Rider reports confirm \"Untergrund ist viel gemischt, aber nichts Grobes, nur Asphalt, Schotter und etwas Wiese, keine wurzeligen Trailpassagen, alles fahrbar.\" CmdT found it \"für'n Gravelrennen fast perfekt. Viele Belagwechsel, viele Richtungsänderungen, keine besonderern schwierigkeiten oder Gefahrenpunkte.\""
       },
       "elevation": {
         "score": 2,
-        "explanation": "1067m per 52km lap is steady climbing but nothing that'll break legs. The 2134m total over 104km averages out to manageable gradients through German countryside. It's honest elevation gain without the Alpine suffering that makes races memorable."
+        "explanation": "The 3500ft of climbing includes a 6% grade with 9.2% peaks after 2km, plus the key Magdeberg climb at 15km averaging 3.6% with 8% sections. One rider warns \"Als Normalo sollte man keine zu dicke Übersetzung haben\" due to steep pitches, but it's steady climbing rather than sustained suffering."
       },
       "climate": {
         "score": 3,
-        "explanation": "Early July in the Lake Constance region typically delivers reliable summer weather without extreme heat. The German climate stability beats the weather lottery of many gravel destinations. No historical weather disasters noted, though being new means limited data on what July conditions actually deliver."
+        "explanation": "2025 weather complications forced course shortening with \"Der Boden war, vor allem in den Waldabschnitten noch recht feucht.\" CmdT noted tire grip issues in wet conditions but stayed upright. Early July in the Lake Constance region typically delivers reliable summer weather, though this year proved the exception."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Singen sits near Lake Constance at minimal elevation - you're not getting altitude training or mountain views here. This is low-altitude German countryside, which means no acclimatization needed but also no dramatic alpine scenery to justify the trip."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Central start/finish at Singen's Rathaus keeps things simple, and the location near Lake Constance offers decent regional access. Missing details on parking, packet pickup, and airport connections hurt the score. The lap format simplifies logistics but we need more operational details."
+        "explanation": "Singen sits at minimal elevation near Lake Constance - you're racing through German countryside without meaningful altitude. No acclimatization needed, no mountain views to justify the trip, just low-altitude terrain that puts the focus entirely on fitness rather than thin air."
       },
       "adventure": {
         "score": 2,
-        "explanation": "It's German countryside farmer roads and woods - pleasant but hardly exotic. The 2km start along Radolfzeller Aach river adds some character, but this reads more like solid training terrain than adventure destination. You're not flying to Germany specifically for this landscape."
+        "explanation": "The course opens with 2km along Radolfzeller Aach river before hitting mixed surfaces of \"Asphalt, Schotter und etwas Wiese.\" One rider found it \"landschaftlich sehr schöne Strecke\" but it's pleasant German countryside rather than exotic terrain - solid training ground without the adventure destination appeal."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Rosa Klöser's win and Jonas Koch's repeat appearance confirm UCI Gravel World Series qualification draws top talent. With 900 riders from 37 countries, it's pulling international fields, but as a 2024 startup it's still building the legendary status that comes with decades of racing history."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The race creates immediate selection - Klöser notes getting \"a selection of three riders after a climb\" at 10km, then attacking solo on a grass climb at 20km. Elite men stayed together for the first lap before the decisive moves, showing the course rewards tactical racing over pure power."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Starting at Singen's Rathaus creates proper town square drama, with over 900 international riders creating festival atmosphere. One participant noted it was \"sehr international\" with strong fields, though the \"'echte' Hobbyfraktion war etwas unterrepräsentiert\" - more serious racing than weekend warrior fun."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "spessartpantani confirms \"Es waren meinem Empfinden nach schon ziemlich starke Fahrer am Start und es war sehr international.\" The organization draws praise: \"Organisation ist sicher Top, wie schon immer beim Bike Marathon.\" With 900 riders from 37 countries competing for UCI qualification, it's building serious community quickly."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Elite results show competitive depth - Loman beat defending champion Koch by just one second, with Stehli 29 seconds back. Women's racing saw Klöser solo for half the race after early selection. As one rider noted, the field was \"ziemlich starke Fahrer\" but the hobby contingent was underrepresented."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "With \"Organisation ist sicher Top, wie schon immer beim Bike Marathon\" and automatic UCI Worlds qualification for top 25% finishers, you're getting proven event management and meaningful racing benefits. However, no registration pricing is publicly available, never a good sign for budget-conscious riders."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Equipment needs are modest - riders succeeded with 40-42mm tires like Specialized Pathfinder and Schwalbe G-One RS, though wet conditions in 2025 had CmdT wishing for \"ein wenig mehr Grip am Vorderrad.\" Location near Lake Constance means German accommodation prices without budget insights available."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://granfondodailynews.com/2025/07/08/uci-hegau-gravel-results-kloser-loman-finish-on-top-again/",
+        "category": "community",
+        "label": "granfondodailynews.com: Uci Hegau Gravel Results Kloser Loman Finish On Top Again"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/",
+        "category": "community",
+        "label": "cyclingnews.com: Results"
+      },
+      {
+        "url": "https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/",
+        "category": "community",
+        "label": "rennrad-news.de: Hegau Gravel.194216"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/singen/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Singen"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/uci-gravel-world-series-jonas-koch-and-carolin-schiff-win-at-hegau/",
+        "category": "community",
+        "label": "cyclingnews.com: Uci Gravel World Series Jonas Koch And Carolin Schiff Win..."
+      }
+    ],
     "results": {
       "years": {
         "2024": {

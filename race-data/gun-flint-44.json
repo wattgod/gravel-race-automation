@@ -252,63 +252,74 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
+      "logistics": {
         "score": 2,
-        "explanation": "This race doesn't even exist in any meaningful gravel database - all searches point to the 20-mile Gunflint Scramble mountain bike race instead. No notable winners, no pro field, no media coverage. It's basically a ghost race that the gravel community hasn't heard of."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Hard to judge quality when the race appears to be either misnamed or completely undocumented. The actual Gunflint Scramble is described as 'fairly non-technical' with generic climbs and loose descents. No aid station details, no timing infrastructure mentioned, no real organization visible."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "The Gunflint Trail area offers legitimate wilderness riding through remote nordic ski and snowmobile trails that 'seldom see use outside winter.' Starting at Bearskin Lodge adds some charm. The terrain promises 'steep climbs, long climbs, loose climbs' - sounds like proper suffering in pretty country."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Whatever this race actually is, it's based in Grand Marais with a 'friendly atmosphere' noted. The confusion between races suggests a tight local scene that doesn't need outside validation. Starting at Bearskin Lodge implies some post-race gathering potential."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "No field size data available, no mention of competitive categories or notable participants. If it's the mountain bike version, they explicitly say gravel bikes 'wouldn't be any fun' - which limits the serious gravel field severely."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "44 miles of Minnesota wilderness for unknown entry fees could be decent value. The Gunflint Trail location is genuinely remote and beautiful. No mention of swag or amenities, but access to rarely-used trail systems has inherent worth."
-      },
-      "expenses": {
-        "score": 2,
-        "explanation": "Grand Marais is remote enough that getting there costs money and time. Bearskin Lodge hosting suggests accommodation options but probably not cheap ones. No airport data available, meaning you're driving or paying premium flights to Duluth."
+        "explanation": "Research reveals confusion between Gun Flint 44 and the documented Gunflint Scramble 20-mile mountain bike race at Bearskin Lodge. No registration, packet pickup, or parking details available for the 44-mile version. Even basic race infrastructure remains undocumented."
       },
       "length": {
         "score": 2,
-        "explanation": "44 miles hits that awkward middle distance - too long for a morning blast, too short for epic bragging rights. The actual documented race is only 20 miles, which barely qualifies as a workout for serious riders."
+        "explanation": "44 miles sits in the awkward middle distance between morning blast and epic bragging rights. All documented evidence points to a 20-mile Gunflint Scramble mountain bike race instead, making the actual distance questionable."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Described as 'fairly non-technical' with warnings only about 'steep fast descents on loose terrain.' Mix of wide nordic ski trails and forest roads sounds more like fire road grinding than technical challenge. Even skilled riders need caution on descents, but that's about cornering speed, not skills."
+        "explanation": "The related Gunflint Scramble is described as 'fairly non-technical' with caution needed only on steep fast descents with loose terrain. Mix of wide nordic ski trails and forest roads suggests more grinding than technical challenge."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2500 feet over 44 miles is 57 feet per mile - not flat but not mountain suffering either. Promises 'punishing climbs' and 'steep, long, loose, grassy' ascents, but Minnesota steep isn't Colorado steep. No detailed elevation profile available to judge the real bite."
+        "explanation": "2500 feet over 44 miles averages 57 feet per mile of climbing. Course promises 'punishing climbs' described as 'steep, long, loose, grassy' but no detailed elevation profile exists to verify the actual challenge level."
       },
       "climate": {
         "score": 3,
-        "explanation": "October in northern Minnesota delivers proper variable conditions - mid-50s highs but 'could be warmer or colder.' Race runs rain or shine, with backup gravel loops if trails get oversaturated. You'll need layers and the weather might actually matter for once."
+        "explanation": "October weather brings proper variability with highs in mid-50s but warnings to 'bring clothing for wide range of conditions.' Race runs rain or shine with backup gravel loops if trails get oversaturated by Forest Service requirements."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is northern Minnesota, not the Rockies. Starting elevation probably around 1000 feet, maybe hitting 1500 at the high point. Zero altitude training effect, zero respiratory challenge, zero excuse for bonking on elevation."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "No packet pickup info, no parking details, no clear registration process documented anywhere. Even basic race data like start times varies between sources. The remote Gunflint Trail location means limited services and backup plans."
+        "explanation": "Northern Minnesota location means minimal elevation gain with no respiratory challenge. Starting elevation likely around 1000 feet with modest high points providing zero altitude training effect."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Riding remote nordic and snowmobile trails that 'seldom see use outside winter' through Minnesota wilderness delivers legitimate backcountry feel. The forest service requires alternate courses if trails get too saturated - suggests you're actually in wild country, not manicured bike paths."
+        "explanation": "Remote nordic and snowmobile trails that 'seldom see use outside winter' deliver backcountry feel through Minnesota wilderness. Forest Service alternate course requirements suggest you're riding truly wild country, not manicured paths."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "No gravel database contains Gun Flint 44 - searches only return the 20-mile Gunflint Scramble mountain bike race. No notable winners, pro field, or media coverage documented for any 44-mile gravel version."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Race organization unclear with potential name confusion between events. The documented Gunflint Scramble offers .gpx files and well-marked routes but no aid station details or timing infrastructure mentioned for any 44-mile version."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Bearskin Lodge start location adds charm to riding remote trails through Minnesota wilderness. The terrain delivers 'steep climbs, long climbs, loose climbs' promising proper suffering in beautiful country that rarely sees summer use."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The related Gunflint events draw competitive participants like dog mushers Erin Altemus and Rita Wehseler to the area. Local scene centered around Bearskin Lodge creates 'friendly atmosphere' for post-race gathering."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "No field size data available with confusion over actual race format. The mountain bike version explicitly states gravel bikes 'wouldn't be any fun,' which would severely limit serious gravel participation."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Access to rarely-used trail systems in the remote Gunflint Trail area has inherent worth for wilderness riding. 44 miles through Minnesota backcountry offers solid adventure value despite unknown entry fees."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Remote Grand Marais location requires driving time and distance with Bearskin Lodge accommodation likely at premium rates. No airport data available, meaning costly travel to Duluth or extended drive times."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://mushlakeracing.weebly.com/blog/gunflint-mail-run-race-report",
+        "category": "community",
+        "label": "mushlakeracing.weebly.com: Gunflint Mail Run Race Report"
+      },
+      {
+        "url": "https://www.wdio.com/front-page/top-stories/a-community-race-history-and-impact-of-the-gunflint-mail-run/",
+        "category": "community",
+        "label": "wdio.com: A Community Race History And Impact Of The Gunflint Mail Run"
+      }
+    ]
   }
 }

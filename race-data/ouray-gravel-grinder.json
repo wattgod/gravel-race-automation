@@ -110,9 +110,37 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Remote but accessible. Montrose airport is 35 miles, Durango 70 miles. Small-town services with limited hours. Requires 5+ days for altitude acclimation. Not extreme remoteness but significant planning required."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "At 80 miles, this falls in the substantial distance category, though research indicates this may reference the longer Ouray 100 format. Jill Homer described \"42,000 feet of ascent in just 100 miles\" - a distance that becomes a full day of high-altitude suffering regardless of the exact mileage."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Jill Homer described climbs as \"straight up a 45-percent grade\" through the San Juan Mountains terrain. The Hayden Pass section she witnessed represents typical technical challenges with jeep roads, bare rock sections, and grades that often require significant hike-a-bike above 12,000 ft."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Homer's account of \"42,000 feet of ascent in just 100 miles\" confirms extreme climbing totals that exceed most gravel events. The San Juan Mountains setting means this elevation gain occurs at already-high altitude, compounding the physiological impact of each vertical foot."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "San Juan Range sees 72-81 thunderstorm days annually - Colorado's highest. Monsoon season brings afternoon storms that can shift from clear skies to hail within minutes. Lightning exposure above treeline creates severe risk, with the golden rule being below treeline by noon during storm season."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Starting at 7,792 ft and climbing through passes above 12,000 ft creates severe physiological impact. Even acclimatized riders experience 20-30% power loss at these elevations. The San Juan Mountains represent some of the highest sustained gravel riding in the Lower 48."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Homer noted that despite the suffering on Hayden Pass, \"it was an incredible place.\" The San Juan Mountains' combination of 13,000+ ft peaks, historic mining routes, and technical challenges creates bucket-list territory that pushes riders to absolute limits while delivering unforgettable scenery."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "No official organized event exists - this is regional/self-supported riding only. Local recognition in bikepacking circles through Rodeo Labs' 'Silverton Project' and nearby Telluride Gravel Race, but no standalone prestige as an event."
+        "explanation": "Research reveals no specific organized \"Ouray Gravel Grinder\" event exists. The area attracts dedicated bikepacking communities through events like the Silverton Project, but lacks standalone race prestige. Nearby Telluride Gravel Race draws regional recognition, but not elite fields."
       },
       "race_quality": {
         "score": 2,
@@ -124,11 +152,11 @@
       },
       "community": {
         "score": 2,
-        "explanation": "Small, dedicated bikepacking community rather than organized race culture. The Rodeo Labs expeditions and nearby events create some community, but there's no race-day vibe or legendary culture specific to this event."
+        "explanation": "Homer's crew support role indicates some community involvement, with opportunities for non-racers to participate through course access and aid station support. However, the lack of an established standalone event limits the development of race-specific traditions and dedicated participant culture."
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No organized competition means no competitive field. Self-supported riders only. For actual racing, the nearby Telluride Gravel Race draws regional competitors but not elite fields."
+        "explanation": "No organized standalone competition means no competitive field depth. While individual riders like those in Homer's report tackle the terrain, this represents self-supported adventure riding rather than structured racing with elite or deep amateur fields to measure against."
       },
       "value": {
         "score": 4,
@@ -136,35 +164,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Moderate total cost with lodging at $200-300/night, reasonable airport access, and no entry fee for self-supported riding. A week trip can be done for under $500 excluding flights - reasonable for such exceptional terrain."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "At 80 miles for the Alpine Loop route, this falls squarely in the 60-100 mile substantial distance category. Not ultra-distance but a full day of high-altitude suffering that will test endurance limits."
-      },
-      "technicality": {
-        "score": 5,
-        "explanation": "Extreme technical terrain with jeep roads, bare rock sections, 10%+ grades, and mandatory hike-a-bike on passes above 12,000 ft. Imogene is 'barely a road, a trail' - this is as technical as gravel gets."
-      },
-      "elevation": {
-        "score": 5,
-        "explanation": "7,800+ feet of climbing on the Alpine Loop with additional routes hitting 10,000 ft of gain. This exceeds the 10,000+ ft threshold for maximum difficulty, especially given the altitude where it occurs."
-      },
-      "climate": {
-        "score": 5,
-        "explanation": "Extreme weather risk with 72-81 thunderstorm days annually in the San Juans. Lightning exposure above treeline, hypothermia risk even in summer, flash flood danger, and storms that can go from blue sky to hail in minutes."
-      },
-      "altitude": {
-        "score": 5,
-        "explanation": "Starting at 7,792 ft and topping out at 12,800+ ft on Engineer Pass (13,114 ft on Imogene). This is among the highest gravel riding in the Lower 48 with severe physiological impact - expect 20-30% power loss."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Remote but accessible. Montrose airport is 35 miles, Durango 70 miles. Small-town services with limited hours. Requires 5+ days for altitude acclimation. Not extreme remoteness but significant planning required."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "Absolute bucket-list territory. The 'Switzerland of America' with 13,000+ ft peaks, historic mining towns, alpine meadows, and routes that push riders to their absolute limits. Life-changing scenery matched by life-changing difficulty."
+        "explanation": "Moderate costs with Montrose airport access and lodging at $200-300/night in Ouray. Hot springs recovery options add value to accommodation costs. The San Juan Mountains location requires significant time investment for proper altitude acclimation, extending trip duration and total expenses."
       }
     },
     "popularity": 40,
@@ -262,6 +262,16 @@
         "url": "https://www.visitouray.com/",
         "category": "other",
         "label": "Visitouray"
+      },
+      {
+        "url": "http://www.jilloutside.com/2018/",
+        "category": "community",
+        "label": "jilloutside.com: 2018"
+      },
+      {
+        "url": "https://intheknowcycling.com/choosing-gravel-bike-tires/",
+        "category": "community",
+        "label": "intheknowcycling.com: Choosing Gravel Bike Tires"
       }
     ],
     "history": {

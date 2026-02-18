@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Elite winner Sebastian Schönberger called the organization 'the benchmark for the 2024 Gravel World Championships,' while Carolin Schiff declared it 'the best-organized gravel race in Europe that she had ever taken part in.' The 2024 premiere sold out at 1,200 riders from 36 nations."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 136km distance creates proper field spread over time - one rider noted 'the first lap was more or less chaos' with huge groups, but 'by the third lap the race was very split up' with riders mostly alone. Three laps of 50k each with consistent pacing challenges throughout."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "A mountain biker described it as 'basically a roadbike track' that's 'mostly asphalt or pretty smooth gravel.' The only technical feature was the long climb being 'a bit bumpy and partly wet.' More gravel promised for 2026 but currently quite tame."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Each 50k lap includes 'one 150m climb in the first quarter' with 'the rest more or less flat.' Two major climbs per lap occur after 20km and 60km, totaling 1,478m for the full distance - enough climbing to matter without being punitive."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "2024 delivered 'bright sunshine and a pleasant 25 degrees' with 'summer-like weather' conditions around the turquoise lake. April timing hit perfect weather for the inaugural edition, though Austrian springs can vary significantly year to year."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Lake Wörthersee sits around 430m elevation with modest climbs above, so altitude effects are minimal. The 'first 6km are on paved roads slightly going up' leaving town but nothing approaches thin-air territory."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Racing around Austria's turquoise Lake Wörthersee with start/finish 'right in front of Schloss Velden' creates scenic appeal. The course runs along 'the borders of the Drau river and connecting channel' though terrain is more smooth than wild."
+      },
       "prestige": {
         "score": 2,
-        "explanation": "First UCI World Series race in Austria sounds impressive until you realize nobody's heard of it yet. It's a qualifier for UCI Gravel World Championships, which matters if you're chasing rainbow stripes, but the race history is thin as Austrian mountain air. No notable past winners or pro riders mentioned anywhere, which tells you everything about its current standing in the gravel hierarchy."
+        "explanation": "UCI World Series status attracted elite talent like Sebastian Schönberger and Carolin Schiff, with top 25% in each age group qualifying for World Championships. Race director noted 'such a strong field of participants' for the successful premiere edition."
       },
       "race_quality": {
         "score": 3,
-        "explanation": "UCI World Series designation means they've got the organizational framework down, and multiple distance options (68km, 84km, 136km) show they're thinking beyond one-size-fits-all. The fact that registrations sell out with waiting lists suggests decent demand, but without course details or rider feedback, it's hard to judge if the racing itself lives up to the hype."
+        "explanation": "Elite winner Sebastian Schönberger praised the organization as 'the benchmark for the 2024 Gravel World Championships,' while Carolin Schiff called it Europe's best-organized gravel race. Sold-out field of 1,200 from 36 nations delivered competitive racing."
       },
       "experience": {
         "score": 3,
@@ -266,50 +294,63 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Multiple distance categories from leisure (Find Gralf) to UCI elite (Beat Gralf) means they're casting a wide net for different rider types. Group registration minimums and combo tickets with other events suggest they're building something bigger than just a one-off race. However, zero rider reviews, forum chatter, or community feedback in the research tells you the buzz hasn't reached critical mass yet."
+        "explanation": "The 2024 premiere sold out with demand pushing capacity from 1,000 to 1,200 riders from 36 nations. Managing Director Roland Sint reported being 'overwhelmed by the positive response and enormous interest' in the inaugural event."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "UCI World Series status should attract decent talent, but no mention of past winners, pro participation, or competitive depth anywhere in the research. Being Austria's first UCI gravel race means you're starting from zero in terms of established competition. Selling out suggests interest, but interest doesn't equal fast riders showing up to make you hurt."
+        "explanation": "Magnus Bak Klaris won 2025 in 3:38:16 for 136km while a competitive rider averaged 31km/h at 247W normalized power for 267th overall from 854 starters. UCI World Series status attracts solid international competition."
       },
       "value": {
         "score": 3,
-        "explanation": "No entry fees listed but multiple package options and VIP treatments suggest they're not giving it away. UCI World Series qualification and multi-day event format probably justify whatever they're charging compared to local club races. Without specific pricing, you're flying blind on whether the Austrian gravel experience delivers bang for your buck."
+        "explanation": "Sold-out demand with waiting lists suggests pricing hits the market sweet spot for UCI World Series racing. Three-day festival format with expo, kids' races, and pro presentation adds value beyond the single race day."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Austria isn't cheap, and Lake Wörthersee is a tourist destination which means inflated accommodation costs. VIP packages through Falkensteiner Hotel sound expensive, and no mention of budget lodging options in the research. Add international travel for most riders and you're looking at a significant investment for a race with limited proven pedigree."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "Beat Gralf at 136km/84 miles hits the sweet spot for serious gravel racing without crossing into ultra-endurance masochism. Multiple distance options mean you can choose your poison, from 68km leisure rides to full UCI distance. The research shows inconsistent distance data though, which suggests either poor communication or the course changes year to year."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "No surface breakdown or technical course details available, which is either poor marketing or they're keeping the suffering as a surprise. Being in Austria suggests varied terrain and actual climbing rather than flat farm roads. Without specific course features, named climbs, or rider feedback on technical challenges, you're gambling on what kind of bike handling skills you'll need."
-      },
-      "elevation": {
-        "score": 3,
-        "explanation": "Beat Gralf packs 1,500m+ of climbing into 136km, which puts real teeth into the race without being completely punitive. Even the leisure 68km route includes 750m+ of gain, so they're not afraid to make people work. Austrian terrain around Lake Wörthersee means proper climbs, not just rolling hills that disappoint."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "April in Austria is roll-the-dice weather - could be spring perfection or late winter misery. No historical weather incidents documented, which either means they've been lucky or the race is too new to have weathered any real storms. Lake proximity might moderate temperatures but also increases chances of getting soaked."
-      },
-      "altitude": {
-        "score": 2,
-        "explanation": "Lake Wörthersee sits around 430m elevation, so you're barely above sea level and altitude isn't a factor. Maximum elevation gains are significant but you're not dealing with thin air that'll wreck your power output. For most riders, this is a non-issue unless you're coming from Death Valley."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "Zero information on airports, parking, packet pickup, or basic race logistics in all the research - either they're keeping it secret or haven't figured it out yet. VIP packages and accommodation bundles suggest someone's thinking about visitor experience, but the lack of practical details for regular participants is concerning. For a UCI World Series race, the operational transparency is surprisingly thin."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Racing gravel around an Austrian lake beats most suburban suffering, and being part of a three-day cycling festival adds to the expedition feel. First UCI World Series race in Austria gives you early adopter bragging rights if it becomes something bigger. But without specific course highlights or unique features documented, the adventure factor relies heavily on Austrian scenery doing the heavy lifting."
+        "explanation": "VIP packages through Falkensteiner Hotel suggest premium pricing, and Lake Wörthersee is a tourist destination with corresponding accommodation costs. International travel to Austria adds expense though no specific pricing data available for comparison."
       }
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://cyclry.com/worthersee-gravel-race-2024-highlights-report/",
+        "category": "community",
+        "label": "cyclry.com: Worthersee Gravel Race 2024 Highlights Report"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/veldamworthersee/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Veldamworthersee"
+      },
+      {
+        "url": "https://pedalperformancegroup.com/worthersee-gravel-race-victory-goes-to-austria/",
+        "category": "community",
+        "label": "pedalperformancegroup.com: Worthersee Gravel Race Victory Goes To Austria"
+      },
+      {
+        "url": "https://trailstories.net/2024/05/20/woerthersee-gravel-race.html",
+        "category": "community",
+        "label": "trailstories.net: Woerthersee Gravel Race.Html"
+      },
+      {
+        "url": "https://www.woerthersee-gravel.com/en/competition/course/",
+        "category": "community",
+        "label": "woerthersee-gravel.com: Course"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/04/07/uci-worthersee-gravel-results-klaris-schreurs-awesome-in-austria/",
+        "category": "community",
+        "label": "granfondodailynews.com: Uci Worthersee Gravel Results Klaris Schreurs Awesome In ..."
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=4C5vWlRVnxc",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=S4F7SHM9dxU",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      }
+    ],
     "results": {
       "years": {
         "2024": {

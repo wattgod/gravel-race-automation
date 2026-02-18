@@ -252,61 +252,61 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "Spring Valley 100 is a 16-year-old grassroots race that finishes in a frisbee golf park. Zero prize purse, zero notable winners mentioned anywhere, and its biggest claim to fame is being 'preparatory training' for Nationals held somewhere else. This is local Minnesota cycling, not the big leagues."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Self-supported gravel through southeastern Minnesota's Driftless Region sounds promising until you realize there's no detailed course info, no aid stations, and the race report just thanks 'hearty souls who clipped in.' The Forestville State Historic Site addition is nice, but overall organization feels bare-bones. You're getting a route, not a race production."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Rolling through Bluff Country USA with 4,000 feet of climbing has potential, especially the new Forestville State Park section with its reopened footbridge. But 'where Superheroes come to be humbled' feels like marketing fluff when the race dumps you at Willow Park afterward. The Driftless terrain delivers, the finish experience doesn't."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "Sixteen years of consistent operation shows dedicated local organizers, and Paul Vogel still answers his AOL email address for race questions. But there's no visible online community, no rider reviews surfacing, no social media buzz. It's Minnesota nice, not Minnesota memorable."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Field size isn't even disclosed, and zero notable riders or competitive results mentioned in 16 years of racing. When your race report thanks people for just finishing instead of celebrating performance, you know the talent pool is shallow. This is participation cycling, not competition."
-      },
-      "value": {
+      "logistics": {
         "score": 3,
-        "explanation": "Free to public with mandatory registration means you're paying minimal entry fees for 100 miles of curated gravel through the Driftless Region. No frills means no inflated costs, and 4,000 feet of climbing delivers legitimate challenge. You get honest gravel racing without the premium markup."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Spring Valley, Minnesota isn't exactly a destination cycling hub, so lodging and dining costs stay reasonable. Free race entry keeps the biggest expense off your tab. No airport proximity mentioned means you're probably driving, but that's cheaper than flying to Colorado for your gravel fix."
+        "explanation": "Downtown Spring Valley start with 8:00 a.m. rollout keeps the basics simple, though Gerasimos G. warns strongly about loading navigation beforehand since \"cell service is patchy in the valleys.\" Paul Vogel's AOL email contact suggests grassroots charm, and sixteen years of operation means they've sorted the fundamentals even if transparency remains minimal."
       },
       "length": {
         "score": 4,
-        "explanation": "One hundred miles is the sweet spot for serious gravel racing - long enough to separate pretenders from contenders, short enough to finish in daylight. The 60-mile option keeps recreational riders happy while the full distance delivers legitimate challenge. No complaints about the numbers here."
+        "explanation": "One hundred miles delivers serious gravel challenge, as Gerasimos G. discovered when the lead group held \"about 20mph average with some tailwind\" early before conditions forced conservative pacing. The distance separates casual riders from committed ones, with the 60-mile option keeping recreational participants engaged while the full century provides the suffering gravel racers seek."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Gravel roads through rolling Driftless Region terrain suggests mostly non-technical riding with some handling challenges on descents. The Forestville State Park addition might add variety, but this isn't rock garden territory. Minnesota gravel means smooth enough for your road bike with 32mm tires."
+        "explanation": "Race organizers describe \"45 mph downhills on two wheels over misshapen marbles\" after graders fluff up the gravel, creating fast but technical descents. The Driftless Region terrain follows a predictable pattern: \"downhill, valley, river, bridge, then uphill, open rolling plateau of farmland\" according to competitive rider reports, requiring handling skills but not rock garden expertise."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Four thousand feet over 100 miles in the Driftless Region means consistent rolling resistance without massive Alpine suffering. The bluff country topography delivers legitimate climbing without requiring compact gearing. Enough to hurt, not enough to break you."
+        "explanation": "Four thousand feet includes the notorious \"soul-breaking Oriole Road at mile 91\" that hits when riders are already depleted. The bluff country pattern of valleys and plateaus creates consistent climbing without massive single ascents, though race organizers recommend training on \">10% grade\" hills with multiple repeats to prepare for the accumulated suffering."
       },
       "climate": {
         "score": 2,
-        "explanation": "May in Minnesota brings 'sun, wind, rain, or even snow' according to race organizers, which means you're gambling on conditions every year. The Driftless Region can be beautiful or brutal depending on weather luck. Pack layers and pray the forecast holds."
+        "explanation": "Weather extremes define this race, from 2021's brutal 94°F heat that caused half the registered field to skip, to historical variance \"from the 30s to the 80s, cold rain to hot sun.\" Gerasimos G. noted ideal 2018 conditions allowed PR times around 6:18, but spring racing in Minnesota means preparing \"in fear\" of conditions that rarely cooperate."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is southeastern Minnesota, not Colorado. You're barely above sea level, so altitude training benefits are nonexistent. If you need elevation acclimatization for racing, Spring Valley won't help your cause."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Downtown Spring Valley start and Willow Park finish keeps navigation simple, though packet pickup and parking details remain mysteriously absent from all race information. Sixteen years of operation suggests they've figured out the basics, but transparency could improve. Paul Vogel's AOL email gives it grassroots charm or amateur hour vibes, depending on your perspective."
+        "explanation": "Southeastern Minnesota sits barely above sea level in the Root River valley system. Towns like Preston sit \"on a river\" in covered valley coolness before climbing to open farmland plateaus, but there's no meaningful elevation for acclimatization training or altitude considerations."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Self-supported racing through Bluff Country USA and Forestville State Historic Site offers legitimate exploration of Minnesota's more interesting terrain. But finishing at a frisbee golf course deflates the epic factor, and 16 years of the same route means the adventure gets predictable. It's scenic, not spectacular."
+        "explanation": "Self-supported racing through Bluff Country USA offers exploration of Minnesota's most interesting terrain, enhanced by the 2025 route addition of Forestville State Historic Site after a new footbridge reopened access. The consistent valley-to-plateau pattern provides scenic variety, though sixteen years on the same basic route reduces the exploration factor considerably."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "Spring Valley 100 operates as grassroots racing with zero prize purse and finishes at a frisbee golf course. Connection to nearby La Crescent Gravel National Championships provides some regional relevance as preparatory training, but this remains local Minnesota cycling rather than destination racing that draws notable competitors or national attention."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Self-supported format means minimal race production beyond route marking, though volunteers at Preston (mile 40) provided water truck support and \"pickles wrapped in salami.\" Gerasimos G.'s navigation struggles when the field spread out reveal organizational gaps, but sixteen years of operation suggests basic competency even if the experience feels bare-bones compared to premium gravel events."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Rolling through the distinctive Driftless Region with its repeating pattern of river valleys and farmland plateaus provides scenic variety, enhanced by the covered forest coolness before each bridge crossing. The \"soul-breaking Oriole Road at mile 91\" delivers memorable late-race suffering, though finishing at Willow Park's frisbee golf course deflates any epic conclusion."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "\"Barrier-free\" racing attracts Minnesota cyclists with pre-race \"electrifying\" atmosphere in the grassy lot and \"nervous bantering\" among riders wearing CRo-designed kits from regional events. Connection to Gravel 'Sota series and local sponsors like Lupulin Brewing shows regional support, but the community remains distinctly local rather than drawing broader gravel racing participation."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Field size remains undisclosed, though 2021's extreme conditions saw only 150 of 350 registered riders start, with maybe \"15 riders\" in the opening lead group before early splits. No notable competitive results emerge from sixteen years of racing, and Gerasimos G.'s detailed race reports suggest participation cycling rather than serious competitive depth."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "\"Free to public, self-supported gravel road races\" deliver 100 miles of curated Driftless Region terrain with minimal entry costs (recent years show $35 registration). Four thousand feet of climbing and sixteen years of route refinement provide honest gravel challenge without premium event markup, making it accessible Minnesota racing with solid value proposition."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Spring Valley, Minnesota keeps lodging and dining costs reasonable compared to destination gravel hubs. Minimal entry fees (\"free to public\" in some years, $35 recently) eliminate the biggest race expense, and driving accessibility means avoiding flight costs to reach more expensive Western gravel destinations while still accessing quality Driftless Region terrain."
       }
     },
     "citations": [
@@ -314,6 +314,26 @@
         "url": "https://ridewithgps.com/routes/46674434",
         "category": "route",
         "label": "RideWithGPS: 2024 Spring Valley 100 Forestville Bypass"
+      },
+      {
+        "url": "https://gravelnewsnetwork.blogspot.com/2021/06/race-report-05jun2021-spring-valley.html",
+        "category": "community",
+        "label": "gravelnewsnetwork.blogspot.com: Race Report 05Jun2021 Spring Valley.Html"
+      },
+      {
+        "url": "https://springvalleyeda.org/sv100-race-report-the-graders/",
+        "category": "community",
+        "label": "springvalleyeda.org: Sv100 Race Report The Graders"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/spring-valley-100",
+        "category": "community",
+        "label": "thenxrth.com: Spring Valley 100"
+      },
+      {
+        "url": "https://springvalleyeda.org/spring-valley-100-gravel-bike-race-recap/",
+        "category": "community",
+        "label": "springvalleyeda.org: Spring Valley 100 Gravel Bike Race Recap"
       }
     ]
   }

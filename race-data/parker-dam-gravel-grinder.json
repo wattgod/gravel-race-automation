@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "S.B. Elliott State Park provides established venue infrastructure with 7:00 AM registration for 9:00 AM start - tight 90-minute window. Lynn Botelho noted she \"remembered to make sure my hydration pack was actually functioning this time,\" suggesting prep logistics matter more than venue amenities in rural Penfield, PA."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The 52-mile half series sits in comfortable middle ground territory. Lynn Botelho set \"a fairly high pace early\" knowing she could sustain it over the distance, getting caught by a faster rider at mile 30 who helped her \"ride faster\" through drafting - manageable length for strategic racing."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Course described as \"relatively flat course for this part of the world\" by Pennsylvania standards, mixing gravel roads with paved sections. Lynn Botelho noted she \"descend like a demon,\" using technical descending skills to pass riders, suggesting moderate technical demands without extreme challenges."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "3,500 feet over 50 miles means steady climbing without massive punches - 70 feet per mile average. The full 72-mile route hits 5,707 feet, so you're getting Pennsylvania's rolling terrain. Respectable but not mountainous."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "May 9th date in Pennsylvania means spring weather variability - could be 45 and rainy or 75 and perfect. No historical weather data available for this specific event. Standard Northeast spring gamble."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Clearfield County, Pennsylvania sits well below 2,000 feet elevation. Zero altitude considerations - pure power and fitness race without thin air factors affecting performance."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Rural Pennsylvania gravel roads through state park lands offer decent scenery without epic wilderness. Course features aren't documented, suggesting standard gravel road network. Pleasant countryside riding without destination-race adventure factor."
+      },
       "prestige": {
         "score": 1,
         "explanation": "This is the 6th annual edition of a Pennsylvania Gravel Series race in Penfield, PA. No notable past winners documented, no pro field data, no YouTube coverage. It's a regional series race that hasn't broken into the national conversation."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Trans-Sylvania Productions runs it with chip timing, well-marked course, and fully stocked aid stations. Two aid stations for 72 miles with reasonable cutoff times (11:30 AM at mile 25, 2:30 PM at mile 48). Basic competent execution without standout features."
+        "explanation": "Trans-Sylvania Productions delivers chip timing, well-marked course, and fully stocked aid stations with reasonable cutoffs. Limited to 300 participants with organized registration system - solid execution of basic gravel race infrastructure without standout operational features."
       },
       "experience": {
         "score": 2,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Penfield, PA won't drain your wallet for lodging or dining compared to destination races. Visit Clearfield County sponsorship suggests local accommodation options exist. Rural Pennsylvania keeps costs reasonable, though specific pricing data isn't available."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "The 52-mile half series fits weekend warrior territory - not short enough to be casual, not long enough to be epic. Full 72-mile option adds some teeth, but the documented 50-mile distance sits in comfortable middle ground."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Course maps show mix of dirt/gravel and paved roads, but specific surface percentages and technical features aren't documented. Pennsylvania terrain suggests rolling hills without extreme technical challenges. Moderate difficulty without standout technical sections."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "3,500 feet over 50 miles means steady climbing without massive punches - 70 feet per mile average. The full 72-mile route hits 5,707 feet, so you're getting Pennsylvania's rolling terrain. Respectable but not mountainous."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "May 9th date in Pennsylvania means spring weather variability - could be 45 and rainy or 75 and perfect. No historical weather data available for this specific event. Standard Northeast spring gamble."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Clearfield County, Pennsylvania sits well below 2,000 feet elevation. Zero altitude considerations - you're racing at basically sea level breathing. Pure power and fitness race without thin air factors."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "S.B. Elliott State Park provides established venue infrastructure, but parking and packet pickup details aren't specified. Registration opens at 7:00 AM for 9:00 AM start - tight window. Rural Pennsylvania location means longer drives for most riders."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "Rural Pennsylvania gravel roads through state park lands offer decent scenery without epic wilderness. Course features aren't documented, suggesting standard gravel road network. Pleasant countryside riding without destination-race adventure factor."
+        "explanation": "Penfield, PA keeps lodging and dining costs reasonable compared to destination races. Visit Clearfield County sponsorship suggests local accommodation options exist - rural Pennsylvania location controls expenses though specific pricing data unavailable."
       }
     },
     "citations": [
@@ -314,6 +314,16 @@
         "url": "https://ridewithgps.com/routes/46635294",
         "category": "route",
         "label": "RideWithGPS: Parker Dam Gravel Grinder - Half Series Route 2024"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/lynns-story-parker-dam-gravel-grinder",
+        "category": "community",
+        "label": "joinbasecamp.com: Lynns Story Parker Dam Gravel Grinder"
+      },
+      {
+        "url": "https://www.trans-sylvaniaproductions.com/pdgg",
+        "category": "community",
+        "label": "trans-sylvaniaproductions.com: Pdgg"
       }
     ]
   }

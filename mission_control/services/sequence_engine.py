@@ -231,23 +231,26 @@ async def _send_next_step(enrollment: dict) -> bool:
     html = _inject_unsubscribe(html, enrollment["contact_email"])
 
     # Send via Resend (in thread to avoid blocking event loop)
-    resend_id = ""
-    if RESEND_API_KEY:
-        try:
-            resend_id = await asyncio.to_thread(
-                _send_email_sync,
-                enrollment["contact_email"],
-                subject,
-                html,
-            )
-        except Exception as e:
-            db.log_action(
-                "sequence_send_error",
-                "enrollment",
-                str(enrollment["id"]),
-                f"Resend error on step {step_index}: {e}",
-            )
-            return False
+    if not RESEND_API_KEY:
+        logger.warning("RESEND_API_KEY not set — skipping send for %s step %d",
+                        enrollment["contact_email"], step_index)
+        return False
+
+    try:
+        resend_id = await asyncio.to_thread(
+            _send_email_sync,
+            enrollment["contact_email"],
+            subject,
+            html,
+        )
+    except Exception as e:
+        db.log_action(
+            "sequence_send_error",
+            "enrollment",
+            str(enrollment["id"]),
+            f"Resend error on step {step_index}: {e}",
+        )
+        return False
 
     # Record send
     db.insert("gg_sequence_sends", {
@@ -508,6 +511,35 @@ def resume_enrollment(enrollment_id: str) -> bool:
         }, {"id": enrollment_id})
 
     db.log_action("sequence_resumed", "enrollment", enrollment_id)
+    return True
+
+
+def reset_enrollment(enrollment_id: str) -> bool:
+    """Reset an enrollment back to step 0 and clear stale sends.
+
+    Used to recover from sends recorded without an actual email delivery
+    (e.g. RESEND_API_KEY was not set when the scheduler ran).
+    """
+    enrollment = db.select_one("gg_sequence_enrollments", match={"id": enrollment_id})
+    if not enrollment:
+        return False
+
+    # Delete stale send records (no resend_id = never actually sent)
+    stale_sends = db.select("gg_sequence_sends", match={"enrollment_id": enrollment_id})
+    for send in stale_sends:
+        if not send.get("resend_id"):
+            db.delete("gg_sequence_sends", {"id": send["id"]})
+
+    # Reset enrollment to step 0, active, send now
+    db.update("gg_sequence_enrollments", {
+        "current_step": 0,
+        "status": "active",
+        "completed_at": None,
+        "next_send_at": datetime.now(timezone.utc).isoformat(),
+    }, {"id": enrollment_id})
+
+    db.log_action("enrollment_reset", "enrollment", enrollment_id,
+                  f"Reset to step 0: {enrollment['contact_email']}")
     return True
 
 

@@ -12,6 +12,7 @@ from mission_control.services.sequence_engine import (
     get_sequence_stats,
     pause_enrollment,
     process_due_sends,
+    reset_enrollment,
     resume_enrollment,
 )
 
@@ -142,6 +143,19 @@ async def resume(request: Request, enrollment_id: str):
         )
     return HTMLResponse(
         '<span class="gg-badge gg-badge--outline">unchanged</span>'
+    )
+
+
+@router.post("/enrollments/{enrollment_id}/reset")
+async def reset(request: Request, enrollment_id: str):
+    """Reset an enrollment back to step 0 (for recovering from ghost sends)."""
+    success = reset_enrollment(enrollment_id)
+    if success:
+        return HTMLResponse(
+            '<span class="gg-badge mc-status--active">reset to step 0</span>'
+        )
+    return HTMLResponse(
+        '<span class="gg-badge gg-badge--outline">not found</span>'
     )
 
 

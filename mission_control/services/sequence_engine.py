@@ -356,8 +356,10 @@ def _send_email_sync(to_email: str, subject: str, html: str) -> str:
     if not resend.api_key:
         resend.api_key = RESEND_API_KEY
 
+    from mission_control.config import REPLY_TO_EMAIL
     result = resend.Emails.send({
         "from": f"{SEQUENCE_FROM_NAME} <{SEQUENCE_FROM_EMAIL}>",
+        "reply_to": REPLY_TO_EMAIL,
         "to": [to_email],
         "subject": subject,
         "html": html,

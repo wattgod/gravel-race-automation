@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Dan reached the first aid station at mile 15 after 1.5 hours of climbing and technical sections, then rolled into mile 24 \"wondering if I cut my day too short\" before realizing only 5 miles remained. The pacing suggests a well-structured distance that builds through sustained effort rather than quick bursts."
+        "explanation": "Dan reached the first aid station at mile 15 after 1.5 hours of climbing and technical sections, then rolled into mile 24 \"wondering if I cut my day too short\" before realizing only 5 miles remained. The pacing suggests a well-structured distance that builds through sustained effort rather than quick bursts. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "John Sumner describes \"lots of roots and rocks with mostly leaf covered singletrack\" and \"man made birms to lean into around corners.\" Dan encountered early \"high grass bushwhacking and class IV adventure\" requiring one dismount in heavy mud, wishing he'd brought \"650b x 47's on the trail donkey.\""
+        "explanation": "John Sumner describes \"lots of roots and rocks with mostly leaf covered singletrack\" and \"man made birms to lean into around corners.\" Dan encountered early \"high grass bushwhacking and class IV adventure\" requiring one dismount in heavy mud, wishing he'd brought \"650b x 47's on the trail donkey.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The course features a \"long 4+ mile climb on Victory and Radar roads\" to the first aid station, followed by \"one super steep climb\" where Dan's \"head unit was bouncing from 17%-20% elevation.\" Pinkham Road delivers \"one more long hill climb\" in the final miles before the finish descent."
+        "explanation": "The course features a \"long 4+ mile climb on Victory and Radar roads\" to the first aid station, followed by \"one super steep climb\" where Dan's \"head unit was bouncing from 17%-20% elevation.\" Pinkham Road delivers \"one more long hill climb\" in the final miles before the finish descent. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "The actual event ran in high 30s°F with light rain, creating leaf-covered trails and soft ground conditions. John Sumner found \"the low temps and light rain made me trust my Schwalbe Racing Ralph and Nobby Nic around corners,\" though soft ground was \"sapping my speed.\""
+        "explanation": "The actual event ran in high 30s°F with light rain, creating leaf-covered trails and soft ground conditions. John Sumner found \"the low temps and light rain made me trust my Schwalbe Racing Ralph and Nobby Nic around corners,\" though soft ground was \"sapping my speed.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "East Burke, Vermont sits in typical New England elevation where altitude plays no physiological role. The terrain challenges come from gradient and technical features rather than thin air."
+        "explanation": "East Burke, Vermont sits in typical New England elevation where altitude plays no physiological role. The terrain challenges come from gradient and technical features rather than thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Population 400 in Laona tells you everything about the talent pool. No data on field size because there probably isn't much of one. This is where weekend warriors go to feel fast, not where serious racers test themselves."
+        "explanation": "Population 400 in Laona tells you everything about the talent pool. No data on field size because there probably isn't much of one. This is where weekend warriors go to feel fast, not where serious racers test themselves. Thinner field than Ouray Gravel Grinder. As Lawrence Bate puts it: \"This is a new event in the calendar, and being part of the 2025/26 Outside Winter Race Series it promised to be a good one.\""
       },
       "value": {
         "score": 4,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Laona's 400 residents mean minimal lodging costs since options don't exist. The event offers 'spacious FREE field camping' and focuses on local farm-to-table food rather than expensive expo infrastructure. Entry fees go to rescue squad, not promoter profits."
+        "explanation": "Registration runs $60-90. Laona's 400 residents mean minimal lodging costs since options don't exist. The event offers 'spacious FREE field camping' and focuses on local farm-to-table food rather than expensive expo infrastructure. Entry fees go to rescue squad, not promoter profits. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -331,6 +331,74 @@
         "category": "community",
         "label": "bikesignup.com: Hibernatorgravel"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Jack Bernhard's winning time of 2:17:07 averaged 17.5 mph over 40 miles with 3,700 feet of climbing. Masters winners finished in the 2:22-2:40 range while recreational finishers reached 4+ hours, showing how technical terrain creates significant time separation across ability levels."
+        "explanation": "Jack Bernhard's winning time of 2:17:07 averaged 17.5 mph over 40 miles with 3,700 feet of climbing. Masters winners finished in the 2:22-2:40 range while recreational finishers reached 4+ hours, showing how technical terrain creates significant time separation across ability levels. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Organizers warn 'This race is CHALLENGING and FUN!! It may be MUDDY, it will be HARD, it is BEAUTIFUL and will take GRIT to get through.' Course features water crossings, fence crossings through cow fields, and technical singletrack where Jack Bernhard's cyclocross skills proved decisive."
+        "explanation": "Organizers warn 'This race is CHALLENGING and FUN!! It may be MUDDY, it will be HARD, it is BEAUTIFUL and will take GRIT to get through.' Course features water crossings, fence crossings through cow fields, and technical singletrack where Jack Bernhard's cyclocross skills proved decisive. Less technical than The Mid South. As Lauren McKinzey (Race Director) puts it: \"With weeks of wet weather leading up to the start of the race, the course was extremely muddy and made for some challenging racing on rutted back roads and technical singletrack for the 130 racers.\""
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 3,700 feet of climbing over 40 miles through Finger Lakes National Forest delivers sustained punishment that separates fitness levels effectively. Winners maintained sub-2:20 times while mid-pack struggled past 3 hours, with the technical terrain amplifying elevation's impact."
+        "explanation": "The 3,700 feet of climbing over 40 miles through Finger Lakes National Forest delivers sustained punishment that separates fitness levels effectively. Winners maintained sub-2:20 times while mid-pack struggled past 3 hours, with the technical terrain amplifying elevation's impact. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Race director Lauren McKinzey reported 'weeks of wet weather leading up to the start of the race' made the 2025 course 'extremely muddy' with 'rutted back roads and technical singletrack.' May conditions in the Finger Lakes remain unpredictable for course preparation."
+        "explanation": "Historical weather data shows average highs of 68°F and lows of 47°F, with a 49% chance of rain on any given day. Race director Lauren McKinzey reported 'weeks of wet weather leading up to the start of the race' made the 2025 course 'extremely muddy' with 'rutted back roads and technical singletrack.' May conditions in the Finger Lakes remain unpredictable for course preparation. More weather exposure than Belgian Waffle Ride San Diego. As Lauren McKinzey (Race Director) puts it: \"With weeks of wet weather leading up to the start of the race, the course was extremely muddy and made for some challenging racing on rutted back roads and technical singletrack for the 130 racers.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Trumansburg sits around 1,000 feet above sea level in the Finger Lakes region. This elevation poses no physiological challenge for riders from any background."
+        "explanation": "Trumansburg sits around 1,000 feet above sea level in the Finger Lakes region. This elevation poses no physiological challenge for riders from any background. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The 131 finishers included competitive racing up front with elite winner Jack Bernhard and masters category depth across age groups. Ruth Sherman's victory in Open Women at age 66 shows participation range, though it remains regional rather than national-level depth."
+        "explanation": "The 131 finishers included competitive racing up front with elite winner Jack Bernhard and masters category depth across age groups. Ruth Sherman's victory in Open Women at age 66 shows participation range, though it remains regional rather than national-level depth. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Rural Trumansburg location keeps accommodation costs reasonable compared to destination events, though advance planning needed for limited lodging options. No major airport proximity means driving for most participants, helping control overall travel expenses in the Finger Lakes region."
+        "explanation": "Registration runs $80-120. Rural Trumansburg location keeps accommodation costs reasonable compared to destination events, though advance planning needed for limited lodging options. No major airport proximity means driving for most participants, helping control overall travel expenses in the Finger Lakes region. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -341,6 +341,74 @@
         "category": "community",
         "label": "granfondoguide.com: Dirty Hector"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

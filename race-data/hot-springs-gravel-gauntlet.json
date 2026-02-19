@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Dylan Johnson's back-to-back wins in 3:11-3:12 show the 61-mile course delivers proper endurance challenge without excessive punishment. Elite times averaging 19 mph suggest serious climbing slows even strong riders. Three distance options (61, 28, 13 miles) accommodate different fitness levels in the Appalachian terrain."
+        "explanation": "Dylan Johnson's back-to-back wins in 3:11-3:12 show the 61-mile course delivers proper endurance challenge without excessive punishment. Elite times averaging 19 mph suggest serious climbing slows even strong riders. Three distance options (61, 28, 13 miles) accommodate different fitness levels in the Appalachian terrain. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The course is billed as the 'Hilliest Course Yet! Everything is climbing on some amazing scenic roads' except one flat stretch along French Broad River. Terrain features 'rolling short steep hills or moderate, sustained climbs' with Friday pre-rides of River Road section indicating technical challenges worth studying beforehand."
+        "explanation": "The course is billed as the 'Hilliest Course Yet! Everything is climbing on some amazing scenic roads' except one flat stretch along French Broad River. Terrain features 'rolling short steep hills or moderate, sustained climbs' with Friday pre-rides of River Road section indicating technical challenges worth studying beforehand. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "Hot Springs delivers on its 'mountains of Hot Springs' marketing with climbing that spreads the field dramatically - elite riders finish within 12 minutes, but by 40th place times balloon to nearly 4 hours. The organizers specifically highlight this as where 'tougher courses suit you' for omnium points accumulation."
+        "explanation": "Hot Springs delivers on its 'mountains of Hot Springs' marketing with climbing that spreads the field dramatically - elite riders finish within 12 minutes, but by 40th place times balloon to nearly 4 hours. The organizers specifically highlight this as where 'tougher courses suit you' for omnium points accumulation. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Race dates have shifted from April 2024 to March 2025 to May 2026, suggesting weather timing challenges. One rider noted 'I ran out of battery' during the 3+ hour effort, indicating conditions or duration that stress equipment preparation. Spring timing in Appalachian mountains creates serious weather variability."
+        "explanation": "Race dates have shifted from April 2024 to March 2025 to May 2026, suggesting weather timing challenges. One rider noted 'I ran out of battery' during the 3+ hour effort, indicating conditions or duration that stress equipment preparation. Spring timing in Appalachian mountains creates serious weather variability. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Hot Springs sits in the North Carolina Appalachians at modest elevation without meaningful altitude effects. This is about gradient and sustained climbing, not thin air or acclimatization concerns."
+        "explanation": "Hot Springs sits in the North Carolina Appalachians at modest elevation without meaningful altitude effects. This is about gradient and sustained climbing, not thin air or acclimatization concerns. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Field sizes of 337 in 2024 and 174 in 2025 show regional draw without deep competitive depth. Dylan Johnson's repeat wins and 4-6 minute gaps to second place suggest limited elite competition. Time spreads indicate strong recreational participation but modest racing quality in the overall field."
+        "explanation": "Field sizes of 337 in 2024 and 174 in 2025 show regional draw without deep competitive depth. Dylan Johnson's repeat wins and 4-6 minute gaps to second place suggest limited elite competition. Time spreads indicate strong recreational participation but modest racing quality in the overall field. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Hot Springs Resort offers tent camping, RV sites, and cabins for family-friendly weekend stays. Saturday night camping eliminates hotel costs after the race. The small town setting keeps food and lodging reasonable, though no major airport nearby means driving for most participants."
+        "explanation": "Registration runs $60-100. Hot Springs Resort offers tent camping, RV sites, and cabins for family-friendly weekend stays. Saturday night camping eliminates hotel costs after the race. The small town setting keeps food and lodging reasonable, though no major airport nearby means driving for most participants. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -370,6 +370,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

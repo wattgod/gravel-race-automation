@@ -1,0 +1,96 @@
+{
+  "id": "wtb-resolute",
+  "name": "WTB Resolute",
+  "brand": "WTB",
+  "widths_mm": [
+    42
+  ],
+  "tread_type": "aggressive",
+  "tread_description": "Chevron center with aggressive side knobs, TCS tubeless",
+  "best_conditions": [
+    "technical",
+    "loose",
+    "mixed"
+  ],
+  "worst_conditions": [
+    "smooth pavement",
+    "deep mud"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "42": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-resolute"
+  },
+  "tagline": "Aggressive chevron tread. Fast center with confident cornering.",
+  "strengths": [
+    "Fast center tread",
+    "Aggressive cornering knobs",
+    "Good puncture protection"
+  ],
+  "weaknesses": [
+    "Only one width",
+    "Can be harsh on smooth surfaces",
+    "Side knobs can fold"
+  ],
+  "msrp_usd": 64.95,
+  "weight_grams": {
+    "42": 460
+  },
+  "crr_watts_at_29kmh": {
+    "42": 36.5
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "technical terrain",
+    "mixed technical",
+    "loose gravel"
+  ],
+  "avoid_use": [
+    "smooth pavement",
+    "deep mud"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "big-horn-gravel": {
+      "rank": 3,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "crusher-in-the-tushar": {
+      "rank": 3,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-germany": {
+      "rank": 3,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "iceman-cometh": {
+      "rank": 3,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "whiskey-off-road": {
+      "rank": 3,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "technical"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "maxxis-reaver",
+    "pirelli-cinturato-gravel-s",
+    "schwalbe-g-one-bite",
+    "teravail-washburn",
+    "vittoria-terreno-wet"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

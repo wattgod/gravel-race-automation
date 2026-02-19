@@ -262,19 +262,19 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Predominantly gravel trails and bridleways through Haldon Forest with mud elements adds some bite, but nothing suggesting serious technical challenge. Self-navigation on longer routes requires basic GPS skills, not advanced bike handling. Suitable for CX, mountain, or e-bikes means the terrain isn't demanding much from your equipment choice."
+        "explanation": "Predominantly gravel trails and bridleways through Haldon Forest with mud elements adds some bite, but nothing suggesting serious technical challenge. Self-navigation on longer routes requires basic GPS skills, not advanced bike handling. Suitable for CX, mountain, or e-bikes means the terrain isn't demanding much from your equipment choice. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The Mega route delivers 1170m of climbing over 81km through Haldon Forest's hilly terrain. Community reviews confirm \"Cycling: Hilly 81% of reviews,\" providing consistent elevation challenge without extreme mountain climbs."
+        "explanation": "The Mega route delivers 1170m of climbing over 81km through Haldon Forest's hilly terrain. Community reviews confirm \"Cycling: Hilly 81% of reviews,\" providing consistent elevation challenge without extreme mountain climbs. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Dibbs and companions suffered \"4 punctures between them\" by the second stage, forcing them to \"bale at 35 miles\" after running out of spare tubes. The gravel trails and bridleways can be harsh on equipment, requiring extra repair capacity."
+        "explanation": "Dibbs and companions suffered \"4 punctures between them\" by the second stage, forcing them to \"bale at 35 miles\" after running out of spare tubes. The gravel trails and bridleways can be harsh on equipment, requiring extra repair capacity. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at Exeter Racecourse near sea level with maximum elevations in low-lying Haldon Forest means altitude plays zero role in performance. This is about legs and lungs, not thin air adaptation."
+        "explanation": "Starting at Exeter Racecourse near sea level with maximum elevations in low-lying Haldon Forest means altitude plays zero role in performance. This is about legs and lungs, not thin air adaptation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "George Thomas won the eBike Medio category while riders like Dibbs bring their sons for family participation. The competitive depth shows recreational enthusiasts rather than serious racers, fitting the \"small & intimate\" atmosphere most riders report."
+        "explanation": "With a field of 100-150 riders, george Thomas won the eBike Medio category while riders like Dibbs bring their sons for family participation. The competitive depth shows recreational enthusiasts rather than serious racers, fitting the \"small & intimate\" atmosphere most riders report. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Devon location keeps accommodation costs reasonable compared to major UK cities, with Exeter International Airport providing travel access. Mid-range entry fees for UK gravel racing, though total costs depend on distance traveled for forest trails racing."
+        "explanation": "Registration runs £65-85. Devon location keeps accommodation costs reasonable compared to major UK cities, with Exeter International Airport providing travel access. Mid-range entry fees for UK gravel racing, though total costs depend on distance traveled for forest trails racing. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "sportivaevents.clubtrac.co.uk: Haldon Heroic 7628"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Flachlandtiroler_ completed the distance but noted \"hands and back were more done than the legs,\" suggesting the 62-mile length hits riders differently than pure endurance events. The 25km loop format with 300m gain per lap creates tactical opportunities—riders report making up time on long climbs after losing it on technical descents."
+        "explanation": "Flachlandtiroler_ completed the distance but noted \"hands and back were more done than the legs,\" suggesting the 62-mile length hits riders differently than pure endurance events. The 25km loop format with 300m gain per lap creates tactical opportunities—riders report making up time on long climbs after losing it on technical descents. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The course transitions from Grand Prix track to Nordschleife, then predominantly off-road with loose gravel on steep descents where \"you had to slide around corners more than steer.\" One rooty section forced most riders to walk, while a 17% gradient between Karussell and Hohe Acht challenges even experienced riders. Glass debris on the most technical descent adds hazard navigation."
+        "explanation": "The course transitions from Grand Prix track to Nordschleife, then predominantly off-road with loose gravel on steep descents where \"you had to slide around corners more than steer.\" One rooty section forced most riders to walk, while a 17% gradient between Karussell and Hohe Acht challenges even experienced riders. Glass debris on the most technical descent adds hazard navigation. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 300m climb over 5.5km to Hohen Acht dominates each 25km loop, totaling 2,300m over 100km for the full distance. Renée found \"the long climbs suited me well and I could make up the lost time\" after conservative descending. The elevation profile rewards sustained climbing power over explosive efforts."
+        "explanation": "The 300m climb over 5.5km to Hohen Acht dominates each 25km loop, totaling 2,300m over 100km for the full distance. Renée found \"the long climbs suited me well and I could make up the lost time\" after conservative descending. The elevation profile rewards sustained climbing power over explosive efforts. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "2025 conditions were \"hot and oppressive with bone-dry, dusty conditions\" that caught riders unprepared. The dust was so severe on steep descents that riders described a \"Staubapokalypse\" (dust apocalypse) at 60+ km/h speeds. Only 93 of 192 starters finished the 100km race, with heat and underestimation of difficulty as primary DNF factors."
+        "explanation": "2025 conditions were \"hot and oppressive with bone-dry, dusty conditions\" that caught riders unprepared. The dust was so severe on steep descents that riders described a \"Staubapokalypse\" (dust apocalypse) at 60+ km/h speeds. Only 93 of 192 starters finished the 100km race, with heat and underestimation of difficulty as primary DNF factors. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Nürburgring sits around 1,640 feet above sea level with the highest course points barely reaching 2,300 feet in the Eifel region. No altitude considerations affect performance or preparation for this race."
+        "explanation": "The Nürburgring sits around 1,640 feet above sea level with the highest course points barely reaching 2,300 feet in the Eifel region. No altitude considerations affect performance or preparation for this race. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Elite riders were lapping mid-pack at 2:40 into the race, with Paul Voß posting fastest lap times in the 47-minute range. The competitive field remains shallow beyond the top level, though the upcoming German Championships may attract stronger depth."
+        "explanation": "Elite riders were lapping mid-pack at 2:40 into the race, with Paul Voß posting fastest lap times in the 47-minute range. The competitive field remains shallow beyond the top level, though the upcoming German Championships may attract stronger depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Flachlandtiroler_ recommends wide tires—\"43mm front, 38mm rear\"—though noted even wider would help with hand and back fatigue on fast descents. Multiple riders experienced flats from glass debris, requiring quality tire sealant. The Nürburgring area lacks budget accommodation during July peak season, inflating lodging costs significantly."
+        "explanation": "Registration runs €70-90. Flachlandtiroler_ recommends wide tires—\"43mm front, 38mm rear\"—though noted even wider would help with hand and back fatigue on fast descents. Multiple riders experienced flats from glass debris, requiring quality tire sealant. The Nürburgring area lacks budget accommodation during July peak season, inflating lodging costs significantly. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -360,6 +360,74 @@
         "category": "community",
         "label": "bikeradar.com: Heres What Its Like To Race Germanys 24 Hour Rad Am Ring"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

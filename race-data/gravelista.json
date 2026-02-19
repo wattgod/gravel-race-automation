@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 135km course with 1,892m climbing delivered proper gravel distance—elite winner Brendan Johnston finished in 3:46:57, winning by just 3 seconds over Mark O'Brien. Multiple distance options (95km, 50km) accommodate different abilities without diluting the main event's challenge."
+        "explanation": "The 135km course with 1,892m climbing delivered proper gravel distance—elite winner Brendan Johnston finished in 3:46:57, winning by just 3 seconds over Mark O'Brien. Multiple distance options (95km, 50km) accommodate different abilities without diluting the main event's challenge. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "This is 83% quality gravel on wide open roads through farmland, not technical singletrack. The 1km Wicket Hill Climb at 11% average grade is described as 'the crux of the course,' but it's power over bike handling skills that determines outcomes on these mostly rolling roads."
+        "explanation": "This is 83% quality gravel on wide open roads through farmland, not technical singletrack. The 1km Wicket Hill Climb at 11% average grade is described as 'the crux of the course,' but it's power over bike handling skills that determines outcomes on these mostly rolling roads. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 1,892m of climbing over 135km keeps riders working without being mountainous. Wicket Hill's 125m gain hits twice in the long course, and elevation ranging from 155m to 520m provides constant undulation. Enough to separate the field but favors fitness over pure climbing specialists."
+        "explanation": "The 1,892m of climbing over 135km keeps riders working without being mountainous. Wicket Hill's 125m gain hits twice in the long course, and elevation ranging from 155m to 520m provides constant undulation. Enough to separate the field but favors fitness over pure climbing specialists. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late October typically offers ideal spring conditions, but 2025 showed weather's wild side. Race organizers described it bluntly: 'NO BLUE SKIES. NO DUST. NO WARMTH. Just rain. Cold. And heart.' The challenging conditions 'soaked riders to the bone' but the event proceeded as scheduled."
+        "explanation": "Late October typically offers ideal spring conditions, but 2025 showed weather's wild side. Race organizers described it bluntly: 'NO BLUE SKIES. NO DUST. NO WARMTH. Just rain. Cold. And heart.' The challenging conditions 'soaked riders to the bone' but the event proceeded as scheduled. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting around 155m and maxing at 520m means zero altitude considerations. This is essentially sea level for performance—no acclimatization needed, no training benefit, just normal oxygen levels throughout the Goulburn Valley terrain."
+        "explanation": "Starting around 155m and maxing at 520m means zero altitude considerations. This is essentially sea level for performance—no acclimatization needed, no training benefit, just normal oxygen levels throughout the Goulburn Valley terrain. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Over 500 riders creates decent competition across age groups, with UCI qualification drawing serious amateurs. Brendan Johnston's repeat victory and 3-second winning margin shows quality at the front, though the field lacks international depth beyond Oceania talent like 2025 NZ Cyclocross Champion Sharlotte Lucas."
+        "explanation": "Over 500 riders creates decent competition across age groups, with UCI qualification drawing serious amateurs. Brendan Johnston's repeat victory and 3-second winning margin shows quality at the front, though the field lacks international depth beyond Oceania talent like 2025 NZ Cyclocross Champion Sharlotte Lucas. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "Getting to Seymour, Victoria means expensive international flights and costly domestic Australian travel. Limited accommodation details beyond Seymour being a 'hidden gem' suggests tight lodging options. Add bike shipping and rental cars, and total costs mount quickly for this relatively small event."
+        "explanation": "Registration runs $100-150 AUD. Getting to Seymour, Victoria means expensive international flights and costly domestic Australian travel. Limited accommodation details beyond Seymour being a 'hidden gem' suggests tight lodging options. Add bike shipping and rental cars, and total costs mount quickly for this relatively small event. More expensive than Atlas Mountain Race."
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "granfondodailynews.com: Uci Gravelista Results Brendan Johnston Repeats Down Under"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

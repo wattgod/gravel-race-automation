@@ -273,23 +273,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 87-mile Greenville course with 9,000 feet of climbing creates proper separation territory. fljones3 has \"attempted the gran 3-4x\" but \"only completed it once,\" failing cutoff times and mental energy on other attempts. Four course options accommodate different fitness levels without forcing beginners into the full distance suffering."
+        "explanation": "The 87-mile Greenville course with 9,000 feet of climbing creates proper separation territory. fljones3 has \"attempted the gran 3-4x\" but \"only completed it once,\" failing cutoff times and mental energy on other attempts. Four course options accommodate different fitness levels without forcing beginners into the full distance suffering. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "fljones3 describes \"switchbacks coming down the first climb are technical\" but notes \"coming home after the three climbs is fast.\" Adoliner emphasizes \"rolling hills and lots of turns contributing to both mental and physical fatigue\" rather than bike handling challenges. The terrain demands fitness over technical skills."
+        "explanation": "fljones3 describes \"switchbacks coming down the first climb are technical\" but notes \"coming home after the three climbs is fast.\" Adoliner emphasizes \"rolling hills and lots of turns contributing to both mental and physical fatigue\" rather than bike handling challenges. The terrain demands fitness over technical skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
-        "explanation": "CaptainThunderpants tackled \"just over 9,000 feet of climbing\" on 87 miles through Blue Ridge terrain. The official Greenville Gran delivers 8,000 feet over 83 miles with sustained climbs that break riders. Adoliner called it \"still one of the hardest I've ever done\" emphasizing the relentless vertical accumulation."
+        "explanation": "CaptainThunderpants tackled \"just over 9,000 feet of climbing\" on 87 miles through Blue Ridge terrain. The official Greenville Gran delivers 8,000 feet over 83 miles with sustained climbs that break riders. Adoliner called it \"still one of the hardest I've ever done\" emphasizing the relentless vertical accumulation. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "South Carolina October can deliver oppressive conditions during sustained climbs. The 2025 Greenville event saw \"sunny and warm\" weather with \"many people having to take extra hydration and salts on board to cope with the heat.\" Southeast humidity transforms long climbs from challenging to survival mode when conditions stay oppressive."
+        "explanation": "Historical weather data shows average highs of 72°F and lows of 53°F, with a 28% chance of rain on any given day, and gusts reaching 31 mph. South Carolina October can deliver oppressive conditions during sustained climbs. The 2025 Greenville event saw \"sunny and warm\" weather with \"many people having to take extra hydration and salts on board to cope with the heat.\" Southeast humidity transforms long climbs from challenging to survival mode when conditions stay oppressive. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Blue Ridge foothills in South Carolina provide minimal altitude impact. The terrain focuses on gradient and sustained effort rather than thin air effects. Elevations remain too low for any meaningful physiological challenge beyond the climbing itself."
+        "explanation": "Blue Ridge foothills in South Carolina provide minimal altitude impact. The terrain focuses on gradient and sustained effort rather than thin air effects. Elevations remain too low for any meaningful physiological challenge beyond the climbing itself. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The event attracts cycling tourists seeking celebrity access more than competitive depth. While pros like Ryder Hesjedal appear for the social factor, they're not racing hard. The gran fondo format with multiple course options caters to participation over performance, diluting serious competitive fields that might develop."
+        "explanation": "With a field of 1000+ riders, the event attracts cycling tourists seeking celebrity access more than competitive depth. While pros like Ryder Hesjedal appear for the social factor, they're not racing hard. The gran fondo format with multiple course options caters to participation over performance, diluting serious competitive fields that might develop. Less competitive depth than Almanzo 100. As Lehigh Valley Medio puts it: \"The official ridewithgps map contains numerous elevation blanks. It says the total elevation is 3,635 ft. The official number is close: 3,716 ft.\""
       },
       "value": {
         "score": 3,
@@ -321,7 +321,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "jmkizer noted premium pricing at \"$245 for Medio\" with expectations of \"premium experience\" to match. Hotel Domestique as race HQ creates captive pricing for prime location. For gravel variants, organizers recommend \"38c or larger tires with at least a semi-slick tread\" and advise against road bikes entirely, requiring specific equipment investments."
+        "explanation": "jmkizer noted premium pricing at \"$245 for Medio\" with expectations of \"premium experience\" to match. Hotel Domestique as race HQ creates captive pricing for prime location. For gravel variants, organizers recommend \"38c or larger tires with at least a semi-slick tread\" and advise against road bikes entirely, requiring specific equipment investments. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -395,6 +395,74 @@
         "category": "community",
         "label": "reddit.com: Strava V Ridewithgps V Google Maps Pro Huge"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

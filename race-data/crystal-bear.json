@@ -222,23 +222,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "194 miles of two-day bikepacking pushes riders into multi-day sufferfests through remote Northwoods terrain. B&E's Trees broke \"each day's ride down roughly into quarters, with the thought I can 'always' ride another 25 miles\" but still \"managed DFL\" on Day 1. The distance becomes existential when combined with overnight camping and self-sufficiency requirements."
+        "explanation": "194 miles of two-day bikepacking pushes riders into multi-day sufferfests through remote Northwoods terrain. B&E's Trees broke \"each day's ride down roughly into quarters, with the thought I can 'always' ride another 25 miles\" but still \"managed DFL\" on Day 1. The distance becomes existential when combined with overnight camping and self-sufficiency requirements. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 3,
-        "explanation": "B&E's Trees found \"a few miles of fun singletrack, complete with boulder rides\" in early sections, plus \"a rutted, fairly steep muddy trail with snaking stands of water through an active logging area\" that revealed \"multiple more stages to be cleared\" after each curve. Navigation complexity through forest service roads and unmapped singletrack creates constant decision-making challenges."
+        "explanation": "B&E's Trees found \"a few miles of fun singletrack, complete with boulder rides\" in early sections, plus \"a rutted, fairly steep muddy trail with snaking stands of water through an active logging area\" that revealed \"multiple more stages to be cleared\" after each curve. Navigation complexity through forest service roads and unmapped singletrack creates constant decision-making challenges. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "8,000 feet over 194 miles delivers constant rolling through Nicolet National Forest into Upper Peninsula Michigan terrain. The route includes \"a final 14% grade climb before reaching Crystal Falls\" and finishes with \"the low grade uphill Rat River Trail.\" Nothing epic but relentlessly undulating when combined with loaded bikepacking gear and multi-day fatigue."
+        "explanation": "8,000 feet over 194 miles delivers constant rolling through Nicolet National Forest into Upper Peninsula Michigan terrain. The route includes \"a final 14% grade climb before reaching Crystal Falls\" and finishes with \"the low grade uphill Rat River Trail.\" Nothing epic but relentlessly undulating when combined with loaded bikepacking gear and multi-day fatigue. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 4,
-        "explanation": "B&E's Trees woke Day 2 to \"rain fly soaked through and leaking on my forehead\" then experienced \"Rain. Pedal. Sun. Pedal. Hail. Pedal. Repeat!\" The inaugural Bear 100 saw \"snow fell in early May of 2013 as riders rolled out... only half of the riders finished.\" Mid-May Northwoods weather delivers everything from snow to hail within hours."
+        "explanation": "Historical weather data shows average highs of 70°F and lows of 48°F, with a 43% chance of rain on any given day. B&E's Trees woke Day 2 to \"rain fly soaked through and leaking on my forehead\" then experienced \"Rain. Pedal. Sun. Pedal. Hail. Pedal. Repeat!\" The inaugural Bear 100 saw \"snow fell in early May of 2013 as riders rolled out... only half of the riders finished.\" Mid-May Northwoods weather delivers everything from snow to hail within hours. Milder conditions than Crusher in the Tushar."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Northwoods Wisconsin and Upper Peninsula Michigan terrain stays near sea level with minimal altitude impact on performance. The suffering comes from distance, weather, darkness, and remote forest navigation rather than thin air."
+        "explanation": "Northwoods Wisconsin and Upper Peninsula Michigan terrain stays near sea level with minimal altitude impact on performance. The suffering comes from distance, weather, darkness, and remote forest navigation rather than thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -262,7 +262,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "74-rider cap attracts experienced bikepackers like Laura Hrubes rather than pure speed specialists. B&E's Trees managed \"DFL\" on Day 1 but finished successfully—field filters for adventure competence and self-sufficiency over pure racing depth. The overnight format rewards navigation skills and gear management."
+        "explanation": "74-rider cap attracts experienced bikepackers like Laura Hrubes rather than pure speed specialists. B&E's Trees managed \"DFL\" on Day 1 but finished successfully—field filters for adventure competence and self-sufficiency over pure racing depth. The overnight format rewards navigation skills and gear management. Less competitive depth than Almanzo 100. As Race Format & Amenities puts it: \"Includes: campground fee, tasty pizza and cold beer in Crystal Falls on Saturday night and breakfast buffet Sunday morning in Crystal Falls to fuel your ride back to Laona.\""
       },
       "value": {
         "score": 4,
@@ -270,7 +270,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Point-to-point logistics create real expense—shuttle coordination between Laona, Wisconsin and Crystal Falls, Michigan. B&E's Trees learned navigation \"was best navigated by GPS for safety, speed & convenience\" after paper maps failed completely, requiring proper electronics and backup power for forest service roads and unmapped singletrack."
+        "explanation": "Registration runs $75-150. Point-to-point logistics create real expense—shuttle coordination between Laona, Wisconsin and Crystal Falls, Michigan. B&E's Trees learned navigation \"was best navigated by GPS for safety, speed & convenience\" after paper maps failed completely, requiring proper electronics and backup power for forest service roads and unmapped singletrack. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -310,6 +310,63 @@
         "category": "community",
         "label": "thebear100.com: Crystal Bear"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip. strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 500,
+          "crr_watts": 42.0,
+          "why": "excellent wet grip. strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.95,
+          "weight_grams": 480,
+          "crr_watts": null,
+          "why": "excellent wet grip. strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

@@ -1,0 +1,171 @@
+{
+  "id": "tufo-gravel-swampero",
+  "name": "Tufo Gravel Swampero",
+  "brand": "Tufo",
+  "widths_mm": [
+    40,
+    44
+  ],
+  "tread_type": "mud",
+  "tread_description": "Deep lug pattern designed for mud and wet clay",
+  "best_conditions": [
+    "mud",
+    "wet",
+    "clay"
+  ],
+  "worst_conditions": [
+    "dry",
+    "smooth",
+    "hardpack"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero",
+    "44": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero-44"
+  },
+  "tagline": "Budget mud weapon. Deep lugs for when the course turns to soup.",
+  "strengths": [
+    "Excellent mud grip",
+    "Affordable",
+    "Good clay shedding"
+  ],
+  "weaknesses": [
+    "Very slow on dry surfaces",
+    "Limited to mud use",
+    "Basic construction"
+  ],
+  "msrp_usd": 69.95,
+  "weight_grams": {
+    "40": 480,
+    "44": 530
+  },
+  "crr_watts_at_29kmh": null,
+  "puncture_resistance": "moderate",
+  "wet_traction": "good",
+  "mud_clearance": "high",
+  "recommended_use": [
+    "mud",
+    "wet",
+    "clay",
+    "budget mud"
+  ],
+  "avoid_use": [
+    "dry",
+    "smooth",
+    "hardpack",
+    "fast gravel"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "crystal-bear": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "dirty-30": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "dirty-reiver": {
+      "rank": 3,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-bogota": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-earth": {
+      "rank": 2,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-worlds": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "iowa-wind-and-rock": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "melting-mann": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "mid-south": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "paris-to-ancaster": {
+      "rank": 2,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rasputitsa-spring-classic": {
+      "rank": 1,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rasputitsa": {
+      "rank": 1,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "seven": {
+      "rank": 2,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "southern-cross-gravel": {
+      "rank": 2,
+      "width_mm": 44,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "strade-bianche-gran-fondo": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "swamp-fox-gravel-fondo": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "unbound-100": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-ultrabite",
+    "vittoria-terreno-wet"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

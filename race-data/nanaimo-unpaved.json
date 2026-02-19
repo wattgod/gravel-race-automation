@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 50-mile distance aligns with the Intermedio option (~85km), sitting between the 40km Impulso that Justin Filuk won in 2:13:10 and the 110km Esperto that took Fabian Merino 3:59:20. It's the middle ground that avoids both quick morning efforts and all-day epics."
+        "explanation": "The 50-mile distance aligns with the Intermedio option (~85km), sitting between the 40km Impulso that Justin Filuk won in 2:13:10 and the 110km Esperto that took Fabian Merino 3:59:20. It's the middle ground that avoids both quick morning efforts and all-day epics. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course runs on Mosaic Forest Management's private gravel roads, accessing terrain normally closed to the public, plus incorporates sections of the Nanaimo Motocross Association track. Two DNFs out of 32 starters in the 2025 Impulso suggests manageable but selective technical demands."
+        "explanation": "The course runs on Mosaic Forest Management's private gravel roads, accessing terrain normally closed to the public, plus incorporates sections of the Nanaimo Motocross Association track. Two DNFs out of 32 starters in the 2025 Impulso suggests manageable but selective technical demands. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3,500 feet over 50 miles averages 70 feet per mile of climbing - steady undulation rather than defining ascents. The private Mosaic Forest Management roads likely provide consistent grades through managed timber terrain, but without major summit objectives."
+        "explanation": "3,500 feet over 50 miles averages 70 feet per mile of climbing - steady undulation rather than defining ascents. The private Mosaic Forest Management roads likely provide consistent grades through managed timber terrain, but without major summit objectives. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "June 15 timing hits Vancouver Island's pre-summer sweet spot, and the low DNF rate (2 out of 32 riders in 2025) suggests conditions were manageable. The motocross venue provides some weather shelter, but coastal conditions remain unpredictable."
+        "explanation": "June 15 timing hits Vancouver Island's pre-summer sweet spot, and the low DNF rate (2 out of 32 riders in 2025) suggests conditions were manageable. The motocross venue provides some weather shelter, but coastal conditions remain unpredictable. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Vancouver Island coastal terrain starting near sea level. No altitude considerations whatsoever - you're racing in coastal forest management roads that barely register elevation above the Strait of Georgia."
+        "explanation": "This is Vancouver Island coastal terrain starting near sea level. No altitude considerations whatsoever - you're racing in coastal forest management roads that barely register elevation above the Strait of Georgia. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "129 total riders across three distances shows healthy participation, but the winning margins are significant - Mark Wiebe finished just 56 seconds behind Justin Filuk, while third place Carl Foght was over 5 minutes back. Regional depth without traveling competitive talent."
+        "explanation": "129 total riders across three distances shows healthy participation, but the winning margins are significant - Mark Wiebe finished just 56 seconds behind Justin Filuk, while third place Carl Foght was over 5 minutes back. Regional depth without traveling competitive talent. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Vancouver Island access requires ferry costs from mainland BC or island flights, plus Canadian pricing throughout. The established motocross venue keeps logistics straightforward, and Nanaimo offers more lodging options than smaller island communities."
+        "explanation": "Registration runs $75-100 CAD. Vancouver Island access requires ferry costs from mainland BC or island flights, plus Canadian pricing throughout. The established motocross venue keeps logistics straightforward, and Nanaimo offers more lodging options than smaller island communities. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

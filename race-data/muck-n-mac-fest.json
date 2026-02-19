@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The Border.200 delivers 200km with 3,500m elevation in one push, but weekend options split into manageable 75km days with untimed transfer sections between stages. Mark notes you can \"take twice as long to get value for money\" in the enduro format. The gravel enduro structure prioritizes pacing flexibility over sustained distance suffering."
+        "explanation": "The Border.200 delivers 200km with 3,500m elevation in one push, but weekend options split into manageable 75km days with untimed transfer sections between stages. Mark notes you can \"take twice as long to get value for money\" in the enduro format. The gravel enduro structure prioritizes pacing flexibility over sustained distance suffering. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Routes mix \"technical single tracks, endless forest trails, country roads\" through 65% gravel and 35% tarmac terrain. Craig M noted he \"underestimated area for gravel riding\" in the Tweed Valley. The course includes \"muddy forest trails, technical tracks\" but welcomes adaptive cyclists, suggesting moderate technical demands rather than expert-level features."
+        "explanation": "Routes mix \"technical single tracks, endless forest trails, country roads\" through 65% gravel and 35% tarmac terrain. Craig M noted he \"underestimated area for gravel riding\" in the Tweed Valley. The course includes \"muddy forest trails, technical tracks\" but welcomes adaptive cyclists, suggesting moderate technical demands rather than expert-level features. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Long course weekends gain approximately 1,600m per day across \"steep gradients\" through ancient woodlands and moorland passes. The Border.200 accumulates 3,500m over 200km, averaging 17.5m per kilometer. Routes include \"flowing gravel descents\" but no signature climbs are identified in the terrain descriptions."
+        "explanation": "Long course weekends gain approximately 1,600m per day across \"steep gradients\" through ancient woodlands and moorland passes. The Border.200 accumulates 3,500m over 200km, averaging 17.5m per kilometer. Routes include \"flowing gravel descents\" but no signature climbs are identified in the terrain descriptions. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "May dates in the Scottish Borders carry weather uncertainty, and the event name \"Muck n Mac\" explicitly references mud conditions. The terrain includes \"muddy forest trails\" and \"remote forest roads\" that would amplify weather impacts. No historical weather data available, but organizers clearly design around wet Scottish spring conditions."
+        "explanation": "May dates in the Scottish Borders carry weather uncertainty, and the event name \"Muck n Mac\" explicitly references mud conditions. The terrain includes \"muddy forest trails\" and \"remote forest roads\" that would amplify weather impacts. No historical weather data available, but organizers clearly design around wet Scottish spring conditions. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Traquair House sits in the Tweed Valley at river elevation with routes through \"ancient woodlands\" rather than high country. The Scottish Borders location offers rolling hills without meaningful altitude effects. Maximum elevations aren't specified, confirming this isn't mountain terrain."
+        "explanation": "Traquair House sits in the Tweed Valley at river elevation with routes through \"ancient woodlands\" rather than high country. The Scottish Borders location offers rolling hills without meaningful altitude effects. Maximum elevations aren't specified, confirming this isn't mountain terrain. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Border.200 caps at 200 riders with weekend options splitting the remaining 200 spaces across multiple formats. No competitive categories, timing splits, or notable racers mentioned in rider reports. Al C describes \"friendly staff\" and Mark notes it works for \"pros and people like me who take twice as long,\" confirming participation-focused rather than competitive depth."
+        "explanation": "Border.200 caps at 200 riders with weekend options splitting the remaining 200 spaces across multiple formats. No competitive categories, timing splits, or notable racers mentioned in rider reports. Al C describes \"friendly staff\" and Mark notes it works for \"pros and people like me who take twice as long,\" confirming participation-focused rather than competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Scottish Borders location requires 6-hour drive from London, 1.5 hours from Edinburgh. Free camping controls accommodation costs but food runs festival pricing. Aid stations rated 3.87/5 suggest planning for self-sufficiency between stops. Course navigation scored 4.12/5 with GPX files provided, reducing gear uncertainty."
+        "explanation": "Registration runs £70-90. Scottish Borders location requires 6-hour drive from London, 1.5 hours from Edinburgh. Free camping controls accommodation costs but food runs festival pricing. Aid stations rated 3.87/5 suggest planning for self-sufficiency between stops. Course navigation scored 4.12/5 with GPX files provided, reducing gear uncertainty. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "mucknmacfest.co.uk: Gravelriding"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

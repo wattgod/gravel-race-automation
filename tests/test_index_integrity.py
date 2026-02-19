@@ -68,13 +68,29 @@ class TestIndexStructure:
 class TestIndexSync:
     """Index must stay in sync with race-data/ files."""
 
+    # Duplicate slugs that were removed from the index and redirected to canonical entries.
+    # Their race-data/*.json files may still exist but are intentionally NOT in the index.
+    REDIRECTED_SLUGS = {
+        "bighorn-gravel",       # → big-horn-gravel
+        "bwr-cedar-city",       # → bwr-utah
+        "bwr-north-carolina",   # → bwr-asheville
+        "bwr-san-diego",        # → bwr-california
+        "garmin-gravel-worlds", # → gravel-worlds
+        "gravel-suisse",        # → gravel-fondo-switzerland
+        "gravel-worlds-amateur",# → gravel-worlds
+        "pony-xpress-gravel-160", # → pony-xpress
+        "rad-dirt-fest",        # → salida-76
+        "rasputitsa-spring-classic", # → rasputitsa
+        "spring-valley-100",    # → almanzo-100
+    }
+
     def test_all_profiles_in_index(self):
-        """Every race-data/*.json file must appear in the index."""
+        """Every race-data/*.json file must appear in the index (except known redirects)."""
         data = load_index()
         index_slugs = {e["slug"] for e in data if "slug" in e}
         profile_slugs = {f.stem for f in RACE_DATA_DIR.glob("*.json")}
 
-        missing = profile_slugs - index_slugs
+        missing = profile_slugs - index_slugs - self.REDIRECTED_SLUGS
         if missing:
             pytest.fail(
                 f"{len(missing)} profiles not in index:\n" +

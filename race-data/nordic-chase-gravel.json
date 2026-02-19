@@ -168,23 +168,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "373 miles puts this in ultra-gravel territory with 103-hour cutoff creating real time pressure across Denmark, Sweden, and Norway. The course is \"undeniably more demanding\" than the road version according to organizers. This distance forces multi-day pacing decisions through remote Nordic wilderness."
+        "explanation": "373 miles puts this in ultra-gravel territory with 103-hour cutoff creating real time pressure across Denmark, Sweden, and Norway. The course is \"undeniably more demanding\" than the road version according to organizers. This distance forces multi-day pacing decisions through remote Nordic wilderness. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 3,
-        "explanation": "\"Over 80% gravel, more inland\" with terrain including \"forest tracks, open gravel, Baltic winds\" through dense woods and farmland. Organizer Gregory Sanders personally verified the route in summer 2025. The challenge comes from endurance navigation rather than extreme technical features."
+        "explanation": "\"Over 80% gravel, more inland\" with terrain including \"forest tracks, open gravel, Baltic winds\" through dense woods and farmland. Organizer Gregory Sanders personally verified the route in summer 2025. The challenge comes from endurance navigation rather than extreme technical features. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "26,247 feet of climbing across 373 miles creates substantial suffering through \"gravel climbs to silent lakesides\" and Nordic ridgelines. The route hits \"the raw heart of southern Scandinavia\" with enough vertical to break legs over the distance without requiring alpine genetics."
+        "explanation": "26,247 feet of climbing across 373 miles creates substantial suffering through \"gravel climbs to silent lakesides\" and Nordic ridgelines. The route hits \"the raw heart of southern Scandinavia\" with enough vertical to break legs over the distance without requiring alpine genetics. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-August Nordic summer means endless daylight but riders face \"Baltic winds\" and weather variability crossing three countries. The route hits \"dense woods and quiet farmland before reaching the Baltic sea\" where conditions can change fast in remote sections."
+        "explanation": "Mid-August Nordic summer means endless daylight but riders face \"Baltic winds\" and weather variability crossing three countries. The route hits \"dense woods and quiet farmland before reaching the Baltic sea\" where conditions can change fast in remote sections. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at sea level in Copenhagen and staying in Nordic lowlands means altitude isn't a factor. The climbing comes from rolling terrain rather than elevation affecting oxygen intake. Your legs hurt from distance and surfaces, not thin air."
+        "explanation": "Starting at sea level in Copenhagen and staying in Nordic lowlands means altitude isn't a factor. The climbing comes from rolling terrain rather than elevation affecting oxygen intake. Your legs hurt from distance and surfaces, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -208,7 +208,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Early-stage event with 2025 winners Alban Duvivier (13:29) and Emma Missale (16:39) establishing competitive benchmarks. The 100-rider cap and serious participants like those creating tip videos show commitment, but no established pro field or competitive pedigree yet."
+        "explanation": "Early-stage event with 2025 winners Alban Duvivier (13:29) and Emma Missale (16:39) establishing competitive benchmarks. The 100-rider cap and serious participants like those creating tip videos show commitment, but no established pro field or competitive pedigree yet. Similar competitive depth to Rule of Three. As Event Philosophy puts it: \"Created for the ultra-distance gravel and bikepacking community, Nordic Chase Gravel combines the grit of unsupported racing with the beauty of Nordic wilderness.\""
       },
       "value": {
         "score": 3,
@@ -216,7 +216,7 @@
       },
       "expenses": {
         "score": 5,
-        "explanation": "Beyond the 302 EUR entry, self-arranged accommodation across expensive Nordic countries adds up fast. Factor flights to Copenhagen, potential bike shipping, and Nordic food prices during the multi-day effort. The optional Oslo-Copenhagen ferry with dinner helps but doesn't offset overall Nordic expense."
+        "explanation": "Registration runs €400-€600. Beyond the 302 EUR entry, self-arranged accommodation across expensive Nordic countries adds up fast. Factor flights to Copenhagen, potential bike shipping, and Nordic food prices during the multi-day effort. The optional Oslo-Copenhagen ferry with dinner helps but doesn't offset overall Nordic expense. As Accommodation puts it: \"Not included in the registration. Riders need to arrange their own overnights (hotels, Airbnb's, hostels or sheltered options).\""
       }
     },
     "final_verdict": {
@@ -321,6 +321,74 @@
         "category": "community",
         "label": "granfondo-cycling.com: Best Race Gravel Bike Review"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

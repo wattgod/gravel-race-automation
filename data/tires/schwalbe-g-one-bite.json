@@ -1,0 +1,352 @@
+{
+  "id": "schwalbe-g-one-bite",
+  "name": "Schwalbe G-One Bite",
+  "brand": "Schwalbe",
+  "widths_mm": [
+    38,
+    40,
+    45
+  ],
+  "tread_type": "aggressive",
+  "tread_description": "Aggressive knob pattern with ADDIX SpeedGrip compound",
+  "best_conditions": [
+    "technical",
+    "loose",
+    "rocky",
+    "roots"
+  ],
+  "worst_conditions": [
+    "smooth pavement",
+    "fast gravel"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-bite",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-bite",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-bite"
+  },
+  "tagline": "Technical terrain dominator. Aggressive grip when the course gets rowdy.",
+  "strengths": [
+    "Excellent grip on loose surfaces",
+    "Strong cornering",
+    "Good puncture protection"
+  ],
+  "weaknesses": [
+    "High rolling resistance on pavement",
+    "Heavier",
+    "Buzzy on smooth surfaces"
+  ],
+  "msrp_usd": 69.9,
+  "weight_grams": {
+    "38": 430,
+    "40": 480,
+    "45": 540
+  },
+  "crr_watts_at_29kmh": {
+    "40": 38.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "good",
+  "mud_clearance": "moderate",
+  "recommended_use": [
+    "technical terrain",
+    "loose over hard",
+    "rocky",
+    "roots",
+    "wet technical"
+  ],
+  "avoid_use": [
+    "smooth pavement",
+    "fast gravel",
+    "dry hardpack"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "6-hours-of-syllamo": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "atlas-mountain-race": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "badlands": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bend-dirt-fest": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "berryman-epic": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "big-horn-gravel": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "big-sugar": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bootlegger-100": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-arizona": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-california": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-cedar-city": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-montana": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-north-carolina": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-san-diego": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-utah": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "chequamegon-mtb": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "colorado-trail-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "crusher-in-the-tushar": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "giro-sardegna-gravel": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gravel-brazil": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-california": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-france": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-germany": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gunni-grinder": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "heck-of-the-north": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "iceman-cometh": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "lauf-true-grit": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "little-sugar-mtb": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "lost-river-classic": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "marji-gesick": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "monaco-gravel-race": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "noosa-gravel-enduro": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "pirinexus-360": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "pisgah-monster-cross": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "pony-xpress-gravel-160": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "rad-dirt-fest": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "rebeccas-private-idaho": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "sea-otter-gravel": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "the-gralloch": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-traka": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "transcontinental-race": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "transcordilleras": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "uci-gravel-worlds": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vuelta-altas-cumbres": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "whiskey-off-road": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "maxxis-reaver",
+    "pirelli-cinturato-gravel-s",
+    "teravail-washburn",
+    "vittoria-terreno-wet",
+    "wtb-resolute"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

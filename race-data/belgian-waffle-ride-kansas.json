@@ -58,23 +58,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 80-mile Wafer hits the sweet spot, though actual race distances vary—riders report \"111 miles with over 7,000 ft. of elevation\" and \"123 miles with 6,823 feet of climbing\" for the full Waffle. Three distance options (39, 80, 121 miles) accommodate different abilities. The length creates serious challenge without crossing into pure sufferfest territory."
+        "explanation": "The 80-mile Wafer hits the sweet spot, though actual race distances vary—riders report \"111 miles with over 7,000 ft. of elevation\" and \"123 miles with 6,823 feet of climbing\" for the full Waffle. Three distance options (39, 80, 121 miles) accommodate different abilities. The length creates serious challenge without crossing into pure sufferfest territory. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 4,
-        "explanation": "The Snake Farm delivers \"8-km of cyclocross inspired twists & turns, grass & berms, snakes & curves, and hills & bergs\" that Rebecca Fahringer calls \"the most glorious sector in any gravel or unroad race on the planet.\" Perry Lake Trails include sections where Jonas Orset notes \"I need to dismount and carry the bike\" with \"sharp rocks\" throughout the technical woods sections."
+        "explanation": "The Snake Farm delivers \"8-km of cyclocross inspired twists & turns, grass & berms, snakes & curves, and hills & bergs\" that Rebecca Fahringer calls \"the most glorious sector in any gravel or unroad race on the planet.\" Perry Lake Trails include sections where Jonas Orset notes \"I need to dismount and carry the bike\" with \"sharp rocks\" throughout the technical woods sections. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Riders report \"nearly 2,000 meters (6,500 feet) of elevation on gravel roads\" with the Snake Farm featuring \"hills & bergs\" that create race-defining selection points. The punchy profile with technical climbing through Perry Lake and the cyclocross course at Snake Farm delivers more than typical Kansas grinding. The undulating nature provides \"repeated ramps for escape\" according to Adam Roberge."
+        "explanation": "Riders report \"nearly 2,000 meters (6,500 feet) of elevation on gravel roads\" with the Snake Farm featuring \"hills & bergs\" that create race-defining selection points. The punchy profile with technical climbing through Perry Lake and the cyclocross course at Snake Farm delivers more than typical Kansas grinding. The undulating nature provides \"repeated ramps for escape\" according to Adam Roberge. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "October conditions prove challenging with start temperatures \"around 43 degrees\" that barely reach 55°F by midday. Riders face \"steady 16 mph wind from the north\" with \"temperatures hadn't risen much above 50\" creating energy-sapping headwinds. The \"nonstop rainfall on Wednesday and Thursday\" before race day creates variable surface conditions from hero dirt to mud."
+        "explanation": "October conditions prove challenging with start temperatures \"around 43 degrees\" that barely reach 55°F by midday. Riders face \"steady 16 mph wind from the north\" with \"temperatures hadn't risen much above 50\" creating energy-sapping headwinds. The \"nonstop rainfall on Wednesday and Thursday\" before race day creates variable surface conditions from hero dirt to mud. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Lawrence, Kansas sits around 900 feet elevation, making altitude irrelevant for performance. The course stays in typical Kansas elevation ranges without meaningful altitude effects. Wind becomes the primary atmospheric challenge rather than thin air."
+        "explanation": "Lawrence, Kansas sits around 900 feet elevation, making altitude irrelevant for performance. The course stays in typical Kansas elevation ranges without meaningful altitude effects. Wind becomes the primary atmospheric challenge rather than thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -98,7 +98,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Zero data on field size, past winners, or pro participation makes this a complete unknown. Being mandatory for the Quadrupel Crown should theoretically draw serious riders, but Kansas isn't pulling the same talent magnet as established gravel destinations. Without any historical results or pro rider mentions, you're gambling on whether you'll race against competition or just Crown chasers."
+        "explanation": "Zero data on field size, past winners, or pro participation makes this a complete unknown. Being mandatory for the Quadrupel Crown should theoretically draw serious riders, but Kansas isn't pulling the same talent magnet as established gravel destinations. Without any historical results or pro rider mentions, you're gambling on whether you'll race against competition or just Crown chasers. Less competitive depth than Almanzo 100. As Elite Race Dynamics [2022] puts it: \"This was by far the most dynamic and exciting BWR race in 12 years of Unroadiness.\""
       },
       "value": {
         "score": 3,
@@ -106,7 +106,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Lawrence, Kansas provides affordable college town logistics without destination pricing. Fall October timing avoids peak travel costs, and the Midwest location keeps flights reasonable for most participants. Local lodging and dining remain budget-friendly compared to coastal gravel destinations, though entry fee pricing remains unpublished."
+        "explanation": "Lawrence, Kansas provides affordable college town logistics without destination pricing. Fall October timing avoids peak travel costs, and the Midwest location keeps flights reasonable for most participants. Local lodging and dining remain budget-friendly compared to coastal gravel destinations, though entry fee pricing remains unpublished. More affordable than Crusher in the Tushar."
       }
     },
     "final_verdict": {
@@ -196,6 +196,74 @@
     "series": {
       "id": "belgian-waffle-ride",
       "name": "Belgian Waffle Ride"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
     }
   }
 }

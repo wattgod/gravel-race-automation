@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Elite men like Brian Megens finish the 47.2km Austrian course in 55:08 at 50.59 km/h average, while recreational riders target around 1:08:00. Sixty-five miles translates to a proper gravel distance that hurts without the death march commitment of century rides. It's long enough to separate fitness levels but manageable for undertrained riders willing to suffer."
+        "explanation": "Elite men like Brian Megens finish the 47.2km Austrian course in 55:08 at 50.59 km/h average, while recreational riders target around 1:08:00. Sixty-five miles translates to a proper gravel distance that hurts without the death march commitment of century rides. It's long enough to separate fitness levels but manageable for undertrained riders willing to suffer. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Dr.hannibal reports \"the first half is rather flat or flows smoothly\" before hills that \"can really hurt - once even a 13° incline, but luckily only briefly.\" The Austrian course suggests fire roads and gravel paths rather than technical singletrack. Starting ramp crashes occur when riders clip in, but the main challenge appears to be sustained power rather than bike handling skills."
+        "explanation": "Dr.hannibal reports \"the first half is rather flat or flows smoothly\" before hills that \"can really hurt - once even a 13° incline, but luckily only briefly.\" The Austrian course suggests fire roads and gravel paths rather than technical singletrack. Starting ramp crashes occur when riders clip in, but the main challenge appears to be sustained power rather than bike handling skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Dr.hannibal's Garmin recorded 383 meters of elevation gain on the Austrian course, noting \"no wonder it took me longer if I have to ride 100 more meters of elevation than everyone else.\" The 3,500 feet over 65 miles averages 54 feet per mile - rolling terrain that builds fatigue without the leg-breaking ascents of mountain races."
+        "explanation": "Dr.hannibal's Garmin recorded 383 meters of elevation gain on the Austrian course, noting \"no wonder it took me longer if I have to ride 100 more meters of elevation than everyone else.\" The 3,500 feet over 65 miles averages 54 feet per mile - rolling terrain that builds fatigue without the leg-breaking ascents of mountain races. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "The 2024 Austrian event enjoyed \"sunshine, pleasant temperatures, hardly any wind\" according to dr.hannibal, who noted \"the weather was perfect again this year. With little wind, there are no excuses.\" Lake Constance's mild continental climate typically delivers stable late summer conditions, though severe flooding affected the NC mountain bike series in 2013."
+        "explanation": "Historical weather data shows average highs of 69°F and lows of 55°F, with a 43% chance of rain on any given day. The 2024 Austrian event enjoyed \"sunshine, pleasant temperatures, hardly any wind\" according to dr.hannibal, who noted \"the weather was perfect again this year. With little wind, there are no excuses.\" Lake Constance's mild continental climate typically delivers stable late summer conditions, though severe flooding affected the NC mountain bike series in 2013. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Lake Constance sits at 1,300 feet with climbs into Alpine foothills that won't produce meaningful altitude effects. Dr.hannibal's flat-to-rolling course description from the Austrian event confirms low-altitude cycling throughout. Sea-level fitness works fine here, with mountain scenery masking the minimal elevation impact."
+        "explanation": "Lake Constance sits at 1,300 feet with climbs into Alpine foothills that won't produce meaningful altitude effects. Dr.hannibal's flat-to-rolling course description from the Austrian event confirms low-altitude cycling throughout. Sea-level fitness works fine here, with mountain scenery masking the minimal elevation impact. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Lake Constance region pricing reflects Swiss/German tourist costs with major airports requiring Zurich, Munich, or regional Friedrichshafen access. The tri-national location creates attractive riding opportunities but expensive accommodation in one of Europe's pricier regions. Arkansas ultra-endurance competitors spend months preparing gear setups, suggesting significant equipment investment beyond basic entry costs."
+        "explanation": "Registration runs €60-100. Lake Constance region pricing reflects Swiss/German tourist costs with major airports requiring Zurich, Munich, or regional Friedrichshafen access. The tri-national location creates attractive riding opportunities but expensive accommodation in one of Europe's pricier regions. Arkansas ultra-endurance competitors spend months preparing gear setups, suggesting significant equipment investment beyond basic entry costs. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

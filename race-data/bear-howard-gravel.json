@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "60 miles delivers \"2,800 ft of climbing\" staying \"west of the peaks\" with fast times \"just over 3 hours\" and mid-pack \"around the 4 hour mark.\" Quinn Travis won in 2:59:36, proving the distance hits the sweet spot. 100-mile option adds Saddle Mountain suffering for the committed."
+        "explanation": "60 miles delivers \"2,800 ft of climbing\" staying \"west of the peaks\" with fast times \"just over 3 hours\" and mid-pack \"around the 4 hour mark.\" Quinn Travis won in 2:59:36, proving the distance hits the sweet spot. 100-mile option adds Saddle Mountain suffering for the committed. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Organizers warn the 100-mile \"will test your bike handling as well as your fitness\" with \"a few sections of technical gravel.\" The course includes \"a cool section of single track\" and is \"mostly gravel\" with minimal asphalt. They emphasize it's \"challenging in its features\" beyond just distance."
+        "explanation": "Organizers warn the 100-mile \"will test your bike handling as well as your fitness\" with \"a few sections of technical gravel.\" The course includes \"a cool section of single track\" and is \"mostly gravel\" with minimal asphalt. They emphasize it's \"challenging in its features\" beyond just distance. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 100-mile delivers \"just over 6k of total elevation gain\" including the \"challenging out and back climb up Saddle Mountain\" with a $250 Strava prize. Organizers get feedback that the course is \"epic and certainly no walk in the park.\" 60-mile riders face 2,800 feet of climbing west of the peaks."
+        "explanation": "The 100-mile delivers \"just over 6k of total elevation gain\" including the \"challenging out and back climb up Saddle Mountain\" with a $250 Strava prize. Organizers get feedback that the course is \"epic and certainly no walk in the park.\" 60-mile riders face 2,800 feet of climbing west of the peaks. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "August start times are staggered from 6:30am for the 100-mile through 8:15am for the 30-mile, getting riders moving before Flagstaff heat peaks. High-altitude location moderates summer temperatures compared to lower Arizona deserts. Morning starts avoid afternoon thunderstorm potential."
+        "explanation": "August start times are staggered from 6:30am for the 100-mile through 8:15am for the 30-mile, getting riders moving before Flagstaff heat peaks. High-altitude location moderates summer temperatures compared to lower Arizona deserts. Morning starts avoid afternoon thunderstorm potential. Similar climate challenges to SBT GRVL. As From event organizer puts it: \"Flagstaff is pretty nice in August. But at 7,000 ft **sun screen will be key**. While on course you may experience our **infamous monsoons**, so maybe a light rain jacket but often temperatures are pl...\""
       },
       "altitude": {
         "score": 3,
-        "explanation": "Flagstaff's 7,000+ foot elevation hits every rider from the start line, making climbs hurt more than the profile suggests. Organizers emphasize the 100-mile \"should not be underestimated\" partly due to altitude effects on performance. Thin air makes recovery slower throughout the ride."
+        "explanation": "Flagstaff's 7,000+ foot elevation hits every rider from the start line, making climbs hurt more than the profile suggests. Organizers emphasize the 100-mile \"should not be underestimated\" partly due to altitude effects on performance. Thin air makes recovery slower throughout the ride. Similar altitude considerations to Grinduro."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "200-rider cap limits competitive depth. 2024 60-mile winner Quinn Travis finished in 2:59:36 with David Rakestraw close at 2:59:43, suggesting decent local competition. 100-mile times range 5:07-5:30 for winners with mid-pack finishing 6:00-7:00 hours. Regional Arizona field without national draw."
+        "explanation": "200-rider cap limits competitive depth. 2024 60-mile winner Quinn Travis finished in 2:59:36 with David Rakestraw close at 2:59:43, suggesting decent local competition. 100-mile times range 5:07-5:30 for winners with mid-pack finishing 6:00-7:00 hours. Regional Arizona field without national draw. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Flagstaff lodging runs expensive during August tourist season with limited budget options. Parking challenges at packet pickup location require street parking along San Francisco, Leroux, Dale and Elm streets. High-altitude mountain town costs more than expected for food and accommodation."
+        "explanation": "Registration runs $75-100. Flagstaff lodging runs expensive during August tourist season with limited budget options. Parking challenges at packet pickup location require street parking along San Francisco, Leroux, Dale and Elm streets. High-altitude mountain town costs more than expected for food and accommodation. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "lowell.edu: Bear Howard Gravel Race"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

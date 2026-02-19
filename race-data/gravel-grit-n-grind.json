@@ -70,7 +70,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "UCI World Series status theoretically attracts quality riders chasing points, but field size and competitive depth remain complete unknowns. The Nordic Championship component suggests regional talent shows up, though that could mean anything from depth to a handful of strong Swedes. Without past winner lists or field data, you're gambling on UCI branding translating to actual competition."
+        "explanation": "UCI World Series status theoretically attracts quality riders chasing points, but field size and competitive depth remain complete unknowns. The Nordic Championship component suggests regional talent shows up, though that could mean anything from depth to a handful of strong Swedes. Without past winner lists or field data, you're gambling on UCI branding translating to actual competition. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -78,27 +78,27 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "International travel to Halmstad isn't cheap, especially from outside Europe, but Sweden's strong infrastructure keeps logistics manageable. Accommodation and meal costs in Sweden run high by most standards, though the coastal location offers options. Without entry fee transparency or detailed lodging information, you're estimating blind on total damage to your wallet."
+        "explanation": "International travel to Halmstad isn't cheap, especially from outside Europe, but Sweden's strong infrastructure keeps logistics manageable. Accommodation and meal costs in Sweden run high by most standards, though the coastal location offers options. Without entry fee transparency or detailed lodging information, you're estimating blind on total damage to your wallet. Higher total cost than Badlands."
       },
       "length": {
         "score": 2,
-        "explanation": "At 50 miles, it sits in that middle distance sweet spot - long enough to matter, short enough to avoid the sufferfest territory. It's substantial without being epic, which works for the blend of competitive and social riding they're targeting. The distance lets you actually enjoy those varied Halland landscapes rather than just survive them."
+        "explanation": "At 50 miles, it sits in that middle distance sweet spot - long enough to matter, short enough to avoid the sufferfest territory. It's substantial without being epic, which works for the blend of competitive and social riding they're targeting. The distance lets you actually enjoy those varied Halland landscapes rather than just survive them. More compact than Grinduro."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Rolling hills on varied gravel surfaces through forests and farmland suggests moderate technical demands without extreme challenges. The mix of fast gravel-paved roads and winding cozy sections indicates skill variety rather than pure difficulty. Coastal Swedish terrain rarely gets nasty, keeping things challenging but accessible to competent gravel riders."
+        "explanation": "Rolling hills on varied gravel surfaces through forests and farmland suggests moderate technical demands without extreme challenges. The mix of fast gravel-paved roads and winding cozy sections indicates skill variety rather than pure difficulty. Coastal Swedish terrain rarely gets nasty, keeping things challenging but accessible to competent gravel riders. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 2000 feet of climbing over rolling Halland hills spreads the work across 50 miles rather than concentrating punishment. It's enough elevation to create rhythm and selection without destroying recreational riders. The absence of \"big mountains\" keeps gradients manageable while the rolling nature prevents long flat stretches from killing momentum."
+        "explanation": "The 2000 feet of climbing over rolling Halland hills spreads the work across 50 miles rather than concentrating punishment. It's enough elevation to create rhythm and selection without destroying recreational riders. The absence of \"big mountains\" keeps gradients manageable while the rolling nature prevents long flat stretches from killing momentum. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-August in coastal Sweden typically delivers mild temperatures and manageable conditions, though without specific weather data for Halmstad, you're betting on regional patterns. Scandinavian summers generally avoid extreme heat but can surprise you with rain or wind off the coast. The forest sections provide natural temperature regulation, while open farm roads expose you to whatever weather shows up."
+        "explanation": "Historical weather data shows average highs of 69°F and lows of 57°F, with a 63% chance of rain on any given day, and gusts reaching 28 mph. Mid-August in coastal Sweden typically delivers mild temperatures and manageable conditions, though without specific weather data for Halmstad, you're betting on regional patterns. Scandinavian summers generally avoid extreme heat but can surprise you with rain or wind off the coast. The forest sections provide natural temperature regulation, while open farm roads expose you to whatever weather shows up. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Coastal Swedish location means sea level start with minimal elevation throughout the course. Zero altitude concerns for performance or acclimatization, which eliminates a variable most riders don't want to deal with anyway. The low elevation keeps things straightforward from a physiological standpoint, letting course difficulty come from terrain rather than thin air."
+        "explanation": "Coastal Swedish location means sea level start with minimal elevation throughout the course. Zero altitude concerns for performance or acclimatization, which eliminates a variable most riders don't want to deal with anyway. The low elevation keeps things straightforward from a physiological standpoint, letting course difficulty come from terrain rather than thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "logistics": {
         "score": 2,
@@ -121,6 +121,74 @@
     "course_description": {
       "ridewithgps_id": "45904274",
       "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
     }
   }
 }

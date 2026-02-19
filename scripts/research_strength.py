@@ -377,6 +377,9 @@ def score_race(slug: str) -> dict:
 
     if has_research:
         all_content += "\n" + research_path.read_text()
+    community_path = RESEARCH_DUMPS / f"{slug}-community.md"
+    if community_path.exists():
+        all_content += "\n" + community_path.read_text()
     if has_brief:
         all_content += "\n" + brief_path.read_text()
 

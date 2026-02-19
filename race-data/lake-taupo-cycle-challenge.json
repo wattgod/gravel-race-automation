@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 100-mile distance delivers proper endurance challenge whether you choose Great Lake 100 MTB or the full lake road loop. Multiple century options mean you get distance regardless of surface preference. Four hours minimum saddle time separates tourists from cyclists."
+        "explanation": "The 100-mile distance delivers proper endurance challenge whether you choose Great Lake 100 MTB or the full lake road loop. Multiple century options mean you get distance regardless of surface preference. Four hours minimum saddle time separates tourists from cyclists. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Gravel Grind offers \"70% gravel roads/tracks, 16% Mountain Bike trails\" with mostly Grade 2 difficulty, while the main Round the Lake event stays on pavement. Named climbs like Waihaha Hill and Hatepe Hill provide some challenge, but most technical difficulty comes from optional MTB categories rather than the flagship road course."
+        "explanation": "The Gravel Grind offers \"70% gravel roads/tracks, 16% Mountain Bike trails\" with mostly Grade 2 difficulty, while the main Round the Lake event stays on pavement. Named climbs like Waihaha Hill and Hatepe Hill provide some challenge, but most technical difficulty comes from optional MTB categories rather than the flagship road course. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 160km course gains approximately 1,200 meters through \"rolling hills that rise and fall like a living pulse beneath you.\" Named climbs include the 1km Waihaha Hill (\"noisy water\") and Hatepe Hill sections. Enough climbing to matter for pacing strategies, but the elevation profile favors sustained power over explosive climbing ability."
+        "explanation": "The 160km course gains approximately 1,200 meters through \"rolling hills that rise and fall like a living pulse beneath you.\" Named climbs include the 1km Waihaha Hill (\"noisy water\") and Hatepe Hill sections. Enough climbing to matter for pacing strategies, but the elevation profile favors sustained power over explosive climbing ability. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mike Harding noted 2025's \"great weather; unlike the last few cooler years, the temperature increased during the day and hydration was important.\" Previous editions dealt with \"cold weather\" and \"gusty lake winds,\" while riders face \"sudden wind gusts and variable weather, especially around exposed lake edges.\" Late November timing hits New Zealand's unpredictable spring shoulder season."
+        "explanation": "Historical weather data shows average highs of 65°F and lows of 52°F, with a 66% chance of rain on any given day, and gusts reaching 32 mph. Mike Harding noted 2025's \"great weather; unlike the last few cooler years, the temperature increased during the day and hydration was important.\" Previous editions dealt with \"cold weather\" and \"gusty lake winds,\" while riders face \"sudden wind gusts and variable weather, especially around exposed lake edges.\" Late November timing hits New Zealand's unpredictable spring shoulder season. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Taupo sits at 357 meters (1,170 feet) with minimal elevation variation around the lake loop. Zero altitude adaptation needed—any breathing difficulties stem from fitness, not thin air. The course stays well below any meaningful altitude training zone throughout the entire circumnavigation."
+        "explanation": "Taupo sits at 357 meters (1,170 feet) with minimal elevation variation around the lake loop. Zero altitude adaptation needed—any breathing difficulties stem from fitness, not thin air. The course stays well below any meaningful altitude training zone throughout the entire circumnavigation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Alex Botha's winning 3:57:15 was decided by just \"0.18 seconds\" in the \"closest men's race yet,\" indicating competitive front-end depth. Richard Gibson's 71st place Group 1 finish and nervousness about competition suggests meaningful field size in the faster groups. The sub-5-hour barrier remains a significant benchmark, with Shane Durrant achieving his \"first sub 5hr\" as a notable accomplishment."
+        "explanation": "Alex Botha's winning 3:57:15 was decided by just \"0.18 seconds\" in the \"closest men's race yet,\" indicating competitive front-end depth. Richard Gibson's 71st place Group 1 finish and nervousness about competition suggests meaningful field size in the faster groups. The sub-5-hour barrier remains a significant benchmark, with Shane Durrant achieving his \"first sub 5hr\" as a notable accomplishment. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "Equipment recommendations include \"gravel tires or sturdy road tires\" and \"windproof and layered cycling apparel\" for variable conditions. The $40 transport fee for remote starts adds to entry costs. Getting to Taupo requires either Auckland flights plus 3-4 hour drives or limited regional airport access, with November being peak spring tourism season driving up accommodation costs."
+        "explanation": "Equipment recommendations include \"gravel tires or sturdy road tires\" and \"windproof and layered cycling apparel\" for variable conditions. The $40 transport fee for remote starts adds to entry costs. Getting to Taupo requires either Auckland flights plus 3-4 hour drives or limited regional airport access, with November being peak spring tourism season driving up accommodation costs. More expensive than Atlas Mountain Race."
       }
     },
     "citations": [
@@ -400,6 +400,74 @@
         "category": "community",
         "label": "lovetaupo.com: Experience Taupo Beyond The Lake Taupo Cycle Challenge"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

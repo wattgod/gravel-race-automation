@@ -86,23 +86,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "Christoph Strasser completed TCR9's 3,943 km in 8 days, 16 hours, 30 minutes, noting that \"2023 felt far harder than 2022.\" The 2026 edition spans ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days. This is continental crossing measured in weeks of sustained effort across Europe's breadth."
+        "explanation": "Christoph Strasser completed TCR9's 3,943 km in 8 days, 16 hours, 30 minutes, noting that \"2023 felt far harder than 2022.\" The 2026 edition spans ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days. This is continental crossing measured in weeks of sustained effort across Europe's breadth. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Vincent Nadon experienced equipment failures from vibration: \"A 3D-printed mount for my Garmin Varia that gave way under the vibrations of the Flemish cobblestones.\" TCR10 includes cobbled climbs from Roubaix, while parcours feature gravel sections. Nadon found \"32mm road tires were not enough for rough sections,\" highlighting mixed-surface technical demands."
+        "explanation": "Vincent Nadon experienced equipment failures from vibration: \"A 3D-printed mount for my Garmin Varia that gave way under the vibrations of the Flemish cobblestones.\" TCR10 includes cobbled climbs from Roubaix, while parcours feature gravel sections. Nadon found \"32mm road tires were not enough for rough sections,\" highlighting mixed-surface technical demands. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 5,
-        "explanation": "The 2026 edition features 64,000m of climbing—equivalent to ascending Everest seven times. Routes cross major Alpine passes including Italian Alps and Julian Alps. The Rallarvegen climb out of Norwegian fjords and twin Tatra Mountains parcours in Slovakia create sustained high-altitude challenges that define every TCR edition's suffering quotient."
+        "explanation": "The 2026 edition features 64,000m of climbing—equivalent to ascending Everest seven times. Routes cross major Alpine passes including Italian Alps and Julian Alps. The Rallarvegen climb out of Norwegian fjords and twin Tatra Mountains parcours in Slovakia create sustained high-altitude challenges that define every TCR edition's suffering quotient. Among the hilliest in gravel, comparable to Badlands. As TCR9 field composition puts it: \"Around 350 riders this year also faced mandatory gravel sections along the journey from the start on the unrelenting cobbled ascent of the Muur-Kepelmuur in Geraardsbergen on July 23 to Thessaloniki..\""
       },
       "climate": {
         "score": 5,
-        "explanation": "Vincent Nadon struggled with extreme heat: \"The lowest point was on parcours 3, which seemed endless with the heat and the tough gravel for kilometers.\" Race organizers acknowledge climate impacts: \"Severe flooding in Slovenia putting riders at risk while raging heatwaves in the south exacerbated riders' suffering.\" Temperature swings from Alpine cold to Balkan heat exceed 30°C."
+        "explanation": "Vincent Nadon struggled with extreme heat: \"The lowest point was on parcours 3, which seemed endless with the heat and the tough gravel for kilometers.\" Race organizers acknowledge climate impacts: \"Severe flooding in Slovenia putting riders at risk while raging heatwaves in the south exacerbated riders' suffering.\" Temperature swings from Alpine cold to Balkan heat exceed 30°C. Among the most weather-friendly events, easier than Badlands."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Extended riding above 2,000m on Alpine passes including Mangartsko Sedlo and climbs through Italian Alps. The 2026 route adds Rallarvegen and Tatra Mountains sections. Mt Korab region in North Macedonia provides sustained high-altitude terrain. Not Himalayan elevation, but significant altitude stress combined with sleep deprivation and multi-day physical exhaustion."
+        "explanation": "Extended riding above 2,000m on Alpine passes including Mangartsko Sedlo and climbs through Italian Alps. The 2026 route adds Rallarvegen and Tatra Mountains sections. Mt Korab region in North Macedonia provides sustained high-altitude terrain. Not Himalayan elevation, but significant altitude stress combined with sleep deprivation and multi-day physical exhaustion. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 5,
@@ -126,7 +126,7 @@
       },
       "field_depth": {
         "score": 5,
-        "explanation": "350 riders selected from 1,000+ applicants—the entry is competitive. Winners are ultra-cycling legends. Christoph Strasser is a 6-time RAAM winner. Fiona Kolbinger's 2019 victory—beating 224 men and 40 women as a 24-year-old first-timer—is one of cycling's greatest stories. The field represents the global elite of ultra-endurance cycling."
+        "explanation": "350 riders selected from 1,000+ applicants—the entry is competitive. Winners are ultra-cycling legends. Christoph Strasser is a 6-time RAAM winner. Fiona Kolbinger's 2019 victory—beating 224 men and 40 women as a 24-year-old first-timer—is one of cycling's greatest stories. The field represents the global elite of ultra-endurance cycling. Elite-level competition, on par with Belgian Waffle Ride San Diego. As Vincent Nadon puts it: \"After pushing harder in the Swiss mountains to improve my position in the race, I completely missed the first checkpoint! I was only 2 km away, fortunately, but issue after issue (dead phone, GPS coor...\""
       },
       "value": {
         "score": 4,
@@ -134,7 +134,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Budget 2,000-3,500 EUR total. Entry ~350 GBP, travel to/from start/finish 200-500 EUR, food 400-500 EUR, accommodation 600-900 EUR (hotels plus bivvy nights), insurance/visa. Western Europe costs more; prices halve in the Balkans. Self-supported means funding your own multi-week expedition across a continent."
+        "explanation": "Budget 2,000-3,500 EUR total. Entry ~350 GBP, travel to/from start/finish 200-500 EUR, food 400-500 EUR, accommodation 600-900 EUR (hotels plus bivvy nights), insurance/visa. Western Europe costs more; prices halve in the Balkans. Self-supported means funding your own multi-week expedition across a continent. Higher total cost than Badlands."
       }
     },
     "biased_opinion": {
@@ -370,6 +370,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 480,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
     }
   }
 }

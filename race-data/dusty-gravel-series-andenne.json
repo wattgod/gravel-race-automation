@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Two distance options available: 75km with 1000m elevation and 100km with 1400m elevation. The race starts with 1km through town then immediately hits an 8km climb that's very steep in the first 2km - what rider Alex describes as \"mal so gar nicht meine Welt\" (absolutely not my world)."
+        "explanation": "Two distance options available: 75km with 1000m elevation and 100km with 1400m elevation. The race starts with 1km through town then immediately hits an 8km climb that's very steep in the first 2km - what rider Alex describes as \"mal so gar nicht meine Welt\" (absolutely not my world). More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Surfaces that \"teilweise nichts mehr mit einem Gravelparcours zu tun hatten\" (partially had nothing to do with a gravel course anymore). Includes singletrack sections where riders risked falling 1 meter into ditches if they went off course. Belgian course design is \"schmerzfreier\" - more extreme than typical gravel."
+        "explanation": "Surfaces that \"teilweise nichts mehr mit einem Gravelparcours zu tun hatten\" (partially had nothing to do with a gravel course anymore). Includes singletrack sections where riders risked falling 1 meter into ditches if they went off course. Belgian course design is \"schmerzfreier\" - more extreme than typical gravel. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The opening 8km climb hits you immediately after 1km through town, with very steep grades in the first 2km. The 75km route packs 1000m of elevation while the 100km option delivers 1400m through the rolling Condroz Namurois terrain - substantial climbing that separates riders early."
+        "explanation": "The opening 8km climb hits you immediately after 1km through town, with very steep grades in the first 2km. The 75km route packs 1000m of elevation while the 100km option delivers 1400m through the rolling Condroz Namurois terrain - substantial climbing that separates riders early. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "The very rough course created mechanical carnage - \"Das Rennen war von zahlreichen Defekten übersät\" (the race was riddled with numerous mechanicals). Riders repeatedly struggled with tire punctures due to harsh surface conditions that punished equipment throughout the day."
+        "explanation": "Historical weather data shows average highs of 56°F and lows of 40°F, with a 49% chance of rain on any given day, and gusts reaching 32 mph. The very rough course created mechanical carnage - \"Das Rennen war von zahlreichen Defekten übersät\" (the race was riddled with numerous mechanicals). Riders repeatedly struggled with tire punctures due to harsh surface conditions that punished equipment throughout the day. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Racing through the Mosane valley and Condroz Namurois keeps you at typical Belgian elevations - no altitude effects despite the substantial climbing through the wooded Ardennes terrain."
+        "explanation": "Racing through the Mosane valley and Condroz Namurois keeps you at typical Belgian elevations - no altitude effects despite the substantial climbing through the wooded Ardennes terrain. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "250 participants divided between two distance options, with only 5 German riders making the trip. Winners Lukas Malezsewski, Adne Koster, and Michiel van Vliet suggest regional competitive depth, but limited international participation for a first-year series event."
+        "explanation": "250 participants divided between two distance options, with only 5 German riders making the trip. Winners Lukas Malezsewski, Adne Koster, and Michiel van Vliet suggest regional competitive depth, but limited international participation for a first-year series event. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Belgium festival weekend means premium accommodation costs, plus likely Brussels Airport transfer (~100km) for international travel. Series pricing typically 120-159€ for similar distances, with secure bike parking and finisher packages included - standard European gravel race expenses without budget-breaking elements."
+        "explanation": "Registration runs €60-80. Belgium festival weekend means premium accommodation costs, plus likely Brussels Airport transfer (~100km) for international travel. Series pricing typically 120-159€ for similar distances, with secure bike parking and finisher packages included - standard European gravel race expenses without budget-breaking elements. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -325,6 +325,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

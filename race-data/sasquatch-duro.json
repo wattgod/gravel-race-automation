@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Adam Stone notes the 40-mile short course 'is not chump change' with nearly 3,000 feet of climbing. Hard cutoff at 1pm for long course lap one automatically rescores riders to short course, with organizers stating 'we are in this together' for those having off days."
+        "explanation": "Adam Stone notes the 40-mile short course 'is not chump change' with nearly 3,000 feet of climbing. Hard cutoff at 1pm for long course lap one automatically rescores riders to short course, with organizers stating 'we are in this together' for those having off days. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Described as '62% gravel' with surfaces from 'smooth gravel to rugged sections' through vineyards and forests. Recommended 38-45mm tires and cross bike compatibility indicate technical variety without requiring mountain bike skills for the figure-8 course format."
+        "explanation": "Described as '62% gravel' with surfaces from 'smooth gravel to rugged sections' through vineyards and forests. Recommended 38-45mm tires and cross bike compatibility indicate technical variety without requiring mountain bike skills for the figure-8 course format. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 62-mile course delivers 5,000 feet through rolling wine country terrain described as 'mellow climbs and fun descents.' This represents substantial climbing density that rewards fitness while remaining accessible to cross bike setups in Carlton's hilly landscape."
+        "explanation": "The 62-mile course delivers 5,000 feet through rolling wine country terrain described as 'mellow climbs and fun descents.' This represents substantial climbing density that rewards fitness while remaining accessible to cross bike setups in Carlton's hilly landscape. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-April in Oregon's Willamette Valley creates typical Pacific Northwest spring weather uncertainty. No specific weather data available, but the event was cancelled in 2024 due to fire danger at the previous Oakridge location, indicating weather can impact operations."
+        "explanation": "Mid-April in Oregon's Willamette Valley creates typical Pacific Northwest spring weather uncertainty. No specific weather data available, but the event was cancelled in 2024 due to fire danger at the previous Oakridge location, indicating weather can impact operations. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Carlton sits in Willamette Valley at relatively low elevation where altitude isn't a performance factor. The figure-8 route through vineyards and farmland operates at elevations that won't affect sea level riders or provide mountain dwellers any advantage."
+        "explanation": "Carlton sits in Willamette Valley at relatively low elevation where altitude isn't a performance factor. The figure-8 route through vineyards and farmland operates at elevations that won't affect sea level riders or provide mountain dwellers any advantage. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Results show competitive riders like Edward Dudlik (Dialed Cycling Team) and Nicholas North winning age group categories. Elite categories exist with team-sponsored riders, but the field lacks notable national-level gravel racers or significant prize money to attract top talent."
+        "explanation": "With a field of 100-250 riders, results show competitive riders like Edward Dudlik (Dialed Cycling Team) and Nicholas North winning age group categories. Elite categories exist with team-sponsored riders, but the field lacks notable national-level gravel racers or significant prize money to attract top talent. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Carlton's wine country location means bed and breakfasts rather than budget motels, though McMinnville 15 minutes away offers more lodging options. E-bike allowance (Class 1 and 3, maximum 50 participants) shows adaptation to broader rider demographics and equipment trends."
+        "explanation": "Registration runs $80-100. Carlton's wine country location means bed and breakfasts rather than budget motels, though McMinnville 15 minutes away offers more lodging options. E-bike allowance (Class 1 and 3, maximum 50 participants) shows adaptation to broader rider demographics and equipment trends. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -346,6 +346,74 @@
         "category": "community",
         "label": "webscorer.com: Racedetails"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

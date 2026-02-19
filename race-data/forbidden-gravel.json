@@ -258,27 +258,27 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Chad Grice finished the 104km Esperto course in 5:07:18 at recreational pace, averaging 170W and 20.2 kph. Three distance options (Piccolo ~40km, Medio ~60km, Esperto ~104km) provide choice, but the longest sits in that weekend warrior zone without pushing epic boundaries."
+        "explanation": "Chad Grice finished the 104km Esperto course in 5:07:18 at recreational pace, averaging 170W and 20.2 kph. Three distance options (Piccolo ~40km, Medio ~60km, Esperto ~104km) provide choice, but the longest sits in that weekend warrior zone without pushing epic boundaries. More compact than Grinduro."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The race opens with a critical right turn into fast singletrack where elite positioning matters immediately. Chad Grice describes hike-a-bike sections where 'we got to a steep and loose section and both had to dismount' with a dozen dismounts on the major climb alone."
+        "explanation": "The race opens with a critical right turn into fast singletrack where elite positioning matters immediately. Chad Grice describes hike-a-bike sections where 'we got to a steep and loose section and both had to dismount' with a dozen dismounts on the major climb alone. Similar technical demands to Gravel Worlds. As Chad Grice puts it: \"The second climb of the day was by far the most outrageous climb I have done in a gravel race.\""
       },
       "elevation": {
         "score": 3,
-        "explanation": "4000 feet over 55 miles means real climbing without being ridiculous — about 73 feet per mile. The Forbidden Plateau Road climb is likely where you'll earn your finisher's medal. It's elevation that'll test your gearing choices without requiring oxygen masks."
+        "explanation": "4000 feet over 55 miles means real climbing without being ridiculous — about 73 feet per mile. The Forbidden Plateau Road climb is likely where you'll earn your finisher's medal. It's elevation that'll test your gearing choices without requiring oxygen masks. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "The 2025 race was postponed from September 7 to September 21 due to worsening fire risk and access restrictions. Vancouver Island September weather remains unpredictable enough to force last-minute organizational changes when conditions deteriorate."
+        "explanation": "Historical weather data shows average highs of 68°F and lows of 51°F, with a 45% chance of rain on any given day. The 2025 race was postponed from September 7 to September 21 due to worsening fire risk and access restrictions. Vancouver Island September weather remains unpredictable enough to force last-minute organizational changes when conditions deteriorate. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from Cumberland near sea level, even the Forbidden Plateau Road climb won't reach physiologically significant altitude. The 1,000m+ climbing challenge comes from gradient and surface conditions, not thin air effects."
+        "explanation": "Starting from Cumberland near sea level, even the Forbidden Plateau Road climb won't reach physiologically significant altitude. The 1,000m+ climbing challenge comes from gradient and surface conditions, not thin air effects. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Riding gravel roads named after forbidden plateaus on a remote Canadian island has adventure appeal. The expanded route along Puntledge River and climb up terrain rugged enough to postpone races suggests you'll earn some stories. It's not Patagonia, but it's real wilderness riding without the safety net of civilization every few miles."
+        "explanation": "Riding gravel roads named after forbidden plateaus on a remote Canadian island has adventure appeal. The expanded route along Puntledge River and climb up terrain rugged enough to postpone races suggests you'll earn some stories. It's not Patagonia, but it's real wilderness riding without the safety net of civilization every few miles. As Course Access puts it: \"The series offers exclusive private gravel roads in the remote wilderness, which feature muscle aching terrain, but also awe-inspiring views that can only be found on the West Coast of BC.\""
       },
       "prestige": {
         "score": 1,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No mention of notable winners, pros, or competitive depth anywhere in the research. When a gravel race can't name a single standout performer or doesn't attract talent worth mentioning, you're looking at a participation trophy field. The BC Gravel Series circuit isn't drawing international firepower."
+        "explanation": "With a field of 50-100 riders, no mention of notable winners, pros, or competitive depth anywhere in the research. When a gravel race can't name a single standout performer or doesn't attract talent worth mentioning, you're looking at a participation trophy field. The BC Gravel Series circuit isn't drawing international firepower. Thinner field than Ouray Gravel Grinder. As Key Tactical Note puts it: \"The initial 50km whittled the front of the field down to just five riders in the lead pack.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Cumberland on Vancouver Island requires ferry costs or flights, plus accommodation in a small town without extensive lodging infrastructure. The race itself appears reasonably priced with camping options, but getting there involves significant travel logistics and costs."
+        "explanation": "Registration runs $75-100 CAD. Cumberland on Vancouver Island requires ferry costs or flights, plus accommodation in a small town without extensive lodging infrastructure. The race itself appears reasonably priced with camping options, but getting there involves significant travel logistics and costs. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "granfondoguide.com: Forbidden Gravel"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

@@ -273,23 +273,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Eight routes from 12-mile Family Ride to 200K Mystery Ride means everyone finds their distance. Elite riders like Ted Teyber complete 112 miles \"83 seconds over the eight hour mark\" while recreational riders take \"a little more than 12 hours\" for 180km. The flagship delivers proper all-day adventure without being stupid long."
+        "explanation": "Eight routes from 12-mile Family Ride to 200K Mystery Ride means everyone finds their distance. Elite riders like Ted Teyber complete 112 miles \"83 seconds over the eight hour mark\" while recreational riders take \"a little more than 12 hours\" for 180km. The flagship delivers proper all-day adventure without being stupid long. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Primarily dirt roads with occasional \"27% grade on loose gravel\" like the dreaded Archambo Road climb where \"a couple riders capitulated immediately and resorted to walking.\" One rider noted \"aside from a single descent down a snowmobile trail that makes you feel like a ball in a pachinko machine,\" most terrain is manageable dirt roads in \"recently graded summer prime.\""
+        "explanation": "Primarily dirt roads with occasional \"27% grade on loose gravel\" like the dreaded Archambo Road climb where \"a couple riders capitulated immediately and resorted to walking.\" One rider noted \"aside from a single descent down a snowmobile trail that makes you feel like a ball in a pachinko machine,\" most terrain is manageable dirt roads in \"recently graded summer prime.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
-        "explanation": "Hill Junkie measured \"about 15,800ft of climbing, most of it on dirt\" for 112 miles, with brutal climbs like Patten Hill Road's \"two miles of very steep pavement\" late in the route causing \"cramping – some poor bloke's legs were completely locked up.\" Matt Surch identifies Hillman as \"likely the most difficult climb of the route.\""
+        "explanation": "Hill Junkie measured \"about 15,800ft of climbing, most of it on dirt\" for 112 miles, with brutal climbs like Patten Hill Road's \"two miles of very steep pavement\" late in the route causing \"cramping – some poor bloke's legs were completely locked up.\" Matt Surch identifies Hillman as \"likely the most difficult climb of the route.\" More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "August weather varies dramatically year to year. 2019 brought \"overcast and misty\" morning conditions that were \"still pretty cold out\" at 6am start, while 2015 featured \"pristine conditions.\" Late summer in western Massachusetts remains unpredictable, though riders report \"it was just starting to warm up as we finished around 2:30pm\" in good years."
+        "explanation": "Historical weather data shows average highs of 82°F and lows of 63°F, with a 55% chance of rain on any given day. August weather varies dramatically year to year. 2019 brought \"overcast and misty\" morning conditions that were \"still pretty cold out\" at 6am start, while 2015 featured \"pristine conditions.\" Late summer in western Massachusetts remains unpredictable, though riders report \"it was just starting to warm up as we finished around 2:30pm\" in good years. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting near Deerfield at roughly 200 feet above sea level with climbs through Massachusetts hills, not mountains. Your sea-level lungs won't notice any difference. The elevation gain comes from relentless rolling terrain rather than meaningful altitude."
+        "explanation": "Starting near Deerfield at roughly 200 feet above sea level with climbs through Massachusetts hills, not mountains. Your sea-level lungs won't notice any difference. The elevation gain comes from relentless rolling terrain rather than meaningful altitude. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Elite riders like Ted Teyber and Matt Surch participate but treat it as adventure rather than competition. The non-competitive format means fastest riders either skip it entirely or use it for training. Eight routes spread talent thin across ability levels, with no competitive element drawing serious depth."
+        "explanation": "With a field of 300-600 riders, elite riders like Ted Teyber and Matt Surch participate but treat it as adventure rather than competition. The non-competitive format means fastest riders either skip it entirely or use it for training. Eight routes spread talent thin across ability levels, with no competitive element drawing serious depth. Less competitive depth than Almanzo 100. As Nat Talbot puts it: \"I felt awful for like the first two hours of this. I felt awful through breakfast, it was just nausea that I couldn't shake... Nutrition for these types of rides is a constant battle.\""
       },
       "value": {
         "score": 3,
@@ -321,7 +321,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Tiered pricing rewards planning ahead, starting at $150 early bird and climbing to $250 race day. Food's included so you avoid convenience store hemorrhaging, and Deerfield isn't a destination town keeping lodging reasonable. Hill Junkie noted proper gearing is essential: \"don't even think about doing this ride with a standard drivetrain!\""
+        "explanation": "Tiered pricing rewards planning ahead, starting at $150 early bird and climbing to $250 race day. Food's included so you avoid convenience store hemorrhaging, and Deerfield isn't a destination town keeping lodging reasonable. Hill Junkie noted proper gearing is essential: \"don't even think about doing this ride with a standard drivetrain!\" Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -395,6 +395,74 @@
         "category": "community",
         "label": "reddit.com: Anyone Else Ride D2R2 Today"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

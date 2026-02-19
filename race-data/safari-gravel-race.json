@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 111km elite distance delivers proper gravel territory. Hans Becking's 2024 victory came from \"a strong second half\" after the energy-sapping sandy opening, while 60km options serve intro riders. Race strategy hinges on surviving that brutal first 50km."
+        "explanation": "The 111km elite distance delivers proper gravel territory. Hans Becking's 2024 victory came from \"a strong second half\" after the energy-sapping sandy opening, while 60km options serve intro riders. Race strategy hinges on surviving that brutal first 50km. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "85% gravel mixing red clay, single track, and game trails after 8km of pavement. The course features \"sharp black lava rock under tire\" and \"brutally sandy\" first-half terrain that costs riders energy, but stays accessible for mixed skill levels."
+        "explanation": "85% gravel mixing red clay, single track, and game trails after 8km of pavement. The course features \"sharp black lava rock under tire\" and \"brutally sandy\" first-half terrain that costs riders energy, but stays accessible for mixed skill levels. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2,500m of climbing peaks at 2,214m altitude around kilometer 43, then descends to 1,675m by kilometer 80. The elevation profile creates tactical racing - Hans Becking used the second half to build his winning 4-minute gap over Lukas Baum."
+        "explanation": "2,500m of climbing peaks at 2,214m altitude around kilometer 43, then descends to 1,675m by kilometer 80. The elevation profile creates tactical racing - Hans Becking used the second half to build his winning 4-minute gap over Lukas Baum. Less climbing than The Mid South. As James Savage (Race Director) puts it: \"Despite the picturesque surroundings, this race will be no walk in the park. With 1800m of elevation gain and a predominantly gravel terrain, participants will need to bring their best legs.\""
       },
       "climate": {
         "score": 2,
-        "explanation": "2025 conditions were described as \"dry and dusty environment\" with heat as a significant challenge factor. The 2024 edition saw \"brutally sandy\" first-half terrain that drained rider energy early, suggesting variable year-to-year conditions."
+        "explanation": "Historical weather data shows average highs of 95°F and lows of 75°F, with a 1% chance of rain on any given day. 2025 conditions were described as \"dry and dusty environment\" with heat as a significant challenge factor. The 2024 edition saw \"brutally sandy\" first-half terrain that drained rider energy early, suggesting variable year-to-year conditions. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Racing between 1,675m and 2,214m elevation creates noticeable but manageable altitude effects. The course peaks at 2,214m around kilometer 43 before the long descent, giving riders time to acclimatize during the climbing sections."
+        "explanation": "Racing between 1,675m and 2,214m elevation creates noticeable but manageable altitude effects. The course peaks at 2,214m around kilometer 43 before the long descent, giving riders time to acclimatize during the climbing sections. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 5,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Elite fields draw international pros like Hans Becking and Maddy Nutt, with strong time gaps (4 minutes men's, 2 minutes women's) indicating quality separation. Local Kenyan men dominated the 60km top four spots, but overall depth across categories stays developing."
+        "explanation": "Elite fields draw international pros like Hans Becking and Maddy Nutt, with strong time gaps (4 minutes men's, 2 minutes women's) indicating quality separation. Local Kenyan men dominated the 60km top four spots, but overall depth across categories stays developing. Less competitive depth than Almanzo 100. As Maddy Nutt puts it: \"The race itself was super-tough. Mainly because of the course profile, which was super-sandy and technical, but also because of the extreme heat.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "International flights to Nairobi plus 2-hour transfer, then 5-star Lake Naivasha safari lodges or camping options. The full African adventure experience commands premium pricing even before considering the race entry and safari activities."
+        "explanation": "Registration runs $150-250. International flights to Nairobi plus 2-hour transfer, then 5-star Lake Naivasha safari lodges or camping options. The full African adventure experience commands premium pricing even before considering the race entry and safari activities. More expensive than Atlas Mountain Race."
       }
     },
     "citations": [
@@ -370,6 +370,74 @@
         "category": "community",
         "label": "teamamani.com: Safari Gravel Race"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

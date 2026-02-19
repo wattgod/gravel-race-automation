@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "55 miles hits that middle distance sweet spot for grassroots racing where, as promoter Jason notes, riders line up 'against your buddies, talking smack that you may or may not be able to back up.' Long enough to matter, short enough for weekend warriors."
+        "explanation": "55 miles hits that middle distance sweet spot for grassroots racing where, as promoter Jason notes, riders line up 'against your buddies, talking smack that you may or may not be able to back up.' Long enough to matter, short enough for weekend warriors. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "2000 feet over 55 miles suggests rolling Georgia terrain rather than technical challenges. No course details available beyond basic elevation data, indicating moderate gravel roads typical of the region."
+        "explanation": "2000 feet over 55 miles suggests rolling Georgia terrain rather than technical challenges. No course details available beyond basic elevation data, indicating moderate gravel roads typical of the region. Less technical than The Mid South."
       },
       "elevation": {
         "score": 1,
-        "explanation": "2000 feet over 55 miles averages roughly 36 feet per mile—gentle rolling hills by any climbing standard. Your local highway overpass probably delivers more vertical punch than this Georgia countryside route."
+        "explanation": "2000 feet over 55 miles averages roughly 36 feet per mile—gentle rolling hills by any climbing standard. Your local highway overpass probably delivers more vertical punch than this Georgia countryside route. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late March in south Georgia should dodge summer humidity, but spring weather remains unpredictable. No historical weather incidents documented, suggesting either stable conditions or limited race history to draw from."
+        "explanation": "Historical weather data shows average highs of 75°F and lows of 55°F, with a 41% chance of rain on any given day. Late March in south Georgia should dodge summer humidity, but spring weather remains unpredictable. No historical weather incidents documented, suggesting either stable conditions or limited race history to draw from. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Thomasville sits around 200 feet above sea level—essentially pancake flat. Zero altitude considerations unless you're arriving from below sea level."
+        "explanation": "Thomasville sits around 200 feet above sea level—essentially pancake flat. Zero altitude considerations unless you're arriving from below sea level. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Just 18 registrants led to the 2025 cancellation, revealing the challenge of building competitive fields in saturated markets. No notable past winners or competitive depth documented."
+        "explanation": "Just 18 registrants led to the 2025 cancellation, revealing the challenge of building competitive fields in saturated markets. No notable past winners or competitive depth documented. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Small-town Georgia keeps lodging and travel costs manageable compared to destination races. The promoter's emphasis on grassroots accessibility suggests the overall expense burden remains reasonable for participants."
+        "explanation": "Registration runs $65-85. Small-town Georgia keeps lodging and travel costs manageable compared to destination races. The promoter's emphasis on grassroots accessibility suggests the overall expense burden remains reasonable for participants. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -320,6 +320,74 @@
         "category": "community",
         "label": "sadlebred.com: 7"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

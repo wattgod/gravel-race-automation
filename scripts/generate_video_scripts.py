@@ -27,6 +27,7 @@ RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "video-scripts"
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+from brand_tokens import TIER_NAMES
 from generate_neo_brutalist import (
     normalize_race_data,
     ALL_DIMS,
@@ -34,8 +35,6 @@ from generate_neo_brutalist import (
     COURSE_DIMS,
     OPINION_DIMS,
 )
-
-TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 
 FORMATS = ["tier-reveal", "should-you-race", "roast", "suffering-map"]
 
@@ -221,7 +220,7 @@ def analyze_hooks(rd):
     tier = rd["tier"]
     score = rd["overall_score"]
     name = rd["name"]
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
 
     # Overrated: high prestige but poor value/expenses
     if scores.get("prestige", 0) >= 4 and (
@@ -306,12 +305,12 @@ def analyze_hooks(rd):
 def _score_to_tier_name(score):
     """Map a raw score to its natural tier name (without overrides)."""
     if score >= 80:
-        return "Elite"
+        return "The Icons"
     elif score >= 60:
-        return "Contender"
+        return "Elite"
     elif score >= 45:
         return "Solid"
-    return "Roster"
+    return "Grassroots"
 
 
 # ---------------------------------------------------------------------------
@@ -327,7 +326,7 @@ def fmt_tier_reveal(rd):
     slug = rd["slug"]
     tier = rd["tier"]
     score = rd["overall_score"]
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
 
     # Top dimensions by score (descending), take top 4
     dims_sorted = sorted(
@@ -396,8 +395,8 @@ def fmt_head_to_head(rd1, rd2):
     slug1, slug2 = rd1["slug"], rd2["slug"]
     score1, score2 = rd1["overall_score"], rd2["overall_score"]
     tier1, tier2 = rd1["tier"], rd2["tier"]
-    tn1 = TIER_NAMES.get(tier1, "Roster")
-    tn2 = TIER_NAMES.get(tier2, "Roster")
+    tn1 = TIER_NAMES.get(tier1, "Grassroots")
+    tn2 = TIER_NAMES.get(tier2, "Grassroots")
 
     # Rank all dimensions by difference (descending), always show top 5-6
     all_diffs = []
@@ -516,7 +515,7 @@ def fmt_should_you_race(rd):
     slug = rd["slug"]
     score = rd["overall_score"]
     tier = rd["tier"]
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
 
     # Course character
     character = to_spoken(rd["course"]["character"])
@@ -642,7 +641,7 @@ def fmt_roast(rd):
     slug = rd["slug"]
     score = rd["overall_score"]
     tier = rd["tier"]
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
     verdict = rd["biased_opinion"]["verdict"]
 
     strengths = rd["biased_opinion"]["strengths"]
@@ -833,12 +832,12 @@ def fmt_data_drops(all_races):
     drops.append(
         _drop_script(
             "Tier Distribution",
-            f'"Out of {total} races, only {tier_counts[1]} made Elite. '
+            f'"Out of {total} races, only {tier_counts[1]} made The Icons. '
             f"That's {t1p} percent. "
-            f'{tier_counts[2]} Contender. {tier_counts[3]} Solid. '
-            f'{tier_counts[4]} Roster."',
-            f"[TEXT ON SCREEN: \"ELITE: {tier_counts[1]} | CONTENDER: {tier_counts[2]} | "
-            f"SOLID: {tier_counts[3]} | ROSTER: {tier_counts[4]}\"]",
+            f'{tier_counts[2]} Elite. {tier_counts[3]} Solid. '
+            f'{tier_counts[4]} Grassroots."',
+            f"[TEXT ON SCREEN: \"THE ICONS: {tier_counts[1]} | ELITE: {tier_counts[2]} | "
+            f"SOLID: {tier_counts[3]} | GRASSROOTS: {tier_counts[4]}\"]",
         )
     )
 

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "55 miles sits in that awkward middle distance where it's too short to be epic and too long to be casual. Four route options from 20-100 miles show they're trying to please everyone, which usually means pleasing no one particularly well. At least you can pick your poison."
+        "explanation": "55 miles sits in that awkward middle distance where it's too short to be epic and too long to be casual. Four route options from 20-100 miles show they're trying to please everyone, which usually means pleasing no one particularly well. At least you can pick your poison. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "All routes start with \"one mile of paved climb\" before reaching gravel on the ridge, then descend the same paved section to finish. Kevin Huang summarized it as \"Really mfn hard, really hilly\" while Mark Lee noted the 40-mile had \"great versatile terrain.\" The Driftless region delivers rolling hills, farms, and wooded descents."
+        "explanation": "All routes start with \"one mile of paved climb\" before reaching gravel on the ridge, then descend the same paved section to finish. Kevin Huang summarized it as \"Really mfn hard, really hilly\" while Mark Lee noted the 40-mile had \"great versatile terrain.\" The Driftless region delivers rolling hills, farms, and wooded descents. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2500 feet over 55 miles averages to manageable suffering in Driftless region terrain. That's enough climbing to respect but not enough to break you, which fits their 'welcoming to novices' positioning. The paved climb start suggests at least one ascent, but this isn't the Rockies."
+        "explanation": "2500 feet over 55 miles averages to manageable suffering in Driftless region terrain. That's enough climbing to respect but not enough to break you, which fits their 'welcoming to novices' positioning. The paved climb start suggests at least one ascent, but this isn't the Rockies. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Uriah Matznick suffered a mechanical DNF at mile 40 of the 100-mile course, highlighting the self-supported nature where riders must \"bring some sort of tire plug, inner tube, and Co2.\" The race warns \"There will not be any mechanical support on the road, you are responsible for arranging a ride if you have issues.\""
+        "explanation": "Uriah Matznick suffered a mechanical DNF at mile 40 of the 100-mile course, highlighting the self-supported nature where riders must \"bring some sort of tire plug, inner tube, and Co2.\" The race warns \"There will not be any mechanical support on the road, you are responsible for arranging a ride if you have issues.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Southeast Minnesota's Driftless region sits at typical elevations of 800-1400 feet with no altitude training considerations. The paved climb to reach gravel on the ridge represents standard Midwest topography rather than any meaningful elevation challenge."
+        "explanation": "Southeast Minnesota's Driftless region sits at typical elevations of 800-1400 feet with no altitude training considerations. The paved climb to reach gravel on the ridge represents standard Midwest topography rather than any meaningful elevation challenge. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "The 100-mile field shows modest competitive depth with winners around 4:44 and mid-pack finishing 2-3 hours later. Brian Werner's enthusiastic but generic review (\"the venue was great, the route was great, the vendors were great\") reflects a friendly participation-focused field rather than serious racing depth."
+        "explanation": "The 100-mile field shows modest competitive depth with winners around 4:44 and mid-pack finishing 2-3 hours later. Brian Werner's enthusiastic but generic review (\"the venue was great, the route was great, the vendors were great\") reflects a friendly participation-focused field rather than serious racing depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Hokah represents modest Midwest travel costs with car camping available in the farm pasture as Erin Sullivan utilized. Local business partnerships for food and lodging in what organizers call a \"super cool little town\" keep costs reasonable compared to destination race weekend gouging."
+        "explanation": "Registration runs $50-75. Hokah represents modest Midwest travel costs with car camping available in the farm pasture as Erin Sullivan utilized. Local business partnerships for food and lodging in what organizers call a \"super cool little town\" keep costs reasonable compared to destination race weekend gouging. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -357,6 +357,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

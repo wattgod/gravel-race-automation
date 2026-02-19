@@ -57,23 +57,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "At 340 km with a 20-hour time limit, this pushes deep into ultra-distance territory. One rider described it as 'one the harder that we have done until now' after completing with an experienced brevet fanatic. Jordi Riera Valls covered the full distance in 13 hours 50 minutes, demonstrating the gap between elite and recreational pacing."
+        "explanation": "At 340 km with a 20-hour time limit, this pushes deep into ultra-distance territory. One rider described it as 'one the harder that we have done until now' after completing with an experienced brevet fanatic. Jordi Riera Valls covered the full distance in 13 hours 50 minutes, demonstrating the gap between elite and recreational pacing. Among the longest in gravel, comparable to Badlands. As Sleep Deprivation puts it: \"We only could sleep 4 hours the night before the race but we tried to be ready on time for start line and keep our mind aware for the first part of the ride.\""
       },
       "technicality": {
         "score": 3,
-        "explanation": "Mixed terrain with 55% gravel proves challenging but manageable. Tom Owen rode it on 25c tires with a 1990s steel road bike, noting it 'proved anything but nimble; it felt practically lethal on rocky descents.' The final 49km features single-track sections ridden 'really fast' in darkness toward Girona."
+        "explanation": "Mixed terrain with 55% gravel proves challenging but manageable. Tom Owen rode it on 25c tires with a 1990s steel road bike, noting it 'proved anything but nimble; it felt practically lethal on rocky descents.' The final 49km features single-track sections ridden 'really fast' in darkness toward Girona. Similar technical demands to Gravel Worlds. As Tom Owen puts it: \"I rode the Pirinexus, or my version of it, on a steel frame Decathlon road bike from the 1990s...\""
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 3,400m of climbing centers on a brutal 50km section from Ceret to Col d'Ares. Riders report this stretch as 'really hard and a huge nightmare for a lot of participants' with 23km of gravel climbing. Many DNF at this point, though reaching the summit means 'you knew you could finish the race on time.'"
+        "explanation": "The 3,400m of climbing centers on a brutal 50km section from Ceret to Col d'Ares. Riders report this stretch as 'really hard and a huge nightmare for a lot of participants' with 23km of gravel climbing. Many DNF at this point, though reaching the summit means 'you knew you could finish the race on time.' More climbing than SBT GRVL at the same score. As Timo Rokitta puts it: \"On a gravel 'Via Verde' (a former railway converted into a cycle path) with many deep puddles and wet feet we climbed gently to our first destination, Olot.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "June 2019 riders enjoyed 'very pleasant temperatures, without too much heat' during the day. However, Tom Owen's early spring attempt saw water bottles and breakfast bananas freeze overnight. The night finish portion adds cold exposure risk after 12+ hours of exertion."
+        "explanation": "June 2019 riders enjoyed 'very pleasant temperatures, without too much heat' during the day. However, Tom Owen's early spring attempt saw water bottles and breakfast bananas freeze overnight. The night finish portion adds cold exposure risk after 12+ hours of exertion. Similar climate challenges to SBT GRVL. As Timo Rokitta puts it: \"An ice-cold wind was blowing and the view was fantastic [at Col d'Ares]. On the very long descent it slowly got warmer and warmer.\""
       },
       "altitude": {
         "score": 2,
-        "explanation": "Col d'Ares peaks at 1,513m with most of the route at lower elevations. The altitude itself poses minimal physiological challenge - the difficulty lies in the climbing effort rather than thin air. Start and finish at sea level in Girona with moderate mountain passes throughout."
+        "explanation": "Col d'Ares peaks at 1,513m with most of the route at lower elevations. The altitude itself poses minimal physiological challenge - the difficulty lies in the climbing effort rather than thin air. Start and finish at sea level in Girona with moderate mountain passes throughout. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 5,
@@ -97,7 +97,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Attracts experienced ultra-endurance cyclists from across Europe, but not major series or major pro field depth. Strong regional competition with international participants. Personal challenge format means less emphasis on elite racing."
+        "explanation": "Attracts experienced ultra-endurance cyclists from across Europe, but not major series or major pro field depth. Strong regional competition with international participants. Personal challenge format means less emphasis on elite racing. Similar competitive depth to Rule of Three. As Tom Owen's Bikepacking Trip puts it: \"My water bottles froze both nights. On the first night my breakfast banana also froze.\""
       },
       "value": {
         "score": 4,
@@ -105,7 +105,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Girona offers reasonable European pricing. Budget flights to Barcelona or Girona from European hubs. Accommodation varies but available. No extreme remoteness premium. Total trip cost moderate by European standards - estimated $500-800 including travel from within Europe."
+        "explanation": "Girona offers reasonable European pricing. Budget flights to Barcelona or Girona from European hubs. Accommodation varies but available. No extreme remoteness premium. Total trip cost moderate by European standards - estimated $500-800 including travel from within Europe. More affordable than Crusher in the Tushar."
       }
     },
     "distances": [
@@ -366,6 +366,87 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 480,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    },
+    "terrain": {
+      "surface": "55% gravel/dirt, 45% asphalt. Via Verde greenway sections, volcanic terrain, singletrack descents.",
+      "primary": "Mixed gravel and asphalt with volcanic zones and technical border descent",
+      "technical_rating": 3,
+      "features": [
+        "Via Verde greenway (smooth gravel)",
+        "Volcanic terrain zones",
+        "Technical border descent",
+        "Gravel climbs",
+        "Medieval village cobbles",
+        "Singletrack sections"
+      ]
     }
   }
 }

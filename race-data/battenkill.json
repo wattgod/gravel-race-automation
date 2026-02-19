@@ -258,11 +258,11 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 65-mile distance hits the sweet spot for spring classic suffering. Multiple options from 24-mile Piccolo to 75-mile Gran Fondo let riders choose their poison. As MDcatV discovered, \"the relentless 6K feet of 1 to 3 minute climbs\" make the distance feel much longer when the grades start stacking up in Washington County."
+        "explanation": "The 65-mile distance hits the sweet spot for spring classic suffering. Multiple options from 24-mile Piccolo to 75-mile Gran Fondo let riders choose their poison. As MDcatV discovered, \"the relentless 6K feet of 1 to 3 minute climbs\" make the distance feel much longer when the grades start stacking up in Washington County. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Mixed surfaces require bike handling skills, but Washington County gravel is generally smooth and hard-packed. The challenge comes from mud conditions rather than technical terrain. CJ Rudy found that on Juniper Swamp's 14% grade, you \"stand up and risk losing traction or remain seated and feel the gravel reaching up and holding forward motion ransom.\""
+        "explanation": "Mixed surfaces require bike handling skills, but Washington County gravel is generally smooth and hard-packed. The challenge comes from mud conditions rather than technical terrain. CJ Rudy found that on Juniper Swamp's 14% grade, you \"stand up and risk losing traction or remain seated and feel the gravel reaching up and holding forward motion ransom.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
@@ -270,11 +270,11 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Early May in upstate New York delivers unpredictable conditions. The 2025 race earned \"flahute\" status when CJ Rudy found \"it had been raining all week\" before race day. Spring weather swings from perfect to miserable - \"it was cool enough to play havoc on attire\" as rain stopped mid-race, creating dramatic temperature changes."
+        "explanation": "Historical weather data shows average highs of 68°F and lows of 46°F, with a 47% chance of rain on any given day. Early May in upstate New York delivers unpredictable conditions. The 2025 race earned \"flahute\" status when CJ Rudy found \"it had been raining all week\" before race day. Spring weather swings from perfect to miserable - \"it was cool enough to play havoc on attire\" as rain stopped mid-race, creating dramatic temperature changes. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Cambridge, NY sits in rural Washington County at elevation that won't affect anyone's breathing. This is East Coast racing where altitude never factors into performance or acclimatization planning."
+        "explanation": "Cambridge, NY sits in rural Washington County at elevation that won't affect anyone's breathing. This is East Coast racing where altitude never factors into performance or acclimatization planning. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The pro/am format brings speed to the front, but field depth gets diluted across multiple distance options. FormerRower crashed hard early but still managed top 20 in Cat 2, suggesting competitive but not murderous depth. The race is rebuilding elite concentration after seven-year absence from the calendar."
+        "explanation": "The pro/am format brings speed to the front, but field depth gets diluted across multiple distance options. FormerRower crashed hard early but still managed top 20 in Cat 2, suggesting competitive but not murderous depth. The race is rebuilding elite concentration after seven-year absence from the calendar. Less competitive depth than Almanzo 100. As John S (globecanvas) puts it: \"I'm 10 pounds too heavy (or 20 watts too weak) to compete in races that are decided by raw watts per kilogram...\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Cambridge, NY offers reasonable lodging like The Wildflower Inn without destination resort pricing. Rural upstate location keeps costs manageable compared to trendy gravel destinations. The grassroots event philosophy means you're paying for racing history and challenging terrain rather than premium amenities or corporate polish."
+        "explanation": "Registration runs $80-120. Cambridge, NY offers reasonable lodging like The Wildflower Inn without destination resort pricing. Rural upstate location keeps costs manageable compared to trendy gravel destinations. The grassroots event philosophy means you're paying for racing history and challenging terrain rather than premium amenities or corporate polish. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -395,6 +395,74 @@
         "category": "community",
         "label": "en.wikipedia.org: Tour Of The Battenkill"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

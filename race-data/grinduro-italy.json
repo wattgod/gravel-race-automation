@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The ~95km distance with four timed stages creates proper challenge without ultra-endurance commitment. Paul Errington describes hitting \"seated 40 km/h as the back wheel shifts violently side to side through deeper looser gravel\" on Stage 1's flat time trial sections. Between-stage transitions allow riders to \"relax, chat to other riders, take in the views.\""
+        "explanation": "The ~95km distance with four timed stages creates proper challenge without ultra-endurance commitment. Paul Errington describes hitting \"seated 40 km/h as the back wheel shifts violently side to side through deeper looser gravel\" on Stage 1's flat time trial sections. Between-stage transitions allow riders to \"relax, chat to other riders, take in the views.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course demands varied skills across four distinct stages - from flat-out gravel time trials to technical singletrack descents. Paul Errington notes \"on a 40mm tyre and drop bars speed is your friend as you try and stay on top of everything\" through rocky Canyon sections. Ex-World Cup XC rider Marco Fontana rode a flat bar Scott gravel bike for the technical stages."
+        "explanation": "Course demands varied skills across four distinct stages - from flat-out gravel time trials to technical singletrack descents. Paul Errington notes \"on a 40mm tyre and drop bars speed is your friend as you try and stay on top of everything\" through rocky Canyon sections. Ex-World Cup XC rider Marco Fontana rode a flat bar Scott gravel bike for the technical stages. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "Actual GPS readings showed 1850m of climbing across varied terrain, significantly more than the official 1500m listing. The asphalted Stage 3 climb measures \"3.8 km long, has 180 hm and an average gradient of 6% - perfect to race up there at full throttle.\" Riders hit Monte Arsenti where \"all the local MTB descents start.\""
+        "explanation": "Actual GPS readings showed 1850m of climbing across varied terrain, significantly more than the official 1500m listing. The asphalted Stage 3 climb measures \"3.8 km long, has 180 hm and an average gradient of 6% - perfect to race up there at full throttle.\" Riders hit Monte Arsenti where \"all the local MTB descents start.\" More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "Weather varies dramatically by timing - 2025 event hit \"very hot, around 94F / 34C\" while 2024 featured \"little rain in the preceding days\" making \"the dirt just perfect.\" One rider noted contrasts between years: \"Last year it was extremely hot, dry and slippery, which didn't make things any easier either.\""
+        "explanation": "Weather varies dramatically by timing - 2025 event hit \"very hot, around 94F / 34C\" while 2024 featured \"little rain in the preceding days\" making \"the dirt just perfect.\" One rider noted contrasts between years: \"Last year it was extremely hot, dry and slippery, which didn't make things any easier either.\" Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Massa Marittima base elevation around 380 meters with surrounding Tuscan hills topping around 1,000 meters provides zero altitude training benefit. The Canyon trail, described as \"probably the most famous trail in Tuscany,\" runs at coastal Mediterranean elevations requiring no acclimatization."
+        "explanation": "Massa Marittima base elevation around 380 meters with surrounding Tuscan hills topping around 1,000 meters provides zero altitude training benefit. The Canyon trail, described as \"probably the most famous trail in Tuscany,\" runs at coastal Mediterranean elevations requiring no acclimatization. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Limited competitive depth beyond regional Italian participants and adventure tourists. Ex-World Cup XC rider Marco Fontana represents the competitive ceiling, though most riders prioritize the experience over results. Event attracts participants seeking \"jaw-dropping scenery\" and \"top-rate feed stations\" rather than racing pedigree."
+        "explanation": "With a field of 300-500 riders, limited competitive depth beyond regional Italian participants and adventure tourists. Ex-World Cup XC rider Marco Fontana represents the competitive ceiling, though most riders prioritize the experience over results. Event attracts participants seeking \"jaw-dropping scenery\" and \"top-rate feed stations\" rather than racing pedigree. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 2,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Massa Marittima location requires international flights plus ground transport for most participants. Camping options run €25-75 for two nights, but riders need specialized equipment - one competitive rider switched to 45mm tires at \"very low\" pressures of \"23 PSI front and 25 PSI rear\" plus shorter stem for technical sections."
+        "explanation": "Massa Marittima location requires international flights plus ground transport for most participants. Camping options run €25-75 for two nights, but riders need specialized equipment - one competitive rider switched to 45mm tires at \"very low\" pressures of \"23 PSI front and 25 PSI rear\" plus shorter stem for technical sections. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -364,6 +364,74 @@
     "series": {
       "id": "grinduro",
       "name": "Grinduro"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
     }
   }
 }

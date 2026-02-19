@@ -270,7 +270,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No registration data, no past results, no field size information anywhere. A 65-mile gravel race in rural Louisiana isn't attracting national talent or deep competitive fields. Likely a small local affair with weekend warriors and regional riders if it exists at all."
+        "explanation": "No registration data, no past results, no field size information anywhere. A 65-mile gravel race in rural Louisiana isn't attracting national talent or deep competitive fields. Likely a small local affair with weekend warriors and regional riders if it exists at all. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -278,27 +278,27 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "St. Francisville is small-town affordable - cheap gas, reasonable lodging, no big-city markup on food. Closest major airport is Baton Rouge about 30 minutes away with decent flight options. The area won't break your budget, assuming you can find places that are actually open when you need them."
+        "explanation": "Registration runs $60-100. St. Francisville is small-town affordable - cheap gas, reasonable lodging, no big-city markup on food. Closest major airport is Baton Rouge about 30 minutes away with decent flight options. The area won't break your budget, assuming you can find places that are actually open when you need them. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles hits the sweet spot for most gravel riders - long enough to be challenging without being an all-day suffer-fest. Good distance for testing fitness without requiring ultra-endurance prep. Standard gran fondo length that works for both competitive riders and enthusiasts looking for a solid day out."
+        "explanation": "65 miles hits the sweet spot for most gravel riders - long enough to be challenging without being an all-day suffer-fest. Good distance for testing fitness without requiring ultra-endurance prep. Standard gran fondo length that works for both competitive riders and enthusiasts looking for a solid day out. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Louisiana terrain is typically flat to rolling with straightforward gravel roads - no rock gardens, no alpine descents, no technical features that'll test bike handling skills. The Mississippi River bluff area around St. Francisville has some hills but nothing that demands mountain bike skills or advanced technique."
+        "explanation": "Louisiana terrain is typically flat to rolling with straightforward gravel roads - no rock gardens, no alpine descents, no technical features that'll test bike handling skills. The Mississippi River bluff area around St. Francisville has some hills but nothing that demands mountain bike skills or advanced technique. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3000 feet over 65 miles averages under 50 feet per mile - rolling but not mountainous. Louisiana's highest point is 535 feet, so you're not getting sustained climbing or serious gradient challenges. Enough ups and downs to keep it interesting but won't separate the climbers from the pack."
+        "explanation": "3000 feet over 65 miles averages under 50 feet per mile - rolling but not mountainous. Louisiana's highest point is 535 feet, so you're not getting sustained climbing or serious gradient challenges. Enough ups and downs to keep it interesting but won't separate the climbers from the pack. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Louisiana in summer is brutal - oppressive humidity, 90+ degree heat, and thunderstorms that roll in fast. Spring and fall offer better conditions but still humid and unpredictable. Winter can actually be pleasant for riding, but timing a gravel race around Louisiana weather is always a gamble."
+        "explanation": "Louisiana in summer is brutal - oppressive humidity, 90+ degree heat, and thunderstorms that roll in fast. Spring and fall offer better conditions but still humid and unpredictable. Winter can actually be pleasant for riding, but timing a gravel race around Louisiana weather is always a gamble. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "St. Francisville sits at about 100 feet above sea level near the Mississippi River. Zero altitude considerations - you're basically at sea level the entire time. If you're coming from elevation, this might actually feel easier due to the oxygen density."
+        "explanation": "St. Francisville sits at about 100 feet above sea level near the Mississippi River. Zero altitude considerations - you're basically at sea level the entire time. If you're coming from elevation, this might actually feel easier due to the oxygen density. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "logistics": {
         "score": 3,
@@ -309,6 +309,74 @@
         "explanation": "Louisiana backroads through plantation country offer some historic intrigue and southern culture, but it's not epic wilderness adventure. The terrain lacks the dramatic features that make gravel racing memorable - no mountain vistas, no desert isolation, just rural roads through farmland and forests."
       }
     },
-    "citations": []
+    "citations": [],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

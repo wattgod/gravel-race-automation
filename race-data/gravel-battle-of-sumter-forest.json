@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "At 65 miles, the distance sustains competitive intensity throughout. Karel's experienced group averaged 23.9mph for the first 6-mile gravel section, then maintained 21.5mph for the next 50 miles with heart rate \"in the mid 160's.\" The course format of \"a few miles of gravel and then a few miles of road - rinse and repeat for 72 miles\" prevents monotony."
+        "explanation": "At 65 miles, the distance sustains competitive intensity throughout. Karel's experienced group averaged 23.9mph for the first 6-mile gravel section, then maintained 21.5mph for the next 50 miles with heart rate \"in the mid 160's.\" The course format of \"a few miles of gravel and then a few miles of road - rinse and repeat for 72 miles\" prevents monotony. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Mixed terrain creates constant handling challenges beyond pure fitness. The course includes \"a river crossing, a few steep hills and a tight rocky turn\" plus I-26 tunnels that both long and short courses navigate. Marni describes \"loose gravel\" and \"hillier sections with holes, sand and rocks to dodge\" requiring sustained attention."
+        "explanation": "Mixed terrain creates constant handling challenges beyond pure fitness. The course includes \"a river crossing, a few steep hills and a tight rocky turn\" plus I-26 tunnels that both long and short courses navigate. Marni describes \"loose gravel\" and \"hillier sections with holes, sand and rocks to dodge\" requiring sustained attention. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Piedmont terrain delivers deceptive difficulty through sustained climbing. \"You may think that with Clinton being in the Piedmont region of South Carolina that the terrain means an easier ride. Don't be fooled, everyone who finishes this event knows it was much harder than they anticipated,\" reports Marni after completing the 2,100 feet of elevation gain."
+        "explanation": "Piedmont terrain delivers deceptive difficulty through sustained climbing. \"You may think that with Clinton being in the Piedmont region of South Carolina that the terrain means an easier ride. Don't be fooled, everyone who finishes this event knows it was much harder than they anticipated,\" reports Marni after completing the 2,100 feet of elevation gain. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "March timing avoids summer heat but creates visibility issues. Dust conditions were so severe that Marni \"could barely see anything\" on gravel sections, forcing her to slow down for safety. \"There was a crash on the gravel sometime in the first 10 miles but I think everyone that crashed there finished.\""
+        "explanation": "Historical weather data shows average highs of 68°F and lows of 48°F, with a 42% chance of rain on any given day. March timing avoids summer heat but creates visibility issues. Dust conditions were so severe that Marni \"could barely see anything\" on gravel sections, forcing her to slow down for safety. \"There was a crash on the gravel sometime in the first 10 miles but I think everyone that crashed there finished.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Piedmont South Carolina terrain sits near sea level with zero altitude impact on performance. The Whitmire area offers no elevation training benefits or acclimatization challenges for riders from any elevation."
+        "explanation": "Piedmont South Carolina terrain sits near sea level with zero altitude impact on performance. The Whitmire area offers no elevation training benefits or acclimatization challenges for riders from any elevation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional competitive depth evident in sprint finishes without elite national draw. Karel cramped near the end but still managed 3rd in his age group, missing first \"by just a few seconds\" in the final sprint. Equal pay structure brought stronger women's field, though free water bottles for first 200 registrants suggests modest elite expectations."
+        "explanation": "Regional competitive depth evident in sprint finishes without elite national draw. Karel cramped near the end but still managed 3rd in his age group, missing first \"by just a few seconds\" in the final sprint. Equal pay structure brought stronger women's field, though free water bottles for first 200 registrants suggests modest elite expectations. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Youth entries at $40 suggest accessible regional pricing structure. Downtown Whitmire finish provides local post-race dining and exploration without resort-level costs. Free primitive camping available Friday night \"at the Whitmire Community Center\" for van and small camper owners eliminates lodging expenses."
+        "explanation": "Youth entries at $40 suggest accessible regional pricing structure. Downtown Whitmire finish provides local post-race dining and exploration without resort-level costs. Free primitive camping available Friday night \"at the Whitmire Community Center\" for van and small camper owners eliminates lodging expenses. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -360,6 +360,74 @@
         "category": "community",
         "label": "granfondodailynews.com: Stacked Pro Field Goes Head To Head At Battle Gravel Of S..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The advertised 45-mile route actually measured closer to 52 miles according to riders. Padraig calls this \"a really terrific distance for a gravel event\" that lets you \"get home at a reasonable hour\" without burning a whole vacation day."
+        "explanation": "The advertised 45-mile route actually measured closer to 52 miles according to riders. Padraig calls this \"a really terrific distance for a gravel event\" that lets you \"get home at a reasonable hour\" without burning a whole vacation day. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Padraig describes encountering \"100-meter-long hills that tilt at 13 percent\" in the Meeman-Shelby Forest State Park bluff land. The gravel sections feature \"loose pea gravel but almost always two good lines.\""
+        "explanation": "Padraig describes encountering \"100-meter-long hills that tilt at 13 percent\" in the Meeman-Shelby Forest State Park bluff land. The gravel sections feature \"loose pea gravel but almost always two good lines.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 1,
-        "explanation": "While Western Tennessee is \"mostly flat to slightly rolling,\" the river bluff terrain around Shelby Forest gets \"very hilly.\" Padraig notes \"none of the hills are particularly big\" despite some steep pitches."
+        "explanation": "While Western Tennessee is \"mostly flat to slightly rolling,\" the river bluff terrain around Shelby Forest gets \"very hilly.\" Padraig notes \"none of the hills are particularly big\" despite some steep pitches. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 2,
-        "explanation": "Early April timing coincided with the solar eclipse, drawing visitors like Padraig to Memphis. The spring date avoids the \"oppressive summers\" that Padraig describes as characteristic of this William Faulkner South landscape."
+        "explanation": "Historical weather data shows average highs of 71°F and lows of 52°F, with a 49% chance of rain on any given day. Early April timing coincided with the solar eclipse, drawing visitors like Padraig to Memphis. The spring date avoids the \"oppressive summers\" that Padraig describes as characteristic of this William Faulkner South landscape. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The course explores flat farmland \"sometimes in sight of the Mississippi River\" with terrain west of Tennessee's westernmost highway. Memphis river town elevation presents zero altitude considerations."
+        "explanation": "The course explores flat farmland \"sometimes in sight of the Mississippi River\" with terrain west of Tennessee's westernmost highway. Memphis river town elevation presents zero altitude considerations. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "The startup event attracts recreational riders rather than competitive depth. Strava segments with KOM/QOM awards suggest fitness-focused participation without serious racing fields or pro involvement."
+        "explanation": "With a field of 75-125 riders, the startup event attracts recreational riders rather than competitive depth. Strava segments with KOM/QOM awards suggest fitness-focused participation without serious racing fields or pro involvement. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Memphis offers affordable lodging and dining compared to destination gravel markets. Padraig flew in for the eclipse, suggesting reasonable travel access, while local pricing keeps overall event costs manageable."
+        "explanation": "Registration runs $65-85. Memphis offers affordable lodging and dining compared to destination gravel markets. Padraig flew in for the eclipse, suggesting reasonable travel access, while local pricing keeps overall event costs manageable. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -356,6 +356,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

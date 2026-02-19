@@ -93,7 +93,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "Strong amateur field including serious European gran fondo racers. Not the same pro depth as UCI races, but very competitive at the front. Winning requires ~4-hour effort."
+        "explanation": "Strong amateur field including serious European gran fondo racers. Not the same pro depth as UCI races, but very competitive at the front. Winning requires ~4-hour effort. Deeper field than most — comparable to Badlands. As Florian 'Flo' Nowak puts it: \"I never got the chance to take part in the race when I was riding as a pro, but it had been on my bucket list for a long time...\""
       },
       "value": {
         "score": 4,
@@ -101,31 +101,31 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Tuscan tourism pricing. Siena accommodation is available but not cheap during race week. Flights to Florence/Pisa are accessible. Budget for a proper Italian cycling trip."
+        "explanation": "Tuscan tourism pricing. Siena accommodation is available but not cheap during race week. Flights to Florence/Pisa are accessible. Budget for a proper Italian cycling trip. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "logistics": {
         "score": 4,
-        "explanation": "RCS Sport knows how to run a race - they've got the pro Strade Bianche dialed and the gran fondo benefits from that expertise. Registration opens in September and sells out the 8,500-10,000 spots quickly, which tells you everything about demand versus supply. Starting at Fortezza Medicea and finishing in Piazza del Campo gives you proper start/finish infrastructure, not some parking lot setup."
+        "explanation": "RCS Sport knows how to run a race - they've got the pro Strade Bianche dialed and the gran fondo benefits from that expertise. Registration opens in September and sells out the 8,500-10,000 spots quickly, which tells you everything about demand versus supply. Starting at Fortezza Medicea and finishing in Piazza del Campo gives you proper start/finish infrastructure, not some parking lot setup. As Final climb to Siena puts it: \"The final climb in Siena, on the narrow street of Via Santa Caterina, peaks at 16 per cent, ahead of the finish in the city's cavernous square, the Piazza del Campo.\""
       },
       "length": {
         "score": 3,
-        "explanation": "At 87km for the Medio Fondo route, you're looking at a respectable morning's work without the full sufferfest. The Gran Fondo stretches to 138km if you want the complete beating, but most mortals will find 87km with 1,350m of climbing and 21km of gravel plenty challenging. It's long enough to hurt but short enough that you won't be riding in the dark."
+        "explanation": "At 87km for the Medio Fondo route, you're looking at a respectable morning's work without the full sufferfest. The Gran Fondo stretches to 138km if you want the complete beating, but most mortals will find 87km with 1,350m of climbing and 21km of gravel plenty challenging. It's long enough to hurt but short enough that you won't be riding in the dark. Similar distance to Crusher in the Tushar. As Florian 'Flo' Nowak puts it: \"I never got the chance to take part in the race when I was riding as a pro, but it had been on my bucket list for a long time...\""
       },
       "technicality": {
         "score": 3,
-        "explanation": "The gravel ranges from 'compact dirt nearly as smooth as tarmac' to 'tire-deep loose gravel ready to catch careless riders.' Monte Sante Marie throws 15% gradients at you on loose stones, while Le Tolfe hits 18% in the final sector when your legs are cooked. Most riders get by fine on 30mm road tires, but you'll need to stay alert when the surface turns nasty."
+        "explanation": "The gravel ranges from 'compact dirt nearly as smooth as tarmac' to 'tire-deep loose gravel ready to catch careless riders.' Monte Sante Marie throws 15% gradients at you on loose stones, while Le Tolfe hits 18% in the final sector when your legs are cooked. Most riders get by fine on 30mm road tires, but you'll need to stay alert when the surface turns nasty. Similar technical demands to Gravel Worlds. As George Scott puts it: \"As the gradient kicks up to 20 per cent, the rear wheel of the rider in front slips on the loose gravel beneath the tyre. The pedals jump forward, bucking the tired body out of the saddle.\""
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 1,350m of climbing comes in waves of punchy Tuscan hills rather than one monster ascent. You're constantly rolling up and down with frequent 8% ramps and peaks hitting 15-18% on the gravel sectors. It's not the Alps, but those short, sharp climbs on loose gravel will test your bike handling when you're already fatigued."
+        "explanation": "The 1,350m of climbing comes in waves of punchy Tuscan hills rather than one monster ascent. You're constantly rolling up and down with frequent 8% ramps and peaks hitting 15-18% on the gravel sectors. It's not the Alps, but those short, sharp climbs on loose gravel will test your bike handling when you're already fatigued. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 4,
-        "explanation": "March in Tuscany gives you proper cycling weather - 14-16°C highs with about a 24% chance of rain on any given day. You'll need layers for the morning chill but won't be suffering in summer heat when the dust gets brutal. The humidity sits around 75%, which keeps things comfortable when you're grinding through those gravel sectors."
+        "explanation": "March in Tuscany gives you proper cycling weather - 14-16°C highs with about a 24% chance of rain on any given day. You'll need layers for the morning chill but won't be suffering in summer heat when the dust gets brutal. The humidity sits around 75%, which keeps things comfortable when you're grinding through those gravel sectors. Milder conditions than Crusher in the Tushar. As Anonymous rider puts it: \"Heat and dust — It is a very, very demanding race. The first time I struggled with cold and mud, this time with heat and dust.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "You're rolling around the Tuscan hills at sea level to maybe 500 meters max. Unless you live in Death Valley, altitude won't even register as a factor here. The challenge comes from the terrain and distance, not thin air."
+        "explanation": "You're rolling around the Tuscan hills at sea level to maybe 500 meters max. Unless you live in Death Valley, altitude won't even register as a factor here. The challenge comes from the terrain and distance, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -392,6 +392,63 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 500,
+          "crr_watts": 42.0,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.95,
+          "weight_grams": 480,
+          "crr_watts": null,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
     }
   }
 }

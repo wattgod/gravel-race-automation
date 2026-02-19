@@ -165,23 +165,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "84 miles with timed segments on Monte Sante Marie and San Martino creates the perfect balance—long enough for proper suffering, structured enough to race when you want. JOM's group rode tempo between timed sectors, 'enjoying the food stops and scenery.'"
+        "explanation": "84 miles with timed segments on Monte Sante Marie and San Martino creates the perfect balance—long enough for proper suffering, structured enough to race when you want. JOM's group rode tempo between timed sectors, 'enjoying the food stops and scenery.' Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The course uses famous Strade Bianche sectors including Monte Sante Marie, but 2025 photos show 'steep grade, loose conditions, everyone walking' on descents. Classic Tuscan gravel that challenges through distance and climbing, not technical handling skills."
+        "explanation": "The course uses famous Strade Bianche sectors including Monte Sante Marie, but 2025 photos show 'steep grade, loose conditions, everyone walking' on descents. Classic Tuscan gravel that challenges through distance and climbing, not technical handling skills. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "9,186 feet over 84 miles through the same sectors that challenge WorldTour pros during Strade Bianche. Monte Sante Marie and San Martino provide the signature climbs, with enough elevation to separate the field without destroying the experience."
+        "explanation": "9,186 feet over 84 miles through the same sectors that challenge WorldTour pros during Strade Bianche. Monte Sante Marie and San Martino provide the signature climbs, with enough elevation to separate the field without destroying the experience. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "Weather runs the gamut—2021 saw 'cooler temperatures and a very light drizzle' instead of typical July heat, while 2025 had 'storms nearby' that 'blew through quickly.' Italian spring delivers 'filtered sun and misted gravel' when it cooperates."
+        "explanation": "Weather runs the gamut—2021 saw 'cooler temperatures and a very light drizzle' instead of typical July heat, while 2025 had 'storms nearby' that 'blew through quickly.' Italian spring delivers 'filtered sun and misted gravel' when it cooperates. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Rolling Tuscan hills sit comfortably at sea level elevations. The challenge comes from cumulative climbing and distance, not oxygen deprivation. Altitude simply isn't a factor in the Val d'Orcia."
+        "explanation": "Rolling Tuscan hills sit comfortably at sea level elevations. The challenge comes from cumulative climbing and distance, not oxygen deprivation. Altitude simply isn't a factor in the Val d'Orcia. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -205,7 +205,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "JOM found himself racing with 'the initial front group of 20 or so' and finishing 'with the top cyclists' on the long route. The field attracts riders serious enough to push the pace on timed sectors while respecting the festival spirit."
+        "explanation": "JOM found himself racing with 'the initial front group of 20 or so' and finishing 'with the top cyclists' on the long route. The field attracts riders serious enough to push the pace on timed sectors while respecting the festival spirit. Deeper field than most — comparable to Badlands."
       },
       "value": {
         "score": 5,
@@ -213,7 +213,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Tuscany tourist pricing affects everything from hotels to meals, and getting to Buonconvento requires Italian travel logistics. Riders showed up on everything from 'Sweet drop bar Klein MTB conversions' to high-end steel, suggesting varied budget approaches work."
+        "explanation": "Registration runs €80-€120. Tuscany tourist pricing affects everything from hotels to meals, and getting to Buonconvento requires Italian travel logistics. Riders showed up on everything from 'Sweet drop bar Klein MTB conversions' to high-end steel, suggesting varied budget approaches work. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -332,6 +332,74 @@
         "category": "community",
         "label": "biciitalia.com: Nova Eroica Gravel Bike Race Tuscany"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

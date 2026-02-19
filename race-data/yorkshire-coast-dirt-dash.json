@@ -254,31 +254,31 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Start/finish at YHA Whitby with electronic rider briefing and GPX files provided beforehand. Riders handle their own navigation with no course markings, and registration happens at the event with details 'TBC.' Support vehicle available for rescues only."
+        "explanation": "Start/finish at YHA Whitby with electronic rider briefing and GPX files provided beforehand. Riders handle their own navigation with no course markings, and registration happens at the event with details 'TBC.' Support vehicle available for rescues only. As Event format [ALL LEVELS] puts it: \"non-timed, self-supported reliability trial with overnight camping\""
       },
       "length": {
         "score": 2,
-        "explanation": "73 miles split over two days with overnight camping - Day 1 covers 58.8km, Day 2 covers 59.5km. The format is a non-timed reliability trial with night riding restrictions unless using lights, making it more touring than racing distance."
+        "explanation": "73 miles split over two days with overnight camping - Day 1 covers 58.8km, Day 2 covers 59.5km. The format is a non-timed reliability trial with night riding restrictions unless using lights, making it more touring than racing distance. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Mix of singletrack, gravel paths, forestry roads through North York Moors with mandatory 45mm minimum tires. Routes designed by Markus Stitz, 'a seasoned route designer with multiple gravel and bikepacking guidebooks to his name.' E-bikes allowed."
+        "explanation": "Mix of singletrack, gravel paths, forestry roads through North York Moors with mandatory 45mm minimum tires. Routes designed by Markus Stitz, 'a seasoned route designer with multiple gravel and bikepacking guidebooks to his name.' E-bikes allowed. Less technical than The Mid South. As Event requirements [ALL LEVELS] puts it: \"mountain bikes & gravel bikes with a minimum recommended tire size of 45mm, which must be in good working order, e-bikes are alowed\""
       },
       "elevation": {
         "score": 2,
-        "explanation": "Day 1 includes approximately 840m of climbing, Day 2 adds 970m through North York Moors National Park terrain. Split over two days with overnight camping, the elevation is manageable rather than mountainous by gravel standards."
+        "explanation": "Day 1 includes approximately 840m of climbing, Day 2 adds 970m through North York Moors National Park terrain. Split over two days with overnight camping, the elevation is manageable rather than mountainous by gravel standards. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "2024 conditions were described as 'A very wet weekend' in rider footage. June/July timing in Yorkshire Coast location means variable British weather with potential coastal wind effects and rapid weather changes."
+        "explanation": "2024 conditions were described as 'A very wet weekend' in rider footage. June/July timing in Yorkshire Coast location means variable British weather with potential coastal wind effects and rapid weather changes. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at sea level in Whitby and climbing through North York Moors means modest elevation gains. No altitude effects or thin air concerns - just rolling British countryside terrain."
+        "explanation": "Starting at sea level in Whitby and climbing through North York Moors means modest elevation gains. No altitude effects or thin air concerns - just rolling British countryside terrain. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Self-supported navigation through North York Moors and Yorkshire Coast with overnight wild camping and mandatory bivvy gear. Extensive kit requirements including emergency blanket, waterproof jacket, and first aid kit create bikepacking adventure vibes."
+        "explanation": "Self-supported navigation through North York Moors and Yorkshire Coast with overnight wild camping and mandatory bivvy gear. Extensive kit requirements including emergency blanket, waterproof jacket, and first aid kit create bikepacking adventure vibes. As Jenny Graham puts it: \"OK, so this is a bit of a cop-out. But because the route has so much wilderness, every coffee opportunity was anticipated and enjoyed! But if I had to pick just one then the little village cafe of Rav...\""
       },
       "prestige": {
         "score": 1,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Non-competitive reliability trial format means no racing field exists. Everyone rides at their own pace through Yorkshire with no timing or results, creating social ride atmosphere rather than competitive depth."
+        "explanation": "With a field of 75-125 riders, non-competitive reliability trial format means no racing field exists. Everyone rides at their own pace through Yorkshire with no timing or results, creating social ride atmosphere rather than competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "£95 entry (£5 Cycling UK member discount) plus travel to Whitby keeps costs moderate. Extensive mandatory kit list including tent, sleeping gear, lights, tools, and own bowl/mug for meals adds equipment requirements."
+        "explanation": "£95 entry (£5 Cycling UK member discount) plus travel to Whitby keeps costs moderate. Extensive mandatory kit list including tent, sleeping gear, lights, tools, and own bowl/mug for meals adds equipment requirements. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "us.alpkit.com: Adventure Cycling In North Yorkshire Route Yc"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

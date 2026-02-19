@@ -64,6 +64,8 @@ from generate_guide import (
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
+WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
+QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
 CURRENT_YEAR = str(datetime.now().year)
 
 # Guide section IDs we extract content from
@@ -107,10 +109,33 @@ def load_raw_training_data(filepath: Path) -> dict:
     """Load raw race JSON and extract training-specific fields.
 
     Returns dict with keys: training_config, non_negotiables, guide_variables,
-    race_specific, plus the full raw data under 'raw'.
+    race_specific, climate, course_description, vitals, logistics, terrain,
+    gravel_god_rating, results, weather, quotes.
     """
     data = json.loads(filepath.read_text(encoding="utf-8"))
     race = data.get("race", data)
+    slug = filepath.stem
+
+    # Load weather data from data/weather/{slug}.json
+    weather = {}
+    weather_file = WEATHER_DIR / f"{slug}.json"
+    if weather_file.exists():
+        try:
+            weather = json.loads(weather_file.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    # Load quotes from data/quotes/{slug}.json
+    quotes = []
+    quotes_file = QUOTES_DIR / f"{slug}.json"
+    if quotes_file.exists():
+        try:
+            quotes = json.loads(quotes_file.read_text(encoding="utf-8"))
+            if not isinstance(quotes, list):
+                quotes = []
+        except (json.JSONDecodeError, OSError):
+            pass
+
     return {
         "training_config": race.get("training_config"),
         "non_negotiables": race.get("non_negotiables"),
@@ -119,6 +144,16 @@ def load_raw_training_data(filepath: Path) -> dict:
         "climate": race.get("climate", {}),
         "course_description": race.get("course_description", {}),
         "vitals": race.get("vitals", {}),
+        "logistics": race.get("logistics", {}),
+        "terrain": race.get("terrain", {}),
+        "gravel_god_rating": race.get("gravel_god_rating", {}),
+        "results": race.get("results", {}),
+        "biased_opinion_ratings": race.get("biased_opinion_ratings", {}),
+        "biased_opinion": race.get("biased_opinion", {}),
+        "final_verdict": race.get("final_verdict", {}),
+        "history": race.get("history", {}),
+        "weather": weather,
+        "quotes": quotes,
     }
 
 
@@ -802,44 +837,129 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
   </div>'''
 
 
-def build_climate_gear_callout(climate_data: dict) -> str:
-    """Build climate-adapted gear recommendations based on race conditions."""
-    if not climate_data or not isinstance(climate_data, dict):
-        return ""
-    desc = (climate_data.get("description", "") or "").lower()
-    challenges = climate_data.get("challenges", [])
-    challenge_text = " ".join(c.lower() for c in challenges if isinstance(c, str))
-    combined = desc + " " + challenge_text
+def build_weather_callout(raw: dict) -> str:
+    """Build weather callout with actual temperature/rain/wind data.
 
+    Uses data/weather/{slug}.json numbers when available, falls back to
+    climate description text.
+    """
+    weather = raw.get("weather", {})
+    climate = raw.get("climate", {})
+
+    if not weather and not climate:
+        return ""
+
+    parts = []
+
+    if weather:
+        high = weather.get("avg_high_f")
+        low = weather.get("avg_low_f")
+        precip = weather.get("precip_chance_pct")
+        wind = weather.get("max_wind_mph")
+
+        if high and low:
+            parts.append(f"<strong>Temperature:</strong> {low}\u00b0F \u2013 {high}\u00b0F")
+        if precip is not None:
+            parts.append(f"<strong>Rain Chance:</strong> {precip}%")
+        if wind:
+            parts.append(f"<strong>Max Wind:</strong> {wind} mph")
+
+    # Add climate narrative if available
+    if isinstance(climate, dict):
+        primary = climate.get("primary", "")
+        if primary:
+            parts.append(f"<strong>Climate:</strong> {esc(primary)}")
+        challenges = climate.get("challenges", [])
+        if challenges:
+            challenge_items = ", ".join(esc(c) for c in challenges[:3] if isinstance(c, str))
+            if challenge_items:
+                parts.append(f"<strong>Key Challenges:</strong> {challenge_items}")
+
+    if not parts:
+        return ""
+
+    items_html = "".join(f"<p style='margin:4px 0'>{p}</p>" for p in parts)
+    return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>Expected Race-Day Conditions:</strong></p>
+        {items_html}
+      </div>'''
+
+
+def build_climate_gear_callout(climate_data: dict, weather: Optional[dict] = None) -> str:
+    """Build climate-adapted gear recommendations using actual weather data.
+
+    Uses real temperature/wind/rain numbers when available, falls back to
+    keyword matching on climate description text.
+    """
     recs = []
-    if any(kw in combined for kw in ["heat", "hot", "90", "95", "100", "sun"]):
-        recs.extend([
-            "Sun sleeves or arm coolers",
-            "Extra water bottles or hydration vest",
-            "Electrolyte supplements (extra sodium)",
-            "Light-colored kit",
-        ])
-    if any(kw in combined for kw in ["cold", "freez", "40°", "30°", "snow", "ice"]):
-        recs.extend([
-            "Knee warmers or leg warmers",
-            "Wind vest or thermal layer",
-            "Full-finger gloves",
-            "Toe covers",
-        ])
-    if any(kw in combined for kw in ["rain", "wet", "mud"]):
-        recs.extend([
-            "Lightweight rain jacket (packable)",
-            "Mudguards or frame protection",
-            "Extra chain lube",
-            "Clear or yellow lens glasses",
-        ])
-    if any(kw in combined for kw in ["wind", "exposed"]):
-        recs.extend(["Wind vest", "Aero positioning practice"])
+
+    # Data-driven recommendations from weather numbers
+    if weather and isinstance(weather, dict):
+        high = weather.get("avg_high_f", 0) or 0
+        low = weather.get("avg_low_f", 0) or 0
+        precip = weather.get("precip_chance_pct", 0) or 0
+        wind = weather.get("max_wind_mph", 0) or 0
+
+        if high >= 85:
+            recs.extend([
+                "Sun sleeves or arm coolers",
+                "Extra water bottles or hydration vest",
+                "Electrolyte supplements (extra sodium)",
+                "Light-colored kit",
+            ])
+        if low <= 50:
+            recs.extend([
+                "Knee warmers or leg warmers",
+                "Wind vest or thermal layer",
+                "Full-finger gloves",
+            ])
+        if low <= 40:
+            recs.append("Toe covers")
+        if precip >= 40:
+            recs.extend([
+                "Lightweight rain jacket (packable)",
+                "Mudguards or frame protection",
+                "Extra chain lube",
+                "Clear or yellow lens glasses",
+            ])
+        if wind >= 20:
+            recs.extend(["Wind vest", "Aero positioning practice"])
+
+    # Fall back to keyword matching if no weather data
+    if not recs and climate_data and isinstance(climate_data, dict):
+        desc = (climate_data.get("description", "") or "").lower()
+        challenges = climate_data.get("challenges", [])
+        challenge_text = " ".join(c.lower() for c in challenges if isinstance(c, str))
+        combined = desc + " " + challenge_text
+
+        if any(kw in combined for kw in ["heat", "hot", "90", "95", "100", "sun"]):
+            recs.extend([
+                "Sun sleeves or arm coolers",
+                "Extra water bottles or hydration vest",
+                "Electrolyte supplements (extra sodium)",
+                "Light-colored kit",
+            ])
+        if any(kw in combined for kw in ["cold", "freez", "40°", "30°", "snow", "ice"]):
+            recs.extend([
+                "Knee warmers or leg warmers",
+                "Wind vest or thermal layer",
+                "Full-finger gloves",
+                "Toe covers",
+            ])
+        if any(kw in combined for kw in ["rain", "wet", "mud"]):
+            recs.extend([
+                "Lightweight rain jacket (packable)",
+                "Mudguards or frame protection",
+                "Extra chain lube",
+                "Clear or yellow lens glasses",
+            ])
+        if any(kw in combined for kw in ["wind", "exposed"]):
+            recs.extend(["Wind vest", "Aero positioning practice"])
+
     if not recs:
         return ""
 
     # Deduplicate — also skip if a more detailed version already exists
-    # (e.g. "Wind vest" skipped when "Wind vest or thermal layer" is present)
     seen = []
     unique_recs = []
     for r in recs:
@@ -848,35 +968,66 @@ def build_climate_gear_callout(climate_data: dict) -> str:
             unique_recs.append(r)
 
     items = "".join(f"<li>{esc(r)}</li>" for r in unique_recs)
-    primary = esc(climate_data.get("primary", "Race-day conditions"))
+    primary = ""
+    if climate_data and isinstance(climate_data, dict):
+        primary = climate_data.get("primary", "")
+    label = f"Climate Gear ({esc(primary)})" if primary else "Climate Gear"
     return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
-        <p><strong>Climate Gear ({primary}):</strong></p>
+        <p><strong>{label}:</strong></p>
         <ul>{items}</ul>
       </div>'''
 
 
-def build_terrain_emphasis_callout(rd: dict) -> str:
-    """Build terrain-adapted training emphasis based on technicality and terrain."""
+def build_terrain_emphasis_callout(rd: dict, raw: Optional[dict] = None) -> str:
+    """Build community-sourced training emphasis callout.
+
+    Combines dimension scores with narrative from biased_opinion_ratings
+    to explain *why* each focus matters, using real rider experiences.
+    """
     rating = rd.get("rating", {})
+    raw = raw or {}
+    gg_rating = raw.get("gravel_god_rating", {})
+    bor = raw.get("biased_opinion_ratings", {})
+    if isinstance(gg_rating, dict) and not rating:
+        rating = gg_rating
+    if not isinstance(bor, dict):
+        bor = {}
+
     tech = rating.get("technicality", 0) or 0
     terrain_types = rd["vitals"].get("terrain_types", [])
     elevation = rd["vitals"].get("elevation", "")
     distance_mi = rd["vitals"].get("distance_mi", 0) or 0
+    climate_score = rating.get("climate", 0) or 0
+    altitude_score = rating.get("altitude", 0) or 0
 
     tips = []
-    if tech >= 4:
-        tips.append(
-            "Add 1 MTB skills session per week during Build phase (weeks 5-10)"
-            " \u2014 focus on line choice, loose surface cornering, and"
-            " dismount/remount"
-        )
-    elif tech >= 3:
-        tips.append(
-            "Include off-road skills work every 2 weeks \u2014 practice loose"
-            " gravel descending and rough surface handling"
-        )
 
-    # Check for elevation-heavy courses
+    # Technicality — use community insight if available
+    if tech >= 3:
+        tech_insight = _extract_dimension_insight(bor, "technicality", 200)
+        if tech_insight and tech >= 4:
+            tips.append(
+                f"<strong>Technical skills are critical.</strong> {esc(tech_insight)}"
+                f" Add 1 MTB skills session per week during Build phase."
+            )
+        elif tech_insight:
+            tips.append(
+                f"<strong>Off-road handling matters.</strong> {esc(tech_insight)}"
+                f" Include skills work every 2 weeks."
+            )
+        elif tech >= 4:
+            tips.append(
+                "Add 1 MTB skills session per week during Build phase (weeks 5-10)"
+                " \u2014 focus on line choice, loose surface cornering, and"
+                " dismount/remount"
+            )
+        else:
+            tips.append(
+                "Include off-road skills work every 2 weeks \u2014 practice loose"
+                " gravel descending and rough surface handling"
+            )
+
+    # Elevation — use community insight
     elev_ft = 0
     if elevation:
         m = re.search(r'([\d,]+)\s*ft', elevation)
@@ -885,12 +1036,55 @@ def build_terrain_emphasis_callout(rd: dict) -> str:
     if distance_mi > 0 and elev_ft > 0:
         ft_per_mile = elev_ft / distance_mi
         if ft_per_mile > 80:
+            elev_insight = _extract_dimension_insight(bor, "elevation", 200)
+            if elev_insight:
+                tips.append(
+                    f"<strong>Climbing is a factor ({ft_per_mile:.0f} ft/mile).</strong>"
+                    f" {esc(elev_insight)} Include 2 climbing intervals per week."
+                )
+            else:
+                tips.append(
+                    f"Include 2 extended climbing intervals per week (20-30 min at"
+                    f" threshold) \u2014 this course averages {ft_per_mile:.0f}"
+                    f" ft/mile of climbing"
+                )
+
+    # Climate — use community insight + real weather data
+    if climate_score >= 3:
+        climate_insight = _extract_dimension_insight(bor, "climate", 200)
+        weather = raw.get("weather", {})
+        high = weather.get("avg_high_f", 0) if isinstance(weather, dict) else 0
+
+        if climate_insight:
+            heat_note = f" Expected highs of {high}\u00b0F." if high and high >= 80 else ""
             tips.append(
-                f"Include 2 extended climbing intervals per week (20-30 min at"
-                f" threshold) \u2014 this course averages {ft_per_mile:.0f}"
-                f" ft/mile of climbing"
+                f"<strong>Climate prep is essential.</strong> {esc(climate_insight)}"
+                f"{heat_note} Start heat adaptation 2 weeks before race."
+            )
+        elif climate_score >= 4 and high and high >= 85:
+            tips.append(
+                f"Start heat adaptation 2 weeks before race \u2014 expected highs"
+                f" of {high}\u00b0F. Train in warmest part of day."
+            )
+        else:
+            tips.append(
+                "Include 1 hot-weather ride per week in Build phase to build"
+                " heat tolerance and dial in hydration"
             )
 
+    # Altitude
+    if altitude_score >= 3:
+        alt_insight = _extract_dimension_insight(bor, "altitude", 150)
+        if altitude_score >= 4:
+            base = "Arrive 48-72 hours early for altitude acclimatization."
+        else:
+            base = "Arrive at least 24 hours early \u2014 moderate altitude affects power output."
+        if alt_insight:
+            tips.append(f"<strong>Altitude matters.</strong> {esc(alt_insight)} {base}")
+        else:
+            tips.append(base)
+
+    # Surface-specific
     terrain_str = ", ".join(terrain_types[:3]) if terrain_types else ""
     if terrain_str and any(
         kw in terrain_str.lower() for kw in ["sand", "mud", "clay"]
@@ -903,10 +1097,526 @@ def build_terrain_emphasis_callout(rd: dict) -> str:
     if not tips:
         return ""
 
-    items = "".join(f"<li>{esc(t)}</li>" for t in tips)
+    items = "".join(f"<li>{t}</li>" for t in tips)  # Already escaped inline
     return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
         <p><strong>Race-Specific Training Focus:</strong></p>
         <ul>{items}</ul>
+      </div>'''
+
+
+# ── Task 2: Rider Quotes ──────────────────────────────────────
+
+
+def build_rider_quotes_callout(quotes: list, criteria_filter: Optional[list] = None,
+                                max_quotes: int = 2) -> str:
+    """Build a callout block with curated rider quotes.
+
+    Prioritizes quotes matching criteria_filter (e.g., ["climate", "elevation"]),
+    then falls back to quotes from ELITE/COMPETITIVE riders.
+    """
+    if not quotes or not isinstance(quotes, list):
+        return ""
+
+    # Score and sort quotes
+    scored = []
+    for q in quotes:
+        if not isinstance(q, dict) or not q.get("quote"):
+            continue
+        text = q["quote"].strip()
+        if len(text) < 30 or len(text) > 400:
+            continue  # Skip too-short or too-long quotes
+        score = 0
+        q_criteria = q.get("criteria", [])
+        if criteria_filter and q_criteria:
+            overlap = len(set(q_criteria) & set(criteria_filter))
+            score += overlap * 10
+        level = q.get("level", "").upper()
+        if level == "ELITE":
+            score += 5
+        elif level == "COMPETITIVE":
+            score += 3
+        elif level == "RECREATIONAL":
+            score += 1
+        scored.append((score, q))
+
+    scored.sort(key=lambda x: -x[0])
+    selected = [q for _, q in scored[:max_quotes]]
+
+    if not selected:
+        return ""
+
+    quotes_html = []
+    for q in selected:
+        text = esc(q["quote"].strip())
+        rider = esc(q.get("rider", "Anonymous"))
+        level = q.get("level", "")
+        level_tag = f' <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">{esc(level)}</span>' if level else ""
+        quotes_html.append(
+            f'<div class="gg-guide-callout gg-guide-callout--quote">'
+            f'<p>\u201c{text}\u201d</p>'
+            f'<p style="text-align:right;font-style:normal;font-size:12px;color:var(--gg-color-secondary-brown)">'
+            f'\u2014 {rider}{level_tag}</p></div>'
+        )
+
+    return "\n".join(quotes_html)
+
+
+# ── Task 3 (rewritten): Race Intelligence Briefing ───────────
+
+
+def _extract_dimension_insight(bor: dict, dimension: str, max_len: int = 300) -> str:
+    """Extract a narrative insight from biased_opinion_ratings for a dimension."""
+    item = bor.get(dimension, {})
+    if not isinstance(item, dict):
+        return ""
+    explanation = item.get("explanation", "")
+    if not explanation:
+        return ""
+    # Trim to max_len at sentence boundary
+    if len(explanation) <= max_len:
+        return explanation
+    truncated = explanation[:max_len]
+    last_period = truncated.rfind(".")
+    if last_period > 100:
+        return truncated[:last_period + 1]
+    return truncated + "\u2026"
+
+
+def build_race_intelligence(rd: dict, raw: dict) -> str:
+    """Build a Race Intelligence Briefing from community data.
+
+    Weaves biased_opinion summary, dimension-specific insights from
+    biased_opinion_ratings (with rider quotes), and race history into
+    a section that reads like insider knowledge rather than a template.
+    """
+    bo = raw.get("biased_opinion", {})
+    bor = raw.get("biased_opinion_ratings", {})
+    fv = raw.get("final_verdict", {})
+    history = raw.get("history", {})
+
+    if not isinstance(bo, dict):
+        bo = {}
+    if not isinstance(bor, dict):
+        bor = {}
+
+    parts = []
+
+    # Lead with the verdict + one-liner
+    verdict = bo.get("verdict", "")
+    summary = bo.get("summary", "")
+    one_liner = fv.get("one_liner", "") if isinstance(fv, dict) else ""
+
+    if verdict or one_liner:
+        verdict_html = f'<span class="gg-pk-intel-verdict">{esc(verdict)}</span>' if verdict else ""
+        liner = one_liner or ""
+        parts.append(f'''<div class="gg-pk-intel-lead">
+          {verdict_html}
+          <p class="gg-pk-intel-oneliner">{esc(liner)}</p>
+        </div>''')
+
+    # Summary paragraph
+    if summary:
+        parts.append(f'<p class="gg-pk-intel-summary">{esc(summary)}</p>')
+
+    # Pick the 3 most relevant dimensions for race prep
+    # Prioritize: climate, elevation, technicality, then community/experience
+    prep_dims = []
+    for dim in ["climate", "elevation", "technicality", "adventure", "community", "experience"]:
+        insight = _extract_dimension_insight(bor, dim)
+        if insight:
+            score = bor.get(dim, {}).get("score", 0) if isinstance(bor.get(dim), dict) else 0
+            prep_dims.append((dim, insight, score))
+    # Sort by score (highest = most challenging/noteworthy), take top 3
+    prep_dims.sort(key=lambda x: -x[2])
+    prep_dims = prep_dims[:3]
+
+    if prep_dims:
+        dim_labels = {
+            "climate": "Weather & Climate",
+            "elevation": "Elevation & Climbing",
+            "technicality": "Technical Demands",
+            "adventure": "Course Character",
+            "community": "The Community",
+            "experience": "The Experience",
+        }
+        for dim, insight, score in prep_dims:
+            label = dim_labels.get(dim, dim.title())
+            parts.append(f'''<div class="gg-pk-intel-dim">
+          <div class="gg-pk-intel-dim-label">{esc(label)}</div>
+          <p class="gg-pk-intel-dim-text">{esc(insight)}</p>
+        </div>''')
+
+    # Strengths + weaknesses as quick-scan lists
+    strengths = bo.get("strengths", [])
+    weaknesses = bo.get("weaknesses", [])
+    if strengths or weaknesses:
+        sw_parts = []
+        if strengths:
+            items = "".join(f"<li>{esc(s)}</li>" for s in strengths[:3] if isinstance(s, str))
+            sw_parts.append(f'<div class="gg-pk-intel-col"><div class="gg-pk-intel-col-label">WHY RIDERS LOVE IT</div><ul>{items}</ul></div>')
+        if weaknesses:
+            items = "".join(f"<li>{esc(w)}</li>" for w in weaknesses[:3] if isinstance(w, str))
+            sw_parts.append(f'<div class="gg-pk-intel-col"><div class="gg-pk-intel-col-label">WHAT TO WATCH FOR</div><ul>{items}</ul></div>')
+        parts.append(f'<div class="gg-pk-intel-cols">{"".join(sw_parts)}</div>')
+
+    # History/reputation one-liner
+    if isinstance(history, dict):
+        rep = history.get("reputation", "")
+        founded = history.get("founded", "")
+        if rep:
+            founded_tag = f" (est. {esc(str(founded))})" if founded else ""
+            parts.append(f'<p class="gg-pk-intel-rep">{esc(rep)}{founded_tag}</p>')
+
+    # Bottom line
+    bottom_line = bo.get("bottom_line", "")
+    if bottom_line:
+        parts.append(f'''<div class="gg-guide-callout gg-guide-callout--quote">
+        <p>{esc(bottom_line)}</p>
+      </div>''')
+
+    if not parts:
+        return ""
+
+    return f'''<section class="gg-pk-section">
+    <div class="gg-pk-section-header">
+      <span class="gg-pk-section-num">00</span>
+      <h2>Race Briefing</h2>
+    </div>
+    {"".join(parts)}
+  </section>'''
+
+
+# ── Task 4: Travel & Logistics ───────────────────────────────
+
+
+def build_pk_logistics(raw: dict, rd: dict) -> str:
+    """Build Travel & Logistics section from race logistics data."""
+    logistics = raw.get("logistics", {})
+    if not isinstance(logistics, dict):
+        return ""
+
+    items = []
+    field_map = [
+        ("airport", "Nearest Airport", "\u2708"),
+        ("lodging_strategy", "Lodging", "\U0001f3e8"),
+        ("packet_pickup", "Packet Pickup", "\U0001f4e6"),
+        ("parking", "Parking", "\U0001f697"),
+        ("food", "Food & Dining", "\U0001f37d"),
+    ]
+
+    for key, label, _icon in field_map:
+        val = logistics.get(key, "")
+        if val and val != "--":
+            items.append(f'''<div class="gg-pk-logistics-item">
+          <div class="gg-pk-logistics-label">{esc(label)}</div>
+          <p class="gg-pk-logistics-text">{esc(val)}</p>
+        </div>''')
+
+    official = logistics.get("official_site", "")
+    if official:
+        items.append(f'''<div class="gg-pk-logistics-item">
+          <div class="gg-pk-logistics-label">Official Site</div>
+          <p class="gg-pk-logistics-text"><a href="{esc(official)}" target="_blank" rel="noopener">{esc(official)}</a></p>
+        </div>''')
+
+    if not items:
+        return ""
+
+    # Budget planning callout (Task 8)
+    budget_html = build_budget_callout(raw, rd)
+
+    return f'''<section class="gg-pk-section">
+    <div class="gg-pk-section-header">
+      <span class="gg-pk-section-num">00</span>
+      <h2>Travel &amp; Logistics</h2>
+    </div>
+    {budget_html}
+    <div class="gg-pk-logistics-grid">
+      {"".join(items)}
+    </div>
+  </section>'''
+
+
+# ── Task 5: Terrain-Specific Tire Recommendations ────────────
+
+# Tire recommendations by terrain category with links to reviews
+# Source: bicyclerollingresistance.com
+BRR_BASE = "https://www.bicyclerollingresistance.com/cx-gravel-reviews"
+TIRE_RECS_BY_TERRAIN = {
+    "fast": {
+        "label": "Fast Gravel (smooth roads, low technicality)",
+        "tires": [
+            ("Continental Terra Speed 40", f"{BRR_BASE}/continental-terra-speed-40"),
+            ("Schwalbe G-One RS 40", f"{BRR_BASE}/schwalbe-g-one-rs"),
+            ("Panaracer GravelKing TLC 40", f"{BRR_BASE}/panaracer-gravel-king"),
+            ("Challenge Getaway Pro 40", f"{BRR_BASE}/challenge-getaway-pro-htlr"),
+        ],
+    },
+    "mixed": {
+        "label": "Mixed Terrain (variable surfaces, moderate technicality)",
+        "tires": [
+            ("Continental Terra Trail 40", f"{BRR_BASE}/continental-terra-trail"),
+            ("Pirelli Cinturato Gravel M 45", f"{BRR_BASE}/pirelli-gravel-m-45"),
+            ("Specialized Pathfinder Pro 42", f"{BRR_BASE}/specialized-pathfinder-pro"),
+            ("Panaracer GravelKing SK 40", f"{BRR_BASE}/panaracer-gravel-king-sk"),
+        ],
+    },
+    "technical": {
+        "label": "Technical Terrain (rocky, loose, singletrack)",
+        "tires": [
+            ("Schwalbe G-One Bite 40", f"{BRR_BASE}/schwalbe-g-one-bite"),
+            ("Maxxis Reaver 45", f"{BRR_BASE}/maxxis-reaver-hypr-x"),
+            ("Pirelli Cinturato Gravel S 40", f"{BRR_BASE}/pirelli-gravel-s"),
+            ("WTB Resolute 42", f"{BRR_BASE}/wtb-resolute"),
+        ],
+    },
+    "chunky": {
+        "label": "Chunky/Sharp Rock (flat protection critical)",
+        "tires": [
+            ("Continental Terra Speed 45", f"{BRR_BASE}/continental-terra-speed-45"),
+            ("Specialized Pathfinder Pro 47", f"{BRR_BASE}/specialized-pathfinder-pro-47"),
+            ("Schwalbe G-One RS 45", f"{BRR_BASE}/schwalbe-g-one-rs-45"),
+            ("Challenge Getaway Pro 45", f"{BRR_BASE}/challenge-getaway-pro-htlr-45"),
+        ],
+    },
+    "mud": {
+        "label": "Mud / Wet Conditions",
+        "tires": [
+            ("Schwalbe G-One Ultrabite 40", f"{BRR_BASE}/schwalbe-g-one-ultrabite"),
+            ("Tufo Gravel Swampero 44", f"{BRR_BASE}/tufo-gravel-swampero-44"),
+            ("Schwalbe G-One Overland 50", f"{BRR_BASE}/schwalbe-g-one-overland"),
+            ("Pirelli Cinturato Gravel M 45", f"{BRR_BASE}/pirelli-gravel-m-45"),
+        ],
+    },
+}
+
+
+def build_tire_recommendation(raw: dict, rd: dict) -> str:
+    """Build tire/setup recommendation based on terrain data.
+
+    Uses race_specific.mechanicals when available, otherwise generates
+    recommendations from terrain.surface, technical_rating, and features.
+    """
+    # Check for race-specific tire data first
+    rs = raw.get("race_specific")
+    if isinstance(rs, dict):
+        mechs = rs.get("mechanicals", {})
+        if isinstance(mechs, dict):
+            tires = mechs.get("recommended_tires", [])
+            pressure = mechs.get("pressure_by_weight", {})
+            if tires:
+                tire_items = "".join(f"<li>{esc(t)}</li>" for t in tires)
+                pressure_html = ""
+                if pressure and isinstance(pressure, dict):
+                    rows = []
+                    for weight_range, conditions in sorted(pressure.items()):
+                        if isinstance(conditions, dict):
+                            dry = conditions.get("dry", "--")
+                            mixed = conditions.get("mixed", "--")
+                            mud = conditions.get("mud", "--")
+                            rows.append(
+                                f"<tr><td>{esc(weight_range)}</td>"
+                                f"<td>{esc(str(dry))}</td>"
+                                f"<td>{esc(str(mixed))}</td>"
+                                f"<td>{esc(str(mud))}</td></tr>"
+                            )
+                    if rows:
+                        pressure_html = f'''<div class="gg-pk-pressure-table-wrap">
+                        <table class="gg-pk-pressure-table">
+                          <thead><tr><th>Rider Weight</th><th>Dry</th><th>Mixed</th><th>Mud</th></tr></thead>
+                          <tbody>{"".join(rows)}</tbody>
+                        </table>
+                      </div>'''
+                return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>Recommended Tires:</strong></p>
+        <ul>{tire_items}</ul>
+        {pressure_html}
+      </div>'''
+
+    # Generic tire recommendations from terrain data
+    terrain = raw.get("terrain", {})
+    if not isinstance(terrain, dict):
+        return ""
+
+    surface_raw = terrain.get("surface", "")
+    if isinstance(surface_raw, dict):
+        surface = " ".join(str(k).lower() for k in surface_raw.keys())
+    else:
+        surface = (str(surface_raw) if surface_raw else "").lower()
+    tech_rating = terrain.get("technical_rating", 0) or 0
+    features = terrain.get("features", terrain.get("notable_features", []))
+    if not isinstance(features, list):
+        features = []
+    feature_text = " ".join(f.lower() for f in features if isinstance(f, str))
+    combined = surface + " " + feature_text
+
+    tips = []
+
+    # Width recommendations based on technicality
+    if tech_rating >= 4:
+        tips.append("Run 45mm+ tires for technical terrain confidence and flat protection")
+    elif tech_rating >= 3:
+        tips.append("Run 40-45mm tires to balance speed with off-road capability")
+    elif tech_rating >= 2:
+        tips.append("Run 38-42mm tires \u2014 the course is mostly fast with some rough sections")
+    else:
+        tips.append("Run 35-40mm tires \u2014 smooth gravel roads favor speed")
+
+    # Surface-specific advice
+    if any(kw in combined for kw in ["limestone", "flint", "sharp", "rocky"]):
+        tips.append("Tubeless setup strongly recommended \u2014 sharp rock puncture risk is high")
+    if any(kw in combined for kw in ["mud", "clay", "wet"]):
+        tips.append("Run aggressive tread pattern with mud-clearing capability")
+    if any(kw in combined for kw in ["sand", "loose"]):
+        tips.append("Lower pressure 2-3 psi for traction on loose surfaces")
+    if any(kw in combined for kw in ["singletrack", "technical"]):
+        tips.append("Consider MTB-style tread for singletrack sections")
+
+    # Classify terrain category for BRR tire picks
+    if any(kw in combined for kw in ["mud", "clay", "wet"]):
+        tire_cat = "mud"
+    elif any(kw in combined for kw in ["limestone", "flint", "sharp", "chunk"]):
+        tire_cat = "chunky"
+    elif tech_rating >= 4 or any(kw in combined for kw in ["singletrack", "technical", "rocky"]):
+        tire_cat = "technical"
+    elif tech_rating >= 2:
+        tire_cat = "mixed"
+    else:
+        tire_cat = "fast"
+
+    # Build tire recommendation links from BRR database
+    brr_recs = TIRE_RECS_BY_TERRAIN.get(tire_cat, {})
+    brr_tires = brr_recs.get("tires", [])
+    if brr_tires:
+        tire_links = "".join(
+            f'<li><a href="{esc(url)}" target="_blank" rel="noopener">{esc(name)}</a></li>'
+            for name, url in brr_tires[:4]
+        )
+        tips_html = "".join(f"<li>{esc(t)}</li>" for t in tips)
+        terrain_primary = esc(terrain.get("primary", ""))
+        label = f"Tire Setup ({terrain_primary})" if terrain_primary else "Tire Setup"
+        return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>{label}:</strong></p>
+        <ul>{tips_html}</ul>
+        <p style="margin:12px 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">Top Picks for This Course:</p>
+        <ul>{tire_links}</ul>
+        <p style="font-size:11px;color:var(--gg-color-secondary-brown);margin:8px 0 0">Rolling resistance data via <a href="https://www.bicyclerollingresistance.com/cx-gravel-reviews" target="_blank" rel="noopener" style="color:var(--gg-color-teal)">bicyclerollingresistance.com</a></p>
+      </div>'''
+
+    if not tips:
+        return ""
+
+    items = "".join(f"<li>{esc(t)}</li>" for t in tips)
+    terrain_primary = esc(terrain.get("primary", ""))
+    label = f"Tire Setup ({terrain_primary})" if terrain_primary else "Tire Setup"
+    return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>{label}:</strong></p>
+        <ul>{items}</ul>
+      </div>'''
+
+
+# ── Task 7: Aid Station Strategy ─────────────────────────────
+
+
+def build_aid_station_strategy(rd: dict, raw: dict) -> str:
+    """Build a visual aid station strategy for the fueling section.
+
+    Parses aid station info and shows approximate timing with recommendations
+    for what to do at each stop.
+    """
+    aid_text = rd["vitals"].get("aid_stations", "")
+    if not aid_text or aid_text == "--":
+        return ""
+
+    distance_mi = rd["vitals"].get("distance_mi", 0)
+    est = compute_fueling_estimate(distance_mi)
+    if not est:
+        return ""
+
+    aid_hours = compute_aid_station_hours(aid_text, distance_mi, est["hours"])
+
+    # Check for self-supported
+    if not aid_hours and any(kw in aid_text.lower() for kw in ["self-supported", "self supported", "unsupported"]):
+        return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>Self-Supported Race:</strong> {esc(aid_text)}</p>
+        <p style="font-size:12px;color:var(--gg-color-secondary-brown)">You must carry all nutrition and hydration. Plan bottle capacity for the full distance.</p>
+      </div>'''
+
+    if not aid_hours:
+        return ""
+
+    pace = est["hours"] / distance_mi if distance_mi > 0 else 0
+
+    station_parts = []
+    for i, hour in enumerate(aid_hours, 1):
+        approx_mile = round(hour / pace) if pace > 0 else "?"
+        # Recommend actions based on position in race
+        pct_through = hour / est["hours"]
+        if pct_through < 0.4:
+            action = "Quick stop: refill bottles, grab gels. Don\u2019t linger."
+        elif pct_through < 0.7:
+            action = "Full resupply: bottles, food, sunscreen. Assess how you feel."
+        else:
+            action = "Final push: top off bottles, eat something easy. You\u2019re almost there."
+
+        station_parts.append(f'''<div class="gg-pk-aid-card">
+          <div class="gg-pk-aid-num">STOP {i}</div>
+          <div class="gg-pk-aid-detail">
+            <strong>~Mile {approx_mile} / Hour {hour}</strong>
+            <p>{action}</p>
+          </div>
+        </div>''')
+
+    return f'''<div class="gg-pk-aid-strategy">
+      <h4 class="gg-pk-subsection-title">Aid Station Strategy</h4>
+      <p style="font-size:12px;color:var(--gg-color-secondary-brown);margin:0 0 12px">{esc(aid_text)}</p>
+      {"".join(station_parts)}
+    </div>'''
+
+
+# ── Task 8: Budget & Expense Estimates ───────────────────────
+
+
+def build_budget_callout(raw: dict, rd: dict) -> str:
+    """Build budget/expense planning callout.
+
+    Uses registration cost, expense rating, and logistics info.
+    """
+    vitals = raw.get("vitals", {})
+    rating = raw.get("gravel_god_rating", {})
+    logistics = raw.get("logistics", {})
+
+    parts = []
+
+    # Registration cost from vitals
+    registration = vitals.get("registration", "")
+    if registration:
+        cost_match = re.search(r'\$(\d[\d,]*(?:\.\d{2})?)', registration)
+        if cost_match:
+            parts.append(f"<strong>Entry Fee:</strong> ~${cost_match.group(1)}")
+
+    # Expense rating
+    expenses_score = rating.get("expenses") if isinstance(rating, dict) else None
+    if expenses_score:
+        labels = {1: "Very affordable", 2: "Budget-friendly", 3: "Moderate",
+                  4: "Above average", 5: "Premium destination"}
+        label = labels.get(expenses_score, "")
+        if label:
+            parts.append(f"<strong>Cost of Trip:</strong> {esc(label)} ({expenses_score}/5)")
+
+    # Airport info for travel cost context
+    if isinstance(logistics, dict):
+        airport = logistics.get("airport", "")
+        if airport and airport != "--":
+            parts.append(f"<strong>Nearest Airport:</strong> {esc(airport)}")
+
+    if not parts:
+        return ""
+
+    items_html = "".join(f"<p style='margin:4px 0;font-size:13px'>{p}</p>" for p in parts)
+    return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>Budget Planning:</strong></p>
+        {items_html}
       </div>'''
 
 
@@ -970,14 +1680,21 @@ def build_pk_training_timeline(guide_sections: dict, raw: dict, rd: dict) -> str
         if context:
             timeline_html = context + timeline_html
 
-    # Terrain-adapted training emphasis (both tiers)
-    terrain_callout = build_terrain_emphasis_callout(rd)
+    # Terrain-adapted training emphasis (both tiers) — Task 6: enhanced with dimension scores
+    terrain_callout = build_terrain_emphasis_callout(rd, raw)
+
+    # Rider quotes relevant to training/preparation (Task 2)
+    quotes = raw.get("quotes", [])
+    quotes_html = build_rider_quotes_callout(
+        quotes, criteria_filter=["elevation", "technicality", "climate"], max_quotes=2
+    )
 
     return f'''<section class="gg-pk-section">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">01</span>
       <h2>12-Week Training Timeline</h2>
     </div>
+    {quotes_html}
     {terrain_callout}
     {timeline_html}
   </section>'''
@@ -1029,13 +1746,14 @@ def build_pk_race_week(guide_sections: dict, raw: dict) -> str:
     if not timeline_block:
         return ""
 
-    # Add weather callout if available
-    weather_html = ""
-    gv = raw.get("guide_variables", {})
-    if isinstance(gv, dict):
-        weather = gv.get("race_weather", "")
-        if weather:
-            weather_html = f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+    # Weather callout — prefer real data from weather JSON, fall back to guide text
+    weather_html = build_weather_callout(raw)
+    if not weather_html:
+        gv = raw.get("guide_variables", {})
+        if isinstance(gv, dict):
+            weather = gv.get("race_weather", "")
+            if weather:
+                weather_html = f'''<div class="gg-guide-callout gg-guide-callout--highlight">
         <p><strong>Expected Conditions:</strong> {esc(weather)}</p>
       </div>'''
 
@@ -1047,6 +1765,21 @@ def build_pk_race_week(guide_sections: dict, raw: dict) -> str:
     {weather_html}
     {render_timeline(timeline_block)}
   </section>'''
+
+
+def _tire_crosslink_text(rd: dict) -> str:
+    """Build tire cross-link text using enriched data if available."""
+    tr = rd.get("tire_recommendations", {})
+    primary = tr.get("primary", [])
+    if primary:
+        top = primary[0]
+        name = top.get("name", "")
+        width = top.get("recommended_width_mm", "")
+        msrp = top.get("msrp_usd")
+        price_str = f" (${msrp:.2f})" if msrp else ""
+        width_str = f" {width}mm" if width else ""
+        return f"Top tire pick: {name}{width_str}{price_str} —"
+    return "Full tire analysis:"
 
 
 def build_pk_equipment(guide_sections: dict, raw: dict, rd: dict) -> str:
@@ -1064,22 +1797,13 @@ def build_pk_equipment(guide_sections: dict, raw: dict, rd: dict) -> str:
     if not accordion_block:
         return ""
 
-    # Check for race-specific tire recommendations (Unbound has mechanicals)
-    tire_html = ""
-    rs = raw.get("race_specific")
-    if isinstance(rs, dict):
-        mechs = rs.get("mechanicals", {})
-        if isinstance(mechs, dict):
-            tires = mechs.get("recommended_tires", [])
-            if tires:
-                tire_items = "".join(f"<li>{esc(t)}</li>" for t in tires)
-                tire_html = f'''<div class="gg-guide-callout gg-guide-callout--highlight">
-        <p><strong>Recommended Tires:</strong></p>
-        <ul>{tire_items}</ul>
-      </div>'''
+    # Terrain-specific tire + setup recommendations (Task 5)
+    tire_html = build_tire_recommendation(raw, rd)
 
-    # Climate-adapted gear recommendations
-    climate_html = build_climate_gear_callout(rd.get("climate_data", {}))
+    # Climate-adapted gear recommendations using real weather data (Task 1)
+    climate_html = build_climate_gear_callout(
+        raw.get("climate", {}), raw.get("weather")
+    )
 
     return f'''<section class="gg-pk-section">
     <div class="gg-pk-section-header">
@@ -1087,6 +1811,9 @@ def build_pk_equipment(guide_sections: dict, raw: dict, rd: dict) -> str:
       <h2>Equipment &amp; Packing Checklist</h2>
     </div>
     {tire_html}
+    <div class="gg-guide-callout" style="margin:16px 0;padding:12px 16px;border-left:3px solid var(--gg-color-teal)">
+      <p style="margin:0;font-size:14px"><strong>{_tire_crosslink_text(rd)}</strong> <a href="/race/{esc(rd['slug'])}/tires/" style="color:var(--gg-color-teal)">See full analysis &rarr;</a></p>
+    </div>
     {climate_html}
     {render_accordion(accordion_block)}
   </section>'''
@@ -1154,6 +1881,21 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
 
     # Personalized fueling calculator (email-gated)
     parts.append(build_fueling_calculator_html(rd, raw))
+
+    # Community-sourced fueling context — climate insight affects nutrition strategy
+    bor = raw.get("biased_opinion_ratings", {})
+    if isinstance(bor, dict):
+        climate_insight = _extract_dimension_insight(bor, "climate", 250)
+        if climate_insight:
+            parts.append(
+                f'<div class="gg-guide-callout gg-guide-callout--highlight">'
+                f'<p><strong>What Riders Say About Conditions:</strong> '
+                f'{esc(climate_insight)}</p>'
+                f'<p style="font-size:12px;color:var(--gg-color-secondary-brown)">'
+                f'Plan your fueling around these conditions \u2014 heat and humidity '
+                f'increase fluid and sodium demands significantly.</p>'
+                f'</div>'
+            )
 
     # Aid station info
     aid_info = rd["vitals"].get("aid_stations", "")
@@ -1468,6 +2210,43 @@ def build_prep_kit_css() -> str:
 .gg-pk-gate-preview-num{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-teal);letter-spacing:1px;min-width:20px}
 .gg-pk-gate-preview-label{font-family:var(--gg-font-data);font-size:11px;letter-spacing:0.5px;color:var(--gg-color-near-black)}
 @media (max-width:600px){.gg-pk-gate-form{flex-direction:column;gap:8px}.gg-pk-gate-input{border-right:3px solid var(--gg-color-near-black)}.gg-pk-gate{padding:32px 16px}.gg-pk-gate-preview{grid-template-columns:1fr}}
+
+/* ── Race Intelligence Briefing ── */
+.gg-pk-intel-lead{text-align:center;margin:0 0 20px}
+.gg-pk-intel-verdict{display:inline-block;font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gg-color-near-black);color:var(--gg-color-warm-paper);padding:4px 14px;margin-bottom:8px}
+.gg-pk-intel-oneliner{font-family:var(--gg-font-editorial);font-size:16px;font-style:italic;color:var(--gg-color-primary-brown);margin:8px 0 0;line-height:1.5}
+.gg-pk-intel-summary{font-size:13px;line-height:1.7;color:var(--gg-color-primary-brown);margin:0 0 20px}
+.gg-pk-intel-dim{border-left:4px solid var(--gg-color-teal);padding:12px 16px;margin:0 0 12px;background:var(--gg-color-white)}
+.gg-pk-intel-dim-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-teal);margin-bottom:6px}
+.gg-pk-intel-dim-text{font-size:13px;line-height:1.6;color:var(--gg-color-primary-brown);margin:0}
+.gg-pk-intel-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.gg-pk-intel-col{border:2px solid var(--gg-color-near-black);padding:16px}
+.gg-pk-intel-col-label{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.gg-pk-intel-col ul{margin:0;padding-left:18px}
+.gg-pk-intel-col li{font-size:12px;line-height:1.6;color:var(--gg-color-primary-brown);margin-bottom:4px}
+.gg-pk-intel-rep{font-family:var(--gg-font-data);font-size:12px;font-style:italic;color:var(--gg-color-secondary-brown);text-align:center;margin:16px 0}
+@media (max-width:600px){.gg-pk-intel-cols{grid-template-columns:1fr}}
+
+/* ── Logistics Grid ── */
+.gg-pk-logistics-grid{display:grid;gap:12px}
+.gg-pk-logistics-item{border:2px solid var(--gg-color-near-black);padding:16px;background:var(--gg-color-white)}
+.gg-pk-logistics-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-teal);margin-bottom:6px}
+.gg-pk-logistics-text{font-size:13px;line-height:1.6;color:var(--gg-color-primary-brown);margin:0}
+.gg-pk-logistics-text a{color:var(--gg-color-teal);text-decoration:underline}
+
+/* ── Aid Station Strategy ── */
+.gg-pk-aid-strategy{margin:20px 0}
+.gg-pk-aid-card{display:flex;gap:14px;margin-bottom:10px;padding:12px;border:2px solid var(--gg-color-near-black);background:var(--gg-color-warm-paper)}
+.gg-pk-aid-num{width:56px;min-width:56px;text-align:center;font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--gg-color-teal);color:#fff;padding:8px 4px;display:flex;align-items:center;justify-content:center}
+.gg-pk-aid-detail{flex:1}
+.gg-pk-aid-detail strong{font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-near-black)}
+.gg-pk-aid-detail p{font-size:12px;line-height:1.5;color:var(--gg-color-primary-brown);margin:4px 0 0}
+
+/* ── Tire Pressure Table ── */
+.gg-pk-pressure-table-wrap{overflow-x:auto;margin:12px 0 0}
+.gg-pk-pressure-table{width:100%;border-collapse:collapse;font-family:var(--gg-font-data);font-size:12px}
+.gg-pk-pressure-table th{background:var(--gg-color-near-black);color:var(--gg-color-warm-paper);padding:8px 10px;text-align:left;text-transform:uppercase;letter-spacing:1px;font-size:10px;font-weight:700}
+.gg-pk-pressure-table td{padding:8px 10px;border-bottom:1px solid var(--gg-color-tan)}
 
 /* ── Print Styles ── */
 @media print{
@@ -1825,13 +2604,13 @@ def build_pk_email_gate(rd: dict) -> str:
     # Section titles users can see through the gate (teaser)
     preview_sections = [
         ("01", "12-Week Training Timeline"),
-        ("02", "Non-Negotiables Checklist"),
+        ("02", "Race Briefing"),
         ("03", "Race Week Protocol"),
-        ("04", "Equipment & Packing List"),
+        ("04", "Equipment & Tire Setup"),
         ("05", "Race Morning Routine"),
-        ("06", "Personalized Fueling Calculator"),
+        ("06", "Fueling Calculator & Aid Stations"),
         ("07", "In-Race Decision Tree"),
-        ("08", "Recovery Protocol"),
+        ("08", "Travel & Logistics"),
     ]
     preview_html = "".join(
         f'<div class="gg-pk-gate-preview-item">'
@@ -1862,11 +2641,13 @@ def build_howto_schema(name: str, slug: str, canonical: str, has_full: bool) -> 
     """Build HowTo + BreadcrumbList JSON-LD schema for prep kit pages."""
     steps = [
         {"name": "12-Week Training Timeline", "text": "Follow a periodized Base/Build/Peak/Taper training plan calibrated to your race distance and terrain."},
+        {"name": "Race Briefing", "text": "Community-sourced race intelligence: what riders say about the course, conditions, and what to expect on race day."},
         {"name": "Race Week Countdown", "text": "Execute a 7-day taper protocol: reduce volume, lock in nutrition, and finalize logistics."},
-        {"name": "Equipment & Packing Checklist", "text": "Assemble race-day gear including bike setup, nutrition, repair kit, and clothing for expected conditions."},
+        {"name": "Equipment & Packing Checklist", "text": "Assemble race-day gear including tire setup, climate-specific clothing, and repair kit."},
         {"name": "Race Morning Protocol", "text": "Follow a timed pre-race morning routine from alarm to start line: eat, hydrate, warm up, check gear."},
-        {"name": "Race-Day Fueling", "text": "Execute your carb-per-hour fueling plan with gut-trained nutrition strategy and aid station planning."},
+        {"name": "Race-Day Fueling & Aid Stations", "text": "Execute your carb-per-hour fueling plan with gut-trained nutrition strategy and aid station strategy."},
         {"name": "In-Race Decision Tree", "text": "Handle race-day problems — bonking, cramping, mechanicals, weather — with pre-planned decision frameworks."},
+        {"name": "Travel & Logistics", "text": "Plan your trip: airport, lodging, parking, packet pickup, and budget."},
         {"name": "Post-Race Recovery", "text": "Follow immediate and multi-day recovery protocols to minimize damage and return to training safely."},
     ]
     if has_full:
@@ -1917,11 +2698,13 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
     gated_sections = [
         build_pk_training_timeline(guide_sections, raw, rd),
         build_pk_non_negotiables(raw),
+        build_race_intelligence(rd, raw),            # Task 3: Race Briefing
         build_pk_race_week(guide_sections, raw),
         build_pk_equipment(guide_sections, raw, rd),
         build_pk_race_morning(guide_sections, rd),
         build_pk_fueling(guide_sections, raw, rd),
         build_pk_decision_tree(guide_sections, rd),
+        build_pk_logistics(raw, rd),               # Task 4: Travel & Logistics
         build_pk_recovery(guide_sections),
         build_pk_footer_cta(rd),
     ]

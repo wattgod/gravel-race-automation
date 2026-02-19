@@ -63,6 +63,41 @@ def load_state_slugs(project_root: Path) -> list:
     return slugs
 
 
+def load_tire_slugs(project_root: Path) -> list:
+    """Load tire guide page slugs from wordpress/output/tires/ directory."""
+    tires_dir = project_root / "wordpress" / "output" / "tires"
+    slugs = []
+    if not tires_dir.exists():
+        return slugs
+    for path in sorted(tires_dir.glob("*.html")):
+        slugs.append(path.stem)
+    return slugs
+
+
+def load_tire_page_slugs(project_root: Path) -> list:
+    """Load per-tire page slugs from wordpress/output/tire/ directory."""
+    tire_dir = project_root / "wordpress" / "output" / "tire"
+    slugs = []
+    if not tire_dir.exists():
+        return slugs
+    for path in sorted(tire_dir.iterdir()):
+        if path.is_dir() and "-vs-" not in path.name:
+            slugs.append(path.name)
+    return slugs
+
+
+def load_tire_vs_slugs(project_root: Path) -> list:
+    """Load tire-vs-tire comparison page slugs from wordpress/output/tire/ directory."""
+    tire_dir = project_root / "wordpress" / "output" / "tire"
+    slugs = []
+    if not tire_dir.exists():
+        return slugs
+    for path in sorted(tire_dir.iterdir()):
+        if path.is_dir() and "-vs-" in path.name:
+            slugs.append(path.name)
+    return slugs
+
+
 def load_special_pages(project_root: Path) -> list:
     """Load calendar/power-rankings/quiz page slugs."""
     output_dir = project_root / "wordpress" / "output"
@@ -148,6 +183,33 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'lastmod').text = today
         SubElement(url, 'changefreq').text = 'weekly'
         SubElement(url, 'priority').text = '0.8'
+
+    # Tire guide pages
+    tire_slugs = load_tire_slugs(output_path.parent.parent)
+    for slug in tire_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/tires/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.6'
+
+    # Per-tire review pages
+    tire_page_slugs = load_tire_page_slugs(output_path.parent.parent)
+    for slug in tire_page_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.6'
+
+    # Tire-vs-tire comparison pages
+    tire_vs_slugs = load_tire_vs_slugs(output_path.parent.parent)
+    for slug in tire_vs_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.5'
 
     # Race pages
     for race in race_index:
@@ -252,7 +314,12 @@ def main():
     vs_slugs = load_vs_slugs(project_root)
     state_slugs = load_state_slugs(project_root)
     special_slugs = load_special_pages(project_root)
-    total_urls = 7 + len(series_slugs) + len(vs_slugs) + len(state_slugs) + len(special_slugs) + len(race_index)
+    tire_slugs = load_tire_slugs(project_root)
+    tire_page_slugs = load_tire_page_slugs(project_root)
+    tire_vs_slugs = load_tire_vs_slugs(project_root)
+    total_urls = (7 + len(series_slugs) + len(vs_slugs) + len(state_slugs)
+                  + len(special_slugs) + len(tire_slugs)
+                  + len(tire_page_slugs) + len(tire_vs_slugs) + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if series_slugs:
         print(f"  Including {len(series_slugs)} series hub pages")
@@ -262,6 +329,12 @@ def main():
         print(f"  Including {len(state_slugs)} state hub pages")
     if special_slugs:
         print(f"  Including {len(special_slugs)} special pages (calendar, rankings)")
+    if tire_slugs:
+        print(f"  Including {len(tire_slugs)} tire guide pages")
+    if tire_page_slugs:
+        print(f"  Including {len(tire_page_slugs)} per-tire review pages")
+    if tire_vs_slugs:
+        print(f"  Including {len(tire_vs_slugs)} tire-vs-tire comparison pages")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
 

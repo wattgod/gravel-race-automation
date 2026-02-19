@@ -251,19 +251,19 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "It's 100% road cycling through Western Oregon's Coast Range despite the gran fondo name. The route features \"high-speed sharp turns, especially on Territorial Rd after descending Wolf Creek\" and organizers note \"Elk Road being bumpy leading to Aid 2 Medio.\" Technical challenges come from descents and road conditions rather than bike handling complexity."
+        "explanation": "It's 100% road cycling through Western Oregon's Coast Range despite the gran fondo name. The route features \"high-speed sharp turns, especially on Territorial Rd after descending Wolf Creek\" and organizers note \"Elk Road being bumpy leading to Aid 2 Medio.\" Technical challenges come from descents and road conditions rather than bike handling complexity. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Gran Fondo route climbs through \"the heart of the Coast Range\" with \"high-elevation climbs, scenic descents, and sweeping views of both forest and farmland.\" One rider described tackling \"7k vert\" over the full distance. The climbing is substantial enough to create separation without requiring specialized mountain training."
+        "explanation": "The Gran Fondo route climbs through \"the heart of the Coast Range\" with \"high-elevation climbs, scenic descents, and sweeping views of both forest and farmland.\" One rider described tackling \"7k vert\" over the full distance. The climbing is substantial enough to create separation without requiring specialized mountain training. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-May in Oregon means weather gambling, as organizers acknowledge: \"During the week, it may rain because it's Oregon, so be prepared!\" Spring conditions can range from perfect to miserable, with recent Eugene area racing seeing \"overcast, and cool, sub 50 degrees.\" No reliable forecast means planning for everything."
+        "explanation": "Mid-May in Oregon means weather gambling, as organizers acknowledge: \"During the week, it may rain because it's Oregon, so be prepared!\" Spring conditions can range from perfect to miserable, with recent Eugene area racing seeing \"overcast, and cool, sub 50 degrees.\" No reliable forecast means planning for everything. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Cottage Grove sits low enough that altitude isn't a factor for anyone living above sea level. Western Oregon's gentle elevation changes won't challenge your red blood cell count or require acclimatization strategies. The climbing comes from distance and gradient, not thin air—which is probably why they don't bother mentioning elevation anywhere in their marketing."
+        "explanation": "Cottage Grove sits low enough that altitude isn't a factor for anyone living above sea level. Western Oregon's gentle elevation changes won't challenge your red blood cell count or require acclimatization strategies. The climbing comes from distance and gradient, not thin air—which is probably why they don't bother mentioning elevation anywhere in their marketing. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 2,
@@ -287,7 +287,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional Triple Crown series draws dedicated Oregon riders but limited outside talent. The 400-rider cap in a small cycling state means familiar faces at most events. Prize structure offers free entry to overall winners and 50% off for podium finishers—community-level incentives rather than career-making opportunities."
+        "explanation": "Regional Triple Crown series draws dedicated Oregon riders but limited outside talent. The 400-rider cap in a small cycling state means familiar faces at most events. Prize structure offers free entry to overall winners and 50% off for podium finishers—community-level incentives rather than career-making opportunities. Less competitive depth than Almanzo 100. As Event philosophy [ELITE/source] puts it: \"Gran Fondo is not a race but rather a mass start event designed to draw the community together and give everyone a chance to enjoy the fun of riding a bike on the same course as the pros.\""
       },
       "value": {
         "score": 3,
@@ -295,7 +295,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Cottage Grove keeps costs reasonable with dry camping eliminating hotel expenses and Eugene Airport access without destination markup. Organizers recommend \"28MM Slicks or 32's\" and require helmets and taillights for high-traffic zones, but equipment needs stay basic. Continental and Pactimo kit available but optional, keeping gear costs manageable."
+        "explanation": "Registration runs $80-100. Cottage Grove keeps costs reasonable with dry camping eliminating hotel expenses and Eugene Airport access without destination markup. Organizers recommend \"28MM Slicks or 32's\" and require helmets and taillights for high-traffic zones, but equipment needs stay basic. Continental and Pactimo kit available but optional, keeping gear costs manageable. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -373,6 +373,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Atsuko targeted a 14 mph pace for the 60-mile distance but found herself \"doing 18+ mph\" at the start and deliberately \"let myself drift backwards through the crowd\" to avoid blowing up. Her final average of 11.3 mph over 58.39 miles reflects the rolling terrain slowing ambitious early pacing."
+        "explanation": "Atsuko targeted a 14 mph pace for the 60-mile distance but found herself \"doing 18+ mph\" at the start and deliberately \"let myself drift backwards through the crowd\" to avoid blowing up. Her final average of 11.3 mph over 58.39 miles reflects the rolling terrain slowing ambitious early pacing. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Minimum Maintenance Road climb is \"the main attraction, big-ticket event\" with its \"seemingly vertical wall of gravel strewn with riders,\" while Atsuko \"had to walk the Shady Lane climb.\" Otherwise, surfaces are \"downright pleasant\" gravel where \"nearly any tire will work, though we suggest staying above 32c.\""
+        "explanation": "The Minimum Maintenance Road climb is \"the main attraction, big-ticket event\" with its \"seemingly vertical wall of gravel strewn with riders,\" while Atsuko \"had to walk the Shady Lane climb.\" Otherwise, surfaces are \"downright pleasant\" gravel where \"nearly any tire will work, though we suggest staying above 32c.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The course features \"three climbs, all about the same length, each immediately followed by a speedy descent back down.\" Dustin describes the MMR climb as multiple pitches requiring momentum and line selection, while the overall profile varies \"from long rollers to short, punchy climbs\" through farm country."
+        "explanation": "The course features \"three climbs, all about the same length, each immediately followed by a speedy descent back down.\" Dustin describes the MMR climb as multiple pitches requiring momentum and line selection, while the overall profile varies \"from long rollers to short, punchy climbs\" through farm country. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "May weather swings wildly year to year—2024 brought building heat with 20-30 mph headwinds, while 2025 was a \"rudely chilly day\" at 50°F after \"2 weeks of shorts and T-shirt conditions.\" Atsuko wore \"every single layer of clothing I brought\" including kneewarmers and a buff."
+        "explanation": "May weather swings wildly year to year—2024 brought building heat with 20-30 mph headwinds, while 2025 was a \"rudely chilly day\" at 50°F after \"2 weeks of shorts and T-shirt conditions.\" Atsuko wore \"every single layer of clothing I brought\" including kneewarmers and a buff. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Minnesota farm country south of Minneapolis starting from Central Park at essentially sea level. The highest point you'll reach is the top of those rolling agricultural hills, which aren't going to challenge anyone's oxygen intake."
+        "explanation": "This is Minnesota farm country south of Minneapolis starting from Central Park at essentially sea level. The highest point you'll reach is the top of those rolling agricultural hills, which aren't going to challenge anyone's oxygen intake. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Dustin's training consists of \"bike-commuting on my e-cargo bike 3-4 times per week\" and \"occasional party/pastry-paced social ride,\" which reflects the participatory rather than competitive field. The event allows e-bikes including cargo bikes with toddlers on back, welcoming all cycling flavors equally."
+        "explanation": "Dustin's training consists of \"bike-commuting on my e-cargo bike 3-4 times per week\" and \"occasional party/pastry-paced social ride,\" which reflects the participatory rather than competitive field. The event allows e-bikes including cargo bikes with toddlers on back, welcoming all cycling flavors equally. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Free camping is offered at Sechler Park for \"Camper van or rooftop tent\" setups, while Nerstrand State Park and Caron Park sit ten minutes from the start line. Northfield offers \"cafés, bakeries, and lots of stores with actual personality\" plus three breweries in a college town setting."
+        "explanation": "Registration runs $50-75. Free camping is offered at Sechler Park for \"Camper van or rooftop tent\" setups, while Nerstrand State Park and Caron Park sit ten minutes from the start line. Northfield offers \"cafés, bakeries, and lots of stores with actual personality\" plus three breweries in a college town setting. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "theheywoodride.com: Ride"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

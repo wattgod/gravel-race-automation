@@ -116,23 +116,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 80-mile distance becomes substantially more challenging in the San Juan Mountains context. Routes like the Alpine Loop cover 65-80 miles but can take 6+ hours due to sustained grades above 10% and significant hike-a-bike sections on passes like Engineer and Cinnamon."
+        "explanation": "The 80-mile distance becomes substantially more challenging in the San Juan Mountains context. Routes like the Alpine Loop cover 65-80 miles but can take 6+ hours due to sustained grades above 10% and significant hike-a-bike sections on passes like Engineer and Cinnamon. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 5,
-        "explanation": "San Juan Mountain routes feature grades exceeding 20% on bare rock sections. Imogene Pass is described as 'barely a road, a trail' with 'brutally steep and completely made of bare rock in certain sections.' Even 34x42 gearing is often insufficient."
+        "explanation": "San Juan Mountain routes feature grades exceeding 20% on bare rock sections. Imogene Pass is described as 'barely a road, a trail' with 'brutally steep and completely made of bare rock in certain sections.' Even 34x42 gearing is often insufficient. Among the most technical in gravel, on par with Badlands."
       },
       "elevation": {
         "score": 5,
-        "explanation": "Starting at 7,792 ft and climbing through passes above 12,000 ft creates extreme elevation profiles. Imogene Pass tops out at 13,114 ft while Engineer Pass reaches 12,800 ft. The Alpine Loop alone gains over 3,300 ft through high-altitude terrain."
+        "explanation": "Starting at 7,792 ft and climbing through passes above 12,000 ft creates extreme elevation profiles. Imogene Pass tops out at 13,114 ft while Engineer Pass reaches 12,800 ft. The Alpine Loop alone gains over 3,300 ft through high-altitude terrain. Among the hilliest in gravel, comparable to Badlands."
       },
       "climate": {
         "score": 5,
-        "explanation": "The San Juan Range experiences 72-81 thunderstorm days annually - Colorado's highest. Monsoon season brings afternoon storms that can shift from clear skies to hail within minutes. The golden rule: be below treeline by noon during storm season."
+        "explanation": "The San Juan Range experiences 72-81 thunderstorm days annually - Colorado's highest. Monsoon season brings afternoon storms that can shift from clear skies to hail within minutes. The golden rule: be below treeline by noon during storm season. Among the most weather-friendly events, easier than Badlands."
       },
       "altitude": {
         "score": 5,
-        "explanation": "Power output drops 20-30% at these elevations, with sustainable watts falling to 70-80% of sea level capacity at 12,000+ ft passes. Even acclimatized riders experience significant performance degradation in the thin air above Ouray's 7,792 ft starting elevation."
+        "explanation": "Power output drops 20-30% at these elevations, with sustainable watts falling to 70-80% of sea level capacity at 12,000+ ft passes. Even acclimatized riders experience significant performance degradation in the thin air above Ouray's 7,792 ft starting elevation. Among the highest-altitude events in gravel, on par with Badlands."
       },
       "adventure": {
         "score": 5,
@@ -156,7 +156,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No organized competition means no competitive field to assess. While individual riders tackle the San Juan Mountain terrain through self-supported adventures, this represents exploratory riding rather than structured racing with measurable field depth."
+        "explanation": "No organized competition means no competitive field to assess. While individual riders tackle the San Juan Mountain terrain through self-supported adventures, this represents exploratory riding rather than structured racing with measurable field depth. Thinner field than Back Forty Highlander."
       },
       "value": {
         "score": 4,
@@ -164,7 +164,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Lodging runs $250-300/night at properties like Twin Peaks Lodge with natural hot springs. Montrose airport provides reasonable access at 35 miles, though the remote location requires extended stays for proper altitude acclimation, increasing total trip costs."
+        "explanation": "Lodging runs $250-300/night at properties like Twin Peaks Lodge with natural hot springs. Montrose airport provides reasonable access at 35 miles, though the remote location requires extended stays for proper altitude acclimation, increasing total trip costs. More affordable than Crusher in the Tushar."
       }
     },
     "popularity": 40,
@@ -281,6 +281,74 @@
     ],
     "history": {
       "founder": "Telluride Bicycle Racing (also hosts Telluride 100)"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

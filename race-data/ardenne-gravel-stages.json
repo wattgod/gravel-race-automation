@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Elite winner Mariëlle Trouwborst took early control on the muddy 70km opener, lost the 110km queen stage to mechanicals, then salvaged overall victory on the 90km finale. The three-day format delivers proper stage race volume—4,790m total elevation across 270km separates this from single-day events."
+        "explanation": "Elite winner Mariëlle Trouwborst took early control on the muddy 70km opener, lost the 110km queen stage to mechanicals, then salvaged overall victory on the 90km finale. The three-day format delivers proper stage race volume—4,790m total elevation across 270km separates this from single-day events. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Stage 1's muddy 70km course around Vielsalm shows conditions can get messy, but the terrain remains typical Belgian Ardennes rolling hills and forest paths. Trouwborst's early Stage 3 puncture required \"a plug and a few pumps\" to reach tech support—challenging but manageable difficulty."
+        "explanation": "Stage 1's muddy 70km course around Vielsalm shows conditions can get messy, but the terrain remains typical Belgian Ardennes rolling hills and forest paths. Trouwborst's early Stage 3 puncture required \"a plug and a few pumps\" to reach tech support—challenging but manageable difficulty. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The climbing builds logically: 1,370m on the 70km opener, 1,800m on the 110km queen stage, and 1,620m on the 90km finale. That's 4,790m total elevation—steady Ardennes rollers that hurt without breaking you, peaking around Baraque Fraiture's higher terrain."
+        "explanation": "The climbing builds logically: 1,370m on the 70km opener, 1,800m on the 110km queen stage, and 1,620m on the 90km finale. That's 4,790m total elevation—steady Ardennes rollers that hurt without breaking you, peaking around Baraque Fraiture's higher terrain. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late September conditions turned Stage 1 into a \"muddy course\" that affected elite tactics, with Trouwborst taking early control in the slick conditions. Belgian Ardennes shoulder season means 50-65°F temps with rain odds that can make gravel technical when wet."
+        "explanation": "Late September conditions turned Stage 1 into a \"muddy course\" that affected elite tactics, with Trouwborst taking early control in the slick conditions. Belgian Ardennes shoulder season means 50-65°F temps with rain odds that can make gravel technical when wet. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Ardennes barely reaches 2,300 feet at Baraque Fraiture, with stages starting much lower around Vielsalm and Engreux. Zero altitude considerations needed—this is sea-level racing with hills, not mountain suffering."
+        "explanation": "The Ardennes barely reaches 2,300 feet at Baraque Fraiture, with stages starting much lower around Vielsalm and Engreux. Zero altitude considerations needed—this is sea-level racing with hills, not mountain suffering. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Elite winner Trouwborst lost Stage 2 to Joyce Vanderbeken, showing competitive depth at the front. However, recreational 1-day options starting at 29€ and the Dusty Gravel integration suggest a mixed field of serious racers and weekend warriors."
+        "explanation": "Elite winner Trouwborst lost Stage 2 to Joyce Vanderbeken, showing competitive depth at the front. However, recreational 1-day options starting at 29€ and the Dusty Gravel integration suggest a mixed field of serious racers and weekend warriors. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Belgian Ardennes tourist areas like Vielsalm and Engreux punish wallets for lodging beyond included camping. Limited lodging available at Centre Adeps d'Engreux for multi-stage participants, but no airport logistics support leaves international travelers figuring out connections solo."
+        "explanation": "Registration runs €150-250. Belgian Ardennes tourist areas like Vielsalm and Engreux punish wallets for lodging beyond included camping. Limited lodging available at Centre Adeps d'Engreux for multi-stage participants, but no airport logistics support leaves international travelers figuring out connections solo. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "dustygravelseries.be: Ardennesgravelstage"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

@@ -20,11 +20,13 @@ from datetime import date
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+from brand_tokens import TIER_NAMES
+
 BLOG_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 OUTPUT_DIR = PROJECT_ROOT / "web"
 SITE_URL = "https://gravelgodcycling.com"
-
-TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 
 
 def classify_blog_slug(slug):

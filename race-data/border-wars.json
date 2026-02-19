@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 62-mile main option delivers 5000 feet over varied terrain, with Jason Lopez completing it in 5:58 moving time at 245W normalized power. Bridge washouts forced last-minute course changes, shortening routes by \"a few miles,\" but the staggered starts (8am/9:30am/11am) \"significantly reduced the number of riders at the start of the race.\""
+        "explanation": "The 62-mile main option delivers 5000 feet over varied terrain, with Jason Lopez completing it in 5:58 moving time at 245W normalized power. Bridge washouts forced last-minute course changes, shortening routes by \"a few miles,\" but the staggered starts (8am/9:30am/11am) \"significantly reduced the number of riders at the start of the race.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The mud logjam one mile in forced riders to \"walk single file around the deepest section,\" while the course features \"gravel with random chunks that could cause a pinch flat if hit wrong.\" Jason Lopez excelled on descents with \"two top 10s\" on Strava segments, noting the course had \"quite a few fast technical descents\" and sketchy bridge crossings."
+        "explanation": "The mud logjam one mile in forced riders to \"walk single file around the deepest section,\" while the course features \"gravel with random chunks that could cause a pinch flat if hit wrong.\" Jason Lopez excelled on descents with \"two top 10s\" on Strava segments, noting the course had \"quite a few fast technical descents\" and sketchy bridge crossings. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "5000 feet over 62 miles delivers consistent work without massive climbing blocks. The rolling profile with ridgeline connections means you're always going up or down, but nothing suggests monster climbs that separate the field. Alabama's steep, direct descents into creek crossings provide the most elevation drama."
+        "explanation": "5000 feet over 62 miles delivers consistent work without massive climbing blocks. The rolling profile with ridgeline connections means you're always going up or down, but nothing suggests monster climbs that separate the field. Alabama's steep, direct descents into creek crossings provide the most elevation drama. Less climbing than The Mid South. As Carolyn Misick puts it: \"Their website and FAQ page was one of the most helpful ones I have seen for what to expect on the ride.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "The 2024 race started at 38°F and warmed to 60°F with \"20-30 mph gusts with mostly headwind,\" making the Alabama section particularly challenging. Carolyn Misick appreciated the \"sunny and temps in the 60s\" forecast, though the temperature range \"made it a bit tough to dress for.\" Late February timing avoids summer heat while staying generally rideable."
+        "explanation": "The 2024 race started at 38°F and warmed to 60°F with \"20-30 mph gusts with mostly headwind,\" making the Alabama section particularly challenging. Carolyn Misick appreciated the \"sunny and temps in the 60s\" forecast, though the temperature range \"made it a bit tough to dress for.\" Late February timing avoids summer heat while staying generally rideable. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "GA/AL border region means you're barely above sea level throughout the course. Starting elevation and max elevation are unreported, but this isn't mountain territory—it's rolling piedmont that won't challenge anyone's oxygen intake. Altitude is completely irrelevant to this race experience."
+        "explanation": "GA/AL border region means you're barely above sea level throughout the course. Starting elevation and max elevation are unreported, but this isn't mountain territory—it's rolling piedmont that won't challenge anyone's oxygen intake. Altitude is completely irrelevant to this race experience. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No data on field size, no mention of competitive depth, and YouTube coverage shows riders walking through mud sections rather than racing through them."
+        "explanation": "With a field of 200-400 riders, no data on field size, no mention of competitive depth, and YouTube coverage shows riders walking through mud sections rather than racing through them. Less competitive depth than Almanzo 100. As Jason Lopez puts it: \"I am quite pleased with my race performance in the 2024 Border Wars Gravel, I finished 11th in my category, even with 7500 ft of climbing. My average speed was 16.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Franklin, Georgia isn't a destination hub—no airport details, no lodging strategy provided, which means you're driving and figuring out accommodations yourself. The GA/AL border location means most riders face significant travel unless they're regional, and the late February timing could complicate weather-dependent travel plans."
+        "explanation": "Registration runs $75-125. Franklin, Georgia isn't a destination hub—no airport details, no lodging strategy provided, which means you're driving and figuring out accommodations yourself. The GA/AL border location means most riders face significant travel unless they're regional, and the late February timing could complicate weather-dependent travel plans. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -347,6 +347,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

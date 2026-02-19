@@ -1,12 +1,13 @@
 /**
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
- * Handles 6 capture sources from gravelgodcycling.com:
+ * Handles 7 capture sources from gravelgodcycling.com:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
  *   - race_quiz:          email + race context (quiz results gate)
  *   - quiz_shared:        email + race context (shared quiz results)
+ *   - tire_guide:         email + race context (tire setup card CTA)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -19,7 +20,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide'];
 
 export default {
   async fetch(request, env) {

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 2026 format creates a 23-mile loop with \"just under 2,000' of climbing per lap\" where everyone starts at 9:30 AM regardless of distance. Ted King spent \"approaching two hours\" spinning up the first climb \"all the way from sea level\" to nearly 4,000 feet, capturing the sustained nature of Olympic Peninsula terrain."
+        "explanation": "The 2026 format creates a 23-mile loop with \"just under 2,000' of climbing per lap\" where everyone starts at 9:30 AM regardless of distance. Ted King spent \"approaching two hours\" spinning up the first climb \"all the way from sea level\" to nearly 4,000 feet, capturing the sustained nature of Olympic Peninsula terrain. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course is \"approximately 95% gravel\" with \"wheel-eating potholes which would end your day badly if you weren't paying close attention,\" according to pro cyclist Ted King. ACree favors a 29er hardtail over gravel bikes here, noting \"there is enough very rough gravel\" despite the 40mm minimum tire recommendation."
+        "explanation": "The course is \"approximately 95% gravel\" with \"wheel-eating potholes which would end your day badly if you weren't paying close attention,\" according to pro cyclist Ted King. ACree favors a 29er hardtail over gravel bikes here, noting \"there is enough very rough gravel\" despite the 40mm minimum tire recommendation. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The Big Creek Loop around Mount Fitzgerald delivers steady Olympic National Forest climbing through \"older growth forest offering pristine views.\" With \"just under 2,000' of climbing per lap\" in the new loop format, it's consistent work without the punishing gradients that would fragment the field significantly."
+        "explanation": "The Big Creek Loop around Mount Fitzgerald delivers steady Olympic National Forest climbing through \"older growth forest offering pristine views.\" With \"just under 2,000' of climbing per lap\" in the new loop format, it's consistent work without the punishing gradients that would fragment the field significantly. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "The 2025 race ran \"in cloud and fog at high elevations\" with variable conditions across years: \"some races have been held in deluges and in one year, it was held in the middle of the worst heat wave in the Pacific Northwest in 100 years.\" The remote Olympic Peninsula location amplifies any weather complications riders face."
+        "explanation": "The 2025 race ran \"in cloud and fog at high elevations\" with variable conditions across years: \"some races have been held in deluges and in one year, it was held in the middle of the worst heat wave in the Pacific Northwest in 100 years.\" The remote Olympic Peninsula location amplifies any weather complications riders face. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from sea-level Hoquiam and climbing through low-elevation forest roads means zero altitude impact. Even Ted King's climb to \"a bit shy of 4,000 feet\" represents cumulative gain rather than sustained high elevation that would affect performance or recovery."
+        "explanation": "Starting from sea-level Hoquiam and climbing through low-elevation forest roads means zero altitude impact. Even Ted King's climb to \"a bit shy of 4,000 feet\" represents cumulative gain rather than sustained high elevation that would affect performance or recovery. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "broshaughnessy's 282W FTP (3.79 W/kg) represents solid competitive level, while zkravey plans the course on a Domane with 35mm tires below the 40mm recommendation. The 400-rider cap and medals for age group winners suggests broad participation rather than concentrated talent."
+        "explanation": "broshaughnessy's 282W FTP (3.79 W/kg) represents solid competitive level, while zkravey plans the course on a Domane with 35mm tires below the 40mm recommendation. The 400-rider cap and medals for age group winners suggests broad participation rather than concentrated talent. Thinner field than Ouray Gravel Grinder. As Grassroots Character puts it: \"These events are inclusive of everybody because they represent the local community.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Maximum $80 entry won't strain budgets, and mandatory camping keeps accommodation costs minimal with free dispersed options on National Forest land. The remote Olympic Peninsula location lacks destination pricing, while Coho Campground provides RV options just 3.5 miles from Race Central for traditional campground preferences."
+        "explanation": "Maximum $80 entry won't strain budgets, and mandatory camping keeps accommodation costs minimal with free dispersed options on National Forest land. The remote Olympic Peninsula location lacks destination pricing, while Coho Campground provides RV options just 3.5 miles from Race Central for traditional campground preferences. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "peninsuladailynews.com: Gravel Unravel Big Hills Thick Clouds And Close Finishes"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

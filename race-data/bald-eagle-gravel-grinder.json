@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 46.2-mile Half Series with 4,963 feet rewards strategic energy management over raw endurance. Nancy Mizak executed conservative early pacing: \"I kept to the plan of not going hard so I didn't burn too many candles\" before attacking climbs 5 & 6 as \"the last hills, and I would give what ever I had left in the tank.\""
+        "explanation": "The 46.2-mile Half Series with 4,963 feet rewards strategic energy management over raw endurance. Nancy Mizak executed conservative early pacing: \"I kept to the plan of not going hard so I didn't burn too many candles\" before attacking climbs 5 & 6 as \"the last hills, and I would give what ever I had left in the tank.\" More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Tom Meersman discovered \"Jeep road\" sections featuring \"some of the gnarliest gravel inclines coupled with a treacherous rock-strewn path up the mountain.\" Riders \"take diagonal lines across the trail like ping-pong balls\" searching for rideable lines, with many \"dismounted and running up the steepest sections just as fast as riding.\""
+        "explanation": "Tom Meersman discovered \"Jeep road\" sections featuring \"some of the gnarliest gravel inclines coupled with a treacherous rock-strewn path up the mountain.\" Riders \"take diagonal lines across the trail like ping-pong balls\" searching for rideable lines, with many \"dismounted and running up the steepest sections just as fast as riding.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Amy Fowler experienced immediate punishment: \"With the first climb starting within the first half mile, my legs decided they had enough and never came around.\" Tom Meersman's 46-36 front with 10-26 rear cassette \"was already maxed-out as we pedaled out of camp\" during the neutral rollout, forcing an emergency bike shop visit."
+        "explanation": "Amy Fowler experienced immediate punishment: \"With the first climb starting within the first half mile, my legs decided they had enough and never came around.\" Tom Meersman's 46-36 front with 10-26 rear cassette \"was already maxed-out as we pedaled out of camp\" during the neutral rollout, forcing an emergency bike shop visit. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "April weather swings wildly in central Pennsylvania. Amy Fowler expected \"partly sunny with a high of 70° but instead we had full sun and a high of 82°\" causing debilitating cramps. Nancy Mizak enjoyed contrasting conditions the following year: \"oh, and then there was the weather....perfect!\""
+        "explanation": "Historical weather data shows average highs of 61°F and lows of 40°F, with a 57% chance of rain on any given day. April weather swings wildly in central Pennsylvania. Amy Fowler expected \"partly sunny with a high of 70° but instead we had full sun and a high of 82°\" causing debilitating cramps. Nancy Mizak enjoyed contrasting conditions the following year: \"oh, and then there was the weather....perfect!\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Pennsylvania's modest elevations present zero altitude considerations for any rider coming from sea level or higher. The climbing challenge comes from gradient and frequency, not thin air."
+        "explanation": "Central Pennsylvania's modest elevations present zero altitude considerations for any rider coming from sea level or higher. The climbing challenge comes from gradient and frequency, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No data on field size or participant demographics in any of the available sources. For a 4th-year Pennsylvania regional race with zero pro presence or prize money, you're looking at local recreational riders. Don't expect anyone who's going to push you beyond your comfort zone."
+        "explanation": "No data on field size or participant demographics in any of the available sources. For a 4th-year Pennsylvania regional race with zero pro presence or prize money, you're looking at local recreational riders. Don't expect anyone who's going to push you beyond your comfort zone. Thinner field than Ouray Gravel Grinder. As Amy Fowler puts it: \"Today team Basecamp members Allie Pope Burger, Nancy Mizak, and myself tackled the Bald Eagle Gravel Grinder in Spring Mills, PA. There was a lot of SAILing going on in the first race of the season.\""
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Tom Meersman's emergency required finding Bike Roost in Boalsburg, PA for a larger rear cassette, showing local bike shop support exists. Onsite camping at Seven Mountains Scout Camp eliminates hotel costs, with riders \"literally a 60 second soft-pedal away from the staging area,\" though travel to central Pennsylvania requires planning."
+        "explanation": "Registration runs $50-75. Tom Meersman's emergency required finding Bike Roost in Boalsburg, PA for a larger rear cassette, showing local bike shop support exists. Onsite camping at Seven Mountains Scout Camp eliminates hotel costs, with riders \"literally a 60 second soft-pedal away from the staging area,\" though travel to central Pennsylvania requires planning. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "joinbasecamp.com: Nancy S Story Bald Evening Gravel Grinder"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

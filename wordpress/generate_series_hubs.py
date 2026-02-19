@@ -253,7 +253,7 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
         if rr_pct is not None and rr_total >= RACER_RATING_THRESHOLD:
             racer_html = f'<span class="gg-series-event-racer">{rr_pct}%<small class="gg-series-score-label">RACER</small></span>'
         else:
-            racer_html = '<span class="gg-series-event-racer gg-series-event-racer--empty">&mdash;<small class="gg-series-score-label">RATE</small></span>'
+            racer_html = '<span class="gg-series-event-racer gg-series-event-racer--empty">&mdash;<small class="gg-series-score-label">RACER</small></span>'
 
     if has_profile and slug:
         name_html = f'<a href="/race/{esc(slug)}/" class="gg-series-event-name">{esc(name)}</a>'
@@ -975,54 +975,99 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
 
     qa_pairs = []
 
-    # Q1: How many events?
-    event_count = len(events)
-    event_names = [e.get("name", "") for e in events]
-    names_list = ", ".join(event_names[:MAX_EVENT_NAMES_IN_FAQ])
-    if len(event_names) > MAX_EVENT_NAMES_IN_FAQ:
-        names_list += f", and {len(event_names) - MAX_EVENT_NAMES_IN_FAQ} more"
-    qa_pairs.append((
-        f"How many {name} events are there in {year}?",
-        f"The {name} features {event_count} events in {year}: {names_list}."
-    ))
-
-    # Q2: Which event is hardest?
-    profiled_with_diff = []
+    # Q1: Which event should I do first? (beginner guidance — NOT shown elsewhere)
+    profiled_accessibility = []
     for e in events:
         e_slug = e.get("slug")
         if e_slug and e_slug in race_data:
             rd = race_data[e_slug]
+            logistics = rd.get("gravel_god_rating", {}).get("logistics", 0)
             diff = _avg_scores(rd, ["length", "technicality", "elevation", "altitude"])
-            if diff > 0:
+            if logistics > 0 and diff > 0:
+                # Lower difficulty + higher logistics = more accessible
+                access_score = logistics - diff
                 vitals = rd.get("vitals", {})
                 dist = vitals.get("distance_mi", 0)
-                elev = vitals.get("elevation_ft", 0)
-                profiled_with_diff.append((e.get("name", ""), diff, dist, elev))
-    if profiled_with_diff:
-        hardest = max(profiled_with_diff, key=lambda x: x[1])
-        stats = ""
-        if hardest[2]:
-            stats += f" at {hardest[2]} miles"
-        if hardest[3]:
-            stats += f" and {hardest[3]:,} feet of climbing"
+                cutoff = vitals.get("cutoff_time", "")
+                loc = e.get("location", "")
+                profiled_accessibility.append((e.get("name", ""), access_score, diff, dist, cutoff, e_slug, loc))
+    if len(profiled_accessibility) >= 2:
+        best = max(profiled_accessibility, key=lambda x: x[1])
+        # Disambiguate when event name matches series name
+        best_label = best[0]
+        if best_label.lower() == name.lower() and best[6]:
+            best_label = f"{best[0]} ({best[6].split(',')[0]})"
+        answer = f"{best_label} is the most accessible entry point to the series."
+        if best[3]:
+            answer += f" At {best[3]} miles, it's a manageable distance"
+        if best[2]:
+            answer += f" with a difficulty rating of {best[2]}/5."
+        else:
+            answer += "."
+        if best[4]:
+            answer += f" Cutoff time: {best[4]}."
+        # Also mention the hardest as contrast
+        toughest = min(profiled_accessibility, key=lambda x: x[1])
+        if toughest[0] != best[0]:
+            answer += f" For experienced riders seeking a challenge, {toughest[0]} is the toughest in the series."
         qa_pairs.append((
-            f"Which {name} event is the hardest?",
-            f"{hardest[0]} is the most challenging event in the series with a difficulty "
-            f"rating of {hardest[1]}/5{stats}."
+            f"Which {name} event should I do first?",
+            answer
         ))
 
-    # Q3: Schedule
-    sorted_events = sorted(events, key=lambda e: MONTH_ORDER.get(e.get("month", "TBD"), 99))
-    schedule_parts = []
-    for e in sorted_events:
-        month = e.get("month", "TBD")
-        loc = e.get("location", "")
-        schedule_parts.append(f"{e.get('name', '')} ({month}, {loc})" if loc else f"{e.get('name', '')} ({month})")
-    schedule_text = "; ".join(schedule_parts)
-    qa_pairs.append((
-        f"What is the {name} {year} schedule?",
-        f"The {name} {year} calendar includes: {schedule_text}."
-    ))
+    # Q2: What bike setup do I need? (gear advice — NOT shown elsewhere)
+    tech_ratings_q2 = []
+    for e in events:
+        e_slug = e.get("slug")
+        if e_slug and e_slug in race_data:
+            rd = race_data[e_slug]
+            tech = rd.get("terrain", {}).get("technical_rating")
+            if tech:
+                tech_ratings_q2.append(tech)
+    if tech_ratings_q2:
+        avg_tech = sum(tech_ratings_q2) / len(tech_ratings_q2)
+        if avg_tech >= 4:
+            bike_rec = "A gravel bike with 40mm+ tires is recommended. Consider a dropper post for technical descents."
+        elif avg_tech >= 3:
+            bike_rec = "A gravel bike with 38-42mm tires handles most courses well."
+        else:
+            bike_rec = "A standard gravel bike with 35-40mm tires is sufficient for most events."
+        answer = f"{bike_rec} Technical ratings across {name} events range from {min(tech_ratings_q2)}/5 to {max(tech_ratings_q2)}/5."
+        if max(tech_ratings_q2) >= 4:
+            answer += " The most technical courses include sand, singletrack, and water crossings — tubeless tires are essential."
+        elif max(tech_ratings_q2) >= 3:
+            answer += " Some courses feature loose gravel and short singletrack sections."
+        qa_pairs.append((
+            f"What bike setup do I need for {name} events?",
+            answer
+        ))
+
+    # Q3: How competitive are the fields? (field data — NOT shown elsewhere)
+    field_data = []
+    for e in events:
+        e_slug = e.get("slug")
+        if e_slug and e_slug in race_data:
+            rd = race_data[e_slug]
+            field_depth = rd.get("gravel_god_rating", {}).get("field_depth",
+                          rd.get("biased_opinion_ratings", {}).get("field_depth", 0))
+            field_size = rd.get("vitals", {}).get("field_size", "")
+            prize = rd.get("vitals", {}).get("prize_purse", "")
+            if field_depth > 0:
+                field_data.append((e.get("name", ""), field_depth, field_size, prize))
+    if len(field_data) >= 2:
+        deepest = max(field_data, key=lambda x: x[1])
+        answer = f"{deepest[0]} draws the deepest field in the series (field depth: {deepest[1]}/5)."
+        if deepest[2]:
+            answer += f" Field size: {deepest[2]}."
+        if deepest[3]:
+            answer += f" Prize purse: {deepest[3]}."
+        shallowest = min(field_data, key=lambda x: x[1])
+        if shallowest[0] != deepest[0]:
+            answer += f" For a less competitive atmosphere, {shallowest[0]} ({shallowest[1]}/5) offers a more relaxed field."
+        qa_pairs.append((
+            f"How competitive are {name} fields?",
+            answer
+        ))
 
     # Q4: Cost — readable prose, not raw data dump
     cost_entries = []
@@ -1032,7 +1077,15 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
             rd = race_data[e_slug]
             reg = rd.get("vitals", {}).get("registration", "")
             if reg:
-                cost_entries.append((e.get("name", ""), reg))
+                # Extract just the price-relevant portion, strip URLs and long descriptions
+                reg_clean = reg.split(". Registration:")[0].split(". Register")[0]
+                reg_clean = reg_clean.split(". http")[0].split(". www")[0]
+                # Also strip site URLs embedded mid-sentence
+                reg_clean = re.sub(r'\s*via\s+\S+\.\S+', '', reg_clean)
+                reg_clean = re.sub(r'\s*\S+\.(bike|com|org|net)\S*', '', reg_clean)
+                if len(reg_clean) > 80:
+                    reg_clean = reg_clean[:78] + "..."
+                cost_entries.append((e.get("name", ""), reg_clean))
     if cost_entries:
         shown = cost_entries[:MAX_COST_ITEMS_IN_FAQ]
         parts = [f"{n} ({cost})" for n, cost in shown]
@@ -1280,7 +1333,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%239a7e0a'>G</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%233a2e25%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2724%27%20text-anchor%3D%27middle%27%20font-family%3D%27serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27%239a7e0a%27%3EG%3C%2Ftext%3E%3C%2Fsvg%3E">
   <meta property="og:title" content="{esc(page_title)}">
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:type" content="website">

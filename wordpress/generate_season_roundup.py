@@ -23,12 +23,13 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+from brand_tokens import TIER_NAMES
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = PROJECT_ROOT / "web" / "race-index.json"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 SITE_URL = "https://gravelgodcycling.com"
-
-TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 TIER_COLORS = {1: "#59473c", 2: "#7d695d", 3: "#766a5e", 4: "#5e6868"}
 
 MONTH_NAMES = {
@@ -114,7 +115,7 @@ def build_race_card_html(race):
     name = esc(race.get("name", slug))
     location = esc(race.get("location", ""))
     tier = race.get("tier", 4)
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
     tier_color = TIER_COLORS.get(tier, "#5e6868")
     score = race.get("overall_score", 0)
     month = esc(race.get("month", ""))

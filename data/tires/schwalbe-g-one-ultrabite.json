@@ -1,0 +1,179 @@
+{
+  "id": "schwalbe-g-one-ultrabite",
+  "name": "Schwalbe G-One Ultrabite",
+  "brand": "Schwalbe",
+  "widths_mm": [
+    38,
+    40,
+    45,
+    50
+  ],
+  "tread_type": "mud",
+  "tread_description": "Widely spaced tall knobs for mud shedding, ADDIX SpeedGrip",
+  "best_conditions": [
+    "mud",
+    "wet",
+    "loose",
+    "clay"
+  ],
+  "worst_conditions": [
+    "smooth pavement",
+    "fast gravel",
+    "dry hardpack"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite"
+  },
+  "tagline": "The mud tire. When the course is saturated, this is what you mount.",
+  "strengths": [
+    "Excellent mud shedding",
+    "Strong wet grip",
+    "Wide width range"
+  ],
+  "weaknesses": [
+    "Very slow on dry surfaces",
+    "Buzzy on pavement",
+    "Heavy"
+  ],
+  "msrp_usd": 69.9,
+  "weight_grams": {
+    "38": 450,
+    "40": 500,
+    "45": 560,
+    "50": 620
+  },
+  "crr_watts_at_29kmh": {
+    "40": 42.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "good",
+  "mud_clearance": "high",
+  "recommended_use": [
+    "mud",
+    "wet",
+    "clay",
+    "saturated courses"
+  ],
+  "avoid_use": [
+    "smooth pavement",
+    "fast gravel",
+    "dry hardpack"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "crystal-bear": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "dirty-30": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "dirty-reiver": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-bogota": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-earth": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "gravel-worlds": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "iowa-wind-and-rock": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "melting-mann": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "mid-south": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "paris-to-ancaster": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rasputitsa-spring-classic": {
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rasputitsa": {
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "seven": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "southern-cross-gravel": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "strade-bianche-gran-fondo": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "swamp-fox-gravel-fondo": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "unbound-100": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "muddy"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "schwalbe-g-one-overland",
+    "tufo-gravel-swampero",
+    "vittoria-terreno-wet"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

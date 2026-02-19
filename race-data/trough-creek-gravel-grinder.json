@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Distance options range from 33.6 to 71.4 miles with the popular Half Series at 40.7 miles. McGregor describes the Half Series as 'around 40 miles and 4000 of elevation' - solid training ride distances without pushing serious endurance boundaries."
+        "explanation": "Distance options range from 33.6 to 71.4 miles with the popular Half Series at 40.7 miles. McGregor describes the Half Series as 'around 40 miles and 4000 of elevation' - solid training ride distances without pushing serious endurance boundaries. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "McGregor describes 'a pretty gnarly and technical descent' on trail sections that allowed him to close gaps through superior bike handling. The Half Series mixes 'pavement, gravel, snowmobile trail, doubletrack' but technical features appear limited to specific descent sections."
+        "explanation": "McGregor describes 'a pretty gnarly and technical descent' on trail sections that allowed him to close gaps through superior bike handling. The Half Series mixes 'pavement, gravel, snowmobile trail, doubletrack' but technical features appear limited to specific descent sections. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Full Series delivers 6,224 feet of climbing over 71.4 miles while the Half Series packs ~4,000 feet into 40 miles. McGregor references 'the longest and hardest climb of the day' where tactical patience proved more valuable than attacking early."
+        "explanation": "The Full Series delivers 6,224 feet of climbing over 71.4 miles while the Half Series packs ~4,000 feet into 40 miles. McGregor references 'the longest and hardest climb of the day' where tactical patience proved more valuable than attacking early. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late September in central Pennsylvania runs 50-70°F typically with fall weather unpredictability. No historical weather incidents mentioned in available race reports, though tire pressure loss during McGregor's race suggests challenging conditions."
+        "explanation": "Late September in central Pennsylvania runs 50-70°F typically with fall weather unpredictability. No historical weather incidents mentioned in available race reports, though tire pressure loss during McGregor's race suggests challenging conditions. More weather exposure than Belgian Waffle Ride San Diego. As Evan McGregor puts it: \"The Trough Creek Half Series course is around 40 miles and 4000 of elevation over varied terrain: pavement, gravel, snowmobile trail, doubletrack, it's a great mix!\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Trough Creek State Park sits around 1,000-1,500 feet elevation in Pennsylvania hill country. Sea level lungs won't notice any difference - this is low-elevation gravel grinding without mountain altitude training benefits."
+        "explanation": "Trough Creek State Park sits around 1,000-1,500 feet elevation in Pennsylvania hill country. Sea level lungs won't notice any difference - this is low-elevation gravel grinding without mountain altitude training benefits. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Winning times of 2:15:49 for the 41-mile and 3:52:14 for the 71-mile suggest recreational pace rather than elite competition. Field sizes of 23-64 riders per category indicate modest regional participation without national-level depth."
+        "explanation": "Winning times of 2:15:49 for the 41-mile and 3:52:14 for the 71-mile suggest recreational pace rather than elite competition. Field sizes of 23-64 riders per category indicate modest regional participation without national-level depth. Thinner field than Ouray Gravel Grinder. As Evan McGregor puts it: \"This race highlighted my progression as a performing athlete over the past year... Leading into the race was the longest taper I've ever done of almost two weeks.\""
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "McGregor's tire pressure dropped 15 psi during his winning race, suggesting technical terrain demands on equipment. James Creek, PA location keeps lodging costs reasonable in rural Pennsylvania, though driving distance from major airports adds travel expense."
+        "explanation": "Registration runs $50-75. McGregor's tire pressure dropped 15 psi during his winning race, suggesting technical terrain demands on equipment. James Creek, PA location keeps lodging costs reasonable in rural Pennsylvania, though driving distance from major airports adds travel expense. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -330,6 +330,74 @@
         "category": "community",
         "label": "gravel-results.com: 23490"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

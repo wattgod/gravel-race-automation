@@ -165,23 +165,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Jan Stöckli stayed with the lead group early but \"after about a lap and a half, the effort caught up with me. I started to fade and couldn't maintain the early pace.\" The race becomes extremely demanding after ~60km, suggesting 68 miles hits the sweet spot between substantial and manageable."
+        "explanation": "Jan Stöckli stayed with the lead group early but \"after about a lap and a half, the effort caught up with me. I started to fade and couldn't maintain the early pace.\" The race becomes extremely demanding after ~60km, suggesting 68 miles hits the sweet spot between substantial and manageable. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 5,
-        "explanation": "Stöckli describes \"the relentless vibrations and shocks during the climbs were tough on the muscles\" through terrain featuring the Col de Braus gravel tracks and technical descents on both asphalt and gravel. The course demands serious bike handling skills through Mercantour's varied mountain terrain."
+        "explanation": "Stöckli describes \"the relentless vibrations and shocks during the climbs were tough on the muscles\" through terrain featuring the Col de Braus gravel tracks and technical descents on both asphalt and gravel. The course demands serious bike handling skills through Mercantour's varied mountain terrain. Among the most technical in gravel, on par with Badlands."
       },
       "elevation": {
         "score": 5,
-        "explanation": "\"The course was brutal — 120 kilometers with 2,600 meters of climbing. A true mountain test,\" reports Jan Stöckli. Starting from Peille Village at 650 meters, the route tackles Col de Braus and Col des Boeufs with relentless vertical punishment that defines the race character."
+        "explanation": "\"The course was brutal — 120 kilometers with 2,600 meters of climbing. A true mountain test,\" reports Jan Stöckli. Starting from Peille Village at 650 meters, the route tackles Col de Braus and Col des Boeufs with relentless vertical punishment that defines the race character. Among the hilliest in gravel, comparable to Badlands."
       },
       "climate": {
         "score": 3,
-        "explanation": "April racing in the Mercantour region between Mediterranean coast and mountains creates variable spring conditions. No specific weather incidents reported from the 2025 inaugural edition, suggesting manageable but potentially unpredictable conditions depending on elevation and exposure."
+        "explanation": "Historical weather data shows average highs of 70°F and lows of 58°F, with a 37% chance of rain on any given day. April racing in the Mercantour region between Mediterranean coast and mountains creates variable spring conditions. No specific weather incidents reported from the 2025 inaugural edition, suggesting manageable but potentially unpredictable conditions depending on elevation and exposure. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from Peille Village at 650 meters with climbs reaching Col de Braus elevation means minimal altitude physiological effects. The significant elevation gain occurs in foothills rather than high-altitude terrain where oxygen becomes a limiting factor."
+        "explanation": "Starting from Peille Village at 650 meters with climbs reaching Col de Braus elevation means minimal altitude physiological effects. The significant elevation gain occurs in foothills rather than high-altitude terrain where oxygen becomes a limiting factor. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -205,7 +205,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Elite winners Schmidt and Aguirre dominated with significant time gaps - Aguirre won by 5 minutes, Schmidt by 3:43. Stöckli noted \"the field was amazingly strong on the ascents,\" but the 500-rider field size remains modest for a UCI World Series event."
+        "explanation": "Elite winners Schmidt and Aguirre dominated with significant time gaps - Aguirre won by 5 minutes, Schmidt by 3:43. Stöckli noted \"the field was amazingly strong on the ascents,\" but the 500-rider field size remains modest for a UCI World Series event. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 2,
@@ -213,7 +213,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Stöckli's travel complications requiring overnight stops and early morning departures highlight the logistical costs of reaching Monaco. Racing in one of the world's most expensive destinations means accommodation, dining, and transportation costs hit hard during race weekend."
+        "explanation": "Registration runs €150-€200. Stöckli's travel complications requiring overnight stops and early morning departures highlight the logistical costs of reaching Monaco. Racing in one of the world's most expensive destinations means accommodation, dining, and transportation costs hit hard during race weekend. Higher total cost than Badlands."
       }
     },
     "final_verdict": {
@@ -298,6 +298,63 @@
         "category": "community",
         "label": "monacogravelrace.fr: Epreuves Monaco Gravel Race"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "28-32",
+        "140_160lb_mixed": "25-29",
+        "140_160lb_wet": "23-27",
+        "160_180lb_dry": "31-35",
+        "160_180lb_mixed": "28-32",
+        "160_180lb_wet": "26-30",
+        "180_200lb_dry": "34-38",
+        "180_200lb_mixed": "31-35",
+        "180_200lb_wet": "29-33",
+        "200pluslb_dry": "37-41",
+        "200pluslb_mixed": "34-38",
+        "200pluslb_wet": "32-36"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 10km Friday night stage feels like warm-up filler before Saturday's substantial 92km across morning (52km) and afternoon (40km) loops. Cut-off times are generous with Saturday's 39km section closing at 12:30pm, reflecting the event's 'all levels welcome' philosophy rather than distance challenge."
+        "explanation": "The 10km Friday night stage feels like warm-up filler before Saturday's substantial 92km across morning (52km) and afternoon (40km) loops. Cut-off times are generous with Saturday's 39km section closing at 12:30pm, reflecting the event's 'all levels welcome' philosophy rather than distance challenge. More compact than Grinduro."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Private Duncombe Park Estate trails and North York Moors terrain should offer technical challenge, but the 'all levels welcome' marketing suggests they've neutered the difficulty. Without course recon available, you're gambling on whether it's actually technical or just marketing fluff."
+        "explanation": "Private Duncombe Park Estate trails and North York Moors terrain should offer technical challenge, but the 'all levels welcome' marketing suggests they've neutered the difficulty. Without course recon available, you're gambling on whether it's actually technical or just marketing fluff. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4000ft over 55 miles through North York Moors National Park's undulating terrain delivers sustained climbing efforts across the private estate. The course profile combines gravel roads with flowing singletrack sections that take advantage of the natural topography for both challenge and 'breathtaking vistas.'"
+        "explanation": "4000ft over 55 miles through North York Moors National Park's undulating terrain delivers sustained climbing efforts across the private estate. The course profile combines gravel roads with flowing singletrack sections that take advantage of the natural topography for both challenge and 'breathtaking vistas.' Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "July in North Yorkshire brings mild summer conditions but the Friday night stage starting at 21:30 requires headtorch lighting and adds weather uncertainty. No historical climate data available, but riders must prepare for typical UK weather variability during peak tourist season."
+        "explanation": "Historical weather data shows average highs of 65°F and lows of 51°F, with a 68% chance of rain on any given day. July in North Yorkshire brings mild summer conditions but the Friday night stage starting at 21:30 requires headtorch lighting and adds weather uncertainty. No historical climate data available, but riders must prepare for typical UK weather variability during peak tourist season. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "North York Moors terrain maxes around 1,500 feet elevation, offering no meaningful altitude training benefits. The undulating landscape provides climbing volume but stays well within low-altitude parameters throughout the estate and National Park sections."
+        "explanation": "North York Moors terrain maxes around 1,500 feet elevation, offering no meaningful altitude training benefits. The undulating landscape provides climbing volume but stays well within low-altitude parameters throughout the estate and National Park sections. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Explicitly marketed as beginner-friendly with 'average fitness' requirements and generous cut-off times. Teams of 4 are welcomed alongside individual categories, but the 'not racing? No problem' positioning and focus on festival atmosphere suggests recreational participation over competitive depth."
+        "explanation": "Explicitly marketed as beginner-friendly with 'average fitness' requirements and generous cut-off times. Teams of 4 are welcomed alongside individual categories, but the 'not racing? No problem' positioning and focus on festival atmosphere suggests recreational participation over competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Saturday-only entry at £85 provides reasonable access, but full weekend camping is where value emerges. E-bike riders face additional challenge as 'there are no facilities to charge batteries at the event centre or on course,' requiring battery management planning for the multi-day format."
+        "explanation": "Saturday-only entry at £85 provides reasonable access, but full weekend camping is where value emerges. E-bike riders face additional challenge as 'there are no facilities to charge batteries at the event centre or on course,' requiring battery management planning for the multi-day format. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "news.paceupmedia.com: Trail Runners  Gravel Riders Unite At Scott Gravel Rocks"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

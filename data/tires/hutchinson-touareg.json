@@ -1,0 +1,73 @@
+{
+  "id": "hutchinson-touareg",
+  "name": "Hutchinson Touareg",
+  "brand": "Hutchinson",
+  "widths_mm": [
+    40,
+    45
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Multi-directional knob pattern with Hardskin reinforcement",
+  "best_conditions": [
+    "mixed",
+    "loose gravel",
+    "hardpack"
+  ],
+  "worst_conditions": [
+    "deep mud"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg-45"
+  },
+  "tagline": "French engineering. Hardskin reinforcement handles sharp gravel roads.",
+  "strengths": [
+    "Hardskin puncture protection",
+    "Good in variable conditions",
+    "Durable"
+  ],
+  "weaknesses": [
+    "Heavier",
+    "Can be stiff initially",
+    "Not the fastest"
+  ],
+  "msrp_usd": 73.9,
+  "weight_grams": {
+    "40": 450,
+    "45": 510
+  },
+  "crr_watts_at_29kmh": {
+    "40": 35.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "mixed gravel",
+    "sharp rock",
+    "long distance",
+    "durability"
+  ],
+  "avoid_use": [
+    "deep mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-m",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "teravail-cannonball",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

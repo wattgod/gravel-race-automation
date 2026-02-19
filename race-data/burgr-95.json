@@ -258,19 +258,19 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Finish times show the distance delivers: Joel Hynes finished in 6:09, with most riders between 6-7 hours. Fat bikers Tim Jennings and Joe Kraznarich needed 7:26, while Jason Dostal took 7:50. The organizer warns \"You will be on the road for 5 to 7 hours.\""
+        "explanation": "Finish times show the distance delivers: Joel Hynes finished in 6:09, with most riders between 6-7 hours. Fat bikers Tim Jennings and Joe Kraznarich needed 7:26, while Jason Dostal took 7:50. The organizer warns \"You will be on the road for 5 to 7 hours.\" Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course includes \"rocky fire roads\" alongside fast gravel, with the organizer noting \"Road bikes will not survive some fire road segments.\" Later editions added \"Machine-Built Singletrack\" and \"That part at mile 70 that will Really Test You.\""
+        "explanation": "Course includes \"rocky fire roads\" alongside fast gravel, with the organizer noting \"Road bikes will not survive some fire road segments.\" Later editions added \"Machine-Built Singletrack\" and \"That part at mile 70 that will Really Test You.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The BURGR99 evolution features \"Two Mile-long Descents\" through Wisconsin's rolling terrain. Lookout Mountain provides the main climbing challenge, but this remains Wisconsin gravel rather than mountainous suffering."
+        "explanation": "The BURGR99 evolution features \"Two Mile-long Descents\" through Wisconsin's rolling terrain. Lookout Mountain provides the main climbing challenge, but this remains Wisconsin gravel rather than mountainous suffering. Less climbing than The Mid South."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting near Gleason around 1600 feet with Lookout Mountain as the high point means sea level cycling conditions. Zero altitude considerations for this Wisconsin countryside ride."
+        "explanation": "Starting near Gleason around 1600 feet with Lookout Mountain as the high point means sea level cycling conditions. Zero altitude considerations for this Wisconsin countryside ride. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -294,7 +294,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Results show small fields with Joel Hynes, Russel Bernard, and Randy Wegener finishing within four minutes in 2016. Seven finishers listed for the 2018 BURGR99, indicating limited competitive depth for this free group ride."
+        "explanation": "Results show small fields with Joel Hynes, Russel Bernard, and Randy Wegener finishing within four minutes in 2016. Seven finishers listed for the 2018 BURGR99, indicating limited competitive depth for this free group ride. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -302,7 +302,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Free entry with camping available at the Underdown for those wanting cheap lodging \"7.5 miles from the Lighthouse.\" The organizer recommends Bambino's downtown \"for beer, pizza, and more ice cream afterwards.\""
+        "explanation": "Registration runs $75-100. Free entry with camping available at the Underdown for those wanting cheap lodging \"7.5 miles from the Lighthouse.\" The organizer recommends Bambino's downtown \"for beer, pizza, and more ice cream afterwards.\" Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -341,6 +341,74 @@
         "category": "community",
         "label": "sites.google.com: Home"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

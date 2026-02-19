@@ -1,0 +1,82 @@
+{
+  "id": "continental-terra-speed-40",
+  "name": "Continental Terra Speed",
+  "brand": "Continental",
+  "widths_mm": [
+    35,
+    40,
+    45
+  ],
+  "tread_type": "file",
+  "tread_description": "Micro-diamond file tread with minimal rolling resistance",
+  "best_conditions": [
+    "dry",
+    "smooth",
+    "hardpack"
+  ],
+  "worst_conditions": [
+    "mud",
+    "wet",
+    "loose"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-40",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-45"
+  },
+  "tagline": "The speed benchmark. Fastest gravel tire on smooth surfaces.",
+  "strengths": [
+    "Lowest rolling resistance in class",
+    "Excellent on hardpack",
+    "Light weight"
+  ],
+  "weaknesses": [
+    "Limited puncture protection",
+    "Poor in wet/mud",
+    "Sidewall vulnerability"
+  ],
+  "msrp_usd": 74.99,
+  "weight_grams": {
+    "35": 340,
+    "40": 390,
+    "45": 440
+  },
+  "crr_watts_at_29kmh": {
+    "40": 28.5
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "none",
+  "recommended_use": [
+    "fast gravel",
+    "road-to-gravel",
+    "smooth hardpack",
+    "dry racing"
+  ],
+  "avoid_use": [
+    "wet",
+    "mud",
+    "sharp rock",
+    "loose over hard"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "scratch-ankle-gravel": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "fast"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "panaracer-gravelking-tlc",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs",
+    "vittoria-terreno-dry"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

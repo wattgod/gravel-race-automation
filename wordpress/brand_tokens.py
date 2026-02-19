@@ -288,3 +288,16 @@ def get_ab_head_snippet() -> str:
 # Minimum number of ratings before displaying the racer score.
 # Used by all generators (race profiles, state hubs, homepage, series hubs).
 RACER_RATING_THRESHOLD = 3
+
+
+# ── Tier Names ──────────────────────────────────────────────
+# Canonical tier names used across all generators and the search widget.
+# Badges always say "TIER 1" / "TIER 2" etc. These are the subtitle names.
+TIER_NAMES = {1: "The Icons", 2: "Elite", 3: "Solid", 4: "Grassroots"}
+
+TIER_DESCS = {
+    1: "The definitive gravel events. World-class fields, iconic courses, bucket-list status.",
+    2: "Established races with strong reputations and competitive fields. The next tier of must-do events.",
+    3: "Regional favorites and emerging races. Strong local scenes, genuine gravel character.",
+    4: "Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.",
+}

@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distances at 24, 38, and 58 miles with staggered starts from 9am to 10:45am manage traffic flow effectively. Race director Mark Wright warns \"The race could be lost near the beginning but not won\" about Mann Road's early technical challenge that can derail longer distance attempts."
+        "explanation": "Three distances at 24, 38, and 58 miles with staggered starts from 9am to 10:45am manage traffic flow effectively. Race director Mark Wright warns \"The race could be lost near the beginning but not won\" about Mann Road's early technical challenge that can derail longer distance attempts. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Mann Road's \"sandy dirt uphill\" claims riders \"whose wheels get stuck, lose traction or topple\" right after the ski area descent. The soft soil and wetland mud puddles require line choice skills, but it's more about traction management than technical bike handling through southwest Michigan's rolling terrain."
+        "explanation": "Mann Road's \"sandy dirt uphill\" claims riders \"whose wheels get stuck, lose traction or topple\" right after the ski area descent. The soft soil and wetland mud puddles require line choice skills, but it's more about traction management than technical bike handling through southwest Michigan's rolling terrain. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Called a 'roller coaster' course with 2500 feet of gain over 62 miles, which works out to manageable rollers rather than sustained climbs. No named climbs or elevation profile details provided, suggesting the hills are there but nothing worth bragging about. Southwest Michigan isn't known for mountains, and this course apparently doesn't change that reputation."
+        "explanation": "Called a 'roller coaster' course with 2500 feet of gain over 62 miles, which works out to manageable rollers rather than sustained climbs. No named climbs or elevation profile details provided, suggesting the hills are there but nothing worth bragging about. Southwest Michigan isn't known for mountains, and this course apparently doesn't change that reputation. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "March weather swings wildly—Pete Post raced through 3 inches of fresh snow in 2014 while 2025 saw 35°F temps. \"Some years are chilly and icy, while others are sunny and warm,\" making studded tires a gamble that paid off for prepared riders during the snowy edition."
+        "explanation": "March weather swings wildly—Pete Post raced through 3 inches of fresh snow in 2014 while 2025 saw 35°F temps. \"Some years are chilly and icy, while others are sunny and warm,\" making studded tires a gamble that paid off for prepared riders during the snowy edition. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is southwest Michigan, not Colorado. Starting elevation isn't mentioned because it's essentially at sea level, and the 2500 feet of climbing doesn't take you anywhere meaningful altitude-wise. If you need altitude training, you're in the wrong state entirely."
+        "explanation": "This is southwest Michigan, not Colorado. Starting elevation isn't mentioned because it's essentially at sea level, and the 2500 feet of climbing doesn't take you anywhere meaningful altitude-wise. If you need altitude training, you're in the wrong state entirely. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Wave starts accommodate 0-12mph beginners alongside 22+mph racers, showing the broad recreational range. While 80-rider waves and 700+ total participants create good field size, the lack of mentioned pro riders or notable past champions indicates weekend warrior competition levels."
+        "explanation": "Wave starts accommodate 0-12mph beginners alongside 22+mph racers, showing the broad recreational range. While 80-rider waves and 700+ total participants create good field size, the lack of mentioned pro riders or notable past champions indicates weekend warrior competition levels. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Vandalia Community Center staging keeps venue costs low, with packet pickup Friday evening or Saturday morning for convenience. Small-town Michigan lodging and dining won't strain budgets, while the $90 entry cap even for maximum field size maintains affordability for Midwest families and recreational racers."
+        "explanation": "Vandalia Community Center staging keeps venue costs low, with packet pickup Friday evening or Saturday morning for convenience. Small-town Michigan lodging and dining won't strain budgets, while the $90 entry cap even for maximum field size maintains affordability for Midwest families and recreational racers. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -356,6 +356,63 @@
         "category": "community",
         "label": "results.bikereg.com: 20438"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 500,
+          "crr_watts": 42.0,
+          "why": "excellent wet grip. strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.95,
+          "weight_grams": 480,
+          "crr_watts": null,
+          "why": "excellent wet grip. strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip. strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

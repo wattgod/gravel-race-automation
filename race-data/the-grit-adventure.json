@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Martin Criminale's pre-ride of the 45-mile version \"took us almost five hours at a moderate pace with just a few short stops,\" showing the terrain demands respect even at social pace. At 65 miles for the full course, it's substantial enough to matter without being an epic."
+        "explanation": "Martin Criminale's pre-ride of the 45-mile version \"took us almost five hours at a moderate pace with just a few short stops,\" showing the terrain demands respect even at social pace. At 65 miles for the full course, it's substantial enough to matter without being an epic. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The lollipop course mixes doubletrack, singletrack, and technical obstacles that caught Martin Criminale's fender repeatedly: \"I kept bending the front one when I tried to ride over logs.\" Water troughs require \"get off and walk your bike as the transition at the bottom is too sudden to ride.\""
+        "explanation": "The lollipop course mixes doubletrack, singletrack, and technical obstacles that caught Martin Criminale's fender repeatedly: \"I kept bending the front one when I tried to ride over logs.\" Water troughs require \"get off and walk your bike as the transition at the bottom is too sudden to ride.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "5500 feet over 65 miles averages 85 feet per mile, which is climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders."
+        "explanation": "5500 feet over 65 miles averages 85 feet per mile, which is climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "July in the Cascades can be perfect or miserable—no weather data available, but Snoqualmie Pass sees everything from snow to heat waves. The region's reputation for unpredictable mountain weather and potential for afternoon thunderstorms makes this a gamble. You might get postcard conditions or survival mode."
+        "explanation": "July in the Cascades can be perfect or miserable—no weather data available, but Snoqualmie Pass sees everything from snow to heat waves. The region's reputation for unpredictable mountain weather and potential for afternoon thunderstorms makes this a gamble. You might get postcard conditions or survival mode. More weather exposure than Belgian Waffle Ride San Diego. As Fenders puts it: \"I almost never take my fenders off but for this ride, I kept bending the front one when I tried to ride over logs...\""
       },
       "altitude": {
         "score": 2,
-        "explanation": "Snoqualmie Pass location provides mountain elevation with clear-day views \"for miles in every direction,\" but specific altitude figures aren't detailed. High enough to matter for pacing, not enough to cause serious altitude issues for most riders."
+        "explanation": "Snoqualmie Pass location provides mountain elevation with clear-day views \"for miles in every direction,\" but specific altitude figures aren't detailed. High enough to matter for pacing, not enough to cause serious altitude issues for most riders. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No field size data, no notable participants, and a race that went dormant suggests this draws maybe 100 locals at best. The \"Maximus\" option being called a \"brute\" might attract some masochists, but this isn't pulling talent from outside Washington. It's a curiosity, not a competitive field."
+        "explanation": "No field size data, no notable participants, and a race that went dormant suggests this draws maybe 100 locals at best. The \"Maximus\" option being called a \"brute\" might attract some masochists, but this isn't pulling talent from outside Washington. It's a curiosity, not a competitive field. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Snoqualmie Pass location means driving distance for most of the Pacific Northwest, and camping options keep lodging cheap. No airport info suggests you're driving anyway, which works for most regional participants. The Crystal Springs Sno-Park venue keeps venue costs minimal, though you'll pay Seattle-area food prices."
+        "explanation": "Registration runs $85-105. Snoqualmie Pass location means driving distance for most of the Pacific Northwest, and camping options keep lodging cheap. No airport info suggests you're driving anyway, which works for most regional participants. The Crystal Springs Sno-Park venue keeps venue costs minimal, though you'll pay Seattle-area food prices. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -325,6 +325,74 @@
         "category": "community",
         "label": "thegrit.bike"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

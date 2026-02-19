@@ -176,23 +176,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "85 miles with 10,000 feet of climbing hits the sweet spot - long enough for separation without becoming a death march. Michaela Thompson won the 2023 women's race by skipping the final aid station to pass Olympian Erin Huck and defending champion Alexis Skarda. Howard Grotts finished in 4:26, proving it's raceable for the elite while still punishing."
+        "explanation": "85 miles with 10,000 feet of climbing hits the sweet spot - long enough for separation without becoming a death march. Michaela Thompson won the 2023 women's race by skipping the final aid station to pass Olympian Erin Huck and defending champion Alexis Skarda. Howard Grotts finished in 4:26, proving it's raceable for the elite while still punishing. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 5,
-        "explanation": "One rider chose a mountain bike over gravel, saying 'just because a race is advertised as a gravel race does not necessarily mean that a gravel bike is the right bike for the job.' The course includes mandatory hike-a-bike sections and what organizers call 'descents that will have you begging for mercy' through technical singletrack and primitive forest roads."
+        "explanation": "One rider chose a mountain bike over gravel, saying 'just because a race is advertised as a gravel race does not necessarily mean that a gravel bike is the right bike for the job.' The course includes mandatory hike-a-bike sections and what organizers call 'descents that will have you begging for mercy' through technical singletrack and primitive forest roads. Among the most technical in gravel, on par with Badlands."
       },
       "elevation": {
         "score": 5,
-        "explanation": "10,000 feet of climbing reaching 11,000 feet elevation delivers serious mountain punishment. The course features 'rugged singletrack, alpine mountain roads, and backcountry dirt' according to the official profile. Dylan Johnson declared it 'way harder than the Leadville 100' after finishing third, which speaks to the concentrated vertical challenge."
+        "explanation": "10,000 feet of climbing reaching 11,000 feet elevation delivers serious mountain punishment. The course features 'rugged singletrack, alpine mountain roads, and backcountry dirt' according to the official profile. Dylan Johnson declared it 'way harder than the Leadville 100' after finishing third, which speaks to the concentrated vertical challenge. Among the hilliest in gravel, comparable to Badlands."
       },
       "climate": {
         "score": 3,
-        "explanation": "June brings variable conditions with morning temps potentially in the upper 30s at the 7 AM start before reaching 80+ degrees midday. Race reports note 'unlike 2022, race day dawned clear and perfect in 2023, and rider stoke was high.' Organizers warn that primitive roads 'can become mud roads' in bad weather."
+        "explanation": "Historical weather data shows average highs of 82°F and lows of 49°F, with a 30% chance of rain on any given day. June brings variable conditions with morning temps potentially in the upper 30s at the 7 AM start before reaching 80+ degrees midday. Race reports note 'unlike 2022, race day dawned clear and perfect in 2023, and rider stoke was high.' Organizers warn that primitive roads 'can become mud roads' in bad weather. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 5,
-        "explanation": "Starting at 7,130 feet and topping out above 11,000 feet creates serious oxygen debt for sea-level warriors. Race founder Jake Wells positions it as 'the first opportunity to get some high-altitude racing in' for athletes training for Leadville and Crusher. The course sits in White River National Forest at elevations that separate the adapted from the struggling."
+        "explanation": "Starting at 7,130 feet and topping out above 11,000 feet creates serious oxygen debt for sea-level warriors. Race founder Jake Wells positions it as 'the first opportunity to get some high-altitude racing in' for athletes training for Leadville and Crusher. The course sits in White River National Forest at elevations that separate the adapted from the struggling. Among the highest-altitude events in gravel, on par with Badlands."
       },
       "adventure": {
         "score": 5,
@@ -216,7 +216,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "2025 brings Karolina Migon fresh off her Unbound Gravel win and Lauren Stephens with three Unbound 100 victories to elevate the women's field significantly. Eric Brunner and Howard Grotts have won recent editions, but depth drops quickly after the top handful - this isn't a 50-deep competitive field like major series events."
+        "explanation": "2025 brings Karolina Migon fresh off her Unbound Gravel win and Lauren Stephens with three Unbound 100 victories to elevate the women's field significantly. Eric Brunner and Howard Grotts have won recent editions, but depth drops quickly after the top handful - this isn't a 50-deep competitive field like major series events. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 4,
@@ -224,7 +224,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Gypsum sits in Eagle County near Vail with Colorado mountain town pricing for June peak season. Organizers recommend minimum 38mm tires and tire liners for the 'rugged backcountry forest roads' - expect equipment costs for proper preparation. The race provides camping and facilities access, but accommodation and travel costs reflect the premium location."
+        "explanation": "Gypsum sits in Eagle County near Vail with Colorado mountain town pricing for June peak season. Organizers recommend minimum 38mm tires and tire liners for the 'rugged backcountry forest roads' - expect equipment costs for proper preparation. The race provides camping and facilities access, but accommodation and travel costs reflect the premium location. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -348,6 +348,63 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "wtb-resolute",
+          "name": "WTB Resolute",
+          "brand": "WTB",
+          "recommended_width_mm": 42,
+          "msrp_usd": 64.95,
+          "weight_grams": 460,
+          "crr_watts": 36.5,
+          "why": "Aggressive chevron tread. Fast center with confident cornering."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "28-32",
+        "140_160lb_mixed": "25-29",
+        "140_160lb_wet": "23-27",
+        "160_180lb_dry": "31-35",
+        "160_180lb_mixed": "28-32",
+        "160_180lb_wet": "26-30",
+        "180_200lb_dry": "34-38",
+        "180_200lb_mixed": "31-35",
+        "180_200lb_wet": "29-33",
+        "200pluslb_dry": "37-41",
+        "200pluslb_mixed": "34-38",
+        "200pluslb_wet": "32-36"
+      }
     }
   }
 }

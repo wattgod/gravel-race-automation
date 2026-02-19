@@ -160,23 +160,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "100 miles hits the gravel sweet spot with aid stations providing water, ice, and sports drink twice for 100K riders. Sag bag service at aid stations plus trailing support keeps mechanicals from ending your day. The distance respects your weekend while demanding proper pacing through Warren County's rolling hills."
+        "explanation": "100 miles hits the gravel sweet spot with aid stations providing water, ice, and sports drink twice for 100K riders. Sag bag service at aid stations plus trailing support keeps mechanicals from ending your day. The distance respects your weekend while demanding proper pacing through Warren County's rolling hills. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Surface variety ranges from fast hard-packed crushed limestone to loose gravel to big brown Charette Creek river valley rock. Three creek crossings add handling challenges, described as the most awesome and refreshing on course. Technical enough for gravel grinders but still fast enough for pavement pounders seeking speed."
+        "explanation": "Surface variety ranges from fast hard-packed crushed limestone to loose gravel to big brown Charette Creek river valley rock. Three creek crossings add handling challenges, described as the most awesome and refreshing on course. Technical enough for gravel grinders but still fast enough for pavement pounders seeking speed. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4,100 feet over 100 miles through Warren County's rolling hills means constant ups and downs with no recovery sections. Named climbs like The Big Watts Big Rocks Segment and Kersten Krusher provide KOM/QOM opportunities. The relentless rollers grind you down by mile 80 without offering sustained climbing drama."
+        "explanation": "4,100 feet over 100 miles through Warren County's rolling hills means constant ups and downs with no recovery sections. Named climbs like The Big Watts Big Rocks Segment and Kersten Krusher provide KOM/QOM opportunities. The relentless rollers grind you down by mile 80 without offering sustained climbing drama. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late July in Missouri delivered 90-98°F temperatures in 2023 causing 20% DNF, with 2024 slightly better at 85-95°F but still producing 15% heat casualties. The oppressive humidity pushes heat index over 100°F, turning the second half into a survival march through wine country that looks better than it feels."
+        "explanation": "Late July in Missouri delivered 90-98°F temperatures in 2023 causing 20% DNF, with 2024 slightly better at 85-95°F but still producing 15% heat casualties. The oppressive humidity pushes heat index over 100°F, turning the second half into a survival march through wine country that looks better than it feels. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Marthasville sits in the Missouri River Valley at basically sea level with zero altitude considerations. Your biggest respiratory challenge comes from the crushing July humidity, not thin air. The elevation profile shows constant rollers, but you're breathing thick Missouri summer air the entire time."
+        "explanation": "Marthasville sits in the Missouri River Valley at basically sea level with zero altitude considerations. Your biggest respiratory challenge comes from the crushing July humidity, not thin air. The elevation profile shows constant rollers, but you're breathing thick Missouri summer air the entire time. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -200,7 +200,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Missouri State Championship status attracts serious gravel racers like Barb Lindquist competing at elite level. The course accommodates different rider types being fast enough for pavement pounders yet technical enough for gravel specialists. Field size remains intimate but draws competitive depth for state championship titles."
+        "explanation": "With a field of 200-300 riders, missouri State Championship status attracts serious gravel racers like Barb Lindquist competing at elite level. The course accommodates different rider types being fast enough for pavement pounders yet technical enough for gravel specialists. Field size remains intimate but draws competitive depth for state championship titles. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 4,
@@ -208,7 +208,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Free onsite camping at Wessel Park eliminates hotel costs, while Marthasville keeps dining affordable with small-town pricing. St. Charles 20 miles away offers more lodging options if needed. STL airport access within an hour, and Missouri doesn't gouge you on gas or food like coastal race destinations."
+        "explanation": "Registration runs $85-$110. Free onsite camping at Wessel Park eliminates hotel costs, while Marthasville keeps dining affordable with small-town pricing. St. Charles 20 miles away offers more lodging options if needed. STL airport access within an hour, and Missouri doesn't gouge you on gas or food like coastal race destinations. More affordable than Crusher in the Tushar."
       }
     },
     "final_verdict": {
@@ -278,6 +278,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

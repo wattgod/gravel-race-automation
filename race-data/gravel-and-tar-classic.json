@@ -171,23 +171,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "The men's 155km distance with 41.2km of gravel delivers serious one-day racing standards that expose fitness gaps. Add the Saturday Team Time Trial component and you're getting a proper two-day challenge that tests endurance over varied terrain through the Pohangina Valley."
+        "explanation": "The men's 155km distance with 41.2km of gravel delivers serious one-day racing standards that expose fitness gaps. Add the Saturday Team Time Trial component and you're getting a proper two-day challenge that tests endurance over varied terrain through the Pohangina Valley. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Jordan Rapp emphasizes that \"gravel riding is almost entirely about two things: tire choice and tire pressure\" – skills that matter on the 25% gravel sections through Pohangina watersheds. The mixed 75% sealed, 25% gravel format tests bike handling without being pure technical mountain bike territory."
+        "explanation": "Jordan Rapp emphasizes that \"gravel riding is almost entirely about two things: tire choice and tire pressure\" – skills that matter on the 25% gravel sections through Pohangina watersheds. The mixed 75% sealed, 25% gravel format tests bike handling without being pure technical mountain bike territory. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "6562 feet over 99 miles averages about 66 feet per mile – noticeable climbing through the Pohangina Valley watersheds without being Alpine brutal. The elevation profile matters tactically for race selection but won't break riders purely on gradient."
+        "explanation": "6562 feet over 99 miles averages about 66 feet per mile – noticeable climbing through the Pohangina Valley watersheds without being Alpine brutal. The elevation profile matters tactically for race selection but won't break riders purely on gradient. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-November timing in New Zealand's Manawatū region means late spring conditions that could vary significantly. No specific weather incidents appear in race reports, suggesting conditions are generally rideable though potentially unpredictable."
+        "explanation": "Mid-November timing in New Zealand's Manawatū region means late spring conditions that could vary significantly. No specific weather incidents appear in race reports, suggesting conditions are generally rideable though potentially unpredictable. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Manawatū-Whanganui region sits near sea level with no meaningful altitude training benefits or breathing challenges. Racing through Pohangina Valley watersheds doesn't reach high country elevations."
+        "explanation": "The Manawatū-Whanganui region sits near sea level with no meaningful altitude training benefits or breathing challenges. Racing through Pohangina Valley watersheds doesn't reach high country elevations. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -211,7 +211,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Past winners include WorldTour-level riders like Brodie Chapman and rising talents like Niamh Fisher-Black, with international squads from Sweden, Japan, US, and Australia hunting UCI points. The race has served as a launching pad for Zwift Academy winners advancing to professional cycling careers."
+        "explanation": "With a field of 300-500 riders, past winners include WorldTour-level riders like Brodie Chapman and rising talents like Niamh Fisher-Black, with international squads from Sweden, Japan, US, and Australia hunting UCI points. The race has served as a launching pad for Zwift Academy winners advancing to professional cycling careers. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 5,
@@ -219,7 +219,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Flying to New Zealand for racing isn't cheap from major markets, and the race's location moves between small towns suggest limited lodging options. Jordan Rapp's detailed tire testing shows elite-level preparation costs – Quarq TyreWiz pressure monitoring systems and multiple tire setups for optimal performance."
+        "explanation": "Registration runs NZ$150-$200. Flying to New Zealand for racing isn't cheap from major markets, and the race's location moves between small towns suggest limited lodging options. Jordan Rapp's detailed tire testing shows elite-level preparation costs – Quarq TyreWiz pressure monitoring systems and multiple tire setups for optimal performance. Higher total cost than Badlands."
       }
     },
     "final_verdict": {
@@ -319,6 +319,74 @@
         "category": "community",
         "label": "cyclingranking.com: Gravel And Tar Classic"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

@@ -164,23 +164,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 127km Blue course delivers serious all-day suffering with over 2000m of climbing. As one elite rider noted: \"After 4hrs and 43minutes in the dust and heat, it was over. The finish line was a welcome sight.\" Three distance options from 34km to 127km mean you can choose your pain level without the course feeling watered down."
+        "explanation": "The 127km Blue course delivers serious all-day suffering with over 2000m of climbing. As one elite rider noted: \"After 4hrs and 43minutes in the dust and heat, it was over. The finish line was a welcome sight.\" Three distance options from 34km to 127km mean you can choose your pain level without the course feeling watered down. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 3,
-        "explanation": "About 67% gravel ranging from \"champagne gravel\" to sections where riders found \"the sand unrideable on a couple of occasions.\" The terrain includes \"fast flowing descents with a range of surfaces, from perfect limestone, rutted out tracks to scary sand.\" Technical enough that pros like Cameron Jones punctured twice on technical descents."
+        "explanation": "About 67% gravel ranging from \"champagne gravel\" to sections where riders found \"the sand unrideable on a couple of occasions.\" The terrain includes \"fast flowing descents with a range of surfaces, from perfect limestone, rutted out tracks to scary sand.\" Technical enough that pros like Cameron Jones punctured twice on technical descents. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The opening \"Bang Average Climb of just under 3km at an average of 8.2%\" starts the suffering within 15 minutes, with some riders \"already run out of gears and were pushing their bikes up hill.\" The full 2000+ meters includes \"a few category 3 and 4 climbs, which are significantly harder on gravel than bitumen.\""
+        "explanation": "The opening \"Bang Average Climb of just under 3km at an average of 8.2%\" starts the suffering within 15 minutes, with some riders \"already run out of gears and were pushing their bikes up hill.\" The full 2000+ meters includes \"a few category 3 and 4 climbs, which are significantly harder on gravel than bitumen.\" More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "January means serious heat - \"temperatures in the low 30s [Celsius]\" created hydration crises in 2026. One rider carried 3L bladder plus two bottles but \"ran out of water with almost 45min to go\" and required marshal assistance. The 7:30am start helps beat peak heat, but riders describe \"dust and heat\" as defining race characteristics."
+        "explanation": "January means serious heat - \"temperatures in the low 30s [Celsius]\" created hydration crises in 2026. One rider carried 3L bladder plus two bottles but \"ran out of water with almost 45min to go\" and required marshal assistance. The 7:30am start helps beat peak heat, but riders describe \"dust and heat\" as defining race characteristics. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Adelaide Hills sounds mountainous but you're still near sea level in South Australia. Zero altitude training benefit and zero thin-air challenge. The climbing difficulty comes entirely from gradient and distance, not elevation above sea level."
+        "explanation": "Adelaide Hills sounds mountainous but you're still near sea level in South Australia. Zero altitude training benefit and zero thin-air challenge. The climbing difficulty comes entirely from gradient and distance, not elevation above sea level. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -204,7 +204,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Elite fields of 100+ riders include Romain Bardet, Tiffany Cromwell, Alexey Vermeulen, and Dylan Johnson racing alongside 300+ age groupers on the long course. The 12.5% DNF rate (\"over 50/400 recorded a DNF\") shows the field includes riders who bite off more than they can handle, but international elite participation keeps competitive standards high."
+        "explanation": "Elite fields of 100+ riders include Romain Bardet, Tiffany Cromwell, Alexey Vermeulen, and Dylan Johnson racing alongside 300+ age groupers on the long course. The 12.5% DNF rate (\"over 50/400 recorded a DNF\") shows the field includes riders who bite off more than they can handle, but international elite participation keeps competitive standards high. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 4,
@@ -212,7 +212,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "January timing coincides with Australian summer tourism peak and Tour Down Under week, driving up accommodation costs. Alexey Vermeulen's comment about wishing \"he'd brought\" narrower tires \"to Australia\" highlights the travel commitment required. At least McLaren Vale wine country and Adelaide's cycling culture during TDU week justify the expense for cycling tourists."
+        "explanation": "Registration runs A$150. January timing coincides with Australian summer tourism peak and Tour Down Under week, driving up accommodation costs. Alexey Vermeulen's comment about wishing \"he'd brought\" narrower tires \"to Australia\" highlights the travel commitment required. At least McLaren Vale wine country and Adelaide's cycling culture during TDU week justify the expense for cycling tourists. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -323,6 +323,74 @@
         "category": "community",
         "label": "radlgrvl.com"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "high puncture protection for sharp surfaces"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

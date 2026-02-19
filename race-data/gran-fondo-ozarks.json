@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles sits in the sweet spot between sprint and suffer-fest. For comparison, the documented Ozarks gravel routes run 20-23 miles each with significant elevation - this distance respects both your time and pain threshold."
+        "explanation": "65 miles sits in the sweet spot between sprint and suffer-fest. For comparison, the documented Ozarks gravel routes run 20-23 miles each with significant elevation - this distance respects both your time and pain threshold. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Ozarks terrain delivers chunky limestone and creek crossings that test bike handling. Research shows routes featuring \"High River Crossings\" - standard Arkansas gravel that requires skill without needing suspension."
+        "explanation": "Ozarks terrain delivers chunky limestone and creek crossings that test bike handling. Research shows routes featuring \"High River Crossings\" - standard Arkansas gravel that requires skill without needing suspension. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "6000 feet over 65 miles means climbing every 10th foot of progress. Documented Ozarks routes show similar ratios - the Rea Valley route packs 1,897 feet into 20 miles with \"one hellacious hill in the middle.\""
+        "explanation": "6000 feet over 65 miles means climbing every 10th foot of progress. Documented Ozarks routes show similar ratios - the Rea Valley route packs 1,897 feet into 20 miles with \"one hellacious hill in the middle.\" More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Arkansas weather delivers humidity that drowns you in sweat plus unpredictable storms. Spring and fall offer brief windows of reasonableness, but summer heat and winter freezes make timing critical."
+        "explanation": "Historical weather data shows average highs of 63°F and lows of 43°F, with a 42% chance of rain on any given day. Arkansas weather delivers humidity that drowns you in sweat plus unpredictable storms. Spring and fall offer brief windows of reasonableness, but summer heat and winter freezes make timing critical. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Research confirms Ozarks elevations around 2,280 feet - high enough for scenery, low enough that sea-level lungs work fine. Your breathing challenge will be humidity, not thin air."
+        "explanation": "Research confirms Ozarks elevations around 2,280 feet - high enough for scenery, low enough that sea-level lungs work fine. Your breathing challenge will be humidity, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional drawing pool from Arkansas, Missouri, and Oklahoma without major competition magnet status. Documented Ozarks events attract weekend warriors and local fast riders rather than national-level fields."
+        "explanation": "With a field of 200-400 riders, regional drawing pool from Arkansas, Missouri, and Oklahoma without major competition magnet status. Documented Ozarks events attract weekend warriors and local fast riders rather than national-level fields. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Arkansas keeps costs reasonable - cheap gas, available motels, and food that won't require a second mortgage. Eureka Springs tourist pricing stays grounded for people who drive trucks, not luxury vehicles."
+        "explanation": "Registration runs $60-100. Arkansas keeps costs reasonable - cheap gas, available motels, and food that won't require a second mortgage. Eureka Springs tourist pricing stays grounded for people who drive trucks, not luxury vehicles. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -315,6 +315,74 @@
         "category": "community",
         "label": "trifind.com: Randonneuringgravelrallyoftheozarks"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

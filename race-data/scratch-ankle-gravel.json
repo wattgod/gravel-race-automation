@@ -258,7 +258,7 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Multiple distance options from 20 to 200 miles with staggered wave starts spread the field across categories. The 45-mile distance sits in the shorter range, providing moderate challenge without the commitment of century-plus distances."
+        "explanation": "Multiple distance options from 20 to 200 miles with staggered wave starts spread the field across categories. The 45-mile distance sits in the shorter range, providing moderate challenge without the commitment of century-plus distances. More compact than Grinduro."
       },
       "technicality": {
         "score": 1,
@@ -266,15 +266,15 @@
       },
       "elevation": {
         "score": 1,
-        "explanation": "Rolling terrain through Florida Panhandle produces minimal elevation gain relative to other gravel destinations. The moderate sustained climbs mentioned reflect what's possible in a region where significant vertical simply doesn't exist."
+        "explanation": "Rolling terrain through Florida Panhandle produces minimal elevation gain relative to other gravel destinations. The moderate sustained climbs mentioned reflect what's possible in a region where significant vertical simply doesn't exist. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 2,
-        "explanation": "March timing has shifted from March 16 in 2024 to March 8 in 2025, suggesting weather optimization efforts. Spring conditions in humid Florida Panhandle remain unpredictable for temperature and precipitation during race season."
+        "explanation": "March timing has shifted from March 16 in 2024 to March 8 in 2025, suggesting weather optimization efforts. Spring conditions in humid Florida Panhandle remain unpredictable for temperature and precipitation during race season. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at Bear Lake Road in Milton, Florida places riders essentially at sea level in the coastal Panhandle. The course maintains negligible altitude throughout the forest route into Alabama."
+        "explanation": "Starting at Bear Lake Road in Milton, Florida places riders essentially at sea level in the coastal Panhandle. The course maintains negligible altitude throughout the forest route into Alabama. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Regional-level competition focused on Florida Panhandle and Gulf Coast participants without national talent draw. Field size details unavailable, though multiple distance options suggest moderate participation levels."
+        "explanation": "With a field of 75-125 riders, regional-level competition focused on Florida Panhandle and Gulf Coast participants without national talent draw. Field size details unavailable, though multiple distance options suggest moderate participation levels. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Milton, Florida location keeps lodging and dining costs minimal with Bear Lake Campground providing affordable weekend accommodation. Rural Panhandle setting eliminates premium pricing found in major gravel destinations."
+        "explanation": "Registration runs $60-80. Milton, Florida location keeps lodging and dining costs minimal with Bear Lake Campground providing affordable weekend accommodation. Rural Panhandle setting eliminates premium pricing found in major gravel destinations. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,63 @@
         "category": "community",
         "label": "scratchanklegravel.com: News"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "continental-terra-speed-40",
+          "name": "Continental Terra Speed",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 390,
+          "crr_watts": 28.5,
+          "why": "fast rolling at 28.5W"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-rs",
+          "name": "Schwalbe G-One RS",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 84.9,
+          "weight_grams": 380,
+          "crr_watts": 29.0,
+          "why": "fast rolling at 29.0W"
+        },
+        {
+          "rank": 3,
+          "tire_id": "challenge-getaway-pro",
+          "name": "Challenge Getaway Pro",
+          "brand": "Challenge",
+          "recommended_width_mm": 36,
+          "msrp_usd": 84.99,
+          "weight_grams": 310,
+          "crr_watts": 28.0,
+          "why": "fast rolling at 28.0W"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "fast",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "34-38",
+        "140_160lb_wet": "32-36",
+        "160_180lb_dry": "40-44",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "40-44",
+        "180_200lb_wet": "38-42",
+        "200pluslb_dry": "46-50",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

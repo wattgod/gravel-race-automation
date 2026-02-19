@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 54.7-mile long course hits the gravel sweet spot with James Pearl's winning time of 3:10:53 indicating proper challenge without destruction. The 22-mile gap between mile 24 and mile 46 aid stations requires strategic nutrition planning. The 29.1-mile short course offers a substantial taste of Uwharrie without the full commitment."
+        "explanation": "The 54.7-mile long course hits the gravel sweet spot with James Pearl's winning time of 3:10:53 indicating proper challenge without destruction. The 22-mile gap between mile 24 and mile 46 aid stations requires strategic nutrition planning. The 29.1-mile short course offers a substantial taste of Uwharrie without the full commitment. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The infamous 'Jeep Climb' or Falls Dam Trail defines this race, with one rider questioning 'Can you climb the entire way, or will it be hiking a bike?' Multiple passes of major climbs on the 82-mile course create sustained technical challenges. Cotton Place Road and other forest routes demand bike handling skills without requiring shoulder carries."
+        "explanation": "The infamous 'Jeep Climb' or Falls Dam Trail defines this race, with one rider questioning 'Can you climb the entire way, or will it be hiking a bike?' Multiple passes of major climbs on the 82-mile course create sustained technical challenges. Cotton Place Road and other forest routes demand bike handling skills without requiring shoulder carries. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Rolling terrain in Uwharrie means constant undulation rather than massive sustained climbs - your legs never get a break. Those short steep hills and moderate sustained climbs add up over 55 miles in the forest. No specific elevation gain data available, but Uwharrie's reputation is built on relentless ups and downs that wear you down gradually."
+        "explanation": "Rolling terrain in Uwharrie means constant undulation rather than massive sustained climbs - your legs never get a break. Those short steep hills and moderate sustained climbs add up over 55 miles in the forest. No specific elevation gain data available, but Uwharrie's reputation is built on relentless ups and downs that wear you down gradually. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late February in central North Carolina remains a complete gamble on race day conditions. No historical weather data exists to guide preparation, making gear selection a guessing game. One rider debated tire choices between Challenge Gravel Grinders 38, Cinturato M 40, and Vittoria Wet 38 options without knowing what conditions to expect."
+        "explanation": "Historical weather data shows average highs of 55°F and lows of 37°F, with a 45% chance of rain on any given day. Late February in central North Carolina remains a complete gamble on race day conditions. No historical weather data exists to guide preparation, making gear selection a guessing game. One rider debated tire choices between Challenge Gravel Grinders 38, Cinturato M 40, and Vittoria Wet 38 options without knowing what conditions to expect. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central North Carolina sits at negligible elevation - altitude plays zero role in performance here. This race tests power and endurance through terrain difficulty, not oxygen availability."
+        "explanation": "Central North Carolina sits at negligible elevation - altitude plays zero role in performance here. This race tests power and endurance through terrain difficulty, not oxygen availability. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Chris Hladik won the 2022 27-mile overall in 1:38:18 from the Men 45+ category, while James Pearl took the 55-mile in 3:10:53 from Open Men. Winners emerging from age group categories rather than elite fields indicates solid regional competition without drawing top-tier talent. Multiple distance options spread the competitive field across different challenges."
+        "explanation": "Chris Hladik won the 2022 27-mile overall in 1:38:18 from the Men 45+ category, while James Pearl took the 55-mile in 3:10:53 from Open Men. Winners emerging from age group categories rather than elite fields indicates solid regional competition without drawing top-tier talent. Multiple distance options spread the competitive field across different challenges. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Uwharrie National Forest allows free primitive camping in Wood Run area for budget-conscious participants. Hotels are available 15-20 minutes away in Albemarle or 40-45 minutes in Asheboro for those wanting amenities. Central North Carolina location keeps travel costs reasonable while February timing avoids peak tourism rates."
+        "explanation": "Registration runs $60-100. Uwharrie National Forest allows free primitive camping in Wood Run area for budget-conscious participants. Hotels are available 15-20 minutes away in Albemarle or 40-45 minutes in Asheboro for those wanting amenities. Central North Carolina location keeps travel costs reasonable while February timing avoids peak tourism rates. Similar expense level to Belgian Waffle Ride San Diego. As Refund Policy puts it: \"Refunds available until January 18, 2026, of 50% entry fee. No refunds after January 18, 2026, NO EXCEPTIONS.\""
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "trans-sylvaniaproductions.com: Umbc"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

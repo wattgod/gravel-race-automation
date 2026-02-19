@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "One hundred miles delivers serious gravel challenge, as Gerasimos G. discovered when the lead group held \"about 20mph average with some tailwind\" early before conditions forced conservative pacing. The distance separates casual riders from committed ones, with the 60-mile option keeping recreational participants engaged while the full century provides the suffering gravel racers seek."
+        "explanation": "One hundred miles delivers serious gravel challenge, as Gerasimos G. discovered when the lead group held \"about 20mph average with some tailwind\" early before conditions forced conservative pacing. The distance separates casual riders from committed ones, with the 60-mile option keeping recreational participants engaged while the full century provides the suffering gravel racers seek. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Race organizers describe \"45 mph downhills on two wheels over misshapen marbles\" after graders fluff up the gravel, creating fast but technical descents. The Driftless Region terrain follows a predictable pattern: \"downhill, valley, river, bridge, then uphill, open rolling plateau of farmland\" according to competitive rider reports, requiring handling skills but not rock garden expertise."
+        "explanation": "Race organizers describe \"45 mph downhills on two wheels over misshapen marbles\" after graders fluff up the gravel, creating fast but technical descents. The Driftless Region terrain follows a predictable pattern: \"downhill, valley, river, bridge, then uphill, open rolling plateau of farmland\" according to competitive rider reports, requiring handling skills but not rock garden expertise. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Four thousand feet includes the notorious \"soul-breaking Oriole Road at mile 91\" that hits when riders are already depleted. The bluff country pattern of valleys and plateaus creates consistent climbing without massive single ascents, though race organizers recommend training on \">10% grade\" hills with multiple repeats to prepare for the accumulated suffering."
+        "explanation": "Four thousand feet includes the notorious \"soul-breaking Oriole Road at mile 91\" that hits when riders are already depleted. The bluff country pattern of valleys and plateaus creates consistent climbing without massive single ascents, though race organizers recommend training on \">10% grade\" hills with multiple repeats to prepare for the accumulated suffering. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Weather extremes define this race, from 2021's brutal 94°F heat that caused half the registered field to skip, to historical variance \"from the 30s to the 80s, cold rain to hot sun.\" Gerasimos G. noted ideal 2018 conditions allowed PR times around 6:18, but spring racing in Minnesota means preparing \"in fear\" of conditions that rarely cooperate."
+        "explanation": "Weather extremes define this race, from 2021's brutal 94°F heat that caused half the registered field to skip, to historical variance \"from the 30s to the 80s, cold rain to hot sun.\" Gerasimos G. noted ideal 2018 conditions allowed PR times around 6:18, but spring racing in Minnesota means preparing \"in fear\" of conditions that rarely cooperate. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Southeastern Minnesota sits barely above sea level in the Root River valley system. Towns like Preston sit \"on a river\" in covered valley coolness before climbing to open farmland plateaus, but there's no meaningful elevation for acclimatization training or altitude considerations."
+        "explanation": "Southeastern Minnesota sits barely above sea level in the Root River valley system. Towns like Preston sit \"on a river\" in covered valley coolness before climbing to open farmland plateaus, but there's no meaningful elevation for acclimatization training or altitude considerations. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Field size remains undisclosed, though 2021's extreme conditions saw only 150 of 350 registered riders start, with maybe \"15 riders\" in the opening lead group before early splits. No notable competitive results emerge from sixteen years of racing, and Gerasimos G.'s detailed race reports suggest participation cycling rather than serious competitive depth."
+        "explanation": "Field size remains undisclosed, though 2021's extreme conditions saw only 150 of 350 registered riders start, with maybe \"15 riders\" in the opening lead group before early splits. No notable competitive results emerge from sixteen years of racing, and Gerasimos G.'s detailed race reports suggest participation cycling rather than serious competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Spring Valley, Minnesota keeps lodging and dining costs reasonable compared to destination gravel hubs. Minimal entry fees (\"free to public\" in some years, $35 recently) eliminate the biggest race expense, and driving accessibility means avoiding flight costs to reach more expensive Western gravel destinations while still accessing quality Driftless Region terrain."
+        "explanation": "Spring Valley, Minnesota keeps lodging and dining costs reasonable compared to destination gravel hubs. Minimal entry fees (\"free to public\" in some years, $35 recently) eliminate the biggest race expense, and driving accessibility means avoiding flight costs to reach more expensive Western gravel destinations while still accessing quality Driftless Region terrain. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "cxmagazine.com: Gravel Bikes Waltworks All City Specialized 2018 Almanzo 100"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

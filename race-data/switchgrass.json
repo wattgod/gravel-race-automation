@@ -258,11 +258,11 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 65-mile distance demands sustained pacing without being extreme. Muir's approach reflects the challenge: \"My plan, as always, is do what you have to do to get to the finish line on time, in one piece and don't be a dick.\""
+        "explanation": "The 65-mile distance demands sustained pacing without being extreme. Muir's approach reflects the challenge: \"My plan, as always, is do what you have to do to get to the finish line on time, in one piece and don't be a dick.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Flint Hills terrain features \"tallgrass prairie rolls out deep green on every side, the land rising and falling to a faraway horizon.\" Technical demands come from navigation rather than bike handling, with riders relying \"solely on their Garmin to get to the finish line.\""
+        "explanation": "The Flint Hills terrain features \"tallgrass prairie rolls out deep green on every side, the land rising and falling to a faraway horizon.\" Technical demands come from navigation rather than bike handling, with riders relying \"solely on their Garmin to get to the finish line.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
@@ -270,11 +270,11 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-80s temperatures create heat management challenges. Muir experienced how \"the temps were in the mid-80s and the heat got my attention...A few hours later the mercury started cranking back up again\" after dawn relief."
+        "explanation": "Mid-80s temperatures create heat management challenges. Muir experienced how \"the temps were in the mid-80s and the heat got my attention...A few hours later the mercury started cranking back up again\" after dawn relief. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Kansas flatlands present no altitude considerations for performance or acclimatization. The prairie setting sits well below any elevation that impacts rider physiology or bike setup requirements."
+        "explanation": "Central Kansas flatlands present no altitude considerations for performance or acclimatization. The prairie setting sits well below any elevation that impacts rider physiology or bike setup requirements. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The field attracts committed recreational riders willing to tackle serious distances. Muir's preparation reflects typical participant dedication: extensive training and equipment optimization for \"the long haul not for speed\" on his Salsa Cutthroat setup."
+        "explanation": "With a field of 200-400 riders, the field attracts committed recreational riders willing to tackle serious distances. Muir's preparation reflects typical participant dedication: extensive training and equipment optimization for \"the long haul not for speed\" on his Salsa Cutthroat setup. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Rural Kansas location keeps costs reasonable with basic lodging and travel infrastructure. Muir's equipment choices show typical participant investment: quality bikes like his ENVE-equipped Cutthroat built for durability over speed in remote terrain."
+        "explanation": "Registration runs $60-100. Rural Kansas location keeps costs reasonable with basic lodging and travel infrastructure. Muir's equipment choices show typical participant investment: quality bikes like his ENVE-equipped Cutthroat built for durability over speed in remote terrain. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "kansascyclist.com: Switchgrassmountainbiketrail.Html"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 2,
+          "tire_id": "goodyear-connector",
+          "name": "Goodyear Connector",
+          "brand": "Goodyear",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.99,
+          "weight_grams": 430,
+          "crr_watts": 34.5,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "high puncture protection for sharp surfaces"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

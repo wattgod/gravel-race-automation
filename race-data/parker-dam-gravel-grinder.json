@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 52-mile half series sits in comfortable middle ground territory. Lynn Botelho set \"a fairly high pace early\" knowing she could sustain it over the distance, getting caught by a faster rider at mile 30 who helped her \"ride faster\" through drafting - manageable length for strategic racing."
+        "explanation": "The 52-mile half series sits in comfortable middle ground territory. Lynn Botelho set \"a fairly high pace early\" knowing she could sustain it over the distance, getting caught by a faster rider at mile 30 who helped her \"ride faster\" through drafting - manageable length for strategic racing. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course described as \"relatively flat course for this part of the world\" by Pennsylvania standards, mixing gravel roads with paved sections. Lynn Botelho noted she \"descend like a demon,\" using technical descending skills to pass riders, suggesting moderate technical demands without extreme challenges."
+        "explanation": "Course described as \"relatively flat course for this part of the world\" by Pennsylvania standards, mixing gravel roads with paved sections. Lynn Botelho noted she \"descend like a demon,\" using technical descending skills to pass riders, suggesting moderate technical demands without extreme challenges. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3,500 feet over 50 miles means steady climbing without massive punches - 70 feet per mile average. The full 72-mile route hits 5,707 feet, so you're getting Pennsylvania's rolling terrain. Respectable but not mountainous."
+        "explanation": "3,500 feet over 50 miles means steady climbing without massive punches - 70 feet per mile average. The full 72-mile route hits 5,707 feet, so you're getting Pennsylvania's rolling terrain. Respectable but not mountainous. Less climbing than The Mid South. As Lynn Botelho puts it: \"I remain thankful that I descend like a demon. 😉 However, the race ends with about a 12-mile hill, and my goal here was to 'just be tired tomorrow' and do the work now.\""
       },
       "climate": {
         "score": 2,
-        "explanation": "May 9th date in Pennsylvania means spring weather variability - could be 45 and rainy or 75 and perfect. No historical weather data available for this specific event. Standard Northeast spring gamble."
+        "explanation": "May 9th date in Pennsylvania means spring weather variability - could be 45 and rainy or 75 and perfect. No historical weather data available for this specific event. Standard Northeast spring gamble. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Clearfield County, Pennsylvania sits well below 2,000 feet elevation. Zero altitude considerations - pure power and fitness race without thin air factors affecting performance."
+        "explanation": "Clearfield County, Pennsylvania sits well below 2,000 feet elevation. Zero altitude considerations - pure power and fitness race without thin air factors affecting performance. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -290,7 +290,7 @@
       },
       "experience": {
         "score": 2,
-        "explanation": "You get an event shirt, post-race meal, and awards for top 3 finishers in each category. S.B. Elliott State Park provides a decent venue, but no unique course features are documented. Solid small-town gravel race experience without memorable elements."
+        "explanation": "You get an event shirt, post-race meal, and awards for top 3 finishers in each category. S.B. Elliott State Park provides a decent venue, but no unique course features are documented. Solid small-town gravel race experience without memorable elements. As Mark Loux puts it: \"The gravel is mostly hard packed and there was very little loose gravel sections. We had two double track sections that could be muddier than what we experienced.\""
       },
       "community": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Field size data completely unavailable, no mention of competitive riders or pro participation. Being a small Pennsylvania town race in its 6th year without documented fast fields suggests limited depth."
+        "explanation": "Field size data completely unavailable, no mention of competitive riders or pro participation. Being a small Pennsylvania town race in its 6th year without documented fast fields suggests limited depth. Thinner field than Ouray Gravel Grinder. As Lynn Botelho puts it: \"This is a relatively flat course for this part of the world, I decided to try setting a fairly high (for me) pace and to hold it throughout the race.\""
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Penfield, PA keeps lodging and dining costs reasonable compared to destination races. Visit Clearfield County sponsorship suggests local accommodation options exist - rural Pennsylvania location controls expenses though specific pricing data unavailable."
+        "explanation": "Registration runs $50-75. Penfield, PA keeps lodging and dining costs reasonable compared to destination races. Visit Clearfield County sponsorship suggests local accommodation options exist - rural Pennsylvania location controls expenses though specific pricing data unavailable. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "gravel-results.com: 21365"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

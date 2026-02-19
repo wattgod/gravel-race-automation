@@ -265,15 +265,15 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Seven days of riding with three daily distance options creates serious volume - routes range from 30-107 miles daily with the bonus Leakey Death Ride hitting 107.5 miles and 6,494 feet of climbing. The format delivers 21 different routes over the week with organizers promising \"participants never ride the same road twice.\""
+        "explanation": "Seven days of riding with three daily distance options creates serious volume - routes range from 30-107 miles daily with the bonus Leakey Death Ride hitting 107.5 miles and 6,494 feet of climbing. The format delivers 21 different routes over the week with organizers promising \"participants never ride the same road twice.\" Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Hill Country terrain features \"many cattle guards and water crossings\" with climbs ranging 100-800 feet through Edwards Plateau river valleys including the Guadalupe, Medina, and Frio. Courses include \"one short unpaved section\" on the Spicewood Loop, but RAAM organizers describe the terrain as \"moderately difficult\" and suitable for intermediate riders."
+        "explanation": "Hill Country terrain features \"many cattle guards and water crossings\" with climbs ranging 100-800 feet through Edwards Plateau river valleys including the Guadalupe, Medina, and Frio. Courses include \"one short unpaved section\" on the Spicewood Loop, but RAAM organizers describe the terrain as \"moderately difficult\" and suitable for intermediate riders. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Daily rides range from 1,360 to 6,494 feet of climbing with courses averaging 47-53 feet per mile of elevation gain. The associated Stampede 200 delivers 11,100 feet over 203 miles, while the Longhorn 500 hits 26,236 feet - substantial climbing concentrated in major ascents rather than constant rolling."
+        "explanation": "Daily rides range from 1,360 to 6,494 feet of climbing with courses averaging 47-53 feet per mile of elevation gain. The associated Stampede 200 delivers 11,100 feet over 203 miles, while the Longhorn 500 hits 26,236 feet - substantial climbing concentrated in major ascents rather than constant rolling. Less climbing than The Mid South."
       },
       "climate": {
         "score": 1,
@@ -281,7 +281,7 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting around Fredericksburg at roughly 1,700 feet with Edwards Plateau elevations presents zero altitude considerations for cycling performance. All physiological limitations stem from fitness and heat rather than oxygen availability at these Hill Country elevations."
+        "explanation": "Starting around Fredericksburg at roughly 1,700 feet with Edwards Plateau elevations presents zero altitude considerations for cycling performance. All physiological limitations stem from fitness and heat rather than oxygen availability at these Hill Country elevations. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -305,7 +305,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "With daily A/B/C route options and no timing, participants self-select based on current fitness rather than competitive performance. The 2024 field of 30 cyclists for Stampede 200 and 8 for Longhorn 500 reflects recreational rather than racing composition, with organizers welcoming \"riders of all skill levels.\""
+        "explanation": "With daily A/B/C route options and no timing, participants self-select based on current fitness rather than competitive performance. The 2024 field of 30 cyclists for Stampede 200 and 8 for Longhorn 500 reflects recreational rather than racing composition, with organizers welcoming \"riders of all skill levels.\" Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Fredericksburg offers extensive accommodation options with 20 hotels, 1500 B&Bs and vacation rentals, plus over 100 restaurants according to organizers. The Hill Country location also provides 100+ wineries and tourist attractions, creating reasonable total costs for the week-long format in a well-developed cycling destination."
+        "explanation": "Registration runs $150-250. Fredericksburg offers extensive accommodation options with 20 hotels, 1500 B&Bs and vacation rentals, plus over 100 restaurants according to organizers. The Hill Country location also provides 100+ wineries and tourist attractions, creating reasonable total costs for the week-long format in a well-developed cycling destination. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -357,6 +357,74 @@
         "category": "community",
         "label": "kavhelmets.com: Best Cycling Races And Events In The Us"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -262,19 +262,19 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course features multiple deep sand sections that force riders to dismount. Tracy Gravlin described \"a 2 track that was very deep sand and no way to get off to the side to ride\" followed by \"a steep downhill in beach sand.\" She witnessed \"some wiped out\" while she chose to run her bike through the sand sections."
+        "explanation": "The course features multiple deep sand sections that force riders to dismount. Tracy Gravlin described \"a 2 track that was very deep sand and no way to get off to the side to ride\" followed by \"a steep downhill in beach sand.\" She witnessed \"some wiped out\" while she chose to run her bike through the sand sections. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 55-mile course packs 3,000 feet of climbing according to rider reports, slightly more than the listed 2,500 feet. Christina Vipond noted the profile-busting reality: \"I rounded a corner on the seasonal road and, of course there it was [the long steep climb], not on a gravel road.\" The climbing is relentless but not altitude-threatening."
+        "explanation": "The 55-mile course packs 3,000 feet of climbing according to rider reports, slightly more than the listed 2,500 feet. Christina Vipond noted the profile-busting reality: \"I rounded a corner on the seasonal road and, of course there it was [the long steep climb], not on a gravel road.\" The climbing is relentless but not altitude-threatening. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "May weather proved variable but manageable across race years. The 2025 edition started at 55°F and foggy before \"the sun came out during the race\" and became \"just the right temp.\" Wind dominates the challenge - Christina Vipond experienced gusts so strong that \"one more gust of wind made me stop riding completely because it was pushing me into the lane of an oncoming truck.\""
+        "explanation": "May weather proved variable but manageable across race years. The 2025 edition started at 55°F and foggy before \"the sun came out during the race\" and became \"just the right temp.\" Wind dominates the challenge - Christina Vipond experienced gusts so strong that \"one more gust of wind made me stop riding completely because it was pushing me into the lane of an oncoming truck.\" Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Hart sits at basically sea level in western Michigan, maybe 600 feet above actual sea level. Your biggest altitude concern is whether your ears pop on the plane ride home. This is Great Lakes flat, not even Appalachian foothills flat."
+        "explanation": "Hart sits at basically sea level in western Michigan, maybe 600 feet above actual sea level. Your biggest altitude concern is whether your ears pop on the plane ride home. This is Great Lakes flat, not even Appalachian foothills flat. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "This is pure regional racing with no data on field size or competitive depth. No mention of any notable winners or pro participation because there aren't any. You're racing against weekend warriors from Grand Rapids and whoever drove up from Kalamazoo."
+        "explanation": "With a field of 100-200 riders, this is pure regional racing with no data on field size or competitive depth. No mention of any notable winners or pro participation because there aren't any. You're racing against weekend warriors from Grand Rapids and whoever drove up from Kalamazoo. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Hart isn't a tourist destination, so lodging and food costs stay reasonable without Traverse City resort pricing. Equipment choices matter more than travel costs - Tracy Gravlin immediately regretted bringing 40c tires instead of 50c Gravel Kings after pre-riding the sandy course. Gas money remains your biggest expense unless you're local to West Michigan."
+        "explanation": "Registration runs $50-75. Hart isn't a tourist destination, so lodging and food costs stay reasonable without Traverse City resort pricing. Equipment choices matter more than travel costs - Tracy Gravlin immediately regretted bringing 40c tires instead of 50c Gravel Kings after pre-riding the sandy course. Gas money remains your biggest expense unless you're local to West Michigan. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

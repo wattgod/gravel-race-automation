@@ -1,0 +1,83 @@
+{
+  "id": "challenge-getaway-pro",
+  "name": "Challenge Getaway Pro",
+  "brand": "Challenge",
+  "widths_mm": [
+    36,
+    40,
+    45
+  ],
+  "tread_type": "file",
+  "tread_description": "Fine diamond file tread with Superpoly casing",
+  "best_conditions": [
+    "dry",
+    "smooth",
+    "hardpack"
+  ],
+  "worst_conditions": [
+    "mud",
+    "wet",
+    "sharp rocks"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "36": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/challenge-getaway-pro-tlr",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/challenge-getaway-pro-tlr",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/challenge-getaway-pro-tlr"
+  },
+  "tagline": "Supple ride quality meets low rolling resistance. Premium file tread.",
+  "strengths": [
+    "Supple casing feel",
+    "Very fast rolling",
+    "Excellent comfort"
+  ],
+  "weaknesses": [
+    "Expensive",
+    "Fragile sidewalls",
+    "Poor puncture resistance"
+  ],
+  "msrp_usd": 84.99,
+  "weight_grams": {
+    "36": 310,
+    "40": 350,
+    "45": 400
+  },
+  "crr_watts_at_29kmh": {
+    "40": 28.0
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "none",
+  "recommended_use": [
+    "fast gravel",
+    "smooth hardpack",
+    "comfort racing",
+    "dry racing"
+  ],
+  "avoid_use": [
+    "wet",
+    "mud",
+    "sharp rock",
+    "loose over hard",
+    "technical"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "scratch-ankle-gravel": {
+      "rank": 3,
+      "width_mm": 36,
+      "position": "primary",
+      "surface": "fast"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-terra-speed-40",
+    "panaracer-gravelking-tlc",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs",
+    "vittoria-terreno-dry"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 50km and 100km distances attracted elite competition - Michael Lambert won the 100km race while Ren Stinson podiumed in the 50K. Neither distance pushes epic boundaries, but they're proven race distances that draw serious riders to southeastern Iowa."
+        "explanation": "The 50km and 100km distances attracted elite competition - Michael Lambert won the 100km race while Ren Stinson podiumed in the 50K. Neither distance pushes epic boundaries, but they're proven race distances that draw serious riders to southeastern Iowa. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Amish and Mennonite population keeps \"these roads beautiful and rustic without the complexity of asphalt.\" Course features \"moderate terrain with rolling short steep hills or moderate, sustained climbs\" - consistent climbing without technical bike handling challenges."
+        "explanation": "The Amish and Mennonite population keeps \"these roads beautiful and rustic without the complexity of asphalt.\" Course features \"moderate terrain with rolling short steep hills or moderate, sustained climbs\" - consistent climbing without technical bike handling challenges. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Race promotion emphasizes that \"Iowa is not FLAT!!\" with \"Iowa City's rolling hills gravel\" delivering 2000 feet over 50 miles. The constant \"rolling short steep hills\" create consistent climbing without major defining ascents."
+        "explanation": "Race promotion emphasizes that \"Iowa is not FLAT!!\" with \"Iowa City's rolling hills gravel\" delivering 2000 feet over 50 miles. The constant \"rolling short steep hills\" create consistent climbing without major defining ascents. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "May in Iowa delivers the \"windy and rolly\" conditions that define this course. The emphasis on wind as a consistent feature rather than bonus challenge reflects the reality of spring racing on exposed Iowa farm roads."
+        "explanation": "Historical weather data shows average highs of 73°F and lows of 53°F, with a 48% chance of rain on any given day. May in Iowa delivers the \"windy and rolly\" conditions that define this course. The emphasis on wind as a consistent feature rather than bonus challenge reflects the reality of spring racing on exposed Iowa farm roads. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Iowa flatlands starting around 700-800 feet elevation. Zero altitude considerations for performance or acclimatization. You'll get more elevation change driving to the race than racing it."
+        "explanation": "This is Iowa flatlands starting around 700-800 feet elevation. Zero altitude considerations for performance or acclimatization. You'll get more elevation change driving to the race than racing it. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Results show at least 67 finishers with times stretching past 5 hours - this isn't attracting competitive depth. Jacob Nelson and Curtis Burton finishing within seconds of the winner suggests limited fast company. It's a small Iowa town grassroots event, not a destination race for serious competitors."
+        "explanation": "Results show at least 67 finishers with times stretching past 5 hours - this isn't attracting competitive depth. Jacob Nelson and Curtis Burton finishing within seconds of the winner suggests limited fast company. It's a small Iowa town grassroots event, not a destination race for serious competitors. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Kalona sits in rural Iowa with no obvious nearby airports or hotel clusters. You're driving from Iowa City or Des Moines and finding basic accommodations. Cheap entry fees offset typical small-town travel logistics without big-city convenience."
+        "explanation": "Registration runs $50-75. Kalona sits in rural Iowa with no obvious nearby airports or hotel clusters. You're driving from Iowa City or Des Moines and finding basic accommodations. Cheap entry fees offset typical small-town travel logistics without big-city convenience. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -361,6 +361,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

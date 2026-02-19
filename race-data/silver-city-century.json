@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 100km option at 62 miles with 3,600 feet provides century distance that JewelerDry6222 calls 'literally the perfect trek for a gravel grinder.' Elite rider chose the 50k with newbie friends, noting he 'didn't want to scare them off' with the full distance."
+        "explanation": "The 100km option at 62 miles with 3,600 feet provides century distance that JewelerDry6222 calls 'literally the perfect trek for a gravel grinder.' Elite rider chose the 50k with newbie friends, noting he 'didn't want to scare them off' with the full distance. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features 'a lot of minimum maintenance or B roads' with terrain that's 'not too hilly, not too flat, a few surprises.' The Wabash Trace trail provides one of the course highlights for standard Midwest gravel grinding."
+        "explanation": "Course features 'a lot of minimum maintenance or B roads' with terrain that's 'not too hilly, not too flat, a few surprises.' The Wabash Trace trail provides one of the course highlights for standard Midwest gravel grinding. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Official description promises 'not too hilly, not too flat, a few surprises' with 3,600 feet over 62 miles. Rolling Iowa terrain that accumulates gradually rather than punishing climbs, keeping things interesting without being memorable."
+        "explanation": "Official description promises 'not too hilly, not too flat, a few surprises' with 3,600 feet over 62 miles. Rolling Iowa terrain that accumulates gradually rather than punishing climbs, keeping things interesting without being memorable. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Riders report 'great weather with some typical Midwest wind' for recent editions. Mid-May in Iowa remains a weather gamble - could be perfect spring conditions or dealing with late-season storms and mud."
+        "explanation": "Riders report 'great weather with some typical Midwest wind' for recent editions. Mid-May in Iowa remains a weather gamble - could be perfect spring conditions or dealing with late-season storms and mud. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Silver City sits well under 1,000 feet elevation with zero altitude considerations. Sea level fitness applies here with no training benefit for higher elevation events - your lungs won't notice the difference."
+        "explanation": "Silver City sits well under 1,000 feet elevation with zero altitude considerations. Sea level fitness applies here with no training benefit for higher elevation events - your lungs won't notice the difference. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Elite rider JewelerDry6222 chose the non-competitive 50k distance with newbie friends rather than racing the century. Positioned as beginner-friendly season opener rather than attracting serious competitive racing."
+        "explanation": "Elite rider JewelerDry6222 chose the non-competitive 50k distance with newbie friends rather than racing the century. Positioned as beginner-friendly season opener rather than attracting serious competitive racing. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Entry tops out at $70 same-day with shirt and lunch included - reasonable for century distance. Silver City, Iowa won't break the bank for lodging or dining, making this an affordable regional gravel option."
+        "explanation": "Entry tops out at $70 same-day with shirt and lunch included - reasonable for century distance. Silver City, Iowa won't break the bank for lodging or dining, making this an affordable regional gravel option. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "granfondoguide.com: Silver City Century"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

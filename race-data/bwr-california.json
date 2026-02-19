@@ -85,23 +85,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "120 miles puts you in serious territory without crossing into masochist land. Yun finished \"just under the 10-hour cutoff\" despite early bottlenecks costing \"nearly 45 minutes before the race even really began.\" The distance exposes weaknesses—recreational rider Yun and her partner were \"two of just 21 women to finish the Waffle that day.\""
+        "explanation": "120 miles puts you in serious territory without crossing into masochist land. Yun finished \"just under the 10-hour cutoff\" despite early bottlenecks costing \"nearly 45 minutes before the race even really began.\" The distance exposes weaknesses—recreational rider Yun and her partner were \"two of just 21 women to finish the Waffle that day.\" Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 5,
-        "explanation": "The Oh Highland Valley bottleneck creates chaos where Yun \"dropped my chain, lost Keri, missed a trail, and somehow ended up ahead of her.\" Stephen Vogel describes the Black Canyon descent like \"a roller coaster at full downward tilt\" with \"tracks coated with Crisco\" and \"heavy sand on the track.\" Even elite Melisa Rollins \"crashed in a single track section, bending her derailleur.\""
+        "explanation": "The Oh Highland Valley bottleneck creates chaos where Yun \"dropped my chain, lost Keri, missed a trail, and somehow ended up ahead of her.\" Stephen Vogel describes the Black Canyon descent like \"a roller coaster at full downward tilt\" with \"tracks coated with Crisco\" and \"heavy sand on the track.\" Even elite Melisa Rollins \"crashed in a single track section, bending her derailleur.\" Among the most technical in gravel, on par with Badlands."
       },
       "elevation": {
         "score": 4,
-        "explanation": "8,500 feet over 120 miles means constant work without Alpine brutality. Yun's legs protested \"every 15-17% gradient with increasing rage\" through endless steep hills. The final sections include \"three gravel hills so steep that I had to push my bike\" according to her race report. Double Peak at mile 60 delivers a 1,000-foot paved climb separating climbers from flatlanders."
+        "explanation": "8,500 feet over 120 miles means constant work without Alpine brutality. Yun's legs protested \"every 15-17% gradient with increasing rage\" through endless steep hills. The final sections include \"three gravel hills so steep that I had to push my bike\" according to her race report. Double Peak at mile 60 delivers a 1,000-foot paved climb separating climbers from flatlanders. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 4,
-        "explanation": "Late April San Diego typically serves up 55-70°F conditions. Yun noted \"at least the weather's cool\" during the 2025 edition. When dry, conditions are nearly ideal—but 2022's rain turned singletrack into unrideable mud and spiked DNFs to 25%. Weather can make or break the technical terrain."
+        "explanation": "Late April San Diego typically serves up 55-70°F conditions. Yun noted \"at least the weather's cool\" during the 2025 edition. When dry, conditions are nearly ideal—but 2022's rain turned singletrack into unrideable mud and spiked DNFs to 25%. Weather can make or break the technical terrain. Milder conditions than Crusher in the Tushar."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Del Mar sits at sea level and the course peaks around 1,500 feet—altitude is irrelevant. Your suffering will come from technical terrain and accumulated fatigue, not thin air. Save your altitude concerns for Colorado races."
+        "explanation": "Del Mar sits at sea level and the course peaks around 1,500 feet—altitude is irrelevant. Your suffering will come from technical terrain and accumulated fatigue, not thin air. Save your altitude concerns for Colorado races. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -133,7 +133,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "SoCal is expensive—hotels in San Marcos/Carlsbad run $150-250/night, plus flying to SAN and rental car costs. Food and entertainment in the area aren't cheap. Yun's gear choices included Rule 28 aero kit and specific nutrition like \"dates rolled in granola and peanut butter.\" Budget $500-800 beyond entry for a weekend trip."
+        "explanation": "SoCal is expensive—hotels in San Marcos/Carlsbad run $150-250/night, plus flying to SAN and rental car costs. Food and entertainment in the area aren't cheap. Yun's gear choices included Rule 28 aero kit and specific nutrition like \"dates rolled in granola and peanut butter.\" Budget $500-800 beyond entry for a weekend trip. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "biased_opinion": {
@@ -366,6 +366,63 @@
     "series": {
       "id": "belgian-waffle-ride",
       "name": "Belgian Waffle Ride"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "28-32",
+        "140_160lb_mixed": "25-29",
+        "140_160lb_wet": "23-27",
+        "160_180lb_dry": "31-35",
+        "160_180lb_mixed": "28-32",
+        "160_180lb_wet": "26-30",
+        "180_200lb_dry": "34-38",
+        "180_200lb_mixed": "31-35",
+        "180_200lb_wet": "29-33",
+        "200pluslb_dry": "37-41",
+        "200pluslb_mixed": "34-38",
+        "200pluslb_wet": "32-36"
+      }
     }
   }
 }

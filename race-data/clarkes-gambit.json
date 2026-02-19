@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Long course delivers 93km/1,925m Day 1, 56km/1,150m Day 2 for solid weekend volume. Organizers target 15-20 kph average speeds and require riders to \"be at a good level of fitness to complete their chosen distance.\" Medium and short options scale appropriately without overwhelming newer riders."
+        "explanation": "Long course delivers 93km/1,925m Day 1, 56km/1,150m Day 2 for solid weekend volume. Organizers target 15-20 kph average speeds and require riders to \"be at a good level of fitness to complete their chosen distance.\" Medium and short options scale appropriately without overwhelming newer riders. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Mike Israel describes \"champagne gravel roads\" on State Forest roads that are \"mostly very smooth and a joy to ride\" when dry. However, he warns \"Please don't bring your roadie, even if you have 28mm tyres on it,\" indicating technical demands beyond smooth pavement despite the groomed surfaces."
+        "explanation": "Mike Israel describes \"champagne gravel roads\" on State Forest roads that are \"mostly very smooth and a joy to ride\" when dry. However, he warns \"Please don't bring your roadie, even if you have 28mm tyres on it,\" indicating technical demands beyond smooth pavement despite the groomed surfaces. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "2026 long course features 1,925m Day 1 plus 1,150m Day 2 for 3,075m total climbing across the weekend. Starting near sea level at Nelligen means every meter is earned through State Forest roads, with past editions including \"brutal 4km at 9%\" climbs that define the challenge."
+        "explanation": "2026 long course features 1,925m Day 1 plus 1,150m Day 2 for 3,075m total climbing across the weekend. Starting near sea level at Nelligen means every meter is earned through State Forest roads, with past editions including \"brutal 4km at 9%\" climbs that define the challenge. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mike Israel acknowledges weather volatility: \"We are aiming to stick almost entirely to State Forest roads that in the dry are mostly very smooth and a joy to ride. But a turn in the weather can bring on a dramatic change in conditions for the worse.\" NSW South Coast weather remains unpredictable for planning."
+        "explanation": "Historical weather data shows average highs of 64°F and lows of 44°F, with a 43% chance of rain on any given day, and gusts reaching 28 mph. Mike Israel acknowledges weather volatility: \"We are aiming to stick almost entirely to State Forest roads that in the dry are mostly very smooth and a joy to ride. But a turn in the weather can bring on a dramatic change in conditions for the worse.\" NSW South Coast weather remains unpredictable for planning. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting at 10m above sea level in coastal Nelligen means altitude plays zero performance role. Even the climbs through state forests stay in low hundreds of meters. Sea-level fitness translates directly with no altitude considerations."
+        "explanation": "Starting at 10m above sea level in coastal Nelligen means altitude plays zero performance role. Even the climbs through state forests stay in low hundreds of meters. Sea-level fitness translates directly with no altitude considerations. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "15-20 kph target speeds and requirements for \"reasonable mechanical know how\" for basic repairs suggest recreational rather than competitive fields. The explicit positioning as \"not a race\" and social group riding format indicates limited competitive depth despite 200-rider participation."
+        "explanation": "15-20 kph target speeds and requirements for \"reasonable mechanical know how\" for basic repairs suggest recreational rather than competitive fields. The explicit positioning as \"not a race\" and social group riding format indicates limited competitive depth despite 200-rider participation. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Remote Nelligen location adds fuel costs from major airports. E-bikes welcome, reducing gear transport needs. Mechanical skills required for \"punctures, ripped tyres, broken chains\" suggests self-sufficiency expectations. Car camping setup helps control accommodation costs."
+        "explanation": "Registration runs $75-100 AUD. Remote Nelligen location adds fuel costs from major airports. E-bikes welcome, reducing gear transport needs. Mechanical skills required for \"punctures, ripped tyres, broken chains\" suggests self-sufficiency expectations. Car camping setup helps control accommodation costs. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "batemansbaypost.com.au: Clarkes Gambit Gravel Race Comes To Nelligen"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

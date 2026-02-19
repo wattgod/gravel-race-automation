@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "One hundred miles is proper century distance that demands respect and preparation. The 3500 feet of elevation gain over that distance creates endurance challenge without being punitive. Multiple options at 25, 50, and 100 miles let riders choose their suffering level, but the full distance delivers real gravel credibility."
+        "explanation": "One hundred miles is proper century distance that demands respect and preparation. The 3500 feet of elevation gain over that distance creates endurance challenge without being punitive. Multiple options at 25, 50, and 100 miles let riders choose their suffering level, but the full distance delivers real gravel credibility. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Tim Stahl notes 'Iowa has some of the best gravel roads in the world' with terrain described as 'moderate terrain with rolling short steep hills.' Course uses Poweshiek County's 700+ miles of maintained gravel roads designed for agricultural traffic, not technical challenges."
+        "explanation": "Tim Stahl notes 'Iowa has some of the best gravel roads in the world' with terrain described as 'moderate terrain with rolling short steep hills.' Course uses Poweshiek County's 700+ miles of maintained gravel roads designed for agricultural traffic, not technical challenges. Less technical than The Mid South. As Tim Stahl puts it: \"What makes a gravel bike is the geometry. It's pretty forgiving, with low, thick tires, and then gearing so you can climb the hills.\""
       },
       "elevation": {
         "score": 2,
-        "explanation": "Stahl warns 'we think of Iowa as flat, but you leave town, there are some impressive hills.' The 3500 feet comes through 'rolling short steep hills or moderate, sustained climbs' rather than single big efforts—accumulated grinding over prairie rollers."
+        "explanation": "Stahl warns 'we think of Iowa as flat, but you leave town, there are some impressive hills.' The 3500 feet comes through 'rolling short steep hills or moderate, sustained climbs' rather than single big efforts—accumulated grinding over prairie rollers. Less climbing than The Mid South. As Tim Stahl puts it: \"What makes a gravel bike is the geometry. It's pretty forgiving, with low, thick tires, and then gearing so you can climb the hills.\""
       },
       "climate": {
         "score": 2,
-        "explanation": "Second Saturday in June brings Midwest summer weather gambling, though organizers promise 'the PB100 will occur rain or shine! All bike routes will have hard surface rain re-routes if needed.' Morning 8 AM start attempts to beat afternoon heat and storms."
+        "explanation": "Second Saturday in June brings Midwest summer weather gambling, though organizers promise 'the PB100 will occur rain or shine! All bike routes will have hard surface rain re-routes if needed.' Morning 8 AM start attempts to beat afternoon heat and storms. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Iowa prairie elevation creates zero altitude concerns. The 'impressive hills' Stahl mentions are about leg-burning grade and accumulated climbing, not thin air at altitude."
+        "explanation": "Central Iowa prairie elevation creates zero altitude concerns. The 'impressive hills' Stahl mentions are about leg-burning grade and accumulated climbing, not thin air at altitude. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -294,11 +294,11 @@
       },
       "community": {
         "score": 2,
-        "explanation": "The 5K Fun Run estimates 1-100 participants, which tells you everything about field size expectations. When your event resurfaces with a 'better format,' it suggests the old community didn't stick around."
+        "explanation": "The 5K Fun Run estimates 1-100 participants, which tells you everything about field size expectations. When your event resurfaces with a 'better format,' it suggests the old community didn't stick around. As Laura Ferguson '90 puts it: \"It's community building, but it's also getting people out together, both in an activity and in supporting commerce.\""
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Burner Challenge segments offer $50 prizes across male, female, and non-binary categories, creating some competitive structure. However, the associated 5K estimates just 1-100 participants, suggesting small field sizes without serious racing depth."
+        "explanation": "Burner Challenge segments offer $50 prizes across male, female, and non-binary categories, creating some competitive structure. However, the associated 5K estimates just 1-100 participants, suggesting small field sizes without serious racing depth. Thinner field than Ouray Gravel Grinder. As Official Website puts it: \"It is chip-timed with competitive options, but riders and runners can get out of it what they desire.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Small Iowa college town keeps lodging and dining affordable. Tim Stahl's equipment advice focuses on 'forgiving' gravel bike geometry rather than expensive gear requirements, and free bike rentals lower the barrier to entry for curious riders."
+        "explanation": "Registration runs $75-100. Small Iowa college town keeps lodging and dining affordable. Tim Stahl's equipment advice focuses on 'forgiving' gravel bike geometry rather than expensive gear requirements, and free bike rentals lower the barrier to entry for curious riders. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -346,6 +346,74 @@
         "category": "community",
         "label": "traveliowa.com: 1653598"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

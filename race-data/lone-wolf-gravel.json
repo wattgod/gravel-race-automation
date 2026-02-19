@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 62-mile distance hits the sweet spot for most gravel riders, with 36, 50, and 100-mile options available. Only one aid station hosted by Embark Maple means self-sufficiency planning is critical for the longer distances."
+        "explanation": "The 62-mile distance hits the sweet spot for most gravel riders, with 36, 50, and 100-mile options available. Only one aid station hosted by Embark Maple means self-sufficiency planning is critical for the longer distances. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "James Morrow describes \"pristine, hard pack, fast gravel, accompanied by chunky steep, climbs, and rowdy descents.\" Conditions in 2022 were \"pretty dry and loose for gravel biking,\" suggesting manageable surfaces rather than technical challenges."
+        "explanation": "James Morrow describes \"pristine, hard pack, fast gravel, accompanied by chunky steep, climbs, and rowdy descents.\" Conditions in 2022 were \"pretty dry and loose for gravel biking,\" suggesting manageable surfaces rather than technical challenges. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 4,000 feet over 62 miles includes what creators call \"chunky steep climbs\" in Michigan's Upper Peninsula terrain. The elevation profile provides substance without being overwhelming for most gravel riders."
+        "explanation": "The 4,000 feet over 62 miles includes what creators call \"chunky steep climbs\" in Michigan's Upper Peninsula terrain. The elevation profile provides substance without being overwhelming for most gravel riders. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Race day 2022 delivered \"27° in the morning 55° in the afternoon. Partly sunny. Peak color change. A perfect fall day in dah U.P.\" Late September timing offers spectacular fall colors but requires layering for the temperature swing."
+        "explanation": "Historical weather data shows average highs of 71°F and lows of 53°F, with a 39% chance of rain on any given day. Race day 2022 delivered \"27° in the morning 55° in the afternoon. Partly sunny. Peak color change. A perfect fall day in dah U.P.\" Late September timing offers spectacular fall colors but requires layering for the temperature swing. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Iron Mountain sits around 1,260 feet above sea level with course elevations staying well below significant altitude thresholds. Altitude is completely irrelevant for performance or acclimatization concerns."
+        "explanation": "Iron Mountain sits around 1,260 feet above sea level with course elevations staying well below significant altitude thresholds. Altitude is completely irrelevant for performance or acclimatization concerns. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Small field of under 70 finishers in 2022 consists mainly of regional riders. Dan Teaters' three wins and Mitch Edbauer as a \"three-time competitor\" represent the competitive ceiling for this grassroots Michigan event."
+        "explanation": "Small field of under 70 finishers in 2022 consists mainly of regional riders. Dan Teaters' three wins and Mitch Edbauer as a \"three-time competitor\" represent the competitive ceiling for this grassroots Michigan event. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Iron Mountain's small-town costs keep lodging and food expenses minimal. Required GPX device and rear flashing light represent the main equipment investments beyond standard gravel gear. Regional location eliminates flight costs for Midwest riders."
+        "explanation": "Registration runs $60-90. Iron Mountain's small-town costs keep lodging and food expenses minimal. Required GPX device and rear flashing light represent the main equipment investments beyond standard gravel gear. Regional location eliminates flight costs for Midwest riders. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -326,6 +326,74 @@
         "category": "community",
         "label": "diablocycling.com: The Lone Wolf Gravel Race9964023"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

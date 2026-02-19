@@ -73,14 +73,14 @@ def build_tier_system() -> str:
         <tbody>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#000;color:#fff;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #000">TIER 1</span></td>
-            <td style="font-weight:700">Elite</td>
+            <td style="font-weight:700">The Icons</td>
             <td>&ge; 80</td>
             <td>The definitive gravel events. World-class fields, iconic courses, bucket-list status.</td>
             <td><a href="{SITE_BASE_URL}/race/unbound-200/" style="color:var(--gg-color-teal);font-weight:700">Unbound 200</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#000;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #000">TIER 2</span></td>
-            <td style="font-weight:700">Contender</td>
+            <td style="font-weight:700">Elite</td>
             <td>&ge; 60</td>
             <td>Established races with strong reputations and competitive fields. The next tier of must-do events.</td>
             <td><a href="{SITE_BASE_URL}/race/barry-roubaix/" style="color:var(--gg-color-teal);font-weight:700">Barry-Roubaix</a></td>
@@ -94,9 +94,9 @@ def build_tier_system() -> str:
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:#5e6868;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #5e6868">TIER 4</span></td>
-            <td style="font-weight:700">Roster</td>
+            <td style="font-weight:700">Grassroots</td>
             <td>&lt; 45</td>
-            <td>Up-and-coming races and local grinders. Grassroots gravel &mdash; small fields, raw vibes.</td>
+            <td>Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.</td>
             <td><a href="{SITE_BASE_URL}/race/114-gravel-race/" style="color:var(--gg-color-teal);font-weight:700">114 Gravel Race</a></td>
           </tr>
         </tbody>

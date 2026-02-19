@@ -51,7 +51,7 @@
       },
       "experience": {
         "score": 5,
-        "explanation": "Life-altering suffering that rewires your brain. The combination of distance, self-sufficiency, night riding, and the Flint Hills landscape creates an experience that changes how you think about what's possible."
+        "explanation": "Life-altering suffering that rewires your brain. The combination of distance, self-sufficiency, night riding, and the Flint Hills landscape creates an experience that changes how you think about what's possible. As Rob Britton puts it: \"I just wanted to have fun on the bike. I feel like that is missing a lot lately. Even before the result and finishing, I was commenting to the guys how fun it was and how much I was just enjoying myse...\""
       },
       "community": {
         "score": 5,
@@ -59,7 +59,7 @@
       },
       "field_depth": {
         "score": 5,
-        "explanation": "The best ultra-endurance cyclists in the world show up: Rob Britton, Lachlan Morton, Lael Wilcox, Heather Jackson. Course records keep getting smashed. This is where legends are made."
+        "explanation": "The best ultra-endurance cyclists in the world show up: Rob Britton, Lachlan Morton, Lael Wilcox, Heather Jackson. Course records keep getting smashed. This is where legends are made. Elite-level competition, on par with Belgian Waffle Ride San Diego."
       },
       "value": {
         "score": 4,
@@ -67,27 +67,27 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Moderate total cost. Entry ~$250, hotels $140-200/night (if you can find one), flights to Kansas City or Wichita, plus you need gear like GPS trackers and serious nutrition. Budget $800-1200 total."
+        "explanation": "Moderate total cost. Entry ~$250, hotels $140-200/night (if you can find one), flights to Kansas City or Wichita, plus you need gear like GPS trackers and serious nutrition. Budget $800-1200 total. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
         "score": 5,
-        "explanation": "350+ miles is firmly in ultra-endurance territory. This is 150 miles longer than the already-brutal 200. You're riding through the night, through the next day, and possibly into a second night."
+        "explanation": "350+ miles is firmly in ultra-endurance territory. This is 150 miles longer than the already-brutal 200. You're riding through the night, through the next day, and possibly into a second night. Among the longest in gravel, comparable to Badlands. As Serena Bishop Gordon puts it: \"Time was an illusion. We rode for nine hours in the dark, and it went by so fast — full focus the whole time.\""
       },
       "technicality": {
         "score": 4,
-        "explanation": "Sharp Flint Hills limestone that slices tires, constant line-choice decisions, and you're doing it all while sleep-deprived in the dark. Not singletrack, but the terrain punishes poor decisions severely."
+        "explanation": "Sharp Flint Hills limestone that slices tires, constant line-choice decisions, and you're doing it all while sleep-deprived in the dark. Not singletrack, but the terrain punishes poor decisions severely. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
         "score": 4,
-        "explanation": "13,500-14,500 feet of climbing across rolling prairie. No massive climbs, but the relentless rollers over 350 miles accumulate into a serious elevation challenge that grinds down your legs."
+        "explanation": "13,500-14,500 feet of climbing across rolling prairie. No massive climbs, but the relentless rollers over 350 miles accumulate into a serious elevation challenge that grinds down your legs. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 4,
-        "explanation": "Late May Kansas delivers the full weather gauntlet: searing afternoon heat, cold nights, potential thunderstorms, and wind that never quits. You'll experience 24+ hours of weather variability."
+        "explanation": "Historical weather data shows average highs of 75°F and lows of 57°F, with a 59% chance of rain on any given day, and gusts reaching 27 mph. Late May Kansas delivers the full weather gauntlet: searing afternoon heat, cold nights, potential thunderstorms, and wind that never quits. You'll experience 24+ hours of weather variability. Milder conditions than Crusher in the Tushar. As Anne-Marije Rook puts it: \"I had gotten very behind on my fueling and my pace was dropping. I like riding at night, but I was looking forward to the sunrise and the boost of energy that light usually provides.\""
       },
       "altitude": {
         "score": 2,
-        "explanation": "Emporia sits at roughly 1,200 feet elevation. No altitude-related challenges here - just pure suffering at sea level."
+        "explanation": "Emporia sits at roughly 1,200 feet elevation. No altitude-related challenges here - just pure suffering at sea level. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "logistics": {
         "score": 3,
@@ -305,6 +305,76 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 550,
+          "crr_watts": 40.0,
+          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
+    },
+    "terrain": {
+      "surface": "350 miles of sharp, chunky Flint Hills limestone that shreds tires. Rolling prairie terrain.",
+      "primary": "Pure limestone gravel — sharp edges regularly destroy tires, constant line-choice decisions",
+      "technical_rating": 4,
+      "features": [
+        "Sharp limestone edges",
+        "Chunky gravel",
+        "Rolling Flint Hills prairie",
+        "Tire-destroying terrain",
+        "Creek crossings",
+        "Sustained rolling terrain"
+      ]
     }
   }
 }

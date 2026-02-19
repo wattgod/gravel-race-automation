@@ -50,23 +50,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Daily distances of 35-59 miles are modest by gravel standards. The tour prioritizes accessibility with a \"no schedules, no deadlines\" philosophy and minimum 10 mph pace requirement. While the 5-day total exceeds 250 miles, per-day mileage fits in the recreational range rather than endurance athlete territory."
+        "explanation": "Daily distances of 35-59 miles are modest by gravel standards. The tour prioritizes accessibility with a \"no schedules, no deadlines\" philosophy and minimum 10 mph pace requirement. While the 5-day total exceeds 250 miles, per-day mileage fits in the recreational range rather than endurance athlete territory. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Mostly maintained gravel roads suitable for various bike types. The optional gravel adventure includes single-lane minimum maintained roads (MMRs) and fresh gravel sections. Rosa Kloser noted \"Due to the SRAM Transmission system, I could push it in the mud without losing the derailleur\" during challenging sections, but routes remain intentionally accessible."
+        "explanation": "Mostly maintained gravel roads suitable for various bike types. The optional gravel adventure includes single-lane minimum maintained roads (MMRs) and fresh gravel sections. Rosa Kloser noted \"Due to the SRAM Transmission system, I could push it in the mud without losing the derailleur\" during challenging sections, but routes remain intentionally accessible. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "JOM discovered \"there were 87 hills along the full 150-mile course\" in the region, noting \"they don't hold the remotest flicker of a candle to the hills of Lincoln, Nebraska.\" Koalb describes the terrain: \"You're going to be up and down over the whole course. None of the climbs are that big, but there are a ton of them.\""
+        "explanation": "JOM discovered \"there were 87 hills along the full 150-mile course\" in the region, noting \"they don't hold the remotest flicker of a candle to the hills of Lincoln, Nebraska.\" Koalb describes the terrain: \"You're going to be up and down over the whole course. None of the climbs are that big, but there are a ton of them.\" Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "June brings serious weather challenges in Nebraska. KCBikeNerd reported \"Heat index was 105+. Omg it was so hot\" during a recent event. The 2018 race saw 88°F temperatures with unexpected humidity levels. June is peak thunderstorm season with tornado risk and constant wind exposure on open plains."
+        "explanation": "June brings serious weather challenges in Nebraska. KCBikeNerd reported \"Heat index was 105+. Omg it was so hot\" during a recent event. The 2018 race saw 88°F temperatures with unexpected humidity levels. June is peak thunderstorm season with tornado risk and constant wind exposure on open plains. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Southwest Nebraska sits around 2,500-3,000 feet elevation. No altitude acclimatization needed - sea level fitness transfers directly. This is pure Great Plains riding with no high-altitude factors affecting performance or preparation."
+        "explanation": "Southwest Nebraska sits around 2,500-3,000 feet elevation. No altitude acclimatization needed - sea level fitness transfers directly. This is pure Great Plains riding with no high-altitude factors affecting performance or preparation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -90,7 +90,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Explicitly \"not a race, it's a tour\" with no categories, officials, or prize money. Minimum 10 mph pace requirement attracts recreational cyclists and first-timers. The gravel adventure is limited to just 30 spots as an optional add-on rather than competitive field depth."
+        "explanation": "Explicitly \"not a race, it's a tour\" with no categories, officials, or prize money. Minimum 10 mph pace requirement attracts recreational cyclists and first-timers. The gravel adventure is limited to just 30 spots as an optional add-on rather than competitive field depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -98,7 +98,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration costs undisclosed but multi-day supported tours typically run $300-500+. Food budget ~$250 additional for 5 days. The 284-mile drive from Omaha adds significant travel cost, though camping reduces lodging expense. Total weekend cost falls in moderate $500-1k range for supported touring."
+        "explanation": "Registration costs undisclosed but multi-day supported tours typically run $300-500+. Food budget ~$250 additional for 5 days. The 284-mile drive from Omaha adds significant travel cost, though camping reduces lodging expense. Total weekend cost falls in moderate $500-1k range for supported touring. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "raceId": "tour-de-nebraska",
@@ -280,6 +280,74 @@
     },
     "history": {
       "founder": "Charlie & Kim Schilling (Directors)"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

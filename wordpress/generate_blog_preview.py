@@ -19,12 +19,13 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+from brand_tokens import TIER_NAMES
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 SITE_URL = "https://gravelgodcycling.com"
-
-TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 MONTH_NUMBERS = {
     "january": 1, "february": 2, "march": 3, "april": 4,
     "may": 5, "june": 6, "july": 7, "august": 8,
@@ -191,7 +192,7 @@ def generate_preview_html(slug):
 
     tier = gravel_god.get("tier", 4)
     score = gravel_god.get("overall_score", 0)
-    tier_name = TIER_NAMES.get(tier, "Roster")
+    tier_name = TIER_NAMES.get(tier, "Grassroots")
     location = vitals.get("location", "") or vitals.get("location_badge", "")
     date_str = vitals.get("date_specific", "") or vitals.get("date", "")
     distance = vitals.get("distance_mi", "")

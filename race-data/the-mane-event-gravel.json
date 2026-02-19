@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "54-mile option at 3,188 feet of climbing hits that awkward middle distance between recreational and serious gravel racing. Four distance options from 25 to 78 miles with staggered wave starts every 30-60 minutes help manage field spread and pacing groups."
+        "explanation": "54-mile option at 3,188 feet of climbing hits that awkward middle distance between recreational and serious gravel racing. Four distance options from 25 to 78 miles with staggered wave starts every 30-60 minutes help manage field spread and pacing groups. More compact than Grinduro."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Jim Rapp describes routes that \"take riders onto scenic roadways and rolling hills\" through ranch land and sweeping foothills. Course features moderate terrain with \"rolling short steep hills or moderate, sustained climbs\" on well-maintained county roads without technical drama."
+        "explanation": "Jim Rapp describes routes that \"take riders onto scenic roadways and rolling hills\" through ranch land and sweeping foothills. Course features moderate terrain with \"rolling short steep hills or moderate, sustained climbs\" on well-maintained county roads without technical drama. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 54-mile climbs 3,188 feet with \"a long draw of a climb\" mid-race followed by \"a long downhill in the last ~15 miles.\" Rolling ranch country delivers challenging but manageable Wyoming elevation through foothills terrain east of Sheridan."
+        "explanation": "The 54-mile climbs 3,188 feet with \"a long draw of a climb\" mid-race followed by \"a long downhill in the last ~15 miles.\" Rolling ranch country delivers challenging but manageable Wyoming elevation through foothills terrain east of Sheridan. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "2025 race delivered \"wonderful weather\" with 52°F at 7:30am start warming to 80°F high and light winds. Rain hit days before but cleared for race day. September in Wyoming can be perfect or harsh — this year riders got lucky."
+        "explanation": "2025 race delivered \"wonderful weather\" with 52°F at 7:30am start warming to 80°F high and light winds. Rain hit days before but cleared for race day. September in Wyoming can be perfect or harsh — this year riders got lucky. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Starting from Sheridan's base elevation around 3,800 feet through rolling ranch country that keeps maximum elevations reasonable. You'll notice it coming from sea level but won't need serious acclimatization for Wyoming foothills terrain."
+        "explanation": "Starting from Sheridan's base elevation around 3,800 feet through rolling ranch country that keeps maximum elevations reasonable. You'll notice it coming from sea level but won't need serious acclimatization for Wyoming foothills terrain. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Four distance options with staggered wave starts from 7:30am to 9:30am manage different pace groups. 25-mile results show recreational pace spreads with weekend warrior field averaging 9-16 mph rather than competitive depth."
+        "explanation": "Four distance options with staggered wave starts from 7:30am to 9:30am manage different pace groups. 25-mile results show recreational pace spreads with weekend warrior field averaging 9-16 mph rather than competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Free dry camping available at venue with advance notice — pack in and pack out your gear. Entry fees $70-110 depending on distance with post-race meal included. Sheridan location keeps lodging costs manageable compared to destination gravel events."
+        "explanation": "Free dry camping available at venue with advance notice — pack in and pack out your gear. Entry fees $70-110 depending on distance with post-race meal included. Sheridan location keeps lodging costs manageable compared to destination gravel events. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -370,6 +370,74 @@
         "category": "community",
         "label": "sheridanmedia.com: The Mane Event Gravel Grinder On Public Pulse Sept 2"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

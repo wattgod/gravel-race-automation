@@ -1,0 +1,283 @@
+{
+  "id": "panaracer-gravelking-tlc",
+  "name": "Panaracer GravelKing TLC",
+  "brand": "Panaracer",
+  "widths_mm": [
+    35,
+    38,
+    40,
+    43
+  ],
+  "tread_type": "file",
+  "tread_description": "Slick center with micro-texture, ZSG Natural compound",
+  "best_conditions": [
+    "dry",
+    "smooth",
+    "hardpack",
+    "pavement"
+  ],
+  "worst_conditions": [
+    "mud",
+    "wet",
+    "loose"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king",
+    "43": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king"
+  },
+  "tagline": "Budget-friendly speed. Reliable file tread at a great price.",
+  "strengths": [
+    "Excellent value",
+    "Low rolling resistance",
+    "Wide width range"
+  ],
+  "weaknesses": [
+    "Less durable than Continental",
+    "Poor in wet",
+    "Basic puncture protection"
+  ],
+  "msrp_usd": 64.9,
+  "weight_grams": {
+    "35": 310,
+    "38": 340,
+    "40": 360,
+    "43": 400
+  },
+  "crr_watts_at_29kmh": {
+    "40": 30.5
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "none",
+  "recommended_use": [
+    "fast gravel",
+    "road-to-gravel",
+    "smooth hardpack",
+    "budget racing"
+  ],
+  "avoid_use": [
+    "wet",
+    "mud",
+    "sharp rock",
+    "loose over hard"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "bear-howard-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "belgian-waffle-ride-kansas": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "big-sky-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "gravel-and-tar-classic": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "gravel-medellin": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "gravel-unravel-bon-jon-pass-out": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "great-otway-gravel-grind": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "grinduro-italy": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "grusk": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "hot-springs-gravel-gauntlet": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "iron-cross": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "just-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "lost-and-found-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "marys-mayhem": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "montana-gravel-challenge": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "ned-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "north-wales-gravel-x": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "nova-eroica": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "ouachita-challenge": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "ozark-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "paris-mountain-gravel-grinder": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "pirate-cycling-league-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "race-to-valhalla": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "rad-am-ring-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "rooted-vermont": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "sagan-fondo": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "salida-76": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "takelma-gravel-grinder": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "the-grit-adventure": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "the-mane-event-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "unravel-gravel-va": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "waucheesi-bike-race": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "west-coast-gravel": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    },
+    "worthersee-gravel-race": {
+      "rank": 0,
+      "width_mm": 43,
+      "position": "front",
+      "surface": "mixed"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-speed-40",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs",
+    "vittoria-terreno-dry"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

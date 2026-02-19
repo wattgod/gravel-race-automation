@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles delivers serious work without multi-day strategy demands. Meaghan Hackinen found herself \"commit[ting] nearly all my energy to tackling the challenges at hand: pacing the climbs, safely navigating the descents, and keeping myself fed and hydrated\" over similar Greek terrain distances."
+        "explanation": "65 miles delivers serious work without multi-day strategy demands. Meaghan Hackinen found herself \"commit[ting] nearly all my energy to tackling the challenges at hand: pacing the climbs, safely navigating the descents, and keeping myself fed and hydrated\" over similar Greek terrain distances. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Elfyn Evans describes \"a hard and rocky base and a lot of loose rocks\" while Sébastien Ogier warns of \"rough and rocky surface\" conditions. The terrain includes technical sections where mechanical failures are common - Belgian driver Ghislain de Mevius \"succumbed to mechanical issues on day two\" despite running podium pace."
+        "explanation": "Elfyn Evans describes \"a hard and rocky base and a lot of loose rocks\" while Sébastien Ogier warns of \"rough and rocky surface\" conditions. The terrain includes technical sections where mechanical failures are common - Belgian driver Ghislain de Mevius \"succumbed to mechanical issues on day two\" despite running podium pace. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4500 feet over 65 miles provides quality climbing density through demanding Greek mountains. Torsten Frank notes Greek terrain climbing factors reach 31.8 meters per kilometer - \"Everything around 20 is downright alpine\" - meaning extensive elevation packed into shorter distances than typical European ranges."
+        "explanation": "4500 feet over 65 miles provides quality climbing density through demanding Greek mountains. Torsten Frank notes Greek terrain climbing factors reach 31.8 meters per kilometer - \"Everything around 20 is downright alpine\" - meaning extensive elevation packed into shorter distances than typical European ranges. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Weather swings from \"sweltering heat\" to \"steady drizzle\" and \"deepening chill\" based on rider experiences. Sébastien Ogier warns of \"high temperatures and a rough and rocky surface\" while Quinda noted she'd \"handle the sweltering heat less well than these muddy roads\" she encountered."
+        "explanation": "Weather swings from \"sweltering heat\" to \"steady drizzle\" and \"deepening chill\" based on rider experiences. Sébastien Ogier warns of \"high temperatures and a rough and rocky surface\" while Quinda noted she'd \"handle the sweltering heat less well than these muddy roads\" she encountered. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Peloponnese elevations stay comfortably below oxygen-concern thresholds. Most riding occurs well under 2000 meters with the region's peaks barely reaching 2400 meters, keeping this firmly in sea-level lung territory without altitude training requirements."
+        "explanation": "Peloponnese elevations stay comfortably below oxygen-concern thresholds. Most riding occurs well under 2000 meters with the region's peaks barely reaching 2400 meters, keeping this firmly in sea-level lung territory without altitude training requirements. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No documented competitive field or participation records exist for this specific Greek Gravel event. While terrain attracts elite motorsport talent who note they \"will need a very good Friday to keep themselves in the fight,\" the cycling race itself shows no verifiable field size or results data."
+        "explanation": "With a field of 200-400 riders, no documented competitive field or participation records exist for this specific Greek Gravel event. While terrain attracts elite motorsport talent who note they \"will need a very good Friday to keep themselves in the fight,\" the cycling race itself shows no verifiable field size or results data."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Greece requires Athens connections adding travel complexity, with no race-specific lodging or logistics guidance available. Hackinen made extensive bike modifications including \"swapping drop bars for flat bars and adding front suspension\" to handle the terrain demands, suggesting equipment adaptation costs."
+        "explanation": "Registration runs €50-80. Greece requires Athens connections adding travel complexity, with no race-specific lodging or logistics guidance available. Hackinen made extensive bike modifications including \"swapping drop bars for flat bars and adding front suspension\" to handle the terrain demands, suggesting equipment adaptation costs. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -370,6 +370,74 @@
         "category": "community",
         "label": "torstenfrank.wordpress.com: Hellenic Mountain Race 2025 By The Numbers And Compared T..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

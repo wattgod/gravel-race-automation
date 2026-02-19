@@ -380,7 +380,7 @@ class TestTierReveal:
         rd = _load_test_race("unbound-200")
         script = fmt_tier_reveal(rd)
         assert "80" in script
-        assert "Elite" in script
+        assert "The Icons" in script
 
     def test_no_mangled_years_in_output(self):
         """Regression: years in explanations were converted to 'N thousand'."""
@@ -395,7 +395,7 @@ class TestTierReveal:
         if not rd:
             pytest.skip("steamboat-gravel not found")
         script = fmt_tier_reveal(rd)
-        tier_name = TIER_NAMES.get(rd["tier"], "Roster")
+        tier_name = TIER_NAMES.get(rd["tier"], "Grassroots")
         assert tier_name in script
 
 
@@ -582,8 +582,8 @@ class TestDataDrops:
     def test_includes_tier_stats(self):
         races = load_all_races()
         script = fmt_data_drops(races)
+        assert "THE ICONS" in script
         assert "ELITE" in script
-        assert "CONTENDER" in script
 
     def test_includes_actual_total_count(self):
         """Regression: CTA hardcoded '328' instead of using actual count."""

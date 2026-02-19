@@ -99,7 +99,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Primarily draws regional Texas riders with some competition at the front. No elite pro field or series points, though strong local racers show up to compete."
+        "explanation": "Primarily draws regional Texas riders with some competition at the front. No elite pro field or series points, though strong local racers show up to compete. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 4,
@@ -107,27 +107,27 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Reasonable total expenses with Austin-area access. Lodging options range from budget to mid-range in Georgetown and Austin. The short distance means minimal gear requirements and travel is straightforward from a major metro area."
+        "explanation": "Registration runs $20. Reasonable total expenses with Austin-area access. Lodging options range from budget to mid-range in Georgetown and Austin. The short distance means minimal gear requirements and travel is straightforward from a major metro area. More affordable than Crusher in the Tushar."
       },
       "length": {
         "score": 1,
-        "explanation": "At 30 miles, this falls under the <40mi threshold. It's a manageable single-distance format that works well for both newcomers to gravel and experienced riders looking for a shorter effort."
+        "explanation": "At 30 miles, this falls under the <40mi threshold. It's a manageable single-distance format that works well for both newcomers to gravel and experienced riders looking for a shorter effort. Shorter than Little Sugar MTB."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Texas Hill Country limestone gravel with some rough sections and technical elements, but nothing extreme. The terrain includes ranch roads and rolling hills without singletrack or highly technical descents."
+        "explanation": "Texas Hill Country limestone gravel with some rough sections and technical elements, but nothing extreme. The terrain includes ranch roads and rolling hills without singletrack or highly technical descents. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "With 2,000+ feet of climbing over 30 miles, this averages out to steady but moderate climbing. The Texas Hill Country provides rolling terrain rather than sustained mountain climbs."
+        "explanation": "With 2,000+ feet of climbing over 30 miles, this averages out to steady but moderate climbing. The Texas Hill Country provides rolling terrain rather than sustained mountain climbs. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "December in Texas Hill Country offers mild to cool temperatures (50s-60s°F), which is actually quite pleasant for racing. Occasional cold fronts possible but generally rider-friendly conditions."
+        "explanation": "Historical weather data shows average highs of 66°F and lows of 48°F, with a 37% chance of rain on any given day. December in Texas Hill Country offers mild to cool temperatures (50s-60s°F), which is actually quite pleasant for racing. Occasional cold fronts possible but generally rider-friendly conditions. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Texas Hill Country sits at relatively low elevation, well below 3,000 feet. No altitude acclimatization required - sea level performance applies."
+        "explanation": "Texas Hill Country sits at relatively low elevation, well below 3,000 feet. No altitude acclimatization required - sea level performance applies. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "logistics": {
         "score": 3,
@@ -194,6 +194,74 @@
     },
     "history": {
       "founder": "Bat City Cycling Team"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 2,
+          "tire_id": "goodyear-connector",
+          "name": "Goodyear Connector",
+          "brand": "Goodyear",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.99,
+          "weight_grams": 430,
+          "crr_watts": 34.5,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "high puncture protection for sharp surfaces"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

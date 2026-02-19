@@ -536,7 +536,7 @@ def build_training_cta(race_a: dict, race_b: dict) -> str:
       Train for {esc(race_b["name"][:25])}
     </a>
   </div>
-  <p class="gg-vs-cta-sub">$15/week, capped at $199. Cancel anytime.</p>
+  <p class="gg-vs-cta-sub">$15/week, capped at $249. Cancel anytime.</p>
 </section>'''
 
 

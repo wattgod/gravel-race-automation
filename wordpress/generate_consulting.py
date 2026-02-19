@@ -35,7 +35,7 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 # ── Constants ─────────────────────────────────────────────────
 
 BOOKING_URL = "https://calendly.com/gravelgodcycling/consult"
-CONSULTING_PRICE = "$175"
+CONSULTING_PRICE = "$150"
 CONSULTING_DURATION = "60 minutes"
 
 
@@ -563,7 +563,7 @@ def generate_consulting_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = "60-minute gravel race consulting call. Race selection, training structure, nutrition, and season planning. $175 with written action plan included."
+    meta_desc = "60-minute gravel race consulting call. Race selection, training structure, nutrition, and season planning. $150 with written action plan included."
 
     og_tags = f'''<meta property="og:title" content="Consulting | Gravel God">
   <meta property="og:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">

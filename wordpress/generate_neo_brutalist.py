@@ -1940,7 +1940,7 @@ def build_training(rd: dict, q_url: str) -> str:
       </div>
       <div class="gg-training-primary">
         <h3>Custom Training Plan</h3>
-        <p class="gg-training-subtitle">Race-specific. Built for {esc(race_name)}. $15/week, capped at $199.</p>
+        <p class="gg-training-subtitle">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
         <ul class="gg-training-bullets">
           <li>Structured workouts pushed to your device</li>
           <li>30+ page custom training guide</li>

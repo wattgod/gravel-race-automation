@@ -673,7 +673,7 @@ def build_cta_training() -> str:
     <div class="gg-guide-cta-inner">
       <span class="gg-guide-cta-kicker">READY TO TRAIN?</span>
       <h3>Custom Gravel Training Plan</h3>
-      <p>Race-specific. Built for you by a coach. $15/week, capped at $199.</p>
+      <p>Race-specific. Built for you by a coach. $15/week, capped at $249.</p>
       <ul>
         <li>Structured workouts pushed to your device</li>
         <li>30+ page custom training guide</li>

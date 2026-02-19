@@ -214,12 +214,11 @@ class TestSectionBuilders:
     def test_nav_has_links(self):
         nav = build_nav()
         assert "/gravel-races/" in nav
+        assert "/coaching/" in nav
         assert "/articles/" in nav
-        assert "/training-plans/" in nav
-        assert "/guide/" in nav
-        assert "SERVICES" in nav
-        assert "PRODUCTS" in nav
-        assert "gg-hp-dropdown" in nav
+        assert "/about/" in nav
+        assert "COACHING" in nav
+        assert "ABOUT" in nav
 
     def test_nav_no_breadcrumb(self):
         nav = build_nav()
@@ -497,7 +496,7 @@ class TestFullPage:
         assert "googletagmanager.com/gtag/js" in homepage_html
 
     def test_has_all_sections(self, homepage_html):
-        assert "gg-hp-header" in homepage_html
+        assert "gg-site-header" in homepage_html
         assert "gg-hp-ticker" in homepage_html
         assert "gg-hp-hero" in homepage_html
         assert "gg-hp-stats-bar" in homepage_html

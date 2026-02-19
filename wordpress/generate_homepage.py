@@ -321,33 +321,16 @@ def load_guide_chapters(guide_path: Path = None) -> list:
 
 
 def build_nav() -> str:
-    return f'''<header class="gg-hp-header">
-    <div class="gg-hp-header-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-hp-header-logo">
+    return f'''<header class="gg-site-header">
+    <div class="gg-site-header-inner">
+      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
         <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
       </a>
-      <nav class="gg-hp-header-nav">
+      <nav class="gg-site-header-nav">
         <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <div class="gg-hp-dropdown">
-          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">SERVICES</button>
-          <div class="gg-hp-dropdown-menu">
-            <a href="{esc(COACHING_URL)}">Coaching</a>
-          </div>
-        </div>
-        <div class="gg-hp-dropdown">
-          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">PRODUCTS</button>
-          <div class="gg-hp-dropdown-menu">
-            <a href="{SITE_BASE_URL}/training-plans/">Custom Training Plans</a>
-            <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
-          </div>
-        </div>
-        <div class="gg-hp-dropdown">
-          <button class="gg-hp-dropdown-trigger" aria-haspopup="true" aria-expanded="false">ARTICLES</button>
-          <div class="gg-hp-dropdown-menu">
-            <a href="{esc(SUBSTACK_URL)}" target="_blank" rel="noopener">Substack</a>
-            <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
-          </div>
-        </div>
+        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
+        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
+        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
       </nav>
     </div>
   </header>'''
@@ -516,16 +499,18 @@ def build_guide_preview(chapters: list) -> str:
 def build_hero(stats: dict) -> str:
     race_count = stats["race_count"]
     return f'''<section class="gg-hp-hero" id="main">
-    <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
-    <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-    <p class="gg-hp-hero-tagline" data-ab="hero_tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
-    <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
-      <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
-      <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
-    </form>
-    <div class="gg-hp-hero-ctas">
-      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="hero_cta_click">BROWSE ALL RACES</a>
-      <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn gg-hp-btn--secondary" data-ga="hero_secondary_click">HOW WE RATE</a>
+    <div class="gg-hp-hero-inner">
+      <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
+      <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
+      <p class="gg-hp-hero-tagline" data-ab="hero_tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
+      <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
+        <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
+        <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
+      </form>
+      <div class="gg-hp-hero-ctas">
+        <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="hero_cta_click">BROWSE ALL RACES</a>
+        <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn gg-hp-btn--secondary" data-ga="hero_secondary_click">HOW WE RATE</a>
+      </div>
     </div>
   </section>'''
 
@@ -891,21 +876,12 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-page { margin: 0; padding: 0; }
 
 /* ── Header ──────────────────────────────────────────────── */
-.gg-hp-header { padding: 16px 24px; border-bottom: 2px solid #9a7e0a; }
-.gg-hp-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
-.gg-hp-header-logo img { display: block; height: 50px; width: auto; }
-.gg-hp-header-nav { display: flex; gap: 28px; }
-.gg-hp-header-nav > a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); }
-.gg-hp-header-nav > a:hover { color: #9a7e0a; }
-.gg-hp-dropdown { position: relative; display: flex; align-items: center; }
-.gg-hp-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color var(--gg-ease); line-height: 1; }
-.gg-hp-dropdown-trigger::after { content: ' \\25BE'; font-size: 9px; }
-.gg-hp-dropdown-trigger:hover, .gg-hp-dropdown:hover .gg-hp-dropdown-trigger { color: #9a7e0a; }
-.gg-hp-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; min-width: 200px; background: #f5efe6; border: 3px solid #3a2e25; padding: 8px 0; z-index: 100; }
-.gg-hp-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
-.gg-hp-dropdown:hover .gg-hp-dropdown-menu { display: block; }
-.gg-hp-dropdown-menu a { display: block; padding: 8px 16px; color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: none; transition: background var(--gg-ease), color var(--gg-ease); }
-.gg-hp-dropdown-menu a:hover { background: #3a2e25; color: #f5efe6; }
+.gg-site-header { padding: 16px 24px; border-bottom: 2px solid #9a7e0a; }
+.gg-site-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
+.gg-site-header-logo img { display: block; height: 50px; width: auto; }
+.gg-site-header-nav { display: flex; gap: 28px; }
+.gg-site-header-nav a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+.gg-site-header-nav a:hover { color: #9a7e0a; }
 
 /* ── Ticker ──────────────────────────────────────────────── */
 .gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: hidden; white-space: nowrap; }
@@ -925,6 +901,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .gg-hp-hero { background: #59473c; color: #fff; padding: 64px 48px; border-bottom: 3px solid #9a7e0a; }
+.gg-hp-hero-inner { max-width: 960px; margin: 0 auto; }
 .gg-hp-hero-badge { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9a7e0a; border: 2px solid #9a7e0a; padding: 6px 16px; margin-bottom: 24px; }
 .gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 20px; }
 .gg-hp-hero-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.75; color: #d4c5b9; max-width: 640px; margin-bottom: 36px; }
@@ -955,7 +932,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-training .gg-hp-btn--secondary:hover { background: #59473c; color: #fff; }
 
 /* ── Stats bar ───────────────────────────────────────────── */
-.gg-hp-stats-bar { background: #f5efe6; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #d4c5b9; }
+.gg-hp-stats-bar { background: #f5efe6; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #d4c5b9; max-width: 960px; margin: 0 auto; }
 .gg-hp-stat { text-align: center; padding: 32px 16px; border-right: 1px solid #d4c5b9; }
 .gg-hp-stat:last-child { border-right: none; }
 .gg-hp-stat-number { display: block; font-family: 'Sometype Mono', monospace; font-size: 44px; font-weight: 700; color: #3a2e25; line-height: 1.1; margin-bottom: 8px; }
@@ -1015,7 +992,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-take-cta .gg-hp-btn--primary:hover { background: #b8960d; border-color: #b8960d; }
 
 /* ── How it works ────────────────────────────────────────── */
-.gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
+.gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; max-width: 960px; margin: 32px auto 0; }
 .gg-hp-step { padding: 36px 24px; border-right: 1px solid #d4c5b9; }
 .gg-hp-step:last-child { border-right: none; }
 .gg-hp-step-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; margin-bottom: 12px; }
@@ -1110,7 +1087,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-test-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
 
 /* ── Email capture ───────────────────────────────────────── */
-.gg-hp-email { background: #f5efe6; margin-top: 32px; padding: 48px; border: 1px solid #d4c5b9; border-top: 2px solid #178079; }
+.gg-hp-email { background: #f5efe6; padding: 48px; border: 1px solid #d4c5b9; border-top: 2px solid #178079; max-width: 960px; margin: 32px auto 0; }
 .gg-hp-email-inner { max-width: 560px; margin: 0 auto; text-align: center; }
 .gg-hp-email-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 12px; }
 .gg-hp-email-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; color: #3a2e25; margin-bottom: 12px; }
@@ -1168,13 +1145,11 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-guide, .gg-hp-featured-in, .gg-hp-training, .gg-hp-email, .gg-hp-testimonials { margin: 16px 0 0; border-left: none; border-right: none; }
 
   /* Header */
-  .gg-hp-header { padding: 12px 16px; }
-  .gg-hp-header-inner { flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .gg-hp-header-logo img { height: 40px; }
-  .gg-hp-header-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
-  .gg-hp-header-nav > a { font-size: 10px; letter-spacing: 1.5px; }
-  .gg-hp-dropdown-trigger { font-size: 10px; letter-spacing: 1.5px; }
-  .gg-hp-dropdown-menu { left: 50%; transform: translateX(-50%); min-width: 180px; }
+  .gg-site-header { padding: 12px 16px; }
+  .gg-site-header-inner { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .gg-site-header-logo img { height: 40px; }
+  .gg-site-header-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .gg-site-header-nav a { font-size: 10px; letter-spacing: 1.5px; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }

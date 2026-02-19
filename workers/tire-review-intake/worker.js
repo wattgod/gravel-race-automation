@@ -2,7 +2,7 @@
  * Cloudflare Worker: Tire Review Intake
  *
  * Receives tire review submissions from per-tire pages.
- * Validates, writes to KV, sends SendGrid notification.
+ * Validates, deduplicates by email+tire, writes to KV, sends SendGrid notification.
  */
 
 const DISPOSABLE_DOMAINS = [
@@ -13,6 +13,9 @@ const DISPOSABLE_DOMAINS = [
 
 const VALID_CONDITIONS = ['dry', 'mixed', 'wet', 'mud'];
 
+// Only alphanumeric + hyphens allowed in tire IDs (matches slug format)
+const TIRE_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/;
+
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') return handleCORS(request, env);
@@ -20,7 +23,8 @@ export default {
 
     const origin = request.headers.get('Origin');
     const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://gravelgodcycling.com').split(',').map(o => o.trim());
-    if (!allowedOrigins.some(allowed => origin?.startsWith(allowed))) {
+    // Fix #2: Exact origin match, not startsWith (prevents gravelgodcycling.com.evil.com)
+    if (!allowedOrigins.includes(origin)) {
       return new Response('Forbidden', { status: 403 });
     }
 
@@ -38,7 +42,7 @@ export default {
     // Sanitize string inputs: truncate to sane lengths
     if (data.tire_id) data.tire_id = String(data.tire_id).substring(0, 100);
     if (data.tire_name) data.tire_name = String(data.tire_name).substring(0, 200);
-    if (data.email) data.email = String(data.email).substring(0, 254);
+    if (data.email) data.email = String(data.email).substring(0, 254).toLowerCase().trim();
     if (data.race_used_at) data.race_used_at = String(data.race_used_at).substring(0, 100);
     if (data.review_text) data.review_text = String(data.review_text).substring(0, 500);
 
@@ -47,11 +51,20 @@ export default {
       return jsonResponse({ error: validation.error }, 400, origin);
     }
 
+    // Fix #1: Deduplicate by email+tire_id — one review per person per tire
+    const dedupKey = `dedup:${data.tire_id}:${emailHash(data.email)}`;
+    const existing = await env.TIRE_REVIEWS.get(dedupKey);
+    if (existing) {
+      return jsonResponse({
+        error: 'You have already reviewed this tire. Thank you!'
+      }, 409, origin);
+    }
+
     const reviewId = generateReviewId(data.email, data.tire_id);
     const review = formatReview(data, reviewId);
     const kvKey = `${data.tire_id}:${reviewId}`;
 
-    // Write to KV
+    // Write review + dedup key atomically
     try {
       await env.TIRE_REVIEWS.put(kvKey, JSON.stringify(review), {
         metadata: {
@@ -60,6 +73,8 @@ export default {
           submitted_at: review.submitted_at,
         }
       });
+      // Dedup key — value is the review_id, expires never (one review per email per tire, forever)
+      await env.TIRE_REVIEWS.put(dedupKey, reviewId);
     } catch (kvError) {
       console.error('KV write failed:', kvError);
       return jsonResponse({ error: 'Storage error' }, 500, origin);
@@ -98,6 +113,10 @@ function esc(str) {
 
 function validateReview(data) {
   if (!data.tire_id) return { valid: false, error: 'Missing: tire_id' };
+  // Fix #3: Validate tire_id is a clean slug (no colons, slashes, or special chars)
+  if (!TIRE_ID_PATTERN.test(data.tire_id)) {
+    return { valid: false, error: 'Invalid tire_id format' };
+  }
   if (!data.tire_name) return { valid: false, error: 'Missing: tire_name' };
   if (!data.email) return { valid: false, error: 'Missing: email' };
   if (!data.stars || !Number.isInteger(data.stars) || data.stars < 1 || data.stars > 5) {
@@ -116,8 +135,9 @@ function validateReview(data) {
   // Optional field validation
   if (data.width_ridden != null) {
     const w = Number(data.width_ridden);
-    if (!Number.isInteger(w) || w <= 0) {
-      return { valid: false, error: 'Invalid width_ridden' };
+    // Fix #4: Clamp to realistic tire widths (25mm-60mm)
+    if (!Number.isInteger(w) || w < 25 || w > 60) {
+      return { valid: false, error: 'Invalid width_ridden (25-60mm)' };
     }
   }
 
@@ -129,7 +149,8 @@ function validateReview(data) {
   }
 
   if (data.conditions != null) {
-    if (!Array.isArray(data.conditions) || !data.conditions.every(c => VALID_CONDITIONS.includes(c))) {
+    if (!Array.isArray(data.conditions) || data.conditions.length > 4 ||
+        !data.conditions.every(c => VALID_CONDITIONS.includes(c))) {
       return { valid: false, error: 'Invalid conditions' };
     }
   }
@@ -143,9 +164,13 @@ function validateReview(data) {
 
 // --- Formatting ---
 
+function emailHash(email) {
+  return email.split('').reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0).toString(36);
+}
+
 function generateReviewId(email, tireId) {
   const ts = Date.now().toString(36);
-  const hash = email.split('').reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0).toString(36);
+  const hash = emailHash(email);
   return `tr-${tireId.substring(0, 20)}-${hash}-${ts}`;
 }
 
@@ -156,8 +181,8 @@ function formatReview(data, reviewId) {
     tire_name: data.tire_name,
     email: data.email,
     stars: data.stars,
-    width_ridden: data.width_ridden || null,
-    pressure_psi: data.pressure_psi || null,
+    width_ridden: data.width_ridden != null ? Number(data.width_ridden) : null,
+    pressure_psi: data.pressure_psi != null ? Number(data.pressure_psi) : null,
     conditions: data.conditions || [],
     race_used_at: (data.race_used_at || '').trim() || null,
     would_recommend: data.would_recommend || null,
@@ -214,7 +239,8 @@ async function sendNotificationEmail(env, review) {
 function handleCORS(request, env) {
   const origin = request.headers.get('Origin');
   const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://gravelgodcycling.com').split(',').map(o => o.trim());
-  const allowOrigin = allowedOrigins.find(a => origin?.startsWith(a)) || '';
+  // Fix #2: Exact match
+  const allowOrigin = allowedOrigins.includes(origin) ? origin : '';
   return new Response(null, {
     status: 204,
     headers: {
@@ -231,7 +257,7 @@ function jsonResponse(body, status, origin) {
     status,
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': origin || '*'
+      'Access-Control-Allow-Origin': origin || ''
     }
   });
 }

@@ -625,6 +625,19 @@ a:hover { text-decoration: underline; }
   font-size: 13px;
   color: var(--gg-color-secondary-brown);
 }
+.tp-rev-error {
+  padding: 12px 0;
+}
+.tp-rev-error-text {
+  font-family: var(--gg-font-data);
+  font-size: 13px;
+  color: #c0392b;
+  font-weight: 600;
+}
+.tp-rev-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 @media (max-width: 768px) {
   .tp-rev-form-row { grid-template-columns: 1fr; }
@@ -869,18 +882,59 @@ def build_tire_review_form(tire: dict) -> str:
           <textarea id="tp-rev-text" name="review_text" maxlength="500" rows="3" class="tp-rev-textarea" placeholder="How did it perform?"></textarea>
           <span class="tp-rev-charcount" data-for="tp-rev-text">0/500</span>
         </div>
-        <button type="submit" class="tp-rev-submit">SUBMIT REVIEW</button>
+        <button type="submit" class="tp-rev-submit" id="tp-rev-submit-btn">SUBMIT REVIEW</button>
       </form>
       <div class="tp-rev-success" id="tp-rev-success">
         <div class="tp-rev-success-icon">&#10003;</div>
         <p class="tp-rev-success-text">Review submitted &mdash; thank you!</p>
       </div>
+      <div class="tp-rev-error" id="tp-rev-error" style="display:none;">
+        <p class="tp-rev-error-text" id="tp-rev-error-text"></p>
+      </div>
+    </div>'''
+
+
+def _render_review_card(r: dict) -> str:
+    """Render a single review card with safe escaping on all user fields."""
+    # Fix #13: Clamp stars to 1-5 range to prevent rendering bugs
+    stars = max(1, min(5, int(r.get("stars", 0)))) if isinstance(r.get("stars"), (int, float)) else 0
+    if stars == 0:
+        return ""  # Skip reviews with invalid stars
+    r_stars = "&#9733;" * stars + "&#9734;" * (5 - stars)
+
+    # Fix #12: Escape ALL user-sourced fields, not just some
+    meta_parts = []
+    if r.get("width_ridden"):
+        meta_parts.append(f'<span>{esc(str(r["width_ridden"]))}mm</span>')
+    if r.get("pressure_psi"):
+        meta_parts.append(f'<span>{esc(str(r["pressure_psi"]))} psi</span>')
+    if r.get("conditions") and isinstance(r["conditions"], list):
+        meta_parts.append(f'<span>{esc(", ".join(str(c) for c in r["conditions"]))}</span>')
+    if r.get("race_used_at"):
+        meta_parts.append(f'<span>{esc(str(r["race_used_at"]))}</span>')
+    meta_html = "".join(meta_parts)
+
+    text_html = f'<div class="tp-rev-card-text">{esc(str(r["review_text"]))}</div>' if r.get("review_text") else ""
+
+    rec_html = ""
+    if r.get("would_recommend") == "yes":
+        rec_html = '<div class="tp-rev-card-recommend tp-rev-card-recommend--yes">&#10003; Would recommend</div>'
+    elif r.get("would_recommend") == "no":
+        rec_html = '<div class="tp-rev-card-recommend tp-rev-card-recommend--no">&#10007; Would not recommend</div>'
+
+    return f'''<div class="tp-rev-card">
+      <div class="tp-rev-card-stars">{r_stars}</div>
+      <div class="tp-rev-card-meta">{meta_html}</div>
+      {text_html}
+      {rec_html}
     </div>'''
 
 
 def build_community_reviews_section(tire: dict) -> str:
     """Build community reviews section with 3 display states."""
     reviews = [r for r in tire.get("community_reviews", []) if r.get("approved")]
+    # Fix #13: Filter out reviews with invalid stars before counting
+    reviews = [r for r in reviews if isinstance(r.get("stars"), (int, float)) and 1 <= r["stars"] <= 5]
     total = len(reviews)
     name = tire["name"]
     form = build_tire_review_form(tire)
@@ -897,14 +951,19 @@ def build_community_reviews_section(tire: dict) -> str:
   </div>
 </section>'''
 
-    # Pending state (below threshold)
+    # Fix #14: Pending state now shows review cards (just no aggregate)
+    sorted_reviews = sorted(reviews, key=lambda r: r.get("submitted_at", ""), reverse=True)
+
     if total < threshold:
         needed = threshold - total
+        cards = [_render_review_card(r) for r in sorted_reviews[:5]]
+        cards = [c for c in cards if c]  # filter empty (invalid stars)
         return f'''<section class="tp-section">
   <div class="tp-container">
     <span class="tp-section-num">05 / COMMUNITY REVIEWS</span>
     <h2>Community Reviews</h2>
     <p class="tp-rev-pending">{total} review{"s" if total != 1 else ""} so far &mdash; {needed} more needed to display the community rating.</p>
+    {"".join(cards)}
     {form}
   </div>
 </section>'''
@@ -921,38 +980,8 @@ def build_community_reviews_section(tire: dict) -> str:
         empty = 5 - full_stars
     stars_html += "&#9734;" * empty
 
-    # Show up to 5 most recent
-    sorted_reviews = sorted(reviews, key=lambda r: r.get("submitted_at", ""), reverse=True)[:5]
-
-    cards = []
-    for r in sorted_reviews:
-        r_stars = "&#9733;" * r["stars"] + "&#9734;" * (5 - r["stars"])
-
-        meta_parts = []
-        if r.get("width_ridden"):
-            meta_parts.append(f'<span>{r["width_ridden"]}mm</span>')
-        if r.get("pressure_psi"):
-            meta_parts.append(f'<span>{r["pressure_psi"]} psi</span>')
-        if r.get("conditions"):
-            meta_parts.append(f'<span>{", ".join(r["conditions"])}</span>')
-        if r.get("race_used_at"):
-            meta_parts.append(f'<span>{esc(r["race_used_at"])}</span>')
-        meta_html = "".join(meta_parts)
-
-        text_html = f'<div class="tp-rev-card-text">{esc(r["review_text"])}</div>' if r.get("review_text") else ""
-
-        rec_html = ""
-        if r.get("would_recommend") == "yes":
-            rec_html = '<div class="tp-rev-card-recommend tp-rev-card-recommend--yes">&#10003; Would recommend</div>'
-        elif r.get("would_recommend") == "no":
-            rec_html = '<div class="tp-rev-card-recommend tp-rev-card-recommend--no">&#10007; Would not recommend</div>'
-
-        cards.append(f'''<div class="tp-rev-card">
-      <div class="tp-rev-card-stars">{r_stars}</div>
-      <div class="tp-rev-card-meta">{meta_html}</div>
-      {text_html}
-      {rec_html}
-    </div>''')
+    cards = [_render_review_card(r) for r in sorted_reviews[:5]]
+    cards = [c for c in cards if c]
 
     return f'''<section class="tp-section">
   <div class="tp-container">
@@ -1094,8 +1123,16 @@ def build_inline_js() -> str:
     if(ta){ta.addEventListener('input',function(){cc.textContent=ta.value.length+'/500';});}
   }
 
+  /* Fix #5: Track submission state to prevent double-submit */
+  var submitting=false;
+  var submitBtn=document.getElementById('tp-rev-submit-btn');
+  var errEl=document.getElementById('tp-rev-error');
+  var errText=document.getElementById('tp-rev-error-text');
+
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    if(submitting) return;
+
     var stars=parseInt(starsInput.value);
     var email=form.email.value.trim();
     if(!stars||stars<1||stars>5){alert('Please select a star rating.');return;}
@@ -1121,11 +1158,39 @@ def build_inline_js() -> str:
       review_text:form.review_text.value||null,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    if(typeof gtag==='function') gtag('event','tire_review_submit',{tire_id:form.tire_id.value,stars:stars});
 
-    form.style.display='none';
-    document.getElementById('tp-rev-success').style.display='block';
+    /* Fix #5: Disable button immediately */
+    submitting=true;
+    submitBtn.disabled=true;
+    submitBtn.textContent='SUBMITTING...';
+    errEl.style.display='none';
+
+    /* Fix #6: Await fetch response, handle errors */
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(resp){
+      return resp.json().then(function(data){return{status:resp.status,body:data};});
+    })
+    .then(function(result){
+      if(result.status===200){
+        if(typeof gtag==='function') gtag('event','tire_review_submit',{tire_id:form.tire_id.value,stars:stars});
+        form.style.display='none';
+        document.getElementById('tp-rev-success').style.display='block';
+      } else {
+        var msg=result.body.error||'Something went wrong. Please try again.';
+        errText.textContent=msg;
+        errEl.style.display='block';
+        submitting=false;
+        submitBtn.disabled=false;
+        submitBtn.textContent='SUBMIT REVIEW';
+      }
+    })
+    .catch(function(){
+      errText.textContent='Network error. Please check your connection and try again.';
+      errEl.style.display='block';
+      submitting=false;
+      submitBtn.disabled=false;
+      submitBtn.textContent='SUBMIT REVIEW';
+    });
   });
 })();
 </script>'''

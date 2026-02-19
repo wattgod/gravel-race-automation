@@ -1862,3 +1862,251 @@ representative subset). Testing against 3 of 317 is not testing — it's hoping.
 
 Sample-based testing is fine for development. Scale testing is required before
 claiming "done."
+
+---
+
+# Tire Review System — Shortcuts & Rules (Feb 19, 2026)
+
+## Shortcut #71: No Dedup — Same User Could Spam Reviews (HIGH)
+
+**What happened:** The tire-review-intake worker accepted unlimited reviews from the
+same email for the same tire. No deduplication check. A single user could submit 100
+reviews for one tire and skew the aggregate rating.
+
+**Why it happened:** Race review worker didn't have dedup either, and the AI copied
+the pattern. Nobody asked "what stops abuse?" during implementation.
+
+**Fix:** Added dedup key `dedup:{tire_id}:{emailHash}` in KV. One review per email
+per tire, forever. Second submission returns 409 with a friendly message.
+
+**Prevention:**
+- Worker validates dedup key before writing
+- 409 response displayed to user via proper error handling (see Fix #6)
+
+---
+
+## Shortcut #72: Origin Check Used startsWith — Bypassable (CRITICAL)
+
+**What happened:** CORS origin validation used `origin.startsWith(allowedOrigin)`
+instead of exact match. An attacker at `gravelgodcycling.com.evil.com` would pass
+the check.
+
+**Why it happened:** Copied a flawed pattern from the race review worker without
+questioning it.
+
+**Fix:** Changed to `allowedOrigins.includes(origin)` — exact match only.
+
+**Prevention:**
+- Tested with `gravelgodcycling.com.evil.com` — confirmed 403
+- Rule #50 below
+
+---
+
+## Shortcut #73: tire_id Not Sanitized — KV Key Injection (HIGH)
+
+**What happened:** The tire_id field was truncated to 100 chars but not validated
+for special characters. A tire_id containing colons (`:`) would break the KV key
+format `{tire_id}:{review_id}` and corrupt the sync script's key parsing. A tire_id
+with slashes or null bytes could cause other issues.
+
+**Fix:** Added regex validation: `TIRE_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/`.
+Only lowercase alphanumeric + hyphens allowed — matches the slug format used by all
+tire IDs.
+
+**Prevention:**
+- Worker rejects invalid tire_id with 400 before touching KV
+
+---
+
+## Shortcut #74: width_ridden Accepted Unrealistic Values (MEDIUM)
+
+**What happened:** width_ridden was validated as any positive integer. A user could
+submit `width_ridden: 9999` or `width_ridden: 1`. Only 25-60mm makes sense for
+gravel tires.
+
+**Fix:** Clamped to 25-60mm range in worker validation.
+
+---
+
+## Shortcut #75: No Double-Submit Prevention in JS (HIGH)
+
+**What happened:** The review form's submit handler had no guard against double
+clicks. Rapid clicking would send multiple POSTs, potentially creating duplicate
+reviews (before dedup was added) and causing confusing UX.
+
+**Fix:** Added `submitting` flag + disabled submit button on click. Button shows
+"SUBMITTING..." while request is in flight. Re-enabled on error.
+
+---
+
+## Shortcut #76: Fire-and-Forget Fetch — User Always Sees Success (CRITICAL)
+
+**What happened:** The JS form handler called `fetch(...).catch(function(){})` and
+immediately showed the success state — without waiting for the response. If the worker
+returned 400 (validation error), 409 (duplicate), or 500 (storage error), the user
+still saw "Review submitted — thank you!" The user would never know their review
+wasn't saved.
+
+**Why it happened:** Fire-and-forget is one line. Proper async handling with error
+states is 20+ lines. The AI optimized for line count.
+
+**Fix:** JS now awaits the fetch response. On non-200, displays the worker's error
+message (e.g., "You have already reviewed this tire. Thank you!") in a visible error
+div. On network failure, shows "Network error. Please check your connection and try
+again." Submit button re-enables on error so the user can retry.
+
+---
+
+## Shortcut #77: Sync Script Had N+1 API Calls (MEDIUM)
+
+**What happened:** `sync_tire_reviews.py` fetched each KV value individually with no
+batching consideration. For 100 reviews, that's 100 sequential HTTP requests.
+
+**Why it happened:** Cloudflare KV REST API doesn't have a true bulk GET. But the
+implementation didn't even batch conceptually — it just looped.
+
+**Fix:** Proper URL encoding with `urllib.parse.quote(key, safe="")` for keys
+containing special characters. Sequential fetch is currently the only option with
+CF KV REST API, but keys are now URL-safe.
+
+---
+
+## Shortcut #78: KV Keys Not URL-Encoded in Sync (HIGH)
+
+**What happened:** The sync script put KV key names directly into URL paths without
+encoding. A key containing `%`, `#`, or other URL-special characters would produce
+a malformed API request.
+
+**Fix:** Added `quote(key, safe="")` from `urllib.parse` for all KV key URL paths.
+
+---
+
+## Shortcut #79: No Validation of KV Data in Sync (HIGH)
+
+**What happened:** The sync script trusted whatever came from KV. If a malformed
+review (missing review_id, stars=0, invalid types) was stored in KV, it would be
+appended to the per-tire JSON without validation. This could break page generation.
+
+**Fix:** Added `validate_review()` function that checks:
+- review_id present
+- stars is int 1-5
+- submitted_at present
+- Optional fields have correct types (width_ridden: int/float, conditions: list)
+
+Invalid reviews are logged as REJECTED with reason and excluded from sync.
+
+---
+
+## Shortcut #80: PII Stripping Used Blacklist, Not Whitelist (CRITICAL)
+
+**What happened:** The sync script removed PII by deleting the `email` field. But
+if the worker ever added a new field containing PII (e.g., `display_name`, `ip_address`),
+it would flow straight into the repo JSON because the blacklist didn't know about it.
+
+**Fix:** Changed to whitelist approach. `REVIEW_FIELDS` set defines exactly which
+fields survive into the repo:
+`{review_id, stars, width_ridden, pressure_psi, conditions, race_used_at,
+would_recommend, review_text, submitted_at}`
+
+Any new field must be explicitly added to the whitelist. Unknown fields are silently
+dropped.
+
+---
+
+## Shortcut #81: Reviews Not Sorted on Append (LOW)
+
+**What happened:** New reviews were appended in KV key order (essentially random).
+Reviews should be sorted by `submitted_at` for consistent display.
+
+**Fix:** `new_reviews.sort(key=lambda r: r.get("submitted_at", ""))` before appending.
+
+---
+
+## Shortcut #82: Review Card Fields Not XSS-Escaped (HIGH)
+
+**What happened:** Review cards rendered `width_ridden`, `pressure_psi`, `conditions`,
+and `race_used_at` directly into HTML without escaping. While these fields are validated
+on the worker side, defense-in-depth requires escaping at the rendering layer too.
+
+**Fix:** Extracted `_render_review_card()` function that escapes every user-sourced
+field with `esc(str(...))`. Even numeric fields are escaped after string conversion.
+
+---
+
+## Shortcut #83: Star Count Not Validated Before Rendering (MEDIUM)
+
+**What happened:** Star count from JSON was used directly in `range()` for rendering
+star icons. A malformed value (negative, >5, or non-integer) could produce broken HTML
+or crash the generator.
+
+**Fix:** Stars clamped to 1-5 with type checking:
+`stars = max(1, min(5, int(r.get("stars", 0)))) if isinstance(r.get("stars"), (int, float)) else 0`
+Zero-star reviews (invalid data) are silently hidden.
+
+---
+
+## Shortcut #84: Pending State Hid Existing Reviews (MEDIUM)
+
+**What happened:** When a tire had 1-2 reviews (below the 3-review threshold for
+aggregate display), the pending state message was shown but existing review cards
+were hidden. Users who submitted reviews couldn't see them.
+
+**Fix:** Pending state now shows all existing review cards with a message:
+"N review(s) so far — X more needed to display the community rating."
+Reviews are visible even before the aggregate threshold is reached.
+
+---
+
+## Rule #50: Always Use Exact Origin Match for CORS
+
+Never use `startsWith()` for origin validation:
+```javascript
+// BAD — gravelgodcycling.com.evil.com passes
+if (origin.startsWith(allowedOrigin))
+
+// GOOD — exact match only
+if (allowedOrigins.includes(origin))
+```
+This applies to every Cloudflare Worker. Check all existing workers.
+
+## Rule #51: All Form Submissions Must Await the Response
+
+Never fire-and-forget a form POST:
+```javascript
+// BAD — user sees success even on error
+fetch(url, opts).catch(function(){});
+form.style.display='none';
+success.style.display='block';
+
+// GOOD — show result based on actual response
+fetch(url, opts).then(function(resp){
+  if(resp.ok) showSuccess();
+  else resp.json().then(function(d){ showError(d.error); });
+}).catch(function(){ showError('Network error'); });
+```
+
+## Rule #52: Whitelist Fields, Don't Blacklist PII
+
+When stripping PII from data that will be committed to a repo:
+- Define an explicit set of allowed fields
+- Copy only those fields to the clean object
+- Any field not in the whitelist is silently dropped
+- This way, new PII fields added upstream are excluded by default
+
+## Rule #53: Validate External Data Before Merging
+
+Data from external sources (KV, APIs, user input) must be validated before
+being written to repo files. Even if the source "should" only contain valid
+data, validate defensively:
+- Required fields present
+- Types correct
+- Ranges sane
+- Log rejections with reasons for debugging
+
+## Rule #54: Double-Submit Prevention on Every Form
+
+Every form that POSTs to a backend must:
+1. Disable the submit button on click
+2. Show a loading state (text change or spinner)
+3. Re-enable button on error
+4. Only show success state after confirmed 200 response

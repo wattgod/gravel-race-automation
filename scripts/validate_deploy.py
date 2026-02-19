@@ -102,6 +102,8 @@ def check_key_pages(v):
         ("/guide/", "Training guide"),
         ("/race/methodology/", "Methodology page"),
         ("/about/", "About page"),
+        ("/coaching/", "Coaching page"),
+        ("/coaching/apply/", "Coaching apply page"),
     ]
     for path, name in pages:
         code = curl_status(f"{BASE_URL}{path}")
@@ -477,6 +479,38 @@ def check_ab_testing_assets(v):
                     "Invalid JSON response")
 
 
+def check_coaching(v):
+    """Verify coaching page is deployed with expected content."""
+    print("\n[Coaching Page]")
+    code = curl_status(f"{BASE_URL}/coaching/")
+    v.check(code == "200", "/coaching/ accessible", f"HTTP {code}")
+
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/coaching/")
+        v.check("gg-coach-hero" in body, "Coaching page has hero section", "Missing hero")
+        v.check("gg-coach-tier" in body, "Coaching page has tier comparison", "Missing tiers")
+        v.check("coaching_page_view" in body, "Coaching page has GA4 tracking", "Missing GA4 events")
+        v.check("application/ld+json" in body, "Coaching page has JSON-LD", "Missing JSON-LD")
+        v.check("$15" in body or "$249" in body, "Coaching page has pricing info", "Missing pricing")
+        v.check("gg-coach-faq" in body, "Coaching page has FAQ section", "Missing FAQ")
+
+
+def check_coaching_apply(v):
+    """Verify coaching apply page is deployed with expected content."""
+    print("\n[Coaching Apply Page]")
+    code = curl_status(f"{BASE_URL}/coaching/apply/")
+    v.check(code == "200", "/coaching/apply/ accessible", f"HTTP {code}")
+
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/coaching/apply/")
+        v.check("intake-form" in body, "Apply page has intake form", "Missing form")
+        v.check("gg-apply-progress" in body, "Apply page has progress bar", "Missing progress bar")
+        v.check("apply_page_view" in body, "Apply page has GA4 tracking", "Missing GA4 events")
+        v.check("application/ld+json" in body, "Apply page has JSON-LD", "Missing JSON-LD")
+        v.check("inferTraits" in body, "Apply page has blindspot inference", "Missing inference")
+        v.check("noindex" in body, "Apply page is noindexed", "Missing noindex")
+
+
 def check_series_hubs(v):
     """Verify series hub pages are deployed and accessible."""
     print("\n[Series Hubs]")
@@ -511,6 +545,8 @@ def main():
     check_blog_sitemap(v)
     check_photo_infrastructure(v)
     check_ab_testing_assets(v)
+    check_coaching(v)
+    check_coaching_apply(v)
     check_series_hubs(v)
 
     check_search_schema(v)

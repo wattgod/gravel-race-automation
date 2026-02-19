@@ -552,6 +552,140 @@ def sync_about(about_file: str):
     return f"{wp_url}/about/"
 
 
+def sync_coaching(coaching_file: str):
+    """Upload coaching.html to /coaching/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(coaching_file)
+    if not html_path.exists():
+        print(f"✗ Coaching page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_coaching.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/coaching"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload coaching.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for coaching page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading coaching page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (coaching page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded coaching page: {wp_url}/coaching/")
+    return f"{wp_url}/coaching/"
+
+
+def sync_coaching_apply(apply_file: str):
+    """Upload coaching-apply.html to /coaching/apply/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(apply_file)
+    if not html_path.exists():
+        print(f"✗ Coaching apply HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_coaching_apply.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/coaching/apply"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload coaching-apply.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for coaching apply page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading coaching apply page: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded coaching apply page: {wp_url}/coaching/apply/")
+    return f"{wp_url}/coaching/apply/"
+
+
 def sync_og(og_dir: str):
     """Upload OG images to /og/ on SiteGround via tar+ssh pipe.
 
@@ -1714,6 +1848,22 @@ if __name__ == "__main__":
         help="Path to about page HTML (default: wordpress/output/about.html)"
     )
     parser.add_argument(
+        "--sync-coaching", action="store_true",
+        help="Upload coaching page to /coaching/ via SCP"
+    )
+    parser.add_argument(
+        "--coaching-file", default="wordpress/output/coaching.html",
+        help="Path to coaching page HTML (default: wordpress/output/coaching.html)"
+    )
+    parser.add_argument(
+        "--sync-coaching-apply", action="store_true",
+        help="Upload coaching apply page to /coaching/apply/ via SCP"
+    )
+    parser.add_argument(
+        "--coaching-apply-file", default="wordpress/output/coaching-apply.html",
+        help="Path to coaching apply HTML (default: wordpress/output/coaching-apply.html)"
+    )
+    parser.add_argument(
         "--sync-pages", action="store_true",
         help="Upload race pages to /race/ via tar+ssh (with correct permissions)"
     )
@@ -1816,6 +1966,8 @@ if __name__ == "__main__":
         args.sync_og = True
         args.sync_homepage = True
         args.sync_about = True
+        args.sync_coaching = True
+        args.sync_coaching_apply = True
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
@@ -1830,7 +1982,8 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about, args.sync_pages,
+                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about,
+                      args.sync_coaching, args.sync_coaching_apply, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits,
                       args.sync_series, args.sync_blog,
@@ -1854,6 +2007,10 @@ if __name__ == "__main__":
         sync_homepage(args.homepage_file)
     if args.sync_about:
         sync_about(args.about_file)
+    if args.sync_coaching:
+        sync_coaching(args.coaching_file)
+    if args.sync_coaching_apply:
+        sync_coaching_apply(args.coaching_apply_file)
     if args.sync_pages:
         sync_pages(args.pages_dir)
     if args.sync_sitemap:

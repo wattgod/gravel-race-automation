@@ -156,9 +156,9 @@ QUESTIONNAIRE_SLUGS = {
 }
 
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
-COACHING_URL = "https://www.wattgod.com/apply"
-TRAINING_PLANS_URL = "/training-plans/"
 SITE_BASE_URL = "https://gravelgodcycling.com"
+COACHING_URL = f"{SITE_BASE_URL}/coaching/"
+TRAINING_PLANS_URL = "/training-plans/"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"

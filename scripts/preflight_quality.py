@@ -137,6 +137,68 @@ try {{
 # ── Check 4: training-plans-form.js syntax validation ──
 
 
+def check_coaching_js_syntax():
+    """Parse coaching page JS through Node.js to catch syntax errors."""
+    print("\n── Coaching Page JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        import generate_coaching as gc
+    except ImportError:
+        check("generate_coaching imports", False, "Could not import generate_coaching")
+        return
+
+    js = gc.build_coaching_js()
+    # Strip script tags
+    js = js.replace("<script>", "").replace("</script>", "")
+    test_script = f"""
+try {{
+    new Function({json.dumps(js)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+    result = subprocess.run(
+        ["node", "-e", test_script],
+        capture_output=True, text=True, timeout=10
+    )
+    check("Coaching JS parses without syntax errors",
+          result.returncode == 0 and "SYNTAX_OK" in result.stdout,
+          result.stderr or result.stdout)
+
+
+def check_coaching_apply_js_syntax():
+    """Parse coaching apply page JS through Node.js to catch syntax errors."""
+    print("\n── Coaching Apply JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        import generate_coaching_apply as gca
+    except ImportError:
+        check("generate_coaching_apply imports", False, "Could not import generate_coaching_apply")
+        return
+
+    js = gca.build_apply_js()
+    # Strip script tags
+    js = js.replace("<script>", "").replace("</script>", "")
+    test_script = f"""
+try {{
+    new Function({json.dumps(js)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+    result = subprocess.run(
+        ["node", "-e", test_script],
+        capture_output=True, text=True, timeout=10
+    )
+    check("Coaching Apply JS parses without syntax errors",
+          result.returncode == 0 and "SYNTAX_OK" in result.stdout,
+          result.stderr or result.stdout)
+
+
 def check_training_form_js_syntax():
     """Parse training-plans-form.js through Node.js to catch syntax errors."""
     print("\n── Training Form JS Syntax ──")
@@ -683,6 +745,8 @@ def main():
     if args.js:
         check_js_syntax()
         check_training_form_js_syntax()
+        check_coaching_js_syntax()
+        check_coaching_apply_js_syntax()
         check_js_python_constant_parity()
         check_css_js_class_sync()
         check_pricing_parity()
@@ -691,6 +755,8 @@ def main():
         check_js_python_constant_parity()
         check_js_syntax()
         check_training_form_js_syntax()
+        check_coaching_js_syntax()
+        check_coaching_apply_js_syntax()
         check_css_js_class_sync()
         check_worker_hydration_fields()
         check_pricing_parity()

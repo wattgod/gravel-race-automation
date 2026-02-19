@@ -326,7 +326,7 @@ class TestSectionBuilders:
     def test_training_cta_links(self):
         html = build_training_cta()
         assert "/training-plans/" in html
-        assert "wattgod.com/apply" in html
+        assert "/coaching/" in html
 
     def test_email_capture_has_content(self):
         html = build_email_capture()

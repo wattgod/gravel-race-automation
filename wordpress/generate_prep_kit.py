@@ -46,6 +46,7 @@ from brand_tokens import (
     get_preload_hints,
     get_tokens_css,
 )
+from shared_footer import get_mega_footer_css, get_mega_footer_html
 
 # Disable glossary tooltips in guide renderers (we don't need them here)
 import generate_guide
@@ -1476,6 +1477,7 @@ def build_prep_kit_css() -> str:
   .gg-pk-header-badge{background:#000;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .gg-pk-section{page-break-inside:avoid}
   .gg-pk-footer{display:none}
+  .gg-mega-footer{display:none}
   .gg-guide-accordion-body{display:block !important}
   .gg-guide-accordion-trigger{pointer-events:none}
   .gg-guide-accordion-icon{display:none}
@@ -1500,7 +1502,8 @@ def build_prep_kit_css() -> str:
   .gg-pk-calc-form{grid-template-columns:1fr}
   .gg-pk-calc-shopping-grid{grid-template-columns:1fr}
   .gg-pk-calc-hourly-table{min-width:500px}
-}"""
+}
+""" + get_mega_footer_css()
 
 
 # ── Page Assembly ─────────────────────────────────────────────
@@ -1934,11 +1937,13 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
         r'<span class="gg-pk-section-num">\d{2}</span>', _renumber, gated_body
     )
 
+    mega_footer = get_mega_footer_html()
     body = f'''{header}
 {gate}
 <div class="gg-pk-gated-content" id="gg-pk-gated-content" style="display:none">
 {gated_body}
-</div>'''
+</div>
+{mega_footer}'''
 
     tokens_css = get_tokens_css()
     font_css = get_font_face_css("/race/assets/fonts")

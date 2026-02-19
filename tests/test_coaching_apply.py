@@ -304,7 +304,7 @@ class TestBrandCompliance:
         # All custom classes should use gg-apply- prefix
         class_matches = re.findall(r'\.(gg-[a-z]+-)', apply_css)
         for cls in class_matches:
-            assert cls.startswith("gg-apply-") or cls.startswith("gg-neo-") or cls.startswith("gg-site-"), \
+            assert cls.startswith(("gg-apply-", "gg-neo-", "gg-site-", "gg-mega-", "gg-footer-")), \
                 f"Non-prefixed class: {cls}"
 
     def test_no_entrance_animations(self, apply_css):
@@ -436,7 +436,7 @@ class TestJSONLD:
 
 class TestFooter:
     def test_footer_present(self, apply_html):
-        assert "gg-site-footer" in apply_html
+        assert "gg-mega-footer" in apply_html
 
     def test_confidential_notice(self, apply_html):
         assert "confidential" in apply_html.lower()

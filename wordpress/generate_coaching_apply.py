@@ -34,6 +34,7 @@ from generate_neo_brutalist import (
     write_shared_assets,
 )
 from brand_tokens import get_ab_head_snippet, get_preload_hints
+from shared_footer import get_mega_footer_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -815,18 +816,10 @@ def build_submit_buttons() -> str:
 
 
 def build_footer() -> str:
-    return f'''<footer class="gg-site-footer">
-    <div class="gg-site-footer-inner">
-      <p class="gg-apply-confidential">Your information is kept confidential and used only for coaching purposes. Questions? Email gravelgodcoaching@gmail.com</p>
-      <nav class="gg-site-footer-links">
-        <a href="{SITE_BASE_URL}/">Home</a>
-        <a href="{SITE_BASE_URL}/gravel-races/">Races</a>
-        <a href="{SITE_BASE_URL}/coaching/">Coaching</a>
-        <a href="{SITE_BASE_URL}/about/">About</a>
-      </nav>
-      <p class="gg-site-footer-copy">&copy; 2025 Gravel God. All rights reserved.</p>
-    </div>
-  </footer>'''
+    return f'''<div class="gg-apply-confidential-wrap">
+    <p class="gg-apply-confidential">Your information is kept confidential and used only for coaching purposes. Questions? Email gravelgodcoaching@gmail.com</p>
+  </div>
+  ''' + get_mega_footer_html()
 
 
 def build_jsonld() -> str:

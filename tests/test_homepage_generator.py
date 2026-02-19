@@ -352,7 +352,6 @@ class TestSectionBuilders:
         assert "/gravel-races/" in html
         assert "/coaching/" in html
         assert "/articles/" in html
-        assert "/about/" in html
         assert "substack" in html.lower()
 
     def test_footer_has_copyright(self):
@@ -362,9 +361,15 @@ class TestSectionBuilders:
 
     def test_footer_has_structure(self):
         html = build_footer()
-        assert "EXPLORE" in html
+        assert "PRODUCTS" in html
+        assert "SERVICES" in html
         assert "NEWSLETTER" in html
         assert "SUBSCRIBE" in html
+
+    def test_footer_has_nav_headings(self):
+        html = build_footer()
+        assert "/products/training-plans/" in html
+        assert "/guide/" in html
 
 
 # ── CSS ──────────────────────────────────────────────────────
@@ -398,14 +403,15 @@ class TestCSS:
         """Brand guide: no border-radius, no box-shadow, no gradients, Source Serif 4."""
         css = build_homepage_css()
         assert "box-sizing: border-box" in css
-        assert "border-radius" not in css
+        # Token definition (--gg-border-radius: 0) is OK; actual property usage is not
+        css_no_tokens = re.sub(r'--gg-border-radius:\s*0', '', css)
+        assert "border-radius" not in css_no_tokens
         assert "box-shadow" not in css
         assert "linear-gradient" not in css
         assert "radial-gradient" not in css
         assert "Source Serif 4" in css
         assert "#ede4d8" in css  # sand background
         assert "#3a2e25" in css  # dark brown text color
-        assert "#d4c5b9" in css  # tan borders (Variant F lighter palette)
 
 
 # ── JavaScript ───────────────────────────────────────────────
@@ -507,7 +513,7 @@ class TestFullPage:
         assert "gg-hp-featured-in" in homepage_html
         assert "gg-hp-training" in homepage_html
         assert "gg-hp-email" in homepage_html
-        assert "gg-hp-footer" in homepage_html
+        assert "gg-mega-footer" in homepage_html
 
     def test_has_jsonld_blocks(self, homepage_html):
         blocks = re.findall(r'application/ld\+json', homepage_html)

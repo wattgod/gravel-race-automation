@@ -35,7 +35,9 @@ from brand_tokens import (
     get_ab_head_snippet,
     get_font_face_css,
     get_preload_hints,
+    get_tokens_css,
 )
+from shared_footer import get_mega_footer_css, get_mega_footer_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -830,30 +832,7 @@ def build_email_capture(posts: list = None) -> str:
 
 
 def build_footer() -> str:
-    return f'''<footer class="gg-hp-footer">
-    <div class="gg-hp-footer-grid">
-      <div class="gg-hp-footer-brand">
-        <h3 class="gg-hp-footer-title">GRAVEL GOD CYCLING</h3>
-        <p class="gg-hp-footer-tagline">Practical coaching and training for people with real lives who still want to go fast.</p>
-      </div>
-      <div class="gg-hp-footer-nav">
-        <h4 class="gg-hp-footer-heading">EXPLORE</h4>
-        <a href="{SITE_BASE_URL}/coaching/">&rarr; Coaching</a>
-        <a href="{SITE_BASE_URL}/products/training-plans/">&rarr; Training Plans</a>
-        <a href="{SITE_BASE_URL}/gravel-races/">&rarr; All Races</a>
-        <a href="{SITE_BASE_URL}/articles/">&rarr; Articles</a>
-        <a href="{SITE_BASE_URL}/about/">&rarr; About</a>
-      </div>
-      <div class="gg-hp-footer-newsletter">
-        <h4 class="gg-hp-footer-heading">NEWSLETTER</h4>
-        <p>Slow, Mid, 38s &mdash; essays on training, meaning, and not majoring in the minors.</p>
-        <a href="{esc(SUBSTACK_URL)}" class="gg-hp-footer-subscribe" target="_blank" rel="noopener" data-ga="subscribe_click" data-ga-label="footer">SUBSCRIBE</a>
-      </div>
-    </div>
-    <div class="gg-hp-footer-legal">
-      <span>&copy; {CURRENT_YEAR} Gravel God Cycling. All rights reserved.</span>
-    </div>
-  </footer>'''
+    return get_mega_footer_html()
 
 
 # ── CSS ──────────────────────────────────────────────────────
@@ -861,7 +840,9 @@ def build_footer() -> str:
 
 def build_homepage_css() -> str:
     font_face = get_font_face_css()
-    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + '''/* ── Ticker (functional animation) ───────────────────────── */
+    tokens = get_tokens_css()
+    mega_footer_css = get_mega_footer_css()
+    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + tokens + '\n\n' + '''/* ── Ticker (functional animation) ───────────────────────── */
 @keyframes gg-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── Custom properties ───────────────────────────────────── */
@@ -1106,20 +1087,6 @@ a { text-decoration: none; color: #178079; }
 /* ── Email form ─────────────────────────────────────────── */
 .gg-hp-email-form { background: #f5efe6; padding: 20px 32px; max-width: 480px; margin: 24px auto 0; min-height: 150px; }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.gg-hp-footer { background: #3a2e25; margin-top: 32px; border-top: 2px solid #9a7e0a; }
-.gg-hp-footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 32px; padding: 48px 32px; max-width: 960px; margin: 0 auto; }
-.gg-hp-footer-title { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; margin-bottom: 12px; }
-.gg-hp-footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #d4c5b9; margin: 0; }
-.gg-hp-footer-heading { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 16px; }
-.gg-hp-footer-nav { display: flex; flex-direction: column; gap: 10px; }
-.gg-hp-footer-nav a { color: #d4c5b9; font-family: 'Sometype Mono', monospace; font-size: 12px; text-decoration: none; transition: color var(--gg-ease); }
-.gg-hp-footer-nav a:hover { color: #fff; }
-.gg-hp-footer-newsletter p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: #d4c5b9; line-height: 1.75; margin: 0 0 16px; }
-.gg-hp-footer-subscribe { display: inline-block; padding: 10px 24px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; background: #178079; color: #fff; text-decoration: none; border: 3px solid #178079; transition: background-color var(--gg-ease), border-color var(--gg-ease); }
-.gg-hp-footer-subscribe:hover { background: transparent; border-color: #178079; }
-.gg-hp-footer-legal { padding: 16px 32px; border-top: 1px solid #59473c; text-align: center; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 1px; max-width: 960px; margin: 0 auto; }
-
 /* ── Skip link ───────────────────────────────────────────── */
 .gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #9a7e0a; color: #3a2e25; z-index: 100; }
 .gg-hp-skip:focus { position: fixed; top: 0; left: 0; width: auto; height: auto; }
@@ -1129,7 +1096,6 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-race-grid { grid-template-columns: repeat(2, 1fr); }
   .gg-hp-take-card { flex: 0 0 calc(50% - 0px); }
   .gg-hp-guide-grid { grid-template-columns: 1fr; }
-  .gg-hp-footer-grid { grid-template-columns: 1fr 1fr; }
   .gg-hp-feat-inner { flex-direction: column; text-align: center; }
   .gg-hp-feat-text { max-width: 100%; }
   .gg-hp-test-grid { grid-template-columns: 1fr; }
@@ -1233,15 +1199,11 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-article-card:nth-child(n+4) { display: none; }
   .gg-hp-email-form { margin: 20px 16px 0; padding: 16px; }
 
-  /* Footer */
-  .gg-hp-footer { margin-top: 16px; }
-  .gg-hp-footer-grid { grid-template-columns: 1fr; gap: 24px; padding: 32px 16px; }
-  .gg-hp-footer-legal { padding: 12px 16px; }
-
   /* Section headers */
   .gg-hp-section-header { padding: 12px 16px; }
   .gg-hp-section-header h2 { font-size: 11px; letter-spacing: 2px; }
 }
+''' + mega_footer_css + '''
 </style>'''
 
 

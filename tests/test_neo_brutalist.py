@@ -580,9 +580,9 @@ class TestLinkify:
 # ── Footer ────────────────────────────────────────────────────
 
 class TestFooter:
-    def test_footer_has_nav(self):
+    def test_footer_has_mega_footer(self):
         html = build_footer()
-        assert "gg-footer-nav" in html
+        assert "gg-mega-footer" in html
 
     def test_footer_has_all_races_link(self):
         html = build_footer()

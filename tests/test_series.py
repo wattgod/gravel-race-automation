@@ -397,7 +397,7 @@ class TestSeriesHubInfographics:
         matrix_pos = html.find("Decision Matrix</div>")
         faq_pos = html.find("Frequently Asked Questions</div>")
         # Use the body footer element, not the CSS class
-        footer_pos = html.find('<footer class="gg-series-footer">')
+        footer_pos = html.find('<footer class="gg-mega-footer">')
 
         assert overview_pos < at_a_glance_pos < history_pos
         assert history_pos < format_pos < map_pos

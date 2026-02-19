@@ -308,6 +308,14 @@ class TestCSSAndJS:
         assert ".gg-pk-context-box" in css
         assert ".gg-pk-footer" in css
 
+    def test_css_has_mega_footer(self):
+        css = build_prep_kit_css()
+        assert ".gg-mega-footer" in css
+
+    def test_print_hides_mega_footer(self):
+        css = build_prep_kit_css()
+        assert ".gg-mega-footer{display:none}" in css
+
     def test_css_has_guide_block_classes(self):
         css = build_prep_kit_css()
         assert ".gg-guide-timeline" in css

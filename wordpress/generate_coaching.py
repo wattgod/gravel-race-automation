@@ -27,6 +27,7 @@ from generate_neo_brutalist import (
     write_shared_assets,
 )
 from brand_tokens import get_ab_head_snippet, get_preload_hints
+from shared_footer import get_mega_footer_html
 from generate_about import _testimonial_data
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -378,9 +379,7 @@ def build_final_cta() -> str:
 
 
 def build_footer() -> str:
-    return '''<div class="gg-footer">
-    <p class="gg-footer-disclaimer">Gravel God Cycling is an independent editorial and coaching platform. It is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body. All ratings represent editorial views based on publicly available information and community research.</p>
-  </div>'''
+    return get_mega_footer_html()
 
 
 def build_mobile_sticky_cta() -> str:

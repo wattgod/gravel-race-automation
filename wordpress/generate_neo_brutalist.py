@@ -39,6 +39,7 @@ from brand_tokens import (
     get_preload_hints,
     get_tokens_css,
 )
+from shared_footer import get_mega_footer_css, get_mega_footer_html
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -2403,22 +2404,15 @@ def build_nav_header(rd: dict, race_index: list) -> str:
 
 
 def build_footer(rd: dict = None) -> str:
-    """Build page footer with nav links and disclaimer."""
+    """Build page footer with last-updated line and shared mega-footer."""
     updated = ''
     if rd and rd.get('_file_mtime'):
         try:
             dt = datetime.strptime(rd['_file_mtime'], '%Y-%m-%d')
-            updated = f'\n    <p class="gg-footer-updated">Last updated {dt.strftime("%B %Y")}</p>'
+            updated = f'<p class="gg-footer-updated">Last updated {dt.strftime("%B %Y")}</p>'
         except ValueError:
             pass
-    return f'''<div class="gg-footer">
-    <nav class="gg-footer-nav">
-      <a href="{SITE_BASE_URL}/gravel-races/">All Races</a>
-      <a href="{SITE_BASE_URL}/race/methodology/">How We Rate</a>
-      <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Newsletter</a>
-    </nav>{updated}
-    <p class="gg-footer-disclaimer">This content is produced independently by Gravel God and is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body mentioned on this page. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. Race details are subject to change &mdash; always verify with official race sources.</p>
-  </div>'''
+    return updated + get_mega_footer_html()
 
 
 # ── CSS ────────────────────────────────────────────────────────
@@ -2790,14 +2784,8 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-citation-link:hover {{ color: var(--gg-color-teal); text-decoration: underline; }}
 .gg-neo-brutalist-page .gg-citation-url {{ display: block; color: var(--gg-color-secondary-brown); font-size: 9px; word-break: break-all; }}
 
-/* Footer */
-.gg-neo-brutalist-page .gg-footer {{ background: var(--gg-color-dark-brown); color: var(--gg-color-tan); padding: 24px 20px; border-top: var(--gg-border-double); margin-bottom: 80px; font-size: 11px; text-align: center; letter-spacing: 0.5px; }}
-.gg-neo-brutalist-page .gg-footer a {{ color: var(--gg-color-white); text-decoration: none; }}
-.gg-neo-brutalist-page .gg-footer a:hover {{ color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-footer-nav {{ display: flex; justify-content: center; gap: 24px; margin-bottom: var(--gg-spacing-md); }}
-.gg-neo-brutalist-page .gg-footer-nav a {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; }}
-.gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; }}
-.gg-neo-brutalist-page .gg-footer-disclaimer {{ color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: var(--gg-spacing-sm) 0 0 0; font-size: var(--gg-font-size-2xs); }}
+/* Footer — last-updated line (mega-footer CSS is appended separately) */
+.gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; text-align: center; }}
 
 /* Racer reviews section */
 .gg-neo-brutalist-page .gg-racer-reviews {{ margin-bottom: 32px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
@@ -2901,6 +2889,7 @@ def get_page_css() -> str:
   .gg-sticky-cta {{ padding: 10px 12px; }}
   .gg-back-to-top {{ bottom: 60px; right: 12px; width: 36px; height: 36px; }}
 }}
+''' + get_mega_footer_css() + '''
 </style>'''
 
 

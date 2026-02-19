@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, get_font_face_css, get_tokens_css
+from shared_footer import get_mega_footer_css, get_mega_footer_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SERIES_DIR = PROJECT_ROOT / "series-data"
@@ -1895,25 +1896,6 @@ a.gg-series-event-name:hover {{
 }}
 .gg-series-event-racer--empty {{ opacity: 0.4; color: var(--gg-color-warm-brown); }}
 
-/* Footer */
-.gg-series-footer {{
-  padding: 24px 0;
-  margin-top: 32px;
-  border-top: 2px solid var(--gg-color-gold);
-  text-align: center;
-  font-size: 11px;
-  color: var(--gg-color-secondary-brown);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}}
-.gg-series-footer a {{
-  color: var(--gg-color-secondary-brown);
-  text-decoration: none;
-}}
-.gg-series-footer a:hover {{
-  color: var(--gg-color-dark-brown);
-}}
-
 /* Mobile */
 @media (max-width: 768px) {{
   .gg-series-hero {{ padding: 32px 20px; }}
@@ -1959,6 +1941,7 @@ a.gg-series-event-name:hover {{
   .gg-series-radar-legend {{ gap: 6px 10px; }}
   .gg-series-matrix-picks {{ font-size: 10px; }}
 }}
+  {get_mega_footer_css()}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
@@ -2015,11 +1998,7 @@ a.gg-series-event-name:hover {{
 
   {faq_html}
 
-  <footer class="gg-series-footer">
-    <a href="/">Gravel God</a> &middot;
-    <a href="/gravel-races/">Search All Races</a> &middot;
-    <a href="/race/methodology/">Methodology</a>
-  </footer>
+  {get_mega_footer_html()}
 
 </div>
 

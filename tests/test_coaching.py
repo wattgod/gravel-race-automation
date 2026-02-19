@@ -326,7 +326,8 @@ class TestBrandCompliance:
         for cls in classes:
             # Allow shared gg-neo-brutalist-page, gg-site-header, gg-hero, gg-section, etc.
             if cls.startswith(('gg-neo-brutalist', 'gg-site-header', 'gg-hero',
-                              'gg-section', 'gg-breadcrumb', 'gg-footer')):
+                              'gg-section', 'gg-breadcrumb', 'gg-footer',
+                              'gg-mega-footer')):
                 continue
             assert cls.startswith('gg-coach-'), f"Non-prefixed class in coaching CSS: .{cls}"
 

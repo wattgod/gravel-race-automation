@@ -1,0 +1,61 @@
+# FARMER'S DAUGHTER — COMMUNITY RESEARCH
+
+## Rider Quotes & Race Reports
+
+**sportsfan42069 [COMPETITIVE]:** "Last weekend I have the farmers daughter gravel grinder a go - 68 miles of gravel (with some pavement and singletrack mixed in) and 6k ft of climbing... I felt pretty strong on the climbs, generally able to keep it between 200-300 watts for most of the climbs, with 350+ efforts for the shorty's and 150 as my 'all day monster climb' pace... any time the course started going down I was passed by a ton of riders... my limiters were not related to fitness. If I were to do this again, I would focus on strengthening my back, shoulders, core. With some more specific training I think I could have taken 25% off my time easy. I don't feel anywhere near as sore or tired as after my ultras this year." (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** "We've all just barely completed 62.4 miles of steep gravel climbs, sketchy fast descents, and technical singletrack during the hottest days so far this year. We've wandered through stages of feeling great, bonking, and recovering, and occasional 'I give up' periods where we're walking off cramps. It's been 5 hours of this... The last 20 miles are a bonk induced blur. Clay and I traded off the role of quitter and motivator about a dozen times." (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+**Jason Gonzalez [COMPETITIVE]:** "Everything came together, and it needed to, for nearly 7,000 feet of climbing (including one 4 mile climb from 6%-, 17% gradients) for the 65 mile grinder... All that said, it was still a struggle for me, I wanted to quit at 45 miles in, but stayed the course (literally). It was all I could do to just finish (though I didn't finish last)." (https://groups.google.com/g/racer-x/c/1bQi7FvDiVA)
+
+**Riosacandaga [ELITE]:** "wow! what a great event! Really tough course, much harder than the BFC and longer with steeper hills... but there's ice cream at the top of one of them. Well stocked aid stations, one by Bountiful Bread. This is not a race- unless you want to make it one." (https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder)
+
+## Equipment & Gear Recommendations
+
+**sportsfan42069 [COMPETITIVE]:** Used a 15 year old steel cx bike with "a triple crank and ran a 32 - 44 in the front, with a 13-29 in the rear. The frame only has clearance for 35 tires (with 3mm space on each side)." Noted: "Bikes are aparently fragile! At the top of a monster climb a few miles after AS2 I came across a guy running his bike and holding his chain... TONS of people were not as lucky. In addition to all the flats, we saw people with derailleurs ripped from their bikes, broken spokes and tons of folks waiting for the sweep wagon." Carried a portable chain tool and master link which allowed him to help repair someone's chain mid-race. (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** Jon rode "Donnelly LAS file-tread clinchers – with tubes" which "can be a squirrelly beast in these conditions." Jon was running "a 36-28 low gear" which "isn't quite right for this ride, where some of the climbs were hitting 20% grade." (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+**Jason Gonzalez [COMPETITIVE]:** Rode "the Pugsley fatbike with 4" tires" with "the 36/22 2X10 chainring and an 11-36 rear cassette." Later mentioned getting "2.5" Surly Extraterrestrial tires on the new wheelset" and "switching out the fat tires I have on my fat tire wheelset with Kenda Juggernauts" to try to keep up better. (https://groups.google.com/g/racer-x/c/1bQi7FvDiVA)
+
+**Riosacandaga [ELITE]:** "I rode my Salsa Spearfish... full suspension MTB. There's four sections of single track that made it worthwhile for me... and of the bikes I have the best overall choice." Also mentioned friends riding Salsa Warbird gravel bikes and owning "an older Salsa Vaya." (https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder)
+
+## Weather Experienced
+
+**Cullen MacDonald [ELITE]:** 2019 edition: "technical singletrack during the hottest days so far this year... The last 20 miles are a bonk induced blur" partly attributed to heat. (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+## Terrain Details (Rider Perspective)
+
+**sportsfan42069 [COMPETITIVE]:** "After the first 5 miles of pavement, we turned on to the first gravel climb and I dropped my chain. Shortly after that climb we got to a section of singletrack that was so technical it was a Conga line of people walking their bikes. After what must have been 10 minutes we were through the thick of it... the biggest hills of the day were between the AS2 and AS3." Course described as "68 miles of gravel (with some pavement and singletrack mixed in) and 6k ft of climbing." (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** "62.4 miles of steep gravel climbs, sketchy fast descents, and technical singletrack... We eventually turn into a beautiful, long stretch of proper (but light) mountain-bike style riding through the woods. Baby rock gardens link rooty switchbacks to just-rideable mud... We crossed two short wooden bridges made with wooden slats perpendicular to the direction of travel, and then came upon a third with the slats parallel to our tires." He flipped over the bars when his front wheel got stuck in the bridge gap. Course includes "Smooth gravel roads, 18% grade climbs, technical single track. Over and over." (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+**Jason Gonzalez [COMPETITIVE]:** "Course was a combination of hard/loose packed gravel, pavement, fireroads, and singletrack (including technical singletrack of rock gardens and tree roots). There were 15 climbs each varying between .5 mile to 4 miles (averaging 2 mile climbs) with grades starting at 5% and going up to 17% (average of 9-10%). All that said, it was still a struggle for me, I wanted to quit at 45 miles in." Total of "nearly 7,000 feet of climbing (including one 4 mile climb from 6%-, 17% gradients) for the 65 mile grinder." (https://groups.google.com/g/racer-x/c/1bQi7FvDiVA)
+
+## Race Strategy & Pacing
+
+**sportsfan42069 [COMPETITIVE]:** "I felt pretty strong on the climbs, generally able to keep it between 200-300 watts for most of the climbs, with 350+ efforts for the shorty's and 150 as my 'all day monster climb' pace. That being said, any time the course started going down I was passed by a ton of riders." Background: trail runner who had done "2 ultra marathons in 4 weeks (50k with 7k, and 27M with 9k) with the second of these 2 weeks before the gravel race." Training included gravel rides of "a short 20m / 2k at least once a week, with a bigger 40m /4k once in training." His assessment: "my limiters were not related to fitness... I think my bike handling skills really held me back. Additionally, my limiters were not related to fitness. If I were to do this again, I would focus on strengthening my back, shoulders, core." (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** "We'd gotten word from Ted that this is the time to make up some spots, because when hundreds of riders are trying to funnel into a tight, sometimes treacherous path, the folks at the back of the group slow to a crawl" — referring to the early singletrack section. Race took 5 hours for their group. (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+## DNF Risk Factors
+
+**sportsfan42069 [COMPETITIVE]:** "Bikes are aparently fragile! At the top of a monster climb a few miles after AS2 I came across a guy running his bike and holding his chain. He mentioned the rest of the way to AS3 was downhill and he would just run and coast the whole way - in all reality it was 6 rolling miles... TONS of people were not as lucky. In addition to all the flats, we saw people with derailleurs ripped from their bikes, broken spokes and tons of folks waiting for the sweep wagon." (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** "In my daze I plopped my 35mm Cross Boss tires right in the gap in between the planks which promptly flipped me straight over the bars, leaving my bike in a bizarre-looking yoga pose with its front wheel stuck tightly in the middle of the bridge. And me crumpled on the ground. I was bonked and so I was already a little out of it, but I was now concerned that I had a concussion." The wooden bridge sections near the finish proved hazardous. (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+## Community Feel & Atmosphere
+
+**sportsfan42069 [COMPETITIVE]:** "this race was huge! 1200 people over 3 waves... The aid stations were awesome! The first and third aid stations had a wide variety of snack foods, and the middle was serving lunch! I am more of a salty snack guy during long efforts so I could have used more chips and stuff but I am not complaining!" Noted there was no official finish line — he and his training partner had "an agreement to meet up a the second aid station and then just ride to the finish separately." (https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/)
+
+**Cullen MacDonald [ELITE]:** "482 registrants in the 2019 edition... 'Where's the finish line?' I yell in the general direction of three masters racers. One responds: 'What? You're done. Congrats.'... we tear into the parking lot where the whole thing started, only to find out there is no official finish line. Neat?... without a timing chip, finish line, or even any way of verifying that everyone rode the whole course, what did it matter? I guess that's the point." Noted the vibe was "more aggro racer than we had anticipated, and certainly more so than what we've experienced at Rasputitsa. We're feeling like we're intruders on someone's group ride, not really part of an intense, collaborative race-y thing. It's billed as non-competitive, but doesn't feel that way... (Also unlike Rasputitsa, we didn't see a ton of women racers at the start, and the mid-front group of 15-20 riders was 99% dudes.)" Some riders were cutting sections of the course. Aid station food: "a delicious, diverse selection of sandwiches, cookies, fruit, and Coca-Cola" at the second aid station; "a cruel aid station that just had Ice Cream" later. Race started and finished in Chatham, NY. "It kicked off and completes in Chatham, NY, and winds through varied terrain in and around the Taconic Range." (https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird)
+
+**Riosacandaga [ELITE]:** "Well stocked aid stations, one by Bountiful Bread. This is not a race- unless you want to make it one. It is a great training ride for the BFC... Thanks to everyone that put this together and all the volunteers!" Event is "hosted by HRRT and CBRC, two prominent clubs in the Capital Region. It started, like many of these gravelly road things, as an extremely informal group ride for some friends. The event has continued to grow since its inception in 2015." (https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder)
+
+## Source URLs
+
+https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/
+https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird
+https://groups.google.com/g/racer-x/c/1bQi7FvDiVA
+https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder
+https://www.tobedetermined.cc/journal/farmers-daughter-gravel-grinder-2025

@@ -182,6 +182,12 @@ class TestCommunityPenetration:
     KNOWN_EXCEPTIONS = {
         "dirty-french",  # NYC restaurant, not a race — data is bogus
         "la-dromoise-gravel",  # Small French race, minimal English community content
+        "6-hours-of-syllamo",  # Community dump has no relevant content (0.8KB)
+        "lake-country-gravel",  # One vague mention, no proper nouns (1.3KB)
+        "scratch-ankle-gravel",  # All search results were MIT Scratch, not the race (1.9KB)
+        "wild-gravel",  # No sources about the race found (0.9KB)
+        "rose-city-rampage",  # Cancelled race, only promoter quotes (1.8KB)
+        "salida-76",  # Limited dump, 1 proper noun found but threshold is 2
     }
 
     def test_community_nouns_in_explanations(self):

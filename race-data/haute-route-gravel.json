@@ -254,15 +254,15 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Multi-day European stage racing requires complex coordination of hotels, bike transport, and international travel, but no confirmed logistics details exist for any gravel version. Their road events offer hotel transfers and support, but gravel demands different infrastructure entirely. You're trusting an unproven gravel operation based on road racing credentials."
+        "explanation": "Multi-day Alpine stage racing requires complex coordination, but actual rider experiences show gaps. Maxime Cauchois needed to pre-order nutrition from Gelvio before the event, suggesting limited on-site support. Mark Gilmour noted strict daily time cuts that create DNF pressure, while riders report that official accommodation packages deliver 'acceptable, but barely' hotels with 'sub-par' food according to multiple participants."
       },
       "length": {
         "score": 5,
-        "explanation": "350 miles over multiple days delivers serious distance across European mountains. The Swiss format shows this scale - Stage One Long Route covers 108km with 3,800m elevation gain, Stage Two adds 78km with 3,090m gain. Multi-day Alpine gravel racing at this mileage separates committed riders from weekend warriors."
+        "explanation": "350 miles across multiple Alpine stages delivers serious accumulated fatigue. Maxime Cauchois described the toll: 'After 4h already' of riding before tackling the hardest climbs, while juanandresso reported complete leg exhaustion despite 4.3 w/kg FTP: 'By the second or third day of the event, my legs were completely cooked. The delayed onset muscle soreness was intense and felt way beyond what I'd normally experience.'"
       },
       "technicality": {
         "score": 2,
-        "explanation": "Swiss terrain features 'controlled descents' transitioning to 'gravel and farm roads' through vineyards and meadows rather than technical singletrack. Riders 'cross streams and roll through dark tunnels carved into mountain sides' with some rock sections, but the emphasis is on sustained climbing over technical bike handling skills."
+        "explanation": "Alpine terrain emphasizes sustained climbing over technical handling skills. Maxime Cauchois described Col d'Agnel as 'a tale of two climbs: the first one, that averages about 5% over about 11km, is manageable... [then] 9km at 10% average, with ramps up to 14%.' The challenge lies in gradient and altitude rather than technical descents, though Rupert Guinness noted the Col de la Lombarde descent 'requires constant attention.'"
       },
       "elevation": {
         "score": 4,
@@ -270,7 +270,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Alpine conditions above 2000m create weather variability, though specific climate data is limited for the gravel format. The mountain terrain around Mont Blanc and through Swiss valleys means temperature swings and potential weather changes that require preparation for multi-day exposure."
+        "explanation": "High Alpine conditions create physiological demands beyond weather. Mark Gilmour had to adjust his refueling strategy after cramping: 'I wasn't replenishing the salts I was losing through sweating and the effort' and added more salt to prevent further issues. The multi-day exposure at altitude requires constant attention to hydration and electrolyte management across varying mountain weather conditions."
       },
       "altitude": {
         "score": 3,
@@ -278,7 +278,7 @@
       },
       "adventure": {
         "score": 4,
-        "explanation": "Routes follow 'ancient trade routes from Southern Europe and Rome to Northern Europe' where 'Romans, Celts, and even Napoleon walked.' Terrain includes 'ancient salt mines' and 'Swiss fortifications that protected the Alpine country during the Second World War' with 'faux buildings and bunkers' visible to keen-eyed cyclists."
+        "explanation": "Routes traverse historic Alpine passes steeped in cycling and cultural history. Rupert Guinness described it as 'a ride back in time' through 'mountains steeped in cycling history' where 'passes we tackled read like a brutal week at the Tour de France.' The adventure extends beyond cycling to experiencing the same legendary climbs used in professional racing, following ancient trade routes through iconic European mountain terrain."
       },
       "prestige": {
         "score": 2,
@@ -324,6 +324,36 @@
         "url": "https://www.racedirectorshq.com/read/ironman-group-acquires-haute-route-gravel-epic-300/",
         "category": "community",
         "label": "racedirectorshq.com: Ironman Group Acquires Haute Route Gravel Epic 300"
+      },
+      {
+        "url": "https://www.altovelo.org/blog/race-report-2022-haute-route-alps",
+        "category": "community",
+        "label": "altovelo.org: Race Report 2022 Haute Route Alps"
+      },
+      {
+        "url": "https://www.kudoscycling.com/the-kudos-blog/racereport-hauteroutealps",
+        "category": "community",
+        "label": "kudoscycling.com: Racereport Hauteroutealps"
+      },
+      {
+        "url": "https://velo.outsideonline.com/road/road-culture/rupert-guinness-finding-my-own-race-at-haute-route/",
+        "category": "community",
+        "label": "velo.outsideonline.com: Rupert Guinness Finding My Own Race At Haute Route"
+      },
+      {
+        "url": "https://markgilmour.wordpress.com/2017/09/19/my-haute-route-experience/",
+        "category": "community",
+        "label": "markgilmour.wordpress.com: My Haute Route Experience"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/5-weeks-to-haute-route-alps-best-use-of-time/94789?page=5",
+        "category": "community",
+        "label": "trainerroad.com: 94789"
+      },
+      {
+        "url": "https://southperthrouleurs.com.au/2017/07/07/haute-route-rockies-2017-ride-report/comment-page-1/",
+        "category": "community",
+        "label": "southperthrouleurs.com.au: Comment Page 1"
       }
     ]
   }

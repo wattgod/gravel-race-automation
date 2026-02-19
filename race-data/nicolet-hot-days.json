@@ -252,37 +252,13 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This is a free community campout masquerading as a race, part of the self-reported Ironbear 1000 series where nobody's checking if you actually rode the miles. Zero mention of pro riders, winners, or anyone who matters showing up. It's camping with bikes, not racing with consequences."
-      },
-      "race_quality": {
+      "logistics": {
         "score": 2,
-        "explanation": "No aid stations, no cutoff times, no field size data, no packet pickup because there's nothing to pick up. The 10am start time is literally the only concrete detail they've managed to nail down. When your race organization consists of posting a GPS link and saying 'have fun,' you're barely qualifying as an event."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "You get rolling Nicolet National Forest gravel through Lincoln, Langlade, and Oneida Counties with some rough fire lanes mixed in. The 'community campout' vibe might appeal if you like your cycling with a side of Kumbaya. But with zero race infrastructure and self-supported everything, you're basically paying gas money to ride forest roads with strangers."
-      },
-      "community": {
-        "score": 2,
-        "explanation": "The 'community campout' branding suggests people actually show up and hang out, which counts for something. Part of the Ironbear 1000 series celebrating Wisconsin gravel, so there's regional pride involved. But without field size data or rider testimonials, this community could be three guys and a cooler of beer for all we know."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Free events attract the full spectrum of humanity, from serious riders slumming it to weekend warriors who think gravel means their driveway. No mention of competitive categories, past winners, or anyone racing for anything beyond participation trophy feelings. When entry is free and self-reported, you're not filtering for talent."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Hard to beat free entry for 50 miles of Nicolet National Forest gravel roads and fire lanes. No registration fees, no packet pickup costs, just gas money to Wabeno and whatever camping costs you. Even if the organization is bare-bones, you're getting forest riding without the premium markup."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Zero entry fees and the community campout setup keeps lodging cheap if you're willing to rough it. Wabeno, Wisconsin isn't a destination resort town, so food and gas won't break the bank. The main cost is getting yourself to northern Wisconsin and back, plus whatever camping gear you need for the 'campout' experience."
+        "explanation": "The free community campout starts at 10am behind Wabeno Logging Museum, capped at 15 riders who must be willing to ford a 'slow moving and waist deep river' and camp without facilities. Registration filled up quickly in 2025 with a waitlist starting March 19th, but basic details like parking and packet pickup remain unspecified since there's nothing to pick up."
       },
       "length": {
         "score": 2,
-        "explanation": "Fifty miles is the sweet spot where you're not quite suffering enough to feel heroic but past the point of calling it a casual ride. Some Ironbear events offer 10, 20, or 44-mile options, but this one locks you into the full 50 whether you're ready or not. It's enough distance to matter without being enough to brag about."
+        "explanation": "The 50-mile distance sits in middle ground - substantial enough to matter but not epic. Chris Schotz completed the related 225-mile SoNic route in 19 hours 19 minutes, noting he 'passed all the good eating and resupplied at two gas stations' for the longer effort, putting this event's 50 miles in perspective as a solid day ride rather than multi-day challenge."
       },
       "technicality": {
         "score": 2,
@@ -290,23 +266,47 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Twenty-five hundred feet over 50 miles in Wisconsin's glacial terrain means you're looking at rolling hills, not mountain suffering. It's enough climbing to keep your heart rate honest without requiring a compact chainring or walking breaks. The Nicolet forest rolls gently through lake country, so expect steady effort rather than lung-burning pitches."
+        "explanation": "The 2500 feet of climbing over 50 miles through Wisconsin's glacial terrain provides steady rolling effort without epic mountain suffering. Shane Hitz describes related Nicolet routes as having 'about 20% roads that are gnarly chunk or unrelenting sand' with remote truck roads, suggesting the climbing comes with technical challenges rather than pure sustained grades."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-August in northern Wisconsin with a race literally called 'Hot Days' should tell you what you're signing up for. Expect humid, sticky conditions that'll have you questioning why you didn't pick the air-conditioned trainer instead. At least you'll be under forest canopy for some relief, assuming the mosquitoes don't carry you away first."
+        "explanation": "Mid-August timing lives up to the 'Hot Days' name. Shane Hitz reported 'The heat was cranking so I did use almost all of the four liters I was carrying on one section' during a June attempt, noting the area 'hasn't had meaningful rain since the beginning of May so in a normal year the sand would be a bit tamer.' Expect heat, humidity, and potentially loose conditions."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Northern Wisconsin glacial terrain sits barely above lake level, so you're not getting any altitude training benefits here. The Nicolet National Forest rolls through lowland lake country without a meaningful peak in sight. Your sea-level fitness transfers directly with zero adaptation needed."
-      },
-      "logistics": {
-        "score": 2,
-        "explanation": "A 10am start time in Wabeno, Wisconsin with zero details about parking, packet pickup, or nearest airports because apparently nobody thought logistics mattered. The community campout concept sounds nice until you realize there's no information about where to camp or what facilities exist. You're flying blind into small-town Wisconsin hoping someone thought this through."
+        "explanation": "Northern Wisconsin's Nicolet National Forest sits at minimal elevation in glacial lake country. The rolling terrain provides no altitude training benefits, with riders transitioning directly from sea-level fitness without adaptation concerns."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Rolling through Chequamegon-Nicolet National Forest on mix of gravel roads, fire lanes, and ATV trails delivers backcountry riding. The route hits small lakes and streams with options for singletrack if you're feeling spicy. But without any epic climbs, technical features, or serious remoteness, it's more 'pleasant forest tour' than 'survival challenge.'"
+        "explanation": "The route requires fording a waist-deep river and camping at remote National Forest spots without facilities. Shane Hitz notes 'Camping in dispersed spots in the National Forest is always a magical experience when doing stuff like this,' while the organizer warns participants must be comfortable with no outhouse and willing to ride two-tracks through isolated terrain."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "This is a free community campout capped at 15 riders, designed to 'build a stronger bikepacking community by learning from each other.' The organizer emphasizes it's 'for all levels of bikepackers, veterans and those interested in being introduced to bikepacking with an emphasis on adventure' - educational rather than competitive."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "The event focuses on community skill-building over race infrastructure, with a 10am start and self-supported format. The organizer states the goal is 'to empower riders by doing things that may feel intimidating' through group mentorship rather than timing or results. It's an organized adventure with clear structure but minimal racing elements."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Riders get 68 miles over two days through remote Nicolet National Forest terrain with planned stops at Old Town Hall for dinner and Sunset Bar for drinks. The overnight camping component adds depth beyond typical day rides, though the small 15-rider cap limits the scale of the community experience compared to larger events."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The 15-rider cap creates an intimate learning environment focused on skill development. The organizer designed the event 'to build a stronger bikepacking community by learning from each other,' with veterans mentoring newcomers. The quick sellout with waitlist starting March 19th suggests strong regional interest in the collaborative format."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Elite riders like Shane Hitz, Chris Schotz, and Nick Holzem tackle the broader Nicolet system for FKT attempts, but this community campout attracts 'all levels of bikepackers' in a 15-person educational format. The focus on mentorship over competition means field depth takes a backseat to community building and skill sharing."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Free entry for two days of guided adventure through Nicolet National Forest, including planned dinner and drinks stops, delivers exceptional value. The capped field ensures personal attention from experienced riders, while the educational component adds mentorship value beyond typical self-supported events. Hard to beat free for quality forest terrain with community support."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Zero entry fees and dispersed camping keep costs minimal, though participants need bikepacking gear and must reach remote Wabeno, Wisconsin. The equipment bar is higher than typical gravel races - Chris Schotz notes 700x50 tires as 'the minimum' while Shane Hitz rode a mountain bike, potentially requiring gear upgrades for some riders."
       }
     },
     "citations": [
@@ -319,6 +319,26 @@
         "url": "https://ridewithgps.com/routes/49739757",
         "category": "route",
         "label": "RideWithGPS"
+      },
+      {
+        "url": "https://www.ironbull.org/registration-nicolet-hot-days",
+        "category": "community",
+        "label": "ironbull.org: Registration Nicolet Hot Days"
+      },
+      {
+        "url": "https://www.ironbull.org/fkt-leaderboard",
+        "category": "community",
+        "label": "ironbull.org: Fkt Leaderboard"
+      },
+      {
+        "url": "https://wisconsinbikefed.org/route/tour-de-nicolet/",
+        "category": "community",
+        "label": "wisconsinbikefed.org: Tour De Nicolet"
+      },
+      {
+        "url": "https://www.ironbull.org/nicolet-hot-days",
+        "category": "community",
+        "label": "ironbull.org: Nicolet Hot Days"
       }
     ]
   }

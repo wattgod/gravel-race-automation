@@ -75,49 +75,21 @@
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 4,
-        "explanation": "Canada's largest gravel race. Founded 1994—one of the oldest gravel events in North America. Now a UCI Gravel World Series qualifier. The 'Spring Classic' moniker is earned."
-      },
-      "race_quality": {
-        "score": 4,
-        "explanation": "Well-organized with wave starts, shuttle logistics, and bag transport. 30+ years of experience shows. UCI backing adds professionalism."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "The mud carnage creates war stories. 'Total carnage' and 'walking like a penguin' are common post-race descriptions. It's memorable in ways that transcend the racing itself."
-      },
-      "community": {
-        "score": 4,
-        "explanation": "Strong Canadian gravel community centered on this event. Toronto cycling clubs are well-represented. The shared suffering in mud creates camaraderie."
-      },
-      "field_depth": {
-        "score": 4,
-        "explanation": "UCI qualifier status attracts international talent. Canadian national team riders attend. Deep amateur field from Ontario cycling scene."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "~$100-150 CAD for a well-supported 100km event with shuttle, bag transport, and proper organization. Reasonable for what you get."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Southern Ontario has moderate costs. Toronto flights are easy. Hotels in Hamilton/Ancaster are available. Not cheap, not expensive."
-      },
       "logistics": {
         "score": 3,
-        "explanation": "Point-to-point from Paris to Ancaster means you're parking at the finish (Ancaster Community Centre/Walmart Plaza) and taking shuttles to the start line. With 2,500-3,000 riders, the shuttle system works but adds complexity to your morning routine. Wave starts help manage the chaos, but you better earn that Wave 1 position or you're walking through mud traffic jams for the first hour."
+        "explanation": "Point-to-point from Paris to Ancaster with parking at finish and shuttle buses to start. Damian Bradley notes 'The entire course was very well marked with police officers at all road intersections directing traffic.' With 2,500+ riders, the system works but adds morning complexity for wave positioning."
       },
       "length": {
         "score": 2,
-        "explanation": "At 62 miles, this sits in the sweet spot for most riders — long enough to hurt but not an all-day sufferfest. The 100km Cento distance gives you time to recover from the early peloton sprint before the mud chutes destroy your legs. It's over before you question your life choices, which frankly makes it too short for proper character building."
+        "explanation": "Elite rider Bones describes the lead group experience: 'absolutely full-gas in the sectors and then a regroup (rinse repeat). For me it was very heavy on V02max.' Mid-pack rider Ashes1962 counters: 'It's basically a three hour ride with a bunch of one to three minute efforts (hills) thrown in.'"
       },
       "technicality": {
         "score": 4,
-        "explanation": "The mud chutes alone will eat your drivetrain and force bike-shouldering traffic jams that snap derailleurs. You're navigating farm lanes, rail trails, and the infamous \"powerline mud\" sections that turn into unrideable clay slicks. The course demands cyclocross skills more than gravel skills — if you can't dismount and remount while covered in Ontario spring mud, you're walking."
+        "explanation": "Matt Surch describes the farm field sector: 'Picture a furrowed farm field, 4' deep trenches cut into the soil. Now picture a track cutting diagonally across 800m of these bastards.' Ashes1962 lost '5 minutes or more clearing mud from my rim brakes. It's a sticky spring goo that picks up straw and sticks.'"
       },
       "elevation": {
         "score": 3,
-        "explanation": "The course stays relatively flat until Martin Road delivers the final insult — a 1.3km climb hitting 18% gradients when your legs are already cooked. That rail trail lulls you into thinking this is easy, then the farm lanes add rolling punches before the finish climb separates the wheat from the chaff. 4,000 feet over 62 miles isn't Alpine, but it's placed precisely where it hurts most."
+        "explanation": "Damian Bradley faced the Martin Road climb on a singlespeed: 'The last kilometre appeared, which featured a climb with a 20% gradient. For those without the luxury of a derailleur, this is a virtual wall. However, even for those racers with derailleurs, it was a case of walking, jogging or slogging up the incline.'"
       },
       "climate": {
         "score": 4,
@@ -125,11 +97,39 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is southern Ontario farm country — you're basically at sea level the entire time. The highest point is probably someone's driveway. Oxygen deprivation isn't on the menu here, just good old-fashioned leg-burning and mud-induced mechanical failures."
+        "explanation": "Southern Ontario farm country near sea level throughout. The Grand River rail trail and surrounding farmland present zero altitude considerations for performance or acclimatization."
       },
       "adventure": {
         "score": 4,
-        "explanation": "Canada's largest gravel race with access to private farm lanes and the notorious mud chutes that create \"total carnage\" and \"soupy mess\" conditions. You're riding through working farms, dealing with unpredictable spring weather, and joining 3,000 other riders in what one survivor called \"definitely a classic.\" The combination of UCI World Series qualification and the high probability of walking through bike-eating mud makes this properly adventurous."
+        "explanation": "Kyra witnessed the chaos of bottlenecks: 'There was a huge downed tree on the single track... we were all walking. There was mud, but it shouldn't have caused such a back-up.' Markea suspects organizers 'water the muddy sections to make sure that they have not dried out before the race.'"
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Canada's largest gravel race since 1994, now a UCI Gravel World Series qualifier. Damian Bradley notes the field spans 'from the invited professional cyclists, who typically finish the course in around two hours, to recreational riders whose aim is simply to complete the race.'"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Peter Glassford emphasizes preparation thoroughness: 'Set up your race bike as if the race was this weekend and use all your gear, fueling, preparation.' He warns about common failures: 'Every year, someone DNFs P2A because they forgot to charge their gravel bike that's been in the garage all winter.'"
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The mud creates lasting memories. Competitive athlete on AI Endurance flatted 'with 2 km to go which meant I had to finish the race on foot.' Another rider bonked spectacularly: '2018: Not having a great day and forgetting to eat and drink... Hit the wall with 10 km to go.'"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Canada's largest gravel field with over 2,000 riders. Damian Bradley describes the range: 'Participants run the full range of abilities... It's amazing to see so many people having a great time on two wheels.' The shared suffering in Ontario spring conditions creates strong camaraderie."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "UCI qualifier status draws competitive talent. Taison McIntyre notes '80% of bikes seen were cyclocross bikes' among serious competitors. The lead group maintains 'full-gas in the sectors' pace while mid-pack riders face different tactical challenges in the mud chutes."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Well-supported event with shuttle logistics, bag transport, and professional organization. Markea notes the 70k route 'was actually about 56 km, if i remember correctly; I did not miss the extra 14 km.' Thirty years of experience shows in the execution quality."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Southern Ontario location offers moderate travel costs with Hamilton/Ancaster accommodation options. Toronto provides major airport access. The Ancaster Community Centre/Walmart Plaza finish area provides practical logistics without premium venue pricing."
       }
     },
     "biased_opinion": {
@@ -360,6 +360,21 @@
         "url": "https://raceroster.com/events/2025/96309/2025-creemore-springs-paris-to-ancaster",
         "category": "community",
         "label": "raceroster.com: 2025 Creemore Springs Paris To Ancaster"
+      },
+      {
+        "url": "https://kyraonthego.wordpress.com/2022/05/04/paris-to-ancaster-70k-2022-edition/comment-page-1/",
+        "category": "community",
+        "label": "kyraonthego.wordpress.com: Comment Page 1"
+      },
+      {
+        "url": "https://www.teamrunningfree.com/blog/2017/05/15/paris-to-ancaster-2017/",
+        "category": "community",
+        "label": "teamrunningfree.com: Paris To Ancaster 2017"
+      },
+      {
+        "url": "https://www.thespec.com/sports/hamilton-region/oh-yes-there-will-be-mud-at-the-paris-to-ancaster-race-this-weekend/article_a8c1233f-ad19-5bed-acff-a9949d935b6a.html",
+        "category": "community",
+        "label": "thespec.com: Article A8C1233F Ad19 5Bed Acff A9949D935B6A.Html"
       }
     ],
     "results": {

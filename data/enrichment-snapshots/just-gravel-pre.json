@@ -1,58 +1,58 @@
 {
-  "prestige": {
-    "score": 1,
-    "explanation": "This isn't even a race — it's explicitly marketed as 'not a race' but a 'gravel challenge.' No pros, no results, no winners mentioned anywhere. When your event gets lumped into beginner-friendly guides for over-50s looking to try gravel, you're not exactly building cycling legend status."
-  },
-  "race_quality": {
+  "logistics": {
     "score": 2,
-    "explanation": "Hard to judge race quality when there's no actual racing happening. Three route options in Grizedale Forest with on-site parking, toilets, and a cafe sounds pleasant enough for a social ride. But without competitive structure, timing, or any performance metrics, you're paying for a guided tour through the trees."
-  },
-  "experience": {
-    "score": 2,
-    "explanation": "Grizedale Forest is genuinely iconic Lake District terrain, so the setting delivers. The flexible route structure (Family, Fun, Challenge) lets you pick your poison. But September in the Lakes can be a coin flip weather-wise, and without competitive edge or standout features, it's basically an expensive group ride with better signage."
-  },
-  "community": {
-    "score": 2,
-    "explanation": "Designed specifically for newcomers and beginners, so you'll find plenty of friendly faces learning the ropes together. The non-competitive format removes ego and creates a supportive environment. However, that same beginner focus means you won't find the deeper gravel culture or hardcore community that develops around proper races."
-  },
-  "field_depth": {
-    "score": 1,
-    "explanation": "When your target audience is explicitly beginners and over-50s trying gravel for the first time, you're not exactly attracting competitive depth. No mention of any notable riders or results because there aren't any. This is learn-to-gravel camp, not a proving ground for talent."
-  },
-  "value": {
-    "score": 3,
-    "explanation": "For what you get — guided routes through quality Forestry England terrain, support infrastructure, and beginner-friendly organization — it's reasonable value for entry-level gravel experience. The multiple route options mean everyone from families to fitter riders can participate in the same event. Though without knowing actual entry fees, I'm giving them benefit of the doubt here."
-  },
-  "expenses": {
-    "score": 2,
-    "explanation": "Lake District location means typical UK tourism pricing for accommodation and food. On-site parking and cafe at Grizedale Forest helps contain some costs, but September is still peak season for the Lakes. No entry fee published, which either means they're hiding something or haven't figured out their pricing strategy yet."
+    "explanation": "Sign on opens at 08:45 with start window from 09:45-10:00am, and the Forestry England site provides guaranteed parking, toilets, and on-site cafe. Professional course marking and qualified mechanics/medics at feed stations show proper organization, though basic infrastructure lacks the polish of established racing events."
   },
   "length": {
     "score": 2,
-    "explanation": "50 miles hits the sweet spot for gravel newcomers — long enough to feel accomplished, not so long you're questioning life choices. Multiple distance options from family-friendly to the full Challenge route means riders can bite off what they can chew. But serious gravel riders looking for proper distance will find this more appetizer than main course."
+    "explanation": "Three clear distance options: Family (15km), Fun (32km), and Challenge (45km), though the advertised 50-mile distance creates confusion about which route structure applies. The graduated format serves different abilities well, but distance inconsistencies suggest organizational gaps."
   },
   "technicality": {
     "score": 3,
-    "explanation": "Pure gravel through Forestry England trails in Grizedale offers legitimate technical variety without being intimidating. Forest service roads typically deliver consistent surfaces with enough roots, rocks, and gradient changes to keep it interesting. The terrain has enough character to teach bike handling skills without punishing beginners too harshly."
+    "explanation": "\"All courses are on wide, well-surfaced gravel trails\" with \"only a very short section of linking road\" on longer routes. Described as \"ideally suited to gravel or off-road bikes,\" the smooth forestry trails provide manageable technical challenge without punishing difficulty through Grizedale's forest network."
   },
   "elevation": {
     "score": 3,
-    "explanation": "4000 feet over 50 miles in Lake District terrain is solid climbing without being masochistic. That's roughly 80 feet per mile — enough to make your legs remember they exist, but distributed enough that beginners won't walk half the course. Forest climbs in the Lakes have character and reward you with actual views."
+    "explanation": "4000 feet over the Challenge distance delivers solid climbing through \"Forestry England's hidden gems\" without being excessive. The southern Lakes terrain provides enough vertical challenge to test fitness while remaining accessible to the event's target audience of gravel newcomers and families."
   },
   "climate": {
     "score": 2,
-    "explanation": "Mid-September in the Lake District is weather roulette — could be brilliant sunshine or sideways rain that makes you question moving to this island. The forest setting provides some protection from wind, but when Lake District weather turns, it turns hard. At least you're not dealing with July tourist chaos or January hypothermia."
+    "explanation": "Mid-September in the Lake District carries typical unpredictability, though organizers promote autumn timing when \"the forest trails will be at their best.\" The Grizedale Forest setting provides some shelter, but weather remains a significant variable in this famously wet region."
   },
   "altitude": {
     "score": 1,
-    "explanation": "Lake District fells are proper hills, not mountains — you're looking at maybe 1000-1500 feet max elevation, probably starting around sea level. Zero altitude considerations for performance, acclimatization, or logistics. This is about gradient and scenery, not thin air and oxygen debt."
-  },
-  "logistics": {
-    "score": 2,
-    "explanation": "Forestry England site means guaranteed parking, toilets, and post-ride cafe — the basics are covered competently. But they haven't published key details like start times, packet pickup, or registration procedures, which suggests either poor communication or they're winging it. Lake District access is straightforward enough if you can navigate British motorways."
+    "explanation": "Southern Lake District elevation presents no altitude considerations for performance or acclimatization. You're dealing with proper hills and gradients through Grizedale Forest, but at sea-level air density throughout the event."
   },
   "adventure": {
     "score": 3,
-    "explanation": "Grizedale Forest delivers legitimate Lake District adventure without requiring mountain rescue on speed dial. Pure gravel through iconic English terrain offers the real deal — proper countryside, varied forest tracks, and that distinctly British mix of beauty and grit. The multiple route options mean you can push your comfort zone appropriately, whether that's first time off-road or longest ride yet."
+    "explanation": "\"Pure gravel\" and \"traffic-free gravel challenge\" through \"Forestry England's hidden gems\" in Grizedale Forest. The setting is described as \"best seen in autumn when the forest trails will be at their best,\" delivering proper Lake District adventure without requiring mountain rescue on standby."
+  },
+  "prestige": {
+    "score": 1,
+    "explanation": "Explicitly states \"THE EVENTS ARE NOT RACES\" but rather gravel challenges where \"Family and Fun courses are an opportunity to get started with gravel riding.\" When your event emphasizes accessibility over competition and targets newcomers, you're building participation rather than racing prestige."
+  },
+  "race_quality": {
+    "score": 2,
+    "explanation": "No competitive structure since these are explicitly \"not races,\" but professional course marking and qualified mechanics/medics at feed stations show proper event organization. All riders receive number boards and timing despite the non-competitive format."
+  },
+  "experience": {
+    "score": 2,
+    "explanation": "Grizedale Forest delivers iconic Lake District terrain with flexible route structure letting you pick your challenge level. The \"perfect location for a full family day\" includes on-site catering, bike shop, and Go Ape activities, though without competitive edge it's essentially a supported group ride."
+  },
+  "community": {
+    "score": 2,
+    "explanation": "Designed with \"guaranteed places for women riders and families\" plus \"twenty bursary places for those on low income.\" One child per adult goes free, creating an accessible community rather than the hardcore gravel racing culture found at competitive events."
+  },
+  "field_depth": {
+    "score": 1,
+    "explanation": "Target audience explicitly includes families and beginners seeking gravel introduction, with the Challenge Event \"for fitter riders or those with some gravel or off-road experience.\" The non-competitive format serves community building over attracting serious competitive depth."
+  },
+  "value": {
+    "score": 3,
+    "explanation": "Professional course marking, GPX files, mechanical and medical support, plus timing for all riders through quality Forestry England terrain. The graduated distance options mean families and fitter riders can participate in the same well-supported event structure."
+  },
+  "expenses": {
+    "score": 2,
+    "explanation": "Lake District location means typical UK tourism costs, though the Grizedale Forest site includes \"ample parking, toilets, on-site catering, bike shop and bike hire\" to contain some expenses. September timing avoids peak summer pricing but carries shoulder-season Lake District premiums."
   }
 }

@@ -28,6 +28,7 @@ dry_run_results.json
 # Database backups
 *.json.bak
 *.csv.bak
+*.bak.md
 
 # Mission Control database
 db/mission_control.db

@@ -252,33 +252,9 @@
       }
     },
     "biased_opinion_ratings": {
-      "prestige": {
-        "score": 1,
-        "explanation": "This race doesn't exist in any meaningful gravel database or cycling community discussion. While Oconomowoc hosts Lake Country Triathlon events, there's zero online footprint for a dedicated gravel race here. If you have to explain what race you did, it's not prestigious."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Without verifiable race organization details, course marking standards, or participant feedback, this gets a basement score. The 70-mile distance suggests ambition, but execution quality remains completely unknown. Race quality requires actual race infrastructure, not just gravel roads."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "Oconomowoc sits in decent lake country terrain, but with no documented aid stations, course features, or participant services, the experience defaults to 'self-supported ride.' The area has potential with its rolling farmland, but potential doesn't equal delivered experience."
-      },
-      "community": {
+      "logistics": {
         "score": 3,
-        "explanation": "Wisconsin gravel scenes generally deliver solid Midwestern hospitality and the Oconomowoc area supports other endurance events like triathlons. Small-town Wisconsin knows how to handle cyclists, even if this specific event lacks documented community engagement."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "Zero documented competitive field or results means this attracts nobody worth racing against. Real gravel races publish results and attract regional talent - this one doesn't appear anywhere in competitive cycling databases."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "If this race actually exists, Wisconsin pricing typically runs reasonable compared to destination events. The 70-mile distance delivers solid mileage for your money, and Wisconsin events traditionally skip the premium pricing of more prestigious races."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Oconomowoc sits close to Milwaukee and Madison, providing decent lodging options without resort pricing. Wisconsin generally keeps accommodation and food costs reasonable, though weekend rates near lake areas can bump up slightly during summer."
+        "explanation": "Oconomowoc provides reasonable access via Highway 94 from Milwaukee or Madison, with adequate parking and small-town infrastructure. However, without documented race organization details, actual logistics execution remains unverified."
       },
       "length": {
         "score": 3,
@@ -286,29 +262,59 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Wisconsin lake country runs mostly agricultural roads with occasional rolling terrain but limited technical challenges. The area lacks significant rock gardens, sustained climbs, or technical descents that define truly challenging gravel courses."
+        "explanation": "Wisconsin lake country features what riders describe as \"some of the best crushed gravel trails around\" through forest preserves. The terrain offers consistent surfaces rather than technical rock gardens or challenging descents."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3200 feet over 70 miles averages just 46 feet per mile - barely noticeable rolling terrain. Wisconsin's glaciated landscape provides gentle undulation but nothing approaching mountain or even serious hill country elevation profiles."
+        "explanation": "3200 feet over 70 miles averages just 46 feet per mile through Wisconsin's glaciated landscape. The rolling terrain provides gentle undulation but nothing approaching mountain or serious hill country profiles."
       },
       "climate": {
         "score": 3,
-        "explanation": "Wisconsin summer weather can deliver anything from perfect 70-degree mornings to humid 90-degree sufferfests with afternoon thunderstorms. The variability keeps things interesting, but humidity and potential weather changes require preparation."
+        "explanation": "Wisconsin summer weather delivers everything from perfect 70-degree mornings to humid 90-degree sufferfests with afternoon thunderstorms. The variability keeps things interesting, but humidity and potential weather changes require preparation."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Oconomowoc sits around 900 feet above sea level - essentially flat terrain for altitude considerations. Zero impact on breathing, pacing, or performance from elevation effects."
-      },
-      "logistics": {
-        "score": 3,
-        "explanation": "Oconomowoc provides reasonable access via Highway 94 from Milwaukee or Madison, with adequate parking and small-town infrastructure. However, without documented race organization, actual logistics execution remains completely unverified."
+        "explanation": "Oconomowoc sits around 900 feet above sea level with zero impact on breathing, pacing, or performance from elevation effects."
       },
       "adventure": {
         "score": 2,
-        "explanation": "Pleasant Wisconsin farmland and lake views provide decent scenery but nothing approaching wilderness adventure or technical challenge. It's countryside riding through agricultural areas - safe and predictable rather than adventurous."
+        "explanation": "Forest preserve gravel trails can be linked together through lake country terrain, providing decent scenery through agricultural areas. It's countryside riding that's safe and predictable rather than wilderness adventure."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "This race doesn't appear in major gravel databases or cycling community discussions. While the area features quality crushed gravel trails, the event lacks the online footprint and competitive recognition of established gravel races."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Without verifiable race organization details, course marking standards, or participant feedback, execution quality remains unknown. The 70-mile distance suggests ambition, but documentation is lacking."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "Oconomowoc sits in decent lake country terrain, but with no documented aid stations, course features, or participant services, the experience defaults to self-supported ride through rolling farmland."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Wisconsin gravel scenes generally deliver solid Midwestern hospitality and the Oconomowoc area supports other endurance events like triathlons. Small-town Wisconsin knows how to handle cyclists."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Without published results or presence in competitive cycling databases, the racing field remains unknown. No documented competitive field means minimal depth for serious racers."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Wisconsin pricing typically runs reasonable compared to destination events. The 70-mile distance delivers solid mileage for your money, and Wisconsin events traditionally skip the premium pricing of more prestigious races."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Oconomowoc sits close to Milwaukee and Madison, providing decent lodging options without resort pricing. Wisconsin generally keeps accommodation and food costs reasonable, though weekend rates near lake areas bump up slightly."
       }
     },
-    "citations": []
+    "citations": [
+      {
+        "url": "https://www.youtube.com/watch?v=xbYuqdOZ1no",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      }
+    ]
   }
 }

@@ -252,13 +252,41 @@
       }
     },
     "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Travelers Rest location provides easy highway access from multiple directions, reasonable proximity to Greenville-Spartanburg airport. Small town logistics usually mean simple parking, straightforward packet pickup, none of the urban race chaos."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "65 miles hits the sweet spot for weekend warriors - long enough to matter, short enough to finish before dark. Not the suffer-fest distance that separates pretenders from contenders, but respectable middle ground."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Paris Mountain features two distinct climbing approaches - Old Buncome at 2.17 miles and State Park Road at 3.69 miles. The terrain offers \"two steep pitches\" with grades reaching 10% at the summit and \"a few switch backs\" on the descent."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "5000 feet over 65 miles delivers serious climbing at 77 feet per mile. Paris Mountain alone gains 1,565 feet from Old Buncome side, with the climb averaging \"6% but there are only two steep pitches\" including a final 10% grade to the summit."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "South Carolina humidity turns any effort into a sweat lodge experience. Summer heat makes racing miserable, winter brings unpredictable ice storms, spring delivers pollen apocalypse."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Paris Mountain starts at 1,168 feet on Old Buncome side and tops out at 1,972 feet - minimal altitude with zero physiological impact. You'll get more altitude driving to the race than racing it."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The 5.8-mile Paris Mountain traverse offers backcountry feel with safe descending practice. A blogger notes the summit reward: \"Aside from a written statement 'You made it' on the top of the climb, there's no view to enjoy.\""
+      },
       "prestige": {
         "score": 2,
         "explanation": "This race barely registers on the gravel radar - no search results, no race reports, no pro field mentions. When a 65-mile grinder in South Carolina can't even get a Wikipedia stub or a single race recap online, you're dealing with pure local theater. The gravel community talks about everything, so radio silence means irrelevance."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Hard to judge race quality when the race might be a ghost. No published results, no course maps, no rider reviews - that's either masterful secrecy or amateur hour organization. Quality races leave digital footprints; this one left digital tumbleweeds."
+        "explanation": "Course utilizes quality infrastructure with \"recently paved\" roads described as \"excellent\" and \"very smooth.\" However, race organization details and execution standards remain undocumented in available sources."
       },
       "experience": {
         "score": 3,
@@ -270,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Zero evidence of competitive depth - no pro riders, no published results, no mention in any gravel racing calendars. When serious racers discuss Southeast gravel, this name never comes up. You're racing against whoever heard about it through word of mouth."
+        "explanation": "Greenville attracts strong cyclists to Paris Mountain as a go-to training climb (6% average grade, 10% at the top), but the gravel grinder draws from local riders rather than traveling specialists. The Swamp Rabbit Trail cycling corridor near Furman University provides a deep recreational base, though the competitive field stays regional without attracting dedicated gravel racers from outside the Upstate area."
       },
       "value": {
         "score": 3,
@@ -278,35 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Travelers Rest keeps costs reasonable - not Asheville tourist pricing, not Atlanta metro expense. Greenville area offers decent lodging options without breaking budgets. The real expense might be the gas you waste driving to a race that doesn't exist."
-      },
-      "length": {
-        "score": 3,
-        "explanation": "65 miles hits the sweet spot for weekend warriors - long enough to matter, short enough to finish before dark. Not the suffer-fest distance that separates pretenders from contenders, but respectable middle ground. Most riders can handle this length if they can handle the 5000 feet of vertical."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Paris Mountain terrain suggests technical challenges - this isn't flat farmland gravel. South Carolina Piedmont means rocks, roots, and actual skill requirements beyond just grinding watts. Without course details, assuming moderate technical demands based on regional geography."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "5000 feet over 65 miles delivers 77 feet per mile - that's climbing that'll sort the field quickly. Paris Mountain area provides sustained climbs, not just punchy rollers that flatter strong riders. This elevation gain puts real respect on the distance."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "South Carolina humidity turns any effort into a sweat lodge experience. Summer heat makes racing miserable, winter brings unpredictable ice storms, spring delivers pollen apocalypse. The narrow window of decent racing weather shrinks your chances of good conditions."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Travelers Rest sits around 1000 feet elevation - you'll get more altitude driving to the race than racing it. Zero altitude considerations, zero training implications, zero physiological challenges beyond what the hills create through elevation change, not absolute height."
-      },
-      "logistics": {
-        "score": 4,
-        "explanation": "Travelers Rest location provides easy highway access from multiple directions, reasonable proximity to Greenville-Spartanburg airport. Small town logistics usually mean simple parking, straightforward packet pickup, none of the urban race chaos. When basic organization works, it works well."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "Paris Mountain terrain offers backcountry feel without wilderness isolation. 65 miles with serious climbing creates adventure through physical challenge, not exotic location. The real adventure might be showing up and discovering whether this race actually exists."
+        "explanation": "Travelers Rest keeps costs reasonable without Asheville tourist pricing or Atlanta metro expense. Greenville area offers decent lodging options without breaking budgets, supported by established cycling tourism infrastructure."
       }
     },
     "unsplash_photos": [
@@ -338,6 +338,12 @@
         "download_location": "https://api.unsplash.com/photos/0fZZbi0WIbo/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxUcmF2ZWxlcnMlMjBSZXN0JTJDJTIwU291dGglMjBDYXJvbGluYSUyMGN5Y2xpbmd8ZW58MHwwfHx8MTc3MDc4NzE4NXww"
       }
     ],
-    "citations": []
+    "citations": [
+      {
+        "url": "https://trimarni.blogspot.com/2020/07/greenville-cycling-paris-mountain.html",
+        "category": "community",
+        "label": "trimarni.blogspot.com: Greenville Cycling Paris Mountain.Html"
+      }
+    ]
   }
 }

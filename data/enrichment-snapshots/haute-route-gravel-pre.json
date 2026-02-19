@@ -1,15 +1,43 @@
 {
+  "logistics": {
+    "score": 2,
+    "explanation": "Multi-day European stage racing requires complex coordination of hotels, bike transport, and international travel, but no confirmed logistics details exist for any gravel version. Their road events offer hotel transfers and support, but gravel demands different infrastructure entirely. You're trusting an unproven gravel operation based on road racing credentials."
+  },
+  "length": {
+    "score": 5,
+    "explanation": "350 miles over multiple days delivers serious distance across European mountains. The Swiss format shows this scale - Stage One Long Route covers 108km with 3,800m elevation gain, Stage Two adds 78km with 3,090m gain. Multi-day Alpine gravel racing at this mileage separates committed riders from weekend warriors."
+  },
+  "technicality": {
+    "score": 2,
+    "explanation": "Swiss terrain features 'controlled descents' transitioning to 'gravel and farm roads' through vineyards and meadows rather than technical singletrack. Riders 'cross streams and roll through dark tunnels carved into mountain sides' with some rock sections, but the emphasis is on sustained climbing over technical bike handling skills."
+  },
+  "elevation": {
+    "score": 4,
+    "explanation": "30,000 feet over 350 miles means serious vertical density through Alpine passes. Stage One climbs 'up ski runs and under ski lifts up to the Col de la Croix-de-Coeur overlooking all of Verbier' while Stage Two tackles 'the famous Col du Grand St. Bernard.' The sustained elevation gain through high Alpine terrain delivers mountain suffering."
+  },
+  "climate": {
+    "score": 3,
+    "explanation": "Alpine conditions above 2000m create weather variability, though specific climate data is limited for the gravel format. The mountain terrain around Mont Blanc and through Swiss valleys means temperature swings and potential weather changes that require preparation for multi-day exposure."
+  },
+  "altitude": {
+    "score": 3,
+    "explanation": "Climbs reach significant elevation through Swiss Alpine passes like Col du Grand St. Bernard, with routes offering 'incredible views over the Bernese alps, the Rhone river valley, and all the way to Mont Blanc.' The altitude provides noticeable effects for sea-level riders without requiring extreme acclimatization."
+  },
+  "adventure": {
+    "score": 4,
+    "explanation": "Routes follow 'ancient trade routes from Southern Europe and Rome to Northern Europe' where 'Romans, Celts, and even Napoleon walked.' Terrain includes 'ancient salt mines' and 'Swiss fortifications that protected the Alpine country during the Second World War' with 'faux buildings and bunkers' visible to keen-eyed cyclists."
+  },
   "prestige": {
     "score": 2,
-    "explanation": "Here's the problem - there's no actual 'Haute Route Gravel' race that exists. The Haute Route brand built its reputation on the Alps road sportive covering legendary Tour de France climbs like Alpe d'Huez and Col du Galibier, but they haven't launched a gravel version. You're paying premium prices for a brand name that doesn't translate to gravel credibility."
+    "explanation": "The Haute Route brand built reputation on road events, expanding into gravel through the acquired Gravel Epic series. Created in 2019 and backed by IRONMAN Group since 2021, it positions itself as 'unprecedented in the cycling and gravel events industry' but lacks the established gravel racing credibility of purpose-built events."
   },
   "race_quality": {
     "score": 3,
-    "explanation": "The organizational backbone exists from their Alps road events, which are described as the 'pinnacle of granfondo/sportive events.' But without confirmed race details, aid stations, or cutoff times for any gravel format, you're betting on potential rather than proven execution. The road version offers multi-day hotel stays and professional logistics, but gravel demands different infrastructure entirely."
+    "explanation": "Events feature 'Full Mechanical Assistance, Full Medical Assistance, Feed Stations with local products' plus 'photographer, videographers, and drone pilots to capture the Epic-ness.' The unique format times only climbs for competition while allowing social riding between segments, though overall execution depends on translating road event expertise to gravel logistics."
   },
   "experience": {
     "score": 4,
-    "explanation": "If this theoretical event follows their Alps model across iconic European mountain passes, you'd get legitimate alpine suffering with postcard views. The road version hits passes like Col de Sarenne at 1993m and Col du Glandon at 1924m - translate that to gravel sectors and you have something memorable. But you're buying a fantasy until they prove they can deliver gravel infrastructure."
+    "explanation": "Multi-day format through 'fields and meadows' past 'blackened barns and chalets darkened in alpine sun over centuries' following 'ancient bisses, the ingenious Swiss irrigation systems.' The philosophy promises riders can 'ride like a pro with premium level services' across bucket-list Alpine terrain with professional support infrastructure."
   },
   "community": {
     "score": 3,
@@ -17,42 +45,14 @@
   },
   "field_depth": {
     "score": 2,
-    "explanation": "No confirmed participant numbers or competitive field data exists because this gravel event appears to be theoretical. The road version draws serious amateur talent, but gravel racing requires different skills entirely. Until they actually hold a gravel race, you're guessing whether fast road riders will show up or stay home."
+    "explanation": "The gravel racing scene splits into 'adventure gravel for bikepacking' versus 'race gravel for those chasing speed and performance' with equipment ranging from 'ultralight climbing machines to aero-optimised speed demons.' E-gravel bikes are permitted, suggesting a broad participant base rather than deep competitive field depth."
   },
   "value": {
     "score": 1,
-    "explanation": "Premium European stage racing with hotel transfers and support for 350 miles means you're looking at serious money - likely €3000+ based on their road pricing model. No confirmed costs exist because the event may not exist, but the Haute Route brand charges luxury prices for amateur races. You pay for the logo, not just the miles."
+    "explanation": "Premium European multi-day events with 'half board Official Race Accommodation packages' and full support services mean significant costs. The IRONMAN Group backing and positioning as 'unprecedented in the cycling and gravel events industry' suggests luxury pricing that prioritizes premium experience over value proposition."
   },
   "expenses": {
     "score": 1,
-    "explanation": "Multi-day European stage racing with 'several consecutive nights in the same hotel' as their road model suggests means massive logistics costs. Add flights to Europe, accommodations, bike transport, and the premium entry fee, and you're easily hitting $5000+. This isn't a weekend warriors' budget race."
-  },
-  "length": {
-    "score": 5,
-    "explanation": "350 miles over multiple days in European mountains is legitimate distance that will break riders. Compare that to their confirmed Alps road version at 808km total - this hits the sweet spot of multi-day suffering without being completely masochistic. The mileage alone separates pretenders from contenders."
-  },
-  "technicality": {
-    "score": 2,
-    "explanation": "European gravel typically means fire roads and well-maintained surfaces rather than American-style chunky singletrack. If they follow routes parallel to their road climbs like Col du Lautaret and Col des Aravis, expect smooth gravel ascents that favor power over bike handling. This isn't technical riding - it's grinding."
-  },
-  "elevation": {
-    "score": 4,
-    "explanation": "30,000 feet over 350 miles delivers serious vertical - that's legitimate alpine climbing density. Their road version hits passes up to 2764m at Col de l'Iseran, so expect sustained climbs above 2000m where your legs and lungs get properly tested. The mountains don't care about your FTP."
-  },
-  "climate": {
-    "score": 3,
-    "explanation": "Alpine weather above 2000m is unpredictable and potentially dangerous - clear morning conditions can turn to snow or thunderstorms by afternoon. Their confirmed passes like Col du Galibier at 2642m see dramatic temperature swings and weather changes that can trap unprepared riders. Mountain weather demands respect and backup plans."
-  },
-  "altitude": {
-    "score": 3,
-    "explanation": "Climbs reaching 2000-2700m elevation based on their road course profiles mean legitimate altitude effects for sea-level riders. Not Leadville-level oxygen deprivation, but enough to notice reduced power output and recovery. European alpine passes provide a taste of altitude suffering without requiring weeks of acclimatization."
-  },
-  "logistics": {
-    "score": 2,
-    "explanation": "Multi-day European stage racing requires complex coordination of hotels, bike transport, and international travel, but no confirmed logistics details exist for any gravel version. Their road events offer hotel transfers and support, but gravel demands different infrastructure entirely. You're trusting an unproven gravel operation based on road racing credentials."
-  },
-  "adventure": {
-    "score": 4,
-    "explanation": "Multi-day gravel racing through European alpine passes offers genuine adventure - remote mountain terrain where weather and mechanical issues have real consequences. The altitude, distance, and mountain setting create legitimate risk and reward scenarios. But you're betting on an adventure that may not actually exist until they prove they can execute gravel events."
+    "explanation": "Multi-day European stage racing with accommodation packages, international travel requirements, and premium support services create substantial costs. Team entry options and e-gravel bike inclusion suggest accessibility attempts, but the fundamental expense structure of supported Alpine stage racing remains prohibitive for most riders."
   }
 }

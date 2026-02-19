@@ -1,0 +1,334 @@
+{
+  "id": "pirelli-cinturato-gravel-m",
+  "name": "Pirelli Cinturato Gravel M",
+  "brand": "Pirelli",
+  "widths_mm": [
+    35,
+    40,
+    45,
+    50
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Mixed-terrain knobby with SpeedGRIP compound",
+  "best_conditions": [
+    "mixed",
+    "loose gravel",
+    "hardpack"
+  ],
+  "worst_conditions": [
+    "deep mud",
+    "smooth pavement"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m-45",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m"
+  },
+  "tagline": "Mixed-terrain specialist. Balanced grip and speed for variable conditions.",
+  "strengths": [
+    "Excellent mixed-terrain grip",
+    "Good puncture protection",
+    "Wide width range"
+  ],
+  "weaknesses": [
+    "Not the fastest on smooth roads",
+    "Heavier in wider widths",
+    "Can pack mud"
+  ],
+  "msrp_usd": 73.99,
+  "weight_grams": {
+    "35": 380,
+    "40": 440,
+    "45": 500,
+    "50": 560
+  },
+  "crr_watts_at_29kmh": {
+    "40": 34.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "mixed gravel",
+    "all-rounder",
+    "loose gravel",
+    "variable conditions"
+  ],
+  "avoid_use": [
+    "deep mud",
+    "smooth pavement"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "almanzo-100": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "clarkes-gambit": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cohutta-gravel-grinder": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dusty-bandita": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "forbidden-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-battle-of-sumter-forest": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-burn": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-del-fuego": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "highlands-gravel-classic": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "king-price-race-to-sun": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "kowtown-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "le-grand-du-nord": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "migration-gravel-race": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "nordic-chase-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "oregon-trail-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "radl-grvl": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "reliance-tennessee-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rock-cobbler": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "santa-fe-century-gravelon": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-rad": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-range": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "trans-sylvania-epic": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "transrockies-gravel-royale": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "unbound-200": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "usa-cycling-gravel-nationals": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "uwharrie-forest-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "vapor-trail-125": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "waukon-100": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    }
+  },
+  "community_reviews": [
+    {
+      "review_id": "seed-pirelli-cinturato-gravel-m-1",
+      "tire_id": "pirelli-cinturato-gravel-m",
+      "tire_name": "Pirelli Cinturato Gravel M",
+      "stars": 5,
+      "width_ridden": 50,
+      "pressure_psi": 26,
+      "conditions": [
+        "mixed",
+        "wet"
+      ],
+      "race_used_at": "Mid South",
+      "would_recommend": "yes",
+      "review_text": "The M compound is incredible in wet conditions. Best grip I have experienced on wet gravel. Ran 45mm at Mid South and they kept me upright when others were sliding out.",
+      "submitted_at": "2026-02-12T21:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-pirelli-cinturato-gravel-m-4",
+      "tire_id": "pirelli-cinturato-gravel-m",
+      "tire_name": "Pirelli Cinturato Gravel M",
+      "stars": 4,
+      "width_ridden": 35,
+      "pressure_psi": 24,
+      "conditions": [
+        "wet",
+        "mud"
+      ],
+      "race_used_at": "Gravel Locos",
+      "would_recommend": "yes",
+      "review_text": "Handles mud better than most gravel tires. Not a true mud tire but the M tread clears well. Used 50mm at Gravel Locos in sloppy conditions and they performed.",
+      "submitted_at": "2026-02-11T08:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-pirelli-cinturato-gravel-m-5",
+      "tire_id": "pirelli-cinturato-gravel-m",
+      "tire_name": "Pirelli Cinturato Gravel M",
+      "stars": 3,
+      "width_ridden": 40,
+      "pressure_psi": 33,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "SBT GRVL",
+      "would_recommend": "yes",
+      "review_text": "Good tire but not the fastest on pure hardpack. The aggressive tread costs you a few watts compared to faster options. Best in mixed to wet conditions where the grip pays off.",
+      "submitted_at": "2026-02-08T04:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-pirelli-cinturato-gravel-m-2",
+      "tire_id": "pirelli-cinturato-gravel-m",
+      "tire_name": "Pirelli Cinturato Gravel M",
+      "stars": 5,
+      "width_ridden": 50,
+      "pressure_psi": 35,
+      "conditions": [
+        "mixed"
+      ],
+      "race_used_at": "Crusher in the Tushar",
+      "would_recommend": "yes",
+      "review_text": "Top-tier gravel tire. The knob pattern sheds mud better than most and the rolling resistance is competitive. 40mm at Crusher was perfect for the rocky climbs.",
+      "submitted_at": "2026-01-24T06:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-pirelli-cinturato-gravel-m-3",
+      "tire_id": "pirelli-cinturato-gravel-m",
+      "tire_name": "Pirelli Cinturato Gravel M",
+      "stars": 4,
+      "width_ridden": 45,
+      "pressure_psi": 27,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "Unbound 200",
+      "would_recommend": "yes",
+      "review_text": "Great all-around tire with Italian engineering that shows. A bit pricier than alternatives but the grip and durability justify the cost. Two seasons on one set.",
+      "submitted_at": "2026-01-21T20:00:00.000Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "teravail-cannonball",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

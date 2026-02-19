@@ -1,0 +1,781 @@
+{
+  "id": "continental-terra-trail",
+  "name": "Continental Terra Trail",
+  "brand": "Continental",
+  "widths_mm": [
+    35,
+    40,
+    45
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Dual-compound knobby tread with ShieldWall puncture protection",
+  "best_conditions": [
+    "mixed",
+    "hardpack",
+    "loose gravel",
+    "dry"
+  ],
+  "worst_conditions": [
+    "deep mud"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail-45"
+  },
+  "tagline": "The do-everything gravel tire. Fast enough to race, tough enough to survive.",
+  "strengths": [
+    "Excellent puncture protection",
+    "Versatile across conditions",
+    "Durable"
+  ],
+  "weaknesses": [
+    "Heavier than file treads",
+    "Not the fastest on smooth surfaces",
+    "Slower in deep mud"
+  ],
+  "msrp_usd": 74.99,
+  "weight_grams": {
+    "35": 400,
+    "40": 450,
+    "45": 510
+  },
+  "crr_watts_at_29kmh": {
+    "40": 33.5
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "good",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "mixed gravel",
+    "all-rounder",
+    "sharp rock",
+    "long distance",
+    "chunky gravel"
+  ],
+  "avoid_use": [
+    "deep mud"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "114-gravel-race": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "66-south-pyrenees": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "albia-holy-cow": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "alentejo-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "almanzo-100": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ardenne-gravel-stages": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "back-forty-highlander": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "bald-eagle-gravel-grinder": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "balkan-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "barry-roubaix": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "battenkill": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "bear-100": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "black-forest-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "bohemian-border-bash": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "burgr-95": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "burnt-bridge-classic": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "camp-michaux-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "carpathian-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "cedar-blitz": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "chino-grinder": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cirrem": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "coast-to-coast": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "collegiate-gravel-nationals": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cow-pie-classic": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "croatan-buck-fifty": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "d2r2": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dalby-grit": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "de-ronde-van-grampian": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dead-swede-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dirty-french": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dirty-hector": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dirty-sheets-gravel-grind": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dunoon-dirt-dash": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dusty-gravel-lacs-de-leau-dheure": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "dusty-gravel-series-andenne": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "eislek-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "essential-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "farmers-daughter": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "fast-fitty": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "filthy-50": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "finnish-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "flanders-legacy-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "flint-hills-death-ride": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ghost-of-the-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "glengarry-games-gravel-run": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "grasshopper-series": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "grasslands-100": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-burn": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-des-flandres": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-fever": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-fondo-switzerland": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "gravel-locos": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "wet"
+    },
+    "gravel-one-fifty": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "gravel-roubaix": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "gravel-suisse": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "gray-duck-grit": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hardwood-hustle": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hellhole-gravel-grind": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hibernator": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "highlands-gravel-classic": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hungry-bear-100": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "kalona-horseshoe": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "king-of-the-lake": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "lake-country-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "lake-taupo-cycle-challenge": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "le-grand-du-nord": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "little-apple-100": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "lone-wolf-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "lowell-classic": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "marly-grav": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "mid-state-gravel-grinder": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "oregon-gran-fondo": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "oregon-trail-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "radl-grvl": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "real-west-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "red-granite-grinder": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "reliance-deep-woods": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ride-the-gravel-trails": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "rock-cobbler": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rose-city-rampage": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ruby-roubaix": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rule-of-three": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rust-buster-gravel-fondo": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "sunday-creek-classic": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "switchgrass": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "texas-hell-week": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-crusher": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-equalizer": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-watermoo": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "thunder-bay-thriller": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "total-tomahawk-terrain": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "tour-de-gap": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "tour-de-nebraska": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "trans-am-bike-race": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "trans-iowa": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "trough-creek-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "turnhout-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "wet"
+    },
+    "unbound-200": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "uncle-johns-gravel-race": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "walburg-dirty-30": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wild-horse-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wollombi-gravel-fest": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wyo-131": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    }
+  },
+  "community_reviews": [
+    {
+      "review_id": "seed-continental-terra-trail-4",
+      "tire_id": "continental-terra-trail",
+      "tire_name": "Continental Terra Trail",
+      "stars": 4,
+      "width_ridden": 40,
+      "pressure_psi": 23,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "Steamboat Gravel",
+      "would_recommend": "yes",
+      "review_text": "Solid choice for rocky courses. The 45mm is a great option for longer gravel events where flats end your day. Not the fastest roller but that is not what you buy these for.",
+      "submitted_at": "2026-02-12T23:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-continental-terra-trail-1",
+      "tire_id": "continental-terra-trail",
+      "tire_name": "Continental Terra Trail",
+      "stars": 5,
+      "width_ridden": 45,
+      "pressure_psi": 35,
+      "conditions": [
+        "mixed",
+        "wet"
+      ],
+      "race_used_at": "Dirty Kanza",
+      "would_recommend": "yes",
+      "review_text": "The ShieldWall casing is legit. Ran these at Dirty Kanza through flint rock and zero flats. Grip in the wet is top-tier for a gravel tire. My desert island tire.",
+      "submitted_at": "2026-02-10T15:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-continental-terra-trail-2",
+      "tire_id": "continental-terra-trail",
+      "tire_name": "Continental Terra Trail",
+      "stars": 5,
+      "width_ridden": 35,
+      "pressure_psi": 22,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "Belgian Waffle Ride",
+      "would_recommend": "yes",
+      "review_text": "Bombproof puncture protection and still rolls reasonably fast. Used 40mm at BWR California and they handled everything. Confidence-inspiring on descents.",
+      "submitted_at": "2026-02-03T02:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-continental-terra-trail-3",
+      "tire_id": "continental-terra-trail",
+      "tire_name": "Continental Terra Trail",
+      "stars": 4,
+      "width_ridden": 40,
+      "pressure_psi": 31,
+      "conditions": [
+        "mixed"
+      ],
+      "race_used_at": "SBT GRVL",
+      "would_recommend": "yes",
+      "review_text": "Great all-around tire with excellent durability. A touch heavy compared to competitors but the flat protection is worth the trade. Two seasons and counting on one set.",
+      "submitted_at": "2026-02-02T03:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-continental-terra-trail-5",
+      "tire_id": "continental-terra-trail",
+      "tire_name": "Continental Terra Trail",
+      "stars": 3,
+      "width_ridden": 45,
+      "pressure_psi": 27,
+      "conditions": [
+        "wet",
+        "mud"
+      ],
+      "race_used_at": "Mid South",
+      "would_recommend": "yes",
+      "review_text": "Good tire but struggles in deep mud. The tread pattern does not clear well. For mixed or dry conditions it is excellent though. Would use again on appropriate courses.",
+      "submitted_at": "2026-01-21T19:00:00.000Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "donnelly-mso",
+    "goodyear-connector",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-m",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "teravail-cannonball",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

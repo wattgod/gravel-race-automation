@@ -1,0 +1,163 @@
+{
+  "id": "schwalbe-g-one-rs",
+  "name": "Schwalbe G-One RS",
+  "brand": "Schwalbe",
+  "widths_mm": [
+    35,
+    40,
+    45
+  ],
+  "tread_type": "file",
+  "tread_description": "Micro-knob file tread with ADDIX Race compound",
+  "best_conditions": [
+    "dry",
+    "smooth",
+    "hardpack"
+  ],
+  "worst_conditions": [
+    "mud",
+    "wet"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-45"
+  },
+  "tagline": "Race-day speed with better cornering than pure file treads.",
+  "strengths": [
+    "Very low rolling resistance",
+    "Good cornering grip for a file tread",
+    "ADDIX Race compound"
+  ],
+  "weaknesses": [
+    "Limited wet grip",
+    "Not for technical terrain",
+    "Wears fast on sharp surfaces"
+  ],
+  "msrp_usd": 84.9,
+  "weight_grams": {
+    "35": 340,
+    "40": 380,
+    "45": 430
+  },
+  "crr_watts_at_29kmh": {
+    "40": 29.0
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "none",
+  "recommended_use": [
+    "fast gravel",
+    "road-to-gravel",
+    "smooth hardpack",
+    "dry racing"
+  ],
+  "avoid_use": [
+    "wet",
+    "mud",
+    "sharp rock",
+    "loose over hard"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "scratch-ankle-gravel": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "fast"
+    }
+  },
+  "community_reviews": [
+    {
+      "review_id": "seed-schwalbe-g-one-rs-4",
+      "tire_id": "schwalbe-g-one-rs",
+      "tire_name": "Schwalbe G-One RS",
+      "stars": 4,
+      "width_ridden": 45,
+      "pressure_psi": 34,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "Steamboat Gravel",
+      "would_recommend": "yes",
+      "review_text": "Great speed tire. The 35mm is basically a road tire that can handle some gravel. I use them for gravel fondos with mostly paved approaches. Light and fast.",
+      "submitted_at": "2026-02-13T19:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-schwalbe-g-one-rs-3",
+      "tire_id": "schwalbe-g-one-rs",
+      "tire_name": "Schwalbe G-One RS",
+      "stars": 4,
+      "width_ridden": 40,
+      "pressure_psi": 24,
+      "conditions": [
+        "mixed"
+      ],
+      "race_used_at": "Unbound 200",
+      "would_recommend": "yes",
+      "review_text": "Very fast tire. The grip is adequate for mixed conditions but not confidence-inspiring on loose stuff. Best on courses with significant pavement or hardpack sections.",
+      "submitted_at": "2026-02-08T19:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-schwalbe-g-one-rs-5",
+      "tire_id": "schwalbe-g-one-rs",
+      "tire_name": "Schwalbe G-One RS",
+      "stars": 3,
+      "width_ridden": 45,
+      "pressure_psi": 33,
+      "conditions": [
+        "wet"
+      ],
+      "race_used_at": "Rooted Vermont",
+      "would_recommend": "no",
+      "review_text": "Too slick for wet conditions. The minimal tread that makes it fast on dry surfaces becomes a liability in the rain. Learned this at a wet Rooted Vermont.",
+      "submitted_at": "2026-01-30T04:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-schwalbe-g-one-rs-1",
+      "tire_id": "schwalbe-g-one-rs",
+      "tire_name": "Schwalbe G-One RS",
+      "stars": 5,
+      "width_ridden": 35,
+      "pressure_psi": 24,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "Belgian Waffle Ride",
+      "would_recommend": "yes",
+      "review_text": "Fastest gravel tire I have tested. The micro-knob center rolls like a road tire. Ran 40mm at BWR and set a PR. If your course is mostly dry this is the tire.",
+      "submitted_at": "2026-01-21T21:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-schwalbe-g-one-rs-2",
+      "tire_id": "schwalbe-g-one-rs",
+      "tire_name": "Schwalbe G-One RS",
+      "stars": 5,
+      "width_ridden": 35,
+      "pressure_psi": 31,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "SBT GRVL",
+      "would_recommend": "yes",
+      "review_text": "Incredible rolling speed with enough grip for hardpack gravel. The Addix compound is durable too. 45mm at SBT GRVL was lightning fast on the climbs.",
+      "submitted_at": "2026-01-16T19:00:00.000Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-speed-40",
+    "panaracer-gravelking-tlc",
+    "rene-herse-snoqualmie-pass",
+    "vittoria-terreno-dry"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

@@ -532,7 +532,7 @@ def build_jsonld() -> str:
   "description": "One-on-one consulting for gravel race selection, training structure, nutrition, and season planning.",
   "offers": {{
     "@type": "Offer",
-    "price": "175",
+    "price": "150",
     "priceCurrency": "USD",
     "description": "60-minute 1-on-1 video consultation with written action plan"
   }},

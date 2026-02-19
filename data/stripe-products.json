@@ -1,0 +1,134 @@
+{
+  "products": [
+    {
+      "id": "prod_U0g6hJrnths2eE",
+      "name": "Custom Training Plan"
+    },
+    {
+      "id": "prod_U0g6RrSIkENe11",
+      "name": "Coaching \u2014 Min"
+    },
+    {
+      "id": "prod_U0g6g8NoQZriN5",
+      "name": "Coaching \u2014 Mid"
+    },
+    {
+      "id": "prod_U0g6whDx1WdYkp",
+      "name": "Coaching \u2014 Max"
+    },
+    {
+      "id": "prod_U0g6jLL6L944ep",
+      "name": "Consulting"
+    }
+  ],
+  "prices": [
+    {
+      "id": "price_1T2ekOLoaHDbEqSqRbpy02qh",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "4-week plan ($60)",
+      "amount": 6000
+    },
+    {
+      "id": "price_1T2ekOLoaHDbEqSqpJx9E1yq",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "5-week plan ($75)",
+      "amount": 7500
+    },
+    {
+      "id": "price_1T2ekOLoaHDbEqSqY1A8y6LK",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "6-week plan ($90)",
+      "amount": 9000
+    },
+    {
+      "id": "price_1T2ekPLoaHDbEqSq7mnndDhP",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "7-week plan ($105)",
+      "amount": 10500
+    },
+    {
+      "id": "price_1T2ekPLoaHDbEqSqevidiXbx",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "8-week plan ($120)",
+      "amount": 12000
+    },
+    {
+      "id": "price_1T2ekPLoaHDbEqSqkTTpr9dN",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "9-week plan ($135)",
+      "amount": 13500
+    },
+    {
+      "id": "price_1T2ekQLoaHDbEqSqJr4wjnF8",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "10-week plan ($150)",
+      "amount": 15000
+    },
+    {
+      "id": "price_1T2ekQLoaHDbEqSqJFJBGMkS",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "11-week plan ($165)",
+      "amount": 16500
+    },
+    {
+      "id": "price_1T2ekQLoaHDbEqSqScrmfxRF",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "12-week plan ($180)",
+      "amount": 18000
+    },
+    {
+      "id": "price_1T2ekQLoaHDbEqSqZ4o7bj8B",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "13-week plan ($195)",
+      "amount": 19500
+    },
+    {
+      "id": "price_1T2ekRLoaHDbEqSq3q1cniEc",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "14-week plan ($210)",
+      "amount": 21000
+    },
+    {
+      "id": "price_1T2ekRLoaHDbEqSqzhPHsmaP",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "15-week plan ($225)",
+      "amount": 22500
+    },
+    {
+      "id": "price_1T2ekRLoaHDbEqSqFXGSA95u",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "16-week plan ($240)",
+      "amount": 24000
+    },
+    {
+      "id": "price_1T2ekRLoaHDbEqSqgQVjT7FI",
+      "product": "prod_U0g6hJrnths2eE",
+      "nickname": "17+ week plan ($249 cap)",
+      "amount": 24900
+    },
+    {
+      "id": "price_1T2ekSLoaHDbEqSqY10rhBJE",
+      "product": "prod_U0g6RrSIkENe11",
+      "nickname": "Coaching Min \u2014 $199/mo",
+      "amount": 19900
+    },
+    {
+      "id": "price_1T2ekTLoaHDbEqSqCZ8dLEYk",
+      "product": "prod_U0g6g8NoQZriN5",
+      "nickname": "Coaching Mid \u2014 $299/mo",
+      "amount": 29900
+    },
+    {
+      "id": "price_1T2ekULoaHDbEqSqLoY8g0BD",
+      "product": "prod_U0g6whDx1WdYkp",
+      "nickname": "Coaching Max \u2014 $1,200/mo",
+      "amount": 120000
+    },
+    {
+      "id": "price_1T2ekVLoaHDbEqSq0GGfoBEX",
+      "product": "prod_U0g6jLL6L944ep",
+      "nickname": "Consulting \u2014 $150/hr",
+      "amount": 15000
+    }
+  ]
+}

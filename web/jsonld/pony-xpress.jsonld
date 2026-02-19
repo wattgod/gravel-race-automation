@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Pony Xpress - Colorado State Championship",
-  "description": "Southern Colorado State Championship gravel in high desert.",
+  "name": "Pony Xpress",
+  "description": "Remote southern Colorado gravel through Sangre de Cristo mining country.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-09",
+  "startDate": "2026-05-2027",
   "location": {
     "@type": "Place",
     "name": "Cokedale, Colorado"
   },
   "offers": {
     "@type": "Offer",
-    "price": "80",
+    "price": "89",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
@@ -21,5 +21,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "http://coloradogravelgrinderchampionship.com/pony-xpress/details"
 }

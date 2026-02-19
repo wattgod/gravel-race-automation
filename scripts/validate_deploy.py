@@ -491,7 +491,7 @@ def check_coaching(v):
         v.check("gg-coach-tier" in body, "Coaching page has tier comparison", "Missing tiers")
         v.check("coaching_page_view" in body, "Coaching page has GA4 tracking", "Missing GA4 events")
         v.check("application/ld+json" in body, "Coaching page has JSON-LD", "Missing JSON-LD")
-        v.check("$15" in body or "$249" in body, "Coaching page has pricing info", "Missing pricing")
+        v.check("$199" in body or "$299" in body, "Coaching page has pricing info", "Missing pricing")
         v.check("gg-coach-faq" in body, "Coaching page has FAQ section", "Missing FAQ")
 
 

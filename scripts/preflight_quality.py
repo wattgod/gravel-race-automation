@@ -310,6 +310,109 @@ def check_pricing_parity():
         check(f"Price parity across {len(test_dates)} date scenarios", True)
 
 
+# ── Check 5b: Stripe pricing parity across all generators ──
+
+
+def check_stripe_pricing_parity():
+    """Verify all pricing mentions in generators match data/stripe-products.json.
+
+    This catches: wrong cap prices, wrong coaching tiers, wrong consulting
+    hourly rate, stale JSON-LD prices, and 'Cancel anytime' on one-time
+    products. Stripe products file is the single source of truth.
+    """
+    print("\n── Stripe Pricing Parity ──")
+    stripe_file = PROJECT_ROOT / "data" / "stripe-products.json"
+    if not stripe_file.exists():
+        warn("Stripe products file", "data/stripe-products.json not found — skipping")
+        return
+
+    stripe = json.loads(stripe_file.read_text())
+
+    # Extract canonical prices from Stripe
+    prices_by_product = {}
+    for p in stripe.get("prices", []):
+        prod_id = p["product"]
+        prices_by_product.setdefault(prod_id, []).append(p)
+
+    product_names = {p["id"]: p["name"] for p in stripe.get("products", [])}
+
+    # Find key prices
+    training_cap = None
+    training_weekly = None
+    coaching_min = None
+    coaching_mid = None
+    coaching_max = None
+    consulting_rate = None
+
+    for p in stripe.get("prices", []):
+        nick = p.get("nickname", "")
+        amount = p["amount"]
+        if "cap" in nick.lower():
+            training_cap = amount // 100  # $249
+        if "4-week" in nick:
+            training_weekly = amount // 100 // 4  # $15
+        if "Coaching Min" in nick:
+            coaching_min = amount // 100  # $199
+        if "Coaching Mid" in nick:
+            coaching_mid = amount // 100  # $299
+        if "Coaching Max" in nick:
+            coaching_max = amount // 100  # $1200
+        if "Consulting" in nick:
+            consulting_rate = amount // 100  # $150
+
+    check("Stripe prices loaded",
+          all(v is not None for v in [training_cap, training_weekly,
+                                       coaching_min, coaching_mid,
+                                       coaching_max, consulting_rate]),
+          f"Missing prices: cap={training_cap}, weekly={training_weekly}, "
+          f"coach_min={coaching_min}, coach_mid={coaching_mid}, "
+          f"coach_max={coaching_max}, consult={consulting_rate}")
+
+    if training_cap is None:
+        return
+
+    # Scan generator files for pricing mentions
+    generators = list(WORDPRESS_DIR.glob("generate_*.py"))
+    wrong_prices = []
+
+    for gen_file in generators:
+        text = gen_file.read_text()
+        fname = gen_file.name
+
+        # Check training plan cap — look for $NNN cap mentions
+        for m in re.finditer(r'\$(\d+)(?:\s|\.|\b)', text):
+            val = int(m.group(1))
+            # Common wrong caps we've seen
+            if val in (199, 175) and "capped" in text[max(0, m.start()-40):m.start()+40].lower():
+                wrong_prices.append(f"{fname}: Found ${val} cap (should be ${training_cap})")
+
+        # Check "Cancel anytime" on training plans (they're one-time payments)
+        if "Cancel anytime" in text and ("training" in fname or "vs" in fname or "state" in fname):
+            wrong_prices.append(f"{fname}: 'Cancel anytime' on one-time training plan product")
+
+        # Check consulting price in JSON-LD
+        if "consulting" in fname:
+            for m in re.finditer(r'"price"\s*:\s*"(\d+)"', text):
+                ld_price = int(m.group(1))
+                if ld_price != consulting_rate:
+                    wrong_prices.append(
+                        f"{fname}: JSON-LD price ${ld_price} != Stripe ${consulting_rate}")
+
+        # Check coaching prices in JSON-LD
+        if "coaching" in fname and "apply" not in fname:
+            for m in re.finditer(r'"price"\s*:\s*"(\d+)"', text):
+                ld_price = int(m.group(1))
+                if ld_price not in (coaching_min, coaching_mid, coaching_max, consulting_rate):
+                    wrong_prices.append(
+                        f"{fname}: JSON-LD price ${ld_price} not in Stripe coaching tiers")
+
+    for issue in wrong_prices:
+        check(f"Stripe parity: {issue}", False, "Price mismatch")
+
+    if not wrong_prices:
+        check(f"Stripe pricing parity across {len(generators)} generators", True)
+
+
 # ── Check 6: Dead CSS detection for training-plans.html ──
 
 
@@ -732,6 +835,35 @@ try {{
         check("AB config sync", False, f"Error loading config: {e}")
 
 
+# ── Check 18: Fabricated claims in race JSON ──────────────────
+
+
+def check_fabricated_claims():
+    """Run fabricated claims audit on all race profiles.
+
+    Cross-references championship/official/UCI claims in race JSON against
+    research dumps. Catches AI content fill hallucinations (like the
+    Ned Gravel 'Colorado State Championship' fabrication).
+    """
+    print("\n── Fabricated Claims Audit ──")
+    try:
+        result = subprocess.run(
+            [sys.executable, str(PROJECT_ROOT / "scripts" / "audit_fabricated_claims.py"),
+             "--json"],
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode != 0:
+            findings = json.loads(result.stdout) if result.stdout.strip() else []
+            slugs = set(f['slug'] for f in findings)
+            check("No fabricated claims in race JSON", False,
+                  f"{len(findings)} unsupported claim(s) in {len(slugs)} race(s): "
+                  f"{', '.join(sorted(slugs))}")
+        else:
+            check("No fabricated claims in race JSON (328 profiles)", True)
+    except Exception as e:
+        check("Fabricated claims audit", False, f"Error: {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -750,6 +882,7 @@ def main():
         check_js_python_constant_parity()
         check_css_js_class_sync()
         check_pricing_parity()
+        check_stripe_pricing_parity()
     else:
         check_no_inline_imports()
         check_js_python_constant_parity()
@@ -760,6 +893,7 @@ def main():
         check_css_js_class_sync()
         check_worker_hydration_fields()
         check_pricing_parity()
+        check_stripe_pricing_parity()
         check_no_dead_css()
         check_infographic_renderers()
         check_infographic_css_no_hex()
@@ -771,6 +905,7 @@ def main():
         check_ab_config_sync()
         if not args.quick:
             check_climate_classification()
+            check_fabricated_claims()
 
     print("\n" + "=" * 60)
     if failures:

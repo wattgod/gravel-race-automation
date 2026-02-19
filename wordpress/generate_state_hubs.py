@@ -759,7 +759,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
     <a href="/training-plans/" class="gg-state-cta-btn">Build My Plan</a>
-    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">$15/week, capped at $249. Cancel anytime.</p>
+    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">$15/week, capped at $249. One-time payment.</p>
   </section>
 
   <footer class="gg-state-footer">

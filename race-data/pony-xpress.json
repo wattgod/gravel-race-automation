@@ -2,51 +2,51 @@
   "race": {
     "name": "Pony Xpress",
     "slug": "pony-xpress",
-    "display_name": "Pony Xpress - Colorado State Championship",
-    "tagline": "Southern Colorado State Championship gravel in high desert.",
+    "display_name": "Pony Xpress",
+    "tagline": "Remote southern Colorado gravel through Sangre de Cristo mining country.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 4500,
+      "distance_mi": 100,
+      "elevation_ft": 7300,
       "location": "Cokedale, Colorado",
       "location_badge": "COKEDALE, CO",
       "county": "Las Animas County",
       "date": "Early May annually",
-      "date_specific": "2026: May 9 (tentative)",
+      "date_specific": "Paused for 2026 — returning May 2027",
       "terrain_types": [
         "High desert gravel",
         "Foothills",
-        "State championship",
+        "Mining country",
         "High altitude"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$80-120",
-      "prize_purse": "State championship prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
+      "start_time": "9:00 AM (160K/100mi)",
+      "registration": "Online. Tiered pricing: $89.95-$149.95 for 160K",
+      "prize_purse": "Category prizes",
+      "aid_stations": "3 feed stations (160K), 1 (85K), 0 (48K)",
+      "cutoff_time": "Minimum 10 mph (160K), 8 mph (85K/48K)",
       "lat": 37.1453,
       "lng": -104.6211
     },
     "climate": {
       "primary": "Colorado high desert",
-      "description": "High altitude with variable conditions. Wind and sun exposure.",
+      "description": "High altitude with variable conditions. Wind and sun exposure. 70% of course sheltered by trees and canyons.",
       "challenges": [
-        "High altitude (6000-7000+ feet)",
-        "Wind exposure",
+        "High altitude (6000-8800 feet)",
+        "Wind exposure on open sections",
         "Variable weather",
         "Sun exposure"
       ]
     },
     "terrain": {
       "primary": "Colorado high desert and foothills gravel",
-      "surface": "High desert and foothills gravel roads. Moderate to significant elevation with remote setting.",
+      "surface": "96% gravel county roads, 4% blacktop. Fine gravel suitable for lighter tires. Rolling foothills, forests, and open plains.",
       "technical_rating": 2,
       "features": [
-        "Moderate to significant climbing (4500 feet)",
-        "High altitude (6000-7000+ feet)",
-        "High desert scenery",
-        "Remote southern Colorado",
-        "State championship course"
+        "Sangre de Cristo Mountains setting",
+        "Fisher Peak views",
+        "Historic Ludlow Memorial",
+        "Remote mining country",
+        "Rolling foothills and forests"
       ]
     },
     "gravel_god_rating": {
@@ -67,106 +67,112 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Colorado State Championship. High altitude and climbing but regional field and remote location.",
+      "score_note": "Part of Colorado Gravel Grinder Championships series. Genuine altitude and climbing in remote setting but small field and limited national recognition.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Colorado State Championship Challenge",
-      "summary": "Pony Xpress is Colorado's State Championship gravel race in remote southern Colorado. The state championship status elevates it above typical regional events, but it's still a small race in a tiny remote town. The course offers genuine altitude and climbing challenges at 6000-7000+ feet. It's well-organized for a state championship with moderate field size.",
+      "verdict": "Remote Southern Colorado Gravel Grinder",
+      "summary": "Pony Xpress is a remote gravel race in southern Colorado's Sangre de Cristo Mountains, part of the Colorado Gravel Grinder Championships series. The 85K distance carries the USACycling Colorado State Gravel Grinder Championship designation. The course rolls through historic mining areas, past the Ludlow Memorial, with Fisher Peak views and genuine altitude from 6,000 to 8,800 feet. It's well-organized with four distance options (160K, 85K, 48K, 85K e-bike) but draws a regional field to a remote location.",
       "strengths": [
-        "Colorado State Championship status",
-        "High altitude challenge (6000-7000+ feet)",
-        "Moderate to significant climbing",
-        "Well-organized state championship",
-        "Colorado cycling community support"
+        "Part of Colorado Gravel Grinder Championships series",
+        "High altitude challenge (6000-8800 feet)",
+        "Historic mining country and Ludlow Memorial",
+        "Multiple distance options (160K/85K/48K)",
+        "Remote Sangre de Cristo setting"
       ],
       "weaknesses": [
         "Extremely remote location (tiny town)",
-        "Minimal amenities",
-        "Regional/state field only",
+        "Minimal amenities in Cokedale",
+        "Regional field only",
         "Limited national recognition",
-        "Wind exposure"
+        "Wind exposure on open sections"
       ],
-      "bottom_line": "A solid Colorado State Championship gravel race with genuine altitude and climbing challenges. Worth it for Colorado cyclists seeking state championship status. Not a destination race for out-of-state travelers, but a good state-level event."
+      "bottom_line": "A solid Colorado gravel grinder in genuinely remote mining country with real altitude. Worth it for Colorado cyclists who want a remote adventure with championship-series organization. Not a destination race for out-of-state travelers, but the terrain and history deliver."
     },
     "final_verdict": {
       "score": "59 / 100",
-      "one_liner": "Colorado State Championship gravel with high altitude in remote southern Colorado.",
-      "should_you_race": "If you're in Colorado and want state championship status—yes, it's a well-organized event with genuine altitude and climbing. If you're from out of state—there are more prestigious events elsewhere.",
-      "alternatives": "For better Colorado events: Leadville 100, Steamboat Gravel, SBT GRVL. For similar state championships: other state championship events."
+      "one_liner": "Remote southern Colorado gravel through Sangre de Cristo mining country at altitude.",
+      "should_you_race": "If you're in Colorado and want a remote gravel adventure through mining history at altitude—yes, it's a well-organized event with serious terrain. If you're from out of state—there are more accessible events with deeper fields.",
+      "alternatives": "For bigger Colorado events: SBT GRVL, Steamboat Gravel. For similar remote Colorado gravel: Ned Gravel, Grit & Gravel. For championship-level gravel: Unbound, BWR."
     },
     "logistics": {
       "airport": "Trinidad (TAD) 30 min, or Denver (DEN) 4 hours",
-      "lodging_strategy": "Cokedale has minimal lodging. Trinidad (30 min) has more options.",
-      "food": "Tiny town with minimal dining. Bring your own.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars"
+      "lodging_strategy": "Cokedale has minimal lodging. Trinidad (30 min) has more options. Fairgrounds camping $25/night.",
+      "food": "Tiny town with minimal dining. Trinidad has restaurants. Bring race nutrition.",
+      "packet_pickup": "Saturday before at Tarantula Cycles, 200 E. Main St, Trinidad. Race-day pickup 7-8:30 AM at start.",
+      "parking": "At start/finish in Cokedale",
+      "official_site": "http://coloradogravelgrinderchampionship.com/pony-xpress/details"
     },
     "history": {
       "founded": null,
-      "founder": "Colorado organizers",
-      "origin_story": "Colorado State Championship gravel event in southern Colorado.",
+      "founder": null,
+      "origin_story": "Annual gravel event in southern Colorado, part of the Colorado Gravel Grinder Championships series. Inspired by the 1860s Pony Express riders who crossed remote, desolate regions.",
       "notable_moments": [],
-      "reputation": "Colorado State Championship event."
+      "reputation": "Remote Colorado gravel grinder with genuine altitude and mining-country character."
     },
     "course_description": {
-      "character": "High desert and foothills gravel at high altitude.",
+      "character": "Rolling high desert and foothills gravel through Sangre de Cristo mining country.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "High Desert Climbing",
-          "desc": "Elevation gain at altitude.",
-          "terrain_detail": "Desert hills",
-          "named_section": "Early Climbs"
+          "mile": 25,
+          "label": "First Feed Station",
+          "desc": "Opening climbs through foothills at altitude.",
+          "terrain_detail": "Rolling foothills",
+          "named_section": "Opening Foothills"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through course.",
-          "terrain_detail": "Continued climbing",
-          "named_section": "Mid-Course"
+          "mile": 50,
+          "label": "Midpoint / Second Feed",
+          "desc": "Halfway through 160K. Historic mining areas and Ludlow Memorial.",
+          "terrain_detail": "Mining country",
+          "named_section": "Mining Country"
         },
         {
-          "mile": 55,
-          "label": "Final Stretch",
-          "desc": "Last miles to finish.",
-          "terrain_detail": "Final hills",
-          "named_section": "Finish"
+          "mile": 75,
+          "label": "Third Feed Station",
+          "desc": "Final lap push through open plains with Fisher Peak views.",
+          "terrain_detail": "Open plains",
+          "named_section": "Fisher Peak Stretch"
         }
       ],
-      "signature_challenge": "4500 feet of climbing at 6000-7000+ feet altitude.",
+      "signature_challenge": "100 miles of remote gravel at 6,000-8,800 feet through Sangre de Cristo mining country with limited cell service.",
       "ridewithgps_id": "53884002",
       "ridewithgps_name": "PX 160 Pony Xpress Ride in Trinidad CO"
     },
     "guide_variables": {
       "race_name": "Pony Xpress",
-      "race_distance": "62 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Spring or Summer",
+      "race_distance": "100 miles (160K flagship)",
+      "race_elevation": "7,300 feet",
+      "race_date": "Spring (May)",
       "race_location": "Cokedale, Colorado",
       "race_terrain": "Colorado high desert and foothills gravel",
-      "race_weather": "Colorado variability",
+      "race_weather": "Colorado high desert variability",
       "race_challenges": [
-        "High altitude (6000-7000+ feet)",
-        "4500 feet of climbing",
+        "High altitude (6000-8800 feet)",
+        "7,300 feet of climbing",
+        "Remote terrain with no cell service",
         "Wind exposure",
-        "State championship competition"
+        "Self-reliance required"
       ],
       "altitude_section": true,
-      "altitude_feet": "6000-7000+"
+      "altitude_feet": 6000
     },
     "non_negotiables": [
       {
         "requirement": "Altitude preparation",
         "by_when": "Week 6-8",
-        "why": "Racing at 6000-7000+ feet requires altitude acclimatization or preparation."
+        "why": "Racing at 6,000-8,800 feet requires altitude acclimatization."
       },
       {
-        "requirement": "Climbing strength",
+        "requirement": "Climbing endurance",
         "by_when": "Week 6-8",
-        "why": "4500 feet of climbing requires strong aerobic capacity."
+        "why": "7,300 feet of climbing over 100 miles at altitude requires strong aerobic capacity."
+      },
+      {
+        "requirement": "GPS navigation and self-reliance",
+        "by_when": "Week 4",
+        "why": "Course is isolated with limited markings and no cell service. GPS is mandatory."
       }
     ],
     "research_metadata": {
@@ -176,7 +182,9 @@
         "colorado_cycling_community"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "2026 status: paused per official site, returning May 2027",
+        "Cleaned Feb 2026: removed overstated State Championship framing (was series member, not standalone championship)"
       ],
       "research_strength": {
         "overall": null,
@@ -221,25 +229,27 @@
         "priority_order": [
           "altitude",
           "climbing",
-          "pacing"
+          "pacing",
+          "navigation"
         ],
         "race_specific": true,
         "topics": {
-          "altitude": "Racing at high altitude",
-          "climbing": "Pacing for high desert climbing",
-          "pacing": "Managing effort at altitude"
+          "altitude": "Racing at high altitude in thin air",
+          "climbing": "Sustained climbing at altitude",
+          "pacing": "Managing effort at 6,000-8,800 feet",
+          "navigation": "GPS navigation in remote terrain"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Pony Xpress",
-        "race_hook": "62 miles of Colorado State Championship gravel at 6000-7000+ feet.",
-        "race_hook_detail": "State championship event in remote Cokedale with 4500 feet of climbing.",
-        "distance": "62",
-        "dark_mile": "40",
+        "race_hook": "100 miles of remote southern Colorado gravel at altitude through mining country.",
+        "race_hook_detail": "Remote gravel through Sangre de Cristo Mountains with 7,300 feet of climbing.",
+        "distance": "100",
+        "dark_mile": "50",
         "non_negotiable_1": "Altitude preparation",
-        "non_negotiable_2": "Climbing strength",
-        "non_negotiable_3": "State championship competition",
+        "non_negotiable_2": "Climbing endurance",
+        "non_negotiable_3": "GPS navigation and self-reliance",
         "trainingpeaks_url": null
       }
     },

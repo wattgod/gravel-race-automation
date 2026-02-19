@@ -13,10 +13,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_coaching import (
-    PRICE_PER_WEEK,
-    PRICE_CAP,
     QUESTIONNAIRE_URL,
-    load_race_count,
     build_nav,
     build_hero,
     build_problem,
@@ -25,7 +22,6 @@ from generate_coaching import (
     build_how_it_works,
     build_testimonials,
     build_honest_check,
-    build_pricing,
     build_faq,
     build_final_cta,
     build_footer,
@@ -41,11 +37,6 @@ from generate_coaching import (
 
 
 @pytest.fixture(scope="module")
-def race_count():
-    return load_race_count()
-
-
-@pytest.fixture(scope="module")
 def coaching_html():
     return generate_coaching_page()
 
@@ -58,19 +49,6 @@ def coaching_css():
 @pytest.fixture(scope="module")
 def coaching_js():
     return build_coaching_js()
-
-
-# ── Data Loading ─────────────────────────────────────────────
-
-
-class TestDataLoading:
-    def test_race_count_loads(self, race_count):
-        assert isinstance(race_count, int)
-        assert race_count > 0
-
-    def test_price_constants(self):
-        assert PRICE_PER_WEEK == 15
-        assert PRICE_CAP == 249
 
 
 # ── Page Generation ──────────────────────────────────────────
@@ -113,6 +91,11 @@ class TestPageGeneration:
         assert "<title>" in coaching_html
         assert "Coaching" in coaching_html or "Training" in coaching_html
 
+    def test_no_old_pricing_in_meta(self, coaching_html):
+        """No $15/week or $249 references in meta/OG tags."""
+        assert "$15/week" not in coaching_html
+        assert "$249" not in coaching_html
+
 
 # ── Nav ──────────────────────────────────────────────────────
 
@@ -137,20 +120,24 @@ class TestNav:
 
 class TestHero:
     def test_cta_present(self):
-        hero = build_hero(328)
-        assert "SEE OPTIONS" in hero
-        assert "VIEW PRICING" in hero
+        hero = build_hero()
+        assert "APPLY NOW" in hero
+        assert "SEE HOW IT WORKS" in hero
 
-    def test_stat_bar(self, race_count):
-        hero = build_hero(race_count)
-        assert str(race_count) in hero
-        assert "$2/day" in hero
-        assert "Same Day" in hero
-        assert "1,000+" in hero
+    def test_stat_line(self):
+        hero = build_hero()
+        assert "Juniors" in hero
+        assert "If you can pedal" in hero
+        assert "gg-coach-stat-line" in hero
+
+    def test_no_stat_bar(self):
+        hero = build_hero()
+        assert "gg-coach-stat-bar" not in hero
+        assert "gg-coach-stat-item" not in hero
 
     def test_headline(self):
-        hero = build_hero(328)
-        assert "Stop Guessing" in hero
+        hero = build_hero()
+        assert "Algorithm" in hero
 
 
 # ── Service Tiers ────────────────────────────────────────────
@@ -159,22 +146,43 @@ class TestHero:
 class TestServiceTiers:
     def test_three_tiers(self):
         tiers = build_service_tiers()
-        assert "Race Prep Kit" in tiers
-        assert "Custom Training Plan" in tiers
-        assert "1:1 Coaching" in tiers
+        assert "Min" in tiers
+        assert "Mid" in tiers
+        assert "Max" in tiers
 
     def test_featured_tier(self):
         tiers = build_service_tiers()
         assert "gg-coach-tier-card--featured" in tiers
-        assert "MOST POPULAR" in tiers
 
-    def test_price_cap_mentioned(self):
+    def test_prices(self):
         tiers = build_service_tiers()
-        assert f"${PRICE_CAP}" in tiers
+        assert "$199" in tiers
+        assert "$299" in tiers
+        assert "$1,200" in tiers
 
-    def test_price_per_week(self):
+    def test_cadence_lines(self):
         tiers = build_service_tiers()
-        assert f"${PRICE_PER_WEEK}/week" in tiers
+        assert "Weekly review" in tiers
+        assert "Daily review" in tiers
+
+    def test_section_title(self):
+        tiers = build_service_tiers()
+        assert "Same Coach. Same Standards. Different Involvement." in tiers
+
+    def test_disclaimer(self):
+        tiers = build_service_tiers()
+        assert "skip workouts" in tiers
+        assert "24 hours" in tiers
+
+    def test_all_ctas_get_started(self):
+        tiers = build_service_tiers()
+        assert tiers.count("GET STARTED") == 3
+
+    def test_no_old_tiers(self):
+        tiers = build_service_tiers()
+        assert "Race-Ready Plan" not in tiers
+        assert "Ongoing Coaching" not in tiers
+        assert "Race Consult" not in tiers
 
 
 # ── Deliverables ─────────────────────────────────────────────
@@ -185,18 +193,19 @@ class TestDeliverables:
         d = build_deliverables()
         assert d.count("gg-coach-deliverable-num") == 5
 
-    def test_sample_week_grid(self):
+    def test_no_sample_week(self):
         d = build_deliverables()
-        assert "gg-coach-sample-grid" in d
-        assert "data-detail" in d
+        assert "gg-coach-sample-grid" not in d
+        assert "data-detail" not in d
+        assert "gg-coach-sample-week" not in d
 
     def test_deliverable_titles(self):
         d = build_deliverables()
-        assert "Structured Workouts" in d
-        assert "Custom Training Guide" in d
-        assert "Altitude" in d
-        assert "Nutrition" in d
-        assert "Strength" in d
+        assert "I Read Your File" in d
+        assert "Your Plan Changes When Your Life Does" in d
+        assert "Honest Feedback" in d
+        assert "I Know What It Feels Like" in d
+        assert "Race Strategy" in d
 
 
 # ── How It Works ─────────────────────────────────────────────
@@ -209,9 +218,9 @@ class TestHowItWorks:
 
     def test_step_titles(self):
         h = build_how_it_works()
-        assert "Tell Me About Your Race" in h
-        assert "I Build Your Plan" in h
-        assert "Open Your App" in h
+        assert "Fill Out the Intake" in h
+        assert "We Align on a Plan" in h
+        assert "We Train Together" in h
 
 
 # ── Testimonials ─────────────────────────────────────────────
@@ -236,43 +245,15 @@ class TestTestimonials:
 
 
 class TestHonestCheck:
-    def test_buy_dont_buy_lists(self):
+    def test_coaching_for_you_lists(self):
         h = build_honest_check()
-        assert "Buy This If:" in h
-        assert "Don&#39;t Buy This If:" in h
+        assert "Coaching Is For You If:" in h
+        assert "Coaching Isn&#39;t For You If:" in h
 
     def test_list_items_count(self):
         h = build_honest_check()
         li_count = h.count("<li>")
         assert li_count >= 8
-
-
-# ── Pricing ──────────────────────────────────────────────────
-
-
-class TestPricing:
-    def test_price_displayed(self):
-        p = build_pricing()
-        assert f"${PRICE_PER_WEEK}" in p
-        assert "/ week" in p
-
-    def test_price_cap(self):
-        p = build_pricing()
-        assert f"${PRICE_CAP}" in p
-
-    def test_anchoring_present(self):
-        p = build_pricing()
-        assert "$2/day" in p
-        assert "entry fee" in p
-
-    def test_guarantee(self):
-        p = build_pricing()
-        assert "refund" in p.lower()
-        assert "7 day" in p.lower()
-
-    def test_cta_present(self):
-        p = build_pricing()
-        assert "BUILD MY PLAN" in p
 
 
 # ── FAQ ──────────────────────────────────────────────────────
@@ -292,6 +273,10 @@ class TestFAQ:
         f = build_faq()
         assert 'aria-expanded' in f
         assert 'role="button"' in f
+
+    def test_kicker_number(self):
+        f = build_faq()
+        assert ">07<" in f
 
 
 # ── Brand Compliance ─────────────────────────────────────────
@@ -349,6 +334,21 @@ class TestBrandCompliance:
         """No cubic-bezier bounce/spring easing."""
         assert "cubic-bezier(0.34, 1.56" not in coaching_css
 
+    def test_no_sample_week_css(self, coaching_css):
+        """Sample week CSS should be removed."""
+        assert "gg-coach-sample" not in coaching_css
+        assert "gg-coach-block--" not in coaching_css
+        assert "gg-coach-active" not in coaching_css
+
+    def test_no_pricing_css(self, coaching_css):
+        """Pricing CSS should be removed."""
+        assert "gg-coach-pricing" not in coaching_css
+
+    def test_no_stat_bar_css(self, coaching_css):
+        """Stat bar CSS should be removed."""
+        assert "gg-coach-stat-bar" not in coaching_css
+        assert "gg-coach-stat-item" not in coaching_css
+
 
 # ── GA4 Events ───────────────────────────────────────────────
 
@@ -360,10 +360,12 @@ class TestGA4Events:
             "coaching_scroll_depth",
             "coaching_cta_click",
             "coaching_faq_open",
-            "coaching_sample_week_click",
         ]
         for event in events:
             assert event in coaching_js, f"Missing GA4 event: {event}"
+
+    def test_no_sample_week_event(self, coaching_js):
+        assert "coaching_sample_week_click" not in coaching_js
 
 
 # ── JS Syntax ────────────────────────────────────────────────
@@ -396,11 +398,16 @@ try {{
 
 class TestJSONLD:
     def test_webpage_schema(self):
-        ld = build_jsonld(328)
+        ld = build_jsonld()
         assert '"@type":"WebPage"' in ld
         assert "/coaching/" in ld
 
     def test_service_schema(self):
-        ld = build_jsonld(328)
+        ld = build_jsonld()
         assert '"@type":"Service"' in ld
-        assert str(PRICE_PER_WEEK) in ld
+        assert "Gravel Race Coaching" in ld
+
+    def test_no_offers_block(self):
+        ld = build_jsonld()
+        assert '"offers"' not in ld
+        assert "$15" not in ld

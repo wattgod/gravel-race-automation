@@ -1,0 +1,202 @@
+{
+  "id": "goodyear-connector",
+  "name": "Goodyear Connector",
+  "brand": "Goodyear",
+  "widths_mm": [
+    35,
+    40,
+    45,
+    50
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Low-profile center with side bite, Dynamic:Silica4 compound",
+  "best_conditions": [
+    "mixed",
+    "hardpack",
+    "gravel roads"
+  ],
+  "worst_conditions": [
+    "deep mud",
+    "technical singletrack"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector"
+  },
+  "tagline": "Value all-rounder. Wide width range with solid puncture protection.",
+  "strengths": [
+    "Great value",
+    "Wide size range",
+    "Good puncture protection"
+  ],
+  "weaknesses": [
+    "Not the lightest",
+    "Average grip",
+    "Basic compound"
+  ],
+  "msrp_usd": 64.99,
+  "weight_grams": {
+    "35": 370,
+    "40": 430,
+    "45": 490,
+    "50": 550
+  },
+  "crr_watts_at_29kmh": {
+    "40": 34.5
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "mixed gravel",
+    "gravel roads",
+    "budget all-rounder",
+    "long distance"
+  ],
+  "avoid_use": [
+    "deep mud",
+    "technical singletrack"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "filthy-50": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "flint-hills-death-ride": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "red-granite-grinder": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rule-of-three": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "switchgrass": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "walburg-dirty-30": {
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "mixed"
+    }
+  },
+  "community_reviews": [
+    {
+      "review_id": "seed-goodyear-connector-5",
+      "tire_id": "goodyear-connector",
+      "tire_name": "Goodyear Connector",
+      "stars": 3,
+      "width_ridden": 50,
+      "pressure_psi": 35,
+      "conditions": [
+        "wet",
+        "mud"
+      ],
+      "race_used_at": "Mid South",
+      "would_recommend": "no",
+      "review_text": "Fine in mixed but struggles in real mud. The tread does not clear well and you lose traction fast. Stick to dry or mixed courses with these.",
+      "submitted_at": "2026-02-08T06:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-goodyear-connector-3",
+      "tire_id": "goodyear-connector",
+      "tire_name": "Goodyear Connector",
+      "stars": 4,
+      "width_ridden": 40,
+      "pressure_psi": 23,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "SBT GRVL",
+      "would_recommend": "yes",
+      "review_text": "Fast and affordable. Not the lightest tire but the rolling resistance is competitive. Good option for riders who want performance without the premium price tag.",
+      "submitted_at": "2026-02-05T01:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-goodyear-connector-4",
+      "tire_id": "goodyear-connector",
+      "tire_name": "Goodyear Connector",
+      "stars": 4,
+      "width_ridden": 50,
+      "pressure_psi": 27,
+      "conditions": [
+        "mixed",
+        "wet"
+      ],
+      "race_used_at": "DK XL",
+      "would_recommend": "yes",
+      "review_text": "Good grip in mixed conditions. The center tread rolls well and the side knobs hook up on corners. Used 50mm at DK and appreciated the extra volume on rough roads.",
+      "submitted_at": "2026-01-29T18:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-goodyear-connector-2",
+      "tire_id": "goodyear-connector",
+      "tire_name": "Goodyear Connector",
+      "stars": 5,
+      "width_ridden": 45,
+      "pressure_psi": 33,
+      "conditions": [
+        "mixed"
+      ],
+      "race_used_at": "Gravel Worlds",
+      "would_recommend": "yes",
+      "review_text": "Solid all-conditions tire from Goodyear. The compound is durable and the tread works on varied terrain. 45mm at Gravel Worlds was a great setup.",
+      "submitted_at": "2026-01-22T17:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-goodyear-connector-1",
+      "tire_id": "goodyear-connector",
+      "tire_name": "Goodyear Connector",
+      "stars": 5,
+      "width_ridden": 40,
+      "pressure_psi": 34,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "Barry-Roubaix",
+      "would_recommend": "yes",
+      "review_text": "Underrated tire. The Connector rolls fast and grips well for the price. Ran 40mm at Barry-Roubaix and they handled the Michigan gravel perfectly. Great value.",
+      "submitted_at": "2026-01-20T12:00:00.000Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-m",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "teravail-cannonball",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

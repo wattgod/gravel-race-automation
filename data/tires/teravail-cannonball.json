@@ -1,0 +1,162 @@
+{
+  "id": "teravail-cannonball",
+  "name": "Teravail Cannonball",
+  "brand": "Teravail",
+  "widths_mm": [
+    38,
+    42,
+    47
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Versatile knob pattern with Light & Supple or Durable casing",
+  "best_conditions": [
+    "chunky",
+    "mixed",
+    "loose gravel"
+  ],
+  "worst_conditions": [
+    "deep mud",
+    "smooth pavement"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/teravail-cannonball",
+    "42": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/teravail-cannonball",
+    "47": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/teravail-cannonball"
+  },
+  "tagline": "Versatile workhorse. Durable casing handles sharp gravel and long distances.",
+  "strengths": [
+    "Durable casing options",
+    "Versatile tread pattern",
+    "Good flat protection"
+  ],
+  "weaknesses": [
+    "Heavier in durable casing",
+    "Not the fastest",
+    "Average wet grip"
+  ],
+  "msrp_usd": 64.0,
+  "weight_grams": {
+    "38": 410,
+    "42": 470,
+    "47": 530
+  },
+  "crr_watts_at_29kmh": {
+    "42": 36.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "recommended_use": [
+    "chunky gravel",
+    "long distance",
+    "mixed gravel",
+    "durability"
+  ],
+  "avoid_use": [
+    "deep mud",
+    "smooth pavement"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [
+    {
+      "review_id": "seed-teravail-cannonball-3",
+      "tire_id": "teravail-cannonball",
+      "tire_name": "Teravail Cannonball",
+      "stars": 4,
+      "width_ridden": 38,
+      "pressure_psi": 29,
+      "conditions": [
+        "dry"
+      ],
+      "race_used_at": "SBT GRVL",
+      "would_recommend": "yes",
+      "review_text": "Very fast rolling gravel tire. The light casing makes it a bit vulnerable on sharp rock but the speed trade is worth it for most courses. Great for racing.",
+      "submitted_at": "2026-02-13T05:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-teravail-cannonball-5",
+      "tire_id": "teravail-cannonball",
+      "tire_name": "Teravail Cannonball",
+      "stars": 3,
+      "width_ridden": 38,
+      "pressure_psi": 31,
+      "conditions": [
+        "wet",
+        "mud"
+      ],
+      "race_used_at": "Gravel Worlds",
+      "would_recommend": "no",
+      "review_text": "Not enough tread for real mud. The low-profile knobs pack up quickly. Great dry tire but know its limits. Switched to something more aggressive for my muddier races.",
+      "submitted_at": "2026-02-01T17:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-teravail-cannonball-2",
+      "tire_id": "teravail-cannonball",
+      "tire_name": "Teravail Cannonball",
+      "stars": 5,
+      "width_ridden": 42,
+      "pressure_psi": 25,
+      "conditions": [
+        "mixed"
+      ],
+      "race_used_at": "The Rift",
+      "would_recommend": "yes",
+      "review_text": "Excellent all-rounder. The tread rolls fast on pavement sections and still grips on loose gravel. Used 47mm at the Rift and they were perfect for the volcanic terrain.",
+      "submitted_at": "2026-02-01T12:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-teravail-cannonball-4",
+      "tire_id": "teravail-cannonball",
+      "tire_name": "Teravail Cannonball",
+      "stars": 4,
+      "width_ridden": 38,
+      "pressure_psi": 34,
+      "conditions": [
+        "mixed",
+        "wet"
+      ],
+      "race_used_at": "Belgian Waffle Ride",
+      "would_recommend": "yes",
+      "review_text": "Solid grip in mixed conditions. Ran 38mm at BWR and they handled the varied terrain well. Would go wider for rougher courses but the 38 is great for fast gravel.",
+      "submitted_at": "2026-01-22T10:00:00.000Z",
+      "approved": true
+    },
+    {
+      "review_id": "seed-teravail-cannonball-1",
+      "tire_id": "teravail-cannonball",
+      "tire_name": "Teravail Cannonball",
+      "stars": 5,
+      "width_ridden": 38,
+      "pressure_psi": 27,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "Unbound 200",
+      "would_recommend": "yes",
+      "review_text": "Light, fast, and durable. The 42mm Cannonball is my race day tire for any course that is not pure mud. Ran them at Unbound and they rolled beautifully on the flint hills.",
+      "submitted_at": "2026-01-19T04:00:00.000Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-m",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

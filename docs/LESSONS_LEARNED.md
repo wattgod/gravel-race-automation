@@ -2133,3 +2133,13 @@ Covers every fix from the 14-issue audit:
 
 Run: `python3 -m pytest tests/test_tire_reviews.py -v`
 Required before every tire page deploy. Takes <1 second.
+
+## Rule #56: Worker Deploys Require Integration Test Script
+
+Every Cloudflare Worker gets an integration test script in `tests/`:
+- `tests/test_worker_intake.sh` — fueling-lead-intake worker (22 checks)
+- `tests/test_tire_review_intake.sh` — tire-review-intake worker (28 checks)
+
+Run the relevant script AFTER every `wrangler deploy`. No exceptions.
+Tests use unique `RUN_ID` + fake IDs to avoid KV pollution.
+If any test fails, the deploy is blocked until the failure is fixed.

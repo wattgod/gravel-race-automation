@@ -1,0 +1,97 @@
+{
+  "id": "maxxis-rambler",
+  "name": "Maxxis Rambler",
+  "brand": "Maxxis",
+  "widths_mm": [
+    40,
+    45,
+    50
+  ],
+  "tread_type": "knobby",
+  "tread_description": "Low-profile diamond knobs with EXO casing",
+  "best_conditions": [
+    "chunky",
+    "hardpack",
+    "sharp rock"
+  ],
+  "worst_conditions": [
+    "deep mud",
+    "wet"
+  ],
+  "tubeless_ready": true,
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-45",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-45"
+  },
+  "tagline": "Chunky gravel specialist. Diamond knobs roll fast on sharp surfaces.",
+  "strengths": [
+    "Excellent on sharp gravel",
+    "Good rolling speed",
+    "EXO flat protection"
+  ],
+  "weaknesses": [
+    "Limited wet grip",
+    "Knobs pack mud",
+    "Not for technical singletrack"
+  ],
+  "msrp_usd": 69.99,
+  "weight_grams": {
+    "40": 440,
+    "45": 500,
+    "50": 560
+  },
+  "crr_watts_at_29kmh": {
+    "40": 33.0
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "poor",
+  "mud_clearance": "none",
+  "recommended_use": [
+    "chunky gravel",
+    "sharp rock",
+    "hardpack",
+    "long distance"
+  ],
+  "avoid_use": [
+    "deep mud",
+    "wet",
+    "technical singletrack"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [
+    {
+      "review_id": "tr-maxxis-rambler--n90sz5-mltu48fl",
+      "tire_id": "maxxis-rambler",
+      "tire_name": "Maxxis Rambler",
+      "stars": 5,
+      "width_ridden": 45,
+      "pressure_psi": 28,
+      "conditions": [
+        "dry",
+        "mixed"
+      ],
+      "race_used_at": "Unbound 200",
+      "would_recommend": "yes",
+      "review_text": "Fast on hardpack, handles sharp gravel well.",
+      "submitted_at": "2026-02-19T19:09:04.305Z",
+      "approved": true
+    }
+  ],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-m",
+    "specialized-pathfinder-pro-47",
+    "specialized-pathfinder-pro",
+    "teravail-cannonball",
+    "vittoria-terreno-mix"
+  ],
+  "versions": [],
+  "last_enriched": null
+}

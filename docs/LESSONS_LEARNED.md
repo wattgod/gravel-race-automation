@@ -2110,3 +2110,26 @@ Every form that POSTs to a backend must:
 2. Show a loading state (text change or spinner)
 3. Re-enable button on error
 4. Only show success state after confirmed 200 response
+
+## Rule #55: Tire Review System Requires 99 Tests Before Deploy
+
+Script: `tests/test_tire_reviews.py` (99 tests)
+
+Covers every fix from the 14-issue audit:
+- **TestValidateReview** (15 tests): KV data validation edge cases
+- **TestSanitizeReview** (6 tests): PII whitelist enforcement
+- **TestReviewCardEscaping** (6 tests): XSS payload handling on all user fields
+- **TestStarCountValidation** (7 tests): Star clamping, invalid type handling
+- **TestReviewCardStructure** (5 tests): Would-recommend states, optional fields
+- **TestCommunityReviewsSection** (10 tests): 3 display states, aggregate math,
+  sorting, card limit, approval filtering
+- **TestJsonLdAggregateRating** (7 tests): Real vs proxy rating, threshold, JSON validity
+- **TestJSFormHandler** (8 tests): Double-submit guard, fetch await, error display
+- **TestReviewFormHTML** (10 tests): Honeypot, star buttons, error div, width options
+- **TestWorkerSourceCode** (7 tests): Origin exact match, tire_id regex, dedup, esc()
+- **TestSyncScriptSourceCode** (6 tests): URL encoding, whitelist, validate, sort
+- **TestReviewCSS** (3 tests): Error, disabled, success styles
+- **TestEndToEndPageGeneration** (9 tests): Full page assembly, section ordering
+
+Run: `python3 -m pytest tests/test_tire_reviews.py -v`
+Required before every tire page deploy. Takes <1 second.

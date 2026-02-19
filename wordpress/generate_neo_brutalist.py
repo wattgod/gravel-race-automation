@@ -40,6 +40,7 @@ from brand_tokens import (
     get_tokens_css,
 )
 from shared_footer import get_mega_footer_css, get_mega_footer_html
+from shared_header import get_site_header_css, get_site_header_html
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -2380,19 +2381,7 @@ def _build_breadcrumb_series_segment(rd: dict) -> str:
 
 def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
-    return f'''<header class="gg-site-header">
-    <div class="gg-site-header-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
-        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
-      </a>
-      <nav class="gg-site-header-nav">
-        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
-        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
-        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
-      </nav>
-    </div>
-  </header>
+    return get_site_header_html(active="races") + f'''
   <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
@@ -2761,13 +2750,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-similar-name {{ font-family: var(--gg-font-editorial); display: block; font-size: var(--gg-font-size-base); font-weight: var(--gg-font-weight-semibold); letter-spacing: 0; margin-bottom: 4px; }}
 .gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
 
-/* Site header */
-.gg-site-header {{ padding: 16px 24px; border-bottom: 2px solid var(--gg-color-gold); }}
-.gg-site-header-inner {{ display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }}
-.gg-site-header-logo img {{ display: block; height: 50px; width: auto; }}
-.gg-site-header-nav {{ display: flex; gap: 28px; }}
-.gg-site-header-nav a {{ color: var(--gg-color-dark-brown); text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
-.gg-site-header-nav a:hover {{ color: var(--gg-color-gold); }}
+{get_site_header_css()}
 .gg-breadcrumb {{ font-family: var(--gg-font-data); font-size: 11px; padding: 8px 24px; background: var(--gg-color-sand); }}
 .gg-breadcrumb a {{ color: var(--gg-color-warm-brown); text-decoration: none; }}
 .gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
@@ -2880,11 +2863,6 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-suffering-content {{ padding: 8px 12px; }}
   .gg-neo-brutalist-page .gg-accordion-label {{ width: 65px; min-width: 65px; font-size: 9px; letter-spacing: 0.5px; }}
   .gg-neo-brutalist-page .gg-accordion-score {{ width: 32px; min-width: 32px; font-size: 12px; }}
-  .gg-site-header {{ padding: 12px 16px; }}
-  .gg-site-header-inner {{ flex-wrap: wrap; justify-content: center; gap: 10px; }}
-  .gg-site-header-logo img {{ height: 40px; }}
-  .gg-site-header-nav {{ gap: 12px; flex-wrap: wrap; justify-content: center; }}
-  .gg-site-header-nav a {{ font-size: 10px; letter-spacing: 1.5px; }}
   .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
   .gg-sticky-cta {{ padding: 10px 12px; }}
   .gg-back-to-top {{ bottom: 60px; right: 12px; width: 36px; height: 36px; }}
@@ -3031,8 +3009,10 @@ body{margin:0;background:#ede4d8}
 .gg-site-header{padding:16px 24px;border-bottom:2px solid #9a7e0a}
 .gg-site-header-inner{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto}
 .gg-site-header-logo img{display:block;height:50px;width:auto}
-.gg-site-header-nav{display:flex;gap:28px}
-.gg-site-header-nav a{color:#3a2e25;text-decoration:none;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.gg-site-header-nav{display:flex;gap:24px;align-items:center}
+.gg-site-header-nav>a,.gg-site-header-item>a{color:#3a2e25;text-decoration:none;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.gg-site-header-item{position:relative}
+.gg-site-header-dropdown{display:none}
 .gg-hero{background:#f5efe6;color:#3a2e25;padding:48px 32px;border-bottom:2px solid #9a7e0a;display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
 </style>
   '''

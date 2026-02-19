@@ -203,6 +203,10 @@ class TestSeriesHubPages:
         assert "/coaching/" in html
         assert "/articles/" in html
         assert "/about/" in html
+        assert ">RACES</a>" in html
+        assert ">PRODUCTS</a>" in html
+        assert ">SERVICES</a>" in html
+        assert "gg-site-header-dropdown" in html
 
     @pytest.mark.parametrize("slug", [
         "belgian-waffle-ride",

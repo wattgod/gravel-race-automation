@@ -100,6 +100,16 @@ class TestNav:
         assert "/coaching/" in apply_html
         assert "/articles/" in apply_html
         assert "/about/" in apply_html
+        assert ">RACES</a>" in apply_html
+        assert ">PRODUCTS</a>" in apply_html
+        assert ">SERVICES</a>" in apply_html
+
+    def test_nav_dropdowns(self, apply_html):
+        assert "gg-site-header-dropdown" in apply_html
+        assert "gg-site-header-item" in apply_html
+
+    def test_current_page_marker(self, apply_html):
+        assert 'aria-current="page">SERVICES</a>' in apply_html
 
     def test_breadcrumb(self, apply_html):
         assert "gg-breadcrumb" in apply_html

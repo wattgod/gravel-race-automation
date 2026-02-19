@@ -217,8 +217,16 @@ class TestSectionBuilders:
         assert "/coaching/" in nav
         assert "/articles/" in nav
         assert "/about/" in nav
-        assert "COACHING" in nav
-        assert "ABOUT" in nav
+        assert ">RACES</a>" in nav
+        assert ">PRODUCTS</a>" in nav
+        assert ">SERVICES</a>" in nav
+        assert ">ARTICLES</a>" in nav
+        assert ">ABOUT</a>" in nav
+
+    def test_nav_has_dropdowns(self):
+        nav = build_nav()
+        assert "gg-site-header-dropdown" in nav
+        assert "gg-site-header-item" in nav
 
     def test_nav_no_breadcrumb(self):
         nav = build_nav()

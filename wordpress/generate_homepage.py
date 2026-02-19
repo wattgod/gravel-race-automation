@@ -38,6 +38,7 @@ from brand_tokens import (
     get_tokens_css,
 )
 from shared_footer import get_mega_footer_css, get_mega_footer_html
+from shared_header import get_site_header_css, get_site_header_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -323,19 +324,7 @@ def load_guide_chapters(guide_path: Path = None) -> list:
 
 
 def build_nav() -> str:
-    return f'''<header class="gg-site-header">
-    <div class="gg-site-header-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
-        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
-      </a>
-      <nav class="gg-site-header-nav">
-        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
-        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
-        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
-      </nav>
-    </div>
-  </header>'''
+    return get_site_header_html()
 
 
 def build_ticker(one_liners: list, substack_posts: list, upcoming: list) -> str:
@@ -856,13 +845,7 @@ a { text-decoration: none; color: #178079; }
 /* ── Page container ──────────────────────────────────────── */
 .gg-hp-page { margin: 0; padding: 0; }
 
-/* ── Header ──────────────────────────────────────────────── */
-.gg-site-header { padding: 16px 24px; border-bottom: 2px solid #9a7e0a; }
-.gg-site-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
-.gg-site-header-logo img { display: block; height: 50px; width: auto; }
-.gg-site-header-nav { display: flex; gap: 28px; }
-.gg-site-header-nav a { color: #3a2e25; text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
-.gg-site-header-nav a:hover { color: #9a7e0a; }
+''' + get_site_header_css() + '''
 
 /* ── Ticker ──────────────────────────────────────────────── */
 .gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: hidden; white-space: nowrap; }
@@ -1109,13 +1092,6 @@ a { text-decoration: none; color: #178079; }
   /* Full-bleed sections on mobile — remove side borders */
   .gg-hp-featured, .gg-hp-latest-takes, .gg-hp-how-it-works, .gg-hp-coming-up,
   .gg-hp-guide, .gg-hp-featured-in, .gg-hp-training, .gg-hp-email, .gg-hp-testimonials { margin: 16px 0 0; border-left: none; border-right: none; }
-
-  /* Header */
-  .gg-site-header { padding: 12px 16px; }
-  .gg-site-header-inner { flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .gg-site-header-logo img { height: 40px; }
-  .gg-site-header-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
-  .gg-site-header-nav a { font-size: 10px; letter-spacing: 1.5px; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }

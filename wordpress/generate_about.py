@@ -27,6 +27,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import get_ab_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
+from shared_header import get_site_header_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -50,19 +51,7 @@ def load_race_count() -> int:
 
 
 def build_nav() -> str:
-    return f'''<header class="gg-site-header">
-    <div class="gg-site-header-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
-        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
-      </a>
-      <nav class="gg-site-header-nav">
-        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
-        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
-        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
-      </nav>
-    </div>
-  </header>
+    return get_site_header_html(active="about") + f'''
   <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>

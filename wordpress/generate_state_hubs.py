@@ -30,6 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, SITE_BASE_URL, get_font_face_css, get_tokens_css
+from shared_header import get_site_header_css, get_site_header_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_YEAR = date.today().year
@@ -454,13 +455,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   color: var(--gg-color-dark-brown);
 }}
 
-/* Site header */
-.gg-site-header {{ padding: 16px 24px; border-bottom: 2px solid var(--gg-color-gold); }}
-.gg-site-header-inner {{ display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }}
-.gg-site-header-logo img {{ display: block; height: 50px; width: auto; }}
-.gg-site-header-nav {{ display: flex; gap: 28px; }}
-.gg-site-header-nav a {{ color: var(--gg-color-dark-brown); text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }}
-.gg-site-header-nav a:hover {{ color: var(--gg-color-gold); }}
+{get_site_header_css()}
 
 /* Breadcrumb */
 .gg-state-breadcrumb {{ font-size: 11px; color: var(--gg-color-secondary-brown); padding: 12px 0; letter-spacing: 0.5px; }}
@@ -714,8 +709,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 @media (max-width: 768px) {{
   .gg-state-hero {{ padding: 32px 20px; }}
   .gg-state-hero h1 {{ font-size: 26px; }}
-  .gg-site-header-nav {{ gap: 12px; }}
-  .gg-site-header-nav a {{ font-size: 10px; letter-spacing: 1.5px; }}
   .gg-state-cta {{ padding: 24px 16px; }}
 }}
 @media (max-width: 480px) {{
@@ -728,10 +721,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-state-card-body {{ padding: 10px 12px; }}
   .gg-state-card-name {{ font-size: 14px; }}
   .gg-state-cta {{ margin: 32px -12px; }}
-  .gg-site-header {{ padding: 12px 16px; }}
-  .gg-site-header-inner {{ flex-wrap: wrap; justify-content: center; gap: 10px; }}
-  .gg-site-header-logo img {{ height: 40px; }}
-  .gg-site-header-nav {{ flex-wrap: wrap; justify-content: center; gap: 8px; }}
 }}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
@@ -741,19 +730,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 <div class="gg-state-page">
 
-  <header class="gg-site-header">
-    <div class="gg-site-header-inner">
-      <a href="/" class="gg-site-header-logo">
-        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
-      </a>
-      <nav class="gg-site-header-nav">
-        <a href="/gravel-races/">RACES</a>
-        <a href="/coaching/">COACHING</a>
-        <a href="/articles/">ARTICLES</a>
-        <a href="/about/">ABOUT</a>
-      </nav>
-    </div>
-  </header>
+  {get_site_header_html(active="races")}
 
   <div class="gg-state-breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; {esc(state)}

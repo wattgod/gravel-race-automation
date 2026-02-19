@@ -106,6 +106,15 @@ class TestNav:
         assert "/coaching/" in coaching_html
         assert "/articles/" in coaching_html
         assert "/about/" in coaching_html
+        assert ">RACES</a>" in coaching_html
+        assert ">PRODUCTS</a>" in coaching_html
+        assert ">SERVICES</a>" in coaching_html
+        assert ">ARTICLES</a>" in coaching_html
+        assert ">ABOUT</a>" in coaching_html
+
+    def test_nav_dropdowns(self, coaching_html):
+        assert "gg-site-header-dropdown" in coaching_html
+        assert "gg-site-header-item" in coaching_html
 
     def test_breadcrumb(self, coaching_html):
         assert "gg-breadcrumb" in coaching_html
@@ -113,6 +122,7 @@ class TestNav:
 
     def test_current_page_marker(self, coaching_html):
         assert 'aria-current="page"' in coaching_html
+        assert 'aria-current="page">SERVICES</a>' in coaching_html
 
 
 # ── Hero ─────────────────────────────────────────────────────

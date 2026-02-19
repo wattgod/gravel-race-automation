@@ -36,6 +36,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+from shared_header import get_site_header_css, get_site_header_html
 
 GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
 
@@ -540,19 +541,7 @@ def render_block(block: dict) -> str:
 
 
 def build_nav() -> str:
-    return f'''<header class="gg-site-header">
-    <div class="gg-site-header-inner">
-      <a href="{SITE_BASE_URL}/" class="gg-site-header-logo">
-        <img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
-      </a>
-      <nav class="gg-site-header-nav">
-        <a href="{SITE_BASE_URL}/gravel-races/">RACES</a>
-        <a href="{SITE_BASE_URL}/coaching/">COACHING</a>
-        <a href="{SITE_BASE_URL}/articles/">ARTICLES</a>
-        <a href="{SITE_BASE_URL}/about/">ABOUT</a>
-      </nav>
-    </div>
-  </header>
+    return get_site_header_html(active="products") + f'''
   <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
@@ -2279,13 +2268,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   font-family: 'Sometype Mono', monospace;
   box-sizing: border-box;
 }}
-/* Site header */
-.gg-site-header {{ padding: 16px 24px; border-bottom: 4px solid var(--gg-color-dark-brown); }}
-.gg-site-header-inner {{ display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }}
-.gg-site-header-logo img {{ display: block; height: 50px; width: auto; }}
-.gg-site-header-nav {{ display: flex; gap: 28px; }}
-.gg-site-header-nav a {{ color: var(--gg-color-dark-brown); text-decoration: none; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }}
-.gg-site-header-nav a:hover {{ color: var(--gg-color-gold); }}
+{get_site_header_css()}
 .gg-neo-brutalist-page .gg-breadcrumb {{ padding: 8px 24px; font-size: 11px; background: var(--gg-color-sand); }}
 .gg-neo-brutalist-page .gg-breadcrumb a {{ color: var(--gg-color-warm-brown); text-decoration: none; }}
 .gg-neo-brutalist-page .gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
@@ -2304,11 +2287,6 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 @media(max-width:768px){{
   .gg-neo-brutalist-page .gg-hero {{ padding: 40px 20px; }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 26px; }}
-  .gg-site-header {{ padding: 12px 16px; }}
-  .gg-site-header-inner {{ flex-wrap: wrap; justify-content: center; gap: 10px; }}
-  .gg-site-header-logo img {{ height: 40px; }}
-  .gg-site-header-nav {{ gap: 12px; flex-wrap: wrap; justify-content: center; }}
-  .gg-site-header-nav a {{ font-size: 10px; letter-spacing: 1.5px; }}
   .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
 }}
   </style>

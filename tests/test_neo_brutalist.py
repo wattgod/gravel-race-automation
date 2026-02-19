@@ -616,19 +616,30 @@ class TestNav:
         # Logo must link to site root
         assert 'href="https://gravelgodcycling.com/"' in html
 
-    def test_four_nav_links_with_correct_urls(self, normalized_data):
+    def test_five_nav_links_with_correct_urls(self, normalized_data):
         html = build_nav_header(normalized_data, [])
-        assert 'href="https://gravelgodcycling.com/gravel-races/">RACES</a>' in html
-        assert 'href="https://gravelgodcycling.com/coaching/">COACHING</a>' in html
-        assert 'href="https://gravelgodcycling.com/articles/">ARTICLES</a>' in html
-        assert 'href="https://gravelgodcycling.com/about/">ABOUT</a>' in html
+        assert '>RACES</a>' in html
+        assert '>PRODUCTS</a>' in html
+        assert '>SERVICES</a>' in html
+        assert '>ARTICLES</a>' in html
+        assert '>ABOUT</a>' in html
+        assert '/gravel-races/' in html
+        assert '/products/training-plans/' in html
+        assert '/coaching/' in html
+        assert '/articles/' in html
+        assert '/about/' in html
+
+    def test_dropdown_containers(self, normalized_data):
+        html = build_nav_header(normalized_data, [])
+        assert 'gg-site-header-dropdown' in html
+        assert 'gg-site-header-item' in html
+        assert 'All Gravel Races' in html
+        assert 'How We Rate' in html
 
     def test_no_old_nav_classes(self, normalized_data):
         html = build_nav_header(normalized_data, [])
         assert "gg-site-nav" not in html
         assert "GRAVEL GOD</a>" not in html  # old brand text link
-        assert "ALL RACES" not in html
-        assert "HOW WE RATE" not in html
 
     def test_breadcrumb_outside_header(self, normalized_data):
         html = build_nav_header(normalized_data, [])
@@ -669,8 +680,10 @@ class TestNavCrossGenerator:
         assert 'class="gg-site-header"' in html
         assert "gg-site-nav" not in html
         assert "cropped-Gravel-God-logo.png" in html
-        assert '/gravel-races/">RACES</a>' in html
-        assert '/coaching/">COACHING</a>' in html
+        assert '>RACES</a>' in html
+        assert '>PRODUCTS</a>' in html
+        assert '>SERVICES</a>' in html
+        assert 'gg-site-header-dropdown' in html
 
     def test_guide_nav_uses_new_header(self):
         from generate_guide import build_nav
@@ -678,8 +691,10 @@ class TestNavCrossGenerator:
         assert 'class="gg-site-header"' in html
         assert "gg-site-nav" not in html
         assert "cropped-Gravel-God-logo.png" in html
-        assert '/gravel-races/">RACES</a>' in html
-        assert '/coaching/">COACHING</a>' in html
+        assert '>RACES</a>' in html
+        assert '>PRODUCTS</a>' in html
+        assert '>SERVICES</a>' in html
+        assert 'gg-site-header-dropdown' in html
 
 
 # ── Accordion & Radar ─────────────────────────────────────────

@@ -629,6 +629,83 @@ def sync_coaching(coaching_file: str):
     return f"{wp_url}/coaching/"
 
 
+def sync_consulting(consulting_file: str):
+    """Upload consulting.html to /consulting/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(consulting_file)
+    if not html_path.exists():
+        print(f"✗ Consulting page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_consulting.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/consulting"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload consulting.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for consulting page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading consulting page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (consulting page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded consulting page: {wp_url}/consulting/")
+    return f"{wp_url}/consulting/"
+
+
 def sync_coaching_apply(apply_file: str):
     """Upload coaching-apply.html to /coaching/apply/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -1267,6 +1344,41 @@ def sync_ga4():
         return False
 
 
+def sync_header():
+    """Deploy the shared header mu-plugin to WordPress.
+
+    Uploads gg-header.php to wp-content/mu-plugins/ via SCP.
+    Injects dropdown nav on WordPress-managed pages (e.g. /gravel-races/).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-header.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-header.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-header.php mu-plugin (shared dropdown header)")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy header mu-plugin: {e}")
+        return False
+
+
 def sync_ab():
     """Deploy A/B test assets: JS (hashed + unhashed), config JSON, and mu-plugin.
 
@@ -1864,6 +1976,14 @@ if __name__ == "__main__":
         help="Path to coaching apply HTML (default: wordpress/output/coaching-apply.html)"
     )
     parser.add_argument(
+        "--sync-consulting", action="store_true",
+        help="Upload consulting page to /consulting/ via SCP"
+    )
+    parser.add_argument(
+        "--consulting-file", default="wordpress/output/consulting.html",
+        help="Path to consulting page HTML (default: wordpress/output/consulting.html)"
+    )
+    parser.add_argument(
         "--sync-pages", action="store_true",
         help="Upload race pages to /race/ via tar+ssh (with correct permissions)"
     )
@@ -1890,6 +2010,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--sync-ga4", action="store_true",
         help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
+        "--sync-header", action="store_true",
+        help="Deploy shared header mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
         "--sync-photos", action="store_true",
@@ -1968,6 +2092,7 @@ if __name__ == "__main__":
         args.sync_about = True
         args.sync_coaching = True
         args.sync_coaching_apply = True
+        args.sync_consulting = True
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
@@ -1979,13 +2104,14 @@ if __name__ == "__main__":
         args.sync_blog_index = True
         args.sync_photos = True
         args.sync_ab = True
+        args.sync_header = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about,
-                      args.sync_coaching, args.sync_coaching_apply, args.sync_pages,
+                      args.sync_coaching, args.sync_coaching_apply, args.sync_consulting, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits,
+                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.purge_cache])
     if not has_action:
@@ -2011,6 +2137,8 @@ if __name__ == "__main__":
         sync_coaching(args.coaching_file)
     if args.sync_coaching_apply:
         sync_coaching_apply(args.coaching_apply_file)
+    if args.sync_consulting:
+        sync_consulting(args.consulting_file)
     if args.sync_pages:
         sync_pages(args.pages_dir)
     if args.sync_sitemap:
@@ -2023,6 +2151,8 @@ if __name__ == "__main__":
         sync_ctas()
     if args.sync_ga4:
         sync_ga4()
+    if args.sync_header:
+        sync_header()
     if args.sync_photos:
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:

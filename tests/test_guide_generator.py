@@ -314,12 +314,12 @@ class TestPageGeneration:
         assert "gg-site-nav" not in guide_html  # old class must be gone
 
     def test_nav_links(self, guide_html):
-        assert '/gravel-races/">RACES</a>' in guide_html
-        assert '/coaching/">COACHING</a>' in guide_html
-        assert '/articles/">ARTICLES</a>' in guide_html
-        assert '/about/">ABOUT</a>' in guide_html
-        assert "ALL RACES" not in guide_html  # old link text
-        assert "HOW WE RATE" not in guide_html  # old link text
+        assert '>RACES</a>' in guide_html
+        assert '>PRODUCTS</a>' in guide_html
+        assert '>SERVICES</a>' in guide_html
+        assert '>ARTICLES</a>' in guide_html
+        assert '>ABOUT</a>' in guide_html
+        assert 'gg-site-header-dropdown' in guide_html
 
     def test_gate_position_between_ch3_and_ch4(self, guide_html):
         """Gate overlay must appear between chapter 3 and chapter 4."""

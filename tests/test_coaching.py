@@ -490,3 +490,50 @@ class TestAccessibility:
         assert "$199/month" not in coaching_html.lower()
         assert "$299/month" not in coaching_html.lower()
         assert "per month" not in coaching_html.lower()
+
+    def test_skip_to_content_link(self, coaching_html):
+        """Page has a skip-to-content link for keyboard navigation."""
+        assert 'class="gg-coach-skip-link"' in coaching_html
+        assert 'Skip to content' in coaching_html
+
+    def test_carousel_aria_live(self, coaching_html):
+        """Carousel counter has aria-live for screen reader notifications."""
+        assert 'aria-live="polite"' in coaching_html
+
+    def test_carousel_keyboard_pause(self, coaching_js):
+        """Carousel pauses on keyboard focus (focusin), not just mouse hover."""
+        assert "focusin" in coaching_js
+        assert "focusout" in coaching_js
+
+    def test_carousel_respects_reduced_motion(self, coaching_js):
+        """Carousel auto-advance respects prefers-reduced-motion."""
+        assert "prefers-reduced-motion" in coaching_js
+
+    def test_reduced_motion_css(self, coaching_css):
+        """CSS includes prefers-reduced-motion media query."""
+        assert "prefers-reduced-motion: reduce" in coaching_css
+
+    def test_faq_aria_controls(self, coaching_html):
+        """FAQ questions have aria-controls linking to answer regions."""
+        assert 'aria-controls="gg-coach-faq-ans-' in coaching_html
+        assert 'role="region"' in coaching_html
+
+    def test_no_dead_btn_teal_css(self, coaching_css):
+        """Dead .gg-coach-btn--teal CSS has been removed."""
+        assert "gg-coach-btn--teal" not in coaching_css
+
+    def test_faq_uses_brand_easing(self, coaching_css):
+        """FAQ transition uses brand token, not raw ease."""
+        css_match = re.search(r'<style>(.*?)</style>', coaching_css, re.DOTALL)
+        if not css_match:
+            pytest.skip("No CSS found")
+        css = css_match.group(1)
+        # FAQ max-height transition should use brand token
+        assert "max-height 0.3s ease" not in css
+        assert "max-height var(--gg-transition-hover)" in css
+
+    def test_scroll_depth_covers_all_sections(self, coaching_js):
+        """Scroll depth tracking covers all 9 page sections."""
+        for section_id in ["hero", "problem", "tiers", "deliverables",
+                          "how-it-works", "honest-check", "faq", "final-cta"]:
+            assert f"id: '{section_id}'" in coaching_js, f"Missing scroll depth for {section_id}"

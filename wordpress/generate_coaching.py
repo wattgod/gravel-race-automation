@@ -262,7 +262,7 @@ def build_testimonials() -> str:
       </div>
       <div class="gg-coach-carousel-nav">
         <button class="gg-coach-carousel-btn" id="gg-coach-prev" aria-label="Previous testimonials">&larr;</button>
-        <span class="gg-coach-carousel-count" id="gg-coach-count"></span>
+        <span class="gg-coach-carousel-count" id="gg-coach-count" aria-live="polite"></span>
         <button class="gg-coach-carousel-btn" id="gg-coach-next" aria-label="Next testimonials">&rarr;</button>
       </div>
     </div>
@@ -334,14 +334,15 @@ def build_faq() -> str:
     ]
 
     items = []
-    for q, a in faqs:
+    for idx, (q, a) in enumerate(faqs):
+        ans_id = f'gg-coach-faq-ans-{idx}'
         items.append(
             f'<div class="gg-coach-faq-item">'
-            f'<div class="gg-coach-faq-q" role="button" tabindex="0" aria-expanded="false">'
+            f'<div class="gg-coach-faq-q" role="button" tabindex="0" aria-expanded="false" aria-controls="{ans_id}">'
             f'{q}'
             f'<span class="gg-coach-faq-toggle" aria-hidden="true">+</span>'
             f'</div>'
-            f'<div class="gg-coach-faq-a"><p>{a}</p></div>'
+            f'<div class="gg-coach-faq-a" id="{ans_id}" role="region"><p>{a}</p></div>'
             f'</div>'
         )
     inner = "\n      ".join(items)
@@ -388,6 +389,23 @@ def build_mobile_sticky_cta() -> str:
 def build_coaching_css() -> str:
     """Coaching-page-specific CSS. All gg-coach-* prefix. Brand tokens only."""
     return '''<style>
+/* ── Skip link ──────────────────────────────────── */
+.gg-coach-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1001;
+  padding: var(--gg-spacing-xs) var(--gg-spacing-md);
+  background: var(--gg-color-near-black);
+  color: var(--gg-color-warm-paper);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  text-decoration: none;
+}
+.gg-coach-skip-link:focus {
+  left: 0;
+}
+
 /* ── Coach hero — light sandwash override ────────── */
 .gg-neo-brutalist-page .gg-coach-hero {
   background: var(--gg-color-warm-paper);
@@ -455,16 +473,6 @@ def build_coaching_css() -> str:
   border-color: var(--gg-color-gold);
 }
 .gg-neo-brutalist-page .gg-coach-btn--gold:hover {
-  background-color: var(--gg-color-dark-brown);
-  border-color: var(--gg-color-dark-brown);
-  color: var(--gg-color-warm-paper);
-}
-.gg-neo-brutalist-page .gg-coach-btn--teal {
-  background: var(--gg-color-teal);
-  color: var(--gg-color-warm-paper);
-  border-color: var(--gg-color-teal);
-}
-.gg-neo-brutalist-page .gg-coach-btn--teal:hover {
   background-color: var(--gg-color-dark-brown);
   border-color: var(--gg-color-dark-brown);
   color: var(--gg-color-warm-paper);
@@ -875,7 +883,7 @@ def build_coaching_css() -> str:
 .gg-neo-brutalist-page .gg-coach-faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height var(--gg-transition-hover);
 }
 .gg-neo-brutalist-page .gg-coach-faq-item.gg-coach-faq-open .gg-coach-faq-a {
   max-height: 500px;
@@ -952,6 +960,16 @@ def build_coaching_css() -> str:
     letter-spacing: var(--gg-letter-spacing-wider);
     text-decoration: none;
     padding: var(--gg-spacing-2xs) 0;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .gg-neo-brutalist-page .gg-coach-faq-a {
+    transition: none;
+  }
+  .gg-neo-brutalist-page .gg-coach-carousel {
+    scroll-behavior: auto;
   }
 }
 
@@ -1057,9 +1075,15 @@ def build_coaching_js() -> str:
   function stopAuto() { clearInterval(autoTimer); }
   carousel.addEventListener('mouseenter', function() { paused = true; });
   carousel.addEventListener('mouseleave', function() { paused = false; });
+  carousel.addEventListener('focusin', function() { paused = true; });
+  carousel.addEventListener('focusout', function() { paused = false; });
+  prev.addEventListener('focusin', function() { paused = true; });
+  next.addEventListener('focusin', function() { paused = true; });
+  prev.addEventListener('focusout', function() { paused = false; });
+  next.addEventListener('focusout', function() { paused = false; });
   prev.addEventListener('click', function() { stopAuto(); startAuto(); });
   next.addEventListener('click', function() { stopAuto(); startAuto(); });
-  startAuto();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) startAuto();
 })();
 
 /* Scroll depth tracking */
@@ -1067,9 +1091,13 @@ def build_coaching_js() -> str:
   if (typeof gtag !== 'function' || !('IntersectionObserver' in window)) return;
   var sections = [
     { id: 'hero', label: '0_hero' },
-    { id: 'problem', label: '25_problem' },
-    { id: 'deliverables', label: '50_deliverables' },
-    { id: 'results', label: '75_results' },
+    { id: 'problem', label: '12_problem' },
+    { id: 'tiers', label: '25_tiers' },
+    { id: 'deliverables', label: '37_deliverables' },
+    { id: 'how-it-works', label: '50_how_it_works' },
+    { id: 'results', label: '62_results' },
+    { id: 'honest-check', label: '75_honest_check' },
+    { id: 'faq', label: '87_faq' },
     { id: 'final-cta', label: '100_final_cta' }
   ];
   sections.forEach(function(s) {
@@ -1199,6 +1227,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
 </head>
 <body>
 
+<a href="#hero" class="gg-coach-skip-link">Skip to content</a>
 <div class="gg-neo-brutalist-page">
   {nav}
 

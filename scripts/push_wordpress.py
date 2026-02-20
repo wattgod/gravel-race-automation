@@ -629,6 +629,108 @@ def sync_coaching(coaching_file: str):
     return f"{wp_url}/coaching/"
 
 
+def sync_success(output_dir: str):
+    """Upload success pages to SiteGround via SSH+SCP.
+
+    Deploys 3 pages:
+      - training-plans-success.html -> /training-plans/success/index.html
+      - coaching-welcome.html       -> /coaching/welcome/index.html
+      - consulting-confirmed.html   -> /consulting/confirmed/index.html
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    pages = [
+        ("training-plans-success.html", "training-plans/success"),
+        ("coaching-welcome.html", "coaching/welcome"),
+        ("consulting-confirmed.html", "consulting/confirmed"),
+    ]
+
+    out_dir = Path(output_dir)
+    remote_root = "~/www/gravelgodcycling.com/public_html"
+    uploaded = []
+
+    for filename, remote_path in pages:
+        html_path = out_dir / filename
+        if not html_path.exists():
+            print(f"✗ Success page not found: {html_path}")
+            print("  Run: python3 wordpress/generate_success_pages.py first")
+            continue
+
+        remote_dir = f"{remote_root}/{remote_path}"
+
+        # Create remote directory
+        try:
+            subprocess.run(
+                [
+                    "ssh", "-i", str(SSH_KEY), "-p", port,
+                    f"{user}@{host}",
+                    f"mkdir -p {remote_dir}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=15,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"✗ Failed to create {remote_path}/: {e.stderr.strip()}")
+            continue
+
+        # Upload as index.html
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(html_path),
+                    f"{user}@{host}:{remote_dir}/index.html",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            uploaded.append(remote_path)
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for {filename}: {e.stderr.strip()}")
+            continue
+
+    # Upload shared CSS/JS assets
+    assets_dir = out_dir / "assets"
+    remote_assets = f"{remote_root}/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    for path in uploaded:
+        print(f"✓ Uploaded success page: {wp_url}/{path}/")
+
+    if len(uploaded) == len(pages):
+        print(f"✓ All {len(uploaded)} success pages deployed")
+    elif uploaded:
+        print(f"⚠ {len(uploaded)}/{len(pages)} success pages deployed")
+    else:
+        print("✗ No success pages deployed")
+        return None
+
+    return uploaded
+
+
 def sync_consulting(consulting_file: str):
     """Upload consulting.html to /consulting/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -2060,6 +2162,14 @@ if __name__ == "__main__":
         help="Path to consulting page HTML (default: wordpress/output/consulting.html)"
     )
     parser.add_argument(
+        "--sync-success", action="store_true",
+        help="Upload success pages (training-plans/success, coaching/welcome, consulting/confirmed)"
+    )
+    parser.add_argument(
+        "--success-dir", default="wordpress/output",
+        help="Path to success pages output directory (default: wordpress/output)"
+    )
+    parser.add_argument(
         "--sync-pages", action="store_true",
         help="Upload race pages to /race/ via tar+ssh (with correct permissions)"
     )
@@ -2177,6 +2287,7 @@ if __name__ == "__main__":
         args.sync_coaching = True
         args.sync_coaching_apply = True
         args.sync_consulting = True
+        args.sync_success = True
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
@@ -2194,7 +2305,8 @@ if __name__ == "__main__":
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about,
-                      args.sync_coaching, args.sync_coaching_apply, args.sync_consulting, args.sync_pages,
+                      args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
+                      args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits,
                       args.sync_series, args.sync_blog,
@@ -2225,6 +2337,8 @@ if __name__ == "__main__":
         sync_coaching_apply(args.coaching_apply_file)
     if args.sync_consulting:
         sync_consulting(args.consulting_file)
+    if args.sync_success:
+        sync_success(args.success_dir)
     if args.sync_pages:
         sync_pages(args.pages_dir)
     if args.sync_sitemap:

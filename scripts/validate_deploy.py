@@ -511,6 +511,25 @@ def check_coaching_apply(v):
         v.check("noindex" in body, "Apply page is noindexed", "Missing noindex")
 
 
+def check_success_pages(v):
+    """Verify post-checkout success pages are deployed."""
+    print("\n[Success Pages]")
+    success_pages = [
+        ("/training-plans/success/", "training-plans", "gg-success"),
+        ("/coaching/welcome/", "coaching", "gg-success"),
+        ("/consulting/confirmed/", "consulting", "gg-success"),
+    ]
+    for path, product, css_prefix in success_pages:
+        url = f"{BASE_URL}{path}"
+        code = curl_status(url)
+        v.check(code == "200", f"{path} accessible", f"HTTP {code}")
+        if code == "200":
+            body = curl_body(url)
+            v.check(css_prefix in body, f"{path} has success CSS", f"Missing {css_prefix}")
+            v.check("noindex" in body, f"{path} is noindexed", "Missing noindex")
+            v.check("session_id" in body, f"{path} has session_id tracking", "Missing session_id")
+
+
 def check_series_hubs(v):
     """Verify series hub pages are deployed and accessible."""
     print("\n[Series Hubs]")
@@ -547,6 +566,7 @@ def main():
     check_ab_testing_assets(v)
     check_coaching(v)
     check_coaching_apply(v)
+    check_success_pages(v)
     check_series_hubs(v)
 
     check_search_schema(v)

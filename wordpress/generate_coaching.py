@@ -100,7 +100,7 @@ def build_service_tiers() -> str:
     <div class="gg-section-body">
       <div class="gg-coach-tiers">
         <div class="gg-coach-tier-card">
-          <div class="gg-coach-tier-header">$199/MO</div>
+          <div class="gg-coach-tier-header">$199<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Min</h3>
           <p class="gg-coach-tier-cadence">Weekly review &middot; Light analysis &middot; Quarterly calls</p>
           <p class="gg-coach-tier-desc">For experienced athletes who execute without hand-holding.</p>
@@ -115,7 +115,7 @@ def build_service_tiers() -> str:
           <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_min">GET STARTED</a>
         </div>
         <div class="gg-coach-tier-card gg-coach-tier-card--featured">
-          <div class="gg-coach-tier-header gg-coach-tier-header--gold">$299/MO</div>
+          <div class="gg-coach-tier-header gg-coach-tier-header--gold">$299<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Mid</h3>
           <p class="gg-coach-tier-cadence">Weekly review &middot; Thorough analysis &middot; Monthly calls</p>
           <p class="gg-coach-tier-desc">For serious athletes who want clear feedback + weekly adjustments.</p>
@@ -130,7 +130,7 @@ def build_service_tiers() -> str:
           <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_mid">GET STARTED</a>
         </div>
         <div class="gg-coach-tier-card">
-          <div class="gg-coach-tier-header">$1,200/MO</div>
+          <div class="gg-coach-tier-header">$1,200<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Max</h3>
           <p class="gg-coach-tier-cadence">Daily review &middot; Extensive support &middot; On-demand calls</p>
           <p class="gg-coach-tier-desc">For athletes who want immediate feedback + high-touch support.</p>
@@ -329,7 +329,7 @@ def build_faq() -> str:
         ),
         (
             "What&#39;s the $99 setup fee?",
-            "It covers intake analysis, training history review, and building your initial plan. It&#39;s a one-time charge on top of your first month. After that, it&#39;s just the monthly rate.",
+            "It covers intake analysis, training history review, and building your initial plan. It&#39;s a one-time charge on top of your first billing cycle. After that, it&#39;s just the recurring rate.",
         ),
     ]
 
@@ -530,6 +530,11 @@ def build_coaching_css() -> str:
 }
 .gg-neo-brutalist-page .gg-coach-tier-header--gold {
   color: var(--gg-color-gold);
+}
+.gg-neo-brutalist-page .gg-coach-tier-interval {
+  font-size: var(--gg-font-size-3xs);
+  font-weight: var(--gg-font-weight-normal);
+  letter-spacing: var(--gg-letter-spacing-normal);
 }
 .gg-neo-brutalist-page .gg-coach-tier-card h3 {
   font-family: var(--gg-font-editorial);

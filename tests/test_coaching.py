@@ -170,6 +170,12 @@ class TestServiceTiers:
         assert "$299" in tiers
         assert "$1,200" in tiers
 
+    def test_billing_interval(self):
+        tiers = build_service_tiers()
+        assert "/4 WK" in tiers
+        assert tiers.count("/4 WK") == 3
+        assert "/MO" not in tiers
+
     def test_cadence_lines(self):
         tiers = build_service_tiers()
         assert "Weekly review" in tiers

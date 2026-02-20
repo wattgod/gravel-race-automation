@@ -112,22 +112,22 @@ def build_service_tiers() -> str:
             <li>Race-optimized nutrition plan</li>
             <li>Custom training guide</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_min">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=min" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_min">GET STARTED</a>
         </div>
         <div class="gg-coach-tier-card gg-coach-tier-card--featured">
           <div class="gg-coach-tier-header gg-coach-tier-header--gold">$299<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Mid</h3>
-          <p class="gg-coach-tier-cadence">Weekly review &middot; Thorough analysis &middot; Monthly calls</p>
+          <p class="gg-coach-tier-cadence">Weekly review &middot; Thorough analysis &middot; Every-4-week calls</p>
           <p class="gg-coach-tier-desc">For serious athletes who want clear feedback + weekly adjustments.</p>
           <ul class="gg-coach-tier-list">
             <li>Everything in Min</li>
             <li>Thorough file analysis (WKO)</li>
-            <li>Monthly strategy calls</li>
+            <li>Every-4-week strategy calls</li>
             <li>Weekly plan adjustments</li>
             <li>Direct message access</li>
             <li>Blindspot detection</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_mid">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=mid" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_mid">GET STARTED</a>
         </div>
         <div class="gg-coach-tier-card">
           <div class="gg-coach-tier-header">$1,200<span class="gg-coach-tier-interval">/4 WK</span></div>
@@ -142,7 +142,7 @@ def build_service_tiers() -> str:
             <li>Multi-race season planning</li>
             <li>Priority response</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_max">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=max" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_max">GET STARTED</a>
         </div>
       </div>
       <p class="gg-coach-tier-disclaimer">If you skip workouts, underfuel, or ignore feedback, no tier fixes that. I&#39;ll tell you within 24 hours if it&#39;s not a fit.</p>
@@ -333,6 +333,10 @@ def build_faq() -> str:
         (
             "What&#39;s the $99 setup fee?",
             "It covers intake analysis, training history review, and building your initial plan. It&#39;s a one-time charge on top of your first billing cycle. After that, it&#39;s just the recurring rate.",
+        ),
+        (
+            "Can I cancel anytime?",
+            "Yes. No contracts, no cancellation fees. You can cancel at any time from your billing portal. Your coaching access continues through the end of your current 4-week cycle.",
         ),
     ]
 
@@ -972,6 +976,12 @@ def build_coaching_css() -> str:
     padding: var(--gg-spacing-sm) var(--gg-spacing-md);
     text-align: center;
     border-top: 3px solid var(--gg-color-gold);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .gg-neo-brutalist-page .gg-coach-sticky-cta.gg-coach-sticky-visible {
+    visibility: visible;
+    pointer-events: auto;
   }
   .gg-neo-brutalist-page .gg-coach-sticky-cta a {
     display: block;
@@ -1075,10 +1085,12 @@ def build_coaching_js() -> str:
   prev.addEventListener('click', function() {
     var page = getPage();
     scrollToPage(page > 0 ? page - 1 : totalPages() - 1);
+    if (typeof gtag === 'function') gtag('event', 'coaching_carousel', { direction: 'prev', page: getPage() + 1 });
   });
   next.addEventListener('click', function() {
     var page = getPage();
     scrollToPage(page < totalPages() - 1 ? page + 1 : 0);
+    if (typeof gtag === 'function') gtag('event', 'coaching_carousel', { direction: 'next', page: getPage() + 1 });
   });
   carousel.addEventListener('scroll', updateCounter);
   window.addEventListener('resize', function() {
@@ -1093,6 +1105,7 @@ def build_coaching_js() -> str:
     if (paused) return;
     var page = getPage();
     scrollToPage(page < totalPages() - 1 ? page + 1 : 0);
+    if (typeof gtag === 'function') gtag('event', 'coaching_carousel', { direction: 'auto', page: getPage() + 1 });
   }
   function startAuto() { autoTimer = setInterval(autoAdvance, 6000); }
   function stopAuto() { clearInterval(autoTimer); }
@@ -1152,6 +1165,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
+
+/* Mobile sticky CTA — show after scrolling past hero */
+(function() {
+  var sticky = document.querySelector('.gg-coach-sticky-cta');
+  var hero = document.getElementById('hero');
+  if (!sticky || !hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      sticky.classList.remove('gg-coach-sticky-visible');
+    } else {
+      sticky.classList.add('gg-coach-sticky-visible');
+    }
+  }, { threshold: 0 }).observe(hero);
+})();
 </script>'''
 
 

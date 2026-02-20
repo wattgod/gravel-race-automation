@@ -281,9 +281,9 @@ class TestHonestCheck:
 
 
 class TestFAQ:
-    def test_seven_questions(self):
+    def test_eight_questions(self):
         f = build_faq()
-        assert f.count("gg-coach-faq-item") == 7
+        assert f.count("gg-coach-faq-item") == 8
 
     def test_accordion_toggle(self):
         f = build_faq()
@@ -537,6 +537,40 @@ class TestAccessibility:
         for section_id in ["hero", "problem", "tiers", "deliverables",
                           "how-it-works", "honest-check", "faq", "final-cta"]:
             assert f"id: '{section_id}'" in coaching_js, f"Missing scroll depth for {section_id}"
+
+    def test_no_monthly_calls_wording(self):
+        """Mid tier should not say 'Monthly calls' — use 'Every-4-week' instead."""
+        tiers = build_service_tiers()
+        assert "Monthly calls" not in tiers
+        assert "Monthly strategy" not in tiers
+        assert "Every-4-week" in tiers
+
+    def test_tier_ctas_pass_tier_param(self):
+        """Each tier CTA links to apply page with ?tier= query param."""
+        tiers = build_service_tiers()
+        assert "?tier=min" in tiers
+        assert "?tier=mid" in tiers
+        assert "?tier=max" in tiers
+
+    def test_cancellation_faq_exists(self):
+        """FAQ must include a cancellation question for subscription transparency."""
+        faq = build_faq()
+        assert "cancel" in faq.lower()
+        assert "No contracts" in faq or "no contracts" in faq
+
+    def test_carousel_ga4_tracking(self, coaching_js):
+        """Carousel prev/next/auto-advance should fire GA4 events."""
+        assert "coaching_carousel" in coaching_js
+        assert "direction: 'prev'" in coaching_js
+        assert "direction: 'next'" in coaching_js
+        assert "direction: 'auto'" in coaching_js
+
+    def test_sticky_cta_scroll_based(self, coaching_css, coaching_js):
+        """Mobile sticky CTA should be hidden by default and shown after scrolling past hero."""
+        assert "gg-coach-sticky-visible" in coaching_css
+        assert "gg-coach-sticky-visible" in coaching_js
+        assert "visibility: hidden" in coaching_css
+        assert "pointer-events: none" in coaching_css
 
 
 # ── Sultanic Copy Guard ────────────────────────────────────────

@@ -316,3 +316,48 @@ class TestNoComparisons:
     def test_no_training_plan_price_comparison(self, consulting_html):
         """No training plan pricing mentioned."""
         assert "$15/w" not in consulting_html
+
+
+# ── Sultanic Copy Guard ────────────────────────────────────────
+
+
+class TestSultanicCopyGuard:
+    """Verify psychological upgrade copy is present and brand-compliant."""
+
+    def test_hero_comparison_ignition(self):
+        """Hero should contrast the call vs. forum/YouTube research."""
+        hero = build_hero()
+        assert "forum threads" in hero or "YouTube" in hero, \
+            "Missing comparison ignition in hero subtitle"
+
+    def test_hero_no_dns_presumption(self):
+        """Hero must NOT assume the prospect has DNS'd."""
+        hero = build_hero()
+        assert "DNS" not in hero, "DNS presumption in hero — not all prospects have DNS'd"
+
+    def test_pre_call_efficiency_framing(self):
+        """Pre-Call Prep should emphasize going deep immediately."""
+        wyg = build_what_you_get()
+        assert "go deep immediately" in wyg, "Missing efficiency framing in pre-call prep"
+
+    def test_final_cta_functionally_free(self):
+        """Final CTA should contain value comparison (race entry fee)."""
+        cta = build_final_cta()
+        assert "race entry fee" in cta, "Missing Functionally Free comparison"
+
+    def test_final_cta_no_dns_reference(self):
+        """Final CTA should NOT reference DNS (excludes first-timers)."""
+        cta = build_final_cta()
+        assert "DNS" not in cta, "DNS reference excludes first-time prospects"
+
+    def test_cta_context_css_exists(self):
+        """CTA context element must have CSS styling."""
+        css = build_consulting_css()
+        assert "gg-consult-cta-context" in css, "Missing CSS for CTA context"
+
+    def test_cta_context_no_coffee_cliche(self):
+        """CTA context must not use generic SaaS comparisons."""
+        cta = build_final_cta()
+        lower = cta.lower()
+        assert "coffee" not in lower, "Coffee cliché violates brand voice"
+        assert "latte" not in lower, "Latte cliché violates brand voice"

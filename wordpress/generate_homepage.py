@@ -586,6 +586,8 @@ def _format_month(month: str) -> str:
 def build_bento_features(race_index: list) -> str:
     """Build a bento grid with 1 lead card + 2 secondary cards for featured races."""
     featured = get_featured_races(race_index)
+    if not featured:
+        return '<div class="gg-hp-bento"><p class="gg-hp-bento-empty">Featured races loading&hellip;</p></div>'
     tier_labels = {1: "Elite", 2: "Contender", 3: "Rising", 4: "Local"}
     cards = ""
     for i, race in enumerate(featured[:3]):
@@ -671,6 +673,8 @@ def build_tabbed_rankings(race_index: list) -> str:
     tier_labels = {1: "Elite", 2: "Contender", 3: "Rising", 4: "Local"}
 
     def _build_items(races):
+        if not races:
+            return '\n        <p class="gg-hp-article-empty">No races in this tier yet.</p>'
         items = ""
         for idx, race in enumerate(races[:5], 1):
             tier = race.get("tier", 4)
@@ -709,9 +713,9 @@ def build_tabbed_rankings(race_index: list) -> str:
     </div>
     <div role="tabpanel" id="gg-panel-all" aria-labelledby="gg-tab-all">{_build_items(all_sorted)}
     </div>
-    <div role="tabpanel" id="gg-panel-t1" aria-labelledby="gg-tab-t1" hidden>{_build_items(t1_sorted)}
+    <div role="tabpanel" id="gg-panel-t1" aria-labelledby="gg-tab-t1" class="gg-hp-tab-inactive">{_build_items(t1_sorted)}
     </div>
-    <div role="tabpanel" id="gg-panel-t2" aria-labelledby="gg-tab-t2" hidden>{_build_items(t2_sorted)}
+    <div role="tabpanel" id="gg-panel-t2" aria-labelledby="gg-tab-t2" class="gg-hp-tab-inactive">{_build_items(t2_sorted)}
     </div>'''
 
 
@@ -739,10 +743,22 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
       </div>
     </div>'''
 
-    # 2. Pullquote
-    pullquote_html = '''<blockquote class="gg-hp-pullquote">
-      <p>&ldquo;Not one killer climb, but 200 miles of constant attrition. The Flint Hills don&rsquo;t negotiate.&rdquo;</p>
-      <cite>On Unbound 200</cite>
+    # 2. Pullquote — pull from top-ranked race's final_verdict one_liner
+    _pullquote_text = ""
+    _pullquote_cite = ""
+    for _slug in FEATURED_SLUGS:
+        _match = next((r for r in race_index if r.get("slug") == _slug), None)
+        if _match and _match.get("tagline"):
+            _pullquote_text = esc(_match["tagline"])
+            _pullquote_cite = f'On {esc(_match.get("name", _slug))}'
+            break
+    if not _pullquote_text:
+        # Hardcoded fallback only if no featured race has a tagline
+        _pullquote_text = "Not one killer climb, but 200 miles of constant attrition. The Flint Hills don&rsquo;t negotiate."
+        _pullquote_cite = "On Unbound 200"
+    pullquote_html = f'''<blockquote class="gg-hp-pullquote">
+      <p>&ldquo;{_pullquote_text}&rdquo;</p>
+      <cite>{_pullquote_cite}</cite>
     </blockquote>'''
 
     # 3. Power rankings (top 5 by score)
@@ -1077,7 +1093,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-tab-bar [role="tab"][aria-selected="true"] { color: #1a1613; background: #f5efe6; border-color: #3a2e25; }
 .gg-hp-tab-bar [role="tab"]:hover { color: #1a1613; }
 [role="tabpanel"] { border: 2px solid #3a2e25; border-top: 3px solid #3a2e25; padding: 24px; background: #f5efe6; }
-[role="tabpanel"][hidden] { display: none; }
+.gg-hp-tab-inactive { display: none; }
 
 /* ── Article items (ranking rows) ───────────────────────── */
 .gg-hp-article-item { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; padding: 16px 0; border-top: 2px solid #d4c5b9; cursor: pointer; align-items: start; text-decoration: none; color: inherit; }
@@ -1425,13 +1441,13 @@ if (tablist) {
     tabs.forEach(function(t, i) {
       t.setAttribute('aria-selected', 'false');
       t.setAttribute('tabindex', '-1');
-      if (panels[i]) panels[i].hidden = true;
+      if (panels[i]) { panels[i].classList.add('gg-hp-tab-inactive'); panels[i].setAttribute('aria-hidden', 'true'); }
     });
     tab.setAttribute('aria-selected', 'true');
     tab.setAttribute('tabindex', '0');
     tab.focus();
     var panel = document.getElementById(tab.getAttribute('aria-controls'));
-    if (panel) panel.hidden = false;
+    if (panel) { panel.classList.remove('gg-hp-tab-inactive'); panel.removeAttribute('aria-hidden'); }
   }
   tabs.forEach(function(tab) { tab.addEventListener('click', function() { activateTab(tab); }); });
   tablist.addEventListener('keydown', function(e) {

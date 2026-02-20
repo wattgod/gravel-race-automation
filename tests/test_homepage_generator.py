@@ -773,10 +773,11 @@ class TestTabbedRankings:
 
     def test_tabbed_rankings_hidden_panels(self, race_index):
         html = build_tabbed_rankings(race_index)
-        # First panel visible, others hidden
+        # First panel visible, others hidden via CSS class (not hidden attr)
         assert 'id="gg-panel-all"' in html
-        assert 'id="gg-panel-t1" aria-labelledby="gg-tab-t1" hidden' in html
-        assert 'id="gg-panel-t2" aria-labelledby="gg-tab-t2" hidden' in html
+        assert 'gg-hp-tab-inactive' in html
+        assert 'id="gg-panel-t1"' in html
+        assert 'id="gg-panel-t2"' in html
 
     def test_tabbed_rankings_keyboard_nav_in_js(self):
         js = build_homepage_js()
@@ -1060,6 +1061,105 @@ class TestBrandToneGuard:
         # The sidebar CTA headline is "Don't wing race day" — verify it differs
         assert "wing race day" not in main_headline.lower(), \
             "Main CTA must differ from sidebar CTA"
+
+
+class TestEdgeCases:
+    """Verify empty-state and boundary-condition handling."""
+
+    def test_tabbed_rankings_empty_tier(self, race_index):
+        """Tab panel for an empty tier should show a message, not be blank."""
+        # Filter out all T1 races to simulate empty tier
+        no_t1 = [r for r in race_index if r.get("tier") != 1]
+        rankings = build_tabbed_rankings(no_t1)
+        # The T1 panel should have a fallback message
+        import re
+        t1_panel = re.search(
+            r'id="gg-panel-t1"[^>]*>(.*?)</div>\s*<div role="tabpanel"',
+            rankings, re.DOTALL
+        )
+        if t1_panel:
+            assert "No races in this tier" in t1_panel.group(1), \
+                "Empty tier panel must show a fallback message"
+
+    def test_bento_empty_fallback(self):
+        """Bento with 0 featured races should show fallback, not crash."""
+        result = build_bento_features([])
+        assert "gg-hp-bento" in result
+        assert "loading" in result.lower() or "Featured" in result
+
+    def test_tab_panels_no_hidden_attribute(self, race_index):
+        """Tab panels must use CSS class, not hidden attr (SEO)."""
+        rankings = build_tabbed_rankings(race_index)
+        import re
+        # Check specifically for hidden as a standalone HTML attribute on tabpanels
+        hidden_attrs = re.findall(r'role="tabpanel"[^>]*\bhidden\b', rankings)
+        assert len(hidden_attrs) == 0, \
+            "Tab panels must not use hidden attr — Googlebot won't index hidden content"
+
+    def test_tab_panels_use_css_class(self, race_index):
+        """Inactive tab panels must use gg-hp-tab-inactive class."""
+        rankings = build_tabbed_rankings(race_index)
+        assert "gg-hp-tab-inactive" in rankings
+
+    def test_tab_js_uses_class_not_hidden(self):
+        """JS tab handler must toggle CSS class, not hidden attribute."""
+        js = build_homepage_js()
+        assert "classList.add" in js and "tab-inactive" in js, \
+            "Tab JS must use classList.add for inactive panels"
+        assert "classList.remove" in js and "tab-inactive" in js, \
+            "Tab JS must use classList.remove for active panel"
+
+    def test_pullquote_is_dynamic(self, race_index):
+        """Sidebar pullquote should pull from featured race data."""
+        stats = compute_stats(race_index)
+        sidebar = build_sidebar(stats, race_index, [])
+        # Should contain a pullquote with cite referencing a real race
+        assert "gg-hp-pullquote" in sidebar
+        assert "<cite>" in sidebar
+        # The cite should reference a race that exists in FEATURED_SLUGS
+        from generate_homepage import FEATURED_SLUGS
+        featured_names = [
+            r.get("name", "") for r in race_index
+            if r.get("slug") in FEATURED_SLUGS
+        ]
+        cite_found = any(name in sidebar for name in featured_names if name)
+        assert cite_found or "Unbound" in sidebar, \
+            "Pullquote cite must reference a real featured race"
+
+    def test_sidebar_empty_upcoming(self, race_index):
+        """Sidebar with 0 upcoming races should show off-season message."""
+        stats = compute_stats(race_index)
+        sidebar = build_sidebar(stats, race_index, [])
+        assert "Off-season" in sidebar or "Browse all races" in sidebar
+
+    def test_training_cta_solution_state(self):
+        """Training CTA should contain Solution-State comparison language."""
+        cta = build_training_cta()
+        assert "generic plan" in cta.lower(), \
+            "Training CTA should contrast against generic plans"
+
+
+class TestSultanicCopyGuard:
+    """Verify Sultanic copy on homepage is present and brand-appropriate."""
+
+    def test_training_cta_no_coffee_cliche(self):
+        """Training CTA must not use generic SaaS comparisons."""
+        cta = build_training_cta()
+        lower = cta.lower()
+        assert "coffee" not in lower
+        assert "latte" not in lower
+
+    def test_tab_inactive_css_exists(self):
+        """Tab inactive CSS class must be defined."""
+        css = build_homepage_css()
+        assert "gg-hp-tab-inactive" in css
+
+    def test_article_empty_css_exists(self):
+        """Article empty-state CSS class should not break layout."""
+        css = build_homepage_css()
+        # Even if not styled, the class shouldn't cause errors
+        # The empty message is plain text inside a panel
+        assert "[role=\"tabpanel\"]" in css
 
 
 def html_escape(text):

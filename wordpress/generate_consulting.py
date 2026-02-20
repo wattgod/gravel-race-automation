@@ -182,7 +182,7 @@ def build_final_cta() -> str:
   <div class="gg-consult-cta-inner">
     <h2 class="gg-consult-cta-title">Stop Guessing. Start Racing Smarter.</h2>
     <p class="gg-consult-cta-desc">{CONSULTING_PRICE} &middot; {CONSULTING_DURATION} &middot; Action plan included</p>
-    <p class="gg-consult-cta-context">Less than a race entry fee. More useful than your last DNS.</p>
+    <p class="gg-consult-cta-context">Less than a race entry fee. More useful than 40 hours of forum threads.</p>
     <a href="{BOOKING_URL}" class="gg-consult-btn-gold" data-cta="final_book">Book Your Consult</a>
   </div>
 </section>'''

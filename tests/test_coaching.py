@@ -537,3 +537,77 @@ class TestAccessibility:
         for section_id in ["hero", "problem", "tiers", "deliverables",
                           "how-it-works", "honest-check", "faq", "final-cta"]:
             assert f"id: '{section_id}'" in coaching_js, f"Missing scroll depth for {section_id}"
+
+
+# ── Sultanic Copy Guard ────────────────────────────────────────
+
+
+class TestSultanicCopyGuard:
+    """Verify psychological upgrade copy is present, accurate, and brand-compliant."""
+
+    def test_problem_comparison_ignition(self):
+        """Problem quotes should contain comparison-state language."""
+        problem = build_problem()
+        assert "rider who passed you" in problem, "Missing comparison ignition in quote 1"
+        assert "paid for structure and got a spreadsheet" in problem, "Missing comparison ignition in quote 2"
+        assert "hour you train without direction" in problem, "Missing cost-of-inaction in quote 3"
+
+    def test_pricing_context_honest_math(self):
+        """Cost-per-ride math must be truthful (based on 5 rides/week)."""
+        tiers = build_service_tiers()
+        assert "gg-coach-tier-context" in tiers, "Missing pricing context element"
+        # Must NOT contain the false $10/ride claim
+        assert "$10/ride" not in tiers, "False $10/ride math must be removed"
+        # Must contain honest math
+        assert "$14.95/ride" in tiers, "Missing honest per-ride cost"
+        assert "5 rides a week" in tiers, "Missing ride frequency assumption"
+
+    def test_pricing_no_coffee_cliche(self):
+        """Pricing context must not use 'coffee' or 'latte' comparisons."""
+        tiers = build_service_tiers()
+        lower = tiers.lower()
+        assert "coffee" not in lower, "Coffee cliché violates brand voice"
+        assert "latte" not in lower, "Latte cliché violates brand voice"
+        assert "cup of" not in lower, "Cup-of-X cliché violates brand voice"
+
+    def test_deliverable_story_engineering(self):
+        """Deliverables should contain transformation language."""
+        deliverables = build_deliverables()
+        assert "finish line" in deliverables, "Missing transformation outcome in deliverable 01"
+        assert "adapt in real time" in deliverables, "Missing real-time adaptation in deliverable 02"
+
+    def test_honest_check_investment_framing(self):
+        """Honest check should contain bike/engine investment comparison."""
+        check = build_honest_check()
+        assert "invested in the bike" in check, "Missing investment framing in yes-column"
+        assert "faster bike" in check, "Missing bike-vs-engine in no-column"
+
+    def test_final_cta_cost_of_inaction(self):
+        """Final CTA should quantify cost of NOT coaching."""
+        cta = build_final_cta()
+        assert "gg-coach-final-cost" in cta, "Missing cost-of-inaction element"
+        assert "blown race costs you months" in cta, "Missing cost-of-inaction copy"
+        assert "wasted training block" in cta, "Missing training block reference"
+
+    def test_tier_context_css_exists(self):
+        """Tier context element must have CSS styling."""
+        css = build_coaching_css()
+        assert "gg-coach-tier-context" in css, "Missing CSS for tier context"
+
+    def test_final_cost_css_exists(self):
+        """Final cost element must have CSS styling."""
+        css = build_coaching_css()
+        assert "gg-coach-final-cost" in css, "Missing CSS for final cost"
+
+    def test_honest_check_yes_count(self):
+        """Yes-column should have 6 items (original 5 + investment)."""
+        check = build_honest_check()
+        yes_items = re.findall(r'<li>.*?</li>', check[:check.find('--no')])
+        assert len(yes_items) == 6, f"Expected 6 yes-items, got {len(yes_items)}"
+
+    def test_honest_check_no_count(self):
+        """No-column should have 5 items (original 4 + faster bike)."""
+        check = build_honest_check()
+        no_section = check[check.find('--no'):]
+        no_items = re.findall(r'<li>.*?</li>', no_section)
+        assert len(no_items) == 5, f"Expected 5 no-items, got {len(no_items)}"

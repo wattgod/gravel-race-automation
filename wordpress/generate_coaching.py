@@ -147,7 +147,7 @@ def build_service_tiers() -> str:
       </div>
       <p class="gg-coach-tier-disclaimer">If you skip workouts, underfuel, or ignore feedback, no tier fixes that. I&#39;ll tell you within 24 hours if it&#39;s not a fit.</p>
       <p class="gg-coach-tier-setup-fee">All tiers include a one-time $99 setup fee covering intake analysis, training history review, and initial plan setup.</p>
-      <p class="gg-coach-tier-context">Mid tier: $299 per 4 weeks &asymp; $10/ride. Less than your post-ride coffee. Except this one makes you faster.</p>
+      <p class="gg-coach-tier-context">Mid tier at 5 rides a week: $299 &divide; 20 rides = $14.95/ride. That&#39;s less than a pair of brake pads and worth more than every Strava KOM you&#39;ve lost by 12 seconds.</p>
     </div>
   </div>'''
 

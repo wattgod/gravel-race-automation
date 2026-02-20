@@ -630,14 +630,14 @@ class TestSectionNumbering:
         rd, raw = _load_test_race(FULL_SLUG)
         html = generate_prep_kit_page(rd, raw, self.guide)
         nums = re.findall(r'class="gg-pk-section-num">(\d{2})<', html)
-        assert nums == ["01", "02", "03", "04", "05", "06", "07", "08"]
+        assert nums == ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
 
     def test_generic_race_sequential_numbering(self):
         rd, raw = _load_test_race(GENERIC_SLUG)
         html = generate_prep_kit_page(rd, raw, self.guide)
         nums = re.findall(r'class="gg-pk-section-num">(\d{2})<', html)
-        # Generic races skip Non-Negotiables → should be 01-07 (sequential)
-        assert nums == ["01", "02", "03", "04", "05", "06", "07"]
+        # Generic races skip Non-Negotiables → should be 01-09 (sequential)
+        assert nums == ["01", "02", "03", "04", "05", "06", "07", "08", "09"]
         # And should NOT contain "Non-Negotiables"
         assert "Race-Specific Non-Negotiables" not in html
 

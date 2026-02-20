@@ -549,7 +549,7 @@ class TestSelectorGeneratorParity:
 
     @pytest.fixture(scope="class")
     def homepage_content(self):
-        return (PROJECT_ROOT / "wordpress" / "generate_homepage.py").read_text()
+        return (PROJECT_ROOT / "wordpress" / "output" / "homepage.html").read_text()
 
     @pytest.fixture(scope="class")
     def about_content(self):
@@ -583,8 +583,8 @@ class TestSelectorGeneratorParity:
                 )
 
     def test_homepage_has_ab_head_snippet(self, homepage_content):
-        assert "get_ab_head_snippet()" in homepage_content, (
-            "Homepage missing get_ab_head_snippet() call"
+        assert "gg-ab-tests" in homepage_content, (
+            "Homepage missing AB test script tag from get_ab_head_snippet()"
         )
 
     def test_about_has_ab_head_snippet(self, about_content):

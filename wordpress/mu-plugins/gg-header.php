@@ -155,6 +155,7 @@ function gg_shared_header_html() {
         <a href="<?php echo $base; ?>/products/training-plans/"<?php echo $aria('products'); ?>>PRODUCTS</a>
         <div class="gg-site-header-dropdown">
           <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
+          <a href="<?php echo $base; ?>/course/">Courses</a>
           <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
         </div>
       </div>

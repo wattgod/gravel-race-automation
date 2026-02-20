@@ -11,6 +11,7 @@ Usage:
     python scripts/sync_tire_reviews.py --dry-run     # preview
     python scripts/sync_tire_reviews.py --tire maxxis-rambler  # single tire
 """
+from __future__ import annotations
 
 import argparse
 import json

@@ -892,6 +892,7 @@ def build_training_cta() -> str:
       <div class="gg-hp-cta-left">
         <h2>Train for the course, not just the distance</h2>
         <p>Every generic plan treats gravel like a road race with dirt. This isn&rsquo;t that. Training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
+        <p class="gg-hp-cta-price" data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
         <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="training_plan_click" data-ab="training_cta_btn">Get Your Plan &rarr;</a>
       </div>
       <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
@@ -923,6 +924,7 @@ def build_testimonials() -> str:
     <div class="gg-hp-test-grid">{cards}
     </div>
     <div class="gg-hp-test-cta">
+      <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
       <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
     </div>
   </section>'''

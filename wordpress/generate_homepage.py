@@ -53,10 +53,7 @@ CURRENT_YEAR = date.today().year
 
 FEATURED_SLUGS = [
     "unbound-200",
-    "mid-south",
-    "badlands",
-    "steamboat-gravel",
-    "the-traka",
+    "sbt-grvl",
     "bwr-california",
 ]
 
@@ -190,10 +187,20 @@ def compute_stats(race_index: list) -> dict:
     """Compute homepage statistics from the race index."""
     race_count = len(race_index)
     t1_count = sum(1 for r in race_index if r.get("tier") == 1)
+    t2_count = sum(1 for r in race_index if r.get("tier") == 2)
+    regions = set()
+    for r in race_index:
+        loc = r.get("location", "")
+        if loc:
+            parts = [p.strip() for p in loc.split(",")]
+            if parts:
+                regions.add(parts[-1])
     return {
         "race_count": race_count,
         "dimensions": 14,
         "t1_count": t1_count,
+        "t2_count": t2_count,
+        "region_count": len(regions),
     }
 
 
@@ -205,14 +212,14 @@ def get_featured_races(race_index: list) -> list:
         if slug in by_slug:
             featured.append(by_slug[slug])
     # Fallback: fill remaining slots with top T1 races by score
-    if len(featured) < 6:
+    if len(featured) < 3:
         t1_races = sorted(
             [r for r in race_index if r.get("tier") == 1 and r not in featured],
             key=lambda r: r.get("overall_score", 0),
             reverse=True,
         )
         for r in t1_races:
-            if len(featured) >= 6:
+            if len(featured) >= 3:
                 break
             featured.append(r)
     return featured
@@ -325,6 +332,10 @@ def load_guide_chapters(guide_path: Path = None) -> list:
 
 def build_nav() -> str:
     return get_site_header_html()
+
+
+def build_top_bar() -> str:
+    return '<div class="gg-hp-top-bar" aria-hidden="true"></div>'
 
 
 def build_ticker(one_liners: list, substack_posts: list, upcoming: list) -> str:
@@ -487,40 +498,76 @@ def build_guide_preview(chapters: list) -> str:
   </section>'''
 
 
-def build_hero(stats: dict) -> str:
+def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
+
+    # Featured race card
+    feature_html = ""
+    if race_index:
+        featured = get_featured_races(race_index)
+        if featured:
+            race = featured[0]
+            tier = race.get("tier", 1)
+            score = race.get("overall_score", 0)
+            name = esc(race.get("name", ""))
+            slug = esc(race.get("slug", ""))
+            location = esc(race.get("location", ""))
+            month = race.get("month", "")
+            tagline = esc(race.get("tagline", "")[:120])
+            tier_labels = {1: "Tier 1 Elite", 2: "Tier 2 Contender", 3: "Tier 3", 4: "Tier 4"}
+            tier_label = tier_labels.get(tier, f"Tier {tier}")
+            feature_html = f'''<a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-hero-feature" data-ga="hero_featured_click" data-ga-label="{name}">
+          <div class="gg-hp-hf-img" role="img" aria-label="{name} course landscape"></div>
+          <div class="gg-hp-hf-body">
+            <div class="gg-hp-hf-header">
+              <div>
+                <p class="gg-hp-hf-tier">Featured &middot; {esc(tier_label)}</p>
+                <h3 class="gg-hp-hf-name">{name}</h3>
+              </div>
+              <span class="gg-hp-hf-score" data-counter="{score}" aria-label="Score: {score}">{score}</span>
+            </div>
+            <p class="gg-hp-hf-meta">{location}{(" &middot; " + _format_month(month)) if month else ""}</p>
+            <p class="gg-hp-hf-excerpt">{tagline}</p>
+          </div>
+        </a>'''
+
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-inner">
-      <div class="gg-hp-hero-badge">{race_count} RACES RATED</div>
-      <h1>EVERY GRAVEL RACE. RATED. RANKED.</h1>
-      <p class="gg-hp-hero-tagline" data-ab="hero_tagline">328 races. 14 criteria. 4,592 scores &mdash; all assigned by hand. Zero sponsors. Zero pay-to-play.</p>
-      <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" data-ga="hero_search">
-        <input type="text" name="q" placeholder="Search 328 races &mdash; try &ldquo;Colorado&rdquo; or &ldquo;200 miles&rdquo;" class="gg-hp-hero-input" aria-label="Search races">
-        <button type="submit" class="gg-hp-hero-search-btn">SEARCH</button>
-      </form>
-      <div class="gg-hp-hero-ctas">
-        <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="hero_cta_click">BROWSE ALL RACES</a>
-        <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn gg-hp-btn--secondary" data-ga="hero_secondary_click">HOW WE RATE</a>
+      <div class="gg-hp-hero-content">
+        <div class="gg-hp-announce-pill" aria-hidden="true"><span class="gg-hp-announce-dot"></span> {race_count} Races Scored for {CURRENT_YEAR}</div>
+        <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
+        <h1 id="hero-title">Every gravel race, honestly rated</h1>
+        <div class="gg-hp-accent-line" aria-hidden="true"></div>
+        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on 14 criteria. No sponsors, no affiliates, no pulled punches. Just the data and the dirt.</p>
+        <div class="gg-hp-hero-actions">
+          <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn-primary" data-ga="hero_cta_click">Browse All Races</a>
+          <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn-secondary" data-ga="hero_secondary_click">How We Rate</a>
+        </div>
       </div>
+      {feature_html}
     </div>
   </section>'''
 
 
 def build_stats_bar(stats: dict) -> str:
     items = [
-        (stats["race_count"], "Races Rated"),
-        (stats["dimensions"], "Scoring Dimensions"),
-        (stats["t1_count"], "Tier 1 Elite Races"),
-        (0, "Sponsors"),
+        (stats["race_count"], "Races", ""),
+        (stats["t1_count"], "Tier 1", ""),
+        (stats["t2_count"], "Tier 2", ""),
+        (stats["region_count"], "Regions", "+"),
+        (stats["dimensions"], "Criteria", ""),
     ]
     cells = ""
-    for value, label in items:
+    for value, label, suffix in items:
+        display = f'{value}{suffix}'
         cells += f'''
-      <div class="gg-hp-stat">
-        <span class="gg-hp-stat-number">{value}</span>
-        <span class="gg-hp-stat-label">{esc(label)}</span>
+      <div class="gg-hp-ss-item">
+        <div class="gg-hp-ss-val" data-counter="{value}"{' data-suffix="' + suffix + '"' if suffix else ''} aria-label="{display} {esc(label)}">{display}</div>
+        <div class="gg-hp-ss-lbl">{esc(label)}</div>
       </div>'''
-    return f'''<section class="gg-hp-stats-bar">{cells}
+    return f'''<section class="gg-hp-stats-stripe" aria-label="Database statistics">
+    <div class="gg-hp-stats-inner">{cells}
+    </div>
   </section>'''
 
 
@@ -536,84 +583,42 @@ def _format_month(month: str) -> str:
     return month[:3].upper()
 
 
-def build_featured_races(race_index: list) -> str:
+def build_bento_features(race_index: list) -> str:
+    """Build a bento grid with 1 lead card + 2 secondary cards for featured races."""
     featured = get_featured_races(race_index)
-    stats = compute_stats(race_index)
+    tier_labels = {1: "Elite", 2: "Contender", 3: "Rising", 4: "Local"}
     cards = ""
-    for race in featured:
+    for i, race in enumerate(featured[:3]):
         tier = race.get("tier", 4)
         score = race.get("overall_score", 0)
-        name = race.get("name", "")
-        slug = race.get("slug", "")
-        location = race.get("location", "")
-        distance = race.get("distance_mi")
+        name = esc(race.get("name", ""))
+        slug = esc(race.get("slug", ""))
+        location = esc(race.get("location", ""))
         month = race.get("month", "")
-        tagline = race.get("tagline", "")
-        profile_url = race.get("profile_url", f"/race/{slug}/")
-
-        meta_parts = []
-        if location:
-            meta_parts.append(esc(location))
-        if distance:
-            meta_parts.append(f"{distance} mi")
-        if month:
-            meta_parts.append(_format_month(month))
-        meta_str = " &middot; ".join(meta_parts)
-
-        badge_cls = _tier_badge_class(tier)
-        score_colors = {1: "#59473c", 2: "#7d695d", 3: "#A68E80", 4: "#5e6868"}
-        score_color = score_colors.get(tier, "#A68E80")
-
-        # Racer rating
-        rr_pct = race.get("racer_pct")
-        rr_total = race.get("racer_total", 0)
-        if rr_pct is not None and rr_total >= RACER_RATING_THRESHOLD:
-            racer_score_html = f'<span class="gg-hp-racer-score" style="color:#178079">{rr_pct}%</span>'
-        else:
-            racer_score_html = '<span class="gg-hp-racer-score gg-hp-racer-score--empty">&mdash;</span>'
-
+        tagline = race.get("tagline", "")[:120]
+        tier_label = tier_labels.get(tier, f"Tier {tier}")
+        is_lead = i == 0
+        lead_class = " gg-hp-bento-lead" if is_lead else ""
+        lg = " lg" if is_lead else ""
+        short = " short" if not is_lead else ""
+        month_str = (" &middot; " + _format_month(month)) if month else ""
         cards += f'''
-      <a href="{SITE_BASE_URL}{esc(profile_url)}" class="gg-hp-race-card" data-ga="featured_race_click" data-ga-label="{esc(name)}">
-        <div class="gg-hp-race-card-top">
-          <span class="gg-hp-tier-badge {badge_cls}">TIER {tier}</span>
-          <div class="gg-hp-scores">
-            <div class="gg-hp-score-col">
-              <span class="gg-hp-score" style="color:{score_color}">{score}</span>
-              <span class="gg-hp-score-label">GG</span>
-            </div>
-            <div class="gg-hp-score-col">
-              {racer_score_html}
-              <span class="gg-hp-score-label">RACER</span>
-            </div>
-          </div>
+      <a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-bento-card{lead_class}" data-ga="featured_race_click" data-ga-label="{name}">
+        <div class="gg-hp-bento-img{short}" role="img" aria-label="{name} course landscape"></div>
+        <div class="gg-hp-bento-body">
+          <p class="gg-hp-bento-meta">Tier {tier} {esc(tier_label)} &middot; Score {score}</p>
+          <h3 class="gg-hp-bento-name{lg}">{name}</h3>
+          <p class="gg-hp-bento-excerpt">{esc(tagline)}</p>
+          <p class="gg-hp-bento-byline">{location}{month_str}</p>
         </div>
-        <h3 class="gg-hp-race-name">{esc(name)}</h3>
-        <div class="gg-hp-race-meta">{meta_str}</div>
-        <p class="gg-hp-race-tagline">{esc(tagline[:120]) + ("..." if len(tagline) > 120 else "")}</p>
       </a>'''
 
-    return f'''<section class="gg-hp-featured" id="featured">
-    <div class="gg-hp-section-header">
-      <h2>FEATURED RACES</h2>
-    </div>
-    <div class="gg-hp-race-grid">{cards}
-    </div>
-    <div class="gg-hp-featured-cta">
-      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn gg-hp-btn--primary" data-ga="view_all_races">VIEW ALL {stats["race_count"]} RACES &rarr;</a>
-      <div class="gg-hp-quick-filters">
-        <span class="gg-hp-quick-label">QUICK FILTER:</span>
-        <a href="{SITE_BASE_URL}/gravel-races/?tier=1" class="gg-hp-quick-chip" data-ga="quick_tier1">TIER 1</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?tier=2" class="gg-hp-quick-chip" data-ga="quick_tier2">TIER 2</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?region=West" class="gg-hp-quick-chip" data-ga="quick_west">WEST</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?region=Midwest" class="gg-hp-quick-chip" data-ga="quick_midwest">MIDWEST</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?region=South" class="gg-hp-quick-chip" data-ga="quick_south">SOUTH</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?region=Northeast" class="gg-hp-quick-chip" data-ga="quick_ne">NORTHEAST</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?region=International" class="gg-hp-quick-chip" data-ga="quick_intl">INTERNATIONAL</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?nearme=1" class="gg-hp-quick-chip gg-hp-quick-chip--accent" data-ga="quick_nearme">NEAR ME</a>
-        <a href="{SITE_BASE_URL}/gravel-races/?view=calendar" class="gg-hp-quick-chip gg-hp-quick-chip--accent" data-ga="quick_calendar">CALENDAR</a>
-      </div>
-    </div>
-  </section>'''
+    return f'''<div class="gg-hp-bento">{cards}
+    </div>'''
+
+
+# Alias for backward compatibility with tests
+build_featured_races = build_bento_features
 
 
 def build_latest_takes() -> str:
@@ -652,13 +657,160 @@ def build_latest_takes() -> str:
     </div>
     <div class="gg-hp-take-nav">
       <button class="gg-hp-take-btn" id="gg-takes-prev" aria-label="Previous articles">&larr;</button>
-      <span class="gg-hp-take-counter" id="gg-takes-count">1 / {(total + 2) // 3}</span>
+      <span class="gg-hp-take-counter" id="gg-takes-count">1 / {(total + 1) // 2}</span>
       <button class="gg-hp-take-btn" id="gg-takes-next" aria-label="Next articles">&rarr;</button>
     </div>
     <div class="gg-hp-take-cta">
       <a href="{SITE_BASE_URL}/articles/" class="gg-hp-btn gg-hp-btn--primary" data-ga="view_all_articles">ALL ARTICLES &rarr;</a>
     </div>
   </section>'''
+
+
+def build_tabbed_rankings(race_index: list) -> str:
+    """Build ARIA-compliant tabbed rankings: All Tiers, Tier 1, Tier 2."""
+    tier_labels = {1: "Elite", 2: "Contender", 3: "Rising", 4: "Local"}
+
+    def _build_items(races):
+        items = ""
+        for idx, race in enumerate(races[:5], 1):
+            tier = race.get("tier", 4)
+            score = race.get("overall_score", 0)
+            name = esc(race.get("name", ""))
+            slug = esc(race.get("slug", ""))
+            tagline = esc(race.get("tagline", "")[:80])
+            tl = tier_labels.get(tier, f"Tier {tier}")
+            items += f'''
+        <a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-article-item" data-ga="ranking_click" data-ga-label="{name}">
+          <span class="gg-hp-article-num" aria-hidden="true">{idx:02d}</span>
+          <div>
+            <p class="gg-hp-article-meta">Tier {tier} {esc(tl)}</p>
+            <h3 class="gg-hp-article-name">{name}</h3>
+            <p class="gg-hp-article-excerpt">{tagline}</p>
+          </div>
+          <span class="gg-hp-article-score" aria-label="Score {score}">{score}</span>
+        </a>'''
+        return items
+
+    all_sorted = sorted(race_index, key=lambda r: r.get("overall_score", 0), reverse=True)
+    t1_sorted = sorted(
+        [r for r in race_index if r.get("tier") == 1],
+        key=lambda r: r.get("overall_score", 0), reverse=True,
+    )
+    t2_sorted = sorted(
+        [r for r in race_index if r.get("tier") == 2],
+        key=lambda r: r.get("overall_score", 0), reverse=True,
+    )
+
+    return f'''<h2 class="gg-hp-col-header" id="rankings-heading">RACE RANKINGS</h2>
+    <div class="gg-hp-tab-bar" role="tablist" aria-label="Filter by tier">
+      <button type="button" role="tab" id="gg-tab-all" aria-selected="true" aria-controls="gg-panel-all" tabindex="0">All Tiers</button>
+      <button type="button" role="tab" id="gg-tab-t1" aria-selected="false" aria-controls="gg-panel-t1" tabindex="-1">Tier 1</button>
+      <button type="button" role="tab" id="gg-tab-t2" aria-selected="false" aria-controls="gg-panel-t2" tabindex="-1">Tier 2</button>
+    </div>
+    <div role="tabpanel" id="gg-panel-all" aria-labelledby="gg-tab-all">{_build_items(all_sorted)}
+    </div>
+    <div role="tabpanel" id="gg-panel-t1" aria-labelledby="gg-tab-t1" hidden>{_build_items(t1_sorted)}
+    </div>
+    <div role="tabpanel" id="gg-panel-t2" aria-labelledby="gg-tab-t2" hidden>{_build_items(t2_sorted)}
+    </div>'''
+
+
+def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
+    """Build sidebar with stats bento, pullquote, power rankings, coming up, and CTA."""
+
+    # 1. Stats bento (2x2 grid)
+    stat_items = [
+        (stats["race_count"], "Races"),
+        (stats["t1_count"], "Tier 1"),
+        (stats["t2_count"], "Tier 2"),
+        (stats["dimensions"], "Criteria"),
+    ]
+    stat_cells = ""
+    for val, label in stat_items:
+        stat_cells += f'''
+        <div class="gg-hp-sb-stat">
+          <div class="gg-hp-sb-stat-val" data-counter="{val}" aria-label="{val} {esc(label)}">{val}</div>
+          <div class="gg-hp-sb-stat-lbl">{esc(label)}</div>
+        </div>'''
+
+    stats_html = f'''<h2 class="gg-hp-col-header">BY THE NUMBERS</h2>
+    <div class="gg-hp-sidebar-card">
+      <div class="gg-hp-sidebar-stat-grid">{stat_cells}
+      </div>
+    </div>'''
+
+    # 2. Pullquote
+    pullquote_html = '''<blockquote class="gg-hp-pullquote">
+      <p>&ldquo;Not one killer climb, but 200 miles of constant attrition. The Flint Hills don&rsquo;t negotiate.&rdquo;</p>
+      <cite>On Unbound 200</cite>
+    </blockquote>'''
+
+    # 3. Power rankings (top 5 by score)
+    top5 = sorted(race_index, key=lambda r: r.get("overall_score", 0), reverse=True)[:5]
+    rank_items = ""
+    for i, race in enumerate(top5, 1):
+        name = esc(race.get("name", ""))
+        score = race.get("overall_score", 0)
+        rank_items += f'''
+        <li class="gg-hp-rank-item">
+          <span class="gg-hp-rank-pos" aria-hidden="true">{i}.</span>
+          <span class="gg-hp-rank-name">{name}</span>
+          <span class="gg-hp-rank-score" aria-label="Score {score}">{score}</span>
+        </li>'''
+
+    rankings_html = f'''<h2 class="gg-hp-col-header">POWER RANKINGS</h2>
+    <div class="gg-hp-sidebar-card">
+      <ol class="gg-hp-rank-list">{rank_items}
+      </ol>
+    </div>'''
+
+    # 4. Coming up compact (next 4 upcoming races)
+    future = [r for r in upcoming if r["days"] >= 0][:4]
+    if future:
+        coming_items = ""
+        for race in future:
+            badge_cls = _tier_badge_class(race["tier"])
+            coming_items += f'''
+        <a href="{SITE_BASE_URL}/race/{esc(race['slug'])}/" class="gg-hp-coming-compact-item">
+          <span class="gg-hp-coming-compact-date">{race["date"].strftime("%b %d")}</span>
+          <span class="gg-hp-coming-compact-name">{esc(race["name"])}</span>
+          <span class="gg-hp-coming-compact-tier {badge_cls}">T{race["tier"]}</span>
+        </a>'''
+        coming_html = f'''<h2 class="gg-hp-col-header">COMING UP</h2>
+    <div class="gg-hp-sidebar-card gg-hp-coming-up-compact">{coming_items}
+    </div>'''
+    else:
+        coming_html = f'''<h2 class="gg-hp-col-header">COMING UP</h2>
+    <div class="gg-hp-sidebar-card gg-hp-coming-up-compact">
+      <p class="gg-hp-coming-compact-empty">Off-season. <a href="{SITE_BASE_URL}/gravel-races/">Browse all races &rarr;</a></p>
+    </div>'''
+
+    # 5. Sidebar CTA
+    cta_html = f'''<div class="gg-hp-sidebar-cta">
+      <h3>Don&rsquo;t wing race day</h3>
+      <p>Your target race has specific terrain, elevation, and weather. Your plan should too.</p>
+      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-sidebar-cta-btn" data-ga="sidebar_cta_click">Get Your Plan &rarr;</a>
+    </div>'''
+
+    return f'''{stats_html}
+    {pullquote_html}
+    {rankings_html}
+    {coming_html}
+    {cta_html}'''
+
+
+def build_content_grid(race_index: list, stats: dict, upcoming: list) -> str:
+    """Wrap main column content and sidebar into a 2-column grid."""
+    main = build_bento_features(race_index)
+    main += build_tabbed_rankings(race_index)
+    main += build_latest_takes()
+    sidebar = build_sidebar(stats, race_index, upcoming)
+    return f'''<div class="gg-hp-content-grid">
+    <section class="gg-hp-main-col" aria-label="Featured content">{main}</section>
+    <aside class="gg-hp-sidebar" aria-label="Statistics and rankings">
+      <div class="gg-hp-sidebar-sticky">{sidebar}</div>
+    </aside>
+  </div>'''
 
 
 def build_how_it_works(stats: dict = None) -> str:
@@ -719,42 +871,14 @@ def build_featured_in() -> str:
 
 
 def build_training_cta() -> str:
-    return f'''<section class="gg-hp-training" id="training">
-    <div class="gg-hp-section-header gg-hp-section-header--teal">
-      <h2>RACE-SPECIFIC TRAINING</h2>
-    </div>
-    <div class="gg-hp-training-stats">
-      <div class="gg-hp-training-stat">
-        <span class="gg-hp-training-stat-num">100+</span>
-        <span class="gg-hp-training-stat-label">Athletes Coached</span>
+    return f'''<section class="gg-hp-training-cta-full" id="training" aria-label="Training call to action">
+    <div class="gg-hp-cta-card">
+      <div class="gg-hp-cta-left">
+        <h2>Train for the course, not just the distance</h2>
+        <p>Race-specific training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
+        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="training_plan_click" data-ab="training_cta_btn">Get Your Plan &rarr;</a>
       </div>
-      <div class="gg-hp-training-stat">
-        <span class="gg-hp-training-stat-num">1,000+</span>
-        <span class="gg-hp-training-stat-label">Plans Built Over 12 Years</span>
-      </div>
-    </div>
-    <div class="gg-hp-training-grid">
-      <div class="gg-hp-training-card gg-hp-training-card--primary">
-        <h3>Training Plans</h3>
-        <p class="gg-hp-training-subtitle" data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
-        <ul class="gg-hp-training-bullets">
-          <li>Structured workouts pushed to your device</li>
-          <li>30+ page custom training guide</li>
-          <li>Heat &amp; altitude protocols</li>
-          <li>Nutrition &amp; strength training</li>
-        </ul>
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="training_plan_click" data-ab="training_cta_btn">BUILD MY PLAN</a>
-      </div>
-      <div class="gg-hp-training-card gg-hp-training-card--secondary">
-        <h3>1:1 Coaching</h3>
-        <p class="gg-hp-training-subtitle" data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
-        <div class="gg-hp-coaching-features">
-          <div class="gg-hp-coaching-feat"><strong>Built around your reality.</strong> Work, kids, travel, and the random Tuesday emergency.</div>
-          <div class="gg-hp-coaching-feat"><strong>No guilt. Just edits.</strong> When life happens, we adjust the plan instead of pretending you&rsquo;re a robot.</div>
-          <div class="gg-hp-coaching-feat"><strong>Race-day guardrails.</strong> Pacing, fueling, and &ldquo;if this happens, do that&rdquo; so you don&rsquo;t improvise at mile 140.</div>
-        </div>
-        <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--secondary" data-ga="coaching_click">APPLY</a>
-      </div>
+      <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
     </div>
   </section>'''
 
@@ -845,6 +969,12 @@ a { text-decoration: none; color: #178079; }
 /* ── Page container ──────────────────────────────────────── */
 .gg-hp-page { margin: 0; padding: 0; }
 
+/* ── Scroll progress ── */
+.gg-hp-scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: #B7950B; z-index: 200; will-change: width; }
+
+/* ── Gold top bar ── */
+.gg-hp-top-bar { height: 4px; background: #B7950B; }
+
 ''' + get_site_header_css() + '''
 
 /* ── Ticker ──────────────────────────────────────────────── */
@@ -863,19 +993,38 @@ a { text-decoration: none; color: #178079; }
 .gg-ticker-tag--red { background: #c0392b; color: #fff; }
 .gg-hp-ticker-mobile { display: none; }
 
+/* ── Announcement pill ── */
+.gg-hp-announce-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 2px solid #B7950B; margin-bottom: 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 600; color: #B7950B; text-transform: uppercase; letter-spacing: 1px; }
+.gg-hp-announce-dot { width: 6px; height: 6px; background: #178079; animation: gg-announce-pulse 2s ease-in-out infinite; }
+@keyframes gg-announce-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* ── Accent line ── */
+.gg-hp-accent-line { width: 48px; height: 3px; background: #178079; margin-bottom: 16px; }
+
 /* ── Hero ─────────────────────────────────────────────────── */
-.gg-hp-hero { background: #59473c; color: #fff; padding: 64px 48px; border-bottom: 3px solid #9a7e0a; }
-.gg-hp-hero-inner { max-width: 960px; margin: 0 auto; }
-.gg-hp-hero-badge { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9a7e0a; border: 2px solid #9a7e0a; padding: 6px 16px; margin-bottom: 24px; }
-.gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 20px; }
-.gg-hp-hero-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.75; color: #d4c5b9; max-width: 640px; margin-bottom: 36px; }
-.gg-hp-hero-search { display: flex; max-width: 560px; margin-bottom: 20px; }
-.gg-hp-hero-input { flex: 1; padding: 14px 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; letter-spacing: 0.5px; background: rgba(255,255,255,0.08); color: #f5efe6; border: 2px solid #7d695d; border-right: none; outline: none; }
-.gg-hp-hero-input::placeholder { color: #7d695d; }
-.gg-hp-hero-input:focus { border-color: #9a7e0a; background: rgba(255,255,255,0.12); }
-.gg-hp-hero-search-btn { padding: 14px 24px; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; background: #9a7e0a; color: #fff; border: 2px solid #9a7e0a; cursor: pointer; }
-.gg-hp-hero-search-btn:hover { background: #d4af0f; border-color: #d4af0f; }
-.gg-hp-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.gg-hp-hero { background: #f5efe6; padding: 64px 48px; border-bottom: 3px solid #3a2e25; }
+.gg-hp-hero-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.gg-hp-hero-kicker { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+.gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; color: #3a2e25; }
+.gg-hp-hero-deck { font-size: 17px; font-weight: 300; color: #59473c; line-height: 1.7; margin-bottom: 28px; }
+.gg-hp-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.gg-hp-btn-primary { display: inline-block; padding: 12px 28px; background: #3a2e25; color: #f5efe6; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: background-color .3s, color .3s; }
+.gg-hp-btn-primary:hover { background: #B7950B; color: #1a1613; border-color: #B7950B; }
+.gg-hp-btn-secondary { display: inline-block; padding: 12px 28px; background: transparent; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: border-color .3s, color .3s; }
+.gg-hp-btn-secondary:hover { border-color: #178079; color: #178079; }
+
+/* ── Hero featured card ── */
+.gg-hp-hero-feature { display: block; background: #ede4d8; border: 3px solid #3a2e25; text-decoration: none; color: inherit; transition: border-color .3s; }
+.gg-hp-hero-feature:hover { border-color: #178079; }
+.gg-hp-hero-feature:hover .gg-hp-hf-name { color: #178079; }
+.gg-hp-hf-img { height: 180px; background: #d4c5b9; border-bottom: 2px solid #3a2e25; }
+.gg-hp-hf-body { padding: 24px; }
+.gg-hp-hf-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.gg-hp-hf-tier { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #178079; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+.gg-hp-hf-name { font-size: 22px; font-weight: 900; color: #3a2e25; }
+.gg-hp-hf-score { font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #178079; line-height: 1; flex-shrink: 0; }
+.gg-hp-hf-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; margin-bottom: 8px; }
+.gg-hp-hf-excerpt { font-size: 14px; color: #59473c; line-height: 1.6; }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .gg-hp-btn { display: inline-block; padding: 14px 32px; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-align: center; cursor: pointer; border: 3px solid transparent; transition: background-color var(--gg-ease), border-color var(--gg-ease), color var(--gg-ease); }
@@ -884,64 +1033,106 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-btn--secondary { background: transparent; color: #d4c5b9; border-color: #d4c5b9; }
 .gg-hp-btn--secondary:hover { color: #fff; border-color: #9a7e0a; }
 /* On light backgrounds, dark button variant */
-.gg-hp-featured-cta .gg-hp-btn--primary,
 .gg-hp-cal-cta .gg-hp-btn--primary,
 .gg-hp-guide-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
-.gg-hp-featured-cta .gg-hp-btn--primary:hover,
 .gg-hp-cal-cta .gg-hp-btn--primary:hover,
 .gg-hp-guide-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
-.gg-hp-training .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
-.gg-hp-training .gg-hp-btn--primary:hover { border-color: #9a7e0a; }
-.gg-hp-training .gg-hp-btn--secondary { background: #f5efe6; color: #59473c; border-color: #59473c; }
-.gg-hp-training .gg-hp-btn--secondary:hover { background: #59473c; color: #fff; }
 
-/* ── Stats bar ───────────────────────────────────────────── */
-.gg-hp-stats-bar { background: #f5efe6; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #d4c5b9; max-width: 960px; margin: 0 auto; }
-.gg-hp-stat { text-align: center; padding: 32px 16px; border-right: 1px solid #d4c5b9; }
-.gg-hp-stat:last-child { border-right: none; }
-.gg-hp-stat-number { display: block; font-family: 'Sometype Mono', monospace; font-size: 44px; font-weight: 700; color: #3a2e25; line-height: 1.1; margin-bottom: 8px; }
-.gg-hp-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7d695d; }
+/* ── Stats stripe ───────────────────────────────────────── */
+.gg-hp-stats-stripe { background: #3a2e25; padding: 0 48px; }
+.gg-hp-stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+.gg-hp-ss-item { text-align: center; padding: 20px 0; border-right: 2px solid #59473c; }
+.gg-hp-ss-item:last-child { border-right: none; }
+.gg-hp-ss-val { font-family: 'Sometype Mono', monospace; font-size: 24px; font-weight: 700; color: #B7950B; }
+.gg-hp-ss-lbl { font-family: 'Sometype Mono', monospace; font-size: 9px; color: #A68E80; text-transform: uppercase; letter-spacing: 1px; }
 
 /* ── Section headers ─────────────────────────────────────── */
 .gg-hp-section-header { background: #f5efe6; padding: 16px 20px; border-bottom: 1px solid #9a7e0a; }
 .gg-hp-section-header h2 { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #3a2e25; margin: 0; }
 .gg-hp-section-header--teal { border-bottom-color: #178079; }
 
-/* ── Featured races ──────────────────────────────────────── */
-.gg-hp-featured { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
-.gg-hp-race-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.gg-hp-race-card { display: block; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); }
-.gg-hp-race-card:hover { border-color: #9a7e0a; }
-.gg-hp-race-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+/* ── Content grid ───────────────────────────────────────── */
+.gg-hp-content-grid { max-width: 960px; margin: 0 auto; padding: 48px; display: grid; grid-template-columns: 7fr 5fr; gap: 48px; }
+.gg-hp-sidebar-sticky { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; }
+.gg-hp-col-header { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; padding-bottom: 12px; border-bottom: 3px solid #3a2e25; margin-bottom: 24px; }
+
+/* ── Bento features ─────────────────────────────────────── */
+.gg-hp-bento { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+.gg-hp-bento-lead { grid-column: 1 / -1; }
+.gg-hp-bento-card { cursor: pointer; background: #f5efe6; border: 2px solid #d4c5b9; transition: border-color .3s; text-decoration: none; color: inherit; display: block; }
+.gg-hp-bento-card:hover, .gg-hp-bento-card:focus-visible { border-color: #178079; }
+.gg-hp-bento-card:hover .gg-hp-bento-name, .gg-hp-bento-card:focus-visible .gg-hp-bento-name { color: #178079; }
+.gg-hp-bento-img { width: 100%; height: 220px; background: #d4c5b9; border-bottom: 2px solid #d4c5b9; }
+.gg-hp-bento-img.short { height: 140px; }
+.gg-hp-bento-body { padding: 20px; }
+.gg-hp-bento-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.gg-hp-bento-name { font-size: 24px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; transition: color .3s; }
+.gg-hp-bento-name.lg { font-size: 28px; }
+.gg-hp-bento-excerpt { font-size: 14px; color: #59473c; line-height: 1.7; }
+.gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; letter-spacing: .5px; margin-top: 8px; }
+
+/* ── Tabs ───────────────────────────────────────────────── */
+.gg-hp-tab-bar { display: flex; gap: 0; margin-bottom: 0; }
+.gg-hp-tab-bar [role="tab"] { padding: 10px 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8c7568; background: #ede4d8; border: 2px solid #d4c5b9; border-bottom: none; cursor: pointer; transition: color .3s, background-color .3s; }
+.gg-hp-tab-bar [role="tab"][aria-selected="true"] { color: #1a1613; background: #f5efe6; border-color: #3a2e25; }
+.gg-hp-tab-bar [role="tab"]:hover { color: #1a1613; }
+[role="tabpanel"] { border: 2px solid #3a2e25; border-top: 3px solid #3a2e25; padding: 24px; background: #f5efe6; }
+[role="tabpanel"][hidden] { display: none; }
+
+/* ── Article items (ranking rows) ───────────────────────── */
+.gg-hp-article-item { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; padding: 16px 0; border-top: 2px solid #d4c5b9; cursor: pointer; align-items: start; text-decoration: none; color: inherit; }
+.gg-hp-article-item:first-child { border-top: none; }
+.gg-hp-article-item:hover .gg-hp-article-name, .gg-hp-article-item:focus-visible .gg-hp-article-name { color: #178079; }
+.gg-hp-article-num { font-size: 24px; font-weight: 700; color: #d4c5b9; line-height: 1; min-width: 32px; }
+.gg-hp-article-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.gg-hp-article-name { font-size: 18px; font-weight: 700; line-height: 1.25; margin-bottom: 4px; transition: color .3s; }
+.gg-hp-article-excerpt { font-size: 14px; color: #59473c; line-height: 1.6; }
+.gg-hp-article-score { font-family: 'Sometype Mono', monospace; font-size: 18px; font-weight: 700; color: #178079; }
+
+/* ── Sidebar ────────────────────────────────────────────── */
+.gg-hp-sidebar-card { background: #f5efe6; border: 2px solid #3a2e25; padding: 28px; margin-bottom: 24px; }
+.gg-hp-sidebar-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gg-hp-sb-stat { text-align: center; padding: 16px 12px; background: #ede4d8; border: 2px solid #d4c5b9; }
+.gg-hp-sb-stat-val { font-family: 'Sometype Mono', monospace; font-size: 28px; font-weight: 700; color: #1a1613; }
+.gg-hp-sb-stat-lbl { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; text-transform: uppercase; letter-spacing: 1px; }
+.gg-hp-pullquote { font-size: 17px; font-style: italic; line-height: 1.6; color: #59473c; padding: 20px 0; border-top: 3px solid #B7950B; border-bottom: 2px solid #d4c5b9; margin-bottom: 24px; }
+.gg-hp-pullquote cite { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-style: normal; color: #B7950B; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.gg-hp-rank-list { list-style: none; padding: 0; }
+.gg-hp-rank-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 2px solid #d4c5b9; }
+.gg-hp-rank-item:last-child { border-bottom: none; }
+.gg-hp-rank-pos { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #8c7568; min-width: 24px; }
+.gg-hp-rank-name { font-size: 14px; font-weight: 600; flex: 1; }
+.gg-hp-rank-score { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; color: #178079; }
+.gg-hp-sidebar-cta { background: #1a1613; border: 3px solid #3a2e25; padding: 32px 28px; text-align: center; }
+.gg-hp-sidebar-cta h3 { font-size: 22px; font-weight: 700; color: #f5efe6; margin-bottom: 8px; }
+.gg-hp-sidebar-cta p { font-size: 14px; color: #A68E80; margin-bottom: 20px; line-height: 1.6; }
+.gg-hp-sidebar-cta-btn { display: inline-block; background: #B7950B; color: #1a1613; padding: 12px 24px; border: none; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: background-color .3s; }
+.gg-hp-sidebar-cta-btn:hover { background-color: #c9a92c; }
+
+/* ── Coming up compact (sidebar) ────────────────────────── */
+.gg-hp-coming-up-compact { padding: 0; }
+.gg-hp-coming-compact-empty { padding: 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; color: #8c7568; }
+.gg-hp-coming-compact-empty a { color: #178079; font-weight: 700; }
+.gg-hp-coming-compact-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: inherit; transition: background-color .3s; }
+.gg-hp-coming-compact-item:last-child { border-bottom: none; }
+.gg-hp-coming-compact-item:hover { background: #ede4d8; }
+.gg-hp-coming-compact-date { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #8c7568; letter-spacing: 1px; text-transform: uppercase; min-width: 50px; }
+.gg-hp-coming-compact-name { font-size: 13px; font-weight: 600; flex: 1; }
+.gg-hp-coming-compact-tier { font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; }
+
+/* ── Tier badges ── */
 .gg-hp-tier-badge { display: inline-block; font-family: 'Sometype Mono', monospace; padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: 2px; }
 .gg-hp-badge-t1 { background: transparent; color: #59473c; border: 1px solid #59473c; }
 .gg-hp-badge-t2 { background: transparent; color: #7d695d; border: 1px solid #7d695d; }
 .gg-hp-badge-t3 { background: transparent; color: #766a5e; border: 1px solid #766a5e; }
 .gg-hp-badge-t4 { background: transparent; color: #5e6868; border: 1px solid #5e6868; }
-.gg-hp-scores { display: flex; align-items: flex-end; gap: 12px; }
-.gg-hp-score-col { display: flex; flex-direction: column; align-items: center; }
-.gg-hp-score { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; }
-.gg-hp-score-label { font-family: 'Sometype Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: 2px; color: #A68E80; margin-top: 2px; }
-.gg-hp-racer-score { font-family: 'Source Serif 4', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1; color: #178079; }
-.gg-hp-racer-score--empty { opacity: 0.35; color: #A68E80; }
-.gg-hp-race-card:hover .gg-hp-racer-score--empty { opacity: 0.6; }
-.gg-hp-race-name { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.1; margin-bottom: 6px; color: #3a2e25; }
-.gg-hp-race-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; letter-spacing: 0.5px; margin-bottom: 10px; }
-.gg-hp-race-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; color: #7d695d; line-height: 1.7; margin: 0; }
-.gg-hp-featured-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
-.gg-hp-quick-filters { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
-.gg-hp-quick-label { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #7d695d; }
-.gg-hp-quick-chip { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 1px solid #7d695d; color: #59473c; text-decoration: none; transition: all var(--gg-ease); }
-.gg-hp-quick-chip:hover { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
-.gg-hp-quick-chip--accent { border-color: #178079; color: #178079; }
-.gg-hp-quick-chip--accent:hover { background: #178079; color: #f5efe6; border-color: #178079; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
-.gg-hp-latest-takes { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-latest-takes { margin: 32px 0 0; border: 1px solid #d4c5b9; }
 .gg-hp-section-header--gold { border-bottom-color: #9a7e0a; }
 .gg-hp-take-carousel { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .gg-hp-take-carousel::-webkit-scrollbar { display: none; }
-.gg-hp-take-card { flex: 0 0 calc(33.333% - 0px); scroll-snap-align: start; display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); box-sizing: border-box; min-width: 0; }
+.gg-hp-take-card { flex: 0 0 calc(50% - 0px); scroll-snap-align: start; display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); box-sizing: border-box; min-width: 0; }
 .gg-hp-take-card:hover { border-color: #9a7e0a; }
 .gg-hp-take-tag { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 10px; }
 .gg-hp-take-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
@@ -953,7 +1144,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-take-counter { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #7d695d; min-width: 48px; text-align: center; }
 .gg-hp-take-cta { padding: 24px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 .gg-hp-take-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
-.gg-hp-take-cta .gg-hp-btn--primary:hover { background: #b8960d; border-color: #b8960d; }
+.gg-hp-take-cta .gg-hp-btn--primary:hover { background: #c9a92c; border-color: #c9a92c; }
 
 /* ── How it works ────────────────────────────────────────── */
 .gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; max-width: 960px; margin: 32px auto 0; }
@@ -963,7 +1154,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-step-title { font-family: 'Sometype Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #3a2e25; margin-bottom: 10px; }
 .gg-hp-step-desc { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; line-height: 1.7; }
 
-/* ── Coming Up ───────────────────────────────────────────── */
+/* ── Coming Up (kept for compatibility) ─────────────────── */
 .gg-hp-coming-up { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-cal-list { padding: 0; }
 .gg-hp-cal-item { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: #3a2e25; transition: border-color var(--gg-ease), background-color var(--gg-ease); }
@@ -982,6 +1173,16 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cal-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 .gg-hp-cal-offseason { padding: 24px 20px; font-family: 'Sometype Mono', monospace; font-size: 12px; color: #7d695d; letter-spacing: 0.5px; }
 .gg-hp-cal-offseason a { color: #178079; font-weight: 700; }
+
+/* ── Training CTA (split card) ──────────────────────────── */
+.gg-hp-training-cta-full { max-width: 960px; margin: 32px auto 0; padding: 0 48px; }
+.gg-hp-cta-card { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid #3a2e25; }
+.gg-hp-cta-left { background: #1a1613; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.gg-hp-cta-left h2 { font-size: 28px; font-weight: 900; color: #f5efe6; margin-bottom: 8px; }
+.gg-hp-cta-left p { font-size: 14px; color: #A68E80; line-height: 1.7; margin-bottom: 20px; }
+.gg-hp-cta-btn { display: inline-block; padding: 12px 28px; background: #B7950B; color: #1a1613; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; align-self: flex-start; transition: background-color .3s; }
+.gg-hp-cta-btn:hover { background-color: #c9a92c; }
+.gg-hp-cta-right { background: #d4c5b9; min-height: 200px; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
 .gg-hp-guide { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
@@ -1011,32 +1212,6 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo:hover { border-color: #9a7e0a; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
-/* ── Training CTA ────────────────────────────────────────── */
-.gg-hp-training { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
-.gg-hp-training-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; }
-.gg-hp-training-card { padding: 36px 24px; }
-.gg-hp-training-card--primary { border-right: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
-.gg-hp-training-card h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-.gg-hp-training-subtitle { font-family: 'Sometype Mono', monospace; font-size: 12px; color: #7d695d; margin-bottom: 16px; }
-.gg-hp-training-bullets { padding-left: 20px; margin-bottom: 24px; }
-.gg-hp-training-bullets li { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 2; color: #3a2e25; }
-.gg-hp-training-bullets li::marker { color: #9a7e0a; }
-.gg-hp-training-card--secondary { background: #ede4d8; }
-.gg-hp-training-card--secondary p { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; margin-bottom: 16px; }
-
-/* ── Training stats ──────────────────────────────────────── */
-.gg-hp-training-stats { display: grid; grid-template-columns: repeat(2, 1fr); background: #f5efe6; border-bottom: 1px solid #d4c5b9; }
-.gg-hp-training-stat { text-align: center; padding: 24px 16px; border-right: 1px solid #d4c5b9; }
-.gg-hp-training-stat:last-child { border-right: none; }
-.gg-hp-training-stat-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; line-height: 1.1; margin-bottom: 6px; }
-.gg-hp-training-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7d695d; }
-
-/* ── Coaching features ───────────────────────────────────── */
-.gg-hp-coaching-features { margin-bottom: 20px; }
-.gg-hp-coaching-feat { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.75; color: #59473c; padding: 8px 0; border-bottom: 1px solid #d4c5b9; }
-.gg-hp-coaching-feat:last-child { border-bottom: none; }
-.gg-hp-coaching-feat strong { color: #3a2e25; }
-
 /* ── Testimonials ────────────────────────────────────────── */
 .gg-hp-testimonials { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
@@ -1057,7 +1232,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-email-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; color: #3a2e25; margin-bottom: 12px; }
 .gg-hp-email-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; margin-bottom: 0; line-height: 1.75; }
 
-/* ── Article carousel ───────────────────────────────────── */
+/* ── Article carousel (email section) ───────────────────── */
 .gg-hp-article-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px 48px; -webkit-overflow-scrolling: touch; }
 .gg-hp-article-carousel::-webkit-scrollbar { height: 4px; }
 .gg-hp-article-carousel::-webkit-scrollbar-track { background: #d4c5b9; }
@@ -1074,24 +1249,19 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #9a7e0a; color: #3a2e25; z-index: 100; }
 .gg-hp-skip:focus { position: fixed; top: 0; left: 0; width: auto; height: auto; }
 
-/* ── Responsive: tablet ─────────────────────────────────── */
-@media (max-width: 1024px) {
-  .gg-hp-race-grid { grid-template-columns: repeat(2, 1fr); }
-  .gg-hp-take-card { flex: 0 0 calc(50% - 0px); }
-  .gg-hp-guide-grid { grid-template-columns: 1fr; }
-  .gg-hp-feat-inner { flex-direction: column; text-align: center; }
-  .gg-hp-feat-text { max-width: 100%; }
-  .gg-hp-test-grid { grid-template-columns: 1fr; }
+/* ── Responsive: 900px ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .gg-hp-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .gg-hp-cta-card { grid-template-columns: 1fr; }
+  .gg-hp-content-grid { grid-template-columns: 1fr; }
+  .gg-hp-sidebar-sticky { position: static; max-height: none; }
+  .gg-hp-bento { grid-template-columns: 1fr; }
 }
 
-/* ── Responsive: mobile ─────────────────────────────────── */
-@media (max-width: 768px) {
+/* ── Responsive: 600px ─────────────────────────────────── */
+@media (max-width: 600px) {
   html, body { overflow-x: hidden; }
   .gg-hp-page { overflow-x: hidden; }
-
-  /* Full-bleed sections on mobile — remove side borders */
-  .gg-hp-featured, .gg-hp-latest-takes, .gg-hp-how-it-works, .gg-hp-coming-up,
-  .gg-hp-guide, .gg-hp-featured-in, .gg-hp-training, .gg-hp-email, .gg-hp-testimonials { margin: 16px 0 0; border-left: none; border-right: none; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }
@@ -1099,30 +1269,17 @@ a { text-decoration: none; color: #178079; }
 
   /* Hero */
   .gg-hp-hero { padding: 36px 16px; }
-  .gg-hp-hero-badge { font-size: 10px; letter-spacing: 2px; padding: 5px 12px; }
-  .gg-hp-hero h1 { font-size: 26px; }
-  .gg-hp-hero-tagline { font-size: 15px; }
-  .gg-hp-hero-search { flex-direction: column; }
-  .gg-hp-hero-input { border-right: 2px solid #7d695d; font-size: 11px; }
-  .gg-hp-hero-search-btn { width: 100%; }
-  .gg-hp-hero-ctas { flex-direction: column; }
-  .gg-hp-hero-ctas .gg-hp-btn { width: 100%; text-align: center; }
+  .gg-hp-hero h1 { font-size: 28px; }
+  .gg-hp-hero-actions { flex-direction: column; }
+  .gg-hp-hero-actions a { width: 100%; text-align: center; }
 
-  /* Buttons */
-  .gg-hp-btn { padding: 12px 20px; font-size: 11px; letter-spacing: 1.5px; }
+  /* Stats stripe */
+  .gg-hp-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .gg-hp-ss-item:nth-child(2) { border-right: none; }
+  .gg-hp-ss-item:nth-child(5) { grid-column: 1 / -1; border-right: none; }
 
-  /* Stats bar */
-  .gg-hp-stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .gg-hp-stat { padding: 20px 10px; }
-  .gg-hp-stat:nth-child(2) { border-right: none; }
-  .gg-hp-stat:nth-child(1), .gg-hp-stat:nth-child(2) { border-bottom: 1px solid #d4c5b9; }
-  .gg-hp-stat-number { font-size: 28px; }
-  .gg-hp-stat-label { font-size: 9px; letter-spacing: 2px; }
-
-  /* Featured races */
-  .gg-hp-race-grid { grid-template-columns: 1fr; }
-  .gg-hp-race-card { padding: 16px; }
-  .gg-hp-featured-cta { padding: 16px; }
+  /* Article score hidden */
+  .gg-hp-article-score { display: none; }
 
   /* Latest takes */
   .gg-hp-take-card { flex: 0 0 100%; padding: 16px; }
@@ -1134,11 +1291,8 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-step:last-child { border-bottom: none; }
   .gg-hp-step-num { font-size: 28px; }
 
-  /* Coming up */
-  .gg-hp-cal-item { gap: 8px; padding: 12px 12px; flex-wrap: wrap; }
-  .gg-hp-cal-date { font-size: 10px; min-width: 44px; }
-  .gg-hp-cal-name { font-size: 13px; }
-  .gg-hp-cal-score { font-size: 16px; }
+  /* Content grid */
+  .gg-hp-content-grid { padding: 24px 16px; gap: 24px; }
 
   /* Guide */
   .gg-hp-guide-grid { grid-template-columns: 1fr; }
@@ -1152,19 +1306,20 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-feat-logos { gap: 20px; }
   .gg-hp-feat-logo img { height: 44px; }
 
-  /* Training */
-  .gg-hp-training-grid { grid-template-columns: 1fr; }
-  .gg-hp-training-card { padding: 24px 16px; }
-  .gg-hp-training-card--primary { border-right: none; border-bottom: 1px solid #d4c5b9; }
+  /* Training CTA */
+  .gg-hp-training-cta-full { padding: 0 16px; }
 
   /* Testimonials */
   .gg-hp-test-grid { grid-template-columns: 1fr; }
   .gg-hp-test-card { padding: 16px; }
   .gg-hp-test-quote { font-size: 13px; }
 
-  /* Training stats */
-  .gg-hp-training-stat { padding: 16px 10px; }
-  .gg-hp-training-stat-num { font-size: 28px; }
+  /* Full-bleed sections on mobile */
+  .gg-hp-latest-takes, .gg-hp-how-it-works, .gg-hp-coming-up,
+  .gg-hp-guide, .gg-hp-featured-in, .gg-hp-email, .gg-hp-testimonials { margin: 16px 0 0; border-left: none; border-right: none; }
+
+  /* Buttons */
+  .gg-hp-btn { padding: 12px 20px; font-size: 11px; letter-spacing: 1.5px; }
 
   /* Email / articles — stack vertically on mobile, show max 3 */
   .gg-hp-email { padding: 32px 0; }
@@ -1179,6 +1334,21 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-section-header { padding: 12px 16px; }
   .gg-hp-section-header h2 { font-size: 11px; letter-spacing: 2px; }
 }
+
+/* ── Responsive: 480px ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .gg-hp-hero { padding: 24px 12px; }
+  .gg-hp-content-grid { padding: 16px 12px; }
+  .gg-hp-training-cta-full { padding: 0 12px; }
+  .gg-hp-cta-left { padding: 24px 16px; }
+  .gg-hp-btn-primary, .gg-hp-btn-secondary { width: 100%; text-align: center; }
+}
+
+/* ── Print ──────────────────────────────────────────────── */
+@media print { .gg-hp-scroll-progress, .gg-hp-top-bar, .gg-hp-ticker, .gg-hp-ticker-mobile { display: none; } .gg-hp-sidebar-sticky { position: static; } .gg-hp-stats-stripe { background: none; border: 2px solid #3a2e25; } .gg-hp-ss-val { color: #1a1613; } }
+
+/* ── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) { .gg-hp-scroll-progress { display: none; } .gg-hp-announce-dot { animation: none; } }
 ''' + mega_footer_css + '''
 </style>'''
 
@@ -1188,7 +1358,10 @@ a { text-decoration: none; color: #178079; }
 
 def build_homepage_js() -> str:
     return '''<script>
-// GA4 event tracking on CTA clicks
+(function() {
+'use strict';
+
+// GA4 event tracking
 document.querySelectorAll('[data-ga]').forEach(function(el) {
   el.addEventListener('click', function() {
     var event_name = el.getAttribute('data-ga');
@@ -1198,6 +1371,80 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
     }
   });
 });
+
+// Scroll progress — rAF-throttled
+var progressBar = document.getElementById('scrollProgress');
+var scrollTicking = false;
+function updateScrollProgress() {
+  var doc = document.documentElement;
+  var scrollable = doc.scrollHeight - doc.clientHeight;
+  if (scrollable <= 0) { progressBar.style.width = '0%'; scrollTicking = false; return; }
+  var pct = Math.min((doc.scrollTop / scrollable) * 100, 100);
+  progressBar.style.width = pct + '%';
+  scrollTicking = false;
+}
+window.addEventListener('scroll', function() {
+  if (!scrollTicking) { requestAnimationFrame(updateScrollProgress); scrollTicking = true; }
+}, { passive: true });
+
+// Animated counters
+var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var counterEls = document.querySelectorAll('[data-counter]');
+if (!prefersReducedMotion && counterEls.length > 0) {
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      if (el.dataset.counterDone) return;
+      el.dataset.counterDone = 'true';
+      var target = parseInt(el.dataset.counter, 10);
+      var suffix = el.dataset.suffix || '';
+      var duration = 1200;
+      var start = performance.now();
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(eased * target);
+        el.textContent = current.toLocaleString() + suffix;
+        if (progress < 1) { requestAnimationFrame(tick); }
+        else { el.textContent = target.toLocaleString() + suffix; }
+      }
+      el.textContent = '0' + suffix;
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.2 });
+  counterEls.forEach(function(el) { counterObserver.observe(el); });
+}
+
+// ARIA tabs
+var tablist = document.querySelector('[role="tablist"]');
+if (tablist) {
+  var tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function(tab) { return document.getElementById(tab.getAttribute('aria-controls')); });
+  function activateTab(tab) {
+    tabs.forEach(function(t, i) {
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+      if (panels[i]) panels[i].hidden = true;
+    });
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    tab.focus();
+    var panel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (panel) panel.hidden = false;
+  }
+  tabs.forEach(function(tab) { tab.addEventListener('click', function() { activateTab(tab); }); });
+  tablist.addEventListener('keydown', function(e) {
+    var ci = tabs.indexOf(document.activeElement);
+    if (ci === -1) return;
+    var ni;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); ni = (ci + 1) % tabs.length; }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); ni = (ci - 1 + tabs.length) % tabs.length; }
+    else if (e.key === 'Home') { e.preventDefault(); ni = 0; }
+    else if (e.key === 'End') { e.preventDefault(); ni = tabs.length - 1; }
+    if (ni !== undefined) activateTab(tabs[ni]);
+  });
+}
 
 // Latest Takes carousel
 (function() {
@@ -1210,9 +1457,8 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
   var total = cards.length;
 
   function perPage() {
-    if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth <= 1024) return 2;
-    return 3;
+    if (window.innerWidth <= 600) return 1;
+    return 2;
   }
   function totalPages() {
     return Math.ceil(total / perPage());
@@ -1260,6 +1506,8 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
   carousel.addEventListener('mouseleave', function() { paused = false; });
   startAuto();
 })();
+
+})();
 </script>'''
 
 
@@ -1302,23 +1550,21 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     title = f"Gravel God \u2014 {stats['race_count']} Gravel Races Rated & Ranked | The Definitive Database"
     meta_desc = f"The definitive gravel race database. {stats['race_count']} races scored across 14 dimensions, from Unbound to the Tour Divide. Find your next race, compare ratings, and build a training plan."
 
-    # Load dynamic data
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)
     substack_posts = fetch_substack_posts()
     chapters = load_guide_chapters(guide_path)
 
+    top_bar = build_top_bar()
     nav = build_nav()
+    hero = build_hero(stats, race_index)
+    stats_stripe = build_stats_bar(stats)
     ticker = build_ticker(one_liners, substack_posts, upcoming)
-    hero = build_hero(stats)
-    stats_bar = build_stats_bar(stats)
-    featured = build_featured_races(race_index)
-    latest_takes = build_latest_takes()
-    coming_up = build_coming_up(upcoming)
+    content_grid = build_content_grid(race_index, stats, upcoming)
     how_it_works = build_how_it_works(stats)
+    training_cta = build_training_cta()
     guide_preview = build_guide_preview(chapters)
     featured_in = build_featured_in()
-    training = build_training_cta()
     testimonials = build_testimonials()
     email = build_email_capture(substack_posts)
     footer = build_footer()
@@ -1359,31 +1605,30 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 </head>
 <body>
 
+<div class="gg-hp-scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <a href="#main" class="gg-hp-skip">Skip to content</a>
 <div class="gg-hp-page">
-  {nav}
+  {top_bar}
 
-  {ticker}
+  {nav}
 
   {hero}
 
-  {stats_bar}
+  {stats_stripe}
 
-  {featured}
+  {ticker}
 
-  {latest_takes}
-
-  {coming_up}
+  {content_grid}
 
   {how_it_works}
 
-  {training}
-
-  {testimonials}
+  {training_cta}
 
   {guide_preview}
 
   {featured_in}
+
+  {testimonials}
 
   {email}
 
@@ -1418,7 +1663,7 @@ def main():
     one_liners = load_editorial_one_liners()
     chapters = load_guide_chapters()
     print(f"Generated {output_file} ({len(html_content):,} bytes)")
-    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['dimensions']} dimensions")
+    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['t2_count']} T2, {stats['region_count']} regions, {stats['dimensions']} dimensions")
     print(f"  Ticker: {len(one_liners)} one-liners")
     print(f"  Coming up: {len([r for r in upcoming if r['days'] >= 0])} upcoming, {len([r for r in upcoming if r['days'] < 0])} recent")
     print(f"  Guide: {len(chapters)} chapters")

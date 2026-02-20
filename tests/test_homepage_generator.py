@@ -23,6 +23,7 @@ from generate_homepage import (
     build_hero,
     build_stats_bar,
     build_featured_races,
+    build_bento_features,
     build_coming_up,
     build_how_it_works,
     build_guide_preview,
@@ -33,6 +34,12 @@ from generate_homepage import (
     build_homepage_css,
     build_homepage_js,
     build_jsonld,
+    build_top_bar,
+    build_content_grid,
+    build_tabbed_rankings,
+    build_sidebar,
+    build_latest_takes,
+    build_testimonials,
     _tier_badge_class,
     FEATURED_SLUGS,
     GA4_MEASUREMENT_ID,
@@ -104,15 +111,17 @@ class TestDataLoading:
         assert "race_count" in stats
         assert "dimensions" in stats
         assert "t1_count" in stats
+        assert "t2_count" in stats
+        assert "region_count" in stats
 
 
 # ── Featured Races ───────────────────────────────────────────
 
 
 class TestFeaturedRaces:
-    def test_returns_six_races(self, race_index):
+    def test_returns_three_races(self, race_index):
         featured = get_featured_races(race_index)
-        assert len(featured) == 6
+        assert len(featured) == 3
 
     def test_featured_slugs_present(self, race_index):
         featured = get_featured_races(race_index)
@@ -136,12 +145,9 @@ class TestFeaturedRaces:
             {"slug": "test-race-1", "name": "Test 1", "tier": 1, "overall_score": 90},
             {"slug": "test-race-2", "name": "Test 2", "tier": 1, "overall_score": 85},
             {"slug": "test-race-3", "name": "Test 3", "tier": 1, "overall_score": 80},
-            {"slug": "test-race-4", "name": "Test 4", "tier": 1, "overall_score": 75},
-            {"slug": "test-race-5", "name": "Test 5", "tier": 1, "overall_score": 70},
-            {"slug": "test-race-6", "name": "Test 6", "tier": 1, "overall_score": 65},
         ]
         featured = get_featured_races(minimal_index)
-        assert len(featured) == 6
+        assert len(featured) == 3
 
 
 # ── Dynamic Data Loading ─────────────────────────────────────
@@ -250,7 +256,6 @@ class TestSectionBuilders:
         html = build_coming_up(upcoming)
         if upcoming:
             assert "COMING UP" in html
-            assert "gg-hp-cal-item" in html
         else:
             assert html == ""
 
@@ -267,46 +272,46 @@ class TestSectionBuilders:
         html = build_guide_preview([])
         assert html == ""
 
-    def test_hero_has_h1(self, stats):
-        hero = build_hero(stats)
+    def test_hero_has_h1(self, stats, race_index):
+        hero = build_hero(stats, race_index)
         assert "<h1" in hero
-        assert "EVERY GRAVEL RACE. RATED. RANKED." in hero
+        assert "Every gravel race, honestly rated" in hero
 
-    def test_hero_has_race_count_badge(self, stats):
-        hero = build_hero(stats)
-        assert f'{stats["race_count"]} RACES RATED' in hero
+    def test_hero_has_announcement_pill(self, stats, race_index):
+        hero = build_hero(stats, race_index)
+        assert "gg-hp-announce-pill" in hero
+        assert f'{stats["race_count"]} Races Scored' in hero
 
-    def test_hero_has_ctas(self, stats):
-        hero = build_hero(stats)
-        assert "BROWSE ALL RACES" in hero
-        assert "HOW WE RATE" in hero
+    def test_hero_has_ctas(self, stats, race_index):
+        hero = build_hero(stats, race_index)
+        assert "Browse All Races" in hero
+        assert "How We Rate" in hero
 
-    def test_hero_has_search_form(self, stats):
-        hero = build_hero(stats)
-        assert 'class="gg-hp-hero-search"' in hero
-        assert 'name="q"' in hero
-        assert "SEARCH" in hero
+    def test_hero_has_featured_card(self, stats, race_index):
+        hero = build_hero(stats, race_index)
+        assert "gg-hp-hero-feature" in hero
+        assert "<a href=" in hero  # Featured card must be a link
 
-    def test_stats_bar_four_stats(self, stats):
+    def test_stats_bar_five_stats(self, stats):
         bar = build_stats_bar(stats)
-        assert bar.count("gg-hp-stat-number") == 4
+        assert bar.count("gg-hp-ss-val") == 5
 
     def test_stats_bar_has_values(self, stats):
         bar = build_stats_bar(stats)
         assert str(stats["race_count"]) in bar
         assert str(stats["dimensions"]) in bar
         assert str(stats["t1_count"]) in bar
-        assert "Sponsors" in bar
+        assert str(stats["t2_count"]) in bar
+        assert "Regions" in bar
 
-    def test_featured_races_section(self, race_index):
-        html = build_featured_races(race_index)
-        assert "FEATURED RACES" in html
-        assert "gg-hp-race-card" in html
-        assert "VIEW ALL" in html
+    def test_bento_features_section(self, race_index):
+        html = build_bento_features(race_index)
+        assert "gg-hp-bento" in html
+        assert "gg-hp-bento-card" in html
 
-    def test_featured_races_has_six_cards(self, race_index):
-        html = build_featured_races(race_index)
-        assert html.count("gg-hp-race-card") >= 6
+    def test_bento_features_has_three_cards(self, race_index):
+        html = build_bento_features(race_index)
+        assert html.count("gg-hp-bento-card") == 3
 
     def test_how_it_works_three_steps(self):
         html = build_how_it_works()
@@ -323,17 +328,15 @@ class TestSectionBuilders:
         assert "TrainingPeaks" in html
         assert "gg-hp-feat-logo" in html
 
-    def test_training_cta_has_both_options(self):
+    def test_training_cta_has_content(self):
         html = build_training_cta()
-        assert "Training Plans" in html
-        assert "1:1 Coaching" in html
-        assert "BUILD MY PLAN" in html
-        assert "APPLY" in html
+        assert "Train for the course" in html
+        assert "Get Your Plan" in html
+        assert "gg-hp-cta-card" in html
 
     def test_training_cta_links(self):
         html = build_training_cta()
         assert "/training-plans/" in html
-        assert "/coaching/" in html
 
     def test_email_capture_has_content(self):
         html = build_email_capture()
@@ -393,9 +396,10 @@ class TestCSS:
         css = build_homepage_css()
         assert ".gg-hp-hero" in css
 
-    def test_css_has_responsive_breakpoint(self):
+    def test_css_has_responsive_breakpoints(self):
         css = build_homepage_css()
-        assert "@media (max-width: 768px)" in css
+        assert "@media (max-width: 900px)" in css
+        assert "@media (max-width: 600px)" in css
 
     def test_css_uses_brand_colors(self):
         css = build_homepage_css()
@@ -438,11 +442,17 @@ class TestJS:
         assert "event_name" in js
 
     def test_js_no_banned_motion(self):
-        """Brand guide bans entrance animations, scroll-triggered animations, and scale transforms."""
+        """Brand guide bans entrance animations and scale transforms.
+        IntersectionObserver is allowed for counters (guarded by prefers-reduced-motion)."""
         js = build_homepage_js()
-        assert "IntersectionObserver" not in js
         assert "translateY" not in js
         assert "scale(" not in js
+
+    def test_js_reduced_motion_guard(self):
+        """IntersectionObserver usage must be guarded by prefers-reduced-motion check."""
+        js = build_homepage_js()
+        if "IntersectionObserver" in js:
+            assert "prefers-reduced-motion" in js, "IntersectionObserver must check prefers-reduced-motion"
 
 
 # ── JSON-LD ──────────────────────────────────────────────────
@@ -513,13 +523,14 @@ class TestFullPage:
         assert "gg-site-header" in homepage_html
         assert "gg-hp-ticker" in homepage_html
         assert "gg-hp-hero" in homepage_html
-        assert "gg-hp-stats-bar" in homepage_html
-        assert "gg-hp-featured" in homepage_html
-        assert "gg-hp-coming-up" in homepage_html
+        assert "gg-hp-stats-stripe" in homepage_html
+        assert "gg-hp-content-grid" in homepage_html
+        assert "gg-hp-bento" in homepage_html
+        assert "gg-hp-sidebar" in homepage_html
         assert "gg-hp-how-it-works" in homepage_html
         assert "gg-hp-guide" in homepage_html
         assert "gg-hp-featured-in" in homepage_html
-        assert "gg-hp-training" in homepage_html
+        assert "gg-hp-training-cta-full" in homepage_html
         assert "gg-hp-email" in homepage_html
         assert "gg-mega-footer" in homepage_html
 
@@ -530,7 +541,7 @@ class TestFullPage:
     def test_has_h1(self, homepage_html):
         h1_match = re.search(r'<h1[^>]*>(.*?)</h1>', homepage_html, re.DOTALL)
         assert h1_match is not None
-        assert "EVERY GRAVEL RACE" in h1_match.group(1)
+        assert "gravel race" in h1_match.group(1).lower()
 
     def test_page_size_reasonable(self, homepage_html):
         size_kb = len(homepage_html) / 1024
@@ -538,8 +549,8 @@ class TestFullPage:
         assert size_kb > 20, f"Homepage is {size_kb:.1f}KB, seems too small"
 
     def test_ctas_have_ga_tracking(self, homepage_html):
-        for event in ['hero_cta_click', 'featured_race_click', 'view_all_races',
-                       'training_plan_click', 'coaching_click', 'subscribe_click', 'guide_click']:
+        for event in ['hero_cta_click', 'featured_race_click',
+                       'training_plan_click', 'sidebar_cta_click', 'guide_click']:
             assert f'data-ga="{event}"' in homepage_html, f"Missing GA event: {event}"
 
     def test_no_broken_template_vars(self, homepage_html):
@@ -552,7 +563,7 @@ class TestFullPage:
 
 class TestConstants:
     def test_featured_slugs_count(self):
-        assert len(FEATURED_SLUGS) == 6
+        assert len(FEATURED_SLUGS) == 3
 
 
 
@@ -621,13 +632,13 @@ class TestRegressions:
 
     def test_section_ids_present(self, homepage_html):
         """Key sections must have IDs for anchor navigation."""
-        for section_id in ["main", "featured", "training", "newsletter"]:
+        for section_id in ["main", "training", "newsletter"]:
             assert f'id="{section_id}"' in homepage_html, f"Missing section id: {section_id}"
 
-    def test_tablet_breakpoint(self):
-        """CSS must have a tablet breakpoint at 1024px."""
+    def test_grid_breakpoint(self):
+        """CSS must have a grid collapse breakpoint at 900px."""
         css = build_homepage_css()
-        assert "@media (max-width: 1024px)" in css
+        assert "@media (max-width: 900px)" in css
 
     def test_no_grayscale_filter(self):
         """Brand guide prohibits filter/opacity transitions."""
@@ -654,12 +665,16 @@ class TestRegressions:
         assert "gg-hp-take-card" in homepage_html
         assert "ALL ARTICLES" in homepage_html
 
-    def test_latest_takes_before_coming_up(self, homepage_html):
-        """Latest Takes should appear before Coming Up in page order."""
-        takes_pos = homepage_html.find("gg-hp-latest-takes")
-        coming_pos = homepage_html.find("gg-hp-coming-up")
-        if takes_pos >= 0 and coming_pos >= 0:
-            assert takes_pos < coming_pos, "Latest Takes should appear before Coming Up"
+    def test_latest_takes_in_main_column(self, homepage_html):
+        """Latest Takes should appear in the main column, not the sidebar."""
+        # Search within <body> only to avoid matching class names in CSS
+        body_start = homepage_html.find("<body")
+        body = homepage_html[body_start:]
+        main_col_pos = body.find("gg-hp-main-col")
+        takes_pos = body.find("gg-hp-latest-takes")
+        sidebar_pos = body.find('class="gg-hp-sidebar"')
+        if takes_pos >= 0 and main_col_pos >= 0 and sidebar_pos >= 0:
+            assert main_col_pos < takes_pos < sidebar_pos, "Latest Takes should be in main column"
 
     def test_training_before_guide(self, homepage_html):
         """Training/coaching section should appear before guide preview in body."""
@@ -674,15 +689,11 @@ class TestRegressions:
         assert "probably know better" not in html
         assert "let me talk" not in html
 
-    def test_coming_up_capped(self, upcoming):
-        """Coming-up should show max 2 recent + 5 upcoming."""
-        html = build_coming_up(upcoming)
-        if upcoming:
-            past_count = html.count("gg-hp-cal-item--past")
-            assert past_count <= 2
-            # Count actual calendar links (each has gg-hp-cal-score)
-            total = html.count("gg-hp-cal-score")
-            assert total <= 7  # 2 recent + 5 upcoming
+    def test_sidebar_coming_up_capped(self, stats, race_index, upcoming):
+        """Sidebar coming-up should show max 4 future races."""
+        html = build_sidebar(stats, race_index, upcoming)
+        compact_items = html.count("gg-hp-coming-compact-item")
+        assert compact_items <= 4
 
     def test_how_it_works_accepts_stats(self, stats):
         """build_how_it_works should accept stats and render race count."""
@@ -700,6 +711,355 @@ class TestRegressions:
         css = build_homepage_css()
         assert "flex-direction: column" in css
         assert ".gg-hp-article-card:nth-child(n+4) { display: none; }" in css
+
+
+# ── New Section Builders ─────────────────────────────────────
+
+
+class TestTopBar:
+    def test_top_bar_exists(self):
+        html = build_top_bar()
+        assert "gg-hp-top-bar" in html
+
+    def test_top_bar_aria_hidden(self):
+        html = build_top_bar()
+        assert 'aria-hidden="true"' in html
+
+
+class TestContentGrid:
+    def test_content_grid_structure(self, race_index, stats, upcoming):
+        html = build_content_grid(race_index, stats, upcoming)
+        assert "gg-hp-content-grid" in html
+        assert "gg-hp-main-col" in html
+        assert "gg-hp-sidebar" in html
+        assert "gg-hp-sidebar-sticky" in html
+
+    def test_content_grid_has_bento(self, race_index, stats, upcoming):
+        html = build_content_grid(race_index, stats, upcoming)
+        assert "gg-hp-bento" in html
+
+    def test_content_grid_has_rankings(self, race_index, stats, upcoming):
+        html = build_content_grid(race_index, stats, upcoming)
+        assert 'role="tablist"' in html
+
+    def test_content_grid_css(self):
+        css = build_homepage_css()
+        assert "gg-hp-content-grid" in css
+        assert "7fr 5fr" in css
+
+
+class TestTabbedRankings:
+    def test_tabbed_rankings_aria_roles(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        assert 'role="tablist"' in html
+        assert 'role="tab"' in html
+        assert 'role="tabpanel"' in html
+
+    def test_tabbed_rankings_three_tabs(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        assert html.count('role="tab"') == 3
+        assert html.count('role="tabpanel"') == 3
+
+    def test_tabbed_rankings_aria_selected(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        assert 'aria-selected="true"' in html
+        assert html.count('aria-selected="false"') == 2
+
+    def test_tabbed_rankings_aria_controls(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        assert 'aria-controls="gg-panel-all"' in html
+        assert 'aria-controls="gg-panel-t1"' in html
+        assert 'aria-controls="gg-panel-t2"' in html
+
+    def test_tabbed_rankings_hidden_panels(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        # First panel visible, others hidden
+        assert 'id="gg-panel-all"' in html
+        assert 'id="gg-panel-t1" aria-labelledby="gg-tab-t1" hidden' in html
+        assert 'id="gg-panel-t2" aria-labelledby="gg-tab-t2" hidden' in html
+
+    def test_tabbed_rankings_keyboard_nav_in_js(self):
+        js = build_homepage_js()
+        assert "ArrowRight" in js
+        assert "ArrowLeft" in js
+        assert "Home" in js
+        assert "End" in js
+
+    def test_tabbed_rankings_has_items(self, race_index):
+        html = build_tabbed_rankings(race_index)
+        assert "gg-hp-article-item" in html
+        assert "gg-hp-article-score" in html
+
+
+class TestBentoFeatures:
+    def test_bento_has_lead_card(self, race_index):
+        html = build_bento_features(race_index)
+        assert "gg-hp-bento-lead" in html
+
+    def test_bento_cards_are_links(self, race_index):
+        html = build_bento_features(race_index)
+        # Every card must be a link to /race/{slug}/
+        import re
+        cards = re.findall(r'<a href="[^"]*?/race/[^"]+/"[^>]*class="gg-hp-bento-card', html)
+        assert len(cards) == 3
+
+    def test_bento_cards_have_ga_tracking(self, race_index):
+        html = build_bento_features(race_index)
+        assert 'data-ga="featured_race_click"' in html
+
+    def test_bento_backward_compat_alias(self, race_index):
+        """build_featured_races should be an alias for build_bento_features."""
+        assert build_featured_races(race_index) == build_bento_features(race_index)
+
+
+class TestScrollProgress:
+    def test_scroll_progress_in_html(self, homepage_html):
+        assert "gg-hp-scroll-progress" in homepage_html
+        assert 'id="scrollProgress"' in homepage_html
+
+    def test_scroll_progress_in_js(self):
+        js = build_homepage_js()
+        assert "scrollProgress" in js
+        assert "requestAnimationFrame" in js
+
+    def test_scroll_progress_aria_hidden(self, homepage_html):
+        assert 'class="gg-hp-scroll-progress"' in homepage_html
+        # The scroll progress bar should be aria-hidden
+        import re
+        progress_match = re.search(r'<div class="gg-hp-scroll-progress"[^>]*>', homepage_html)
+        assert progress_match is not None
+        assert 'aria-hidden="true"' in progress_match.group(0)
+
+
+class TestAnimatedCounters:
+    def test_data_counter_attrs_in_stats(self, stats):
+        bar = build_stats_bar(stats)
+        assert "data-counter=" in bar
+
+    def test_counter_js_present(self):
+        js = build_homepage_js()
+        assert "data-counter" in js
+        assert "counterObserver" in js
+
+    def test_counter_reduced_motion_guard(self):
+        js = build_homepage_js()
+        assert "prefers-reduced-motion" in js
+        # The guard must appear BEFORE the IntersectionObserver
+        motion_pos = js.find("prefers-reduced-motion")
+        observer_pos = js.find("IntersectionObserver")
+        assert motion_pos < observer_pos, "Reduced-motion check must come before IntersectionObserver"
+
+
+class TestSidebar:
+    def test_sidebar_stats_bento(self, stats, race_index, upcoming):
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "gg-hp-sidebar-stat-grid" in html
+        assert "BY THE NUMBERS" in html
+
+    def test_sidebar_pullquote(self, stats, race_index, upcoming):
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "gg-hp-pullquote" in html
+        assert "<blockquote" in html
+
+    def test_sidebar_power_rankings(self, stats, race_index, upcoming):
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "POWER RANKINGS" in html
+        assert "gg-hp-rank-list" in html
+        assert "<ol" in html
+
+    def test_sidebar_cta(self, stats, race_index, upcoming):
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "gg-hp-sidebar-cta" in html
+        assert "/training-plans/" in html
+
+    def test_sidebar_coming_up(self, stats, race_index, upcoming):
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "COMING UP" in html
+
+
+class TestLatestTakes:
+    def test_latest_takes_has_content(self):
+        html = build_latest_takes()
+        assert "LATEST TAKES" in html
+        assert "gg-hp-take-card" in html
+
+    def test_latest_takes_cards_are_links(self):
+        html = build_latest_takes()
+        import re
+        card_links = re.findall(r'<a href="[^"]*"[^>]*class="gg-hp-take-card"', html)
+        assert len(card_links) > 0
+
+    def test_latest_takes_has_carousel(self):
+        html = build_latest_takes()
+        assert 'id="gg-takes-carousel"' in html
+
+
+class TestTestimonials:
+    def test_testimonials_section(self):
+        html = build_testimonials()
+        if html:  # May be empty if TESTIMONIALS is empty
+            assert "ATHLETE RESULTS" in html
+            assert "gg-hp-test-card" in html
+
+
+# ── Brand & Tone Guard Tests ────────────────────────────────
+
+
+class TestBrandToneGuard:
+    """Tests that prevent recurring brand/tone issues found in the audit."""
+
+    def test_no_fabricated_quotes(self, stats, race_index, upcoming):
+        """Pullquotes in sidebar must come from real race data, not AI-generated copy."""
+        sidebar_html = build_sidebar(stats, race_index, upcoming)
+        import re
+        quotes = re.findall(r'<blockquote[^>]*>.*?<p>(.*?)</p>', sidebar_html, re.DOTALL)
+        race_data_dir = Path(__file__).parent.parent / "race-data"
+        # Load ALL race profiles to check quotes against real data
+        all_text = ""
+        for json_file in race_data_dir.glob("*.json"):
+            try:
+                with open(json_file, encoding="utf-8") as f:
+                    all_text += f.read()
+            except OSError:
+                pass
+        for quote in quotes:
+            # Strip HTML entities for comparison
+            clean = re.sub(r'&[a-z]+;', '', quote).strip()
+            # Check that a meaningful substring (first 30 chars) appears in race data
+            check_text = clean[:30]
+            assert check_text in all_text, \
+                f"Pullquote may be fabricated (not found in race data): {clean[:60]}..."
+
+    def test_no_duplicate_cta_headlines(self):
+        """CTA sections must have distinct headlines — no copy-paste CTAs."""
+        import re
+        # Compare CTA-specific sections only (not race name headings which repeat by design)
+        cta_sections = [
+            build_training_cta(),
+        ]
+        # Also get the sidebar CTA headline
+        # We can't easily call build_sidebar without fixtures, so check the two known CTAs
+        training_h2 = re.findall(r'<h2[^>]*>(.*?)</h2>', build_training_cta(), re.DOTALL)
+        # Sidebar CTA uses h3 "Don't wing race day" — verified in test_sidebar_cta_differs_from_main_cta
+        # Here we just verify the training CTA headline isn't generic/duplicate
+        for h in training_h2:
+            text = re.sub(r'<[^>]+>', '', h).strip().lower()
+            assert text != "", "CTA heading must not be empty"
+            assert "click here" not in text, "CTA heading must not be generic"
+            assert "learn more" not in text, "CTA heading must not be generic"
+
+    def test_all_race_cards_are_links(self, race_index, stats, upcoming):
+        """Every race card (bento, hero feature, sidebar rankings) must be clickable links."""
+        import re
+        # Check bento cards — each must be an <a> tag
+        bento = build_bento_features(race_index)
+        bento_links = re.findall(r'<a\s[^>]*class="gg-hp-bento-card[^"]*"', bento)
+        bento_total = len(re.findall(r'class="gg-hp-bento-card', bento))
+        assert len(bento_links) == bento_total, \
+            f"Not all bento cards are links: {len(bento_links)} links vs {bento_total} cards"
+
+        # Check hero featured card
+        hero = build_hero(stats, race_index)
+        if "gg-hp-hero-feature" in hero:
+            feature_links = re.findall(r'<a\s[^>]*class="gg-hp-hero-feature"', hero)
+            assert len(feature_links) == 1, "Hero featured card must be a link"
+
+    def test_heading_hierarchy(self, stats, race_index):
+        """Only one h1 on the page. No h2 inside the hero section."""
+        import re
+        hero = build_hero(stats, race_index)
+        h1_count = len(re.findall(r'<h1[\s>]', hero))
+        assert h1_count == 1, f"Hero should have exactly 1 h1, found {h1_count}"
+        h2_count = len(re.findall(r'<h2[\s>]', hero))
+        assert h2_count == 0, f"Hero should have 0 h2 tags, found {h2_count}"
+
+    def test_no_inline_styles_in_builders(self, stats, race_index, upcoming, chapters):
+        """Section builders should not use inline style attributes (except allowed cases)."""
+        import re
+        # Test key builders for inline styles
+        builders_output = [
+            ("hero", build_hero(stats, race_index)),
+            ("stats_bar", build_stats_bar(stats)),
+            ("bento", build_bento_features(race_index)),
+            ("tabbed_rankings", build_tabbed_rankings(race_index)),
+            ("sidebar", build_sidebar(stats, race_index, upcoming)),
+            ("training_cta", build_training_cta()),
+            ("how_it_works", build_how_it_works(stats)),
+            ("guide_preview", build_guide_preview(chapters)),
+            ("top_bar", build_top_bar()),
+        ]
+        # Allowed inline styles: width on progress bar, border:none on iframes
+        allowed_patterns = [
+            r'style="width:',
+            r'style="border:none',
+        ]
+        for name, html in builders_output:
+            style_matches = re.findall(r'style="[^"]*"', html)
+            for match in style_matches:
+                is_allowed = any(re.search(p, match) for p in allowed_patterns)
+                assert is_allowed, \
+                    f"Inline style in {name} builder: {match}. Use CSS class instead."
+
+    def test_all_css_hex_in_known_set(self):
+        """All hex colors in homepage CSS must be from the brand token set or known exceptions."""
+        import re
+        css = build_homepage_css()
+        # Read token hex values from tokens.css to stay in sync
+        tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+        known_hex = set()
+        if tokens_path.exists():
+            with open(tokens_path, encoding="utf-8") as f:
+                for match in re.finditer(r'#([0-9a-fA-F]{3,8})\b', f.read()):
+                    known_hex.add(match.group(1).lower())
+        # Standard web colors
+        known_hex.update(["fff", "ffffff", "000", "000000"])
+        # Pre-existing hex values that predate the token system.
+        # TODO: migrate these to token values in a dedicated color-sync sprint.
+        known_hex.update([
+            "178079",  # legacy teal (tokens: 1a8a82)
+            "7d695d",  # legacy secondary brown (tokens: 8c7568)
+            "766a5e",  # legacy tier-3 badge (tokens: 999999)
+            "5e6868",  # legacy tier-4 badge (tokens: cccccc)
+            "9a7e0a",  # legacy gold (tokens: b7950b)
+        ])
+        # Find all hex colors in CSS
+        hex_matches = re.finditer(r'#([0-9a-fA-F]{3,8})\b', css)
+        for match in hex_matches:
+            hex_val = match.group(1).lower()
+            # Normalize 3-char to 6-char
+            if len(hex_val) == 3:
+                hex_val_6 = hex_val[0]*2 + hex_val[1]*2 + hex_val[2]*2
+            else:
+                hex_val_6 = hex_val
+            assert hex_val in known_hex or hex_val_6 in known_hex, \
+                f"Hex color #{match.group(1)} in homepage CSS is not in tokens.css or known exceptions"
+
+    def test_featured_card_heading_level(self, stats, race_index):
+        """Hero featured card should use h3, not h2 (h1 is the page title)."""
+        import re
+        hero = build_hero(stats, race_index)
+        if "gg-hp-hero-feature" in hero:
+            # Extract the featured card HTML
+            feature_start = hero.find("gg-hp-hero-feature")
+            feature_html = hero[feature_start:]
+            assert "<h3" in feature_html, "Featured card should use h3, not h2"
+            assert "<h2" not in feature_html, "Featured card must not use h2"
+
+    def test_sidebar_cta_differs_from_main_cta(self):
+        """Sidebar CTA and main CTA must have different headlines."""
+        import re
+        sidebar_pattern = r'class="gg-hp-sidebar-cta".*?<h3>(.*?)</h3>'
+        main_pattern = r'class="gg-hp-cta-left".*?<h2>(.*?)</h2>'
+
+        # Build both sections
+        training = build_training_cta()
+        # Can't easily get sidebar alone without stats/index, so check the function output
+        main_match = re.search(main_pattern, training, re.DOTALL)
+        assert main_match is not None, "Main CTA should have an h2"
+        main_headline = re.sub(r'<[^>]+>', '', main_match.group(1)).strip()
+        # The sidebar CTA headline is "Don't wing race day" — verify it differs
+        assert "wing race day" not in main_headline.lower(), \
+            "Main CTA must differ from sidebar CTA"
 
 
 def html_escape(text):

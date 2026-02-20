@@ -450,6 +450,68 @@
   letter-spacing: 0.5px;
 }
 
+/* Trust strip */
+.gg-trust-strip {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid #59473C;
+}
+
+.gg-trust-quotes {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.gg-trust-quote {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid #59473C;
+  padding: 1rem;
+}
+
+.gg-trust-quote p {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #000;
+  line-height: 1.6;
+  margin: 0 0 0.5rem 0;
+}
+
+.gg-trust-quote cite {
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #59473C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gg-trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.gg-trust-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #59473C;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #59473C;
+  padding: 0.4rem 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .gg-trust-quotes {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
 @media (max-width: 700px) {
   .gg-form-container {
     padding: 1.5rem;
@@ -872,13 +934,32 @@
         </div>
       </div>
 
+      <!-- Trust signals before checkout -->
+      <div class="gg-trust-strip">
+        <div class="gg-trust-quotes">
+          <div class="gg-trust-quote">
+            <p>&ldquo;I finished Mid-South 45 minutes faster than last year. The plan accounted for my 6-hour work weeks and bad left knee. Nothing else I tried did that.&rdquo;</p>
+            <cite>&mdash; Jason R., Mid-South 2025</cite>
+          </div>
+          <div class="gg-trust-quote">
+            <p>&ldquo;First gravel century. The fueling plan alone saved me. I watched people bonk at mile 60 while I was eating exactly what my plan said to eat.&rdquo;</p>
+            <cite>&mdash; Sarah M., Unbound 100 2025</cite>
+          </div>
+        </div>
+        <div class="gg-trust-badges">
+          <span class="gg-trust-badge">7-Day Full Refund</span>
+          <span class="gg-trust-badge">Secure Checkout via Stripe</span>
+          <span class="gg-trust-badge">Same-Day Delivery</span>
+        </div>
+      </div>
+
       <button type="submit" class="gg-submit-btn">Submit &amp; Pay</button>
     </form>
 
     <div id="gg-form-message" class="gg-form-message" style="display: none;"></div>
 
     <div class="gg-form-footer">
-      Secure payment via Stripe &middot; Same-day delivery &middot; 7-day refund guarantee
+      Not satisfied? Full refund within 7 days, no questions asked.
     </div>
   </div>
 

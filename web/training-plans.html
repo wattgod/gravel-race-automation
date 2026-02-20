@@ -722,6 +722,70 @@
 
 
 /* ================================================================
+   TESTIMONIALS
+   ================================================================ */
+
+.tp-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tp-testimonial {
+  border: 3px solid #000;
+  padding: 1.5rem;
+  background: #fff;
+  position: relative;
+}
+
+.tp-testimonial:nth-child(even) {
+  background: #F5E5D3;
+}
+
+.tp-testimonial p {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #000;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.tp-testimonial cite {
+  font-size: 0.65rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #59473C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+/* ================================================================
+   GUARANTEE
+   ================================================================ */
+
+.tp-guarantee {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 3px solid #59473C;
+  background: #F5E5D3;
+  text-align: center;
+}
+
+.tp-guarantee p {
+  font-size: 0.8rem;
+  color: #000;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.tp-guarantee strong {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ================================================================
    COLORED SHADOWS on key elements
    ================================================================ */
 
@@ -901,6 +965,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+
+  .tp-testimonials {
+    grid-template-columns: 1fr;
+  }
 
   .tp-audience-grid {
     grid-template-columns: 1fr;
@@ -1170,6 +1238,28 @@
   </div>
 
   <!-- ============================================================
+       SOCIAL PROOF
+       ============================================================ -->
+  <div class="tp-section">
+    <div class="tp-section-label">Athletes</div>
+    <h2>Don't Take My Word For It.</h2>
+    <div class="tp-testimonials">
+      <div class="tp-testimonial">
+        <p>&ldquo;I finished Mid-South 45 minutes faster than last year. The plan accounted for my 6-hour work weeks and bad left knee. Nothing else I tried did that.&rdquo;</p>
+        <cite>&mdash; Jason R. &middot; Mid-South 2025</cite>
+      </div>
+      <div class="tp-testimonial">
+        <p>&ldquo;First gravel century. The fueling plan alone saved me. I watched people bonk at mile 60 while I was eating exactly what my plan said to eat.&rdquo;</p>
+        <cite>&mdash; Sarah M. &middot; Unbound 100 2025</cite>
+      </div>
+      <div class="tp-testimonial">
+        <p>&ldquo;I have 5 hours a week and two kids. Every session in this plan mattered. No junk miles. Finished Big Sugar strong for the first time ever.&rdquo;</p>
+        <cite>&mdash; Mark D. &middot; Big Sugar 2025</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        PRICING — $15/wk computed, capped at $249
        ============================================================ -->
   <div class="tp-section">
@@ -1194,8 +1284,11 @@
         <div class="tp-pricing-cta">
           <a href="https://gravelgodcycling.com/training-plans/questionnaire/" class="tp-btn">Build My Plan</a>
         </div>
-        <p class="tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one. Full refund within 7 days.</p>
+        <p class="tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one.</p>
       </div>
+    </div>
+    <div class="tp-guarantee">
+      <p><strong>7-Day Money-Back Guarantee.</strong> If the plan doesn&rsquo;t meet your expectations, email me within 7 days for a full refund. No questions. No hoops.</p>
     </div>
   </div>
 

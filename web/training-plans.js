@@ -22,6 +22,7 @@
       ['.tp-deliverables', '.tp-deliverable-row'],
       ['.tp-steps', '.tp-step'],
       ['.tp-faq-list', '.tp-faq-item'],
+      ['.tp-testimonials', '.tp-testimonial'],
       ['.tp-audience-grid', '.tp-audience-col']
     ];
 

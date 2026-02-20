@@ -72,6 +72,146 @@
   text-align: center;
 }
 
+/* What happens next timeline */
+.tp-success-timeline {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.tp-success-timeline-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #59473C;
+  margin-bottom: 0.75rem;
+}
+
+.tp-success-step {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(89, 71, 60, 0.2);
+  align-items: start;
+}
+
+.tp-success-step:last-child {
+  border-bottom: none;
+}
+
+.tp-success-step-time {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #59473C;
+  text-transform: uppercase;
+  text-align: right;
+  padding-top: 0.15rem;
+}
+
+.tp-success-step-text {
+  font-size: 0.8rem;
+  color: #000;
+  line-height: 1.5;
+}
+
+/* Cross-sell section */
+.tp-success-crosssell {
+  margin-top: 2.5rem;
+  border: 3px solid #000;
+  background: #fff;
+}
+
+.tp-success-crosssell-header {
+  background: #000;
+  color: #F5E5D3;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tp-success-crosssell-body {
+  padding: 1.5rem;
+}
+
+.tp-success-crosssell-body h3 {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.tp-success-crosssell-body p {
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  max-width: none;
+  text-align: left;
+}
+
+.tp-success-crosssell-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tp-success-crosssell-item {
+  border: 2px solid #000;
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s;
+}
+
+.tp-success-crosssell-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #59473C;
+}
+
+.tp-success-crosssell-item:first-child {
+  background: #F5E5D3;
+}
+
+.tp-success-crosssell-item h4 {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.tp-success-crosssell-item p {
+  font-size: 0.7rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.tp-success-crosssell-item a {
+  display: inline-block;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1rem;
+  border: 2px solid #000;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  transition: background-color 0.15s;
+}
+
+.tp-success-crosssell-item a:hover {
+  background: #000;
+  color: #F5E5D3;
+}
+
 .tp-success-links {
   display: flex;
   gap: 1rem;
@@ -139,6 +279,9 @@
   .tp-success-links a {
     text-align: center;
   }
+  .tp-success-crosssell-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
@@ -157,13 +300,96 @@
     <p>If you don't see it, check your spam folder. Plans are delivered as a link
     to your custom training guide plus .zwo workout files.</p>
 
-    <div class="tp-success-links">
-      <a href="https://gravelgodcycling.com/gravel-races/">Browse Race Database</a>
-      <a href="https://gravelgodcycling.com/">Back to Home</a>
+    <!-- What happens next -->
+    <div class="tp-success-timeline">
+      <div class="tp-success-timeline-label">What Happens Next</div>
+      <div class="tp-success-step">
+        <span class="tp-success-step-time">Now</span>
+        <span class="tp-success-step-text">Your intake data is being processed by the training engine.</span>
+      </div>
+      <div class="tp-success-step">
+        <span class="tp-success-step-time">~15 min</span>
+        <span class="tp-success-step-text">You&rsquo;ll receive an email with your custom training guide and .zwo workout files.</span>
+      </div>
+      <div class="tp-success-step">
+        <span class="tp-success-step-time">Today</span>
+        <span class="tp-success-step-text">Import the .zwo files into TrainingPeaks, Zwift, or Wahoo. Start training.</span>
+      </div>
+      <div class="tp-success-step">
+        <span class="tp-success-step-time">Week 1</span>
+        <span class="tp-success-step-text">Follow the plan. Trust the process. The first week is calibration.</span>
+      </div>
     </div>
+  </div>
+
+  <!-- Cross-sell -->
+  <div class="tp-success-crosssell">
+    <div class="tp-success-crosssell-header">While You Wait</div>
+    <div class="tp-success-crosssell-body">
+      <div class="tp-success-crosssell-grid">
+        <div class="tp-success-crosssell-item">
+          <h4>Free Race Prep Kit</h4>
+          <p>Race-day checklist, packing list, and 12-week training timeline for your target event.</p>
+          <a href="https://gravelgodcycling.com/gravel-races/">Find Your Race</a>
+        </div>
+        <div class="tp-success-crosssell-item">
+          <h4>1:1 Coaching</h4>
+          <p>Want a human in your corner? Weekly adjustments, race-day strategy, and real accountability.</p>
+          <a href="https://gravelgodcycling.com/coaching/">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tp-success-links">
+    <a href="https://gravelgodcycling.com/gravel-races/">Browse Race Database</a>
+    <a href="https://gravelgodcycling.com/">Back to Home</a>
   </div>
 
   <p class="tp-success-footer">
     Questions? Email matt@gravelgodcycling.com
   </p>
 </div>
+
+<script>
+(function() {
+  // GA4 conversion tracking
+  function track(event, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', event, params || {});
+    } else if (window.dataLayer) {
+      var obj = { event: event };
+      if (params) { for (var k in params) obj[k] = params[k]; }
+      window.dataLayer.push(obj);
+    }
+  }
+
+  // Extract session_id from URL for attribution
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id') || '';
+
+  // Fire purchase conversion event (deduplicate via sessionStorage)
+  var purchaseKey = 'gg_purchase_' + sessionId;
+  if (sessionId && !sessionStorage.getItem(purchaseKey)) {
+    track('purchase', {
+      transaction_id: sessionId,
+      affiliation: 'Gravel God',
+      currency: 'USD',
+      items: [{ item_name: 'Custom Training Plan', item_category: 'training_plan' }]
+    });
+    sessionStorage.setItem(purchaseKey, '1');
+  }
+
+  track('tp_page_view', { page: 'success', session_id: sessionId });
+
+  // Cross-sell click tracking
+  document.querySelectorAll('.tp-success-crosssell-item a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      track('tp_crosssell_click', {
+        destination: this.textContent.trim(),
+        from: 'success_page'
+      });
+    });
+  });
+})();
+</script>

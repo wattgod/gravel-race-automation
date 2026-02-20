@@ -440,6 +440,15 @@
     submitBtn.textContent = 'Preparing checkout...';
     messageEl.style.display = 'none';
 
+    // GA4 begin_checkout (standard e-commerce funnel event)
+    var aRaceForCheckout = races.find(function(r) { return r.priority === 'A'; }) || races[0];
+    var checkoutPricing = aRaceForCheckout ? computePrice(aRaceForCheckout.date) : null;
+    track('begin_checkout', {
+      currency: 'USD',
+      value: checkoutPricing ? checkoutPricing.price : 0,
+      items: [{ item_name: 'Custom Training Plan', item_category: 'training_plan', price: checkoutPricing ? checkoutPricing.price : 0 }]
+    });
+
     // Build data object with camelCase field names
     var formData = new FormData(form);
     var data = Object.fromEntries(formData.entries());

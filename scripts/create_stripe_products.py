@@ -72,8 +72,8 @@ COACHING_PRODUCTS = [
         "price": {
             "unit_amount": 199 * 100,
             "currency": "usd",
-            "recurring": {"interval": "month"},
-            "nickname": "Coaching Min — $199/mo",
+            "recurring": {"interval": "week", "interval_count": 4},
+            "nickname": "Coaching Min — $199/4wk",
             "metadata": {"tier": "min", "type": "coaching"},
         },
     },
@@ -86,8 +86,8 @@ COACHING_PRODUCTS = [
         "price": {
             "unit_amount": 299 * 100,
             "currency": "usd",
-            "recurring": {"interval": "month"},
-            "nickname": "Coaching Mid — $299/mo",
+            "recurring": {"interval": "week", "interval_count": 4},
+            "nickname": "Coaching Mid — $299/4wk",
             "metadata": {"tier": "mid", "type": "coaching"},
         },
     },
@@ -100,8 +100,8 @@ COACHING_PRODUCTS = [
         "price": {
             "unit_amount": 1200 * 100,
             "currency": "usd",
-            "recurring": {"interval": "month"},
-            "nickname": "Coaching Max — $1,200/mo",
+            "recurring": {"interval": "week", "interval_count": 4},
+            "nickname": "Coaching Max — $1,200/4wk",
             "metadata": {"tier": "max", "type": "coaching"},
         },
     },

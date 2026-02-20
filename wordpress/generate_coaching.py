@@ -532,8 +532,8 @@ def build_coaching_css() -> str:
   color: var(--gg-color-gold);
 }
 .gg-neo-brutalist-page .gg-coach-tier-interval {
-  font-size: var(--gg-font-size-3xs);
-  font-weight: var(--gg-font-weight-normal);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-regular);
   letter-spacing: var(--gg-letter-spacing-normal);
 }
 .gg-neo-brutalist-page .gg-coach-tier-card h3 {
@@ -993,7 +993,7 @@ def build_coaching_js() -> str:
     if (!q) return;
     function toggle() {
       var wasOpen = item.classList.contains('gg-coach-faq-open');
-      items.forEach(function(i) { i.classList.remove('gg-coach-faq-open'); });
+      items.forEach(function(i) { i.classList.remove('gg-coach-faq-open'); var iq = i.querySelector('.gg-coach-faq-q'); if (iq) iq.setAttribute('aria-expanded', 'false'); });
       if (!wasOpen) {
         item.classList.add('gg-coach-faq-open');
         q.setAttribute('aria-expanded', 'true');

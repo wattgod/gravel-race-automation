@@ -438,3 +438,55 @@ class TestJSONLD:
         ld = build_jsonld()
         assert '"offers"' not in ld
         assert "$15" not in ld
+
+
+# ── CSS Token Validation ────────────────────────────────────
+
+
+class TestCssTokenValidation:
+    """Every var(--gg-*) reference in coaching CSS must be defined in tokens.css."""
+
+    @pytest.fixture(scope="class")
+    def defined_tokens(self):
+        tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+        if not tokens_path.exists():
+            pytest.skip("Brand tokens not available")
+        text = tokens_path.read_text()
+        return set(re.findall(r'--(gg-[a-z0-9-]+)', text))
+
+    def test_all_var_refs_defined(self, coaching_css, defined_tokens):
+        """No undefined var(--gg-*) references — prevents silent CSS failures."""
+        css_match = re.search(r'<style>(.*?)</style>', coaching_css, re.DOTALL)
+        if not css_match:
+            pytest.skip("No CSS found")
+        css = css_match.group(1)
+        refs = set(re.findall(r'var\(--(gg-[a-z0-9-]+)\)', css))
+        undefined = refs - defined_tokens
+        assert not undefined, f"Undefined CSS tokens in coaching CSS: {undefined}"
+
+
+# ── Accessibility ───────────────────────────────────────────
+
+
+class TestAccessibility:
+    def test_faq_aria_expanded_reset(self, coaching_js):
+        """FAQ JS must reset aria-expanded on all siblings when opening a new item."""
+        assert "setAttribute('aria-expanded', 'false')" in coaching_js
+        # The reset must happen inside the forEach loop, not just on the clicked item
+        js = coaching_js.replace("<script>", "").replace("</script>", "")
+        # The forEach that removes gg-coach-faq-open should also reset aria-expanded
+        assert "classList.remove('gg-coach-faq-open')" in js
+        # Both operations must be in the same forEach
+        foreach_match = re.search(r"items\.forEach\(function\(i\)\s*\{([^}]+)\}", js)
+        assert foreach_match, "No forEach loop found for FAQ items"
+        foreach_body = foreach_match.group(1)
+        assert "aria-expanded" in foreach_body, (
+            "aria-expanded reset must happen inside forEach loop, not just on clicked item"
+        )
+
+    def test_no_month_in_billing_context(self, coaching_html):
+        """No 'monthly' or '/mo' in billing/pricing context. 'Monthly' for call cadence is OK."""
+        assert "/MO" not in coaching_html
+        assert "$199/month" not in coaching_html.lower()
+        assert "$299/month" not in coaching_html.lower()
+        assert "per month" not in coaching_html.lower()

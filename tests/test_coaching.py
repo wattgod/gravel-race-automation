@@ -194,6 +194,11 @@ class TestServiceTiers:
         assert "Ongoing Coaching" not in tiers
         assert "Race Consult" not in tiers
 
+    def test_setup_fee_note(self):
+        tiers = build_service_tiers()
+        assert "gg-coach-tier-setup-fee" in tiers
+        assert "$99 setup fee" in tiers
+
 
 # ── Deliverables ─────────────────────────────────────────────
 
@@ -270,14 +275,19 @@ class TestHonestCheck:
 
 
 class TestFAQ:
-    def test_six_questions(self):
+    def test_seven_questions(self):
         f = build_faq()
-        assert f.count("gg-coach-faq-item") == 6
+        assert f.count("gg-coach-faq-item") == 7
 
     def test_accordion_toggle(self):
         f = build_faq()
         assert "gg-coach-faq-toggle" in f
         assert "gg-coach-faq-q" in f
+
+    def test_setup_fee_faq(self):
+        f = build_faq()
+        assert "$99 setup fee" in f
+        assert "one-time charge" in f
 
     def test_has_aria(self):
         f = build_faq()

@@ -146,6 +146,7 @@ def build_service_tiers() -> str:
         </div>
       </div>
       <p class="gg-coach-tier-disclaimer">If you skip workouts, underfuel, or ignore feedback, no tier fixes that. I&#39;ll tell you within 24 hours if it&#39;s not a fit.</p>
+      <p class="gg-coach-tier-setup-fee">All tiers include a one-time $99 setup fee covering intake analysis, training history review, and initial plan setup.</p>
     </div>
   </div>'''
 
@@ -325,6 +326,10 @@ def build_faq() -> str:
         (
             "What&#39;s the time commitment?",
             "The training you&#39;re already doing, but smarter. I&#39;m not adding hours &mdash; I&#39;m making the ones you have count.",
+        ),
+        (
+            "What&#39;s the $99 setup fee?",
+            "It covers intake analysis, training history review, and building your initial plan. It&#39;s a one-time charge on top of your first month. After that, it&#39;s just the monthly rate.",
         ),
     ]
 
@@ -583,6 +588,15 @@ def build_coaching_css() -> str:
   line-height: var(--gg-line-height-relaxed);
   margin-top: var(--gg-spacing-lg);
   max-width: 640px;
+}
+.gg-neo-brutalist-page .gg-coach-tier-setup-fee {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  line-height: var(--gg-line-height-relaxed);
+  margin-top: var(--gg-spacing-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wide);
 }
 
 /* ── Deliverables ────────────────────────────────── */

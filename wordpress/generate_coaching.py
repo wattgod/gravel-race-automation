@@ -78,13 +78,13 @@ def build_problem() -> str:
     <div class="gg-section-body">
       <div class="gg-coach-quotes">
         <blockquote class="gg-coach-quote">
-          <p>You&#39;ve been training by feel for years. Sometimes it works. Mostly you blow up at mile 80 and can&#39;t figure out why.</p>
+          <p>You&#39;ve been training by feel for years. Sometimes it works. Mostly you blow up at mile 80 and can&#39;t figure out why. Meanwhile, the rider who passed you at mile 60 had a plan for that exact section.</p>
         </blockquote>
         <blockquote class="gg-coach-quote">
-          <p>You downloaded a plan from an app. It didn&#39;t know about your hip flexor, your newborn, or that your work calls run past 6 on Tuesdays.</p>
+          <p>You downloaded a plan from an app. It didn&#39;t know about your hip flexor, your newborn, or that your work calls run past 6 on Tuesdays. You paid for structure and got a spreadsheet.</p>
         </blockquote>
         <blockquote class="gg-coach-quote">
-          <p>You know more about cycling than most people. But knowing and executing are different skills. A coach closes that gap.</p>
+          <p>You know more about cycling than most people. But knowing and executing are different skills. Every hour you train without direction is an hour you can&#39;t get back. A coach closes that gap.</p>
         </blockquote>
       </div>
     </div>
@@ -147,6 +147,7 @@ def build_service_tiers() -> str:
       </div>
       <p class="gg-coach-tier-disclaimer">If you skip workouts, underfuel, or ignore feedback, no tier fixes that. I&#39;ll tell you within 24 hours if it&#39;s not a fit.</p>
       <p class="gg-coach-tier-setup-fee">All tiers include a one-time $99 setup fee covering intake analysis, training history review, and initial plan setup.</p>
+      <p class="gg-coach-tier-context">Mid tier: $299 per 4 weeks &asymp; $10/ride. Less than your post-ride coffee. Except this one makes you faster.</p>
     </div>
   </div>'''
 
@@ -163,14 +164,14 @@ def build_deliverables() -> str:
           <div class="gg-coach-deliverable-num">01</div>
           <div class="gg-coach-deliverable-content">
             <h3>I Read Your File. Not a Summary of It.</h3>
-            <p>A person looks at your ride data, not a dashboard. I see the interval you bailed on and ask why. Software flags a number. I flag a pattern.</p>
+            <p>A person looks at your ride data, not a dashboard. I see the interval you bailed on and ask why. Software flags a number. I flag a pattern. That pattern is usually what&#39;s standing between you and your next finish line.</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">02</div>
           <div class="gg-coach-deliverable-content">
             <h3>Your Plan Changes When Your Life Does</h3>
-            <p>Kid got sick. Work trip. Tweaked your knee. I adjust the plan that week &mdash; not after you fail to hit targets for three weeks and an algorithm notices.</p>
+            <p>Kid got sick. Work trip. Tweaked your knee. I adjust the plan that week &mdash; not after you fail to hit targets for three weeks and an algorithm notices. You don&#39;t lose a training block. You adapt in real time.</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
@@ -285,6 +286,7 @@ def build_honest_check() -> str:
             <li>You&#39;ll do the work if someone shows you what to do</li>
             <li>You have a race and a reason</li>
             <li>You&#39;re ready to be honest about your habits</li>
+            <li>You&#39;ve invested in the bike &mdash; now you&#39;re ready to invest in the engine</li>
           </ul>
         </div>
         <div class="gg-coach-audience-col">
@@ -294,6 +296,7 @@ def build_honest_check() -> str:
             <li>You&#39;re not willing to change anything</li>
             <li>Your race is next week</li>
             <li>You want validation, not honesty</li>
+            <li>You think a faster bike is the answer</li>
           </ul>
         </div>
       </div>
@@ -365,6 +368,7 @@ def build_final_cta() -> str:
       <div class="gg-coach-final-cta">
         <p class="gg-coach-final-hook">You already know how to suffer. Let me show you how to suffer smarter.</p>
         <p class="gg-coach-final-sub">The intake takes 10 minutes. I&#39;ll review it within 48 hours. No commitment until we both agree it&#39;s a fit.</p>
+        <p class="gg-coach-final-cost">A blown race costs you months. A wasted training block costs you a season. The intake costs you 10 minutes.</p>
         <div class="gg-coach-final-buttons">
           <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="final_fill_intake">FILL OUT THE INTAKE</a>
         </div>
@@ -610,6 +614,16 @@ def build_coaching_css() -> str:
   margin-top: var(--gg-spacing-sm);
   text-transform: uppercase;
   letter-spacing: var(--gg-letter-spacing-wide);
+}
+
+.gg-neo-brutalist-page .gg-coach-tier-context {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  font-style: italic;
+  color: var(--gg-color-primary-brown);
+  line-height: var(--gg-line-height-relaxed);
+  margin-top: var(--gg-spacing-sm);
+  max-width: 640px;
 }
 
 /* ── Deliverables ────────────────────────────────── */
@@ -925,6 +939,15 @@ def build_coaching_css() -> str:
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+}
+.gg-neo-brutalist-page .gg-coach-final-cost {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  margin: var(--gg-spacing-sm) auto 0;
+  max-width: 560px;
 }
 .gg-neo-brutalist-page .gg-coach-final-buttons {
   display: flex;

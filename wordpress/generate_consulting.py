@@ -60,7 +60,7 @@ def build_hero() -> str:
     return f'''<section class="gg-consult-hero" id="hero">
   <div class="gg-consult-hero-inner">
     <h1 class="gg-consult-hero-title">One Call. Clear Answers.</h1>
-    <p class="gg-consult-hero-subtitle">A focused {CONSULTING_DURATION} session to cut through the noise on race selection, training structure, nutrition, or season planning. You bring the questions &mdash; I bring the data.</p>
+    <p class="gg-consult-hero-subtitle">A focused {CONSULTING_DURATION} session to cut through the noise on race selection, training structure, nutrition, or season planning. You bring the questions &mdash; I bring the data. One call replaces weeks of forum threads and YouTube rabbit holes.</p>
     <div class="gg-consult-hero-price">
       <span class="gg-consult-price-tag">{CONSULTING_PRICE}</span>
       <span class="gg-consult-price-detail">{CONSULTING_DURATION} &middot; 1-on-1 video call</span>
@@ -74,7 +74,7 @@ def build_what_you_get() -> str:
     items = [
         (
             "Pre-Call Prep",
-            "Fill out a short intake so I review your background, goals, and questions before we talk. No time wasted on basics.",
+            "Fill out a short intake so I review your background, goals, and questions before we talk. No time wasted on basics. You show up, we go deep immediately.",
         ),
         (
             "60-Minute Deep Dive",
@@ -182,6 +182,7 @@ def build_final_cta() -> str:
   <div class="gg-consult-cta-inner">
     <h2 class="gg-consult-cta-title">Stop Guessing. Start Racing Smarter.</h2>
     <p class="gg-consult-cta-desc">{CONSULTING_PRICE} &middot; {CONSULTING_DURATION} &middot; Action plan included</p>
+    <p class="gg-consult-cta-context">Less than a race entry fee. More useful than your last DNS.</p>
     <a href="{BOOKING_URL}" class="gg-consult-btn-gold" data-cta="final_book">Book Your Consult</a>
   </div>
 </section>'''
@@ -447,6 +448,14 @@ def build_consulting_css() -> str:
   color: var(--gg-color-tan);
   letter-spacing: var(--gg-letter-spacing-wide);
   text-transform: uppercase;
+  margin: 0 0 var(--gg-spacing-lg) 0;
+}}
+
+.gg-consult-cta-context {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  font-style: italic;
+  color: var(--gg-color-tan);
   margin: 0 0 var(--gg-spacing-lg) 0;
 }}
 

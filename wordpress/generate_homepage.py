@@ -875,7 +875,7 @@ def build_training_cta() -> str:
     <div class="gg-hp-cta-card">
       <div class="gg-hp-cta-left">
         <h2>Train for the course, not just the distance</h2>
-        <p>Race-specific training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
+        <p>Every generic plan treats gravel like a road race with dirt. This isn&rsquo;t that. Training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
         <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="training_plan_click" data-ab="training_cta_btn">Get Your Plan &rarr;</a>
       </div>
       <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>

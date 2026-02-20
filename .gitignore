@@ -17,6 +17,10 @@ ENV/
 .env.local
 *.env.local
 
+# Google service account keys (NEVER commit)
+data/gsc-service-account.json
+*-service-account*.json
+
 # WordPress credentials (keep config.py.example, ignore actual config)
 wordpress/config.py
 

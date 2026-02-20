@@ -1,5 +1,5 @@
 (function() {
-  var API_URL = 'https://gravel-god-webhook.up.railway.app/api/create-checkout';
+  var API_URL = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api/create-checkout';
   var form = document.getElementById('gg-training-form');
   var messageEl = document.getElementById('gg-form-message');
   var submitBtn = form.querySelector('.gg-submit-btn');

@@ -412,7 +412,7 @@ def build_consulting_css() -> str:
 .gg-consult-faq-a {{
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height var(--gg-transition-hover);
   padding: 0 var(--gg-spacing-lg);
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-sm);

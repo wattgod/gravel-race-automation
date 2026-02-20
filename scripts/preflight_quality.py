@@ -864,6 +864,113 @@ def check_fabricated_claims():
         check("Fabricated claims audit", False, f"Error: {e}")
 
 
+# ── Check 19: Cross-cutting CSS token validation ──────────────
+
+
+def check_all_generators_token_refs():
+    """Verify every var(--gg-*) in ALL page generator CSS resolves to a real token.
+
+    This catches the recurring bug where token names are guessed wrong:
+    --gg-font-family-data (correct: --gg-font-data),
+    --gg-color-muted-tan (correct: --gg-color-tan),
+    --gg-font-size-3xs (doesn't exist),
+    --gg-font-weight-normal (correct: --gg-font-weight-regular).
+    """
+    print("\n── Cross-Cutting CSS Token Validation ──")
+    tokens_path = PROJECT_ROOT.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+    if not tokens_path.exists():
+        warn("CSS token validation", f"Brand tokens not found at {tokens_path}")
+        return
+
+    tokens_css = tokens_path.read_text(encoding="utf-8")
+
+    # Generators that produce inline <style> blocks
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    generators = [
+        ("coaching", "generate_coaching", "build_coaching_css"),
+        ("coaching-apply", "generate_coaching_apply", "build_coaching_apply_css"),
+        ("consulting", "generate_consulting", "build_consulting_css"),
+        ("success-pages", "generate_success_pages", "build_success_css"),
+    ]
+
+    total_checked = 0
+    for label, module_name, func_name in generators:
+        try:
+            mod = __import__(module_name)
+            css_func = getattr(mod, func_name, None)
+            if not css_func:
+                warn(f"{label} token refs", f"Function {func_name} not found")
+                continue
+            css = css_func()
+            var_refs = set(re.findall(r'var\((--gg-[a-z0-9-]+)\)', css))
+            for var_name in var_refs:
+                found = var_name in tokens_css
+                check(f"{label}: {var_name}", found,
+                      f"Undefined token in {module_name}.{func_name}()")
+                total_checked += 1
+        except Exception as e:
+            warn(f"{label} token validation", f"Import error: {e}")
+
+    if total_checked > 0:
+        check(f"Validated {total_checked} token refs across {len(generators)} generators", True)
+
+
+# ── Check 20: Success page JS syntax ─────────────────────────
+
+
+def check_success_js_syntax():
+    """Validate success page JS via Node.js."""
+    print("\n── Success Page JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        from generate_success_pages import build_success_js
+        js = build_success_js().replace("<script>", "").replace("</script>", "")
+        result = subprocess.run(
+            ["node", "-e", f"try {{ new Function({json.dumps(js)}); console.log('OK'); }}"
+             f" catch(e) {{ console.error(e.message); process.exit(1); }}"],
+            capture_output=True, text=True, timeout=10
+        )
+        check("Success page JS syntax", result.returncode == 0,
+              result.stderr.strip() if result.returncode != 0 else "")
+    except Exception as e:
+        check("Success page JS syntax", False, f"Error: {e}")
+
+
+# ── Check 21: Raw transition values in generator CSS ─────────
+
+
+def check_no_raw_transitions():
+    """Ensure transition declarations use brand tokens, not raw ease/ease-in-out."""
+    print("\n── No Raw Transition Values ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    generators = [
+        ("coaching", "generate_coaching", "build_coaching_css"),
+        ("coaching-apply", "generate_coaching_apply", "build_coaching_apply_css"),
+        ("consulting", "generate_consulting", "build_consulting_css"),
+        ("success-pages", "generate_success_pages", "build_success_css"),
+    ]
+
+    for label, module_name, func_name in generators:
+        try:
+            mod = __import__(module_name)
+            css_func = getattr(mod, func_name, None)
+            if not css_func:
+                continue
+            css_match = re.search(r'<style>(.*?)</style>',
+                                  css_func(), re.DOTALL)
+            if not css_match:
+                continue
+            css = css_match.group(1)
+            # Find transition declarations with raw easing
+            raw_transitions = re.findall(
+                r'transition:\s*[^;]*\b(ease(?:-in|-out|-in-out)?)\b[^;]*;', css)
+            check(f"{label}: no raw easing in transitions",
+                  len(raw_transitions) == 0,
+                  f"Found raw easing: {raw_transitions}")
+        except Exception:
+            pass
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -902,6 +1009,9 @@ def main():
         check_interactive_js_handlers()
         check_no_dead_end_infographics()
         check_root_matches_brand_tokens()
+        check_all_generators_token_refs()
+        check_success_js_syntax()
+        check_no_raw_transitions()
         check_ab_config_sync()
         if not args.quick:
             check_climate_classification()

@@ -1,0 +1,57 @@
+{
+  "title": "Hyponatremia: The Hidden Danger",
+  "blocks": [
+    {
+      "type": "callout",
+      "content": "**This lesson covers a life-threatening condition.** Hyponatremia has killed endurance athletes — including experienced, well-trained competitors. This isn't fear-mongering. It's information that could save your life or the life of someone riding next to you.",
+      "style": "warning"
+    },
+    {
+      "type": "prose",
+      "content": "Hyponatremia is dangerously low blood sodium caused by drinking too much plain water relative to sodium intake. Your blood sodium concentration drops below 135 mmol/L (normal is 135-145 mmol/L), and your body's ability to regulate fluid balance breaks down.\n\nHere's the cruel irony: the condition is caused by **overhydrating**, not underhydrating. Athletes who diligently force themselves to drink — especially plain water without electrolytes — can dilute their blood sodium to dangerous levels. The brain swells. Organs begin to fail.\n\nIt's more common than most riders think, especially in ultra-distance events where athletes are on course for 8-16+ hours in heat, anxiously drinking as much as possible because they've been told \"hydration is everything.\" They're right that hydration matters. But volume without sodium is a recipe for disaster.\n\nHyponatremia tends to strike slower riders hardest — those on course the longest, with the most time to accumulate excess fluid. It also disproportionately affects athletes with lower body weight and those who are new to ultra-distance events."
+    },
+    {
+      "type": "hero_stat",
+      "value": "28%",
+      "unit": "of ultra-endurance finishers",
+      "context": "show clinical signs of hyponatremia at the finish line"
+    },
+    {
+      "type": "data_table",
+      "caption": "Hyponatremia Symptom Progression",
+      "headers": ["Severity", "Blood Sodium", "Symptoms", "Action Required"],
+      "rows": [
+        ["Mild", "130-134 mmol/L", "Nausea, bloating, headache, mild confusion, puffy hands/fingers", "Stop drinking plain water. Consume salty foods or electrolyte capsules. Monitor closely."],
+        ["Moderate", "125-129 mmol/L", "Vomiting, severe headache, disorientation, muscle weakness, staggering gait", "Stop exercise immediately. Consume concentrated sodium (broth, salt capsules). Seek medical evaluation."],
+        ["Severe", "Below 125 mmol/L", "Seizures, respiratory distress, loss of consciousness, coma", "Medical emergency. Call 911. Do NOT give fluids. Athlete needs IV hypertonic saline."]
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "A rider at mile 150 of Unbound 200 is confused, nauseous, and their hands are visibly swollen. They've been drinking heavily all day. What should you suspect?",
+      "options": [
+        {
+          "text": "Heat stroke — they need to cool down and drink more fluids",
+          "correct": false
+        },
+        {
+          "text": "Dehydration — they need to increase fluid intake",
+          "correct": false
+        },
+        {
+          "text": "Hyponatremia — they need to stop drinking water and take in sodium",
+          "correct": true
+        },
+        {
+          "text": "Bonking — they need calories, not fluids",
+          "correct": false
+        }
+      ],
+      "explanation": "The combination of confusion, nausea, and swollen hands/fingers in a rider who has been drinking heavily is a classic presentation of hyponatremia. Swollen extremities are a telltale sign — the body is retaining water because blood sodium is too dilute. The worst thing you can do is give them more plain water. They need sodium: salt capsules, salty broth, or salty snacks. If symptoms are moderate to severe, stop riding and seek medical help immediately. Confusing hyponatremia with dehydration and giving more water has been fatal in multiple documented cases."
+    },
+    {
+      "type": "prose",
+      "content": "**Prevention is straightforward once you understand the mechanism:**\n\n- **Never drink plain water for rides over 2 hours.** Always add electrolytes. Every bottle, every hour, no exceptions.\n- **Don't drink ahead of thirst on a rigid schedule.** The old advice to \"drink before you're thirsty\" has been revised. Drinking to thirst — plus a modest buffer of 4-8 oz/hr above thirst — is safer than forcing 40 oz/hr because a chart told you to.\n- **Know your sweat rate** (Lesson 2). If you know you lose 32 oz/hr, you know that drinking 48 oz/hr is creating a surplus that dilutes your sodium.\n- **Weigh yourself at checkpoints** if possible. If you're *gaining* weight during a race, you're overdrinking. Your weight should slowly decrease across an ultra-distance event — a 1-2% loss is normal and acceptable.\n- **Include salty foods in your nutrition plan.** Pretzels, salted potatoes, pickles, and broth at aid stations aren't just comfort food — they're pharmacological sodium delivery.\n- **Beware cool, overcast days.** On hot days, riders naturally match intake to visible sweating. On mild or cool days, riders often drink on autopilot at rates appropriate for hot weather, creating dangerous surplus."
+    }
+  ]
+}

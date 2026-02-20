@@ -1,0 +1,103 @@
+{
+  "title": "Sweat Rate Science",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Your sweat rate is the single most important number in your hydration strategy — and almost no one knows theirs.\n\nSweat rate is simply how much fluid you lose per hour through perspiration. It's measured in ounces per hour (oz/hr) or liters per hour (L/hr). The average endurance athlete loses between 24-48 oz/hr (0.7-1.4 L/hr), but individual variation is enormous. Some riders barely sweat at 20 oz/hr. Others are salt-crusted fire hydrants losing 60+ oz/hr.\n\nThis isn't something you can guess. A rider who assumes they're \"average\" and drinks 24 oz/hr when their actual sweat rate is 44 oz/hr will accumulate a 2.5-liter deficit over a 6-hour race. That's a guaranteed bonk and likely a DNF.\n\nThe good news: measuring your sweat rate takes one ride and simple math."
+    },
+    {
+      "type": "calculator",
+      "calculator_id": "sweat-rate",
+      "title": "Sweat Rate Calculator",
+      "description": "Weigh yourself nude before and after a 60-90 minute ride. Track every ounce of fluid you consume during the ride. Enter your numbers below.",
+      "inputs": [
+        {
+          "id": "pre_weight",
+          "label": "Pre-Ride Weight (lbs)",
+          "type": "number",
+          "placeholder": "165",
+          "min": 80,
+          "max": 400
+        },
+        {
+          "id": "post_weight",
+          "label": "Post-Ride Weight (lbs)",
+          "type": "number",
+          "placeholder": "162",
+          "min": 80,
+          "max": 400
+        },
+        {
+          "id": "fluid_consumed",
+          "label": "Fluid Consumed During Ride (oz)",
+          "type": "number",
+          "placeholder": "32",
+          "min": 0,
+          "max": 200
+        },
+        {
+          "id": "ride_duration",
+          "label": "Ride Duration (hours)",
+          "type": "number",
+          "placeholder": "1.5",
+          "min": 0.5,
+          "max": 8
+        }
+      ],
+      "output_fields": [
+        {
+          "id": "sweat_rate_oz",
+          "label": "Sweat Rate (oz/hr)"
+        },
+        {
+          "id": "sweat_rate_liters",
+          "label": "Sweat Rate (L/hr)"
+        }
+      ]
+    },
+    {
+      "type": "data_table",
+      "caption": "Typical Sweat Rates by Temperature (Moderate Intensity, 60-75% FTP)",
+      "headers": ["Temperature Range", "Typical Sweat Rate", "Fluid Target", "Risk Level"],
+      "rows": [
+        ["Cool (45-59 F)", "16-24 oz/hr (0.5-0.7 L/hr)", "12-20 oz/hr", "Low"],
+        ["Mild (60-74 F)", "24-36 oz/hr (0.7-1.1 L/hr)", "20-28 oz/hr", "Moderate"],
+        ["Warm (75-84 F)", "32-48 oz/hr (0.9-1.4 L/hr)", "24-40 oz/hr", "High"],
+        ["Hot (85-95 F)", "40-60 oz/hr (1.2-1.8 L/hr)", "32-48 oz/hr", "Very High"],
+        ["Extreme (96+ F)", "48-80 oz/hr (1.4-2.4 L/hr)", "40-60 oz/hr", "Critical"]
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**When to test your sweat rate:** Do at least 3 tests in different conditions — one in cool weather, one in the heat, and one at race intensity. Your sweat rate at Unbound in June Kansas heat will be dramatically different from a February training ride in 50 F weather. Test in conditions that match your target race.",
+      "style": "tip"
+    },
+    {
+      "type": "prose",
+      "content": "**Five factors that shift your sweat rate:**\n\n- **Fitness level**: Fitter athletes start sweating earlier and sweat more. Your body gets better at cooling itself as your cardiovascular system improves. A well-trained rider often sweats 20-40% more than an untrained person at the same intensity.\n- **Heat acclimatization**: After 10-14 days of heat exposure, your body adapts by sweating earlier, producing more dilute sweat (losing less sodium per liter), and increasing plasma volume. Acclimatized athletes handle heat dramatically better.\n- **Humidity**: High humidity reduces sweat evaporation, so your body compensates by producing *more* sweat. A ride in 85 F / 80% humidity can produce 30-50% more sweat than the same ride in 85 F / 20% humidity.\n- **Altitude**: Above 5,000 feet, you lose more fluid through respiration (the air is drier) and your body produces less concentrated sweat. Many riders underestimate fluid needs at altitude events like SBT GRVL (Steamboat, CO at 6,700 ft).\n- **Intensity**: Sweat rate scales roughly linearly with effort. Riding at threshold produces significantly more sweat than riding at endurance pace. This matters for gravel because intensity is rarely constant — you might be grinding at 80% FTP up a 15-minute climb, then barely pedaling on a descent."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "What's the most reliable way to determine your personal sweat rate?",
+      "options": [
+        {
+          "text": "Use an online calculator based on your weight and temperature",
+          "correct": false
+        },
+        {
+          "text": "Weigh yourself before and after a ride, accounting for fluid consumed",
+          "correct": true
+        },
+        {
+          "text": "Track how thirsty you feel during rides and adjust accordingly",
+          "correct": false
+        },
+        {
+          "text": "Use the general guideline of one bottle per hour",
+          "correct": false
+        }
+      ],
+      "explanation": "The pre/post-ride weigh-in is the gold standard for sweat rate testing. Weigh yourself nude before a 60-90 min ride, track all fluid intake, weigh yourself nude after. The formula: (pre-weight - post-weight in oz) + fluid consumed (oz), divided by ride duration in hours. Online calculators and generic guidelines can't account for your individual physiology, fitness level, and acclimatization status."
+    }
+  ]
+}

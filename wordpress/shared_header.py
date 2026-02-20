@@ -40,6 +40,7 @@ def get_site_header_html(active: str | None = None) -> str:
         <a href="{SITE_BASE_URL}/products/training-plans/"{_aria("products")}>PRODUCTS</a>
         <div class="gg-site-header-dropdown">
           <a href="{SITE_BASE_URL}/products/training-plans/">Custom Training Plans</a>
+          <a href="{SITE_BASE_URL}/course/">Courses</a>
           <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
         </div>
       </div>

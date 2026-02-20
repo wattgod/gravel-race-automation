@@ -1,0 +1,142 @@
+{
+  "title": "Building Your Hydration Plan",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "\"Drink when you're thirsty\" is fine advice for a 90-minute training ride. It will wreck you in a 6-hour gravel race.\n\nThirst is a lagging indicator — by the time your brain registers it, you're already 1-2% down on body weight and your power output has started to erode. In events longer than 3 hours, the cumulative deficit from reactive drinking compounds into a hole you can't climb out of. Research from the *International Journal of Sport Nutrition and Exercise Metabolism* shows that athletes who follow a structured hydration plan maintain 8-12% higher power output in the final third of endurance events compared to ad-libitum drinkers.\n\nThe good news: building a hydration plan isn't complicated. It takes 20 minutes of homework before race week and saves you from the slow-motion implosion that ruins so many gravel finishes. You already know your sweat rate from Lesson 2. Now we turn that number into an actionable race plan."
+    },
+    {
+      "type": "timeline",
+      "title": "Hydration Planning Timeline",
+      "steps": [
+        {
+          "label": "2 Weeks Out",
+          "content": "Confirm your sweat rate with a training ride that mimics race intensity and conditions. If your target race is in heat, do your sweat test in heat. Check the race website for aid station locations, distances, and what fluids they'll stock (water, electrolyte drink, or both). Start mapping your carry strategy."
+        },
+        {
+          "label": "1 Week Out",
+          "content": "Check the extended forecast for race day. If temperatures are 10+ degrees higher than your training conditions, add 20-30% to your hourly fluid target. Finalize your bottle/pack setup and test it on a ride — no new gear on race day. Pre-mix your electrolyte powder into labeled bags for easy refills."
+        },
+        {
+          "label": "3 Days Out",
+          "content": "Begin pre-loading with sodium. Drink an extra 16-24 oz of fluid daily with added electrolytes (not plain water). This tops off your body's fluid reserves without the bloating risk of race-morning overdrinking. Continue eating normally — this isn't about water loading, it's about making sure you start fully hydrated."
+        },
+        {
+          "label": "Race Morning",
+          "content": "Drink 500ml (16-17 oz) of water with electrolytes 2 hours before the start. This gives your kidneys time to process the excess and void what isn't needed. Stop drinking large amounts 30 minutes before the gun — a few sips is fine. Check your urine color: pale yellow means you're good. Clear means you've overdone it and may flush electrolytes."
+        },
+        {
+          "label": "Start Line",
+          "content": "Top off your bottles with your planned mix. Verify your bottles are secured tightly — rough gravel will eject a loose cage bottle in the first 10 miles. Set a timer on your bike computer for every 15-20 minutes as a drink reminder. The first hour is when most riders forget to drink because adrenaline masks thirst."
+        }
+      ]
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Know Your Sweat Rate",
+          "detail": "Use the sweat test protocol from Lesson 2. Your baseline sweat rate (oz/hr at moderate intensity, 65-75°F) is the foundation of everything. Most gravel riders fall between 24-48 oz/hr. If you haven't tested, use 32 oz/hr as a conservative starting point — but test before your A race.",
+          "percentage": 20
+        },
+        {
+          "label": "Check the Forecast",
+          "detail": "Temperature and humidity are the two biggest modifiers to your base sweat rate. For every 10°F above 70°F, increase your fluid target by approximately 15-20%. A rider who sweats 32 oz/hr at 70°F may hit 40+ oz/hr at 90°F. Wind and cloud cover matter too — a hot but windy day evaporates sweat faster, which helps cooling but accelerates fluid loss.",
+          "percentage": 40
+        },
+        {
+          "label": "Map Aid Stations",
+          "detail": "Plot every aid station on your route with the distance between them. Calculate how long each segment takes at your target pace. If the longest gap is 40 miles and you average 14 mph, that's nearly 3 hours between refills. At 32 oz/hr, you need 96 oz of carry capacity for that segment alone. This math determines whether bottles are enough or you need a pack.",
+          "percentage": 60
+        },
+        {
+          "label": "Calculate Total Fluid Needs",
+          "detail": "Multiply your adjusted sweat rate by your estimated race duration. A 7-hour race at 36 oz/hr = 252 oz total. You won't replace 100% of that — aim for 70-80% replacement, which means planning for roughly 176-202 oz of intake. Divide by your carry capacity to know how many refills you need and where you'll get them.",
+          "percentage": 80
+        },
+        {
+          "label": "Plan Your Carry Strategy",
+          "detail": "Match your carry method to the longest unsupported segment. Two standard 24 oz bottles (48 oz total) covers about 90 minutes at moderate sweat rates. Beyond that, you need additional cages, a hydration pack, or drop bags at aid stations. We'll cover carry strategy in detail in Lesson 6.",
+          "percentage": 100
+        }
+      ]
+    },
+    {
+      "type": "calculator",
+      "calculator_id": "race-hydration-plan",
+      "title": "Race Hydration Planner",
+      "description": "Enter your sweat rate, race details, and conditions to get a personalized hydration plan. If you don't know your sweat rate, use 32 oz/hr as a starting estimate.",
+      "inputs": [
+        {
+          "id": "sweat_rate_oz",
+          "label": "Sweat Rate (oz/hr)",
+          "type": "number",
+          "placeholder": "32",
+          "min": 12,
+          "max": 80
+        },
+        {
+          "id": "race_duration",
+          "label": "Estimated Race Duration (hours)",
+          "type": "number",
+          "placeholder": "7",
+          "min": 1,
+          "max": 24
+        },
+        {
+          "id": "temperature",
+          "label": "Expected Temperature",
+          "type": "select",
+          "options": [
+            { "value": "cool", "label": "Cool (< 65°F)" },
+            { "value": "mild", "label": "Mild (65-75°F)" },
+            { "value": "warm", "label": "Warm (75-85°F)" },
+            { "value": "hot", "label": "Hot (85°F+)" }
+          ]
+        },
+        {
+          "id": "aid_station_interval",
+          "label": "Longest Gap Between Aid Stations (hours)",
+          "type": "number",
+          "placeholder": "2.5",
+          "min": 0.5,
+          "max": 8
+        }
+      ],
+      "output_fields": [
+        { "id": "total_fluid_oz", "label": "Total Fluid Needed (oz)" },
+        { "id": "fluid_per_hour", "label": "Target Intake Per Hour (oz)" },
+        { "id": "bottles_needed", "label": "Bottles Needed Per Segment (24 oz)" },
+        { "id": "refill_count", "label": "Minimum Refills Needed" }
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**Always have a Plan B.** Aid stations run out of supplies. Bottles bounce out of cages on rough terrain. Temperatures spike above the forecast. Your plan should include at least one backup: an extra bottle in a jersey pocket, purification tabs for natural water sources on remote courses, or a known store/gas station along the route. The athletes who finish Unbound every year aren't the strongest — they're the ones whose Plan B kicks in when Plan A falls apart.",
+      "style": "tip"
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're 4 hours into a 7-hour gravel race and realize you're behind on hydration — your mouth is dry, your heart rate is elevated, and you feel sluggish. What's the best mid-race adjustment?",
+      "options": [
+        {
+          "text": "Drink as much as possible at the next aid station to catch up quickly",
+          "correct": false
+        },
+        {
+          "text": "Increase intake to 125-150% of your planned rate for the next 30-45 minutes, then return to plan",
+          "correct": true
+        },
+        {
+          "text": "Switch to plain water since electrolyte drinks haven't been working",
+          "correct": false
+        },
+        {
+          "text": "Accept the deficit and focus on finishing — trying to catch up will cause GI distress",
+          "correct": false
+        }
+      ],
+      "explanation": "Moderate catch-up works; aggressive catch-up doesn't. Slamming 40+ oz at once overwhelms your gut and causes bloating, nausea, or sloshing. Instead, increase your intake by 25-50% over the next 30-45 minutes — for example, going from 8 oz every 15 minutes to 10-12 oz. You won't fully recover the deficit, but you'll stop the bleeding and stabilize. Never switch away from electrolytes when dehydrated — you need the sodium to retain what you drink."
+    }
+  ]
+}

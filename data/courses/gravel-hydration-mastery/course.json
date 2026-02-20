@@ -1,0 +1,79 @@
+{
+  "id": "gravel-hydration-mastery",
+  "title": "Gravel Hydration Mastery",
+  "subtitle": "Stop cramping. Start finishing strong.",
+  "description": "Everything you need to know about hydration for gravel racing — from sweat rate science to race-day execution. Built from 10+ years of coaching ultra-endurance athletes across the world's hardest gravel events.",
+  "price_usd": 19,
+  "stripe_payment_link": "https://buy.stripe.com/xxx",
+  "stripe_price_id": "price_xxx",
+  "instructor": {
+    "name": "Matt Rowe",
+    "title": "Head Coach, Gravel God Cycling",
+    "bio": "USAC Level 2 coach, 15+ years of endurance coaching experience. Has guided athletes through Unbound 200, BWR, SBT GRVL, and dozens of other premier gravel events. Specializes in the intersection of nutrition science and ultra-endurance performance."
+  },
+  "what_youll_learn": [
+    "Calculate your personal sweat rate and sodium needs",
+    "Build a race-specific hydration plan for any distance",
+    "Avoid hyponatremia — the silent killer in ultra-endurance",
+    "Choose between bottles, packs, and drop bags for your course",
+    "Execute a heat adaptation protocol for hot-weather races",
+    "Dial in your race-morning and race-day hydration timing"
+  ],
+  "modules": [
+    {
+      "id": "the-science",
+      "title": "The Science",
+      "lessons": [
+        {
+          "id": "why-hydration-matters",
+          "title": "Why Hydration Matters More Than You Think",
+          "file": "lessons/01-why-hydration-matters.json"
+        },
+        {
+          "id": "sweat-rate-science",
+          "title": "Sweat Rate Science",
+          "file": "lessons/02-sweat-rate-science.json"
+        },
+        {
+          "id": "electrolytes-decoded",
+          "title": "Electrolytes Decoded",
+          "file": "lessons/03-electrolytes-decoded.json"
+        },
+        {
+          "id": "hyponatremia-hidden-danger",
+          "title": "Hyponatremia: The Hidden Danger",
+          "file": "lessons/04-hyponatremia-hidden-danger.json"
+        }
+      ]
+    },
+    {
+      "id": "race-execution",
+      "title": "Race Execution",
+      "lessons": [
+        {
+          "id": "building-your-hydration-plan",
+          "title": "Building Your Hydration Plan",
+          "file": "lessons/05-building-your-hydration-plan.json"
+        },
+        {
+          "id": "bottle-vs-pack-vs-drop-bags",
+          "title": "Bottle vs. Pack vs. Drop Bags",
+          "file": "lessons/06-bottle-vs-pack-vs-drop-bags.json"
+        },
+        {
+          "id": "heat-adaptation-protocol",
+          "title": "Heat Adaptation Protocol",
+          "file": "lessons/07-heat-adaptation-protocol.json"
+        },
+        {
+          "id": "race-day-hydration-protocol",
+          "title": "Race Day Hydration Protocol",
+          "file": "lessons/08-race-day-hydration-protocol.json"
+        }
+      ]
+    }
+  ],
+  "meta_description": "Master hydration for gravel racing: sweat rate calculator, electrolyte strategy, heat adaptation, and race-day protocols. 8 interactive lessons for $19.",
+  "og_image": "course-hydration-og.png",
+  "status": "active"
+}

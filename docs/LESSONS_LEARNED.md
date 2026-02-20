@@ -2143,3 +2143,252 @@ Every Cloudflare Worker gets an integration test script in `tests/`:
 Run the relevant script AFTER every `wrangler deploy`. No exceptions.
 Tests use unique `RUN_ID` + fake IDs to avoid KV pollution.
 If any test fails, the deploy is blocked until the failure is fixed.
+
+---
+
+## Course Platform Shortcuts (Feb 19, 2026)
+
+Built the entire course platform infrastructure in one session: D1 migration, gamification,
+PWA, nudge emails, admin dashboard. Self-review found 15 shortcuts. All fixed.
+
+---
+
+## Shortcut #CP-1: Unsubscribe Endpoint Was O(n) (CRITICAL)
+
+**What happened:** The `/unsubscribe` endpoint iterated ALL users, computing HMAC-SHA256
+for each one, to find whose token matched. With 10K users, that's 10K crypto operations
+per unsubscribe click.
+
+**Why it happened:** The original design used a single HMAC token with no email embedded.
+Finding the user required brute-force search. This was explicitly labeled as a TODO in the
+code but shipped anyway.
+
+**Fix:** Changed token URL format to include the email:
+`/unsubscribe?email=user%40example.com&token={hmac}`. Now it's O(1) — extract email
+from URL, compute one HMAC, compare.
+
+**Prevention:**
+- Rule: **Never ship O(n) lookup when the key can be embedded in the URL.** If a token
+  identifies a user, the user identity should be part of the token, not discovered by search.
+
+---
+
+## Shortcut #CP-2: Admin Endpoints Had No CORS Headers (CRITICAL)
+
+**What happened:** The admin dashboard runs in a browser at `gravelgodcycling.com` and
+fetches from `course-access.gravelgodcoaching.workers.dev`. Admin responses used bare
+`new Response()` with no `Access-Control-Allow-Origin` header. The browser would silently
+block every request. The dashboard literally could not work.
+
+**Why it happened:** Admin endpoints were added after the main `jsonResponse()` helper was
+established. The admin handler used raw `new Response()` instead of the helper, forgetting
+that the helper adds CORS headers.
+
+**Fix:** Admin endpoints now use `jsonResponse()` with proper CORS origin derived from
+`ALLOWED_ORIGINS` config.
+
+**Prevention:**
+- Rule: **Every endpoint that a browser calls must return CORS headers.** Use the shared
+  `jsonResponse()` helper for all JSON responses. Never create raw `new Response()` for
+  endpoints that browsers will hit.
+
+---
+
+## Shortcut #CP-3: Default Secret Fallback (CRITICAL)
+
+**What happened:** Both workers used `env.NUDGE_UNSUBSCRIBE_SECRET || 'default-secret'`.
+If the secret isn't configured, anyone can forge unsubscribe tokens using the predictable
+string "default-secret".
+
+**Why it happened:** Developer convenience pattern — "it works locally without config."
+But this pattern silently weakens security in production.
+
+**Fix:** Both workers now fail loudly if the secret is missing. Access worker returns 500.
+Nudge worker logs an error and skips the nudge.
+
+**Prevention:**
+- Rule: **Never use fallback values for security secrets.** If a secret isn't configured,
+  fail explicitly. `|| 'default-secret'` is a backdoor, not a convenience.
+
+---
+
+## Shortcut #CP-4: djb2 Email Hash (32-bit collisions) (HIGH)
+
+**What happened:** `emailHash()` used a 32-bit djb2 hash. Birthday paradox gives 50%
+collision probability at ~77K users. Two users with the same hash appear as one person
+on the leaderboard.
+
+**Why it happened:** djb2 is a synchronous one-liner. SHA-256 requires `async/await` with
+`crypto.subtle`. The sync version was "simpler."
+
+**Fix:** Replaced with async SHA-256, first 12 hex chars (48 bits). Called in
+`getOrCreateUser()` (already async). Leaderboard reads the pre-computed hash from the DB.
+
+**Prevention:**
+- Rule: **Never use homegrown hash functions for identity.** Use SHA-256. If the API is
+  async, make the caller async. Convenience is not worth collision bugs.
+
+---
+
+## Shortcut #CP-5: Module Completion Trusted Client Input (HIGH)
+
+**What happened:** The `/progress` `complete` action accepted `module_lesson_ids` from the
+client to determine module completion. A user could send `module_lesson_ids: ["lesson-01"]`
+and get +25 XP bonus after completing just one lesson.
+
+**Fix:**
+- Require `module_lesson_ids.length >= 2` (no single-lesson "modules")
+- Validate all IDs match `LESSON_ID_PATTERN`
+- Cap at 20 IDs max
+- Deduplicate module bonus using sorted lesson ID list as `reference_id` in `xp_log`
+- Added comment documenting this as a known limitation without server-side course metadata
+
+**Prevention:**
+- Rule: **Never trust client-supplied structural data for reward calculations.** Validate
+  inputs are at least plausible. Ideally, store course metadata server-side.
+
+---
+
+## Shortcut #CP-6: KC Correctness Trusted Client (MEDIUM)
+
+**What happened:** `/kc` endpoint: `const correct = data.correct ? 1 : 0` — the server
+blindly trusts the client's claim of correctness.
+
+**Mitigation:** The correct answers are already visible in the HTML source
+(`data-correct="true"` attribute), so server-side validation would only prevent automated
+farming, not manual cheating. The INSERT OR IGNORE prevents duplicate XP for the same
+question. Documented as a known limitation.
+
+**Future fix:** Store answer keys in D1, validate `selected_index` server-side.
+
+---
+
+## Shortcut #CP-7: Service Worker IndexedDB `tx.complete` Bug (HIGH)
+
+**What happened:** `await tx.complete` in the service worker. `tx.complete` is not a
+Promise in the IndexedDB API. This silently resolves to `undefined`, and the background
+sync registration may fire before the write commits.
+
+**Why it happened:** Confused the `idb` wrapper library API (which has `tx.done`) with
+the raw IndexedDB API (which uses `tx.oncomplete` callback).
+
+**Fix:** Replaced with proper Promise wrapper around `tx.oncomplete`/`tx.onerror`.
+
+**Prevention:**
+- Rule: **Always test IndexedDB code in a real browser or use the idb wrapper library.**
+  The raw API uses callbacks, not Promises. `await tx.complete` compiles but doesn't work.
+
+---
+
+## Shortcut #CP-8: Service Worker Replayed Requests Missing Origin Header (HIGH)
+
+**What happened:** Offline-queued POST requests replayed by `replayOfflineRequests()` had
+no `Origin` header. The Worker checks Origin for all POST endpoints and rejects with 403.
+Every queued offline action was silently lost on reconnect.
+
+**Fix:** Added `'Origin': 'https://gravelgodcycling.com'` to replayed fetch calls.
+
+**Prevention:**
+- Rule: **When replaying queued requests, include ALL required headers.** If the server
+  validates Origin, the replay must include Origin. Test the replay path independently.
+
+---
+
+## Shortcut #CP-9: Manifest Referenced PNG Icons That Don't Exist (MEDIUM)
+
+**What happened:** `manifest.json` referenced `icon-192.png` and `icon-512.png`. The
+generator only creates SVG placeholder files. PWA install would fail or show broken icons.
+
+**Fix:** Changed manifest to reference `.svg` files with `type: "image/svg+xml"`.
+
+**Prevention:**
+- Rule: **Every file referenced in manifest.json must actually exist in the output.** Verify
+  by globbing the output directory after generation.
+
+---
+
+## Shortcut #CP-10: validateEmail() Lost Specific Errors (MEDIUM)
+
+**What happened:** `validateEmail()` returned `null` for both format errors AND disposable
+domain rejections. The caller showed "Invalid or missing email" for users with
+`@mailinator.com` — they think their email format is wrong, not that the domain is blocked.
+
+**Fix:** Changed return type to `{ email, error }`. Callers now show the specific error:
+"Invalid email format" vs "Disposable email addresses are not allowed."
+
+**Prevention:**
+- Rule: **Validation functions should return the reason for rejection, not just pass/fail.**
+  The UI needs specific errors to give users actionable feedback.
+
+---
+
+## Shortcut #CP-11: False Level-Up on First Page Load (MEDIUM)
+
+**What happened:** `courseState.level` initialized to `1`. If `fetchStats()` hasn't
+returned yet when the user clicks "Mark Complete," the response shows their actual level
+(e.g., 3), and `3 > 1` triggers a false level-up overlay with confetti.
+
+**Fix:** Initialize `courseState.level` to `-1` (sentinel). Level-up check now requires
+`prevLevel > 0`, meaning stats must have loaded first.
+
+**Prevention:**
+- Rule: **Never use default values that can produce false positives in comparison logic.**
+  Use sentinel values (null, -1) and guard against them explicitly.
+
+---
+
+## Shortcut #CP-12: Nudge near_completion Hardcoded Lesson Count (MEDIUM)
+
+**What happened:** `lessonCount.cnt >= 6` assumed all courses have 8 lessons. A 20-lesson
+course would trigger "near completion" at 30%.
+
+**Fix:** Changed to require a `module_complete` XP event (meaning the user actually
+finished a module) AND at least 3 completed lessons.
+
+**Prevention:**
+- Rule: **Never hardcode thresholds that depend on content structure.** If a threshold
+  relates to "75% complete," compute it from actual data, or use a proxy that scales.
+
+---
+
+## Shortcut #CP-13: Nudge Logged Before Email Confirmed Sent (MEDIUM)
+
+**What happened:** `sendNudge()` logged the nudge in `nudge_log` regardless of whether
+SendGrid actually accepted the email. If SendGrid returned 500, the nudge was logged but
+never delivered. The 48-hour throttle then blocked retries.
+
+**Fix:** Only log the nudge AFTER confirming SendGrid returns 2xx. If SendGrid fails, the
+function returns early without logging, allowing retry on the next cron run.
+
+**Prevention:**
+- Rule: **Log the action AFTER confirming it succeeded.** Writing to the success log before
+  the action completes is optimistic and prevents retries.
+
+---
+
+## Shortcut #CP-14: Course Completion Trusted Client total_lessons (MEDIUM)
+
+**What happened:** Course completion bonus (+100 XP) used `data.total_lessons` from the
+client. A user could send `total_lessons: 1` and get the bonus after one lesson.
+
+**Fix:** Added minimum threshold of 4 lessons for course completion. Server still needs
+client's total_lessons for the comparison, but won't award the bonus for trivially small
+values.
+
+**Future fix:** Store course metadata (total_lessons per course) in D1 at deploy time.
+
+---
+
+## Course Platform Rules
+
+21. **Unsubscribe tokens must embed the user identity.** Never iterate all users to find a match.
+22. **Every browser-facing endpoint needs CORS headers.** Use the shared helper, not raw Response.
+23. **Never fallback security secrets to default values.** Fail loudly if unconfigured.
+24. **Use SHA-256 for identity hashing.** Never homegrown 32-bit hashes.
+25. **Never trust client input for reward calculations.** Validate structural data server-side.
+26. **Test IndexedDB code in a real browser.** The raw API uses callbacks, not Promises.
+27. **Replayed offline requests must include all required headers.** Test the replay path.
+28. **Every file in manifest.json must exist in output.** Verify after generation.
+29. **Validation functions must return specific rejection reasons.** Not just pass/fail.
+30. **Log success AFTER confirming the action succeeded.** Not before.
+31. **Run `bash tests/test_course_access.sh` after every `wrangler deploy` of course-access.**

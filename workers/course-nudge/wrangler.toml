@@ -1,0 +1,23 @@
+name = "course-nudge"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Cron trigger: daily at 14:00 UTC (9 AM ET)
+[triggers]
+crons = ["0 14 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "course-platform"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# SENDGRID_API_KEY         — SendGrid API key (mail send)
+# NUDGE_UNSUBSCRIBE_SECRET — HMAC key for unsubscribe tokens
+# ADMIN_API_KEY            — Optional: for manual trigger via fetch
+
+[vars]
+COURSE_ACCESS_WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
+FROM_EMAIL = "courses@gravelgodcycling.com"
+FROM_NAME = "Gravel God Courses"
+SITE_BASE_URL = "https://gravelgodcycling.com"

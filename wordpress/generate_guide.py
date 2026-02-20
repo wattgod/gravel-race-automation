@@ -278,14 +278,21 @@ def render_knowledge_check(block: dict) -> str:
     """Render a knowledge check mini-quiz."""
     question = esc(block["question"])
     explanation = esc(block["explanation"])
+
+    # Generate a unique hash for XP tracking (first 8 chars of SHA-256)
+    hash_input = block["question"] + json.dumps(
+        [opt["text"] for opt in block["options"]], ensure_ascii=False
+    )
+    question_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
+
     options_html = []
     for i, opt in enumerate(block["options"]):
         text = esc(opt["text"])
         correct = "true" if opt["correct"] else "false"
         options_html.append(
-            f'<button class="gg-guide-kc-option" data-correct="{correct}">{text}</button>'
+            f'<button class="gg-guide-kc-option" data-correct="{correct}" data-index="{i}">{text}</button>'
         )
-    return f'''<div class="gg-guide-knowledge-check">
+    return f'''<div class="gg-guide-knowledge-check" data-question-hash="{question_hash}">
       <div class="gg-guide-kc-label">KNOWLEDGE CHECK</div>
       <p class="gg-guide-kc-question">{question}</p>
       <div class="gg-guide-kc-options">{"".join(options_html)}</div>

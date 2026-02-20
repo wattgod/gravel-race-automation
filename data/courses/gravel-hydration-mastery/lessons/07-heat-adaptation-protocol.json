@@ -1,0 +1,85 @@
+{
+  "title": "Heat Adaptation Protocol",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Heat is the great equalizer in gravel racing. Riders who trained all winter in Colorado can lose to someone with half their FTP if they show up to a June Kansas race without heat adaptation.\n\nWhen your core temperature rises above ~39°C (102°F), your body redirects blood from working muscles to the skin for cooling. Cardiac output that should be driving your legs is now running your radiator. The result: your sustainable power drops, your heart rate climbs, and RPE skyrockets at the same watts. A well-trained rider can lose 15-25% of their threshold power in extreme heat compared to cool conditions.\n\nBut here's the good news — heat adaptation is one of the most trainable physiological responses in endurance sport. With 10-14 days of deliberate heat exposure, your body makes measurable adaptations: plasma volume increases by 5-12%, sweat rate increases, sweat becomes more dilute (conserving sodium), core temperature at a given effort decreases, and cardiac output improves. The net result is you ride stronger, longer, and safer in the heat."
+    },
+    {
+      "type": "hero_stat",
+      "value": "12%",
+      "unit": "power increase",
+      "context": "typical gain from proper heat adaptation at the same RPE in hot conditions"
+    },
+    {
+      "type": "timeline",
+      "title": "10-14 Day Heat Adaptation Protocol",
+      "steps": [
+        {
+          "label": "Days 1-3: Introduction Phase",
+          "content": "Begin with 45-60 minute easy rides (Zone 2) in heat or on an indoor trainer with no fan and extra layers. Keep intensity LOW — the goal is heat exposure, not a hard workout. Core temp should rise but not spike. Expect to feel terrible — heart rate will be 10-15 bpm higher than normal for the same power. Increase fluid intake by 20-30% above your normal training hydration."
+        },
+        {
+          "label": "Days 4-6: Extension Phase",
+          "content": "Extend heat sessions to 60-75 minutes. You can begin adding short tempo intervals (2x10 min at Zone 3) within the heat sessions. Your body is beginning to adapt — you should notice a slight drop in heart rate at the same effort compared to Day 1. Continue aggressive hydration with electrolytes during and after each session."
+        },
+        {
+          "label": "Days 7-9: Loading Phase",
+          "content": "Increase to 75-90 minutes of heat exposure. Add more structured work: 3x10 min at tempo, or a steady 30-minute Zone 3 effort within the session. Sweat rate should be noticeably increasing — you're producing more sweat and starting it earlier. This is your body's cooling system ramping up. Monitor body weight before and after sessions to track fluid losses."
+        },
+        {
+          "label": "Days 10-12: Consolidation Phase",
+          "content": "Maintain 75-90 minute heat sessions with race-like intensity blocks (sweet spot intervals, race-pace efforts). Your heart rate should now be significantly lower at the same power compared to Day 1. You may notice your sweat tastes less salty — your body is conserving sodium more efficiently. Don't increase volume; the adaptation is locked in."
+        },
+        {
+          "label": "Days 13-14: Taper & Test",
+          "content": "Reduce heat exposure to 45-60 minutes at easy pace. This is maintenance, not loading. Do a benchmark effort in heat to confirm your adaptation: ride 20 minutes at race pace and compare heart rate and RPE to your Day 1 baseline. Most riders see HR 8-15 bpm lower at the same power — that's the adaptation working."
+        }
+      ]
+    },
+    {
+      "type": "data_table",
+      "caption": "Heat Adaptation Training Schedule",
+      "headers": ["Day", "Session Type", "Duration", "Temp Target", "Hydration Adjustment"],
+      "rows": [
+        ["1-3", "Easy (Zone 2)", "45-60 min", "85-95°F / 29-35°C", "+20% fluid, electrolytes every session"],
+        ["4-6", "Easy + tempo intervals", "60-75 min", "85-95°F / 29-35°C", "+25% fluid, sodium loading"],
+        ["7-9", "Tempo blocks (Zone 3)", "75-90 min", "85-100°F / 29-38°C", "+30% fluid, weigh before/after"],
+        ["10-12", "Race-pace intervals", "75-90 min", "85-100°F / 29-38°C", "+30% fluid, test electrolyte plan"],
+        ["13-14", "Easy (maintenance)", "45-60 min", "85-95°F / 29-35°C", "Return to race-day hydration plan"]
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**Warning: Know the signs of heat illness.** During adaptation training, STOP immediately if you experience any of the following: confusion or disorientation, cessation of sweating (your cooling system has shut down), nausea or vomiting, severe headache or dizziness, skin that feels hot and dry to the touch. Heat stroke is a medical emergency. Adaptation training should make you uncomfortable, not unsafe. Always train with someone nearby or tell someone your plan. If in doubt, dial it back — you can extend the protocol by a few days, but you can't undo heat stroke.",
+      "style": "warning"
+    },
+    {
+      "type": "prose",
+      "content": "**What if you can't train outdoors in heat?**\n\nNot everyone lives somewhere hot or has 2 weeks before a race to train outside. Passive heat adaptation methods are a legitimate alternative:\n\n- **Sauna protocol**: 20-30 minutes in a dry sauna (170-190°F) within 30 minutes of finishing a workout, 5-7 days in a row. A 2021 study in the *Journal of Science and Medicine in Sport* showed this protocol produced similar plasma volume expansion to exercising in heat. Start at 15 minutes and build up. Hydrate aggressively before and after.\n\n- **Hot water immersion**: Soak in a hot bath (104-108°F) for 30-40 minutes post-workout. Less practical than a sauna but accessible to anyone with a bathtub. Keep water temperature consistent — add hot water as it cools.\n\n- **Indoor trainer, no fan**: Ride your indoor trainer with the fan off, windows closed, and wearing extra layers. This is the simplest method. Your garage in summer with no ventilation is a surprisingly effective heat chamber. The key is sustained core temperature elevation for 45+ minutes.\n\nAll passive methods should be combined with extra hydration and electrolyte intake. They work best as a supplement to outdoor heat training, but when geography or timing makes outdoor training impossible, they're far better than showing up to a hot race with zero adaptation."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You have a hot gravel race in 3 weeks. When should you ideally start your heat adaptation protocol?",
+      "options": [
+        {
+          "text": "The day before the race — one intense heat session is enough",
+          "correct": false
+        },
+        {
+          "text": "3-5 days before the race — a quick loading phase",
+          "correct": false
+        },
+        {
+          "text": "10-14 days before the race — finish the protocol 2-3 days before race day",
+          "correct": true
+        },
+        {
+          "text": "4+ weeks out — the earlier you start, the better",
+          "correct": false
+        }
+      ],
+      "explanation": "Heat adaptation takes 10-14 days of consistent exposure to produce meaningful physiological changes. The protocol should finish 2-3 days before race day to allow recovery while maintaining the adaptations (which persist for 1-2 weeks after the final heat session). Starting too early risks losing adaptations before race day; starting too late means you're still in the uncomfortable early phase during taper. The sweet spot is beginning the protocol roughly 2-2.5 weeks before race day."
+    }
+  ]
+}

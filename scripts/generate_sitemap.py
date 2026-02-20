@@ -98,6 +98,24 @@ def load_tire_vs_slugs(project_root: Path) -> list:
     return slugs
 
 
+def load_course_slugs(project_root: Path) -> list:
+    """Load course slugs from data/courses/ directory."""
+    courses_dir = project_root / "data" / "courses"
+    slugs = []
+    if not courses_dir.exists():
+        return slugs
+    for path in sorted(courses_dir.iterdir()):
+        if path.is_dir() and (path / "course.json").exists():
+            try:
+                with open(path / "course.json", "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if data.get("status") == "active":
+                    slugs.append(data.get("id", path.name))
+            except (json.JSONDecodeError, KeyError):
+                continue
+    return slugs
+
+
 def load_special_pages(project_root: Path) -> list:
     """Load calendar/power-rankings/quiz page slugs."""
     output_dir = project_root / "wordpress" / "output"
@@ -211,6 +229,23 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = '0.5'
 
+    # Course pages
+    course_slugs = load_course_slugs(output_path.parent.parent)
+    if course_slugs:
+        # Course index page
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/course/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.7'
+        # Individual course landing pages (ungated — indexable)
+        for cslug in course_slugs:
+            url = SubElement(urlset, 'url')
+            SubElement(url, 'loc').text = f"{SITE_BASE_URL}/course/{cslug}/"
+            SubElement(url, 'lastmod').text = today
+            SubElement(url, 'changefreq').text = 'monthly'
+            SubElement(url, 'priority').text = '0.7'
+
     # Race pages
     for race in race_index:
         slug = race.get('slug', '')
@@ -317,9 +352,11 @@ def main():
     tire_slugs = load_tire_slugs(project_root)
     tire_page_slugs = load_tire_page_slugs(project_root)
     tire_vs_slugs = load_tire_vs_slugs(project_root)
+    course_slugs = load_course_slugs(project_root)
+    course_url_count = (1 + len(course_slugs)) if course_slugs else 0
     total_urls = (7 + len(series_slugs) + len(vs_slugs) + len(state_slugs)
                   + len(special_slugs) + len(tire_slugs)
-                  + len(tire_page_slugs) + len(tire_vs_slugs) + len(race_index))
+                  + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if series_slugs:
         print(f"  Including {len(series_slugs)} series hub pages")
@@ -335,6 +372,8 @@ def main():
         print(f"  Including {len(tire_page_slugs)} per-tire review pages")
     if tire_vs_slugs:
         print(f"  Including {len(tire_vs_slugs)} tire-vs-tire comparison pages")
+    if course_slugs:
+        print(f"  Including {len(course_slugs)} course pages (+1 index)")
     if data_dir:
         print(f"  Using file mtimes from: {data_dir}")
 

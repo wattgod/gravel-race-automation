@@ -1898,6 +1898,82 @@ def sync_blog(blog_dir: str):
     return f"{wp_url}/blog/"
 
 
+def sync_courses(course_dir: str):
+    """Upload course pages to /course/ on SiteGround via tar+ssh.
+
+    Course output is already structured as:
+      course/index.html                            (course index)
+      course/{slug}/index.html                     (landing page)
+      course/{slug}/lesson/{lesson-id}/index.html  (lesson pages)
+
+    Deploys entire directory tree to /course/ on the server.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    course_path = Path(course_dir)
+    if not course_path.exists():
+        print(f"✗ Course directory not found: {course_path}")
+        return None
+
+    # Count pages
+    html_files = list(course_path.rglob("index.html"))
+    if not html_files:
+        print(f"✗ No index.html files found in {course_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/course"
+
+    # Create remote directory with correct permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    print(f"  Uploading {len(html_files)} course pages via tar+ssh...")
+
+    try:
+        items = [p.name for p in sorted(course_path.iterdir())]
+        tar_cmd = ["tar", "-cf", "-", "-C", str(course_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base} && find {remote_base} -type d -exec chmod 755 {{}} \\;",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading course pages: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {len(html_files)} course pages to {wp_url}/course/")
+    return f"{wp_url}/course/"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -2060,6 +2136,14 @@ if __name__ == "__main__":
         help="Path to blog index JSON (default: web/blog-index.json)"
     )
     parser.add_argument(
+        "--sync-courses", action="store_true",
+        help="Upload course pages to /course/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--course-dir", default="wordpress/output/course",
+        help="Path to course output directory (default: wordpress/output/course)"
+    )
+    parser.add_argument(
         "--sync-ab", action="store_true",
         help="Deploy A/B test assets (JS, config, mu-plugin) to /ab/"
     )
@@ -2105,6 +2189,7 @@ if __name__ == "__main__":
         args.sync_photos = True
         args.sync_ab = True
         args.sync_header = True
+        args.sync_courses = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
@@ -2113,7 +2198,8 @@ if __name__ == "__main__":
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits,
                       args.sync_series, args.sync_blog,
-                      args.sync_blog_index, args.sync_photos, args.sync_ab, args.purge_cache])
+                      args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
+                      args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -2165,5 +2251,7 @@ if __name__ == "__main__":
         sync_blog_index(args.blog_index_page, args.blog_index_json)
     if args.sync_ab:
         sync_ab()
+    if args.sync_courses:
+        sync_courses(args.course_dir)
     if args.purge_cache:
         purge_cache()

@@ -1,0 +1,81 @@
+{
+  "title": "Electrolytes Decoded",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "\"Just take some salt pills\" might be the worst hydration advice in endurance sports. It's not wrong exactly — sodium matters enormously — but it reduces a complex electrolyte system to a single mineral and ignores the interplay between sodium, potassium, and magnesium that keeps your muscles firing and your heart rhythm stable over 6-12 hours of racing.\n\nElectrolytes are minerals that carry an electrical charge when dissolved in body fluids. They regulate muscle contractions, nerve signaling, fluid balance, and pH levels. Lose too much of any one of them, and specific systems start failing — often in ways that feel like \"bonking\" but don't respond to more food or more water.\n\nLet's break down the big three."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Sodium",
+          "title": "Sodium: The Master Electrolyte",
+          "content": "Sodium is the electrolyte you lose most in sweat — between **200-1,500 mg per liter** depending on your genetics, diet, and acclimatization status. It's responsible for maintaining blood volume, driving fluid absorption in the gut, and triggering the thirst mechanism.\n\n**How much you need:** Most gravel athletes need **500-1,000 mg of sodium per hour** during racing. Heavy/salty sweaters (you know who you are — your kit has white salt stains after rides) may need 1,000-1,500 mg/hr.\n\n**Signs of sodium deficit:** Bloating despite drinking, muscle cramps that don't respond to stretching, nausea, headache, and in severe cases confusion or disorientation.\n\n**Key insight:** Sodium drives fluid absorption. Plain water without sodium actually slows gastric emptying. Adding 300-700 mg of sodium per 20 oz of fluid significantly improves absorption speed — this is why sports drinks outperform water for rides over 90 minutes."
+        },
+        {
+          "label": "Potassium",
+          "title": "Potassium: The Muscle Signal",
+          "content": "Potassium works in concert with sodium to regulate muscle contractions. While sodium controls the outside of muscle cells, potassium controls the inside. The sodium-potassium pump — one of the most energy-intensive processes in your body — maintains this balance with every single muscle fiber contraction.\n\n**How much you need:** **200-400 mg per hour** during endurance exercise. Most sports drinks contain some potassium, but often not enough for ultra-distance efforts.\n\n**Signs of potassium deficit:** Deep, whole-muscle cramping (different from the sharp, localized cramps of sodium deficit), irregular heartbeat, extreme fatigue that feels disproportionate to effort, and muscle weakness.\n\n**Key insight:** Unlike sodium, you can't easily top up potassium mid-race with a pill. The best strategy is ensuring adequate potassium in the 48 hours before your event. Bananas get all the credit, but potatoes, avocados, and coconut water are actually superior sources."
+        },
+        {
+          "label": "Magnesium",
+          "title": "Magnesium: The Anti-Cramp Mineral",
+          "content": "Magnesium is involved in over 300 enzymatic reactions in the body, including muscle relaxation (the counterpart to calcium-driven contraction), energy production, and protein synthesis. Roughly **60-75% of endurance athletes are magnesium deficient** even before they start racing.\n\n**How much you need:** **100-200 mg per hour** during extended racing, though pre-loading is more effective than mid-race supplementation. The body absorbs magnesium slowly, so popping a magnesium pill at mile 80 won't help cramps at mile 85.\n\n**Signs of magnesium deficit:** Persistent muscle twitching, cramps that jump between muscle groups, eyelid twitching, restless legs, and poor recovery between training sessions.\n\n**Key insight:** Magnesium is a race you win in training, not on race day. Supplementing 200-400 mg of magnesium glycinate daily for 4-6 weeks before your target event is far more effective than any race-day strategy. Think of it as building your magnesium reserves the same way you build fitness — consistently, over time."
+        }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "title": "Electrolyte Quick Reference",
+      "cards": [
+        {
+          "front": "What's the #1 electrolyte lost in sweat?",
+          "back": "Sodium — you lose 200-1,500 mg per liter of sweat, far more than any other electrolyte."
+        },
+        {
+          "front": "How much sodium per hour do most gravel athletes need?",
+          "back": "500-1,000 mg/hr for most riders. Heavy sweaters may need up to 1,500 mg/hr."
+        },
+        {
+          "front": "Why is plain water worse than a sodium-containing drink for rides over 90 minutes?",
+          "back": "Sodium drives fluid absorption in the gut. Without it, gastric emptying slows and you absorb less of what you drink."
+        },
+        {
+          "front": "Why can't you fix a potassium deficit mid-race?",
+          "back": "The body absorbs potassium slowly. The best strategy is loading potassium-rich foods (potatoes, avocados, coconut water) in the 48 hours before race day."
+        },
+        {
+          "front": "What percentage of endurance athletes are magnesium deficient?",
+          "back": "60-75%. Supplementing 200-400 mg of magnesium glycinate daily for 4-6 weeks before a race is the most effective strategy."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You're 4 hours into Unbound 200. Temperature is 92 F. Your quads and hamstrings start cramping simultaneously on a long gravel climb. You've been drinking 24 oz/hr of water with a single salt capsule (200 mg sodium) each hour. What do you do?",
+      "options": [
+        {
+          "label": "A. Stop, stretch thoroughly, then resume at a lower intensity",
+          "result": "Stretching provides temporary relief, but the underlying electrolyte deficit will bring the cramps back within minutes. You're treating the symptom, not the cause. With 120+ miles remaining, this approach guarantees recurring cramps and a likely DNF.",
+          "best": false
+        },
+        {
+          "label": "B. Take 2-3 additional salt capsules immediately and switch to an electrolyte drink mix at the next checkpoint",
+          "result": "**Correct.** Multi-muscle cramping in heat is almost always a sodium deficit. At 200 mg/hr in 92 F heat, you were severely under-dosing — you likely need 800-1,200 mg/hr in those conditions. The immediate salt capsules address the acute deficit. Switching to electrolyte mix at the checkpoint fixes the ongoing intake. You'll feel better within 15-20 minutes.",
+          "best": true
+        },
+        {
+          "label": "C. Drink more plain water — you're probably just dehydrated",
+          "result": "This will make things worse. Drinking more plain water without sodium further dilutes your blood sodium levels, potentially pushing you toward hyponatremia. The cramps will intensify, and you're adding a second problem (sodium dilution) on top of the first (sodium deficit).",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**Recommended electrolyte products for gravel:** LMNT (1,000 mg sodium/packet), Precision Hydration PH 1500 (1,500 mg sodium/serving for heavy sweaters), SaltStick Caps (215 mg sodium + potassium + magnesium per capsule — easy to dose hourly), Skratch Labs Hydration Mix (380 mg sodium + balanced electrolytes). Test everything in training. Never debut a new product on race day.",
+      "style": "tip"
+    }
+  ]
+}

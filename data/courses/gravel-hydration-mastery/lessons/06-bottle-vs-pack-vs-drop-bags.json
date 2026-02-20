@@ -1,0 +1,71 @@
+{
+  "title": "Bottle vs. Pack vs. Drop Bags",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Your carry strategy isn't a personal preference question — it's a course-specific engineering problem. The right answer for a 60-mile race with aid stations every 15 miles is completely different from the right answer for Unbound 200 with 50+ mile unsupported gaps.\n\nGet this wrong and you're either carrying unnecessary weight (packs on short courses) or running dry in the Kansas flint hills with 30 miles to the next water source. Neither is a good look.\n\nThe three main carry systems — bottles, hydration packs, and drop bags — each have a specific window where they're optimal. Most experienced gravel racers use a combination, and the fastest finishers plan their carry strategy with the same rigor they plan their power targets."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Bottles",
+          "title": "Bottle Carry Systems",
+          "content": "**Standard Setup**: Two 24 oz cage-mounted bottles = 48 oz total. This covers ~90 minutes at a 32 oz/hr sweat rate.\n\n**Expanded Options**:\n- Third cage on the downtube or behind the seat tube adds another 24 oz (72 oz total)\n- Aero bottles between the aerobars (for TT-style setups) add 16-24 oz\n- Stem-mounted or top-tube mounted bottles for quick sipping without reaching down\n- Cargo cage on the fork — popular on bikepacking-style setups, adds 24+ oz per side\n\n**Aero Considerations**: Every bottle adds drag and weight. A full 24 oz bottle weighs ~1.7 lbs. Two cage-mounted bottles on a standard frame add roughly 2-4 watts of drag at 20 mph vs. a clean frame. On fast, flat courses where seconds matter, some riders choose smaller bottles with more frequent refills.\n\n**Best For**: Races under 4 hours with aid stations every 20-30 miles. Riders who prioritize low weight and easy access. Courses where you can refill frequently."
+        },
+        {
+          "label": "Hydration Packs",
+          "title": "Hydration Pack Systems",
+          "content": "**Capacity**: Most cycling-specific packs hold 1.5-3 liters (50-100 oz), plus frame bottles. A 2L pack + two bottles gives you ~115 oz — enough for 3+ hours without refills.\n\n**Weight Penalty**: A full 2L pack adds about 5.5 lbs to your back. At typical gravel speeds (14-18 mph), the aerodynamic penalty is roughly 3-6 watts. Over a 10-hour race, that's significant but often worth the insurance.\n\n**Comfort Reality**: Modern packs from Camelbak, USWE, and Dakine use compression straps that minimize bounce. Still, after 6+ hours, even a well-fitted pack creates hot spots, restricts breathing slightly, and fatigues your shoulders. Train with your pack on long rides — don't debut it on race day.\n\n**Drink Tube Tips**: Route the tube over your shoulder and secure it with a magnetic clip at the sternum. Bite valves can freeze in cold races and clog with mix residue — rinse with plain water after using electrolyte mix. Replace the tube and valve every season.\n\n**Best For**: Ultra-distance events (100+ miles) with long gaps between aid stations. Hot races where fluid demand exceeds 40 oz/hr. Riders who want the security of deep reserves."
+        },
+        {
+          "label": "Drop Bags",
+          "title": "Drop Bag Strategy",
+          "content": "**How They Work**: Many organized gravel events let you stage a bag at one or more checkpoints before the race. Your bag is waiting for you at the aid station — grab it, swap supplies, and keep moving.\n\n**What to Pre-Stage**:\n- Pre-mixed bottles (frozen the night before — they'll be slushy cold by the time you arrive)\n- Electrolyte powder in pre-measured bags for quick mixing\n- Backup nutrition (gels, bars, or real food)\n- A clean pair of gloves and a spare tube\n- Any medications (antacids, ibuprofen, caffeine pills)\n\n**Logistics**: Check race rules carefully. Some events (like Unbound) have specific drop bag rules — bag size limits, labeling requirements, and cutoff times for staging. Others don't allow drop bags at all. Always confirm with the organizer 2+ weeks before the race.\n\n**Time Management**: The fastest drop bag transitions take 60-90 seconds. Pre-organize everything in the bag with the items you need first on top. Practice your transition: bottle swap, nutrition grab, and go. Every minute at an aid station is a minute you're not racing.\n\n**Best For**: Ultra-distance events (150+ miles) where carrying everything from the start is impractical. Races with designated drop zones. Riders who want fresh, cold bottles mid-race."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Bottles — Pros & Cons",
+          "content": "**Pros:**\n- Lightest carry option with minimal aerodynamic penalty\n- Easy to see how much fluid remains at a glance\n- Quick to grab and drink without changing body position\n- No extra gear to wash, maintain, or replace\n- Can mix different drinks in different bottles (electrolyte + plain water)\n\n**Cons:**\n- Limited capacity — 48-72 oz max on most frames\n- Bottles can eject from cages on rough washboard roads and cattle guards\n- Hard to refill at speed (must stop or slow significantly)\n- In dusty conditions, valve openings collect grit\n- Only viable for shorter segments between aid stations"
+        },
+        {
+          "title": "Hydration Packs — Pros & Cons",
+          "content": "**Pros:**\n- Highest carry capacity (50-100+ oz) for long unsupported stretches\n- Hands-free drinking via bite valve — no reaching for bottles on rough terrain\n- Can carry extra gear (phone, rain jacket, tools) in pack pockets\n- Insulated reservoirs keep fluid cooler longer in heat\n- Protected from dust and trail debris\n\n**Cons:**\n- Weight on your back (4-6+ lbs full) increases fatigue on long rides\n- Heat buildup against your back — pack creates a sweat trap in hot weather\n- Can't see remaining fluid level without stopping to check\n- Bite valves can harbor bacteria if not cleaned thoroughly after every ride\n- Aero penalty of 3-6 watts at race speeds\n- Reservoir can develop a stale taste if not dried properly between uses"
+        },
+        {
+          "title": "Drop Bags — Pros & Cons",
+          "content": "**Pros:**\n- Allows fresh, cold supplies mid-race without carrying extra weight\n- Can stage race-specific nutrition that aid stations won't have\n- Reduces the total weight you carry from the start\n- Lets you swap gear for changing conditions (sunscreen, arm warmers, lights)\n- Mental boost of having a planned resupply point\n\n**Cons:**\n- Not available at all events — check race rules first\n- Requires advance planning and logistics (packing, labeling, timing)\n- Aid station transitions burn time — 2-5 minutes if you're not practiced\n- If you miss the cutoff time for drop bag staging, your supplies aren't there\n- No help for unsupported segments between drop zones\n- Risk of bag being lost, misplaced, or opened by another rider"
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You're racing SBT GRVL 144 (144 miles) in Steamboat Springs, CO. There are three aid stations spaced roughly every 35 miles. The forecast calls for 85°F with low humidity. Your tested sweat rate is 36 oz/hr in warm conditions. Which carry strategy do you choose?",
+      "options": [
+        {
+          "label": "Three bottles only (72 oz) — stay light and refill at every aid station",
+          "result": "Risky. At 36 oz/hr and ~2.5 hours between stations, you need ~90 oz per segment. Three bottles give you 72 oz — that's a 20% deficit before you even reach the next aid station. If you hit a mechanical or the pace slows on a climb, you'll run dry. At 85°F, running dry means a spiral you can't recover from.",
+          "best": false
+        },
+        {
+          "label": "Two bottles + 2L hydration pack (~115 oz) — refill the pack at aid stations",
+          "result": "This is the right call. 115 oz covers 3+ hours at 36 oz/hr, giving you a buffer for each segment. The weight penalty (~5 lbs) is manageable on a 144-mile race where survival matters more than watts. Refill both bottles and top off the pack at each aid station. Pre-freeze the reservoir the night before for cold fluids in the first half.",
+          "best": true
+        },
+        {
+          "label": "Two bottles + drop bag at the halfway aid station with frozen bottles",
+          "result": "Partially right, but incomplete. A drop bag at the midpoint gives you fresh bottles for the second half, which is smart. But with only 48 oz of carry capacity, you're short on the 35-mile segments that take 2.5 hours at 36 oz/hr (you need ~90 oz). You'd still need a third bottle or a small pack to bridge the gaps between stations. Drop bag as a supplement? Great. As your primary strategy? Not enough capacity."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**The best strategy is often a hybrid.** Many experienced gravel racers run two frame bottles for easy access during riding, a small hydration pack (1.5L) as a reserve tank, and a drop bag at the halfway point for a fresh resupply. This layered approach means no single failure — a lost bottle, a clogged bite valve, a missed drop bag — leaves you completely dry. Redundancy isn't overkill in ultra-distance racing. It's how you finish.",
+      "style": "highlight"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "title": "Race Day Hydration Protocol",
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "500ml",
+      "unit": "2 hours before start",
+      "context": "the pre-load that prevents early dehydration"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Night Before: Pre-Load",
+          "detail": "Drink 16-20 oz of fluid with electrolytes with dinner. Add an extra 500-700mg of sodium to your evening meal (salty broth, pickles, or electrolyte capsules). Avoid alcohol entirely — even one beer impairs fluid retention and sleep quality. Lay out your bottles, mix, and hydration pack so nothing requires decision-making at 4 AM.",
+          "percentage": 15
+        },
+        {
+          "label": "Race Morning: 2-Hour Pre-Hydration",
+          "detail": "Drink 500ml (16-17 oz) of water with electrolytes exactly 2 hours before the start. This timing is critical — it takes ~60-90 minutes for fluid to absorb and for your kidneys to void the excess. Pair it with your pre-race meal (familiar, carb-rich, low fiber). Stop large fluid intake 30-45 minutes before the start. Small sips only after that.",
+          "percentage": 30
+        },
+        {
+          "label": "Start Line: Final Top-Off",
+          "detail": "In the last 10-15 minutes before the gun, take 3-4 small sips — just enough to wet your mouth and settle nerves, not enough to slosh. Confirm your bottles are full and secured. If it's hot, pour a small amount of water on your head and neck to pre-cool your skin. Start the timer on your bike computer for your first drink reminder (15-20 minutes in).",
+          "percentage": 45
+        },
+        {
+          "label": "First Hour: Establish Rhythm",
+          "detail": "This is the most important hour for hydration. Adrenaline and pacing excitement suppress thirst, so most riders under-drink in hour one and pay for it in hour five. Force yourself to drink every 15-20 minutes regardless of thirst. Target 70-80% of your planned hourly intake. Use your timer. After the first hour, the rhythm becomes automatic.",
+          "percentage": 60
+        },
+        {
+          "label": "Mid-Race: Adjust for Conditions",
+          "detail": "Every 60-90 minutes, do a quick self-assessment: Am I peeing? (Should be every 2-3 hours — clear to light yellow is ideal.) Is my heart rate creeping up at the same power? (Could signal dehydration.) Do my muscles feel heavy or crampy? (Electrolyte deficit.) If the temperature is hotter than forecast, increase intake by 15-20%. If you're nauseous, switch to small, frequent sips rather than big gulps.",
+          "percentage": 80
+        },
+        {
+          "label": "Final Push: Simple Sugars + Water",
+          "detail": "In the last 60-90 minutes, your gut is fatigued and less tolerant of concentrated mixes. If you're experiencing any GI distress, switch to plain water with a pinch of salt and get your calories from simple sources (flat Coke, maple syrup, or straight glucose gels). This isn't the time for a complex electrolyte mix — keep it simple, keep it down, and ride to the finish.",
+          "percentage": 100
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Night-Before Checklist",
+          "content": "- Drink 16-20 oz of electrolyte fluid with dinner\n- Add 500-700mg extra sodium to your evening meal\n- Prepare all bottles, mixes, and hydration pack\n- Pre-measure electrolyte powder into labeled bags for aid station refills\n- Freeze one bottle or your hydration reservoir overnight (for cold fluid in the first half)\n- Set out race-morning breakfast and hydration supplies\n- Set your alarm with 2+ hours before start time (for the pre-hydration window)\n- Avoid alcohol, excess caffeine, and any new or unfamiliar foods"
+        },
+        {
+          "title": "Race Morning Checklist",
+          "content": "- Drink 500ml (16-17 oz) with electrolytes exactly 2 hours before start\n- Eat your pre-race meal (practiced in training — no surprises)\n- Use the bathroom before you leave for the start — urine should be pale yellow\n- Fill all bottles with your planned mix\n- Load hydration pack and test the bite valve\n- Pack extra electrolyte mix in a jersey pocket or frame bag\n- Apply sunscreen (dehydration worsens sunburn, and sunburn worsens dehydration)\n- Stop large fluid intake 30-45 minutes before start"
+        },
+        {
+          "title": "On-Course Checklist",
+          "content": "- First drink at 15-20 minutes — do not wait for thirst\n- Set a repeating timer: drink every 15-20 minutes throughout the race\n- At each aid station: refill ALL bottles, even if they're half full\n- Self-assess every 60-90 minutes: urine color, heart rate drift, muscle cramping\n- If nauseous: switch to small frequent sips, avoid concentrated mixes\n- If cramping: increase sodium intake (electrolyte capsule or salty food at aid station)\n- Keep track of how many bottles you've finished — compare to your plan\n- In the last 90 minutes: simplify nutrition, water + simple sugars if needed"
+        },
+        {
+          "title": "Post-Race Recovery Checklist",
+          "content": "- Weigh yourself within 30 minutes of finishing — compare to your pre-race weight\n- For every pound lost, drink 20-24 oz of fluid over the next 2-4 hours\n- Include sodium in your recovery fluids (electrolyte drink, broth, or salty food)\n- Eat a recovery meal with carbs, protein, and sodium within 60 minutes\n- Continue drinking steadily for the next 4-6 hours — don't try to chug it all at once\n- Monitor urine color: you're recovered when it returns to pale yellow\n- Avoid alcohol for at least 4-6 hours post-race (it impairs rehydration)\n- Log your total fluid intake and weight loss for future race planning"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "**The pee test is your best real-time hydration gauge.** If you're urinating every 2-3 hours during a race and the color is clear to light yellow, your hydration plan is working. If you haven't peed in 4+ hours, you're significantly dehydrated and need to increase intake immediately. Dark yellow or amber means you're already in a deficit that will take 30-60 minutes of aggressive hydration to begin correcting. Check every time you stop — it takes 3 seconds and tells you more than any heart rate algorithm.",
+      "style": "tip"
+    },
+    {
+      "type": "prose",
+      "content": "**When Things Go Wrong Mid-Race**\n\nNo plan survives contact with 200 miles of gravel. Here's how to troubleshoot the three most common hydration failures:\n\n**Cramping**: Muscle cramps during a gravel race are almost always an electrolyte issue, not a hydration volume issue. If you're drinking enough fluid but still cramping, you need more sodium — take an electrolyte capsule (200-400mg sodium) with water, eat something salty at the next aid station (pretzels, pickle juice, broth), and reduce intensity for 10-15 minutes. Cramps that don't respond to sodium are usually neuromuscular fatigue, not hydration-related.\n\n**Nausea**: GI distress is the most common reason riders abandon their hydration plan. If you feel nauseous, do NOT stop drinking — switch to plain water in small sips (2-3 oz every 5 minutes) until it passes. Sit up to open your diaphragm. If you've been drinking concentrated mix, dilute it. The worst thing you can do is stop all fluid intake because you feel sick — that turns a bad hour into a DNF.\n\n**Bonking with full bottles**: If you're out of energy but still have plenty of fluid, the problem isn't hydration — it's calorie intake. Dehydration and under-fueling feel similar (weakness, lightheadedness, difficulty concentrating), but the fix is different. Take in 30-60g of fast-acting carbs (two gels or a handful of gummy bears), wash it down with electrolyte drink, and back off intensity for 15-20 minutes while the calories absorb. Don't confuse the two — treating a bonk with more water just dilutes your electrolytes."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You've just finished a 7-hour gravel race. You weighed 165 lbs pre-race and now weigh 160 lbs. What's the optimal rehydration approach?",
+      "options": [
+        {
+          "text": "Drink 5 lbs worth of water (80 oz) as quickly as possible",
+          "correct": false
+        },
+        {
+          "text": "Drink 100-120 oz of electrolyte fluid spread over the next 2-4 hours",
+          "correct": true
+        },
+        {
+          "text": "Just eat a big meal — food contains enough water",
+          "correct": false
+        },
+        {
+          "text": "Your body will rehydrate naturally overnight — just drink normally",
+          "correct": false
+        }
+      ],
+      "explanation": "The standard rehydration protocol is 20-24 oz of fluid for every pound lost, which means 100-120 oz for a 5 lb deficit. The key is spreading this over 2-4 hours, not chugging it — rapid intake overwhelms your kidneys, and you'll just excrete the excess before it's absorbed. Include electrolytes (especially sodium) to help your body retain the fluid. A recovery meal with salt, carbs, and protein within 60 minutes supports the process. Waiting overnight or relying on food alone leaves you dehydrated going into the next day, which impairs recovery."
+    },
+    {
+      "type": "callout",
+      "content": "**Course Complete: Key Takeaways**\n\nYou now have every tool you need to master gravel hydration. Here's what separates riders who finish strong from riders who blow up:\n\n1. **Know your number.** Your sweat rate is the foundation. Test it, adjust it for conditions, and plan around it.\n2. **Sodium is the other half.** Fluid without electrolytes is incomplete hydration. Most gravel riders need 500-1000mg of sodium per hour in hot conditions.\n3. **Front-load, don't catch up.** Pre-hydrate the night before and morning of. Drink on a schedule, not by thirst. Once you're behind, you rarely recover.\n4. **Match your carry to your course.** Every race demands a different strategy. Plan carry capacity around the longest unsupported segment, not the average.\n5. **Adapt to the heat.** 10-14 days of heat exposure buys you a 10-15% power advantage that no training block can match.\n6. **Have a Plan B.** The best hydration plan includes a backup for when conditions change, gear fails, or aid stations run dry.\n\nThese lessons aren't about memorizing numbers — they're about building a system you trust so deeply that hydration becomes automatic, freeing your brain to focus on the ride.",
+      "style": "highlight"
+    }
+  ]
+}

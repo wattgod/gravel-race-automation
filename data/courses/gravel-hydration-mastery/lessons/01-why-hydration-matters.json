@@ -1,0 +1,52 @@
+{
+  "title": "Why Hydration Matters More Than You Think",
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "2%",
+      "unit": "body weight loss",
+      "context": "= 10-20% drop in power output"
+    },
+    {
+      "type": "prose",
+      "content": "That number isn't theoretical. A 165-lb rider who loses just 3.3 lbs of fluid — roughly 48 oz — crosses a physiological threshold where the body can no longer cool itself efficiently. Cardiac output drops. Blood thickens. Your muscles get less oxygen per heartbeat.\n\nGravel riders are uniquely vulnerable to dehydration for three reasons:\n\n- **Duration**: Most gravel events run 4-12+ hours. That's 4-12+ hours of continuous fluid loss with limited resupply.\n- **Remote terrain**: Unlike road races, there are no spectators handing up bottles every 20 minutes. You carry what you carry.\n- **Limited aid stations**: Unbound 200 has just 3 checkpoints across 200 miles of Kansas flint hills. BWR has long stretches with zero support. If you miscalculate your fluid needs, there's no safety net.\n\nRoad cyclists can afford to be sloppy with hydration. A domestique can grab a musette from the team car. A century rider can stop at a gas station. Gravel strips away those safety nets and punishes poor planning with DNFs."
+    },
+    {
+      "type": "callout",
+      "content": "Most riders don't realize they're dehydrated until they've already lost 2-3% of body weight. By the time you feel thirsty, your power output has already declined. Thirst is a lagging indicator — it shows up 15-20 minutes after the damage has started.",
+      "style": "highlight"
+    },
+    {
+      "type": "knowledge_check",
+      "question": "At what percentage of body weight loss does measurable performance decline begin?",
+      "options": [
+        {
+          "text": "1% — any fluid loss hurts performance",
+          "correct": false
+        },
+        {
+          "text": "2% — the threshold where power output drops 10-20%",
+          "correct": true
+        },
+        {
+          "text": "5% — it takes significant loss to affect performance",
+          "correct": false
+        },
+        {
+          "text": "It varies too much to give a number",
+          "correct": false
+        }
+      ],
+      "explanation": "Research consistently shows that 2% body weight loss is the inflection point where aerobic performance measurably declines. A 2018 meta-analysis in *Sports Medicine* confirmed this threshold across endurance sports. Some recent studies suggest even 1-1.5% can impair performance in hot conditions, but 2% is the well-established benchmark."
+    },
+    {
+      "type": "prose",
+      "content": "Here's what most hydration articles skip: **dehydration doesn't just affect your legs — it wrecks your brain.**\n\nAt 2-3% body weight loss, cognitive function measurably declines. Reaction time slows. Decision-making deteriorates. Your ability to assess risk — which line to take through a rocky descent, whether to push the pace or back off — gets worse precisely when the stakes are highest.\n\nA 2015 study in the *British Journal of Sports Medicine* found that dehydrated cyclists made significantly more navigation errors and took longer to process route decisions. On gravel, where you're constantly reading terrain, adjusting tire pressure decisions, and choosing lines through loose rock, cognitive impairment from dehydration can be the difference between finishing and crashing.\n\nThis is especially dangerous in the back half of ultra-distance events. Hours 8-12 of Unbound or DK aren't just physically demanding — they require sharp decision-making through fatigue, heat, and dwindling resources."
+    },
+    {
+      "type": "callout",
+      "content": "In this course, you'll learn to calculate your personal sweat rate, build an electrolyte strategy matched to your physiology, and create a race-day hydration plan that accounts for aid station spacing, temperature, and intensity. No generic advice — just science you can execute.",
+      "style": "tip"
+    }
+  ]
+}

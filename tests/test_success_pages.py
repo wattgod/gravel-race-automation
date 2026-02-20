@@ -232,6 +232,13 @@ class TestTrainingPlanSuccess:
         html = build_training_plan_success()
         assert "gravelgodcoaching@gmail.com" in html
 
+    def test_no_time_promises(self):
+        """Never promise a specific delivery time — pipeline can fail or be slow."""
+        html = build_training_plan_success()
+        for bad in ["5 minutes", "within a few minutes", "within minutes",
+                     "arrive in", "ready in"]:
+            assert bad not in html.lower(), f"Dangerous time promise: '{bad}'"
+
 
 class TestCoachingSuccess:
     def test_has_hero(self):

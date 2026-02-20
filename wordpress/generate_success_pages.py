@@ -241,7 +241,7 @@ def build_training_plan_success() -> str:
     <div class="gg-success-check">&check;</div>
     <h1>Your Training Plan Is on the Way</h1>
     <p>Payment confirmed. Your custom plan is being generated and will be
-    delivered to your email within a few minutes.</p>
+    delivered to your email shortly.</p>
   </div>"""
 
     steps = """
@@ -251,8 +251,9 @@ def build_training_plan_success() -> str:
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
         <h3>Check Your Email</h3>
-        <p>Your plan package will arrive within 5 minutes. Check spam if
-        you don't see it. Reply to that email if you have questions.</p>
+        <p>Your plan is being built right now. You'll receive an email
+        once it's ready. Check spam if you don't see it within an hour,
+        and reply to that email if you have questions.</p>
       </div>
     </div>
     <div class="gg-success-step">

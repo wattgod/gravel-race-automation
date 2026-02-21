@@ -655,6 +655,10 @@ def _parse_score(raw) -> int:
     return max(0, min(5, score))
 
 
+# Series umbrella slugs — not individual races, excluded from examples
+_SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro", "gravel-earth"}
+
+
 def _compute_archetype_examples(race_index: list) -> dict:
     """Find 5 closest real gravel races to each archetype profile by Euclidean distance."""
     results = {}
@@ -662,6 +666,8 @@ def _compute_archetype_examples(race_index: list) -> dict:
     scored_races = []
     for race in race_index:
         if (race.get("discipline") or "gravel") != "gravel":
+            continue
+        if race.get("slug", "") in _SERIES_UMBRELLA_SLUGS:
             continue
         scores = race.get("scores") or {}
         vec = [_parse_score(scores.get(dim)) for dim in HERO_VIZ_DIMS]

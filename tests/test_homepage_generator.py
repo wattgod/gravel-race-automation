@@ -45,6 +45,7 @@ from generate_homepage import (
     _build_stat_bars,
     _build_hero_radar_viz,
     _compute_archetype_examples,
+    _SERIES_UMBRELLA_SLUGS,
     _parse_score,
     FEATURED_SLUGS,
     STAT_BAR_DIMENSIONS,
@@ -2171,6 +2172,16 @@ class TestHeroRadarViz:
             for r in races:
                 assert r["slug"] in by_slug, \
                     f"Example slug '{r['slug']}' for {name} not in race index"
+
+    def test_viz_examples_exclude_series(self, race_index):
+        """No series umbrella entries appear as example races."""
+        examples = _compute_archetype_examples(race_index)
+        for name, races in examples.items():
+            for r in races:
+                assert r["slug"] not in _SERIES_UMBRELLA_SLUGS, \
+                    f"Series umbrella '{r['slug']}' in {name} examples"
+                assert not r["name"].endswith(" Series"), \
+                    f"Series name '{r['name']}' in {name} examples"
 
     def test_viz_example_links_are_clickable(self, viz_html):
         """Example links point to valid race profile URLs."""

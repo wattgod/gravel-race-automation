@@ -68,7 +68,8 @@
         25
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
-      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation)."
+      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
+      "narration_wpm": 132.0
     },
     {
       "id": "marketing_pitch",
@@ -121,7 +122,8 @@
           "Full support: You carry nothing. Bags transported. Meals provided. Just ride.",
           "The cause: Proceeds support Safari Simbaz cycling development in Kenya"
         ]
-      }
+      },
+      "narration_wpm": 15.0
     },
     {
       "id": "reality_check",
@@ -180,7 +182,8 @@
           "Limited field: 230 spots sell fast. Speed matters.",
           "Travel complexity: Kenya requires visas, vaccinations, logistics planning"
         ]
-      }
+      },
+      "narration_wpm": 8.0
     },
     {
       "id": "data_evidence",
@@ -221,7 +224,8 @@
           "score": 3,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -245,7 +249,8 @@
         15,
         25
       ],
-      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy."
+      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
+      "narration_wpm": 45.0
     },
     {
       "id": "cta",
@@ -270,7 +275,8 @@
         25
       ],
       "editing_note": "Keep energy up. Don't wind down.",
-      "engagement_question": "Roast or defend Migration Gravel Race. Go."
+      "engagement_question": "Roast or defend Migration Gravel Race. Go.",
+      "narration_wpm": 44.0
     }
   ],
   "avatar_assets_needed": [
@@ -290,6 +296,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, skeptical squinting, red warning flags background, 'Migration Gravel Race' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 89,
+    "total_duration_sec": 225,
+    "overall_wpm": 23.7,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Hot Takes / Controversy (debate-driven comments)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

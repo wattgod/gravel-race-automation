@@ -62,7 +62,9 @@
         25
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
-      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation)."
+      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
+      "narration_wpm": 174.0,
+      "wpm_warning": "Beat 'hook': 174WPM (29w/10s) — too_fast"
     },
     {
       "id": "marketing_pitch",
@@ -111,7 +113,8 @@
           "Smooth Missouri gravel—well-maintained county roads",
           "Emerging Midwest gravel scene"
         ]
-      }
+      },
+      "narration_wpm": 15.0
     },
     {
       "id": "reality_check",
@@ -166,7 +169,8 @@
           "Limited lodging in Marthasville—need to drive from St. Charles",
           "Not nationally recognized—regional event"
         ]
-      }
+      },
+      "narration_wpm": 8.0
     },
     {
       "id": "data_evidence",
@@ -207,7 +211,8 @@
           "score": 2,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -231,7 +236,8 @@
         15,
         25
       ],
-      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy."
+      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
+      "narration_wpm": 102.0
     },
     {
       "id": "cta",
@@ -256,7 +262,8 @@
         25
       ],
       "editing_note": "Keep energy up. Don't wind down.",
-      "engagement_question": "Roast or defend THE EQUALIZER - Missouri State Championship. Go."
+      "engagement_question": "Roast or defend THE EQUALIZER - Missouri State Championship. Go.",
+      "narration_wpm": 44.0
     }
   ],
   "avatar_assets_needed": [
@@ -276,6 +283,15 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'THE EQUALIZER - Missouri State Championship' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 134,
+    "total_duration_sec": 225,
+    "overall_wpm": 35.7,
+    "warnings": [
+      "Beat 'hook': 174WPM (29w/10s) — too_fast"
+    ],
+    "feasible": false
+  },
   "content_pillars": "Hot Takes / Controversy (debate-driven comments)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

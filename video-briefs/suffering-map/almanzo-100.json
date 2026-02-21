@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 33,
-  "estimated_spoken_words": 139,
+  "estimated_duration_sec": 50,
+  "estimated_spoken_words": 129,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Almanzo 100 breaks you. 100 mi. Zone by zone.",
       "text_on_screen": "Almanzo 100 — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 132.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 0",
-      "time_range": "0:03-0:08",
-      "duration_sec": 5,
-      "narration": "Mile 0. The Honeymoon Phase. Rolling farmland on well-maintained gravel roads. You'll think this isn't so bad while burning matches on every roller.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 0. The Honeymoon Phase. Rolling farmland on well-maintained gravel roads. You'll think this isn't so bad while burning matches on every.",
       "text_on_screen": "MILE 0: The Honeymoon Phase",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 40",
-      "time_range": "0:08-0:13",
-      "duration_sec": 5,
-      "narration": "Mile 40. Reality Check Hills. The Driftless terrain shows its teeth with steeper climbs through river valleys. Your legs start asking questions you can't answer.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 40. Reality Check Hills. The Driftless terrain shows its teeth with steeper climbs through river valleys. Your legs start asking questions.",
       "text_on_screen": "MILE 40: Reality Check Hills",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 65",
-      "time_range": "0:13-0:18",
-      "duration_sec": 5,
-      "narration": "Mile 65. The Stone Transition. Hard-pack gravel becomes freshly laid loose stone that saps watts like quicksand. Groups abandon the road for grass verges, searching for anything rideable.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 65. The Stone Transition. Hard-pack gravel becomes freshly laid loose stone that saps watts like quicksand. Groups abandon the road for.",
       "text_on_screen": "MILE 65: The Stone Transition",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,13 +208,14 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 80",
-      "time_range": "0:18-0:23",
-      "duration_sec": 5,
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
       "narration": "Mile 80. Creek Crossing Prelude. A memorable water crossing that's actually a brief respite before the nightmare that awaits ten miles ahead.",
       "text_on_screen": "MILE 80: Creek Crossing Prelude",
       "visual": "Route map with zone marker animation",
@@ -251,13 +255,14 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_5",
       "label": "ZONE 5: Mile 90",
-      "time_range": "0:23-0:28",
-      "duration_sec": 5,
+      "time_range": "0:37-0:45",
+      "duration_sec": 8,
       "narration": "Mile 90. Oriole Road Hell. Seventeen percent grades that turn this into a hike-a-bike for everyone. Even front-runners walk this wall.",
       "text_on_screen": "MILE 90: Oriole Road Hell",
       "visual": "Route map with zone marker animation",
@@ -297,12 +302,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 157.5
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:28-0:33",
+      "time_range": "0:45-0:50",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/almanzo-100",
@@ -322,7 +328,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -331,6 +338,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Almanzo 100' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 129,
+    "total_duration_sec": 50,
+    "overall_wpm": 154.8,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

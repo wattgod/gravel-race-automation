@@ -9,7 +9,7 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
+  "estimated_duration_sec": 34,
   "estimated_spoken_words": 45,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
@@ -26,18 +26,13 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Rad am Ring Gravel breaks you. 62 mi. Zone by zone.",
       "text_on_screen": "Rad am Ring Gravel — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
       "avatar_pose": "suffering",
       "broll_sources": [
-        {
-          "type": "race_website",
-          "url": "Check Rad am Ring Gravel website",
-          "use": "Hero image, branding reference"
-        },
         {
           "type": "youtube_search",
           "query": "Rad am Ring Gravel route map",
@@ -61,12 +56,13 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 156.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 20",
-      "time_range": "0:03-0:11",
+      "time_range": "0:05-0:13",
       "duration_sec": 8,
       "narration": "Mile 20. Early Eifel. First Eifel sections.",
       "text_on_screen": "MILE 20: Early Eifel",
@@ -74,11 +70,6 @@
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Rad am Ring Gravel website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Rad am Ring Gravel course preview",
           "use": "B-roll: terrain"
@@ -101,12 +92,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 52.5
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 31",
-      "time_range": "0:11-0:19",
+      "time_range": "0:13-0:21",
       "duration_sec": 8,
       "narration": "Mile 31. Midpoint. Halfway through the course.",
       "text_on_screen": "MILE 31: Midpoint",
@@ -114,11 +106,6 @@
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Rad am Ring Gravel website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Rad am Ring Gravel course preview",
           "use": "B-roll: terrain"
@@ -141,12 +128,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 52.5
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 52",
-      "time_range": "0:19-0:27",
+      "time_range": "0:21-0:29",
       "duration_sec": 8,
       "narration": "Mile 52. Late Eifel. Final Eifel sections before finish.",
       "text_on_screen": "MILE 52: Late Eifel",
@@ -154,11 +142,6 @@
       "avatar_pose": "suffering",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Rad am Ring Gravel website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Rad am Ring Gravel course preview",
           "use": "B-roll: terrain"
@@ -181,12 +164,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 67.5
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:29-0:34",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/rad-am-ring-gravel",
@@ -206,7 +190,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -215,6 +200,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Rad am Ring Gravel' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 45,
+    "total_duration_sec": 34,
+    "overall_wpm": 79.4,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

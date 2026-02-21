@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 174,
+  "estimated_duration_sec": 42,
+  "estimated_spoken_words": 106,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Colorado Trail Race breaks you. 530 mi. Zone by zone.",
       "text_on_screen": "Colorado Trail Race — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -62,14 +62,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 144.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 75",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
-      "narration": "Mile 75. Ten Mile Range Reality Check. Twelve miles of brutal, bumpy, rocky terrain that's the second rockiest section of the entire trail. Your hands will be numb and your bike will sound like it's falling apart.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 75. Ten Mile Range Reality Check. Twelve miles of brutal, bumpy, rocky terrain that's the second rockiest section of the entire.",
       "text_on_screen": "MILE 75: Ten Mile Range Reality Check",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -103,14 +104,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 180",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
-      "narration": "Mile 180. The Collegiate Split Decision. Choose your poison: East route through Buena Vista for 78 miles and 18 thousand feet of climbing, or West through Hope Pass for 83 miles, 20 thousand feet. And 15 miles above 12 thousand feet. Both will hurt.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 180. The Collegiate Split Decision. Choose your poison: East route through Buena Vista for 78 miles and 18 thousand feet of.",
       "text_on_screen": "MILE 180: The Collegiate Split Decision",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -144,14 +146,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 350",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
-      "narration": "Mile 350. San Juan Alpine Traverse. Thirty consecutive miles above timberline where weather changes in minutes and hike-a-bikes multiply. The high point at 13 thousand feet is followed by 20+ miles of tundra-talus-shale that destroys wheels and souls.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 350. San Juan Alpine Traverse. Thirty consecutive miles above timberline where weather changes in minutes and hike-a-bikes multiply.",
       "text_on_screen": "MILE 350: San Juan Alpine Traverse",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -185,14 +188,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 142.5
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 450",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
-      "narration": "Mile 450. San Juan Hike-a-Bike Hell. The most walking of the entire route through beautiful, bike-destroying terrain. Even the fast guys are pushing their bikes up staircase climbs and carrying them down talus descents.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 450. San Juan Hike-a-Bike Hell. The most walking of the entire route through beautiful, bike-destroying terrain. Even the fast guys are.",
       "text_on_screen": "MILE 450: San Juan Hike-a-Bike Hell",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -226,12 +230,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/colorado-trail-race",
@@ -251,7 +256,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -260,6 +266,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Colorado Trail Race' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 106,
+    "total_duration_sec": 42,
+    "overall_wpm": 151.4,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

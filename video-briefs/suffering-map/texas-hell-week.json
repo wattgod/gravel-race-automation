@@ -9,7 +9,7 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
+  "estimated_duration_sec": 42,
   "estimated_spoken_words": 63,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
@@ -26,18 +26,13 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Texas Hell Week breaks you. 200 mi. Zone by zone.",
       "text_on_screen": "Texas Hell Week — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
       "avatar_pose": "suffering",
       "broll_sources": [
-        {
-          "type": "race_website",
-          "url": "Check Texas Hell Week website",
-          "use": "Hero image, branding reference"
-        },
         {
           "type": "youtube_search",
           "query": "Texas Hell Week route map",
@@ -61,24 +56,20 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 144.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 50",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
       "narration": "Mile 50. Day 1 Complete. First day done, heat already taking toll.",
       "text_on_screen": "MILE 50: Day 1 Complete",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Texas Hell Week website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Texas Hell Week course preview",
           "use": "B-roll: terrain"
@@ -101,24 +92,20 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 90.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 100",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
       "narration": "Mile 100. Day 2 Complete. Halfway through, cumulative heat fatigue.",
       "text_on_screen": "MILE 100: Day 2 Complete",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Texas Hell Week website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Texas Hell Week course preview",
           "use": "B-roll: terrain"
@@ -141,24 +128,20 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 75.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 150",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
       "narration": "Mile 150. Day 3 Complete. Three days of heat, mental game critical.",
       "text_on_screen": "MILE 150: Day 3 Complete",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Texas Hell Week website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Texas Hell Week course preview",
           "use": "B-roll: terrain"
@@ -181,24 +164,20 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 90.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 200",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
       "narration": "Mile 200. Final Day. Last day to finish.",
       "text_on_screen": "MILE 200: Final Day",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Texas Hell Week website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Texas Hell Week course preview",
           "use": "B-roll: terrain"
@@ -221,12 +200,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 60.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/texas-hell-week",
@@ -246,7 +226,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -255,6 +236,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Texas Hell Week' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 63,
+    "total_duration_sec": 42,
+    "overall_wpm": 90.0,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

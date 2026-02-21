@@ -34,18 +34,13 @@
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "race_website",
-          "url": "Check Carpathian Gravel website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Carpathian Gravel gravel race",
           "use": "B-roll: hero"
         },
         {
           "type": "youtube_search",
-          "query": "Carpathian Gravel cycling 2025 2026",
+          "query": "Carpathian Gravel cycling 2026",
           "use": "B-roll: hero"
         }
       ],
@@ -62,7 +57,8 @@
         15
       ],
       "editing_note": "STATE THE PREMISE IN 8 SECONDS. Clear value prop: 'I rated 328 races. Here's where this one lands.' This is the 8-second decision window. Viewers who stay past 15s are 58% more likely to finish.",
-      "psych_mechanism": "Curiosity gap (specific) + IKEA effect (viewer predicts the tier before reveal)."
+      "psych_mechanism": "Curiosity gap (specific) + IKEA effect (viewer predicts the tier before reveal).",
+      "narration_wpm": 120.0
     },
     {
       "id": "course",
@@ -74,11 +70,6 @@
       "visual": "Route map + terrain footage",
       "avatar_pose": "presenting",
       "broll_sources": [
-        {
-          "type": "race_website",
-          "url": "Check Carpathian Gravel website",
-          "use": "Hero image, branding reference"
-        },
         {
           "type": "youtube_search",
           "query": "Carpathian Gravel route map",
@@ -102,7 +93,8 @@
         20,
         40
       ],
-      "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts."
+      "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts.",
+      "narration_wpm": 10.0
     },
     {
       "id": "scores_top",
@@ -174,7 +166,8 @@
         "trigger": "3-minute retention dip prevention",
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
-      }
+      },
+      "narration_wpm": 1.7
     },
     {
       "id": "scores_remaining",
@@ -230,7 +223,8 @@
           "score": 2,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "strengths",
@@ -242,11 +236,6 @@
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
       "broll_sources": [
-        {
-          "type": "race_website",
-          "url": "Check Carpathian Gravel website",
-          "use": "Hero image, branding reference"
-        },
         {
           "type": "youtube_search",
           "query": "Carpathian Gravel finish line",
@@ -279,7 +268,8 @@
           "Unique Romanian setting",
           "Significant elevation"
         ]
-      }
+      },
+      "narration_wpm": 6.7
     },
     {
       "id": "weaknesses",
@@ -318,7 +308,8 @@
         "trigger": "Midpoint re-engagement",
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
-      }
+      },
+      "narration_wpm": 9.3
     },
     {
       "id": "logistics",
@@ -330,11 +321,6 @@
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
       "broll_sources": [
-        {
-          "type": "race_website",
-          "url": "Check Carpathian Gravel website",
-          "use": "Hero image, branding reference"
-        },
         {
           "type": "youtube_search",
           "query": "Carpathian Mountains, Romania travel guide",
@@ -365,7 +351,8 @@
           "Lodging: Carpathians have limited lodging options. Plan ahead.",
           "Entry: €30-60"
         ]
-      }
+      },
+      "narration_wpm": 4.0
     },
     {
       "id": "verdict",
@@ -389,7 +376,8 @@
         20,
         40
       ],
-      "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy."
+      "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy.",
+      "narration_wpm": 20.0
     },
     {
       "id": "alternatives",
@@ -413,7 +401,8 @@
         20,
         40
       ],
-      "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races."
+      "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races.",
+      "narration_wpm": 25.3
     },
     {
       "id": "cta",
@@ -438,7 +427,8 @@
         40
       ],
       "editing_note": "End ABRUPTLY after CTA. No 'thanks for watching' wind-down.",
-      "engagement_question": "Have you raced Carpathian Gravel? Did we get the score right? Drop it in the comments."
+      "engagement_question": "Have you raced Carpathian Gravel? Did we get the score right? Drop it in the comments.",
+      "narration_wpm": 32.0
     }
   ],
   "avatar_assets_needed": [
@@ -465,6 +455,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'Carpathian Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 122,
+    "total_duration_sec": 585,
+    "overall_wpm": 12.5,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Race Profiles (evergreen SEO content)",
   "cross_platform_notes": {
     "youtube": "Primary platform. SEO-optimize title for '[Race Name] review'.",

@@ -40,11 +40,6 @@
           "use": "Route map overlay"
         },
         {
-          "type": "race_website",
-          "url": "Check Waukon 100 website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "Waukon, Iowa drone",
           "use": "B-roll: location"
@@ -68,7 +63,8 @@
         25
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
-      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation)."
+      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
+      "narration_wpm": 138.0
     },
     {
       "id": "marketing_pitch",
@@ -85,11 +81,6 @@
           "id": "51103873",
           "url": "https://ridewithgps.com/routes/51103873",
           "use": "Route map overlay"
-        },
-        {
-          "type": "race_website",
-          "url": "Check Waukon 100 website",
-          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
@@ -123,7 +114,8 @@
           "Good value",
           "Remote experience"
         ]
-      }
+      },
+      "narration_wpm": 15.0
     },
     {
       "id": "reality_check",
@@ -140,11 +132,6 @@
           "id": "51103873",
           "url": "https://ridewithgps.com/routes/51103873",
           "use": "Route map overlay"
-        },
-        {
-          "type": "race_website",
-          "url": "Check Waukon 100 website",
-          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
@@ -184,7 +171,8 @@
           "Variable weather",
           "No national draw"
         ]
-      }
+      },
+      "narration_wpm": 8.0
     },
     {
       "id": "data_evidence",
@@ -225,7 +213,8 @@
           "score": 1,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -249,7 +238,8 @@
         15,
         25
       ],
-      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy."
+      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
+      "narration_wpm": 24.0
     },
     {
       "id": "cta",
@@ -274,7 +264,8 @@
         25
       ],
       "editing_note": "Keep energy up. Don't wind down.",
-      "engagement_question": "Roast or defend Waukon 100. Go."
+      "engagement_question": "Roast or defend Waukon 100. Go.",
+      "narration_wpm": 44.0
     }
   ],
   "avatar_assets_needed": [
@@ -293,6 +284,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Waukon 100' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 76,
+    "total_duration_sec": 225,
+    "overall_wpm": 20.3,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Hot Takes / Controversy (debate-driven comments)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

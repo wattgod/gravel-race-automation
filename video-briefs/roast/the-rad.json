@@ -62,7 +62,8 @@
         25
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
-      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation)."
+      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
+      "narration_wpm": 150.0
     },
     {
       "id": "marketing_pitch",
@@ -110,7 +111,8 @@
           "The organization: Life Time event quality and support.",
           "UNBOUND qualifier: Finishers earn qualifier coins for 2025."
         ]
-      }
+      },
+      "narration_wpm": 15.0
     },
     {
       "id": "reality_check",
@@ -163,7 +165,8 @@
           "Altitude: 6,000-9,000 ft range affects sea-level riders.",
           "Technical sections: Muddy/rutted descents can catch riders off-guard."
         ]
-      }
+      },
+      "narration_wpm": 8.0
     },
     {
       "id": "data_evidence",
@@ -204,7 +207,8 @@
           "score": 3,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -228,7 +232,8 @@
         15,
         25
       ],
-      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy."
+      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
+      "narration_wpm": 24.0
     },
     {
       "id": "cta",
@@ -253,7 +258,8 @@
         25
       ],
       "editing_note": "Keep energy up. Don't wind down.",
-      "engagement_question": "Roast or defend The Rad Dirt Fest. Go."
+      "engagement_question": "Roast or defend The Rad Dirt Fest. Go.",
+      "narration_wpm": 44.0
     }
   ],
   "avatar_assets_needed": [
@@ -273,6 +279,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'The Rad Dirt Fest' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 78,
+    "total_duration_sec": 225,
+    "overall_wpm": 20.8,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Hot Takes / Controversy (debate-driven comments)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

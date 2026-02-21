@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "328 races. 14 dimensions. Where does Trough Creek Gravel Grinder land?",
       "text_on_screen": "328 races.",
       "visual": "Bold text overlay + avatar reaction",
@@ -46,12 +46,13 @@
         3
       ],
       "editing_note": "Pattern interrupt. Maximum visual stimulation. Text appears word-by-word (kinetic typography).",
-      "psych_mechanism": "Countdown / ranking — inherent escalation and social comparison."
+      "psych_mechanism": "Countdown / ranking — inherent escalation and social comparison.",
+      "narration_wpm": 132.0
     },
     {
       "id": "setup",
       "label": "SETUP",
-      "time_range": "0:03-0:08",
+      "time_range": "0:05-0:10",
       "duration_sec": 5,
       "narration": "Trough Creek Gravel Grinder. Trough Creek State Park, Pennsylvania. 50 mi.",
       "text_on_screen": "Trough Creek Gravel Grinder | Trough Creek State Park, Pennsylvania",
@@ -63,11 +64,6 @@
           "id": "52750788",
           "url": "https://ridewithgps.com/routes/52750788",
           "use": "Route map overlay"
-        },
-        {
-          "type": "race_website",
-          "url": "Check Trough Creek Gravel Grinder website",
-          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
@@ -92,13 +88,14 @@
         2,
         3
       ],
-      "editing_note": "Quick establishing shot. Show race card, then cut to route map or location footage."
+      "editing_note": "Quick establishing shot. Show race card, then cut to route map or location footage.",
+      "narration_wpm": 132.0
     },
     {
       "id": "evidence",
       "label": "EVIDENCE",
-      "time_range": "0:08-0:22",
-      "duration_sec": 14,
+      "time_range": "0:10-0:22",
+      "duration_sec": 12,
       "narration": "Value: 4 out of 5. Elevation: 3 out of 5. Expenses: 3 out of 5.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
@@ -133,7 +130,8 @@
           "score": 3,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 75.0
     },
     {
       "id": "reveal",
@@ -157,7 +155,8 @@
         2,
         3
       ],
-      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct."
+      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct.",
+      "narration_wpm": 90.0
     },
     {
       "id": "cta",
@@ -182,7 +181,8 @@
         3
       ],
       "editing_note": "Design for LOOP: the final frame should visually connect back to the hook frame. On TikTok, seamless loops = replays = the strongest algorithmic signal.",
-      "engagement_question": "Where would YOU rank Trough Creek Gravel Grinder? Drop your tier."
+      "engagement_question": "Where would YOU rank Trough Creek Gravel Grinder? Drop your tier.",
+      "narration_wpm": 96.0
     }
   ],
   "avatar_assets_needed": [
@@ -193,7 +193,14 @@
     "thinking"
   ],
   "meme_inserts": [],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Trough Creek Gravel Grinder' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Trough Creek Gravel Grinder' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 54,
+    "total_duration_sec": 33,
+    "overall_wpm": 98.2,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Tier List / Rankings (flagship, highest engagement)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

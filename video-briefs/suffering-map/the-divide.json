@@ -9,7 +9,7 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
+  "estimated_duration_sec": 34,
   "estimated_spoken_words": 43,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where The Divide breaks you. 50 mi. Zone by zone.",
       "text_on_screen": "The Divide — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -38,11 +38,6 @@
           "id": "51916854",
           "url": "https://ridewithgps.com/routes/51916854",
           "use": "Route map overlay"
-        },
-        {
-          "type": "race_website",
-          "url": "Check The Divide website",
-          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
@@ -67,12 +62,13 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 132.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 15",
-      "time_range": "0:03-0:11",
+      "time_range": "0:05-0:13",
       "duration_sec": 8,
       "narration": "Mile 15. Early Rolling. First rolling sections.",
       "text_on_screen": "MILE 15: Early Rolling",
@@ -86,11 +82,6 @@
           "use": "Route map overlay"
         },
         {
-          "type": "race_website",
-          "url": "Check The Divide website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "The Divide course preview",
           "use": "B-roll: terrain"
@@ -113,12 +104,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 52.5
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 25",
-      "time_range": "0:11-0:19",
+      "time_range": "0:13-0:21",
       "duration_sec": 8,
       "narration": "Mile 25. Midpoint. Halfway through the course.",
       "text_on_screen": "MILE 25: Midpoint",
@@ -132,11 +124,6 @@
           "use": "Route map overlay"
         },
         {
-          "type": "race_website",
-          "url": "Check The Divide website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "The Divide course preview",
           "use": "B-roll: terrain"
@@ -159,12 +146,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 52.5
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 40",
-      "time_range": "0:19-0:27",
+      "time_range": "0:21-0:29",
       "duration_sec": 8,
       "narration": "Mile 40. Late Rolling. Final rolling sections before finish.",
       "text_on_screen": "MILE 40: Late Rolling",
@@ -178,11 +166,6 @@
           "use": "Route map overlay"
         },
         {
-          "type": "race_website",
-          "url": "Check The Divide website",
-          "use": "Hero image, branding reference"
-        },
-        {
           "type": "youtube_search",
           "query": "The Divide course preview",
           "use": "B-roll: terrain"
@@ -205,12 +188,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 67.5
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:29-0:34",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/the-divide",
@@ -230,7 +214,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -239,6 +224,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'The Divide' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 43,
+    "total_duration_sec": 34,
+    "overall_wpm": 75.9,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

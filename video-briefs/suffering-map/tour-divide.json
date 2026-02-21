@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 33,
-  "estimated_spoken_words": 145,
+  "estimated_duration_sec": 50,
+  "estimated_spoken_words": 122,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Tour Divide breaks you. 2745 mi. Zone by zone.",
       "text_on_screen": "Tour Divide — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,13 +67,14 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 132.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 254",
-      "time_range": "0:03-0:08",
-      "duration_sec": 5,
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
       "narration": "Mile 254. Canada/Montana Border. First major psychological milestone. Koko Claims hike-a-bike section early. Grizzly bear territory begins.",
       "text_on_screen": "MILE 254: Canada/Montana Border",
       "visual": "Route map with zone marker animation",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 127.5
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 800",
-      "time_range": "0:08-0:13",
-      "duration_sec": 5,
-      "narration": "Mile 800. Fleecer Ridge (Montana). Toughest climb on Tour Divide. Infamous descent so steep riders report brake rotors hot enough to turn water to steam.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 800. Fleecer Ridge (Montana). Toughest climb on Tour Divide. Infamous descent so steep riders report brake rotors hot enough to turn.",
       "text_on_screen": "MILE 800: Fleecer Ridge (Montana)",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 1400",
-      "time_range": "0:13-0:18",
-      "duration_sec": 5,
-      "narration": "Mile 1400. Great Divide Basin (Wyoming). 100+ miles of Red Desert. Second-longest stretch without natural water. Peanut butter mud if it rains. Psychological wasteland.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 1400. Great Divide Basin (Wyoming). 100+ miles of Red Desert. Second-longest stretch without natural water. Peanut butter mud if it rains.",
       "text_on_screen": "MILE 1400: Great Divide Basin (Wyoming)",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,14 +208,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 2000",
-      "time_range": "0:18-0:23",
-      "duration_sec": 5,
-      "narration": "Mile 2000. Indiana Pass (Colorado). Highest point at 12 thousand feet. 4 thousand feet of climbing over 23 miles. 13 miles riding above 11 thousand feet. Lightning danger.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 2000. Indiana Pass (Colorado). Highest point at 12 thousand feet. 4 thousand feet of climbing over 23 miles.",
       "text_on_screen": "MILE 2000: Indiana Pass (Colorado)",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -251,14 +255,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 142.5
     },
     {
       "id": "zone_5",
       "label": "ZONE 5: Mile 2500",
-      "time_range": "0:23-0:28",
-      "duration_sec": 5,
-      "narration": "Mile 2500. Gila to Antelope Wells (New Mexico). Final 250 miles through deteriorating roads, rocky terrain, desert heat. Last 123 miles from Silver City have no services. Mental finish line torture.",
+      "time_range": "0:37-0:45",
+      "duration_sec": 8,
+      "narration": "Mile 2500. Gila to Antelope Wells (New Mexico). Final 250 miles through deteriorating roads, rocky terrain, desert heat. Last 123 miles from.",
       "text_on_screen": "MILE 2500: Gila to Antelope Wells (New Mexico)",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -297,12 +302,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:28-0:33",
+      "time_range": "0:45-0:50",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/tour-divide",
@@ -322,7 +328,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -331,6 +338,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Tour Divide' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 122,
+    "total_duration_sec": 50,
+    "overall_wpm": 146.4,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

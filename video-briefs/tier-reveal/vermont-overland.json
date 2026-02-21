@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Only a handful of races score 5/5 on Technicality. Vermont Overland is one.",
       "text_on_screen": "Only a handful of races score 5/5 on Technicality.",
       "visual": "Bold text overlay + avatar reaction",
@@ -46,12 +46,13 @@
         3
       ],
       "editing_note": "Pattern interrupt. Maximum visual stimulation. Text appears word-by-word (kinetic typography).",
-      "psych_mechanism": "Curiosity gap (specific) — knowing a perfect score exists but not why triggers dopamine anticipation."
+      "psych_mechanism": "Curiosity gap (specific) — knowing a perfect score exists but not why triggers dopamine anticipation.",
+      "narration_wpm": 156.0
     },
     {
       "id": "setup",
       "label": "SETUP",
-      "time_range": "0:03-0:08",
+      "time_range": "0:05-0:10",
       "duration_sec": 5,
       "narration": "Vermont Overland. Woodstock, Vermont. 54 mi.",
       "text_on_screen": "Vermont Overland | Woodstock, Vermont",
@@ -92,13 +93,14 @@
         2,
         3
       ],
-      "editing_note": "Quick establishing shot. Show race card, then cut to route map or location footage."
+      "editing_note": "Quick establishing shot. Show race card, then cut to route map or location footage.",
+      "narration_wpm": 72.0
     },
     {
       "id": "evidence",
       "label": "EVIDENCE",
-      "time_range": "0:08-0:22",
-      "duration_sec": 14,
+      "time_range": "0:10-0:22",
+      "duration_sec": 12,
       "narration": "Technicality: 5 out of 5. Elevation: 5 out of 5. Adventure: 5 out of 5.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
@@ -133,7 +135,8 @@
           "score": 5,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 75.0
     },
     {
       "id": "reveal",
@@ -157,7 +160,8 @@
         2,
         3
       ],
-      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct."
+      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct.",
+      "narration_wpm": 70.0
     },
     {
       "id": "cta",
@@ -182,7 +186,8 @@
         3
       ],
       "editing_note": "Design for LOOP: the final frame should visually connect back to the hook frame. On TikTok, seamless loops = replays = the strongest algorithmic signal.",
-      "engagement_question": "What race deserves a perfect Technicality score?"
+      "engagement_question": "What race deserves a perfect Technicality score?",
+      "narration_wpm": 96.0
     }
   ],
   "avatar_assets_needed": [
@@ -193,7 +198,14 @@
     "thumbs_up"
   ],
   "meme_inserts": [],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Vermont Overland' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Vermont Overland' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 49,
+    "total_duration_sec": 33,
+    "overall_wpm": 89.1,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Tier List / Rankings (flagship, highest engagement)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

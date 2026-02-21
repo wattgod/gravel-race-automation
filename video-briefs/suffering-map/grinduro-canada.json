@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 150,
+  "estimated_duration_sec": 42,
+  "estimated_spoken_words": 106,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Grinduro Canada breaks you. 67 mi. Zone by zone.",
       "text_on_screen": "Grinduro Canada — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 132.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 8",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
-      "narration": "Mile 8. First Stage Reality Check. The opening timed segment hits immediately and reminds you this isn't your typical gravel sufferfest. Technical singletrack with roots and rocks separates the mountain bikers from the road converts real fast.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 8. First Stage Reality Check. The opening timed segment hits immediately and reminds you this isn't your typical gravel sufferfest.",
       "text_on_screen": "MILE 8: First Stage Reality Check",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 157.5
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 25",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
-      "narration": "Mile 25. The Crater Climb. Steep, loose pitches where smaller tires spin helplessly and riders dismount in waves. The meteorite impact created these gradients specifically to humble your gear choices.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 25. The Crater Climb. Steep, loose pitches where smaller tires spin helplessly and riders dismount in waves. The meteorite impact created.",
       "text_on_screen": "MILE 25: The Crater Climb",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 40",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
-      "narration": "Mile 40. Soul-Sucking Sand. Deep sand sections that swallow momentum and spit out confidence. Your legs burn, your bike wallows, and you question every life decision that led here.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 40. Soul-Sucking Sand. Deep sand sections that swallow momentum and spit out confidence. Your legs burn, your bike wallows, and you.",
       "text_on_screen": "MILE 40: Soul-Sucking Sand",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,14 +208,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 55",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
-      "narration": "Mile 55. Eastern Ruggedness. The wild side of the crater reveals its true character through technical descents and relentless elevation changes. Canyon views are gorgeous until you realize you have to climb back out.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 55. Eastern Ruggedness. The wild side of the crater reveals its true character through technical descents and relentless elevation changes.",
       "text_on_screen": "MILE 55: Eastern Ruggedness",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -251,12 +255,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 157.5
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/grinduro-canada",
@@ -276,7 +281,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -285,6 +291,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Grinduro Canada' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 106,
+    "total_duration_sec": 42,
+    "overall_wpm": 151.4,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

@@ -68,7 +68,8 @@
         25
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
-      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation)."
+      "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
+      "narration_wpm": 138.0
     },
     {
       "id": "marketing_pitch",
@@ -123,7 +124,8 @@
           "Well-organized regional ultra",
           "High altitude challenge"
         ]
-      }
+      },
+      "narration_wpm": 15.0
     },
     {
       "id": "reality_check",
@@ -184,7 +186,8 @@
           "Wind exposure",
           "Limited prestige outside Wyoming"
         ]
-      }
+      },
+      "narration_wpm": 8.0
     },
     {
       "id": "data_evidence",
@@ -225,7 +228,8 @@
           "score": 2,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -249,7 +253,8 @@
         15,
         25
       ],
-      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy."
+      "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
+      "narration_wpm": 57.0
     },
     {
       "id": "cta",
@@ -274,7 +279,8 @@
         25
       ],
       "editing_note": "Keep energy up. Don't wind down.",
-      "engagement_question": "Roast or defend WYO 131. Go."
+      "engagement_question": "Roast or defend WYO 131. Go.",
+      "narration_wpm": 44.0
     }
   ],
   "avatar_assets_needed": [
@@ -294,6 +300,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'WYO 131' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 98,
+    "total_duration_sec": 225,
+    "overall_wpm": 26.1,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Hot Takes / Controversy (debate-driven comments)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

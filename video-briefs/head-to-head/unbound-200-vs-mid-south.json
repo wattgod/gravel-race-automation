@@ -10,7 +10,7 @@
     480
   ],
   "estimated_duration_sec": 335,
-  "estimated_spoken_words": 147,
+  "estimated_spoken_words": 157,
   "story_arc": "versus: tale-of-tape → round-by-round-escalation → verdict",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -51,7 +51,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "Unbound Gravel 200 cycling 2025 2026",
+          "query": "Unbound Gravel 200 cycling 2026",
           "use": "B-roll: hero"
         },
         {
@@ -72,7 +72,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "The Mid South cycling 2025 2026",
+          "query": "The Mid South cycling 2026",
           "use": "B-roll: hero"
         }
       ],
@@ -89,7 +89,8 @@
         25
       ],
       "editing_note": "Boxing match energy. Split-screen slam. Avatar in boxing stance. IKEA EFFECT: 'Predict the winner before I reveal it.'",
-      "psych_mechanism": "IKEA effect (prediction) + tribal identity (pick a side)."
+      "psych_mechanism": "IKEA effect (prediction) + tribal identity (pick a side).",
+      "narration_wpm": 102.0
     },
     {
       "id": "tale_of_tape",
@@ -113,7 +114,8 @@
         15,
         25
       ],
-      "editing_note": "Quick stats comparison. Establish both races before diving in."
+      "editing_note": "Quick stats comparison. Establish both races before diving in.",
+      "narration_wpm": 80.0
     },
     {
       "id": "dim_1",
@@ -144,7 +146,8 @@
         "The Mid South": 3,
         "delta": 1,
         "advantage": "Unbound Gravel 200"
-      }
+      },
+      "narration_wpm": 22.8
     },
     {
       "id": "dim_2",
@@ -175,7 +178,8 @@
         "The Mid South": 4,
         "delta": 1,
         "advantage": "Unbound Gravel 200"
-      }
+      },
+      "narration_wpm": 22.8
     },
     {
       "id": "dim_3",
@@ -206,7 +210,8 @@
         "The Mid South": 2,
         "delta": 1,
         "advantage": "Unbound Gravel 200"
-      }
+      },
+      "narration_wpm": 22.8
     },
     {
       "id": "dim_4",
@@ -237,7 +242,8 @@
         "The Mid South": 2,
         "delta": 1,
         "advantage": "Unbound Gravel 200"
-      }
+      },
+      "narration_wpm": 22.8
     },
     {
       "id": "dim_5",
@@ -268,14 +274,15 @@
         "The Mid South": 4,
         "delta": 2,
         "advantage": "The Mid South"
-      }
+      },
+      "narration_wpm": 22.8
     },
     {
       "id": "verdict",
       "label": "VERDICT",
       "time_range": "4:35-5:20",
       "duration_sec": 45,
-      "narration": "Unbound Gravel 200 takes it.",
+      "narration": "Unbound Gravel 200 takes it. 4 rounds to 1. 80 out of 100 vs 76.",
       "text_on_screen": "WINNER: Unbound Gravel 200",
       "visual": "Winner announcement + final score overlay",
       "avatar_pose": "excited",
@@ -292,7 +299,8 @@
         15,
         25
       ],
-      "editing_note": "SURPRISE WINNER technique: even if one was clearly better, delay the reveal. Build through dimensions first. End ABRUPTLY after verdict."
+      "editing_note": "SURPRISE WINNER technique: even if one was clearly better, delay the reveal. Build through dimensions first. End ABRUPTLY after verdict.",
+      "narration_wpm": 20.0
     },
     {
       "id": "cta",
@@ -316,7 +324,8 @@
         15,
         25
       ],
-      "engagement_question": "Which one are you picking? Drop it in the comments."
+      "engagement_question": "Which one are you picking? Drop it in the comments.",
+      "narration_wpm": 40.0
     }
   ],
   "avatar_assets_needed": [
@@ -329,6 +338,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style split screen, two cartoon cyclists facing off, 'Unbound Gravel 200' vs 'The Mid South' bold text, boxing match energy --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 157,
+    "total_duration_sec": 335,
+    "overall_wpm": 28.1,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Comparisons (high shareability)",
   "cross_platform_notes": {
     "youtube": "Primary platform. Enable mid-roll ads if >8 min.",

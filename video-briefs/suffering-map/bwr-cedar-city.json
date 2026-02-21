@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 155,
+  "estimated_duration_sec": 42,
+  "estimated_spoken_words": 111,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Belgian Waffle Ride Cedar City breaks you. 127 mi. Zone by zone.",
       "text_on_screen": "Belgian Waffle Ride Cedar City — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 168.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 0",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
-      "narration": "Mile 0. The Fast Opening. First 3.5 hours at ~23 mph average. People burn matches trying to hold wheels in wind and on fast dirt, then pay later in the sand and climbs.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 0. The Fast Opening. First 3.5 hours at ~23 mph average. People burn matches trying to hold wheels in wind and.",
       "text_on_screen": "MILE 0: The Fast Opening",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 60",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
-      "narration": "Mile 60. Sand & Wind Sectors. Miles of 'playground type sand' and crosswinds cook legs. Under-tired wheels knife into sand causing crashes or walking. Source Endurance recommends at least 40mm tires.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 60. Sand & Wind Sectors. Miles of 'playground type sand' and crosswinds cook legs. Under-tired wheels knife into sand causing crashes.",
       "text_on_screen": "MILE 60: Sand & Wind Sectors",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 100",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
-      "narration": "Mile 100. The Soul Crusher. The mile-100 sandy climb is 'the most challenging climb of the course' - steep, sandy, when you're already cracked. Many report using every gear and still grinding. Cramps and walking common.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 100. The Soul Crusher. The mile-100 sandy climb is 'the most challenging climb of the course' - steep, sandy, when you're.",
       "text_on_screen": "MILE 100: The Soul Crusher",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,14 +208,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 105",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
-      "narration": "Mile 105. Rocky Washboard Descent. 20-minute rocky/technical section after the summit. 'A steep, washboarded descent jarring jaws and shoulders tenderized by 110 miles of mostly gravel.' Where tired riders crash or cramp.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 105. Rocky Washboard Descent. 20-minute rocky/technical section after the summit. 'A steep, washboarded descent jarring jaws and shoulders tenderized by 110.",
       "text_on_screen": "MILE 105: Rocky Washboard Descent",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -251,12 +255,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/bwr-cedar-city",
@@ -276,7 +281,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -285,6 +291,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Belgian Waffle Ride Cedar City' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 111,
+    "total_duration_sec": 42,
+    "overall_wpm": 158.6,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

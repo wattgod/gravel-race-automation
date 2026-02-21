@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 116,
+  "estimated_duration_sec": 34,
+  "estimated_spoken_words": 87,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Big Sugar Gravel breaks you. 100 mi. Zone by zone.",
       "text_on_screen": "Big Sugar Gravel — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 144.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 21",
-      "time_range": "0:03-0:11",
+      "time_range": "0:05-0:13",
       "duration_sec": 8,
-      "narration": "Mile 21. Suicide Hill. The legendary Suicide Hill. Brutal reputation earned through years of carnage. 90° corners with descents. straight down into a turn at the bottom. Sharp gravel increases crash and puncture risk.",
+      "narration": "Mile 21. Suicide Hill. The legendary Suicide Hill. Brutal reputation earned through years of carnage. 90° corners with descents. straight down into.",
       "text_on_screen": "MILE 21: Suicide Hill",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 55",
-      "time_range": "0:11-0:19",
+      "time_range": "0:13-0:21",
       "duration_sec": 8,
-      "narration": "Mile 55. Missouri Border Grind. You've crossed into Missouri. The punchy 13%+ grade climbs keep coming. No sustained efforts. just repeated accelerations that shred diesel riders.",
+      "narration": "Mile 55. Missouri Border Grind. You've crossed into Missouri. The punchy 13%+ grade climbs keep coming. No sustained efforts. just repeated accelerations.",
       "text_on_screen": "MILE 55: Missouri Border Grind",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 80",
-      "time_range": "0:19-0:27",
+      "time_range": "0:21-0:29",
       "duration_sec": 8,
-      "narration": "Mile 80. Exposed Gravel Stretch. Two miles of exposed threshold effort at 9-10 mph pace. 20+ mph wind gusts with nowhere to hide. The finish is close but these final 20 miles will empty you.",
+      "narration": "Mile 80. Exposed Gravel Stretch. Two miles of exposed threshold effort at 9-10 mph pace. 20+ mph wind gusts with nowhere to.",
       "text_on_screen": "MILE 80: Exposed Gravel Stretch",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -205,12 +208,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:29-0:34",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/big-sugar",
@@ -230,7 +234,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -239,6 +244,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Big Sugar Gravel' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 87,
+    "total_duration_sec": 34,
+    "overall_wpm": 153.5,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

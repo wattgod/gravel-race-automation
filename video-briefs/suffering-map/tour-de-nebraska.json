@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 33,
-  "estimated_spoken_words": 192,
+  "estimated_duration_sec": 50,
+  "estimated_spoken_words": 129,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Tour de Nebraska breaks you. 250 mi. Zone by zone.",
       "text_on_screen": "Tour de Nebraska — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -61,14 +61,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 144.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 41",
-      "time_range": "0:03-0:08",
-      "duration_sec": 5,
-      "narration": "Mile 41. Curtis to Elwood Reality Check. Day one's 41 miles introduce you to Nebraska's signature lie. there are no flat roads here, just constant rolling resistance. The wind finds every exposed section and reminds you this isn't Kansas.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 41. Curtis to Elwood Reality Check. Day one's 41 miles introduce you to Nebraska's signature lie. there are no flat roads.",
       "text_on_screen": "MILE 41: Curtis to Elwood Reality Check",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -101,14 +102,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 76",
-      "time_range": "0:08-0:13",
-      "duration_sec": 5,
-      "narration": "Mile 76. Cambridge Approach Grind. Day two's gravel adventure component kicks in with single-lane maintenance roads that look manageable until you hit the sandy sections. Your 35mm tires start feeling optimistic.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 76. Cambridge Approach Grind. Day two's gravel adventure component kicks in with single-lane maintenance roads that look manageable until you hit.",
       "text_on_screen": "MILE 76: Cambridge Approach Grind",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -141,14 +143,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 135",
-      "time_range": "0:13-0:18",
-      "duration_sec": 5,
-      "narration": "Mile 135. McCook Marathon. Day three's 59-mile push to McCook includes the challenging climbs along Middle Creek Road and West Lake Drive. Hill after hill with no recovery, just Nebraska's version of death by a thousand cuts.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 135. McCook Marathon. Day three's 59-mile push to McCook includes the challenging climbs along Middle Creek Road and West Lake Drive.",
       "text_on_screen": "MILE 135: McCook Marathon",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -181,14 +184,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 191",
-      "time_range": "0:18-0:23",
-      "duration_sec": 5,
-      "narration": "Mile 191. Optional Loop Punishment. The 56-mile optional loop on day four separates tourists from masochists. Fresh gravel sections combined with accumulated fatigue make this the course's hidden knife.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 191. Optional Loop Punishment. The 56-mile optional loop on day four separates tourists from masochists. Fresh gravel sections combined with accumulated.",
       "text_on_screen": "MILE 191: Optional Loop Punishment",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -221,14 +225,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_5",
       "label": "ZONE 5: Mile 231",
-      "time_range": "0:23-0:28",
-      "duration_sec": 5,
-      "narration": "Mile 231. Curtis Homecoming Crawl. The final 40 miles back to Curtis feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans.",
+      "time_range": "0:37-0:45",
+      "duration_sec": 8,
+      "narration": "Mile 231. Curtis Homecoming Crawl. The final 40 miles back to Curtis feel longer than the previous four days combined.",
       "text_on_screen": "MILE 231: Curtis Homecoming Crawl",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -261,12 +266,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 150.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:28-0:33",
+      "time_range": "0:45-0:50",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/tour-de-nebraska",
@@ -286,7 +292,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -295,6 +302,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Tour de Nebraska' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 129,
+    "total_duration_sec": 50,
+    "overall_wpm": 154.8,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

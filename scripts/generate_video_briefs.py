@@ -27,6 +27,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -57,7 +58,9 @@ from generate_video_scripts import (
 # ── Constants ─────────────────────────────────────────────────
 
 FORMATS = ["tier-reveal", "should-you-race", "roast", "suffering-map",
-           "head-to-head", "data-drops"]
+           "head-to-head"]
+# "data-drops" excluded — script-only format, no production brief generator yet.
+# Use generate_video_scripts.py --data-drops for script text.
 
 # Duration targets in seconds per format (updated from retention research)
 DURATION_TARGETS = {
@@ -97,6 +100,15 @@ RETENTION_TARGETS = {
     "mid": {"30s_hold": ">70%", "midpoint": ">55%", "completion": ">40%"},
     "long": {"1min_hold": ">70%", "midpoint": ">50%", "avg_retention": ">45%"},
 }
+
+# Narration speed limits (words per minute)
+WPM_COMFORTABLE = 150    # Conversational, authentic delivery
+WPM_FAST = 170           # Energetic but still clear
+WPM_MAX = 200            # Absolute ceiling — auctioneer territory
+WPM_TARGET = WPM_FAST    # Default target for narration feasibility
+
+# Short-format hard ceiling (seconds)
+SHORT_MAX_SEC = 55  # Leave 5s buffer under platform 60s limit
 
 # Avatar reaction library (what to request from Midjourney/Runway)
 AVATAR_REACTIONS = {
@@ -321,13 +333,16 @@ def brief_tier_reveal(rd):
         label = DIM_LABELS.get(dim, dim)
         evidence.append({"dimension": label, "score": s, "max": 5})
 
+    # Hook narration trimmed to 5 seconds at fast pace
+    hook_narration = _trim_narration(trope["hook_text"], 5)
+
     beats = [
         {
             "id": "hook",
             "label": "HOOK",
-            "time_range": "0:00-0:03",
-            "duration_sec": 3,
-            "narration": trope["hook_text"],
+            "time_range": "0:00-0:05",
+            "duration_sec": 5,
+            "narration": hook_narration,
             "text_on_screen": trope["hook_text"].split(".")[0] + ".",
             "visual": "Bold text overlay + avatar reaction",
             "avatar_pose": _pick_avatar("hook", trope["name"], tier),
@@ -342,7 +357,7 @@ def brief_tier_reveal(rd):
         {
             "id": "setup",
             "label": "SETUP",
-            "time_range": "0:03-0:08",
+            "time_range": "0:05-0:10",
             "duration_sec": 5,
             "narration": f"{name}. {location}. {distance}.",
             "text_on_screen": f"{name} | {location}",
@@ -358,8 +373,8 @@ def brief_tier_reveal(rd):
         {
             "id": "evidence",
             "label": "EVIDENCE",
-            "time_range": "0:08-0:22",
-            "duration_sec": 14,
+            "time_range": "0:10-0:22",
+            "duration_sec": 12,
             "narration": " ".join(
                 f"{e['dimension']}: {e['score']} out of 5."
                 for e in evidence
@@ -422,7 +437,7 @@ def brief_tier_reveal(rd):
         trope=trope,
         beats=beats,
         retention_targets=RETENTION_TARGETS["short"],
-        thumbnail_prompt=_thumbnail_prompt(rd, trope),
+        thumbnail_prompt=_thumbnail_prompt(rd, trope, "tier-reveal"),
         rd=rd,
     )
 
@@ -438,24 +453,39 @@ def brief_suffering_map(rd):
     distance = rd["vitals"]["distance"]
 
     zone_beats = []
-    seconds_per_zone = max(4, min(8, 25 // max(len(zones), 1)))
+    hook_sec = 5  # Hook duration
+
+    # Enforce Short format ceiling: hook + zones + 5s CTA <= SHORT_MAX_SEC
+    max_zone_total = SHORT_MAX_SEC - hook_sec - 5
+    num_zones = len(zones)
+    seconds_per_zone = max(3, min(8, max_zone_total // max(num_zones, 1)))
+
+    # If too many zones to fit, truncate to what fits
+    max_zones = max_zone_total // seconds_per_zone
+    if num_zones > max_zones:
+        zones = zones[:max_zones]
+        num_zones = max_zones
 
     for i, zone in enumerate(zones):
         mile = zone.get("mile", "?")
         label = zone.get("label", zone.get("named_section", "Unknown"))
         desc = to_spoken(zone.get("desc", ""))
-        start_sec = 3 + (i * seconds_per_zone)
+        start_sec = hook_sec + (i * seconds_per_zone)
         end_sec = start_sec + seconds_per_zone
+
+        # Validate narration fits the zone duration
+        narration_text = f"Mile {mile}. {label}. {desc}"
+        narration_text = _trim_narration(narration_text, seconds_per_zone)
 
         zone_beats.append({
             "id": f"zone_{i+1}",
             "label": f"ZONE {i+1}: Mile {mile}",
-            "time_range": f"0:{start_sec:02d}-0:{end_sec:02d}",
+            "time_range": f"{_fmt_time(start_sec)}-{_fmt_time(end_sec)}",
             "duration_sec": seconds_per_zone,
-            "narration": f"Mile {mile}. {label}. {desc}",
+            "narration": narration_text,
             "text_on_screen": f"MILE {mile}: {label}",
             "visual": "Route map with zone marker animation",
-            "avatar_pose": "suffering" if i == len(zones) - 1 else "pointing",
+            "avatar_pose": "suffering" if i == num_zones - 1 else "pointing",
             "broll_sources": _get_broll_sources(rd, "terrain"),
             "music_bpm": BPM["tension"],
             "volume_db": VOLUME_DB["narration"],
@@ -464,16 +494,19 @@ def brief_suffering_map(rd):
                            "Progressive color intensity (green→yellow→red).",
         })
 
-    total_zone_sec = len(zones) * seconds_per_zone
-    total_sec = 3 + total_zone_sec + 5
+    total_zone_sec = num_zones * seconds_per_zone
+    total_sec = hook_sec + total_zone_sec + 5
 
     beats = [
         {
             "id": "hook",
             "label": "HOOK",
-            "time_range": "0:00-0:03",
-            "duration_sec": 3,
-            "narration": f"Here's where {name} breaks you. {distance}. Zone by zone.",
+            "time_range": f"0:00-{_fmt_time(hook_sec)}",
+            "duration_sec": hook_sec,
+            "narration": _trim_narration(
+                f"Here's where {name} breaks you. {distance}. Zone by zone.",
+                hook_sec,
+            ),
             "text_on_screen": f"{name} — Where It Hurts",
             "visual": "Full route map, then zoom into first zone",
             "avatar_pose": "suffering",
@@ -488,7 +521,7 @@ def brief_suffering_map(rd):
         {
             "id": "cta",
             "label": "CTA + LOOP",
-            "time_range": f"0:{3+total_zone_sec:02d}-0:{total_sec:02d}",
+            "time_range": f"{_fmt_time(hook_sec + total_zone_sec)}-{_fmt_time(total_sec)}",
             "duration_sec": 5,
             "narration": "Full suffering breakdown on the site. Link in bio.",
             "text_on_screen": f"gravelgodcycling.com/race/{slug}",
@@ -677,7 +710,7 @@ def brief_roast(rd):
         trope=trope,
         beats=beats,
         retention_targets=RETENTION_TARGETS["mid"],
-        thumbnail_prompt=_thumbnail_prompt(rd, trope),
+        thumbnail_prompt=_thumbnail_prompt(rd, trope, "roast"),
         rd=rd,
     )
 
@@ -943,7 +976,7 @@ def brief_should_you_race(rd):
         trope=trope,
         beats=beats,
         retention_targets=RETENTION_TARGETS["long"],
-        thumbnail_prompt=_thumbnail_prompt(rd, trope),
+        thumbnail_prompt=_thumbnail_prompt(rd, trope, "should-you-race"),
         rd=rd,
     )
 
@@ -972,10 +1005,12 @@ def brief_head_to_head(rd1, rd2):
     # Save the BIGGEST difference for last (escalation)
     top_diffs_reordered = top_diffs[1:] + [top_diffs[0]] if top_diffs else []
 
-    # Determine winner
-    if tier1 < tier2:
+    # Determine winner by round wins (primary), then score (tiebreaker)
+    wins1 = sum(1 for _, s1, s2, _ in top_diffs_reordered if s1 > s2)
+    wins2 = sum(1 for _, s1, s2, _ in top_diffs_reordered if s2 > s1)
+    if wins1 > wins2:
         winner, loser = name1, name2
-    elif tier2 < tier1:
+    elif wins2 > wins1:
         winner, loser = name2, name1
     elif score1 > score2:
         winner, loser = name1, name2
@@ -983,6 +1018,8 @@ def brief_head_to_head(rd1, rd2):
         winner, loser = name2, name1
     else:
         winner, loser = None, None
+    winner_rounds = max(wins1, wins2)
+    loser_rounds = min(wins1, wins2)
 
     # Build dimension comparison beats
     dim_beats = []
@@ -1078,9 +1115,12 @@ def brief_head_to_head(rd1, rd2):
             "time_range": f"{_fmt_time(verdict_start)}-{_fmt_time(verdict_start + 45)}",
             "duration_sec": 45,
             "narration": (
-                f"{winner or 'Dead heat'} takes it."
+                f"{winner} takes it. {winner_rounds} rounds to {loser_rounds}. "
+                f"{score1 if winner == name1 else score2} out of 100 vs "
+                f"{score2 if winner == name1 else score1}."
                 if winner else
-                "Dead heat. Same tier. Completely different races. Do both."
+                f"Dead heat. {wins1} rounds each. "
+                f"Same tier. Completely different races. Do both."
             ),
             "text_on_screen": f"WINNER: {winner or 'TIE'}",
             "visual": "Winner announcement + final score overlay",
@@ -1139,6 +1179,43 @@ def _fmt_time(seconds):
     return f"{m}:{s:02d}"
 
 
+def _check_wpm(text, duration_sec):
+    """Check if narration text is speakable in the given duration.
+
+    Returns (wpm, is_feasible, severity).
+    severity: 'ok', 'fast', 'too_fast', 'impossible'
+    """
+    words = len(text.split())
+    if duration_sec <= 0:
+        return (0, False, "impossible") if words > 0 else (0, True, "ok")
+    wpm = (words / duration_sec) * 60
+    if wpm <= WPM_COMFORTABLE:
+        return wpm, True, "ok"
+    if wpm <= WPM_FAST:
+        return wpm, True, "fast"
+    if wpm <= WPM_MAX:
+        return wpm, True, "too_fast"
+    return wpm, False, "impossible"
+
+
+def _trim_narration(text, duration_sec, target_wpm=WPM_FAST):
+    """Trim narration to fit within duration at target speaking rate.
+
+    Removes trailing sentences until it fits. Returns trimmed text.
+    """
+    words = text.split()
+    max_words = int((target_wpm / 60) * duration_sec)
+    if len(words) <= max_words:
+        return text
+    # Trim to max_words, try to end at a sentence boundary
+    trimmed = " ".join(words[:max_words])
+    # Find last sentence-ending punctuation
+    for i in range(len(trimmed) - 1, max(0, len(trimmed) - 20), -1):
+        if trimmed[i] in ".!?":
+            return trimmed[:i + 1]
+    return trimmed + "."
+
+
 def _pick_avatar(beat_type, trope_name, tier):
     """Select the best avatar reaction pose for a beat + trope combo."""
     if beat_type == "hook":
@@ -1191,9 +1268,10 @@ def _get_broll_sources(rd, context):
             "use": "Route map overlay",
         })
 
-    # Race website
-    official_site = rd["logistics"].get("official_site")
-    if official_site:
+    # Race website (only if it's actually a URL)
+    official_site = rd["logistics"].get("official_site", "")
+    if official_site and isinstance(official_site, str) and \
+       official_site.startswith(("http://", "https://")):
         sources.append({
             "type": "race_website",
             "url": official_site,
@@ -1202,7 +1280,7 @@ def _get_broll_sources(rd, context):
 
     # YouTube search queries based on context
     yt_queries = {
-        "hero": [f"{name} gravel race", f"{name} cycling 2025 2026"],
+        "hero": [f"{name} gravel race", f"{name} cycling {date.today().year}"],
         "location": [f"{location} drone", f"{location} landscape"],
         "terrain": [f"{name} course preview", f"gravel cycling {terrain}"],
         "route": [f"{name} route map", f"{name} course walkthrough"],
@@ -1220,8 +1298,11 @@ def _get_broll_sources(rd, context):
     return sources
 
 
-def _thumbnail_prompt(rd, trope):
-    """Generate a Midjourney thumbnail prompt."""
+def _thumbnail_prompt(rd, trope, format_name=""):
+    """Generate a Midjourney thumbnail prompt.
+
+    Uses --ar 9:16 for Short formats, --ar 16:9 for long/mid-form.
+    """
     name = rd["name"]
     tier = rd["tier"]
     tier_name = TIER_NAMES.get(tier, "Roster")
@@ -1239,22 +1320,40 @@ def _thumbnail_prompt(rd, trope):
     }
     cue = visual_cues.get(trope_name, "dramatic pose")
 
+    # Short formats use vertical aspect ratio
+    short_formats = ("tier-reveal", "suffering-map", "data-drops")
+    aspect_ratio = "9:16" if format_name in short_formats else "16:9"
+
     return (
         f"South Park style flat cutout character, {cue}, "
         f"'{name}' bold text, tier badge '{tier_name.upper()}', "
         f"high contrast red/yellow/white, cycling gear, "
-        f"handlebar mustache --ar 16:9 --cref [CHARACTER_URL]"
+        f"handlebar mustache --ar {aspect_ratio} --cref [CHARACTER_URL]"
     )
 
 
 def _build_brief(slug, format_name, platform, duration_target, story_arc,
                  trope, beats, retention_targets, thumbnail_prompt, rd):
     """Assemble the final production brief JSON."""
-    # Calculate total narration words
+    # Calculate total narration words and validate WPM per beat
     total_words = 0
+    wpm_warnings = []
     for beat in beats:
         narration = beat.get("narration", "")
-        total_words += len(narration.split())
+        duration = beat.get("duration_sec", 0)
+        words = len(narration.split())
+        total_words += words
+
+        if narration and duration > 0:
+            wpm, feasible, severity = _check_wpm(narration, duration)
+            beat["narration_wpm"] = round(wpm, 1)
+            if severity in ("too_fast", "impossible"):
+                warning = (
+                    f"Beat '{beat.get('id', '?')}': {round(wpm)}WPM "
+                    f"({words}w/{duration}s) — {severity}"
+                )
+                wpm_warnings.append(warning)
+                beat["wpm_warning"] = warning
 
     # Collect all avatar assets needed
     avatar_assets = list({
@@ -1290,6 +1389,13 @@ def _build_brief(slug, format_name, platform, duration_target, story_arc,
         "avatar_assets_needed": sorted(avatar_assets),
         "meme_inserts": meme_inserts,
         "thumbnail_prompt": thumbnail_prompt,
+        "narration_feasibility": {
+            "total_words": total_words,
+            "total_duration_sec": total_duration,
+            "overall_wpm": round((total_words / max(total_duration, 1)) * 60, 1),
+            "warnings": wpm_warnings,
+            "feasible": len(wpm_warnings) == 0,
+        },
         "content_pillars": _classify_pillar(format_name),
         "cross_platform_notes": _cross_platform_notes(format_name),
         "production_checklist": _production_checklist(format_name),
@@ -1409,7 +1515,6 @@ def main():
         "--head-to-head", nargs=2, metavar="SLUG",
         help="Compare two races head-to-head",
     )
-    parser.add_argument("--data-drops", action="store_true", help="Generate database stats")
     parser.add_argument("--data-dir", default=str(RACE_DATA_DIR))
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR))
     parser.add_argument("--dry-run", action="store_true")
@@ -1421,10 +1526,9 @@ def main():
         args.all,
         bool(args.top),
         bool(args.head_to_head),
-        args.data_drops,
     ])
     if modes == 0:
-        parser.error("Provide a slug, --all, --top N, --head-to-head, or --data-drops")
+        parser.error("Provide a slug, --all, --top N, or --head-to-head SLUG SLUG")
     if modes > 1:
         parser.error("Use only one mode at a time")
 
@@ -1447,11 +1551,6 @@ def main():
             print(f"  wrote {path}")
         return
 
-    # Data drops — not yet implemented for briefs
-    if args.data_drops:
-        print("Data drops briefs not yet implemented — use generate_video_scripts.py")
-        return
-
     # Determine race list
     if args.all or args.top:
         races = load_all_races(args.data_dir)
@@ -1469,6 +1568,7 @@ def main():
     # Generate
     total = 0
     skipped = 0
+    wpm_count = 0
     for slug in slugs:
         rd = load_race(slug, args.data_dir)
         if not rd:
@@ -1500,6 +1600,14 @@ def main():
             else:
                 continue
 
+            # Report WPM warnings
+            wpm_warns = brief.get("narration_feasibility", {}).get("warnings", [])
+            if wpm_warns:
+                wpm_count += len(wpm_warns)
+                if not (args.all or args.top):
+                    for w in wpm_warns:
+                        print(f"  WPM WARNING: {w}", file=sys.stderr)
+
             if args.dry_run:
                 print(f"[DRY RUN] {fmt}: {slug}")
             else:
@@ -1508,10 +1616,11 @@ def main():
             total += 1
 
     skip_msg = f", {skipped} skipped (insufficient data)" if skipped else ""
+    wpm_msg = f", {wpm_count} WPM warnings" if wpm_count else ""
     if args.dry_run:
-        print(f"\n{total} briefs would be generated{skip_msg}.")
+        print(f"\n{total} briefs would be generated{skip_msg}{wpm_msg}.")
     else:
-        print(f"\n{total} briefs generated{skip_msg}.")
+        print(f"\n{total} briefs generated{skip_msg}{wpm_msg}.")
 
 
 if __name__ == "__main__":

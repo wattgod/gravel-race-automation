@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 114,
+  "estimated_duration_sec": 42,
+  "estimated_spoken_words": 108,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where The Rad Dirt Fest breaks you. 113 mi. Zone by zone.",
       "text_on_screen": "The Rad Dirt Fest — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -61,13 +61,14 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 156.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 6",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
       "narration": "Mile 6. Trinidad Lake Roller Coaster. Six-mile series of hills in the state park. Packs stay together but legs start to sting.",
       "text_on_screen": "MILE 6: Trinidad Lake Roller Coaster",
       "visual": "Route map with zone marker animation",
@@ -101,14 +102,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 24",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
-      "narration": "Mile 24. 18-Mile Climb. The main selection. 18 miles up to 9 thousand ft with grades up to 18%. Heat, altitude, and gradient blow up groups.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 24. 18-Mile Climb. The main selection. 18 miles up to 9 thousand ft with grades up to 18%. Heat, altitude, and.",
       "text_on_screen": "MILE 24: 18-Mile Climb",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -141,14 +143,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 65",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
-      "narration": "Mile 65. Highest Point & Descent. After climbing to the highest point, screaming descent with mud and deep do-not-change-your-line ruts for about a mile.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 65. Highest Point & Descent. After climbing to the highest point, screaming descent with mud and deep do-not-change-your-line ruts for about.",
       "text_on_screen": "MILE 65: Highest Point & Descent",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -181,13 +184,14 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 100",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
       "narration": "Mile 100. Chunky Sector. The chunkiest part of the course. Most susceptible to flatting. Right before fast run-in to town.",
       "text_on_screen": "MILE 100: Chunky Sector",
       "visual": "Route map with zone marker animation",
@@ -221,12 +225,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 150.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/the-rad",
@@ -246,7 +251,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -255,6 +261,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'The Rad Dirt Fest' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 108,
+    "total_duration_sec": 42,
+    "overall_wpm": 154.3,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

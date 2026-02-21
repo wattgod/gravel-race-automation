@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 138,
+  "estimated_duration_sec": 42,
+  "estimated_spoken_words": 108,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where SBT GRVL breaks you. 108 mi. Zone by zone.",
       "text_on_screen": "SBT GRVL — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 132.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 20",
-      "time_range": "0:03-0:09",
-      "duration_sec": 6,
-      "narration": "Mile 20. The First Cutoff. Miss the 8:30 AM cutoff here and you're redirected to the Blue Course. The champagne gravel has already started sorting the field on rolling ranch roads.",
+      "time_range": "0:05-0:13",
+      "duration_sec": 8,
+      "narration": "Mile 20. The First Cutoff. Miss the 8:30 AM cutoff here and you're redirected to the Blue Course. The champagne gravel has.",
       "text_on_screen": "MILE 20: The First Cutoff",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 37",
-      "time_range": "0:09-0:15",
-      "duration_sec": 6,
-      "narration": "Mile 37. The Second Sort. Another cutoff point where dreams get redirected. You're deep enough into the sage hills that the smooth gravel has given way to chunkier, more technical surfaces.",
+      "time_range": "0:13-0:21",
+      "duration_sec": 8,
+      "narration": "Mile 37. The Second Sort. Another cutoff point where dreams get redirected. You're deep enough into the sage hills that the smooth.",
       "text_on_screen": "MILE 37: The Second Sort",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 65",
-      "time_range": "0:15-0:21",
-      "duration_sec": 6,
-      "narration": "Mile 65. The Aspen Grind. Deep into ranch country where the cumulative elevation starts compounding your suffering. The gravel stays fast but your legs don't.",
+      "time_range": "0:21-0:29",
+      "duration_sec": 8,
+      "narration": "Mile 65. The Aspen Grind. Deep into ranch country where the cumulative elevation starts compounding your suffering. The gravel stays fast but.",
       "text_on_screen": "MILE 65: The Aspen Grind",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,14 +208,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 85",
-      "time_range": "0:21-0:27",
-      "duration_sec": 6,
-      "narration": "Mile 85. The Reality Check. Twenty-three miles from home with most of the climbing behind you, but the champagne gravel has turned your legs to concrete. The math gets brutal here.",
+      "time_range": "0:29-0:37",
+      "duration_sec": 8,
+      "narration": "Mile 85. The Reality Check. Twenty-three miles from home with most of the climbing behind you, but the champagne gravel has turned.",
       "text_on_screen": "MILE 85: The Reality Check",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -251,12 +255,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:37-0:42",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/steamboat-gravel",
@@ -276,7 +281,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -285,6 +291,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'SBT GRVL' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 108,
+    "total_duration_sec": 42,
+    "overall_wpm": 154.3,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

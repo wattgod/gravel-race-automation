@@ -51,7 +51,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "Whiskey Off-Road cycling 2025 2026",
+          "query": "Whiskey Off-Road cycling 2026",
           "use": "B-roll: hero"
         }
       ],
@@ -68,7 +68,8 @@
         15
       ],
       "editing_note": "STATE THE PREMISE IN 8 SECONDS. Clear value prop: 'I rated 328 races. Here's where this one lands.' This is the 8-second decision window. Viewers who stay past 15s are 58% more likely to finish.",
-      "psych_mechanism": "Curiosity gap (specific) + IKEA effect (viewer predicts the tier before reveal)."
+      "psych_mechanism": "Curiosity gap (specific) + IKEA effect (viewer predicts the tier before reveal).",
+      "narration_wpm": 120.0
     },
     {
       "id": "course",
@@ -114,7 +115,8 @@
         20,
         40
       ],
-      "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts."
+      "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts.",
+      "narration_wpm": 58.0
     },
     {
       "id": "scores_top",
@@ -186,7 +188,8 @@
         "trigger": "3-minute retention dip prevention",
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
-      }
+      },
+      "narration_wpm": 1.7
     },
     {
       "id": "scores_remaining",
@@ -242,7 +245,8 @@
           "score": 3,
           "max": 5
         }
-      ]
+      ],
+      "narration_wpm": 8.0
     },
     {
       "id": "strengths",
@@ -296,7 +300,8 @@
           "Genuine MTB challenge with technical sections and massive climbing",
           "Historic Prescott setting adds character and post-race entertainment"
         ]
-      }
+      },
+      "narration_wpm": 6.7
     },
     {
       "id": "weaknesses",
@@ -334,7 +339,8 @@
         "trigger": "Midpoint re-engagement",
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
-      }
+      },
+      "narration_wpm": 9.3
     },
     {
       "id": "logistics",
@@ -387,7 +393,8 @@
           "Lodging: Book early. Prescott fills up. Partner hotels: SpringHill Suites, Hassayampa Inn, Best Western Prescottonian. Alternatives: Airbnb/VRBO, White Spar Campground, Prescott National Forest dispersed camping.",
           "Entry: $500"
         ]
-      }
+      },
+      "narration_wpm": 4.0
     },
     {
       "id": "verdict",
@@ -411,7 +418,8 @@
         20,
         40
       ],
-      "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy."
+      "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy.",
+      "narration_wpm": 42.0
     },
     {
       "id": "alternatives",
@@ -435,7 +443,8 @@
         20,
         40
       ],
-      "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races."
+      "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races.",
+      "narration_wpm": 24.0
     },
     {
       "id": "cta",
@@ -460,7 +469,8 @@
         40
       ],
       "editing_note": "End ABRUPTLY after CTA. No 'thanks for watching' wind-down.",
-      "engagement_question": "Have you raced Whiskey Off-Road? Did we get the score right? Drop it in the comments."
+      "engagement_question": "Have you raced Whiskey Off-Road? Did we get the score right? Drop it in the comments.",
+      "narration_wpm": 32.0
     }
   ],
   "avatar_assets_needed": [
@@ -487,6 +497,13 @@
     }
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Whiskey Off-Road' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 191,
+    "total_duration_sec": 585,
+    "overall_wpm": 19.6,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Race Profiles (evergreen SEO content)",
   "cross_platform_notes": {
     "youtube": "Primary platform. SEO-optimize title for '[Race Name] review'.",

@@ -9,8 +9,8 @@
     15,
     30
   ],
-  "estimated_duration_sec": 32,
-  "estimated_spoken_words": 171,
+  "estimated_duration_sec": 52,
+  "estimated_spoken_words": 130,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -26,8 +26,8 @@
     {
       "id": "hook",
       "label": "HOOK",
-      "time_range": "0:00-0:03",
-      "duration_sec": 3,
+      "time_range": "0:00-0:05",
+      "duration_sec": 5,
       "narration": "Here's where Torino Nice Rally breaks you. 435 mi. Zone by zone.",
       "text_on_screen": "Torino Nice Rally — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
@@ -67,14 +67,15 @@
         2,
         3
       ],
-      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face.",
+      "narration_wpm": 144.0
     },
     {
       "id": "zone_1",
       "label": "ZONE 1: Mile 0",
-      "time_range": "0:03-0:07",
-      "duration_sec": 4,
-      "narration": "Mile 0. Colle del Colombardo. First major challenge after leaving Turin. 'Potentially the toughest of them all.' 18%+ gradients on tarmac degrading to rough gravel doubletrack at 14%+.",
+      "time_range": "0:05-0:12",
+      "duration_sec": 7,
+      "narration": "Mile 0. Colle del Colombardo. First major challenge after leaving Turin. 'Potentially the toughest of them all.",
       "text_on_screen": "MILE 0: Colle del Colombardo",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -113,14 +114,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 145.7
     },
     {
       "id": "zone_2",
       "label": "ZONE 2: Mile 50",
-      "time_range": "0:07-0:11",
-      "duration_sec": 4,
-      "narration": "Mile 50. Colle delle Finestre. Famous Giro d'Italia climb. 19km, 1.7 thousandm vertical. Last 8km on fine gravel. Site of Chris Froome's 2018 race-winning attack.",
+      "time_range": "0:12-0:19",
+      "duration_sec": 7,
+      "narration": "Mile 50. Colle delle Finestre. Famous Giro d'Italia climb. 19km, 1.7 thousandm vertical. Last 8km on fine gravel.",
       "text_on_screen": "MILE 50: Colle delle Finestre",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -159,14 +161,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 154.3
     },
     {
       "id": "zone_3",
       "label": "ZONE 3: Mile 120",
-      "time_range": "0:11-0:15",
-      "duration_sec": 4,
-      "narration": "Mile 120. Col Agnel. Highest point at 2.8 thousandm. 20+ km climb at 6.6% average. Descent 'particularly cold and bleak, especially for toes.'",
+      "time_range": "0:19-0:26",
+      "duration_sec": 7,
+      "narration": "Mile 120. Col Agnel. Highest point at 2.8 thousandm. 20+ km climb at 6.6% average. Descent 'particularly cold and.",
       "text_on_screen": "MILE 120: Col Agnel",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -205,14 +208,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 162.9
     },
     {
       "id": "zone_4",
       "label": "ZONE 4: Mile 200",
-      "time_range": "0:15-0:19",
-      "duration_sec": 4,
-      "narration": "Mile 200. Gardetta Pass 'Little Peru'. 35km of high mountain gravel wilderness. 'Possibly the most mesmerizing gravel ride in the world.' The sweet spot of the entire event.",
+      "time_range": "0:26-0:33",
+      "duration_sec": 7,
+      "narration": "Mile 200. Gardetta Pass 'Little Peru'. 35km of high mountain gravel wilderness. 'Possibly the most mesmerizing gravel ride in.",
       "text_on_screen": "MILE 200: Gardetta Pass 'Little Peru'",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
@@ -251,13 +255,14 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 162.9
     },
     {
       "id": "zone_5",
       "label": "ZONE 5: Mile 350",
-      "time_range": "0:19-0:23",
-      "duration_sec": 4,
+      "time_range": "0:33-0:40",
+      "duration_sec": 7,
       "narration": "Mile 350. Col de Turini. 26km unrelenting climb with 1.7 thousandm vertical. The final major Alpine test.",
       "text_on_screen": "MILE 350: Col de Turini",
       "visual": "Route map with zone marker animation",
@@ -297,14 +302,15 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 145.7
     },
     {
       "id": "zone_6",
       "label": "ZONE 6: Mile 400",
-      "time_range": "0:23-0:27",
-      "duration_sec": 4,
-      "narration": "Mile 400. Via del Sale. 30km unpaved finale. 'Complete joy, dream gravel, amazing views.' Last point feeling completely enveloped by Alps. Far from inhabited centers - very rare fountains.",
+      "time_range": "0:40-0:47",
+      "duration_sec": 7,
+      "narration": "Mile 400. Via del Sale. 30km unpaved finale. 'Complete joy, dream gravel, amazing views.' Last point feeling completely enveloped.",
       "text_on_screen": "MILE 400: Via del Sale",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
@@ -343,12 +349,13 @@
         2,
         3
       ],
-      "editing_note": "Zone marker 6 appears on map. Progressive color intensity (green→yellow→red)."
+      "editing_note": "Zone marker 6 appears on map. Progressive color intensity (green→yellow→red).",
+      "narration_wpm": 162.9
     },
     {
       "id": "cta",
       "label": "CTA + LOOP",
-      "time_range": "0:27-0:32",
+      "time_range": "0:47-0:52",
       "duration_sec": 5,
       "narration": "Full suffering breakdown on the site. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/torino-nice-rally",
@@ -368,7 +375,8 @@
         3
       ],
       "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
-      "engagement_question": "Which zone would end your race? Comment the mile marker."
+      "engagement_question": "Which zone would end your race? Comment the mile marker.",
+      "narration_wpm": 108.0
     }
   ],
   "avatar_assets_needed": [
@@ -377,6 +385,13 @@
   ],
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Torino Nice Rally' text --ar 9:16 --cref [CHARACTER_URL]",
+  "narration_feasibility": {
+    "total_words": 130,
+    "total_duration_sec": 52,
+    "overall_wpm": 150.0,
+    "warnings": [],
+    "feasible": true
+  },
   "content_pillars": "Data Visualization (authority-building)",
   "cross_platform_notes": {
     "tiktok": "Post natively. Design for loop replay. Trending audio optional.",

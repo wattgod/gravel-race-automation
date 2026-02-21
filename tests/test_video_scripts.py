@@ -259,7 +259,7 @@ class TestTruncateToSentence:
 
 class TestHookAnalysis:
     def test_overrated_detection(self):
-        rd = _load_test_race("unbound-200")
+        rd = _load_test_race("monaco-gravel-race")
         hooks = analyze_hooks(rd)
         angles = [h["angle"] for h in hooks]
         assert "overrated" in angles
@@ -280,7 +280,7 @@ class TestHookAnalysis:
             pytest.skip("No hidden gem race found in dataset")
 
     def test_prestige_override(self):
-        rd = _load_test_race("mid-south")
+        rd = _load_test_race("bwr-san-diego")
         hooks = analyze_hooks(rd)
         angles = [h["angle"] for h in hooks]
         assert "prestige_override" in angles
@@ -379,7 +379,7 @@ class TestTierReveal:
     def test_includes_tier_and_score(self):
         rd = _load_test_race("unbound-200")
         script = fmt_tier_reveal(rd)
-        assert "80" in script
+        assert "93" in script
         assert "The Icons" in script
 
     def test_no_mangled_years_in_output(self):

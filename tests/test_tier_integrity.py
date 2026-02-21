@@ -45,9 +45,10 @@ TIER_3_MIN = 45
 
 
 def calculate_overall_score(rating: dict) -> int:
-    """Calculate overall score from 14 components."""
+    """Calculate overall score from 14 base components + cultural_impact bonus."""
     total = sum(rating.get(k, 0) for k in SCORE_COMPONENTS)
-    return round((total / 70) * 100)
+    ci = rating.get("cultural_impact", 0)
+    return round((total + ci) / 70 * 100)
 
 
 def calculate_tier(score: int) -> int:
@@ -297,6 +298,74 @@ class TestComponentScores:
             msg = f"\n\nFound {len(violations)} component scores out of range (must be 1-5):\n\n"
             for v in violations:
                 msg += f"  {v['file']:40} {v['component']}={v['value']}\n"
+            pytest.fail(msg)
+
+
+class TestCulturalImpact:
+    """Test cultural_impact bonus dimension integrity."""
+
+    def test_cultural_impact_in_range(self):
+        """cultural_impact must be 0-5 when present."""
+        race_data_dir = get_race_data_dir()
+        if not race_data_dir.exists():
+            pytest.skip("race-data directory not found")
+
+        violations = []
+
+        for json_file in race_data_dir.glob("*.json"):
+            try:
+                data = json.loads(json_file.read_text())
+                race_data = data.get('race', data)
+                rating = race_data.get('gravel_god_rating', {})
+            except (json.JSONDecodeError, IOError):
+                continue
+
+            ci = rating.get("cultural_impact")
+            if ci is not None:
+                if not isinstance(ci, (int, float)) or ci < 0 or ci > 5:
+                    violations.append({
+                        "file": json_file.name,
+                        "value": ci,
+                    })
+
+        if violations:
+            msg = f"\n\nFound {len(violations)} races with invalid cultural_impact (must be 0-5):\n\n"
+            for v in violations:
+                msg += f"  {v['file']:40} cultural_impact={v['value']}\n"
+            pytest.fail(msg)
+
+    def test_cultural_impact_only_on_notable_races(self):
+        """Races with CI > 0 should have prestige >= 3 or tier <= 2."""
+        race_data_dir = get_race_data_dir()
+        if not race_data_dir.exists():
+            pytest.skip("race-data directory not found")
+
+        violations = []
+
+        for json_file in race_data_dir.glob("*.json"):
+            try:
+                data = json.loads(json_file.read_text())
+                race_data = data.get('race', data)
+                rating = race_data.get('gravel_god_rating', {})
+            except (json.JSONDecodeError, IOError):
+                continue
+
+            ci = rating.get("cultural_impact", 0)
+            if ci > 0:
+                prestige = rating.get("prestige", 0)
+                tier = rating.get("tier", 4)
+                if prestige < 3 and tier > 2:
+                    violations.append({
+                        "file": json_file.name,
+                        "ci": ci,
+                        "prestige": prestige,
+                        "tier": tier,
+                    })
+
+        if violations:
+            msg = f"\n\nFound {len(violations)} races with CI>0 but low prestige/tier:\n\n"
+            for v in violations:
+                msg += f"  {v['file']:40} ci={v['ci']} prestige={v['prestige']} tier={v['tier']}\n"
             pytest.fail(msg)
 
 

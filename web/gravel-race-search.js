@@ -686,12 +686,17 @@
     elevation: 'Elevation', climate: 'Climate', altitude: 'Altitude',
     adventure: 'Adventure', prestige: 'Prestige', race_quality: 'Race Quality',
     experience: 'Experience', community: 'Community', field_depth: 'Field Depth',
-    value: 'Value', expenses: 'Expenses'
+    value: 'Value', expenses: 'Expenses', cultural_impact: 'Cultural Impact'
   };
 
   function renderScoreBreakdown(scores) {
     if (!scores || Object.keys(scores).length < 7) return '';
-    var rows = Object.entries(SCORE_LABELS).map(function(pair) {
+    var rows = Object.entries(SCORE_LABELS).filter(function(pair) {
+      var key = pair[0];
+      // Only show cultural_impact if the race has it
+      if (key === 'cultural_impact') return scores[key] != null && scores[key] > 0;
+      return true;
+    }).map(function(pair) {
       var key = pair[0], label = pair[1];
       var val = scores[key] || 0;
       var dots = Array.from({length: 5}, function(_, i) {
@@ -1238,8 +1243,11 @@
     // Scores section header
     html += '<tr class="gg-compare-section-row"><td colspan="' + (races.length + 1) + '">SCORES</td></tr>';
 
-    // 14 score dimension rows
-    Object.entries(SCORE_LABELS).forEach(function(pair) {
+    // Score dimension rows (14 base + cultural_impact bonus if any race has it)
+    Object.entries(SCORE_LABELS).filter(function(pair) {
+      if (pair[0] === 'cultural_impact') return races.some(function(r) { return r.scores && r.scores.cultural_impact > 0; });
+      return true;
+    }).forEach(function(pair) {
       var key = pair[0], label = pair[1];
       var vals = races.map(function(r) { return (r.scores && r.scores[key]) || 0; });
       var maxVal = Math.max.apply(null, vals);

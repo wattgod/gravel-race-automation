@@ -54,9 +54,9 @@
       "pavement_percentage": 15
     },
     "gravel_god_rating": {
-      "overall_score": 79,
-      "tier": 2,
-      "tier_label": "TIER 2",
+      "overall_score": 83,
+      "tier": 1,
+      "tier_label": "TIER 1",
       "logistics": 3,
       "length": 5,
       "technicality": 2,
@@ -71,13 +71,14 @@
       "field_depth": 4,
       "value": 5,
       "expenses": 4,
-      "editorial_tier": 2,
-      "editorial_tier_label": "TIER 2",
-      "business_tier": 2,
-      "business_tier_label": "TIER 2",
-      "display_tier": 2,
-      "display_tier_label": "TIER 2",
-      "discipline": "gravel"
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "gravel",
+      "cultural_impact": 3
     },
     "biased_opinion_ratings": {
       "logistics": {

@@ -94,7 +94,7 @@ class TestScoringDimensionsData:
         course, editorial, overall, tier = mod._load_unbound_scores()
         # Unbound 200 is Tier 1
         assert tier == 1, f"Expected tier 1, got {tier}"
-        assert overall == 80, f"Expected overall 80, got {overall}"
+        assert overall == 93, f"Expected overall 93, got {overall}"
         assert len(course) == 7, f"Expected 7 course dims, got {len(course)}"
         assert len(editorial) == 7, f"Expected 7 editorial dims, got {len(editorial)}"
         # All scores should be 1-5

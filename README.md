@@ -85,7 +85,7 @@ python3 scripts/push_wordpress.py --sync-pages --sync-widget --sync-index --purg
 
 ## Scoring
 
-14 criteria scored 1-5. Overall score = `round((sum / 70) * 100)`.
+14 base criteria scored 1-5, plus cultural_impact bonus (0-5). Overall score = `round((base_sum + cultural_impact) / 70 * 100)`.
 
 | Tier | Threshold | Count |
 |------|-----------|-------|

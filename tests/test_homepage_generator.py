@@ -2,6 +2,7 @@
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -101,7 +102,7 @@ class TestDataLoading:
         assert stats["race_count"] == len(race_index)
 
     def test_stats_dimensions(self, stats):
-        assert stats["dimensions"] == 14
+        assert stats["dimensions"] == 15
 
     def test_stats_t1_count(self, stats, race_index):
         expected = sum(1 for r in race_index if r.get("tier") == 1)
@@ -665,16 +666,28 @@ class TestRegressions:
         assert "gg-hp-take-card" in homepage_html
         assert "ALL ARTICLES" in homepage_html
 
-    def test_latest_takes_in_main_column(self, homepage_html):
-        """Latest Takes should appear in the main column, not the sidebar."""
-        # Search within <body> only to avoid matching class names in CSS
+    def test_latest_takes_is_standalone_section(self, homepage_html):
+        """Latest Takes must be between content grid and how-it-works, outside both."""
         body_start = homepage_html.find("<body")
         body = homepage_html[body_start:]
-        main_col_pos = body.find("gg-hp-main-col")
-        takes_pos = body.find("gg-hp-latest-takes")
-        sidebar_pos = body.find('class="gg-hp-sidebar"')
-        if takes_pos >= 0 and main_col_pos >= 0 and sidebar_pos >= 0:
-            assert main_col_pos < takes_pos < sidebar_pos, "Latest Takes should be in main column"
+        # Find the content grid's closing </div> by matching the opening tag's nesting
+        grid_open = body.find('class="gg-hp-content-grid"')
+        assert grid_open >= 0, "Content grid not found"
+        # The sidebar-sticky closing, sidebar closing, then grid closing —
+        # the grid close is the </div> right before "gg-hp-latest-takes"
+        sidebar_close = body.find("</aside>", grid_open)
+        assert sidebar_close >= 0, "Sidebar close not found"
+        grid_close = body.find("</div>", sidebar_close)
+        assert grid_close >= 0, "Grid close not found"
+
+        takes_pos = body.find('class="gg-hp-latest-takes"')
+        how_it_works_pos = body.find('class="gg-hp-how-it-works"')
+        assert takes_pos >= 0, "Latest Takes section not found in body"
+        assert how_it_works_pos >= 0, "How It Works section not found in body"
+        assert takes_pos > grid_close, \
+            "Latest Takes must appear AFTER content grid closes"
+        assert takes_pos < how_it_works_pos, \
+            "Latest Takes must appear BEFORE How It Works"
 
     def test_training_before_guide(self, homepage_html):
         """Training/coaching section should appear before guide preview in body."""
@@ -745,7 +758,7 @@ class TestContentGrid:
     def test_content_grid_css(self):
         css = build_homepage_css()
         assert "gg-hp-content-grid" in css
-        assert "7fr 5fr" in css
+        assert "3fr 2fr" in css
 
 
 class TestTabbedRankings:
@@ -755,21 +768,23 @@ class TestTabbedRankings:
         assert 'role="tab"' in html
         assert 'role="tabpanel"' in html
 
-    def test_tabbed_rankings_three_tabs(self, race_index):
+    def test_tabbed_rankings_five_tabs(self, race_index):
         html = build_tabbed_rankings(race_index)
-        assert html.count('role="tab"') == 3
-        assert html.count('role="tabpanel"') == 3
+        assert html.count('role="tab"') == 5
+        assert html.count('role="tabpanel"') == 5
 
     def test_tabbed_rankings_aria_selected(self, race_index):
         html = build_tabbed_rankings(race_index)
         assert 'aria-selected="true"' in html
-        assert html.count('aria-selected="false"') == 2
+        assert html.count('aria-selected="false"') == 4
 
     def test_tabbed_rankings_aria_controls(self, race_index):
         html = build_tabbed_rankings(race_index)
         assert 'aria-controls="gg-panel-all"' in html
         assert 'aria-controls="gg-panel-t1"' in html
         assert 'aria-controls="gg-panel-t2"' in html
+        assert 'aria-controls="gg-panel-t3"' in html
+        assert 'aria-controls="gg-panel-t4"' in html
 
     def test_tabbed_rankings_hidden_panels(self, race_index):
         html = build_tabbed_rankings(race_index)
@@ -778,6 +793,8 @@ class TestTabbedRankings:
         assert 'gg-hp-tab-inactive' in html
         assert 'id="gg-panel-t1"' in html
         assert 'id="gg-panel-t2"' in html
+        assert 'id="gg-panel-t3"' in html
+        assert 'id="gg-panel-t4"' in html
 
     def test_tabbed_rankings_keyboard_nav_in_js(self):
         js = build_homepage_js()
@@ -1160,6 +1177,268 @@ class TestSultanicCopyGuard:
         # Even if not styled, the class shouldn't cause errors
         # The empty message is plain text inside a panel
         assert "[role=\"tabpanel\"]" in css
+
+
+class TestDisciplineFiltering:
+    """Verify bikepacking/MTB races are excluded from all homepage rankings.
+
+    The race-index.json has 7 bikepacking and 4 MTB races. The top 7 by score
+    are ALL non-gravel. Without filtering, the entire "All Tiers" top 5 and
+    all 5 power rankings would be bikepacking/MTB races.
+    """
+
+    def test_real_data_has_non_gravel_races(self, race_index):
+        """Precondition: verify the index actually contains non-gravel races.
+        If this fails, the other tests in this class are vacuous."""
+        non_gravel = [r for r in race_index
+                      if r.get("discipline") not in (None, "", "gravel")]
+        assert len(non_gravel) >= 5, \
+            f"Expected >=5 non-gravel races in index, found {len(non_gravel)}. " \
+            "If this changes, discipline filtering tests need updating."
+
+    def test_rankings_zero_non_gravel(self, race_index):
+        """ALL 15 ranking slots (3 tabs x 5 items) must be gravel-only."""
+        html = build_tabbed_rankings(race_index)
+        non_gravel = [r for r in race_index
+                      if r.get("discipline") not in (None, "", "gravel")]
+        for race in non_gravel:
+            name = race.get("name", "")
+            assert name not in html, \
+                f"Non-gravel race '{name}' (discipline={race['discipline']}) " \
+                f"appeared in tabbed rankings"
+
+    def test_power_rankings_zero_non_gravel(self, stats, race_index, upcoming):
+        """All 5 power ranking slots must be gravel-only."""
+        html = build_sidebar(stats, race_index, upcoming)
+        non_gravel = [r for r in race_index
+                      if r.get("discipline") not in (None, "", "gravel")]
+        for race in non_gravel:
+            name = race.get("name", "")
+            # Power rankings are in <ol class="gg-hp-rank-list">
+            rank_start = html.find("gg-hp-rank-list")
+            rank_end = html.find("</ol>", rank_start) if rank_start >= 0 else -1
+            if rank_start >= 0 and rank_end >= 0:
+                rank_html = html[rank_start:rank_end]
+                assert name not in rank_html, \
+                    f"Non-gravel race '{name}' (discipline={race['discipline']}) " \
+                    f"appeared in power rankings"
+
+    def test_rankings_synthetic_mixed_disciplines(self):
+        """Synthetic test: rankings with mixed discipline data should only show gravel."""
+        mixed_index = [
+            {"slug": "gravel-race", "name": "Gravel Race", "tier": 1, "overall_score": 95,
+             "discipline": "gravel", "tagline": "A gravel race"},
+            {"slug": "mtb-race", "name": "MTB Race", "tier": 1, "overall_score": 98,
+             "discipline": "mtb", "tagline": "A mountain bike race"},
+            {"slug": "bp-race", "name": "BP Race", "tier": 1, "overall_score": 94,
+             "discipline": "bikepacking", "tagline": "A bikepacking race"},
+            {"slug": "default-race", "name": "Default Race", "tier": 2, "overall_score": 70,
+             "tagline": "No discipline field"},
+        ]
+        html = build_tabbed_rankings(mixed_index)
+        assert "Gravel Race" in html
+        assert "Default Race" in html  # Missing discipline defaults to gravel
+        assert "MTB Race" not in html
+        assert "BP Race" not in html
+
+    def test_filter_handles_null_discipline(self):
+        """discipline: null should be treated as gravel, not excluded."""
+        index = [
+            {"slug": "null-disc", "name": "Null Disc Race", "tier": 1,
+             "overall_score": 99, "discipline": None, "tagline": "Has null discipline"},
+        ]
+        html = build_tabbed_rankings(index)
+        assert "Null Disc Race" in html
+
+    def test_filter_handles_empty_discipline(self):
+        """discipline: '' should be treated as gravel, not excluded."""
+        index = [
+            {"slug": "empty-disc", "name": "Empty Disc Race", "tier": 1,
+             "overall_score": 99, "discipline": "", "tagline": "Has empty discipline"},
+        ]
+        html = build_tabbed_rankings(index)
+        assert "Empty Disc Race" in html
+
+    def test_filter_handles_missing_discipline(self):
+        """Race with no discipline field should be treated as gravel."""
+        index = [
+            {"slug": "no-disc", "name": "No Disc Race", "tier": 1,
+             "overall_score": 99, "tagline": "Has no discipline field"},
+        ]
+        html = build_tabbed_rankings(index)
+        assert "No Disc Race" in html
+
+    def test_empty_gravel_set_shows_fallback(self):
+        """If ALL races are non-gravel, rankings should show empty-state message."""
+        all_mtb = [
+            {"slug": "mtb-1", "name": "MTB Race 1", "tier": 1, "overall_score": 99,
+             "discipline": "mtb", "tagline": "MTB race"},
+            {"slug": "mtb-2", "name": "MTB Race 2", "tier": 2, "overall_score": 80,
+             "discipline": "mtb", "tagline": "Another MTB race"},
+        ]
+        html = build_tabbed_rankings(all_mtb)
+        # All 5 panels should show empty fallback (All, T1, T2, T3, T4)
+        assert html.count("No races in this tier") == 5, \
+            "All tab panels should show empty fallback when no gravel races exist"
+
+    def test_editorial_one_liners_exclude_non_gravel(self):
+        """Ticker one-liners should exclude non-gravel races."""
+        import tempfile, os
+        # Create temp race data with a bikepacking race that has a one-liner
+        bp_race = {
+            "race": {
+                "name": "Fake BP Race", "slug": "fake-bp",
+                "display_name": "Fake BP Race",
+                "gravel_god_rating": {
+                    "tier": 1, "overall_score": 99, "discipline": "bikepacking",
+                },
+                "final_verdict": {"one_liner": "The ultimate bikepacking adventure."},
+            }
+        }
+        gravel_race = {
+            "race": {
+                "name": "Fake Gravel Race", "slug": "fake-gravel",
+                "display_name": "Fake Gravel Race",
+                "gravel_god_rating": {
+                    "tier": 1, "overall_score": 85, "discipline": "gravel",
+                },
+                "final_verdict": {"one_liner": "A proper gravel race."},
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmpdir:
+            for name, data in [("fake-bp.json", bp_race), ("fake-gravel.json", gravel_race)]:
+                with open(os.path.join(tmpdir, name), "w") as f:
+                    json.dump(data, f)
+            one_liners = load_editorial_one_liners(Path(tmpdir))
+            names = [ol["name"] for ol in one_liners]
+            assert "Fake Gravel Race" in names, "Gravel race should appear in one-liners"
+            assert "Fake BP Race" not in names, "Bikepacking race should be excluded from one-liners"
+
+    def test_upcoming_races_exclude_non_gravel(self):
+        """Upcoming races should exclude non-gravel races."""
+        import tempfile, os
+        from datetime import timedelta
+        today = date.today()
+        future_date = today + timedelta(days=10)
+        date_str = f"{future_date.year}: {future_date.strftime('%B')} {future_date.day}"
+        bp_upcoming = {
+            "race": {
+                "name": "Upcoming BP", "slug": "upcoming-bp",
+                "display_name": "Upcoming BP",
+                "vitals": {"date_specific": date_str, "location": "Somewhere"},
+                "gravel_god_rating": {
+                    "tier": 1, "overall_score": 95, "discipline": "bikepacking",
+                },
+            }
+        }
+        gravel_upcoming = {
+            "race": {
+                "name": "Upcoming Gravel", "slug": "upcoming-gravel",
+                "display_name": "Upcoming Gravel",
+                "vitals": {"date_specific": date_str, "location": "Somewhere Else"},
+                "gravel_god_rating": {
+                    "tier": 2, "overall_score": 75, "discipline": "gravel",
+                },
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmpdir:
+            for name, data in [("bp.json", bp_upcoming), ("gravel.json", gravel_upcoming)]:
+                with open(os.path.join(tmpdir, name), "w") as f:
+                    json.dump(data, f)
+            upcoming = load_upcoming_races(Path(tmpdir), today)
+            names = [r["name"] for r in upcoming]
+            assert "Upcoming Gravel" in names
+            assert "Upcoming BP" not in names
+
+    def test_featured_races_fallback_excludes_non_gravel(self):
+        """Featured race fallback should only pick gravel T1 races."""
+        index = [
+            {"slug": "bp-top", "name": "BP Top", "tier": 1, "overall_score": 99,
+             "discipline": "bikepacking"},
+            {"slug": "gravel-lower", "name": "Gravel Lower", "tier": 1, "overall_score": 80,
+             "discipline": "gravel"},
+        ]
+        featured = get_featured_races(index)
+        names = [r["name"] for r in featured]
+        assert "BP Top" not in names, "Bikepacking race should not be in featured fallback"
+        assert "Gravel Lower" in names
+
+
+class TestBentoNoImage:
+    """Verify bento feature cards have no image placeholders."""
+
+    def test_bento_no_image_placeholder(self, race_index):
+        """Bento cards should not have beige image placeholder divs."""
+        html = build_bento_features(race_index)
+        assert "gg-hp-bento-img" not in html
+
+    def test_bento_no_image_css(self):
+        """CSS should not define .gg-hp-bento-img rules."""
+        css = build_homepage_css()
+        assert ".gg-hp-bento-img" not in css
+
+
+class TestLatestTakesFullWidth:
+    """Verify Latest Takes is full-width with 3-card layout."""
+
+    def test_latest_takes_not_in_content_grid(self, race_index, stats, upcoming):
+        """Latest Takes should not be part of the content grid output."""
+        grid_html = build_content_grid(race_index, stats, upcoming)
+        assert "gg-hp-latest-takes" not in grid_html
+
+    def test_latest_takes_css_max_width(self):
+        """Latest Takes should have its own max-width for full-width layout."""
+        css = build_homepage_css()
+        assert "gg-hp-latest-takes" in css
+        # Should have max-width: 1080px
+        import re
+        takes_rule = re.search(r'\.gg-hp-latest-takes\s*\{[^}]+\}', css)
+        assert takes_rule is not None
+        assert "max-width: 1080px" in takes_rule.group(0)
+
+    def test_latest_takes_three_card_layout(self):
+        """Take cards should be 33.333% width for 3-card layout."""
+        css = build_homepage_css()
+        assert "calc(33.333%" in css
+
+    def test_carousel_js_three_per_page(self):
+        """Carousel JS should show 3 cards per page on desktop."""
+        js = build_homepage_js()
+        assert "return 3;" in js
+
+
+class TestFeaturedSlugsIntegrity:
+    """Verify FEATURED_SLUGS are valid and gravel-only."""
+
+    def test_featured_slugs_exist_in_index(self, race_index):
+        """Every slug in FEATURED_SLUGS must exist in race-index.json."""
+        index_slugs = {r["slug"] for r in race_index}
+        for slug in FEATURED_SLUGS:
+            assert slug in index_slugs, \
+                f"FEATURED_SLUGS contains '{slug}' which is not in race-index.json. " \
+                f"Check for typos (e.g., 'sbt-grvl' vs 'steamboat-gravel')."
+
+    def test_featured_slugs_are_gravel(self, race_index):
+        """Every race in FEATURED_SLUGS must have discipline == gravel."""
+        slug_to_race = {r["slug"]: r for r in race_index}
+        for slug in FEATURED_SLUGS:
+            if slug not in slug_to_race:
+                pytest.skip(f"Slug '{slug}' missing from index — covered by test above")
+            race = slug_to_race[slug]
+            disc = race.get("discipline") or "gravel"
+            assert disc == "gravel", \
+                f"FEATURED_SLUGS contains '{slug}' with discipline='{race.get('discipline')}'. " \
+                f"Only gravel races should be featured."
+
+    def test_featured_slugs_not_empty(self):
+        """FEATURED_SLUGS should have at least 2 entries."""
+        assert len(FEATURED_SLUGS) >= 2, \
+            f"FEATURED_SLUGS has {len(FEATURED_SLUGS)} entries — need at least 2 for bento layout."
+
+    def test_featured_slugs_no_duplicates(self):
+        """FEATURED_SLUGS should not contain duplicates."""
+        assert len(FEATURED_SLUGS) == len(set(FEATURED_SLUGS)), \
+            f"FEATURED_SLUGS has duplicates: {[s for s in FEATURED_SLUGS if FEATURED_SLUGS.count(s) > 1]}"
 
 
 def html_escape(text):

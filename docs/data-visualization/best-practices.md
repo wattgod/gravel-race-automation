@@ -121,7 +121,7 @@ Never rely on color alone. Always use at least one additional encoding:
 
 ### Radar Charts for Race/Athlete Profiling
 
-- Ideal for our 14-criteria scoring system (1-5 normalized scale)
+- Ideal for our 15-criteria scoring system (1-5 normalized scale)
 - Place related attributes on adjacent axes (group difficulty metrics, group community metrics)
 - Limit to 4-5 overlapping polygons maximum
 - For single-entity profiles: one filled polygon against a "tier average" reference outline

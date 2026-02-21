@@ -553,7 +553,7 @@ def generate_tier_roundup(races, tier, year, output_dir):
     intro = (
         f"Every Tier {tier} ({tier_name}) gravel race in the Gravel God database for {year}. "
         f"These {len(filtered)} races earned their {tier_name} rating through our "
-        f"14-criteria scoring system covering logistics, terrain, prestige, and more."
+        f"15-criteria scoring system covering logistics, terrain, prestige, and more."
     )
 
     # Publish date: Jan 1 of the year, capped at today

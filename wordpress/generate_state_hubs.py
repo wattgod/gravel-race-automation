@@ -274,7 +274,7 @@ def build_faq(state: str, races: list) -> tuple:
         f"How many gravel races are in {state}?",
         f"We track {total} gravel races in {state}, including "
         f"{len(t1)} Elite (Tier 1) and {len(t2)} Contender (Tier 2) events. "
-        f"See the full list above, ranked by our 14-dimension Gravel God Rating."
+        f"See the full list above, ranked by our 15-dimension Gravel God Rating."
     ))
 
     # Q2: What is the best gravel race in {state}?
@@ -352,7 +352,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
 
     title = f"Best Gravel Races in {state} ({CURRENT_YEAR}) | Gravel God"
     description = (
-        f"All {len(races)} gravel races in {state}, ranked by our 14-dimension Gravel God Rating. "
+        f"All {len(races)} gravel races in {state}, ranked by our 15-dimension Gravel God Rating. "
         f"{'Including ' + str(t1_count) + ' Elite and ' + str(t2_count) + ' Contender events. ' if t1_count or t2_count else ''}"
         f"Find your next gravel race in {state}."
     )
@@ -412,7 +412,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
         intro = (
             f"{state} has {len(races)} gravel races in our database, from grassroots events "
             f"to regional favorites. Explore the full list below, ranked by our "
-            f"14-dimension Gravel God Rating."
+            f"15-dimension Gravel God Rating."
         )
 
     map_section = f'''<div class="gg-state-map">{map_svg}</div>''' if map_svg else ""

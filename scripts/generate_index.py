@@ -192,11 +192,12 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     rating = race.get("gravel_god_rating", {})
     location = vitals.get("location", "")
 
-    # Extract 14 scores
+    # Extract 14 base scores + cultural_impact bonus
     course_vars = ["logistics", "length", "technicality", "elevation", "climate", "altitude", "adventure"]
     editorial_vars = ["prestige", "race_quality", "experience", "community", "field_depth", "value", "expenses"]
+    bonus_vars = ["cultural_impact"]
     scores = {}
-    for var in course_vars + editorial_vars:
+    for var in course_vars + editorial_vars + bonus_vars:
         val = rating.get(var)
         if isinstance(val, (int, float)):
             scores[var] = int(val)

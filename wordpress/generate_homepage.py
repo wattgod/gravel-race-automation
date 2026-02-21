@@ -53,7 +53,7 @@ CURRENT_YEAR = date.today().year
 
 FEATURED_SLUGS = [
     "unbound-200",
-    "sbt-grvl",
+    "steamboat-gravel",
     "bwr-california",
 ]
 
@@ -197,7 +197,7 @@ def compute_stats(race_index: list) -> dict:
                 regions.add(parts[-1])
     return {
         "race_count": race_count,
-        "dimensions": 14,
+        "dimensions": 15,
         "t1_count": t1_count,
         "t2_count": t2_count,
         "region_count": len(regions),
@@ -211,10 +211,11 @@ def get_featured_races(race_index: list) -> list:
     for slug in FEATURED_SLUGS:
         if slug in by_slug:
             featured.append(by_slug[slug])
-    # Fallback: fill remaining slots with top T1 races by score
+    # Fallback: fill remaining slots with top T1 gravel races by score
     if len(featured) < 3:
         t1_races = sorted(
-            [r for r in race_index if r.get("tier") == 1 and r not in featured],
+            [r for r in race_index if r.get("tier") == 1 and r not in featured
+             and (r.get("discipline") or "gravel") == "gravel"],
             key=lambda r: r.get("overall_score", 0),
             reverse=True,
         )
@@ -233,12 +234,16 @@ def load_editorial_one_liners(race_data_dir: Path = None) -> list:
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
             race = data.get("race", data)
-            tier = race.get("gravel_god_rating", {}).get("tier", 4)
+            rating = race.get("gravel_god_rating", {})
+            tier = rating.get("tier", 4)
             if tier > 2:
+                continue
+            discipline = (rating.get("discipline") or "gravel")
+            if discipline != "gravel":
                 continue
             name = race.get("display_name") or race.get("name", "")
             slug = race.get("slug", f.stem)
-            score = race.get("gravel_god_rating", {}).get("overall_score", 0)
+            score = rating.get("overall_score", 0)
             fv = race.get("final_verdict", {})
             one_liner = fv.get("one_liner", "").strip()
             if one_liner:
@@ -260,6 +265,10 @@ def load_upcoming_races(race_data_dir: Path = None, today: date = None) -> list:
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
             race = data.get("race", data)
+            rating = race.get("gravel_god_rating", {})
+            discipline = (rating.get("discipline") or "gravel")
+            if discipline != "gravel":
+                continue
             ds = race.get("vitals", {}).get("date_specific", "")
             m = re.match(r"(\d{4}):\s*(\w+)\s+(\d+)", ds)
             if not m:
@@ -271,8 +280,8 @@ def load_upcoming_races(race_data_dir: Path = None, today: date = None) -> list:
                 continue
             name = race.get("display_name") or race.get("name", "")
             slug = race.get("slug", f.stem)
-            tier = race.get("gravel_god_rating", {}).get("tier", 4)
-            score = race.get("gravel_god_rating", {}).get("overall_score", 0)
+            tier = rating.get("tier", 4)
+            score = rating.get("overall_score", 0)
             location = race.get("vitals", {}).get("location", "")
             races.append({
                 "name": name, "slug": slug, "tier": tier, "score": score,
@@ -538,7 +547,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
         <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
         <h1 id="hero-title">Every gravel race, honestly rated</h1>
         <div class="gg-hp-accent-line" aria-hidden="true"></div>
-        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on 14 criteria. No sponsors, no affiliates, no pulled punches. Just the data and the dirt.</p>
+        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on 15 criteria. No sponsors, no affiliates, no pulled punches. Just the data and the dirt.</p>
         <div class="gg-hp-hero-actions">
           <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn-primary" data-ga="hero_cta_click">Browse All Races</a>
           <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn-secondary" data-ga="hero_secondary_click">How We Rate</a>
@@ -601,15 +610,12 @@ def build_bento_features(race_index: list) -> str:
         tier_label = tier_labels.get(tier, f"Tier {tier}")
         is_lead = i == 0
         lead_class = " gg-hp-bento-lead" if is_lead else ""
-        lg = " lg" if is_lead else ""
-        short = " short" if not is_lead else ""
         month_str = (" &middot; " + _format_month(month)) if month else ""
         cards += f'''
       <a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-bento-card{lead_class}" data-ga="featured_race_click" data-ga-label="{name}">
-        <div class="gg-hp-bento-img{short}" role="img" aria-label="{name} course landscape"></div>
         <div class="gg-hp-bento-body">
           <p class="gg-hp-bento-meta">Tier {tier} {esc(tier_label)} &middot; Score {score}</p>
-          <h3 class="gg-hp-bento-name{lg}">{name}</h3>
+          <h3 class="gg-hp-bento-name">{name}</h3>
           <p class="gg-hp-bento-excerpt">{esc(tagline)}</p>
           <p class="gg-hp-bento-byline">{location}{month_str}</p>
         </div>
@@ -659,7 +665,7 @@ def build_latest_takes() -> str:
     </div>
     <div class="gg-hp-take-nav">
       <button class="gg-hp-take-btn" id="gg-takes-prev" aria-label="Previous articles">&larr;</button>
-      <span class="gg-hp-take-counter" id="gg-takes-count">1 / {(total + 1) // 2}</span>
+      <span class="gg-hp-take-counter" id="gg-takes-count">1 / {-(-total // 3)}</span>
       <button class="gg-hp-take-btn" id="gg-takes-next" aria-label="Next articles">&rarr;</button>
     </div>
     <div class="gg-hp-take-cta">
@@ -669,7 +675,7 @@ def build_latest_takes() -> str:
 
 
 def build_tabbed_rankings(race_index: list) -> str:
-    """Build ARIA-compliant tabbed rankings: All Tiers, Tier 1, Tier 2."""
+    """Build ARIA-compliant tabbed rankings: All Tiers, Tier 1-4."""
     tier_labels = {1: "Elite", 2: "Contender", 3: "Rising", 4: "Local"}
 
     def _build_items(races):
@@ -695,13 +701,22 @@ def build_tabbed_rankings(race_index: list) -> str:
         </a>'''
         return items
 
-    all_sorted = sorted(race_index, key=lambda r: r.get("overall_score", 0), reverse=True)
+    gravel_only = [r for r in race_index if (r.get("discipline") or "gravel") == "gravel"]
+    all_sorted = sorted(gravel_only, key=lambda r: r.get("overall_score", 0), reverse=True)
     t1_sorted = sorted(
-        [r for r in race_index if r.get("tier") == 1],
+        [r for r in gravel_only if r.get("tier") == 1],
         key=lambda r: r.get("overall_score", 0), reverse=True,
     )
     t2_sorted = sorted(
-        [r for r in race_index if r.get("tier") == 2],
+        [r for r in gravel_only if r.get("tier") == 2],
+        key=lambda r: r.get("overall_score", 0), reverse=True,
+    )
+    t3_sorted = sorted(
+        [r for r in gravel_only if r.get("tier") == 3],
+        key=lambda r: r.get("overall_score", 0), reverse=True,
+    )
+    t4_sorted = sorted(
+        [r for r in gravel_only if r.get("tier") == 4],
         key=lambda r: r.get("overall_score", 0), reverse=True,
     )
 
@@ -710,12 +725,18 @@ def build_tabbed_rankings(race_index: list) -> str:
       <button type="button" role="tab" id="gg-tab-all" aria-selected="true" aria-controls="gg-panel-all" tabindex="0">All Tiers</button>
       <button type="button" role="tab" id="gg-tab-t1" aria-selected="false" aria-controls="gg-panel-t1" tabindex="-1">Tier 1</button>
       <button type="button" role="tab" id="gg-tab-t2" aria-selected="false" aria-controls="gg-panel-t2" tabindex="-1">Tier 2</button>
+      <button type="button" role="tab" id="gg-tab-t3" aria-selected="false" aria-controls="gg-panel-t3" tabindex="-1">Tier 3</button>
+      <button type="button" role="tab" id="gg-tab-t4" aria-selected="false" aria-controls="gg-panel-t4" tabindex="-1">Tier 4</button>
     </div>
     <div role="tabpanel" id="gg-panel-all" aria-labelledby="gg-tab-all">{_build_items(all_sorted)}
     </div>
     <div role="tabpanel" id="gg-panel-t1" aria-labelledby="gg-tab-t1" class="gg-hp-tab-inactive">{_build_items(t1_sorted)}
     </div>
     <div role="tabpanel" id="gg-panel-t2" aria-labelledby="gg-tab-t2" class="gg-hp-tab-inactive">{_build_items(t2_sorted)}
+    </div>
+    <div role="tabpanel" id="gg-panel-t3" aria-labelledby="gg-tab-t3" class="gg-hp-tab-inactive">{_build_items(t3_sorted)}
+    </div>
+    <div role="tabpanel" id="gg-panel-t4" aria-labelledby="gg-tab-t4" class="gg-hp-tab-inactive">{_build_items(t4_sorted)}
     </div>'''
 
 
@@ -761,8 +782,9 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
       <cite>{_pullquote_cite}</cite>
     </blockquote>'''
 
-    # 3. Power rankings (top 5 by score)
-    top5 = sorted(race_index, key=lambda r: r.get("overall_score", 0), reverse=True)[:5]
+    # 3. Power rankings (top 5 by score, gravel only)
+    gravel_index = [r for r in race_index if (r.get("discipline") or "gravel") == "gravel"]
+    top5 = sorted(gravel_index, key=lambda r: r.get("overall_score", 0), reverse=True)[:5]
     rank_items = ""
     for i, race in enumerate(top5, 1):
         name = esc(race.get("name", ""))
@@ -819,7 +841,6 @@ def build_content_grid(race_index: list, stats: dict, upcoming: list) -> str:
     """Wrap main column content and sidebar into a 2-column grid."""
     main = build_bento_features(race_index)
     main += build_tabbed_rankings(race_index)
-    main += build_latest_takes()
     sidebar = build_sidebar(stats, race_index, upcoming)
     return f'''<div class="gg-hp-content-grid">
     <section class="gg-hp-main-col" aria-label="Featured content">{main}</section>
@@ -981,11 +1002,12 @@ def build_homepage_css() -> str:
 
 /* ── Reset & base ────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: clip; max-width: 100vw; }
 body { font-family: 'Source Serif 4', Georgia, serif; color: #3a2e25; line-height: 1.75; background: #ede4d8; margin: 0; }
 a { text-decoration: none; color: #178079; }
 
 /* ── Page container ──────────────────────────────────────── */
-.gg-hp-page { margin: 0; padding: 0; }
+.gg-hp-page { margin: 0; padding: 0; overflow-x: clip; }
 
 /* ── Scroll progress ── */
 .gg-hp-scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: #B7950B; z-index: 200; will-change: width; }
@@ -996,9 +1018,9 @@ a { text-decoration: none; color: #178079; }
 ''' + get_site_header_css() + '''
 
 /* ── Ticker ──────────────────────────────────────────────── */
-.gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: hidden; white-space: nowrap; }
-.gg-hp-ticker-track { overflow: hidden; }
-.gg-hp-ticker-content { display: inline-block; animation: gg-ticker-scroll 60s linear infinite; padding: 10px 0; }
+.gg-hp-ticker { background: #ede4d8; border-bottom: 1px solid #d4c5b9; overflow: clip; white-space: nowrap; max-width: 100vw; height: 38px; position: relative; }
+.gg-hp-ticker-track { overflow: clip; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.gg-hp-ticker-content { display: inline-block; animation: gg-ticker-scroll 60s linear infinite; padding: 10px 0; will-change: transform; }
 .gg-hp-ticker-content:hover { animation-play-state: paused; }
 .gg-hp-ticker-item { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #7d695d; letter-spacing: 0.5px; }
 .gg-hp-ticker-item a { color: #59473c; text-decoration: none; transition: color var(--gg-ease); }
@@ -1021,7 +1043,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .gg-hp-hero { background: #f5efe6; padding: 64px 48px; border-bottom: 3px solid #3a2e25; }
-.gg-hp-hero-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.gg-hp-hero-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .gg-hp-hero-kicker { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
 .gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; color: #3a2e25; }
 .gg-hp-hero-deck { font-size: 17px; font-weight: 300; color: #59473c; line-height: 1.7; margin-bottom: 28px; }
@@ -1058,7 +1080,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Stats stripe ───────────────────────────────────────── */
 .gg-hp-stats-stripe { background: #3a2e25; padding: 0 48px; }
-.gg-hp-stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+.gg-hp-stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
 .gg-hp-ss-item { text-align: center; padding: 20px 0; border-right: 2px solid #59473c; }
 .gg-hp-ss-item:last-child { border-right: none; }
 .gg-hp-ss-val { font-family: 'Sometype Mono', monospace; font-size: 24px; font-weight: 700; color: #B7950B; }
@@ -1070,7 +1092,8 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-section-header--teal { border-bottom-color: #178079; }
 
 /* ── Content grid ───────────────────────────────────────── */
-.gg-hp-content-grid { max-width: 960px; margin: 0 auto; padding: 48px; display: grid; grid-template-columns: 7fr 5fr; gap: 48px; }
+.gg-hp-content-grid { max-width: 1080px; margin: 0 auto; padding: 48px; display: grid; grid-template-columns: 3fr 2fr; gap: 48px; box-sizing: border-box; }
+.gg-hp-main-col, .gg-hp-sidebar { min-width: 0; overflow: hidden; }
 .gg-hp-sidebar-sticky { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; }
 .gg-hp-col-header { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; padding-bottom: 12px; border-bottom: 3px solid #3a2e25; margin-bottom: 24px; }
 
@@ -1080,12 +1103,9 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-bento-card { cursor: pointer; background: #f5efe6; border: 2px solid #d4c5b9; transition: border-color .3s; text-decoration: none; color: inherit; display: block; }
 .gg-hp-bento-card:hover, .gg-hp-bento-card:focus-visible { border-color: #178079; }
 .gg-hp-bento-card:hover .gg-hp-bento-name, .gg-hp-bento-card:focus-visible .gg-hp-bento-name { color: #178079; }
-.gg-hp-bento-img { width: 100%; height: 220px; background: #d4c5b9; border-bottom: 2px solid #d4c5b9; }
-.gg-hp-bento-img.short { height: 140px; }
 .gg-hp-bento-body { padding: 20px; }
 .gg-hp-bento-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
 .gg-hp-bento-name { font-size: 24px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; transition: color .3s; }
-.gg-hp-bento-name.lg { font-size: 28px; }
 .gg-hp-bento-excerpt { font-size: 14px; color: #59473c; line-height: 1.7; }
 .gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; letter-spacing: .5px; margin-top: 8px; }
 
@@ -1119,7 +1139,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-rank-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-rank-item:last-child { border-bottom: none; }
 .gg-hp-rank-pos { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #8c7568; min-width: 24px; }
-.gg-hp-rank-name { font-size: 14px; font-weight: 600; flex: 1; }
+.gg-hp-rank-name { font-size: 14px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gg-hp-rank-score { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; color: #178079; }
 .gg-hp-sidebar-cta { background: #1a1613; border: 3px solid #3a2e25; padding: 32px 28px; text-align: center; }
 .gg-hp-sidebar-cta h3 { font-size: 22px; font-weight: 700; color: #f5efe6; margin-bottom: 8px; }
@@ -1135,7 +1155,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-coming-compact-item:last-child { border-bottom: none; }
 .gg-hp-coming-compact-item:hover { background: #ede4d8; }
 .gg-hp-coming-compact-date { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #8c7568; letter-spacing: 1px; text-transform: uppercase; min-width: 50px; }
-.gg-hp-coming-compact-name { font-size: 13px; font-weight: 600; flex: 1; }
+.gg-hp-coming-compact-name { font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gg-hp-coming-compact-tier { font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; }
 
 /* ── Tier badges ── */
@@ -1146,11 +1166,11 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-badge-t4 { background: transparent; color: #5e6868; border: 1px solid #5e6868; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
-.gg-hp-latest-takes { margin: 32px 0 0; border: 1px solid #d4c5b9; }
+.gg-hp-latest-takes { max-width: 1080px; margin: 32px auto 0; padding: 0 48px; border: 1px solid #d4c5b9; box-sizing: border-box; }
 .gg-hp-section-header--gold { border-bottom-color: #9a7e0a; }
 .gg-hp-take-carousel { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .gg-hp-take-carousel::-webkit-scrollbar { display: none; }
-.gg-hp-take-card { flex: 0 0 calc(50% - 0px); scroll-snap-align: start; display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); box-sizing: border-box; min-width: 0; }
+.gg-hp-take-card { flex: 0 0 calc(33.333% - 0px); scroll-snap-align: start; display: flex; flex-direction: column; padding: 24px; border: 1px solid #d4c5b9; text-decoration: none; color: #3a2e25; background: #f5efe6; transition: border-color var(--gg-ease); box-sizing: border-box; min-width: 0; }
 .gg-hp-take-card:hover { border-color: #9a7e0a; }
 .gg-hp-take-tag { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 10px; }
 .gg-hp-take-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
@@ -1165,7 +1185,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-take-cta .gg-hp-btn--primary:hover { background: #c9a92c; border-color: #c9a92c; }
 
 /* ── How it works ────────────────────────────────────────── */
-.gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; max-width: 960px; margin: 32px auto 0; }
+.gg-hp-how-it-works { background: #f5efe6; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; max-width: 1080px; margin: 32px auto 0; }
 .gg-hp-step { padding: 36px 24px; border-right: 1px solid #d4c5b9; }
 .gg-hp-step:last-child { border-right: none; }
 .gg-hp-step-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #9a7e0a; margin-bottom: 12px; }
@@ -1173,7 +1193,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-step-desc { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #7d695d; line-height: 1.7; }
 
 /* ── Coming Up (kept for compatibility) ─────────────────── */
-.gg-hp-coming-up { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-coming-up { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-cal-list { padding: 0; }
 .gg-hp-cal-item { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: #3a2e25; transition: border-color var(--gg-ease), background-color var(--gg-ease); }
 .gg-hp-cal-item:last-child { border-bottom: none; }
@@ -1193,7 +1213,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cal-offseason a { color: #178079; font-weight: 700; }
 
 /* ── Training CTA (split card) ──────────────────────────── */
-.gg-hp-training-cta-full { max-width: 960px; margin: 32px auto 0; padding: 0 48px; }
+.gg-hp-training-cta-full { max-width: 1080px; margin: 32px auto 0; padding: 0 48px; }
 .gg-hp-cta-card { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid #3a2e25; }
 .gg-hp-cta-left { background: #1a1613; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 .gg-hp-cta-left h2 { font-size: 28px; font-weight: 900; color: #f5efe6; margin-bottom: 8px; }
@@ -1203,7 +1223,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cta-right { background: #d4c5b9; min-height: 200px; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
-.gg-hp-guide { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-guide { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-guide-intro { padding: 20px; font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #3a2e25; line-height: 1.75; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-guide-intro p { margin: 0; }
 .gg-hp-guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
@@ -1220,7 +1240,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-guide-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 
 /* ── As Featured In ─────────────────────────────────────── */
-.gg-hp-featured-in { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; background: #f5efe6; }
+.gg-hp-featured-in { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; background: #f5efe6; }
 .gg-hp-feat-inner { display: flex; align-items: center; gap: 32px; padding: 32px 24px; }
 .gg-hp-feat-text { flex: 0 0 auto; max-width: 260px; }
 .gg-hp-feat-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 8px; }
@@ -1231,7 +1251,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
 /* ── Testimonials ────────────────────────────────────────── */
-.gg-hp-testimonials { max-width: 960px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-testimonials { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
 .gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 .gg-hp-test-card { padding: 24px; border: 1px solid #d4c5b9; background: #f5efe6; }
 .gg-hp-test-quote { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a2e25; font-style: italic; margin: 0 0 16px; border-left: 3px solid #9a7e0a; padding-left: 16px; }
@@ -1244,7 +1264,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-test-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
 
 /* ── Email capture ───────────────────────────────────────── */
-.gg-hp-email { background: #f5efe6; padding: 48px; border: 1px solid #d4c5b9; border-top: 2px solid #178079; max-width: 960px; margin: 32px auto 0; }
+.gg-hp-email { background: #f5efe6; padding: 48px; border: 1px solid #d4c5b9; border-top: 2px solid #178079; max-width: 1080px; margin: 32px auto 0; }
 .gg-hp-email-inner { max-width: 560px; margin: 0 auto; text-align: center; }
 .gg-hp-email-label { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #9a7e0a; margin-bottom: 12px; }
 .gg-hp-email-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; color: #3a2e25; margin-bottom: 12px; }
@@ -1274,12 +1294,14 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-content-grid { grid-template-columns: 1fr; }
   .gg-hp-sidebar-sticky { position: static; max-height: none; }
   .gg-hp-bento { grid-template-columns: 1fr; }
+  .gg-hp-take-card { flex: 0 0 calc(50% - 0px); }
+  .gg-hp-latest-takes { padding: 0 24px; }
 }
 
 /* ── Responsive: 600px ─────────────────────────────────── */
 @media (max-width: 600px) {
-  html, body { overflow-x: hidden; }
-  .gg-hp-page { overflow-x: hidden; }
+  html, body { overflow-x: clip; }
+  .gg-hp-page { overflow-x: clip; }
 
   /* Ticker — scrolling version hidden, static mobile version shown */
   .gg-hp-ticker { display: none; }
@@ -1302,6 +1324,7 @@ a { text-decoration: none; color: #178079; }
   /* Latest takes */
   .gg-hp-take-card { flex: 0 0 100%; padding: 16px; }
   .gg-hp-take-cta { padding: 16px; }
+  .gg-hp-latest-takes { padding: 0; }
 
   /* How it works */
   .gg-hp-how-it-works { grid-template-columns: 1fr; }
@@ -1476,7 +1499,8 @@ if (tablist) {
 
   function perPage() {
     if (window.innerWidth <= 600) return 1;
-    return 2;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
   }
   function totalPages() {
     return Math.ceil(total / perPage());
@@ -1538,7 +1562,7 @@ def build_jsonld(stats: dict) -> str:
         "@type": "Organization",
         "name": "Gravel God Cycling",
         "url": SITE_BASE_URL,
-        "description": "The definitive gravel race database. Honest ratings across 14 dimensions.",
+        "description": "The definitive gravel race database. Honest ratings across 15 dimensions.",
     }
     website = {
         "@context": "https://schema.org",
@@ -1566,7 +1590,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     stats = compute_stats(race_index)
     canonical_url = f"{SITE_BASE_URL}/"
     title = f"Gravel God \u2014 {stats['race_count']} Gravel Races Rated & Ranked | The Definitive Database"
-    meta_desc = f"The definitive gravel race database. {stats['race_count']} races scored across 14 dimensions, from Unbound to the Tour Divide. Find your next race, compare ratings, and build a training plan."
+    meta_desc = f"The definitive gravel race database. {stats['race_count']} races scored across 15 dimensions, from Unbound to SBT GRVL. Find your next race, compare ratings, and build a training plan."
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)
@@ -1579,6 +1603,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     stats_stripe = build_stats_bar(stats)
     ticker = build_ticker(one_liners, substack_posts, upcoming)
     content_grid = build_content_grid(race_index, stats, upcoming)
+    latest_takes = build_latest_takes()
     how_it_works = build_how_it_works(stats)
     training_cta = build_training_cta()
     guide_preview = build_guide_preview(chapters)
@@ -1637,6 +1662,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {ticker}
 
   {content_grid}
+
+  {latest_takes}
 
   {how_it_works}
 

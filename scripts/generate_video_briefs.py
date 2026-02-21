@@ -573,11 +573,11 @@ def detect_tropes(rd):
     tropes.append({
         "name": "tier_reveal",
         "tension": (
-            f"We rated 328 gravel races on 14 dimensions. "
+            f"We rated 328 gravel races on 15 dimensions. "
             f"{name}: {tier_name}. {score}/100."
         ),
         "mechanism": "Countdown / ranking — inherent escalation and social comparison.",
-        "hook_text": f"328 races. 14 dimensions. Where does {name} land?",
+        "hook_text": f"328 races. 15 dimensions. Where does {name} land?",
         "engagement_q": f"Where would YOU rank {name}? Drop your tier.",
         "strength": 4,
     })
@@ -995,7 +995,7 @@ def brief_roast(rd):
             "label": "CTA",
             "time_range": "3:30-3:45",
             "duration_sec": 15,
-            "narration": f"Full breakdown. All 14 dimensions. Free prep kit. Link in bio.",
+            "narration": f"Full breakdown. All 15 dimensions. Free prep kit. Link in bio.",
             "text_on_screen": f"gravelgodcycling.com/race/{slug}",
             "visual": "URL overlay + engagement question",
             "avatar_pose": "pointing",
@@ -1066,7 +1066,7 @@ def brief_should_you_race(rd):
             "duration_sec": 15,
             "narration": (
                 f"Should you race {name}? "
-                f"I rated 328 gravel races on 14 dimensions. "
+                f"I rated 328 gravel races on 15 dimensions. "
                 f"{name} scored {score} out of 100. {tier_name} tier. "
                 f"Here's what that actually means for your season."
             ),

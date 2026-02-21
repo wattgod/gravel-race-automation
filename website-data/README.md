@@ -24,7 +24,7 @@ JSON data files for the `/races` section of the GravelGod Cycling website.
 
 ## GravelGod Scoring System
 
-Each fully-profiled race has **14 dimensions** across two categories:
+Each fully-profiled race has **15 dimensions** across two categories:
 
 ### Course Profile (7 dimensions) - Physical/Logistical Demands
 
@@ -214,7 +214,7 @@ fetch('/wp-content/themes/your-theme/data/race-calendar.json')
 |--------|---------|--------------|
 | `gravel_races_full_database.json` | 388 | Basic (tier, location, dates) |
 | `race-data/*.json` | 53 | Enhanced (vitals, terrain) |
-| Full scoring (course + editorial) | 20 | Complete 14-dimension profiles |
+| Full scoring (course + editorial) | 20 | Complete 15-dimension profiles |
 
 ---
 

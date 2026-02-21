@@ -2,7 +2,7 @@
 """
 Generate the Gravel God Methodology page in neo-brutalist style.
 
-Explains the scoring system, tier definitions, 14 dimensions, prestige
+Explains the scoring system, tier definitions, 15 dimensions, prestige
 overrides, and FAQ. Reuses CSS/style patterns from generate_neo_brutalist.py.
 
 Usage:
@@ -53,7 +53,7 @@ def build_hero() -> str:
     return '''<div class="gg-hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-teal)">METHODOLOGY</div>
     <h1 data-text="How We Rate Gravel Races">How We Rate Gravel Races</h1>
-    <p class="gg-hero-tagline">Every race in our database is scored across 14 dimensions by human editors. No algorithms. No sponsors. No pay-to-play. Here&#39;s exactly how it works.</p>
+    <p class="gg-hero-tagline">Every race in our database is scored across 15 dimensions by human editors. No algorithms. No sponsors. No pay-to-play. Here&#39;s exactly how it works.</p>
   </div>'''
 
 
@@ -127,10 +127,10 @@ def build_dimensions() -> str:
     return f'''<div class="gg-section" id="dimensions">
     <div class="gg-section-header gg-section-header--dark">
       <span class="gg-section-kicker">02</span>
-      <h2 class="gg-section-title">14 Scoring Dimensions</h2>
+      <h2 class="gg-section-title">14 Base Dimensions + Cultural Impact</h2>
     </div>
     <div class="gg-section-body">
-      <p style="margin-bottom:16px">Each race is evaluated across 14 dimensions split into two categories. Every dimension is scored 1&ndash;5 by our editors with a written explanation.</p>
+      <p style="margin-bottom:16px">Each race is evaluated across 14 base dimensions split into two categories, plus a Cultural Impact bonus. Every dimension is scored 1&ndash;5 by our editors with a written explanation.</p>
 
       <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:24px 0 12px;color:var(--gg-color-primary-brown)">Course Profile (7 dimensions)</h3>
       <p style="margin-bottom:12px;font-size:12px;color:var(--gg-color-secondary-brown)">Physical and logistical demands of the race.</p>
@@ -155,6 +155,24 @@ def build_dimensions() -> str:
         </tbody>
       </table>
       </div>
+
+      <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:32px 0 12px;color:var(--gg-color-primary-brown)">Cultural Impact (bonus dimension)</h3>
+      <p style="margin-bottom:12px;font-size:12px;color:var(--gg-color-secondary-brown)">A bonus that captures attendance, media coverage, and cultural significance. Defaults to 0 for most races.</p>
+      <div style="overflow-x:auto">
+      <table class="gg-method-table gg-method-table--compact">
+        <thead>
+          <tr><th>Score</th><th>Level</th><th>Criteria</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:700">5</td><td>Global Icon</td><td>Defines gravel cycling. 2,000+ riders, massive media, cultural landmark.</td></tr>
+          <tr><td style="font-weight:700">4</td><td>Major International</td><td>1,000+ riders, significant international draw, strong media presence.</td></tr>
+          <tr><td style="font-weight:700">3</td><td>Notable National</td><td>Nationally recognized, growing media, strong regional significance.</td></tr>
+          <tr><td style="font-weight:700">2</td><td>Established Regional</td><td>Quality event with dedicated following, limited broader footprint.</td></tr>
+          <tr><td style="font-weight:700">1</td><td>Emerging</td><td>Building reputation, minimal media beyond local cycling communities.</td></tr>
+          <tr><td style="font-weight:700">0</td><td>Default</td><td>No bonus. Most T3/T4 races.</td></tr>
+        </tbody>
+      </table>
+      </div>
     </div>
   </div>'''
 
@@ -169,15 +187,16 @@ def build_formula() -> str:
       <p style="margin-bottom:16px">The overall score is a simple, transparent calculation:</p>
 
       <div style="background:var(--gg-color-near-black);color:var(--gg-color-white);padding:24px 32px;border:var(--gg-border-standard);margin-bottom:20px;text-align:center">
-        <code style="font-size:16px;letter-spacing:1px;font-family:var(--gg-font-data);color:var(--gg-color-light-teal)">overall_score = round( (sum of 14 scores &divide; 70) &times; 100 )</code>
+        <code style="font-size:16px;letter-spacing:1px;font-family:var(--gg-font-data);color:var(--gg-color-light-teal)">overall_score = round( (sum of 14 base scores + cultural_impact) &divide; 70 &times; 100 )</code>
       </div>
 
-      <p style="margin-bottom:12px;font-size:13px">The maximum possible raw score is 70 (14 dimensions &times; 5 max each). We normalize to a 0&ndash;100 scale so scores are intuitive.</p>
+      <p style="margin-bottom:12px;font-size:13px">The maximum possible base score is 70 (14 dimensions &times; 5 max each). The Cultural Impact bonus (0&ndash;5) adds to the numerator without increasing the denominator, allowing globally significant races to stretch above the base ceiling.</p>
 
       <ul style="font-size:13px;padding-left:20px;line-height:1.8">
-        <li>A race scoring 3/5 across all 14 dimensions gets a <strong>60</strong> (42&divide;70&times;100)</li>
-        <li>A race scoring 4/5 across all 14 dimensions gets an <strong>80</strong> (56&divide;70&times;100)</li>
-        <li>Perfect 5/5 on everything = <strong>100</strong> (theoretical; no race has scored this)</li>
+        <li>A race scoring 3/5 across all 14 dimensions with no CI bonus gets a <strong>60</strong></li>
+        <li>A race scoring 4/5 across all 14 dimensions with no CI bonus gets an <strong>80</strong></li>
+        <li>A race scoring 4/5 across all 14 dimensions with CI=5 gets an <strong>87</strong></li>
+        <li>The highest-scored race (Unbound 200) scores <strong>93</strong></li>
       </ul>
     </div>
   </div>'''
@@ -234,9 +253,9 @@ def build_faq() -> str:
         ("How often are scores updated?",
          "We review scores annually before each race season and make ad-hoc updates when significant changes occur (new ownership, course redesign, series affiliation changes). All changes are logged in the race profile."),
         ("Why isn&#39;t my favorite race rated higher?",
-         "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 14-dimension breakdown shows exactly where a race excels and where it loses points &mdash; check the full profile for details."),
+         "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The scoring breakdown shows exactly where a race excels and where it loses points &mdash; check the full profile for details."),
         ("What about mountain bike races?",
-         "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with a &ldquo;MTB&rdquo; discipline label so they&#39;re clearly identified. The same 14-dimension rubric applies."),
+         "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with a &ldquo;MTB&rdquo; discipline label so they&#39;re clearly identified. The same scoring rubric applies."),
     ]
 
     items = ""
@@ -316,7 +335,7 @@ def build_jsonld() -> str:
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "How We Rate Gravel Races — Gravel God Methodology",
-        "description": "The complete scoring methodology behind Gravel God race ratings. 14 dimensions, 4 tiers, transparent formula.",
+        "description": "The complete scoring methodology behind Gravel God race ratings. 15 dimensions, 4 tiers, transparent formula.",
         "url": f"{SITE_BASE_URL}/race/methodology/",
         "isPartOf": {
             "@type": "WebSite",
@@ -361,7 +380,7 @@ def build_jsonld() -> str:
                 "name": "Why isn't my favorite race rated higher?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 14-dimension breakdown shows exactly where a race excels and where it loses points.",
+                    "text": "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 15-dimension breakdown shows exactly where a race excels and where it loses points.",
                 },
             },
             {
@@ -369,7 +388,7 @@ def build_jsonld() -> str:
                 "name": "What about mountain bike races?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with an MTB discipline label. The same 14-dimension rubric applies.",
+                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with an MTB discipline label. The same 15-dimension rubric applies.",
                 },
             },
         ],
@@ -410,7 +429,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How We Rate Gravel Races — Gravel God Methodology">
-  <meta name="twitter:description" content="14 dimensions, 4 tiers, transparent formula. Here&#39;s how Gravel God scores every race.">'''
+  <meta name="twitter:description" content="15 dimensions, 4 tiers, transparent formula. Here&#39;s how Gravel God scores every race.">'''
 
     preload = get_preload_hints()
 
@@ -420,7 +439,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How We Rate Gravel Races — Gravel God Methodology</title>
-  <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 14 dimensions, 4 tiers, transparent formula.">
+  <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 15 dimensions, 4 tiers, transparent formula.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>

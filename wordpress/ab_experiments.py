@@ -35,7 +35,7 @@ EXPERIMENTS = [
             {
                 "id": "control",
                 "name": "Original tagline",
-                "content": "328 races. 14 criteria. 4,592 scores \u2014 all assigned by hand. Zero sponsors. Zero pay-to-play.",
+                "content": "328 races. 15 criteria. 4,920 scores \u2014 all assigned by hand. Zero sponsors. Zero pay-to-play.",
             },
             {
                 "id": "variant_a",

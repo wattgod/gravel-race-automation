@@ -176,7 +176,7 @@ async def recommend_races(
     summary="Get full race profile",
     description=(
         "Returns the complete race profile (50+ fields) including vitals, "
-        "course description, 14-dimension Gravel God rating, terrain, "
+        "course description, 15-dimension Gravel God rating, terrain, "
         "non-negotiables, final verdict, citations, and training context. "
         "Supports fuzzy matching via aliases (e.g. 'dirty-kanza' → 'unbound-200')."
     ),
@@ -253,7 +253,7 @@ async def ai_plugin_manifest(request: Request):
         ),
         "description_for_model": (
             "Query the Gravel God database of 328 gravel and mountain bike races. "
-            "Each race has a tier (1-4), overall score (0-100), 14-dimension rating, "
+            "Each race has a tier (1-4), overall score (0-100), 15-dimension rating, "
             "distance, elevation, location, terrain, and training context. "
             "Use /api/v1/races to list and filter, /api/v1/races/{slug} for full profiles, "
             "/api/v1/races/{slug}/training for coaching data, "

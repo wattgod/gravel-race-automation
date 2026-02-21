@@ -1,4 +1,4 @@
-"""Scoring dimensions — 14 criteria in two columns with horizontal bars.
+"""Scoring dimensions — 14 base criteria + cultural impact bonus in two columns with horizontal bars.
 
 Loads Unbound Gravel 200 scores from race-data/ so the infographic stays
 in sync with the database.
@@ -84,7 +84,7 @@ def render(width: int = 1200, height: int = 800) -> Image.Image:
     mid = width // 2
 
     # Title — Source Serif 4 + gold rule
-    draw.text((pad, int(14 * s)), "14-DIMENSION SCORING SYSTEM",
+    draw.text((pad, int(14 * s)), "15-DIMENSION SCORING SYSTEM",
               fill=hex_to_rgb(PRIMARY_BROWN), font=font_title)
     draw.text((pad + int(440 * s), int(22 * s)), f"Example: Unbound Gravel (Score: {overall})",
               fill=hex_to_rgb(SECONDARY_BROWN), font=font_subtitle)

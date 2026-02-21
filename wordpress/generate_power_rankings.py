@@ -49,7 +49,7 @@ def build_power_rankings_page(races: list) -> str:
     title = f"Gravel Race Power Rankings {CURRENT_YEAR} — All {len(races)} Races Ranked | Gravel God"
     description = (
         f"The definitive {CURRENT_YEAR} gravel race power rankings. "
-        f"All {len(races)} races ranked by our 14-dimension Gravel God Rating. "
+        f"All {len(races)} races ranked by our 15-dimension Gravel God Rating. "
         f"From the iconic Elite tier to grassroots gems."
     )
 

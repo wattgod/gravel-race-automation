@@ -520,7 +520,7 @@ def fmt_should_you_race(rd):
     # Course character
     character = to_spoken(rd["course"]["character"])
 
-    # All 14 dimensions, top 8 highlighted
+    # All 15 dimensions, top 8 highlighted
     dims_by_score = sorted(
         ALL_DIMS, key=lambda d: rd["explanations"][d]["score"], reverse=True
     )
@@ -584,7 +584,7 @@ def fmt_should_you_race(rd):
 [RIFF HERE — describe what it feels like to ride this course]
 
 ## THE SCORES (1-5min)
-[VISUAL: Score card with all 14 dimensions]
+[VISUAL: Score card with all 15 dimensions]
 
 ### Top 8 Dimensions
 {highlights_text}
@@ -703,7 +703,7 @@ def fmt_roast(rd):
 
 ## CTA (2.5-3min)
 [TEXT: gravelgodcycling.com/race/{slug}]
-"Full breakdown. All 14 dimensions. Free prep kit. Link in bio."
+"Full breakdown. All 15 dimensions. Free prep kit. Link in bio."
 
 ## ENGAGEMENT
 "Roast or defend {name}. Go."
@@ -821,7 +821,7 @@ def fmt_data_drops(all_races):
     drops.append(
         _drop_script(
             "Database Size",
-            f'"We rated {total} gravel races. Every single one scored on 14 dimensions. '
+            f'"We rated {total} gravel races. Every single one scored on 15 dimensions. '
             f'Here\'s the breakdown."',
             f"[TEXT ON SCREEN: \"{total} RACES RATED\"]",
         )
@@ -934,7 +934,7 @@ Use each drop as a standalone short-form clip. Mix and match.
 
 ---
 **VISUAL NOTES:** Bold typography overlays, counter animations, tier badge graphics.
-**CTA FOR ALL:** "{total} races. 14 dimensions. gravelgodcycling.com. Link in bio."
+**CTA FOR ALL:** "{total} races. 15 dimensions. gravelgodcycling.com. Link in bio."
 """
 
 

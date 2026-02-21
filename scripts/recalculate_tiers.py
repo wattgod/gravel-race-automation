@@ -32,6 +32,13 @@ T3_THRESHOLD = 45
 # Prestige-5 floor for T1 promotion
 P5_T1_FLOOR = 75
 
+# The 14 base scoring dimensions
+SCORE_FIELDS = [
+    "logistics", "length", "technicality", "elevation", "climate",
+    "altitude", "adventure", "prestige", "race_quality", "experience",
+    "community", "field_depth", "value", "expenses"
+]
+
 # MTB discipline slugs
 MTB_SLUGS = {"chequamegon-mtb", "fuego-mtb", "little-sugar-mtb", "leadville-100"}
 
@@ -66,12 +73,23 @@ def apply_prestige_override(tier: int, prestige: int, overall_score: int) -> Tup
     return tier, None
 
 
+def recalculate_score(rating: dict) -> int:
+    """Recalculate overall_score from 14 base dimensions + cultural_impact bonus."""
+    base_sum = sum(rating.get(f, 0) for f in SCORE_FIELDS)
+    ci = rating.get("cultural_impact", 0)
+    return round((base_sum + ci) / 70 * 100)
+
+
 def recalculate_race(data: dict, slug: str) -> dict:
-    """Recalculate tier for a single race. Returns change info."""
+    """Recalculate score and tier for a single race. Returns change info."""
     race = data.get("race", {})
     rating = race.get("gravel_god_rating", {})
 
-    overall = rating.get("overall_score", 0)
+    old_score = rating.get("overall_score", 0)
+    # Recalculate score from dimensions + cultural_impact
+    overall = recalculate_score(rating)
+    rating["overall_score"] = overall
+
     prestige = rating.get("prestige", 0)
     old_tier = rating.get("tier", 3)
     old_override = rating.get("tier_override_reason")
@@ -86,11 +104,14 @@ def recalculate_race(data: dict, slug: str) -> dict:
     discipline = "mtb" if slug in MTB_SLUGS else "gravel"
 
     # Build change record
-    changed = (new_tier != old_tier) or ("discipline" not in rating)
+    changed = (new_tier != old_tier) or ("discipline" not in rating) or (overall != old_score)
     change = {
         "slug": slug,
         "overall_score": overall,
+        "old_score": old_score,
+        "score_changed": overall != old_score,
         "prestige": prestige,
+        "cultural_impact": rating.get("cultural_impact", 0),
         "old_tier": old_tier,
         "new_tier": new_tier,
         "base_tier": base_tier,
@@ -148,6 +169,10 @@ def main():
         changes.append(change)
         discipline_tags[change["discipline"]] += 1
 
+        if change["score_changed"]:
+            ci_tag = f"  ci={change['cultural_impact']}" if change["cultural_impact"] else ""
+            print(f"  ~ {slug:<40} score={change['old_score']}→{change['overall_score']}{ci_tag}")
+
         if change["tier_changed"]:
             direction = "DEMOTE" if change["new_tier"] > change["old_tier"] else "PROMOTE"
             icon = "↓" if direction == "DEMOTE" else "↑"
@@ -173,6 +198,11 @@ def main():
     print(f"  Promotions: {len(promotions)}")
     for p in promotions:
         print(f"    {p['slug']}: T{p['old_tier']}→T{p['new_tier']} (score={p['overall_score']}, p={p['prestige']})")
+    score_changes = [c for c in changes if c["score_changed"]]
+    print(f"  Score changes: {len(score_changes)}")
+    for s in score_changes:
+        ci_tag = f" (ci={s['cultural_impact']})" if s["cultural_impact"] else ""
+        print(f"    {s['slug']}: {s['old_score']}→{s['overall_score']}{ci_tag}")
     print(f"  Discipline: gravel={discipline_tags['gravel']}, mtb={discipline_tags['mtb']}")
 
     # Tier distribution

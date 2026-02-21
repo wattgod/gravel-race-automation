@@ -107,7 +107,7 @@ def generate():
     sub_font = load_font(FONT_DATA, 16)
     sub_y = headline_y + 150
     draw.text((60, sub_y),
-              "14 dimensions. 0 sponsors. Just honest ratings.",
+              "15 dimensions. 0 sponsors. Just honest ratings.",
               fill=TAN, font=sub_font)
 
     # ── Right side: stat blocks ──

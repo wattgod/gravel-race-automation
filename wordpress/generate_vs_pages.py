@@ -248,7 +248,7 @@ def build_bars_comparison(race_a: dict, race_b: dict) -> str:
 # ── Dimension breakdown table ────────────────────────────────────
 
 def build_dimension_table(race_a: dict, race_b: dict) -> str:
-    """14-dimension comparison table with dot meters."""
+    """15-dimension comparison table with dot meters."""
     scores_a = race_a.get("scores", {})
     scores_b = race_b.get("scores", {})
 
@@ -442,7 +442,7 @@ def build_faq(race_a: dict, race_b: dict) -> tuple:
         l_score = min(score_a, score_b)
         pairs.append((
             f"Is {name_a} or {name_b} rated higher?",
-            f"{higher} scores {h_score}/100 compared to {l_score}/100 in our 14-dimension Gravel God Rating. "
+            f"{higher} scores {h_score}/100 compared to {l_score}/100 in our 15-dimension Gravel God Rating. "
             f"The overall score reflects course profile, prestige, race quality, community, and value."
         ))
     else:
@@ -558,7 +558,7 @@ def build_vs_page(race_a: dict, race_b: dict, full_a: dict, full_b: dict) -> str
     title = f"{name_a} vs {name_b} — Head-to-Head Comparison | Gravel God"
     description = (
         f"Detailed comparison of {name_a} ({score_a}/100) and {name_b} ({score_b}/100). "
-        f"Side-by-side radar chart, 14-dimension breakdown, and verdict to help you choose."
+        f"Side-by-side radar chart, 15-dimension breakdown, and verdict to help you choose."
     )
 
     # Build sections

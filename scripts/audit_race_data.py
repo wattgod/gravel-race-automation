@@ -6,7 +6,7 @@ Checks:
 1. Invalid lat/lng coordinates (range checks + plausibility)
 2. ridewithgps_id set to non-numeric values
 3. Missing or empty tagline fields
-4. overall_score that doesn't match round((sum_of_14_scores / 70) * 100)
+4. overall_score that doesn't match round((sum_of_14_scores + cultural_impact) / 70 * 100)
 5. tier that doesn't match tier thresholds (T1>=80, T2>=60, T3>=45, T4<45)
 6. Geographically implausible coordinates (US race with wrong hemisphere, etc.)
 """
@@ -318,7 +318,8 @@ def audit_race(filepath):
         if missing_fields:
             issues.append(f"MISSING SCORE FIELDS: {', '.join(missing_fields)}")
         elif len(score_values) == 14:
-            computed = round((sum(score_values) / 70) * 100)
+            ci = rating.get("cultural_impact", 0)
+            computed = round((sum(score_values) + ci) / 70 * 100)
             if computed != overall_score:
                 issues.append(
                     f"SCORE MISMATCH: overall_score={overall_score}, "

@@ -48,12 +48,12 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 80,
+      "overall_score": 93,
       "tier": 1,
       "tier_label": "TIER 1",
       "logistics": 4,
       "length": 5,
-      "technicality": 3,
+      "technicality": 4,
       "elevation": 3,
       "climate": 5,
       "altitude": 1,
@@ -63,17 +63,18 @@
       "experience": 5,
       "community": 5,
       "field_depth": 5,
-      "value": 3,
-      "expenses": 2,
+      "value": 4,
+      "expenses": 4,
       "tier_note": "Lifetime Grand Prix flagship event - THE race by which all gravel events are measured",
-      "score_note": "THE gravel race. Editorial +5 and overall +13 for flagship status and cultural significance.",
+      "score_note": "THE gravel race. cultural_impact=5 bonus for flagship status. Dim adj: tech 3→4, expenses 2→4, value 3→4.",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
       "business_tier_label": "TIER 1",
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "discipline": "gravel"
+      "discipline": "gravel",
+      "cultural_impact": 5
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -85,7 +86,7 @@
         "explanation": "SomeMayoPlease positioned strategically early, knowing \"Mile 28 as the first important point on the course\" would thin the 1,100-rider field to \"fewer than 50.\" Two hundred miles with a 20.5-hour cutoff transforms routine terrain into leg-breaking torture. Winners finish around 10 hours while mid-pack riders grind through darkness until the 3:00 AM cutoff. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
-        "score": 3,
+        "score": 4,
         "explanation": "Chunky flint rock roads demand line choice over bike handling skills. At Kaw Reserve Road, minidini10 found it \"rough and rocky\" with \"bottles everywhere and people pulled over to fix their bikes.\" Bertn05 avoided three crashes when riders around him went down on the technical sections. The difficulty comes from equipment survival rather than technical features. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
@@ -125,11 +126,11 @@
         "explanation": "The deepest field in gravel racing spans from elite racers like Amy Charity pushing criterium pace early to recreational riders like minidini10 grinding through technical sections. SomeMayoPlease's strategy of leading 1,100 riders into rough doubletrack shows the tactical depth. The 2024 field included riders from TrainerRoad forums mixing with cycling elites. Elite-level competition, on par with Belgian Waffle Ride San Diego. As Brennan Wertz puts it: \"The 'right' group is one where you can maintain your all-day pace while staying sheltered behind other riders... The biggest mistake almost EVERY racer makes, even pros, is going out too hard.\""
       },
       "value": {
-        "score": 3,
+        "score": 4,
         "explanation": "At $345 entry, Richard at SILCA's assessment rings true: the race offers \"the best riding on earth\" through the \"rugged, vast\" Flint Hills. The lottery system and week-long festival atmosphere justify premium pricing for most participants. The experience and prestige provide value beyond typical race entry fees."
       },
       "expenses": {
-        "score": 2,
+        "score": 4,
         "explanation": "Beyond the $345 entry, participants face Kansas logistics costs - flights to Kansas City plus two-hour drives to Emporia. Equipment expenses mount with tire pressure strategies like the 33-35 psi setups mentioned by elite riders, plus backup wheels and extensive spare tubes for flint rock survival. Budget $1,000+ for the full race week experience. Higher total cost than Badlands."
       }
     },

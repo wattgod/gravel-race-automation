@@ -112,7 +112,7 @@ def build_quiz_page(races: list) -> str:
                 "name": "How many gravel races are in the database?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": f"The Gravel God database includes {race_count} gravel races across the United States, each rated on 14 dimensions including difficulty, technicality, elevation, logistics, and more."
+                    "text": f"The Gravel God database includes {race_count} gravel races across the United States, each rated on 15 dimensions including difficulty, technicality, elevation, logistics, and more."
                 }
             },
             {
@@ -322,7 +322,7 @@ def build_quiz_page(races: list) -> str:
   </div>
 
   <footer class="gg-quiz-footer">
-    <p>Powered by the <a href="/gravel-races/">Gravel God</a> rating system &mdash; 328 races, 14 dimensions, zero BS.</p>
+    <p>Powered by the <a href="/gravel-races/">Gravel God</a> rating system &mdash; 328 races, 15 dimensions, zero BS.</p>
   </footer>
 </div>
 

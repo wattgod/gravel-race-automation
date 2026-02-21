@@ -8,11 +8,12 @@
 
 ## Overview
 
-Each race is scored on **14 dimensions** across two categories:
+Each race is scored on **14 base dimensions** across two categories, plus a **bonus dimension**:
 - **Course Profile** (7 dimensions) - Physical and logistical demands
 - **Editorial** (7 dimensions) - Race quality and value assessment
+- **Cultural Impact** (1 bonus dimension, 0-5) - Attendance, media coverage, cultural significance
 
-Plus a **4-tier classification system** and **overall score** (0-100).
+Plus a **4-tier classification system** and **overall score** (0-100+).
 
 ---
 
@@ -146,18 +147,33 @@ These measure the **race quality and value proposition**.
 
 ---
 
-## Overall Score (0-100)
+## Cultural Impact (Bonus Dimension)
+
+A bonus dimension that captures attendance, media coverage, and cultural significance — factors not covered by the 14 base dimensions. Defaults to 0 if not set.
+
+| CI | Level | Criteria |
+|----|-------|----------|
+| 5 | Global Icon | Defines gravel cycling. 2,000+ riders, massive mainstream + cycling media, cultural landmark. |
+| 4 | Major International | 1,000+ riders, significant international draw, strong media presence, established legacy. |
+| 3 | Notable National | Nationally recognized, growing media, solid participation, strong regional significance. |
+| 2 | Established Regional | Quality event with dedicated following but limited broader cultural footprint. |
+| 1 | Emerging | Building reputation, minimal media beyond local cycling communities. |
+| 0 | Default | No bonus. Most T3/T4 races. |
+
+## Overall Score (0-100+)
 
 The overall score is calculated as:
 
 ```
-overall_score = round((sum of 14 scores / 70) × 100)
+overall_score = round((sum of 14 base scores + cultural_impact) / 70 × 100)
 ```
 
-- Maximum raw score: 70 (14 dimensions × 5)
-- Normalized to 0-100 scale
-- A race scoring 3/5 across all 14 dimensions = **60**
-- A race scoring 4/5 across all 14 dimensions = **80**
+- Maximum raw base score: 70 (14 dimensions × 5)
+- Cultural impact adds 0-5 bonus points to the numerator without increasing the denominator
+- Theoretical maximum with CI=5: ~107 (75/70 × 100)
+- A race scoring 3/5 across all 14 dimensions with CI=0 = **60**
+- A race scoring 4/5 across all 14 dimensions with CI=0 = **80**
+- A race scoring 4/5 across all 14 dimensions with CI=5 = **87**
 
 ---
 
@@ -283,6 +299,7 @@ When creating or updating race profiles:
 
 ## Version History
 
+- **v2.3** (Feb 2026): Cultural Impact bonus dimension, score formula update, dimension adjustments
 - **v2.2** (Feb 2026): 4-tier system, prestige >= 75 floor for T1, discipline tags, methodology page
 - **v2.1** (Jan 2026): Dual scoring system (Course + Editorial)
 - **v2.0** (Jan 2026): 3-tier system standardized

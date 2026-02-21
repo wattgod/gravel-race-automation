@@ -13,7 +13,7 @@ Chapter-by-chapter audit of data visualization opportunities in the Gravel God T
 | `ch1-hero` through `ch8-hero` | 1-8 | Hero photos (1920x640) | Pending (API) |
 | `ch1-gear-essentials` | 1 | Gear grid infographic | Pending (API) |
 | `ch1-hierarchy-of-speed` | 1 | Speed factors pyramid | Pending (API) |
-| `ch2-scoring-dimensions` | 2 | 14 dimensions radar/grid | Pending (API) |
+| `ch2-scoring-dimensions` | 2 | 15 dimensions radar/grid | Pending (API) |
 | `ch3-zone-spectrum` | 3 | 7-zone horizontal bars | **Complete** (Pillow) |
 | `ch3-training-phases` | 3 | 12-week periodization timeline | **Complete** (Pillow) |
 | `ch5-fueling-timeline` | 5 | Race-day fueling timeline | Pending (API) |

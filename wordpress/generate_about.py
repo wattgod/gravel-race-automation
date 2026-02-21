@@ -116,7 +116,7 @@ def build_what_we_built(race_count: int) -> str:
           <button class="gg-about-tab" data-about-tab="compare">Compare Tool</button>
         </div>
         <div class="gg-about-tab-panel gg-about-tab-panel--active" data-about-panel="profiles">
-          <p>Every race scored across 14 dimensions. Course difficulty, field depth, logistics, prestige, value &mdash; the stuff that actually matters when you&#39;re deciding where to spend your registration fee and PTO days.</p>
+          <p>Every race scored across 15 dimensions. Course difficulty, field depth, logistics, prestige, value &mdash; the stuff that actually matters when you&#39;re deciding where to spend your registration fee and PTO days.</p>
         </div>
         <div class="gg-about-tab-panel" data-about-panel="prep">
           <p>Race-specific training guidance, pacing strategy, fueling plans, and gear recommendations. The pre-race homework you&#39;d do if you had 40 hours to research one event.</p>
@@ -866,7 +866,7 @@ def build_jsonld(race_count: int) -> str:
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "About Gravel God — Race Intelligence & Coaching for Gravel Cyclists",
-        "description": f"The story behind the internet's most comprehensive gravel race database. {race_count} races scored across 14 dimensions, plus coaching that works for people with real lives.",
+        "description": f"The story behind the internet's most comprehensive gravel race database. {race_count} races scored across 15 dimensions, plus coaching that works for people with real lives.",
         "url": f"{SITE_BASE_URL}/about/",
         "isPartOf": {
             "@type": "WebSite",
@@ -917,16 +917,16 @@ def generate_about_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = f"The story behind the internet&#39;s most comprehensive gravel race database. {race_count} races scored across 14 dimensions, plus coaching that works for people with real lives."
+    meta_desc = f"The story behind the internet&#39;s most comprehensive gravel race database. {race_count} races scored across 15 dimensions, plus coaching that works for people with real lives."
 
     og_tags = f'''<meta property="og:title" content="About Gravel God — Race Intelligence &amp; Coaching for Gravel Cyclists">
-  <meta property="og:description" content="The story behind the internet&#39;s most comprehensive gravel race database. {race_count} races scored across 14 dimensions.">
+  <meta property="og:description" content="The story behind the internet&#39;s most comprehensive gravel race database. {race_count} races scored across 15 dimensions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="About Gravel God — Race Intelligence &amp; Coaching for Gravel Cyclists">
-  <meta name="twitter:description" content="{race_count} gravel races scored across 14 dimensions. Zero sponsors. Plus coaching that works for people with real lives.">'''
+  <meta name="twitter:description" content="{race_count} gravel races scored across 15 dimensions. Zero sponsors. Plus coaching that works for people with real lives.">'''
 
     preload = get_preload_hints()
 

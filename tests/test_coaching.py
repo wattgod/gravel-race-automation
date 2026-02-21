@@ -147,7 +147,7 @@ class TestHero:
 
     def test_headline(self):
         hero = build_hero()
-        assert "Algorithm" in hero
+        assert "Spreadsheet" in hero
 
 
 # ── Service Tiers ────────────────────────────────────────────

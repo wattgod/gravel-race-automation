@@ -160,7 +160,7 @@ QUESTIONNAIRE_SLUGS = {
 QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 SITE_BASE_URL = "https://gravelgodcycling.com"
 COACHING_URL = f"{SITE_BASE_URL}/coaching/"
-TRAINING_PLANS_URL = "/training-plans/"
+TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
 GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
@@ -1176,8 +1176,32 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 
 # ── Phase 3D: JSON-LD Schema ──────────────────────────────────
 
-def build_sports_event_jsonld(rd: dict) -> dict:
-    """Build SportsEvent JSON-LD from normalized race data."""
+def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
+    """Build SportsEvent JSON-LD from normalized race data.
+
+    Returns None when startDate cannot be parsed (TBD, check website, etc.)
+    — omitting SportsEvent entirely is better than emitting it without a date,
+    which triggers GSC "missing startDate" errors with no rich-result upside.
+    """
+    # Parse ISO date — preprocess to handle day-of-week and ordinal suffixes
+    date_specific = rd['vitals'].get('date_specific', '')
+    date_clean = re.sub(
+        r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
+        '', date_specific)
+    date_clean = re.sub(r'(\d+)(?:st|nd|rd|th)\b', r'\1', date_clean)
+    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_clean)
+
+    # No parseable date → skip SportsEvent entirely
+    if not date_match:
+        return None
+
+    # date_match is guaranteed truthy here (early return above)
+    year, month_name, day = date_match.group(1), date_match.group(2), date_match.group(3)
+    end_day = date_match.group(4)
+    month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
+    start_date = f"{year}-{month_num}-{int(day):02d}"
+    end_date = f"{year}-{month_num}-{int(end_day):02d}" if end_day else start_date
+
     jsonld = {
         "@context": "https://schema.org",
         "@type": "SportsEvent",
@@ -1186,17 +1210,9 @@ def build_sports_event_jsonld(rd: dict) -> dict:
         "sport": "Gravel Cycling",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "startDate": start_date,
+        "endDate": end_date,
     }
-
-    # Parse ISO date
-    date_specific = rd['vitals'].get('date_specific', '')
-    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_specific)
-    if date_match:
-        year, month_name, day = date_match.group(1), date_match.group(2), date_match.group(3)
-        end_day = date_match.group(4)
-        month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
-        jsonld["startDate"] = f"{year}-{month_num}-{int(day):02d}"
-        jsonld["endDate"] = f"{year}-{month_num}-{int(end_day):02d}" if end_day else jsonld["startDate"]
 
     # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')
@@ -2946,7 +2962,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # JSON-LD
     jsonld_parts = []
     sports_event = build_sports_event_jsonld(rd)
-    jsonld_parts.append(json.dumps(sports_event, ensure_ascii=False, separators=(',', ':')))
+    if sports_event is not None:
+        jsonld_parts.append(json.dumps(sports_event, ensure_ascii=False, separators=(',', ':')))
     faq = build_faq_jsonld(rd)
     if faq:
         jsonld_parts.append(json.dumps(faq, ensure_ascii=False, separators=(',', ':')))

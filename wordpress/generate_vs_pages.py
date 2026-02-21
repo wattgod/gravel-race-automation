@@ -529,10 +529,10 @@ def build_training_cta(race_a: dict, race_b: dict) -> str:
   <h2>Still Deciding?</h2>
   <p>Get a personalized training plan for either race — tailored to your fitness, schedule, and goals.</p>
   <div class="gg-vs-cta-buttons">
-    <a href="/training-plans/?race={esc(race_a["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-a">
+    <a href="/products/training-plans/?race={esc(race_a["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-a">
       Train for {esc(race_a["name"][:25])}
     </a>
-    <a href="/training-plans/?race={esc(race_b["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-b">
+    <a href="/products/training-plans/?race={esc(race_b["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-b">
       Train for {esc(race_b["name"][:25])}
     </a>
   </div>

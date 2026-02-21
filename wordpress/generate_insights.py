@@ -1516,7 +1516,7 @@ def build_insights_css() -> str:
   align-items: baseline;
 }}
 .gg-ins-panel-hidden {{
-  display: none;
+  display: none !important;
 }}
 .gg-ins-map-panel-title {{
   width: 100%;

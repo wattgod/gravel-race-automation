@@ -76,11 +76,11 @@ HERO_VIZ_DIMS = [
 ]
 
 HERO_VIZ_LABELS = {
-    "logistics": "LOG", "length": "LEN", "technicality": "TECH",
-    "elevation": "ELEV", "climate": "CLMT", "altitude": "ALT",
-    "adventure": "ADV", "prestige": "PRSTG", "race_quality": "QUAL",
-    "experience": "EXP", "community": "COMM", "field_depth": "FIELD",
-    "value": "VAL", "expenses": "EXP$",
+    "logistics": "LOGISTICS", "length": "LENGTH", "technicality": "TECHNICALITY",
+    "elevation": "ELEVATION", "climate": "CLIMATE", "altitude": "ALTITUDE",
+    "adventure": "ADVENTURE", "prestige": "PRESTIGE", "race_quality": "QUALITY",
+    "experience": "EXPERIENCE", "community": "COMMUNITY", "field_depth": "FIELD DEPTH",
+    "value": "VALUE", "expenses": "EXPENSES",
 }
 
 HERO_VIZ_TOOLTIPS = {
@@ -573,7 +573,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
           <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn-secondary" data-ga="hero_secondary_click">How We Rate</a>
         </div>
       </div>
-      {_build_hero_radar_viz()}
+      {_build_hero_radar_viz(race_index)}
     </div>
   </section>'''
 
@@ -655,14 +655,43 @@ def _parse_score(raw) -> int:
     return max(0, min(5, score))
 
 
-def _build_hero_radar_viz() -> str:
+def _compute_archetype_examples(race_index: list) -> dict:
+    """Find 5 closest real gravel races to each archetype profile by Euclidean distance."""
+    results = {}
+    # Pre-compute race score vectors (only gravel races with enough data)
+    scored_races = []
+    for race in race_index:
+        if (race.get("discipline") or "gravel") != "gravel":
+            continue
+        scores = race.get("scores") or {}
+        vec = [_parse_score(scores.get(dim)) for dim in HERO_VIZ_DIMS]
+        non_zero = sum(1 for v in vec if v > 0)
+        if non_zero < 10:
+            continue
+        scored_races.append((vec, race))
+
+    for arch_name, arch_scores in HERO_VIZ_ARCHETYPES.items():
+        distances = []
+        for vec, race in scored_races:
+            dist = sum((a - b) ** 2 for a, b in zip(arch_scores, vec)) ** 0.5
+            distances.append((dist, race))
+        distances.sort(key=lambda x: x[0])
+        results[arch_name] = [
+            {"name": r.get("name", ""), "slug": r.get("slug", "")}
+            for _, r in distances[:5]
+        ]
+    return results
+
+
+def _build_hero_radar_viz(race_index: list = None) -> str:
     """Build interactive 14-axis radar visualization for the hero section.
 
     Race-independent — showcases the rating system with archetype profiles.
+    Each archetype shows 5 closest real races as clickable links.
     All SVG styling via CSS classes. Animation handled in build_homepage_js().
     """
     n = len(HERO_VIZ_DIMS)
-    cx, cy, radius = 200, 200, 130
+    cx, cy, radius = 230, 230, 130
 
     def _pt(i, scale):
         angle = (2 * math.pi * i / n) - math.pi / 2
@@ -699,9 +728,9 @@ def _build_hero_radar_viz() -> str:
             f'class="gg-hp-hv-dot" data-idx="{i}"/>\n'
         )
 
-    # Axis labels with tooltips
+    # Axis labels — full words, with data attrs for JS tooltip
     labels = ""
-    label_margin = 18
+    label_margin = 22
     for i, dim in enumerate(HERO_VIZ_DIMS):
         angle = (2 * math.pi * i / n) - math.pi / 2
         lx, ly = _pt(i, 1.0)
@@ -713,44 +742,63 @@ def _build_hero_radar_viz() -> str:
             anchor = "end"
         else:
             anchor = "start"
-        abbrev = esc(HERO_VIZ_LABELS[dim])
-        tooltip = esc(HERO_VIZ_TOOLTIPS[dim])
+        label_text = esc(HERO_VIZ_LABELS[dim])
+        dim_name = esc(dim.replace("_", " ").title())
+        dim_desc = esc(HERO_VIZ_TOOLTIPS[dim])
         labels += (
             f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" '
-            f'class="gg-hp-hv-lbl"><title>{tooltip}</title>{abbrev}</text>\n'
+            f'class="gg-hp-hv-lbl" data-dim-name="{dim_name}" '
+            f'data-dim-desc="{dim_desc}" tabindex="0">{label_text}</text>\n'
         )
 
     svg = (
-        f'<svg viewBox="0 0 400 400" role="img" '
+        f'<svg viewBox="0 0 460 460" role="img" '
         f'aria-label="Rating system radar chart showing 14 scoring criteria" '
         f'xmlns="http://www.w3.org/2000/svg">\n'
         f'{grid_svg}{data_polygon}{markers}{labels}'
         f'</svg>'
     )
 
-    # Archetype buttons with pre-computed points
+    # Compute example races per archetype
+    examples = _compute_archetype_examples(race_index) if race_index else {}
+
+    # Archetype buttons with pre-computed points + example race data
     buttons = ""
     for name, scores in HERO_VIZ_ARCHETYPES.items():
         pts = " ".join(
             f"{_pt(i, s / 5)[0]:.1f},{_pt(i, s / 5)[1]:.1f}"
             for i, s in enumerate(scores)
         )
-        # Also pre-compute marker positions for animation
         marker_data = " ".join(
             f"{_pt(i, s / 5)[0] - 2:.1f},{_pt(i, s / 5)[1] - 2:.1f}"
             for i, s in enumerate(scores)
         )
+        ex_list = examples.get(name, [])
+        ex_slugs = ",".join(e["slug"] for e in ex_list)
+        ex_names = "||".join(e["name"] for e in ex_list)
         active = ' gg-hp-hv-btn--active' if name == default_name else ''
         buttons += (
             f'<button type="button" class="gg-hp-hv-btn{active}" '
             f'data-points="{pts}" data-markers="{marker_data}" '
+            f'data-examples="{esc(ex_slugs)}" data-example-names="{esc(ex_names)}" '
             f'data-ga="hero_radar_morph" data-ga-label="{esc(name)}">'
             f'{esc(name.upper())}</button>\n'
         )
 
-    return f'''<div class="gg-hp-hv-wrap" data-viz="hero-radar">
+    # Pre-populate examples list with default archetype
+    default_examples = examples.get(default_name, [])
+    example_items = ""
+    for ex in default_examples:
+        example_items += (
+            f'<li><a href="{SITE_BASE_URL}/race/{esc(ex["slug"])}/" '
+            f'class="gg-hp-hv-ex-link">{esc(ex["name"])}</a></li>\n'
+        )
+
+    return f'''<div class="gg-hp-hv-wrap" data-viz="hero-radar" data-site-base="{SITE_BASE_URL}">
         {svg}
+        <div class="gg-hp-hv-tooltip" aria-hidden="true"></div>
         <div class="gg-hp-hv-btns">{buttons}</div>
+        <div class="gg-hp-hv-examples"><ol class="gg-hp-hv-ex-list">{example_items}</ol></div>
         <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-hv-link" data-ga="hero_methodology_click">How We Rate &rarr;</a>
       </div>'''
 
@@ -1209,16 +1257,26 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-btn-secondary:hover { border-color: #178079; color: #178079; }
 
 /* ── Hero radar visualization ── */
-.gg-hp-hv-wrap { text-align: center; }
+.gg-hp-hv-wrap { text-align: center; position: relative; }
 .gg-hp-hv-wrap svg { max-width: 400px; width: 100%; height: auto; }
 .gg-hp-hv-grid { fill: none; stroke: #d4c5b9; stroke-width: 0.5; }
 .gg-hp-hv-data { fill: rgba(23, 128, 121, 0.15); stroke: #178079; stroke-width: 2; }
 .gg-hp-hv-dot { fill: #178079; }
-.gg-hp-hv-lbl { font-family: 'Sometype Mono', monospace; font-size: 9px; fill: #7d695d; text-transform: uppercase; letter-spacing: 0.5px; }
+.gg-hp-hv-lbl { font-family: 'Sometype Mono', monospace; font-size: 9px; fill: #7d695d; text-transform: uppercase; letter-spacing: 0.5px; cursor: default; }
+.gg-hp-hv-lbl:hover, .gg-hp-hv-lbl:focus { fill: #178079; outline: none; }
+.gg-hp-hv-tooltip { position: absolute; background: rgba(58, 46, 37, 0.92); color: #f5efe6; padding: 8px 12px; font-family: 'Sometype Mono', monospace; font-size: 10px; line-height: 1.5; max-width: 220px; text-align: left; pointer-events: none; visibility: hidden; z-index: 10; border: 2px solid #3a2e25; transition: visibility .15s; }
+.gg-hp-hv-tooltip--visible { visibility: visible; }
+.gg-hp-hv-tooltip strong { display: block; color: #c9a92c; margin-bottom: 2px; letter-spacing: 1px; }
 .gg-hp-hv-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
 .gg-hp-hv-btn { padding: 8px 14px; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7d695d; background: transparent; border: 2px solid #d4c5b9; cursor: pointer; transition: border-color .3s, color .3s; }
 .gg-hp-hv-btn:hover { border-color: #178079; color: #178079; }
 .gg-hp-hv-btn--active { border-color: #178079; color: #178079; background: rgba(23, 128, 121, 0.08); }
+.gg-hp-hv-examples { display: flex; justify-content: center; margin-top: 14px; min-height: 22px; }
+.gg-hp-hv-ex-list { list-style: none; padding: 0 0 0 14px; margin: 0; border-left: 3px solid #178079; text-align: left; counter-reset: ex; }
+.gg-hp-hv-ex-list li { counter-increment: ex; margin-bottom: 4px; line-height: 1.6; }
+.gg-hp-hv-ex-list li::before { content: counter(ex, decimal-leading-zero) " "; font-family: 'Sometype Mono', monospace; font-size: 10px; color: #d4c5b9; letter-spacing: 0.5px; }
+.gg-hp-hv-ex-link { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #7d695d; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; transition: color .3s; }
+.gg-hp-hv-ex-link:hover { color: #178079; }
 .gg-hp-hv-link { display: inline-block; margin-top: 12px; font-family: 'Sometype Mono', monospace; font-size: 11px; color: #178079; text-decoration: none; letter-spacing: 0.5px; transition: color .3s; }
 .gg-hp-hv-link:hover { color: #59473c; }
 
@@ -1481,8 +1539,11 @@ a { text-decoration: none; color: #178079; }
 
   /* Hero radar viz */
   .gg-hp-hv-wrap svg { max-width: 320px; }
-  .gg-hp-hv-lbl { font-size: 8px; }
+  .gg-hp-hv-lbl { font-size: 7px; }
   .gg-hp-hv-btn { padding: 6px 10px; font-size: 9px; }
+  .gg-hp-hv-ex-link { font-size: 10px; }
+  .gg-hp-hv-ex-list li::before { font-size: 9px; }
+  .gg-hp-hv-tooltip { font-size: 9px; max-width: 180px; }
 
   /* Stats stripe */
   .gg-hp-stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -1725,19 +1786,68 @@ if (tablist) {
   startAuto();
 })();
 
-// Hero radar morph
+// Hero radar morph + tooltips + examples
 (function() {
   var wrap = document.querySelector('[data-viz="hero-radar"]');
   if (!wrap) return;
   var polygon = wrap.querySelector('.gg-hp-hv-data');
   var dots = wrap.querySelectorAll('.gg-hp-hv-dot');
   var btns = wrap.querySelectorAll('.gg-hp-hv-btn');
+  var tooltip = wrap.querySelector('.gg-hp-hv-tooltip');
+  var examplesDiv = wrap.querySelector('.gg-hp-hv-examples');
+  var labels = wrap.querySelectorAll('.gg-hp-hv-lbl');
+  var siteBase = wrap.getAttribute('data-site-base') || '';
   if (!polygon || !btns.length) return;
 
+  // ── Tooltip on axis labels ──
+  if (tooltip) {
+    function showTip(el) {
+      var name = el.getAttribute('data-dim-name') || '';
+      var desc = el.getAttribute('data-dim-desc') || '';
+      if (!name) return;
+      tooltip.innerHTML = '<strong>' + name + '</strong>' + desc;
+      tooltip.classList.add('gg-hp-hv-tooltip--visible');
+      var rect = el.getBoundingClientRect();
+      var wrapRect = wrap.getBoundingClientRect();
+      var tx = rect.left - wrapRect.left + rect.width / 2;
+      var ty = rect.top - wrapRect.top - 6;
+      var tw = tooltip.offsetWidth;
+      if (tx - tw / 2 < 0) tx = tw / 2 + 4;
+      if (tx + tw / 2 > wrapRect.width) tx = wrapRect.width - tw / 2 - 4;
+      tooltip.style.left = tx + 'px';
+      tooltip.style.top = ty + 'px';
+      tooltip.style.transform = 'translate(-50%, -100%)';
+    }
+    function hideTip() { tooltip.classList.remove('gg-hp-hv-tooltip--visible'); }
+    labels.forEach(function(lbl) {
+      lbl.addEventListener('mouseenter', function() { showTip(lbl); });
+      lbl.addEventListener('focus', function() { showTip(lbl); });
+      lbl.addEventListener('mouseleave', hideTip);
+      lbl.addEventListener('blur', hideTip);
+    });
+  }
+
+  // ── Update examples list ──
+  function updateExamples(btn) {
+    if (!examplesDiv) return;
+    var slugs = (btn.getAttribute('data-examples') || '').split(',');
+    var names = (btn.getAttribute('data-example-names') || '').split('||');
+    var html = '<ol class="gg-hp-hv-ex-list">';
+    for (var i = 0; i < slugs.length; i++) {
+      if (!slugs[i]) continue;
+      var n = names[i] || slugs[i];
+      html += '<li><a href="' + siteBase + '/race/' + slugs[i] + '/" class="gg-hp-hv-ex-link">' + n + '</a></li>';
+    }
+    html += '</ol>';
+    examplesDiv.innerHTML = html;
+  }
+
+  // ── Button click: morph + examples ──
   btns.forEach(function(btn) {
     btn.addEventListener('click', function() {
       btns.forEach(function(b) { b.classList.remove('gg-hp-hv-btn--active'); });
       btn.classList.add('gg-hp-hv-btn--active');
+      updateExamples(btn);
 
       var targetPts = btn.getAttribute('data-points');
       var targetMarkers = btn.getAttribute('data-markers');

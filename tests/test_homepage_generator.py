@@ -44,6 +44,7 @@ from generate_homepage import (
     _tier_badge_class,
     _build_stat_bars,
     _build_hero_radar_viz,
+    _compute_archetype_examples,
     _parse_score,
     FEATURED_SLUGS,
     STAT_BAR_DIMENSIONS,
@@ -1853,8 +1854,8 @@ class TestHeroRadarViz:
     """
 
     @pytest.fixture()
-    def viz_html(self):
-        return _build_hero_radar_viz()
+    def viz_html(self, race_index):
+        return _build_hero_radar_viz(race_index)
 
     # ── Structure ──
 
@@ -1925,25 +1926,33 @@ class TestHeroRadarViz:
 
     # ── Tooltips ──
 
-    def test_viz_all_labels_have_tooltips(self, viz_html):
-        """Every text label has a title child for native browser tooltip."""
+    def test_viz_labels_have_tooltip_data(self, viz_html):
+        """Every label has data-dim-name and data-dim-desc for JS tooltip."""
         import re
-        texts = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"[^>]*>(.*?)</text>', viz_html)
-        for t in texts:
-            assert "<title>" in t, f"Label missing <title> tooltip: {t}"
+        labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"[^>]*>', viz_html)
+        for lbl in labels:
+            assert 'data-dim-name="' in lbl, f"Label missing data-dim-name: {lbl}"
+            assert 'data-dim-desc="' in lbl, f"Label missing data-dim-desc: {lbl}"
 
-    def test_viz_tooltip_count(self, viz_html):
-        """Exactly 14 title elements."""
-        assert viz_html.count("<title>") == 14
+    def test_viz_tooltip_div_exists(self, viz_html):
+        """Tooltip HTML div is present in the wrapper."""
+        assert 'class="gg-hp-hv-tooltip"' in viz_html
 
-    def test_viz_tooltip_text_matches_dict(self, viz_html):
-        """Tooltip text matches HERO_VIZ_TOOLTIPS values."""
+    def test_viz_tooltip_descriptions_match_dict(self, viz_html):
+        """data-dim-desc values match HERO_VIZ_TOOLTIPS."""
         import re
-        titles = re.findall(r'<title>([^<]+)</title>', viz_html)
+        descs = re.findall(r'data-dim-desc="([^"]+)"', viz_html)
+        assert len(descs) == 14
         expected = list(HERO_VIZ_TOOLTIPS.values())
-        assert len(titles) == len(expected)
         for tooltip in expected:
-            assert tooltip in titles, f"Missing tooltip: {tooltip}"
+            assert tooltip in descs, f"Missing tooltip desc: {tooltip}"
+
+    def test_viz_labels_are_focusable(self, viz_html):
+        """Every label has tabindex for keyboard accessibility."""
+        import re
+        labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"[^>]*>', viz_html)
+        for lbl in labels:
+            assert 'tabindex="0"' in lbl, f"Label missing tabindex: {lbl}"
 
     # ── Buttons ──
 
@@ -2059,7 +2068,10 @@ class TestHeroRadarViz:
         css = build_homepage_css()
         for cls in [".gg-hp-hv-wrap", ".gg-hp-hv-grid", ".gg-hp-hv-data",
                     ".gg-hp-hv-dot", ".gg-hp-hv-lbl", ".gg-hp-hv-btns",
-                    ".gg-hp-hv-btn", ".gg-hp-hv-btn--active", ".gg-hp-hv-link"]:
+                    ".gg-hp-hv-btn", ".gg-hp-hv-btn--active", ".gg-hp-hv-link",
+                    ".gg-hp-hv-tooltip", ".gg-hp-hv-tooltip--visible",
+                    ".gg-hp-hv-examples", ".gg-hp-hv-ex-list",
+                    ".gg-hp-hv-ex-link"]:
             assert cls in css, f"CSS missing rule for {cls}"
 
     def test_viz_css_no_old_classes(self):
@@ -2075,7 +2087,7 @@ class TestHeroRadarViz:
         # Extract just the hero radar viz CSS section
         known_colors = {
             "#59473c", "#7d695d", "#178079", "#4ecdc4", "#9a7e0a",
-            "#f4d03f", "#c4b5ab", "#d4c5b9", "#f5efe6", "#3a2e25",
+            "#c9a92c", "#c4b5ab", "#d4c5b9", "#f5efe6", "#3a2e25",
             "#1a1613", "#b7950b", "#766a5e", "#5e6868", "#8c7568",
             "#ede4d8", "#fff",
         }
@@ -2102,8 +2114,72 @@ class TestHeroRadarViz:
     def test_viz_js_easing_function(self):
         """JS contains easeInOutQuad math."""
         js = build_homepage_js()
-        # easeInOutQuad: pct < 0.5 ? 2 * pct * pct : 1 - Math.pow(...)
         assert "2 * pct * pct" in js
+
+    def test_viz_js_tooltip_handler(self):
+        """JS contains tooltip show/hide handlers."""
+        js = build_homepage_js()
+        assert "gg-hp-hv-tooltip" in js
+        assert "data-dim-name" in js
+
+    def test_viz_js_examples_update(self):
+        """JS contains examples update logic with ordered list."""
+        js = build_homepage_js()
+        assert "data-examples" in js
+        assert "gg-hp-hv-ex-link" in js
+        assert "gg-hp-hv-ex-list" in js
+        assert "<li>" in js
+
+    # ── Example races ──
+
+    def test_viz_examples_div_exists(self, viz_html):
+        """Examples div is present."""
+        assert 'class="gg-hp-hv-examples"' in viz_html
+
+    def test_viz_examples_ordered_list(self, viz_html):
+        """Examples use an ordered list structure."""
+        assert '<ol class="gg-hp-hv-ex-list">' in viz_html
+        assert '<li>' in viz_html
+
+    def test_viz_default_has_example_links(self, viz_html):
+        """Default archetype's example links are pre-populated."""
+        import re
+        links = re.findall(r'class="gg-hp-hv-ex-link"', viz_html)
+        assert len(links) == 5, f"Expected 5 example links, got {len(links)}"
+
+    def test_viz_buttons_have_example_data(self, viz_html):
+        """Every button has data-examples and data-example-names."""
+        import re
+        btns = re.findall(r'<button[^>]*class="gg-hp-hv-btn[^"]*"[^>]*>', viz_html)
+        for btn in btns:
+            assert 'data-examples="' in btn
+            assert 'data-example-names="' in btn
+
+    def test_viz_each_archetype_has_5_examples(self, race_index):
+        """Each archetype maps to exactly 5 example races."""
+        examples = _compute_archetype_examples(race_index)
+        for name in HERO_VIZ_ARCHETYPES:
+            assert name in examples, f"Missing examples for {name}"
+            assert len(examples[name]) == 5, \
+                f"{name} has {len(examples[name])} examples, expected 5"
+
+    def test_viz_example_slugs_are_valid(self, race_index):
+        """All example race slugs exist in the race index."""
+        by_slug = {r["slug"] for r in race_index}
+        examples = _compute_archetype_examples(race_index)
+        for name, races in examples.items():
+            for r in races:
+                assert r["slug"] in by_slug, \
+                    f"Example slug '{r['slug']}' for {name} not in race index"
+
+    def test_viz_example_links_are_clickable(self, viz_html):
+        """Example links point to valid race profile URLs."""
+        import re
+        hrefs = re.findall(r'class="gg-hp-hv-ex-link"[^>]*href="([^"]+)"', viz_html)
+        if not hrefs:
+            hrefs = re.findall(r'href="([^"]+)"[^>]*class="gg-hp-hv-ex-link"', viz_html)
+        for href in hrefs:
+            assert "/race/" in href, f"Example link not a race URL: {href}"
 
     # ── SVG styling compliance ──
 

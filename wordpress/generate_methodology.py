@@ -254,8 +254,8 @@ def build_faq() -> str:
          "We review scores annually before each race season and make ad-hoc updates when significant changes occur (new ownership, course redesign, series affiliation changes). All changes are logged in the race profile."),
         ("Why isn&#39;t my favorite race rated higher?",
          "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The scoring breakdown shows exactly where a race excels and where it loses points &mdash; check the full profile for details."),
-        ("What about mountain bike races?",
-         "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with a &ldquo;MTB&rdquo; discipline label so they&#39;re clearly identified. The same scoring rubric applies."),
+        ("What about mountain bike and bikepacking races?",
+         "We include a small number of iconic MTB events (like Leadville and Chequamegon) and ultra-endurance bikepacking races (like Tour Divide and Transcontinental) that are culturally significant to the gravel community. These are tagged with &ldquo;MTB&rdquo; or &ldquo;Bikepacking&rdquo; discipline labels so they&#39;re clearly identified. The same scoring rubric applies."),
     ]
 
     items = ""
@@ -385,10 +385,10 @@ def build_jsonld() -> str:
             },
             {
                 "@type": "Question",
-                "name": "What about mountain bike races?",
+                "name": "What about mountain bike and bikepacking races?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) that are culturally significant to the gravel community. These are tagged with an MTB discipline label. The same 15-dimension rubric applies.",
+                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) and ultra-endurance bikepacking races (like Tour Divide and Transcontinental) that are culturally significant to the gravel community. These are tagged with MTB or Bikepacking discipline labels. The same 15-dimension rubric applies.",
                 },
             },
         ],

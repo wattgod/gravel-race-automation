@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 222,
+  "estimated_spoken_words": 496,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_adventure",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. Beach start, protected coastal dunes, dirt circuits through Mediterranean island terrain—this hits every adventure racing checkbox. Experience. 5 out of 5. This race ruins other races for you. Beach start transitioning to protected coastal dunes, then dirt roads through southeast Sardinia's stunning coastline—this is proper adventure racing. Value. 5 out of 5. Punches way above its price point. You're getting Mediterranean island racing with World Series qualification for whatever the entry fee costs. Length. 4 out of 5. This is a long day. Plan accordingly. The 81-mile/122km elite distance hits the sweet spot for serious gravel racing without becoming a sufferfest. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. Starting on beach sand immediately tests bike handling and power management. Elevation. 4 out of 5. Your power-to-weight ratio matters here. 8,530 feet of climbing over 81 miles delivers consistent challenge without absurd gradients—that's about 105 feet per mile. Prestige. 4 out of 5. Prestigious. People plan seasons around it. UCI Gravel World Series qualifier with 30 years of Giro Sardegna history behind it—that's real pedigree. Race Quality. 4 out of 5. High-quality event. Attention to detail shows. Sophisticated course design starting with 3.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 71.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Community. 4 out of 5. Riders come for the race. Stay for the people. Field Depth. 4 out of 5. Pro-level talent in the mix. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Climate. 3 out of 5. The weather could go either way. Expenses. 3 out of 5. Standard gravel race budget. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Giro Sardegna Gravel does well.",
+      "narration": "The case for Giro Sardegna Gravel.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -311,7 +311,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -328,7 +328,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "International travel required (Olbia 60km)",
@@ -345,7 +345,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -501,9 +501,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Giro Sardegna Gravel' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 222,
+    "total_words": 496,
     "total_duration_sec": 585,
-    "overall_wpm": 22.8,
+    "overall_wpm": 50.9,
     "warnings": [],
     "feasible": true
   },

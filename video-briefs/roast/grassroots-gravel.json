@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 76,
+  "estimated_spoken_words": 180,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -71,7 +71,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -122,7 +122,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -172,14 +172,14 @@
           "No national draw"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Prestige. 1 out of 5. Under the radar. Completely unknown. George York finished 2nd in the 75-mile, 60+ age group and Cory Martin placed 5th in his first gravel race, showing solid regional participation. Field Depth. 1 out of 5. Small field. You might podium by showing up. Elite riders like Sudduth, Van Werven, and York placed well in 2024, with Martin finishing 5th despite it being his first gravel race. Technicality. 2 out of 5. Your road bike might survive. Might. The Twelvemile climb hits 16% grades briefly but riders report 'shockingly good' surface quality ranging from 'fine champagne goodness to moderate classic gravel.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -196,7 +196,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Prestige",
@@ -214,7 +214,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 111.0
     },
     {
       "id": "verdict",
@@ -285,9 +285,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Grassroots Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 76,
+    "total_words": 180,
     "total_duration_sec": 225,
-    "overall_wpm": 20.3,
+    "overall_wpm": 48.0,
     "warnings": [],
     "feasible": true
   },

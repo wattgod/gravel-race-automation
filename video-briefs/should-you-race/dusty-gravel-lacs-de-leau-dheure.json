@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 142,
+  "estimated_spoken_words": 409,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Value. 4 out of 5. Good value. More bang for your buck than most. Two distance options integrated with the larger cycling festival for likely reasonable entry fees. Logistics. 2 out of 5. Functional. Not impressive. Start/finish at the Plate Taille dam at Lacs de l'Eau d'Heure with 9:00 AM (70km) and 9:30 AM (110km) start times. Length. 2 out of 5. Won't destroy your week. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. The Gran Fondo Guide rates terrain as \"moderate terrain with rolling short steep hills or moderate, sustained climbs. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. The shorter 21km loops pack the punch: \"The second loop may be shorter, but it is littered with small bumps that hurt the legs! Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. \"The region around the Lacs de l'Eau d'Heure is not known for its gravel roads,\" yet organizers created routes with \"beautiful sections through the forest. Race Quality. 2 out of 5. Adequate. Room for improvement. Organized as part of the five-race Dusty Gravel Series with points accumulation and official rankings.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 69.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Riders acknowledge each other. Barely. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Low altitude. Breathe easy. Prestige. 1 out of 5. Under the radar. Completely unknown. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Dusty Gravel - Lacs de l'Eau d'Heure does well.",
+      "narration": "What Dusty Gravel - Lacs de l'Eau d'Heure gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: €50-75"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Dusty Gravel - Lacs de l'Eau d'Heure' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 142,
+    "total_words": 409,
     "total_duration_sec": 585,
-    "overall_wpm": 14.6,
+    "overall_wpm": 41.9,
     "warnings": [],
     "feasible": true
   },

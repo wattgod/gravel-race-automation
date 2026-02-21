@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 86,
+  "estimated_spoken_words": 132,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "extreme_length",
@@ -76,7 +76,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -130,7 +130,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -183,14 +183,14 @@
           "Logistics: Moving between towns requires planning or vehicle support."
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Logistics. 3 out of 5. Adequate. The word was invented for this. Technicality. 3 out of 5. Technical enough to thin the pack. Climate. 3 out of 5. Pack for two seasons. July in Central Oregon means hot, dry conditions with intense sun and potential afternoon winds.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -207,7 +207,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Logistics",
@@ -225,7 +225,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 53.0
     },
     {
       "id": "verdict",
@@ -297,9 +297,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Oregon Trail Gravel Grinder' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 86,
+    "total_words": 132,
     "total_duration_sec": 225,
-    "overall_wpm": 22.9,
+    "overall_wpm": 35.2,
     "warnings": [],
     "feasible": true
   },

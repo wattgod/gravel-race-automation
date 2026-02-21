@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 136,
+  "estimated_spoken_words": 423,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 4 out of 5. Double-digit hours are on the table. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Packet pickup windows are reasonable (09:00-11:30 Friday, 07:00-08:45 Saturday) with secure parking and camping access. Elevation. 3 out of 5. Proper climbing. You'll earn your descents. The climbing builds logically: 1,370m on the 70km opener, 1,800m on the 110km queen stage, and 1,620m on the 90km finale. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. Late September conditions turned Stage 1 into a \"muddy course\" that affected elite tactics, with Trouwborst taking early control in the slick conditions. Adventure. 3 out of 5. Adventure factor is real. Multi-day stage racing through Wallonian forests with different daily start locations (Vielsalm, Centre Adeps d'Engreux, Baraque Fraiture) creates proper adventure variety. Experience. 3 out of 5. The experience justifies the entry fee. Trouwborst's overall victory despite Stage 2 mechanicals and early Stage 3 puncture shows the format rewards consistency over single-stage heroics. Community. 3 out of 5. Community is a real selling point. Organizers recommend the full weekend to \"fully experience the unique Ardenne Gravel Stages\" rather than cherry-picking days. Value. 3 out of 5. The math works out. Barely. 149€ for three days including meals, camping, bike wash, and secure parking competes well with single-day European events.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 75.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Ardenne Gravel Stages does well.",
+      "narration": "The case for Ardenne Gravel Stages.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: €150-250"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Ardenne Gravel Stages' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 136,
+    "total_words": 423,
     "total_duration_sec": 585,
-    "overall_wpm": 13.9,
+    "overall_wpm": 43.4,
     "warnings": [],
     "feasible": true
   },

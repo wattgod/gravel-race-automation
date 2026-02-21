@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 119,
+  "estimated_spoken_words": 368,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Altitude. 3 out of 5. Moderate altitude. Worth acclimatizing for. Starting around 6500 feet at McNeil Scout Ranch and topping at 7300 feet puts riders in Colorado's moderate altitude zone. Value. 3 out of 5. Reasonable price for what's offered. At $100 for 55 miles with Scout Ranch venue camping, post-race BBQ, and live music, the pricing reflects honest regional race value. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Hour drive from Denver International keeps travel reasonable for most participants, with venue camping eliminating hotel costs. Logistics. 2 out of 5. Functional. Not impressive. Nathan Trachta praises staff who \"found them when they swept the course\" after he lost his car keys racing, showing solid volunteer support. Length. 2 out of 5. Short but honest about it. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Course features \"alternating loose sand and deadly washboarded sections with short, punchy 12% climbs\" as cdan4th described the county roads. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Climate. 2 out of 5. Weather cooperates more often than not.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 64.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 88.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Mad Gravel does well.",
+      "narration": "Where Mad Gravel earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -269,14 +269,14 @@
           "Moderate costs"
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small regional field",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $75-95"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Mad Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 119,
+    "total_words": 368,
     "total_duration_sec": 585,
-    "overall_wpm": 12.2,
+    "overall_wpm": 37.7,
     "warnings": [],
     "feasible": true
   },

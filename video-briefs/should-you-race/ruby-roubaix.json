@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 134,
+  "estimated_spoken_words": 437,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Elevation. 4 out of 5. Serious elevation. Train your climbing legs. The Harrison Pass descent features 'the steepest downhill grades (up to 10%) on a twisting gravel road with choppy washboards and loose gravel. Altitude. 4 out of 5. Thin air territory. Acclimatize or suffer. Lamoille sits at the base of the Ruby Mountains with routes climbing through Secret Pass and Harrison Pass summits. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. Routes traverse the Ruby Lake National Wildlife Refuge, Lee, Jiggs, and Ruby Valley on mixed terrain through spectacular Ruby Mountains backcountry. Value. 4 out of 5. Good value. More bang for your buck than most. Four distance options access remote Ruby Mountains terrain most cyclists never experience, with entry including Hammer Nutrition goody bags, lunch, beverages, and post-race amenities. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Length. 3 out of 5. Long enough to matter. Short enough to recover. Four distance options from 22 to 120. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. Late June conditions range from 40-60°F starts to afternoon highs in the 80s-90s, with typical SSW winds that 'can be any direction. Community. 3 out of 5. Community is a real selling point. Community volunteers 'greet you at stops along the routes with big smiles, two-way radios, water, and snacks specific to the needs of cyclists.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 80.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 2 out of 5. Your road bike might survive. Might. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. A nice day on the bike. Nothing more. Logistics. 1 out of 5. Good luck finding anything out there. Prestige. 1 out of 5. Under the radar. Completely unknown. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 104.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Ruby Roubaix does well.",
+      "narration": "The case for Ruby Roubaix.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Extremely remote location",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'Ruby Roubaix' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 134,
+    "total_words": 437,
     "total_duration_sec": 585,
-    "overall_wpm": 13.7,
+    "overall_wpm": 44.8,
     "warnings": [],
     "feasible": true
   },

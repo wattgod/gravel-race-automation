@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 124,
+  "estimated_spoken_words": 400,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 3 out of 5. Long enough to matter. Short enough to recover. 123km hits the sweet spot for gravel racing — long enough to matter, short enough to avoid death march territory. Climate. 3 out of 5. Pack for two seasons. Adventure. 3 out of 5. This race takes you somewhere different. The only UCI gravel race starting in one country and finishing in another delivers cross-border exploration. Experience. 3 out of 5. The experience justifies the entry fee. Starting at UNESCO World Heritage fortifications in Elvas and finishing at Guadiana Park in historic Badajoz creates cultural depth. Community. 3 out of 5. Community is a real selling point. Being part of the UCI series means qualifying opportunities for age-group riders chasing World Championships spots. Value. 3 out of 5. Fair value. You get what you pay for. €50-70 tiered entry fees are reasonable for a UCI-sanctioned event with World Championship qualifying opportunities. Logistics. 2 out of 5. Functional. Not impressive. Cross-border start in Elvas, Portugal and finish in Badajoz, Spain creates obvious transportation complications with zero guidance provided. Technicality. 2 out of 5. Your road bike might survive. Might. Course features 65% gravel and 35% paved roads through rolling terrain with no major sustained climbs.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 71.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 98.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What 114 Gravel Race does well.",
+      "narration": "What 114 Gravel Race gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate Europe access",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: €50-80"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, '114 Gravel Race' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 124,
+    "total_words": 400,
     "total_duration_sec": 585,
-    "overall_wpm": 12.7,
+    "overall_wpm": 41.0,
     "warnings": [],
     "feasible": true
   },

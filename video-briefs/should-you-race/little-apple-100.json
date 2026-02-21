@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 170,
+  "estimated_spoken_words": 412,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 4 out of 5. Bring real food. Not just gels. 100 miles creates psychological warfare as much as physical suffering. Logistics. 3 out of 5. Adequate. The word was invented for this. 525 South State Street provides clear start location with 8:00 AM timing and neutral roll-out preventing start crashes. Prestige. 3 out of 5. Established race. Solid reputation. Illinois State Championships designation attracts competitive teams like Hardcore Cycling Club. Race Quality. 3 out of 5. Good race quality. No major complaints. Organized support includes mid-course water stations and neutral roll-out preventing start incidents. Experience. 3 out of 5. Memorable course. Has character. State championship creates psychological pressure beyond typical gravel events. Community. 3 out of 5. Genuine community feel. People stick around. Local residents provide on-course support with \"the cutest little cheer leaders\" offering cold water at mile 45. Value. 3 out of 5. The math works out. Barely. Steve earns recognition as \"Nicest USAC official, 2nd only to his wife Brenda\" according to podium finishers. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 62.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Some ups and downs. Manageable. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Little Apple 100 - Illinois State Championship does well.",
+      "narration": "The case for Little Apple 100 - Illinois State Championship.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Flat farmland terrain (limited climbing)",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Little Apple 100 - Illinois State Championship' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 170,
+    "total_words": 412,
     "total_duration_sec": 585,
-    "overall_wpm": 17.4,
+    "overall_wpm": 42.3,
     "warnings": [],
     "feasible": true
   },

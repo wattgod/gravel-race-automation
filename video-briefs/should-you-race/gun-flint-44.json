@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 142,
+  "estimated_spoken_words": 437,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. October weather brings proper variability with highs in mid-50s but warnings to 'bring clothing for wide range of conditions. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Remote nordic and snowmobile trails that 'seldom see use outside winter' deliver backcountry feel through Minnesota wilderness. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Bearskin Lodge start location adds charm to riding remote trails through Minnesota wilderness. Community. 3 out of 5. Community is a real selling point. The related Gunflint events draw competitive participants like dog mushers Erin Altemus and Rita Wehseler to the area. Value. 3 out of 5. Fair value. You get what you pay for. Access to rarely-used trail systems in the remote Gunflint Trail area has inherent worth for wilderness riding. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Research reveals confusion between Gun Flint 44 and the documented Gunflint Scramble 20-mile mountain bike race at Bearskin Lodge. Length. 2 out of 5. Manageable distance. Back by lunch. 44 miles sits in the awkward middle distance between morning blast and epic bragging rights. Technicality. 2 out of 5. Your road bike might survive. Might. The related Gunflint Scramble is described as 'fairly non-technical' with caution needed only on steep fast descents with loose terrain.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 77.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Gun Flint 44 does well.",
+      "narration": "Where Gun Flint 44 earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -269,14 +269,14 @@
           "North Shore setting"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.3
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Grand Marais access (moderate)",
@@ -309,7 +309,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Gun Flint 44' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 142,
+    "total_words": 437,
     "total_duration_sec": 585,
-    "overall_wpm": 14.6,
+    "overall_wpm": 44.8,
     "warnings": [],
     "feasible": true
   },

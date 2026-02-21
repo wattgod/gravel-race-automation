@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 76,
+  "estimated_spoken_words": 154,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -71,7 +71,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "The marketing version. The one with nice photos.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -115,14 +115,14 @@
           "Remote adventure"
         ]
       },
-      "narration_wpm": 15.0
+      "narration_wpm": 12.0
     },
     {
       "id": "reality_check",
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "And here's what they don't mention in the promo video.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -172,14 +172,14 @@
           "No national draw"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 10.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The data doesn't care about your feelings. Prestige. 1 out of 5. Under the radar. Completely unknown. Mary's Mayhem launched in 2024, making it barely a toddler in gravel race years. Field Depth. 1 out of 5. Not exactly stacked. With a field of 50-100 riders, no field size data, no notable finishers, no pro participation mentioned anywhere. Logistics. 2 out of 5. Functional. Not impressive. Registration splits between The Three Tails Brewery Friday night and Small Batch Brewery Saturday morning with gravel bike expo included.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -196,7 +196,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Prestige",
@@ -214,7 +214,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 86.0
     },
     {
       "id": "verdict",
@@ -285,9 +285,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Marys Mayhem' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 76,
+    "total_words": 154,
     "total_duration_sec": 225,
-    "overall_wpm": 20.3,
+    "overall_wpm": 41.1,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 75,
+  "estimated_spoken_words": 171,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -179,7 +179,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Manton, Michigan sits firmly in the Midwest flatlands with no meaningful elevation above sea level. Prestige. 1 out of 5. Under the radar. Completely unknown. Started in 2015 as a fundraiser for Manton Public School's cross country and track teams, The Divide remains a regional Michigan Gravel Race Series event. Field Depth. 1 out of 5. Small field. You might podium by showing up. Hunter Post won his age group with 4th overall, while Terry Ritter took 1st in 50+ class, indicating thin competitive depth across categories.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -196,7 +196,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Altitude",
@@ -214,7 +214,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 104.0
     },
     {
       "id": "verdict",
@@ -285,9 +285,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'The Divide' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 75,
+    "total_words": 171,
     "total_duration_sec": 225,
-    "overall_wpm": 20.0,
+    "overall_wpm": 45.6,
     "warnings": [],
     "feasible": true
   },

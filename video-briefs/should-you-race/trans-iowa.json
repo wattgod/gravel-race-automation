@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 141,
+  "estimated_spoken_words": 433,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 5 out of 5. This race measures commitment in hours, not miles. 320-340 miles in 34 hours with zero support created proper suffering. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. Trans Iowa delivered pure adventure racing—secret routes, paper navigation, complete self-sufficiency, and real consequences. Experience. 4 out of 5. The kind of race that reshapes your season. This was gravel's vision quest—340 miles of Iowa farmland with nothing but cue sheets and your ability to suffer through 34 hours. Prestige. 3 out of 5. Established race. Solid reputation. Trans Iowa earned cult status as gravel's original sufferfest—14 years of breaking souls before most people knew what gravel racing was. Community. 3 out of 5. Community is a real selling point. Trans Iowa built a tight cult around the 'TI Family' who understood the specific madness of Iowa B-roads and peanut butter mud. Value. 3 out of 5. Fair value. You get what you pay for. Free entry made Trans Iowa unbeatable on paper value—340 miles of organized suffering for zero dollars. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Guitar Ted kept logistics deliberately rough—secret routes until race day, cue sheet navigation only, and checkpoints in random parks with volunteers tracking riders.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 74.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Climate. 2 out of 5. Weather cooperates more often than not. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 108.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Trans Iowa does well.",
+      "narration": "What Trans Iowa gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Flat farmland terrain (minimal climbing)",
@@ -342,7 +342,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Trans Iowa' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 141,
+    "total_words": 433,
     "total_duration_sec": 585,
-    "overall_wpm": 14.5,
+    "overall_wpm": 44.4,
     "warnings": [],
     "feasible": true
   },

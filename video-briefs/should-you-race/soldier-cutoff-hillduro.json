@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 120,
+  "estimated_spoken_words": 414,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Value. 4 out of 5. Strong value proposition. Strong value proposition if you're already in Iowa – camping at the start/finish, showers included, and you're getting real elevation gain in the Loess Hills. Length. 3 out of 5. Proper race distance. Enough to hurt. The 60-mile distance hits that productive middle ground for weekend gravel racing, substantial enough to create real suffering without destroying recovery. Expenses. 3 out of 5. Plan for a few hundred all-in. Rural Iowa keeps lodging costs minimal with camping and showers at the start/finish venue. Logistics. 2 out of 5. Functional. Not impressive. Everything happens at Pisgah City Park – parking, packet pickup, start/finish, camping. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Course features steeper climbing than Iowa's reputation suggests, with one climb reportedly hitting 17% gradient near the top according to post-race discussions. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Climate. 2 out of 5. Weather cooperates more often than not. Late September weather ran 47°F to 57°F in 2025 with overcast skies throughout, ideal temperature conditions that didn't prevent severe cramping issues. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Loess Hills State Forest offers less-traveled gravel through diverse terrain around Soldier River Cutoff – more adventurous than Iowa's corn country reputation suggests.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 75.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Prestige. 1 out of 5. Nobody at the coffee shop will recognize this name. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 104.0
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Soldier Cutoff Hillduro' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 120,
+    "total_words": 414,
     "total_duration_sec": 585,
-    "overall_wpm": 12.3,
+    "overall_wpm": 42.5,
     "warnings": [],
     "feasible": true
   },

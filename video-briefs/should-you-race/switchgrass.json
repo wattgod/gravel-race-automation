@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 141,
+  "estimated_spoken_words": 396,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 3 out of 5. Proper race distance. Enough to hurt. The 65-mile distance demands sustained pacing without being extreme. Adventure. 3 out of 5. This race takes you somewhere different. Experience. 3 out of 5. The experience justifies the entry fee. The combination of GPS-only navigation, prairie immersion, and personal challenge creates memorable racing. Community. 3 out of 5. Genuine community feel. People stick around. Service station stops become social hubs where Muir would \"have a chat with anyone within range. Value. 3 out of 5. The math works out. Barely. The self-supported format and connection to quality trail systems provide solid value for dedicated gravel riders. Expenses. 3 out of 5. Plan for a few hundred all-in. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Graham 'Bush' Muir hit mechanical issues early: \"After only 40 miles in, I was plugging a hole in my first flat of the race. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. The Flint Hills terrain features \"tallgrass prairie rolls out deep green on every side, the land rising and falling to a faraway horizon.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 64.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Elevation. 2 out of 5. Some ups and downs. Manageable. Climate. 2 out of 5. Weather cooperates more often than not. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Switchgrass does well.",
+      "narration": "Where Switchgrass earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -302,14 +302,14 @@
           "Prairie setting"
         ]
       },
-      "narration_wpm": 5.3
+      "narration_wpm": 6.7
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Central KS access (moderate)",
@@ -342,14 +342,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -396,7 +396,7 @@
           "Entry: $60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Switchgrass' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 141,
+    "total_words": 396,
     "total_duration_sec": 585,
-    "overall_wpm": 14.5,
+    "overall_wpm": 40.6,
     "warnings": [],
     "feasible": true
   },

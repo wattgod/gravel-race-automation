@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 122,
+  "estimated_spoken_words": 420,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 3 out of 5. Proper race distance. Enough to hurt. Multiple distance options accommodate different ambitions: 200km Newbie, 400km Short Beach/Short Lake, and 700km Classic. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. The Short Beach packs 2,800m elevation into 400km while the Short Lake reduces climbing to 1,800m over the same distance. Climate. 3 out of 5. The weather could go either way. Historical weather data shows average highs of 54°F and lows of 40°F, with a 32% chance of rain on any given day. Adventure. 3 out of 5. Adventure factor is real. The route \"opens up a hidden side of Italy, full of little-known tracks and long-forgotten corners\" through diverse terrain that \"changes face with every kilometer. Experience. 3 out of 5. Memorable course. Has character. Riders consistently praise the diverse landscapes. Community. 3 out of 5. Community is a real selling point. The event drew over 1,300 participants in 2025, making it \"the biggest gravel bikepacking event in Europe\" with riders from over 20 countries. Value. 3 out of 5. Reasonable price for what's offered. Registration includes welcome village facilities, event pack, checkpoints with stamps, finisher celebration with showers and meals. Logistics. 2 out of 5. You'll figure it out. Eventually. Multiple conflicting start dates (April 17, 18, 23-24, or 25) and locations remain unresolved across sources.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 77.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Technicality. 2 out of 5. Your road bike might survive. Might. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Veneto Gravel does well.",
+      "narration": "What Veneto Gravel gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -291,7 +291,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -308,7 +308,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate Italy access",
@@ -324,14 +324,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -372,7 +372,7 @@
           "Entry: €60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Veneto Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 122,
+    "total_words": 420,
     "total_duration_sec": 585,
-    "overall_wpm": 12.5,
+    "overall_wpm": 43.1,
     "warnings": [],
     "feasible": true
   },

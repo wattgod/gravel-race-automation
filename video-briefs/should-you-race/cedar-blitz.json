@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 136,
+  "estimated_spoken_words": 417,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Value. 4 out of 5. Good value. More bang for your buck than most. Four distance options with full support, timing, medical coverage, and downtown festival atmosphere deliver strong value. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Downtown Cedar Springs start/finish at the brewery creates centralized logistics with post-race festival atmosphere. Length. 3 out of 5. Long enough to matter. Short enough to recover. Four distance options from 18-mile beginner to 130-mile ultra hit the right spread. Community. 3 out of 5. Community is a real selling point. Strong community building draws riders nationally — \"The BaseCamp community has given me so many cycling friends from across the country. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Beth Huffaker describes the course as \"fast, no chunky gravel and no giant hills\" - flowing rather than punishing through Michigan farmland. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Rider reports confirm \"no giant hills\" through the 3000 feet of elevation over 62 miles. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Historical weather data shows average highs of 82°F and lows of 63°F, with a 49% chance of rain on any given day.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 74.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Adventure. 2 out of 5. Light adventure. Nothing wild. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. Fine. Just fine. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Cedar Blitz does well.",
+      "narration": "What Cedar Blitz gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small field with no competitive depth",
@@ -326,7 +326,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -479,9 +479,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Cedar Blitz' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 136,
+    "total_words": 417,
     "total_duration_sec": 585,
-    "overall_wpm": 13.9,
+    "overall_wpm": 42.8,
     "warnings": [],
     "feasible": true
   },

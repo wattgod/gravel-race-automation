@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 124,
+  "estimated_spoken_words": 210,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "hidden_gem",
@@ -76,7 +76,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -132,7 +132,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -187,14 +187,14 @@
           "Newer event—5 years old, less established than iconic races"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Logistics. 2 out of 5. You'll figure it out. Eventually. Gunnison-Crested Butte airport is regional with limited flights, forcing most riders into 3. Climate. 2 out of 5. Weather cooperates more often than not. Jamesdanielosborne warns \"It can also still be very hot in Gunnison this time of the year\" for early September. Prestige. 2 out of 5. Known in certain circles. Niche following. A $5,000 prize purse and podium finishes by competitive riders like Sarah show some racing credibility, but the field remains small and regional.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -211,7 +211,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Logistics",
@@ -229,7 +229,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.0
     },
     {
       "id": "verdict",
@@ -301,9 +301,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Gunni Grinder' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 124,
+    "total_words": 210,
     "total_duration_sec": 225,
-    "overall_wpm": 33.1,
+    "overall_wpm": 56.0,
     "warnings": [],
     "feasible": true
   },

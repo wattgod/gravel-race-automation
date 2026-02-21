@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 254,
+  "estimated_spoken_words": 576,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 5 out of 5. Your legs will remember this one for weeks. Jamesdanielosborne calls it \"one of the hardest days they've ever had on a bike. Elevation. 5 out of 5. Mountainous. Your granny gear will earn its keep. The route climbs to Los Pinos Pass at 10,500 feet, which bikepacking route descriptions call \"the high point\" with \"high alpine experience. Altitude. 5 out of 5. Breathe twice as hard for half the watts. Starting at 7,700 feet and climbing to 10,500 feet at Los Pinos Pass means oxygen-starved racing the entire day. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. The route follows sections of the Great Divide Mountain Bike Route through wilderness terrain including Lick Park Road and Lost Canyon. Technicality. 4 out of 5. Rocky, rooty, or both. Probably both. Plindley experienced \"hard packed spots with SHARP rocks\" that caused 4 flats in 30 miles, forcing a DNF when plugs ran out. Race Quality. 4 out of 5. Premium race experience. The course delivers what Nick Gould calls \"one of the hardest days\" on a bike, with sustained technical challenges and proper mountain suffering. Experience. 4 out of 5. Genuinely unique. Hard to replicate. From The Ground Up riders finished \"by the roaring Gunnison River with Jermaine's sandwiches\" and celebrated at \"Garlic Mike's overlooking the Gunnison River. Community. 4 out of 5. The post-race scene is half the event. From The Ground Up riders enjoyed local infrastructure including \"Jermaine's sandwiches,\" \"Garlic Mike's overlooking the Gunnison River,\" and \"breakfast at the Backcountry Cafe.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 88.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Value. 4 out of 5. One of the better deals in gravel. Field Depth. 3 out of 5. Deep enough to push you. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Climate. 2 out of 5. Weather cooperates more often than not. Prestige. 2 out of 5. Known in certain circles. Niche following.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Gunni Grinder does well.",
+      "narration": "Where Gunni Grinder earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -302,14 +302,14 @@
           "Small-town vibe—Gunnison is friendly, low-key, no crowds"
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Altitude is brutal—if you're from low elevation, you WILL suffer (15% DNF rate)",
@@ -342,7 +342,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -498,9 +498,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Gunni Grinder' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 254,
+    "total_words": 576,
     "total_duration_sec": 585,
-    "overall_wpm": 26.1,
+    "overall_wpm": 59.1,
     "warnings": [],
     "feasible": true
   },

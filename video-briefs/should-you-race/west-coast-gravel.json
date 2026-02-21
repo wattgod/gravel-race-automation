@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 123,
+  "estimated_spoken_words": 420,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Technicality. 3 out of 5. Requires line choice. Rewards the attentive rider. The course features \"terrain new to many riders with a thrilling twist that has seldom seen a bike tire on\" through Siuslaw National Forest backroads. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. Starting from sea-level Yachats and climbing inland through forest terrain delivers substantial elevation change, with community reports mentioning 5000 feet total. Adventure. 3 out of 5. Adventure factor is real. The course delivers \"ocean waves and ribbons of gravel\" through Siuslaw National Forest on routes that have \"seldom seen a bike tire. Value. 3 out of 5. The math works out. Barely. The package includes custom medals, $14 food vouchers, fully stocked aid stations with Hammer Nutrition products, and drop bag service. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Functional. Not impressive. Packet pickup ends at 8:30 AM for a 9:00 AM start, creating stress for mechanical issues. Length. 2 out of 5. Manageable distance. Back by lunch. Elite winner Austen Davis finished Erik the Red in 2:42:39, while the short course winner clocked 1:38:21. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Organizers report \"great weather 75% of the time\" over the past decade, but warn \"Always bring good rain gear when visiting the Oregon Coast!",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 78.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. Fine. Just fine. Community. 2 out of 5. Polite. Not exactly warm. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Under the radar. Completely unknown. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small-medium local field",
@@ -334,7 +334,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $75-95"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'West Coast Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 123,
+    "total_words": 420,
     "total_duration_sec": 585,
-    "overall_wpm": 12.6,
+    "overall_wpm": 43.1,
     "warnings": [],
     "feasible": true
   },

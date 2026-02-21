@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 126,
+  "estimated_spoken_words": 365,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Technicality. 3 out of 5. Technical enough to thin the pack. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. 1,500m over 78km delivers consistent climbing without being gratuitously brutal. Adventure. 3 out of 5. This race takes you somewhere different. Circuits of Llyn Alwen and Llyn Brenig through Clocaenog Forest deliver North Wales wilderness experience. Value. 3 out of 5. The math works out. Barely. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. GPX files arrive 2-4 days before with packet pickup opening at 7:45am for an 8:00am start creates morning stress. Length. 2 out of 5. Won't destroy your week. Jon in Sweden completed the 104km route in 3hrs 38min at elite pace, averaging 336w with 370w normalized power. Climate. 2 out of 5. Weather cooperates more often than not. Jon in Sweden experienced \"intermittent showers and 30kph wind\" with temperatures of \"16-17c\" in April 2024, calling it \"miserable weather really. Prestige. 2 out of 5. Regional reputation. The locals know.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 57.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Riders acknowledge each other. Barely. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 102.7
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small-medium local field",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'North Wales Gravel X' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 126,
+    "total_words": 365,
     "total_duration_sec": 585,
-    "overall_wpm": 12.9,
+    "overall_wpm": 37.4,
     "warnings": [],
     "feasible": true
   },

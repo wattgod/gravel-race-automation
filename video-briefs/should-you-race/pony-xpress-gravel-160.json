@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 132,
+  "estimated_spoken_words": 421,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 5 out of 5. Your legs will remember this one for weeks. Three aid stations at miles 25, 50, and 75 support the full 160K distance with proper fueling infrastructure. Elevation. 5 out of 5. Elevation gain that belongs on a trail run. 12,000 feet of gain over 160K puts this firmly in the hurt-locker category - that's 75 feet per kilometer of pure vertical punishment. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. The course combines 96% gravel county roads with technical navigation challenges requiring GPS and handlebar-mounted maps. Adventure. 4 out of 5. The kind of ride you'll tell stories about. Riding through historic mining areas including the Ludlow Memorial adds historical context to the suffering. Altitude. 3 out of 5. Moderate altitude. Worth acclimatizing for. Trinidad sits around 6,000 feet with the course climbing into higher foothills, putting you in moderate altitude territory that affects sea-level dwellers but isn't devastating. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Trinidad offers affordable lodging options including Las Animas County fairgrounds camping at $25 per night with basic amenities. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Tony Huston traveled from Houston with zero acclimatization and \"no real idea of what to expect,\" highlighting the minimal pre-race information available. Climate. 2 out of 5. Weather cooperates more often than not.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 79.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Value. 2 out of 5. Value is not the strong suit. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 86.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Pony Xpress Gravel 160 does well.",
+      "narration": "The case for Pony Xpress Gravel 160.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small regional field",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $150-200"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Pony Xpress Gravel 160' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 132,
+    "total_words": 421,
     "total_duration_sec": 585,
-    "overall_wpm": 13.5,
+    "overall_wpm": 43.2,
     "warnings": [],
     "feasible": true
   },

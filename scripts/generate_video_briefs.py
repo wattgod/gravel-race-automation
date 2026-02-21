@@ -24,6 +24,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -129,6 +130,296 @@ AVATAR_REACTIONS = {
     "counting": "Finger counting — for numbered lists",
     "versus": "Boxing stance — for head-to-head hooks",
 }
+
+# ── Humor System ─────────────────────────────────────────────
+
+
+def _stable_hash(s: str) -> int:
+    """Deterministic hash for quip selection (Python hash() is randomized)."""
+    return int(hashlib.md5(s.encode()).hexdigest(), 16)
+
+
+# Score quips: dimension → score (1-5) → list of deadpan one-liners (<15 words)
+SCORE_QUIPS = {
+    "logistics": {
+        1: ["You are the aid station.", "Good luck finding anything out there.", "Organizers communicate via telepathy, apparently."],
+        2: ["Basic setup. Don't expect hand-holding.", "Functional. Not impressive.", "You'll figure it out. Eventually."],
+        3: ["Gets the job done. Nothing fancy.", "Competent operation. Shows up on time.", "Adequate. The word was invented for this."],
+        4: ["Well-oiled machine. Aid stations where you need them.", "Smooth operation. Somebody knows what they're doing.", "One less thing to worry about."],
+        5: ["Military precision. Every detail dialed.", "Best-in-class operations. Everything just works.", "You could set your watch to this organization."],
+    },
+    "length": {
+        1: ["Short enough to call a training ride.", "Barely registers as a race distance.", "Your warmup might be longer."],
+        2: ["Manageable distance. Back by lunch.", "Short but honest about it.", "Won't destroy your week."],
+        3: ["Proper race distance. Enough to hurt.", "Long enough to matter. Short enough to recover.", "The Goldilocks zone of suffering."],
+        4: ["This is a long day. Plan accordingly.", "Bring real food. Not just gels.", "Double-digit hours are on the table."],
+        5: ["Ultra distance. Bring lights and a plan.", "Your legs will remember this one for weeks.", "This race measures commitment in hours, not miles."],
+    },
+    "technicality": {
+        1: ["If you can ride a bike, you can ride this.", "Smooth roads. Save your suspension money.", "Flat bars optional."],
+        2: ["Some chunky bits. Nothing catastrophic.", "Mild technical demands. Pick decent tires.", "Your road bike might survive. Might."],
+        3: ["Requires line choice. Rewards the attentive rider.", "Technical enough to thin the pack.", "The course bites if you stop paying attention."],
+        4: ["Bike handling matters here. Practice your descents.", "Rocky, rooty, or both. Probably both.", "Your equipment choices will be tested."],
+        5: ["Borderline mountain bike territory.", "Technical enough to ruin your day on wrong tires.", "The course is the competitor."],
+    },
+    "elevation": {
+        1: ["Flat. Your climbing legs get a rest day.", "Elevation gain measured in speed bumps.", "Your biggest climb is the parking garage."],
+        2: ["Rolling terrain. Nothing that'll break you.", "Some ups and downs. Manageable.", "A few hills. Nothing to lose sleep over."],
+        3: ["Proper climbing. You'll earn your descents.", "Enough vertical to remind you gravity exists.", "The hills sort the trained from the untrained."],
+        4: ["Serious elevation. Train your climbing legs.", "Mountain passes on the menu.", "Your power-to-weight ratio matters here."],
+        5: ["Relentless vertical. The climbing never stops.", "Mountainous. Your granny gear will earn its keep.", "Elevation gain that belongs on a trail run."],
+    },
+    "climate": {
+        1: ["Weather's a non-factor. Predictably mild.", "Pack one layer. You'll be fine.", "Climate controlled by nature."],
+        2: ["Mostly pleasant. Check the forecast anyway.", "Weather cooperates more often than not.", "Mild conditions. Nothing dramatic."],
+        3: ["Variable. Bring layers and a flexible attitude.", "The weather could go either way.", "Pack for two seasons."],
+        4: ["Weather is part of the race strategy.", "Conditions will test your kit choices.", "Expect to be uncomfortable at some point."],
+        5: ["The weather IS the race.", "Extreme conditions guaranteed. Dress accordingly.", "Mother Nature gets a vote and a veto."],
+    },
+    "altitude": {
+        1: ["Sea level. Your lungs get a day off.", "Low altitude. Breathe easy.", "Oxygen plentiful. Power output normal."],
+        2: ["Mild elevation. Most riders won't notice.", "Not enough altitude to blame for your pace.", "Negligible altitude effect."],
+        3: ["Moderate altitude. Worth acclimatizing for.", "You'll feel it on the climbs.", "Altitude starts to matter here."],
+        4: ["Thin air territory. Acclimatize or suffer.", "High enough to affect your power. Plan for it.", "Your sea-level FTP is a fiction up here."],
+        5: ["Extreme altitude. Your power meter will gaslight you.", "Oxygen is a luxury item at this elevation.", "Breathe twice as hard for half the watts."],
+    },
+    "adventure": {
+        1: ["Straightforward course. No surprises.", "About as adventurous as a bike path.", "Adventure not included."],
+        2: ["Mild adventure. Scenic ride with a number plate.", "Some interesting terrain. Mostly familiar.", "Light adventure. Nothing wild."],
+        3: ["Genuine adventure elements. Expect the unexpected.", "This race takes you somewhere different.", "Adventure factor is real."],
+        4: ["Serious exploration vibes. Far from pavement.", "Remote terrain. Self-sufficiency required.", "The kind of ride you'll tell stories about."],
+        5: ["Full expedition mode. Genuine backcountry.", "Type-two fun guaranteed. Type-one fun optional.", "Adventure is the entire point."],
+    },
+    "prestige": {
+        1: ["Nobody at the coffee shop will recognize this name.", "Under the radar. Completely unknown.", "Zero name recognition."],
+        2: ["Regional reputation. The locals know.", "Known in certain circles. Niche following.", "Building a name. Not there yet."],
+        3: ["Established race. Solid reputation.", "Name carries weight in the gravel community.", "Respected. Not yet legendary."],
+        4: ["Prestigious. People plan seasons around it.", "Top-shelf reputation. Calendar priority.", "Finishing this one means something."],
+        5: ["Bucket list tier. The name speaks for itself.", "Gravel royalty. The race everyone knows.", "The one people ask about first."],
+    },
+    "race_quality": {
+        1: ["Bare minimum effort. Just a course and a clock.", "Quality is not the selling point here.", "Participation trophy vibes."],
+        2: ["Basic but functional. Gets the job done.", "Nothing special about the race execution.", "Adequate. Room for improvement."],
+        3: ["Well-run race. Professional touches throughout.", "Good race quality. No major complaints.", "Solid production value."],
+        4: ["High-quality event. Attention to detail shows.", "Premium race experience.", "The kind of race that spoils you for others."],
+        5: ["World-class execution. Sets the standard.", "Best-in-class race production.", "Everything about this race is dialed."],
+    },
+    "experience": {
+        1: ["Forgettable. Just another gravel road.", "The experience is unremarkable.", "Nothing to write home about."],
+        2: ["Pleasant enough. Won't change your life.", "A nice day on the bike. Nothing more.", "Fine. Just fine."],
+        3: ["Memorable course. Has character.", "You'll remember this one. Mostly fondly.", "The experience justifies the entry fee."],
+        4: ["Special. This race sticks with you.", "Genuinely unique. Hard to replicate.", "The kind of race that reshapes your season."],
+        5: ["Transformative. People come back different.", "Once-in-a-lifetime course experience.", "This race ruins other races for you."],
+    },
+    "community": {
+        1: ["Show up. Race. Leave.", "Community vibe is nonexistent.", "Every rider for themselves."],
+        2: ["Polite. Not exactly warm.", "Some community spirit. Nothing organized.", "Riders acknowledge each other. Barely."],
+        3: ["Genuine community feel. People stick around.", "Good vibes. Riders actually talk to each other.", "Community is a real selling point."],
+        4: ["Strong community. This race builds friendships.", "The post-race scene is half the event.", "Riders come for the race. Stay for the people."],
+        5: ["Family reunion energy. Everyone belongs.", "The community IS the race.", "Strangers become friends by mile ten."],
+    },
+    "field_depth": {
+        1: ["Small field. You might podium by showing up.", "Sparse start line. Plenty of elbow room.", "Not exactly stacked."],
+        2: ["Modest field. Some fast riders in the mix.", "Enough competition to keep you honest.", "Small but scrappy field."],
+        3: ["Solid field depth. Competitive across the board.", "Good racing at every level.", "Deep enough to push you."],
+        4: ["Stacked field. Fast riders everywhere.", "Competition is fierce. Train accordingly.", "Pro-level talent in the mix."],
+        5: ["Start line looks like a WorldTour bus exploded.", "Deepest field in gravel. Murderer's row.", "World-class athletes. And they race hard."],
+    },
+    "value": {
+        1: ["Terrible value. The math does not work.", "You're overpaying for the privilege of suffering.", "Your entry fee deserves better."],
+        2: ["Below-average value. You can do better.", "Not the worst deal. Close though.", "Value is not the strong suit."],
+        3: ["Fair value. You get what you pay for.", "Reasonable price for what's offered.", "The math works out. Barely."],
+        4: ["Good value. More bang for your buck than most.", "Strong value proposition.", "One of the better deals in gravel."],
+        5: ["Dollar for dollar, one of the best in gravel.", "Exceptional value. Almost feels like a steal.", "Punches way above its price point."],
+    },
+    "expenses": {
+        1: ["Budget-friendly. Your bank account barely notices.", "Cheap to do. No excuses.", "Minimal financial barrier."],
+        2: ["Affordable. Won't break the bank.", "Reasonable costs. Plan a modest budget.", "Your wallet will remember this. Briefly."],
+        3: ["Mid-range expenses. Budget a proper race weekend.", "Plan for a few hundred all-in.", "Standard gravel race budget."],
+        4: ["Expensive. Travel and lodging add up fast.", "Not cheap. The costs pile on.", "Budget carefully. The extras get you."],
+        5: ["Bring a second mortgage and strong opinions about hotels.", "Premium pricing. Everything costs more here.", "Your accountant would not approve."],
+    },
+    "_default": {
+        1: ["Bottom of the scale.", "As low as it gets.", "One out of five."],
+        2: ["Below average.", "Room for improvement.", "Middling at best."],
+        3: ["Right down the middle.", "Average. Perfectly average.", "Textbook middle."],
+        4: ["Above average. Genuinely strong.", "This is where it gets interesting.", "Four out of five. Solid."],
+        5: ["Top of the scale. No higher to go.", "Perfect score. Full marks.", "Five out of five. Maxed out."],
+    },
+}
+
+# Section intro rotations (selected deterministically per slug)
+ROAST_MARKETING_INTROS = [
+    "Here's the pitch. What the website wants you to believe.",
+    "Let's start with what they put on the registration page.",
+    "The marketing version. The one with nice photos.",
+    "Every race has a highlight reel. Here's theirs.",
+]
+ROAST_REALITY_INTROS = [
+    "Now the stuff that doesn't make the brochure.",
+    "Now for the part the registration page leaves out.",
+    "And here's what they don't mention in the promo video.",
+    "Time for the fine print.",
+]
+ROAST_DATA_INTROS = [
+    "The scores that tell the real story.",
+    "Let the numbers do the talking.",
+    "The data doesn't care about your feelings.",
+    "Fourteen dimensions. No opinions. Just scores.",
+]
+SYR_SCORE_INTROS = [
+    "Let's go through the scores.",
+    "Fourteen dimensions. Here's where it lands.",
+    "Time to break down the scorecard.",
+    "The numbers. All fourteen of them.",
+]
+SYR_REMAINING_INTROS = [
+    "And the rest of the scorecard.",
+    "The remaining six. Quick-fire.",
+    "The rest, in rapid succession.",
+]
+SYR_STRENGTH_INTROS = [
+    "What {name} does well.",
+    "Where {name} earns its score.",
+    "The case for {name}.",
+    "What {name} gets right.",
+]
+SYR_WEAKNESS_INTROS = [
+    "What they don't put on the website.",
+    "Now the other side.",
+    "The fine print.",
+    "What the brochure conveniently omits.",
+]
+SYR_LOGISTICS_INTROS = [
+    "Here's the practical stuff.",
+    "The logistics. What you actually need to know.",
+    "Travel, lodging, and the unsexy details.",
+]
+
+# Head-to-head round narration templates
+ROUND_TIE_TEMPLATES = [
+    "{label}. Both scored {s1} out of 5. Dead even.",
+    "{label}. {s1} to {s2}. Identical. Nobody wins this one.",
+    "{label}. Same score. {s1} apiece. Moving on.",
+]
+ROUND_CLOSE_TEMPLATES = [
+    "{label}. Slight edge to {winner}. {hi} to {lo}.",
+    "{label}. {winner} takes it by one. {hi} to {lo}.",
+    "{label}. Close call. {winner} edges it. {hi} to {lo}.",
+]
+ROUND_CLEAR_TEMPLATES = [
+    "{label}. {winner} wins this round. {hi} to {lo}.",
+    "{label}. Clear advantage {winner}. {hi} to {lo}.",
+    "{label}. {winner} takes it. {hi} to {lo}. No argument.",
+]
+ROUND_BLOWOUT_TEMPLATES = [
+    "{label}. {winner} takes this one and it's not close. {hi} to {lo}.",
+    "{label}. Not even competitive. {winner} runs away with it. {hi} to {lo}.",
+    "{label}. Blowout. {winner} dominates. {hi} to {lo}.",
+]
+ROUND_FINALE_TEMPLATES = [
+    "{label}. The big one. {hi} to {lo}. {winner} takes the round that matters.",
+    "{label}. Saved the best for last. {hi} to {lo}. {winner} closes it out.",
+    "{label}. Final round. {hi} to {lo}. That's the gap that decides it.",
+]
+
+# Tier-reveal deadpan tags
+TIER_TAGS = {
+    1: "Elite company.",
+    2: "Strong field.",
+    3: "Solid middle.",
+    4: "Work in progress.",
+}
+
+# Head-to-head verdict closers
+H2H_WINNER_CLOSERS = [
+    "The data picked a side.",
+    "Not even a controversial call.",
+    "The scorecards don't lie.",
+]
+H2H_TIE_CLOSERS = [
+    "Do both. Problem solved.",
+    "The only wrong answer is neither.",
+    "Different races. Same tier of suffering.",
+]
+
+
+def _extract_first_sentence(text):
+    """Extract the first sentence from explanation text as race-specific color.
+
+    Returns empty string if too short (<5 words) or too long (>25 words).
+    """
+    if not text:
+        return ""
+    match = re.match(r'^([^.!?]+[.!?])', text)
+    if not match:
+        return ""
+    sentence = match.group(1).strip()
+    words = sentence.split()
+    if len(words) < 5 or len(words) > 25:
+        return ""
+    return sentence
+
+
+def _narrate_score(dim, score, slug, rd=None, compact=False):
+    """Narrate a dimension score with personality.
+
+    Combines: score statement + deadpan quip + (optional) explanation excerpt.
+    compact=True skips explanation for short-format time budgets.
+    """
+    label = DIM_LABELS.get(dim, dim)
+    quips = SCORE_QUIPS.get(dim, SCORE_QUIPS["_default"]).get(
+        score, SCORE_QUIPS["_default"].get(score, [""])
+    )
+    idx = _stable_hash(slug + dim) % len(quips) if quips else 0
+    quip = quips[idx] if quips else ""
+
+    parts = [f"{label}. {score} out of 5."]
+    if quip:
+        parts.append(quip)
+    if not compact and rd:
+        excerpt = _extract_first_sentence(
+            rd["explanations"][dim]["explanation"]
+        )
+        if excerpt:
+            parts.append(excerpt)
+
+    return " ".join(parts)
+
+
+def _pick_intro(slug, intro_list):
+    """Deterministically select a section intro from a rotation list."""
+    idx = _stable_hash(slug) % len(intro_list)
+    return intro_list[idx]
+
+
+def _narrate_round(dim, s1, s2, name1, name2, slug_pair, is_finale=False):
+    """Narrate a head-to-head round with energy based on score delta."""
+    label = DIM_LABELS.get(dim, dim)
+    delta = abs(s1 - s2)
+    winner = name1 if s1 > s2 else name2 if s2 > s1 else None
+    hi, lo = max(s1, s2), min(s1, s2)
+
+    idx = _stable_hash(slug_pair + dim)
+
+    if is_finale and delta >= 1:
+        templates = ROUND_FINALE_TEMPLATES
+    elif delta == 0:
+        templates = ROUND_TIE_TEMPLATES
+    elif delta == 1:
+        templates = ROUND_CLOSE_TEMPLATES
+    elif delta == 2:
+        templates = ROUND_CLEAR_TEMPLATES
+    else:
+        templates = ROUND_BLOWOUT_TEMPLATES
+
+    template = templates[idx % len(templates)]
+    return template.format(
+        label=label, winner=winner or "neither",
+        s1=s1, s2=s2, hi=hi, lo=lo,
+        name1=name1, name2=name2,
+    )
+
 
 # ── Trope Detection ──────────────────────────────────────────
 
@@ -376,8 +667,9 @@ def brief_tier_reveal(rd):
             "time_range": "0:10-0:22",
             "duration_sec": 12,
             "narration": " ".join(
-                f"{e['dimension']}: {e['score']} out of 5."
-                for e in evidence
+                _narrate_score(dim, rd["explanations"][dim]["score"],
+                               slug, compact=True)
+                for dim in top_dims
             ),
             "text_on_screen": "Score cards cycling",
             "visual": "Animated score cards — one per dimension",
@@ -388,7 +680,8 @@ def brief_tier_reveal(rd):
             "cut_frequency_sec": (2, 3),
             "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. "
                            "Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually "
-                           "(different color flash, avatar reaction shot).",
+                           "(different color flash, avatar reaction shot). "
+                           "[RIFF HERE] after any extreme score.",
             "evidence_data": evidence,
         },
         {
@@ -396,7 +689,7 @@ def brief_tier_reveal(rd):
             "label": "REVEAL",
             "time_range": "0:22-0:28",
             "duration_sec": 6,
-            "narration": f"{name}. {tier_name}. {score} out of 100.",
+            "narration": f"{name}. {tier_name}. {score} out of 100. {TIER_TAGS.get(tier, '')}".strip(),
             "text_on_screen": f"{tier_name.upper()} — {score}/100",
             "visual": "Tier badge animation + full score",
             "avatar_pose": _pick_avatar("reveal", trope["name"], tier),
@@ -406,7 +699,8 @@ def brief_tier_reveal(rd):
             "cut_frequency_sec": CUT_FREQUENCY["short"],
             "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). "
                            "Then: tier badge slams in. Avatar reaction. "
-                           "This is the Von Restorff moment — make it visually distinct.",
+                           "This is the Von Restorff moment — make it visually distinct. "
+                           "[RIFF HERE] after tier badge lands.",
         },
         {
             "id": "cta",
@@ -605,7 +899,7 @@ def brief_roast(rd):
             "label": "WHAT THEY TELL YOU",
             "time_range": "0:10-0:50",
             "duration_sec": 40,
-            "narration": "Here's the pitch. What the website wants you to believe.",
+            "narration": _pick_intro(slug, ROAST_MARKETING_INTROS),
             "text_on_screen": "THE PITCH",
             "visual": "Marketing highlights overlay — strengths as bullet points",
             "avatar_pose": "skeptical",
@@ -624,7 +918,7 @@ def brief_roast(rd):
             "label": "WHAT THEY DON'T TELL YOU",
             "time_range": "0:50-1:50",
             "duration_sec": 60,
-            "narration": "Now the stuff that doesn't make the brochure.",
+            "narration": _pick_intro(slug, ROAST_REALITY_INTROS),
             "text_on_screen": "THE REALITY",
             "visual": "Red flag overlay — weaknesses with warning icons",
             "avatar_pose": "facepalm",
@@ -649,7 +943,11 @@ def brief_roast(rd):
             "label": "THE NUMBERS DON'T LIE",
             "time_range": "1:50-2:50",
             "duration_sec": 60,
-            "narration": "And the scores that tell the real story.",
+            "narration": _pick_intro(slug, ROAST_DATA_INTROS) + " " + " ".join(
+                _narrate_score(dim, rd["explanations"][dim]["score"],
+                               slug, rd=rd)
+                for dim in worst_dims
+            ),
             "text_on_screen": "THE DATA",
             "visual": "Score cards — lowest 3 dimensions with explanations",
             "avatar_pose": "thinking",
@@ -662,7 +960,8 @@ def brief_roast(rd):
                            "Each score reveal: brief silence (0.5s), then number slams in. "
                            "Avatar reaction scales with how bad the score is. "
                            "Von Restorff: visually isolate the worst score (different color, "
-                           "bigger text, longer hold).",
+                           "bigger text, longer hold). "
+                           "[RIFF HERE] after the worst score reveal.",
             "evidence_data": roast_data,
         },
         {
@@ -800,7 +1099,11 @@ def brief_should_you_race(rd):
             "label": "THE SCORES — Top 8",
             "time_range": "1:15-4:15",
             "duration_sec": 180,
-            "narration": "Let's go through the scores.",
+            "narration": _pick_intro(slug, SYR_SCORE_INTROS) + " " + " ".join(
+                _narrate_score(dim, rd["explanations"][dim]["score"],
+                               slug, rd=rd)
+                for dim in top_dims
+            ),
             "text_on_screen": "14 DIMENSIONS",
             "visual": "Score cards — 8 expanded dimensions",
             "avatar_pose": "thinking",
@@ -831,7 +1134,11 @@ def brief_should_you_race(rd):
             "label": "THE SCORES — Also Scored",
             "time_range": "4:15-5:00",
             "duration_sec": 45,
-            "narration": "And the rest of the scorecard.",
+            "narration": _pick_intro(slug, SYR_REMAINING_INTROS) + " " + " ".join(
+                _narrate_score(dim, rd["explanations"][dim]["score"],
+                               slug, compact=True)
+                for dim in remaining_dims
+            ),
             "text_on_screen": None,
             "visual": "Quick-fire score list — remaining 6 dimensions",
             "avatar_pose": "counting",
@@ -853,7 +1160,7 @@ def brief_should_you_race(rd):
             "label": "STRENGTHS",
             "time_range": "5:00-5:45",
             "duration_sec": 45,
-            "narration": f"What {name} does well.",
+            "narration": _pick_intro(slug, SYR_STRENGTH_INTROS).format(name=name),
             "text_on_screen": "STRENGTHS",
             "visual": "Strengths list overlay with positive visual treatment",
             "avatar_pose": "thumbs_up",
@@ -870,7 +1177,7 @@ def brief_should_you_race(rd):
             "label": "WEAKNESSES",
             "time_range": "5:45-6:30",
             "duration_sec": 45,
-            "narration": f"What they don't put on the website.",
+            "narration": _pick_intro(slug, SYR_WEAKNESS_INTROS),
             "text_on_screen": "WEAKNESSES",
             "visual": "Weaknesses list with warning visual treatment",
             "avatar_pose": "facepalm",
@@ -881,7 +1188,8 @@ def brief_should_you_race(rd):
             "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. "
                            "Open with burst sequence (quick cuts, warning sounds). "
                            "Then deliver weaknesses honestly. "
-                           "Preview what's coming: 'Now, should you actually do this race?'",
+                           "Preview what's coming: 'Now, should you actually do this race?' "
+                           "[RIFF HERE] at the transition.",
             "content_data": {"weaknesses": weaknesses or []},
             "meme_insert": {
                 "timing": "~5:45",
@@ -895,7 +1203,7 @@ def brief_should_you_race(rd):
             "label": "LOGISTICS",
             "time_range": "6:30-7:30",
             "duration_sec": 60,
-            "narration": "Here's the practical stuff.",
+            "narration": _pick_intro(slug, SYR_LOGISTICS_INTROS),
             "text_on_screen": "LOGISTICS",
             "visual": "Map + logistics card overlay",
             "avatar_pose": "presenting",
@@ -1021,6 +1329,19 @@ def brief_head_to_head(rd1, rd2):
     winner_rounds = max(wins1, wins2)
     loser_rounds = min(wins1, wins2)
 
+    # Build verdict narration with personality
+    _h2h_hash = _stable_hash(f"{slug1}-{slug2}")
+    if winner:
+        _closer = H2H_WINNER_CLOSERS[_h2h_hash % len(H2H_WINNER_CLOSERS)]
+        verdict_narration = (
+            f"{winner} takes it. {winner_rounds} rounds to {loser_rounds}. "
+            f"{score1 if winner == name1 else score2} out of 100 vs "
+            f"{score2 if winner == name1 else score1}. {_closer}"
+        )
+    else:
+        _closer = H2H_TIE_CLOSERS[_h2h_hash % len(H2H_TIE_CLOSERS)]
+        verdict_narration = f"Dead heat. {wins1} rounds each. {_closer}"
+
     # Build dimension comparison beats
     dim_beats = []
     for i, (dim, s1, s2, delta) in enumerate(top_diffs_reordered):
@@ -1034,11 +1355,10 @@ def brief_head_to_head(rd1, rd2):
             "label": f"ROUND {i+1}: {label}",
             "time_range": f"{_fmt_time(start_sec)}-{_fmt_time(end_sec)}",
             "duration_sec": 50,
-            "narration": (
-                f"{label}. "
-                f"{name1}: {s1} out of 5. "
-                f"{name2}: {s2} out of 5. "
-                f"Edge: {adv}."
+            "narration": _narrate_round(
+                dim, s1, s2, name1, name2,
+                f"{slug1}-{slug2}",
+                is_finale=(i == len(top_diffs_reordered) - 1),
             ),
             "text_on_screen": f"{label}: {name1} {s1}/5 vs {name2} {s2}/5",
             "visual": "Split-screen score comparison",
@@ -1049,7 +1369,7 @@ def brief_head_to_head(rd1, rd2):
             "cut_frequency_sec": CUT_FREQUENCY["mid"],
             "editing_note": (
                 f"Round {i+1} of {len(top_diffs_reordered)}. "
-                f"{'BIGGEST GAP — save dramatic energy for this one. ' if i == len(top_diffs_reordered)-1 else ''}"
+                f"{'BIGGEST GAP — save dramatic energy for this one. [RIFF HERE] after score reveal. ' if i == len(top_diffs_reordered)-1 else ''}"
                 f"Split-screen: each race gets its score simultaneously. "
                 f"Winner side gets a subtle glow/pulse."
             ),
@@ -1072,8 +1392,9 @@ def brief_head_to_head(rd1, rd2):
             "time_range": "0:00-0:10",
             "duration_sec": 10,
             "narration": (
-                f"{name1} or {name2}. "
-                f"Which one deserves your entry fee? Let's break it down."
+                f"{name1} versus {name2}. "
+                f"One entry fee. Two options. "
+                f"Five rounds of data. Let's settle this."
             ),
             "text_on_screen": f"{name1} vs {name2}",
             "visual": "Split screen — both race logos/images",
@@ -1114,14 +1435,7 @@ def brief_head_to_head(rd1, rd2):
             "label": "VERDICT",
             "time_range": f"{_fmt_time(verdict_start)}-{_fmt_time(verdict_start + 45)}",
             "duration_sec": 45,
-            "narration": (
-                f"{winner} takes it. {winner_rounds} rounds to {loser_rounds}. "
-                f"{score1 if winner == name1 else score2} out of 100 vs "
-                f"{score2 if winner == name1 else score1}."
-                if winner else
-                f"Dead heat. {wins1} rounds each. "
-                f"Same tier. Completely different races. Do both."
-            ),
+            "narration": verdict_narration,
             "text_on_screen": f"WINNER: {winner or 'TIE'}",
             "visual": "Winner announcement + final score overlay",
             "avatar_pose": "excited" if winner else "shrug",
@@ -1131,6 +1445,7 @@ def brief_head_to_head(rd1, rd2):
             "cut_frequency_sec": CUT_FREQUENCY["mid"],
             "editing_note": "SURPRISE WINNER technique: even if one was clearly better, "
                            "delay the reveal. Build through dimensions first. "
+                           "[RIFF HERE] after verdict lands. "
                            "End ABRUPTLY after verdict.",
         },
         {

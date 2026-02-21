@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 122,
+  "estimated_spoken_words": 336,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Value. 4 out of 5. Strong value proposition. $40 grassroots entry with chip timing, aid stations, SAG support, and pro photography is honest pricing. Logistics. 3 out of 5. Competent operation. Shows up on time. Packet pickup Friday 6-8PM and Saturday morning check-in at 6:30AM shows reasonable scheduling. Climate. 3 out of 5. The weather could go either way. Community. 3 out of 5. Genuine community feel. People stick around. Gabe Hobbie's Iowa Gravel Series Podium Podcast appearance shows riders get recognized beyond the finish line. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Length. 2 out of 5. Won't destroy your week. The 50K option at ~35 miles is barely a gravel workout. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. The \"difficult terrain with longer, steeper hills\" description suggests more bite than typical Iowa rolling country.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 54.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. Fine. Just fine. Altitude. 1 out of 5. Low altitude. Breathe easy. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 81.3
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -334,7 +334,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $50-75"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Fairfield Harvest Rush' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 122,
+    "total_words": 336,
     "total_duration_sec": 585,
-    "overall_wpm": 12.5,
+    "overall_wpm": 34.5,
     "warnings": [],
     "feasible": true
   },

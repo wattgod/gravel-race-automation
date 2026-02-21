@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 77,
+  "estimated_spoken_words": 156,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -65,7 +65,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Every race has a highlight reel. Here's theirs.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -103,14 +103,14 @@
           "Local community"
         ]
       },
-      "narration_wpm": 15.0
+      "narration_wpm": 12.0
     },
     {
       "id": "reality_check",
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Time for the fine print.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -154,14 +154,14 @@
           "Flat terrain"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 5.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Fourteen dimensions. No opinions. Just scores. Technicality. 1 out of 5. If you can ride a bike, you can ride this. Course traverses gravel roads through Blackwater River State Forest and Conecuh National Forest with rolling short hills. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Rolling terrain through Florida Panhandle produces minimal elevation gain relative to other gravel destinations. Altitude. 1 out of 5. Low altitude. Breathe easy. Starting at Bear Lake Road in Milton, Florida places riders essentially at sea level in the coastal Panhandle.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -178,7 +178,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Technicality",
@@ -196,7 +196,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "verdict",
@@ -267,9 +267,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Scratch Ankle Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 77,
+    "total_words": 156,
     "total_duration_sec": 225,
-    "overall_wpm": 20.5,
+    "overall_wpm": 41.6,
     "warnings": [],
     "feasible": true
   },

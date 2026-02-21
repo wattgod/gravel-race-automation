@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 153,
+  "estimated_spoken_words": 383,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 4 out of 5. Bring real food. Not just gels. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. JOM described riding \"through a cemetery\" and encountering \"a horribly washboarded dirt and gravel road\" on course. Experience. 3 out of 5. The experience justifies the entry fee. Elite groups showed unique race dynamics - K-Dogg described pace dropping to \"10 mph! Community. 3 out of 5. Community is a real selling point. Founded to honor late bikepacker John Little, the race maintains grassroots character with \"homegrown, lighthearted, and fun\" vibes according to organizers. Value. 3 out of 5. Fair value. You get what you pay for. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. JOM noted early mechanical issues when \"tyre punctures were a problem, ending the chances for several riders early\" within the first 20 miles. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. JOM discovered \"Alabama gravel is the real deal.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 58.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Elevation. 2 out of 5. Some ups and downs. Manageable. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Standard Deluxe Dirt Road Century does well.",
+      "narration": "The case for Standard Deluxe Dirt Road Century.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -291,7 +291,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -308,7 +308,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Northeast AL access (moderate)",
@@ -324,7 +324,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Standard Deluxe Dirt Road Century' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 153,
+    "total_words": 383,
     "total_duration_sec": 585,
-    "overall_wpm": 15.7,
+    "overall_wpm": 39.3,
     "warnings": [],
     "feasible": true
   },

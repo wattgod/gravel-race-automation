@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 134,
+  "estimated_spoken_words": 224,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -71,7 +71,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -121,7 +121,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -170,14 +170,14 @@
           "Not nationally recognized—regional event"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Marthasville sits in the Missouri River Valley at basically sea level with zero altitude considerations. Technicality. 2 out of 5. Your road bike might survive. Might. Surface variety ranges from fast hard-packed crushed limestone to loose gravel to big brown Charette Creek river valley rock. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Late July in Missouri delivered 90-98°F temperatures in 2023 causing 20% DNF, with 2024 slightly better at 85-95°F but still producing 15% heat casualties.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -194,7 +194,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Altitude",
@@ -212,7 +212,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 97.0
     },
     {
       "id": "verdict",
@@ -284,9 +284,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'THE EQUALIZER - Missouri State Championship' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 134,
+    "total_words": 224,
     "total_duration_sec": 225,
-    "overall_wpm": 35.7,
+    "overall_wpm": 59.7,
     "warnings": [
       "Beat 'hook': 174WPM (29w/10s) — too_fast"
     ],

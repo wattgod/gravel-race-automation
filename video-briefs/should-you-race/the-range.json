@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 122,
+  "estimated_spoken_words": 398,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 4 out of 5. Bring real food. Not just gels. The Range delivers 122km with 1,606m elevation gain, while The Frontier stretches to 211km with 3,000m elevation. Technicality. 3 out of 5. Technical enough to thin the pack. Two natural creek crossings through Burton's Burke Creek Ranch (established 1890) plus single truss bridges create technical moments. Elevation. 3 out of 5. The hills sort the trained from the untrained. The classic Range route climbs 1,606 meters over 122km through the Porcupine hills, while The Frontier tackles 3,000m over 211km. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. Mid-July in southern Alberta typically runs 70-85°F with afternoon thunderstorm potential. Adventure. 3 out of 5. This race takes you somewhere different. Private ranch access through Burke Creek Ranch opens territory 'typically off-limits to the public. Race Quality. 3 out of 5. Solid production value. Over 50 directional signs mark the course with chip timing for overall rankings. Experience. 3 out of 5. Memorable course. Has character. Event founder Garth Stotts describes 'a celebration of Alberta's unique natural ecosystems where sustainable ranching practices have preserved this often-overlooked natural gem. Community. 3 out of 5. Genuine community feel. People stick around. Capped at 500 riders with camping available at Centennial Park creates weekend atmosphere.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 73.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Value. 3 out of 5. Reasonable price for what's offered. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 2 out of 5. Mild elevation. Most riders won't notice. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Affordable. Won't break the bank.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 90.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What The Range does well.",
+      "narration": "Where The Range earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -269,14 +269,14 @@
           "Mountain setting"
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate Canada access",
@@ -309,7 +309,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'The Range' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 122,
+    "total_words": 398,
     "total_duration_sec": 585,
-    "overall_wpm": 12.5,
+    "overall_wpm": 40.8,
     "warnings": [],
     "feasible": true
   },

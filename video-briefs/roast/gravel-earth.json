@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 97,
+  "estimated_spoken_words": 154,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "expose",
@@ -174,7 +174,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 3 out of 5. Moderate altitude. Worth acclimatizing for. Migration averages 1,900m with climbs to 2,800m at the escarpment. Value. 3 out of 5. Reasonable price for what's offered. Entry fees are reasonable (EUR 60+ for individual events), and the experience-to-cost ratio is strong for adventure-seekers.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -191,7 +191,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Expenses",
@@ -209,7 +209,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 65.0
     },
     {
       "id": "verdict",
@@ -281,9 +281,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, skeptical squinting, red warning flags background, 'Gravel Earth Series' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 97,
+    "total_words": 154,
     "total_duration_sec": 225,
-    "overall_wpm": 25.9,
+    "overall_wpm": 41.1,
     "warnings": [],
     "feasible": true
   },

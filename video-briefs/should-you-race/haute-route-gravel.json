@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 137,
+  "estimated_spoken_words": 416,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 5 out of 5. Ultra distance. Bring lights and a plan. 350 miles across multiple Alpine stages delivers serious accumulated fatigue. Elevation. 4 out of 5. Mountain passes on the menu. 30,000 feet over 350 miles means serious vertical density through Alpine passes. Adventure. 4 out of 5. Remote terrain. Self-sufficiency required. Routes traverse historic Alpine passes steeped in cycling and cultural history. Experience. 4 out of 5. Special. This race sticks with you. Multi-day format through 'fields and meadows' past 'blackened barns and chalets darkened in alpine sun over centuries' following 'ancient bisses, the ingenious Swiss irrigation systems. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. High Alpine conditions create physiological demands beyond weather. Altitude. 3 out of 5. You'll feel it on the climbs. Climbs reach significant elevation through Swiss Alpine passes like Col du Grand St. Race Quality. 3 out of 5. Good race quality. No major complaints. Events feature 'Full Mechanical Assistance, Full Medical Assistance, Feed Stations with local products' plus 'photographer, videographers, and drone pilots to capture the Epic-ness. Community. 3 out of 5. Good vibes. Riders actually talk to each other. The road Haute Route attracts riders seeking that 'pro-cyclist lifestyle taste' - serious amateurs with deep pockets and deeper delusions about their abilities.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 73.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Small but scrappy field. Value. 1 out of 5. You're overpaying for the privilege of suffering. Expenses. 1 out of 5. Cheap to do. No excuses.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Very high costs (€1500-2500+)",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Haute Route Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 137,
+    "total_words": 416,
     "total_duration_sec": 585,
-    "overall_wpm": 14.1,
+    "overall_wpm": 42.7,
     "warnings": [],
     "feasible": true
   },

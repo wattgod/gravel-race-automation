@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 148,
+  "estimated_spoken_words": 430,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Logistics. 4 out of 5. Smooth operation. Somebody knows what they're doing. Hotel Domestique centralizes everything as race HQ with fifteen years of refined operation. Length. 4 out of 5. Bring real food. Not just gels. The 87-mile Greenville course with 9,000 feet of climbing creates proper separation territory. Elevation. 4 out of 5. Mountain passes on the menu. CaptainThunderpants tackled \"just over 9,000 feet of climbing\" on 87 miles through Blue Ridge terrain. Race Quality. 4 out of 5. The kind of race that spoils you for others. Fifteen years of operation shows refined execution that riders consistently praise. Adventure. 3 out of 5. Adventure factor is real. CaptainThunderpants rode \"some of the prettiest roads I've ever ridden\" on George Hincapie's actual Tour training grounds through Blue Ridge countryside. Prestige. 3 out of 5. Name carries weight in the gravel community. George Hincapie's training grounds attract cycling royalty including Patrick Dempsey, Cadel Evans, Mark Cavendish, and Sir Bradley Wiggins. Experience. 3 out of 5. Memorable course. Has character. CaptainThunderpants ranked it \"Top 3 experiences on the bike\" riding with pros through Hincapie's Tour training terrain. Community. 3 out of 5. Good vibes. Riders actually talk to each other. The 2025 event drew \"more than 2,000 cyclists from across the United States\" and raised over $900,000 for Hurricane Helene recovery.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 75.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Value. 3 out of 5. Fair value. You get what you pay for. Expenses. 3 out of 5. Plan for a few hundred all-in. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Gran Fondo Hincapie does well.",
+      "narration": "What Gran Fondo Hincapie gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Mixed road/gravel (not pure gravel)",
@@ -342,7 +342,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'Gran Fondo Hincapie' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 148,
+    "total_words": 430,
     "total_duration_sec": 585,
-    "overall_wpm": 15.2,
+    "overall_wpm": 44.1,
     "warnings": [],
     "feasible": true
   },

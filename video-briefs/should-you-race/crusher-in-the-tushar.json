@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 170,
+  "estimated_spoken_words": 446,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_elevation",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Elevation. 5 out of 5. Mountainous. Your granny gear will earn its keep. Over 10,000 feet of climbing in 70 miles - that's 140+ feet per mile average, with two separate ascents topping 10K elevation. Altitude. 5 out of 5. Oxygen is a luxury item at this elevation. This might be the highest-elevation gravel finish in North America - the line sits above 10,400 feet at Eagle Point Resort. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. Two 10,000-foot mountain passes, a 4,000-foot plunge through the Sarlacc Pit, and a mountain-top finish above the clouds - this is proper expedition racing. Prestige. 5 out of 5. Gravel royalty. The race everyone knows. Was part of the Life Time Grand Prix in 2024 (dropped for 2025+). Experience. 5 out of 5. Transformative. People come back different. Field Depth. 5 out of 5. Deepest field in gravel. Murderer's row. With a field of 500+ riders, the altitude and difficulty attract climbers and altitude-adapted athletes. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. The Big Drop descent will teach you about physics - 4,000 feet of switchbacking, washboard-ridden gravel that ejects water bottles and egos alike. Climate. 4 out of 5. Expect to be uncomfortable at some point.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 72.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Race Quality. 4 out of 5. Premium race experience. Community. 4 out of 5. Riders come for the race. Stay for the people. Value. 4 out of 5. Strong value proposition. Expenses. 4 out of 5. Not cheap. The costs pile on. Logistics. 3 out of 5. Competent operation. Shows up on time. Length. 3 out of 5. Long enough to matter. Short enough to recover.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Crusher in the Tushar does well.",
+      "narration": "The case for Crusher in the Tushar.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -307,7 +307,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Altitude: If you can't acclimatize, you can't compete. Period.",
@@ -338,14 +338,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -392,7 +392,7 @@
           "Entry: $200"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Crusher in the Tushar' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 170,
+    "total_words": 446,
     "total_duration_sec": 585,
-    "overall_wpm": 17.4,
+    "overall_wpm": 45.7,
     "warnings": [],
     "feasible": true
   },

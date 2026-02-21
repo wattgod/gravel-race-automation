@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 130,
+  "estimated_spoken_words": 395,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Value. 4 out of 5. One of the better deals in gravel. High value score makes sense when entry fees are apparently so low they're not worth advertising. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Functional. Not impressive. Calabogie Community Hall start provides basic facilities but limited parking for larger fields. Length. 2 out of 5. Manageable distance. Back by lunch. The 97km Epic course hits respectable gravel distance, with Josh Tyers winning in 3:01:37. Technicality. 2 out of 5. Your road bike might survive. Might. Course uses \"single lane maintained old logging roads\" with \"a few unmaintained sections including a lane through a farm field. Elevation. 2 out of 5. Some ups and downs. Manageable. Gorra Hill stands out as a named climb, but the \"rolling country roads of West Carleton\" suggests accumulated elevation rather than true mountain suffering. Climate. 2 out of 5. Weather cooperates more often than not. Mid-April in Ontario creates weather uncertainty, evidenced by varying DNF rates across distances. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Routes explore \"spectacular network\" of logging roads through \"rural and bucolic area\" alongside farms.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 68.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 101.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Ottawa Valley Gravel Experience does well.",
+      "narration": "The case for Ottawa Valley Gravel Experience.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Ottawa Valley Gravel Experience' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 130,
+    "total_words": 395,
     "total_duration_sec": 585,
-    "overall_wpm": 13.3,
+    "overall_wpm": 40.5,
     "warnings": [],
     "feasible": true
   },

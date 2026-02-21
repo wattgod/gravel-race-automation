@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 157,
+  "estimated_spoken_words": 429,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 3 out of 5. Long enough to matter. Short enough to recover. 65 miles creates solid endurance challenge with 5-hour cutoffs for the shorter option. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Francis Marion's Revolutionary War history and weekend festival atmosphere create memorable experiences beyond racing. Community. 3 out of 5. Community is a real selling point. Post-race atmosphere encourages riders to \"hangout in the finish area and share their stories of #gravelfreedom\" around food trucks serving empanadas and Filipino cuisine. Value. 3 out of 5. Fair value. You get what you pay for. $175 entry includes finisher awards, post-event food, and access to multi-day programming from Friday brewery events to Sunday recovery rides. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Registration caps at 300 riders across all distances, but organizers warn \"We no longer mark our courses. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Climate. 2 out of 5. Weather cooperates more often than not. March 2025 conditions were ideal with \"absolutely perfect temperature - a balmy 60 degrees with light wind and a bit of fog/mist in the air.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 70.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Enough competition to keep you honest. Elevation. 1 out of 5. Elevation gain measured in speed bumps. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Swamp Fox Gravel Fondo does well.",
+      "narration": "Where Swamp Fox Gravel Fondo earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -287,14 +287,14 @@
           "Coastal location"
         ]
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 10.7
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Coastal SC access (moderate)",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Swamp Fox Gravel Fondo' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 157,
+    "total_words": 429,
     "total_duration_sec": 585,
-    "overall_wpm": 16.1,
+    "overall_wpm": 44.0,
     "warnings": [],
     "feasible": true
   },

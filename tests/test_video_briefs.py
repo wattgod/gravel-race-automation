@@ -39,6 +39,11 @@ from generate_video_briefs import (
     _get_broll_sources,
     _thumbnail_prompt,
     _build_brief,
+    _stable_hash,
+    _extract_first_sentence,
+    _narrate_score,
+    _pick_intro,
+    _narrate_round,
     DURATION_TARGETS,
     SHORT_MAX_SEC,
     WPM_COMFORTABLE,
@@ -47,6 +52,16 @@ from generate_video_briefs import (
     FORMATS,
     BPM,
     RETENTION_TARGETS,
+    SCORE_QUIPS,
+    ROAST_MARKETING_INTROS,
+    ROAST_REALITY_INTROS,
+    ROAST_DATA_INTROS,
+    SYR_SCORE_INTROS,
+    SYR_REMAINING_INTROS,
+    SYR_STRENGTH_INTROS,
+    SYR_WEAKNESS_INTROS,
+    SYR_LOGISTICS_INTROS,
+    TIER_TAGS,
 )
 from generate_video_scripts import (
     load_race,
@@ -848,3 +863,270 @@ class TestEdgeCases:
         # Round-trip
         loaded = json.loads(json_str)
         assert loaded["slug"] == brief["slug"]
+
+
+# ---------------------------------------------------------------------------
+# _stable_hash
+# ---------------------------------------------------------------------------
+
+class TestStableHash:
+    """Test deterministic hash utility."""
+
+    def test_deterministic(self):
+        assert _stable_hash("test") == _stable_hash("test")
+
+    def test_different_inputs_differ(self):
+        assert _stable_hash("foo") != _stable_hash("bar")
+
+    def test_returns_int(self):
+        assert isinstance(_stable_hash("test"), int)
+
+
+# ---------------------------------------------------------------------------
+# _extract_first_sentence
+# ---------------------------------------------------------------------------
+
+class TestExtractFirstSentence:
+    """Test first sentence extraction from explanations."""
+
+    def test_empty_input(self):
+        assert _extract_first_sentence("") == ""
+
+    def test_none_input(self):
+        assert _extract_first_sentence(None) == ""
+
+    def test_too_short(self):
+        assert _extract_first_sentence("Just three words.") == ""
+
+    def test_too_long(self):
+        long = " ".join(["word"] * 30) + "."
+        assert _extract_first_sentence(long) == ""
+
+    def test_normal_extraction(self):
+        text = "This race has excellent aid stations and support. The course is demanding."
+        result = _extract_first_sentence(text)
+        assert result == "This race has excellent aid stations and support."
+
+    def test_no_sentence_ending(self):
+        assert _extract_first_sentence("No period here") == ""
+
+
+# ---------------------------------------------------------------------------
+# _narrate_score
+# ---------------------------------------------------------------------------
+
+class TestNarrateScore:
+    """Test dimension score narration with personality."""
+
+    def test_all_dims_all_scores_produce_output(self):
+        """Every dimension × score combination should produce valid output."""
+        dims = [d for d in SCORE_QUIPS if d != "_default"]
+        for dim in dims:
+            for score in range(1, 6):
+                result = _narrate_score(dim, score, "test-slug")
+                assert len(result) > 0, f"{dim}/{score} produced empty output"
+                assert "out of 5" in result, f"{dim}/{score} missing 'out of 5'"
+
+    def test_deterministic(self):
+        r1 = _narrate_score("logistics", 3, "unbound-200")
+        r2 = _narrate_score("logistics", 3, "unbound-200")
+        assert r1 == r2
+
+    def test_compact_shorter_than_full(self):
+        rd = _load("unbound-200")
+        compact = _narrate_score("logistics",
+                                 rd["explanations"]["logistics"]["score"],
+                                 "unbound-200", rd=rd, compact=True)
+        full = _narrate_score("logistics",
+                              rd["explanations"]["logistics"]["score"],
+                              "unbound-200", rd=rd, compact=False)
+        assert len(compact) <= len(full)
+
+    def test_includes_dimension_label(self):
+        result = _narrate_score("field_depth", 5, "test")
+        assert "Field Depth" in result
+
+    def test_unknown_dim_uses_default(self):
+        result = _narrate_score("unknown_dim", 3, "test")
+        assert "out of 5" in result
+
+
+# ---------------------------------------------------------------------------
+# _pick_intro
+# ---------------------------------------------------------------------------
+
+class TestPickIntro:
+    """Test section intro selection."""
+
+    def test_deterministic(self):
+        r1 = _pick_intro("unbound-200", ROAST_MARKETING_INTROS)
+        r2 = _pick_intro("unbound-200", ROAST_MARKETING_INTROS)
+        assert r1 == r2
+
+    def test_selects_from_list(self):
+        result = _pick_intro("test-slug", ROAST_MARKETING_INTROS)
+        assert result in ROAST_MARKETING_INTROS
+
+    def test_different_slugs_can_differ(self):
+        results = set()
+        for slug in ["a", "b", "c", "d", "e", "f", "g", "h"]:
+            results.add(_pick_intro(slug, ROAST_MARKETING_INTROS))
+        # With 4 options and 8 slugs, should get at least 2 different
+        assert len(results) >= 2
+
+
+# ---------------------------------------------------------------------------
+# _narrate_round
+# ---------------------------------------------------------------------------
+
+class TestNarrateRound:
+    """Test head-to-head round narration."""
+
+    def test_tie(self):
+        result = _narrate_round("logistics", 3, 3, "Race A", "Race B", "a-b")
+        assert "3" in result
+        assert any(w in result.lower() for w in ["even", "identical", "same", "apiece"])
+
+    def test_close(self):
+        result = _narrate_round("logistics", 4, 3, "Race A", "Race B", "a-b")
+        assert "4" in result and "3" in result
+
+    def test_clear(self):
+        result = _narrate_round("logistics", 5, 3, "Race A", "Race B", "a-b")
+        assert "5" in result and "3" in result
+
+    def test_blowout(self):
+        result = _narrate_round("logistics", 5, 1, "Race A", "Race B", "a-b")
+        assert "5" in result and "1" in result
+
+    def test_finale(self):
+        result = _narrate_round("logistics", 5, 2, "Race A", "Race B", "a-b",
+                                is_finale=True)
+        assert any(w in result.lower()
+                   for w in ["big one", "last", "final", "decides"])
+
+    def test_deterministic(self):
+        r1 = _narrate_round("logistics", 4, 2, "A", "B", "a-b")
+        r2 = _narrate_round("logistics", 4, 2, "A", "B", "a-b")
+        assert r1 == r2
+
+    def test_includes_dimension_label(self):
+        result = _narrate_round("field_depth", 3, 2, "A", "B", "a-b")
+        assert "Field Depth" in result
+
+
+# ---------------------------------------------------------------------------
+# Narration Personality Regression
+# ---------------------------------------------------------------------------
+
+class TestNarrationHasPersonality:
+    """Regression tests: narration should no longer be robotic."""
+
+    @pytest.mark.parametrize("slug", COMPLETE_RACES)
+    def test_evidence_beats_have_quips(self, slug):
+        """Evidence beat narration should NOT match bare 'Dim: N out of 5.' pattern."""
+        rd = _load(slug)
+        brief = brief_tier_reveal(rd)
+        evidence_beat = [b for b in brief["beats"] if b["id"] == "evidence"][0]
+        narration = evidence_beat["narration"]
+        # Old robotic pattern: "Dimension: N out of 5." with no personality
+        bare_pattern = re.compile(r"^(\w[\w\s]*: \d out of 5\.\s*){2,}$")
+        assert not bare_pattern.match(narration), \
+            f"Evidence narration is still robotic: {narration[:80]}"
+
+    @pytest.mark.parametrize("slug", COMPLETE_RACES)
+    def test_roast_intros_vary(self, slug):
+        """Roast section intros should come from rotation lists."""
+        rd = _load(slug)
+        ok, _ = has_sufficient_data(rd, "roast")
+        if not ok:
+            pytest.skip("Insufficient data")
+        brief = brief_roast(rd)
+        marketing = [b for b in brief["beats"]
+                     if b["id"] == "marketing_pitch"][0]
+        assert marketing["narration"] in ROAST_MARKETING_INTROS
+
+    def test_head_to_head_rounds_no_edge_pattern(self):
+        """H2H rounds should NOT use robotic 'Edge: RaceName.' pattern."""
+        rd1 = _load("unbound-200")
+        rd2 = _load("mid-south")
+        brief = brief_head_to_head(rd1, rd2)
+        dim_beats = [b for b in brief["beats"] if b["id"].startswith("dim_")]
+        for beat in dim_beats:
+            assert "Edge:" not in beat["narration"], \
+                f"Round still uses robotic 'Edge:' pattern: {beat['narration'][:80]}"
+
+    def test_tier_reveal_has_tag(self):
+        """Tier reveal beat should include a tier tag."""
+        rd = _load("unbound-200")
+        brief = brief_tier_reveal(rd)
+        reveal = [b for b in brief["beats"] if b["id"] == "reveal"][0]
+        narration = reveal["narration"]
+        assert any(tag in narration for tag in TIER_TAGS.values()), \
+            f"Reveal missing tier tag: {narration}"
+
+    @pytest.mark.parametrize("slug", COMPLETE_RACES)
+    def test_roast_data_evidence_has_scores(self, slug):
+        """Roast data_evidence should include actual per-dimension narration."""
+        rd = _load(slug)
+        ok, _ = has_sufficient_data(rd, "roast")
+        if not ok:
+            pytest.skip("Insufficient data")
+        brief = brief_roast(rd)
+        data_beat = [b for b in brief["beats"]
+                     if b["id"] == "data_evidence"][0]
+        assert "out of 5" in data_beat["narration"], \
+            "Data evidence should include per-dimension scores"
+
+    @pytest.mark.parametrize("slug", COMPLETE_RACES)
+    def test_syr_score_intros_from_list(self, slug):
+        """Should-you-race scores_top should use intro from rotation list."""
+        rd = _load(slug)
+        ok, _ = has_sufficient_data(rd, "should-you-race")
+        if not ok:
+            pytest.skip("Insufficient data")
+        brief = brief_should_you_race(rd)
+        scores_top = [b for b in brief["beats"]
+                      if b["id"] == "scores_top"][0]
+        narration = scores_top["narration"]
+        assert any(narration.startswith(intro)
+                   for intro in SYR_SCORE_INTROS), \
+            f"scores_top doesn't start with a rotation intro: {narration[:60]}"
+
+
+# ---------------------------------------------------------------------------
+# RIFF Markers
+# ---------------------------------------------------------------------------
+
+class TestRiffMarkers:
+    """Verify [RIFF HERE] markers appear in editing_note fields."""
+
+    def test_tier_reveal_has_riff(self):
+        rd = _load("unbound-200")
+        brief = brief_tier_reveal(rd)
+        notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
+        assert "[RIFF HERE]" in notes
+
+    def test_roast_has_riff(self):
+        rd = _load("unbound-200")
+        ok, _ = has_sufficient_data(rd, "roast")
+        if not ok:
+            pytest.skip("Insufficient data")
+        brief = brief_roast(rd)
+        notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
+        assert "[RIFF HERE]" in notes
+
+    def test_riff_not_in_narration(self):
+        """RIFF markers should only be in editing_note, never in narration."""
+        rd = _load("unbound-200")
+        brief = brief_tier_reveal(rd)
+        for beat in brief["beats"]:
+            assert "[RIFF HERE]" not in beat.get("narration", ""), \
+                f"RIFF marker leaked into narration of {beat['id']}"
+
+    def test_head_to_head_has_riff(self):
+        rd1 = _load("unbound-200")
+        rd2 = _load("mid-south")
+        brief = brief_head_to_head(rd1, rd2)
+        notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
+        assert "[RIFF HERE]" in notes

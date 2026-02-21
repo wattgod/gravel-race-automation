@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 127,
+  "estimated_spoken_words": 385,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 4 out of 5. Bring real food. Not just gels. The 54-mile distance separates serious riders from weekend warriors—Barry Hanson won in 2:28:23 while the 100th finisher took 4:20:01. Elevation. 4 out of 5. Mountain passes on the menu. The 3,100 feet of climbing includes 'moderate but longer climbs' over the final 30 miles back to Rowe Mesa. Logistics. 3 out of 5. Adequate. The word was invented for this. Split packet pickup between Friday at Railyard (2-7pm) and Saturday at venue (7-8am) adds complexity. Technicality. 3 out of 5. Requires line choice. Rewards the attentive rider. The course demands attention as Robert Splinter notes: 'You always have to pay attention to what's right in front of you. Altitude. 3 out of 5. Moderate altitude. Worth acclimatizing for. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. The clockwise loop winds through Santa Fe National Forest terrain 'edged with cholla and yucca' across remote forest roads. Value. 3 out of 5. Reasonable price for what's offered. Early bird at $77 climbing to $97 by race day isn't highway robbery for 55 miles of marked desert riding. Expenses. 3 out of 5. Standard gravel race budget.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 68.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. Fine. Just fine. Community. 2 out of 5. Polite. Not exactly warm. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 86.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Santa Fe Century Gravelón does well.",
+      "narration": "What Santa Fe Century Gravelón gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small regional field",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $100-120"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Santa Fe Century Gravelón' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 127,
+    "total_words": 385,
     "total_duration_sec": 585,
-    "overall_wpm": 13.0,
+    "overall_wpm": 39.5,
     "warnings": [],
     "feasible": true
   },

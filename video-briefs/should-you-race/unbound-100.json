@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 174,
+  "estimated_spoken_words": 446,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_prestige",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself. Elite pros like two-time champion Tiffany Cromwell and Isaac Allred race the same terrain as everyday gravel fans in the same mass start. Experience. 5 out of 5. Once-in-a-lifetime course experience. The 6 AM mass start rolling 1,700 riders out of downtown Emporia creates the defining gravel experience. Community. 5 out of 5. The community IS the race. Emporia transforms into \"Gravel City\" with the town's population swelling 50% during race week. Length. 4 out of 5. Bring real food. Not just gels. Climate. 4 out of 5. Expect to be uncomfortable at some point. Kansas late spring brings extreme conditions. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. The Flint Hills provide stunning big sky country across America's last tall-grass prairie. Race Quality. 4 out of 5. The kind of race that spoils you for others. Life Time runs a professional operation with mass start police escort, neutral mechanics, and one well-stocked checkpoint at Council Grove. Field Depth. 4 out of 5. Stacked field. Fast riders everywhere. Strong elite field with pros like Tiffany Cromwell (2-time champion), Isaac Allred, and Hayden Christian.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 68.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. One of the better deals in gravel. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Technicality. 3 out of 5. The course bites if you stop paying attention. Elevation. 3 out of 5. The hills sort the trained from the untrained. Expenses. 3 out of 5. Plan for a few hundred all-in. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 104.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Unbound Gravel 100 does well.",
+      "narration": "What Unbound Gravel 100 gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -290,7 +290,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -307,7 +307,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Lottery entry—no guaranteed spot",
@@ -322,14 +322,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -370,7 +370,7 @@
           "Entry: $245"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -474,9 +474,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Unbound Gravel 100' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 174,
+    "total_words": 446,
     "total_duration_sec": 585,
-    "overall_wpm": 17.8,
+    "overall_wpm": 45.7,
     "warnings": [],
     "feasible": true
   },

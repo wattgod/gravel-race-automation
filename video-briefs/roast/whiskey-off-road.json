@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 85,
+  "estimated_spoken_words": 150,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "extreme_race_quality",
@@ -76,7 +76,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -131,7 +131,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -185,14 +185,14 @@
           "This is MTB, not gravel—technical sections may frustrate road crossover riders"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Andrea Wilson notes the Pro category gets \"privileged to our own start\" avoiding \"the misery of traffic jams\" from mass amateur starts. Length. 3 out of 5. Proper race distance. Enough to hurt. The 50 Proof course runs 46. Altitude. 3 out of 5. Moderate altitude. Worth acclimatizing for. Racing at 5,300-7,000ft affects performance noticeably.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -209,7 +209,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Logistics",
@@ -227,7 +227,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 72.0
     },
     {
       "id": "verdict",
@@ -299,9 +299,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Whiskey Off-Road' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 85,
+    "total_words": 150,
     "total_duration_sec": 225,
-    "overall_wpm": 22.7,
+    "overall_wpm": 40.0,
     "warnings": [],
     "feasible": true
   },

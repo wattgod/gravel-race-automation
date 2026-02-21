@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 189,
+  "estimated_spoken_words": 426,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "prestige_override",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 5 out of 5. Ultra distance. Bring lights and a plan. Carey Lowery's race strategy reveals the 150-mile grind: \"Last year it took 3:25 to go 54 miles; this year, 4:30. Climate. 5 out of 5. Extreme conditions guaranteed. Dress accordingly. Prestige. 5 out of 5. Gravel royalty. The race everyone knows. 16-year history from grassroots to $100K prize purse. Experience. 5 out of 5. This race ruins other races for you. The combination of pirate theme, Nebraska heat survival, and relentless terrain creates defining memories. Community. 5 out of 5. Family reunion energy. Everyone belongs. Adventure. 4 out of 5. The kind of ride you'll tell stories about. Beyond standard gravel roads, the course includes \"cobble-filled alleyways, brief singletrack, and dirt roads that become mud gambles when storms hit. Race Quality. 4 out of 5. Premium race experience. Well-organized with checkpoint support, convenience store stops mapped, and proper timing. Field Depth. 4 out of 5. Stacked field. Fast riders everywhere. The $100K purse (2025) draws serious pros.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 58.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. Strong value proposition. Expenses. 4 out of 5. Budget carefully. The extras get you. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Technicality. 3 out of 5. Technical enough to thin the pack. Elevation. 3 out of 5. The hills sort the trained from the untrained. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "The heat: August humidity and heat can be punishing.",
@@ -345,7 +345,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -392,7 +392,7 @@
           "Entry: $150"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, confused face, question marks floating, 'Gravel Worlds' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 189,
+    "total_words": 426,
     "total_duration_sec": 585,
-    "overall_wpm": 19.4,
+    "overall_wpm": 43.7,
     "warnings": [],
     "feasible": true
   },

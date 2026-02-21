@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 106,
+  "estimated_spoken_words": 182,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -179,7 +179,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Trumansburg sits around 1,000 feet above sea level in the Finger Lakes region. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Organizers warn 'This race is CHALLENGING and FUN! Climate. 2 out of 5. Weather cooperates more often than not. Historical weather data shows average highs of 68°F and lows of 47°F, with a 49% chance of rain on any given day.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -196,7 +196,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Altitude",
@@ -214,7 +214,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 84.0
     },
     {
       "id": "verdict",
@@ -285,9 +285,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Dirty Hector - New York State Championship' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 106,
+    "total_words": 182,
     "total_duration_sec": 225,
-    "overall_wpm": 28.3,
+    "overall_wpm": 48.5,
     "warnings": [
       "Beat 'hook': 186WPM (31w/10s) — too_fast"
     ],

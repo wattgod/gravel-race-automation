@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 179,
+  "estimated_spoken_words": 450,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_experience",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Experience. 5 out of 5. Once-in-a-lifetime course experience. The mud creates lasting memories. Technicality. 4 out of 5. Rocky, rooty, or both. Probably both. Matt Surch describes the farm field sector: 'Picture a furrowed farm field, 4' deep trenches cut into the soil. Climate. 4 out of 5. Conditions will test your kit choices. Late April in Ontario guarantees suffering — 5°C to 12°C, overcast, and mud regardless of race-day conditions thanks to spring thaw. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. Kyra witnessed the chaos of bottlenecks: 'There was a huge downed tree on the single track. Prestige. 4 out of 5. Top-shelf reputation. Calendar priority. Canada's largest gravel race since 1994, now a UCI Gravel World Series qualifier. Race Quality. 4 out of 5. High-quality event. Attention to detail shows. Peter Glassford emphasizes preparation thoroughness: 'Set up your race bike as if the race was this weekend and use all your gear, fueling, preparation. Community. 4 out of 5. The post-race scene is half the event. Canada's largest gravel field with over 2,000 riders. Field Depth. 4 out of 5. Pro-level talent in the mix. UCI qualifier status draws competitive talent.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 67.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. Good value. More bang for your buck than most. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Elevation. 3 out of 5. The hills sort the trained from the untrained. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Length. 2 out of 5. Short but honest about it. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 104.0
     },
     {
       "id": "strengths",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Weather is a massive variable—can be miserable",
@@ -345,7 +345,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -392,7 +392,7 @@
           "Entry: $100-150"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Paris to Ancaster' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 179,
+    "total_words": 450,
     "total_duration_sec": 585,
-    "overall_wpm": 18.4,
+    "overall_wpm": 46.2,
     "warnings": [],
     "feasible": true
   },

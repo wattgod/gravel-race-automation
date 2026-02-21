@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 120,
+  "estimated_spoken_words": 407,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 4 out of 5. Bring real food. Not just gels. The 100km option at 62 miles with 3,600 feet provides century distance that JewelerDry6222 calls 'literally the perfect trek for a gravel grinder. Value. 3 out of 5. Fair value. You get what you pay for. Entry fees of $40-50 grassroots or $60-70 with lunch and shirt provide decent value for century distance. Expenses. 3 out of 5. Standard gravel race budget. Entry tops out at $70 same-day with shirt and lunch included - reasonable for century distance. Logistics. 2 out of 5. You'll figure it out. Eventually. Packet pickup the night before or morning of at the downtown gazebo with basic small-town setup. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Course features 'a lot of minimum maintenance or B roads' with terrain that's 'not too hilly, not too flat, a few surprises. Elevation. 2 out of 5. Some ups and downs. Manageable. Official description promises 'not too hilly, not too flat, a few surprises' with 3,600 feet over 62 miles. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Riders report 'great weather with some typical Midwest wind' for recent editions. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Course includes the beloved Wabash Trace trail that JewelerDry6222 calls 'one of my favorite gravel trails.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 76.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Prestige. 1 out of 5. Under the radar. Completely unknown. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Silver City Century does well.",
+      "narration": "What Silver City Century gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $75-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Silver City Century' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 120,
+    "total_words": 407,
     "total_duration_sec": 585,
-    "overall_wpm": 12.3,
+    "overall_wpm": 41.7,
     "warnings": [],
     "feasible": true
   },

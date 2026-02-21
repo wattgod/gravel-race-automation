@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 195,
+  "estimated_spoken_words": 427,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "prestige_override",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Prestige. 5 out of 5. Gravel royalty. The race everyone knows. The amateur version of one of cycling's most beautiful WorldTour races. Race Quality. 5 out of 5. Everything about this race is dialed. Italian cycling organization at its finest. Experience. 5 out of 5. Transformative. People come back different. Community. 5 out of 5. The community IS the race. 6,500 riders from across Europe and beyond. Logistics. 4 out of 5. One less thing to worry about. RCS Sport knows how to run a race - they've got the pro Strade Bianche dialed and the gran fondo benefits from that expertise. Climate. 4 out of 5. Weather is part of the race strategy. March in Tuscany gives you proper cycling weather - 14-16°C highs with about a 24% chance of rain on any given day. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. Field Depth. 4 out of 5. Stacked field. Fast riders everywhere. Strong amateur field including serious European gran fondo racers.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 57.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. One of the better deals in gravel. Length. 3 out of 5. Proper race distance. Enough to hurt. Technicality. 3 out of 5. Technical enough to thin the pack. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. Expenses. 3 out of 5. Standard gravel race budget. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "March weather is a gamble—can be cold and wet",
@@ -345,7 +345,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -391,7 +391,7 @@
           "Lodging: Stay in Siena. start and finish are in city center. Book early. race week fills up."
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -495,9 +495,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, confused face, question marks floating, 'Gran Fondo Strade Bianche' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 195,
+    "total_words": 427,
     "total_duration_sec": 585,
-    "overall_wpm": 20.0,
+    "overall_wpm": 43.8,
     "warnings": [],
     "feasible": true
   },

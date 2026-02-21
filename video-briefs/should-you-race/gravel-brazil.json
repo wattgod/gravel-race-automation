@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 198,
+  "estimated_spoken_words": 469,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_adventure",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Adventure. 5 out of 5. Adventure is the entire point. First UCI gravel race in Southern America—you're literally writing the book. Experience. 5 out of 5. Transformative. People come back different. You're pioneering gravel racing in Brazil—that's bucket list territory. Value. 5 out of 5. Dollar for dollar, one of the best in gravel. First gravel race in Southern America for unknown entry fees offers historical access at presumably reasonable Brazilian pricing. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. 650bisnotdead built specifically for Brazilian conditions: \"I choose 650b for being far versatile than 700c for different tires. Elevation. 4 out of 5. Your power-to-weight ratio matters here. 6,562 feet in 62 miles delivers over 100 feet of climbing per mile. Prestige. 4 out of 5. Top-shelf reputation. Calendar priority. First UCI Gravel race in Southern America carries serious weight—you're making history just by showing up. Race Quality. 4 out of 5. High-quality event. Attention to detail shows. UCI sanctioning means organization standards backed by the team behind Gran Fondo Brazil. Community. 4 out of 5. The post-race scene is half the event. Brazilian cycling culture runs deep, with riders enthusiastic about sharing their builds for tropical conditions.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 69.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Length. 3 out of 5. Long enough to matter. Short enough to recover. Climate. 3 out of 5. The weather could go either way. Field Depth. 3 out of 5. Good racing at every level. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 98.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Gravel Brazil does well.",
+      "narration": "The case for Gravel Brazil.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -292,7 +292,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -309,7 +309,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "International travel required (FLN 80km)",
@@ -326,14 +326,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -372,7 +372,7 @@
           "Entry: $400"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Gravel Brazil' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 198,
+    "total_words": 469,
     "total_duration_sec": 585,
-    "overall_wpm": 20.3,
+    "overall_wpm": 48.1,
     "warnings": [],
     "feasible": true
   },

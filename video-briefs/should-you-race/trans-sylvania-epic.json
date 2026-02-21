@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 132,
+  "estimated_spoken_words": 457,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 4 out of 5. This is a long day. Plan accordingly. Sam Koerber explains \"The courses are generally shy of three hours for the leaders and as a result the pace is relentless. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Seven Mountains Scout Camp provides the central base with mandatory Stage 0 registration keeping everyone oriented. Technicality. 3 out of 5. Technical enough to thin the pack. Pennsylvania forests typically serve up rocky, rooty terrain with sustained climbs rather than explosive technical features. Elevation. 3 out of 5. The hills sort the trained from the untrained. The 15,000 feet over 225 miles creates what Mical Dyck calls \"constant false flats so you have to pedal through smaller rocks all day. Climate. 3 out of 5. The weather could go either way. Historical weather data shows average highs of 71°F and lows of 49°F, with a 49% chance of rain on any given day. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Multi-day stage racing through Pennsylvania's forest systems with evocative names like Poe Paddy and Coopers Gap delivers backcountry exploration. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Multi-day stage racing through Pennsylvania's Rothrock and Bald Eagle forests with named stages like Poe Paddy and Coopers Gap has potential for solid adventure. Community. 3 out of 5. Community is a real selling point. The \"Singletrack Summer Camp\" nickname captures the social atmosphere where riders call truces and \"just rode bikes and cheered on our fellow tryers.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 87.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Enough competition to keep you honest. Value. 2 out of 5. Not the worst deal. Close though. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Trans-Sylvania Epic does well.",
+      "narration": "What Trans-Sylvania Epic gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $300-500"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Trans-Sylvania Epic' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 132,
+    "total_words": 457,
     "total_duration_sec": 585,
-    "overall_wpm": 13.5,
+    "overall_wpm": 46.9,
     "warnings": [],
     "feasible": true
   },

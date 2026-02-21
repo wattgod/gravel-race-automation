@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 151,
+  "estimated_spoken_words": 442,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 5 out of 5. Ultra distance. Bring lights and a plan. 131 miles with 10,000 feet of climbing delivered a 19-23% DNF rate across recent years—12 of 63 starters couldn't finish in 2025. Elevation. 4 out of 5. Mountain passes on the menu. Altitude. 4 out of 5. High enough to affect your power. Plan for it. Starting at 7,500 feet in Lander, riders climb to the high point of 9,576 feet at mile 109 in the Wind River Mountains. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. The route delivers \"131 miles of pure, untamed adventure\" through towering Wyoming Hoodoos at mile 36. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. September conditions create variability through the washboard middle section where \"winds usually pick up\" during the traditionally rough miles 60-90. Race Quality. 3 out of 5. Solid production value. The course earns its reputation with cutoffs that matter—19-23% DNF rates prove the difficulty. Experience. 3 out of 5. Memorable course. Has character. Lander is \"ranked as one of the best outdoor towns in America\" at \"the southern tip of the Wind River Range, just west of Jackson. Community. 3 out of 5. Community is a real selling point. The \"Inspiration Ride\" welcomes all bikes including e-bikes with \"No excuses—you're not too young, too old, or too 'whatever-you-think-you-are' to roll with us!",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 79.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Value. 3 out of 5. Reasonable price for what's offered. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Enough competition to keep you honest.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What WYO 131 does well.",
+      "narration": "Where WYO 131 earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -302,14 +302,14 @@
           "High altitude challenge"
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Remote central Wyoming location",
@@ -342,7 +342,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'WYO 131' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 151,
+    "total_words": 442,
     "total_duration_sec": 585,
-    "overall_wpm": 15.5,
+    "overall_wpm": 45.3,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 114,
+  "estimated_spoken_words": 361,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Value. 4 out of 5. Strong value proposition. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Same-day registration and packet pickup from 8:00-9:15 AM at Sayner Community Center keeps things simple but basic. Length. 2 out of 5. Manageable distance. Back by lunch. The format has shifted from the original 50+ mile \"savage, barbaric\" long course to current 25-mile and 15-mile options. Technicality. 2 out of 5. Your road bike might survive. Might. Trailforks rates this as intermediate difficulty, mixing snowmobile trails, logging roads, and creek crossings. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. The course features \"sweet stretches of downhills\" and climbing Musky Mountain, plus an old ski hill run. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Mid-June conditions include \"slogging through mud\" and \"fending off mosquitoes and deer flies\" according to course descriptions. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. You're exploring the Northern Highland American Legion State Forest on snowmobile trails and logging roads, which has authentic backcountry feel.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 64.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 88.0
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'The Insayner' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 114,
+    "total_words": 361,
     "total_duration_sec": 585,
-    "overall_wpm": 11.7,
+    "overall_wpm": 37.0,
     "warnings": [],
     "feasible": true
   },

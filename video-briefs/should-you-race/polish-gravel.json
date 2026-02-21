@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 118,
+  "estimated_spoken_words": 404,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 3 out of 5. Long enough to matter. Short enough to recover. The 500km+ format with 80-hour time limit uses mandatory checkpoint structure where routes between sections can be chosen by riders. Climate. 3 out of 5. The weather could go either way. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Dense fog, wind, and rain turned the 2025 gravel route \"into a series of mud puddles\" as Mother Nature showed \"no mercy\" to 350 competitors. Community. 3 out of 5. Community is a real selling point. Organizer Paweł 'Pik' Puławski brings top European ultramarathon competitors so Polish riders can compete \"na własnym podwórku\" (on their own turf). Value. 3 out of 5. Reasonable price for what's offered. 450 PLN (about $110) includes drop bag transfer, live tracking, insurance, media service, and finisher medal with t-shirt. Logistics. 2 out of 5. You'll figure it out. Eventually. Point-to-point from Przemyśl to Głodówka Chalet with drop bag service but no parking or pickup details. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Pontus Tidemand describes the characteristic terrain: \"Potentially devastating stones are hidden not only by the sand, but also by the tall grass linings. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Over 10,000m gain across 500km through Przemyśl foothills, Bieszczady, Western Beskids, Pieniny, and Tatras.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 76.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Adventure. 2 out of 5. Light adventure. Nothing wild. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Polish Gravel does well.",
+      "narration": "The case for Polish Gravel.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Poland access (moderate)",
@@ -309,7 +309,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Polish Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 118,
+    "total_words": 404,
     "total_duration_sec": 585,
-    "overall_wpm": 12.1,
+    "overall_wpm": 41.4,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 123,
+  "estimated_spoken_words": 398,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Adventure. 4 out of 5. Remote terrain. Self-sufficiency required. Course explores 'les vallées de la Drôme et du Bez' with vineyard passages and Vercors cliff views most international riders never see. Length. 3 out of 5. Proper race distance. Enough to hurt. Multiple gravel options run 27km, 55km, and 75km across the weekend format. Technicality. 3 out of 5. The course bites if you stop paying attention. Course mixes 'petites routes goudronnées et de pistes caillouteuses avec certains passages techniques courts' through Drôme terrain. Elevation. 3 out of 5. Proper climbing. You'll earn your descents. The 75km delivers 1300m climbing through valleys of the Drôme and Bez with 'vue imprenable sur les falaises du Vercors sud. Experience. 3 out of 5. The experience justifies the entry fee. Riders experience 'l'ambiance atypique du gravel Diois' with good-natured atmosphere where cyclists exchange 'regards complices après avoir survécu à une descente périlleuse. Value. 3 out of 5. Reasonable price for what's offered. Multi-day festival format offers three different course options with the gravel event integrated into arts festival weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Historical weather data shows average highs of 72°F and lows of 54°F, with a 43% chance of rain on any given day.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 75.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Community. 2 out of 5. Some community spirit. Nothing organized. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 84.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What La Drômoise Gravel does well.",
+      "narration": "The case for La Drômoise Gravel.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -291,7 +291,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -308,7 +308,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Medium local field",
@@ -324,14 +324,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -372,7 +372,7 @@
           "Entry: €70-90"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'La Drômoise Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 123,
+    "total_words": 398,
     "total_duration_sec": 585,
-    "overall_wpm": 12.6,
+    "overall_wpm": 40.8,
     "warnings": [],
     "feasible": true
   },

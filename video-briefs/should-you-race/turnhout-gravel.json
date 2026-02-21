@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 120,
+  "estimated_spoken_words": 449,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 3 out of 5. Long enough to matter. Short enough to recover. Elite winners averaged 40 km/h over 144km (the longer distance option), with Mads Würtz Schmidt finishing in 3:35:24. Climate. 3 out of 5. The weather could go either way. Even elite riders struggled with equipment failures - winner Geerike Schreurs 'had several flat tires and had to chase back multiple times. Experience. 3 out of 5. Memorable course. Has character. Harry Tanfield expects gravel racing to be wild compared to WorldTour road racing: 'you have to line up like one hour before the race. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Sold out two months early with 2,534 riders from 27 countries, making it 'the biggest event so far in the UCI Gravel World Series. Value. 3 out of 5. The math works out. Barely. No published entry fees, but selling out two months early with 2,534 international participants suggests reasonable pricing for UCI World Series qualification opportunities. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Still missing basic traveler info like parking and lodging, though the race starts and finishes in Turnhout city center 'next to the cosy harbour. Technicality. 2 out of 5. Your road bike might survive. Might. Course features 'champagne gravel' - fine, crunchy American-style gravel with 'long straight wide open gravel boulevards' through meadows and forests. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Only 100m of elevation gain per lap on the flat Kempen terrain.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 87.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 101.3
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate Europe access",
@@ -334,7 +334,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: €50-80"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Turnhout Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 120,
+    "total_words": 449,
     "total_duration_sec": 585,
-    "overall_wpm": 12.3,
+    "overall_wpm": 46.1,
     "warnings": [],
     "feasible": true
   },

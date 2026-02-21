@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 80,
+  "estimated_spoken_words": 165,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -179,7 +179,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Logistics. 2 out of 5. Functional. Not impressive. Brenna Pauly calls it a 'fabulous event with incredible attention to detail' but getting there remains self-solve. Altitude. 2 out of 5. Negligible altitude effect. The Canadian Rockies location suggests elevation but no specific altitude data is provided for start, maximum, or average elevations. Prestige. 2 out of 5. Building a name. Not there yet. Rob Britton earned 'my first win as a gravel pro' at the 2022 inaugural edition, but this remains a 3-year-old event building reputation.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -196,7 +196,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Logistics",
@@ -214,7 +214,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.0
     },
     {
       "id": "verdict",
@@ -285,9 +285,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'TransRockies Gravel Royale' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 80,
+    "total_words": 165,
     "total_duration_sec": 225,
-    "overall_wpm": 21.3,
+    "overall_wpm": 44.0,
     "warnings": [],
     "feasible": true
   },

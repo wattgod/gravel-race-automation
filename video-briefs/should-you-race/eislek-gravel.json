@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 120,
+  "estimated_spoken_words": 395,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 3 out of 5. Long enough to matter. Short enough to recover. The 70-mile distance demands careful pacing on the opening climb. Climate. 3 out of 5. Variable. Bring layers and a flexible attitude. Historical weather data shows average highs of 72°F and lows of 54°F, with a 51% chance of rain on any given day. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Cross-border route alternates between Luxembourg's cobblestone castle climb and Germany's softer forest paths. Race Quality. 3 out of 5. Solid production value. Multi-lap circuit structure allows spectators multiple viewing opportunities through historic Vianden. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Cobblestone climb to medieval Vianden Castle creates a spectacular opening, while elevated paths overlook the Our River valley. Community. 3 out of 5. Community is a real selling point. eins4eins summarized the community feel: \"War eine super Veranstaltung. Value. 3 out of 5. Fair value. You get what you pay for. UCI World Series qualifier status with historic castle backdrop delivers solid racing value. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Start congestion forces walking up the opening climb - eins4eins reported \"Bisschen nervig war auch der Stau an der steilen Rampe direkt nach dem Start.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 72.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. Some ups and downs. Manageable. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Eislek Gravel does well.",
+      "narration": "Where Eislek Gravel earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -287,14 +287,14 @@
           "Eislek setting"
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate Europe access",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Eislek Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 120,
+    "total_words": 395,
     "total_duration_sec": 585,
-    "overall_wpm": 12.3,
+    "overall_wpm": 40.5,
     "warnings": [],
     "feasible": true
   },

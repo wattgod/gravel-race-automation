@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 105,
+  "estimated_spoken_words": 188,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -178,7 +178,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Elevation. 1 out of 5. Elevation gain measured in speed bumps. The Croatan National Forest location means minimal climbing challenge over 139 miles. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Starting near sea level in coastal North Carolina means altitude plays zero role in performance or preparation. Technicality. 2 out of 5. Your road bike might survive. Might. While mostly forest roads, Savage Road provides notable technical challenge with \"huge craters full of water — nasty looking water.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -195,7 +195,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Elevation",
@@ -213,7 +213,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 91.0
     },
     {
       "id": "verdict",
@@ -284,9 +284,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Croatan Buck Fifty' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 105,
+    "total_words": 188,
     "total_duration_sec": 225,
-    "overall_wpm": 28.0,
+    "overall_wpm": 50.1,
     "warnings": [],
     "feasible": true
   },

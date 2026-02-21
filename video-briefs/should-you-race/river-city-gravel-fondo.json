@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 178,
+  "estimated_spoken_words": 446,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Campbell River location requires ferry/flight planning for off-island riders, but the organization has improved significantly since 2024. Length. 3 out of 5. Long enough to matter. Short enough to recover. Three distance options hit standard gravel sweet spots: 40km Impulso for accessibility, 72km Intermedio as the middle ground, and 113-120km Esperto for commitment. Technicality. 3 out of 5. The course bites if you stop paying attention. Elevation. 3 out of 5. The hills sort the trained from the untrained. The Intermedio delivers 621m elevation gain over 72km through rolling forest terrain rather than massive sustained climbs. Climate. 3 out of 5. Pack for two seasons. Adventure. 3 out of 5. Adventure factor is real. Routes traverse Mosaic Forest Management land, BC Parks, and First Nations territory through pristine Campbell River backcountry. Race Quality. 3 out of 5. Solid production value. The 2024 inaugural event \"was met with huge success and praise from participants as 178 gravel cycling enthusiasts from all over BC tackled gravel routes. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Riders experience forest roads through \"pristine area West of Campbell River\" with Campbell Lake as the turnaround feature.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 70.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Community. 3 out of 5. Genuine community feel. People stick around. Value. 3 out of 5. Fair value. You get what you pay for. Expenses. 3 out of 5. Standard gravel race budget. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What River City Gravel Fondo does well.",
+      "narration": "The case for River City Gravel Fondo.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Ferry access adds travel complexity and cost",
@@ -342,14 +342,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -396,7 +396,7 @@
           "Entry: $80-120"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'River City Gravel Fondo' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 178,
+    "total_words": 446,
     "total_duration_sec": 585,
-    "overall_wpm": 18.3,
+    "overall_wpm": 45.7,
     "warnings": [],
     "feasible": true
   },

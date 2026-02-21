@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 219,
+  "estimated_spoken_words": 473,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 5 out of 5. This race measures commitment in hours, not miles. Adventure. 4 out of 5. Remote terrain. Self-sufficiency required. Three laps through remote Croatan National Forest creates memorable backcountry exploration. Community. 4 out of 5. Riders come for the race. Stay for the people. The Food Truck Rodeo and speedway setting foster strong community atmosphere. Value. 4 out of 5. Strong value proposition. Logistics. 3 out of 5. Adequate. The word was invented for this. Carteret Speedway provides solid race infrastructure with 6am opening and infield packet pickup. Climate. 3 out of 5. The weather could go either way. Historical weather data shows average highs of 67°F and lows of 48°F, with a 40% chance of rain on any given day. Race Quality. 3 out of 5. Good race quality. No major complaints. The lap-based format through Croatan National Forest with Black Swamp Aid Station at mile 23 provides solid organization. Experience. 3 out of 5. You'll remember this one. Mostly fondly. The three-lap structure offers variety from smooth gravel bombing runs to technical crater navigation on Savage Road, though repetition limits scenery.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 63.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Field Depth. 3 out of 5. Good racing at every level. Expenses. 3 out of 5. Standard gravel race budget. Technicality. 2 out of 5. Your road bike might survive. Might. Prestige. 2 out of 5. Building a name. Not there yet. Elevation. 1 out of 5. Elevation gain measured in speed bumps. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,7 +234,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -309,7 +309,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Flat (5,000 ft / 150mi = monotonous)",
@@ -333,7 +333,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -372,7 +372,7 @@
           "Entry: $100-$150"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Croatan Buck Fifty' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 219,
+    "total_words": 473,
     "total_duration_sec": 585,
-    "overall_wpm": 22.5,
+    "overall_wpm": 48.5,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 153,
+  "estimated_spoken_words": 396,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Princeton Elks Lodge handles start/finish, parking, and post-ride party efficiently. Length. 3 out of 5. Proper race distance. Enough to hurt. The 81-mile long course hits the sweet spot for April fitness testing. Elevation. 3 out of 5. The hills sort the trained from the untrained. Around 5,800 feet over 81 miles delivers consistent punishment through rolling Sourland Mountains terrain. Experience. 3 out of 5. The experience justifies the entry fee. Authentic spring classics atmosphere with Belgian flags at aid stations and proper suffering ethos. Community. 3 out of 5. Genuine community feel. People stick around. Welcoming environment that grew from 35 to 800 riders while maintaining accessible culture. Value. 3 out of 5. Fair value. You get what you pay for. Strong value proposition with well-stocked aid stations, technical support, GPS files, and post-ride party. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Your road bike might survive. Might. Only 16% unpaved despite the gravel reputation—this is fundamentally a road ride with dirt sectors.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 63.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Adventure. 2 out of 5. Light adventure. Nothing wild. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 84.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Hell of Hunterdon does well.",
+      "narration": "The case for Hell of Hunterdon.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -342,14 +342,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -396,7 +396,7 @@
           "Entry: $60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Hell of Hunterdon' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 153,
+    "total_words": 396,
     "total_duration_sec": 585,
-    "overall_wpm": 15.7,
+    "overall_wpm": 40.6,
     "warnings": [],
     "feasible": true
   },

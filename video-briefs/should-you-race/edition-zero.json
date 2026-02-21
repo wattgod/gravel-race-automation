@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 130,
+  "estimated_spoken_words": 362,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 4 out of 5. Bring real food. Not just gels. The Mains delivers 248km of punishment that tests mental limits as much as physical. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. 'It's 250 kilometres with no towns. Experience. 4 out of 5. The kind of race that reshapes your season. Hakataramea Pass delivers 'the nicest section of the ride. Technicality. 3 out of 5. The course bites if you stop paying attention. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. Three key passes—Mackenzie, Hakataramea, and Meyers—deliver 3,500-4,000m of climbing across 248km. Climate. 3 out of 5. Pack for two seasons. Race Quality. 3 out of 5. Good race quality. No major complaints. Feed zones operate like triathlon transitions where 'valuable time, or your position in a strong group, can be lost through poor planning or execution. Community. 3 out of 5. Genuine community feel. People stick around. Riders flying in from Netherlands and worldwide for a fourth-year New Zealand race tells you something's working.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 59.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 3 out of 5. Reasonable price for what's offered. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Logistics. 1 out of 5. You are the aid station. Expenses. 1 out of 5. Minimal financial barrier.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 88.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Edition Zero does well.",
+      "narration": "The case for Edition Zero.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Very difficult New Zealand access",
@@ -342,14 +342,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -396,7 +396,7 @@
           "Entry: $150-250"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'Edition Zero' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 130,
+    "total_words": 362,
     "total_duration_sec": 585,
-    "overall_wpm": 13.3,
+    "overall_wpm": 37.1,
     "warnings": [],
     "feasible": true
   },

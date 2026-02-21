@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 135,
+  "estimated_spoken_words": 207,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "extreme_logistics",
@@ -76,7 +76,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "Let's start with what they put on the registration page.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -132,7 +132,7 @@
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "Now for the part the registration page leaves out.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -187,14 +187,14 @@
           "Large field (2,800 riders) creates festival atmosphere but lacks intimate community warmth"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 9.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "Let the numbers do the talking. Altitude. 1 out of 5. Low altitude. Breathe easy. Del Mar sits at sea level and the course peaks around 1,500 feet—altitude is irrelevant. Value. 3 out of 5. Fair value. You get what you pay for. $250-300 entry is steep for a one-day event. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. SoCal is expensive—hotels in San Marcos/Carlsbad run $150-250/night, plus flying to SAN and rental car costs.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -211,7 +211,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Altitude",
@@ -229,7 +229,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 79.0
     },
     {
       "id": "verdict",
@@ -301,9 +301,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Belgian Waffle Ride' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 135,
+    "total_words": 207,
     "total_duration_sec": 225,
-    "overall_wpm": 36.0,
+    "overall_wpm": 55.2,
     "warnings": [],
     "feasible": true
   },

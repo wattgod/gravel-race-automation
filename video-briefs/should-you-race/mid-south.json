@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 234,
+  "estimated_spoken_words": 513,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "prestige_override",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Climate. 5 out of 5. The weather IS the race. Historical weather data shows average highs of 65°F and lows of 45°F, with a 37% chance of rain on any given day. Prestige. 5 out of 5. Gravel royalty. The race everyone knows. Joe Laverick calls this 'the best bike race experience of my life' and 'the true spirit of gravel. Experience. 5 out of 5. This race ruins other races for you. Joe Laverick describes 'dust everywhere, impossible to see' with relentless positioning battles through red rutted Oklahoma dirt and 'countless contours' of Cross Timbers terrain. Community. 5 out of 5. Family reunion energy. Everyone belongs. Bobby Wintle hugs every single finisher from elites to the DFL party past midnight—over 1,000 individual celebrations. Field Depth. 5 out of 5. Deepest field in gravel. Murderer's row. Elite riders treat this as the season opener with John Borstelmann's attacks dropping the field to 12 by halfway. Length. 4 out of 5. Bring real food. Not just gels. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. The course crosses the Cimarron River twice including 'at mile 81. Race Quality. 4 out of 5. High-quality event. Attention to detail shows. Three aid stations with Skratch nutrition create tactical decisions through the Cross Timbers.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 73.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. Good value. More bang for your buck than most. Expenses. 4 out of 5. Budget carefully. The extras get you. Logistics. 3 out of 5. Adequate. The word was invented for this. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. Some ups and downs. Manageable. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What The Mid South does well.",
+      "narration": "The case for The Mid South.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Lottery registration system means you can't just sign up when you want",
@@ -341,14 +341,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -395,7 +395,7 @@
           "Entry: $165"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -499,9 +499,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, confused face, question marks floating, 'The Mid South' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 234,
+    "total_words": 513,
     "total_duration_sec": 585,
-    "overall_wpm": 24.0,
+    "overall_wpm": 52.6,
     "warnings": [],
     "feasible": true
   },

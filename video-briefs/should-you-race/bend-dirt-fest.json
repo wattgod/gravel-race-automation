@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 202,
+  "estimated_spoken_words": 454,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Logistics. 4 out of 5. One less thing to worry about. Athletic Club of Bend for start/finish with designated parking at OSU-Cascades shows solid planning from Mudslinger Events. Adventure. 4 out of 5. The kind of ride you'll tell stories about. Singletrack trails through Deschutes National Forest deliver authentic high desert adventure with volcanic terrain. Race Quality. 4 out of 5. The kind of race that spoils you for others. Mudslinger Events' experience shows in the established infrastructure and safety protocols including certified flaggers for neutral rollouts. Experience. 4 out of 5. Genuinely unique. Hard to replicate. Post-race festivities include finisher awards, live music, and cold brews from 10 Barrel Brewing, ending \"with a party worthy of Bend's outdoor spirit. Community. 4 out of 5. The post-race scene is half the event. Oregon Triple Crown Series emphasizes 'Whether you are new to the sport or an experienced racer, we welcome you to our OTC family! Value. 4 out of 5. One of the better deals in gravel. Expenses. 4 out of 5. Budget carefully. The extras get you. Length. 3 out of 5. Long enough to matter. Short enough to recover.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 65.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 3 out of 5. Requires line choice. Rewards the attentive rider. Elevation. 3 out of 5. The hills sort the trained from the untrained. Prestige. 3 out of 5. Established race. Solid reputation. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Altitude. 2 out of 5. Mild elevation. Most riders won't notice. Field Depth. 2 out of 5. Small but scrappy field.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Bend Dirt Fest does well.",
+      "narration": "The case for Bend Dirt Fest.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -291,7 +291,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -308,7 +308,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small field—not competitive",
@@ -324,7 +324,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -474,9 +474,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Bend Dirt Fest' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 202,
+    "total_words": 454,
     "total_duration_sec": 585,
-    "overall_wpm": 20.7,
+    "overall_wpm": 46.6,
     "warnings": [],
     "feasible": true
   },

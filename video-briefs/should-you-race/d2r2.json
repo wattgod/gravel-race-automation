@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 134,
+  "estimated_spoken_words": 372,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 4 out of 5. This is a long day. Plan accordingly. Eight routes from 12-mile Family Ride to 200K Mystery Ride means everyone finds their distance. Elevation. 4 out of 5. Mountain passes on the menu. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Field near Mill Village Road clearly marked with huge tent, multiple start times from 6:00 AM to 11:00 AM spread the chaos effectively. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. The 200K Mystery Ride explores remote western Massachusetts terrain, though it's supported adventure rather than true wilderness. Prestige. 3 out of 5. Respected. Not yet legendary. Race Quality. 3 out of 5. Solid production value. Eight route options with proper aid stations and clear course marking deliver consistent organization. Experience. 3 out of 5. You'll remember this one. Mostly fondly. JOM captured the essence: \"D2R2 is the sort of ride best experienced with a group of friends\" through \"arrestingly beautiful dirt roads. Community. 3 out of 5. Genuine community feel. People stick around.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 60.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Value. 3 out of 5. Reasonable price for what's offered. Expenses. 3 out of 5. Plan for a few hundred all-in. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What D2R2 does well.",
+      "narration": "What D2R2 gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Regional field only",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'D2R2' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 134,
+    "total_words": 372,
     "total_duration_sec": 585,
-    "overall_wpm": 13.7,
+    "overall_wpm": 38.2,
     "warnings": [],
     "feasible": true
   },

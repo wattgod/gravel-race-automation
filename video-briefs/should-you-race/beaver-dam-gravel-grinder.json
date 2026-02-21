@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 129,
+  "estimated_spoken_words": 404,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Value. 4 out of 5. Good value. More bang for your buck than most. $60 registration includes park entry, breakfast, lunch, and dinner according to research. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Nevada's remote desert terrain and state park camping setting delivers adventure factor. Logistics. 2 out of 5. You'll figure it out. Eventually. Camping at Beaver Dam State Park handles lodging, but organizer Dawn Andone warns 'the closest town is 35 miles down a gravel road. Length. 2 out of 5. Short but honest about it. Dawn Andone notes 'riders usually complete the course in six hours' for the 50-mile distance. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Coach Mark Orton describes surfaces that 'vary from hard-packed dirt to softball-sized rocks. Elevation. 2 out of 5. Some ups and downs. Manageable. Course travels 'along the rim of the park so you can see all the geologic formations' at approximately 5,000 feet elevation. Climate. 2 out of 5. Weather cooperates more often than not. 2021 temperatures reached 106°F during the event, while 33 riders 'battled the wind' in 2022. Altitude. 2 out of 5. Negligible altitude effect. The course runs at approximately 5,000 feet elevation through Beaver Dam State Park.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 71.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Some community spirit. Nothing organized. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Very small field only",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Beaver Dam Gravel Grinder' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 129,
+    "total_words": 404,
     "total_duration_sec": 585,
-    "overall_wpm": 13.2,
+    "overall_wpm": 41.4,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 161,
+  "estimated_spoken_words": 441,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_climate",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Climate. 5 out of 5. Extreme conditions guaranteed. Dress accordingly. Iceland's interior weather 'can turn south in minutes' with July highs averaging only 14°C, making this a masterclass in unpredictable suffering. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. You're literally riding the tectonic rift between continental plates across volcanic lava fields. Experience. 5 out of 5. Once-in-a-lifetime course experience. This is expedition racing through volcanic landscapes that defy description. Length. 4 out of 5. This is a long day. Plan accordingly. At 124 miles, this distance pushes riders into serious suffering territory across volcanic wasteland. Technicality. 4 out of 5. Rocky, rooty, or both. Probably both. Casey Cohenmeyer captures the technical nightmare: \"From mile 60 to 75 we rode nothing but the most miserable, sharp, awful washboards. Prestige. 4 out of 5. Finishing this one means something. Bucket-list destination race drawing 420 riders to volcanic highlands. Race Quality. 4 out of 5. Premium race experience. The course delivers relentless challenges from opening climbs to Casey Cohenmeyer's \"frame shattering horror\" washboard sections. Community. 4 out of 5. Strong community. This race builds friendships. The race transforms Hvolsvöllur from 600 residents into what Abraham Soler describes as holding \"the biggest party of the year\" when 400 riders descend.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 72.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Value. 4 out of 5. Good value. More bang for your buck than most. Logistics. 3 out of 5. Adequate. The word was invented for this. Elevation. 3 out of 5. The hills sort the trained from the untrained. Field Depth. 3 out of 5. Good racing at every level. Expenses. 3 out of 5. Plan for a few hundred all-in. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What The Rift does well.",
+      "narration": "Where The Rift earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -300,14 +300,14 @@
           "The accessibility: Shorter than ultra events. Achievable in a long day."
         ]
       },
-      "narration_wpm": 6.7
+      "narration_wpm": 8.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Weather roulette: Iceland can deliver misery. Prepare for worst, hope for best.",
@@ -338,14 +338,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -392,7 +392,7 @@
           "Entry: €150-250"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'The Rift' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 161,
+    "total_words": 441,
     "total_duration_sec": 585,
-    "overall_wpm": 16.5,
+    "overall_wpm": 45.2,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 132,
+  "estimated_spoken_words": 356,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Value. 4 out of 5. One of the better deals in gravel. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Length. 3 out of 5. The Goldilocks zone of suffering. Community. 3 out of 5. Genuine community feel. People stick around. Logistics. 2 out of 5. You'll figure it out. Eventually. Early packet pickup Friday 5-8pm at Ionia Theatre with race day 6-9am windows creates tight timing for 7am wave starts. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. The Bodacious Century lists \"Hyde, Tallman, Jessup and Welch\" as \"difference maker hills,\" with chip-timed \"Welch Wall\" offering $200 cash prizes for fastest ascent times. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Historical weather data shows average highs of 81°F and lows of 59°F, with a 46% chance of rain on any given day.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 54.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. Fine. Just fine. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Prestige. 1 out of 5. Under the radar. Completely unknown. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Cow Pie Classic does well.",
+      "narration": "What Cow Pie Classic gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small field with no competitive depth",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $60-90"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Cow Pie Classic' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 132,
+    "total_words": 356,
     "total_duration_sec": 585,
-    "overall_wpm": 13.5,
+    "overall_wpm": 36.5,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     35
   ],
   "estimated_duration_sec": 33,
-  "estimated_spoken_words": 50,
+  "estimated_spoken_words": 66,
   "story_arc": "hook-setup-evidence-reveal-loop",
   "primary_trope": {
     "name": "extreme_climate",
@@ -101,7 +101,7 @@
       "label": "EVIDENCE",
       "time_range": "0:10-0:22",
       "duration_sec": 12,
-      "narration": "Climate: 5 out of 5. Adventure: 5 out of 5. Experience: 5 out of 5.",
+      "narration": "Climate. 5 out of 5. Extreme conditions guaranteed. Dress accordingly. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. Experience. 5 out of 5. Once-in-a-lifetime course experience.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
       "avatar_pose": "thinking",
@@ -118,7 +118,7 @@
         2,
         3
       ],
-      "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually (different color flash, avatar reaction shot).",
+      "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually (different color flash, avatar reaction shot). [RIFF HERE] after any extreme score.",
       "evidence_data": [
         {
           "dimension": "Climate",
@@ -136,14 +136,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 75.0
+      "narration_wpm": 145.0
     },
     {
       "id": "reveal",
       "label": "REVEAL",
       "time_range": "0:22-0:28",
       "duration_sec": 6,
-      "narration": "The Rift. Elite. 74 out of 100.",
+      "narration": "The Rift. Elite. 74 out of 100. Strong field.",
       "text_on_screen": "ELITE — 74/100",
       "visual": "Tier badge animation + full score",
       "avatar_pose": "thumbs_up",
@@ -160,8 +160,8 @@
         2,
         3
       ],
-      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct.",
-      "narration_wpm": 70.0
+      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct. [RIFF HERE] after tier badge lands.",
+      "narration_wpm": 90.0
     },
     {
       "id": "cta",
@@ -200,9 +200,9 @@
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'The Rift' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 50,
+    "total_words": 66,
     "total_duration_sec": 33,
-    "overall_wpm": 90.9,
+    "overall_wpm": 120.0,
     "warnings": [],
     "feasible": true
   },

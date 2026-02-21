@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 176,
+  "estimated_spoken_words": 416,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_length",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 5 out of 5. Ultra distance. Bring lights and a plan. Elevation. 5 out of 5. Relentless vertical. The climbing never stops. Roughly 12,000 feet of climbing packed into 100 miles—that's 120 feet per mile average, but the reality hits harder on climbs like Columbine Mine. Altitude. 5 out of 5. Extreme altitude. Your power meter will gaslight you. Starting at 10,152 feet and climbing to 12,424 feet at Columbine Mine—this is high-altitude suffering where every breath delivers less oxygen. Adventure. 5 out of 5. Type-two fun guaranteed. Type-one fun optional. This is the race that made ultra-endurance cycling mainstream, where finishing earns you a belt buckle and bragging rights. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself. The most famous mountain bike race in America. Race Quality. 5 out of 5. Best-in-class race production. Experience. 5 out of 5. This race ruins other races for you. Community. 5 out of 5. Family reunion energy. Everyone belongs. The 'Queen of Pain' ethos set by founder Ken Chlouber.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 59.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Field Depth. 5 out of 5. World-class athletes. And they race hard. Technicality. 4 out of 5. Rocky, rooty, or both. Probably both. Climate. 4 out of 5. Conditions will test your kit choices. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Value. 3 out of 5. Reasonable price for what's offered. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
@@ -324,7 +324,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "The lottery: You can't just sign up. You enter and hope. Qualifying helps odds.",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Leadville Trail 100 MTB' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 176,
+    "total_words": 416,
     "total_duration_sec": 585,
-    "overall_wpm": 18.1,
+    "overall_wpm": 42.7,
     "warnings": [],
     "feasible": true
   },

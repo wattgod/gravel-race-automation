@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 89,
+  "estimated_spoken_words": 147,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "extreme_length",
@@ -190,7 +190,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The scores that tell the real story. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Getting into Leadville is like winning the lottery—literally. Value. 3 out of 5. Reasonable price for what's offered. $575 is expensive—one of the most costly gravel/MTB entries. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Leadville lodging is scarce and expensive during race week.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -207,7 +207,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Logistics",
@@ -225,7 +225,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 66.0
     },
     {
       "id": "verdict",
@@ -297,9 +297,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Leadville Trail 100 MTB' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 89,
+    "total_words": 147,
     "total_duration_sec": 225,
-    "overall_wpm": 23.7,
+    "overall_wpm": 39.2,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 134,
+  "estimated_spoken_words": 416,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 4 out of 5. Bring real food. Not just gels. Five route options from 18-mile Friday pre-ride to 113-mile sufferfest accommodate all levels, with Laona Rescue Squad support ending at 7 PM sharp. Value. 4 out of 5. Good value. More bang for your buck than most. Five distance options from 18 to 113 miles with Performance Timing's professional chip timing, plus your registration supports Laona Rescue Squad instead of promoter profits. Expenses. 4 out of 5. Not cheap. The costs pile on. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Twelve years of tradition in tiny Laona creates a small-town gathering with 100% of proceeds supporting Laona Rescue Squad equipment and training. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Some ups and downs. Manageable. The 3,500 feet over 100 miles delivers rolling Wisconsin forest terrain without major sustained climbs. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Early May northern Wisconsin brings dramatic temperature swings from 31°F overnight frost to 85°F midday heat. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Hidden gravel roads through Nicolet National Forest plus the 7 PM support cutoff creates consequence for route selection.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 73.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. A nice day on the bike. Nothing more. Logistics. 1 out of 5. Organizers communicate via telepathy, apparently. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. Prestige. 1 out of 5. Nobody at the coffee shop will recognize this name. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 98.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Bear 100 does well.",
+      "narration": "The case for Bear 100.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Very remote location with minimal amenities",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Bear 100' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 134,
+    "total_words": 416,
     "total_duration_sec": 585,
-    "overall_wpm": 13.7,
+    "overall_wpm": 42.7,
     "warnings": [],
     "feasible": true
   },

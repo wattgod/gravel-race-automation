@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 333,
+  "estimated_spoken_words": 609,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 5 out of 5. Ultra distance. Bring lights and a plan. 340+ miles with 34-hour cutoffs separate finishers from the majority who DNF. Adventure. 5 out of 5. Adventure is the entire point. Ultra-remote farmland where \"we never passed a single gas station the entire route other than our pre-planned 3 stops,\" notes Wilco. Experience. 5 out of 5. Transformative. People come back different. 340 miles through Iowa farmland will rewire your brain permanently. Climate. 4 out of 5. Weather is part of the race strategy. April in Iowa delivers extreme variability from year to year. Value. 4 out of 5. One of the better deals in gravel. Free entry with donations accepted makes this exceptional value for 340 miles of organized suffering. Logistics. 3 out of 5. Adequate. The word was invented for this. Secret course revealed at start forces navigation with cue sheets on 340 miles of Iowa grid roads. Race Quality. 3 out of 5. Solid production value. Organized checkpoints and volunteer support manage the 340-mile route well, but course conditions create race-ending hazards. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Small fields create \"deep respect for anyone that shows up to even toe the line,\" notes Wilco about the understated atmosphere.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 72.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Iowa Wind and Rock does well.",
+      "narration": "What Iowa Wind and Rock gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -291,7 +291,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -308,7 +308,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Wind exposure for 30-50 hours is psychologically crushing—constant headwinds break morale",
@@ -324,7 +324,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Iowa Wind and Rock' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 333,
+    "total_words": 609,
     "total_duration_sec": 585,
-    "overall_wpm": 34.2,
+    "overall_wpm": 62.5,
     "warnings": [],
     "feasible": true
   },

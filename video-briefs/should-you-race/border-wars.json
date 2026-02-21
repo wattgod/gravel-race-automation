@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 131,
+  "estimated_spoken_words": 389,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Logistics. 3 out of 5. Competent operation. Shows up on time. Packet pickup at S&S Fire Pits the day before shows local business integration and prevents race morning chaos. Length. 3 out of 5. Proper race distance. Enough to hurt. The 62-mile main option delivers 5000 feet over varied terrain, with Jason Lopez completing it in 5:58 moving time at 245W normalized power. Climate. 3 out of 5. Pack for two seasons. The 2024 race started at 38°F and warmed to 60°F with \"20-30 mph gusts with mostly headwind,\" making the Alabama section particularly challenging. Experience. 3 out of 5. Memorable course. Has character. The GA/AL gravel contrast delivers—Georgia's smooth ridgeline meandering versus Alabama's steep, direct punishment creates a split personality ride. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Donates around $2000 to MTB Atlanta and Heard County Food Pantry, showing local investment. Value. 3 out of 5. Reasonable price for what's offered. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. 5000 feet over 62 miles delivers consistent work without massive climbing blocks.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 67.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Light adventure. Nothing wild. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 90.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Border Wars does well.",
+      "narration": "What Border Wars gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $75-125"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Border Wars' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 131,
+    "total_words": 389,
     "total_duration_sec": 585,
-    "overall_wpm": 13.4,
+    "overall_wpm": 39.9,
     "warnings": [],
     "feasible": true
   },

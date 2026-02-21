@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 176,
+  "estimated_spoken_words": 499,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Length. 4 out of 5. Double-digit hours are on the table. 98km Full Fondo winner finished in 3:05:56, proving this isn't a coffee ride despite the shorter distance than advertised. Technicality. 3 out of 5. The course bites if you stop paying attention. Elite rider Kai Vander Veen described \"the mixture of climbs and then descents made for a great race\" with roads in excellent condition. Elevation. 3 out of 5. The hills sort the trained from the untrained. Vander Veen's emphasis on \"climbs and then descents\" through Cowichan Valley's rolling hills suggests consistent elevation changes rather than one monster climb. Climate. 3 out of 5. The weather could go either way. Historical weather data shows average highs of 65°F and lows of 45°F, with a 61% chance of rain on any given day. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Course features \"diverse and stunning natural landscapes, including forests, rivers, lakes, and mountains\" plus passes by farms and vineyards through private Mosaic property. Race Quality. 3 out of 5. Good race quality. No major complaints. Four distance options from 25km to 165km shows they understand different rider needs, and the Full Fondo Plus winner finishing in 5:15:36 suggests real terrain. Experience. 3 out of 5. The experience justifies the entry fee. Post-ride includes Okanagan Spring Beer Garden, Sapinos pizza, and souvenir socks at the Lower Ballfield finish. Community. 3 out of 5. Genuine community feel. People stick around. Vancouver Island cycling community shows up consistently for eight editions running, which says something about repeat value.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 88.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Value. 3 out of 5. The math works out. Barely. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. You'll figure it out. Eventually. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 88.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Cowichan Crusher Gravel Fondo does well.",
+      "narration": "Where Cowichan Crusher Gravel Fondo earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -269,14 +269,14 @@
           "Good community atmosphere"
         ]
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 10.7
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small town with very limited amenities",
@@ -309,14 +309,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $70-110"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Cowichan Crusher Gravel Fondo' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 176,
+    "total_words": 499,
     "total_duration_sec": 585,
-    "overall_wpm": 18.1,
+    "overall_wpm": 51.2,
     "warnings": [],
     "feasible": true
   },

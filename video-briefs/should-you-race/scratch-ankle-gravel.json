@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 118,
+  "estimated_spoken_words": 389,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Value. 3 out of 5. Fair value. You get what you pay for. Entry includes timing, post-ride meal, event shirt, finisher medal, aid stations, SAG support, and photos for reasonable pricing. Expenses. 3 out of 5. Plan for a few hundred all-in. Logistics. 2 out of 5. You'll figure it out. Eventually. Registration opens January with packet pickup details 'coming soon' and price increases February 22nd. Length. 2 out of 5. Short but honest about it. Multiple distance options from 20 to 200 miles with staggered wave starts spread the field across categories. Climate. 2 out of 5. Mild conditions. Nothing dramatic. March timing has shifted from March 16 in 2024 to March 8 in 2025, suggesting weather optimization efforts. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Route through Blackwater River State Forest and into Conecuh National Forest provides longleaf pine ecosystem immersion away from urban development. Race Quality. 2 out of 5. Nothing special about the race execution. Includes timing, aid stations, SAG support, finisher medals, and post-ride meal with staggered wave starts for different distances. Experience. 2 out of 5. A nice day on the bike. Nothing more. Weekend format encourages camping at Bear Lake Campground for forest immersion rather than single-day racing.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 71.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Community. 2 out of 5. Riders acknowledge each other. Barely. Technicality. 1 out of 5. If you can ride a bike, you can ride this. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Low altitude. Breathe easy. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Scratch Ankle Gravel does well.",
+      "narration": "What Scratch Ankle Gravel gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small-medium local field",
@@ -309,7 +309,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Scratch Ankle Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 118,
+    "total_words": 389,
     "total_duration_sec": 585,
-    "overall_wpm": 12.1,
+    "overall_wpm": 39.9,
     "warnings": [],
     "feasible": true
   },

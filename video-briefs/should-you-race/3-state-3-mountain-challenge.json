@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 155,
+  "estimated_spoken_words": 389,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Fourteen dimensions. Here's where it lands. Elevation. 4 out of 5. Mountain passes on the menu. 6000 feet over 65 miles delivers serious climbing density - nearly 100 feet per mile. Adventure. 4 out of 5. The kind of ride you'll tell stories about. Three-state riding through Lookout Mountain delivers adventure - you're crossing Georgia, Alabama, and Tennessee borders on backcountry roads. Length. 3 out of 5. The Goldilocks zone of suffering. Technicality. 3 out of 5. The course bites if you stop paying attention. Experience. 3 out of 5. You'll remember this one. Mostly fondly. 65 miles through Alabama's Lookout Mountain region hits the sweet spot for most gravel riders. Community. 3 out of 5. Genuine community feel. People stick around. Originally backed by Chattanooga Bicycle Club with leaders like Rand Cimino organizing group rides at B pace (14-16 mph). Value. 3 out of 5. Reasonable price for what's offered. 65 miles and 6000 feet of climbing delivers solid bang for your buck if you can actually find registration. Expenses. 3 out of 5. Standard gravel race budget.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 59.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Logistics. 2 out of 5. Functional. Not impressive. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 90.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What 3 State 3 Mountain Challenge does well.",
+      "narration": "Where 3 State 3 Mountain Challenge earns its score.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -287,14 +287,14 @@
           "AL cycling community"
         ]
       },
-      "narration_wpm": 10.7
+      "narration_wpm": 12.0
     },
     {
       "id": "weaknesses",
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "Now the other side.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Northeast AL access (moderate)",
@@ -327,7 +327,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 5.3
     },
     {
       "id": "logistics",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, '3 State 3 Mountain Challenge' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 155,
+    "total_words": 389,
     "total_duration_sec": 585,
-    "overall_wpm": 15.9,
+    "overall_wpm": 39.9,
     "warnings": [],
     "feasible": true
   },

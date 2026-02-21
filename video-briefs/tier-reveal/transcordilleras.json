@@ -10,7 +10,7 @@
     35
   ],
   "estimated_duration_sec": 33,
-  "estimated_spoken_words": 42,
+  "estimated_spoken_words": 64,
   "story_arc": "hook-setup-evidence-reveal-loop",
   "primary_trope": {
     "name": "hidden_gem",
@@ -90,7 +90,7 @@
       "label": "EVIDENCE",
       "time_range": "0:10-0:22",
       "duration_sec": 12,
-      "narration": "Elevation: 5 out of 5. Adventure: 5 out of 5. Experience: 5 out of 5.",
+      "narration": "Elevation. 5 out of 5. Mountainous. Your granny gear will earn its keep. Adventure. 5 out of 5. Adventure is the entire point. Experience. 5 out of 5. This race ruins other races for you.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
       "avatar_pose": "thinking",
@@ -107,7 +107,7 @@
         2,
         3
       ],
-      "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually (different color flash, avatar reaction shot).",
+      "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually (different color flash, avatar reaction shot). [RIFF HERE] after any extreme score.",
       "evidence_data": [
         {
           "dimension": "Elevation",
@@ -125,14 +125,15 @@
           "max": 5
         }
       ],
-      "narration_wpm": 75.0
+      "narration_wpm": 175.0,
+      "wpm_warning": "Beat 'evidence': 175WPM (35w/12s) — too_fast"
     },
     {
       "id": "reveal",
       "label": "REVEAL",
       "time_range": "0:22-0:28",
       "duration_sec": 6,
-      "narration": "Transcordilleras. Elite. 61 out of 100.",
+      "narration": "Transcordilleras. Elite. 61 out of 100. Strong field.",
       "text_on_screen": "ELITE — 61/100",
       "visual": "Tier badge animation + full score",
       "avatar_pose": "thumbs_up",
@@ -149,8 +150,8 @@
         2,
         3
       ],
-      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct.",
-      "narration_wpm": 60.0
+      "editing_note": "SILENCE for 0.5s before reveal (long-form technique adapted). Then: tier badge slams in. Avatar reaction. This is the Von Restorff moment — make it visually distinct. [RIFF HERE] after tier badge lands.",
+      "narration_wpm": 80.0
     },
     {
       "id": "cta",
@@ -189,11 +190,13 @@
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Transcordilleras' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 42,
+    "total_words": 64,
     "total_duration_sec": 33,
-    "overall_wpm": 76.4,
-    "warnings": [],
-    "feasible": true
+    "overall_wpm": 116.4,
+    "warnings": [
+      "Beat 'evidence': 175WPM (35w/12s) — too_fast"
+    ],
+    "feasible": false
   },
   "content_pillars": "Tier List / Rankings (flagship, highest engagement)",
   "cross_platform_notes": {

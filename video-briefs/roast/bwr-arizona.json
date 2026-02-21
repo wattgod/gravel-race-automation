@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 86,
+  "estimated_spoken_words": 172,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
@@ -76,7 +76,7 @@
       "label": "WHAT THEY TELL YOU",
       "time_range": "0:10-0:50",
       "duration_sec": 40,
-      "narration": "Here's the pitch. What the website wants you to believe.",
+      "narration": "The marketing version. The one with nice photos.",
       "text_on_screen": "THE PITCH",
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
@@ -123,14 +123,14 @@
           "Attracts elite competition despite non-major series status"
         ]
       },
-      "narration_wpm": 15.0
+      "narration_wpm": 12.0
     },
     {
       "id": "reality_check",
       "label": "WHAT THEY DON'T TELL YOU",
       "time_range": "0:50-1:50",
       "duration_sec": 60,
-      "narration": "Now the stuff that doesn't make the brochure.",
+      "narration": "And here's what they don't mention in the promo video.",
       "text_on_screen": "THE REALITY",
       "visual": "Red flag overlay — weaknesses with warning icons",
       "avatar_pose": "facepalm",
@@ -183,14 +183,14 @@
           "Less climbing than other BWR events may disappoint vert-seekers"
         ]
       },
-      "narration_wpm": 8.0
+      "narration_wpm": 10.0
     },
     {
       "id": "data_evidence",
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "And the scores that tell the real story.",
+      "narration": "The data doesn't care about your feelings. Altitude. 2 out of 5. Negligible altitude effect. The course maxes at 4,084 feet with most riding at lower Sonoran Desert elevations. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Phoenix Sky Harbor provides easy flight access, and Stagecoach Village in Cave Creek offers a straightforward start/finish venue. Length. 3 out of 5. Proper race distance. Enough to hurt. Anna Yamauchi described being \"concerned about the miles left in the day\" when easing up after hitting dirt at 40 minutes into the 104-mile course.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -207,7 +207,7 @@
         15,
         25
       ],
-      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold).",
+      "editing_note": "RE-ENGAGEMENT BEAT — this is the ~2 min mark. Start with the least bad score, escalate to worst. Each score reveal: brief silence (0.5s), then number slams in. Avatar reaction scales with how bad the score is. Von Restorff: visually isolate the worst score (different color, bigger text, longer hold). [RIFF HERE] after the worst score reveal.",
       "evidence_data": [
         {
           "dimension": "Altitude",
@@ -225,7 +225,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.0
     },
     {
       "id": "verdict",
@@ -297,9 +297,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'BWR Arizona' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 86,
+    "total_words": 172,
     "total_duration_sec": 225,
-    "overall_wpm": 22.9,
+    "overall_wpm": 45.9,
     "warnings": [],
     "feasible": true
   },

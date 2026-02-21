@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 124,
+  "estimated_spoken_words": 382,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Belgium is compact and well-connected — airports, trains, roads all function properly. Length. 3 out of 5. The Goldilocks zone of suffering. 65 miles hits the sweet spot — long enough to hurt, short enough to finish strong. Climate. 3 out of 5. Pack for two seasons. Experience. 3 out of 5. Memorable course. Has character. Belgium knows how to do cycling culture, even if this particular race is flying under the radar. Community. 3 out of 5. Community is a real selling point. Belgian cycling communities are tight-knit and welcoming by default — it's cultural DNA. Value. 3 out of 5. The math works out. Barely. Belgian races typically run cheap — similar French events charge €7-€14, so you're probably looking at reasonable entry fees. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. 3500 feet over 65 miles suggests rolling terrain rather than technical punishment. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. 3500 feet over 65 miles averages out to gentle rolling — way less demanding than events posting 1100m over 100km.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 65.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -316,7 +316,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: €60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Gravel des Flandres' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 124,
+    "total_words": 382,
     "total_duration_sec": 585,
-    "overall_wpm": 12.7,
+    "overall_wpm": 39.2,
     "warnings": [],
     "feasible": true
   },

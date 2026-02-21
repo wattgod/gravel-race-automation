@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 137,
+  "estimated_spoken_words": 422,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 4 out of 5. Bring real food. Not just gels. Race director Heidi Rentz instructs all riders to 'take it down two notches from what they would ride at home on the descents. Logistics. 3 out of 5. Adequate. The word was invented for this. Course requires GPS upload since it's 'lightly marked'—race director Heidi Rentz warns riders 'if you make a wrong turn, you go to Mexico. Adventure. 3 out of 5. This race takes you somewhere different. Experience. 3 out of 5. Memorable course. Has character. Riders consistently describe transformative experiences: 'Total adult summer camp vibe, but way better! Community. 3 out of 5. Good vibes. Riders actually talk to each other. The event achieves '38% female' participation compared to typical cycling's '17% female' according to race director Heidi Rentz. Value. 3 out of 5. Fair value. You get what you pay for. The weekend package extends from Thursday benefit dinners through Sunday recovery rides, including live music, family meals, handmade ceramic mugs, and multiple group ride options. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Some ups and downs. Manageable. The 'first climb out of Patagonia and up Harshaw Creek Road' provides the main elevation gain before riders traverse the San Rafael Valley's rolling terrain.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 74.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Altitude. 2 out of 5. Mild elevation. Most riders won't notice. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Your wallet will remember this. Briefly.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 98.7
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Desert heat challenges",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Spirit World 100' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 137,
+    "total_words": 422,
     "total_duration_sec": 585,
-    "overall_wpm": 14.1,
+    "overall_wpm": 43.3,
     "warnings": [],
     "feasible": true
   },

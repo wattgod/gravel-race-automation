@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 131,
+  "estimated_spoken_words": 402,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Elevation. 4 out of 5. Serious elevation. Train your climbing legs. Actual GPS readings showed 1850m of climbing across varied terrain, significantly more than the official 1500m listing. Experience. 4 out of 5. Genuinely unique. Hard to replicate. Three-day format balances racing with \"perfect party to race ratio\" philosophy. Length. 3 out of 5. Long enough to matter. Short enough to recover. The ~95km distance with four timed stages creates proper challenge without ultra-endurance commitment. Technicality. 3 out of 5. Technical enough to thin the pack. Course demands varied skills across four distinct stages - from flat-out gravel time trials to technical singletrack descents. Climate. 3 out of 5. The weather could go either way. Adventure. 3 out of 5. This race takes you somewhere different. One rider was \"blown away by how much great singletrack had been packed in to the route\" with high \"singletrail share\" throughout Tuscan terrain. Race Quality. 3 out of 5. Good race quality. No major complaints. Four distinct timed stages test different skills from time trial power to technical descending across varied surfaces. Community. 3 out of 5. Genuine community feel. People stick around. Event village includes MTB skills loop and pump track showing commitment beyond standard gravel racing.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 70.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Value. 2 out of 5. Below-average value. You can do better. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate to high costs",
@@ -334,7 +334,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: €100-150"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Grinduro Italy' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 131,
+    "total_words": 402,
     "total_duration_sec": 585,
-    "overall_wpm": 13.4,
+    "overall_wpm": 41.2,
     "warnings": [],
     "feasible": true
   },

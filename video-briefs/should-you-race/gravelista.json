@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 115,
+  "estimated_spoken_words": 422,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Length. 3 out of 5. Proper race distance. Enough to hurt. The 135km course with 1,892m climbing delivered proper gravel distance—elite winner Brendan Johnston finished in 3:46:57, winning by just 3 seconds over Mark O'Brien. Climate. 3 out of 5. Pack for two seasons. Late October typically offers ideal spring conditions, but 2025 showed weather's wild side. Adventure. 3 out of 5. This race takes you somewhere different. The course winds through rolling farmlands with Strathbogie Ranges vistas, reaching Wallaby Gully Flora Reserve at the highest point. Race Quality. 3 out of 5. Good race quality. No major complaints. The course delivers with 83% quality gravel and strategic design—Wicket Hill Climb creates selection points at 30km and 73km. Experience. 3 out of 5. The experience justifies the entry fee. You're riding through Australian countryside with Strathbogie Ranges vistas that actually matter. Community. 3 out of 5. Good vibes. Riders actually talk to each other. The event welcomes everyone from 'UCI Age Category podium' chasers to those wanting to 'roll with mates,' with over 500 participants and growing. Value. 3 out of 5. The math works out. Barely. $215 AUD entry includes 135km of quality gravel, aid stations, and UCI Worlds qualification opportunity for top 25% finishers. Logistics. 2 out of 5. Functional. Not impressive. Starting at Seymour Racecourse provides proper race venue infrastructure, but the move from Beechworth in 2025 meant rebuilding operational systems.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 79.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Expenses. 1 out of 5. Budget-friendly. Your bank account barely notices.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 105.3
     },
     {
       "id": "strengths",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Difficult Australia access",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Gravelista' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 115,
+    "total_words": 422,
     "total_duration_sec": 585,
-    "overall_wpm": 11.8,
+    "overall_wpm": 43.3,
     "warnings": [],
     "feasible": true
   },

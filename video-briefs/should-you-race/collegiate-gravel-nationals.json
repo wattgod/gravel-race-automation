@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 214,
+  "estimated_spoken_words": 463,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_prestige",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself. Race Quality. 5 out of 5. Everything about this race is dialed. USA Cycling's championship standards ensure proper execution when they stake their reputation on an event. Field Depth. 5 out of 5. Start line looks like a WorldTour bus exploded. Value. 5 out of 5. Dollar for dollar, one of the best in gravel. Racing for a national championship title that didn't exist before delivers massive opportunity-to-cost ratio for competitive collegiate riders. Adventure. 4 out of 5. Serious exploration vibes. Far from pavement. Racing through Caprock Canyon State Park delivers varied terrain most collegiate riders have never experienced. Community. 4 out of 5. The post-race scene is half the event. The collegiate cycling community will target their first-ever gravel nationals opportunity. Length. 3 out of 5. Proper race distance. Enough to hurt. The medium course runs approximately 50 miles according to Valley of Tears, though some sources list 62 miles. Elevation. 3 out of 5. Enough vertical to remind you gravity exists. 4,921 feet over the course distance provides steady climbing without massive sustained efforts.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 65.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Climate. 3 out of 5. Pack for two seasons. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Technicality. 2 out of 5. Your road bike might survive. Might. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,14 +234,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Collegiate Gravel Nationals does well.",
+      "narration": "The case for Collegiate Gravel Nationals.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -292,7 +292,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -309,7 +309,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Collegiate only (restricted field)",
@@ -326,7 +326,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Collegiate Gravel Nationals' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 214,
+    "total_words": 463,
     "total_duration_sec": 585,
-    "overall_wpm": 21.9,
+    "overall_wpm": 47.5,
     "warnings": [],
     "feasible": true
   },

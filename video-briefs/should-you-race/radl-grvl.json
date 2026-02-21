@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 206,
+  "estimated_spoken_words": 470,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 4 out of 5. Double-digit hours are on the table. The 127km Blue course delivers serious all-day suffering with over 2000m of climbing. Elevation. 4 out of 5. Your power-to-weight ratio matters here. The opening \"Bang Average Climb of just under 3km at an average of 8. Adventure. 4 out of 5. Remote terrain. Self-sufficiency required. Race Quality. 4 out of 5. High-quality event. Attention to detail shows. Romain Bardet's winning time of \"3 hours and 30 minutes\" over 127km shows how fast this course runs despite the climbing. Experience. 4 out of 5. Special. This race sticks with you. Community. 4 out of 5. Riders come for the race. Stay for the people. Sold out in weeks during its 2024 pilot, doubled in size for 2025, and maintains that inclusive festival vibe without losing the competitive edge. Value. 4 out of 5. Good value. More bang for your buck than most. Four-day cycling experience during Tour Down Under week includes expo, pro panels, beach rides, and post-race parties. Technicality. 3 out of 5. Technical enough to thin the pack. About 67% gravel ranging from \"champagne gravel\" to sections where riders found \"the sand unrideable on a couple of occasions.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 69.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Climate. 3 out of 5. Pack for two seasons. Prestige. 3 out of 5. Respected. Not yet legendary. Field Depth. 3 out of 5. Solid field depth. Competitive across the board. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 90.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What RADL GRVL does well.",
+      "narration": "What RADL GRVL gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -310,7 +310,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -327,7 +327,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "International travel required (expensive)",
@@ -344,14 +344,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -396,7 +396,7 @@
           "Entry: $150"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'RADL GRVL' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 206,
+    "total_words": 470,
     "total_duration_sec": 585,
-    "overall_wpm": 21.1,
+    "overall_wpm": 48.2,
     "warnings": [],
     "feasible": true
   },

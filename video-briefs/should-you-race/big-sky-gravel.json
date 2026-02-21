@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 122,
+  "estimated_spoken_words": 434,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -113,7 +113,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Time to break down the scorecard. Length. 3 out of 5. Long enough to matter. Short enough to recover. Three distance options (22, 50, 100 miles) with staggered starts from 7:00 AM to 9:30 AM accommodate different capabilities well. Technicality. 3 out of 5. Requires line choice. Rewards the attentive rider. Course description promises \"rolling hills and mostly smooth gravel roads\" through Montana ranching country. Elevation. 3 out of 5. The hills sort the trained from the untrained. The 100-mile route delivers \"over 6,000 ft in elevation gain along the foothills of the Beartooth mountains\" with meaningful climbs including Virginia City. Altitude. 3 out of 5. Altitude starts to matter here. Red Lodge sits in Beartooth foothills with the race reaching elevations high enough to impact performance. Adventure. 3 out of 5. Adventure factor is real. \"The Red Lodge and surrounding area is known for its immense landscapes connected by gravel roads in Carbon County. Value. 3 out of 5. Fair value. You get what you pay for. $70-$107 registration includes finish food, rider gift, swag bag, route nutrition, hydration, and SAG support - decent package for Montana pricing. Logistics. 2 out of 5. Functional. Not impressive. Downtown Red Lodge start/finish at Roosevelt Center works for lodging access, but packet pickup runs until 6:30 AM race morning suggests thin staffing. Climate. 2 out of 5. Weather cooperates more often than not. Historical weather data shows average highs of 77°F and lows of 55°F, with a 28% chance of rain on any given day.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -179,14 +179,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 84.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Riders acknowledge each other. Barely. Expenses. 2 out of 5. Affordable. Won't break the bank. Prestige. 1 out of 5. Nobody at the coffee shop will recognize this name. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,14 +236,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Big Sky Gravel does well.",
+      "narration": "The case for Big Sky Gravel.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -294,7 +294,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "The fine print.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -311,7 +311,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Small local field only",
@@ -327,14 +327,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 4.0
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -376,7 +376,7 @@
           "Entry: $75-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Big Sky Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 122,
+    "total_words": 434,
     "total_duration_sec": 585,
-    "overall_wpm": 12.5,
+    "overall_wpm": 44.5,
     "warnings": [],
     "feasible": true
   },

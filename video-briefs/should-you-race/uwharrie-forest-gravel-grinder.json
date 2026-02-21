@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 160,
+  "estimated_spoken_words": 405,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "Let's go through the scores. Logistics. 3 out of 5. Competent operation. Shows up on time. Starting from Badin Lake Recreation Area gives you established infrastructure and parking, though specific details are missing from race info. Length. 3 out of 5. Proper race distance. Enough to hurt. Technicality. 3 out of 5. Technical enough to thin the pack. Elevation. 3 out of 5. Proper climbing. You'll earn your descents. Rolling terrain in Uwharrie means constant undulation rather than massive sustained climbs - your legs never get a break. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. Uwharrie National Forest puts you in wilderness on roads that most people never see from a car. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Post-race meal begins at 11:00 AM with awards ceremonies creating natural gathering points for the field. Value. 3 out of 5. Fair value. You get what you pay for. $75-85 entry fee includes chip timing, fully-stocked aid stations, post-race meal, and access to Uwharrie's legendary forest roads.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 62.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The rest, in rapid succession. Expenses. 3 out of 5. Standard gravel race budget. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Moderate organization",
@@ -316,7 +316,7 @@
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "Travel, lodging, and the unsexy details.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -352,7 +352,7 @@
           "Entry: $60-100"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 6.0
     },
     {
       "id": "verdict",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Uwharrie Forest Gravel Grinder' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 160,
+    "total_words": 405,
     "total_duration_sec": 585,
-    "overall_wpm": 16.4,
+    "overall_wpm": 41.5,
     "warnings": [],
     "feasible": true
   },

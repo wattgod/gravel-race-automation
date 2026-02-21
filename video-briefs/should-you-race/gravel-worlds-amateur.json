@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 147,
+  "estimated_spoken_words": 430,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -101,7 +101,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Length. 5 out of 5. This race measures commitment in hours, not miles. 150 miles through rural farmlands with over 10,000 feet of climbing separates serious endurance athletes from weekend warriors. Logistics. 4 out of 5. Smooth operation. Somebody knows what they're doing. Sandhills Global Event Center provides a proper race headquarters with camping, packet pickup Thursday 10am-7pm, and emergency check-in race morning. Adventure. 3 out of 5. Adventure factor is real. Exploring 150 miles through southeastern Nebraska's rural farmlands offers discovery of terrain most riders have never seen. Prestige. 3 out of 5. Name carries weight in the gravel community. Year 17 status and the largest single-day gravel prize purse of $150,000 for elites elevates the event profile. Race Quality. 3 out of 5. Solid production value. The $150,000 prize purse distributed evenly across men's and women's fields brings professional competition to Nebraska farmland. Experience. 3 out of 5. The experience justifies the entry fee. The full week format includes Tuesday MTB races, Wednesday-Thursday expo, Friday triathlon nationals, and Saturday's main gravel events. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Value. 3 out of 5. The math works out. Barely. Jason Strohbehn's commitment to improving the everyday rider experience through expanded expo, increased safety, and more on-course resources suggests value beyond just the distance challenge.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -167,14 +167,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 76.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "And the rest of the scorecard. Expenses. 3 out of 5. Plan for a few hundred all-in. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Some ups and downs. Manageable. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,14 +224,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 90.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Gravel Worlds Amateur does well.",
+      "narration": "What Gravel Worlds Amateur gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -276,7 +276,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -293,7 +293,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Flat farmland terrain (minimal climbing)",
@@ -309,7 +309,7 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Gravel Worlds Amateur' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 147,
+    "total_words": 430,
     "total_duration_sec": 585,
-    "overall_wpm": 15.1,
+    "overall_wpm": 44.1,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 217,
+  "estimated_spoken_words": 412,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_adventure",
@@ -123,7 +123,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores.",
+      "narration": "The numbers. All fourteen of them. Adventure. 5 out of 5. Full expedition mode. Genuine backcountry. Race Quality. 5 out of 5. Best-in-class race production. Four distinct timed segments reward different skills across varied terrain. Experience. 5 out of 5. Once-in-a-lifetime course experience. The Vosges deliver lush green forests and unbelievably beautiful vistas that make 62 miles feel like an adventure, not a sufferfest. Community. 5 out of 5. Family reunion energy. Everyone belongs. Grinduro attracts riders who understand that adventure cycling is about more than Strava segments and power meters. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. Elevation. 4 out of 5. Serious elevation. Train your climbing legs. Prestige. 4 out of 5. Prestigious. People plan seasons around it. Value. 4 out of 5. Good value. More bang for your buck than most.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -189,14 +189,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 1.7
+      "narration_wpm": 46.3
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard.",
+      "narration": "The remaining six. Quick-fire. Expenses. 4 out of 5. Not cheap. The costs pile on. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Length. 3 out of 5. The Goldilocks zone of suffering. Climate. 3 out of 5. Pack for two seasons. Field Depth. 3 out of 5. Deep enough to push you. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,14 +246,14 @@
           "max": 5
         }
       ],
-      "narration_wpm": 8.0
+      "narration_wpm": 86.7
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What Grinduro France does well.",
+      "narration": "What Grinduro France gets right.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
@@ -309,7 +309,7 @@
       "label": "WEAKNESSES",
       "time_range": "5:45-6:30",
       "duration_sec": 45,
-      "narration": "What they don't put on the website.",
+      "narration": "What the brochure conveniently omits.",
       "text_on_screen": "WEAKNESSES",
       "visual": "Weaknesses list with warning visual treatment",
       "avatar_pose": "facepalm",
@@ -326,7 +326,7 @@
         20,
         40
       ],
-      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
           "Technical descents require MTB skills",
@@ -342,14 +342,14 @@
         "suggested_clip": "record_scratch or 'but wait' meme",
         "duration_sec": 1.5
       },
-      "narration_wpm": 9.3
+      "narration_wpm": 6.7
     },
     {
       "id": "logistics",
       "label": "LOGISTICS",
       "time_range": "6:30-7:30",
       "duration_sec": 60,
-      "narration": "Here's the practical stuff.",
+      "narration": "The logistics. What you actually need to know.",
       "text_on_screen": "LOGISTICS",
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
@@ -394,7 +394,7 @@
           "Entry: €100-€180"
         ]
       },
-      "narration_wpm": 4.0
+      "narration_wpm": 8.0
     },
     {
       "id": "verdict",
@@ -498,9 +498,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Grinduro France' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 217,
+    "total_words": 412,
     "total_duration_sec": 585,
-    "overall_wpm": 22.3,
+    "overall_wpm": 42.3,
     "warnings": [],
     "feasible": true
   },

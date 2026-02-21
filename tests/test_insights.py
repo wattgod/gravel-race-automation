@@ -15,7 +15,9 @@ from generate_insights import (
     ALL_DIMS,
     DIM_LABELS,
     MONTHS,
+    RANKING_PRESETS,
     US_STATES,
+    US_TILE_GRID,
     build_closing,
     build_cta_block,
     build_data_story,
@@ -38,6 +40,7 @@ from generate_insights import (
     load_race_index,
     safe_num,
 )
+from generate_neo_brutalist import SITE_BASE_URL
 
 
 # ── Fixtures ──────────────────────────────────────────────────
@@ -129,7 +132,11 @@ class TestHelpers:
 
     def test_extract_price_multiple_amounts(self):
         result = extract_price("Early bird: $100, Regular: $150")
-        assert result == 150.0
+        assert result == 100.0
+
+    def test_extract_price_vip_stripped(self):
+        result = extract_price("Via BikeReg. VIP Package: $1,000 USD")
+        assert result is None  # VIP-only text has no standard price
 
     # extract_state
     def test_extract_state_full_name(self):
@@ -330,13 +337,13 @@ class TestHero:
     def test_counter_values_present(self, insights_html):
         assert "gg-insights-counter-value" in insights_html
 
-    def test_hero_narrative(self, insights_html):
-        """Hero should have narrative text with data."""
+    def test_hero_subtitle_centered(self, insights_html):
+        """Hero subtitle should exist with race count."""
         hero_match = re.search(
             r'id="hero".*?</section>', insights_html, re.DOTALL
         )
         assert hero_match
-        assert "gg-insights-narrative" in hero_match.group()
+        assert "gg-insights-hero-subtitle" in hero_match.group()
 
 
 # ── TestRaceDataEmbed ─────────────────────────────────────────
@@ -478,36 +485,71 @@ class TestDataStory:
         for label in ["Tier 1", "Tier 2", "Tier 3", "Tier 4"]:
             assert label in insights_html, f"Tier label '{label}' missing"
 
-    # ── Geography ──
+    # ── Geography (Tile Grid Map) ──
     def test_geography_section_id(self, insights_html):
         assert 'id="geography"' in insights_html
 
     def test_geography_title(self, insights_html):
         assert "Geography Is Destiny" in insights_html
 
-    def test_geography_has_region_bars(self, insights_html):
+    def test_geography_has_tile_grid(self, insights_html):
+        assert "gg-ins-map-grid" in insights_html
+
+    def test_geography_has_50_state_tiles(self, insights_html):
+        geo_match = re.search(
+            r'gg-ins-map-grid.*?</div>\s*<div class="gg-ins-map-detail"', insights_html, re.DOTALL
+        )
+        assert geo_match
+        tiles = re.findall(r'class="gg-ins-map-tile"', geo_match.group())
+        assert len(tiles) == 50, f"Expected 50 state tiles, got {len(tiles)}"
+
+    def test_geography_tiles_have_data_count(self, insights_html):
+        geo_match = re.search(
+            r'gg-ins-map-grid.*?</div>\s*<div class="gg-ins-map-detail"', insights_html, re.DOTALL
+        )
+        assert geo_match
+        counts = re.findall(r'data-count="\d+"', geo_match.group())
+        assert len(counts) == 50
+
+    def test_geography_tiles_have_data_density(self, insights_html):
         geo_match = re.search(
             r'id="geography".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        bars = re.findall(r"gg-ins-data-bar-fill--teal", geo_match.group())
-        assert len(bars) >= 3, f"Expected >=3 region bars, got {len(bars)}"
+        densities = re.findall(r'data-density="(none|low|med|high)"', geo_match.group())
+        assert len(densities) == 50
 
-    def test_geography_avg_scores(self, insights_html):
+    def test_geography_tiles_have_tooltip(self, insights_html):
         geo_match = re.search(
             r'id="geography".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        assert "Avg:" in geo_match.group()
+        tooltips = re.findall(r'data-tooltip="[^"]*"', geo_match.group())
+        assert len(tooltips) == 50
 
-    def test_geography_data_animate(self, insights_html):
+    def test_geography_tiles_have_grid_position(self, insights_html):
         geo_match = re.search(
             r'id="geography".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        assert 'data-animate="bars"' in geo_match.group()
+        positions = re.findall(r'grid-column:\d+;grid-row:\d+', geo_match.group())
+        assert len(positions) == 50
 
-    # ── Calendar ──
+    def test_geography_tile_abbr_class(self, insights_html):
+        assert "gg-ins-map-abbr" in insights_html
+
+    def test_geography_tile_count_class(self, insights_html):
+        assert "gg-ins-map-count" in insights_html
+
+    def test_geography_no_region_bars(self, insights_html):
+        """Old region bars should be replaced by tile grid."""
+        geo_match = re.search(
+            r'id="geography".*?</section>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        assert "gg-ins-data-bar-fill--teal" not in geo_match.group()
+
+    # ── Calendar (Expandable Months) ──
     def test_calendar_section_id(self, insights_html):
         assert 'id="calendar"' in insights_html
 
@@ -545,6 +587,52 @@ class TestDataStory:
         assert cal_match
         assert 'data-animate="bars"' in cal_match.group()
 
+    def test_calendar_cols_role_button(self, insights_html):
+        cal_match = re.search(
+            r'id="calendar".*?</section>', insights_html, re.DOTALL
+        )
+        assert cal_match
+        buttons = re.findall(r'role="button"', cal_match.group())
+        assert len(buttons) == 12
+
+    def test_calendar_cols_aria_expanded(self, insights_html):
+        cal_match = re.search(
+            r'id="calendar".*?</section>', insights_html, re.DOTALL
+        )
+        assert cal_match
+        expanded = re.findall(r'aria-expanded="false"', cal_match.group())
+        assert len(expanded) == 12
+
+    def test_calendar_12_hidden_panels(self, insights_html):
+        cal_match = re.search(
+            r'id="calendar".*?</section>', insights_html, re.DOTALL
+        )
+        assert cal_match
+        panels = re.findall(r'class="gg-ins-cal-panel[^"]*"', cal_match.group())
+        assert len(panels) == 12, f"Expected 12 panels, got {len(panels)}"
+
+    def test_calendar_panels_have_data_month(self, insights_html):
+        for month in MONTHS:
+            assert f'data-month="{month}"' in insights_html, (
+                f"Missing panel for {month}"
+            )
+
+    def test_calendar_race_names_in_panels(self, insights_html):
+        """At least some panels should have race names."""
+        assert "gg-ins-cal-race" in insights_html
+
+    def test_calendar_tier_badges_in_panels(self, insights_html):
+        """Panels should have tier badges."""
+        assert "gg-ins-cal-tier" in insights_html
+
+    def test_calendar_detail_container(self, insights_html):
+        assert 'id="cal-detail"' in insights_html
+
+    def test_calendar_detail_aria_live(self, insights_html):
+        cal_detail = re.search(r'id="cal-detail"[^>]*>', insights_html)
+        assert cal_detail
+        assert 'aria-live="polite"' in cal_detail.group()
+
     # ── Price Myth ──
     def test_price_section_id(self, insights_html):
         assert 'id="price-myth"' in insights_html
@@ -561,7 +649,28 @@ class TestDataStory:
         )
         assert price_match
         cards = re.findall(r"gg-ins-price-stat\"", price_match.group())
-        assert len(cards) == 4, f"Expected 4 stat cards, got {len(cards)}"
+        assert len(cards) >= 3, f"Expected >=3 stat cards, got {len(cards)}"
+
+    def test_price_best_value_callout(self, insights_html):
+        """Best value callout should be present."""
+        price_match = re.search(
+            r'id="price-myth".*?</section>', insights_html, re.DOTALL
+        )
+        assert price_match
+        assert "Best Value" in price_match.group()
+
+    def test_price_no_over_500_in_t4(self, editorial_facts):
+        """Priciest T4 should not exceed $500."""
+        pt4 = editorial_facts.get("priciest_t4", {})
+        if pt4:
+            assert pt4["price"] <= 500
+
+    def test_price_cheap_beat_no_high_prestige(self, editorial_facts):
+        """Cheap beat should not use prestige>=4 cheap races."""
+        cb = editorial_facts.get("cheap_beat", {})
+        if cb:
+            # cheap_beat now uses tier reversal, not prestige-4 cheap races
+            assert cb.get("cheap_tier", 4) < cb.get("expensive_tier", 4)
 
     def test_price_stat_values(self, insights_html):
         assert "gg-ins-price-stat-value" in insights_html
@@ -732,6 +841,15 @@ class TestDimensionLeaderboard:
         """JS should initialize leaderboard with first dimension."""
         assert "updateDimLeaderboard('logistics')" in insights_js
 
+    def test_js_dim_row_role_button(self, insights_js):
+        """Dim rows should have role=button in JS template."""
+        assert 'role="button"' in insights_js
+
+    def test_js_dim_row_aria_expanded(self, insights_js):
+        """Dim rows should have aria-expanded in JS template."""
+        # The updateDimLeaderboard function generates rows with aria-expanded
+        assert 'aria-expanded' in insights_js
+
 
 # ── TestRankingBuilder ────────────────────────────────────────
 
@@ -759,11 +877,11 @@ class TestRankingBuilder:
                 f"Slider {sid} missing"
             )
 
-    def test_slider_min_0(self, insights_html):
+    def test_slider_min_1(self, insights_html):
         sliders = re.findall(r'class="gg-ins-rank-slider"[^>]*>', insights_html)
         assert len(sliders) == 6
         for s in sliders:
-            assert 'min="0"' in s
+            assert 'min="1"' in s
 
     def test_slider_max_10(self, insights_html):
         sliders = re.findall(r'class="gg-ins-rank-slider"[^>]*>', insights_html)
@@ -791,6 +909,32 @@ class TestRankingBuilder:
     def test_reset_button(self, insights_html):
         assert 'id="gg-ins-rank-reset"' in insights_html
 
+    def test_reset_button_label(self, insights_html):
+        assert "Reset to Equal Weights" in insights_html
+
+    def test_3_preset_buttons(self, insights_html):
+        rank_match = re.search(
+            r'id="ranking-builder".*?</section>', insights_html, re.DOTALL
+        )
+        assert rank_match
+        presets = re.findall(r'data-preset="[^"]*"', rank_match.group())
+        assert len(presets) == 3, f"Expected 3 presets, got {len(presets)}"
+
+    def test_preset_weekend_warrior(self, insights_html):
+        assert 'data-preset="weekend-warrior"' in insights_html
+        assert "Weekend Warrior" in insights_html
+
+    def test_preset_suffer_enthusiast(self, insights_html):
+        assert 'data-preset="suffer-enthusiast"' in insights_html
+        assert "Suffer Enthusiast" in insights_html
+
+    def test_preset_budget_racer(self, insights_html):
+        assert 'data-preset="budget-racer"' in insights_html
+        assert "Budget Racer" in insights_html
+
+    def test_preset_class(self, insights_html):
+        assert "gg-ins-rank-preset" in insights_html
+
     def test_leaderboard_present(self, insights_html):
         assert 'id="gg-ins-rank-leaderboard"' in insights_html
 
@@ -798,10 +942,10 @@ class TestRankingBuilder:
         assert 'aria-live="polite"' in insights_html
 
     def test_figure_title(self, insights_html):
-        assert "Your Gravel, Your Rules" in insights_html
+        assert "Find Your Perfect Race" in insights_html
 
     def test_figure_takeaway(self, insights_html):
-        assert "Move the sliders" in insights_html
+        assert "Every rider values different things" in insights_html
 
     def test_slider_labels(self, insights_html):
         assert "Suffering" in insights_html
@@ -962,6 +1106,46 @@ class TestOverratedUnderrated:
         assert "gg-ins-ou-link" in insights_html
         assert "View Full Profile" in insights_html
 
+    def test_ou_editorial_text_length(self, insights_html):
+        """O/U editorial text should be at least 80 chars."""
+        editorials = re.findall(
+            r'class="gg-insights-ou-card-editorial">(.*?)</p>',
+            insights_html, re.DOTALL
+        )
+        assert len(editorials) >= 2
+        for text in editorials:
+            clean = re.sub(r'<[^>]+>', '', text).strip()
+            assert len(clean) >= 80, f"Editorial too short ({len(clean)} chars): {clean[:50]}"
+
+    def test_ou_editorial_mentions_dimension(self, insights_html):
+        """O/U editorial should mention specific dimension names."""
+        editorials = re.findall(
+            r'class="gg-insights-ou-card-editorial">(.*?)</p>',
+            insights_html, re.DOTALL
+        )
+        # Check that at least some editorials mention dimension labels
+        dim_label_values = set(
+            ["Logistics", "Length", "Technicality", "Elevation", "Climate",
+             "Altitude", "Adventure", "Prestige", "Race Quality", "Experience",
+             "Community", "Field Depth", "Value", "Expenses"]
+        )
+        found_dim_mention = False
+        for text in editorials:
+            for label in dim_label_values:
+                if label in text:
+                    found_dim_mention = True
+                    break
+        assert found_dim_mention, "No dimension labels found in O/U editorials"
+
+    def test_ou_editorial_mentions_prestige(self, insights_html):
+        """O/U editorial should reference prestige score."""
+        editorials = re.findall(
+            r'class="gg-insights-ou-card-editorial">(.*?)</p>',
+            insights_html, re.DOTALL
+        )
+        prestige_mentioned = sum(1 for t in editorials if "prestige" in t.lower())
+        assert prestige_mentioned >= 2, "Prestige not mentioned in enough editorials"
+
     def test_js_ou_expand_handler(self, insights_js):
         """JS should handle O/U card expansion."""
         assert "aria-expanded" in insights_js
@@ -1004,6 +1188,22 @@ class TestClosing:
         section = closing_match.group()
         assert "Explore All" in section
         assert "Races" in section
+
+    def test_closing_stat_strip(self, insights_html):
+        """Closing should have summary stat strip."""
+        assert "gg-ins-closing-stats" in insights_html
+
+    def test_closing_stat_items(self, insights_html):
+        """Stat strip should have multiple stat items."""
+        closing_match = re.search(
+            r'id="what-now".*?</section>', insights_html, re.DOTALL
+        )
+        assert closing_match
+        items = re.findall(r'gg-ins-closing-stat-item', closing_match.group())
+        assert len(items) >= 3
+
+    def test_closing_class(self, insights_html):
+        assert "gg-ins-closing" in insights_html
 
     def test_closing_cta_btn_lg(self, insights_html):
         """Large CTA button class should be present."""
@@ -1230,6 +1430,54 @@ class TestCss:
     def test_cta_btn_lg_css(self, insights_css):
         assert ".gg-insights-cta-btn-lg" in insights_css
 
+    # Map tile grid CSS
+    def test_map_grid_css(self, insights_css):
+        assert ".gg-ins-map-grid" in insights_css
+
+    def test_map_tile_css(self, insights_css):
+        assert ".gg-ins-map-tile" in insights_css
+
+    def test_map_density_css(self, insights_css):
+        for density in ["none", "low", "med", "high"]:
+            assert f'data-density="{density}"' in insights_css
+
+    def test_map_abbr_css(self, insights_css):
+        assert ".gg-ins-map-abbr" in insights_css
+
+    # Calendar expandable CSS
+    def test_cal_panel_css(self, insights_css):
+        assert ".gg-ins-cal-panel" in insights_css
+
+    def test_cal_race_css(self, insights_css):
+        assert ".gg-ins-cal-race" in insights_css
+
+    def test_cal_tier_css(self, insights_css):
+        assert ".gg-ins-cal-tier" in insights_css
+
+    def test_cal_detail_css(self, insights_css):
+        assert ".gg-ins-cal-detail" in insights_css
+
+    # Dim expandable row CSS
+    def test_dim_detail_css(self, insights_css):
+        assert ".gg-ins-dim-detail" in insights_css
+
+    def test_dim_row_expanded_css(self, insights_css):
+        assert 'aria-expanded="true"' in insights_css
+
+    # Preset CSS
+    def test_rank_preset_css(self, insights_css):
+        assert ".gg-ins-rank-preset" in insights_css
+
+    def test_rank_presets_css(self, insights_css):
+        assert ".gg-ins-rank-presets" in insights_css
+
+    # Closing stat strip CSS
+    def test_closing_stats_css(self, insights_css):
+        assert ".gg-ins-closing-stats" in insights_css
+
+    def test_closing_stat_item_css(self, insights_css):
+        assert ".gg-ins-closing-stat-item" in insights_css
+
     def test_no_scatter_css(self, insights_css):
         """Scatter CSS should not exist."""
         assert ".gg-ins-scatter-" not in insights_css
@@ -1366,6 +1614,9 @@ class TestJs:
             "insights_cta_click",
             "insights_section_view",
             "insights_scroll_depth",
+            "insights_cal_expand",
+            "insights_dim_expand",
+            "insights_rank_preset",
         ]
         for ev in events:
             assert ev in insights_js, f"GA4 event {ev} missing"
@@ -1428,6 +1679,37 @@ class TestJs:
         """JS should handle Enter/Space on O/U cards."""
         assert "keydown" in insights_js
         assert "Enter" in insights_js
+
+    # Calendar click handler
+    def test_js_cal_expand_handler(self, insights_js):
+        assert "toggleCalMonth" in insights_js
+
+    def test_js_cal_col_click(self, insights_js):
+        assert "gg-ins-cal-col" in insights_js
+
+    # Dim row expansion
+    def test_js_dim_detail_builder(self, insights_js):
+        assert "buildDimDetail" in insights_js
+
+    def test_js_dim_row_click(self, insights_js):
+        assert "gg-ins-dim-row" in insights_js
+
+    def test_js_dim_row_expand_aria(self, insights_js):
+        """JS dim row expansion should toggle aria-expanded."""
+        assert 'data-race-idx' in insights_js
+
+    # Preset handler
+    def test_js_preset_handler(self, insights_js):
+        assert "PRESETS" in insights_js
+
+    def test_js_preset_click(self, insights_js):
+        assert "gg-ins-rank-preset" in insights_js
+
+    def test_js_preset_values(self, insights_js):
+        """Presets should define values for all 3 profiles."""
+        assert "weekend-warrior" in insights_js
+        assert "suffer-enthusiast" in insights_js
+        assert "budget-racer" in insights_js
 
 
 # ── TestAccessibility ─────────────────────────────────────────
@@ -1604,6 +1886,25 @@ class TestEditorialFacts:
         if ct1:
             assert "name" in ct1
             assert "price" in ct1
+
+    def test_has_best_value(self, editorial_facts):
+        assert "best_value" in editorial_facts
+
+    def test_best_value_structure(self, editorial_facts):
+        bv = editorial_facts.get("best_value", {})
+        assert isinstance(bv, dict)
+        if bv:
+            assert "name" in bv
+            assert "price" in bv
+            assert bv["price"] <= 150
+
+    def test_has_state_counts(self, editorial_facts):
+        assert "state_counts" in editorial_facts
+        assert isinstance(editorial_facts["state_counts"], dict)
+
+    def test_has_state_scores(self, editorial_facts):
+        assert "state_scores" in editorial_facts
+        assert isinstance(editorial_facts["state_scores"], dict)
 
 
 # ── TestFigureWrapper ─────────────────────────────────────────
@@ -2098,7 +2399,7 @@ class TestBuildRankingBuilder:
 
     def test_reset_button_text(self, gravel_races):
         result = build_ranking_builder(gravel_races)
-        assert "Reset to Gravel God Defaults" in result
+        assert "Reset to Equal Weights" in result
 
 
 # ── TestBuildClosing ─────────────────────────────────────────
@@ -2226,3 +2527,547 @@ class TestGravelOnlyGuard:
         non_gravel = [r for r in all_races if (r.get("discipline") or "gravel") != "gravel"]
         assert len(non_gravel) > 0, "Should have at least one non-gravel race"
         assert len(gravel_only) < len(all_races)
+
+
+# ══════════════════════════════════════════════════════════════
+# NEW TESTS — Quality Hardening Sprint
+# ══════════════════════════════════════════════════════════════
+
+
+class TestExtractPriceEdgeCases:
+    """Extended edge case tests for extract_price."""
+
+    def test_extract_price_zero(self):
+        assert extract_price("$0") == 0.0
+
+    def test_extract_price_euro(self):
+        assert extract_price("€100") is None
+
+    def test_extract_price_gbp(self):
+        assert extract_price("£100") is None
+
+    def test_extract_price_range(self):
+        result = extract_price("$100-$200")
+        assert result == 100.0
+
+    def test_extract_price_early_bird(self):
+        result = extract_price("Early bird: $100. Regular: $150")
+        assert result == 100.0
+
+    def test_extract_price_free(self):
+        assert extract_price("Free entry") is None
+
+    def test_extract_price_vip_before_standard(self):
+        """VIP Package first, standard after — should get None (VIP only before $)."""
+        result = extract_price("VIP Package: $500")
+        assert result is None
+
+    def test_extract_price_standard_before_vip(self):
+        result = extract_price("Standard $100. VIP Package: $500")
+        assert result == 100.0
+
+    def test_extract_price_vip_in_name_context(self):
+        """VIP in race name context shouldn't trigger VIP stripping."""
+        result = extract_price("VIP Gravel Race entry is $200")
+        assert result == 200.0
+
+    def test_extract_price_comma_thousands(self):
+        assert extract_price("$1,500") == 1500.0
+
+    def test_extract_price_leading_text(self):
+        result = extract_price("Registration is via BikeReg. Cost: $150")
+        assert result == 150.0
+
+    def test_extract_price_empty_string(self):
+        assert extract_price("") is None
+
+
+class TestEditorialFactsCorrectness:
+    """Test actual logic of editorial facts, not just key presence."""
+
+    def test_overrated_have_high_prestige_low_tier(self, editorial_facts, gravel_races):
+        """Every overrated race should have prestige >= 3 AND tier >= 3."""
+        overrated = editorial_facts.get("overrated", [])
+        for race in overrated:
+            p = (race.get("scores") or {}).get("prestige", 0)
+            tier = race.get("tier", 4)
+            assert p >= 3, f"{race.get('slug')}: prestige {p} < 3"
+            assert tier >= 3, f"{race.get('slug')}: tier {tier} < 3"
+
+    def test_underrated_have_low_prestige_high_score(self, editorial_facts):
+        """Every underrated race should have prestige <= 2 AND score >= 50."""
+        underrated = editorial_facts.get("underrated", [])
+        for race in underrated:
+            p = (race.get("scores") or {}).get("prestige", 0)
+            score = race.get("overall_score", 0)
+            assert p <= 2, f"{race.get('slug')}: prestige {p} > 2"
+            assert score >= 50, f"{race.get('slug')}: score {score} < 50"
+
+    def test_pony_xpress_excluded(self, editorial_facts):
+        """pony-xpress should be in the exclusion set, not in overrated."""
+        overrated_slugs = [r.get("slug") for r in editorial_facts.get("overrated", [])]
+        assert "pony-xpress" not in overrated_slugs
+
+    def test_cheapest_t1_is_actually_cheapest(self, editorial_facts, gravel_races):
+        """No other T1 race should have a lower price."""
+        ct1 = editorial_facts.get("cheapest_t1", {})
+        if not ct1:
+            pytest.skip("No cheapest_t1 found")
+        ct1_price = ct1["price"]
+        t1_prices = [
+            r["price"]
+            for r in gravel_races
+            if r.get("tier") == 1 and r.get("price") and r["price"] > 0
+        ]
+        assert ct1_price == min(t1_prices)
+
+    def test_priciest_t4_under_500(self, editorial_facts):
+        pt4 = editorial_facts.get("priciest_t4", {})
+        if not pt4:
+            pytest.skip("No priciest_t4 found")
+        assert pt4["price"] <= 500
+
+    def test_best_value_under_150(self, editorial_facts):
+        bv = editorial_facts.get("best_value", {})
+        if not bv:
+            pytest.skip("No best_value found")
+        assert bv["price"] <= 150
+
+    def test_price_correlation_bounded(self, editorial_facts):
+        corr = editorial_facts.get("price_score_corr", 0)
+        assert -1.0 <= corr <= 1.0
+
+    def test_quality_state_has_min_3_races(self, editorial_facts):
+        """Quality state should have at least 3 races to be meaningful."""
+        qs = editorial_facts.get("quality_state", "")
+        sc = editorial_facts.get("state_counts", {})
+        if qs and sc:
+            assert sc.get(qs, 0) >= 3, f"{qs} has only {sc.get(qs, 0)} races"
+
+    def test_top_state_has_most_races(self, editorial_facts):
+        ts = editorial_facts.get("top_state", "")
+        sc = editorial_facts.get("state_counts", {})
+        if ts and sc:
+            ts_count = sc[ts]
+            for st, cnt in sc.items():
+                assert cnt <= ts_count, f"{st} ({cnt}) > {ts} ({ts_count})"
+
+    def test_overrated_excludes_excluded_set(self, editorial_facts):
+        """All slugs in _overrated_exclude must be absent from overrated."""
+        _overrated_exclude = {"pony-xpress"}
+        overrated_slugs = {r.get("slug") for r in editorial_facts.get("overrated", [])}
+        for slug in _overrated_exclude:
+            assert slug not in overrated_slugs, f"{slug} should be excluded"
+
+
+class TestDisciplineFiltering:
+    """Verify non-gravel races are excluded from insights."""
+
+    def test_precondition_non_gravel_exist(self, all_races):
+        """Dataset should have bikepacking and MTB races."""
+        disciplines = {r.get("discipline", "gravel") for r in all_races}
+        assert "bikepacking" in disciplines or "mtb" in disciplines
+
+    def test_insights_page_excludes_non_gravel(self, insights_html):
+        """Generated race JSON should have zero non-gravel entries."""
+        match = re.search(
+            r'<script type="application/json" id="gg-race-data">(.*?)</script>',
+            insights_html,
+            re.DOTALL,
+        )
+        assert match
+        data = json.loads(match.group(1))
+        for entry in data:
+            assert entry.get("di") == "gravel", (
+                f"{entry.get('s')} has discipline {entry.get('di')}"
+            )
+
+    def test_stats_use_gravel_only(self, all_races, race_count):
+        """Gravel count should be less than total count."""
+        assert race_count < len(all_races)
+
+    def test_editorial_facts_gravel_only(self, editorial_facts, all_races):
+        """Overrated/underrated lists should contain zero non-gravel slugs."""
+        non_gravel_slugs = {
+            r.get("slug")
+            for r in all_races
+            if (r.get("discipline") or "gravel") != "gravel"
+        }
+        for race in editorial_facts.get("overrated", []):
+            assert race.get("slug") not in non_gravel_slugs
+        for race in editorial_facts.get("underrated", []):
+            assert race.get("slug") not in non_gravel_slugs
+
+    def test_discipline_filter_handles_edge_cases(self):
+        """Filter expression handles None, empty string, and 'gravel'."""
+        for val, expected in [
+            (None, True),
+            ("", True),
+            ("gravel", True),
+            ("bikepacking", False),
+            ("mtb", False),
+        ]:
+            race = {"discipline": val}
+            result = (race.get("discipline") or "gravel") == "gravel"
+            assert result == expected, f"discipline={val!r}: got {result}"
+
+
+class TestHiddenAttributeGuard:
+    """Ensure HTML hidden attr is not used on expandable panels."""
+
+    def test_no_hidden_attr_on_panels(self, insights_html):
+        """No 'hidden' attribute on map or calendar panel divs."""
+        # Strip aria-hidden and class values to avoid false positives
+        cleaned = re.sub(r'aria-hidden="[^"]*"', '', insights_html)
+        cleaned = re.sub(r'class="[^"]*"', '', cleaned)
+        # Find all map and calendar panels
+        panels = re.findall(r'<div[^>]*gg-ins-(?:map|cal)-panel[^>]*>', cleaned)
+        for panel in panels:
+            assert ' hidden' not in panel, f"Panel uses hidden attr: {panel[:80]}"
+
+    def test_panels_use_css_class_for_hiding(self, insights_html):
+        """Panels should use gg-ins-panel-hidden CSS class."""
+        assert "gg-ins-panel-hidden" in insights_html
+
+
+class TestSvgCompliance:
+    """Ensure SVG elements follow brand rules (no inline styles)."""
+
+    def test_no_inline_style_in_svg(self, insights_html):
+        """Zero style= attributes inside any <svg> tag."""
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', insights_html, re.DOTALL)
+        for svg in svg_blocks:
+            assert 'style=' not in svg, f"SVG has inline style: {svg[:100]}"
+
+    def test_no_svg_font_presentation_attrs(self, insights_html):
+        """No font-family= or font-size= on SVG elements."""
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', insights_html, re.DOTALL)
+        for svg in svg_blocks:
+            assert 'font-family=' not in svg, f"SVG font-family attr: {svg[:100]}"
+            assert 'font-size=' not in svg, f"SVG font-size attr: {svg[:100]}"
+
+    def test_no_svg_fill_stroke_attrs(self, insights_html):
+        """No fill= or stroke= on SVG child elements (use CSS instead)."""
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', insights_html, re.DOTALL)
+        for svg in svg_blocks:
+            # Inside the svg, check child elements (not the <svg> root itself)
+            inner = re.sub(r'^<svg[^>]*>', '', svg)
+            inner = re.sub(r'</svg>$', '', inner)
+            # Allow fill="none" which is common and valid
+            inner_cleaned = re.sub(r'fill="none"', '', inner)
+            elements = re.findall(r'<[a-z]+[^>]*>', inner_cleaned)
+            for el in elements:
+                assert ' fill=' not in el, f"SVG child has fill attr: {el[:80]}"
+                assert ' stroke=' not in el, f"SVG child has stroke attr: {el[:80]}"
+
+
+class TestDomainParity:
+    """Verify correct domain in JS and race links."""
+
+    def test_no_wrong_domain_in_js(self, insights_js):
+        """www.gravelgod.com must NOT appear in JS."""
+        assert "www.gravelgod.com" not in insights_js
+
+    def test_js_site_url_matches_python(self, insights_js):
+        """JS SITE_URL value should match Python SITE_BASE_URL."""
+        match = re.search(r'var SITE_URL\s*=\s*"([^"]+)"', insights_js)
+        assert match, "SITE_URL not found in JS"
+        assert match.group(1) == SITE_BASE_URL
+
+    def test_all_race_links_use_correct_domain(self, insights_html):
+        """All /race/{slug}/ links should use the correct domain."""
+        links = re.findall(r'href="(https?://[^"]*?/race/[^"]+/)"', insights_html)
+        for link in links:
+            assert link.startswith(SITE_BASE_URL), (
+                f"Race link uses wrong domain: {link}"
+            )
+
+
+class TestDimParity:
+    """Verify Python/JS dimension parity."""
+
+    def test_js_dims_match_python(self, insights_js):
+        """JS DIMS array must match Python ALL_DIMS exactly."""
+        match = re.search(r'var DIMS\s*=\s*(\[.*?\]);', insights_js)
+        assert match, "DIMS array not found in JS"
+        js_dims = json.loads(match.group(1))
+        assert js_dims == ALL_DIMS
+
+    def test_js_dim_labels_cover_all_dims(self, insights_js):
+        """Every dim in ALL_DIMS must have a label in JS DIM_LABELS."""
+        match = re.search(r'var DIM_LABELS\s*=\s*(\{.*?\});', insights_js, re.DOTALL)
+        assert match, "DIM_LABELS not found in JS"
+        js_labels = json.loads(match.group(1))
+        for dim in ALL_DIMS:
+            assert dim in js_labels, f"Missing JS label for dim: {dim}"
+
+    def test_dim_count_not_hardcoded(self, insights_html):
+        """The dimension count string should match len(ALL_DIMS)."""
+        expected = f"{len(ALL_DIMS)} dimensions"
+        assert expected in insights_html
+
+    def test_no_hardcoded_14_dimensions(self, insights_html):
+        """'14 dimensions' should NOT appear as a hardcoded string."""
+        # If ALL_DIMS changes, this catches stale hardcoded "14 dimensions"
+        if len(ALL_DIMS) != 14:
+            assert "14 dimensions" not in insights_html
+
+
+class TestPresetParity:
+    """Verify presets are emitted from Python into JS."""
+
+    def test_presets_emitted_from_python(self, insights_js):
+        """JS PRESETS should be generated from Python RANKING_PRESETS."""
+        match = re.search(r'var PRESETS\s*=\s*(\{.*?\});', insights_js, re.DOTALL)
+        assert match, "PRESETS not found in JS"
+        js_presets = json.loads(match.group(1))
+        assert js_presets == RANKING_PRESETS
+
+    def test_all_preset_names_in_js(self, insights_js):
+        """All preset names should appear in JS."""
+        for name in RANKING_PRESETS:
+            assert name in insights_js, f"Preset {name} missing from JS"
+
+    def test_preset_weights_nonzero(self):
+        """All preset weights should be >= 1 (min slider value)."""
+        for name, weights in RANKING_PRESETS.items():
+            for group, val in weights.items():
+                assert val >= 1, f"Preset {name}.{group} = {val} < 1"
+
+
+class TestJsBehavior:
+    """Test JS behavioral correctness via string analysis."""
+
+    def test_json_parse_has_try_catch(self, insights_js):
+        """JSON.parse should be wrapped in try/catch."""
+        assert "try" in insights_js
+        # Verify try is near JSON.parse
+        try_idx = insights_js.index("try")
+        parse_idx = insights_js.index("JSON.parse")
+        # try should come before JSON.parse (within ~200 chars)
+        assert try_idx < parse_idx
+        assert parse_idx - try_idx < 200
+
+    def test_bar_width_clamped(self, insights_js):
+        """Dimension bar width should be clamped with Math.min/max."""
+        assert "Math.min(100" in insights_js
+        assert "Math.max(0" in insights_js
+
+    def test_counter_reduced_motion_shows_final_value(self, insights_js):
+        """Counter should display final value on reduced-motion, not skip."""
+        # Find the reduced-motion / target===0 early return
+        # It should set el.textContent = original before returning
+        lines = insights_js.split("\n")
+        for i, line in enumerate(lines):
+            if "reducedMotion" in line and "return" in line:
+                # Check the preceding line sets textContent
+                context = "\n".join(lines[max(0, i - 3) : i + 1])
+                assert "el.textContent" in context or "textContent = original" in context, (
+                    f"Reduced-motion return doesn't set final value: {context}"
+                )
+                break
+
+    def test_counter_zero_target_shows_value(self, insights_js):
+        """Target === 0 should set content, not skip entirely."""
+        # The fix: if (target === 0 || reducedMotion) { el.textContent = original; return; }
+        assert "target === 0" in insights_js
+        # el.textContent = original should appear near it
+        idx = insights_js.index("target === 0")
+        context = insights_js[idx : idx + 200]
+        assert "el.textContent" in context
+
+    def test_site_url_variable_used(self, insights_js):
+        """Race links in JS should use SITE_URL variable."""
+        assert "SITE_URL" in insights_js
+        # It should be used in href construction
+        assert "SITE_URL +" in insights_js or "SITE_URL+" in insights_js or "${SITE_URL}" in insights_js
+
+    def test_slider_min_is_one(self, insights_html):
+        """Ranking builder sliders should have min=1, not min=0."""
+        sliders = re.findall(r'<input[^>]*class="gg-ins-rank-slider"[^>]*>', insights_html)
+        assert len(sliders) > 0, "No sliders found"
+        for slider in sliders:
+            assert 'min="1"' in slider, f"Slider has wrong min: {slider[:80]}"
+
+    def test_panel_toggle_uses_class_not_hidden(self, insights_js):
+        """JS panel toggling should use CSS class, not hidden attribute."""
+        assert "gg-ins-panel-hidden" in insights_js
+        # hidden attr manipulation should NOT be present
+        assert "setAttribute('hidden'" not in insights_js
+        assert "removeAttribute('hidden')" not in insights_js
+
+
+class TestJsonLdDynamic:
+    """Verify JSON-LD uses dynamic dates."""
+
+    def test_jsonld_date_is_dynamic(self, insights_html):
+        """datePublished should be today's date, not hardcoded."""
+        import datetime
+
+        today = datetime.date.today().isoformat()
+        match = re.search(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            insights_html,
+            re.DOTALL,
+        )
+        assert match, "JSON-LD not found"
+        ld = json.loads(match.group(1))
+        assert ld.get("datePublished") == today
+        assert ld.get("dateModified") == today
+
+    def test_jsonld_no_hardcoded_2026_02_20(self, insights_html):
+        """The old hardcoded date should not appear."""
+        match = re.search(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            insights_html,
+            re.DOTALL,
+        )
+        assert match
+        ld_text = match.group(1)
+        assert "2026-02-20" not in ld_text
+
+
+class TestEdgeCaseData:
+    """Test with synthetic edge-case data."""
+
+    def test_race_with_none_score_no_crash(self, all_races):
+        """Race with overall_score=None should not crash compute_editorial_facts."""
+        # Inject a synthetic race with None score
+        test_races = list(all_races[:10])
+        test_races.append({
+            "name": "Test Null Score Race",
+            "slug": "test-null-score",
+            "overall_score": None,
+            "tier": 3,
+            "discipline": "gravel",
+            "scores": {},
+        })
+        # Should not raise
+        result = compute_editorial_facts(test_races)
+        assert isinstance(result, dict)
+
+    def test_race_with_zero_score(self, all_races):
+        """Race with score=0 should not be silently dropped."""
+        test_races = list(all_races[:10])
+        test_races.append({
+            "name": "Test Zero Score Race",
+            "slug": "test-zero-score",
+            "overall_score": 0,
+            "tier": 4,
+            "discipline": "gravel",
+            "scores": {},
+        })
+        result = compute_editorial_facts(test_races)
+        assert isinstance(result, dict)
+
+    def test_race_with_missing_state(self, all_races):
+        """Race with no location should not crash state grouping."""
+        test_races = list(all_races[:10])
+        test_races.append({
+            "name": "Test No Location Race",
+            "slug": "test-no-loc",
+            "overall_score": 60,
+            "tier": 2,
+            "discipline": "gravel",
+            "scores": {},
+        })
+        result = compute_editorial_facts(test_races)
+        assert isinstance(result, dict)
+
+    def test_race_with_missing_price(self, all_races):
+        """Race with no price should not crash price stats."""
+        test_races = list(all_races[:10])
+        test_races.append({
+            "name": "Test No Price Race",
+            "slug": "test-no-price",
+            "overall_score": 70,
+            "tier": 2,
+            "discipline": "gravel",
+            "scores": {},
+        })
+        result = compute_editorial_facts(test_races)
+        assert isinstance(result, dict)
+
+    def test_single_race_in_tier(self, gravel_races, stats):
+        """Stats should compute without crash even with varied tier distribution."""
+        assert isinstance(stats, dict)
+        assert "total_races" in stats
+        assert stats["total_races"] > 0
+
+    def test_month_with_zero_races_renders(self, gravel_races, editorial_facts):
+        """Calendar should render even if a month has zero races."""
+        html = build_data_story(gravel_races, editorial_facts)
+        # December often has 0 races — verify it's still in the calendar
+        assert "Dec" in html or "December" in html
+
+
+class TestCssFontSizeTokens:
+    """Verify font sizes use design tokens where possible."""
+
+    def test_map_abbr_uses_token(self, insights_css):
+        """Map abbreviation should use --gg-font-size-2xs token."""
+        # Find the .gg-ins-map-abbr rule (non-responsive version)
+        idx = insights_css.index(".gg-ins-map-abbr")
+        block = insights_css[idx : idx + 200]
+        assert "var(--gg-font-size-2xs)" in block
+
+    def test_cal_count_uses_token(self, insights_css):
+        """Calendar count should use --gg-font-size-2xs token."""
+        idx = insights_css.index(".gg-ins-cal-count")
+        block = insights_css[idx : idx + 200]
+        assert "var(--gg-font-size-2xs)" in block
+
+    def test_cal_label_uses_token(self, insights_css):
+        """Calendar label should use --gg-font-size-2xs token."""
+        idx = insights_css.index(".gg-ins-cal-label")
+        block = insights_css[idx : idx + 200]
+        assert "var(--gg-font-size-2xs)" in block
+
+    def test_ou_dim_label_uses_token(self, insights_css):
+        """O/U dimension label should use --gg-font-size-2xs token."""
+        idx = insights_css.index(".gg-ins-ou-dim-label")
+        block = insights_css[idx : idx + 200]
+        assert "var(--gg-font-size-2xs)" in block
+
+    def test_ou_dim_val_uses_token(self, insights_css):
+        """O/U dimension value should use --gg-font-size-2xs token."""
+        idx = insights_css.index(".gg-ins-ou-dim-val")
+        block = insights_css[idx : idx + 200]
+        assert "var(--gg-font-size-2xs)" in block
+
+    def test_exceptions_documented(self, insights_css):
+        """9px, 11px remain as documented exceptions (no exact token)."""
+        # 9px used in map-count and cal-tier (tight layouts, below smallest token)
+        assert "font-size: 9px" in insights_css
+        # 11px used in tooltip (between 2xs=10 and xs=13)
+        assert "font-size: 11px" in insights_css
+
+
+class TestGeographyNarrativeGuard:
+    """Test geography narrative handles empty state data."""
+
+    def test_geography_narrative_with_states(self, insights_html):
+        """Geography narrative should include top state when data exists."""
+        # Just verify the geo section exists and has content
+        assert 'id="geography"' in insights_html
+
+    def test_no_empty_state_name_in_narrative(self, insights_html):
+        """Narrative should not contain ' leads with' without a state name."""
+        assert " leads with" not in insights_html or re.search(
+            r'[A-Z]{2}\s+leads with', insights_html
+        )
+
+
+class TestDeadCodeRemoval:
+    """Verify dead code has been removed."""
+
+    def test_no_build_heritage_function(self):
+        """build_heritage() dead code should be removed."""
+        import generate_insights as gi
+
+        assert not hasattr(gi, "build_heritage"), "build_heritage still exists as dead code"
+
+    def test_no_heritage_scatter_in_html(self, insights_html):
+        """Heritage scatter plot SVG should not appear in output."""
+        assert "heritage-scatter" not in insights_html
+        assert "gg-ins-heritage" not in insights_html

@@ -16,6 +16,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import datetime
 import html
 import json
 import math
@@ -79,6 +80,13 @@ MONTHS = [
     "July", "August", "September", "October", "November", "December",
 ]
 
+# Ranking builder presets (Python → JS, single source of truth)
+RANKING_PRESETS = {
+    "weekend-warrior": {"suffering": 2, "prestige": 3, "practicality": 9, "adventure": 5, "community": 8, "value": 7},
+    "suffer-enthusiast": {"suffering": 10, "prestige": 3, "practicality": 2, "adventure": 9, "community": 4, "value": 3},
+    "budget-racer": {"suffering": 5, "prestige": 2, "practicality": 8, "adventure": 5, "community": 5, "value": 10},
+}
+
 
 def esc(text) -> str:
     """HTML-escape a string."""
@@ -101,15 +109,34 @@ def safe_num(val, default=0):
 
 
 def extract_price(registration_text: str) -> float | None:
-    """Extract dollar amount from registration text like 'Cost: $345'."""
+    """Extract dollar amount from registration text like 'Cost: $345'.
+
+    Strips VIP/premium pricing context before matching. Takes first match
+    (standard entry) rather than last.
+    """
     if not registration_text:
         return None
+    # Strip VIP/premium pricing — only use prices before "VIP" when VIP
+    # appears in a pricing context (followed by price indicators)
+    text = registration_text
+    vip_pricing = re.search(
+        r'VIP\s*(Package|Upgrade|Tier|Option|Entry|\$|:)',
+        text, re.IGNORECASE
+    )
+    if vip_pricing:
+        pre_vip_idx = vip_pricing.start()
+        pre_vip_text = text[:pre_vip_idx]
+        pre_matches = re.findall(r'\$[\d,]+', pre_vip_text)
+        if pre_matches:
+            text = pre_vip_text  # use only pre-VIP text
+        else:
+            return None  # only VIP prices found, no standard entry
     # Match patterns like $345, $4,400, $20
-    matches = re.findall(r'\$[\d,]+', registration_text)
+    matches = re.findall(r'\$[\d,]+', text)
     if not matches:
         return None
-    # Take last match (often is the actual cost)
-    price_str = matches[-1].replace("$", "").replace(",", "")
+    # Take first match (standard entry price)
+    price_str = matches[0].replace("$", "").replace(",", "")
     try:
         return float(price_str)
     except ValueError:
@@ -242,7 +269,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         st = r.get("state")
         if st:
             state_counts[st] += 1
-            state_scores[st].append(r.get("overall_score", 0))
+            state_scores[st].append(safe_num(r.get("overall_score"), 0))
 
     top_state = max(state_counts, key=lambda s: state_counts[s]) if state_counts else ""
     top_state_count = state_counts.get(top_state, 0)
@@ -254,20 +281,67 @@ def compute_editorial_facts(races: list[dict]) -> dict:
     quality_state_avg = quality_candidates.get(quality_state, 0)
     quality_state_count = state_counts.get(quality_state, 0)
 
-    # Cheap beat: cheap race (<$100) outscoring expensive (>$300)
-    cheap_races = [(r, r["price"]) for r in races if r.get("price") and r["price"] < 100 and r.get("overall_score", 0) > 50]
-    expensive_races = [(r, r["price"]) for r in races if r.get("price") and r["price"] > 300]
+    # Cheap beat: find surprising tier reversal — cheaper race in better tier
+    # Exclude prestige>=4 cheap races (cheap for institutional reasons, not market)
+    # and multi-day events >$500 from priciest comparison
     cheap_beat = {}
-    if cheap_races and expensive_races:
-        cheap_races.sort(key=lambda x: -x[0].get("overall_score", 0))
-        expensive_races.sort(key=lambda x: x[0].get("overall_score", 0))
-        cr, cp = cheap_races[0]
-        er, ep = expensive_races[0]
-        if cr.get("overall_score", 0) > er.get("overall_score", 0):
-            cheap_beat = {
-                "cheap_name": cr["name"], "cheap_score": cr.get("overall_score", 0), "cheap_price": cp,
-                "expensive_name": er["name"], "expensive_score": er.get("overall_score", 0), "expensive_price": ep,
-            }
+    priced_races = [
+        r for r in races
+        if r.get("price") and r["price"] > 0
+        and r.get("tier") and r.get("overall_score", 0) > 0
+    ]
+    # Find biggest price reversal in adjacent tiers
+    best_reversal = None
+    best_reversal_gap = 0
+    for cheap_r in priced_races:
+        cheap_p = (cheap_r.get("scores") or {}).get("prestige", 0)
+        # Skip institutional cheapness (championships, etc.)
+        if cheap_p >= 4 and cheap_r["price"] < 80:
+            continue
+        for exp_r in priced_races:
+            if cheap_r["slug"] == exp_r["slug"]:
+                continue
+            # Cheaper race must be in a better (lower number) tier
+            if cheap_r["tier"] >= exp_r["tier"]:
+                continue
+            # Price must be reversed (cheaper race costs less)
+            if cheap_r["price"] >= exp_r["price"]:
+                continue
+            # Exclude multi-day >$500 from expensive side
+            if exp_r["price"] > 500:
+                continue
+            # Prefer adjacent tiers (gap of 1) for editorial impact
+            tier_gap = exp_r["tier"] - cheap_r["tier"]
+            price_gap = exp_r["price"] - cheap_r["price"]
+            # Score: prefer big price gap + adjacent tiers
+            reversal_score = price_gap * (2 if tier_gap == 1 else 1)
+            if reversal_score > best_reversal_gap:
+                best_reversal_gap = reversal_score
+                best_reversal = (cheap_r, exp_r)
+    if best_reversal:
+        cr, er = best_reversal
+        cheap_beat = {
+            "cheap_name": cr["name"], "cheap_score": cr.get("overall_score", 0),
+            "cheap_price": cr["price"], "cheap_tier": cr["tier"],
+            "expensive_name": er["name"], "expensive_score": er.get("overall_score", 0),
+            "expensive_price": er["price"], "expensive_tier": er["tier"],
+        }
+
+    # Best value: highest-scoring race under $150 (excluding prestige>=4)
+    value_candidates = [
+        r for r in races
+        if r.get("price") and 0 < r["price"] <= 150
+        and (r.get("scores") or {}).get("prestige", 0) < 4
+        and r.get("overall_score", 0) > 0
+    ]
+    value_candidates.sort(key=lambda r: -r.get("overall_score", 0))
+    best_value = {}
+    if value_candidates:
+        bv = value_candidates[0]
+        best_value = {
+            "name": bv["name"], "price": bv["price"],
+            "score": bv.get("overall_score", 0), "tier": bv.get("tier", 4),
+        }
 
     # Youngest T1 race
     t1_with_year = [(r, r["founded"]) for r in races if r.get("tier") == 1 and r.get("founded")]
@@ -283,8 +357,12 @@ def compute_editorial_facts(races: list[dict]) -> dict:
     midwest_avg = mean([r.get("overall_score", 0) for r in midwest]) if midwest else 0
 
     # Overrated: high prestige, lower tier than expected (p >= 4, tier >= 3)
+    # Editorial exclusions: races that are genuinely rad despite the numbers
+    _overrated_exclude = {"pony-xpress"}
     overrated_candidates = []
     for r in races:
+        if r.get("slug") in _overrated_exclude:
+            continue
         p = (r.get("scores") or {}).get("prestige", 0)
         tier = r.get("tier", 4)
         score = r.get("overall_score", 0)
@@ -325,8 +403,8 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         r, p = t1_priced[0]
         cheapest_t1 = {"name": r["name"], "price": p, "score": r.get("overall_score", 0)}
 
-    # Priciest T4 race
-    t4_priced = [(r, r["price"]) for r in races if r.get("tier") == 4 and r.get("price") and r["price"] > 0]
+    # Priciest T4 race (exclude multi-day >$500)
+    t4_priced = [(r, r["price"]) for r in races if r.get("tier") == 4 and r.get("price") and 0 < r["price"] <= 500]
     t4_priced.sort(key=lambda x: -x[1])
     priciest_t4 = {}
     if t4_priced:
@@ -341,6 +419,9 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         "overrated": overrated, "underrated": underrated,
         "price_score_corr": price_score_corr,
         "cheapest_t1": cheapest_t1, "priciest_t4": priciest_t4,
+        "best_value": best_value,
+        "state_counts": dict(state_counts),
+        "state_scores": {s: mean(sc) for s, sc in state_scores.items() if sc},
     }
 
 
@@ -400,57 +481,114 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
 '''
 
     def _under_quip(r: dict) -> str:
-        """Deadpan, data-forward quip for underrated races. Brand voice: coroner delivery."""
+        """Editorial explanation for underrated races. Gravel God voice."""
         s = r.get("scores") or {}
         prestige = s.get("prestige", 0)
         score = r.get("overall_score", 0)
-        adventure = s.get("adventure", 0)
-        tech = s.get("technicality", 0)
-        elev = s.get("elevation", 0)
-        value = s.get("value", 0)
-        price = r.get("price") or 0
-        dist = round(safe_num(r.get("distance_mi")))
-        # Pick the most interesting data angle for each race
-        suffering = tech + elev + s.get("altitude", 0)
-        if suffering >= 13:
-            return (f"Technicality {tech}/5. Elevation {elev}/5. Prestige {prestige}/5. "
-                    f"The course is a sufferfest. The marketing budget is not.")
-        if adventure >= 5 and dist >= 150:
-            return (f"{dist} miles of adventure scored at {adventure}/5. "
-                    f"Prestige: {prestige}/5. Nobody told the Instagram algorithm.")
-        if price and price <= 80 and score >= 65:
-            return (f"Scores {score} overall for ${price:.0f}. "
-                    f"Some races charge three times that and deliver less.")
-        if value >= 4 and prestige <= 2:
-            return (f"Value: {value}/5. Prestige: {prestige}/5. "
-                    f"The course does the talking. Just not very loudly.")
-        return (f"Overall {score} across 14 dimensions. Prestige {prestige}/5. "
-                f"The data sees what the hype cycle missed.")
+        tier = r.get("tier", 4)
+        name = r.get("name", "This race")
+        slug = r.get("slug", "")
+
+        # Find top 2-3 dimensions (above 4/5)
+        dim_vals = [(d, s.get(d, 0)) for d in ALL_DIMS]
+        dim_vals.sort(key=lambda x: -x[1])
+        top_dims = [(d, v) for d, v in dim_vals if v >= 4][:3]
+
+        # Use slug hash to rotate templates for variety
+        variant = sum(ord(c) for c in slug) % 3
+
+        if len(top_dims) >= 2:
+            d1, v1 = top_dims[0]
+            d2, v2 = top_dims[1]
+            dl1 = DIM_LABELS[d1].lower()
+            dl2 = DIM_LABELS[d2].lower()
+            if variant == 0:
+                return (
+                    f"{name} posts a {v1}/5 in {dl1} and {v2}/5 in {dl2}. "
+                    f"That is Tier {tier} firepower with a prestige score stuck at {prestige}/5. "
+                    f"Nobody is hashtagging this race. The route does not care."
+                )
+            elif variant == 1:
+                return (
+                    f"The numbers tell a clear story: {dl1} at {v1}/5, {dl2} at {v2}/5, "
+                    f"overall score of {score}. But prestige sits at {prestige}/5, "
+                    f"which means {name} stays off the influencer radar. Their loss."
+                )
+            else:
+                return (
+                    f"Prestige {prestige}/5. Overall score {score}. "
+                    f"That gap is the whole story of {name}. The {dl1} ({v1}/5) and "
+                    f"{dl2} ({v2}/5) say this course delivers. "
+                    f"The Instagram algorithm just has not figured that out yet."
+                )
+        return (
+            f"{name} scored {score} across 14 dimensions with a prestige of just {prestige}/5. "
+            f"The data sees what the hype cycle missed. Worth a second look."
+        )
+
+    def _prestige_reason(r: dict) -> str:
+        """Brief reason for a race's prestige score."""
+        s = r.get("scores") or {}
+        field = s.get("field_depth", 0)
+        founded = r.get("founded")
+        prestige = s.get("prestige", 0)
+        if field >= 4 and founded and founded < 2015:
+            return "name recognition, a deep pro field, and years of heritage"
+        if field >= 4:
+            return "a competitive field and growing reputation"
+        if founded and founded < 2010:
+            return "brand heritage dating to " + str(founded)
+        if prestige >= 4:
+            return "strong name recognition in the gravel community"
+        return "its reputation on the circuit"
 
     def _over_quip(r: dict) -> str:
-        """Deadpan, data-forward quip for overrated races. Never punch down."""
+        """Editorial explanation for overrated races. Gravel God voice. Never punch down."""
         s = r.get("scores") or {}
         prestige = s.get("prestige", 0)
         score = r.get("overall_score", 0)
-        tech = s.get("technicality", 0)
-        adventure = s.get("adventure", 0)
-        value = s.get("value", 0)
-        dist = round(safe_num(r.get("distance_mi")))
-        price = r.get("price") or 0
-        if tech <= 2 and prestige >= 3:
-            return (f"Technicality: {tech}/5. Prestige: {prestige}/5. "
-                    f"The brand showed up. The course stayed home.")
-        if dist <= 50:
-            return (f"{dist} miles and a prestige score of {prestige}/5. "
-                    f"Short races can be great. This one scores {score}.")
-        if price and price >= 120 and value <= 3:
-            return (f"${price:.0f} entry. Value: {value}/5. Overall: {score}. "
-                    f"The gravel tax is real.")
-        if adventure <= 3 and prestige >= 3:
-            return (f"Adventure: {adventure}/5. Prestige: {prestige}/5. "
-                    f"Name recognition and the actual ride are having different conversations.")
-        return (f"Prestige {prestige}/5 writes a check the {score}-point score "
-                f"quietly declines to cash.")
+        tier = r.get("tier", 4)
+        name = r.get("name", "This race")
+        slug = r.get("slug", "")
+
+        # Find bottom 2-3 dimensions (below 3/5)
+        dim_vals = [(d, s.get(d, 0)) for d in ALL_DIMS if d != "prestige"]
+        dim_vals.sort(key=lambda x: x[1])
+        weak_dims = [(d, v) for d, v in dim_vals if v <= 3][:3]
+
+        reason = _prestige_reason(r)
+        variant = sum(ord(c) for c in slug) % 3
+
+        if len(weak_dims) >= 2:
+            d1, v1 = weak_dims[0]
+            d2, v2 = weak_dims[1]
+            dl1 = DIM_LABELS[d1].lower()
+            dl2 = DIM_LABELS[d2].lower()
+            if variant == 0:
+                return (
+                    f"Prestige {prestige}/5 tells you {name} has {reason}. "
+                    f"The course tells a different story: {dl1} at {v1}/5, {dl2} at {v2}/5. "
+                    f"Overall score of {score} lands it in Tier {tier}. "
+                    f"Reputation opens the door. The data decides who stays."
+                )
+            elif variant == 1:
+                return (
+                    f"{name} has the name recognition ({prestige}/5 prestige) but the "
+                    f"{dl1} ({v1}/5) and {dl2} ({v2}/5) drag the overall to {score}. "
+                    f"Good race. Just not as good as the registration price implies."
+                )
+            else:
+                return (
+                    f"A {prestige}/5 prestige score buys a lot of goodwill. "
+                    f"But {name} posts a {v1}/5 in {dl1} and {v2}/5 in {dl2}, "
+                    f"landing at {score} overall. Tier {tier}. "
+                    f"The brand is stronger than the course &#8212; for now."
+                )
+        return (
+            f"Prestige {prestige}/5. Overall {score}. "
+            f"Built on {reason}, but the 14 dimensions tell a more nuanced story. "
+            f"Tier {tier} when the hype fades."
+        )
 
     under_cards = ""
     for r in underrated:
@@ -501,7 +639,6 @@ def build_hero(stats: dict) -> str:
   <div class="gg-insights-hero-inner">
     <h1 class="gg-insights-hero-title">The State of Gravel</h1>
     <p class="gg-insights-hero-subtitle">{stats["total_races"]} gravel races. 14 scoring dimensions. {stats["states_with_races"]} states. Scroll to explore.</p>
-    <p class="gg-insights-narrative">{stats["total_races"]} races, {stats["total_distance"]:,} miles, {stats['everest_multiple']}x Everests of climbing. Every race rated on 14 dimensions from logistics to prestige. Here is what the data reveals.</p>
     <div class="gg-insights-counters">
 {counter_html}    </div>
   </div>
@@ -571,51 +708,104 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
 
     tier_section = f'''<section id="tier-breakdown" class="gg-insights-section">
   <h2 class="gg-insights-section-title">The Gravel 1%</h2>
-  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across 14 dimensions is hard. That is the point.</p>
+  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across {len(ALL_DIMS)} dimensions is hard. That is the point.</p>
   <div class="gg-ins-data-chart" data-animate="bars">
 {tier_bars}  </div>
 </section>'''
 
-    # ── Regional Breakdown ──
-    region_counts: dict[str, int] = defaultdict(int)
-    region_scores: dict[str, list[float]] = defaultdict(list)
-    for r in races:
-        reg = r.get("region", "Other")
-        if reg:
-            region_counts[reg] += 1
-            region_scores[reg].append(r.get("overall_score", 0))
-    # Sort by count descending
-    sorted_regions = sorted(region_counts.items(), key=lambda x: -x[1])
-    max_region_count = sorted_regions[0][1] if sorted_regions else 1
-    region_bars = ""
-    for reg, count in sorted_regions:
-        avg = round(mean(region_scores[reg])) if region_scores[reg] else 0
-        pct = round(count / max_region_count * 100)
-        region_bars += f'''        <div class="gg-ins-data-row">
-          <span class="gg-ins-data-label">{esc(reg)}</span>
-          <div class="gg-ins-data-bar">
-            <div class="gg-ins-data-bar-fill gg-ins-data-bar-fill--teal" style="width:{pct}%"></div>
-          </div>
-          <span class="gg-ins-data-count">{count}</span>
-          <span class="gg-ins-data-desc">Avg: {avg}</span>
-        </div>\n'''
+    # ── Geography: US Tile Grid Cartogram ──
+    state_counts = editorial_facts.get("state_counts", {})
+    state_avgs = editorial_facts.get("state_scores", {})
+    max_state_count = max(state_counts.values()) if state_counts else 1
 
+    # Density thresholds for color-mix levels
+    def _density(count: int) -> str:
+        if count == 0:
+            return "none"
+        pct = count / max_state_count
+        if pct >= 0.6:
+            return "high"
+        if pct >= 0.3:
+            return "med"
+        return "low"
+
+    # Find grid bounds (US_TILE_GRID uses (col, row))
+    max_col = max(c for c, _ in US_TILE_GRID.values()) + 1
+    max_row = max(r for _, r in US_TILE_GRID.values()) + 1
+
+    # Build tile HTML
+    tile_html = ""
+    non_us_count = sum(1 for r in races if not r.get("state"))
+    for st, (col, row) in sorted(US_TILE_GRID.items()):
+        count = state_counts.get(st, 0)
+        avg = round(state_avgs.get(st, 0))
+        density = _density(count)
+        tip = f"{st}: {count} race{'s' if count != 1 else ''}, avg {avg}" if count else f"{st}: 0 races"
+        tile_html += (
+            f'    <div class="gg-ins-map-tile" data-state="{st}" data-count="{count}" '
+            f'data-density="{density}" tabindex="0" data-tooltip="{esc(tip)}" '
+            f'style="grid-column:{col + 1};grid-row:{row + 1};">'
+            f'<span class="gg-ins-map-abbr">{st}</span>'
+            f'<span class="gg-ins-map-count">{count}</span>'
+            f'</div>\n'
+        )
+
+    top_st = editorial_facts.get("top_state", "CO")
+    top_st_count = editorial_facts.get("top_state_count", 0)
     qs = editorial_facts.get("quality_state", "CO")
     qs_avg = editorial_facts.get("quality_state_avg", 0)
     qs_count = editorial_facts.get("quality_state_count", 0)
+
+    non_us_line = ""
+    if non_us_count:
+        non_us_line = f'\n  <p class="gg-ins-map-non-us">{non_us_count} race{"s" if non_us_count != 1 else ""} outside the US not shown.</p>'
+
+    # Build hidden race list panels per state (click tile to expand)
+    state_races: dict[str, list[dict]] = defaultdict(list)
+    for r in races:
+        st = r.get("state")
+        if st:
+            state_races[st].append(r)
+
+    state_panel_html = ""
+    for st in sorted(US_TILE_GRID.keys()):
+        sr = sorted(state_races.get(st, []), key=lambda r: (r.get("tier", 4), r.get("name", "")))
+        race_items = ""
+        for mr in sr:
+            slug = mr.get("slug", "")
+            tier_badge = f'<span class="gg-ins-cal-tier" data-tier="{mr.get("tier", 4)}">T{mr.get("tier", 4)}</span>'
+            link = f'<a href="{SITE_BASE_URL}/race/{esc(slug)}/">{esc(mr.get("name", ""))}</a>' if slug else esc(mr.get("name", ""))
+            race_items += f'      <div class="gg-ins-cal-race">{link}{tier_badge}</div>\n'
+        if not sr:
+            race_items = '      <div class="gg-ins-cal-race gg-ins-cal-race--empty">No races in database</div>\n'
+        state_panel_html += (
+            f'    <div class="gg-ins-map-panel gg-ins-panel-hidden" data-state="{st}" aria-hidden="true">\n'
+            f'      <div class="gg-ins-map-panel-title">{st} &mdash; {len(sr)} race{"s" if len(sr) != 1 else ""}</div>\n'
+            f'{race_items}'
+            f'    </div>\n'
+        )
+
+    geo_narrative = "Click a state to see its races."
+    if top_st:
+        geo_narrative = f"{esc(top_st)} leads with {top_st_count} races. {esc(qs)} averages {qs_avg:.0f} across {qs_count} &#8212; the highest quality-per-race in the database. Click a state to see its races."
+
     region_section = f'''<section id="geography" class="gg-insights-section gg-insights-section--alt">
   <h2 class="gg-insights-section-title">Geography Is Destiny</h2>
-  <p class="gg-insights-narrative">{esc(qs)} averages {qs_avg:.0f} across {qs_count} races. Some states stack the deck. Others just stack the start line.</p>
-  <div class="gg-ins-data-chart" data-animate="bars">
-{region_bars}  </div>
+  <p class="gg-insights-narrative">{geo_narrative}</p>
+  <div class="gg-ins-map-grid" style="grid-template-columns:repeat({max_col},1fr);grid-template-rows:repeat({max_row},1fr);">
+{tile_html}  </div>
+  <div class="gg-ins-map-detail" id="map-detail" aria-live="polite">
+{state_panel_html}  </div>{non_us_line}
 </section>'''
 
     # ── Calendar ──
     month_counts = {m: 0 for m in MONTHS}
+    month_races: dict[str, list[dict]] = {m: [] for m in MONTHS}
     for r in races:
         m = r.get("month", "")
         if m in month_counts:
             month_counts[m] += 1
+            month_races[m].append(r)
     peak_month = max(month_counts, key=lambda m: month_counts[m])
     dead_month = min(month_counts, key=lambda m: month_counts[m])
     max_month_count = max(month_counts.values()) or 1
@@ -625,19 +815,43 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
         count = month_counts[m]
         pct = round(count / max_month_count * 100)
         is_peak = ' gg-ins-cal-peak' if m == peak_month else ''
-        month_bars += f'''        <div class="gg-ins-cal-col{is_peak}">
-          <div class="gg-ins-cal-bar-wrap">
-            <div class="gg-ins-cal-bar" style="height:{pct}%"></div>
-          </div>
-          <span class="gg-ins-cal-count">{count}</span>
-          <span class="gg-ins-cal-label">{month_abbr[m]}</span>
-        </div>\n'''
+        month_bars += (
+            f'        <div class="gg-ins-cal-col{is_peak}" data-month="{esc(m)}" '
+            f'role="button" tabindex="0" aria-expanded="false">\n'
+            f'          <div class="gg-ins-cal-bar-wrap">\n'
+            f'            <div class="gg-ins-cal-bar" style="height:{pct}%"></div>\n'
+            f'          </div>\n'
+            f'          <span class="gg-ins-cal-count">{count}</span>\n'
+            f'          <span class="gg-ins-cal-label">{month_abbr[m]}</span>\n'
+            f'        </div>\n'
+        )
+
+    # Build hidden race list panels per month
+    panel_html = ""
+    for m in MONTHS:
+        race_items = ""
+        # Sort by tier then name
+        sorted_month = sorted(month_races[m], key=lambda r: (r.get("tier", 4), r.get("name", "")))
+        for mr in sorted_month:
+            slug = mr.get("slug", "")
+            tier_badge = f'<span class="gg-ins-cal-tier" data-tier="{mr.get("tier", 4)}">T{mr.get("tier", 4)}</span>'
+            link = f'<a href="{SITE_BASE_URL}/race/{esc(slug)}/">{esc(mr.get("name", ""))}</a>' if slug else esc(mr.get("name", ""))
+            race_items += f'      <div class="gg-ins-cal-race">{link}{tier_badge}</div>\n'
+        count = len(sorted_month)
+        panel_html += (
+            f'    <div class="gg-ins-cal-panel gg-ins-panel-hidden" data-month="{esc(m)}" aria-hidden="true">\n'
+            f'      <div class="gg-ins-map-panel-title">{esc(m)} &mdash; {count} race{"s" if count != 1 else ""}</div>\n'
+            f'{race_items}'
+            f'    </div>\n'
+        )
 
     calendar_section = f'''<section id="calendar" class="gg-insights-section">
   <h2 class="gg-insights-section-title">The Calendar Crunch</h2>
-  <p class="gg-insights-narrative">{esc(peak_month)}: {month_counts[peak_month]} races. {esc(dead_month)}: {month_counts[dead_month]}. Scheduling conflicts are a feature, not a bug.</p>
+  <p class="gg-insights-narrative">{esc(peak_month)}: {month_counts[peak_month]} races. {esc(dead_month)}: {month_counts[dead_month]}. Click a month to see which races run.</p>
   <div class="gg-ins-cal-chart" data-animate="bars">
 {month_bars}  </div>
+  <div class="gg-ins-cal-detail" id="cal-detail" aria-live="polite">
+{panel_html}  </div>
 </section>'''
 
     # ── Price Myth ──
@@ -645,13 +859,15 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
     cb = editorial_facts.get("cheap_beat", {})
     cheapest_t1 = editorial_facts.get("cheapest_t1", {})
     priciest_t4 = editorial_facts.get("priciest_t4", {})
+    best_value = editorial_facts.get("best_value", {})
 
     price_detail = ""
     if cb:
         price_detail = (
-            f' {esc(cb.get("cheap_name", ""))} costs '
-            f'${int(cb.get("cheap_price", 0))} and outscores '
-            f'{esc(cb.get("expensive_name", ""))}.'
+            f' {esc(cb.get("cheap_name", ""))} scores {cb.get("cheap_score", 0)} '
+            f'for ${int(cb.get("cheap_price", 0))}. '
+            f'{esc(cb.get("expensive_name", ""))} charges '
+            f'${int(cb.get("expensive_price", 0))} and lands a tier lower.'
         )
 
     callout_items = ""
@@ -670,17 +886,10 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
           <span class="gg-ins-price-stat-label">Priciest Tier 4 ({esc(priciest_t4["name"])})</span>
         </div>\n'''
 
-    # Value outliers
-    value_outliers = [
-        r for r in races
-        if r.get("overall_score", 0) >= 60
-        and r.get("price") is not None
-        and 0 < r["price"] <= 100
-    ]
-    value_count = len(value_outliers)
-    callout_items += f'''        <div class="gg-ins-price-stat">
-          <span class="gg-ins-price-stat-value">{value_count}</span>
-          <span class="gg-ins-price-stat-label">Tier 2+ Races Under $100</span>
+    if best_value:
+        callout_items += f'''        <div class="gg-ins-price-stat">
+          <span class="gg-ins-price-stat-value">${int(best_value["price"])}</span>
+          <span class="gg-ins-price-stat-label">Best Value ({esc(best_value["name"])} &mdash; Tier {best_value["tier"]})</span>
         </div>\n'''
 
     price_section = f'''<section id="price-myth" class="gg-insights-section gg-insights-section--alt">
@@ -736,7 +945,7 @@ def build_ranking_builder(races: list[dict]) -> str:
         </label>
         <div class="gg-ins-rank-slider-row">
           <input type="range" id="gg-ins-rank-{gid}" class="gg-ins-rank-slider"
-                 min="0" max="10" value="5" data-group="{esc(gid)}">
+                 min="1" max="10" value="5" data-group="{esc(gid)}">
           <span class="gg-ins-rank-value" id="gg-ins-rank-{gid}-val">5</span>
         </div>
       </div>
@@ -750,115 +959,25 @@ def build_ranking_builder(races: list[dict]) -> str:
             f'data-rank="{i}"></div>\n'
         )
 
+    presets_html = '''      <div class="gg-ins-rank-presets">
+        <button class="gg-ins-rank-preset" data-preset="weekend-warrior">Weekend Warrior</button>
+        <button class="gg-ins-rank-preset" data-preset="suffer-enthusiast">Suffer Enthusiast</button>
+        <button class="gg-ins-rank-preset" data-preset="budget-racer">Budget Racer</button>
+      </div>
+'''
+
     return f'''<section id="ranking-builder" class="gg-ins-rank">
   <figure class="gg-ins-figure">
-    <div class="gg-ins-figure-title">Your Gravel, Your Rules</div>
-    <div class="gg-ins-figure-takeaway">Move the sliders. The ranking updates instantly.</div>
+    <div class="gg-ins-figure-title">Find Your Perfect Race</div>
+    <div class="gg-ins-figure-takeaway">Every rider values different things. Set your priorities and see which races match.</div>
     <div class="gg-ins-rank-inner">
       <div class="gg-ins-rank-sliders">
-{sliders_html}        <button id="gg-ins-rank-reset" class="gg-ins-rank-reset-btn">Reset to Gravel God Defaults</button>
+{presets_html}{sliders_html}        <button id="gg-ins-rank-reset" class="gg-ins-rank-reset-btn">Reset to Equal Weights</button>
       </div>
       <div id="gg-ins-rank-leaderboard" class="gg-ins-rank-leaderboard" aria-live="polite">
 {entries_html}      </div>
     </div>
   </figure>
-</section>'''
-
-
-def build_heritage(races: list[dict], editorial_facts: dict = None) -> str:
-    """Section 7: Timeline scatter of founding year vs overall score."""
-    with_year = [(r, r["founded"]) for r in races if r.get("founded") and isinstance(r.get("founded"), int)]
-
-    if not with_year:
-        return ""
-
-    years = [y for _, y in with_year]
-    min_year = min(years)
-    max_year = max(years)
-
-    # Pre-2015 vs post-2018 averages
-    pre_2015 = [r.get("overall_score", 0) for r, y in with_year if y < 2015]
-    post_2018 = [r.get("overall_score", 0) for r, y in with_year if y >= 2018]
-    pre_avg = mean(pre_2015) if pre_2015 else 0
-    post_avg = mean(post_2018) if post_2018 else 0
-
-    # SVG scatter
-    chart_width = 600
-    chart_height = 300
-    margin = {"left": 45, "right": 20, "top": 20, "bottom": 35}
-    plot_w = chart_width - margin["left"] - margin["right"]
-    plot_h = chart_height - margin["top"] - margin["bottom"]
-
-    yr_range = max(max_year - min_year, 1)
-
-    def x_pos(year: int) -> float:
-        return margin["left"] + ((year - min_year) / yr_range) * plot_w
-
-    def y_pos(score: float) -> float:
-        return margin["top"] + plot_h - (score / 100) * plot_h
-
-    # Axis
-    x_axis = f'    <line x1="{margin["left"]}" y1="{chart_height - margin["bottom"]}" x2="{chart_width - margin["right"]}" y2="{chart_height - margin["bottom"]}" style="stroke:var(--gg-color-tan);stroke-width:1;"/>\n'
-    y_axis = f'    <line x1="{margin["left"]}" y1="{margin["top"]}" x2="{margin["left"]}" y2="{chart_height - margin["bottom"]}" style="stroke:var(--gg-color-tan);stroke-width:1;"/>\n'
-
-    # Y ticks
-    y_ticks = ""
-    for score in range(0, 101, 20):
-        yy = y_pos(score)
-        y_ticks += f'    <text x="{margin["left"] - 6}" y="{yy + 3:.0f}" text-anchor="end" style="font-family:var(--gg-font-data);font-size:9px;fill:var(--gg-color-secondary-brown);">{score}</text>\n'
-        y_ticks += f'    <line x1="{margin["left"]}" y1="{yy:.0f}" x2="{chart_width - margin["right"]}" y2="{yy:.0f}" style="stroke:var(--gg-color-sand);stroke-width:0.5;"/>\n'
-
-    # X ticks
-    x_ticks = ""
-    step = 5 if yr_range > 20 else 2 if yr_range > 10 else 1
-    yr = min_year - (min_year % step) + step
-    while yr <= max_year:
-        xx = x_pos(yr)
-        x_ticks += f'    <text x="{xx:.0f}" y="{chart_height - margin["bottom"] + 14}" text-anchor="middle" style="font-family:var(--gg-font-data);font-size:9px;fill:var(--gg-color-secondary-brown);">{yr}</text>\n'
-        yr += step
-
-    # Dots
-    dots = ""
-    for r, yr in with_year:
-        score = r.get("overall_score", 0)
-        tier = r.get("tier", 3)
-        px = x_pos(yr)
-        py = y_pos(score)
-        tip = f"{r['name']}: est. {yr}, score {score}"
-        dots += f'    <rect x="{px - 3:.0f}" y="{py - 3:.0f}" width="6" height="6" style="fill:var(--gg-color-tier-{tier});" class="gg-insights-heritage-dot" data-name="{esc(r["name"])}" data-year="{yr}" data-tooltip="{esc(tip)}" tabindex="0"/>\n'
-
-    # Average lines
-    avg_lines = ""
-    if pre_2015:
-        py_pre = y_pos(pre_avg)
-        avg_lines += f'    <line x1="{x_pos(min_year):.0f}" y1="{py_pre:.0f}" x2="{x_pos(2014):.0f}" y2="{py_pre:.0f}" style="stroke:var(--gg-color-teal);stroke-width:2;stroke-dasharray:6 3;"/>\n'
-        avg_lines += f'    <text x="{x_pos(2014) + 4:.0f}" y="{py_pre - 4:.0f}" style="font-family:var(--gg-font-data);font-size:9px;fill:var(--gg-color-teal);">pre-2015 avg: {pre_avg:.1f}</text>\n'
-    if post_2018:
-        py_post = y_pos(post_avg)
-        avg_lines += f'    <line x1="{x_pos(2018):.0f}" y1="{py_post:.0f}" x2="{x_pos(max_year):.0f}" y2="{py_post:.0f}" style="stroke:var(--gg-color-gold);stroke-width:2;stroke-dasharray:6 3;"/>\n'
-        avg_lines += f'    <text x="{x_pos(max_year) + 4:.0f}" y="{py_post - 4:.0f}" style="font-family:var(--gg-font-data);font-size:9px;fill:var(--gg-color-gold);">post-2018 avg: {post_avg:.1f}</text>\n'
-
-    ef = editorial_facts or {}
-    yt1 = ef.get("youngest_t1", {})
-    yt1_name = yt1.get("name", "")
-    yt1_year = yt1.get("founded", 0)
-
-    chart_svg = f'''  <div class="gg-insights-chart-wrap">
-    <svg class="gg-insights-heritage-svg" viewBox="0 0 {chart_width} {chart_height}" role="img" aria-label="Timeline scatter plot showing founding year versus overall score for {len(with_year)} gravel races">
-{x_axis}{y_axis}{y_ticks}{x_ticks}{dots}{avg_lines}
-    </svg>
-  </div>'''
-    takeaway_text = "Heritage earns a premium, but it is not destiny"
-    if yt1_name:
-        takeaway_text = f"{esc(yt1_name)} (est. {yt1_year}) proves you do not need decades to reach the top"
-    chart_figure = build_figure_wrap(chart_svg, "Founding Year vs. Score: Does Age Matter?", takeaway_text, "heritage-chart")
-
-    return f'''<section class="gg-insights-section" id="heritage">
-  <h2 class="gg-insights-section-title">The Heritage Premium</h2>
-  <p class="gg-insights-narrative">Races founded before 2015 average {pre_avg:.1f}. Post-2018 races average {post_avg:.1f}. Heritage earns a premium &#8212; but {esc(yt1_name) if yt1_name else "several newer races"} proved you do not need decades to crack the top tier. A head start helps, but a great course, strong community, and smart logistics close the gap fast.</p>
-  <p class="gg-insights-section-intro">Pre-2015 avg: {pre_avg:.1f}. Post-2018 avg: {post_avg:.1f}. Heritage matters, but execution matters more.</p>
-  {chart_figure}
-  <p class="gg-insights-narrative">The old guard earned its reputation, but the new guard is closing fast. Several post-2018 races have cracked Tier 1 through sheer quality of execution. In gravel, pedigree opens the door &#8212; but the course still has to deliver.</p>
 </section>'''
 
 
@@ -887,12 +1006,30 @@ def build_cta_block(
 </div>'''
 
 
-def build_closing(race_count: int) -> str:
-    """Closing section — single CTA to explore races."""
-    return f'''<section class="gg-insights-section" id="what-now">
+def build_closing(race_count: int, stats: dict = None) -> str:
+    """Closing section — summary strip + single CTA to explore races."""
+    stats = stats or {}
+    state_count = stats.get("states_with_races", 0)
+    median_price = stats.get("median_price", 0)
+
+    stat_strip = ""
+    if state_count or median_price:
+        items = []
+        items.append(f'<span class="gg-ins-closing-stat-item">{race_count} races</span>')
+        if state_count:
+            items.append(f'<span class="gg-ins-closing-stat-item">{state_count} states</span>')
+        items.append(f'<span class="gg-ins-closing-stat-item">{len(ALL_DIMS)} dimensions</span>')
+        if median_price:
+            items.append(f'<span class="gg-ins-closing-stat-item">${median_price} median entry</span>')
+        stat_strip = f'''  <div class="gg-ins-closing-stats">
+    {" ".join(items)}
+  </div>
+'''
+
+    return f'''<section class="gg-insights-section gg-ins-closing" id="what-now">
   <h2 class="gg-insights-section-title">Now Go Race</h2>
-  <p class="gg-insights-narrative">{race_count} races. 14 dimensions. The data is here. Use it.</p>
-  <div class="gg-insights-closing-single">
+  <p class="gg-insights-narrative">{race_count} races. {len(ALL_DIMS)} dimensions. The data is here. Use it.</p>
+{stat_strip}  <div class="gg-insights-closing-single">
     <a href="{SITE_BASE_URL}/races/" class="gg-insights-cta-btn-gold gg-insights-cta-btn-lg" data-cta="closing-explore">Explore All {race_count} Races</a>
   </div>
 </section>'''
@@ -1014,7 +1151,10 @@ def build_insights_css() -> str:
   line-height: 1.7;
   color: var(--gg-color-primary-brown);
   max-width: 680px;
-  margin: 0 0 var(--gg-spacing-lg) 0;
+  margin: 0 auto var(--gg-spacing-lg) auto;
+}}
+.gg-insights-hero .gg-insights-narrative {{
+  text-align: center;
 }}
 
 /* ── Figure Wrapper (legacy gg-insights- for heritage) ── */
@@ -1198,14 +1338,45 @@ def build_insights_css() -> str:
 }}
 
 /* ── Closing / What Now ── */
+.gg-ins-closing {{
+  padding-top: var(--gg-spacing-2xl);
+  padding-bottom: var(--gg-spacing-2xl);
+  text-align: center;
+}}
+.gg-ins-closing .gg-insights-section-title {{
+  text-align: center;
+}}
+.gg-ins-closing .gg-insights-narrative {{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}}
+.gg-ins-closing-stats {{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gg-spacing-md);
+  margin-bottom: var(--gg-spacing-xl);
+  padding: var(--gg-spacing-md) 0;
+  border-top: 2px solid var(--gg-color-dark-brown);
+  border-bottom: 2px solid var(--gg-color-dark-brown);
+}}
+.gg-ins-closing-stat-item {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wide);
+}}
 .gg-insights-closing-single {{
   text-align: center;
   margin-top: var(--gg-spacing-xl);
 }}
 .gg-insights-cta-btn-lg {{
   display: inline-block;
-  padding: var(--gg-spacing-md) var(--gg-spacing-2xl);
-  font-size: var(--gg-font-size-md);
+  padding: var(--gg-spacing-lg) var(--gg-spacing-2xl);
+  font-size: clamp(16px, 2.5vw, 20px);
   letter-spacing: 3px;
 }}
 
@@ -1273,6 +1444,104 @@ def build_insights_css() -> str:
   border-bottom: 1px solid color-mix(in srgb, var(--gg-color-dark-brown) 10%, transparent);
 }}
 
+/* ── US Tile Grid Map ── */
+.gg-ins-map-grid {{
+  display: grid;
+  gap: 3px;
+  max-width: 680px;
+}}
+.gg-ins-map-tile {{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 2px;
+  border: 2px solid var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
+  cursor: default;
+  min-height: 40px;
+}}
+.gg-ins-map-tile[data-density="low"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 15%, var(--gg-color-warm-paper));
+}}
+.gg-ins-map-tile[data-density="med"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 35%, var(--gg-color-warm-paper));
+}}
+.gg-ins-map-tile[data-density="high"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 60%, var(--gg-color-warm-paper));
+}}
+.gg-ins-map-tile[data-density="none"] {{
+  background: color-mix(in srgb, var(--gg-color-dark-brown) 5%, var(--gg-color-warm-paper));
+  border-color: color-mix(in srgb, var(--gg-color-dark-brown) 30%, transparent);
+}}
+.gg-ins-map-tile:hover {{
+  border-color: var(--gg-color-gold);
+}}
+.gg-ins-map-tile:focus-visible {{
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: 1px;
+}}
+.gg-ins-map-abbr {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  letter-spacing: 0.5px;
+}}
+.gg-ins-map-count {{
+  font-family: var(--gg-font-data);
+  font-size: 9px;
+  color: var(--gg-color-secondary-brown);
+}}
+.gg-ins-map-non-us {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-secondary-brown);
+  font-style: italic;
+  margin-top: var(--gg-spacing-sm);
+}}
+.gg-ins-map-tile[aria-expanded="true"] {{
+  border-color: var(--gg-color-gold);
+  border-width: 3px;
+}}
+.gg-ins-map-detail {{
+  margin-top: var(--gg-spacing-md);
+}}
+.gg-ins-map-panel {{
+  border: 2px solid var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gg-spacing-xs);
+  align-items: baseline;
+}}
+.gg-ins-panel-hidden {{
+  display: none;
+}}
+.gg-ins-map-panel-title {{
+  width: 100%;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wide);
+  margin-bottom: var(--gg-spacing-xs);
+  border-bottom: 2px solid var(--gg-color-gold);
+  padding-bottom: var(--gg-spacing-xs);
+}}
+.gg-ins-map-panel .gg-ins-cal-race a {{
+  color: var(--gg-color-dark-brown);
+  text-decoration: underline;
+}}
+.gg-ins-map-panel .gg-ins-cal-race a:hover {{
+  color: var(--gg-color-teal);
+}}
+.gg-ins-cal-race--empty {{
+  color: var(--gg-color-secondary-brown);
+  font-style: italic;
+}}
+
 /* ── Calendar (vertical bars) ── */
 .gg-ins-cal-chart {{
   display: flex;
@@ -1308,16 +1577,72 @@ def build_insights_css() -> str:
 }}
 .gg-ins-cal-count {{
   font-family: var(--gg-font-data);
-  font-size: 10px;
+  font-size: var(--gg-font-size-2xs);
   font-weight: var(--gg-font-weight-bold);
   color: var(--gg-color-dark-brown);
 }}
 .gg-ins-cal-label {{
   font-family: var(--gg-font-data);
-  font-size: 10px;
+  font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}}
+.gg-ins-cal-col[role="button"] {{
+  cursor: pointer;
+}}
+.gg-ins-cal-col[role="button"]:hover .gg-ins-cal-bar {{
+  border-color: var(--gg-color-gold);
+}}
+.gg-ins-cal-col[aria-expanded="true"] .gg-ins-cal-bar {{
+  border-color: var(--gg-color-gold);
+  border-width: 2px;
+}}
+.gg-ins-cal-col:focus-visible {{
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: 2px;
+}}
+.gg-ins-cal-detail {{
+  max-width: 680px;
+  margin-top: var(--gg-spacing-md);
+}}
+.gg-ins-cal-panel {{
+  padding: var(--gg-spacing-md);
+  background: var(--gg-color-warm-paper);
+  border: 2px solid var(--gg-color-dark-brown);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gg-spacing-xs);
+}}
+.gg-ins-cal-race {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-dark-brown);
+  display: flex;
+  align-items: center;
+  gap: var(--gg-spacing-xs);
+  padding: 2px var(--gg-spacing-xs);
+  border: 1px solid color-mix(in srgb, var(--gg-color-dark-brown) 20%, transparent);
+}}
+.gg-ins-cal-tier {{
+  font-family: var(--gg-font-data);
+  font-size: 9px;
+  font-weight: var(--gg-font-weight-bold);
+  padding: 1px 4px;
+  border: 1px solid var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+}}
+.gg-ins-cal-tier[data-tier="1"] {{ background: var(--gg-color-tier-1); }}
+.gg-ins-cal-tier[data-tier="2"] {{ background: var(--gg-color-tier-2); }}
+.gg-ins-cal-tier[data-tier="3"] {{ background: var(--gg-color-tier-3); }}
+.gg-ins-cal-tier[data-tier="4"] {{ background: var(--gg-color-tier-4); }}
+.gg-ins-cal-race a {{
+  color: var(--gg-color-dark-brown);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--gg-color-dark-brown) 30%, transparent);
+}}
+.gg-ins-cal-race a:hover {{
+  color: var(--gg-color-teal);
 }}
 
 /* ── Price stat grid ── */
@@ -1447,6 +1772,45 @@ def build_insights_css() -> str:
   color: var(--gg-color-secondary-brown);
   text-align: center;
 }}
+.gg-ins-dim-row[role="button"] {{
+  cursor: pointer;
+  transition: border-color var(--gg-transition-hover);
+}}
+.gg-ins-dim-row[role="button"]:hover {{
+  border-color: var(--gg-color-teal);
+}}
+.gg-ins-dim-row[aria-expanded="true"] {{
+  border-bottom: 2px solid var(--gg-color-gold);
+}}
+.gg-ins-dim-row:focus-visible {{
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: 1px;
+}}
+.gg-ins-dim-detail {{
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  background: var(--gg-color-warm-paper);
+  border: 2px solid var(--gg-color-dark-brown);
+  border-top: none;
+  margin-bottom: var(--gg-spacing-xs);
+}}
+.gg-ins-dim-show-more {{
+  display: block;
+  width: 100%;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  margin-top: var(--gg-spacing-sm);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wide);
+  color: var(--gg-color-warm-paper);
+  background: var(--gg-color-dark-brown);
+  border: 2px solid var(--gg-color-dark-brown);
+  cursor: pointer;
+}}
+.gg-ins-dim-show-more:hover {{
+  background-color: var(--gg-color-teal);
+  border-color: var(--gg-color-teal);
+}}
 
 /* ── Expandable O/U Cards ── */
 .gg-ins-ou-expand-hint {{
@@ -1480,7 +1844,7 @@ def build_insights_css() -> str:
 }}
 .gg-ins-ou-dim-label {{
   font-family: var(--gg-font-data);
-  font-size: 10px;
+  font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1502,7 +1866,7 @@ def build_insights_css() -> str:
 .gg-ins-ou-dim-fill[data-tier="4"] {{ background: var(--gg-color-tier-4); }}
 .gg-ins-ou-dim-val {{
   font-family: var(--gg-font-data);
-  font-size: 10px;
+  font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-dark-brown);
   text-align: right;
 }}
@@ -1541,6 +1905,32 @@ def build_insights_css() -> str:
   display: flex;
   flex-direction: column;
   gap: var(--gg-spacing-md);
+}}
+.gg-ins-rank-presets {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gg-spacing-xs);
+  margin-bottom: var(--gg-spacing-md);
+}}
+.gg-ins-rank-preset {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  padding: var(--gg-spacing-xs) var(--gg-spacing-sm);
+  border: 2px solid var(--gg-color-teal);
+  background: transparent;
+  color: var(--gg-color-teal);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wide);
+  transition: background-color var(--gg-transition-hover), color var(--gg-transition-hover);
+}}
+.gg-ins-rank-preset:hover {{
+  background-color: var(--gg-color-teal);
+  color: var(--gg-color-warm-paper);
+}}
+.gg-ins-rank-preset:focus-visible {{
+  outline: 3px solid var(--gg-color-gold);
+  outline-offset: 2px;
 }}
 .gg-ins-rank-slider-group {{
   display: flex;
@@ -1781,6 +2171,10 @@ def build_insights_css() -> str:
   .gg-ins-price-grid {{ grid-template-columns: 1fr; }}
   .gg-ins-data-row {{ grid-template-columns: 56px 1fr 36px; }}
   .gg-ins-cal-chart {{ height: 150px; }}
+  .gg-ins-map-grid {{ gap: 2px; }}
+  .gg-ins-map-tile {{ min-height: 32px; padding: 2px 1px; }}
+  .gg-ins-map-abbr {{ font-size: 8px; }}
+  .gg-ins-map-count {{ font-size: 7px; }}
 }}
 
 /* ── Responsive: 480px ── */
@@ -1800,32 +2194,30 @@ def build_insights_css() -> str:
 
 def build_insights_js() -> str:
     """Return all JS for the insights page — interactives + analytics."""
-    return '''<script>
-(function(){
-  'use strict';
-
-  /* ── .gg-has-js guard ── */
-  document.documentElement.classList.add('gg-has-js');
-
-  /* ── Reduced motion ── */
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ── Parse race data ── */
-  var dataEl = document.getElementById('gg-race-data');
-  var RACES = dataEl ? JSON.parse(dataEl.textContent) : [];
-
-  var DIMS = ['logistics','length','technicality','elevation','climate','altitude',
-    'adventure','prestige','race_quality','experience','community','field_depth','value','expenses'];
-
-  var DIM_LABELS = {
-    logistics:'Logistics', length:'Length', technicality:'Technicality',
-    elevation:'Elevation', climate:'Climate', altitude:'Altitude',
-    adventure:'Adventure', prestige:'Prestige', race_quality:'Race Quality',
-    experience:'Experience', community:'Community', field_depth:'Field Depth',
-    value:'Value', expenses:'Expenses',
-    price:'Price ($)', distance_mi:'Distance (mi)', elevation_ft:'Elevation (ft)',
-    overall_score:'Overall Score'
-  };
+    # Python → JS data injection (single source of truth)
+    dims_js = json.dumps(ALL_DIMS)
+    extended_labels = {**DIM_LABELS, "price": "Price ($)", "distance_mi": "Distance (mi)",
+                       "elevation_ft": "Elevation (ft)", "overall_score": "Overall Score"}
+    dim_labels_js = json.dumps(extended_labels)
+    presets_js = json.dumps(RANKING_PRESETS)
+    site_url_js = json.dumps(SITE_BASE_URL)
+    # Build JS header with Python-injected variables, then append static JS body
+    js_header = (
+        '<script>\n(function(){\n  \'use strict\';\n\n'
+        '  /* ── .gg-has-js guard ── */\n'
+        '  document.documentElement.classList.add(\'gg-has-js\');\n\n'
+        '  /* ── Reduced motion ── */\n'
+        '  var reducedMotion = window.matchMedia(\'(prefers-reduced-motion: reduce)\').matches;\n\n'
+        '  /* ── Parse race data ── */\n'
+        '  var dataEl = document.getElementById(\'gg-race-data\');\n'
+        '  var RACES;\n'
+        '  try { RACES = dataEl ? JSON.parse(dataEl.textContent) : []; } catch(e) { RACES = []; }\n\n'
+        f'  var DIMS = {dims_js};\n'
+        f'  var DIM_LABELS = {dim_labels_js};\n'
+        f'  var SITE_URL = {site_url_js};\n'
+        f'  var PRESETS = {presets_js};\n'
+    )
+    return js_header + '''
 
   /* ══════════════════════════════════════════════════════════════
      DATA STORY — Scroll-triggered bar animations
@@ -1871,12 +2263,106 @@ def build_insights_js() -> str:
   }
 
   /* ══════════════════════════════════════════════════════════════
+     GEOGRAPHY — Clickable state tiles
+     ══════════════════════════════════════════════════════════════ */
+
+  var mapTiles = document.querySelectorAll('.gg-ins-map-tile[tabindex]');
+  var mapDetail = document.getElementById('map-detail');
+  function toggleMapState(state) {
+    var panels = mapDetail ? mapDetail.querySelectorAll('.gg-ins-map-panel') : [];
+    mapTiles.forEach(function(tile) {
+      var s = tile.getAttribute('data-state');
+      var wasExpanded = tile.getAttribute('aria-expanded') === 'true';
+      if (s === state && !wasExpanded) {
+        tile.setAttribute('aria-expanded', 'true');
+      } else {
+        tile.removeAttribute('aria-expanded');
+      }
+    });
+    panels.forEach(function(p) {
+      var ps = p.getAttribute('data-state');
+      var activeTile = mapDetail.parentElement.querySelector('.gg-ins-map-tile[aria-expanded="true"]');
+      var activeState = activeTile ? activeTile.getAttribute('data-state') : null;
+      if (ps === activeState) {
+        p.classList.remove('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'false');
+      } else {
+        p.classList.add('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'true');
+      }
+    });
+    if (typeof gtag === 'function') {
+      gtag('event', 'insights_map_expand', { state: state });
+    }
+  }
+  mapTiles.forEach(function(tile) {
+    tile.addEventListener('click', function() {
+      toggleMapState(tile.getAttribute('data-state'));
+    });
+    tile.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMapState(tile.getAttribute('data-state'));
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════════════
+     CALENDAR — Expandable month panels
+     ══════════════════════════════════════════════════════════════ */
+
+  var calCols = document.querySelectorAll('.gg-ins-cal-col[role="button"]');
+  var calDetail = document.getElementById('cal-detail');
+  function toggleCalMonth(month) {
+    var panels = calDetail ? calDetail.querySelectorAll('.gg-ins-cal-panel') : [];
+    var wasAlreadyOpen = false;
+    calCols.forEach(function(col) {
+      var m = col.getAttribute('data-month');
+      if (m === month && col.getAttribute('aria-expanded') === 'true') {
+        wasAlreadyOpen = true;
+      }
+      if (m === month && !wasAlreadyOpen) {
+        col.setAttribute('aria-expanded', 'true');
+      } else {
+        col.setAttribute('aria-expanded', 'false');
+      }
+    });
+    var openMonth = wasAlreadyOpen ? null : month;
+    panels.forEach(function(p) {
+      if (p.getAttribute('data-month') === openMonth) {
+        p.classList.remove('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'false');
+      } else {
+        p.classList.add('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'true');
+      }
+    });
+    /* Scroll the panel into view */
+    if (openMonth && calDetail) {
+      calDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'insights_cal_expand', { month: month });
+    }
+  }
+  calCols.forEach(function(col) {
+    col.addEventListener('click', function() {
+      toggleCalMonth(col.getAttribute('data-month'));
+    });
+    col.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCalMonth(col.getAttribute('data-month'));
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════════════
      DIMENSION LEADERBOARD
      ══════════════════════════════════════════════════════════════ */
 
   var dimLeaderboard = document.getElementById('dim-leaderboard');
   var dimBtns = document.querySelectorAll('.gg-ins-dim-btn');
-  var SITE_URL = 'https://www.gravelgod.com';
 
   function getDimValue(race, dim) {
     var idx = DIMS.indexOf(dim);
@@ -1884,24 +2370,40 @@ def build_insights_js() -> str:
     return 0;
   }
 
-  function updateDimLeaderboard(dim) {
-    if (!dimLeaderboard || !RACES.length) return;
-    var scored = RACES.map(function(r, i) {
-      return { idx: i, val: getDimValue(r, dim), name: r.n, slug: r.s, tier: r.t, score: r.sc };
-    });
-    scored.sort(function(a, b) { return b.val - a.val || b.score - a.score; });
-    var top15 = scored.slice(0, 15);
+  var dimShowAll = false;
+  var dimCurrentDim = 'logistics';
+  var dimCurrentScored = [];
+
+  function renderDimRows(entries, startIdx) {
     var html = '';
-    top15.forEach(function(entry, i) {
-      var pct = entry.val * 20;
-      html += '<div class="gg-ins-dim-row">';
-      html += '<span class="gg-ins-dim-rank">' + (i + 1) + '</span>';
+    entries.forEach(function(entry, i) {
+      var rank = startIdx + i + 1;
+      var pct = Math.min(100, Math.max(0, (entry.val || 0) * 20));
+      html += '<div class="gg-ins-dim-row" role="button" tabindex="0" aria-expanded="false" data-race-idx="' + entry.idx + '">';
+      html += '<span class="gg-ins-dim-rank">' + rank + '</span>';
       html += '<a class="gg-ins-dim-name" href="' + SITE_URL + '/race/' + entry.slug + '/">' + entry.name + '</a>';
       html += '<div class="gg-ins-dim-bar"><div class="gg-ins-dim-bar-fill" data-tier="' + entry.tier + '" style="width:' + pct + '%"></div></div>';
       html += '<span class="gg-ins-dim-score">' + entry.val + '/5</span>';
       html += '<span class="gg-ins-dim-tier" data-tier="' + entry.tier + '">T' + entry.tier + '</span>';
       html += '</div>';
     });
+    return html;
+  }
+
+  function updateDimLeaderboard(dim) {
+    if (!dimLeaderboard || !RACES.length) return;
+    dimCurrentDim = dim;
+    dimShowAll = false;
+    var scored = RACES.map(function(r, i) {
+      return { idx: i, val: getDimValue(r, dim), name: r.n, slug: r.s, tier: r.t, score: r.sc };
+    });
+    scored.sort(function(a, b) { return b.val - a.val || b.score - a.score; });
+    dimCurrentScored = scored;
+    var initial = scored.slice(0, 15);
+    var html = renderDimRows(initial, 0);
+    if (scored.length > 15) {
+      html += '<button class="gg-ins-dim-show-more" type="button">Show all ' + scored.length + ' races</button>';
+    }
     dimLeaderboard.innerHTML = html;
     dimBtns.forEach(function(b) {
       b.classList.toggle('gg-ins-dim-btn--active', b.getAttribute('data-dim') === dim);
@@ -1909,6 +2411,68 @@ def build_insights_js() -> str:
     if (typeof gtag === 'function') {
       gtag('event', 'insights_dim_change', { dimension: dim });
     }
+  }
+
+  /* "Show all" button handler */
+  if (dimLeaderboard) {
+    dimLeaderboard.addEventListener('click', function(e) {
+      if (e.target.classList.contains('gg-ins-dim-show-more')) {
+        dimShowAll = true;
+        var html = renderDimRows(dimCurrentScored, 0);
+        dimLeaderboard.innerHTML = html;
+      }
+    });
+  }
+
+  /* Expandable dim rows — click to see all 14 scores */
+  function buildDimDetail(raceIdx) {
+    var race = RACES[raceIdx];
+    if (!race) return '';
+    var html = '<div class="gg-ins-dim-detail">';
+    DIMS.forEach(function(dim, di) {
+      var val = race.dm[di] || 0;
+      var pct = val * 20;
+      html += '<div class="gg-ins-ou-dim">';
+      html += '<span class="gg-ins-ou-dim-label">' + DIM_LABELS[dim] + '</span>';
+      html += '<div class="gg-ins-ou-dim-bar"><div class="gg-ins-ou-dim-fill" data-tier="' + race.t + '" style="width:' + pct + '%"></div></div>';
+      html += '<span class="gg-ins-ou-dim-val">' + val + '/5</span>';
+      html += '</div>';
+    });
+    html += '<a class="gg-ins-ou-link" href="' + SITE_URL + '/race/' + race.s + '/">View Full Profile &rarr;</a>';
+    html += '</div>';
+    return html;
+  }
+
+  if (dimLeaderboard) {
+    dimLeaderboard.addEventListener('click', function(e) {
+      var row = e.target.closest('.gg-ins-dim-row[role="button"]');
+      if (!row || e.target.closest('a')) return;
+      var wasExpanded = row.getAttribute('aria-expanded') === 'true';
+      /* Collapse all others */
+      dimLeaderboard.querySelectorAll('.gg-ins-dim-row[aria-expanded="true"]').forEach(function(r) {
+        r.setAttribute('aria-expanded', 'false');
+        var detail = r.nextElementSibling;
+        if (detail && detail.classList.contains('gg-ins-dim-detail')) detail.remove();
+      });
+      if (!wasExpanded) {
+        row.setAttribute('aria-expanded', 'true');
+        var idx = parseInt(row.getAttribute('data-race-idx'), 10);
+        var detailHtml = buildDimDetail(idx);
+        row.insertAdjacentHTML('afterend', detailHtml);
+        if (typeof gtag === 'function') {
+          gtag('event', 'insights_dim_expand', { race: RACES[idx] ? RACES[idx].n : '' });
+        }
+      }
+    });
+    dimLeaderboard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        var row = e.target.closest('.gg-ins-dim-row[role="button"]');
+        if (row && !e.target.closest('a')) {
+          e.preventDefault();
+          row.click();
+        }
+      }
+    });
   }
 
   dimBtns.forEach(function(btn) {
@@ -1994,7 +2558,7 @@ def build_insights_js() -> str:
     top10.forEach(function(entry, i) {
       html += '<div class="gg-ins-rank-entry">';
       html += '<span class="gg-ins-rank-num">' + (i + 1) + '</span>';
-      html += '<a class="gg-ins-rank-name" href="https://www.gravelgod.com/race/' + entry.slug + '/">' + entry.name + '</a>';
+      html += '<a class="gg-ins-rank-name" href="' + SITE_URL + '/race/' + entry.slug + '/">' + entry.name + '</a>';
       html += '<div class="gg-ins-rank-bar"><div class="gg-ins-rank-bar-fill" style="width:' + entry.score + '%"></div></div>';
       html += '<span class="gg-ins-rank-tier" data-tier="' + entry.tier + '">T' + entry.tier + '</span>';
       html += '</div>';
@@ -2030,6 +2594,26 @@ def build_insights_js() -> str:
       if (typeof gtag === 'function') { gtag('event', 'insights_rank_reset'); }
     });
   }
+
+  /* ── Preset buttons (PRESETS defined from Python at top) ── */
+  document.querySelectorAll('.gg-ins-rank-preset').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.getAttribute('data-preset');
+      var preset = PRESETS[key];
+      if (!preset) return;
+      RANK_GROUPS.forEach(function(g) {
+        var slider = document.getElementById('gg-ins-rank-' + g.id);
+        var display = document.getElementById('gg-ins-rank-' + g.id + '-val');
+        var val = preset[g.id] || 5;
+        if (slider) slider.value = val;
+        if (display) display.textContent = val;
+      });
+      updateLeaderboard();
+      if (typeof gtag === 'function') {
+        gtag('event', 'insights_rank_preset', { preset: key });
+      }
+    });
+  });
 
   (function() {
     try {
@@ -2094,11 +2678,12 @@ def build_insights_js() -> str:
     var raw = el.getAttribute('data-counter');
     if (!raw) return;
     var target = parseFloat(raw);
-    if (isNaN(target) || target === 0 || reducedMotion) return;
+    var original = el.textContent;
+    if (isNaN(target)) return;
+    if (target === 0 || reducedMotion) { el.textContent = original; return; }
     var isFloat = raw.indexOf('.') !== -1;
     var startTime = null;
     var duration = 1200;
-    var original = el.textContent;
     function step(ts) {
       if (!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
@@ -2225,7 +2810,8 @@ def build_jsonld(race_count: int = 0, state_count: int = 0) -> str:
     "name": "Gravel God Cycling",
     "url": "{SITE_BASE_URL}"
   }},
-  "datePublished": "2026-02-20",
+  "datePublished": "{datetime.date.today().isoformat()}",
+  "dateModified": "{datetime.date.today().isoformat()}",
   "url": "{SITE_BASE_URL}/insights/"
 }}
 </script>'''
@@ -2254,7 +2840,7 @@ def generate_insights_page(external_assets: dict = None) -> str:
     dimension_leaderboard = build_dimension_leaderboard(races)
     ranking_builder = build_ranking_builder(races)
     overrated_underrated = build_overrated_underrated(races, editorial_facts)
-    closing = build_closing(race_count)
+    closing = build_closing(race_count, stats=stats)
     footer = get_mega_footer_html()
     insights_css = build_insights_css()
     insights_js = build_insights_js()

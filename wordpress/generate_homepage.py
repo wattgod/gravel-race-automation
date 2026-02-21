@@ -14,6 +14,7 @@ Usage:
 import argparse
 import html
 import json
+import math
 import random
 import re
 import urllib.request
@@ -536,7 +537,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
             tier_labels = {1: "Tier 1 Elite", 2: "Tier 2 Contender", 3: "Tier 3", 4: "Tier 4"}
             tier_label = tier_labels.get(tier, f"Tier {tier}")
             feature_html = f'''<a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-hero-feature" data-ga="hero_featured_click" data-ga-label="{name}">
-          <div class="gg-hp-hf-img" role="img" aria-label="{name} course landscape"></div>
+          {_build_hero_radar(race)}
           <div class="gg-hp-hf-body">
             <div class="gg-hp-hf-header">
               <div>
@@ -616,9 +617,7 @@ def _build_stat_bars(race: dict, compact: bool = False) -> str:
     dims = STAT_BAR_DIMENSIONS_COMPACT if compact else STAT_BAR_DIMENSIONS
     rows = ""
     for dim in dims:
-        raw = scores.get(dim)
-        score = int(raw) if raw is not None else 0
-        score = max(0, min(5, score))  # clamp to valid range
+        score = _parse_score(scores.get(dim))
         pct = (score / 5) * 100
         label = dim.replace("_", " ").upper()
         rows += f'''
@@ -630,6 +629,118 @@ def _build_stat_bars(race: dict, compact: bool = False) -> str:
             <span class="gg-hp-statbar-val">{score}</span>
           </div>'''
     return f'<div class="gg-hp-statbar">{rows}\n          </div>'
+
+
+# ── Radar chart dimension labels ─────
+_RADAR_LABELS = {
+    "prestige": "PRSTG",
+    "technicality": "TECH",
+    "adventure": "ADVNT",
+    "field_depth": "FIELD",
+    "community": "COMM",
+    "race_quality": "QUAL",
+}
+
+
+def _parse_score(raw) -> int:
+    """Safely parse a score value to int, clamped 0-5.
+
+    Handles None, empty strings, floats, float-strings, "None", and
+    any other garbage without crashing.
+    """
+    if raw is None or raw == "":
+        return 0
+    try:
+        score = int(float(raw))
+    except (ValueError, TypeError):
+        return 0
+    return max(0, min(5, score))
+
+
+def _build_hero_radar(race: dict) -> str:
+    """Build an inline SVG radar/spider chart for the hero featured race.
+
+    Uses STAT_BAR_DIMENSIONS (6 axes) to stay consistent with the bento
+    stat bars lower on the page.  All SVG styling done via CSS classes —
+    never inline styles or CSS functions in SVG presentation attributes.
+    Returns a wrapper div containing the SVG.
+    """
+    scores = (race.get("scores") or {})
+    n = len(STAT_BAR_DIMENSIONS)
+    cx, cy, radius = 110, 95, 60
+
+    # ── Compute vertex positions for grid and data ──
+    def _point(i, scale):
+        angle = (2 * math.pi * i / n) - math.pi / 2
+        return (cx + radius * scale * math.cos(angle),
+                cy + radius * scale * math.sin(angle))
+
+    # Grid rings (3 concentric hexagons)
+    grid_lines = ""
+    for scale in (0.33, 0.66, 1.0):
+        ring = [_point(i, scale) for i in range(n)]
+        pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in ring)
+        grid_lines += f'<polygon points="{pts}" class="gg-hp-hf-radar-grid"/>\n'
+
+    # Axis spokes
+    spokes = ""
+    for i in range(n):
+        ex, ey = _point(i, 1.0)
+        spokes += (
+            f'<line x1="{cx}" y1="{cy}" x2="{ex:.1f}" y2="{ey:.1f}" '
+            f'class="gg-hp-hf-radar-grid"/>\n'
+        )
+
+    # Data polygon — scores parsed defensively
+    data_vals = [_parse_score(scores.get(dim)) for dim in STAT_BAR_DIMENSIONS]
+    data_points = [_point(i, s / 5) for i, s in enumerate(data_vals)]
+    data_pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in data_points)
+    data_polygon = f'<polygon points="{data_pts}" class="gg-hp-hf-radar-data"/>\n'
+
+    # Data point markers (rect, not circle — brand rule)
+    markers = ""
+    for px, py in data_points:
+        markers += (
+            f'<rect x="{px - 2:.1f}" y="{py - 2:.1f}" width="4" height="4" '
+            f'class="gg-hp-hf-radar-dot"/>\n'
+        )
+
+    # Axis labels
+    labels = ""
+    for i, dim in enumerate(STAT_BAR_DIMENSIONS):
+        angle = (2 * math.pi * i / n) - math.pi / 2
+        lx, ly = _point(i, 1.0)
+        lx += 14 * math.cos(angle)
+        ly += 14 * math.sin(angle)
+        if abs(math.cos(angle)) < 0.01:
+            anchor = "middle"
+        elif math.cos(angle) < 0:
+            anchor = "end"
+        else:
+            anchor = "start"
+        label_text = _RADAR_LABELS.get(dim, dim[:5].upper())
+        labels += (
+            f'<text x="{lx:.1f}" y="{ly:.1f}" '
+            f'text-anchor="{anchor}" '
+            f'class="gg-hp-hf-radar-lbl">{label_text}</text>\n'
+        )
+
+    # Accessibility: build aria-label with scores
+    race_name = race.get("name") or "Race"
+    score_parts = ", ".join(
+        f'{dim.replace("_", " ")} {data_vals[i]}'
+        for i, dim in enumerate(STAT_BAR_DIMENSIONS)
+    )
+    aria = f"{esc(race_name)} scoring radar: {score_parts}"
+
+    svg = (
+        f'<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" '
+        f'role="img" aria-label="{aria}">\n'
+        f'{grid_lines}{spokes}{data_polygon}{markers}{labels}'
+        f'</svg>'
+    )
+
+    return f'<div class="gg-hp-hf-radar">{svg}</div>'
 
 
 def build_bento_features(race_index: list) -> str:
@@ -1089,7 +1200,12 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-hero-feature { display: block; background: #ede4d8; border: 3px solid #3a2e25; text-decoration: none; color: inherit; transition: border-color .3s; }
 .gg-hp-hero-feature:hover { border-color: #178079; }
 .gg-hp-hero-feature:hover .gg-hp-hf-name { color: #178079; }
-.gg-hp-hf-img { height: 180px; background: #d4c5b9; border-bottom: 2px solid #3a2e25; }
+.gg-hp-hf-radar { padding: 16px 8px 12px; background: #ede4d8; border-bottom: 2px solid #3a2e25; text-align: center; }
+.gg-hp-hf-radar svg { max-width: 220px; height: auto; }
+.gg-hp-hf-radar-grid { fill: none; stroke: #d4c5b9; stroke-width: 0.5; }
+.gg-hp-hf-radar-data { fill: rgba(23, 128, 121, 0.15); stroke: #178079; stroke-width: 2; }
+.gg-hp-hf-radar-dot { fill: #178079; }
+.gg-hp-hf-radar-lbl { font-family: 'Sometype Mono', monospace; font-size: 8px; fill: #7d695d; text-transform: uppercase; }
 .gg-hp-hf-body { padding: 24px; }
 .gg-hp-hf-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
 .gg-hp-hf-tier { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #178079; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
@@ -1609,7 +1725,7 @@ def build_jsonld(stats: dict) -> str:
         "@type": "Organization",
         "name": "Gravel God Cycling",
         "url": SITE_BASE_URL,
-        "description": "The definitive gravel race database. Honest ratings across 15 dimensions.",
+        "description": "The definitive gravel race database. Honest ratings across 14 criteria.",
     }
     website = {
         "@context": "https://schema.org",
@@ -1636,8 +1752,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
                       guide_path: Path = None) -> str:
     stats = compute_stats(race_index)
     canonical_url = f"{SITE_BASE_URL}/"
-    title = f"Gravel God \u2014 {stats['race_count']} Gravel Races Rated & Ranked | The Definitive Database"
-    meta_desc = f"The definitive gravel race database. {stats['race_count']} races scored across 15 dimensions, from Unbound to SBT GRVL. Find your next race, compare ratings, and build a training plan."
+    title = "Gravel Race Database & Training Plans | Gravel God"
+    meta_desc = f"Gravel cycling data, coaching, and training plans. {stats['race_count']} races rated and ranked on 14 criteria. Built for cyclists who take gravel seriously."
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)
@@ -1684,6 +1800,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
+  <link rel="alternate" type="application/rss+xml" title="Gravel God Race Database" href="https://gravelgodcycling.com/feed/races.xml">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   {get_preload_hints()}
   {og_tags}

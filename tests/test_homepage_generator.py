@@ -43,6 +43,8 @@ from generate_homepage import (
     build_testimonials,
     _tier_badge_class,
     _build_stat_bars,
+    _build_hero_radar,
+    _parse_score,
     FEATURED_SLUGS,
     STAT_BAR_DIMENSIONS,
     STAT_BAR_DIMENSIONS_COMPACT,
@@ -1846,3 +1848,429 @@ class TestNoPullquote:
         html = build_sidebar(stats, race_index, upcoming)
         assert "TOP 5" in html
         assert "POWER RANKINGS" not in html
+
+
+class TestHeroRadar:
+    """Tests for the hero featured-race radar/spider chart.
+
+    Covers: structure, accessibility, brand compliance, defensive parsing,
+    CSS-only styling, XML well-formedness, and edge cases.
+    """
+
+    @pytest.fixture()
+    def sample_race(self):
+        return {
+            "name": "Unbound 200",
+            "slug": "unbound-200",
+            "scores": {
+                "prestige": 5,
+                "technicality": 3,
+                "adventure": 4,
+                "field_depth": 5,
+                "community": 4,
+                "race_quality": 5,
+            },
+        }
+
+    @pytest.fixture()
+    def radar_html(self, sample_race):
+        return _build_hero_radar(sample_race)
+
+    # ── Structure ──
+
+    def test_hero_has_radar_svg(self, radar_html):
+        """Radar output contains an SVG inside the wrapper div."""
+        assert "<svg" in radar_html
+        assert 'class="gg-hp-hf-radar"' in radar_html
+
+    def test_hero_no_placeholder_div(self, stats, race_index):
+        """Hero must not contain old .gg-hp-hf-img placeholder."""
+        hero = build_hero(stats, race_index)
+        assert "gg-hp-hf-img" not in hero
+
+    def test_radar_viewbox(self, radar_html):
+        """SVG viewBox must be 0 0 220 180."""
+        assert 'viewBox="0 0 220 180"' in radar_html
+
+    def test_radar_has_6_axes(self, radar_html):
+        """Radar must have 6 axis spokes and 6 labels."""
+        assert radar_html.count("<line ") == 6
+        assert radar_html.count("<text ") == 6
+
+    def test_radar_has_3_grid_rings(self, radar_html):
+        """Radar must have exactly 3 concentric hexagonal grid rings."""
+        import re
+        grid_polygons = re.findall(r'<polygon[^>]*class="gg-hp-hf-radar-grid"', radar_html)
+        assert len(grid_polygons) == 3
+
+    def test_radar_has_1_data_polygon(self, radar_html):
+        """Exactly one data polygon with the data class."""
+        import re
+        data_polygons = re.findall(r'<polygon[^>]*class="gg-hp-hf-radar-data"', radar_html)
+        assert len(data_polygons) == 1
+
+    def test_radar_uses_rect_markers(self, radar_html):
+        """Data point markers use <rect> elements — one per dimension."""
+        import re
+        rects = re.findall(r'<rect[^>]*class="gg-hp-hf-radar-dot"', radar_html)
+        assert len(rects) == 6
+
+    def test_radar_no_circles(self, radar_html):
+        """No <circle> elements anywhere (brand rule: no border-radius)."""
+        assert "<circle" not in radar_html
+
+    # ── SVG well-formedness ──
+
+    def test_radar_svg_well_formed(self, radar_html):
+        """Radar SVG must be valid XML (catches unclosed tags, unescaped &)."""
+        import xml.etree.ElementTree as ET
+        svg_start = radar_html.index("<svg")
+        svg_end = radar_html.index("</svg>") + len("</svg>")
+        svg_str = radar_html[svg_start:svg_end]
+        ET.fromstring(svg_str)  # raises ParseError if malformed
+
+    def test_radar_ampersand_in_name(self):
+        """Race name with & must not produce malformed XML."""
+        import xml.etree.ElementTree as ET
+        race = {"name": "Grit & Grind", "scores": {"prestige": 3}}
+        html = _build_hero_radar(race)
+        svg_start = html.index("<svg")
+        svg_end = html.index("</svg>") + len("</svg>")
+        ET.fromstring(html[svg_start:svg_end])
+        assert "Grit &amp; Grind" in html
+
+    def test_radar_quotes_in_name(self):
+        """Race name with double quotes must not break aria-label attribute."""
+        import xml.etree.ElementTree as ET
+        race = {"name": 'The "Beast"', "scores": {"prestige": 2}}
+        html = _build_hero_radar(race)
+        svg_start = html.index("<svg")
+        svg_end = html.index("</svg>") + len("</svg>")
+        ET.fromstring(html[svg_start:svg_end])
+
+    # ── Labels & dimensions ──
+
+    def test_radar_labels_match_stat_bar_dims(self, radar_html):
+        """All 6 abbreviated labels appear in the SVG."""
+        expected_labels = ["PRSTG", "TECH", "ADVNT", "FIELD", "COMM", "QUAL"]
+        for label in expected_labels:
+            assert label in radar_html, f"Missing radar label: {label}"
+
+    def test_radar_labels_dict_covers_all_dims(self):
+        """_RADAR_LABELS must have an entry for every STAT_BAR_DIMENSIONS."""
+        from generate_homepage import _RADAR_LABELS
+        for dim in STAT_BAR_DIMENSIONS:
+            assert dim in _RADAR_LABELS, \
+                f"_RADAR_LABELS missing entry for '{dim}' — add it or labels fall back to truncation"
+
+    # ── Accessibility ──
+
+    def test_radar_aria_label(self, radar_html):
+        """SVG has aria-label with race name and all 6 dimension scores."""
+        assert 'aria-label="Unbound 200 scoring radar:' in radar_html
+        assert "prestige 5" in radar_html
+        assert "technicality 3" in radar_html
+        assert "adventure 4" in radar_html
+        assert "field depth 5" in radar_html
+        assert "community 4" in radar_html
+        assert "race quality 5" in radar_html
+
+    def test_radar_svg_role_img(self, radar_html):
+        """SVG must have role='img' for screen readers."""
+        assert 'role="img"' in radar_html
+
+    # ── CSS-only styling (no inline styles/hex in SVG) ──
+
+    def test_radar_svg_no_inline_styles(self, radar_html):
+        """SVG elements must not use style= attributes — all styling via CSS classes."""
+        import re
+        svg_start = radar_html.index("<svg")
+        svg_end = radar_html.index("</svg>") + len("</svg>")
+        svg_str = radar_html[svg_start:svg_end]
+        style_matches = re.findall(r'style="[^"]*"', svg_str)
+        assert not style_matches, \
+            f"SVG has inline styles (must use CSS classes): {style_matches}"
+
+    def test_radar_svg_no_hex_colors(self, radar_html):
+        """SVG HTML must not contain raw hex colors — all colors via CSS classes."""
+        import re
+        svg_start = radar_html.index("<svg")
+        svg_end = radar_html.index("</svg>") + len("</svg>")
+        svg_str = radar_html[svg_start:svg_end]
+        hex_matches = re.findall(r'#[0-9a-fA-F]{3,8}\b', svg_str)
+        assert not hex_matches, \
+            f"SVG has raw hex colors (must use CSS classes): {hex_matches}"
+
+    def test_radar_svg_no_fill_stroke_attrs(self, radar_html):
+        """SVG elements must not have fill= or stroke= presentation attributes."""
+        import re
+        svg_start = radar_html.index("<svg")
+        svg_end = radar_html.index("</svg>") + len("</svg>")
+        svg_str = radar_html[svg_start:svg_end]
+        # Exclude the <svg> root tag itself
+        inner_svg = svg_str[svg_str.index(">") + 1:svg_str.rindex("</svg>")]
+        fill_attrs = re.findall(r'\bfill="[^"]*"', inner_svg)
+        stroke_attrs = re.findall(r'\bstroke="[^"]*"', inner_svg)
+        assert not fill_attrs, \
+            f"SVG elements use fill= attrs (must use CSS): {fill_attrs}"
+        assert not stroke_attrs, \
+            f"SVG elements use stroke= attrs (must use CSS): {stroke_attrs}"
+
+    # ── CSS rules ──
+
+    def test_radar_css_all_classes_defined(self):
+        """CSS must define rules for all 5 radar CSS classes."""
+        css = build_homepage_css()
+        for cls in [".gg-hp-hf-radar ", ".gg-hp-hf-radar svg",
+                    ".gg-hp-hf-radar-grid", ".gg-hp-hf-radar-data",
+                    ".gg-hp-hf-radar-dot", ".gg-hp-hf-radar-lbl"]:
+            assert cls in css, f"CSS missing rule for {cls}"
+
+    def test_radar_no_hf_img_css(self):
+        """Old .gg-hp-hf-img CSS must be fully removed."""
+        css = build_homepage_css()
+        assert ".gg-hp-hf-img" not in css
+
+    def test_radar_css_data_has_fill_and_stroke(self):
+        """CSS .gg-hp-hf-radar-data must define both fill and stroke."""
+        import re
+        css = build_homepage_css()
+        rule = re.search(r'\.gg-hp-hf-radar-data\s*\{([^}]+)\}', css)
+        assert rule, "Missing .gg-hp-hf-radar-data CSS rule"
+        body = rule.group(1)
+        assert "fill:" in body, "radar-data CSS missing fill"
+        assert "stroke:" in body, "radar-data CSS missing stroke"
+
+    def test_radar_css_grid_has_fill_none(self):
+        """CSS .gg-hp-hf-radar-grid must set fill: none."""
+        import re
+        css = build_homepage_css()
+        rule = re.search(r'\.gg-hp-hf-radar-grid\s*\{([^}]+)\}', css)
+        assert rule, "Missing .gg-hp-hf-radar-grid CSS rule"
+        assert "fill: none" in rule.group(1) or "fill:none" in rule.group(1)
+
+    # ── Defensive score parsing ──
+
+    def test_radar_none_scores(self):
+        """Race with scores=None produces valid SVG (all dims → 0)."""
+        race = {"name": "No Scores", "scores": None}
+        html = _build_hero_radar(race)
+        assert "<svg" in html
+        for dim in STAT_BAR_DIMENSIONS:
+            assert f"{dim.replace('_', ' ')} 0" in html
+
+    def test_radar_missing_dimension(self):
+        """Race missing dimensions defaults those axes to 0."""
+        race = {"name": "Partial", "scores": {"prestige": 4, "adventure": 3}}
+        html = _build_hero_radar(race)
+        assert "prestige 4" in html
+        assert "technicality 0" in html
+        assert "adventure 3" in html
+
+    def test_radar_score_clamping_high(self):
+        """Scores > 5 are clamped to 5."""
+        race = {"name": "High", "scores": {"prestige": 8, "adventure": 100}}
+        html = _build_hero_radar(race)
+        assert "prestige 5" in html
+        assert "adventure 5" in html
+
+    def test_radar_score_clamping_negative(self):
+        """Negative scores are clamped to 0."""
+        race = {"name": "Neg", "scores": {"prestige": -2, "adventure": -99}}
+        html = _build_hero_radar(race)
+        assert "prestige 0" in html
+        assert "adventure 0" in html
+
+    def test_radar_float_scores(self):
+        """Float scores (3.7) are truncated to int, not crash."""
+        race = {"name": "Float", "scores": {"prestige": 3.7, "adventure": 2.1}}
+        html = _build_hero_radar(race)
+        assert "prestige 3" in html
+        assert "adventure 2" in html
+
+    def test_radar_float_string_scores(self):
+        """String float scores ("3.5") are parsed, not ValueError."""
+        race = {"name": "FloatStr", "scores": {"prestige": "3.5"}}
+        html = _build_hero_radar(race)
+        assert "prestige 3" in html
+
+    def test_radar_empty_string_scores(self):
+        """Empty string scores ("") default to 0, not ValueError."""
+        race = {"name": "Empty", "scores": {"prestige": ""}}
+        html = _build_hero_radar(race)
+        assert "prestige 0" in html
+
+    def test_radar_string_none_scores(self):
+        """String "None" scores default to 0, not ValueError."""
+        race = {"name": "StrNone", "scores": {"prestige": "None"}}
+        html = _build_hero_radar(race)
+        assert "prestige 0" in html
+
+    def test_radar_bool_scores(self):
+        """Boolean scores (True=1, False=0) don't crash."""
+        race = {"name": "Bool", "scores": {"prestige": True, "adventure": False}}
+        html = _build_hero_radar(race)
+        assert "prestige 1" in html
+        assert "adventure 0" in html
+
+    def test_radar_empty_dict(self):
+        """Completely empty race dict produces valid SVG."""
+        html = _build_hero_radar({})
+        assert "<svg" in html
+        assert 'aria-label="Race scoring radar:' in html
+
+    # ── Name edge cases ──
+
+    def test_radar_empty_name(self):
+        """Race with empty string name uses fallback."""
+        html = _build_hero_radar({"name": "", "scores": {}})
+        assert 'aria-label="Race scoring radar:' in html
+
+    def test_radar_none_name(self):
+        """Race with name=None uses fallback."""
+        html = _build_hero_radar({"name": None, "scores": {}})
+        assert 'aria-label="Race scoring radar:' in html
+
+    # ── Generalization ──
+
+    def test_radar_generalized(self):
+        """Two different races produce different data polygon shapes."""
+        import re
+        race_a = {
+            "name": "Race A",
+            "scores": {d: 5 for d in STAT_BAR_DIMENSIONS},
+        }
+        race_b = {
+            "name": "Race B",
+            "scores": {d: 1 for d in STAT_BAR_DIMENSIONS},
+        }
+        html_a = _build_hero_radar(race_a)
+        html_b = _build_hero_radar(race_b)
+        # Data polygon is the one with class="gg-hp-hf-radar-data"
+        pts_a = re.search(r'class="gg-hp-hf-radar-data"[^>]*points="([^"]+)"', html_a) or \
+                re.search(r'points="([^"]+)"[^>]*class="gg-hp-hf-radar-data"', html_a)
+        pts_b = re.search(r'class="gg-hp-hf-radar-data"[^>]*points="([^"]+)"', html_b) or \
+                re.search(r'points="([^"]+)"[^>]*class="gg-hp-hf-radar-data"', html_b)
+        assert pts_a and pts_b, "Both radars must have data polygons"
+        assert pts_a.group(1) != pts_b.group(1), \
+            "Different scores must produce different polygon point strings"
+
+    def test_radar_all_max_renders_at_full_radius(self):
+        """All-5 scores: data polygon points match the outermost grid ring."""
+        import re
+        race = {"name": "Max", "scores": {d: 5 for d in STAT_BAR_DIMENSIONS}}
+        html = _build_hero_radar(race)
+        # Grid ring at scale 1.0 is the last one; data polygon with all 5s
+        # should have identical points
+        grid_polys = re.findall(
+            r'<polygon points="([^"]+)" class="gg-hp-hf-radar-grid"', html)
+        assert len(grid_polys) == 3
+        outer_ring_pts = grid_polys[2]  # scale 1.0 is the third ring
+        data_pts = re.search(
+            r'<polygon points="([^"]+)" class="gg-hp-hf-radar-data"', html)
+        assert data_pts, "Data polygon missing"
+        assert data_pts.group(1) == outer_ring_pts, \
+            "All-5 data polygon should exactly match outer grid ring"
+
+    def test_radar_all_zero_converges_to_center(self):
+        """All-0 scores: all data points converge to center (110, 95)."""
+        import re
+        race = {"name": "Zero", "scores": {d: 0 for d in STAT_BAR_DIMENSIONS}}
+        html = _build_hero_radar(race)
+        data_pts = re.search(
+            r'<polygon points="([^"]+)" class="gg-hp-hf-radar-data"', html)
+        assert data_pts
+        # All points should be the center
+        points = data_pts.group(1).split()
+        for pt in points:
+            x, y = pt.split(",")
+            assert float(x) == 110.0, f"Expected x=110.0, got {x}"
+            assert float(y) == 95.0, f"Expected y=95.0, got {y}"
+
+    # ── Integration ──
+
+    def test_hero_integration_has_radar(self, stats, race_index):
+        """build_hero() output contains radar when featured race exists."""
+        hero = build_hero(stats, race_index)
+        if "gg-hp-hero-feature" in hero:
+            assert "gg-hp-hf-radar" in hero
+            assert "<svg" in hero
+            # Must NOT have old placeholder
+            assert "gg-hp-hf-img" not in hero
+
+    def test_full_page_has_radar(self, homepage_html):
+        """Full generate_homepage() output contains the radar chart."""
+        assert "gg-hp-hf-radar" in homepage_html
+        assert "gg-hp-hf-radar-data" in homepage_html
+
+    def test_full_page_no_placeholder(self, homepage_html):
+        """Full page must not reference old placeholder anywhere."""
+        assert "gg-hp-hf-img" not in homepage_html
+
+
+class TestParseScore:
+    """Tests for _parse_score() — the shared score parsing utility."""
+
+    def test_integer(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(3) == 3
+
+    def test_string_integer(self):
+        from generate_homepage import _parse_score
+        assert _parse_score("4") == 4
+
+    def test_float(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(3.7) == 3
+
+    def test_string_float(self):
+        from generate_homepage import _parse_score
+        assert _parse_score("3.5") == 3
+
+    def test_none(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(None) == 0
+
+    def test_empty_string(self):
+        from generate_homepage import _parse_score
+        assert _parse_score("") == 0
+
+    def test_string_none(self):
+        from generate_homepage import _parse_score
+        assert _parse_score("None") == 0
+
+    def test_garbage_string(self):
+        from generate_homepage import _parse_score
+        assert _parse_score("abc") == 0
+
+    def test_clamp_high(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(8) == 5
+
+    def test_clamp_negative(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(-3) == 0
+
+    def test_bool_true(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(True) == 1
+
+    def test_bool_false(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(False) == 0
+
+    def test_list_returns_zero(self):
+        from generate_homepage import _parse_score
+        assert _parse_score([1, 2]) == 0
+
+    def test_dict_returns_zero(self):
+        from generate_homepage import _parse_score
+        assert _parse_score({"a": 1}) == 0
+
+    def test_boundary_zero(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(0) == 0
+
+    def test_boundary_five(self):
+        from generate_homepage import _parse_score
+        assert _parse_score(5) == 5

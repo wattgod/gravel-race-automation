@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 408,
+  "estimated_spoken_words": 405,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_length",
@@ -196,7 +196,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Elevation. 4 out of 5. Mountain passes on the menu. Community. 4 out of 5. The post-race scene is half the event. Value. 4 out of 5. Good value. More bang for your buck than most. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Climate. 3 out of 5. Pack for two seasons. Altitude. 2 out of 5. Not enough altitude to blame for your pace.",
+      "narration": "The rest. Quick-fire. Elevation. 4 out of 5. Mountain passes on the menu. Community. 4 out of 5. The post-race scene is half the event. Value. 4 out of 5. Good value. More bang for your buck than most. Expenses. 4 out of 5. Affordable. Won't break the bank. Climate. 3 out of 5. Pack for two seasons. Altitude. 2 out of 5. Not enough altitude to blame for your pace.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 98.7
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
@@ -496,9 +496,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Traka 360' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 408,
+    "total_words": 405,
     "total_duration_sec": 585,
-    "overall_wpm": 41.8,
+    "overall_wpm": 41.5,
     "warnings": [],
     "feasible": true
   },

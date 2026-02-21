@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 531,
+  "estimated_spoken_words": 528,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -111,7 +111,7 @@
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Fourteen dimensions. Here's where it lands. Logistics. 4 out of 5. One less thing to worry about. Marthasville Community Center provides solid race HQ with parking and packet pickup both day-before and race morning. Length. 4 out of 5. Double-digit hours are on the table. 100 miles hits the gravel sweet spot with aid stations providing water, ice, and sports drink twice for 100K riders. Value. 4 out of 5. One of the better deals in gravel. Registration includes free camping, Saturday dinner, pre-race recon ride, multiple aid stations, and post-race food with music. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Elevation. 3 out of 5. The hills sort the trained from the untrained. 4,100 feet over 100 miles through Warren County's rolling hills means constant ups and downs with no recovery sections. Adventure. 3 out of 5. This race takes you somewhere different. The course takes you through roads that look untouched by time into Warren County highland farm country. Prestige. 3 out of 5. Respected. Not yet legendary. Official Missouri State Championship status draws competitive gravel racers and provides USAC sanctioning credibility. Race Quality. 3 out of 5. Well-run race. Professional touches throughout. Saturday afternoon offers a free pre-race recon ride with dinner and camping at Racers Village.",
+      "narration": "Fourteen dimensions. Here's where it lands. Logistics. 4 out of 5. One less thing to worry about. Marthasville Community Center provides solid race HQ with parking and packet pickup both day-before and race morning. Length. 4 out of 5. Double-digit hours are on the table. 100 miles hits the gravel sweet spot with aid stations providing water, ice, and sports drink twice for 100K riders. Value. 4 out of 5. One of the better deals in gravel. Registration includes free camping, Saturday dinner, pre-race recon ride, multiple aid stations, and post-race food with music. Expenses. 4 out of 5. Affordable. Won't break the bank. Elevation. 3 out of 5. The hills sort the trained from the untrained. 4,100 feet over 100 miles through Warren County's rolling hills means constant ups and downs with no recovery sections. Adventure. 3 out of 5. This race takes you somewhere different. The course takes you through roads that look untouched by time into Warren County highland farm country. Prestige. 3 out of 5. Respected. Not yet legendary. Official Missouri State Championship status draws competitive gravel racers and provides USAC sanctioning credibility. Race Quality. 3 out of 5. Well-run race. Professional touches throughout. Saturday afternoon offers a free pre-race recon ride with dinner and camping at Racers Village.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -177,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 71.7
+      "narration_wpm": 71.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Experience. 3 out of 5. Memorable course. Has character. Community. 3 out of 5. Community is a real selling point. Field Depth. 3 out of 5. Deep enough to push you. Technicality. 2 out of 5. Your road bike might survive. Might. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Experience. 3 out of 5. Memorable course. Has character. Community. 3 out of 5. Community is a real selling point. Field Depth. 3 out of 5. Deep enough to push you. Technicality. 2 out of 5. Your road bike might survive. Might. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,7 +234,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
@@ -474,9 +474,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'THE EQUALIZER - Missouri State Championship' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 531,
+    "total_words": 528,
     "total_duration_sec": 585,
-    "overall_wpm": 54.5,
+    "overall_wpm": 54.2,
     "warnings": [],
     "feasible": true
   },

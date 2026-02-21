@@ -10,7 +10,7 @@
     35
   ],
   "estimated_duration_sec": 33,
-  "estimated_spoken_words": 70,
+  "estimated_spoken_words": 68,
   "story_arc": "hook-setup-evidence-reveal-loop",
   "primary_trope": {
     "name": "tier_reveal",
@@ -90,7 +90,7 @@
       "label": "EVIDENCE",
       "time_range": "0:10-0:22",
       "duration_sec": 12,
-      "narration": "Value. 4 out of 5. One of the better deals in gravel. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Length. 3 out of 5. The Goldilocks zone of suffering.",
+      "narration": "Value. 4 out of 5. One of the better deals in gravel. Expenses. 4 out of 5. Affordable. Won't break the bank. Length. 3 out of 5. The Goldilocks zone of suffering.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
       "avatar_pose": "thinking",
@@ -125,7 +125,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 170.0
+      "narration_wpm": 160.0
     },
     {
       "id": "reveal",
@@ -189,9 +189,9 @@
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Cow Pie Classic' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 70,
+    "total_words": 68,
     "total_duration_sec": 33,
-    "overall_wpm": 127.3,
+    "overall_wpm": 123.6,
     "warnings": [],
     "feasible": true
   },

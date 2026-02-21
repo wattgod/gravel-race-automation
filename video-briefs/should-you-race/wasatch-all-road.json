@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 427,
+  "estimated_spoken_words": 426,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Value. 3 out of 5. Fair value. You get what you pay for. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Enough competition to keep you honest.",
+      "narration": "The rest. Quick-fire. Experience. 3 out of 5. You'll remember this one. Mostly fondly. Community. 3 out of 5. Good vibes. Riders actually talk to each other. Value. 3 out of 5. Fair value. You get what you pay for. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Enough competition to keep you honest.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 101.3
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
@@ -479,9 +479,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Wasatch All-Road' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 427,
+    "total_words": 426,
     "total_duration_sec": 585,
-    "overall_wpm": 43.8,
+    "overall_wpm": 43.7,
     "warnings": [],
     "feasible": true
   },

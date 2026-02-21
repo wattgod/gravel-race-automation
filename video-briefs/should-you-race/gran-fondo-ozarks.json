@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 408,
+  "estimated_spoken_words": 407,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Expenses. 3 out of 5. Standard gravel race budget. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Standard gravel race budget. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Prestige. 2 out of 5. Known in certain circles. Niche following. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Enough competition to keep you honest. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 94.7
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Gran Fondo Ozarks' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 408,
+    "total_words": 407,
     "total_duration_sec": 585,
-    "overall_wpm": 41.8,
+    "overall_wpm": 41.7,
     "warnings": [],
     "feasible": true
   },

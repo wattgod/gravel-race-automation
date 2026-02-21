@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 335,
+  "estimated_spoken_words": 334,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Budget carefully. The extras get you. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 101.3
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Castellon Gravel Race' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 335,
+    "total_words": 334,
     "total_duration_sec": 585,
-    "overall_wpm": 34.4,
+    "overall_wpm": 34.3,
     "warnings": [],
     "feasible": true
   },

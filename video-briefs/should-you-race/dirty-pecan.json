@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 410,
+  "estimated_spoken_words": 409,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
+      "narration": "The rest. Quick-fire. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Not cheap. The costs pile on. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 94.7
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Dirty Pecan' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 410,
+    "total_words": 409,
     "total_duration_sec": 585,
-    "overall_wpm": 42.1,
+    "overall_wpm": 41.9,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 387,
+  "estimated_spoken_words": 386,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Expenses. 3 out of 5. Plan for a few hundred all-in. Logistics. 2 out of 5. You'll figure it out. Eventually. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Plan for a few hundred all-in. Logistics. 2 out of 5. You'll figure it out. Eventually. Climate. 2 out of 5. Mostly pleasant. Check the forecast anyway. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Oregon Coast Gravel Epic' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 387,
+    "total_words": 386,
     "total_duration_sec": 585,
-    "overall_wpm": 39.7,
+    "overall_wpm": 39.6,
     "warnings": [],
     "feasible": true
   },

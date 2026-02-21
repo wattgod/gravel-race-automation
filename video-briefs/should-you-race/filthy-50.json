@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 448,
+  "estimated_spoken_words": 447,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -196,7 +196,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Expenses. 3 out of 5. Plan for a few hundred all-in. Length. 2 out of 5. Manageable distance. Back by lunch. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Prestige. 2 out of 5. Known in certain circles. Niche following. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Plan for a few hundred all-in. Length. 2 out of 5. Manageable distance. Back by lunch. Technicality. 2 out of 5. Mild technical demands. Pick decent tires. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Prestige. 2 out of 5. Known in certain circles. Niche following. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 97.3
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Filthy 50' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 448,
+    "total_words": 447,
     "total_duration_sec": 585,
-    "overall_wpm": 45.9,
+    "overall_wpm": 45.8,
     "warnings": [],
     "feasible": true
   },

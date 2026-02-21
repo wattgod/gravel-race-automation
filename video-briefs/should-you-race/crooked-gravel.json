@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 434,
+  "estimated_spoken_words": 433,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Experience. 3 out of 5. Memorable course. Has character. Community. 3 out of 5. Genuine community feel. People stick around. Value. 3 out of 5. Fair value. You get what you pay for. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Your wallet will remember this. Briefly.",
+      "narration": "The rest. Quick-fire. Experience. 3 out of 5. Memorable course. Has character. Community. 3 out of 5. Genuine community feel. People stick around. Value. 3 out of 5. Fair value. You get what you pay for. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Budget carefully. The extras get you.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 94.7
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -479,9 +479,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Crooked Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 434,
+    "total_words": 433,
     "total_duration_sec": 585,
-    "overall_wpm": 44.5,
+    "overall_wpm": 44.4,
     "warnings": [],
     "feasible": true
   },

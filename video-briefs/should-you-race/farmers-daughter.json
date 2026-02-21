@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 399,
+  "estimated_spoken_words": 398,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -196,7 +196,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Your wallet will remember this. Briefly. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
+      "narration": "The rest. Quick-fire. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Budget carefully. The extras get you. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
@@ -500,9 +500,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Farmer's Daughter' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 399,
+    "total_words": 398,
     "total_duration_sec": 585,
-    "overall_wpm": 40.9,
+    "overall_wpm": 40.8,
     "warnings": [],
     "feasible": true
   },

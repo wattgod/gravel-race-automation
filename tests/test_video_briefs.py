@@ -62,7 +62,15 @@ from generate_video_briefs import (
     SYR_WEAKNESS_INTROS,
     SYR_LOGISTICS_INTROS,
     TIER_TAGS,
+    ROUND_TIE_TEMPLATES,
+    ROUND_CLOSE_TEMPLATES,
+    ROUND_CLEAR_TEMPLATES,
+    ROUND_BLOWOUT_TEMPLATES,
+    ROUND_FINALE_TEMPLATES,
+    H2H_WINNER_CLOSERS,
+    H2H_TIE_CLOSERS,
 )
+from generate_neo_brutalist import ALL_DIMS, DIM_LABELS
 from generate_video_scripts import (
     load_race,
     load_all_races,
@@ -1130,3 +1138,432 @@ class TestRiffMarkers:
         brief = brief_head_to_head(rd1, rd2)
         notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
         assert "[RIFF HERE]" in notes
+
+    def test_suffering_map_has_riff(self):
+        """Suffering map last zone should have a RIFF marker."""
+        rd = _load("unbound-200")
+        brief = brief_suffering_map(rd)
+        assert brief is not None
+        notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
+        assert "[RIFF HERE]" in notes
+
+    def test_should_you_race_has_riff(self):
+        """Should-you-race weakness section should have a RIFF marker."""
+        rd = _load("unbound-200")
+        ok, _ = has_sufficient_data(rd, "should-you-race")
+        if not ok:
+            pytest.skip("Insufficient data")
+        brief = brief_should_you_race(rd)
+        notes = " ".join(b.get("editing_note", "") for b in brief["beats"])
+        assert "[RIFF HERE]" in notes
+
+    @pytest.mark.parametrize("slug", COMPLETE_RACES)
+    def test_riff_not_in_narration_all_formats(self, slug):
+        """RIFF markers must never leak into narration in ANY format."""
+        rd = _load(slug)
+        generators = [
+            ("tier-reveal", brief_tier_reveal, [rd]),
+            ("suffering-map", brief_suffering_map, [rd]),
+            ("roast", brief_roast, [rd]),
+            ("should-you-race", brief_should_you_race, [rd]),
+        ]
+        for fmt_name, gen, args in generators:
+            ok, _ = has_sufficient_data(rd, fmt_name)
+            if not ok:
+                continue
+            brief = gen(*args)
+            if brief is None:
+                continue
+            for beat in brief["beats"]:
+                assert "[RIFF HERE]" not in beat.get("narration", ""), \
+                    f"RIFF leaked into narration: {fmt_name}/{slug}/{beat['id']}"
+
+
+# ---------------------------------------------------------------------------
+# SCORE_QUIPS Structural Integrity
+# ---------------------------------------------------------------------------
+
+class TestScoreQuipsIntegrity:
+    """Guard tests ensuring SCORE_QUIPS constant is structurally sound."""
+
+    def test_all_dims_covered(self):
+        """Every dimension in ALL_DIMS must have entries in SCORE_QUIPS."""
+        quip_dims = {k for k in SCORE_QUIPS if k != "_default"}
+        for dim in ALL_DIMS:
+            assert dim in quip_dims, \
+                f"Dimension '{dim}' missing from SCORE_QUIPS"
+
+    def test_no_extra_dims(self):
+        """SCORE_QUIPS should not have dims that don't exist in ALL_DIMS."""
+        quip_dims = {k for k in SCORE_QUIPS if k != "_default"}
+        for dim in quip_dims:
+            assert dim in ALL_DIMS, \
+                f"SCORE_QUIPS has unknown dimension '{dim}'"
+
+    def test_all_scores_1_through_5(self):
+        """Every dimension must have quips for scores 1, 2, 3, 4, 5."""
+        for dim in ALL_DIMS:
+            scores = SCORE_QUIPS[dim]
+            for s in range(1, 6):
+                assert s in scores, \
+                    f"SCORE_QUIPS['{dim}'] missing score {s}"
+
+    def test_exactly_three_quips_per_score(self):
+        """Each score should have exactly 3 quips for even distribution."""
+        for dim_key in SCORE_QUIPS:
+            for score, quips in SCORE_QUIPS[dim_key].items():
+                assert len(quips) == 3, \
+                    f"SCORE_QUIPS['{dim_key}'][{score}] has {len(quips)} quips (expected 3)"
+
+    def test_no_empty_quips(self):
+        """No quip string should be empty or whitespace-only."""
+        for dim_key in SCORE_QUIPS:
+            for score, quips in SCORE_QUIPS[dim_key].items():
+                for i, q in enumerate(quips):
+                    assert q.strip(), \
+                        f"SCORE_QUIPS['{dim_key}'][{score}][{i}] is empty"
+
+    def test_quips_max_15_words(self):
+        """Plan specifies quips must be ≤15 words."""
+        violations = []
+        for dim_key in SCORE_QUIPS:
+            for score, quips in SCORE_QUIPS[dim_key].items():
+                for i, q in enumerate(quips):
+                    wc = len(q.split())
+                    if wc > 15:
+                        violations.append(
+                            f"{dim_key}/{score}[{i}]: {wc} words — '{q}'"
+                        )
+        assert not violations, \
+            f"Quips exceed 15-word limit:\n" + "\n".join(violations)
+
+    def test_no_exclamation_marks(self):
+        """Brand voice: periods only. No exclamation marks in quips."""
+        violations = []
+        for dim_key in SCORE_QUIPS:
+            for score, quips in SCORE_QUIPS[dim_key].items():
+                for i, q in enumerate(quips):
+                    if "!" in q:
+                        violations.append(f"{dim_key}/{score}[{i}]: '{q}'")
+        assert not violations, \
+            f"Quips contain exclamation marks:\n" + "\n".join(violations)
+
+    def test_default_fallback_exists(self):
+        """_default key must exist with all 5 scores."""
+        assert "_default" in SCORE_QUIPS
+        for s in range(1, 6):
+            assert s in SCORE_QUIPS["_default"], \
+                f"SCORE_QUIPS['_default'] missing score {s}"
+
+
+# ---------------------------------------------------------------------------
+# Expenses Quip Semantic Direction
+# ---------------------------------------------------------------------------
+
+class TestExpensesQuipDirection:
+    """Guard: expenses quips must align with scoring semantics.
+
+    expenses=1 means MOST EXPENSIVE (worst). expenses=5 means MOST AFFORDABLE (best).
+    The trope code confirms: expenses <= 2 triggers 'pricing out the people'.
+    """
+
+    def test_score_1_means_expensive(self):
+        """Score 1 quips should describe high cost, not affordability."""
+        quips_1 = SCORE_QUIPS["expenses"][1]
+        affordable_words = ["budget-friendly", "cheap", "affordable", "minimal financial",
+                           "barely notices", "no excuses"]
+        for q in quips_1:
+            q_lower = q.lower()
+            for word in affordable_words:
+                assert word not in q_lower, \
+                    f"expenses/1 quip sounds affordable: '{q}'"
+
+    def test_score_5_means_affordable(self):
+        """Score 5 quips should describe low cost, not premium pricing."""
+        quips_5 = SCORE_QUIPS["expenses"][5]
+        expensive_words = ["mortgage", "premium", "accountant", "expensive",
+                          "not cheap", "pile on"]
+        for q in quips_5:
+            q_lower = q.lower()
+            for word in expensive_words:
+                assert word not in q_lower, \
+                    f"expenses/5 quip sounds expensive: '{q}'"
+
+    def test_cross_check_real_race_atlas_mountain(self):
+        """Atlas Mountain Race has expenses=1 (known to be very expensive)."""
+        rd = _load("atlas-mountain-race")
+        score = rd["explanations"]["expenses"]["score"]
+        assert score == 1, f"Atlas Mountain Race expenses expected 1, got {score}"
+        # The quip for score 1 should sound expensive
+        result = _narrate_score("expenses", 1, "atlas-mountain-race")
+        cheap_words = ["budget-friendly", "cheap", "affordable", "barely notices"]
+        for word in cheap_words:
+            assert word not in result.lower(), \
+                f"expenses=1 narration sounds cheap: '{result}'"
+
+
+# ---------------------------------------------------------------------------
+# Quip Distribution
+# ---------------------------------------------------------------------------
+
+class TestQuipDistribution:
+    """Verify deterministic selection distributes across quips."""
+
+    def test_different_slugs_produce_different_quips(self):
+        """At least 2 distinct quips should be selected across 10 slugs."""
+        slugs = [f"race-{i}" for i in range(10)]
+        quips = set()
+        for slug in slugs:
+            result = _narrate_score("logistics", 3, slug, compact=True)
+            # Extract just the quip part (after "3 out of 5. ")
+            parts = result.split("3 out of 5. ", 1)
+            if len(parts) > 1:
+                quips.add(parts[1])
+        assert len(quips) >= 2, \
+            f"All 10 slugs got the same quip — hash distribution broken"
+
+    def test_all_quips_reachable_for_dim(self):
+        """With enough slugs, all 3 quips per dimension/score should be reachable."""
+        # Test with 100 slugs — for 3 quips, pigeonhole guarantees coverage
+        quips_seen = set()
+        for i in range(100):
+            result = _narrate_score("altitude", 5, f"slug-{i}", compact=True)
+            parts = result.split("5 out of 5. ", 1)
+            if len(parts) > 1:
+                quips_seen.add(parts[1])
+        assert len(quips_seen) == 3, \
+            f"Expected 3 distinct quips, got {len(quips_seen)}: {quips_seen}"
+
+
+# ---------------------------------------------------------------------------
+# Intro Lists Structural Guards
+# ---------------------------------------------------------------------------
+
+class TestIntroListsIntegrity:
+    """Guard tests for section intro rotation lists."""
+
+    ALL_INTRO_LISTS = {
+        "ROAST_MARKETING_INTROS": ROAST_MARKETING_INTROS,
+        "ROAST_REALITY_INTROS": ROAST_REALITY_INTROS,
+        "ROAST_DATA_INTROS": ROAST_DATA_INTROS,
+        "SYR_SCORE_INTROS": SYR_SCORE_INTROS,
+        "SYR_REMAINING_INTROS": SYR_REMAINING_INTROS,
+        "SYR_STRENGTH_INTROS": SYR_STRENGTH_INTROS,
+        "SYR_WEAKNESS_INTROS": SYR_WEAKNESS_INTROS,
+        "SYR_LOGISTICS_INTROS": SYR_LOGISTICS_INTROS,
+    }
+
+    @pytest.mark.parametrize("name,lst", list(ALL_INTRO_LISTS.items()),
+                             ids=list(ALL_INTRO_LISTS.keys()))
+    def test_intro_list_non_empty(self, name, lst):
+        assert len(lst) >= 2, f"{name} has {len(lst)} entries (need ≥2)"
+
+    @pytest.mark.parametrize("name,lst", list(ALL_INTRO_LISTS.items()),
+                             ids=list(ALL_INTRO_LISTS.keys()))
+    def test_intro_list_no_empty_strings(self, name, lst):
+        for i, s in enumerate(lst):
+            assert s.strip(), f"{name}[{i}] is empty"
+
+    def test_syr_remaining_no_hardcoded_count(self):
+        """SYR_REMAINING_INTROS must not hardcode a dimension count."""
+        digit_words = ["one", "two", "three", "four", "five", "six",
+                       "seven", "eight", "nine", "ten", "eleven", "twelve",
+                       "thirteen", "fourteen"]
+        for intro in SYR_REMAINING_INTROS:
+            lower = intro.lower()
+            for word in digit_words:
+                # Allow "fourteen" in the general context (SYR_SCORE_INTROS
+                # says "Fourteen dimensions" which is stable), but remaining
+                # count varies depending on the top/remaining split
+                assert word not in lower, \
+                    f"SYR_REMAINING_INTROS contains hardcoded count '{word}': '{intro}'"
+
+    def test_syr_strength_intros_have_name_placeholder(self):
+        """SYR_STRENGTH_INTROS must contain {name} for .format()."""
+        for intro in SYR_STRENGTH_INTROS:
+            assert "{name}" in intro, \
+                f"SYR_STRENGTH_INTROS missing {{name}} placeholder: '{intro}'"
+
+    def test_syr_strength_intros_format_works(self):
+        """Formatting SYR_STRENGTH_INTROS with a race name must not leave {name}."""
+        for intro in SYR_STRENGTH_INTROS:
+            formatted = intro.format(name="Test Race")
+            assert "{name}" not in formatted
+            assert "Test Race" in formatted
+
+
+# ---------------------------------------------------------------------------
+# Round Template Structural Guards
+# ---------------------------------------------------------------------------
+
+class TestRoundTemplateIntegrity:
+    """Guard tests for head-to-head round narration templates."""
+
+    ALL_ROUND_TEMPLATES = {
+        "TIE": ROUND_TIE_TEMPLATES,
+        "CLOSE": ROUND_CLOSE_TEMPLATES,
+        "CLEAR": ROUND_CLEAR_TEMPLATES,
+        "BLOWOUT": ROUND_BLOWOUT_TEMPLATES,
+        "FINALE": ROUND_FINALE_TEMPLATES,
+    }
+
+    @pytest.mark.parametrize("name,templates",
+                             list(ALL_ROUND_TEMPLATES.items()),
+                             ids=list(ALL_ROUND_TEMPLATES.keys()))
+    def test_templates_non_empty(self, name, templates):
+        assert len(templates) >= 2, f"{name} has {len(templates)} templates (need ≥2)"
+
+    def test_tie_templates_no_winner_reference(self):
+        """Tie templates should not reference {winner} — there is no winner."""
+        for t in ROUND_TIE_TEMPLATES:
+            assert "{winner}" not in t, \
+                f"Tie template references {{winner}}: '{t}'"
+
+    def test_non_tie_templates_have_winner(self):
+        """Non-tie templates must include {winner} to name the round winner."""
+        for name in ["CLOSE", "CLEAR", "BLOWOUT", "FINALE"]:
+            for t in self.ALL_ROUND_TEMPLATES[name]:
+                # At least some templates should have {winner}
+                # (FINALE might have some without if the gap speaks for itself)
+                if name != "FINALE":
+                    assert "{winner}" in t, \
+                        f"{name} template missing {{winner}}: '{t}'"
+
+    def test_templates_have_score_placeholders(self):
+        """All templates should include score placeholders.
+
+        Tie templates use {s1}/{s2} (equal scores).
+        Non-tie templates use {hi}/{lo} (winner/loser scores).
+        """
+        for name, templates in self.ALL_ROUND_TEMPLATES.items():
+            for t in templates:
+                has_hilo = "{hi}" in t and "{lo}" in t
+                has_s1s2 = "{s1}" in t or "{s2}" in t
+                assert has_hilo or has_s1s2, \
+                    f"{name} template missing score placeholders: '{t}'"
+
+    def test_all_templates_have_label(self):
+        """Every template must start with {label}."""
+        for name, templates in self.ALL_ROUND_TEMPLATES.items():
+            for t in templates:
+                assert t.startswith("{label}"), \
+                    f"{name} template doesn't start with {{label}}: '{t}'"
+
+    def test_no_edge_pattern_in_any_template(self):
+        """Regression: 'Edge:' pattern must never appear in round templates."""
+        for name, templates in self.ALL_ROUND_TEMPLATES.items():
+            for t in templates:
+                assert "Edge:" not in t, \
+                    f"{name} template contains robotic 'Edge:' pattern: '{t}'"
+
+
+# ---------------------------------------------------------------------------
+# H2H Verdict Closers
+# ---------------------------------------------------------------------------
+
+class TestH2HVerdictClosers:
+    """Guard tests for head-to-head verdict closer constants."""
+
+    def test_winner_closers_non_empty(self):
+        assert len(H2H_WINNER_CLOSERS) >= 2
+
+    def test_tie_closers_non_empty(self):
+        assert len(H2H_TIE_CLOSERS) >= 2
+
+    def test_verdict_includes_closer(self):
+        """Generated H2H verdict must include a closer from the constants."""
+        rd1 = _load("unbound-200")
+        rd2 = _load("mid-south")
+        brief = brief_head_to_head(rd1, rd2)
+        verdict_beat = [b for b in brief["beats"] if b["id"] == "verdict"][0]
+        narration = verdict_beat["narration"]
+        all_closers = H2H_WINNER_CLOSERS + H2H_TIE_CLOSERS
+        assert any(c in narration for c in all_closers), \
+            f"Verdict narration missing closer: '{narration}'"
+
+
+# ---------------------------------------------------------------------------
+# WPM Ceiling Regression (Full Pipeline)
+# ---------------------------------------------------------------------------
+
+class TestWpmCeilingRegression:
+    """No generated brief should have 'impossible' WPM (>200) in any beat."""
+
+    def test_no_impossible_wpm_tier_reveal(self):
+        """All tier-reveal briefs must stay under WPM_MAX."""
+        races = load_all_races()
+        violations = []
+        for rd in races:
+            brief = brief_tier_reveal(rd)
+            if brief is None:
+                continue
+            for beat in brief["beats"]:
+                wpm = beat.get("narration_wpm", 0)
+                if wpm > WPM_MAX:
+                    violations.append(
+                        f"{rd['slug']}/{beat['id']}: {wpm:.0f} WPM"
+                    )
+        assert not violations, \
+            f"Impossible WPM in tier-reveal:\n" + "\n".join(violations[:20])
+
+    def test_no_impossible_wpm_roast(self):
+        """All roast briefs must stay under WPM_MAX."""
+        races = load_all_races()
+        violations = []
+        for rd in races:
+            ok, _ = has_sufficient_data(rd, "roast")
+            if not ok:
+                continue
+            brief = brief_roast(rd)
+            if brief is None:
+                continue
+            for beat in brief["beats"]:
+                wpm = beat.get("narration_wpm", 0)
+                if wpm > WPM_MAX:
+                    violations.append(
+                        f"{rd['slug']}/{beat['id']}: {wpm:.0f} WPM"
+                    )
+        assert not violations, \
+            f"Impossible WPM in roast:\n" + "\n".join(violations[:20])
+
+
+# ---------------------------------------------------------------------------
+# _extract_first_sentence Edge Cases
+# ---------------------------------------------------------------------------
+
+class TestExtractFirstSentenceEdgeCases:
+    """Edge cases that might break sentence extraction."""
+
+    def test_abbreviation_with_period(self):
+        """Abbreviation like 'Mt.' shouldn't be treated as end of sentence."""
+        # This is a known limitation — the regex splits on first period
+        text = "Mt. Hood is visible from the start line. Beautiful course."
+        result = _extract_first_sentence(text)
+        # Accepts either behavior (stopping at "Mt." or getting full sentence)
+        # but must not crash
+        assert isinstance(result, str)
+
+    def test_decimal_number(self):
+        """Decimal numbers like '3.5' shouldn't break extraction."""
+        text = "The course covers 3.5 miles of technical terrain. Rough stuff."
+        result = _extract_first_sentence(text)
+        assert isinstance(result, str)
+
+    def test_multiple_sentences(self):
+        """Should only return the first sentence (if it meets word count)."""
+        text = "This race has excellent aid stations and course marking. Second sentence here. Third one."
+        result = _extract_first_sentence(text)
+        assert result == "This race has excellent aid stations and course marking."
+
+    def test_question_mark_ending(self):
+        """Question marks should count as sentence endings."""
+        text = "Is this the hardest race in gravel? Many people think so."
+        result = _extract_first_sentence(text)
+        assert result == "Is this the hardest race in gravel?"
+
+    def test_unicode_content(self):
+        """Unicode characters shouldn't break extraction."""
+        text = "The Grèvenmacher circuit features 200m of climbing. Technical."
+        result = _extract_first_sentence(text)
+        assert isinstance(result, str)
+        assert len(result) > 0

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 506,
+  "estimated_spoken_words": 504,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_adventure",
@@ -196,7 +196,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest, in rapid succession. Expenses. 4 out of 5. Expensive. Travel and lodging add up fast. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Length. 3 out of 5. Proper race distance. Enough to hurt. Climate. 3 out of 5. Pack for two seasons. Field Depth. 3 out of 5. Good racing at every level. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest, in rapid succession. Expenses. 4 out of 5. Affordable. Won't break the bank. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Length. 3 out of 5. Proper race distance. Enough to hurt. Climate. 3 out of 5. Pack for two seasons. Field Depth. 3 out of 5. Good racing at every level. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -246,7 +246,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 96.0
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -498,9 +498,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Grinduro Germany' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 506,
+    "total_words": 504,
     "total_duration_sec": 585,
-    "overall_wpm": 51.9,
+    "overall_wpm": 51.7,
     "warnings": [],
     "feasible": true
   },

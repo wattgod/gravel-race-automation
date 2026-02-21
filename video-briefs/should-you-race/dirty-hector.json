@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 446,
+  "estimated_spoken_words": 445,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Climate. 2 out of 5. Weather cooperates more often than not. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Climate. 2 out of 5. Weather cooperates more often than not. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 97.3
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -479,9 +479,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Dirty Hector - New York State Championship' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 446,
+    "total_words": 445,
     "total_duration_sec": 585,
-    "overall_wpm": 45.7,
+    "overall_wpm": 45.6,
     "warnings": [],
     "feasible": true
   },

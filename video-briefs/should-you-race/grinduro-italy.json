@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 402,
+  "estimated_spoken_words": 404,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "hidden_gem",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest, in rapid succession. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Value. 2 out of 5. Below-average value. You can do better. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Low altitude. Breathe easy.",
+      "narration": "The rest, in rapid succession. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Value. 2 out of 5. Below-average value. You can do better. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 93.3
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Grinduro Italy' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 402,
+    "total_words": 404,
     "total_duration_sec": 585,
-    "overall_wpm": 41.2,
+    "overall_wpm": 41.4,
     "warnings": [],
     "feasible": true
   },

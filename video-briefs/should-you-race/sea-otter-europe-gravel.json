@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 362,
+  "estimated_spoken_words": 361,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Value. 3 out of 5. The math works out. Barely. Logistics. 2 out of 5. You'll figure it out. Eventually. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Expenses. 2 out of 5. Reasonable costs. Plan a modest budget. Altitude. 1 out of 5. Low altitude. Breathe easy.",
+      "narration": "The rest. Quick-fire. Value. 3 out of 5. The math works out. Barely. Logistics. 2 out of 5. You'll figure it out. Eventually. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Expenses. 2 out of 5. Not cheap. The costs pile on. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 86.7
+      "narration_wpm": 85.3
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Sea Otter Europe Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 362,
+    "total_words": 361,
     "total_duration_sec": 585,
-    "overall_wpm": 37.1,
+    "overall_wpm": 37.0,
     "warnings": [],
     "feasible": true
   },

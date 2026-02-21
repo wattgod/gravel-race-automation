@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 379,
+  "estimated_spoken_words": 381,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard. Elevation. 2 out of 5. Some ups and downs. Manageable. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Low altitude. Breathe easy.",
+      "narration": "And the rest of the scorecard. Elevation. 2 out of 5. Some ups and downs. Manageable. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Adequate. Room for improvement. Field Depth. 2 out of 5. Enough competition to keep you honest. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 89.3
+      "narration_wpm": 92.0
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Alentejo Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 379,
+    "total_words": 381,
     "total_duration_sec": 585,
-    "overall_wpm": 38.9,
+    "overall_wpm": 39.1,
     "warnings": [],
     "feasible": true
   },

@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 415,
+  "estimated_spoken_words": 414,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Field Depth. 2 out of 5. Small but scrappy field. Altitude. 1 out of 5. Oxygen plentiful. Power output normal.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 89.3
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Barry-Roubaix Killer Gravel Road Race' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 415,
+    "total_words": 414,
     "total_duration_sec": 585,
-    "overall_wpm": 42.6,
+    "overall_wpm": 42.5,
     "warnings": [],
     "feasible": true
   },

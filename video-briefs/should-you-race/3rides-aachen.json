@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 416,
+  "estimated_spoken_words": 418,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard. Community. 3 out of 5. Community is a real selling point. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Small but scrappy field. Value. 2 out of 5. Value is not the strong suit. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "And the rest of the scorecard. Community. 3 out of 5. Community is a real selling point. Prestige. 2 out of 5. Regional reputation. The locals know. Field Depth. 2 out of 5. Small but scrappy field. Value. 2 out of 5. Value is not the strong suit. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 94.7
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, '3Rides Aachen' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 416,
+    "total_words": 418,
     "total_duration_sec": 585,
-    "overall_wpm": 42.7,
+    "overall_wpm": 42.9,
     "warnings": [],
     "feasible": true
   },

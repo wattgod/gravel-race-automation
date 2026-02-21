@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 365,
+  "estimated_spoken_words": 364,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Adventure. 2 out of 5. Light adventure. Nothing wild. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Pleasant enough. Won't change your life. Altitude. 1 out of 5. Low altitude. Breathe easy. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
+      "narration": "The rest. Quick-fire. Adventure. 2 out of 5. Light adventure. Nothing wild. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Pleasant enough. Won't change your life. Altitude. 1 out of 5. Low altitude. Breathe easy. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Sparse start line. Plenty of elbow room.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 85.3
+      "narration_wpm": 84.0
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Sunday Creek Classic' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 365,
+    "total_words": 364,
     "total_duration_sec": 585,
-    "overall_wpm": 37.4,
+    "overall_wpm": 37.3,
     "warnings": [],
     "feasible": true
   },

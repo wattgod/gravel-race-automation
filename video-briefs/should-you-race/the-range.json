@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 398,
+  "estimated_spoken_words": 400,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard. Value. 3 out of 5. Reasonable price for what's offered. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 2 out of 5. Mild elevation. Most riders won't notice. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Affordable. Won't break the bank.",
+      "narration": "And the rest of the scorecard. Value. 3 out of 5. Reasonable price for what's offered. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 2 out of 5. Mild elevation. Most riders won't notice. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'The Range' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 398,
+    "total_words": 400,
     "total_duration_sec": 585,
-    "overall_wpm": 40.8,
+    "overall_wpm": 41.0,
     "warnings": [],
     "feasible": true
   },

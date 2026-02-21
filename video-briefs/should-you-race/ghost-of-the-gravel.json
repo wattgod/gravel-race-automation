@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 338,
+  "estimated_spoken_words": 340,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard. Adventure. 2 out of 5. Light adventure. Nothing wild. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Low altitude. Breathe easy.",
+      "narration": "And the rest of the scorecard. Adventure. 2 out of 5. Light adventure. Nothing wild. Prestige. 2 out of 5. Regional reputation. The locals know. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Altitude. 1 out of 5. Low altitude. Breathe easy.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 93.3
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Ghost of the Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 338,
+    "total_words": 340,
     "total_duration_sec": 585,
-    "overall_wpm": 34.7,
+    "overall_wpm": 34.9,
     "warnings": [],
     "feasible": true
   },

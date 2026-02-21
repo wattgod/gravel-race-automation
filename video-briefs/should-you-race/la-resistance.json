@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 317,
+  "estimated_spoken_words": 319,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "david_vs_goliath",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest, in rapid succession. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Affordable. Won't break the bank.",
+      "narration": "The rest, in rapid succession. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Nothing special about the race execution. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 90.7
+      "narration_wpm": 93.3
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'La Resistance' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 317,
+    "total_words": 319,
     "total_duration_sec": 585,
-    "overall_wpm": 32.5,
+    "overall_wpm": 32.7,
     "warnings": [],
     "feasible": true
   },

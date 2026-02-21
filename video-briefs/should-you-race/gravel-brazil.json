@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 469,
+  "estimated_spoken_words": 468,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "extreme_adventure",
@@ -184,7 +184,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Length. 3 out of 5. Long enough to matter. Short enough to recover. Climate. 3 out of 5. The weather could go either way. Field Depth. 3 out of 5. Good racing at every level. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Length. 3 out of 5. Long enough to matter. Short enough to recover. Climate. 3 out of 5. The weather could go either way. Field Depth. 3 out of 5. Good racing at every level. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -234,7 +234,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 98.7
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
@@ -476,9 +476,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'Gravel Brazil' bold text, tier badge 'ELITE', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 469,
+    "total_words": 468,
     "total_duration_sec": 585,
-    "overall_wpm": 48.1,
+    "overall_wpm": 48.0,
     "warnings": [],
     "feasible": true
   },

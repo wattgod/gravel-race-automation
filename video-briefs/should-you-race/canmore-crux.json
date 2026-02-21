@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 389,
+  "estimated_spoken_words": 391,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Expenses. 2 out of 5. Affordable. Won't break the bank. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
+      "narration": "The rest, in rapid succession. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Small field. You might podium by showing up.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 97.3
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Canmore Crux' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 389,
+    "total_words": 391,
     "total_duration_sec": 585,
-    "overall_wpm": 39.9,
+    "overall_wpm": 40.1,
     "warnings": [],
     "feasible": true
   },

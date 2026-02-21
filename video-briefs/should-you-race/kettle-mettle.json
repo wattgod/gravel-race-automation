@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 414,
+  "estimated_spoken_words": 415,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Value. 3 out of 5. Fair value. You get what you pay for. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Affordable. Won't break the bank.",
+      "narration": "The rest. Quick-fire. Value. 3 out of 5. Fair value. You get what you pay for. Logistics. 2 out of 5. You'll figure it out. Eventually. Altitude. 2 out of 5. Negligible altitude effect. Prestige. 2 out of 5. Known in certain circles. Niche following. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 93.3
+      "narration_wpm": 94.7
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Kettle Mettle' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 414,
+    "total_words": 415,
     "total_duration_sec": 585,
-    "overall_wpm": 42.5,
+    "overall_wpm": 42.6,
     "warnings": [],
     "feasible": true
   },

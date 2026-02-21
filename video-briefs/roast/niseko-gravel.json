@@ -10,7 +10,7 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 158,
+  "estimated_spoken_words": 159,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "hidden_gem",
@@ -194,7 +194,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "Fourteen dimensions. No opinions. Just scores. Expenses. 1 out of 5. Cheap to do. No excuses. Flying to Hokkaido costs serious money, then you're dealing with Niseko resort area pricing year-round. Logistics. 2 out of 5. You'll figure it out. Eventually. Kae Takeshita notes \"the event website had very little information available\" before the 2022 event, creating pre-race uncertainty. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Courses consist of \"gravel sections connected by paved roads\" with forest roads and \"private gravel paths in between rice fields.",
+      "narration": "Fourteen dimensions. No opinions. Just scores. Expenses. 1 out of 5. Premium pricing. Everything costs more here. Flying to Hokkaido costs serious money, then you're dealing with Niseko resort area pricing year-round. Logistics. 2 out of 5. You'll figure it out. Eventually. Kae Takeshita notes \"the event website had very little information available\" before the 2022 event, creating pre-race uncertainty. Technicality. 2 out of 5. Some chunky bits. Nothing catastrophic. Courses consist of \"gravel sections connected by paved roads\" with forest roads and \"private gravel paths in between rice fields.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -229,7 +229,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 89.0
+      "narration_wpm": 90.0
     },
     {
       "id": "verdict",
@@ -300,9 +300,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Niseko Gravel' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 158,
+    "total_words": 159,
     "total_duration_sec": 225,
-    "overall_wpm": 42.1,
+    "overall_wpm": 42.4,
     "warnings": [],
     "feasible": true
   },

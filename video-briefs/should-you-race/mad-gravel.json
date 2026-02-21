@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 368,
+  "estimated_spoken_words": 367,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
+      "narration": "The rest. Quick-fire. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Race Quality. 2 out of 5. Nothing special about the race execution. Experience. 2 out of 5. A nice day on the bike. Nothing more. Community. 2 out of 5. Some community spirit. Nothing organized. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 88.0
+      "narration_wpm": 86.7
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Mad Gravel' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 368,
+    "total_words": 367,
     "total_duration_sec": 585,
-    "overall_wpm": 37.7,
+    "overall_wpm": 37.6,
     "warnings": [],
     "feasible": true
   },

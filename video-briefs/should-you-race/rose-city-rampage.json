@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 389,
+  "estimated_spoken_words": 388,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -186,7 +186,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
+      "narration": "The rest. Quick-fire. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -236,7 +236,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 89.3
+      "narration_wpm": 88.0
     },
     {
       "id": "strengths",
@@ -480,9 +480,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Rose City Rampage Gravel Race' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 389,
+    "total_words": 388,
     "total_duration_sec": 585,
-    "overall_wpm": 39.9,
+    "overall_wpm": 39.8,
     "warnings": [],
     "feasible": true
   },

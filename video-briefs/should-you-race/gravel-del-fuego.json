@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 446,
+  "estimated_spoken_words": 448,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "underdog_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Community. 2 out of 5. Some community spirit. Nothing organized. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Logistics. 1 out of 5. You are the aid station. Expenses. 1 out of 5. Budget-friendly. Your bank account barely notices.",
+      "narration": "The rest. Quick-fire. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Community. 2 out of 5. Some community spirit. Nothing organized. Field Depth. 2 out of 5. Modest field. Some fast riders in the mix. Logistics. 1 out of 5. You are the aid station. Expenses. 1 out of 5. Bring a second mortgage and strong opinions about hotels.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 97.3
+      "narration_wpm": 100.0
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'Gravel del Fuego' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 446,
+    "total_words": 448,
     "total_duration_sec": 585,
-    "overall_wpm": 45.7,
+    "overall_wpm": 45.9,
     "warnings": [],
     "feasible": true
   },

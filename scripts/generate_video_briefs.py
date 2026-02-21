@@ -233,11 +233,12 @@ SCORE_QUIPS = {
         5: ["Dollar for dollar, one of the best in gravel.", "Exceptional value. Almost feels like a steal.", "Punches way above its price point."],
     },
     "expenses": {
-        1: ["Budget-friendly. Your bank account barely notices.", "Cheap to do. No excuses.", "Minimal financial barrier."],
-        2: ["Affordable. Won't break the bank.", "Reasonable costs. Plan a modest budget.", "Your wallet will remember this. Briefly."],
+        # expenses: 1 = MOST EXPENSIVE (worst), 5 = MOST AFFORDABLE (best)
+        1: ["Bring a second mortgage and strong opinions about hotels.", "Premium pricing. Everything costs more here.", "Your accountant would not approve."],
+        2: ["Expensive. Travel and lodging add up fast.", "Not cheap. The costs pile on.", "Budget carefully. The extras get you."],
         3: ["Mid-range expenses. Budget a proper race weekend.", "Plan for a few hundred all-in.", "Standard gravel race budget."],
-        4: ["Expensive. Travel and lodging add up fast.", "Not cheap. The costs pile on.", "Budget carefully. The extras get you."],
-        5: ["Bring a second mortgage and strong opinions about hotels.", "Premium pricing. Everything costs more here.", "Your accountant would not approve."],
+        4: ["Affordable. Won't break the bank.", "Reasonable costs. Plan a modest budget.", "Your wallet will survive this one."],
+        5: ["Budget-friendly. Your bank account barely notices.", "Cheap to do. No excuses.", "Minimal financial barrier."],
     },
     "_default": {
         1: ["Bottom of the scale.", "As low as it gets.", "One out of five."],
@@ -275,7 +276,7 @@ SYR_SCORE_INTROS = [
 ]
 SYR_REMAINING_INTROS = [
     "And the rest of the scorecard.",
-    "The remaining six. Quick-fire.",
+    "The rest. Quick-fire.",
     "The rest, in rapid succession.",
 ]
 SYR_STRENGTH_INTROS = [
@@ -771,6 +772,14 @@ def brief_suffering_map(rd):
         narration_text = f"Mile {mile}. {label}. {desc}"
         narration_text = _trim_narration(narration_text, seconds_per_zone)
 
+        is_last_zone = (i == num_zones - 1)
+        zone_note = (
+            f"Zone marker {i+1} appears on map. "
+            "Progressive color intensity (green→yellow→red)."
+        )
+        if is_last_zone:
+            zone_note += " [RIFF HERE] after final zone reveal."
+
         zone_beats.append({
             "id": f"zone_{i+1}",
             "label": f"ZONE {i+1}: Mile {mile}",
@@ -779,13 +788,12 @@ def brief_suffering_map(rd):
             "narration": narration_text,
             "text_on_screen": f"MILE {mile}: {label}",
             "visual": "Route map with zone marker animation",
-            "avatar_pose": "suffering" if i == num_zones - 1 else "pointing",
+            "avatar_pose": "suffering" if is_last_zone else "pointing",
             "broll_sources": _get_broll_sources(rd, "terrain"),
             "music_bpm": BPM["tension"],
             "volume_db": VOLUME_DB["narration"],
             "cut_frequency_sec": CUT_FREQUENCY["short"],
-            "editing_note": f"Zone marker {i+1} appears on map. "
-                           "Progressive color intensity (green→yellow→red).",
+            "editing_note": zone_note,
         })
 
     total_zone_sec = num_zones * seconds_per_zone

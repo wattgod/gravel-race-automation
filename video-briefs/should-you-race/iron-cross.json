@@ -10,7 +10,7 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 350,
+  "estimated_spoken_words": 351,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
     "name": "tier_reveal",
@@ -174,7 +174,7 @@
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The remaining six. Quick-fire. Value. 3 out of 5. The math works out. Barely. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Affordable. Won't break the bank. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Value. 3 out of 5. The math works out. Barely. Prestige. 2 out of 5. Building a name. Not there yet. Race Quality. 2 out of 5. Basic but functional. Gets the job done. Field Depth. 2 out of 5. Small but scrappy field. Expenses. 2 out of 5. Expensive. Travel and lodging add up fast. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -224,7 +224,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 94.7
+      "narration_wpm": 96.0
     },
     {
       "id": "strengths",
@@ -456,9 +456,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Iron Cross' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 350,
+    "total_words": 351,
     "total_duration_sec": 585,
-    "overall_wpm": 35.9,
+    "overall_wpm": 36.0,
     "warnings": [],
     "feasible": true
   },

@@ -175,6 +175,85 @@ def extract_state(location: str) -> str | None:
     return None
 
 
+# ── International Country Extraction ──────────────────────────
+
+# Location substrings → ISO 3166-1 alpha-2 codes
+COUNTRY_MAP = {
+    # Explicit country names
+    "Canada": "CA", "Australia": "AU", "Belgium": "BE", "Italy": "IT",
+    "France": "FR", "Germany": "DE", "Spain": "ES", "Netherlands": "NL",
+    "New Zealand": "NZ", "Colombia": "CO", "Switzerland": "CH",
+    "South Africa": "ZA", "Kenya": "KE", "Chile": "CL", "Romania": "RO",
+    "Czech Republic": "CZ", "Argentina": "AR", "Denmark": "DK",
+    "Sweden": "SE", "Iceland": "IS", "Thailand": "TH", "Japan": "JP",
+    "Poland": "PL", "Finland": "FI", "Luxembourg": "LU", "Greece": "GR",
+    "Brazil": "BR", "Monaco": "MC", "Austria": "AT", "Portugal": "PT",
+    "Norway": "NO", "Slovenia": "SI", "Croatia": "HR",
+    # Sub-regions that imply country
+    "Wales": "GB", "Scotland": "GB", "England": "GB",
+    "Northumberland": "GB", "Devon": "GB", "North York Moors": "GB",
+    "Lake District": "GB", "Peak District": "GB", "Yorkshire": "GB",
+    "Flanders": "BE", "Belgian": "BE", "Houffalize": "BE",
+    "Sardinia": "IT", "Tuscany": "IT", "Lombardy": "IT", "Veneto": "IT",
+    "Finale Ligure": "IT",
+    "Catalonia": "ES", "Girona": "ES", "Castellon": "ES",
+    "Pyrénées": "FR", "French Alps": "FR", "Vosges": "FR", "Drôme": "FR",
+    "Châtellerault": "FR", "Millau": "FR",
+    "Black Forest": "DE", "Eifel": "DE", "Aachen": "DE", "Hellenthal": "DE",
+    "Nürburg": "DE", "Singen": "DE", "Lake Constance": "DE",
+    "British Columbia": "CA", "Alberta": "CA", "Ontario": "CA", "Quebec": "CA",
+    "Victoria, AU": "AU", "Queensland": "AU", "New South Wales": "AU",
+    "Western Australia": "AU", "Tasmania": "AU", "NSW": "AU",
+    "Patagonia": "CL", "Tierra del Fuego": "CL",
+    "Hokkaido": "JP",
+    "Maasai Mara": "KE", "Mpumalanga": "ZA",
+    "Drenthe": "NL", "Heerlen": "NL", "Roden": "NL",
+    "Wörthersee": "AT", "Slovenian": "SI", "Croatian": "HR",
+    "Bogotá": "CO", "Medellín": "CO", "Colombian": "CO",
+    "Lake Taupo": "NZ", "Manawatū": "NZ", "South Island": "NZ",
+}
+
+COUNTRY_NAMES = {
+    "CA": "Canada", "AU": "Australia", "GB": "United Kingdom", "BE": "Belgium",
+    "IT": "Italy", "FR": "France", "DE": "Germany", "ES": "Spain",
+    "NL": "Netherlands", "NZ": "New Zealand", "CO": "Colombia",
+    "CH": "Switzerland", "ZA": "South Africa", "KE": "Kenya", "CL": "Chile",
+    "RO": "Romania", "CZ": "Czechia", "AR": "Argentina", "DK": "Denmark",
+    "NO": "Norway", "SE": "Sweden", "IS": "Iceland", "TH": "Thailand",
+    "JP": "Japan", "PL": "Poland", "FI": "Finland", "LU": "Luxembourg",
+    "GR": "Greece", "BR": "Brazil", "MC": "Monaco", "AT": "Austria",
+    "PT": "Portugal", "SI": "Slovenia", "HR": "Croatia",
+}
+
+WORLD_REGIONS = {
+    "Europe": ["GB", "BE", "IT", "FR", "DE", "ES", "NL", "CH", "RO", "CZ",
+               "DK", "NO", "SE", "IS", "PL", "FI", "LU", "GR", "MC", "AT",
+               "PT", "SI", "HR"],
+    "Americas": ["CA", "CO", "AR", "CL", "BR"],
+    "Asia-Pacific": ["AU", "NZ", "JP", "TH"],
+    "Africa": ["ZA", "KE"],
+}
+
+
+def extract_country(location: str) -> str | None:
+    """Extract ISO country code from a non-US location string.
+
+    Returns None for US locations, empty/None input, or unmatched
+    strings like 'Global' / 'Multi-Location' / 'Various'.
+    """
+    if not location:
+        return None
+    # Skip if it looks like a US location (has state match)
+    if extract_state(location):
+        return None
+    # Check longest keys first to avoid partial matches
+    # (e.g., "New Zealand" before "New South Wales")
+    for key in sorted(COUNTRY_MAP, key=len, reverse=True):
+        if key in location:
+            return COUNTRY_MAP[key]
+    return None
+
+
 # ── Data Loading ───────────────────────────────────────────────
 
 
@@ -756,10 +835,6 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
     qs_avg = editorial_facts.get("quality_state_avg", 0)
     qs_count = editorial_facts.get("quality_state_count", 0)
 
-    non_us_line = ""
-    if non_us_count:
-        non_us_line = f'\n  <p class="gg-ins-map-non-us">{non_us_count} race{"s" if non_us_count != 1 else ""} outside the US not shown.</p>'
-
     # Build hidden race list panels per state (click tile to expand)
     state_races: dict[str, list[dict]] = defaultdict(list)
     for r in races:
@@ -785,6 +860,79 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
             f'    </div>\n'
         )
 
+    # ── World Tile Grid: International races by country ──
+    country_counts: dict[str, int] = {}
+    country_races: dict[str, list[dict]] = {}
+    for r in races:
+        if r.get("state"):
+            continue  # US race — already in state grid
+        cc = extract_country(r.get("location", ""))
+        if not cc:
+            continue  # Unmatched (Global series, etc.)
+        country_counts[cc] = country_counts.get(cc, 0) + 1
+        country_races.setdefault(cc, []).append(r)
+
+    intl_country_count = len(country_counts)
+    intl_race_count = sum(country_counts.values())
+
+    # Build tiles grouped by region
+    world_html = ""
+    for region, codes in WORLD_REGIONS.items():
+        region_codes = [c for c in codes if c in country_counts]
+        if not region_codes:
+            continue
+        tiles = ""
+        for cc in sorted(region_codes, key=lambda c: -country_counts[c]):
+            count = country_counts[cc]
+            density = "high" if count >= 5 else "med" if count >= 3 else "low"
+            name = COUNTRY_NAMES.get(cc, cc)
+            tip = f"{name}: {count} race{'s' if count != 1 else ''}"
+            tiles += (
+                f'      <button class="gg-ins-world-tile" data-country="{cc}" '
+                f'data-density="{density}" data-tooltip="{esc(tip)}" '
+                f'aria-expanded="false">'
+                f'<span class="gg-ins-world-code">{cc}</span>'
+                f'<span class="gg-ins-world-count">{count}</span>'
+                f'</button>\n'
+            )
+        world_html += (
+            f'    <div class="gg-ins-world-region">'
+            f'<div class="gg-ins-world-region-label">{esc(region)}</div>'
+            f'<div class="gg-ins-world-region-tiles">\n{tiles}'
+            f'    </div></div>\n'
+        )
+
+    # Build expandable panels per country (same pattern as state panels)
+    country_panel_html = ""
+    for cc in sorted(country_counts.keys()):
+        race_list = sorted(
+            country_races[cc],
+            key=lambda r: (r.get("tier", 4), r.get("name", "")),
+        )
+        race_items = ""
+        for mr in race_list:
+            slug = mr.get("slug", "")
+            tier_badge = f'<span class="gg-ins-cal-tier" data-tier="{mr.get("tier", 4)}">T{mr.get("tier", 4)}</span>'
+            link = f'<a href="{SITE_BASE_URL}/race/{esc(slug)}/">{esc(mr.get("name", ""))}</a>' if slug else esc(mr.get("name", ""))
+            race_items += f'      <div class="gg-ins-cal-race">{link}{tier_badge}</div>\n'
+        name = COUNTRY_NAMES.get(cc, cc)
+        country_panel_html += (
+            f'    <div class="gg-ins-map-panel gg-ins-panel-hidden" data-country="{cc}" aria-hidden="true">\n'
+            f'      <div class="gg-ins-map-panel-title">{esc(name)} &mdash; {len(race_list)} race{"s" if len(race_list) != 1 else ""}</div>\n'
+            f'{race_items}'
+            f'    </div>\n'
+        )
+
+    world_grid_html = ""
+    if world_html:
+        world_grid_html = f'''
+  <div class="gg-ins-world-grid">
+    <h3 class="gg-ins-world-title">International</h3>
+    <p class="gg-ins-world-subtitle">{intl_race_count} races across {intl_country_count} countries. Click a country to see its races.</p>
+{world_html}    <div class="gg-ins-world-detail" id="world-detail" aria-live="polite">
+{country_panel_html}    </div>
+  </div>'''
+
     geo_narrative = "Click a state to see its races."
     if top_st:
         geo_narrative = f"{esc(top_st)} leads with {top_st_count} races. {esc(qs)} averages {qs_avg:.0f} across {qs_count} &#8212; the highest quality-per-race in the database. Click a state to see its races."
@@ -795,7 +943,7 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
   <div class="gg-ins-map-grid" style="grid-template-columns:repeat({max_col},1fr);grid-template-rows:repeat({max_row},1fr);">
 {tile_html}  </div>
   <div class="gg-ins-map-detail" id="map-detail" aria-live="polite">
-{state_panel_html}  </div>{non_us_line}
+{state_panel_html}  </div>{world_grid_html}
 </section>'''
 
     # ── Calendar ──
@@ -1044,6 +1192,21 @@ def build_insights_css() -> str:
 /* ── Insights Page ─────────────────────────────────────── */
 {get_site_header_css()}
 
+/* ── Page wrapper (full-bleed editorial, not the 960px race card) ── */
+.gg-insights-page {{
+  margin: 0;
+  padding: 0;
+  font-family: var(--gg-font-data);
+  color: var(--gg-color-dark-brown);
+  line-height: 1.6;
+  background: var(--gg-color-warm-paper);
+}}
+.gg-insights-page *, .gg-insights-page *::before, .gg-insights-page *::after {{
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+}}
+
 /* ── Hero ── */
 .gg-insights-hero {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl) var(--gg-spacing-xl);
@@ -1110,11 +1273,8 @@ def build_insights_css() -> str:
 .gg-insights-section--alt {{
   background: var(--gg-color-sand);
   max-width: none;
-}}
-.gg-insights-section--alt > * {{
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: max(var(--gg-spacing-xl), calc(50% - 448px));
+  padding-right: max(var(--gg-spacing-xl), calc(50% - 448px));
 }}
 .gg-insights-section-title {{
   font-family: var(--gg-font-editorial);
@@ -1540,6 +1700,92 @@ def build_insights_css() -> str:
 .gg-ins-cal-race--empty {{
   color: var(--gg-color-secondary-brown);
   font-style: italic;
+}}
+
+/* ── World Tile Grid (International) ── */
+.gg-ins-world-grid {{
+  margin-top: var(--gg-spacing-xl);
+  border-top: 2px solid var(--gg-color-dark-brown);
+  padding-top: var(--gg-spacing-xl);
+}}
+.gg-ins-world-title {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-lg);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  text-transform: uppercase;
+  letter-spacing: var(--gg-letter-spacing-wider);
+  margin: 0 0 var(--gg-spacing-xs) 0;
+}}
+.gg-ins-world-subtitle {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-secondary-brown);
+  margin: 0 0 var(--gg-spacing-md) 0;
+}}
+.gg-ins-world-region {{
+  margin-bottom: var(--gg-spacing-lg);
+}}
+.gg-ins-world-region-label {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  margin-bottom: var(--gg-spacing-xs);
+}}
+.gg-ins-world-region-tiles {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}}
+.gg-ins-world-tile {{
+  width: 56px;
+  height: 48px;
+  border: 2px solid var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
+  cursor: pointer;
+  font-family: var(--gg-font-data);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}}
+.gg-ins-world-tile[data-density="low"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 15%, var(--gg-color-warm-paper));
+}}
+.gg-ins-world-tile[data-density="med"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 35%, var(--gg-color-warm-paper));
+}}
+.gg-ins-world-tile[data-density="high"] {{
+  background: color-mix(in srgb, var(--gg-color-teal) 60%, var(--gg-color-warm-paper));
+}}
+.gg-ins-world-tile:hover {{
+  border-color: var(--gg-color-gold);
+}}
+.gg-ins-world-tile:focus-visible {{
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: 1px;
+}}
+.gg-ins-world-tile[aria-expanded="true"] {{
+  border-color: var(--gg-color-gold);
+  border-width: 3px;
+}}
+.gg-ins-world-code {{
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown);
+  letter-spacing: 0.5px;
+}}
+.gg-ins-world-count {{
+  font-size: 9px;
+  color: var(--gg-color-secondary-brown);
+}}
+.gg-ins-world-detail {{
+  margin-top: var(--gg-spacing-md);
 }}
 
 /* ── Calendar (vertical bars) ── */
@@ -2175,6 +2421,9 @@ def build_insights_css() -> str:
   .gg-ins-map-tile {{ min-height: 32px; padding: 2px 1px; }}
   .gg-ins-map-abbr {{ font-size: 8px; }}
   .gg-ins-map-count {{ font-size: 7px; }}
+  .gg-ins-world-tile {{ width: 48px; height: 40px; }}
+  .gg-ins-world-code {{ font-size: 8px; }}
+  .gg-ins-world-count {{ font-size: 7px; }}
 }}
 
 /* ── Responsive: 480px ── */
@@ -2303,6 +2552,55 @@ def build_insights_js() -> str:
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         toggleMapState(tile.getAttribute('data-state'));
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════════════
+     WORLD GRID — Clickable country tiles
+     ══════════════════════════════════════════════════════════════ */
+
+  var worldTiles = document.querySelectorAll('.gg-ins-world-tile');
+  var worldDetail = document.getElementById('world-detail');
+  function toggleWorldCountry(country) {
+    var panels = worldDetail ? worldDetail.querySelectorAll('.gg-ins-map-panel') : [];
+    var wasAlreadyOpen = false;
+    worldTiles.forEach(function(tile) {
+      var c = tile.getAttribute('data-country');
+      if (c === country && tile.getAttribute('aria-expanded') === 'true') {
+        wasAlreadyOpen = true;
+      }
+      if (c === country && !wasAlreadyOpen) {
+        tile.setAttribute('aria-expanded', 'true');
+      } else {
+        tile.setAttribute('aria-expanded', 'false');
+      }
+    });
+    var openCountry = wasAlreadyOpen ? null : country;
+    panels.forEach(function(p) {
+      if (p.getAttribute('data-country') === openCountry) {
+        p.classList.remove('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'false');
+      } else {
+        p.classList.add('gg-ins-panel-hidden');
+        p.setAttribute('aria-hidden', 'true');
+      }
+    });
+    if (openCountry && worldDetail) {
+      worldDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'insights_country_click', { country: country });
+    }
+  }
+  worldTiles.forEach(function(tile) {
+    tile.addEventListener('click', function() {
+      toggleWorldCountry(tile.getAttribute('data-country'));
+    });
+    tile.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleWorldCountry(tile.getAttribute('data-country'));
       }
     });
   });
@@ -2887,7 +3185,7 @@ def generate_insights_page(external_assets: dict = None) -> str:
 
 <a href="#hero" class="gg-skip-link">Skip to content</a>
 
-<div class="gg-neo-brutalist-page">
+<div class="gg-insights-page">
   {nav}
 
   {hero}

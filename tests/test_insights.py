@@ -13,11 +13,14 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_insights import (
     ALL_DIMS,
+    COUNTRY_MAP,
+    COUNTRY_NAMES,
     DIM_LABELS,
     MONTHS,
     RANKING_PRESETS,
     US_STATES,
     US_TILE_GRID,
+    WORLD_REGIONS,
     build_closing,
     build_cta_block,
     build_data_story,
@@ -34,6 +37,7 @@ from generate_insights import (
     compute_editorial_facts,
     compute_stats,
     enrich_races,
+    extract_country,
     extract_price,
     extract_state,
     generate_insights_page,
@@ -516,7 +520,8 @@ class TestDataStory:
             r'id="geography".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        densities = re.findall(r'data-density="(none|low|med|high)"', geo_match.group())
+        # Count only US map tiles (not world tiles)
+        densities = re.findall(r'gg-ins-map-tile"[^>]*data-density="(none|low|med|high)"', geo_match.group())
         assert len(densities) == 50
 
     def test_geography_tiles_have_tooltip(self, insights_html):
@@ -524,7 +529,8 @@ class TestDataStory:
             r'id="geography".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        tooltips = re.findall(r'data-tooltip="[^"]*"', geo_match.group())
+        # Count only US map tiles (not world tiles)
+        tooltips = re.findall(r'gg-ins-map-tile"[^>]*data-tooltip="[^"]*"', geo_match.group())
         assert len(tooltips) == 50
 
     def test_geography_tiles_have_grid_position(self, insights_html):
@@ -3071,3 +3077,225 @@ class TestDeadCodeRemoval:
         """Heritage scatter plot SVG should not appear in output."""
         assert "heritage-scatter" not in insights_html
         assert "gg-ins-heritage" not in insights_html
+
+
+# ── TestExtractCountry ───────────────────────────────────────
+
+
+class TestExtractCountry:
+    """Test extract_country() for international race locations."""
+
+    def test_explicit_country_name(self):
+        assert extract_country("Girona, Spain") == "ES"
+
+    def test_subregion_maps_to_country(self):
+        assert extract_country("Flanders, Belgium") == "BE"
+
+    def test_uk_subregion(self):
+        assert extract_country("Northumberland, England") == "GB"
+
+    def test_canadian_province(self):
+        assert extract_country("Calgary, Alberta, Canada") == "CA"
+
+    def test_australian_state(self):
+        assert extract_country("Queensland, Australia") == "AU"
+
+    def test_us_location_returns_none(self):
+        """US locations should return None (handled by state grid)."""
+        assert extract_country("Emporia, Kansas") is None
+
+    def test_us_abbreviation_returns_none(self):
+        assert extract_country("Leadville, CO") is None
+
+    def test_empty_returns_none(self):
+        assert extract_country("") is None
+
+    def test_none_returns_none(self):
+        assert extract_country(None) is None
+
+    def test_global_returns_none(self):
+        """Unmatched location strings return None."""
+        assert extract_country("Global") is None
+
+    def test_multi_location_returns_none(self):
+        assert extract_country("Various Locations") is None
+
+    def test_french_subregion(self):
+        assert extract_country("Millau, France") == "FR"
+
+    def test_german_subregion(self):
+        assert extract_country("Black Forest, Germany") == "DE"
+
+    def test_new_zealand(self):
+        assert extract_country("Lake Taupo, New Zealand") == "NZ"
+
+    def test_south_africa(self):
+        assert extract_country("Mpumalanga, South Africa") == "ZA"
+
+    def test_colombia(self):
+        assert extract_country("Bogotá, Colombia") == "CO"
+
+
+# ── TestExtractCountryConstants ──────────────────────────────
+
+
+class TestExtractCountryConstants:
+    """Test COUNTRY_MAP, COUNTRY_NAMES, and WORLD_REGIONS consistency."""
+
+    def test_all_country_map_values_in_country_names(self):
+        """Every ISO code in COUNTRY_MAP must have a display name."""
+        for key, code in COUNTRY_MAP.items():
+            assert code in COUNTRY_NAMES, (
+                f"COUNTRY_MAP[{key!r}] = {code!r} not in COUNTRY_NAMES"
+            )
+
+    def test_all_world_region_codes_in_country_names(self):
+        """Every ISO code in WORLD_REGIONS must have a display name."""
+        for region, codes in WORLD_REGIONS.items():
+            for code in codes:
+                assert code in COUNTRY_NAMES, (
+                    f"WORLD_REGIONS[{region!r}] has {code!r} not in COUNTRY_NAMES"
+                )
+
+    def test_four_world_regions(self):
+        assert set(WORLD_REGIONS.keys()) == {"Europe", "Americas", "Asia-Pacific", "Africa"}
+
+    def test_no_duplicate_codes_across_regions(self):
+        """Each country code should appear in exactly one region."""
+        seen = {}
+        for region, codes in WORLD_REGIONS.items():
+            for code in codes:
+                assert code not in seen, (
+                    f"{code} in both {seen[code]} and {region}"
+                )
+                seen[code] = region
+
+
+# ── TestWorldGrid ────────────────────────────────────────────
+
+
+class TestWorldGrid:
+    """Test the international country tile grid in the geography section."""
+
+    def test_world_grid_present(self, insights_html):
+        """World grid container should be in the geography section."""
+        assert "gg-ins-world-grid" in insights_html
+
+    def test_world_grid_inside_geography(self, insights_html):
+        geo_match = re.search(
+            r'id="geography".*?</section>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        assert "gg-ins-world-grid" in geo_match.group()
+
+    def test_all_four_regions_present(self, insights_html):
+        """All four continent labels should appear."""
+        geo_match = re.search(
+            r'class="gg-ins-world-grid".*?id="world-detail"',
+            insights_html, re.DOTALL
+        )
+        assert geo_match
+        section = geo_match.group()
+        for region in ["Europe", "Americas", "Asia-Pacific", "Africa"]:
+            assert region in section, f"Region {region!r} missing from world grid"
+
+    def test_world_tiles_have_data_country(self, insights_html):
+        geo_match = re.search(
+            r'class="gg-ins-world-grid".*?</section>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        tiles = re.findall(r'data-country="([A-Z]{2})"', geo_match.group())
+        assert len(tiles) >= 10, f"Expected >=10 country tiles, got {len(tiles)}"
+
+    def test_world_tiles_have_density(self, insights_html):
+        geo_match = re.search(
+            r'class="gg-ins-world-grid".*?</section>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        densities = re.findall(
+            r'class="gg-ins-world-tile"[^>]*data-density="(low|med|high)"',
+            geo_match.group()
+        )
+        assert len(densities) >= 10
+
+    def test_country_panels_hidden_by_default(self, insights_html):
+        """Country panels should start hidden."""
+        geo_match = re.search(
+            r'id="world-detail".*?</div>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        panels = re.findall(r'gg-ins-panel-hidden', geo_match.group())
+        assert len(panels) >= 1
+
+    def test_country_panels_have_race_links(self, insights_html):
+        """Country panels should contain race profile links."""
+        geo_match = re.search(
+            r'id="world-detail".*?</div>\s*</div>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        assert "/race/" in geo_match.group()
+
+    def test_no_not_shown_dismissal(self, insights_html):
+        """The old 'not shown' italic line should be gone."""
+        assert "outside the US not shown" not in insights_html
+
+    def test_world_detail_aria_live(self, insights_html):
+        """World detail container should have aria-live for accessibility."""
+        assert 'id="world-detail"' in insights_html
+        detail = re.search(r'id="world-detail"[^>]*>', insights_html)
+        assert detail
+        assert 'aria-live="polite"' in detail.group()
+
+    def test_world_subtitle_race_count(self, insights_html):
+        """Subtitle should mention race and country counts."""
+        geo_match = re.search(
+            r'class="gg-ins-world-subtitle".*?</p>', insights_html, re.DOTALL
+        )
+        assert geo_match
+        text = geo_match.group()
+        assert "races across" in text
+        assert "countries" in text
+
+
+# ── TestWorldGridCss ─────────────────────────────────────────
+
+
+class TestWorldGridCss:
+    """Test CSS for world tile grid."""
+
+    def test_world_grid_css(self, insights_css):
+        assert ".gg-ins-world-grid" in insights_css
+
+    def test_world_tile_css(self, insights_css):
+        assert ".gg-ins-world-tile" in insights_css
+
+    def test_world_tile_density_low(self, insights_css):
+        assert '.gg-ins-world-tile[data-density="low"]' in insights_css
+
+    def test_world_tile_density_med(self, insights_css):
+        assert '.gg-ins-world-tile[data-density="med"]' in insights_css
+
+    def test_world_tile_density_high(self, insights_css):
+        assert '.gg-ins-world-tile[data-density="high"]' in insights_css
+
+    def test_world_region_label_css(self, insights_css):
+        assert ".gg-ins-world-region-label" in insights_css
+
+    def test_world_tile_expanded_css(self, insights_css):
+        assert '.gg-ins-world-tile[aria-expanded="true"]' in insights_css
+
+
+# ── TestWorldGridJs ──────────────────────────────────────────
+
+
+class TestWorldGridJs:
+    """Test JS for world tile interactivity."""
+
+    def test_world_tile_click_handler(self, insights_js):
+        assert "toggleWorldCountry" in insights_js
+
+    def test_ga4_country_event(self, insights_js):
+        assert "insights_country_click" in insights_js
+
+    def test_world_detail_reference(self, insights_js):
+        assert "world-detail" in insights_js

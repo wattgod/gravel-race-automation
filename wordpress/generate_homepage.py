@@ -68,6 +68,45 @@ STAT_BAR_DIMENSIONS_COMPACT = [
     "prestige", "adventure", "technicality",
 ]
 
+# ── Hero radar visualization constants ──
+HERO_VIZ_DIMS = [
+    "logistics", "length", "technicality", "elevation", "climate",
+    "altitude", "adventure", "prestige", "race_quality", "experience",
+    "community", "field_depth", "value", "expenses",
+]
+
+HERO_VIZ_LABELS = {
+    "logistics": "LOG", "length": "LEN", "technicality": "TECH",
+    "elevation": "ELEV", "climate": "CLMT", "altitude": "ALT",
+    "adventure": "ADV", "prestige": "PRSTG", "race_quality": "QUAL",
+    "experience": "EXP", "community": "COMM", "field_depth": "FIELD",
+    "value": "VAL", "expenses": "EXP$",
+}
+
+HERO_VIZ_TOOLTIPS = {
+    "logistics": "How easy is it to get there and set up?",
+    "length": "Distance and time commitment",
+    "technicality": "Technical terrain difficulty",
+    "elevation": "Total climbing and steepness",
+    "climate": "Weather severity and variability",
+    "altitude": "Elevation above sea level",
+    "adventure": "Remoteness and exploration factor",
+    "prestige": "Reputation and significance in the sport",
+    "race_quality": "Course design, marking, and organization",
+    "experience": "Overall atmosphere and race-day feel",
+    "community": "Camaraderie and post-race culture",
+    "field_depth": "Caliber and size of the competitive field",
+    "value": "What you get for what you pay",
+    "expenses": "Total cost to participate",
+}
+
+HERO_VIZ_ARCHETYPES = {
+    "All-Rounder": [4, 3, 3, 3, 3, 2, 4, 3, 4, 4, 4, 3, 4, 3],
+    "Sufferfest": [2, 5, 5, 5, 2, 4, 5, 3, 4, 4, 3, 4, 3, 4],
+    "Prestige Play": [4, 3, 2, 3, 3, 2, 3, 5, 5, 5, 4, 5, 2, 5],
+    "Hidden Gem": [2, 3, 4, 3, 4, 3, 5, 1, 3, 4, 5, 2, 5, 1],
+}
+
 # ── Featured on-site articles (curated for homepage voice) ──────
 # These are the "saucy takes" that show personality and editorial voice.
 # Each entry: (title, url_path, category_tag, teaser)
@@ -521,36 +560,6 @@ def build_guide_preview(chapters: list) -> str:
 def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
 
-    # Featured race card
-    feature_html = ""
-    if race_index:
-        featured = get_featured_races(race_index)
-        if featured:
-            race = featured[0]
-            tier = race.get("tier", 1)
-            score = race.get("overall_score", 0)
-            name = esc(race.get("name", ""))
-            slug = esc(race.get("slug", ""))
-            location = esc(race.get("location", ""))
-            month = race.get("month", "")
-            tagline = esc(race.get("tagline", "")[:120])
-            tier_labels = {1: "Tier 1 Elite", 2: "Tier 2 Contender", 3: "Tier 3", 4: "Tier 4"}
-            tier_label = tier_labels.get(tier, f"Tier {tier}")
-            feature_html = f'''<a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-hero-feature" data-ga="hero_featured_click" data-ga-label="{name}">
-          {_build_hero_radar(race)}
-          <div class="gg-hp-hf-body">
-            <div class="gg-hp-hf-header">
-              <div>
-                <p class="gg-hp-hf-tier">Featured &middot; {esc(tier_label)}</p>
-                <h3 class="gg-hp-hf-name">{name}</h3>
-              </div>
-              <span class="gg-hp-hf-score" data-counter="{score}" aria-label="Score: {score}">{score}</span>
-            </div>
-            <p class="gg-hp-hf-meta">{location}{(" &middot; " + _format_month(month)) if month else ""}</p>
-            <p class="gg-hp-hf-excerpt">{tagline}</p>
-          </div>
-        </a>'''
-
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
@@ -564,7 +573,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
           <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn-secondary" data-ga="hero_secondary_click">How We Rate</a>
         </div>
       </div>
-      {feature_html}
+      {_build_hero_radar_viz()}
     </div>
   </section>'''
 
@@ -631,17 +640,6 @@ def _build_stat_bars(race: dict, compact: bool = False) -> str:
     return f'<div class="gg-hp-statbar">{rows}\n          </div>'
 
 
-# ── Radar chart dimension labels ─────
-_RADAR_LABELS = {
-    "prestige": "PRSTG",
-    "technicality": "TECH",
-    "adventure": "ADVNT",
-    "field_depth": "FIELD",
-    "community": "COMM",
-    "race_quality": "QUAL",
-}
-
-
 def _parse_score(raw) -> int:
     """Safely parse a score value to int, clamped 0-5.
 
@@ -657,90 +655,104 @@ def _parse_score(raw) -> int:
     return max(0, min(5, score))
 
 
-def _build_hero_radar(race: dict) -> str:
-    """Build an inline SVG radar/spider chart for the hero featured race.
+def _build_hero_radar_viz() -> str:
+    """Build interactive 14-axis radar visualization for the hero section.
 
-    Uses STAT_BAR_DIMENSIONS (6 axes) to stay consistent with the bento
-    stat bars lower on the page.  All SVG styling done via CSS classes —
-    never inline styles or CSS functions in SVG presentation attributes.
-    Returns a wrapper div containing the SVG.
+    Race-independent — showcases the rating system with archetype profiles.
+    All SVG styling via CSS classes. Animation handled in build_homepage_js().
     """
-    scores = (race.get("scores") or {})
-    n = len(STAT_BAR_DIMENSIONS)
-    cx, cy, radius = 110, 95, 60
+    n = len(HERO_VIZ_DIMS)
+    cx, cy, radius = 200, 200, 130
 
-    # ── Compute vertex positions for grid and data ──
-    def _point(i, scale):
+    def _pt(i, scale):
         angle = (2 * math.pi * i / n) - math.pi / 2
         return (cx + radius * scale * math.cos(angle),
                 cy + radius * scale * math.sin(angle))
 
-    # Grid rings (3 concentric hexagons)
-    grid_lines = ""
+    # Grid rings
+    grid_svg = ""
     for scale in (0.33, 0.66, 1.0):
-        ring = [_point(i, scale) for i in range(n)]
+        ring = [_pt(i, scale) for i in range(n)]
         pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in ring)
-        grid_lines += f'<polygon points="{pts}" class="gg-hp-hf-radar-grid"/>\n'
+        grid_svg += f'<polygon points="{pts}" class="gg-hp-hv-grid"/>\n'
 
     # Axis spokes
-    spokes = ""
     for i in range(n):
-        ex, ey = _point(i, 1.0)
-        spokes += (
+        ex, ey = _pt(i, 1.0)
+        grid_svg += (
             f'<line x1="{cx}" y1="{cy}" x2="{ex:.1f}" y2="{ey:.1f}" '
-            f'class="gg-hp-hf-radar-grid"/>\n'
+            f'class="gg-hp-hv-grid"/>\n'
         )
 
-    # Data polygon — scores parsed defensively
-    data_vals = [_parse_score(scores.get(dim)) for dim in STAT_BAR_DIMENSIONS]
-    data_points = [_point(i, s / 5) for i, s in enumerate(data_vals)]
+    # Default archetype (All-Rounder) — first in dict
+    default_name = list(HERO_VIZ_ARCHETYPES.keys())[0]
+    default_scores = HERO_VIZ_ARCHETYPES[default_name]
+    data_points = [_pt(i, s / 5) for i, s in enumerate(default_scores)]
     data_pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in data_points)
-    data_polygon = f'<polygon points="{data_pts}" class="gg-hp-hf-radar-data"/>\n'
+    data_polygon = f'<polygon points="{data_pts}" class="gg-hp-hv-data"/>\n'
 
-    # Data point markers (rect, not circle — brand rule)
+    # Vertex markers
     markers = ""
-    for px, py in data_points:
+    for i, (px, py) in enumerate(data_points):
         markers += (
             f'<rect x="{px - 2:.1f}" y="{py - 2:.1f}" width="4" height="4" '
-            f'class="gg-hp-hf-radar-dot"/>\n'
+            f'class="gg-hp-hv-dot" data-idx="{i}"/>\n'
         )
 
-    # Axis labels
+    # Axis labels with tooltips
     labels = ""
-    for i, dim in enumerate(STAT_BAR_DIMENSIONS):
+    label_margin = 18
+    for i, dim in enumerate(HERO_VIZ_DIMS):
         angle = (2 * math.pi * i / n) - math.pi / 2
-        lx, ly = _point(i, 1.0)
-        lx += 14 * math.cos(angle)
-        ly += 14 * math.sin(angle)
+        lx, ly = _pt(i, 1.0)
+        lx += label_margin * math.cos(angle)
+        ly += label_margin * math.sin(angle)
         if abs(math.cos(angle)) < 0.01:
             anchor = "middle"
         elif math.cos(angle) < 0:
             anchor = "end"
         else:
             anchor = "start"
-        label_text = _RADAR_LABELS.get(dim, dim[:5].upper())
+        abbrev = esc(HERO_VIZ_LABELS[dim])
+        tooltip = esc(HERO_VIZ_TOOLTIPS[dim])
         labels += (
-            f'<text x="{lx:.1f}" y="{ly:.1f}" '
-            f'text-anchor="{anchor}" '
-            f'class="gg-hp-hf-radar-lbl">{label_text}</text>\n'
+            f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" '
+            f'class="gg-hp-hv-lbl"><title>{tooltip}</title>{abbrev}</text>\n'
         )
 
-    # Accessibility: build aria-label with scores
-    race_name = race.get("name") or "Race"
-    score_parts = ", ".join(
-        f'{dim.replace("_", " ")} {data_vals[i]}'
-        for i, dim in enumerate(STAT_BAR_DIMENSIONS)
-    )
-    aria = f"{esc(race_name)} scoring radar: {score_parts}"
-
     svg = (
-        f'<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" '
-        f'role="img" aria-label="{aria}">\n'
-        f'{grid_lines}{spokes}{data_polygon}{markers}{labels}'
+        f'<svg viewBox="0 0 400 400" role="img" '
+        f'aria-label="Rating system radar chart showing 14 scoring criteria" '
+        f'xmlns="http://www.w3.org/2000/svg">\n'
+        f'{grid_svg}{data_polygon}{markers}{labels}'
         f'</svg>'
     )
 
-    return f'<div class="gg-hp-hf-radar">{svg}</div>'
+    # Archetype buttons with pre-computed points
+    buttons = ""
+    for name, scores in HERO_VIZ_ARCHETYPES.items():
+        pts = " ".join(
+            f"{_pt(i, s / 5)[0]:.1f},{_pt(i, s / 5)[1]:.1f}"
+            for i, s in enumerate(scores)
+        )
+        # Also pre-compute marker positions for animation
+        marker_data = " ".join(
+            f"{_pt(i, s / 5)[0] - 2:.1f},{_pt(i, s / 5)[1] - 2:.1f}"
+            for i, s in enumerate(scores)
+        )
+        active = ' gg-hp-hv-btn--active' if name == default_name else ''
+        buttons += (
+            f'<button type="button" class="gg-hp-hv-btn{active}" '
+            f'data-points="{pts}" data-markers="{marker_data}" '
+            f'data-ga="hero_radar_morph" data-ga-label="{esc(name)}">'
+            f'{esc(name.upper())}</button>\n'
+        )
+
+    return f'''<div class="gg-hp-hv-wrap" data-viz="hero-radar">
+        {svg}
+        <div class="gg-hp-hv-btns">{buttons}</div>
+        <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-hv-link" data-ga="hero_methodology_click">How We Rate &rarr;</a>
+      </div>'''
 
 
 def build_bento_features(race_index: list) -> str:
@@ -1196,23 +1208,19 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-btn-secondary { display: inline-block; padding: 12px 28px; background: transparent; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: border-color .3s, color .3s; }
 .gg-hp-btn-secondary:hover { border-color: #178079; color: #178079; }
 
-/* ── Hero featured card ── */
-.gg-hp-hero-feature { display: block; background: #ede4d8; border: 3px solid #3a2e25; text-decoration: none; color: inherit; transition: border-color .3s; }
-.gg-hp-hero-feature:hover { border-color: #178079; }
-.gg-hp-hero-feature:hover .gg-hp-hf-name { color: #178079; }
-.gg-hp-hf-radar { padding: 16px 8px 12px; background: #ede4d8; border-bottom: 2px solid #3a2e25; text-align: center; }
-.gg-hp-hf-radar svg { max-width: 220px; height: auto; }
-.gg-hp-hf-radar-grid { fill: none; stroke: #d4c5b9; stroke-width: 0.5; }
-.gg-hp-hf-radar-data { fill: rgba(23, 128, 121, 0.15); stroke: #178079; stroke-width: 2; }
-.gg-hp-hf-radar-dot { fill: #178079; }
-.gg-hp-hf-radar-lbl { font-family: 'Sometype Mono', monospace; font-size: 8px; fill: #7d695d; text-transform: uppercase; }
-.gg-hp-hf-body { padding: 24px; }
-.gg-hp-hf-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
-.gg-hp-hf-tier { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #178079; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
-.gg-hp-hf-name { font-size: 22px; font-weight: 900; color: #3a2e25; }
-.gg-hp-hf-score { font-family: 'Sometype Mono', monospace; font-size: 36px; font-weight: 700; color: #178079; line-height: 1; flex-shrink: 0; }
-.gg-hp-hf-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; margin-bottom: 8px; }
-.gg-hp-hf-excerpt { font-size: 14px; color: #59473c; line-height: 1.6; }
+/* ── Hero radar visualization ── */
+.gg-hp-hv-wrap { text-align: center; }
+.gg-hp-hv-wrap svg { max-width: 400px; width: 100%; height: auto; }
+.gg-hp-hv-grid { fill: none; stroke: #d4c5b9; stroke-width: 0.5; }
+.gg-hp-hv-data { fill: rgba(23, 128, 121, 0.15); stroke: #178079; stroke-width: 2; }
+.gg-hp-hv-dot { fill: #178079; }
+.gg-hp-hv-lbl { font-family: 'Sometype Mono', monospace; font-size: 9px; fill: #7d695d; text-transform: uppercase; letter-spacing: 0.5px; }
+.gg-hp-hv-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+.gg-hp-hv-btn { padding: 8px 14px; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7d695d; background: transparent; border: 2px solid #d4c5b9; cursor: pointer; transition: border-color .3s, color .3s; }
+.gg-hp-hv-btn:hover { border-color: #178079; color: #178079; }
+.gg-hp-hv-btn--active { border-color: #178079; color: #178079; background: rgba(23, 128, 121, 0.08); }
+.gg-hp-hv-link { display: inline-block; margin-top: 12px; font-family: 'Sometype Mono', monospace; font-size: 11px; color: #178079; text-decoration: none; letter-spacing: 0.5px; transition: color .3s; }
+.gg-hp-hv-link:hover { color: #59473c; }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .gg-hp-btn { display: inline-block; padding: 14px 32px; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-align: center; cursor: pointer; border: 3px solid transparent; transition: background-color var(--gg-ease), border-color var(--gg-ease), color var(--gg-ease); }
@@ -1471,6 +1479,11 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-hero-actions { flex-direction: column; }
   .gg-hp-hero-actions a { width: 100%; text-align: center; }
 
+  /* Hero radar viz */
+  .gg-hp-hv-wrap svg { max-width: 320px; }
+  .gg-hp-hv-lbl { font-size: 8px; }
+  .gg-hp-hv-btn { padding: 6px 10px; font-size: 9px; }
+
   /* Stats stripe */
   .gg-hp-stats-inner { grid-template-columns: repeat(2, 1fr); }
   .gg-hp-ss-item:nth-child(2) { border-right: none; }
@@ -1710,6 +1723,77 @@ if (tablist) {
   carousel.addEventListener('mouseenter', function() { paused = true; });
   carousel.addEventListener('mouseleave', function() { paused = false; });
   startAuto();
+})();
+
+// Hero radar morph
+(function() {
+  var wrap = document.querySelector('[data-viz="hero-radar"]');
+  if (!wrap) return;
+  var polygon = wrap.querySelector('.gg-hp-hv-data');
+  var dots = wrap.querySelectorAll('.gg-hp-hv-dot');
+  var btns = wrap.querySelectorAll('.gg-hp-hv-btn');
+  if (!polygon || !btns.length) return;
+
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b) { b.classList.remove('gg-hp-hv-btn--active'); });
+      btn.classList.add('gg-hp-hv-btn--active');
+
+      var targetPts = btn.getAttribute('data-points');
+      var targetMarkers = btn.getAttribute('data-markers');
+      if (!targetPts) return;
+
+      if (prefersReducedMotion) {
+        polygon.setAttribute('points', targetPts);
+        if (targetMarkers) {
+          var mPts = targetMarkers.split(' ');
+          dots.forEach(function(d, i) {
+            if (mPts[i]) {
+              var xy = mPts[i].split(',');
+              d.setAttribute('x', xy[0]);
+              d.setAttribute('y', xy[1]);
+            }
+          });
+        }
+        return;
+      }
+
+      var fromPts = polygon.getAttribute('points').split(' ').map(function(p) {
+        var xy = p.split(','); return [parseFloat(xy[0]), parseFloat(xy[1])];
+      });
+      var toPts = targetPts.split(' ').map(function(p) {
+        var xy = p.split(','); return [parseFloat(xy[0]), parseFloat(xy[1])];
+      });
+      if (fromPts.length !== toPts.length) { polygon.setAttribute('points', targetPts); return; }
+
+      var fromMarkers = [];
+      dots.forEach(function(d) { fromMarkers.push([parseFloat(d.getAttribute('x')), parseFloat(d.getAttribute('y'))]); });
+      var toMarkers = targetMarkers ? targetMarkers.split(' ').map(function(p) {
+        var xy = p.split(','); return [parseFloat(xy[0]), parseFloat(xy[1])];
+      }) : [];
+
+      var dur = 600;
+      var t0 = performance.now();
+      function morphTick(now) {
+        var pct = Math.min((now - t0) / dur, 1);
+        var ease = pct < 0.5 ? 2 * pct * pct : 1 - Math.pow(-2 * pct + 2, 2) / 2;
+        var pts = fromPts.map(function(f, i) {
+          return (f[0] + (toPts[i][0] - f[0]) * ease).toFixed(1) + ',' + (f[1] + (toPts[i][1] - f[1]) * ease).toFixed(1);
+        }).join(' ');
+        polygon.setAttribute('points', pts);
+
+        if (toMarkers.length === fromMarkers.length) {
+          dots.forEach(function(d, i) {
+            d.setAttribute('x', (fromMarkers[i][0] + (toMarkers[i][0] - fromMarkers[i][0]) * ease).toFixed(1));
+            d.setAttribute('y', (fromMarkers[i][1] + (toMarkers[i][1] - fromMarkers[i][1]) * ease).toFixed(1));
+          });
+        }
+
+        if (pct < 1) requestAnimationFrame(morphTick);
+      }
+      requestAnimationFrame(morphTick);
+    });
+  });
 })();
 
 })();

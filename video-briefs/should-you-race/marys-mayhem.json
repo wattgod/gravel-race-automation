@@ -1,0 +1,510 @@
+{
+  "slug": "marys-mayhem",
+  "format": "should-you-race",
+  "platform": "YouTube",
+  "race_name": "Marys Mayhem",
+  "race_tier": 4,
+  "race_score": 44,
+  "duration_target_range": [
+    480,
+    720
+  ],
+  "estimated_duration_sec": 585,
+  "estimated_spoken_words": 118,
+  "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
+  "primary_trope": {
+    "name": "tier_reveal",
+    "hook_text": "328 races. 14 dimensions. Where does Marys Mayhem land?",
+    "mechanism": "Countdown / ranking — inherent escalation and social comparison."
+  },
+  "retention_targets": {
+    "1min_hold": ">70%",
+    "midpoint": ">50%",
+    "avg_retention": ">45%"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "label": "HOOK + PROMISE",
+      "time_range": "0:00-0:15",
+      "duration_sec": 15,
+      "narration": "Should you race Marys Mayhem? I rated 328 gravel races on 14 dimensions. Marys Mayhem scored 44 out of 100. Grassroots tier. Here's what that actually means for your season.",
+      "text_on_screen": "Should You Race Marys Mayhem?",
+      "visual": "Title card + tier badge + avatar",
+      "avatar_pose": "presenting",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "51935057",
+          "url": "https://ridewithgps.com/routes/51935057",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check Marys Mayhem website",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem gravel race",
+          "use": "B-roll: hero"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem cycling 2025 2026",
+          "use": "B-roll: hero"
+        }
+      ],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        10,
+        15
+      ],
+      "editing_note": "STATE THE PREMISE IN 8 SECONDS. Clear value prop: 'I rated 328 races. Here's where this one lands.' This is the 8-second decision window. Viewers who stay past 15s are 58% more likely to finish.",
+      "psych_mechanism": "Curiosity gap (specific) + IKEA effect (viewer predicts the tier before reveal)."
+    },
+    {
+      "id": "course",
+      "label": "THE COURSE",
+      "time_range": "0:15-1:15",
+      "duration_sec": 60,
+      "narration": "Marys Mayhem. Mudgee, New South Wales, Australia. 65 mi. Australian mountain gravel.",
+      "text_on_screen": "Marys Mayhem | Mudgee, New South Wales, Australia | 65 mi",
+      "visual": "Route map + terrain footage",
+      "avatar_pose": "presenting",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "51935057",
+          "url": "https://ridewithgps.com/routes/51935057",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check Marys Mayhem website",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem route map",
+          "use": "B-roll: route"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem course walkthrough",
+          "use": "B-roll: route"
+        }
+      ],
+      "music_bpm": [
+        60,
+        80
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts."
+    },
+    {
+      "id": "scores_top",
+      "label": "THE SCORES — Top 8",
+      "time_range": "1:15-4:15",
+      "duration_sec": 180,
+      "narration": "Let's go through the scores.",
+      "text_on_screen": "14 DIMENSIONS",
+      "visual": "Score cards — 8 expanded dimensions",
+      "avatar_pose": "thinking",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "PROGRESSIVE RHYTHM: start tight (15-20 sec per dimension), slow down for the most interesting scores (30-40 sec). Each score: number appears, brief pause, explanation. Avatar reacts to extreme scores (5/5 = chef_kiss, 1/5 = facepalm). RE-ENGAGEMENT at 3:00 mark: insert a surprising score reveal or a meme reaction to break the pattern.",
+      "evidence_data": [
+        {
+          "dimension": "Length",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Technicality",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Elevation",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Adventure",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Value",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Logistics",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Climate",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Altitude",
+          "score": 2,
+          "max": 5
+        }
+      ],
+      "meme_insert": {
+        "timing": "~3:00",
+        "trigger": "3-minute retention dip prevention",
+        "suggested_clip": "avatar reaction to most extreme score",
+        "duration_sec": 2
+      }
+    },
+    {
+      "id": "scores_remaining",
+      "label": "THE SCORES — Also Scored",
+      "time_range": "4:15-5:00",
+      "duration_sec": 45,
+      "narration": "And the rest of the scorecard.",
+      "text_on_screen": null,
+      "visual": "Quick-fire score list — remaining 6 dimensions",
+      "avatar_pose": "counting",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        5,
+        10
+      ],
+      "editing_note": "FAST PACING — 7 seconds per dimension. Quick-fire energy change from the deep analysis above. This is a PATTERN INTERRUPT through pacing shift.",
+      "evidence_data": [
+        {
+          "dimension": "Race Quality",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Experience",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Community",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Expenses",
+          "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Prestige",
+          "score": 1,
+          "max": 5
+        },
+        {
+          "dimension": "Field Depth",
+          "score": 1,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "id": "strengths",
+      "label": "STRENGTHS",
+      "time_range": "5:00-5:45",
+      "duration_sec": 45,
+      "narration": "What Marys Mayhem does well.",
+      "text_on_screen": "STRENGTHS",
+      "visual": "Strengths list overlay with positive visual treatment",
+      "avatar_pose": "thumbs_up",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "51935057",
+          "url": "https://ridewithgps.com/routes/51935057",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check Marys Mayhem website",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem finish line",
+          "use": "B-roll: positive"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem race highlights",
+          "use": "B-roll: positive"
+        }
+      ],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "Warm energy. Each strength gets its own card. Avatar genuinely positive.",
+      "content_data": {
+        "strengths": [
+          "Australian mountain scenery",
+          "Good value",
+          "Mountain challenge",
+          "Moderate costs",
+          "Remote adventure"
+        ]
+      }
+    },
+    {
+      "id": "weaknesses",
+      "label": "WEAKNESSES",
+      "time_range": "5:45-6:30",
+      "duration_sec": 45,
+      "narration": "What they don't put on the website.",
+      "text_on_screen": "WEAKNESSES",
+      "visual": "Weaknesses list with warning visual treatment",
+      "avatar_pose": "facepalm",
+      "broll_sources": [],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?'",
+      "content_data": {
+        "weaknesses": [
+          "Very small field only",
+          "Limited organization",
+          "Remote location",
+          "Variable weather",
+          "No national draw"
+        ]
+      },
+      "meme_insert": {
+        "timing": "~5:45",
+        "trigger": "Midpoint re-engagement",
+        "suggested_clip": "record_scratch or 'but wait' meme",
+        "duration_sec": 1.5
+      }
+    },
+    {
+      "id": "logistics",
+      "label": "LOGISTICS",
+      "time_range": "6:30-7:30",
+      "duration_sec": 60,
+      "narration": "Here's the practical stuff.",
+      "text_on_screen": "LOGISTICS",
+      "visual": "Map + logistics card overlay",
+      "avatar_pose": "presenting",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "51935057",
+          "url": "https://ridewithgps.com/routes/51935057",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check Marys Mayhem website",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Mudgee, New South Wales, Australia travel guide",
+          "use": "B-roll: logistics"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Marys Mayhem race day",
+          "use": "B-roll: logistics"
+        }
+      ],
+      "music_bpm": [
+        60,
+        80
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "Utility section. Lower energy, practical value. Hybrid Tempo: alternate fast logistics items (10-15 sec) with slow map visuals (30 sec).",
+      "content_data": {
+        "logistics": [
+          "Fly into: Sydney 3.5 hours",
+          "Lodging: Mudgee has limited lodging options. Plan ahead.",
+          "Entry: $75-100"
+        ]
+      }
+    },
+    {
+      "id": "verdict",
+      "label": "VERDICT",
+      "time_range": "7:30-8:30",
+      "duration_sec": 60,
+      "narration": "Verdict: Australian Mountain Gravel. If you're local to NSW. yes, it's solid. If you're traveling. skip it.",
+      "text_on_screen": "Australian Mountain Gravel — 44/100",
+      "visual": "Verdict badge + full scorecard summary",
+      "avatar_pose": "thinking",
+      "broll_sources": [],
+      "music_bpm": [
+        120,
+        140
+      ],
+      "volume_db": [
+        -8,
+        -12
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy."
+    },
+    {
+      "id": "alternatives",
+      "label": "ALTERNATIVES",
+      "time_range": "8:30-9:15",
+      "duration_sec": 45,
+      "narration": "If Marys Mayhem isn't quite right for you. For better Australian races: Gravel Gong, Dirty Gravel.",
+      "text_on_screen": "ALTERNATIVES",
+      "visual": "Race cards for alternative races",
+      "avatar_pose": "shrug",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races."
+    },
+    {
+      "id": "cta",
+      "label": "CTA",
+      "time_range": "9:15-9:45",
+      "duration_sec": 30,
+      "narration": "Full breakdown on the site. Fourteen scored dimensions. Free race prep kit. Link in the description.",
+      "text_on_screen": "gravelgodcycling.com/race/marys-mayhem",
+      "visual": "URL + engagement question + end screen",
+      "avatar_pose": "pointing",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -15,
+        -18
+      ],
+      "cut_frequency_sec": [
+        20,
+        40
+      ],
+      "editing_note": "End ABRUPTLY after CTA. No 'thanks for watching' wind-down.",
+      "engagement_question": "Have you raced Marys Mayhem? Did we get the score right? Drop it in the comments."
+    }
+  ],
+  "avatar_assets_needed": [
+    "counting",
+    "facepalm",
+    "pointing",
+    "presenting",
+    "shrug",
+    "thinking",
+    "thumbs_up"
+  ],
+  "meme_inserts": [
+    {
+      "timing": "~3:00",
+      "trigger": "3-minute retention dip prevention",
+      "suggested_clip": "avatar reaction to most extreme score",
+      "duration_sec": 2
+    },
+    {
+      "timing": "~5:45",
+      "trigger": "Midpoint re-engagement",
+      "suggested_clip": "record_scratch or 'but wait' meme",
+      "duration_sec": 1.5
+    }
+  ],
+  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Marys Mayhem' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "content_pillars": "Race Profiles (evergreen SEO content)",
+  "cross_platform_notes": {
+    "youtube": "Primary platform. SEO-optimize title for '[Race Name] review'.",
+    "extract_shorts": "Pull 3-5 Shorts: hook, biggest surprise score, verdict.",
+    "blog": "Cross-reference the race profile page for search traffic.",
+    "instagram_reels": "60-90s 'highlight reel' version."
+  },
+  "production_checklist": [
+    "[ ] Avatar reaction poses generated (check avatar_assets_needed)",
+    "[ ] B-roll sourced (check broll_sources in each beat)",
+    "[ ] Music track selected (check BPM targets per beat)",
+    "[ ] Text-on-screen prepped (check text_on_screen per beat)",
+    "[ ] Captions/subtitles generated (MANDATORY — 15-25% retention boost)",
+    "[ ] Thumbnail generated from thumbnail_prompt",
+    "[ ] Mid-roll ad break positioned (if >8 min)",
+    "[ ] End screen cards configured",
+    "[ ] 3-5 Short clips extracted for cross-posting"
+  ]
+}

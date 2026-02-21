@@ -1,0 +1,259 @@
+{
+  "slug": "swamp-fox-gravel-fondo",
+  "format": "suffering-map",
+  "platform": "TikTok / Instagram Reels / YouTube Shorts",
+  "race_name": "Swamp Fox Gravel Fondo",
+  "race_tier": 4,
+  "race_score": 44,
+  "duration_target_range": [
+    15,
+    30
+  ],
+  "estimated_duration_sec": 32,
+  "estimated_spoken_words": 45,
+  "story_arc": "hook-sequential-zones-loop",
+  "primary_trope": {
+    "name": "countdown",
+    "hook_text": "Where Swamp Fox Gravel Fondo breaks you",
+    "mechanism": "Sequential escalation + anticipation"
+  },
+  "retention_targets": {
+    "3s_hold": ">65%",
+    "completion": ">75%",
+    "loop_replay": "target"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "label": "HOOK",
+      "time_range": "0:00-0:03",
+      "duration_sec": 3,
+      "narration": "Here's where Swamp Fox Gravel Fondo breaks you. 65 mi. Zone by zone.",
+      "text_on_screen": "Swamp Fox Gravel Fondo — Where It Hurts",
+      "visual": "Full route map, then zoom into first zone",
+      "avatar_pose": "suffering",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "47892812",
+          "url": "https://ridewithgps.com/routes/47892812",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check South Carolina cycling calendars",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Swamp Fox Gravel Fondo route map",
+          "use": "B-roll: route"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Swamp Fox Gravel Fondo course walkthrough",
+          "use": "B-roll: route"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -8,
+        -12
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+    },
+    {
+      "id": "zone_1",
+      "label": "ZONE 1: Mile 20",
+      "time_range": "0:03-0:11",
+      "duration_sec": 8,
+      "narration": "Mile 20. Early Forest. First forest sections.",
+      "text_on_screen": "MILE 20: Early Forest",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "47892812",
+          "url": "https://ridewithgps.com/routes/47892812",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check South Carolina cycling calendars",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Swamp Fox Gravel Fondo course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling South Carolina coastal forest gravel",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_2",
+      "label": "ZONE 2: Mile 35",
+      "time_range": "0:11-0:19",
+      "duration_sec": 8,
+      "narration": "Mile 35. Midpoint. Halfway through the course.",
+      "text_on_screen": "MILE 35: Midpoint",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "47892812",
+          "url": "https://ridewithgps.com/routes/47892812",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check South Carolina cycling calendars",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Swamp Fox Gravel Fondo course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling South Carolina coastal forest gravel",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_3",
+      "label": "ZONE 3: Mile 55",
+      "time_range": "0:19-0:27",
+      "duration_sec": 8,
+      "narration": "Mile 55. Final Forest. Final forest sections before finish.",
+      "text_on_screen": "MILE 55: Final Forest",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "suffering",
+      "broll_sources": [
+        {
+          "type": "rwgps",
+          "id": "47892812",
+          "url": "https://ridewithgps.com/routes/47892812",
+          "use": "Route map overlay"
+        },
+        {
+          "type": "race_website",
+          "url": "Check South Carolina cycling calendars",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Swamp Fox Gravel Fondo course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling South Carolina coastal forest gravel",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "cta",
+      "label": "CTA + LOOP",
+      "time_range": "0:27-0:32",
+      "duration_sec": 5,
+      "narration": "Full suffering breakdown on the site. Link in bio.",
+      "text_on_screen": "gravelgodcycling.com/race/swamp-fox-gravel-fondo",
+      "visual": "Full map with all zones lit up",
+      "avatar_pose": "pointing",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -15,
+        -18
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
+      "engagement_question": "Which zone would end your race? Comment the mile marker."
+    }
+  ],
+  "avatar_assets_needed": [
+    "pointing",
+    "suffering"
+  ],
+  "meme_inserts": [],
+  "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Swamp Fox Gravel Fondo' text --ar 9:16 --cref [CHARACTER_URL]",
+  "content_pillars": "Data Visualization (authority-building)",
+  "cross_platform_notes": {
+    "tiktok": "Post natively. Design for loop replay. Trending audio optional.",
+    "instagram_reels": "Same cut. Add location tag for race area.",
+    "youtube_shorts": "Same cut. Pin comment with link to full breakdown.",
+    "twitter_x": "Post thumbnail still + hot take as tweet text."
+  },
+  "production_checklist": [
+    "[ ] Avatar reaction poses generated (check avatar_assets_needed)",
+    "[ ] B-roll sourced (check broll_sources in each beat)",
+    "[ ] Music track selected (check BPM targets per beat)",
+    "[ ] Text-on-screen prepped (check text_on_screen per beat)",
+    "[ ] Captions/subtitles generated (MANDATORY — 15-25% retention boost)",
+    "[ ] Thumbnail generated from thumbnail_prompt",
+    "[ ] Loop point tested (final frame → opening frame)",
+    "[ ] Test 3-second hold rate with fresh eyes"
+  ]
+}

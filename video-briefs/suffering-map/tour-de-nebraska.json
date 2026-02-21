@@ -1,0 +1,315 @@
+{
+  "slug": "tour-de-nebraska",
+  "format": "suffering-map",
+  "platform": "TikTok / Instagram Reels / YouTube Shorts",
+  "race_name": "Tour de Nebraska",
+  "race_tier": 3,
+  "race_score": 56,
+  "duration_target_range": [
+    15,
+    30
+  ],
+  "estimated_duration_sec": 33,
+  "estimated_spoken_words": 192,
+  "story_arc": "hook-sequential-zones-loop",
+  "primary_trope": {
+    "name": "countdown",
+    "hook_text": "Where Tour de Nebraska breaks you",
+    "mechanism": "Sequential escalation + anticipation"
+  },
+  "retention_targets": {
+    "3s_hold": ">65%",
+    "completion": ">75%",
+    "loop_replay": "target"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "label": "HOOK",
+      "time_range": "0:00-0:03",
+      "duration_sec": 3,
+      "narration": "Here's where Tour de Nebraska breaks you. 250 mi. Zone by zone.",
+      "text_on_screen": "Tour de Nebraska — Where It Hurts",
+      "visual": "Full route map, then zoom into first zone",
+      "avatar_pose": "suffering",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska route map",
+          "use": "B-roll: route"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course walkthrough",
+          "use": "B-roll: route"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -8,
+        -12
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Start with full route visible, then rapid zoom in. Ominous music hit. Avatar suffering face."
+    },
+    {
+      "id": "zone_1",
+      "label": "ZONE 1: Mile 41",
+      "time_range": "0:03-0:08",
+      "duration_sec": 5,
+      "narration": "Mile 41. Curtis to Elwood Reality Check. Day one's 41 miles introduce you to Nebraska's signature lie. there are no flat roads here, just constant rolling resistance. The wind finds every exposed section and reminds you this isn't Kansas.",
+      "text_on_screen": "MILE 41: Curtis to Elwood Reality Check",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_2",
+      "label": "ZONE 2: Mile 76",
+      "time_range": "0:08-0:13",
+      "duration_sec": 5,
+      "narration": "Mile 76. Cambridge Approach Grind. Day two's gravel adventure component kicks in with single-lane maintenance roads that look manageable until you hit the sandy sections. Your 35mm tires start feeling optimistic.",
+      "text_on_screen": "MILE 76: Cambridge Approach Grind",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_3",
+      "label": "ZONE 3: Mile 135",
+      "time_range": "0:13-0:18",
+      "duration_sec": 5,
+      "narration": "Mile 135. McCook Marathon. Day three's 59-mile push to McCook includes the challenging climbs along Middle Creek Road and West Lake Drive. Hill after hill with no recovery, just Nebraska's version of death by a thousand cuts.",
+      "text_on_screen": "MILE 135: McCook Marathon",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_4",
+      "label": "ZONE 4: Mile 191",
+      "time_range": "0:18-0:23",
+      "duration_sec": 5,
+      "narration": "Mile 191. Optional Loop Punishment. The 56-mile optional loop on day four separates tourists from masochists. Fresh gravel sections combined with accumulated fatigue make this the course's hidden knife.",
+      "text_on_screen": "MILE 191: Optional Loop Punishment",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "pointing",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 4 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "zone_5",
+      "label": "ZONE 5: Mile 231",
+      "time_range": "0:23-0:28",
+      "duration_sec": 5,
+      "narration": "Mile 231. Curtis Homecoming Crawl. The final 40 miles back to Curtis feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans.",
+      "text_on_screen": "MILE 231: Curtis Homecoming Crawl",
+      "visual": "Route map with zone marker animation",
+      "avatar_pose": "suffering",
+      "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.tourdenebraska.com/",
+          "use": "Hero image, branding reference"
+        },
+        {
+          "type": "youtube_search",
+          "query": "Tour de Nebraska course preview",
+          "use": "B-roll: terrain"
+        },
+        {
+          "type": "youtube_search",
+          "query": "gravel cycling Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+          "use": "B-roll: terrain"
+        }
+      ],
+      "music_bpm": [
+        100,
+        120
+      ],
+      "volume_db": [
+        -22,
+        -25
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Zone marker 5 appears on map. Progressive color intensity (green→yellow→red)."
+    },
+    {
+      "id": "cta",
+      "label": "CTA + LOOP",
+      "time_range": "0:28-0:33",
+      "duration_sec": 5,
+      "narration": "Full suffering breakdown on the site. Link in bio.",
+      "text_on_screen": "gravelgodcycling.com/race/tour-de-nebraska",
+      "visual": "Full map with all zones lit up",
+      "avatar_pose": "pointing",
+      "broll_sources": [],
+      "music_bpm": [
+        80,
+        100
+      ],
+      "volume_db": [
+        -15,
+        -18
+      ],
+      "cut_frequency_sec": [
+        2,
+        3
+      ],
+      "editing_note": "Loop design: end with zoomed-out map that connects back to the opening frame.",
+      "engagement_question": "Which zone would end your race? Comment the mile marker."
+    }
+  ],
+  "avatar_assets_needed": [
+    "pointing",
+    "suffering"
+  ],
+  "meme_inserts": [],
+  "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Tour de Nebraska' text --ar 9:16 --cref [CHARACTER_URL]",
+  "content_pillars": "Data Visualization (authority-building)",
+  "cross_platform_notes": {
+    "tiktok": "Post natively. Design for loop replay. Trending audio optional.",
+    "instagram_reels": "Same cut. Add location tag for race area.",
+    "youtube_shorts": "Same cut. Pin comment with link to full breakdown.",
+    "twitter_x": "Post thumbnail still + hot take as tweet text."
+  },
+  "production_checklist": [
+    "[ ] Avatar reaction poses generated (check avatar_assets_needed)",
+    "[ ] B-roll sourced (check broll_sources in each beat)",
+    "[ ] Music track selected (check BPM targets per beat)",
+    "[ ] Text-on-screen prepped (check text_on_screen per beat)",
+    "[ ] Captions/subtitles generated (MANDATORY — 15-25% retention boost)",
+    "[ ] Thumbnail generated from thumbnail_prompt",
+    "[ ] Loop point tested (final frame → opening frame)",
+    "[ ] Test 3-second hold rate with fresh eyes"
+  ]
+}

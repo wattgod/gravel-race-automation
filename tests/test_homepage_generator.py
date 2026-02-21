@@ -42,7 +42,10 @@ from generate_homepage import (
     build_latest_takes,
     build_testimonials,
     _tier_badge_class,
+    _build_stat_bars,
     FEATURED_SLUGS,
+    STAT_BAR_DIMENSIONS,
+    STAT_BAR_DIMENSIONS_COMPACT,
     GA4_MEASUREMENT_ID,
 )
 
@@ -309,6 +312,7 @@ class TestSectionBuilders:
         html = build_bento_features(race_index)
         assert "gg-hp-bento" in html
         assert "gg-hp-bento-card" in html
+        assert "gg-hp-statbar" in html
 
     def test_bento_features_has_three_cards(self, race_index):
         html = build_bento_features(race_index)
@@ -874,14 +878,15 @@ class TestSidebar:
         assert "gg-hp-sidebar-stat-grid" in html
         assert "BY THE NUMBERS" in html
 
-    def test_sidebar_pullquote(self, stats, race_index, upcoming):
+    def test_sidebar_no_pullquote(self, stats, race_index, upcoming):
+        """Pullquote was moved to bento lead card — sidebar should not have it."""
         html = build_sidebar(stats, race_index, upcoming)
-        assert "gg-hp-pullquote" in html
-        assert "<blockquote" in html
+        assert "gg-hp-pullquote" not in html
 
-    def test_sidebar_power_rankings(self, stats, race_index, upcoming):
+    def test_sidebar_top_5(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)
-        assert "POWER RANKINGS" in html
+        assert "TOP 5" in html
+        assert "POWER RANKINGS" not in html
         assert "gg-hp-rank-list" in html
         assert "<ol" in html
 
@@ -926,11 +931,11 @@ class TestTestimonials:
 class TestBrandToneGuard:
     """Tests that prevent recurring brand/tone issues found in the audit."""
 
-    def test_no_fabricated_quotes(self, stats, race_index, upcoming):
-        """Pullquotes in sidebar must come from real race data, not AI-generated copy."""
-        sidebar_html = build_sidebar(stats, race_index, upcoming)
+    def test_no_fabricated_quotes(self, race_index):
+        """Bento lead card quote must come from real race data, not AI-generated copy."""
+        bento_html = build_bento_features(race_index)
         import re
-        quotes = re.findall(r'<blockquote[^>]*>.*?<p>(.*?)</p>', sidebar_html, re.DOTALL)
+        quotes = re.findall(r'<blockquote[^>]*>(.*?)</blockquote>', bento_html, re.DOTALL)
         race_data_dir = Path(__file__).parent.parent / "race-data"
         # Load ALL race profiles to check quotes against real data
         all_text = ""
@@ -946,7 +951,7 @@ class TestBrandToneGuard:
             # Check that a meaningful substring (first 30 chars) appears in race data
             check_text = clean[:30]
             assert check_text in all_text, \
-                f"Pullquote may be fabricated (not found in race data): {clean[:60]}..."
+                f"Bento quote may be fabricated (not found in race data): {clean[:60]}..."
 
     def test_no_duplicate_cta_headlines(self):
         """CTA sections must have distinct headlines — no copy-paste CTAs."""
@@ -1126,28 +1131,26 @@ class TestEdgeCases:
         assert "classList.remove" in js and "tab-inactive" in js, \
             "Tab JS must use classList.remove for active panel"
 
-    def test_pullquote_is_dynamic(self, race_index):
-        """Sidebar pullquote should pull from featured race data."""
-        stats = compute_stats(race_index)
-        sidebar = build_sidebar(stats, race_index, [])
-        # Should contain a pullquote with cite referencing a real race
-        assert "gg-hp-pullquote" in sidebar
-        assert "<cite>" in sidebar
-        # The cite should reference a race that exists in FEATURED_SLUGS
-        from generate_homepage import FEATURED_SLUGS
-        featured_names = [
-            r.get("name", "") for r in race_index
-            if r.get("slug") in FEATURED_SLUGS
-        ]
-        cite_found = any(name in sidebar for name in featured_names if name)
-        assert cite_found or "Unbound" in sidebar, \
-            "Pullquote cite must reference a real featured race"
+    def test_bento_quote_is_dynamic(self, race_index):
+        """Bento lead card quote should pull from featured race tagline."""
+        bento = build_bento_features(race_index)
+        assert "gg-hp-bento-quote" in bento
+        # The quote should contain tagline text from a featured race
+        featured = get_featured_races(race_index)
+        if featured:
+            lead_tagline = featured[0].get("tagline", "")[:30]
+            if lead_tagline:
+                import html as _html
+                escaped = _html.escape(lead_tagline)
+                assert escaped in bento or lead_tagline in bento, \
+                    "Bento quote must contain lead race tagline"
 
     def test_sidebar_empty_upcoming(self, race_index):
         """Sidebar with 0 upcoming races should show off-season message."""
         stats = compute_stats(race_index)
         sidebar = build_sidebar(stats, race_index, [])
         assert "Off-season" in sidebar or "Browse all races" in sidebar
+        assert "on the calendar" in sidebar  # Section intro always present
 
     def test_training_cta_solution_state(self):
         """Training CTA should contain Solution-State comparison language."""
@@ -1207,21 +1210,21 @@ class TestDisciplineFiltering:
                 f"Non-gravel race '{name}' (discipline={race['discipline']}) " \
                 f"appeared in tabbed rankings"
 
-    def test_power_rankings_zero_non_gravel(self, stats, race_index, upcoming):
-        """All 5 power ranking slots must be gravel-only."""
+    def test_top5_zero_non_gravel(self, stats, race_index, upcoming):
+        """All 5 top-5 ranking slots must be gravel-only."""
         html = build_sidebar(stats, race_index, upcoming)
         non_gravel = [r for r in race_index
                       if r.get("discipline") not in (None, "", "gravel")]
         for race in non_gravel:
             name = race.get("name", "")
-            # Power rankings are in <ol class="gg-hp-rank-list">
+            # Top 5 rankings are in <ol class="gg-hp-rank-list">
             rank_start = html.find("gg-hp-rank-list")
             rank_end = html.find("</ol>", rank_start) if rank_start >= 0 else -1
             if rank_start >= 0 and rank_end >= 0:
                 rank_html = html[rank_start:rank_end]
                 assert name not in rank_html, \
                     f"Non-gravel race '{name}' (discipline={race['discipline']}) " \
-                    f"appeared in power rankings"
+                    f"appeared in top 5 rankings"
 
     def test_rankings_synthetic_mixed_disciplines(self):
         """Synthetic test: rankings with mixed discipline data should only show gravel."""
@@ -1445,3 +1448,401 @@ def html_escape(text):
     """Helper for test assertions."""
     import html as _html
     return _html.escape(str(text))
+
+
+# ── Stat Bars ──────────────────────────────────────────────────
+
+
+class TestStatBars:
+    """Tests for the _build_stat_bars helper and STAT_BAR_DIMENSIONS constants."""
+
+    def test_stat_bar_dimensions_count(self):
+        """Full stat bar set should have 6 dimensions."""
+        assert len(STAT_BAR_DIMENSIONS) == 6
+
+    def test_stat_bar_compact_count(self):
+        """Compact stat bar set should have 3 dimensions."""
+        assert len(STAT_BAR_DIMENSIONS_COMPACT) == 3
+
+    def test_compact_is_subset(self):
+        """Compact dimensions must be a subset of full dimensions."""
+        for dim in STAT_BAR_DIMENSIONS_COMPACT:
+            assert dim in STAT_BAR_DIMENSIONS, \
+                f"Compact dimension '{dim}' not in full set"
+
+    def test_dimensions_no_duplicates(self):
+        """Both dimension lists must have no duplicates."""
+        assert len(STAT_BAR_DIMENSIONS) == len(set(STAT_BAR_DIMENSIONS))
+        assert len(STAT_BAR_DIMENSIONS_COMPACT) == len(set(STAT_BAR_DIMENSIONS_COMPACT))
+
+    def test_dimensions_are_valid_keys(self, race_index):
+        """All stat bar dimension names must exist as keys in race scores."""
+        races_with_scores = [r for r in race_index if r.get("scores")]
+        assert len(races_with_scores) > 0, "No races with scores in index"
+        sample = races_with_scores[0]
+        for dim in STAT_BAR_DIMENSIONS:
+            assert dim in sample["scores"], \
+                f"Dimension '{dim}' not found in race scores. Available: {list(sample['scores'].keys())}"
+
+    def test_full_bars_exactly_six_rows(self, race_index):
+        """Full stat bars must generate exactly 6 rows — no more, no fewer."""
+        featured = get_featured_races(race_index)
+        assert len(featured) > 0
+        html = _build_stat_bars(featured[0], compact=False)
+        assert html.count("gg-hp-statbar-row") == 6
+
+    def test_compact_bars_exactly_three_rows(self, race_index):
+        """Compact stat bars must generate exactly 3 rows."""
+        featured = get_featured_races(race_index)
+        assert len(featured) > 0
+        html = _build_stat_bars(featured[0], compact=True)
+        assert html.count("gg-hp-statbar-row") == 3
+
+    def test_stat_bars_every_row_has_aria(self, race_index):
+        """Every stat bar fill must have an aria-label with 'N out of 5' format."""
+        featured = get_featured_races(race_index)
+        assert len(featured) > 0
+        html = _build_stat_bars(featured[0], compact=False)
+        aria_matches = re.findall(r'aria-label="(\d+) out of 5"', html)
+        assert len(aria_matches) == 6, \
+            f"Expected 6 aria-labels, found {len(aria_matches)}"
+
+    def test_stat_bars_empty_scores(self):
+        """Race with empty scores dict should produce bars with 0 values."""
+        race = {"slug": "test", "name": "Test", "scores": {}}
+        html = _build_stat_bars(race, compact=False)
+        assert html.count("gg-hp-statbar-row") == 6
+        assert 'width: 0%' in html
+
+    def test_stat_bars_width_calculation(self):
+        """Bar width should be (score/5)*100 percent."""
+        race = {"slug": "test", "name": "Test", "scores": {"prestige": 3}}
+        html = _build_stat_bars(race, compact=True)
+        assert "width: 60%;" in html
+
+    def test_stat_bars_width_boundaries(self):
+        """Score 0 = 0%, score 5 = 100%."""
+        for score, expected_pct in [(0, "0%"), (1, "20%"), (5, "100%")]:
+            race = {"scores": {"prestige": score}}
+            html = _build_stat_bars(race, compact=True)
+            assert f"width: {expected_pct};" in html, \
+                f"Score {score} should produce width: {expected_pct}"
+
+    def test_stat_bars_has_labels_uppercase_no_underscores(self, race_index):
+        """Stat bar labels must be uppercase with spaces, never underscores."""
+        featured = get_featured_races(race_index)
+        assert len(featured) > 0
+        html = _build_stat_bars(featured[0], compact=False)
+        assert "PRESTIGE" in html
+        assert "TECHNICALITY" in html
+        assert "ADVENTURE" in html
+        assert "FIELD DEPTH" in html
+        assert "RACE QUALITY" in html
+        # Must never render underscore in labels
+        labels = re.findall(r'class="gg-hp-statbar-label">(.*?)</span>', html)
+        for label in labels:
+            assert "_" not in label, f"Underscore in label: '{label}'"
+
+    def test_stat_bars_no_missing_scores_key(self):
+        """Race missing 'scores' key entirely should produce valid bars with 0s."""
+        race = {"slug": "test", "name": "Test"}
+        html = _build_stat_bars(race, compact=True)
+        assert "gg-hp-statbar" in html
+        assert html.count("gg-hp-statbar-row") == 3
+        vals = re.findall(r'class="gg-hp-statbar-val">(\d+)</span>', html)
+        assert all(v == "0" for v in vals), f"Expected all 0s, got {vals}"
+
+    def test_stat_bars_none_scores_key(self):
+        """scores: None must not crash — same as missing key."""
+        race = {"slug": "test", "name": "Test", "scores": None}
+        html = _build_stat_bars(race, compact=False)
+        assert html.count("gg-hp-statbar-row") == 6
+        assert "None" not in html, "None must never appear as text in stat bars"
+
+    def test_stat_bars_none_dimension_value(self):
+        """A dimension with value None must render as 0, not 'None'."""
+        race = {"scores": {"prestige": None, "adventure": 4, "technicality": None}}
+        html = _build_stat_bars(race, compact=True)
+        assert "None" not in html, "None must never appear as text in stat bars"
+        # prestige=None should render as 0
+        assert 'width: 0%;' in html
+        # adventure=4 should render as 80%
+        assert 'width: 80%;' in html
+
+    def test_stat_bars_score_clamped_above_5(self):
+        """Scores above 5 must be clamped to 5 (100%), never exceed 100%."""
+        race = {"scores": {"prestige": 7}}
+        html = _build_stat_bars(race, compact=True)
+        assert "width: 100%;" in html
+        assert ">5</span>" in html
+        assert ">7</span>" not in html
+
+    def test_stat_bars_score_clamped_below_0(self):
+        """Negative scores must be clamped to 0 (0%)."""
+        race = {"scores": {"prestige": -2}}
+        html = _build_stat_bars(race, compact=True)
+        assert "width: 0%;" in html
+        assert ">0</span>" in html
+        assert ">-2</span>" not in html
+
+    def test_stat_bars_no_none_in_aria(self):
+        """aria-label must never contain 'None'."""
+        race = {"scores": {"prestige": None, "adventure": None, "technicality": None}}
+        html = _build_stat_bars(race, compact=True)
+        aria_vals = re.findall(r'aria-label="(.*?)"', html)
+        for val in aria_vals:
+            assert "None" not in val, f"aria-label contains None: '{val}'"
+
+    def test_all_featured_races_get_stat_bars(self, race_index):
+        """Every bento card (lead + secondary) must have stat bars."""
+        html = build_bento_features(race_index)
+        # 3 cards, each with a statbar div
+        assert html.count('class="gg-hp-statbar"') == 3
+
+    def test_lead_gets_full_bars_secondary_gets_compact(self, race_index):
+        """Lead card has 6 stat rows, secondary cards have 3 each."""
+        html = build_bento_features(race_index)
+        # Find stat bar sections by splitting on card boundaries
+        cards = html.split("gg-hp-bento-card")
+        # First card (lead) should have 6 rows
+        assert cards[1].count("gg-hp-statbar-row") == 6, \
+            "Lead card must have 6 stat bar rows"
+        # Second card should have 3 rows
+        assert cards[2].count("gg-hp-statbar-row") == 3, \
+            "Secondary card must have 3 stat bar rows"
+        # Third card should have 3 rows
+        assert cards[3].count("gg-hp-statbar-row") == 3, \
+            "Secondary card must have 3 stat bar rows"
+
+    def test_stat_bars_css_defined(self):
+        """All stat bar CSS classes must be defined."""
+        css = build_homepage_css()
+        for cls in ["gg-hp-statbar", "gg-hp-statbar-row", "gg-hp-statbar-label",
+                     "gg-hp-statbar-track", "gg-hp-statbar-fill", "gg-hp-statbar-val"]:
+            assert f".{cls}" in css, f"CSS class .{cls} not defined"
+
+    def test_stat_bars_mobile_css(self):
+        """Stat bar mobile styles must be in 600px breakpoint."""
+        css = build_homepage_css()
+        # Find the 600px media query block
+        m600 = re.search(
+            r'@media\s*\(max-width:\s*600px\)\s*\{(.*?)(?=\n@media|\n/\*\s*──\s*Responsive:\s*480)',
+            css, re.DOTALL
+        )
+        assert m600 is not None, "600px breakpoint not found"
+        mobile_css = m600.group(1)
+        assert "gg-hp-statbar-label" in mobile_css, \
+            "Stat bar label must have mobile styles"
+
+
+class TestBentoQuote:
+    """Tests for the blockquote on the lead bento card."""
+
+    def test_quote_only_on_lead(self, race_index):
+        """Only the lead card (first) should have the bento-quote blockquote."""
+        html = build_bento_features(race_index)
+        assert html.count("gg-hp-bento-quote") == 1
+
+    def test_quote_not_on_secondary_cards(self, race_index):
+        """Secondary cards must not have a blockquote."""
+        html = build_bento_features(race_index)
+        # Split by card boundaries and check non-lead cards
+        parts = html.split("gg-hp-bento-card")
+        for i, part in enumerate(parts[2:], start=2):
+            assert "gg-hp-bento-quote" not in part, \
+                f"Card {i} (non-lead) should not have a quote"
+
+    def test_quote_absent_when_tagline_empty(self):
+        """Lead card with empty tagline should have no quote."""
+        index = [
+            {"slug": "no-tag", "name": "No Tagline", "tier": 1,
+             "overall_score": 90, "tagline": "", "scores": {"prestige": 5}},
+            {"slug": "sec-1", "name": "Secondary 1", "tier": 2,
+             "overall_score": 70, "tagline": "Has one", "scores": {}},
+            {"slug": "sec-2", "name": "Secondary 2", "tier": 3,
+             "overall_score": 60, "tagline": "Also has", "scores": {}},
+        ]
+        html = build_bento_features(index)
+        assert "gg-hp-bento-quote" not in html, \
+            "No quote when lead tagline is empty"
+
+    def test_quote_has_gold_border_css(self):
+        """Bento quote CSS must specify gold left border."""
+        css = build_homepage_css()
+        quote_rule = re.search(r'\.gg-hp-bento-quote\s*\{[^}]+\}', css)
+        assert quote_rule is not None, "gg-hp-bento-quote CSS rule not found"
+        rule = quote_rule.group(0)
+        assert "border-left" in rule, "Quote must have left border"
+        assert "#9a7e0a" in rule, "Quote border must be gold"
+
+    def test_no_bento_excerpt_html(self, race_index):
+        """gg-hp-bento-excerpt must be removed from bento cards."""
+        html = build_bento_features(race_index)
+        assert "gg-hp-bento-excerpt" not in html
+
+    def test_no_bento_excerpt_css(self):
+        """CSS must not define .gg-hp-bento-excerpt rules."""
+        css = build_homepage_css()
+        assert ".gg-hp-bento-excerpt" not in css
+
+    def test_bento_card_body_order(self, race_index):
+        """Card body order must be: meta → name → byline → stat bars → quote."""
+        html = build_bento_features(race_index)
+        # Check lead card ordering
+        lead_start = html.find("gg-hp-bento-lead")
+        assert lead_start >= 0
+        lead_html = html[lead_start:]
+        meta_pos = lead_html.find("gg-hp-bento-meta")
+        name_pos = lead_html.find("gg-hp-bento-name")
+        byline_pos = lead_html.find("gg-hp-bento-byline")
+        statbar_pos = lead_html.find("gg-hp-statbar")
+        quote_pos = lead_html.find("gg-hp-bento-quote")
+        assert 0 < meta_pos < name_pos < byline_pos < statbar_pos < quote_pos, \
+            f"Card body order wrong: meta={meta_pos} name={name_pos} " \
+            f"byline={byline_pos} statbar={statbar_pos} quote={quote_pos}"
+
+
+class TestSectionIntros:
+    """Tests for section intro paragraphs."""
+
+    def test_section_intro_css_exists(self):
+        """Section intro class must be styled in CSS."""
+        css = build_homepage_css()
+        assert "gg-hp-section-intro" in css
+
+    def test_section_intro_css_italic(self):
+        """Section intros must be italic per editorial voice."""
+        css = build_homepage_css()
+        intro_rule = re.search(r'\.gg-hp-section-intro\s*\{[^}]+\}', css)
+        assert intro_rule is not None
+        assert "font-style: italic" in intro_rule.group(0), \
+            "Section intros must be italic"
+
+    def test_rankings_intro(self, race_index):
+        """Tabbed rankings must have a section intro."""
+        html = build_tabbed_rankings(race_index)
+        assert "gg-hp-section-intro" in html
+        assert "Sorted by the numbers" in html
+
+    def test_latest_takes_intro(self):
+        """Latest Takes must have a section intro."""
+        html = build_latest_takes()
+        assert "gg-hp-section-intro" in html
+        assert "stand behind" in html
+
+    def test_testimonials_intro(self):
+        """Testimonials must have a section intro."""
+        html = build_testimonials()
+        assert "gg-hp-section-intro" in html
+        assert "Real plans" in html
+
+    def test_sidebar_stats_intro(self, stats, race_index, upcoming):
+        """Sidebar BY THE NUMBERS must have a section intro."""
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "at a glance" in html
+
+    def test_sidebar_top5_intro(self, stats, race_index, upcoming):
+        """Sidebar TOP 5 must have a section intro."""
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "compares themselves" in html
+
+    def test_sidebar_coming_up_intro(self, stats, race_index, upcoming):
+        """Sidebar COMING UP must have a section intro."""
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "on the calendar" in html
+
+    def test_section_intros_not_empty(self, race_index):
+        """Section intros must contain actual text content."""
+        rankings = build_tabbed_rankings(race_index)
+        takes = build_latest_takes()
+        testimonials = build_testimonials()
+        for section_html, name in [
+            (rankings, "rankings"),
+            (takes, "latest takes"),
+            (testimonials, "testimonials"),
+        ]:
+            match = re.search(
+                r'class="gg-hp-section-intro">(.*?)</p>',
+                section_html, re.DOTALL
+            )
+            assert match is not None, f"Section intro missing in {name}"
+            assert len(match.group(1).strip()) > 5, \
+                f"Section intro in {name} is too short"
+
+    def test_all_six_intros_in_full_page(self, homepage_html):
+        """Full page must contain all 6 section intros."""
+        expected_fragments = [
+            "Sorted by the numbers",
+            "stand behind",
+            "Real plans",
+            "at a glance",
+            "compares themselves",
+            "on the calendar",
+        ]
+        for frag in expected_fragments:
+            assert frag in homepage_html, \
+                f"Section intro fragment '{frag}' missing from full page"
+
+
+class TestVisualDividers:
+    """Tests for gold top-border dividers on sections."""
+
+    def test_latest_takes_gold_border(self):
+        """Latest Takes must have gold top border matching existing section border color."""
+        css = build_homepage_css()
+        takes_rule = re.search(r'\.gg-hp-latest-takes\s*\{[^}]+\}', css)
+        assert takes_rule is not None
+        assert "border-top: 2px solid #9a7e0a" in takes_rule.group(0)
+
+    def test_testimonials_gold_border(self):
+        """Testimonials must have gold top border matching existing section border color."""
+        css = build_homepage_css()
+        test_rule = re.search(r'\.gg-hp-testimonials\s*\{[^}]+\}', css)
+        assert test_rule is not None
+        assert "border-top: 2px solid #9a7e0a" in test_rule.group(0)
+
+    def test_divider_gold_matches_how_it_works(self):
+        """All gold section dividers must use the same hex as how-it-works."""
+        css = build_homepage_css()
+        hiw_rule = re.search(r'\.gg-hp-how-it-works\s*\{[^}]+\}', css)
+        assert hiw_rule is not None
+        hiw_gold = re.search(r'border-top:\s*2px\s+solid\s+(#[0-9a-fA-F]+)', hiw_rule.group(0))
+        assert hiw_gold is not None
+
+        takes_rule = re.search(r'\.gg-hp-latest-takes\s*\{[^}]+\}', css)
+        takes_gold = re.search(r'border-top:\s*2px\s+solid\s+(#[0-9a-fA-F]+)', takes_rule.group(0))
+        assert takes_gold is not None
+
+        test_rule = re.search(r'\.gg-hp-testimonials\s*\{[^}]+\}', css)
+        test_gold = re.search(r'border-top:\s*2px\s+solid\s+(#[0-9a-fA-F]+)', test_rule.group(0))
+        assert test_gold is not None
+
+        assert hiw_gold.group(1).lower() == takes_gold.group(1).lower() == test_gold.group(1).lower(), \
+            f"Gold divider hex mismatch: how-it-works={hiw_gold.group(1)}, " \
+            f"latest-takes={takes_gold.group(1)}, testimonials={test_gold.group(1)}"
+
+
+class TestNoPullquote:
+    """Verify pullquote is fully removed from sidebar, CSS, and full page."""
+
+    def test_no_pullquote_css(self):
+        """CSS must not define .gg-hp-pullquote rules."""
+        css = build_homepage_css()
+        assert ".gg-hp-pullquote" not in css
+
+    def test_no_pullquote_in_sidebar(self, stats, race_index, upcoming):
+        """Sidebar must not contain any blockquote element."""
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "<blockquote" not in html
+        assert "gg-hp-pullquote" not in html
+
+    def test_no_power_rankings_label_anywhere(self, homepage_html):
+        """'POWER RANKINGS' must not appear anywhere in the full page."""
+        assert "POWER RANKINGS" not in homepage_html, \
+            "Renamed to TOP 5 — POWER RANKINGS must not appear"
+
+    def test_top5_label_in_sidebar(self, stats, race_index, upcoming):
+        """Sidebar must use 'TOP 5' heading, not 'POWER RANKINGS'."""
+        html = build_sidebar(stats, race_index, upcoming)
+        assert "TOP 5" in html
+        assert "POWER RANKINGS" not in html

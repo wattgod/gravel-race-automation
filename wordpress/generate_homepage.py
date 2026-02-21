@@ -57,6 +57,16 @@ FEATURED_SLUGS = [
     "bwr-california",
 ]
 
+# ── Stat bar dimensions for bento feature cards ─────
+STAT_BAR_DIMENSIONS = [
+    "prestige", "technicality", "adventure",
+    "field_depth", "community", "race_quality",
+]
+
+STAT_BAR_DIMENSIONS_COMPACT = [
+    "prestige", "adventure", "technicality",
+]
+
 # ── Featured on-site articles (curated for homepage voice) ──────
 # These are the "saucy takes" that show personality and editorial voice.
 # Each entry: (title, url_path, category_tag, teaser)
@@ -592,6 +602,36 @@ def _format_month(month: str) -> str:
     return month[:3].upper()
 
 
+def _build_stat_bars(race: dict, compact: bool = False) -> str:
+    """Build horizontal stat bar rows for a race's scoring dimensions.
+
+    Args:
+        race: Race dict from race-index.json (must have 'scores' dict).
+        compact: If True, show 3 bars (secondary cards). If False, show 6 (lead).
+
+    Returns:
+        HTML string with stat bar rows.
+    """
+    scores = (race.get("scores") or {})
+    dims = STAT_BAR_DIMENSIONS_COMPACT if compact else STAT_BAR_DIMENSIONS
+    rows = ""
+    for dim in dims:
+        raw = scores.get(dim)
+        score = int(raw) if raw is not None else 0
+        score = max(0, min(5, score))  # clamp to valid range
+        pct = (score / 5) * 100
+        label = dim.replace("_", " ").upper()
+        rows += f'''
+          <div class="gg-hp-statbar-row">
+            <span class="gg-hp-statbar-label">{label}</span>
+            <div class="gg-hp-statbar-track">
+              <div class="gg-hp-statbar-fill" style="width: {pct:.0f}%;" aria-label="{score} out of 5"></div>
+            </div>
+            <span class="gg-hp-statbar-val">{score}</span>
+          </div>'''
+    return f'<div class="gg-hp-statbar">{rows}\n          </div>'
+
+
 def build_bento_features(race_index: list) -> str:
     """Build a bento grid with 1 lead card + 2 secondary cards for featured races."""
     featured = get_featured_races(race_index)
@@ -611,13 +651,17 @@ def build_bento_features(race_index: list) -> str:
         is_lead = i == 0
         lead_class = " gg-hp-bento-lead" if is_lead else ""
         month_str = (" &middot; " + _format_month(month)) if month else ""
+        stat_bars = _build_stat_bars(race, compact=not is_lead)
+        quote_html = ""
+        if is_lead and tagline:
+            quote_html = f'\n          <blockquote class="gg-hp-bento-quote">&ldquo;{esc(tagline)}&rdquo;</blockquote>'
         cards += f'''
       <a href="{SITE_BASE_URL}/race/{slug}/" class="gg-hp-bento-card{lead_class}" data-ga="featured_race_click" data-ga-label="{name}">
         <div class="gg-hp-bento-body">
           <p class="gg-hp-bento-meta">Tier {tier} {esc(tier_label)} &middot; Score {score}</p>
           <h3 class="gg-hp-bento-name">{name}</h3>
-          <p class="gg-hp-bento-excerpt">{esc(tagline)}</p>
           <p class="gg-hp-bento-byline">{location}{month_str}</p>
+          {stat_bars}{quote_html}
         </div>
       </a>'''
 
@@ -660,6 +704,7 @@ def build_latest_takes() -> str:
     return f'''<section class="gg-hp-latest-takes" id="takes">
     <div class="gg-hp-section-header gg-hp-section-header--gold">
       <h2>LATEST TAKES</h2>
+      <p class="gg-hp-section-intro">Opinions we&rsquo;ll stand behind. Mostly.</p>
     </div>
     <div class="gg-hp-take-carousel" id="gg-takes-carousel">{cards}
     </div>
@@ -721,6 +766,7 @@ def build_tabbed_rankings(race_index: list) -> str:
     )
 
     return f'''<h2 class="gg-hp-col-header" id="rankings-heading">RACE RANKINGS</h2>
+    <p class="gg-hp-section-intro">Sorted by the numbers. Argued about in the comments.</p>
     <div class="gg-hp-tab-bar" role="tablist" aria-label="Filter by tier">
       <button type="button" role="tab" id="gg-tab-all" aria-selected="true" aria-controls="gg-panel-all" tabindex="0">All Tiers</button>
       <button type="button" role="tab" id="gg-tab-t1" aria-selected="false" aria-controls="gg-panel-t1" tabindex="-1">Tier 1</button>
@@ -741,7 +787,7 @@ def build_tabbed_rankings(race_index: list) -> str:
 
 
 def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
-    """Build sidebar with stats bento, pullquote, power rankings, coming up, and CTA."""
+    """Build sidebar with stats bento, top 5 rankings, coming up, and CTA."""
 
     # 1. Stats bento (2x2 grid)
     stat_items = [
@@ -759,30 +805,13 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
         </div>'''
 
     stats_html = f'''<h2 class="gg-hp-col-header">BY THE NUMBERS</h2>
+    <p class="gg-hp-section-intro">The database at a glance.</p>
     <div class="gg-hp-sidebar-card">
       <div class="gg-hp-sidebar-stat-grid">{stat_cells}
       </div>
     </div>'''
 
-    # 2. Pullquote — pull from top-ranked race's final_verdict one_liner
-    _pullquote_text = ""
-    _pullquote_cite = ""
-    for _slug in FEATURED_SLUGS:
-        _match = next((r for r in race_index if r.get("slug") == _slug), None)
-        if _match and _match.get("tagline"):
-            _pullquote_text = esc(_match["tagline"])
-            _pullquote_cite = f'On {esc(_match.get("name", _slug))}'
-            break
-    if not _pullquote_text:
-        # Hardcoded fallback only if no featured race has a tagline
-        _pullquote_text = "Not one killer climb, but 200 miles of constant attrition. The Flint Hills don&rsquo;t negotiate."
-        _pullquote_cite = "On Unbound 200"
-    pullquote_html = f'''<blockquote class="gg-hp-pullquote">
-      <p>&ldquo;{_pullquote_text}&rdquo;</p>
-      <cite>{_pullquote_cite}</cite>
-    </blockquote>'''
-
-    # 3. Power rankings (top 5 by score, gravel only)
+    # 2. Top 5 rankings (top 5 by score, gravel only)
     gravel_index = [r for r in race_index if (r.get("discipline") or "gravel") == "gravel"]
     top5 = sorted(gravel_index, key=lambda r: r.get("overall_score", 0), reverse=True)[:5]
     rank_items = ""
@@ -796,7 +825,8 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
           <span class="gg-hp-rank-score" aria-label="Score {score}">{score}</span>
         </li>'''
 
-    rankings_html = f'''<h2 class="gg-hp-col-header">POWER RANKINGS</h2>
+    rankings_html = f'''<h2 class="gg-hp-col-header">TOP 5</h2>
+    <p class="gg-hp-section-intro">The races everyone compares themselves to.</p>
     <div class="gg-hp-sidebar-card">
       <ol class="gg-hp-rank-list">{rank_items}
       </ol>
@@ -815,10 +845,12 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
           <span class="gg-hp-coming-compact-tier {badge_cls}">T{race["tier"]}</span>
         </a>'''
         coming_html = f'''<h2 class="gg-hp-col-header">COMING UP</h2>
+    <p class="gg-hp-section-intro">What&rsquo;s on the calendar.</p>
     <div class="gg-hp-sidebar-card gg-hp-coming-up-compact">{coming_items}
     </div>'''
     else:
         coming_html = f'''<h2 class="gg-hp-col-header">COMING UP</h2>
+    <p class="gg-hp-section-intro">What&rsquo;s on the calendar.</p>
     <div class="gg-hp-sidebar-card gg-hp-coming-up-compact">
       <p class="gg-hp-coming-compact-empty">Off-season. <a href="{SITE_BASE_URL}/gravel-races/">Browse all races &rarr;</a></p>
     </div>'''
@@ -831,7 +863,6 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
     </div>'''
 
     return f'''{stats_html}
-    {pullquote_html}
     {rankings_html}
     {coming_html}
     {cta_html}'''
@@ -941,6 +972,7 @@ def build_testimonials() -> str:
     return f'''<section class="gg-hp-testimonials" id="testimonials">
     <div class="gg-hp-section-header">
       <h2>ATHLETE RESULTS</h2>
+      <p class="gg-hp-section-intro">Real plans. Real races. Real finishes.</p>
     </div>
     <div class="gg-hp-test-grid">{cards}
     </div>
@@ -1106,8 +1138,20 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-bento-body { padding: 20px; }
 .gg-hp-bento-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
 .gg-hp-bento-name { font-size: 24px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; transition: color .3s; }
-.gg-hp-bento-excerpt { font-size: 14px; color: #59473c; line-height: 1.7; }
-.gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; letter-spacing: .5px; margin-top: 8px; }
+.gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; letter-spacing: .5px; margin-top: 4px; margin-bottom: 12px; }
+.gg-hp-bento-quote { font-size: 14px; font-style: italic; color: #59473c; line-height: 1.6; margin: 12px 0 0; padding-left: 12px; border-left: 3px solid #9a7e0a; }
+
+/* ── Stat bars ──────────────────────────────────────────── */
+.gg-hp-statbar { margin-top: 8px; }
+.gg-hp-statbar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.gg-hp-statbar-row:last-child { margin-bottom: 0; }
+.gg-hp-statbar-label { font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7d695d; min-width: 90px; text-align: right; }
+.gg-hp-statbar-track { flex: 1; height: 8px; background: #d4c5b9; position: relative; }
+.gg-hp-statbar-fill { height: 100%; background: #178079; }
+.gg-hp-statbar-val { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #3a2e25; min-width: 14px; text-align: right; }
+
+/* ── Section intros ─────────────────────────────────────── */
+.gg-hp-section-intro { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; font-style: italic; color: #7d695d; margin: 4px 0 16px; line-height: 1.5; }
 
 /* ── Tabs ───────────────────────────────────────────────── */
 .gg-hp-tab-bar { display: flex; gap: 0; margin-bottom: 0; }
@@ -1133,8 +1177,6 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-sb-stat { text-align: center; padding: 16px 12px; background: #ede4d8; border: 2px solid #d4c5b9; }
 .gg-hp-sb-stat-val { font-family: 'Sometype Mono', monospace; font-size: 28px; font-weight: 700; color: #1a1613; }
 .gg-hp-sb-stat-lbl { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; text-transform: uppercase; letter-spacing: 1px; }
-.gg-hp-pullquote { font-size: 17px; font-style: italic; line-height: 1.6; color: #59473c; padding: 20px 0; border-top: 3px solid #B7950B; border-bottom: 2px solid #d4c5b9; margin-bottom: 24px; }
-.gg-hp-pullquote cite { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-style: normal; color: #B7950B; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
 .gg-hp-rank-list { list-style: none; padding: 0; }
 .gg-hp-rank-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-rank-item:last-child { border-bottom: none; }
@@ -1166,7 +1208,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-badge-t4 { background: transparent; color: #5e6868; border: 1px solid #5e6868; }
 
 /* ── Latest Takes ───────────────────────────────────────── */
-.gg-hp-latest-takes { max-width: 1080px; margin: 32px auto 0; padding: 0 48px; border: 1px solid #d4c5b9; box-sizing: border-box; }
+.gg-hp-latest-takes { max-width: 1080px; margin: 32px auto 0; padding: 0 48px; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; box-sizing: border-box; }
 .gg-hp-section-header--gold { border-bottom-color: #9a7e0a; }
 .gg-hp-take-carousel { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .gg-hp-take-carousel::-webkit-scrollbar { display: none; }
@@ -1251,7 +1293,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
 /* ── Testimonials ────────────────────────────────────────── */
-.gg-hp-testimonials { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
+.gg-hp-testimonials { max-width: 1080px; margin: 32px auto 0; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
 .gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 .gg-hp-test-card { padding: 24px; border: 1px solid #d4c5b9; background: #f5efe6; }
 .gg-hp-test-quote { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a2e25; font-style: italic; margin: 0 0 16px; border-left: 3px solid #9a7e0a; padding-left: 16px; }
@@ -1374,6 +1416,11 @@ a { text-decoration: none; color: #178079; }
   /* Section headers */
   .gg-hp-section-header { padding: 12px 16px; }
   .gg-hp-section-header h2 { font-size: 11px; letter-spacing: 2px; }
+
+  /* Stat bars */
+  .gg-hp-statbar-label { min-width: 70px; font-size: 8px; }
+  .gg-hp-statbar-track { height: 6px; }
+  .gg-hp-statbar-val { font-size: 9px; }
 }
 
 /* ── Responsive: 480px ─────────────────────────────────── */

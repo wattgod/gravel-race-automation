@@ -2392,3 +2392,13 @@ values.
 29. **Validation functions must return specific rejection reasons.** Not just pass/fail.
 30. **Log success AFTER confirming the action succeeded.** Not before.
 31. **Run `bash tests/test_course_access.sh` after every `wrangler deploy` of course-access.**
+
+---
+
+## Structured Data (JSON-LD)
+
+32. **Never emit SportsEvent without startDate.** GSC flags "missing startDate" on every Event without one — zero rich-result benefit, pure noise. If a date can't be parsed, omit SportsEvent entirely and fall back to WebPage + FAQPage.
+33. **Date regex must preprocess before matching.** Day-of-week names ("Friday, June 12th") and ordinal suffixes ("7th", "23rd") break naive `(\d{4}).*?(\w+)\s+(\d+)` patterns. Strip them first with `re.sub()`.
+34. **Dead conditionals after early returns are misleading.** If you `return None` when `not date_match`, the subsequent `if date_match:` is always true — remove it or factor the date-parsing result into the dict construction directly. Dead branches suggest there's a code path that doesn't exist.
+35. **Test the integration, not just the unit.** Testing that `build_sports_event_jsonld()` returns None is necessary but not sufficient — also test that `generate_page()` actually omits the `<script type="application/ld+json">` block for SportsEvent. A missing `if` guard in the caller silently re-introduces the bug.
+36. **Regression guard tests catch silent schema loss.** A parametrized test across all 328 race files with min/max thresholds (e.g., >=280 valid, <=50 skipped) catches new date formats that silently break parsing. Without this, a new race JSON with "2027: Sat., March 6" would lose its SportsEvent with no alert.

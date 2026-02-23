@@ -188,8 +188,16 @@ class TestLTGPClaims:
             except (json.JSONDecodeError, IOError) as e:
                 continue
 
-            # Extract all LTGP claims from the entire JSON as string
-            claims = extract_ltgp_claims(content)
+            # Strip youtube_data before scanning — transcripts contain
+            # natural LTGP references from riders that aren't editorial claims
+            scan_data = dict(data)
+            if "race" in scan_data and "youtube_data" in scan_data.get("race", {}):
+                scan_data = json.loads(content)
+                scan_data["race"] = {k: v for k, v in scan_data["race"].items() if k != "youtube_data"}
+            scan_content = json.dumps(scan_data)
+
+            # Extract all LTGP claims from the editorial JSON content
+            claims = extract_ltgp_claims(scan_content)
 
             if not claims:
                 continue

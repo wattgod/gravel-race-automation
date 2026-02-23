@@ -225,8 +225,8 @@ def validate_enrichment(slug: str, enriched: dict) -> list[str]:
     if len(orders) != len(set(orders)):
         errors.append(f"Duplicate display_order values: {orders}")
 
-    if len(videos) > 3:
-        errors.append(f"Too many videos: {len(videos)} (max 3)")
+    if len(videos) > 5:
+        errors.append(f"Too many curated videos: {len(videos)} (max 5)")
     if len(quotes) > 6:
         errors.append(f"Too many quotes: {len(quotes)} (max 6)")
 
@@ -252,12 +252,12 @@ def get_enrichment_candidates(n: int) -> list[str]:
         if not research_path.exists():
             continue
 
-        # Priority: lower tier races (thinner content) first
+        # Priority: highest tier first (T1 → T4), then highest score
         tier = race.get("gravel_god_rating", {}).get("tier", 4)
         score = race.get("gravel_god_rating", {}).get("overall_score", 0)
         candidates.append((tier, -score, slug))
 
-    candidates.sort()  # Lower tier first, then lower score
+    candidates.sort()  # T1 first (tier=1), then highest score within tier
     return [slug for _, _, slug in candidates[:n]]
 
 
@@ -301,6 +301,33 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
         print(f"  ERROR: API call failed: {e}")
         return False
 
+    # Auto-promote: if a quote references a video not in the curated set,
+    # find it in the research data and add it as curated
+    curated_ids = {v.get("video_id") for v in enriched.get("videos", [])}
+    research_ids = {}
+    for rv in research.get("videos", []):
+        vid = extract_video_id(rv.get("url", ""))
+        if vid:
+            research_ids[vid] = rv
+
+    for q in enriched.get("quotes", []):
+        src = q.get("source_video_id", "")
+        if src and src not in curated_ids and src in research_ids:
+            rv = research_ids[src]
+            enriched["videos"].append({
+                "video_id": src,
+                "title": rv.get("title", ""),
+                "channel": rv.get("channel", ""),
+                "view_count": rv.get("view_count", 0),
+                "upload_date": rv.get("upload_date", ""),
+                "duration_string": rv.get("duration_string", ""),
+                "curated": True,
+                "curation_reason": "Auto-promoted: referenced by curated quote",
+                "display_order": len(enriched["videos"]) + 1,
+            })
+            curated_ids.add(src)
+            print(f"  Auto-promoted video {src} (referenced by quote)")
+
     # Validate
     errors = validate_enrichment(slug, enriched)
     if errors:
@@ -309,10 +336,43 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
             print(f"    - {err}")
         return False
 
-    # Build youtube_data block
+    # Build full video records: merge curated metadata with raw research data
+    # (transcripts, descriptions, tags preserved for future use)
+    all_videos = []
+    for raw_v in research.get("videos", []):
+        vid_id = extract_video_id(raw_v.get("url", ""))
+        if not vid_id:
+            continue
+        record = {
+            "video_id": vid_id,
+            "title": raw_v.get("title"),
+            "channel": raw_v.get("channel"),
+            "view_count": raw_v.get("view_count"),
+            "upload_date": raw_v.get("upload_date"),
+            "duration_string": raw_v.get("duration_string"),
+            "description": raw_v.get("description", ""),
+            "tags": raw_v.get("tags", []),
+            "url": raw_v.get("url"),
+        }
+        if raw_v.get("transcript"):
+            record["transcript"] = raw_v["transcript"]
+        # Merge curation metadata if this video was curated
+        if vid_id in curated_ids:
+            for cv in enriched["videos"]:
+                if cv.get("video_id") == vid_id:
+                    record["curated"] = True
+                    record["curation_reason"] = cv.get("curation_reason", "")
+                    record["display_order"] = cv.get("display_order", 99)
+                    break
+        else:
+            record["curated"] = False
+        all_videos.append(record)
+
+    # Build youtube_data block — full research payload + curated quotes
     youtube_data = {
         "researched_at": date.today().isoformat(),
-        "videos": enriched.get("videos", []),
+        "search_query": research.get("query", ""),
+        "videos": all_videos,
         "quotes": enriched.get("quotes", []),
     }
 
@@ -322,9 +382,10 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
     with open(path, "w") as f:
         json.dump(race_data, f, indent=2, ensure_ascii=False)
 
-    n_videos = len([v for v in youtube_data["videos"] if v.get("curated")])
+    n_curated = len([v for v in all_videos if v.get("curated")])
     n_quotes = len([q for q in youtube_data["quotes"] if q.get("curated")])
-    print(f"  SUCCESS: {n_videos} videos, {n_quotes} quotes written to {path.name}")
+    n_transcripts = len([v for v in all_videos if v.get("transcript")])
+    print(f"  SUCCESS: {n_curated} curated videos, {n_quotes} quotes, {n_transcripts} transcripts stored → {path.name}")
     return True
 
 

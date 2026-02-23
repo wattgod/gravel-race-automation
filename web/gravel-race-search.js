@@ -628,11 +628,36 @@
     return { search: search, tier: tier, region: region, distance: distance, month: month, discipline: discipline };
   }
 
+  function getTranscriptSnippet(searchText, query) {
+    if (!searchText || !query) return '';
+    var lower = searchText.toLowerCase();
+    var idx = lower.indexOf(query);
+    if (idx === -1) return '';
+    var start = Math.max(0, idx - 50);
+    var end = Math.min(searchText.length, idx + query.length + 70);
+    var snippet = (start > 0 ? '...' : '') +
+      searchText.substring(start, idx) +
+      '<mark>' + searchText.substring(idx, idx + query.length) + '</mark>' +
+      searchText.substring(idx + query.length, end) +
+      (end < searchText.length ? '...' : '');
+    return snippet;
+  }
+
   function filterRaces() {
     var f = getFilters();
     return allRaces.filter(function(r) {
-      if (f.search && !r.name.toLowerCase().includes(f.search) &&
-          !(r.location || '').toLowerCase().includes(f.search)) return false;
+      if (f.search) {
+        var nameMatch = r.name.toLowerCase().includes(f.search);
+        var locMatch = (r.location || '').toLowerCase().includes(f.search);
+        var stMatch = (r.st || '').toLowerCase().includes(f.search);
+        if (!nameMatch && !locMatch && !stMatch) return false;
+        // Tag transcript-only matches for snippet display
+        r._transcriptMatch = !nameMatch && !locMatch && stMatch;
+        r._searchQuery = f.search;
+      } else {
+        r._transcriptMatch = false;
+        r._searchQuery = '';
+      }
       if (f.tier && r.tier != f.tier) return false;
       if (f.region === 'International' && (!r.region || US_REGIONS.has(r.region))) return false;
       if (f.region && f.region !== 'International' && r.region !== f.region) return false;
@@ -867,6 +892,7 @@
       '</div>' +
       radar +
       (race.tagline ? '<div class="gg-card-tagline">' + race.tagline + '</div>' : '') +
+      (race._transcriptMatch ? '<div class="gg-card-transcript-snippet"><span class="gg-card-transcript-label">RIDERS SAY</span> ' + getTranscriptSnippet(race.st, race._searchQuery) + '</div>' : '') +
     '</div>';
   }
 

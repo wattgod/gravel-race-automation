@@ -62,7 +62,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python scripts/batch_enrich.py --slugs "${{ inputs.slugs }}"
+          SLUGS=$(echo "${{ inputs.slugs }}" | tr ',' ' ')
+          python scripts/batch_enrich.py --slugs $SLUGS
 
       - name: Validate citations
         run: |

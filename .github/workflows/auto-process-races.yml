@@ -1,10 +1,9 @@
 name: Auto-Process Races (Scheduled)
 
 on:
-  # PAUSED: Schedule disabled until API keys/credits are fixed
-  # schedule:
-  #   # Run every day at 2 AM UTC (adjust timezone as needed)
-  #   - cron: '0 2 * * *'
+  schedule:
+    # Run weekly on Wednesdays at 2 AM UTC (budget cap: 5 races/run)
+    - cron: '0 2 * * 3'
   workflow_dispatch:
     inputs:
       tier:
@@ -19,7 +18,7 @@ on:
           - '4'
           - 'all'
       limit:
-        description: 'Max races to process per run (0 = all)'
+        description: 'Max races to process per run (budget cap)'
         required: false
         default: '5'
         type: string

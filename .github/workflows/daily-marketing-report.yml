@@ -1,0 +1,42 @@
+name: Daily Marketing Report
+
+on:
+  schedule:
+    # Run daily at 7 AM UTC (after GSC snapshot at 6 AM)
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth google-analytics-data requests pyyaml
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Generate daily marketing report
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: data/gsc-service-account.json
+        run: |
+          python scripts/daily-marketing-report.py --output "reports/$(date +%Y-%m-%d).md"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: daily marketing report $(date +%Y-%m-%d)"
+          git push

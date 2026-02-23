@@ -1,0 +1,66 @@
+name: Community Re-Research
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of races to research'
+        required: false
+        default: '20'
+        type: string
+      tier:
+        description: 'Filter by tier'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+      force:
+        description: 'Force re-research even if data exists'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests anthropic pyyaml
+
+      - name: Run community research
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+        run: |
+          CMD="python scripts/batch_community_research.py --auto ${{ inputs.count }} --concurrency 2"
+          if [ "${{ inputs.tier }}" != "all" ]; then
+            CMD="$CMD --tier ${{ inputs.tier }}"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            CMD="$CMD --force"
+          fi
+          echo "Running: $CMD"
+          eval $CMD
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: community re-research (tier=${{ inputs.tier }}, count=${{ inputs.count }})"
+          git push

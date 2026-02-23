@@ -25,6 +25,9 @@ on:
         default: false
         type: boolean
 
+permissions:
+  contents: write
+
 jobs:
   research:
     runs-on: ubuntu-latest
@@ -40,7 +43,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests anthropic pyyaml
+          pip install requests anthropic pyyaml python-dotenv
 
       - name: Run community research
         env:

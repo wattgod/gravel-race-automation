@@ -23,6 +23,9 @@ on:
         default: ''
         type: string
 
+permissions:
+  contents: write
+
 jobs:
   enrich:
     runs-on: ubuntu-latest
@@ -38,7 +41,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install anthropic requests pyyaml
+          pip install anthropic requests pyyaml python-dotenv python-frontmatter
 
       - name: Run enrichment (worst)
         if: ${{ inputs.mode == 'worst' }}

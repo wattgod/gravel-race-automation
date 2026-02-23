@@ -144,6 +144,14 @@ def main():
         pf.summary()
         return 1
 
+    ok = pf.run_step(
+        "youtube_validate.py",
+        [sys.executable, str(SCRIPTS_DIR / "youtube_validate.py")],
+    )
+    if not ok:
+        pf.summary()
+        return 1
+
     if not do_generate:
         pf.summary()
         return 1 if pf.failed else 0

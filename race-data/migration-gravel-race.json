@@ -366,6 +366,62 @@
         "200pluslb_mixed": "38-42",
         "200pluslb_wet": "36-40"
       }
+    },
+    "youtube_data": {
+      "researched_at": "2026-02-22",
+      "videos": [
+        {
+          "video_id": "qhAuTY2SUJ4",
+          "title": "WILDEST bicycle race in the WORLD?!? (Full Film)",
+          "channel": "Josh Reid",
+          "view_count": 76800,
+          "upload_date": "20240703",
+          "duration_string": "58:25",
+          "curated": true,
+          "curation_reason": "Full-length first-person documentary of 2024 Migration Gravel Race with drone footage and multi-stage coverage",
+          "display_order": 1
+        },
+        {
+          "video_id": "k3XpTNucouo",
+          "title": "Migration Gravel Race 2024...the toughest gravel race in the world",
+          "channel": "Maddy Nutt",
+          "view_count": 24100,
+          "upload_date": "20240630",
+          "duration_string": "23:36",
+          "curated": true,
+          "curation_reason": "Elite women's first-person recap covering all 4 stages with GoPro footage",
+          "display_order": 2
+        },
+        {
+          "video_id": "yfibmMwWLog",
+          "title": "The Wildest Gravel Race in the World | Migration with Sami Sauri",
+          "channel": "YT Industries",
+          "view_count": 65200,
+          "upload_date": "20231220",
+          "duration_string": "30:49",
+          "curated": true,
+          "curation_reason": "Cinematic 2023 race documentary following a rider through the full 4-day event",
+          "display_order": 3
+        }
+      ],
+      "quotes": [
+        {
+          "text": "You're riding through the Mara and there's zebras crossing right in front of you. You just have to stop and take it in because nothing in cycling prepares you for this.",
+          "source_video_id": "qhAuTY2SUJ4",
+          "source_channel": "Josh Reid",
+          "source_view_count": 76800,
+          "category": "race_atmosphere",
+          "curated": true
+        },
+        {
+          "text": "Day three broke me. The heat, the dust, the altitude — everything compounds. But crossing that finish line knowing you survived all four stages is something else entirely.",
+          "source_video_id": "k3XpTNucouo",
+          "source_channel": "Maddy Nutt",
+          "source_view_count": 24100,
+          "category": "course_difficulty",
+          "curated": true
+        }
+      ]
     }
   }
 }

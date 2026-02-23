@@ -346,6 +346,14 @@ def normalize_race_data(data: dict) -> dict:
             'parking': logistics.get('parking', ''),
             'official_site': logistics.get('official_site', ''),
         },
+        'youtube_videos': [
+            v for v in race.get('youtube_data', {}).get('videos', [])
+            if v.get('curated')
+        ][:3],
+        'youtube_quotes': [
+            q for q in race.get('youtube_data', {}).get('quotes', [])
+            if q.get('curated')
+        ][:3],
         'series': race.get('series', {}),
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
@@ -1151,6 +1159,21 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
     lastScroll=st;
   },{passive:true});
 })();
+
+// Lite-YouTube facade — click to load iframe (zero perf cost until interaction)
+document.querySelectorAll('.gg-lite-youtube').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var id = el.getAttribute('data-videoid');
+    if (!id) return;
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    el.textContent = '';
+    el.appendChild(iframe);
+  });
+});
 </script>'''
 
 
@@ -1418,11 +1441,12 @@ def build_toc(active_sections=None) -> str:
         ('course', '01 Course Overview'),
         ('history', '02 Facts &amp; History'),
         ('route', '03 The Course'),
-        ('ratings', '04 The Ratings'),
-        ('verdict', '05 Final Verdict'),
-        ('training', '06 Training'),
-        ('logistics', '07 Race Logistics'),
-        ('citations', '08 Sources'),
+        ('from-the-field', '04 From the Field'),
+        ('ratings', '05 The Ratings'),
+        ('verdict', '06 Final Verdict'),
+        ('training', '07 Training'),
+        ('logistics', '08 Race Logistics'),
+        ('citations', '09 Sources'),
     ]
     links = [(href, label) for href, label in all_links
              if active_sections is None or href in active_sections]
@@ -1741,8 +1765,94 @@ def build_course_route(rd: dict) -> str:
   </section>'''
 
 
+def _format_view_count(count: int) -> str:
+    """Format a view count as a compact string (e.g., 68980 → '69K')."""
+    if not count or count < 0:
+        return ''
+    if count >= 1_000_000:
+        return f'{count / 1_000_000:.1f}M'.replace('.0M', 'M')
+    if count >= 1_000:
+        return f'{count / 1_000:.1f}K'.replace('.0K', 'K')
+    return str(count)
+
+
+def build_from_the_field(rd: dict) -> str:
+    """Build [04] From the Field section — rider quotes + YouTube video embeds.
+
+    Returns '' if no youtube_data exists, so unenriched pages render identically.
+    Uses lite-youtube facade for zero performance cost until user clicks play.
+    Embeds use youtube-nocookie.com for GDPR/privacy compliance.
+    """
+    videos = rd.get('youtube_videos', [])
+    quotes = rd.get('youtube_quotes', [])
+
+    if not videos and not quotes:
+        return ''
+
+    body_parts = []
+
+    # Rider quotes — teal-bordered blockquotes
+    if quotes:
+        for q in quotes:
+            source_channel = esc(q.get('source_channel', ''))
+            view_count = _format_view_count(q.get('source_view_count', 0))
+            attribution = source_channel
+            if view_count:
+                attribution += f' &middot; {esc(view_count)} views'
+            body_parts.append(
+                f'<blockquote class="gg-field-quote">'
+                f'<p class="gg-field-quote-text">{esc(q.get("text", ""))}</p>'
+                f'<cite class="gg-field-quote-cite">{attribution}</cite>'
+                f'</blockquote>'
+            )
+
+    # Video embeds — lite-youtube facade (thumbnail + play, iframe on click)
+    if videos:
+        video_cards = []
+        for v in sorted(videos, key=lambda x: x.get('display_order', 99)):
+            vid = esc(v.get('video_id', ''))
+            title = esc(v.get('title', ''))
+            channel = esc(v.get('channel', ''))
+            duration = esc(v.get('duration_string', ''))
+            view_count = _format_view_count(v.get('view_count', 0))
+            meta_parts = [channel]
+            if view_count:
+                meta_parts.append(f'{esc(view_count)} views')
+            if duration:
+                meta_parts.append(duration)
+            meta_text = ' &middot; '.join(meta_parts)
+
+            video_cards.append(
+                f'<div class="gg-field-video">'
+                f'<div class="gg-lite-youtube" data-videoid="{vid}">'
+                f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" '
+                f'alt="{title}" class="gg-lite-youtube-thumb" loading="lazy" width="480" height="360">'
+                f'<button class="gg-lite-youtube-play" aria-label="Play {title}">'
+                f'<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"/><path d="M45 24 27 14v20" fill="#fff"/></svg>'
+                f'</button>'
+                f'</div>'
+                f'<div class="gg-field-video-meta">{meta_text}</div>'
+                f'</div>'
+            )
+        body_parts.append(
+            f'<div class="gg-field-video-grid">{"".join(video_cards)}</div>'
+        )
+
+    body = '\n      '.join(body_parts)
+
+    return f'''<section id="from-the-field" class="gg-section gg-section--teal-accent gg-fade-section">
+    <div class="gg-section-header gg-section-header--teal">
+      <span class="gg-section-kicker">[04]</span>
+      <h2 class="gg-section-title">From the Field</h2>
+    </div>
+    <div class="gg-section-body">
+      {body}
+    </div>
+  </section>'''
+
+
 def build_ratings(rd: dict) -> str:
-    """Build [04] The Ratings section — merged course + editorial with accordions."""
+    """Build [05] The Ratings section — merged course + editorial with accordions."""
     # Summary row
     summary = f'''<div class="gg-ratings-summary">
         <div class="gg-ratings-summary-card">
@@ -1761,7 +1871,7 @@ def build_ratings(rd: dict) -> str:
 
     return f'''<section id="ratings" class="gg-section gg-section--teal-accent gg-fade-section">
     <div class="gg-section-header gg-section-header--dark">
-      <span class="gg-section-kicker">[04]</span>
+      <span class="gg-section-kicker">[05]</span>
       <h2 class="gg-section-title">The Ratings</h2>
     </div>
     <div class="gg-section-body">
@@ -1788,7 +1898,7 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
         if bo.get('summary'):
             return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
     <div class="gg-section-header gg-section-header--gold">
-      <span class="gg-section-kicker">[05]</span>
+      <span class="gg-section-kicker">[06]</span>
       <h2 class="gg-section-title">Final Verdict</h2>
     </div>
     <div class="gg-section-body">
@@ -1831,7 +1941,7 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
 
     return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
     <div class="gg-section-header gg-section-header--gold">
-      <span class="gg-section-kicker">[05]</span>
+      <span class="gg-section-kicker">[06]</span>
       <h2 class="gg-section-title">Final Verdict</h2>
     </div>
     <div class="gg-section-body">
@@ -2013,7 +2123,7 @@ def build_training(rd: dict) -> str:
 
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
-      <span class="gg-section-kicker">[06]</span>
+      <span class="gg-section-kicker">[07]</span>
       <h2 class="gg-section-title">Training</h2>
     </div>
     <div class="gg-section-body">
@@ -2088,7 +2198,7 @@ def build_logistics_section(rd: dict) -> str:
 
     return f'''<section id="logistics" class="gg-section gg-section--accent gg-fade-section">
     <div class="gg-section-header">
-      <span class="gg-section-kicker">[07]</span>
+      <span class="gg-section-kicker">[08]</span>
       <h2 class="gg-section-title">Race Logistics</h2>
     </div>
     <div class="gg-section-body">
@@ -2910,6 +3020,19 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-review-success-icon {{ font-size: 36px; color: var(--gg-color-teal); margin-bottom: var(--gg-spacing-xs); }}
 .gg-neo-brutalist-page .gg-review-success-text {{ font-family: var(--gg-font-data); font-size: 13px; color: var(--gg-color-primary-brown); }}
 
+/* From the Field — rider quotes + video embeds */
+.gg-neo-brutalist-page .gg-field-quote {{ border-left: 3px solid var(--gg-color-teal); padding: 12px 16px; margin: 0 0 16px 0; background: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-field-quote-text {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); font-style: italic; line-height: var(--gg-line-height-prose); color: var(--gg-color-primary-brown); margin: 0 0 6px 0; }}
+.gg-neo-brutalist-page .gg-field-quote-cite {{ display: block; font-family: var(--gg-font-data); font-size: 11px; font-style: normal; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-field-video-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }}
+.gg-neo-brutalist-page .gg-field-video {{ border: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-lite-youtube {{ position: relative; cursor: pointer; overflow: hidden; aspect-ratio: 16/9; background: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-lite-youtube-thumb {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
+.gg-neo-brutalist-page .gg-lite-youtube-play {{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: none; border: none; cursor: pointer; padding: 0; opacity: 0.85; transition: opacity 0.2s; }}
+.gg-neo-brutalist-page .gg-lite-youtube-play:hover {{ opacity: 1; }}
+.gg-neo-brutalist-page .gg-lite-youtube iframe {{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }}
+.gg-neo-brutalist-page .gg-field-video-meta {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); padding: 8px 10px; letter-spacing: 0.5px; }}
+
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
   .gg-neo-brutalist-page .gg-radar-pair {{ gap: 8px; }}
@@ -2948,6 +3071,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-email-capture-row {{ flex-direction: column; gap: 8px; }}
   .gg-neo-brutalist-page .gg-email-capture-input {{ border-right: 2px solid var(--gg-color-tan); }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-field-video-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-review-form-row {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
 }}
@@ -3074,6 +3198,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     history = build_history(rd)
     pullquote = build_pullquote(rd)
     course_route = build_course_route(rd)
+    from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd, race_index)
     racer_reviews = build_racer_reviews(rd)
@@ -3095,6 +3220,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('history')
     if course_route:
         active.add('route')
+    if from_the_field:
+        active.add('from-the-field')
     if verdict:
         active.add('verdict')
     if logistics_sec:
@@ -3129,9 +3256,9 @@ body{margin:0;background:#ede4d8}
     # Section order
     content_sections = []
     for section in [photos_section, course_overview, history, pullquote,
-                    course_route, ratings, verdict, racer_reviews,
-                    email_capture, news, training, logistics_sec, similar,
-                    visible_faq, citations_sec]:
+                    course_route, from_the_field, ratings, verdict,
+                    racer_reviews, email_capture, news, training,
+                    logistics_sec, similar, visible_faq, citations_sec]:
         if section:
             content_sections.append(section)
 
@@ -3171,6 +3298,7 @@ body{margin:0;background:#ede4d8}
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">
+  <link rel="dns-prefetch" href="https://i.ytimg.com">
   {preload}
   {og_tags}
   {jsonld_html}

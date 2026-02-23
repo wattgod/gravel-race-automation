@@ -696,6 +696,62 @@
         "200pluslb_mixed": "38-42",
         "200pluslb_wet": "36-40"
       }
+    },
+    "youtube_data": {
+      "researched_at": "2026-02-22",
+      "videos": [
+        {
+          "video_id": "7976ne2KPks",
+          "title": "Unbound Gravel 2025 - ELITE MEN'S 200 RAW HIGHLIGHTS",
+          "channel": "Goettl Media",
+          "view_count": 165000,
+          "upload_date": "20250602",
+          "duration_string": "34:12",
+          "curated": true,
+          "curation_reason": "Raw on-bike highlights from elite men's field with massive view count",
+          "display_order": 1
+        },
+        {
+          "video_id": "oh4TzdDDPRI",
+          "title": "Longest Bike Race Of My Life | Unbound Gravel 200",
+          "channel": "Drew Dillman",
+          "view_count": 35800,
+          "upload_date": "20240606",
+          "duration_string": "31:18",
+          "curated": true,
+          "curation_reason": "Pro rider first-person redemption story with detailed race strategy breakdown",
+          "display_order": 2
+        },
+        {
+          "video_id": "Qhcmr9mlmdI",
+          "title": "Unbound Gravel 2024 - The Biggest Gravel Race in the World!",
+          "channel": "Goettl Media",
+          "view_count": 38700,
+          "upload_date": "20240627",
+          "duration_string": "47:22",
+          "curated": true,
+          "curation_reason": "First-person elite race recap with on-bike footage and flat tire drama",
+          "display_order": 3
+        }
+      ],
+      "quotes": [
+        {
+          "text": "There's a moment around mile 120 where the Flint Hills just open up in every direction and you realize there is absolutely nowhere to hide from the wind. That's when Unbound starts.",
+          "source_video_id": "Qhcmr9mlmdI",
+          "source_channel": "Goettl Media",
+          "source_view_count": 38700,
+          "category": "course_difficulty",
+          "curated": true
+        },
+        {
+          "text": "I DNF'd this race in 2019. Coming back five years later and crossing that line under ten hours — that's why you keep showing up to Emporia.",
+          "source_video_id": "oh4TzdDDPRI",
+          "source_channel": "Drew Dillman",
+          "source_view_count": 35800,
+          "category": "race_atmosphere",
+          "curated": true
+        }
+      ]
     }
   }
 }

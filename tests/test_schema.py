@@ -34,6 +34,7 @@ CANONICAL_KEYS = {
     'guide_variables', 'training_implications', 'seo',
     'training_plans', 'final_verdict', 'research_metadata',
     'training_config', 'non_negotiables', 'racer_rating',
+    'youtube_data',
 }
 
 # Keys that Cursor commonly adds but shouldn't

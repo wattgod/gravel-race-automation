@@ -222,6 +222,32 @@ def build_seo_description(rd: dict) -> str:
 
 # ── Phase 1: Data Adapter ─────────────────────────────────────
 
+def _merge_youtube_quotes(youtube_data: dict) -> list:
+    """Merge curated quotes with rider_intel additional_quotes, capped at 4 total.
+
+    Priority: existing curated quotes first, then additional_quotes from rider_intel.
+    """
+    curated = [
+        q for q in youtube_data.get('quotes', [])
+        if q.get('curated')
+    ]
+    additional = youtube_data.get('rider_intel', {}).get('additional_quotes', [])
+
+    # Start with existing curated quotes
+    merged = list(curated)
+
+    # Fill remaining slots with additional quotes (up to 4 total)
+    for q in additional:
+        if len(merged) >= 4:
+            break
+        # Avoid duplicate text
+        existing_texts = {m.get('text', '').strip().lower() for m in merged}
+        if q.get('text', '').strip().lower() not in existing_texts:
+            merged.append(q)
+
+    return merged[:4]
+
+
 def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
@@ -350,10 +376,8 @@ def normalize_race_data(data: dict) -> dict:
             v for v in race.get('youtube_data', {}).get('videos', [])
             if v.get('curated')
         ][:3],
-        'youtube_quotes': [
-            q for q in race.get('youtube_data', {}).get('quotes', [])
-            if q.get('curated')
-        ][:3],
+        'youtube_quotes': _merge_youtube_quotes(race.get('youtube_data', {})),
+        'rider_intel': race.get('youtube_data', {}).get('rider_intel', {}),
         'series': race.get('series', {}),
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),
@@ -1682,6 +1706,45 @@ def build_history(rd: dict) -> str:
   </section>'''
 
 
+def _build_riders_report(items: list[dict], item_type: str = "named") -> str:
+    """Build a RIDERS REPORT callout box.
+
+    item_type:
+      - "named": items with name + description + optional mile_marker (key_challenges)
+      - "text": items with text field (terrain_notes, gear_mentions, race_day_tips)
+
+    Returns '' if items is empty.
+    """
+    if not items:
+        return ''
+
+    parts = ['<div class="gg-riders-report">',
+             '<div class="gg-riders-report-badge">RIDERS REPORT</div>']
+
+    for item in items:
+        if item_type == "named":
+            name = esc(item.get("name", ""))
+            desc = esc(item.get("description", ""))
+            mile = item.get("mile_marker", "")
+            mile_html = f' <span class="gg-riders-report-mile">MI {esc(str(mile))}</span>' if mile else ''
+            parts.append(
+                f'<div class="gg-riders-report-item">'
+                f'<div class="gg-riders-report-name">{name}{mile_html}</div>'
+                f'<div class="gg-riders-report-desc">{desc}</div>'
+                f'</div>'
+            )
+        else:
+            text = esc(item.get("text", ""))
+            parts.append(
+                f'<div class="gg-riders-report-item">'
+                f'<div class="gg-riders-report-desc">{text}</div>'
+                f'</div>'
+            )
+
+    parts.append('</div>')
+    return '\n      '.join(parts)
+
+
 def build_course_route(rd: dict) -> str:
     """Build [03] The Course section — suffering zones."""
     c = rd['course']
@@ -1751,6 +1814,15 @@ def build_course_route(rd: dict) -> str:
           </div>
         </div>''')
         body_parts.append('\n      '.join(zone_html))
+
+    # Riders Report: key challenges + terrain notes
+    intel = rd.get('rider_intel', {})
+    challenges_html = _build_riders_report(intel.get('key_challenges', []), item_type="named")
+    if challenges_html:
+        body_parts.append(challenges_html)
+    terrain_html = _build_riders_report(intel.get('terrain_notes', []), item_type="text")
+    if terrain_html:
+        body_parts.append(terrain_html)
 
     body = '\n      '.join(body_parts)
 
@@ -2121,6 +2193,9 @@ def build_training(rd: dict) -> str:
         display_date = f"{month_name} {int(day)}, {year}"
         countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
 
+    # Riders Report: gear mentions before training plan CTA
+    gear_html = _build_riders_report(rd.get('rider_intel', {}).get('gear_mentions', []), item_type="text")
+
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[07]</span>
@@ -2128,6 +2203,7 @@ def build_training(rd: dict) -> str:
     </div>
     <div class="gg-section-body">
       {countdown_html}
+      {gear_html}
       <div class="gg-training-free">
         <a href="/race/{esc(rd['slug'])}/prep-kit/" class="gg-btn gg-btn--outline">GET FREE RACE PREP KIT</a>
         <p class="gg-training-free-desc">12-week timeline + race-day checklist + packing list. Free.</p>
@@ -2196,6 +2272,9 @@ def build_logistics_section(rd: dict) -> str:
         <a href="{esc(official)}" class="gg-btn gg-btn--secondary" target="_blank" rel="noopener">OFFICIAL SITE</a>
       </div>'''
 
+    # Riders Report: race day tips after logistics grid
+    tips_html = _build_riders_report(rd.get('rider_intel', {}).get('race_day_tips', []), item_type="text")
+
     return f'''<section id="logistics" class="gg-section gg-section--accent gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[08]</span>
@@ -2205,6 +2284,7 @@ def build_logistics_section(rd: dict) -> str:
       <div class="gg-logistics-grid">
       {items}
       </div>
+      {tips_html}
       {site_html}
     </div>
   </section>'''
@@ -2872,6 +2952,18 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
+
+/* Riders Report callout */
+.gg-neo-brutalist-page .gg-riders-report {{ border-left: 3px solid var(--gg-color-teal); padding: var(--gg-spacing-md) var(--gg-spacing-lg); margin-top: var(--gg-spacing-lg); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-riders-report-badge {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); margin-bottom: var(--gg-spacing-sm); }}
+.gg-neo-brutalist-page .gg-riders-report-item {{ margin-bottom: var(--gg-spacing-sm); }}
+.gg-neo-brutalist-page .gg-riders-report-item:last-child {{ margin-bottom: 0; }}
+.gg-neo-brutalist-page .gg-riders-report-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-riders-report-mile {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-teal); margin-left: var(--gg-spacing-xs); }}
+.gg-neo-brutalist-page .gg-riders-report-desc {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; margin-top: 2px; }}
+@media (max-width: 600px) {{
+  .gg-neo-brutalist-page .gg-riders-report {{ padding: var(--gg-spacing-sm) var(--gg-spacing-md); }}
+}}
 
 /* News ticker */
 .gg-neo-brutalist-page .gg-news-ticker {{ background: var(--gg-color-sand); border: 1px solid var(--gg-color-tan); margin-bottom: 32px; display: flex; align-items: stretch; overflow: hidden; height: 48px; }}
